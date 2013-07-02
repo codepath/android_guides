@@ -16,7 +16,7 @@ startActivity(callIntent);
 
 ### Send Email
 
-No special permissions needed:
+Compose an email in the phone email client:
 
 ```java
 Intent intent = new Intent(Intent.ACTION_SEND);
@@ -29,9 +29,45 @@ startActivity(Intent.createChooser(intent, ""));
 
 ### Launch Website
 
-No special permissions needed:
+Launch a website in the phone browser:
 
 ```java
 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
 startActivity(browserIntent);
+```
+
+### Open Google Play Store
+
+Open app page on Google Play:
+
+```java
+Intent i = new Intent(Intent.ACTION_VIEW, 
+  Uri.parse("market://details?id=" + context.getPackageName()));
+startActivity(i);
+```
+
+### Compose SMS
+
+```java
+Uri smsUri = Uri.parse("tel:" + to);
+Intent intent = new Intent(Intent.ACTION_VIEW, smsUri);
+intent.putExtra("address", to);
+intent.putExtra("sms_body", message);
+intent.setType("vnd.android-dir/mms-sms");
+startActivity(intent);
+```
+
+### Google Maps:
+
+Show location in maps application:
+
+```java
+ Intent intent = new Intent();
+intent.setAction(Intent.ACTION_VIEW);
+String data = String.format("geo:%s,%s", latitude, longitude);
+if (zoomLevel != null) {
+    data = String.format("%s?z=%s", data, zoomLevel);
+}
+intent.setData(Uri.parse(data));
+startActivity(intent);
 ```
