@@ -57,8 +57,8 @@ intent.setType("vnd.android-dir/mms-sms");
 startActivity(intent);
 ```
 
-### Google Maps:
-
+### Google Maps
+ 
 Show location in maps application:
 
 ```java
@@ -69,5 +69,14 @@ if (zoomLevel != null) {
     data = String.format("%s?z=%s", data, zoomLevel);
 }
 intent.setData(Uri.parse(data));
+startActivity(intent);
+```
+
+### Capture Photo
+
+```java
+Uri uri = Uri.fromFile(new File(file));
+Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
 startActivity(intent);
 ```
