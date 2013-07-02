@@ -1,5 +1,3 @@
-# Common Implicit Intents
-
 ## Phone Call
 
 hhhh
