@@ -2,7 +2,19 @@ Welcome to the Codepath Android Guides!
 
 ## Beginner
 
-* [[Using an ArrayAdapter]]
+* [[Android Directory Structure]]
+* [[Building Layouts]]
+* [[Defining Views]] 
+* [[Basic Event Listeners]]
+* [[Defining the ActionBar]]
+* [[Displaying Toasts]]
+* [[Using Intents to create Flows]]
+* [[Creating and Executing AsyncTasks]]
+* [[Sending and Managing Network Requests]]
+* [[Persisting Data to the Device]]
+* [[Creating and Using Fragments]]
+* [[Using Hardware, Sensors and Device Data]]
+* [[Using an ArrayAdapter with ListView]]
 * [[Using Maps and Location]]
 
 ## Intermediate
