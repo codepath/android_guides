@@ -39,7 +39,11 @@ Example of LinearLayout snippet:
 
 ## RelativeLayout
 
-In a relative layout every element arranges itself relative to other elements or a parent element.
+In a relative layout every element arranges itself relative to other elements or a parent element. RelativeLayout positions views based on a number of directional attributes:
+
+* Position based on siblings: layout_above, layout_below, layout_toLeftOf, layout_toRightOf
+* Position based on parent: layout_alignParentTop, layout_alignParentBottom, layout_alignParentLeft, layout_alignParentRight
+* Alignment based on siblings: layout_alignTop, layout_alignBottom, layout_alignLeft, layout_alignRight
 
 An example of a RelativeLayout:
 
