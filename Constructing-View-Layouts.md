@@ -8,7 +8,14 @@ There are two very commonly used layouts and then many more specialized layouts 
 
 ## LinearLayout
 
-In a linear layout, like the name suggests, all the elements are displayed in a linear fashion either *horizontally* or *vertically* and this behavior is specified in `android:orientation` which is an attribute of the node `LinearLayout`.
+In a linear layout, like the name suggests, all the elements are displayed in a single direction either *horizontally* or *vertically* and this behavior is specified in `android:orientation` which is an attribute of the node `LinearLayout`. 
+
+All children of a LinearLayout are stacked one after the other. A LinearLayout respects *margins* between children and the *gravity* (right, center, or left alignment) of each child.
+
+Common view attributes you might see used in a LinearLayout:
+
+ * `android:gravity` - Controls the alignment of the view content (akin to text-align in CSS)
+ * `android:layout_gravity` - Controls the alignment of the view within it's parent (akin to float in CSS)
 
 Example of LinearLayout snippet:
 
@@ -22,16 +29,37 @@ Example of LinearLayout snippet:
   android:layout_height="match_parent">
    
   <TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
-            android:text="Email:" android:padding="5dip"/>
+            android:text="Email:" android:padding="5dp"/>
              
   <EditText android:layout_width="fill_parent" android:layout_height="wrap_content"
-            android:layout_marginBottom="10dip"/>            
+            android:layout_marginBottom="10dp"/>            
 </LinearLayout>
 ```
 
 ## RelativeLayout
 
+In a relative layout every element arranges itself relative to other elements or a parent element.
 
+An example of a RelativeLayout:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+ 
+    <TextView android:id="@+id/label" android:layout_width="fill_parent"
+              android:layout_height="wrap_content" android:text="Email" />
+ 
+    <EditText android:id="@+id/inputEmail" android:layout_width="fill_parent"
+              android:layout_height="wrap_content" android:layout_below="@id/label" />
+   
+    <Button android:id="@+id/btnLogin" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_below="@id/inputEmail"
+            android:layout_alignParentLeft="true" android:layout_marginRight="5dp"
+            android:text="Login" />
+</RelativeLayout>
+```
 
 ## References
 
