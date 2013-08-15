@@ -15,7 +15,8 @@ All children of a LinearLayout are stacked one after the other. A LinearLayout r
 Common view attributes you might see used in a LinearLayout:
 
  * `android:gravity` - Controls the alignment of the view content (akin to text-align in CSS)
- * `android:layout_gravity` - Controls the alignment of the view within it's parent (akin to float in CSS)
+ * `android:layout_gravity` - Controls the alignment of the view within it's parent container (akin to float in CSS)
+ * `android:layout_weight` - Specifies how much of the [extra space in the layout](http://developer.android.com/guide/topics/ui/layout/linear.html#Weight) to be allocated to a view.
 
 Example of LinearLayout snippet:
 
