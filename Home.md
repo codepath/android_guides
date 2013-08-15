@@ -3,7 +3,7 @@ Welcome to the Codepath Android Guides!
 ## Beginner
 
 * [[Android Directory Structure]]
-* [[Building Layouts]]
+* [[Constructing View Layouts]]
 * [[Defining Views]] 
 * [[Basic Event Listeners]]
 * [[Defining the ActionBar]]
