@@ -4,7 +4,8 @@ Welcome to the Codepath Android Guides!
 
 * [[Android Directory Structure]]
 * [[Constructing View Layouts]]
-* [[Defining Views]] 
+* [[Defining Views and their Attributes]] 
+* [[Using an ArrayAdapter with ListView]]
 * [[Basic Event Listeners]]
 * [[Defining the ActionBar]]
 * [[Displaying Toasts]]
@@ -14,7 +15,6 @@ Welcome to the Codepath Android Guides!
 * [[Persisting Data to the Device]]
 * [[Creating and Using Fragments]]
 * [[Using Hardware, Sensors and Device Data]]
-* [[Using an ArrayAdapter with ListView]]
 * [[Using Maps and Location]]
 
 ## Intermediate
