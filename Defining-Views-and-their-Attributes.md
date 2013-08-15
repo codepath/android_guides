@@ -83,4 +83,5 @@ Button myButton = (Button) findViewById(R.id.my_button);
 
 ## References
 
- * ...
+ * <http://developer.android.com/reference/android/view/View.html>
+ * <http://developer.android.com/reference/android/widget/TextView.html>
