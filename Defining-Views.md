@@ -25,9 +25,25 @@ An example of setting margins and padding:
 ```xml
 <LinearLayout>
    <TextView android:layout_margin="5dp" android:padding="5dp">
-
    <Button layout_marginBottom="5dp">
 </LinearLayout>
+```
+
+### View Gravity
+
+Gravity can be used to define the direction of the contents of a view.
+
+* **gravity** determines the direction that the contents of a view will align (like CSS text-align).
+* **layout_gravity** determines the direction of the view within it's parent (like CSS float).
+
+An example of applying gravity:
+
+```xml
+<TextView
+  android:gravity="left"
+  android:layout_gravity="right"
+  android:layout_width="165dp" android:layout_height="wrap_content"
+  android:textSize="12sp" android:text="@string/hello_world" />
 ```
 
 ## References
