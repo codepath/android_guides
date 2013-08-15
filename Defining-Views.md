@@ -46,6 +46,41 @@ An example of applying gravity:
   android:textSize="12sp" android:text="@string/hello_world" />
 ```
 
+### View Attributes
+
+Every view has many different attributes which can be applied to manage various properties.
+
+* Certain properties are shared across many views such as `android:layout_width`
+* Other properties are based on a view's function such as `android:textColor`
+
+An example of setting view attributes:
+
+```xml
+<TextView
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content"
+   android:text="@string/hello_world"
+   android:background="#000"
+   android:textColor="#fff"
+   android:layout_centerHorizontal="true"
+/>
+```
+
+### View Identifiers
+
+Any view can have an identifier attached that uniquely names that view for later access. You can assign a view an id within the xml layout:
+
+```xml
+<Button android:id="@+id/my_button">
+
+```
+
+This id can then be accessed within the Java code for the corresponding activity (in onCreate for example):
+
+```java
+Button myButton = (Button) findViewById(R.id.my_button);
+```
+
 ## References
 
  * ...
