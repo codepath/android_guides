@@ -69,6 +69,49 @@ And using this system the intent can pass useful data across activities.
 
 In the typical case of using `startActivity`, the activity is launched and added to the navigation stack and no result is expected. If the user wants to close the activity, the user can simply hit "back" and the parent activity is displayed. 
 
+However, in other cases the parent activity may want the launched activity to return a result back when it is finished. In this case, we use a different method to launch called `startActivityForResult` which allows the parent to retrieve the result based on a code that is returned (akin to an HTTP code).
+
+```java
+// FirstActivity, launching an activity for a result
+public void onClick(View view) {
+  Intent i = new Intent(this, ActivityNamePrompt.class);
+  i.putExtra("mode", 2); // pass arbitrary data to launched activity
+  // REQUEST_CODE can be any value we like, used to determine the result later
+  startActivityForResult(i, REQUEST_CODE);
+}
+```
+
+This will launch the subactivity, and when the subactivity is complete then it can return the result to the parent:
+
+```java
+// ActivityNamePrompt, launched for a result
+@Override
+public void onSubmit(View v) {
+  EditText etName = (EditText) findViewById(R.id.name);
+  // Prepare data intent 
+  Intent data = new Intent();
+  data.putExtra("name", etName.getText().toString());
+  // Activity finished ok, return the data
+  setResult(RESULT_OK, data); // set result code and bundle data for response
+  super.finish(); // closes the activity, pass data to parent
+} 
+``
+
+Once the sub-activity finishes, the onActivityResult() method in the calling activity is be invoked:
+
+```java
+// FirstActivity, time to handle the result of the sub-activity
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+  if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
+     Toast.makeText(this, data.getExtras().getString("name"),
+        Toast.LENGTH_SHORT).show();
+  }
+} 
+```
+
+And using that process you can communicate data freely between different activities in your application.
+
 ## References
 
  * <http://developer.android.com/guide/components/intents-filters.html>
