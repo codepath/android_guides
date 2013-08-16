@@ -21,9 +21,37 @@ Using an intent is as simple as constructing the [Intent](http://developer.andro
 public void launchComposeView() {
   // first parameter is the context, second is the class of the activity to launch
   Intent i = new Intent(this, ActivityTwo.class);
+  startActivity(i); // brings up the second activity
+}
+```
+
+### Passing Data Between Activities
+
+In addition to specifying the activity that we want to display, an intent can also pass key-value data between activities. Think of this as specifying the "request parameters" for an HTTP Request. You can specify the parameters by putting key-value pairs into the intent bundle:
+
+```java
+public void launchComposeView() {
+  // first parameter is the context, second is the class of the activity to launch
+  Intent i = new Intent(this, ActivityTwo.class);
+  // put "extras" into the bundle for access in the second activity
+  i.putExtra("username", "foobar"); 
+  i.putExtra("in_reply_to", "george"); 
+  i.putExtra("code", 400);
+  // brings up the second activity
   startActivity(i); 
 }
 ```
+
+Once you have added data into the bundle, you can easily access that data within the launched activity:
+
+```java
+// ActivityTwo (subactivity) can access any data passed into the inten
+String username = getIntent().getStringExtra("username");
+String inReplyTo = getIntent().getStringExtra("in_reply_to");
+int code = getIntent().getIntExtra("code");
+```
+
+And using this system the intent can pass useful data across activities.
 
 ## References
 
