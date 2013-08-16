@@ -47,9 +47,9 @@ Once you have added data into the bundle, you can easily access that data within
 ```java
 // ActivityTwo (subactivity) can access any data passed into the inten
 protected void onCreate(Bundle savedInstanceState) {
-     String username = getIntent().getStringExtra("username");
-     String inReplyTo = getIntent().getStringExtra("in_reply_to");
-     int code = getIntent().getIntExtra("code");
+   String username = getIntent().getStringExtra("username");
+   String inReplyTo = getIntent().getStringExtra("in_reply_to");
+   int code = getIntent().getIntExtra("code");
 }
 ```
 
