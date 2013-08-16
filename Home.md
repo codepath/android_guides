@@ -9,7 +9,7 @@ Welcome to the Codepath Android Guides!
 * [[Basic Event Listeners]]
 * [[Defining the ActionBar]]
 * [[Displaying Toasts]]
-* [[Using Intents to create Flows]]
+* [[Using Intents to Create Flows]]
 * [[Creating and Executing Async Tasks]]
 * [[Sending and Managing Network Requests]]
 * [[Persisting Data to the Device]]
