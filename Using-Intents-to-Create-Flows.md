@@ -112,6 +112,26 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 And using that process you can communicate data freely between different activities in your application.
 
+### Implicit Intents
+
+Implicit Intents are requests to perform an action based on a desired action and target data. For example, if I want to make a phone call for the user, that can be done with this intent:
+
+```java
+Intent callIntent = new Intent(Intent.ACTION_CALL);
+callIntent.setData(Uri.parse("tel:3777789888"));
+startActivity(callIntent);
+```
+
+If I want to launch a website in the phone's browser, I might do this:
+
+```java
+Intent browserIntent = new Intent(Intent.ACTION_VIEW, 
+  Uri.parse("http://www.google.com"));
+startActivity(browserIntent);
+```
+
+You can see a list of [Common Implicit Intents](https://github.com/thecodepath/android_guides/wiki/Common-Implicit-Intents) on another page of this wiki.
+
 ## References
 
  * <http://developer.android.com/guide/components/intents-filters.html>
