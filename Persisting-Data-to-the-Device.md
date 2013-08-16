@@ -32,7 +32,7 @@ edit.commit();
 
 Android can read/write files to internal as well as external storage. Applications have access to an application-specific directory where preferences and sqlite databases are also stored. Every Activity has helpers to get the writeable directory. File I/O API is a subset of the normal Java File API.
 
-Writing files is as simple as getting the stream using [`openFileOutput` method](http://developer.android.com/reference/android/content/Context.html#openFileOutput\(java.lang.String, int\)) and writing to it using a BufferedWriter:
+Writing files is as simple as getting the stream using `openFileOutput` method] and writing to it using a BufferedWriter:
 
 ```java
 // Use Activity method to create a file in the writeable directory
@@ -43,8 +43,65 @@ writer.write("Hi, I'm writing stuff");
 writer.close();
 ```
 
+Reading the file back is then just using a `BufferedReader` and then building the text into a StringBuffer:
+
+```java
+BufferedReader input = null;
+input = new BufferedReader(
+new InputStreamReader(openFileInput("myfile")));
+String line;
+StringBuffer buffer = new StringBuffer();
+while ((line = input.readLine()) != null) {
+  buffer.append(line + "\n");
+}
+String text = buffer.toString();
+```
+
+You can also inspect and transfer files to emulators or devices using the DDMS File Explorer perspective which allows you to access to filesystem on the device.
 
 ### ActiveAndroid ORM
+
+There are many popular ORMs for Android, but probably the easiest to use is [ActiveAndroid](https://github.com/pardom/ActiveAndroid/wiki/Getting-started).
+
+With ActiveAndroid, building models that are SQLite backed is easy. Instead of manually creating and updating tables, simply annotate your model classes.
+
+```java
+@Table(name = "Users")
+public class User extends Model {
+  @Column(name = "Name")
+  public String name;
+
+  @Column(name = "Age")
+  public int age;
+
+  public Item(String name, int age){
+    super();
+    this.name = name;
+    this.age = age;
+  }
+}
+```
+
+Inserting or updating objects no longer requires manually constructing SQL statements, just use the model class as an ORM:
+
+```java
+User user = new User();
+user.name = "Jack";
+user.age = 25;
+user.save();
+// or delete easily too
+user.delete();
+```
+
+ActiveAndroid queries map to SQL queries and are built by chaining methods.
+
+```java
+List<User> users = new Select()
+		.from(User.class).where("age > ?", 25)
+		.orderBy("age ASC").execute();
+```
+
+This will automatically query the database and return the results as a List for use.
 
 ## References
 
