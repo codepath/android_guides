@@ -33,8 +33,8 @@ private class MyAsyncTask extends AsyncTask<String, Void, Bitmap> {
 }
 
 private void downloadImageAsync() {
-  // Now we can execute the long-running task at any time.
-  new MyAsyncTask().execute("http://images.com/image.jpg");
+    // Now we can execute the long-running task at any time.
+    new MyAsyncTask().execute("http://images.com/image.jpg");
 }
 ```
 
