@@ -25,7 +25,7 @@ actionBar.hide();
 
 When you want to add primary actions to the ActionBar, you simply need to add the items to the activity context menu and if properly specified, they will automatically appear at the top.
 
-An activity populates the action bar in its onCreateOptionsMenu() method:
+An activity populates the action bar in its `onCreateOptionsMenu()` method:
 
 ```java
 public class MainActivity extends Activity {
