@@ -95,7 +95,7 @@ public void onSubmit(View v) {
   setResult(RESULT_OK, data); // set result code and bundle data for response
   super.finish(); // closes the activity, pass data to parent
 } 
-``
+```
 
 Once the sub-activity finishes, the onActivityResult() method in the calling activity is be invoked:
 
