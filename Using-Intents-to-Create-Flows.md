@@ -25,7 +25,17 @@ public void launchComposeView() {
 }
 ```
 
-### Passing Data Between Activities
+In the launched second activity, the user can go back to the first by hitting "back" or if the developer wants to trigger the second activity to close, we need only call the [`finish` method](http://developer.android.com/reference/android/app/Activity.html#finish()):
+
+```java
+// SecondActivity
+public void onSubmit(View v) {
+  // closes the activity, returns to parent
+  this.finish(); 
+}
+```
+
+### Passing Data to Launched Activities
 
 In addition to specifying the activity that we want to display, an intent can also pass key-value data between activities. Think of this as specifying the "request parameters" for an HTTP Request. You can specify the parameters by putting key-value pairs into the intent bundle:
 
@@ -54,6 +64,10 @@ protected void onCreate(Bundle savedInstanceState) {
 ```
 
 And using this system the intent can pass useful data across activities.
+
+### Returning Data Result to Parent Activity
+
+In the typical case of using `startActivity`, the activity is launched and added to the navigation stack and no result is expected. If the user wants to close the activity, the user can simply hit "back" and the parent activity is displayed. 
 
 ## References
 
