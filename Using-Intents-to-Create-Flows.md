@@ -11,6 +11,20 @@ Think of an intent as a way for an Activity to communicate with the outside Andr
 
 As you can see, the Intent is a core part of user flows in Android development. The [Intent](http://developer.android.com/reference/android/content/Intent.html) object itself is a class that represents a particular "request" including the topic of the request and any request "parameters" which are called the [Bundle](http://developer.android.com/reference/android/os/Bundle.html). 
 
+## Explicit Intents
+
+An "explicit" intent is used to launch other activities within your application. For example, if you the user presses the "compose" button and you want to bring up an activity for them to compose a message, you would launch that second activity using an explicit intent.
+
+Using an intent is as simple as constructing the [Intent](http://developer.android.com/reference/android/content/Intent.html) with the correct parameters and then invoking that intent using the `startActivity` method:
+
+```java
+public void launchComposeView() {
+  // first parameter is the context, second is the class of the activity to launch
+  Intent i = new Intent(this, ActivityTwo.class);
+  startActivity(i); 
+}
+```
+
 ## References
 
  * <http://developer.android.com/guide/components/intents-filters.html>
