@@ -48,4 +48,6 @@ client.getHomeTimeline(1, new JsonHttpResponseHandler() {
 
 ## References
 
- * ...
+ * <http://loopj.com/android-async-http/>
+ * <http://developer.android.com/reference/java/net/HttpURLConnection.html>
+ * <https://github.com/thecodepath/android-rest-client-template>
