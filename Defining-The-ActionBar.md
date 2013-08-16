@@ -39,3 +39,35 @@ public class MainActivity extends Activity {
 ``` 
 
 Entries in the action bar are typically called actions. Use this method to inflate a menu resource that defines all the action items within a `res/menu` xml file, for example: 
+
+```xml
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:id="@+id/item1"
+        android:icon="@drawable/ic_compose"
+        android:showAsAction="ifRoom"
+        android:title="Compose">
+    </item>
+    <item
+        android:id="@+id/item2"
+        android:icon="@drawable/ic_profile"
+        android:onClick="onProfileView"
+        android:showAsAction="ifRoom|withText"
+        android:title="Profile">
+    </item>
+</menu>
+```
+
+Notice that to request that an item appear directly in the action bar as an action button, include `showAsAction="ifRoom"` in the `<item>` tag. If there's not enough room for the item in the action bar, it will appear in the action overflow. If `withText` is specified as well (as in the second item), the text will be displayed with the icon.
+
+### Handling ActionBar Clicks
+
+
+
+## References
+
+ * <http://developer.android.com/guide/topics/ui/actionbar.html>
+ * <http://developer.android.com/design/patterns/actionbar.html>
+ * <http://developer.android.com/reference/android/app/ActionBar.html>
+ * <http://www.vogella.com/articles/AndroidActionBar/article.html>
+ * <http://jgilfelt.github.io/android-actionbarstylegenerator>
