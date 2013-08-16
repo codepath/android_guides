@@ -36,7 +36,7 @@ public class MainActivity extends Activity {
         return true;
     }
 }
-``` 
+```
 
 Entries in the action bar are typically called actions. Use this method to inflate a menu resource that defines all the action items within a `res/menu` xml file, for example: 
 
