@@ -1,9 +1,50 @@
 ## Overview
 
-... is a 
+AsyncTask is a mechanism for executing long running operations in a background thread without having to manually handle thread creation or execution.
 
-This is typically used for ...
+This is typically used for long running tasks that cannot be done on UIThread, such as downloading network data from an API or indexing data from elsewhere on the device.
+
+### Defining an AsyncTask
+
+Creating an AsyncTask is as simple as defining a class that extends from `AsyncTask` such as: 
+
+```java
+// The types specified here are the input data type, the progress type, and the result type
+private class MyAsyncTask extends AsyncTask<String, Void, Bitmap> {
+     public Bitmap doInBackground(String... strings) {
+         // Some long-running task like downloading an image.
+         return someBitmap;
+     }
+     protected void onPostExecute(Bitmap result) {
+         // This method is executed in the UIThread
+         // with access to the result of the long running task
+     }
+}
+
+private void downloadImageAsync() {
+  // Now we can execute the long-running task at any time.
+  new MyAsyncTask().execute("http://images.com/image.jpg");
+}
+```
+
+AsyncTask accept three generic types to inform the background work being done:
+
+* `AsyncTask<Params, Progress, Result>`
+  * `Params` - the type that is passed into the execute() method.
+  * `Progress` - the type that is used within the task to track progress.
+  * `Result` - the type that is returned by doInBackground().
+
+For example `AsyncTask<String, Void, Bitmap>` means that the task requires a string input to execute, does not record progress and returns a Bitmap after the task is complete.
+
+AsyncTask has multiple events that can be overridden to control different behavior:
+
+ * `onPreExecute` - executed in the main thread to do things like create the initial progress bar view.
+ * `doInBackground` - executed in the background thread to do things like network downloads.
+ * `onProgressUpdate` - executed in the main thread when `publishProgress` is called from doInBackground.
+ * `onPostExecute` - executed in the main thread to do things like set image views.
 
 ## References
 
- * ...
+ * <http://developer.android.com/reference/android/os/AsyncTask.html>
+ * <http://www.vogella.com/articles/AndroidBackgroundProcessing/article.html>
+ * <http://androidresearch.wordpress.com/2012/03/17/understanding-asynctask-once-and-forever/>
