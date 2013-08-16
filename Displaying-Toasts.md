@@ -43,10 +43,13 @@ Notice that the ID of the LinearLayout element is "toast_layout_root". You must 
 
 ```java
 private void displayToast(String message) {
+  // Inflate toast XML layout
   View layout = getLayoutInflater().inflate(R.layout.custom_toast,
                                (ViewGroup) findViewById(R.id.toast_layout_root));
+  // Fill in the message into the textview
   TextView text = (TextView) layout.findViewById(R.id.text);
-  text.setText(message);
+  text.setText(message); 
+  // Construct the toast, set the view and display
   Toast toast = Toast.makeText(getApplicationContext(), "some message", Toast.LENGTH_SHORT);
   toast.setView(layout);
   toast.show();
