@@ -11,10 +11,21 @@ Creating an AsyncTask is as simple as defining a class that extends from `AsyncT
 ```java
 // The types specified here are the input data type, the progress type, and the result type
 private class MyAsyncTask extends AsyncTask<String, Void, Bitmap> {
-     public Bitmap doInBackground(String... strings) {
+     protected void onPreExecute() {
+         // Runs on the UI thread before doInBackground
+         // Good for toggling visibility of a progress indicator
+     }
+
+     protected Bitmap doInBackground(String... strings) {
          // Some long-running task like downloading an image.
          return someBitmap;
      }
+
+     protected void onProgressUpdate(Progress... values) {
+        // Executes whenever publishProgress is called from doInBackground
+        // Used to update the progress indicator
+     }  
+
      protected void onPostExecute(Bitmap result) {
          // This method is executed in the UIThread
          // with access to the result of the long running task
