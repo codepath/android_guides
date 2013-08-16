@@ -11,9 +11,7 @@ Important to note that prior to 3.0, there was no ActionBar although there is a 
 
 ## ActionBar Basics
 
-Every application unless otherwise specified has an ActionBar by default. The ActionBar by default just has the application icon and an activity title. 
-
-In any Java activity, you can call `getActionBar()` to retrieve a reference to the [ActionBar](http://developer.android.com/reference/android/app/ActionBar.html) and modify or access properties:
+Every application unless otherwise specified has an ActionBar by default. The ActionBar by default just has the application icon and an activity title. In any Java activity, you can call `getActionBar()` to retrieve a reference to the [ActionBar](http://developer.android.com/reference/android/app/ActionBar.html) and modify or access properties:
 
 ```java
 ActionBar actionBar = getSupportActionBar();
