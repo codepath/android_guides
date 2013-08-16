@@ -62,7 +62,50 @@ Notice that to request that an item appear directly in the action bar as an acti
 
 ### Handling ActionBar Clicks
 
+There are two ways to handle the click for an ActionBar item. First, you can use the `android:onClick` handler in the menu XML, similar to handling button clicks:
 
+```xml
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:id="@+id/item1"
+        android:icon="@drawable/ic_compose"
+        android:onClick="onComposeAction"
+        android:showAsAction="ifRoom"
+        android:title="Compose">
+    </item>
+</menu>
+```
+
+and then define the method `onComposeAction` in the parent activity:
+
+```java
+public class MainActivity extends Activity {
+  public void onComposeAction(MenuItem mi) {
+     // handle click here
+  }
+}
+```
+
+The second way is to use the `onOptionsItemSelected()` method. Using the MenuItem passed to this method, you can identify the action by calling getItemId(). This returns the unique ID provided by the <item> tag's id attribute so you can perform the appropriate action:
+
+```java
+@Override
+public boolean onOptionsItemSelected(MenuItem item) {
+    // Handle presses on the action bar items
+    switch (item.getItemId()) {
+        case R.id.item1:
+            composeMessage();
+            return true;
+        case R.id.item2:
+            showProfileView();
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
+    }
+}
+```
+
+and then you can handle all the action buttons in this single method.
 
 ## References
 
