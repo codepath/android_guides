@@ -10,12 +10,12 @@ With Android, there is a lot of access to hardware features using built-in Andro
 
 ### Using the Camera
 
-The camera implementation depends on the level of customization required:
+The [camera](http://developer.android.com/guide/topics/media/camera.html) implementation depends on the level of customization required:
 
  * The easy way - launch the camera with an intent, designating a file path, and handle the onActivityResult.
  * The hard way - use the Camera API to embed the camera preview within your app, adding your own custom controls.
 
-Easy way works in most cases, using the intent to launch the camera:
+Easy way works in most cases, using the intent to [launch the camera](http://developer.android.com/guide/topics/media/camera.html):
 
 ```java
 public void onLaunchCamera(View view) {
@@ -101,7 +101,7 @@ public void onSensorChanged(SensorEvent event) {
 
 ### Location
 
-Location requires the use of the [Google Play SDK](http://developer.android.com/google/play-services/setup.html). The Location API is a higher-level API that wraps the underlying location sensor. You can accomplish tasks like:
+Location requires the use of the [Google Play SDK](http://developer.android.com/google/play-services/setup.html). The [Location API](http://www.vogella.com/articles/AndroidLocationAPI/article.html) is a higher-level API that wraps the underlying location sensor. You can accomplish tasks like:
 
  * Connect to the location sensor
  * Register for updates or accuracy changes
@@ -139,5 +139,8 @@ For using maps check out the [Android Maps Tutorial](http://www.vogella.com/arti
 
 ## References
  
- *  
+ * <http://developer.android.com/guide/topics/media/camera.html>
+ * <http://developer.android.com/reference/android/hardware/Camera.html> 
+ * <http://developer.android.com/reference/android/widget/VideoView.html>
+ * <http://www.vogella.com/articles/AndroidLocationAPI/article.html>
  * <http://www.vogella.com/articles/AndroidGoogleMaps/article.html>
