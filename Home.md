@@ -10,6 +10,7 @@ Welcome to the Codepath Android Guides!
 * [[Defining the ActionBar]]
 * [[Displaying Toasts]]
 * [[Using Intents to Create Flows]]
+* [[Common Implicit Intents]]
 * [[Creating and Executing Async Tasks]]
 * [[Sending and Managing Network Requests]]
 * [[Persisting Data to the Device]]
@@ -33,7 +34,3 @@ Welcome to the Codepath Android Guides!
 * [[Contextual Menus]]
 * [[ActionBar Guide]]
 * [[Push Notifications]]
-
-## Reference
-
-* [[Common Implicit Intents]]
