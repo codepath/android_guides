@@ -15,7 +15,6 @@ Welcome to the Codepath Android Guides!
 * [[Persisting Data to the Device]]
 * [[Creating and Using Fragments]]
 * [[Using Hardware, Sensors and Device Data]]
-* [[Using Maps and Location]]
 
 ## Intermediate
 
