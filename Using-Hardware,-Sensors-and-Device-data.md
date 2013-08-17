@@ -73,7 +73,7 @@ public void playUrl(String url) {
 
 ### Accessing Sensors
 
-Different devices have a variety of sensors that can be accessed via the Sensor framework. Possible tasks include:
+Different devices have a [variety of sensors](http://developer.android.com/guide/topics/sensors/sensors_overview.html) that can be accessed via the Sensor framework. Possible tasks include:
 
  * List available sensors
  * Determine sensor capabilities (range, resolution, etc)
@@ -142,5 +142,6 @@ For using maps check out the [Android Maps Tutorial](http://www.vogella.com/arti
  * <http://developer.android.com/guide/topics/media/camera.html>
  * <http://developer.android.com/reference/android/hardware/Camera.html> 
  * <http://developer.android.com/reference/android/widget/VideoView.html>
+ * <http://developer.android.com/guide/topics/sensors/sensors_overview.html>
  * <http://www.vogella.com/articles/AndroidLocationAPI/article.html>
  * <http://www.vogella.com/articles/AndroidGoogleMaps/article.html>
