@@ -83,9 +83,21 @@ startActivity(intent);
 
 ### Sharing Content
 
+Images or binary data:
+
 ```java
 Intent shareIntent = new Intent(Intent.ACTION_SEND);
 shareIntent.setType("image/*");
 Uri uri = Uri.fromFile(new File(getFilesDir(), "foo.jpg"));
 shareIntent.putExtra(Intent.EXTRA_STREAM, uri.toString());
+startActivity(Intent.createChooser(sharingIntent, "Share image using"));
+```
+
+or HTML:
+
+```java
+Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+sharingIntent.setType("text/html");
+sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, Html.fromHtml("<p>This is the text shared.</p>"));
+startActivity(Intent.createChooser(sharingIntent,"Share using"));
 ```
