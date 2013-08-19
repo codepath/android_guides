@@ -57,6 +57,27 @@ public void onPickPhoto(View view) {
         MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
     startActivityForResult(intent, PICK_PHOTO_CODE);
 }
+
+// Used to retrieve the actual filesystem URI based on the media store result
+private String getFileUri(Uri mediaStoreUri) {
+		String[] filePathColumn = { MediaStore.Images.Media.DATA };
+    Cursor cursor = getActivity().getContentResolver().query(mediaStoreUri,
+            filePathColumn, null, null, null);
+    cursor.moveToFirst();
+    int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+    String fileUri = cursor.getString(columnIndex);
+    cursor.close();
+    
+    return fileUri;
+}
+
+Override
+public void onActivityResult(int requestCode, int resultCode, Intent data) {
+   if (requestCode == PICK_PHOTO_CODE) {
+      photoUri = getFileUri(data.getData());
+      cropPhoto();
+   }
+}
 ```
 
 ### Playing Videos
