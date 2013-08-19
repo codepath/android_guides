@@ -51,8 +51,7 @@ Easy way is to use an intent to launch the gallery:
 ```java
 public void onPickPhoto(View view) {
     Intent intent = new Intent(Intent.ACTION_PICK,
-        android.provider.MediaStore
-        .Images.Media.EXTERNAL_CONTENT_URI);
+        MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
     startActivityForResult(intent, 0);
 }
 ```
