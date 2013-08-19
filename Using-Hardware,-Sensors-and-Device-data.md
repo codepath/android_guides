@@ -39,6 +39,15 @@ public void onLaunchCamera(View view) {
     // start the image capture Intent
     startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
 }
+
+@Override
+public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
+       Uri takenPhotoUri = getPhotoFileUri("photo.jpg");
+       // by this point we have the camera photo on disk
+       // Bitmap takenImage = BitmapFactory.decodeFile(filePath);
+    }
+}
 ```
 
 ### Accessing Stored Media
@@ -71,11 +80,12 @@ private String getFileUri(Uri mediaStoreUri) {
     return fileUri;
 }
 
-Override
+@Override
 public void onActivityResult(int requestCode, int resultCode, Intent data) {
    if (requestCode == PICK_PHOTO_CODE) {
       photoUri = getFileUri(data.getData());
       // do something to the photo
+      // Bitmap selectedImage = BitmapFactory.decodeFile(filePath);
    }
 }
 ```
