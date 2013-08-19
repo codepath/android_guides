@@ -18,8 +18,8 @@ The [camera](http://developer.android.com/guide/topics/media/camera.html) implem
 Easy way works in most cases, using the intent to [launch the camera](http://developer.android.com/guide/topics/media/camera.html):
 
 ```java
-public void onLaunchCamera(View view) {
-    File mediaStorageDir = new File(
+public void getPhotoFileUri(fileName) {
+  File mediaStorageDir = new File(
         Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
         "MyCameraApp");
 
@@ -27,13 +27,15 @@ public void onLaunchCamera(View view) {
     if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()){
         Log.d("MyCameraApp", "failed to create directory");
     }
+    // Specify the file target for the photo
     fileUri = Uri.fromFile(new File(mediaStorageDir.getPath() + File.separator +
-		        "photo.jpg"));
-		
+		        fileName));
+}
+
+public void onLaunchCamera(View view) {
     // create Intent to take a picture and return control to the calling application
     Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-    intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri); // set the image file name
-
+    intent.putExtra(MediaStore.EXTRA_OUTPUT, getPhotoFileUri("photo.jpg")); // set the image file name
     // start the image capture Intent
     startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
 }
@@ -49,10 +51,11 @@ Similar to the camera, the media picker implementation depends on the level of c
 Easy way is to use an intent to launch the gallery:
 
 ```java
+// PICK_PHOTO_CODE is a constant integer
 public void onPickPhoto(View view) {
     Intent intent = new Intent(Intent.ACTION_PICK,
         MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-    startActivityForResult(intent, 0);
+    startActivityForResult(intent, PICK_PHOTO_CODE);
 }
 ```
 
