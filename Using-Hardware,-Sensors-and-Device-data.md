@@ -75,7 +75,7 @@ Override
 public void onActivityResult(int requestCode, int resultCode, Intent data) {
    if (requestCode == PICK_PHOTO_CODE) {
       photoUri = getFileUri(data.getData());
-      cropPhoto();
+      // do something to the photo
    }
 }
 ```
