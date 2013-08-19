@@ -87,7 +87,7 @@ Images or binary data:
 
 ```java
 Intent shareIntent = new Intent(Intent.ACTION_SEND);
-shareIntent.setType("image/*");
+shareIntent.setType("image/jpg");
 Uri uri = Uri.fromFile(new File(getFilesDir(), "foo.jpg"));
 shareIntent.putExtra(Intent.EXTRA_STREAM, uri.toString());
 startActivity(Intent.createChooser(sharingIntent, "Share image using"));
