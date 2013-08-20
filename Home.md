@@ -34,3 +34,4 @@ Welcome to the Codepath Android Guides!
 * [[Contextual Menus]]
 * [[ActionBar Guide]]
 * [[Push Notifications]]
+* [[Profiling Android Apps]]
