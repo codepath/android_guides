@@ -1,3 +1,5 @@
+Cliffnotes are references giving you the "most important" Android topics with brief explanations and relevant code snippets. The idea here is to distill the concepts down to shorter cliffnotes so you don't have to "read the book":
+
 * [[Android Directory Structure]]
 * [[Constructing View Layouts]]
 * [[Defining Views and their Attributes]] 
