@@ -14,3 +14,5 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Persisting Data to the Device]]
 * [[Creating and Using Fragments]]
 * [[Using Hardware, Sensors and Device Data]]
+
+If there's anything else, feel free to suggest new cliffnote pages and/or help contribute to them!
