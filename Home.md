@@ -42,3 +42,4 @@ Welcome to the Codepath Android Guides!
 More reference topics:
 
 * [[Content Providers]]
+* [[Using Data Loaders]]
