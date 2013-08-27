@@ -1,6 +1,6 @@
 The Android system shows an on-screen keyboard, known as a soft input method, when a text field in your UI receives focus. To provide the best user experience, you can specify characteristics about the type of input you expect (such as whether it's a phone number or email address) and how the input method should behave (such as whether it performs auto-correct for spelling mistakes).
 
-## Showing Soft Keyboard in Code
+## Showing Soft Keyboard Programmatically 
 
 The following code will reveal the soft keyboard focused on a specified view:
 
@@ -14,7 +14,7 @@ public void showSoftKeyboard(View view){
 }
 ```
 
-## Hiding the Soft Keyboard
+## Hiding the Soft Keyboard Programmatically
 
 You can force Android to hide the virtual keyboard using the [InputMethodManager](http://developer.android.com/reference/android/view/inputmethod/InputMethodManager.html), calling [hideSoftInputFromWindow](http://developer.android.com/reference/android/view/inputmethod/InputMethodManager.html#hideSoftInputFromWindow%28android.os.IBinder,%20int%29), passing in the token of the window containing your edit field.
 
@@ -35,7 +35,7 @@ In the keyboard, you can hide the "Next" key and add "Done" instead by adding th
 </EditText>
 ```
 
-or in code:
+or in Java:
 
 ```java
 myEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
