@@ -35,7 +35,7 @@ In the keyboard, you can hide the "Next" key and add "Done" instead by adding th
 
 ```xml
 <EditText
-  android:imeOptions="actionDone"
+  android:imeOptions="actionDone">
 </EditText>
 ```
 
