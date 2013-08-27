@@ -19,15 +19,17 @@ public void showSoftKeyboard(View view){
 You can force Android to hide the virtual keyboard using the [InputMethodManager](http://developer.android.com/reference/android/view/inputmethod/InputMethodManager.html), calling [hideSoftInputFromWindow](http://developer.android.com/reference/android/view/inputmethod/InputMethodManager.html#hideSoftInputFromWindow%28android.os.IBinder,%20int%29), passing in the token of the window containing your edit field.
 
 ```java
-InputMethodManager imm =(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-imm.hideSoftInputFromWindow(myEditText.getWindowToken(),0);
+public void hideSoftKeyboard(View view){
+  InputMethodManager imm =(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+  imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+}
 ```
 
 This will force the keyboard to be hidden in all situations. 
 
 ## Adding a "Done" Key
 
-In the keyboard, you can hide the "Next" key and add "Done" instead by adding the following:
+In the keyboard, you can hide the "Next" key and add "Done" instead by adding the following to the `imeOptions` for the EditText view:
 
 ```xml
 <EditText
