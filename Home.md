@@ -5,6 +5,7 @@ Welcome to the Codepath Android Guides!
 * [[Android Directory Structure]]
 * [[Constructing View Layouts]]
 * [[Defining Views and their Attributes]] 
+* [[Working with Android Soft Keyboard]]
 * [[Basic Event Listeners]]
 * [[Using an ArrayAdapter with ListView]]
 * [[Using Intents to Create Flows]]
