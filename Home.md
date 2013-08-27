@@ -38,3 +38,7 @@ Welcome to the Codepath Android Guides!
 * [[ActionBar Guide]]
 * [[Push Notifications]]
 * [[Profiling Android Apps]]
+
+More reference topics:
+
+* [[Content Providers]]
