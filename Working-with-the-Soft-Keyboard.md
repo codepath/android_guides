@@ -39,4 +39,17 @@ In the keyboard, you can hide the "Next" key and add "Done" instead by adding th
 </EditText>
 ```
 
+or in code:
+
+```java
+myEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
+```
+
 See the [EditText documentation](http://developer.android.com/reference/android/widget/TextView.html#attr_android%3aimeActionLabel) for a more detailed look.
+
+## References
+
+ * <http://developer.android.com/training/keyboard-input/style.html>
+ * <http://developer.android.com/training/keyboard-input/navigation.html>
+ * <http://developer.android.com/training/keyboard-input/commands.html>
+ * <http://developer.android.com/training/keyboard-input/visibility.html>
