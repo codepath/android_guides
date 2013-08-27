@@ -6,6 +6,8 @@ Although Android gives focus to the first text field in your layout when the act
 
 ## Showing Soft Keyboard in Code
 
+The following code will reveal the soft keyboard focused on a specified view:
+
 ```java
 public void showSoftKeyboard(View view){
     if(view.requestFocus()){
