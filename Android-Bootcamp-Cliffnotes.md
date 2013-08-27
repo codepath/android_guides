@@ -3,6 +3,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Android Directory Structure]]
 * [[Constructing View Layouts]]
 * [[Defining Views and their Attributes]] 
+* [[Working with the Soft Keyboard]]
 * [[Basic Event Listeners]]
 * [[Using an ArrayAdapter with ListView]]
 * [[Using Intents to Create Flows]]
