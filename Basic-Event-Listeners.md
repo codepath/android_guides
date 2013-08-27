@@ -6,14 +6,14 @@ Event Listening in Android development is largely centered around the `View` obj
 
 Any View (Button, TextView, etc) has many event listeners that can be attached using the `setOnEvent` pattern which involves passing a class that implements a particular event interface. The listeners available to any `View` include:
 
- * setOnClickListener - Callback when the view is clicked
- * setOnDragListener - Callback when the view is dragged
- * setOnFocusChangeListener - Callback when the view changes focus
- * setOnGenericMotionListener - Callback for arbitrary gestures
- * setOnHoverListener - Callback for hovering over the view
- * setOnKeyListener - Callback for pressing a hardware key when view has focus
- * setOnLongClickListener - Callback for pressing and holding a view
- * setOnTouchListener - Callback for touching down or up on a view
+ * `setOnClickListener` - Callback when the view is clicked
+ * `setOnDragListener` - Callback when the view is dragged
+ * `setOnFocusChangeListener` - Callback when the view changes focus
+ * `setOnGenericMotionListener` - Callback for arbitrary gestures
+ * `setOnHoverListener` - Callback for hovering over the view
+ * `setOnKeyListener` - Callback for pressing a hardware key when view has focus
+ * `setOnLongClickListener` - Callback for pressing and holding a view
+ * `setOnTouchListener` - Callback for touching down or up on a view
 
 In Java Code, attaching to any event works roughly the same way. Let's take the `OnClickListener` as an example. First, you need a reference to the view and then you need to the `set` method associated with that listener and pass in a class implementing a [particular interface](http://developer.android.com/reference/android/view/View.OnClickListener.html). For example:
 
