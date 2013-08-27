@@ -42,7 +42,7 @@ or in Java:
 myEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
 ```
 
-See the [EditText documentation](http://developer.android.com/reference/android/widget/TextView.html#attr_android%3aimeActionLabel) for a more detailed look.
+See the [EditText documentation](http://developer.android.com/reference/android/widget/TextView.html#attr_android%3aimeActionLabel) for a more detailed look at `imeOptions`.
 
 ## Showing the Keyboard when Activity Starts
 
