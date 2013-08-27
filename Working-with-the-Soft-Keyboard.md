@@ -20,7 +20,7 @@ public void showSoftKeyboard(View view){
 
 ## Hiding the Soft Keyboard
 
-You can force Android to hide the virtual keyboard using the InputMethodManager, calling hideSoftInputFromWindow, passing in the token of the window containing your edit field.
+You can force Android to hide the virtual keyboard using the [InputMethodManager](http://developer.android.com/reference/android/view/inputmethod/InputMethodManager.html), calling [hideSoftInputFromWindow](http://developer.android.com/reference/android/view/inputmethod/InputMethodManager.html#hideSoftInputFromWindow%28android.os.IBinder,%20int%29), passing in the token of the window containing your edit field.
 
 ```java
 InputMethodManager imm =(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
