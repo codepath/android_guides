@@ -33,5 +33,10 @@ This will force the keyboard to be hidden in all situations.
 
 In the keyboard, you can hide the "Next" key and add "Done" instead by adding the following:
 
+```xml
+<EditText
+  android:imeOptions="actionDone"
+</EditText>
+```
 
-See the EditText documentation for a more detailed look.
+See the [EditText documentation](http://developer.android.com/reference/android/widget/TextView.html#attr_android%3aimeActionLabel) for a more detailed look.
