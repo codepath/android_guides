@@ -2,9 +2,7 @@ The Android system shows an on-screen keyboard, known as a soft input method, wh
 
 ## Showing the Keyboard when Activity Starts
 
-Although Android gives focus to the first text field in your layout when the activity starts, it does not show the input method. To show the input method when your activity starts, add the android:windowSoftInputMode attribute to the <activity> element with the "stateVisible" value. For example:
-
-Check out [this guide](http://developer.android.com/training/keyboard-input/visibility.html#ShowOnStart) for more details.
+Although Android gives focus to the first text field in your layout when the activity starts, it does not show the input method. To show the input method when your activity starts, add the [android:windowSoftInputMode](http://developer.android.com/guide/topics/manifest/activity-element.html#wsoft) attribute to the `<activity>` element with the `"stateVisible"` value within the Android manifest. Check out [this guide](http://developer.android.com/training/keyboard-input/visibility.html#ShowOnStart) for more details.
 
 ## Showing Soft Keyboard in Code
 
