@@ -1,5 +1,3 @@
-## Intermediate
-
 **Note**: Placeholders, not available here at the moment
 
 * [[Using DialogFragment]]
