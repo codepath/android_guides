@@ -30,6 +30,7 @@ Welcome to the Codepath Android Guides!
 * [[Animations]]
 * [[Drawables]]
 * [[Styles and Themes]]
+* [[Video and Audio Playback]]
 * [[Getting Started with Maven]]
 * [[Android Unit and Integration Testing]]
 * [[Flexible User Interfaces]]
