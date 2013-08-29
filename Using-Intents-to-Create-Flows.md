@@ -112,6 +112,37 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 And using that process you can communicate data freely between different activities in your application.
 
+### Passing Complex Data in a Bundle
+
+Bundles can pass complex Java objects into Intents through the use of serialization. Simple types such as integers and strings can be automatically passed as an extra but to pass Java objects, they need to be `Serializable` or `Parcelable`. 
+
+```java
+public class User implements Serializable {
+	private static final long serialVersionUID = 5177222050535318633L;
+	private String firstName;
+	private String lastName;
+	private int age;
+}
+```
+
+Then you can pass arbitrary user objects into an intent as an extra:
+
+```java
+User u = new User("John", "Smith", 45);
+Intent  i =  new Intent(this, SecondActivity.class);
+i.putExtra("user", u);
+startActivity(i);
+```
+
+and access the user data in the launched intent with `getSerializableExtra`:
+
+```java
+// SecondActivity.java
+User u = (User) getIntent().getSerializableExtra("user");
+TextView tvUser = (TextView) findViewById(R.id.tvUser);
+tvUser.setText(u.getFirstName() + " " + u.getLastName());
+```
+
 ### Implicit Intents
 
 Implicit Intents are requests to perform an action based on a desired action and target data. For example, if I want to make a phone call for the user, that can be done with this intent:
