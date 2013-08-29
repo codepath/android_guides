@@ -85,8 +85,8 @@ Defining the Adapter
 Next, we need to define the Adapter to describe the process of converting the Java object to a View (in the getView method):
 
 ```java
-public class UserAdapter extends ArrayAdapter<User> {
-    public UserAdapter(Context context, List<User> users) {
+public class UsersAdapter extends ArrayAdapter<User> {
+    public UsersAdapter(Context context, List<User> users) {
        super(context, R.layout.item_user, users);
     }
     @Override
@@ -118,7 +118,7 @@ Now, we can use that adapter in the Activity to display an array of items into t
 // Create the data source
 ArrayList<User> arrayOfUsers = new ArrayList<User>();
 // Create the adapter to convert the array to views
-adapter = new TimelineAdapter(this, arrayOfUsers);
+adapter = new UsersAdapter(this, arrayOfUsers);
 // Attach the adapter to a ListView
 ListView listView = (ListView) findViewById(R.id.lvItems);
 listView.setAdapter(adapter);
