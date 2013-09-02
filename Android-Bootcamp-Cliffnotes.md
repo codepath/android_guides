@@ -1,6 +1,6 @@
 Cliffnotes are references giving you the "most important" Android topics with brief explanations and relevant code snippets. The idea here is to distill the concepts down to shorter cliffnotes so you don't have to "read the book":
 
-### Week 1
+### Week 1 - Fundamentals and Views
 
 * [[Android Directory Structure]]
 * [[Constructing View Layouts]]
@@ -8,7 +8,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Working with the Soft Keyboard]]
 * [[Using an ArrayAdapter with ListView]]
 
-### Week 2
+### Week 2 - Interaction and Navigation
 
 * [[Basic Event Listeners]]
 * [[Using Intents to Create Flows]]
@@ -16,19 +16,19 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Displaying Toasts]]
 * [[Common Implicit Intents]]
 
-### Week 3
+### Week 3 - Networking and Persistence
 
 * [[Creating and Executing Async Tasks]]
 * [[Sending and Managing Network Requests]]
 * [[Persisting Data to the Device]]
 
-### Week 4
+### Week 4 - Advanced Views and Using Fragments
 
 * [[Working with Input Views]]
 * [[Handling ProgressBars]]
 * [[Creating and Using Fragments]]
 
-### Week 5
+### Week 5 - Hardware and SDK Components
 
 * [[Using Hardware, Sensors and Device Data]]
 
