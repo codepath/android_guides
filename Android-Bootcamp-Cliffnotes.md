@@ -21,6 +21,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Creating and Executing Async Tasks]]
 * [[Sending and Managing Network Requests]]
 * [[Persisting Data to the Device]]
+* [[ActiveAndroid Guide]]
 
 ### Week 4 - Advanced Views and Using Fragments
 
