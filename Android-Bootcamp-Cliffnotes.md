@@ -1,21 +1,35 @@
 Cliffnotes are references giving you the "most important" Android topics with brief explanations and relevant code snippets. The idea here is to distill the concepts down to shorter cliffnotes so you don't have to "read the book":
 
+### Week 1
+
 * [[Android Directory Structure]]
 * [[Constructing View Layouts]]
 * [[Defining Views and their Attributes]] 
 * [[Working with the Soft Keyboard]]
-* [[Basic Event Listeners]]
 * [[Using an ArrayAdapter with ListView]]
+
+### Week 2
+
+* [[Basic Event Listeners]]
 * [[Using Intents to Create Flows]]
 * [[Defining the ActionBar]]
 * [[Displaying Toasts]]
 * [[Common Implicit Intents]]
+
+### Week 3
+
 * [[Creating and Executing Async Tasks]]
 * [[Sending and Managing Network Requests]]
 * [[Persisting Data to the Device]]
+
+### Week 4
+
 * [[Working with Input Views]]
 * [[Handling ProgressBars]]
 * [[Creating and Using Fragments]]
+
+### Week 5
+
 * [[Using Hardware, Sensors and Device Data]]
 
 If there's anything else, feel free to suggest new cliffnote pages and/or help contribute to them!
