@@ -5,7 +5,7 @@ Using the ActiveAndroid ORM makes managing client-side models extremely easy in 
 Using ActiveAndroid is as simple as the following steps:
 
  * [Install ActiveAndroid and perform initial setup](https://github.com/pardom/ActiveAndroid/wiki/Getting-started)
- * [Define your application Models](https://github.com/pardom/ActiveAndroid/wiki/Creating-your-database-model)
+ * [Define your application models](https://github.com/pardom/ActiveAndroid/wiki/Creating-your-database-model)
  * [Persist data using save](https://github.com/pardom/ActiveAndroid/wiki/Saving-to-the-database)
  * [Query the local database](https://github.com/pardom/ActiveAndroid/wiki/Querying-the-database)
  * [Perform data schema migrations](https://github.com/pardom/ActiveAndroid/wiki/Schema-migrations)
