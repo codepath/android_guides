@@ -59,9 +59,27 @@ String text = buffer.toString();
 
 You can also inspect and transfer files to emulators or devices using the DDMS File Explorer perspective which allows you to access to filesystem on the device.
 
+### SQLite
+
+For maximum control, developers can use SQLite directly by leveraging the [SQLiteOpenHelper](http://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper.html) for executing SQL requests and managing a local database.
+
+While not covered in this class in detail, you can read more in the following tutorials:
+
+ * [Vogella SQLite Tutorial](http://www.vogella.com/articles/AndroidSQLite/article.html)
+ * [AndroidHive Tutorial](http://www.androidhive.info/2011/11/android-sqlite-database-tutorial/)
+ * [Techotopia Tutorial](http://www.techotopia.com/index.php/An_Android_SQLite_Database_Tutorial)
+
+In many cases, rather than interacting with SQL directly, Android apps can leverage one of the many available higher level ORMS (object relational mappers) to persist Java models to a database table.
+
 ### ActiveAndroid ORM
 
-There are many popular ORMs for Android, but probably the easiest to use is [ActiveAndroid](https://github.com/pardom/ActiveAndroid/wiki/Getting-started).
+There are many popular ORMs for Android, but one of the easiest to use is [ActiveAndroid](https://github.com/pardom/ActiveAndroid/wiki/Getting-started). Here's a few alternatives as well:
+
+ * [Sugar ORM](http://satyan.github.io/sugar/index.html)
+ * [Siminov](http://siminov.github.io/android-orm/)
+ * [greenDAO](http://greendao-orm.com/)
+ * [ORMLite](http://ormlite.com/sqlite_java_android_orm.shtml)
+ * [androrm](http://androrm.the-pixelpla.net/)
 
 With ActiveAndroid, building models that are SQLite backed is easy. Instead of manually creating and updating tables, simply annotate your model classes.
 
