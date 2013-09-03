@@ -71,17 +71,17 @@ While not covered in this class in detail, you can read more in the following tu
 
 In many cases, rather than interacting with SQL directly, Android apps can leverage one of the many available higher level ORMS (object relational mappers) to persist Java models to a database table.
 
-### ActiveAndroid ORM
+### Object Relational Mappers
 
-There are many popular ORMs for Android, but one of the easiest to use is [ActiveAndroid](https://github.com/pardom/ActiveAndroid/wiki/Getting-started). Here's a few alternatives as well:
+Instead of accessing the SQLite database directly, there is no shortage of higher level wrapper for manaing SQL persistence. There are many popular ORMs for Android, but one of the easiest to use is [ActiveAndroid](https://github.com/pardom/ActiveAndroid/wiki/Getting-started). Here's a few alternatives as well:
 
- * [Sugar ORM](http://satyan.github.io/sugar/index.html)
- * [Siminov](http://siminov.github.io/android-orm/)
- * [greenDAO](http://greendao-orm.com/)
- * [ORMLite](http://ormlite.com/sqlite_java_android_orm.shtml)
- * [androrm](http://androrm.the-pixelpla.net/)
+ * [Sugar ORM](http://satyan.github.io/sugar/index.html) - Very easy syntax, uses reflection to infer data
+ * [Siminov](http://siminov.github.io/android-orm/) - Another viable alternative syntax
+ * [greenDAO](http://greendao-orm.com/) - Slightly different take (DAO vs ORM)
+ * [ORMLite](http://ormlite.com/sqlite_java_android_orm.shtml) - Lightweight and speed is prioritized
+ * [androrm](http://androrm.the-pixelpla.net/) - Newer but promising take on a simple ORM
 
-With ActiveAndroid, building models that are SQLite backed is easy. Instead of manually creating and updating tables, simply annotate your model classes.
+For this class, we selected ActiveAndroid. With ActiveAndroid, building models that are SQLite backed is easy and explicit using annotations. Instead of manually creating and updating tables and managing SQL queries, simply annotate your model classes to associate fields with database columns:
 
 ```java
 @Table(name = "Users")
