@@ -143,7 +143,7 @@ Get the selected item out a spinner using:
 String value = spinner.getSelectedItem().toString();
 ```
 
-Setting spinner item based on value:
+Setting spinner item based on value (rather than item position):
 
 ```java
 public void setSpinnerToValue(Spinner spinner, String value) {
