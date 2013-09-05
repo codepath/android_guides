@@ -137,6 +137,12 @@ and then specify the string array of options in `res/values/planets_array.xml`:
 </resources>
 ```
 
+Get the selected item out a spinner using:
+
+```java
+String value = spinner.getSelectedItem().toString();
+```
+
 You can also load a spinner using a dynamic source of options, check out the [Spinners](http://developer.android.com/guide/topics/ui/controls/spinner.html) guide for more details. 
 
 ## References
