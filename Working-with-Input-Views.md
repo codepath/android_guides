@@ -143,6 +143,21 @@ Get the selected item out a spinner using:
 String value = spinner.getSelectedItem().toString();
 ```
 
+Setting spinner item based on value:
+
+```java
+public void setSpinnerToValue(Spinner spinner, String value) {
+	int index = 0;
+	SpinnerAdapter adapter = spinner.getAdapter();
+	for (int i = 0; i < adapter.getCount(); i++) {
+		if (adapter.getItem(i).equals(value)) {
+			index = i;
+		}
+	}
+	spinner.setSelection(index);
+}
+```
+
 You can also load a spinner using a dynamic source of options, check out the [Spinners](http://developer.android.com/guide/topics/ui/controls/spinner.html) guide for more details. 
 
 ## References
