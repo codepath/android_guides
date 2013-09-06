@@ -6,6 +6,21 @@ The underlying class used for network connections is [URLConnection](http://deve
 
 For most common cases, we are better off using a popular third-party library called [android-async-http](http://loopj.com/android-async-http/) which will handle the entire process of sending and parsing network requests for us in a more robust and easy-to-use way.
 
+### Permissions
+
+In order to access the internet, be sure to specify the following permissions in `AndroidManifest.xml`:
+
+```java
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.simplenetworking"
+    android:versionCode="1"
+    android:versionName="1.0" >
+ 
+   <uses-permission android:name="android.permission.INTERNET" /> 
+</manifest>
+```
+
 ### Sending an HTTP Request
 
 Using [android-async-http](http://loopj.com/android-async-http/), sending an HTTP request becomes quite easy. Simply create an http client, and then execute a request specifying an anonymous class as a callback:
