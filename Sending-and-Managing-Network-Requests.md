@@ -85,12 +85,12 @@ public class MainActivity extends Activity {
         }
         
         private Bitmap downloadImageFromUri(String address) {
-        	URL url;
-    		try {
-    			url = new URL(address);
-    		} catch (MalformedURLException e1) {
-    			url = null;
-    		}
+            URL url;
+    	    try {
+    	        url = new URL(address);
+    	    } catch (MalformedURLException e1) {
+    		url = null;
+    	    }
 
     	    URLConnection conn;
     	    // Define an InputStream
