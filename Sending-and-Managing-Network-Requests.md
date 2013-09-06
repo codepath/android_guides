@@ -61,7 +61,7 @@ client.getHomeTimeline(1, new JsonHttpResponseHandler() {
 });
 ```
 
-### Network Requests (The Hard Way)
+### Network Requests (The "Hard" Way)
 
 Here's the code to construct an AsyncTask to download a remote image and display the image in an ImageView using just the official Google Android SDK.
 
@@ -82,7 +82,6 @@ import android.os.Bundle;
 import android.widget.ImageView;
 
 public class MainActivity extends Activity {
-
 	ImageView ivBasicImage;
 
 	@Override
