@@ -66,6 +66,21 @@ client.getHomeTimeline(1, new JsonHttpResponseHandler() {
 Here's the code to construct an AsyncTask to download a remote image and display the image in an ImageView using just the official Google Android SDK.
 
 ```java
+package com.example.simplenetworking;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+
+import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.widget.ImageView;
+
 public class MainActivity extends Activity {
 
 	ImageView ivBasicImage;
@@ -81,12 +96,8 @@ public class MainActivity extends Activity {
 
 	private class ImageDownloadTask extends AsyncTask<String, Void, Bitmap> {
 		protected Bitmap doInBackground(String... addresses) {
-			return downloadImageFromUri(addresses[0]);
-		}
-
-		private Bitmap downloadImageFromUri(String address) {
 			// Convert string to URL
-			URL url = getUrlFromString(address);
+			URL url = getUrlFromString(addresses[0]);
 			// Get input stream
 			InputStream in = getInputStream(url);
 			// Decode bitmap
@@ -94,7 +105,7 @@ public class MainActivity extends Activity {
 			// Return bitmap result
 			return bitmap;
 		}
-		
+
 		private URL getUrlFromString(String address) {
 			URL url;
 			try {
@@ -104,7 +115,7 @@ public class MainActivity extends Activity {
 			}
 			return url;
 		}
-		
+
 		private InputStream getInputStream(URL url) {
 			InputStream in;
 			// Open connection
@@ -118,7 +129,7 @@ public class MainActivity extends Activity {
 			}
 			return in;
 		}
-		
+
 		private Bitmap decodeBitmap(InputStream in) {
 			Bitmap bitmap;
 			try {
