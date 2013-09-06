@@ -151,6 +151,8 @@ public class MainActivity extends Activity {
 }
 ```
 
+Of course, doing this the "hard" way is not recommended. Better off creating your own libraries or in most cases utilizing existing third-party libraries.
+
 ## References
 
  * <http://loopj.com/android-async-http/>
