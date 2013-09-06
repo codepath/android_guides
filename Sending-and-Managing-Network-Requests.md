@@ -68,19 +68,6 @@ Here's the code to construct an AsyncTask to download a remote image and display
 ```java
 package com.example.simplenetworking;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
-
-import android.app.Activity;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.widget.ImageView;
-
 public class MainActivity extends Activity {
 	ImageView ivBasicImage;
 
