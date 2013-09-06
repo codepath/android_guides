@@ -67,57 +67,78 @@ Here's the code to construct an AsyncTask to download a remote image and display
 
 ```java
 public class MainActivity extends Activity {
-	
-    private ImageView ivBasicImage;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ivBasicImage = (ImageView) findViewById(R.id.ivBasicImage);
-        String imageUrl = "http://2.gravatar.com/avatar/858dfac47ab8176458c005414d3f0c36?s=128&d=&r=G";
-        new ImageDownloadTask().execute(imageUrl);
-    }
+	ImageView ivBasicImage;
 
-    private class ImageDownloadTask extends AsyncTask<String, Void, Bitmap> {
-        protected Bitmap doInBackground(String... addresses) {
-           return downloadImageFromUri(addresses[0]);
-        }
-        
-        private Bitmap downloadImageFromUri(String address) {
-            URL url;
-    	    try {
-    	        url = new URL(address);
-    	    } catch (MalformedURLException e1) {
-    		url = null;
-    	    }
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		ivBasicImage = (ImageView) findViewById(R.id.ivBasicImage);
+		String imageUrl = "http://2.gravatar.com/avatar/858dfac47ab8176458c005414d3f0c36?s=128&d=&r=G";
+		new ImageDownloadTask().execute(imageUrl);
+	}
 
-    	    URLConnection conn;
-    	    // Define an InputStream
-    	    InputStream in;
-    	    Bitmap bitmap;
-    		try {
-    			// Open connection
-    			conn = url.openConnection();
-    			conn.connect();
-    			in = conn.getInputStream();
-    			// Decode bitmap
-    			bitmap = BitmapFactory.decodeStream(in);
-    			// Close the input stream
-    			in.close();
-    		} catch (IOException e) {
-    			bitmap = null;
-    		}
+	private class ImageDownloadTask extends AsyncTask<String, Void, Bitmap> {
+		protected Bitmap doInBackground(String... addresses) {
+			return downloadImageFromUri(addresses[0]);
+		}
 
-    		return bitmap; 
-    	}
-        
-        @Override
-        protected void onPostExecute(Bitmap result) {
-        	// Set bitmap image for the result
-        	ivBasicImage.setImageBitmap(result);
-        }
-   }
+		private Bitmap downloadImageFromUri(String address) {
+			// Convert string to URL
+			URL url = getUrlFromString(address);
+			// Get input stream
+			InputStream in = getInputStream(url);
+			// Decode bitmap
+			Bitmap bitmap = decodeBitmap(in);
+			// Return bitmap result
+			return bitmap;
+		}
+		
+		private URL getUrlFromString(String address) {
+			URL url;
+			try {
+				url = new URL(address);
+			} catch (MalformedURLException e1) {
+				url = null;
+			}
+			return url;
+		}
+		
+		private InputStream getInputStream(URL url) {
+			InputStream in;
+			// Open connection
+			URLConnection conn;
+			try {
+				conn = url.openConnection();
+				conn.connect();
+				in = conn.getInputStream();
+			} catch (IOException e) {
+				in = null;
+			}
+			return in;
+		}
+		
+		private Bitmap decodeBitmap(InputStream in) {
+			Bitmap bitmap;
+			try {
+				// Turn response into Bitmap
+				bitmap = BitmapFactory.decodeStream(in);
+				// Close the input stream
+				in.close();
+			} catch (IOException e) {
+				in = null;
+				bitmap = null;
+			}
+			return bitmap;
+		}
+
+		@Override
+		protected void onPostExecute(Bitmap result) {
+			// Set bitmap image for the result
+			ivBasicImage.setImageBitmap(result);
+		}
+	}
 }
 ```
 
