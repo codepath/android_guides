@@ -61,6 +61,65 @@ client.getHomeTimeline(1, new JsonHttpResponseHandler() {
 });
 ```
 
+### Network Requests (The Hard Way)
+
+```java
+public class MainActivity extends Activity {
+	
+    private ImageView ivBasicImage;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ivBasicImage = (ImageView) findViewById(R.id.ivBasicImage);
+        String imageUrl = "http://2.gravatar.com/avatar/858dfac47ab8176458c005414d3f0c36?s=128&d=&r=G";
+        new ImageDownloadTask().execute(imageUrl);
+    }
+
+    
+    private class ImageDownloadTask extends AsyncTask<String, Void, Bitmap> {
+        protected Bitmap doInBackground(String... addresses) {
+           return downloadImageFromUri(addresses[0]);
+        }
+        
+        private Bitmap downloadImageFromUri(String address) {
+        	URL url;
+    		try {
+    			url = new URL(address);
+    		} catch (MalformedURLException e1) {
+    			url = null;
+    		}
+
+    	    URLConnection conn;
+    	    // Define an InputStream
+    	    InputStream in;
+    	    Bitmap bitmap;
+    		try {
+    			// Open connection
+    			conn = url.openConnection();
+    			conn.connect();
+    			in = conn.getInputStream();
+    			// Decode bitmap
+    			bitmap = BitmapFactory.decodeStream(in);
+    			// Close the input stream
+    			in.close();
+    		} catch (IOException e) {
+    			bitmap = null;
+    		}
+
+    		return bitmap; 
+    	}
+        
+        @Override
+        protected void onPostExecute(Bitmap result) {
+        	// Set bitmap image for the result
+        	ivBasicImage.setImageBitmap(result);
+        }
+   }
+}
+```
+
 ## References
 
  * <http://loopj.com/android-async-http/>
