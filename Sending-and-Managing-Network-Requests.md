@@ -61,7 +61,7 @@ client.getHomeTimeline(1, new JsonHttpResponseHandler() {
 });
 ```
 
-### Network Requests (The "Hard" Way)
+### Displaying Remote Images (The "Hard" Way)
 
 Here's the code to construct an AsyncTask to download a remote image and display the image in an ImageView using just the official Google Android SDK.
 
@@ -151,6 +151,18 @@ public class MainActivity extends Activity {
 	}
 }
 ```
+
+### Displaying Remote Images (The "Easy" Way)
+
+In contrast, using the third party library [android-universal-image-loader](https://github.com/nostra13/Android-Universal-Image-Loader), we can download an image like this:
+
+```java
+String imageUri = "http://2.gravatar.com/avatar/858dfac47ab8176458c005414d3f0c36?s=128&d=&r=G";
+ImageView ivBasicImage = (ImageView) findViewById(R.id.ivBasicImage);
+imageLoader.displayImage(imageUri, ivBasicImage);
+```
+
+The important thing here is to notice just how much cleaner and clearer using third-party high level libraries can make application development.
 
 ## References
 
