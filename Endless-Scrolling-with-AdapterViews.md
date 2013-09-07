@@ -5,14 +5,8 @@ A common application feature is to have an AdapterView (such as a ListView or Gr
 Every AdapterView has support for binding to the `OnScrollListener` events which are triggered whenever a user scrolls through the collection. Using this system, we can define a basic `EndlessScrollListener` which supports most use cases by creating our own class that extends `OnScrollListener`:
 
 ```java
-package codepath.apps.googleimagesearcher;
-
-import android.widget.AbsListView;
-import android.widget.AbsListView.OnScrollListener;
-
 public abstract class EndlessScrollListener implements OnScrollListener {
-
-	// The minimum amount of items to have below your current scroll position,
+	// The minimum amount of items to have below your current scroll position
 	// before loading more.
 	private int visibleThreshold = 5;
 	// The current offset index of data you have loaded
@@ -77,6 +71,30 @@ public abstract class EndlessScrollListener implements OnScrollListener {
 	}
 }
 ```
+
+Notice that this is an abstract class, and that in order to use this, you must extend this base class and define the `loadMore` method to actually retrieve the new data. We can define now an inner class within any activity that extends `EndlessScrollListener` and bind that to the AdapterView. For example:
+
+```java
+public class MainActivity extends Activity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_search);        
+        ListView lvItems = (ListView) findViewById(R.id.lvItems);
+        lvItems.setOnScrollListener(new MyScrollListener());
+    }
+    
+    public class MyScrollListener extends EndlessScrollListener {
+	@Override
+	public void loadMore(int page, int totalItemsCount) {
+            // whatever code is needed to append new items to your AdapterView
+	    customLoadMoreFromActivity(page);
+	}
+    }
+}
+```
+
+This approach works equally well for a `GridView` and the listener gives access to both the `page` as well as the `totalItemsCount` to support both pagination and offset based fetching.
 
 ## References
 
