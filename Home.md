@@ -8,6 +8,7 @@ Welcome to the Codepath Android Guides!
 * [[Working with the Soft Keyboard]]
 * [[Basic Event Listeners]]
 * [[Using an ArrayAdapter with ListView]]
+* [[Endless Scrolling with AdapterViews]]
 * [[Using Intents to Create Flows]]
 * [[Defining the ActionBar]]
 * [[Displaying Toasts]]
