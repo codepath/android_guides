@@ -78,8 +78,7 @@ Notice that this is an abstract class, and that in order to use this, you must e
 public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);        
+        // ... the usual 
         ListView lvItems = (ListView) findViewById(R.id.lvItems);
         lvItems.setOnScrollListener(new EndlessScrollListener() {
 	    @Override
