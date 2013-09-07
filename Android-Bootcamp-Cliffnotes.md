@@ -33,7 +33,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 
 * [[Using Hardware, Sensors and Device Data]]
 
-### References
+### Bonus
 
 * [[Endless Scrolling with AdapterViews]]
 
