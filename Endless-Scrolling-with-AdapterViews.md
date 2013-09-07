@@ -72,7 +72,7 @@ public abstract class EndlessScrollListener implements OnScrollListener {
 }
 ```
 
-Notice that this is an abstract class, and that in order to use this, you must extend this base class and define the `loadMore` method to actually retrieve the new data. We can define now an inner class within any activity that extends `EndlessScrollListener` and bind that to the AdapterView. For example:
+Notice that this is an abstract class, and that in order to use this, you must extend this base class and define the `loadMore` method to actually retrieve the new data. We can define now an anonymous class within any activity that extends `EndlessScrollListener` and bind that to the AdapterView. For example:
 
 ```java
 public class MainActivity extends Activity {
@@ -81,15 +81,13 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);        
         ListView lvItems = (ListView) findViewById(R.id.lvItems);
-        lvItems.setOnScrollListener(new MyScrollListener());
-    }
-    
-    public class MyScrollListener extends EndlessScrollListener {
-	@Override
-	public void loadMore(int page, int totalItemsCount) {
-            // whatever code is needed to append new items to your AdapterView
-	    customLoadMoreFromActivity(page);
-	}
+        lvItems.setOnScrollListener(new EndlessScrollListener() {
+	    @Override
+	    public void loadMore(int page, int totalItemsCount) {
+                // whatever code is needed to append new items to your AdapterView
+	        customLoadMoreFromActivity(page);
+	    }
+        });
     }
 }
 ```
