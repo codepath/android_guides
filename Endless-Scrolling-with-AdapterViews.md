@@ -94,7 +94,7 @@ public class MainActivity extends Activity {
 }
 ```
 
-This approach works equally well for a `GridView` and the listener gives access to both the `page` as well as the `totalItemsCount` to support both pagination and offset based fetching.
+Now as you scroll, items will be automatically filling in because the `loadMore` method will be triggered once the user crosses the `visibleThreshold`. This approach works equally well for a `GridView` and the listener gives access to both the `page` as well as the `totalItemsCount` to support both pagination and offset based fetching.
 
 ## References
 
