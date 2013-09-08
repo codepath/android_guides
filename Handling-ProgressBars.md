@@ -96,6 +96,32 @@ public class MainActivity extends Activity {
 }
 ```
 
+You can also use a result-based progress bar displayed in the ActionBar as well:
+
+```java
+public class MainActivity extends Activity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // Request the feature before setting content view
+        requestWindowFeature(Window.FEATURE_PROGRESS); 
+        setContentView(R.layout.activity_main);
+    }
+
+    public void onStart() {
+        // Now you can switch on and off the progress
+        setProgressBarVisibility(true);
+        // Valid ranges are from 0 to 10000 (both inclusive). 
+        // If 10000 is given, the progress bar will be completely filled and will fade out.
+        setProgress(1000);
+    }
+    
+    public void onFinish() {
+    	setProgressBarVisibility(false);
+    }
+}
+```
+
 ## References
 
  * <http://developer.android.com/reference/android/widget/ProgressBar.html>
