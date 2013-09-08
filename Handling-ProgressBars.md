@@ -73,7 +73,7 @@ and using this pattern any background tasks can be reflected by an on-screen pro
 
 ### ActionBar Progress Bar
 
-The ActionBar has built-in progress bar UIs for both indeterminate and result-based progress bars. To show an indeterminate progress bar on the ActionBar simply requires `setProgressBarIndeterminateVisibility`:
+The ActionBar has built-in progress bar UIs for both indeterminate and result-based progress bars. To show an **indeterminate progress** bar on the ActionBar simply requires `setProgressBarIndeterminateVisibility`:
 
 ```java
 public class MainActivity extends Activity {
@@ -96,7 +96,7 @@ public class MainActivity extends Activity {
 }
 ```
 
-You can also use a result-based progress bar displayed in the ActionBar as well:
+You can also use a **result-based progress** bar displayed in the ActionBar as well:
 
 ```java
 public class MainActivity extends Activity {
@@ -111,6 +111,7 @@ public class MainActivity extends Activity {
     public void onStart() {
         // Now you can switch on and off the progress
         setProgressBarVisibility(true);
+        // Manage the progress (i.e within an AsyncTask)
         // Valid ranges are from 0 to 10000 (both inclusive). 
         // If 10000 is given, the progress bar will be completely filled and will fade out.
         setProgress(1000);
