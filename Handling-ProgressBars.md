@@ -71,7 +71,30 @@ public class DelayTask extends AsyncTask<Void, Integer, String> {
 
 and using this pattern any background tasks can be reflected by an on-screen progress report.
 
+### ActionBar Progress Bar
 
+The ActionBar has built-in progress bar UIs for both indeterminate and result-based progress bars. To show an indeterminate progress bar on the ActionBar simply requires `setProgressBarIndeterminateVisibility`:
+
+```java
+public class MainActivity extends Activity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // Request the feature before setting content view
+        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS); 
+        setContentView(R.layout.activity_main);
+    }
+
+    public void onStart() {
+        // Now you can switch on and off the progress
+        setProgressBarIndeterminateVisibility(true); 
+    }
+    
+    public void onFinish() {
+    	setProgressBarIndeterminateVisibility(false); 
+    }
+}
+```
 
 ## References
 
