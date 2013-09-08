@@ -100,3 +100,4 @@ public class MainActivity extends Activity {
 
  * <http://developer.android.com/reference/android/widget/ProgressBar.html>
  * <http://www.mkyong.com/android/android-progress-bar-example/>
+ * [Activity ProgressBar](http://developer.android.com/reference/android/app/Activity.html#setProgressBarIndeterminateVisibility(boolean))
