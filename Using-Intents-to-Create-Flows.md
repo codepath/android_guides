@@ -93,7 +93,7 @@ public void onSubmit(View v) {
   data.putExtra("name", etName.getText().toString());
   // Activity finished ok, return the data
   setResult(RESULT_OK, data); // set result code and bundle data for response
-  super.finish(); // closes the activity, pass data to parent
+  finish(); // closes the activity, pass data to parent
 } 
 ```
 
