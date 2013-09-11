@@ -75,6 +75,31 @@ There are two ways to add a fragment to an activity: dynamically using **Java** 
 
 The second way is by adding the fragment dynamically in Java using the `FragmentManager`. The `FragmentManager` class and the [FragmentTransaction class](http://developer.android.com/reference/android/app/FragmentTransaction.html) allow you to add, remove and replace fragments in the layout of your activity.
 
+In this case, you need a "placeholder" that can later be replaced with the fragment:
+
+```java
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+ <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <FrameLayout
+       android:id="@+id/your_placeholder"
+       android:layout_height="match_parent">
+    </FrameLayout>
+
+</LinearLayout>
+```
+
+and then you can use the [FragmentManager](http://developer.android.com/reference/android/app/FragmentManager.html) to create a [FragmentTransaction](http://developer.android.com/reference/android/app/FragmentTransaction.html) which allows us to replace the FrameLayout with any fragment at runtime:
+
 ```java
 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 ft.replace(R.id.your_placeholder, new FooFragment());
