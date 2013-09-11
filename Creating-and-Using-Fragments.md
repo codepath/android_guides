@@ -49,7 +49,11 @@ public class FooFragment extends Fragment {
 
 ### Embedding a Fragment in an Activity
 
-There are two ways to add a fragment to an activity: dynamically using **Java** and statically using **XML**. To add the fragment statically, simply embed the fragment in the activity's xml layout file:
+There are two ways to add a fragment to an activity: dynamically using **Java** and statically using **XML**. 
+
+#### Statically
+
+To add the fragment **statically**, simply embed the fragment in the activity's xml layout file:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -73,7 +77,9 @@ There are two ways to add a fragment to an activity: dynamically using **Java** 
 </LinearLayout>
 ```
 
-The second way is by adding the fragment dynamically in Java using the `FragmentManager`. The `FragmentManager` class and the [FragmentTransaction class](http://developer.android.com/reference/android/app/FragmentTransaction.html) allow you to add, remove and replace fragments in the layout of your activity.
+#### Dynamically
+
+The second way is by adding the fragment **dynamically** in Java using the `FragmentManager`. The `FragmentManager` class and the [FragmentTransaction class](http://developer.android.com/reference/android/app/FragmentTransaction.html) allow you to add, remove and replace fragments in the layout of your activity.
 
 In this case, you need a "placeholder" that can later be replaced with the fragment:
 
