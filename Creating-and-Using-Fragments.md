@@ -51,7 +51,7 @@ public class FooFragment extends Fragment {
 
 There are two ways to add a fragment to an activity: dynamically using **Java** and statically using **XML**. 
 
-Before embedding a "support" fragment in an Activity make sure the Activity is changed to extend from `FragmentActivity` which adds support for the fragment manager to all Android versions. Any activity using fragment should look like:
+Before embedding a "support" fragment in an Activity make sure the Activity is changed to extend from `FragmentActivity` which adds support for the fragment manager to all Android versions. Any activity using fragments should make sure to extend from `FragmentActivity`:
 
 ```java
 import android.support.v4.app.FragmentActivity;
