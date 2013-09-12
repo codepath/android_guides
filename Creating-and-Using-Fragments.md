@@ -166,7 +166,7 @@ public class MyListFragment extends Fragment {
         listener = (OnItemSelectedListener) activity;
       } else {
         throw new ClassCastException(activity.toString()
-            + " must implemenet MyListFragment.OnItemSelectedListener");
+            + " must implement MyListFragment.OnItemSelectedListener");
       }
   }
 }
