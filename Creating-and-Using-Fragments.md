@@ -210,7 +210,7 @@ There are several ways to setup tabs with fragments. The easiest is using Action
 
 #### Without ActionBarSherlock
 
-To setup tabs using ActionBar and fragments, you need to add a `TabListener` implementation to your application which defines the behavior of a tab when activated. A good default implementation is:
+To setup tabs using ActionBar and fragments, you need to add a `TabListener` implementation to your application which defines the behavior of a tab when activated. A good default implementation is just adding this to `FragmentTabListener.java`:
 
 ```java
 package com.codepath.example.simpletabsdemo;
