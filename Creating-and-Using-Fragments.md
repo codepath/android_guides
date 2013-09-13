@@ -290,8 +290,9 @@ Tab tab1 = actionBar
 		.setText("First")
 		.setTabListener(
 				new FragmentTabListener<FirstFragment>(R.id.flContainer, this, "first",
-						FirstFragment.class)).setTag("HomeTimelineFragment")
-		.setIcon(R.drawable.ic_home);
+						FirstFragment.class))
+                .setTag("HomeTimelineFragment")
+		.setIcon(R.drawable.ic_first);
 
 actionBar.addTab(tab1);
 actionBar.selectTab(tab1);
@@ -301,8 +302,9 @@ Tab tab2 = actionBar
 		.setText("Second")
 		.setTabListener(
 				new FragmentTabListener<SecondFragment>(R.id.flContainer, this, "second",
-						SecondFragment.class)).setTag("MentionsTimelineFragment")
-		.setIcon(R.drawable.ic_mentions);
+						SecondFragment.class))
+                .setTag("MentionsTimelineFragment")
+		.setIcon(R.drawable.ic_second);
 
 actionBar.addTab(tab2);
 ```
