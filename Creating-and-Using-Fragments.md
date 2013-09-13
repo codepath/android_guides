@@ -183,16 +183,18 @@ import android.support.v4.app.FragmentActivity;
 
 public class RssfeedActivity extends FragmentActivity implements
   MyListFragment.OnItemSelectedListener {
+    DetailFragment fragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rssfeed);
+        fragment = (DetailFragment) getSupportFragmentManager()
+              .findFragmentById(R.id.detailFragment);
     }
 
   @Override
     public void onRssItemSelected(String link) {
-      DetailFragment fragment = (DetailFragment) getSupportFragmentManager()
-              .findFragmentById(R.id.detailFragment);
           if (fragment != null && fragment.isInLayout()) {
             fragment.setText(link);
           }
