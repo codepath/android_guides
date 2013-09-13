@@ -36,6 +36,8 @@ The XML layout file is just like any other layout file, and can be named `fragme
 The Java controller for a fragment looks like:
 
 ```java
+import android.support.v4.app.Fragment;
+
 public class FooFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -146,6 +148,8 @@ Fragments should not directly communicate with each other, only through an activ
 Fragments should define an interface as an inner type and require that the activity must implement this interface:
 
 ```java
+import android.support.v4.app.Fragment;
+
 public class MyListFragment extends Fragment {
   private OnItemSelectedListener listener;
 
