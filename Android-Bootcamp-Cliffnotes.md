@@ -36,5 +36,6 @@ Cliffnotes are references giving you the "most important" Android topics with br
 ### Bonus
 
 * [[Endless Scrolling with AdapterViews]]
+* [[Managing Navigation and Task Stack]]
 
 If there's anything else, feel free to suggest new cliffnote pages and/or help contribute to them!
