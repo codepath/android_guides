@@ -175,6 +175,8 @@ public class MyListFragment extends Fragment {
 and then in the activity:
 
 ```java
+import android.support.v4.app.FragmentActivity;
+
 public class RssfeedActivity extends FragmentActivity implements
   MyListFragment.OnItemSelectedListener {
     @Override
