@@ -175,7 +175,7 @@ public class MyListFragment extends Fragment {
 and then in the activity:
 
 ```java
-public class RssfeedActivity extends Activity implements
+public class RssfeedActivity extends FragmentActivity implements
   MyListFragment.OnItemSelectedListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -185,7 +185,7 @@ public class RssfeedActivity extends Activity implements
 
   @Override
     public void onRssItemSelected(String link) {
-      DetailFragment fragment = (DetailFragment) getFragmentManager()
+      DetailFragment fragment = (DetailFragment) getSupportFragmentManager()
               .findFragmentById(R.id.detailFragment);
           if (fragment != null && fragment.isInLayout()) {
             fragment.setText(link);
