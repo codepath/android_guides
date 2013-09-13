@@ -245,7 +245,49 @@ actionBar.addTab(tab2);
 
 #### With ActionBarSherlock
 
-Using ActionBarSherlock, the code looks almost exactly the same. 
+Using ActionBarSherlock, the code looks almost exactly the same. First, add [the gist code](https://gist.github.com/nesquena/0f0a1f50a2a64721309e) as the `SherlockTabListener` within your application.
+
+Once you have created the `SherlockTabListener` [from this snippet](https://gist.github.com/nesquena/0f0a1f50a2a64721309e) within your app, simply setup the ActionBar and define which tabs you would like to display and attaches listeners for each tab:
+
+```java
+public class ActionBarSherlockActivity extends SherlockFragmentActivity {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_action_bar_sherlock);
+		setupTabs();
+	}
+
+	private void setupTabs() {
+		ActionBar actionBar = getSupportActionBar();
+		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		actionBar.setDisplayShowHomeEnabled(true);
+		actionBar.setDisplayShowTitleEnabled(true);
+
+		Tab tabFirst = actionBar
+				.newTab()
+				.setText("First")
+				.setIcon(R.drawable.ic_launcher)
+				.setTabListener(
+						new SherlockTabListener<FirstFragment>(R.id.flContainer, this, "First",
+								FirstFragment.class));
+
+		actionBar.addTab(tabFirst);
+		actionBar.selectTab(tabFirst);
+
+		Tab tabSecond = actionBar
+				.newTab()
+				.setText("Second")
+				.setIcon(R.drawable.ic_launcher)
+				.setTabListener(
+						new SherlockTabListener<SecondFragment>(R.id.flContainer, this, "Second",
+								SecondFragment.class));
+
+		actionBar.addTab(tabSecond);
+	}
+}
+```
 
 ## References
 
