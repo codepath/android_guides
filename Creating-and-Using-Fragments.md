@@ -204,6 +204,106 @@ public class RssfeedActivity extends FragmentActivity implements
 
 in order to keep the fragment as re-usable as possible.
 
+### Fragments and Tabs
+
+There are several ways to setup tabs with fragments. The easiest is using ActionBar tabs. Note: ActionBar tabs are not supported in Gingerbread, so many people use [ActionBarSherlock](http://actionbarsherlock.com/) when Gingerbread must be supported. Thankfully, the API is more or less identical with a few class name tweaks.
+
+#### Without ActionBarSherlock
+
+To setup tabs using ActionBar and fragments, you need to add a `TabListener` implementation to your application which defines the behavior of a tab when activated. A good default implementation is:
+
+```java
+package com.codepath.example.simpletabsdemo;
+
+import android.app.ActionBar.Tab;
+import android.app.ActionBar.TabListener;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
+
+public class FragmentTabListener<T extends Fragment> implements TabListener {
+	private Fragment mFragment;
+	private final FragmentActivity mActivity;
+	private final String mTag;
+	private final Class<T> mClass;
+	private final int mfragmentContainerId;
+
+	public FragmentTabListener(FragmentActivity activity, String tag, Class<T> clz) {
+		mActivity = activity;
+		mTag = tag;
+		mClass = clz;
+		mfragmentContainerId = android.R.id.content;
+	}
+
+	public FragmentTabListener(int fragmentContainerId, FragmentActivity activity, String tag, Class<T> clz) {
+		mActivity = activity;
+		mTag = tag;
+		mClass = clz;
+		mfragmentContainerId = fragmentContainerId;
+	}
+
+	/* The following are each of the ActionBar.TabListener callbacks */
+
+	public void onTabSelected(Tab tab, android.app.FragmentTransaction ft) {
+		FragmentTransaction sft = mActivity.getSupportFragmentManager().beginTransaction();
+		// Check if the fragment is already initialized
+		if (mFragment == null) {
+			// If not, instantiate and add it to the activity
+			mFragment = Fragment.instantiate(mActivity, mClass.getName());
+			sft.add(mfragmentContainerId, mFragment, mTag);
+		} else {
+			// If it exists, simply attach it in order to show it
+			sft.attach(mFragment);
+		}
+		sft.commit();
+	}
+
+	public void onTabUnselected(Tab tab, android.app.FragmentTransaction ft) {
+		FragmentTransaction sft = mActivity.getSupportFragmentManager().beginTransaction();
+		if (mFragment != null) {
+			// Detach the fragment, because another one is being attached
+			sft.detach(mFragment);
+		}
+		sft.commit();
+	}
+
+	public void onTabReselected(Tab tab, android.app.FragmentTransaction ft) {
+		// User selected the already selected tab. Usually do nothing.
+	}
+}
+```
+
+Next, simply setup the ActionBar and define which tabs you would like to display and attaches listeners for each tab:
+
+```java
+ActionBar actionBar = getActionBar();
+actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+actionBar.setDisplayShowTitleEnabled(true);
+
+Tab tab1 = actionBar
+		.newTab()
+		.setText("First")
+		.setTabListener(
+				new FragmentTabListener<FirstFragment>(R.id.flContainer, this, "first",
+						FirstFragment.class)).setTag("HomeTimelineFragment")
+		.setIcon(R.drawable.ic_home);
+
+actionBar.addTab(tab1);
+actionBar.selectTab(tab1);
+
+Tab tab2 = actionBar
+		.newTab()
+		.setText("Second")
+		.setTabListener(
+				new FragmentTabListener<SecondFragment>(R.id.flContainer, this, "second",
+						SecondFragment.class)).setTag("MentionsTimelineFragment")
+		.setIcon(R.drawable.ic_mentions);
+
+actionBar.addTab(tab2);
+```
+
+#### With ActionBarSherlock
+
 ## References
 
  * <http://developer.android.com/reference/android/app/Fragment.html>
