@@ -257,7 +257,9 @@ public class MainActivity extends FragmentActivity {
 
 #### With ActionBarSherlock
 
-Using ActionBarSherlock, the code looks almost exactly the same. First, add [the gist code](https://gist.github.com/nesquena/0f0a1f50a2a64721309e) as the `SherlockTabListener` within your application.
+Using [ActionBarSherlock](http://actionbarsherlock.com/), the code looks almost exactly the same. First you must download [ActionBarSherlock.zip](https://api.github.com/repos/JakeWharton/ActionBarSherlock/zipball/4.4.0). Import the code into Eclipse and mark the project as a library. Next, add the library to your application. Watch the [video](http://www.youtube.com/watch?v=4GJ6yY1lNNY) on the [FAQ](http://actionbarsherlock.com/faq.html) page for a detailed guide.
+
+With ActionBarSherlock installed and added to your app, add [the gist code](https://gist.github.com/nesquena/0f0a1f50a2a64721309e) as the `SherlockTabListener` within your application.
 
 Once you have created the `SherlockTabListener` [from this snippet](https://gist.github.com/nesquena/0f0a1f50a2a64721309e) within your app, simply setup the ActionBar and define which tabs you would like to display and attaches listeners for each tab:
 
