@@ -301,6 +301,8 @@ public class ActionBarSherlockActivity extends SherlockFragmentActivity {
 }
 ```
 
+With this approach you can have easy tab navigation switching quickly between fragments.
+
 ## References
 
  * <http://developer.android.com/reference/android/app/Fragment.html>
