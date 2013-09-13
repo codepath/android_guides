@@ -215,32 +215,44 @@ To setup tabs using ActionBar and fragments, you need to add a `TabListener` imp
 Once you have created the `FragmentTabListener` [from this snippet](https://gist.github.com/nesquena/f54a991ccb4e5929e0ec) within your app, simply setup the ActionBar and define which tabs you would like to display and attaches listeners for each tab:
 
 ```java
-ActionBar actionBar = getActionBar();
-actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-actionBar.setDisplayShowTitleEnabled(true);
+public class MainActivity extends FragmentActivity {
 
-Tab tab1 = actionBar
-		.newTab()
-		.setText("First")
-		.setTabListener(
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		setupTabs();
+	}
+
+	private void setupTabs() {
+		ActionBar actionBar = getActionBar();
+		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		actionBar.setDisplayShowTitleEnabled(true);
+
+		Tab tab1 = actionBar
+			.newTab()
+			.setText("First")
+			.setIcon(R.drawable.ic_home)
+			.setTag("HomeTimelineFragment")
+			.setTabListener(
 				new FragmentTabListener<FirstFragment>(R.id.flContainer, this, "first",
-						FirstFragment.class))
-                .setTag("HomeTimelineFragment")
-		.setIcon(R.drawable.ic_first);
+								FirstFragment.class));
 
-actionBar.addTab(tab1);
-actionBar.selectTab(tab1);
+		actionBar.addTab(tab1);
+		actionBar.selectTab(tab1);
 
-Tab tab2 = actionBar
-		.newTab()
-		.setText("Second")
-		.setTabListener(
-				new FragmentTabListener<SecondFragment>(R.id.flContainer, this, "second",
-						SecondFragment.class))
-                .setTag("MentionsTimelineFragment")
-		.setIcon(R.drawable.ic_second);
+		Tab tab2 = actionBar
+			.newTab()
+			.setText("Second")
+			.setIcon(R.drawable.ic_mentions)
+			.setTag("MentionsTimelineFragment")
+			.setTabListener(
+			    new FragmentTabListener<SecondFragment>(R.id.flContainer, this, "second",
+								SecondFragment.class));
 
-actionBar.addTab(tab2);
+		actionBar.addTab(tab2);
+	}
+}
 ```
 
 #### With ActionBarSherlock
@@ -266,23 +278,23 @@ public class ActionBarSherlockActivity extends SherlockFragmentActivity {
 		actionBar.setDisplayShowTitleEnabled(true);
 
 		Tab tabFirst = actionBar
-				.newTab()
-				.setText("First")
-				.setIcon(R.drawable.ic_launcher)
-				.setTabListener(
-						new SherlockTabListener<FirstFragment>(R.id.flContainer, this, "First",
+			.newTab()
+			.setText("First")
+			.setIcon(R.drawable.ic_launcher)
+			.setTabListener(
+				new SherlockTabListener<FirstFragment>(R.id.flContainer, this, "First",
 								FirstFragment.class));
 
 		actionBar.addTab(tabFirst);
 		actionBar.selectTab(tabFirst);
 
 		Tab tabSecond = actionBar
-				.newTab()
-				.setText("Second")
-				.setIcon(R.drawable.ic_launcher)
-				.setTabListener(
-						new SherlockTabListener<SecondFragment>(R.id.flContainer, this, "Second",
-								SecondFragment.class));
+			.newTab()
+			.setText("Second")
+			.setIcon(R.drawable.ic_launcher)
+			.setTabListener(
+				new SherlockTabListener<SecondFragment>(R.id.flContainer, this, "Second",
+							SecondFragment.class));
 
 		actionBar.addTab(tabSecond);
 	}
