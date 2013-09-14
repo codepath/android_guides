@@ -11,7 +11,7 @@ These four represent the most common navigation paradigms in Android application
 
 ### ActionBar Tabs
 
-For a description of how to add ActionBar tabs to your Activity, check out the [Fragments cliffnotes] for more details.
+For a description of how to add ActionBar tabs to your Activity, check out the [Fragments cliffnotes](https://github.com/thecodepath/android_guides/wiki/Creating-and-Using-Fragments#fragments-and-tabs) for more details.
 
 ### Navigation Drawer
 
