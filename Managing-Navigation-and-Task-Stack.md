@@ -9,6 +9,41 @@ Navigation between views is an important part of any application. There are seve
 
 These four represent the most common navigation paradigms in Android applications. The specifics for how to implement these can be found in the various links above.
 
+### ActionBar Tabs
+
+For a description of how to add ActionBar tabs to your Activity, check out the [Fragments cliffnotes] for more details.
+
+### Navigation Drawer
+
+First, setting up the navigation drawer requires using the `android.support.v4.widget.DrawerLayout` as the root of the layout for the activity. This view has two nested views: first the `FrameLayout` that will display the fragments and second child is the `ListView` which contains the menu items:
+
+```xml
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <!-- The main content view -->
+    <FrameLayout
+        android:id="@+id/flContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    
+    <!-- The navigation drawer -->
+    <ListView android:id="@+id/lvDrawer"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:choiceMode="singleChoice"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="0dp"
+        android:background="#111"/>
+</android.support.v4.widget.DrawerLayout>
+```
+
+See [Creating a Navigation Drawer](http://developer.android.com/training/implementing-navigation/nav-drawer.html#top) for more details.
+
 ## References
 
  * <http://developer.android.com/design/patterns/navigation.html>
