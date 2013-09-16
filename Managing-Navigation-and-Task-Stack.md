@@ -21,6 +21,22 @@ The following explains how to setup a basic NavigationDrawer that switches diffe
 
 Next, be sure to [download the drawer image assets](http://developer.android.com/downloads/design/Android_Navigation_Drawer_Icon_20130516.zip) necessary and add them into each of your drawable folders.
 
+You also need to setup a view that will represent the individual drawer item in a layout file such as `res/layout/drawer_nav_item.xml`:
+
+```xml
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/text1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceListItemSmall"
+    android:gravity="center_vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:textColor="#111"
+    android:background="?android:attr/activatedBackgroundIndicator"
+    android:minHeight="?android:attr/listPreferredItemHeightSmall"/>
+```
+
 Next, you need to define your fragments that will be displayed within the drawer. These can be any support fragments you define within your application.
 
 Next, let's setup a basic navigation drawer based on the following layout file which has the entire drawer setup in `res/layout/activity_main.xml`:
@@ -65,7 +81,7 @@ public class MainActivity extends FragmentActivity {
 		dlDrawer = (FragmentNavigationDrawer) findViewById(R.id.drawer_layout);
 		// Setup drawer view
 		dlDrawer.setupDrawerConfiguration((ListView) findViewById(R.id.lvDrawer), 
-                     R.layout.drawer_list_item, R.id.flContent);
+                     R.layout.drawer_nav_item, R.id.flContent);
 		// Add nav items
 		dlDrawer.addNavItem("First", "First Fragment", FirstFragment.class);
 		dlDrawer.addNavItem("Second", "Second Fragment", SecondFragment.class);
