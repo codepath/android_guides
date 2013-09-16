@@ -1,6 +1,8 @@
-## Creating the Fragment Navigation Drawer
+In [[Managing Navigation and Task Stack]] cliffnotes, we discuss the various navigational structures available within Android applications. One of the most flexible is the [Navigation Drawer](http://developer.android.com/training/implementing-navigation/nav-drawer.html).
 
-The following explains how to setup a basic NavigationDrawer that switches different fragments into the content area in order to build a basic navigation system. 
+The fully custom navigation drawer is totally managed by the user and can be read about on the [creating the navigation drawer](http://developer.android.com/training/implementing-navigation/nav-drawer.html#top) docs.
+
+This guide instead explains how to setup a basic drawer filled with navigation items that switch different fragments into the content area. In this way, you can define multiple fragments, and then define the list of options which will display in the drawers items list. Each item when clicked will switch the relevant fragment into the activity's container view.
 
 ### Download Assets
 
