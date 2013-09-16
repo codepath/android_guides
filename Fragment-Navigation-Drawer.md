@@ -2,6 +2,8 @@
 
 The following explains how to setup a basic NavigationDrawer that switches different fragments into the content area in order to build a basic navigation system. 
 
+### Copy In FragmentNavigationDrawer
+
 First, let's define our [FragmentNavigationDrawer.java](https://gist.github.com/nesquena/4e9f618b71c30842e89c) file by copying the text from the [linked gist](https://gist.github.com/nesquena/4e9f618b71c30842e89c). 
 
 ### Download Assets
