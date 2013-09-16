@@ -15,8 +15,6 @@ For a description of how to add ActionBar tabs to your Activity, check out the [
 
 ### Navigation Drawer
 
-First, setting up the navigation drawer requires using the `android.support.v4.widget.DrawerLayout` as the root of the layout for the activity. This view has two nested views: first the `FrameLayout` that will display the fragments and second child is the `ListView` which contains the menu items. 
-
 To create a basic navigation drawer that toggles between displaying different fragments, check out the
 [[Fragment Navigation Drawer]] cliffnotes. For more details about creating a custom drawer check out the [Creating a Navigation Drawer](http://developer.android.com/training/implementing-navigation/nav-drawer.html#top) docs.
 
