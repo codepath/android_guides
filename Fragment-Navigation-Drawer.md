@@ -8,7 +8,7 @@ First, let's define our [FragmentNavigationDrawer.java](https://gist.github.com/
 
 ### Download Assets
 
-Next, be sure to [download the drawer image assets](http://developer.android.com/downloads/design/Android_Navigation_Drawer_Icon_20130516.zip) necessary and add them into each of your drawable folders.
+Next, be sure to [download the drawer image assets](http://developer.android.com/downloads/design/Android_Navigation_Drawer_Icon_20130516.zip) necessary and add the images into each of your drawable folders.
 
 ### Setup Drawer Layout Files
 
