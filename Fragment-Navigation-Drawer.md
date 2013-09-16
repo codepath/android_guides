@@ -2,6 +2,8 @@ In [[Managing Navigation and Task Stack]] cliffnotes, we discuss the various nav
 
 This guide instead explains how to setup a basic drawer filled with navigation items that switch different fragments into the content area. In this way, you can define multiple fragments, and then define the list of options which will display in the drawers items list. Each item when clicked will switch the relevant fragment into the activity's container view.
 
+![Navigation Drawer](http://i.imgur.com/GG6JYZC.png)
+
 ### Download Assets
 
 Next, be sure to [download the drawer image assets](http://developer.android.com/downloads/design/Android_Navigation_Drawer_Icon_20130516.zip) necessary and add the images into each of your drawable folders.
