@@ -28,6 +28,16 @@ You also need to setup a view that will represent the individual drawer item in 
     android:minHeight="?android:attr/listPreferredItemHeightSmall"/>
 ```
 
+Then in your `res/values/strings.xml` add the following:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+</resources>
+```
+
 ## Define Fragments
 
 Next, you need to define your fragments that will be displayed within the drawer. These can be any support fragments you define within your application.
