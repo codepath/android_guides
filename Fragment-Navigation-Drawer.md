@@ -2,10 +2,6 @@
 
 The following explains how to setup a basic NavigationDrawer that switches different fragments into the content area in order to build a basic navigation system. 
 
-### Copy In FragmentNavigationDrawer
-
-First, let's define our [FragmentNavigationDrawer.java](https://gist.github.com/nesquena/4e9f618b71c30842e89c) file by copying the text from the [linked gist](https://gist.github.com/nesquena/4e9f618b71c30842e89c). 
-
 ### Download Assets
 
 Next, be sure to [download the drawer image assets](http://developer.android.com/downloads/design/Android_Navigation_Drawer_Icon_20130516.zip) necessary and add the images into each of your drawable folders.
@@ -37,6 +33,10 @@ Then in your `res/values/strings.xml` add the following:
     <string name="drawer_close">Close navigation drawer</string>
 </resources>
 ```
+
+### Copy In FragmentNavigationDrawer
+
+First, let's define our [FragmentNavigationDrawer.java](https://gist.github.com/nesquena/4e9f618b71c30842e89c) file by copying the text from the [linked gist](https://gist.github.com/nesquena/4e9f618b71c30842e89c). 
 
 ## Define Fragments
 
