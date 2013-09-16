@@ -40,11 +40,11 @@ Then in your `res/values/strings.xml` add the following:
 
 First, let's define our [FragmentNavigationDrawer.java](https://gist.github.com/nesquena/4e9f618b71c30842e89c) file by copying the text from the [linked gist](https://gist.github.com/nesquena/4e9f618b71c30842e89c). 
 
-## Define Fragments
+### Define Fragments
 
 Next, you need to define your fragments that will be displayed within the drawer. These can be any support fragments you define within your application.
 
-## Setup Drawer in Activity
+### Setup Drawer in Activity
 
 Next, let's setup a basic navigation drawer based on the following layout file which has the entire drawer setup in `res/layout/activity_main.xml`:
 
