@@ -353,6 +353,45 @@ public class ActionBarSherlockActivity extends SherlockFragmentActivity {
 
 With this approach you can have easy tab navigation switching quickly between fragments.
 
+### ActionBar Menu Items and Fragments
+
+One common case is the need for fragment-specific menu items that only show up for that fragment. This can be done by adding an `onCreateOptionsMenu` method to the fragment directly. This works just like the one for the activity:
+
+```java
+@Override
+public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+   inflater.inflate(R.menu.fragment_menu, menu);
+}
+```
+
+You then also need to notify the fragment that it's menu items should be loaded within the fragment's `onCreate` method:
+
+```java
+@Override
+public void onCreate(Bundle savedInstanceState) {
+     super.onCreate(savedInstanceState);
+     setHasOptionsMenu(true);
+}  
+```
+
+Clicks can be handled using `onClick` property as usual or more typically in this case, using the `` method in the fragment:
+
+```java
+@Override
+public boolean onOptionsItemSelected(MenuItem item) {
+   // handle item selection
+   switch (item.getItemId()) {
+      case R.id.edit_item:
+         // do s.th.
+         return true;
+      default:
+         return super.onOptionsItemSelected(item);
+   }
+}
+```
+
+Note that the fragment’s method is called only when the Activity didn’t consume the event!
+
 ## References
 
  * <http://developer.android.com/reference/android/app/Fragment.html>
