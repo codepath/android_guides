@@ -187,6 +187,8 @@ public class SomeFragment extends Fragment {
 }
 ```
 
+[This chart](http://developer.android.com/images/fragment_lifecycle.png) has the lifecycle displayed visually.
+
 ### Fragment <-> Activity Communication
 
 Fragments should not directly communicate with each other, only through an activity.  Fragments should be modular and reusable components. Let the activity respond to intents and fragment callbacks.
