@@ -132,14 +132,62 @@ If the fragment should always be in the activity, use XML to statically add but 
 Fragment has many methods which can be overriden to plug into the lifecycle (similar to an Activity):
 
 - `onAttach()` is called when a fragment is connected to an activity
-- `onCreateView()` method is called by Android once the Fragment should create
-- `onDestroyView()` method is called when fragment is being destroyed
-- `onActivityCreated()` is called when host activity is created
-- `onStart()` method is called once the fragment gets visible
+- `onCreateView()` is called by Android once the Fragment should create
+- `onCreate()` is called to do initial creation of the fragment.
+- `onDestroyView()` is called when fragment is being destroyed
+- `onActivityCreated()` is called when host activity has completed its `onCreate()`.
+- `onStart()` is called once the fragment gets visible
 - `onResume()` - Allocate “expensive” resources such as registering for location, sensor updates, etc.
 - `onPause()` - Release “expensive” resources. Commit any changes.
 
-The most common are `onCreateView` which is in almost every fragment to setup the view and `onActivityCreated` used for setting up things that can only take place once the Activity is created.
+The most common are `onCreateView` which is in almost every fragment to setup the view, `onCreate` for any initialization and `onActivityCreated` used for setting up things that can only take place once the Activity is created.
+
+Here's an example of how you might use `onCreate` and `onCreateView`:
+
+```java
+public class SomeFragment extends Fragment {
+	ThingsAdapter adapter;
+	FragmentActivity listener;
+	
+	// The onCreateView method is called when the Fragment instance should create its View object hierarchy. 
+	// Use onCreateView to get a handle to views as soon as they are freshly inflated
+	@Override
+	public View onCreateView(LayoutInflater inf, ViewGroup parent, Bundle savedInstanceState) {
+		View v =  inf.inflate(R.layout.fragment_some, parent, false);
+		ListView lv = (ListView) v.findViewById(R.id.lvSome);
+		lv.setAdapter(adapter);
+		return v;
+	}
+	
+	// The onCreate method is called when the Fragment instance is being created, or re-created.
+	// Use onCreate for any standard setup that does not require the activity to be completed
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		ArrayList<Thing> things = new ArrayList<Thing>();
+		adapter = new ThingsAdapter(getActivity(), things);
+	}
+	
+	// Accessing the view hierarchy of the parent activity must be done in the onActivityCreated, not sooner.
+	// At this point, it is safe to search for View objects by their ID, for example.
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+	}
+	
+	public void addAll(ArrayList<Thing> things) {
+		adapter.addAll(things);
+	}
+	
+	// The onAttach method is called when the Fragment instance is associated with an Activity instance. 
+	// This does not mean the Activity is fully initialized.
+	@Override
+	public void onAttach(Activity activity) {
+		super.onAttach(activity);
+		this.listener = (FragmentActivity) activity;
+	}
+}
+```
 
 ### Fragment <-> Activity Communication
 
