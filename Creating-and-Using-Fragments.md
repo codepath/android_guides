@@ -374,7 +374,7 @@ public void onCreate(Bundle savedInstanceState) {
 }  
 ```
 
-Clicks can be handled using `onClick` property as usual or more typically in this case, using the `` method in the fragment:
+Clicks can be handled using `onClick` property as usual or more typically in this case, using the `onOptionsItemSelected` method in the fragment:
 
 ```java
 @Override
@@ -390,7 +390,7 @@ public boolean onOptionsItemSelected(MenuItem item) {
 }
 ```
 
-Note that the fragment’s method is called only when the Activity didn’t consume the event!
+Note that the fragment’s method is called only when the Activity didn’t consume the event first. Be sure to check out a more detailed guide about [fragments and action bar](http://www.grokkingandroid.com/adding-action-items-from-within-fragments/) if you have more questions.
 
 ## References
 
