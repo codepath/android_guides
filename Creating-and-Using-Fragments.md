@@ -44,6 +44,8 @@ public class FooFragment extends Fragment {
       Bundle savedInstanceState) {
       // Defines the xml file for the fragment
       View view = inflater.inflate(R.layout.foo, container, false);
+      // Setup handles to view objects here
+      // etFoo = (EditText) v.findViewById(R.id.etFoo);
       return view;
     }
 }
@@ -148,17 +150,15 @@ Here's an example of how you might use `onCreate` and `onCreateView`:
 public class SomeFragment extends Fragment {
 	ThingsAdapter adapter;
 	FragmentActivity listener;
-	
-	// The onCreateView method is called when the Fragment instance should create its View object hierarchy. 
-	// Use onCreateView to get a handle to views as soon as they are freshly inflated
+
+	// The onAttach method is called when the Fragment instance is associated with an Activity instance. 
+	// This does not mean the Activity is fully initialized.
 	@Override
-	public View onCreateView(LayoutInflater inf, ViewGroup parent, Bundle savedInstanceState) {
-		View v =  inf.inflate(R.layout.fragment_some, parent, false);
-		ListView lv = (ListView) v.findViewById(R.id.lvSome);
-		lv.setAdapter(adapter);
-		return v;
+	public void onAttach(Activity activity) {
+		super.onAttach(activity);
+		this.listener = (FragmentActivity) activity;
 	}
-	
+
 	// The onCreate method is called when the Fragment instance is being created, or re-created.
 	// Use onCreate for any standard setup that does not require the activity to be completed
 	@Override
@@ -168,23 +168,21 @@ public class SomeFragment extends Fragment {
 		adapter = new ThingsAdapter(getActivity(), things);
 	}
 	
-	// Accessing the view hierarchy of the parent activity must be done in the onActivityCreated, not sooner.
+	// The onCreateView method is called when Fragment should create its View object hierarchy. 
+	// Use onCreateView to get a handle to views as soon as they are freshly inflated
+	@Override
+	public View onCreateView(LayoutInflater inf, ViewGroup parent, Bundle savedInstanceState) {
+		View v =  inf.inflate(R.layout.fragment_some, parent, false);
+		ListView lv = (ListView) v.findViewById(R.id.lvSome);
+		lv.setAdapter(adapter);
+		return v;
+	}
+	
+	// Accessing the view hierarchy of the parent activity must be done in the onActivityCreated
 	// At this point, it is safe to search for View objects by their ID, for example.
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-	}
-	
-	public void addAll(ArrayList<Thing> things) {
-		adapter.addAll(things);
-	}
-	
-	// The onAttach method is called when the Fragment instance is associated with an Activity instance. 
-	// This does not mean the Activity is fully initialized.
-	@Override
-	public void onAttach(Activity activity) {
-		super.onAttach(activity);
-		this.listener = (FragmentActivity) activity;
 	}
 }
 ```
