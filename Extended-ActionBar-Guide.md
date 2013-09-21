@@ -1,5 +1,3 @@
-# Advanced ActionBar
-
 ## Overview
 
 An ActionBar is located at the top of an activity and it can display any number of status or navigation related elements such as title, icon, buttons, or arbitrary action-related views.
