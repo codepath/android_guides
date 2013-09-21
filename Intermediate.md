@@ -23,4 +23,4 @@ More reference topics:
 * [[Content Providers]]
 * [[Using Data Loaders]]
 * [[Creating an App Widget]]
-* [[Using the ViewPager]]
+* [[Implementing the ViewPager]]
