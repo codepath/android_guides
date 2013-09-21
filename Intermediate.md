@@ -14,7 +14,7 @@
 * [[Flexible User Interfaces]]
 * [[Defining Custom Views]]
 * [[Contextual Menus]]
-* [[ActionBar Guide]]
+* [[Extended ActionBar Guide]]
 * [[Push Notifications]]
 * [[Profiling Android Apps]]
 
