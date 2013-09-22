@@ -20,13 +20,13 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
    * Mac: Open dmg and drag apps to Applications directory
 5. Run Genymotion application
 6. Sign in and add your first virtual device (Nexus S - 4.2.2 with Google Apps - API 17)
-8. Install the Eclipse Plugin
+7. Install the Eclipse Plugin
    * Go to the "Help/Install New Software..." menu
    * Add a new software site: Genymobile - http://plugins.genymotion.com/eclipse
    * Check all genymobile entries
    * Accept licenses and install
    * Restart eclipse
-9. Click the genymobile icon ![Genymobile](https://cloud.genymotion.com/static/images/doc/genymotion-plugin-eclipse-button.png) and click "Start" on your virtual device.
-10. Wait for device to boot up and then run through initial setup
+8. Click the genymobile icon ![Genymobile](https://cloud.genymotion.com/static/images/doc/genymotion-plugin-eclipse-button.png) and click "Start" on your virtual device.
+9. Wait for device to boot up and then run through initial setup
 
 ## References
