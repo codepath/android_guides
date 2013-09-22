@@ -18,5 +18,7 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 4. Install the Genymotion Emulator
    * Windows: Run the msi installer
    * Mac: Open dmg and drag apps to Applications directory
+5. Run Genymotion application
+6. Sign in and add your first virtual device (Nexus S - 4.2.2 with Google Apps - API 17)
 
 ## References
