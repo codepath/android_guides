@@ -23,3 +23,4 @@ Welcome to the Codepath Android Guides!
 * [[Managing Navigation and Task Stack]]
 * [[Fragment Navigation Drawer]]
 * [[Using Hardware, Sensors and Device Data]]
+* [[Google Maps Fragment Guide]]
