@@ -10,7 +10,7 @@ First, let's download and setup the Google Play Services SDK. Open **Eclipse ⇒
 
 ![Play Services](http://www.androidhive.info/wp-content/uploads/2013/08/downloading-google-play-services-sdk.png)
 
-### Install Google Play Services
+### Import Google Play Services
 
 After downloading play services we need to import it to Eclipse which will be used as a library for our maps project.
 
@@ -23,9 +23,45 @@ After downloading play services we need to import it to Eclipse which will be us
 
 ![Google Play Load](http://www.androidhive.info/wp-content/uploads/2013/08/importing-google-play-services.png)
 
-### Register for API Key
+### Retrieve your SHA-1 Fingerprint
 
+Open your terminal and execute the following command to generate SHA-1 fingerprint necessary to get your API key from Google.
 
+On Windows:
+
+```
+keytool -list -v -keystore "%USERPROFILE%\.android\debug.keystore" -alias androiddebugkey -storepass android -keypass android
+```
+
+On Mac or Linux:
+
+```
+keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
+```
+
+In the output you can see SHA 1 finger print:
+
+![Fingerprint](http://www.androidhive.info/wp-content/uploads/2013/08/android-google-maps-sha-1-fingerprint.png)
+
+### Register for an API Key
+
+Now open Google API Console, select Services on left side and turn on Google Maps Android API v2.
+
+![Services](http://www.androidhive.info/wp-content/uploads/2013/08/android-google-console-maps-api.png)
+
+Now select API Access on left side and on the right side click on Create new Android key…
+
+![Access](http://www.androidhive.info/wp-content/uploads/2013/08/google-console-creating-a-key.png)
+
+It will popup a window asking the SHA1 and package name. Enter your `SHA 1` and your `android project package name` separated by semicolon ; and click on create. For now enter:
+
+```
+BE:03:E1:44:39:7B:E8:17:02:9F:7F:B7:98:82:EA:DF:84:D0:FB:6A;com.example.mapdemo
+```
+
+Note the API Key for use in the next step:
+
+![Key](http://www.androidhive.info/wp-content/uploads/2013/08/google-console-android-maps-api-key1.png)
 
 ### Import Maps Demo
 
@@ -42,6 +78,10 @@ Enter your API Key into the meta data for `com.google.android.maps.v2.API_KEY`:
    android:name="com.google.android.maps.v2.API_KEY"
    android:value="YOUR-KEY-HERE" />
 ```
+
+Now we need to use Google Play Services project as a library to use project. So right click on project and select properties. In the properties window on left side select Android. On the right you can see a Add button under library section. Click it and select google play services project which we imported previously.
+
+![Library](http://www.androidhive.info/wp-content/uploads/2013/08/linking-google-play-services-to-project-2.png)
 
 ### Genymotion
 
