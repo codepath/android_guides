@@ -108,6 +108,12 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 8. Click the genymobile icon ![Genymobile](https://cloud.genymotion.com/static/images/doc/genymotion-plugin-eclipse-button.png) and click "Start" on your virtual device.
 9. Wait for device to boot up and then run through initial setup
 
+### Conclusion
+
+At this point, you should have the Google map displaying in your sample application. If you don't, try restarting the emulator and uninstalling / reinstalling the map demo application. Eventually you will see the maps if you registered your key properly.
+
+For more information including how to use the maps, check out the source of this article on [androidhive](http://www.androidhive.info/2013/08/android-working-with-google-maps-v2/).
+
 ## References
 
 * <http://www.androidhive.info/2013/08/android-working-with-google-maps-v2/>
