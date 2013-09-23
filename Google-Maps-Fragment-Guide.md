@@ -4,6 +4,32 @@ Many Android applications require the use of an embedded interactive map. On And
 
 In this guide, we will walk you through the step by step process of getting an embedded Google Map working within an Android emulator.
 
+### Install Google Play Services
+
+First, let's download and setup the Google Play Services SDK. Open **Eclipse ⇒ Windows ⇒ Android SDK** Manager and check whether you have already downloaded Google Play Services or not under Extras section. If not select play services and install the package.
+
+![Play Services](http://www.androidhive.info/wp-content/uploads/2013/08/downloading-google-play-services-sdk.png)
+
+### Register for API Key
+
+
+
+### Import Maps Demo
+
+Now that we have our Genymotion emulator properly setup, let's import the [demo application](https://github.com/thecodepath/android-google-maps-demo) we can use to verify if maps are showing up correctly. 
+
+1. Download the [Maps Demo](https://github.com/thecodepath/android-google-maps-demo/archive/master.zip) application and extract the files.
+2. Run "File...Import...Existing Android Code Into Workspace" and hit "Finish"
+3. Expand MapDemo application and open up the "AndroidManifest.xml"
+
+Enter your API Key into the meta data for `com.google.android.maps.v2.API_KEY`:
+
+```xml
+<meta-data
+   android:name="com.google.android.maps.v2.API_KEY"
+   android:value="YOUR-KEY-HERE" />
+```
+
 ### Genymotion
 
 The first step to getting Google Maps working on your emulator is to download a third-party emulator called [Genymotion](http://www.genymotion.com/). The reason for this is that the official emulator does a terrible job of supporting the Google Play Services. While it is possible to get the Intel HAXM fast emulator working with the Play Services SDK, at the moment it's far more trouble then it's worth. 
