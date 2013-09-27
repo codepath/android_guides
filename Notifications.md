@@ -50,7 +50,8 @@ private void createNotification(int nId, int iconRes, String title, String body)
 			.setContentTitle(title)
 			.setContentText(body);
 
-	NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+	NotificationManager mNotificationManager = 
+            (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 	// mId allows you to update the notification later on.
 	mNotificationManager.notify(nId, mBuilder.build());
 }
