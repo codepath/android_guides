@@ -97,7 +97,7 @@ You can also apply to a particular activity in the manifest:
 <activity android:theme="@style/CustomTheme">
 ```
 
-You can see more about all this in the [official styles guide](http://developer.android.com/guide/topics/ui/themes.html)
+You can see more about all this in the [official styles guide](http://developer.android.com/guide/topics/ui/themes.html).
 
 ## Tools
 
