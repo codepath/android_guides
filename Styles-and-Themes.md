@@ -1,5 +1,3 @@
-# Cleaning Up Views with Styles and Themes
-
 ## Overview
 
 Styles in Android allow you to define the look and feel, for example colors and fonts, of Android components in XML resource files. This way you have to set common style attributes only once in one central place.
