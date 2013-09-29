@@ -44,7 +44,7 @@ In many cases, you may want to extend a style and modify certain attributes. The
 <style name="LargeBlueFont" parent="@style/LargeFont">
   <item name="android:textColor">#00007f</item>
 </style>
-``` 
+```
 
 If you want to inherit from styles that you've defined yourself, you do not even have to use the parent attribute. Instead, as a shortcut just prefix the name of the style you want to inherit to the name of your new style, separated by a period:
 
