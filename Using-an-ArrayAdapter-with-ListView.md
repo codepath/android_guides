@@ -18,7 +18,7 @@ By default, this will convert the items in the array into View by calling toStri
 
 ## Using a Custom ArrayAdapter
 
-Defining the Model
+### Defining the Model
 
 Given a Java object that has certain fields:
 
@@ -31,7 +31,7 @@ public class User {
 
 We can create a custom listview of user objects by subclassing ArrayAdapter, describing how to translate the object into a view within that class and then using it like any other adapter.
 
-## Constructing Models
+### Constructing Models
 
 In order to create models, you will likely be loading the data from a source (i.e database or JSON API), so you should create two additional methods in each model to allow for construction of a list or a singular item:
 
@@ -59,7 +59,7 @@ public class User {
 }
 ```
 
-## Creating the View Template
+### Creating the View Template
 
 First, we need to create an XML layout that represents the template for the item:
 
@@ -80,7 +80,7 @@ First, we need to create an XML layout that represents the template for the item
 </LinearLayout>
 ```
 
-Defining the Adapter
+### Defining the Adapter
 
 Next, we need to define the Adapter to describe the process of converting the Java object to a View (in the getView method):
 
