@@ -8,6 +8,7 @@
 * [[Styles and Themes]]
 * [[Video and Audio Playback]]
 * [[Getting Started with Maven]]
+* [[Getting Started with Gradle]]
 * [[Android Unit and Integration Testing]]
 * [[Flexible User Interfaces]]
 * [[Defining Custom Views]]
