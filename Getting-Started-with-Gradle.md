@@ -37,7 +37,7 @@ gradle -v
 
 To use Gradle in your Android application, you have to create a `build.gradle` file:
 
-```
+```bash
 buildscript {
   repositories {
     mavenCentral()
