@@ -79,6 +79,8 @@ android {
 }
 ```
 
+Note that with Gradle 1.6 as downloaded above, the **SDK version must be specified as 17**. Changing to 18 at this time may break the Gradle build.
+
 ## Using Gradle
 
 The following commands can be used now. To do a full build:
