@@ -10,7 +10,7 @@ Extract the Gradle distribution to a folder, which we will call GRADLE_HOME. Add
 
 Define the ANDROID_HOME environment variable which points to your Android SDK.
 
-```
+```bash
 // Unix
 export ANDROID_HOME=~/android-sdks
 
@@ -20,7 +20,7 @@ set ANDROID_HOME=C:\android-sdks
 
 Afterwards, you have to configure the GRADLE_HOME environment variable on your path:
 
-```
+```bash
 export GRADLE_HOME=/your_gradle_directory
 export PATH=$PATH:$GRADLE_HOME/bin
 ```
