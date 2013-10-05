@@ -92,8 +92,8 @@ public class ContactFetcher {
 		Cursor c = cursorLoader.loadInBackground();
 		if (c.moveToFirst()) {
 			do {
-				Contact contact = loadContactData(c);
-				listContacts.add(contact);
+			    Contact contact = loadContactData(c);
+			    listContacts.add(contact);
 			} while (c.moveToNext());
 		}
 		c.close();
@@ -169,6 +169,109 @@ public class ContactFetcher {
 	}
 }
 ```
+
+### Activity
+
+Now we want to populate the data into a ListView. First, the custom adapter:
+
+```java
+public class ContactsAdapter extends ArrayAdapter<Contact> {
+
+	public ContactsAdapter(Context context, ArrayList<Contact> contacts) {
+		super(context, 0, contacts);
+	}
+
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+		// Get the data item
+		Contact contact = getItem(position);
+		// Check if an existing view is being reused, otherwise inflate the view
+		View view = convertView;
+		if (view == null) {
+			LayoutInflater inflater = LayoutInflater.from(getContext());
+			view = inflater.inflate(R.layout.adapter_contact_item, null);
+		}
+		// Populate the data into the template view using the data object
+		TextView tvName = (TextView) view.findViewById(R.id.tvName);
+		TextView tvEmail = (TextView) view.findViewById(R.id.tvEmail);
+		TextView tvPhone = (TextView) view.findViewById(R.id.tvPhone);
+		tvName.setText(contact.name);
+		if (contact.emails.get(0) != null) {
+			tvEmail.setText(contact.emails.get(0).address);
+		}
+		if (contact.numbers.get(0) != null) {
+			tvPhone.setText(contact.numbers.get(0).number);
+		}
+		return view;
+	}
+
+}
+```
+
+and creating the adapter item xml:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="3dp"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Bob Marley"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tvName"
+        android:text="(567) 789-5889"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#575757"
+        android:layout_alignBaseline="@+id/tvPhone"
+        android:layout_alignBottom="@+id/tvPhone"
+        android:layout_alignParentRight="true"
+        android:text="bob@fake.com"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</RelativeLayout>
+```
+
+and then hooking up the ListView in the activity:
+
+```java
+public class MainActivity extends Activity {
+	private ArrayList<Contact> listContacts;
+	private ListView lvContacts;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		listContacts = new ContactFetcher(this).fetchAll();
+		lvContacts = (ListView) findViewById(R.id.lvContacts);
+		ContactsAdapter adapterContacts = new ContactsAdapter(this, listContacts);
+		lvContacts.setAdapter(adapterContacts);
+	}
+}
+```
+
+And now we should see the list of phone contacts!
+
+![Screen](http://i.imgur.com/4AHa6KN.png)
 
 ## References
 
