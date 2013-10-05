@@ -1,3 +1,5 @@
+Getting started with Gradle on the command-line is easy!
+
 ## Install Gradle
 
 Download **Gradle 1.6** from the [Gradle web site](http://services.gradle.org/distributions/gradle-1.6-bin.zip).
@@ -25,6 +27,10 @@ export GRADLE_HOME=/your_gradle_directory
 export PATH=$PATH:$GRADLE_HOME/bin
 ```
 
+## Install API 17 and Build Tools
+
+In order for Gradle to work, ensure you have the API 17 SDK installed including the **latest Android SDK Platform-tools and Android SDK Build-tools**. Check this in the Android SDK Manager from within Eclipse. 
+
 ## Testing Gradle
 
 Finally, you can check your working installation by running:
@@ -32,10 +38,6 @@ Finally, you can check your working installation by running:
 ```
 gradle -v
 ```
-
-## Install API 17 and Build Tools
-
-In order for Gradle to work, make sure you open the Android SDK Manager and ensure you have the API 17 SDK installed including the **latest Android SDK Platform-tools and Android SDK Build-tools**.
 
 ##  Gradle Project Setup
 
