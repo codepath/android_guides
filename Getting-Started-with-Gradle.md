@@ -33,6 +33,10 @@ Finally, you can check your working installation by running:
 gradle -v
 ```
 
+## Install API 17 and Build Tools
+
+In order for Gradle to work, make sure you open the Android SDK Manager and ensure you have the API 17 SDK installed including the **latest Android SDK Platform-tools and Android SDK Build-tools**.
+
 ##  Gradle Project Setup
 
 To use Gradle in your Android application, you have to create a `build.gradle` file:
@@ -97,7 +101,7 @@ BUILD SUCCESSFUL
 Total time: 5.738 secs
 ```
 
-Then Gradle is successfully setup for your project.
+Then Gradle is successfully setup for your project. If you get an error, try googling the error. Usually the issue is that you need to [install the build tools](http://stackoverflow.com/questions/16619773/failed-to-import-new-gradle-project-failed-to-find-build-tools-revision-17-0-0) or make sure to use Gradle 1.6.
 
 ## Resources
 
