@@ -1,6 +1,6 @@
 ## Overview
 
-The following guide walks step by step through loading contacts from the phone using Content Providers. 
+The following guide walks step by step through loading contacts from the phone using Content Providers. See [the full sample here](https://github.com/thecodepath/contacts-loader-example) for the source code.
 
 ### Permissions
 
