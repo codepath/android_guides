@@ -3,6 +3,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 ### Week 1 - Fundamentals and Views
 
 * [[Android Directory Structure]]
+* [[Using String Resources]]
 * [[Constructing View Layouts]]
 * [[Defining Views and their Attributes]] 
 * [[Working with the Soft Keyboard]]
