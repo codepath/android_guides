@@ -104,6 +104,7 @@ public class UsersAdapter extends ArrayAdapter<User> {
        TextView tvHome = (TextView) view.findViewById(R.id.tvHome);
        tvName.setText(user.name);
        tvHome.setText(user.hometown);
+       return view;
    }
 }
 ```
