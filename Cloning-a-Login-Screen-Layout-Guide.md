@@ -20,7 +20,7 @@ Generate a new Android project that uses the highlight icon as the launcher icon
 
 <img width="400" src="http://imgur.com/GiWY8gB.png" />
 
-Generate the project with no additional changes.
+Generate the project with **minimum SDK of 13** and no additional changes.
 
 ### Start Basic Layout
 
@@ -216,6 +216,102 @@ The resulting XML layout might look like:
 
 </RelativeLayout>
 ```
+
+### ActionBar Styling
+
+Biggest missing style now is the top ActionBar that is displayed on the screen. In the mockup, this has a blue background and smaller text. Let's fix that now. First, let's change the copy to say "Sign in":
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="sign_in">Sign in</string>
+</resources>
+```
+
+and then actually go into the `AndroidManifest.xml` and change the label:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    .... >
+
+    <application
+        ... >
+        <activity
+            ...
+            android:label="@string/sign_in" >
+        </activity>
+    </application>
+</manifest>
+```
+
+Next, we need to change the background color by tweaking the Theme's style. Let's tweak the theme by adding the following to `res/values/styles.xml`:
+
+```xml
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="Theme.HighlightCopy" parent="@android:style/Theme.Holo">
+       <item name="android:actionBarStyle">@style/Theme.HighlightCopy.ActionBar</item>
+    </style>
+
+    <style name="Theme.HighlightCopy.ActionBar" parent="@android:style/Widget.Holo.ActionBar">
+       <item name="android:background">#33b5fa</item>
+    </style>
+</resources>
+```
+
+and then apply that theme to the Activity in the `AndroidManifest.xml`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    .... >
+
+    <application
+        ... >
+        <activity
+            ...
+            android:label="@string/sign_in"
+            android:theme="@style/Theme.HighlightCopy" >
+        </activity>
+    </application>
+</manifest>
+```
+
+Now the screen looks like:
+
+<img width="400" src="http://i.imgur.com/QOjbrcH.png" />
+
+### Switch TextView to use HTML
+
+The final tweak is let's programmatically cause the TextView to display the "let us know" link as HTML. In the Java activity:
+
+```java
+public class MainActivity extends Activity {
+	TextView tvFeedback;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		tvFeedback = (TextView) findViewById(R.id.textView4);
+		tvFeedback.setText(Html.fromHtml(getString(R.string.feedback_label)));
+	}
+}
+```
+
+This applies the text to the TextView as HTML and displays a clickable link in the body.
+
+### Conclusion
+
+Here's the "final" result:
+
+<img width="400" src="http://i.imgur.com/ttNmQbK.png" />
+
+In comparison to the original mockup:
+
+<img width="400" src="http://imgur.com/GiWY8gB.png" />
+
+While this is by no means a perfect clone, this guide shows the process of taking a mockup and rebuilding that step by step.
 
 ## References
 
