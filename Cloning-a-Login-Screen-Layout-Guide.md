@@ -116,6 +116,103 @@ Now let's drag on the different TextView and set the appropriate text values. Wi
 
 <img width="400" src="http://i.imgur.com/udYbT3n.png" />
 
+#### TextView Styling
+
+Let's add basic styling:
+
+ * TextView should be set to "14sp" and `textColor` of "#7e7e7e"
+ * "To use Highlight" view should be set to `textColor` of "#575757"
+ * "Why not email?" view `textStyle` should be set to bold 
+ * "We won't post things" should be set to `textColor` of "#bbbbbb" and `textSize` of 12sp, and use `layout_centerHorizontal` to center the text.
+ * Estimate margin between elements based on mockup
+
+The resulting XML might look like:
+
+```xml
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    ... >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/highlight_preamble"
+        android:textColor="#575757"
+        android:textSize="14sp" />
+
+    <ImageButton
+        android:id="@+id/btnFacebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="10dp"
+        android:background="@null"
+        android:contentDescription="@string/facebook_desc"
+        android:src="@drawable/facebook_connect" />
+
+    <ImageButton
+        android:id="@+id/btnLinkedIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnFacebook"
+        android:layout_below="@+id/btnFacebook"
+        android:layout_marginTop="10dp"
+        android:background="@null"
+        android:contentDescription="@string/linkedin_desc"
+        android:src="@drawable/linkedin_connect" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnLinkedIn"
+        android:layout_below="@+id/btnLinkedIn"
+        android:layout_marginTop="23dp"
+        android:text="@string/why_not_email_title"
+        android:textColor="#7e7e7e"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="10dp"
+        android:text="@string/why_not_email_body"
+        android:textColor="#7e7e7e" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_below="@+id/textView3"
+        android:layout_marginTop="10dp"
+        android:text="@string/feedback_label"
+        android:textColor="#7e7e7e" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/permission_label"
+        android:textColor="#bbbbbb"
+        android:textSize="12sp" />
+
+</RelativeLayout>
+```
+
 ## References
 
 * <http://www.android-app-patterns.com/category/login-screens>
