@@ -321,6 +321,22 @@ While this guide gets us pretty close, keep in mind that in a production app you
  * Click states for the buttons (so the graphic changes when I press)
  * Testing across multiple device sizes (might use a [nine-patch](http://developer.android.com/tools/help/draw9patch.html) for scalable buttons)
 
+### Common Q&A
+
+There are several questions that come up commonly when "cloning screens" covered below:
+
+**How do I support different fonts?** 
+
+Fonts can be customized fairly easily using this [custom fonts](http://www.androidhive.info/2012/02/android-using-external-fonts/) guide. We aware that custom fonts can cause performance issues if used too much.
+
+**How do I center the ActionBar title?**
+
+ActionBar title can be centered only if you opt to totally customize the view being inflated. Instead of the default ActionBar text you can specify your own to use instead that is centered. This [stackoverflow answer](http://stackoverflow.com/questions/12387345/how-to-align-actionbar-title-center-in-android/12388200#12388200) explains it in detail.
+
+**How do I change the background color of the ActionBar?**
+
+Customize the theme of the ActionBar in the `styles.xml` as explained in [this stackoverflow post](http://stackoverflow.com/a/9249702) to adjust the color of the ActionBar.
+
 ## References
 
 * <http://www.android-app-patterns.com/category/login-screens>
