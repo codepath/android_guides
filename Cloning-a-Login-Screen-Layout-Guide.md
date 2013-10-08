@@ -311,7 +311,15 @@ In comparison to the original mockup:
 
 <img width="400" src="http://www.android-app-patterns.com/img/sets/login-screens/155_2_login-screens.png" />
 
-While this is by no means a perfect clone, this guide shows the process of taking a mockup and rebuilding that step by step. 
+While this is by no means a perfect clone, this guide shows the process of taking a mockup and rebuilding that step by step into a useable activity view. 
+
+#### Addendum
+
+While this guide gets us pretty close, keep in mind that in a production app you would of course want to consider things like:
+
+ * Images for all drawable density sizes
+ * Click states for the buttons (so the graphic changes when I press)
+ * Testing across multiple device sizes (might use a [nine-patch](http://developer.android.com/tools/help/draw9patch.html) for scalable buttons)
 
 ## References
 
