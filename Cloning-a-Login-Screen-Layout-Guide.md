@@ -24,9 +24,7 @@ Generate the project with no additional changes.
 
 ### Start Basic Layout
 
-#### 
-
-Next, let's drag on the basic elements of our login screen:
+There are **seven views** that will be placed within the layout:
 
  * TextView (To use highlight...)
  * ImageButton (Facebook)
@@ -36,11 +34,60 @@ Next, let's drag on the basic elements of our login screen:
  * TextView (Please let us know...)
  * TextView (We won't post things without...)
 
-The RelativeLayout might look like the following:
+#### Layout Background
+
+Let's start by setting the layout background to white:
 
 ```xml
-
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    ...>
+</RelativeLayout>
 ```
+
+Now the entire background for the screen appears white like the mockup.
+
+#### ImageButtons
+
+Let's start with the ImageButtons. Drag the two image buttons to the screen and select facebook and linkedin as sources respectively. Now go into the XML and tweak the `background` property of each to "@null" to remove the button borders.
+
+```xml
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    ...>
+
+    <ImageButton
+        android:id="@+id/btnFacebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@null"
+        android:contentDescription="@string/facebook_desc"
+        android:src="@drawable/facebook_connect" />
+
+    <ImageButton
+        android:id="@+id/btnLinkedIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnFacebook"
+        android:layout_below="@+id/btnFacebook"
+        android:layout_marginTop="5dp"
+        android:background="@null"
+        android:contentDescription="@string/linkedin_desc"
+        android:src="@drawable/linkedin_connect" />
+
+</RelativeLayout>
+```
+
+Here we've aligned the first button to the top of the parent, used `layout_centerHorizontal`, set `android:background` to null to avoid the button border, set text descriptions for `android:contentDescription` and assigned the `android:src` to the respective buttons. Now our screen looks like:
+
+<img width="400" src="http://i.imgur.com/AffrW7w.png" />
 
 ## References
 
