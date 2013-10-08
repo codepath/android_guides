@@ -98,13 +98,13 @@ Now, let's drag in the TextViews for the screen. (There's five of these). First,
 <resources>
     <string name="highlight_preamble">To use Highlight, please sign in with one of the services below:</string>
     <string name="why_not_email_title">Why not email?</string>
-    <string name="why_not_email_body">Highlight is based on real identity and mutual friends. Using these services allows us to show you how you\'re connected to the people around you. It also makes it super easy to create a Highlight profile.</string>
+    <string name="why_not_email_body">Highlight is based on real identity and mutual friends. Using these services allows us to show you how you\\'re connected to the people around you. It also makes it super easy to create a Highlight profile.</string>
     <string name="feedback_label">
     <![CDATA[
         Please <a href="http://highlight.com">let us know</a> if you have feedback on this or if you would like to log in with another identity service. Thanks!   
     ]]>
     </string>
-    <string name="permission_label">We won\'t post things without your permission.</string>
+    <string name="permission_label">We won\\'t post things without your permission.</string>
 </resources>
 ```
 
