@@ -309,7 +309,7 @@ Here's the "final" result:
 
 In comparison to the original mockup:
 
-<img width="400" src="http://imgur.com/GiWY8gB.png" />
+<img width="400" src="http://www.android-app-patterns.com/img/sets/login-screens/155_2_login-screens.png" />
 
 While this is by no means a perfect clone, this guide shows the process of taking a mockup and rebuilding that step by step.
 
