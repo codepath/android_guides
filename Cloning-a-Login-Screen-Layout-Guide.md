@@ -2,7 +2,7 @@
 
 This guide is going to walk us through the step-by-step process of recreating this screenshot:
 
-![Screenshot](http://www.android-app-patterns.com/img/sets/login-screens/155_2_login-screens.png)
+<img width=200 src="http://www.android-app-patterns.com/img/sets/login-screens/155_2_login-screens.png" />
 
 ## References
 
