@@ -126,7 +126,11 @@ Let's add basic styling:
  * "We won't post things" should be set to `textColor` of "#bbbbbb" and `textSize` of 12sp, and use `layout_centerHorizontal` to center the text.
  * Estimate margin between elements based on mockup
 
-The resulting XML might look like:
+The screen now looks like:
+
+<img width="400" src="http://i.imgur.com/5bGsYzx.png" />
+
+The resulting XML layout might look like:
 
 ```xml
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
