@@ -6,7 +6,8 @@ Within an [Android project structure](http://i.imgur.com/KDSWUXt.png), the most 
 * `res` - Resource files associated with your project. All graphics, strings, layouts, and other resource files are stored in the resource file hierarchy under the res directory. 
 * `res/layout` - XML layout files that describe the views and layouts for each activity and for partial views such as list items.
 * `res/values` - XML files which store various string values (titles, labels, styles).
-* `res/drawable` - Here we store the various images used in our application.
+* `res/drawable` - Here we store the various density-independent graphic assets used in our application.
+* `res/drawable-hdpi` - Series of folders for density specific images to use for various resolutions.
 
 The most frequently edited files are:
 
