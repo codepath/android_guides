@@ -45,6 +45,7 @@ public class User {
        } catch (JSONException e) {
             e.printStackTrace();
        }
+    }
 
        public static ArrayList<User> fromJson(JSONArray jsonObjects) {
            ArrayList<User> users = new ArrayList<User>();
