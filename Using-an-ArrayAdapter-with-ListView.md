@@ -24,6 +24,7 @@ Given a Java object that has certain fields:
 
 ```java
 public class User {
+    public Long id;
     public String name;
     public String hometown;
 }
