@@ -14,6 +14,12 @@ First, I will make the downloadable assets available. Keep in mind these were st
 
 Download those and drag them into the drawable-mdpi folder. Note that in production applications you would multiple sizes of these images for [different image densities](http://developer.android.com/guide/practices/screens_support.html#DesigningResources). We are going to ignore that and provide only medium density for this demo.
 
+### Create Project
+
+Generate a new Android project that uses the highlight icon as the launcher icon:
+
+
+
 ## References
 
 * <http://www.android-app-patterns.com/category/login-screens>
