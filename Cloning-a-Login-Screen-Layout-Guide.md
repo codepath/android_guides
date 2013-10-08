@@ -34,7 +34,7 @@ There are **seven views** that will be placed within the layout:
  * TextView (Please let us know...)
  * TextView (We won't post things without...)
 
-#### Layout Background
+#### Step 1: Layout Background
 
 Let's start by setting the layout background to white:
 
@@ -50,7 +50,7 @@ Let's start by setting the layout background to white:
 
 Now the entire background for the screen appears white like the mockup.
 
-#### ImageButtons
+#### Step 2: ImageButtons
 
 Let's start with the ImageButtons. Drag the two image buttons to the screen and select facebook and linkedin as sources respectively. Now go into the XML and tweak the `background` property of each to "@null" to remove the button borders.
 
@@ -89,7 +89,7 @@ Here we've aligned the first button to the top of the parent, used `layout_cente
 
 <img width="400" src="http://i.imgur.com/AffrW7w.png" />
 
-#### Basic TextViews
+#### Step 3: Basic TextViews
 
 Now, let's drag in the TextViews for the screen. (There's five of these). First, let's store the strings for each of these TextView controls in the `res/values/strings.xml` file for use in our TextViews later:
 
@@ -98,15 +98,23 @@ Now, let's drag in the TextViews for the screen. (There's five of these). First,
 <resources>
     <string name="highlight_preamble">To use Highlight, please sign in with one of the services below:</string>
     <string name="why_not_email_title">Why not email?</string>
-    <string name="why_not_email_body">Highlight is based on real identity and mutual friends. Using these services allows us to show you how you\\'re connected to the people around you. It also makes it super easy to create a Highlight profile.</string>
+    <string name="why_not_email_body">Highlight is based on real identity and mutual friends. 
+        Using these services allows us to show you how you\'re connected to the people around you. 
+        It also makes it super easy to create a Highlight profile.
+    </string>
     <string name="feedback_label">
     <![CDATA[
-        Please <a href="http://highlight.com">let us know</a> if you have feedback on this or if you would like to log in with another identity service. Thanks!   
+        Please <a href="http://highlight.com">let us know</a> if you have feedback on this or if 
+        you would like to log in with another identity service. Thanks!   
     ]]>
     </string>
-    <string name="permission_label">We won\\'t post things without your permission.</string>
+    <string name="permission_label">We won\'t post things without your permission.</string>
 </resources>
 ```
+
+Now let's drag on the different TextView and set the appropriate text values. Without any styling or proper positioning it might look like this screen:
+
+<img width="400" src="http://i.imgur.com/udYbT3n.png" />
 
 ## References
 
