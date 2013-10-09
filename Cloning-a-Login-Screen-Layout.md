@@ -4,6 +4,8 @@ This guide is going to walk us through the step-by-step process of recreating th
 
 <img width="400" src="http://www.android-app-patterns.com/img/sets/login-screens/155_2_login-screens.png" />
 
+Jump to the [Common Q&A](https://github.com/thecodepath/android_guides/wiki/Cloning-a-Login-Screen-Layout#common-qa) for more general answers to common questions.
+
 ### Cutting Assets
 
 First, I will make the downloadable assets available. Keep in mind these were stolen right out of the screenshot and therefore their quality is pretty poor. But it demonstrates the concepts nonetheless. To create the mockup, we need the following assets:
