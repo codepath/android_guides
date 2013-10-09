@@ -355,6 +355,10 @@ Simply assign the [android:background](http://developer.android.com/reference/an
 
 You have probably noticed that there are multiple drawable folders (i.e drawable-hdpi, drawable-ldpi) which allow us to provide [multiple resolutions for different density screens](http://developer.android.com/training/basics/supporting-devices/screens.html#create-bitmaps). Also, there are cases where the button has an image background that needs to stretch to support different text. In this case you might need to [draw a 9-patch](http://developer.android.com/tools/help/draw9patch.html) stretchable button. Check out the [Button Custom Background Official Guide](http://developer.android.com/guide/topics/ui/controls/button.html#CustomBackground) for specific details.
 
+**How would I hide the top ActionBar?**
+
+You can hide the ActionBar by modifying the "theme" of the Activity as described in this [Hiding the ActionBar](http://www.caincode.com/hiding-3-dot-action-bar-android-app/) tutorial or programmatically at runtime in Java with `getActionBar().hide()`
+
 **How do I remove the grey border from ImageButton?**
 
 You can remove the border by either setting `android:background` to "@null" or setting `style` to "android:attr/borderlessButtonStyle":
