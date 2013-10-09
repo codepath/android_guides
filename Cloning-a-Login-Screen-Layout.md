@@ -337,6 +337,23 @@ ActionBar title can be centered only if you opt to totally customize the view be
 
 Customize the theme of the ActionBar in the `styles.xml` as explained in [this stackoverflow post](http://stackoverflow.com/a/9249702) to adjust the color of the ActionBar.
 
+**How do I create a pressed button state?**
+
+Button states are created by using a "drawable" xml resource called a [State List](http://developer.android.com/guide/topics/resources/drawable-resource.html#StateList). The core is you define each state with it's own drawable by assigning the background of the button as the state list. Check out the [Button Custom Background Official Guide](http://developer.android.com/guide/topics/ui/controls/button.html#CustomBackground) for specific details.
+
+**How do I remove the grey border from ImageButton?**
+
+You can remove the border by either setting `android:background` to "@null" or setting `style` to "android:attr/borderlessButtonStyle":
+
+```xml
+<ImageButton
+     ...
+     style="?android:attr/borderlessButtonStyle"
+     android:src="@drawable/image_button_graphic" />
+```
+
+Now the image will have no grey border.
+
 ## References
 
 * <http://www.android-app-patterns.com/category/login-screens>
