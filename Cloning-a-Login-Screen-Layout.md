@@ -358,6 +358,10 @@ Now the image will have no grey border.
 
 The opacity of any view can be set in the XML Layout using the [android:alpha](http://developer.android.com/reference/android/view/View.html#attr_android:alpha) property which must be a floating point from 0 to 1. 
 
+**How do I make an entire region a particular background color or images?**
+
+Simply assign the `android:background` property to any view or layout to change the background color or image. The `android:background` for any view can be either a color hex value "#000040" or a drawable image "@drawable/some_image". Use padding around a layout to add extra content spacing.
+
 ## References
 
 * <http://www.android-app-patterns.com/category/login-screens>
