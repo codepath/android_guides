@@ -354,6 +354,10 @@ You can remove the border by either setting `android:background` to "@null" or s
 
 Now the image will have no grey border.
 
+**How do I set the opacity of a layout or view?**
+
+The opacity of any view can be set in the XML Layout using the [android:alpha](http://developer.android.com/reference/android/view/View.html#attr_android:alpha) property which must be a floating point from 0 to 1. 
+
 ## References
 
 * <http://www.android-app-patterns.com/category/login-screens>
