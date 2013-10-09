@@ -20,7 +20,7 @@ Using an intent is as simple as constructing the [Intent](http://developer.andro
 ```java
 public void launchComposeView() {
   // first parameter is the context, second is the class of the activity to launch
-  Intent i = new Intent(this, ActivityTwo.class);
+  Intent i = new Intent(ActivityOne.this, ActivityTwo.class);
   startActivity(i); // brings up the second activity
 }
 ```
@@ -42,7 +42,7 @@ In addition to specifying the activity that we want to display, an intent can al
 ```java
 public void launchComposeView() {
   // first parameter is the context, second is the class of the activity to launch
-  Intent i = new Intent(this, ActivityTwo.class);
+  Intent i = new Intent(ActivityOne.this, ActivityTwo.class);
   // put "extras" into the bundle for access in the second activity
   i.putExtra("username", "foobar"); 
   i.putExtra("in_reply_to", "george"); 
@@ -74,7 +74,7 @@ However, in other cases the parent activity may want the launched activity to re
 ```java
 // FirstActivity, launching an activity for a result
 public void onClick(View view) {
-  Intent i = new Intent(this, ActivityNamePrompt.class);
+  Intent i = new Intent(ActivityOne.this, ActivityNamePrompt.class);
   i.putExtra("mode", 2); // pass arbitrary data to launched activity
   // REQUEST_CODE can be any value we like, used to determine the result later
   startActivityForResult(i, REQUEST_CODE);
@@ -129,7 +129,7 @@ Then you can pass arbitrary user objects into an intent as an extra:
 
 ```java
 User u = new User("John", "Smith", 45);
-Intent  i =  new Intent(this, SecondActivity.class);
+Intent  i =  new Intent(ActivityOne.this, SecondActivity.class);
 i.putExtra("user", u);
 startActivity(i);
 ```
