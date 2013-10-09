@@ -64,7 +64,7 @@ public class User {
 
 ### Creating the View Template
 
-First, we need to create an XML layout that represents the template for the item:
+First, we need to create an XML layout (item_user.xml) that represents the template for the item:
 
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
