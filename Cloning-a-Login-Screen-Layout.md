@@ -341,6 +341,14 @@ Customize the theme of the ActionBar in the `styles.xml` as explained in [this s
 
 Button states are created by using a "drawable" xml resource called a [State List](http://developer.android.com/guide/topics/resources/drawable-resource.html#StateList). The core is you define each state with it's own drawable by assigning the background of the button as the state list. Check out the [Button Custom Background Official Guide](http://developer.android.com/guide/topics/ui/controls/button.html#CustomBackground) for specific details.
 
+**How do I set the opacity of a layout or view?**
+
+The opacity of any view can be set in the XML Layout using the [android:alpha](http://developer.android.com/reference/android/view/View.html#attr_android:alpha) property which must be a floating point from 0 to 1. 
+
+**How do I make an entire region a particular background color or images?**
+
+Simply assign the [android:background](http://developer.android.com/reference/android/view/View.html#attr_android:background) property to any view or layout to change the background color or image. The `android:background` for any view can be either a color hex value "#000040" or a drawable image "@drawable/some_image". Use padding around a layout to add extra content spacing.
+
 **How do I remove the grey border from ImageButton?**
 
 You can remove the border by either setting `android:background` to "@null" or setting `style` to "android:attr/borderlessButtonStyle":
@@ -351,16 +359,6 @@ You can remove the border by either setting `android:background` to "@null" or s
      style="?android:attr/borderlessButtonStyle"
      android:src="@drawable/image_button_graphic" />
 ```
-
-Now the image will have no grey border.
-
-**How do I set the opacity of a layout or view?**
-
-The opacity of any view can be set in the XML Layout using the [android:alpha](http://developer.android.com/reference/android/view/View.html#attr_android:alpha) property which must be a floating point from 0 to 1. 
-
-**How do I make an entire region a particular background color or images?**
-
-Simply assign the [android:background](http://developer.android.com/reference/android/view/View.html#attr_android:background) property to any view or layout to change the background color or image. The `android:background` for any view can be either a color hex value "#000040" or a drawable image "@drawable/some_image". Use padding around a layout to add extra content spacing.
 
 ## References
 
