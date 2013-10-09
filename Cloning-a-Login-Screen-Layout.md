@@ -351,6 +351,10 @@ The opacity of any view can be set in the XML Layout using the [android:alpha](h
 
 Simply assign the [android:background](http://developer.android.com/reference/android/view/View.html#attr_android:background) property to any view or layout to change the background color or image. The `android:background` for any view can be either a color hex value "#000040" or a drawable image "@drawable/some_image". Use padding around a layout to add extra content spacing.
 
+**How would I create images that look good at any resolution?**
+
+You have probably noticed that there are multiple drawable folders (i.e drawable-hdpi, drawable-ldpi) which allow us to provide [multiple resolutions for different density screens](http://developer.android.com/training/basics/supporting-devices/screens.html#create-bitmaps). Also, there are cases where the button has an image background that needs to stretch to support different text. In this case you might need to [draw a 9-patch](http://developer.android.com/tools/help/draw9patch.html) stretchable button. Check out the [Button Custom Background Official Guide](http://developer.android.com/guide/topics/ui/controls/button.html#CustomBackground) for specific details.
+
 **How do I remove the grey border from ImageButton?**
 
 You can remove the border by either setting `android:background` to "@null" or setting `style` to "android:attr/borderlessButtonStyle":
