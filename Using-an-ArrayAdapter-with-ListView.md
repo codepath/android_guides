@@ -42,6 +42,7 @@ public class User {
         try {
             this.id = object.getLong("id");
             this.name = object.getString("name");
+            this.hometown = object.getString("hometown");
        } catch (JSONException e) {
             e.printStackTrace();
        }
