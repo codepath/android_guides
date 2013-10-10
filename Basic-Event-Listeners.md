@@ -140,7 +140,7 @@ This is often great whenever a user needs to type text and then explicitly have 
 
 ### Input View Listeners
 
-Similarly to EditText, many common input views have listeners of their own including NumberPicker has [setOnValueChangedListener](http://developer.android.com/reference/android/widget/NumberPicker.html#setOnValueChangedListener(android.widget.NumberPicker.OnValueChangeListener\)) and SeekBar has [setOnSeekBarChangeListener](http://developer.android.com/reference/android/widget/SeekBar.html#setOnSeekBarChangeListener(android.widget.SeekBar.OnSeekBarChangeListener\)) which allow us to listen for changes. Almost all input views have similar methods available if needed such as:
+Similarly to EditText, many common input views have listeners of their own including NumberPicker has [setOnValueChangedListener](http://developer.android.com/reference/android/widget/NumberPicker.html#setOnValueChangedListener(android.widget.NumberPicker.OnValueChangeListener\)) and SeekBar has [setOnSeekBarChangeListener](http://developer.android.com/reference/android/widget/SeekBar.html#setOnSeekBarChangeListener(android.widget.SeekBar.OnSeekBarChangeListener\)) which allow us to listen for changes:
 
 ```java
 NumberPicker npValue = (NumberPicker) findViewById(R.id.npValue);
@@ -151,6 +151,8 @@ npValue.setOnValueChangedListener(new OnValueChangeListener() {
 	}
 });
 ```
+
+Almost all input views have similar methods available.
 
 ## References
 
