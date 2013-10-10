@@ -128,4 +128,16 @@ ListView listView = (ListView) findViewById(R.id.lvItems);
 listView.setAdapter(adapter);
 ```
 
-Once the adapter is attached, items will automatically be populated into the ListView based on the contents of the array.
+Once the adapter is attached, items will automatically be populated into the ListView based on the contents of the array. You can add new items to the adapter at any time with:
+
+```java
+// Fetching some data, data has now returned
+// If data was JSON, convert to ArrayList of User objects.
+adapter.addAll(newUsers);
+```
+
+which will append the new items to the list. You can also clear the entire list at any time with:
+
+```
+adapter.clear()
+```
