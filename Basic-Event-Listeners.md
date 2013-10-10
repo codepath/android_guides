@@ -136,6 +136,12 @@ etValue.setOnEditorActionListener(new OnEditorActionListener() {
 });
 ```
 
+This is often great whenever a user needs to type text and then explicitly have an action performed when they are finished. There are many [imeOptions](http://developer.android.com/reference/android/widget/TextView.html#attr_android:imeOptions) for different situations.
+
+### Input View Listeners
+
+Similarly to EditText, many common input views have listeners of their own including NumberPicker has [setOnValueChangedListener](http://developer.android.com/reference/android/widget/NumberPicker.html#setOnValueChangedListener(android.widget.NumberPicker.OnValueChangeListener\)) and SeekBar has [setOnSeekBarChangeListener](http://developer.android.com/reference/android/widget/SeekBar.html#setOnSeekBarChangeListener(android.widget.SeekBar.OnSeekBarChangeListener\)) which allow us to listen for changes. Almost all input views have similar methods available if needed. 
+
 ## References
 
  * <http://developer.android.com/guide/topics/ui/controls/button.html>
