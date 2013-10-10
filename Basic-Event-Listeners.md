@@ -160,4 +160,5 @@ Almost all input views have similar methods available.
  * <http://developer.android.com/reference/android/widget/Button.html>
  * <http://developer.android.com/guide/topics/ui/ui-events.html>
  * <http://developer.android.com/reference/android/view/View.html#setOnClickListener>
- * [setOnEditorActionListener](http://developer.android.com/reference/android/widget/TextView.html#setOnEditorActionListener(android.widget.TextView.OnEditorActionListener\))
+ * [setOnEditorActionListener](http://developer.android.com/reference/android/widget/TextView.html#setOnEditorActionListener(android.widget.TextView.OnEditorActionListener\)) Docs
+ * [addTextChangedListener](http://developer.android.com/reference/android/widget/TextView.html#addTextChangedListener(android.text.TextWatcher\)) Docs
