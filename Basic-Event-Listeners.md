@@ -120,7 +120,7 @@ First, we need to setup an "action" button for our text field. To setup an "acti
 </EditText>
 ```
 
-In particular, `singleLine` and `imeOptions` are required for the [Done button](http://imgur.com/WAwMn9k.png) to display. Now, we can hook into a listener for when the done button is pressed with:
+In particular, `singleLine` and `imeOptions` are required for the [Done button](http://imgur.com/WAwMn9k.png) to display. Now, we can hook into a [editor listener](http://developer.android.com/reference/android/widget/TextView.html#setOnEditorActionListener(android.widget.TextView.OnEditorActionListener\)) for when the done button is pressed with:
 
 ```java
 etValue.setOnEditorActionListener(new OnEditorActionListener() {
@@ -160,3 +160,4 @@ Almost all input views have similar methods available.
  * <http://developer.android.com/reference/android/widget/Button.html>
  * <http://developer.android.com/guide/topics/ui/ui-events.html>
  * <http://developer.android.com/reference/android/view/View.html#setOnClickListener>
+ * [setOnEditorActionListener](http://developer.android.com/reference/android/widget/TextView.html#setOnEditorActionListener(android.widget.TextView.OnEditorActionListener\))
