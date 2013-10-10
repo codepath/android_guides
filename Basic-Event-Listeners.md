@@ -52,9 +52,9 @@ public void sendMessage(View view) {
 
 In addition to the standard View listeners, `AdapterView` descendants have a few more key event listeners having to do with their items:
 
- * setOnItemClickListener - Callback when an item contained is clicked
- * setOnItemLongClickListener - Callback when an item contained is clicked and held
- * setOnItemSelectedListener - Callback when an item is selected
+ * `setOnItemClickListener` - Callback when an item contained is clicked
+ * `setOnItemLongClickListener` - Callback when an item contained is clicked and held
+ * `setOnItemSelectedListener` - Callback when an item is selected
 
 This works similarly to a standard listener, simply implementing [the correct interface](http://developer.android.com/reference/android/widget/AdapterView.OnItemLongClickListener.html):
 
@@ -62,8 +62,76 @@ This works similarly to a standard listener, simply implementing [the correct in
 lvItems.setOnItemLongClickListener(new OnItemLongClickListener() {
     @Override
     public boolean onItemLongClick(AdapterView<?> adapter, View item, int pos, long rowId) {
-        
+        // Do something here
     }
+});
+```
+
+### EditText Common Listeners
+
+In addition to the listeners described above, there are a few other common listeners for input fields in particular. 
+
+ * `addTextChangedListener` - Fires each time the text in the field is being changed
+ * `setOnEditorActionListener` - Fires when an "action" button on the soft keyboard is pressed
+
+#### TextChangedListener
+
+If you want to handle an event as the text in the view is being changed, you only need to look as far as the [addTextChangedListener](http://developer.android.com/reference/android/widget/TextView.html#addTextChangedListener(android.text.TextWatcher\)) method on an EditText (or even TextView):
+
+```java
+EditText etValue = (EditText) findViewById(R.id.etValue);
+etValue.addTextChangedListener(new TextWatcher() {
+	@Override
+	public void onTextChanged(CharSequence s, int start, int before, int count) {
+		// Fires right as the text is being changed (even supplies the range of text)
+	}
+	
+	@Override
+	public void beforeTextChanged(CharSequence s, int start, int count,
+			int after) {
+		// Fires right before text is changing
+	}
+	
+	@Override
+	public void afterTextChanged(Editable s) {
+		// Fires right after the text has changed
+		tvDisplay.setText(s.toString());
+	}
+});
+```
+
+This is great for any time you want to have the UI update as the user enters text.
+
+#### OnEditorActionListener
+
+Another case is when you want an action to occur once the user has finished typing text with the [Soft Keyboard](https://github.com/thecodepath/android_guides/wiki/Working-with-the-Soft-Keyboard). Keep in mind that this is especially useful when you can see the virtual keyboard which is disabled by default in the emulator but can be enabled as explained in [this guide](https://github.com/thecodepath/android_guides/wiki/Working-with-the-Soft-Keyboard).
+
+First, we need to setup an "action" button for our text field. To setup an "action button" such as a [Done  button on the soft Keyboard](http://imgur.com/WAwMn9k.png), simply configure your EditText with the following properties:
+
+```xml
+<EditText
+   android:inputType="text"
+   android:singleLine="true"
+   android:imeOptions="actionDone"
+   android:id="@+id/etValue"
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content">
+   <requestFocus />
+</EditText>
+```
+
+In particular, `singleLine` and `imeOptions` are required for the [Done button](http://imgur.com/WAwMn9k.png) to display. Now, we can hook into a listener for when the done button is pressed with:
+
+```java
+etValue.setOnEditorActionListener(new OnEditorActionListener() {
+	@Override
+	public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+		if (actionId == EditorInfo.IME_ACTION_DONE) {
+			Toast.makeText(MainActivity.this, v.getText().toString(), Toast.LENGTH_SHORT).show();
+			return true;
+		}
+		return false;
+	}
 });
 ```
 
