@@ -161,3 +161,29 @@ public class Business {
 ```
 
 With that in place, we can now pass an JSONArray of business json data and process that easily into a nice ArrayList<Business> object for easy use in our application with `Business.fromJson(myJsonArray)`.
+
+### Putting It All Together
+
+Now, we can return to our Activity where we are executing the network request and use the new Model to get easy access to our Business data. Let's tweak the network request handler:
+
+```java
+YelpClient client = YelpClientApp.getRestClient();
+client.search("food", "san francisco", new JsonHttpResponseHandler() {
+  @Override
+  public void onSuccess(int code, JSONObject body) {
+    try {
+      JSONArray businessesJson = body.getJSONArray("businesses");
+      ArrayList<Business> businesses = Business.fromJson(businessesJson);
+      // Now we have an array of business objects
+      // Might now create an ArrayAdapter<Business> to load the businesses into a ListView
+    } catch (JSONException e) {
+      e.printStackTrace();
+    }
+  }
+
+  @Override
+  public void onFailure(Throwable arg0) {
+    Toast.makeText(getBaseContext(), "FAIL", Toast.LENGTH_LONG).show();
+  }
+});
+```
