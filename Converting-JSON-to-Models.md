@@ -23,3 +23,141 @@ The first step in retrieving any API-based model data is to execute a network re
   ] 
 }
 ```
+
+Sending out this API request can be done in any number of ways but first requires us to register for a Yelp developer account and use OAuth 1.0a to authenticate with our provided access_token. You might for example use our [rest-client-template](https://github.com/thecodepath/android-rest-client-template) to manage this authentication and then construct a `YelpClient` that has a `search` method:
+
+```java
+public class YelpClient extends OAuthBaseClient {
+    // LOTS OF TOKENS AND STUFF ...
+    
+    // Setting up the search endpoint
+    public void search(String term, String location, AsyncHttpResponseHandler handler) {
+    	// http://api.yelp.com/v2/search?term=food&location=San+Francisco
+    	String apiUrl = getApiUrl("search");
+        RequestParams params = new RequestParams();
+        params.put("term", term);
+        params.put("location", location);
+        client.get(apiUrl, params, handler);
+    }
+}
+```
+
+This `search` method will take care of executing our JSON request to the Yelp API. The API call might be executed in an Activity now when the user performs a search. Executing the API request would look like:
+
+```java
+YelpClient client = YelpClientApp.getRestClient();
+client.search("food", "san francisco", new JsonHttpResponseHandler() {
+	@Override
+	public void onSuccess(int code, JSONObject body) {
+		try {
+			JSONArray businessesJson = body.getJSONArray("businesses");
+                        // Here we now have the json array of businesses!
+			Log.d("DEBUG", businesses.toString());
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public void onFailure(Throwable arg0) {
+		Toast.makeText(SearchActivity.this, "FAIL", Toast.LENGTH_LONG).show();
+	}
+});
+```
+
+We could now run the app and verify that the JSON array of business has the format we expect from the provided sample response in the documentation.
+
+### Setting up our Model
+
+The primary resource in the Yelp API is the **Business**. Let's create a Java class that will act as the **Business* model in our application:
+
+```java
+public class Business {
+	private String id;
+	private String name;
+	private String phone;
+	private String imageUrl;
+	
+	public String getName() {
+		return this.name;
+	}
+	
+	public String getPhone() {
+		return this.phone;
+	}
+	
+	public String getImageUrl() {
+		return this.imageUrl;
+	}
+}
+```
+
+So far, the business model is just a series of declared fields and then getters to access those fields. Next, we need to add method that would manage the deserialization of a JSON dictionary into a populated Business object:
+
+```java
+public class Business {
+  // ...
+  
+  // Decodes business json into business model object
+  public static Business fromJson(JSONObject jsonObject) {
+  	Business b = new Business();
+        // Deserialize json into object fields
+  	try {
+  		b.id = jsonObject.getString("id");
+        	b.name = jsonObject.getString("name");
+        	b.phone = jsonObject.getString("display_phone");
+        	b.imageUrl = jsonObject.getString("image_url");
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+  	// Return new object
+  	return b;
+  }
+}
+```
+
+With this method in place, we could take a single business JSON dictionary such as:
+
+```json
+{
+ "id": "yelp-tropisueno",
+ "name" : "Tropisueno",
+ "display_phone": "+1-415-908-3801",
+ "image_url": "http://s3-media2.ak.yelpcdn.com/bphoto/7DIHu8a0AHhw-BffrDIxPA/ms.jpg",
+  ...
+}
+```
+
+and successfully create a Business with `Business.fromJson(json)`. However, in the API response, we actually get a collection of business JSON in an array. So ideally we also would have an easy way of processing an **array of businesses**  into an **ArrayList of Business objects**. That might look like:
+
+```java
+public class Business {
+  // ...fields and getters
+  // ...fromJson for an object
+
+  // Decodes array of business json results into business model objects
+  public static ArrayList<Business> fromJson(JSONArray jsonArray) {
+      ArrayList<Business> businesses = new ArrayList<Business>(jsonArray.length());
+      // Process each result in json array, decode and convert to business object
+      for (int i=0; i < jsonArray.length(); i++) {
+          JSONObject businessJson = null;
+          try {
+          	businessJson = jsonArray.getJSONObject(i);
+          } catch (Exception e) {
+              e.printStackTrace();
+              continue;
+          }
+
+          Business business = Business.fromJson(businessJson);
+          if (business != null) {
+          	businesses.add(business);
+          }
+      }
+
+      return businesses;
+  }
+}
+```
+
+With that in place, we can now pass an JSONArray of business json data and process that easily into a nice ArrayList<Business> object for easy use in our application with `Business.fromJson(myJsonArray)`.
