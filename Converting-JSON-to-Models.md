@@ -187,3 +187,5 @@ client.search("food", "san francisco", new JsonHttpResponseHandler() {
   }
 });
 ```
+
+This approach works very similarly for any simple API data which often is returned in collections whether it be images on Instagram, tweets on Twitter, or auctions on Ebay. The next step might be to create an `ArrayAdapter<Business>` and populate these new model objects into a ListView.
