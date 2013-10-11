@@ -72,6 +72,10 @@ public class TimelineActivity extends Activity {
 }
 ```
 
+### Customize Refresh Style
+
+The library has rich support for [customizing the refresh graphics](https://github.com/erikwt/PullToRefresh-ListView#style). Check out the [official library readme](https://github.com/erikwt/PullToRefresh-ListView#style) for those details.
+
 ## References
 
 * <https://github.com/erikwt/PullToRefresh-ListView> - Third-party library for pull to refresh
