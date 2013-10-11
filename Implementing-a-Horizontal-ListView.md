@@ -18,6 +18,14 @@ Of all the third-party libraries currently out there for Horizontal ListView, th
 
 ### Adding TwoWayView to Layout
 
+First, let's add a style indicating the orientation of the ListView (horizontal or vertical) in `res/values/styles.xml`:
+
+```xml
+<style name="TwoWayView">
+    <item name="android:orientation">horizontal</item>
+</style>
+```
+
 In your Layout XML, use the following code to add the TwoWayView:
 
 ```xml
@@ -25,7 +33,7 @@ In your Layout XML, use the following code to add the TwoWayView:
      xmlns:android="http://schemas.android.com/apk/res/android"
      xmlns:tools="http://schemas.android.com/tools"
      xmlns:app="http://schemas.android.com/apk/res-auto"
-     android:id="@+id/list"
+     android:id="@+id/lvItems"
      style="@style/TwoWayView"
      android:layout_width="fill_parent"
      android:layout_height="fill_parent"
@@ -35,7 +43,7 @@ In your Layout XML, use the following code to add the TwoWayView:
 
 ### Populating Data into TwoWayView
 
-Now we can populate data into the `TwoWayView` much like any ListView as described in [the Adapter guide](https://github.com/thecodepath/android_guides/wiki/Using-an-ArrayAdapter-with-ListView)
+Now we can populate data into the `TwoWayView` much like any ListView as described in [the Adapter guide](https://github.com/thecodepath/android_guides/wiki/Using-an-ArrayAdapter-with-ListView). For example, we might create 
 
 ## References
 
