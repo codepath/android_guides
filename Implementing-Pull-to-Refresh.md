@@ -74,7 +74,26 @@ public class TimelineActivity extends Activity {
 
 ### (Optional) Step 4: Customize Refresh Style
 
-The library has rich support for [customizing the refresh graphics](https://github.com/erikwt/PullToRefresh-ListView#style). Check out the [official library readme](https://github.com/erikwt/PullToRefresh-ListView#style) for those details.
+The library has rich support for [customizing the refresh graphics](https://github.com/erikwt/PullToRefresh-ListView#style). To do so, override the style attributes to your liking, like the following example:
+
+``` xml
+<style name="ptr_text">
+        
+    <!-- Change the text style and color -->
+    <item name="android:textStyle">bold|italic</item>
+    <item name="android:textColor">#cccccc</item>
+</style>
+```
+
+The various styles you can override are;
+
+* ptr_headerContainer
+* ptr_header
+* ptr_arrow
+* ptr_spinner
+* ptr_text
+
+Check out the [official library readme](https://github.com/erikwt/PullToRefresh-ListView#style) for those details.
 
 ## References
 
