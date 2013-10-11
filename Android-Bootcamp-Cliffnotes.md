@@ -45,5 +45,6 @@ Cliffnotes are references giving you the "most important" Android topics with br
   * [Fragment ActionBar Tabs](https://github.com/thecodepath/android_guides/wiki/Creating-and-Using-Fragments#fragments-and-tabs) Guide
 * [[Cloning a Login Screen Layout]] Guide
 * [[Implementing Pull to Refresh]] Guide
+* [[Must-have Libraries]] Guide
 
 If there's anything else, feel free to suggest new cliffnote pages and/or help contribute to them!
