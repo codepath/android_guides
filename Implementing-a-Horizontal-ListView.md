@@ -58,7 +58,7 @@ and then construct a super simple `ArrayAdapter` and populate the TwoWayView wit
 
 ```java
 ArrayAdapter<String> aItems = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
-TwoWayView lvTest = (TwoWayView) findViewById(R.id.list);
+TwoWayView lvTest = (TwoWayView) findViewById(R.id.lvItems);
 lvTest.setAdapter(aItems);
 ```
 
