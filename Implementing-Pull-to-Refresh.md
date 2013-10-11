@@ -93,7 +93,7 @@ The various styles you can override are;
 * ptr_spinner
 * ptr_text
 
-Check out the [official library readme](https://github.com/erikwt/PullToRefresh-ListView#style) for those details.
+Check out the [official library readme](https://github.com/erikwt/PullToRefresh-ListView#style) for more details.
 
 ## References
 
