@@ -30,6 +30,48 @@ would be replaced with:
 
 All other properties in the XML can stay the same.
 
+### Setup OnRefreshListener
+
+Now, we need to specify a `OnRefreshListener` for each `PullToRefreshListView` which describes the process for refreshing the contents. This is usually an asynchronous network request for new data from an API. For example:
+
+```java
+public class TimelineActivity extends Activity {
+    PullToRefreshListView lvTweets;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_timeline);
+        lvTweets = (PullToRefreshListView) findViewById(R.id.lvHomeTimeline);
+        // Set a listener to be invoked when the list should be refreshed.
+        lvTweets.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // Your code to refresh the list contents
+                // Make sure you call listView.onRefreshComplete()
+                // once the loading is done. This can be done from here or any
+                // place such as when the network request has completed successfully.
+                fetchTimelineAsync(0);
+            }
+        });
+    }
+
+    public void fetchTimelineAsync(int page) {
+        client.getHomeTimeline(0, new JsonHttpResponseHandler() {
+            public void onSuccess(JSONArray json) {
+                // ...the data has come back, finish populating listview...
+                // Now we call onRefreshComplete to signify refresh has finished
+                TweetsListView.this.onRefreshComplete();
+            }
+
+            public void onFailure(Throwable e) {
+                Log.d("DEBUG", "Fetch timeline error: " + e.toString());
+            }
+        });
+    }
+}
+```
+
 ## References
 
 * <https://github.com/erikwt/PullToRefresh-ListView> - Third-party library for pull to refresh
