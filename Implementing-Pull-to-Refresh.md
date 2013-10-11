@@ -4,11 +4,11 @@ In Android, the common "pull to refresh" UX concept is not built in to a ListVie
 
 Thankfully, there is an excellent third-party [pull-to-refresh](https://github.com/erikwt/PullToRefresh-ListView) library that can be used to make this interaction extremely easy to implement. 
 
-### Installation
+### Step 1: Installation
 
 Download the zip of [pull-to-refresh](https://github.com/erikwt/PullToRefresh-ListView/archive/master.zip) and then [import the library folder](http://imgur.com/a/N8baF) into Eclipse with **File => Import => Existing Android Code Into Workspace**. Call the project "PullToRefresh" and then start the import. This folder is now a "library project" and can then be included as a library in your Android apps. Make sure to mark this project as a library and then include the library in your application Check the [Detailed Instructions Here](http://imgur.com/a/N8baF) for a step-by-step of this process.
 
-### Replace ListView
+### Step 2: Replace ListView
 
 Next, for each ListView that we want to add pull-to-refresh functionality to, we need to replace the `ListView` in the XML with the new third-party `eu.erikw.PullToRefreshListView` which has all the same features of a ListView. For example:
 
@@ -30,7 +30,7 @@ would be replaced with:
 
 All other properties in the XML can stay the same.
 
-### Setup OnRefreshListener
+### Step 3: Setup OnRefreshListener
 
 Now, we need to specify a `OnRefreshListener` for each `PullToRefreshListView` which describes the process for refreshing the contents. This is usually an asynchronous network request for new data from an API. For example:
 
@@ -72,7 +72,7 @@ public class TimelineActivity extends Activity {
 }
 ```
 
-### Customize Refresh Style
+### (Optional) Step 4: Customize Refresh Style
 
 The library has rich support for [customizing the refresh graphics](https://github.com/erikwt/PullToRefresh-ListView#style). Check out the [official library readme](https://github.com/erikwt/PullToRefresh-ListView#style) for those details.
 
