@@ -1,5 +1,3 @@
-# Customizing with Drawables
-
 ## Overview
 
 A drawable resource is a general concept for a graphic that can be drawn to the screen. Drawables are used to define shapes, colors, borders, gradients, et al which can then be applied to views within an Activity.
