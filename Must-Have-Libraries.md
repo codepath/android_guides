@@ -8,3 +8,8 @@ There are many third-party libraries for Android but several of them are "must h
  * [PullToRefresh-ListView](https://github.com/erikwt/PullToRefresh-ListView) - Easy to use pull-to-refresh functionality for ListViews. [Download](https://github.com/erikwt/PullToRefresh-ListView/archive/master.zip) and install as a [library project](http://imgur.com/a/N8baF).
 
 ## References
+
+ * <http://actionbarsherlock.com/>
+ * <http://nineoldandroids.com/>
+ * <http://androidannotations.org/>
+ * <https://github.com/erikwt/PullToRefresh-ListView>
