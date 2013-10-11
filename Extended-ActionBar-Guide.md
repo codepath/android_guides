@@ -255,6 +255,7 @@ And now when the home icon is pressed on the child, the parent activity will alw
 ## Libraries
 
 * [ActionBarSherlock](<http://actionbarsherlock.com/usage.html>) - An essential extension to ActionBar which supports almost all Android versions.
+* [StyleGenerator](http://jgilfelt.github.com/android-actionbarstylegenerator) - Use this nifty web tool to generate an ActionBar theme easily.
 
 ## References
 
