@@ -35,15 +35,40 @@ In your Layout XML, use the following code to add the TwoWayView:
      xmlns:app="http://schemas.android.com/apk/res-auto"
      android:id="@+id/lvItems"
      style="@style/TwoWayView"
-     android:layout_width="fill_parent"
-     android:layout_height="fill_parent"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
      android:drawSelectorOnTop="false"
      tools:context=".MainActivity" />
 ```
 
 ### Populating Data into TwoWayView
 
-Now we can populate data into the `TwoWayView` much like any ListView as described in [the Adapter guide](https://github.com/thecodepath/android_guides/wiki/Using-an-ArrayAdapter-with-ListView). For example, we might create 
+Now we can populate data into the `TwoWayView` much like any ListView as described in [the Adapter guide](https://github.com/thecodepath/android_guides/wiki/Using-an-ArrayAdapter-with-ListView). For example, we might create a very simple array of items:
+
+```java
+ArrayList<String> items = new ArrayList<String>();
+items.add("Item 1");
+items.add("Item 2");
+items.add("Item 3");
+items.add("Item 4");
+// ...
+```
+
+and then construct a super simple `ArrayAdapter` and populate the TwoWayView with:
+
+```java
+ArrayAdapter<String> aItems = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
+TwoWayView lvTest = (TwoWayView) findViewById(R.id.list);
+lvTest.setAdapter(aItems);
+```
+
+The view will now present the items horizontally like:
+
+![View Screen](http://i.imgur.com/76YnbHp.png)
+
+### Conclusion
+
+Here we have implemented a simple Horizontal ListView using a popular third-party library. Obviously this example is very simple but you can follow the steps in the [the Adapter guide](https://github.com/thecodepath/android_guides/wiki/Using-an-ArrayAdapter-with-ListView) to create arbitrarily complex list items.
 
 ## References
 
