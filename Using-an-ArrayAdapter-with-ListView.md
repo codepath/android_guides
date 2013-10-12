@@ -129,6 +129,8 @@ ListView listView = (ListView) findViewById(R.id.lvItems);
 listView.setAdapter(adapter);
 ```
 
+At this point, the ListView is now successfully bound to the users array data.
+
 ## Populating Data into ListView
 
 Once the adapter is attached, items will automatically be populated into the ListView based on the contents of the array. You can add new items to the adapter at any time with:
