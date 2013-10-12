@@ -155,7 +155,7 @@ NinePatch are images that have a "9" in the name such as `button_background.9.pn
 
 Read more about NinePatch images in the [offical docs](http://developer.android.com/guide/topics/graphics/2d-graphics.html#nine-patch). Once
 
-### Customizing a Button
+## Customizing a Button
 
 Creating a custom button require combining at least a state list drawable with a shape drawable. First, let's create our shape drawable which represents the "default" button background in `res/drawable/nice_button_enabled.xml`:
 
@@ -261,7 +261,7 @@ For this guide the pressed and focused states will appear the same but of course
 
 Now we have a button that has a nice shape drawable background and changes visual state when pressed all without requiring a single image asset! Be sure to check out the [Button Generator](http://angrytools.com/android/button/) for a tool that allows you to make your own buttons via a web interface.
 
-### Customizing a ListView
+## Customizing a ListView
 
 Another common task is customizing the appearance of items in a ListView. First let's create the basic ListView and populate String items inside. First, the layout XML for the item in `res/layout/item_simple.xml`:
 
