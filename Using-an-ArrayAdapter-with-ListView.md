@@ -94,7 +94,7 @@ public class UsersAdapter extends ArrayAdapter<User> {
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-       // Get the data item
+       // Get the data item for this position
        User user = getItem(position); 
        // Check if an existing view is being reused, otherwise inflate the view
         View view = convertView;
@@ -107,19 +107,20 @@ public class UsersAdapter extends ArrayAdapter<User> {
        TextView tvHome = (TextView) view.findViewById(R.id.tvHome);
        tvName.setText(user.name);
        tvHome.setText(user.hometown);
+       // Return the completed view to render on screen
        return view;
    }
 }
 ```
 
-That adapter has a constructor and a "getView" method to describe the translation between item and View to display.
+That adapter has a constructor and a "getView" method to describe the translation between the data item and the View to display.
 
 ## Attaching the Adapter to a ListView
 
 Now, we can use that adapter in the Activity to display an array of items into the ListView:
 
 ```java
-// Create the data source
+// Construct the data source
 ArrayList<User> arrayOfUsers = new ArrayList<User>();
 // Create the adapter to convert the array to views
 adapter = new UsersAdapter(this, arrayOfUsers);
@@ -131,6 +132,10 @@ listView.setAdapter(adapter);
 Once the adapter is attached, items will automatically be populated into the ListView based on the contents of the array. You can add new items to the adapter at any time with:
 
 ```java
+// Add item to adapter
+User newUser = new User(jsonObject);
+adapter.add(newUser);
+// Or even append an entire new collection
 // Fetching some data, data has now returned
 // If data was JSON, convert to ArrayList of User objects.
 adapter.addAll(newUsers);
@@ -141,3 +146,5 @@ which will append the new items to the list. You can also clear the entire list 
 ```
 adapter.clear()
 ```
+
+Using the adapter now, you can add, remove and modify users and the items within the ListView will automatically reflect any changes.
