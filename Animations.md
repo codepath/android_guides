@@ -38,10 +38,10 @@ This will automatically create and execute the animation to fade out the button.
 animate(btnExample).alpha(0.5f).rotation(90f).
   scaleX(2).xBy(100).yBy(100).setDuration(1000).setStartDelay(10).
   setListener(new AnimatorListenerAdapter() {
-		@Override
-		public void onAnimationStart(Animator animation) {
-			Toast.makeText(MainActivity.this, "Started...", Toast.LENGTH_SHORT).show();
-		};
+      @Override
+      public void onAnimationStart(Animator animation) {
+          Toast.makeText(MainActivity.this, "Started...", Toast.LENGTH_SHORT).show();
+      };
 });
 ```
 
