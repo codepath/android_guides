@@ -261,6 +261,53 @@ For this guide the pressed and focused states will appear the same but of course
 
 Now we have a button that has a nice shape drawable background and changes visual state when pressed all without requiring a single image asset! Be sure to check out the [Button Generator](http://angrytools.com/android/button/) for a tool that allows you to make your own buttons via a web interface.
 
+### Customizing a ListView
+
+Another common task is customizing the appearance of items in a ListView. First let's create the basic ListView and populate String items inside. First, the layout XML for the item in `res/layout/item_demo.xml`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/text1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:padding="5dp"
+    android:text="Large Text"
+    android:textAppearance="?android:attr/textAppearanceLarge" />
+```
+
+Next, let's setup the basic ListView xml in an activity:
+
+```xml
+<ListView
+       android:id="@+id/lvTest"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"">
+</ListView>
+```
+
+and then populate the ListView with items:
+
+```java
+ArrayList<String> items = new ArrayList<String>();
+items.add("Item 1");
+items.add("Item 2");
+items.add("Item 3");
+items.add("Item 4");
+items.add("Item 5");
+items.add("Item 6");
+items.add("Item 7");
+items.add("Item 8");
+ArrayAdapter<String> aItems = new ArrayAdapter<String>(this, R.layout.item_simple, items);
+lvTest = (ListView) findViewById(R.id.lvTest);
+lvTest.setAdapter(aItems);
+```
+
+This results in the following:
+
+
+
 ### Additional Drawable Types
 
  * [LevelList](http://developer.android.com/guide/topics/resources/drawable-resource.html#LevelList) - A Drawable that manages a number of alternate Drawables, each assigned a maximum numerical value.
@@ -281,3 +328,5 @@ Now we have a button that has a nice shape drawable background and changes visua
  * <http://developer.android.com/reference/android/graphics/drawable/Drawable.html>
  * <http://android-dev-tips-and-tricks.blogspot.com/2012/08/xml-drawables-part-i.html>
  * <http://androidcookbook.com/Recipe.seam;jsessionid=8BED36512503CA63614CA9237248CBE7?recipeId=3307>
+ * <http://www.androidhive.info/2012/02/android-custom-listview-with-image-and-text/>
+ * <http://cyrilmottier.com/2011/08/08/listview-tips-tricks-3-create-fancy-listviews/>
