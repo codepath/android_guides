@@ -308,7 +308,7 @@ This results in the following default styles ListView:
 
 ![List Original](http://i.imgur.com/mmRV3lW.png)
 
-Now, let's add our own styling to the ListView. Let's add a default gradient and a pressed gradient, change the divider color between items and add a border around the ListView. First, let's add the gradient background for the default state in `res/drawable/gradient_bg.xml`:
+Now, let's add our own styling to the ListView. Let's add a default gradient and a pressed gradient, change the divider color between items and add a border around the ListView. First, let's add the shape gradient background for the default state in `res/drawable/gradient_bg.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -335,7 +335,7 @@ and then for the pressed gradient background in `res/drawable/gradient_pressed_b
 </shape>
 ```
 
-and then let's create a state list which describes the drawable to use in various list states in `res/drawable/states_selector_list.xml`:
+and then let's create a state list which describes the drawables to use in various list states in `res/drawable/states_selector_list.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -354,7 +354,7 @@ and then let's create a state list which describes the drawable to use in variou
 </selector>
 ```
 
-Finally, let's setup the border for our ListView using a Shape drawable in `res/drawable/list_border.xml`:
+Next, let's setup the border for our ListView using a Shape drawable in `res/drawable/list_border.xml` by setting the "stroke" property:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -372,7 +372,7 @@ Let's now apply each of these XML drawables to the various elements. First, let'
     android:background="@drawable/states_selector_list" />
 ```
 
-Next, let's add the border and the selector states to the existing ListView in the activity layout file:
+Notice that the `background` property has been set to the states list in order to apply the default background for the item. Next, let's add the border and the selector states to the existing ListView in the activity layout file:
 
 ```xml
 <ListView
@@ -385,9 +385,11 @@ Next, let's add the border and the selector states to the existing ListView in t
 </ListView>
 ```
 
-and now our customized ListView with all the styles supplied looks like:
+Here we have customized the `divider` color and `dividerHeight` as well as the `background` to apply the border and `listSelector` to manage the states when an item is pressed. With all this in place, our customized ListView now looks like:
 
 ![Customized ListView](http://i.imgur.com/MLpQC8W.png)
+
+We've now successfully customized the appearance of our ListView and it's items using a series of drawables. You can use these techniques to make a list look however you want based on the needs for your app.
 
 ### Additional Drawable Types
 
