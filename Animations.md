@@ -1,0 +1,286 @@
+# Animating Object and Transition 
+
+## Overview
+
+Android supports powerful animations for both views and transitions between activities. There are three animation systems that work differently for different cases but the most important are Property animations. 
+
+Property animations allow us to animate any property of any object from one value to another over a specified duration. These can be applied to anything within the Android application. 
+
+This is typically used for any dynamic movement for views including position changes, rotations, expansion or coloration changes. In some cases animation is used for adding visual flair and polish to an application while in others, it could be essential to the operation of the app.
+
+Animations like many resources for Android can be defined both through XML resources as well as 
+dynamically within the Java code.
+
+## Usage
+
+There are three relevant animation types for us to understand:
+
+ * [Property Animation](http://developer.android.com/guide/topics/graphics/prop-animation.html) - This is the animation of any property between two values. Frequently used to animate views on screen such as rotating an image or fading out a button.
+ * [Layout Animation](http://developer.android.com/guide/topics/graphics/prop-animation.html#layout) - This allows us to enable animations on any layout container or other ViewGroup such as a ListView. With layout animations enabled, all changes to views inside the container will be animated.
+ * [Activity Transitions](http://ahdidou.com/blog/customize-android-activities-transition/#.Uli6O2Q6VZ8) - Animates the transition as an Activity enters the screen when an Intent is executed.
+
+### Property Animations
+
+Property animations were a more recent Android feature [introduced in 3.0](http://android-developers.blogspot.com/2011/05/introducing-viewpropertyanimator.html). To use animations in a way that is **compatible with pre-3.0 Android versions**, we must use the [NineOldAndroids](http://nineoldandroids.com/) for all our property animations. 
+
+The first thing we should do is [download NineOldAndroids](https://github.com/JakeWharton/NineOldAndroids) and install this as a [library project](http://imgur.com/a/N8baF) in Eclipse for use with your apps.
+
+### Using Java
+
+Once we have setup NineOldAndroids, we can do property animations in a simple and highly compatible way. All we have to do is import the `animate` method and then we can compose and execute property animations on views. For example, suppose we want to fade out a button on screen. All we need to do is pass the button view into the `animate` method and then invoke the `alpha` property:
+
+```java
+Button btnExample = (Button) findViewById(R.id.btnExample);
+animate(btnExample).alpha(0);
+```
+
+This will automatically create and execute the animation to fade out the button. The animate method has many properties that mirror the methods from the [ViewPropertyAnimator](http://developer.android.com/reference/android/view/ViewPropertyAnimator.html) class including changing many possible properties such as opacity, rotation, scale, x&y positions, and more. For example, here's a more complex animation being executed:
+
+```java
+animate(btnExample).alpha(0.5f).rotation(90f).
+  scaleX(2).xBy(100).yBy(100).setDuration(1000).setStartDelay(10).
+  setListener(new AnimatorListenerAdapter() {
+		@Override
+		public void onAnimationStart(Animator animation) {
+			Toast.makeText(MainActivity.this, "Started...", Toast.LENGTH_SHORT).show();
+		};
+});
+```
+
+This applies multiple property animations at once including opacity change, rotation, scale and modifying the position of the button. Here we also can modify the duration, introduce a start delay and even execute a listener at the beginning or end of the animation. See the [Property Animation](http://developer.android.com/guide/topics/graphics/prop-animation.html) official docs for more detailed information.
+
+### Using XML
+
+We can also use NineOldAndroids to load property animations from XML. All we have to do is create an XML file that describes the object property animation we want to run. For example, if we wanted to animate a fade out for a button, we could add this file to `res/animator/fade_out.xml`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<objectAnimator xmlns:android="http://schemas.android.com/apk/res/android"
+    android:propertyName="alpha"
+    android:duration="1000"
+    android:valueTo="0" />
+```
+
+Now we can load that XML file into our Activity and execute an animation with:
+
+```java
+Animator anim = AnimatorInflater.loadAnimator(this, R.animator.fade_out);
+anim.setTarget(btnExample);
+anim.start();
+```
+
+And that's all! We've now executed our predefined XML animation. Here's a more complicated animation in `res/animator/multi.xml` that applies multiple animations to the button in parallel:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:ordering="together" >
+    <objectAnimator
+        android:propertyName="alpha"
+        android:valueTo="0.5" >
+    </objectAnimator>
+    <objectAnimator
+        android:propertyName="rotation"
+        android:valueTo="90.0" >
+    </objectAnimator>
+    <objectAnimator
+        android:propertyName="scaleX"
+        android:valueTo="2.0" >
+    </objectAnimator>
+    <objectAnimator
+        android:propertyName="translationX"
+        android:valueTo="100.0" >
+    </objectAnimator>
+    <objectAnimator
+        android:propertyName="translationY"
+        android:valueTo="100.0" >
+    </objectAnimator>
+</set>
+```
+
+and now let's execute this on the button by inflating the XML animation description:
+
+```java
+Animator anim = AnimatorInflater.loadAnimator(this, R.animator.multi_button);
+anim.setTarget(tvBlah);
+anim.setDuration(1000);
+anim.setStartDelay(10);
+anim.addListener(new AnimatorListenerAdapter() {
+	@Override
+	public void onAnimationStart(Animator animation) {
+		Toast.makeText(MainActivity.this, "Started...", Toast.LENGTH_SHORT).show();
+	};
+});
+anim.start();
+```
+
+See more details in the [Property Animation Resource](http://developer.android.com/guide/topics/resources/animation-resource.html#Property) guide.
+
+### View Animations
+
+View animations is a slower and less flexible system for animation that predates the property animation system that was introduced later. **Property animations are generally preferred** but let's take a look at the older system and how to apply animations using the original XML syntax.
+
+### Using XML
+
+We can define our view animations using XML instead of using the Property XML Animations. First, we define
+our animations in the `res/anim` folder. You can see **several popular animations** by checking out [this Android Animation XML Pack](https://gist.github.com/nesquena/2dab264ed3bcec9e520a). 
+
+For example, a value animation XML file might look like this for fading in an object:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillAfter="true" >
+    <alpha
+        android:duration="1000"
+        android:fromAlpha="0.0"
+        android:interpolator="@android:anim/accelerate_interpolator"
+        android:toAlpha="1.0" />
+</set>
+```
+
+Now, we can load that animation in an activity with:
+
+```java
+// Inflate animation from XML
+animFadein = AnimationUtils.loadAnimation(this, R.anim.fade_in);  
+// Setup listeners (optional)
+animFadein.setListener(new AnimatorListenerAdapter() {
+	@Override
+	public void onAnimationStart(Animator animation) {
+		// Fires when animation starts
+	}
+});
+// start the animation
+btnExample.startAnimation(animFadein);
+```
+
+See more details in the [View Animation Resource](http://developer.android.com/guide/topics/resources/animation-resource.html#View) guide or this [more detailed tutorial](http://www.androidhive.info/2013/06/android-working-with-xml-animations/#fade_in).
+
+### Layout Animations
+
+#### Animating on Start
+
+A particular animation can be specified when the layout first appears on screen. This can be done by using the [android:layoutAnimation](http://developer.android.com/reference/android/view/ViewGroup.html#attr_android:layoutAnimation) property to specify an animation to execute.
+
+First, let's define an animation we'd like to use when the views in the layout appear on the screen in `res/anim/slide_right.xml` which defines sliding in right from outside the screen:
+
+```xml
+<set  xmlns:android="http://schemas.android.com/apk/res/android"  
+      android:interpolator="@android:anim/accelerate_interpolator">
+    <translate android:fromXDelta="-100%p" android:toXDelta="0"
+            android:duration="1000" /> 
+</set>
+```
+
+and now we need to create a special `layoutAnimation` which references that animation:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<layoutAnimation xmlns:android="http://schemas.android.com/apk/res/android"
+        android:delay="30%"
+        android:animationOrder="reverse"
+        android:animation="@anim/slide_right"
+/>
+```
+
+and now we need to apply this `layoutAnimation` to our Layout or ViewGroup:
+
+```xml
+<LinearLayout 
+    ...
+    android:layoutAnimation="@anim/layout_bottom_to_top_slide" />
+```
+
+and now when you launch the application, the views within this layout will slide in from the right. See more information about layout animation in [this guide by linkyan](http://linkyan.com/2013/06/layoutanimation/) or in this [layout animation tutorial](http://android-er.blogspot.com/2009/10/layout-animation.html) or in the [ui action layout tutorial](http://mobile.dzone.com/articles/android-ui-action-layout).
+
+#### Animating Changes
+
+[Layout Change Animations](http://developer.android.com/training/animation/layout.html) allow us to enable animations on any Layout container or other ViewGroup such as a ListView. With layout animations enabled, all changes to views inside the container will be animated automatically. This is especially useful for ListViews which causes items to be animated as they are added or removed.
+
+To enable the default animations, all we have to do is set the `animateLayoutChanges` property on any ViewGroup within the XML:
+
+```xml
+<LinearLayout
+  ...
+  android:animateLayoutChanges="true">
+  
+  <ListView android:id="@+id/list"
+    android:animateLayoutChanges="true"
+    ...
+  />
+
+</LinearLayout>
+```
+
+The [android:animateLayoutChanges](http://developer.android.com/reference/android/view/ViewGroup.html#attr_android:animateLayoutChanges) property enables a default animation if no further customization is made.
+
+### Activity Transitions
+
+In addition to property animations for views, we can also manage the animations and transitions for Activities as they become visible on screen. We do this by managing the transitions around the time we trigger an intent.
+The basic approach is that right after executing an intent with `startActivity`, you call the [overridePendingTransition](http://developer.android.com/reference/android/app/Activity.html#overridePendingTransition(int, int\)) method such as:
+
+```java
+Intent i = new Intent(MainActivity.this, SecondActivity.class);
+startActivity(i);
+overridePendingTransition(R.anim.right_in, R.anim.left_out);
+```
+
+The first parameter is the "enter" animation for the launched activity and the second is the "exit" animation for the current activity. These animations can be any XML view animation files. For example, `right_in` might be defined in `res/anim/right_in.xml` as:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>  
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+     android:interpolator="@android:anim/linear_interpolator">  
+  <translate 
+      android:fromXDelta="100%p" 
+      android:toXDelta="0" 
+      android:duration="500"/>
+</set> 
+```
+
+This would move the X position of the new window from off the screen sliding in from the right. We might then define `left_out` in `res/anim/left_out.xml` with:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>  
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+     android:interpolator="@android:anim/linear_interpolator">  
+  <translate 
+      android:fromXDelta="0" 
+      android:toXDelta="-100%p" 
+      android:duration="500"/>
+</set> 
+```
+
+This causes the parent activity to slide off screen to left. When these animations run together, it creates the effect that the new activity is pushing the old one off the screen while sliding in. You can see a more complete example on the [customizing activity transition tutorial](http://ahdidou.com/blog/customize-android-activities-transition/) as well as the [custom animation while switching](http://android-er.blogspot.com/2013/04/custom-animation-while-switching.html) tutorial. Yet another example can be found in the [blundell apps animate an activity](http://blog.blundell-apps.com/animate-an-activity/) tutorial.
+
+## Things To Note
+
+* There are actually three types of animation systems on Android:
+    * [Property Animations](http://developer.android.com/guide/topics/graphics/prop-animation.html) - The most powerful and flexible animation system introduced in Android 3.0.
+    * [View Animations](http://developer.android.com/guide/topics/graphics/view-animation.html) - Slower and less flexible; deprecated since property animations were introduced
+    * [Drawable Animations](http://developer.android.com/guide/topics/graphics/drawable-animation.html) - Used to animate by displaying drawables in quick succession
+* Property animations typically take place on properties of objects by using the `ObjectAnimator`
+  which is an extension of the `ValueAnimator` which is the core timing engine for animations.
+* `AnimatorSet` is the mechanism for logically grouping animations together that run in relation
+   to each other and can run them either parallel or sequentially.
+
+## Libraries
+
+* [NineOldAndroids](http://nineoldandroids.com/) - Compatibility library supporting property animations all the way back to Android 1.0.
+
+## References
+
+ * <http://www.vogella.com/articles/AndroidAnimation/article.html>
+ * <http://developer.android.com/guide/topics/graphics/overview.html>
+ * <http://developer.android.com/guide/topics/graphics/drawable-animation.html>
+ * <http://developer.android.com/guide/topics/resources/animation-resource.html>
+ * <http://developer.android.com/reference/android/view/ViewPropertyAnimator.html>
+ * <http://www.androidhive.info/2013/06/android-working-with-xml-animations/>
+ * <http://karanbalkar.com/2013/05/tutorial-30-create-animation-in-android/>
+ * <http://www.javacodegeeks.com/2011/01/android-animations-quick-guide.html>
+ * <http://android-developers.blogspot.com/2011/02/animation-in-honeycomb.html>
+ * <http://android-developers.blogspot.com/2011/05/introducing-viewpropertyanimator.html>
+ * <http://learnandroideasily.blogspot.in/2013/07/imageview-animation-in-android.html>
+ * <http://java.dzone.com/articles/using-view-animations-android>
+ * <http://mobile.dzone.com/articles/android-ui-action-layout>
