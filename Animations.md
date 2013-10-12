@@ -1,5 +1,3 @@
-# Animating Object and Transition 
-
 ## Overview
 
 Android supports powerful animations for both views and transitions between activities. There are three animation systems that work differently for different cases but the most important are Property animations. 
