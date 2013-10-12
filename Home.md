@@ -10,6 +10,7 @@ Welcome to the Codepath Android Guides!
 * [[Working with the Soft Keyboard]]
 * [[Basic Event Listeners]]
 * [[Using an ArrayAdapter with ListView]]
+* [[Implementing a Horizontal ListView]] Guide
 * [[Endless Scrolling with AdapterViews]]
 * [[Implementing Pull to Refresh]] Guide
 * [[Using Intents to Create Flows]]
@@ -28,6 +29,7 @@ Welcome to the Codepath Android Guides!
 * [[Loading Contacts with Content Providers]]
 * [[Using Hardware, Sensors and Device Data]]
 * [[Google Maps Fragment Guide]]
+* [[Must Have Libraries]] Guide
 
 ## Intermediate
 
