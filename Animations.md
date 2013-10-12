@@ -104,10 +104,10 @@ anim.setTarget(tvBlah);
 anim.setDuration(1000);
 anim.setStartDelay(10);
 anim.addListener(new AnimatorListenerAdapter() {
-	@Override
-	public void onAnimationStart(Animator animation) {
-		Toast.makeText(MainActivity.this, "Started...", Toast.LENGTH_SHORT).show();
-	};
+     @Override
+     public void onAnimationStart(Animator animation) {
+          Toast.makeText(MainActivity.this, "Started...", Toast.LENGTH_SHORT).show();
+     };
 });
 anim.start();
 ```
@@ -144,10 +144,10 @@ Now, we can load that animation in an activity with:
 animFadein = AnimationUtils.loadAnimation(this, R.anim.fade_in);  
 // Setup listeners (optional)
 animFadein.setListener(new AnimatorListenerAdapter() {
-	@Override
-	public void onAnimationStart(Animator animation) {
-		// Fires when animation starts
-	}
+    @Override
+    public void onAnimationStart(Animator animation) {
+        // Fires when animation starts
+    }
 });
 // start the animation
 btnExample.startAnimation(animFadein);
