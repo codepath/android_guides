@@ -36,6 +36,7 @@ Welcome to the Codepath Android Guides!
 * [[Using DialogFragment]]
 * [[Notifications]]
 * [[Drawables]]
+* [[Animations]]
 * [[Styles and Themes]]
 * [[Extended ActionBar Guide]]
 * [[Getting Started with Gradle]]
