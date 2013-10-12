@@ -304,11 +304,9 @@ lvTest = (ListView) findViewById(R.id.lvTest);
 lvTest.setAdapter(aItems);
 ```
 
-This results in the following:
+This results in the following default styles ListView:
 
-![Screen 1](http://i.imgur.com/XCfTbxl.png)
-&nbsp;
-![Screen 2](http://i.imgur.com/C1F0axc.png)
+![List Original](http://i.imgur.com/mmRV3lW.png)
 
 ### Additional Drawable Types
 
