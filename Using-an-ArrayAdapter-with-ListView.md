@@ -48,7 +48,7 @@ public class User {
        }
     }
 
-       public static ArrayList<User> fromJson(JSONArray jsonObjects) {
+    public static ArrayList<User> fromJson(JSONArray jsonObjects) {
            ArrayList<User> users = new ArrayList<User>();
            for (int i = 0; i < jsonObjects.length; i++) {
                try {
