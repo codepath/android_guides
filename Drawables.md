@@ -263,7 +263,7 @@ Now we have a button that has a nice shape drawable background and changes visua
 
 ### Customizing a ListView
 
-Another common task is customizing the appearance of items in a ListView. First let's create the basic ListView and populate String items inside. First, the layout XML for the item in `res/layout/item_demo.xml`:
+Another common task is customizing the appearance of items in a ListView. First let's create the basic ListView and populate String items inside. First, the layout XML for the item in `res/layout/item_simple.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -307,6 +307,87 @@ lvTest.setAdapter(aItems);
 This results in the following default styles ListView:
 
 ![List Original](http://i.imgur.com/mmRV3lW.png)
+
+Now, let's add our own styling to the ListView. Let's add a default gradient and a pressed gradient, change the divider color between items and add a border around the ListView. First, let's add the gradient background for the default state in `res/drawable/gradient_bg.xml`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+  <gradient
+      android:startColor="#f1f1f2"
+      android:centerColor="#e7e7e8"
+      android:endColor="#cfcfcf"
+      android:angle="270" />
+</shape>
+```
+
+and then for the pressed gradient background in `res/drawable/gradient_pressed_bg.xml`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+  <gradient
+      android:startColor="#C1E1A6"
+      android:endColor="#118C4E"
+      android:angle="270" />
+</shape>
+```
+
+and then let's create a state list which describes the drawable to use in various list states in `res/drawable/states_selector_list.xml`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:state_selected="false"
+        android:state_pressed="false"
+        android:drawable="@drawable/gradient_bg" />
+
+    <item android:state_pressed="true"
+        android:drawable="@drawable/gradient_pressed_bg" />
+ 
+    <item android:state_selected="true"
+     android:state_pressed="false"
+        android:drawable="@drawable/gradient_pressed_bg" />
+</selector>
+```
+
+Finally, let's setup the border for our ListView using a Shape drawable in `res/drawable/list_border.xml`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle" >
+    <stroke android:width="1dp" android:color="#b5b5b5" />
+    <solid android:color="#00000000" />
+</shape>
+```
+
+Let's now apply each of these XML drawables to the various elements. First, let's add the background to the list item itself and tweak `res/layout/item_simple.xml`:
+
+```xml
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    ...
+    android:background="@drawable/states_selector_list" />
+```
+
+Next, let's add the border and the selector states to the existing ListView in the activity layout file:
+
+```xml
+<ListView
+   ...
+   android:padding="1dp"
+   android:divider="#b5b5b5"
+   android:dividerHeight="1dp"
+   android:background="@drawable/list_border"
+   android:listSelector="@drawable/states_selector_list" >
+</ListView>
+```
+
+and now our customized ListView with all the styles supplied looks like:
+
+![Customized ListView](http://i.imgur.com/MLpQC8W.png)
 
 ### Additional Drawable Types
 
