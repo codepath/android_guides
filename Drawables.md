@@ -157,6 +157,8 @@ Read more about NinePatch images in the [offical docs](http://developer.android.
 
 ## Customizing a Button
 
+Let's take a look at an end-to-end example of customizing a button using drawables to govern the styling and the pressed states.
+
 Creating a custom button require combining at least a state list drawable with a shape drawable. First, let's create our shape drawable which represents the "default" button background in `res/drawable/nice_button_enabled.xml`:
 
 ```xml
