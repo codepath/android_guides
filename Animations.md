@@ -42,7 +42,7 @@ animate(btnExample).alpha(0.5f).rotation(90f).
       public void onAnimationStart(Animator animation) {
           Toast.makeText(MainActivity.this, "Started...", Toast.LENGTH_SHORT).show();
       };
-});
+  });
 ```
 
 This applies multiple property animations at once including opacity change, rotation, scale and modifying the position of the button. Here we also can modify the duration, introduce a start delay and even execute a listener at the beginning or end of the animation. See the [Property Animation](http://developer.android.com/guide/topics/graphics/prop-animation.html) official docs for more detailed information.
