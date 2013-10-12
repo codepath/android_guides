@@ -307,6 +307,7 @@ lvTest.setAdapter(aItems);
 This results in the following:
 
 ![Screen 1](http://i.imgur.com/XCfTbxl.png)
+&nbsp;
 ![Screen 2](http://i.imgur.com/C1F0axc.png)
 
 ### Additional Drawable Types
