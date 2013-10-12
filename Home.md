@@ -28,3 +28,12 @@ Welcome to the Codepath Android Guides!
 * [[Loading Contacts with Content Providers]]
 * [[Using Hardware, Sensors and Device Data]]
 * [[Google Maps Fragment Guide]]
+
+## Intermediate
+
+* [[Using DialogFragment]]
+* [[Notifications]]
+* [[Drawables]]
+* [[Styles and Themes]]
+* [[Extended ActionBar Guide]]
+* [[Getting Started with Gradle]]
