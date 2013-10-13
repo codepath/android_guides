@@ -4,7 +4,8 @@ The ArrayAdapter fits in the middle between the Array (data source) and the List
 
  * Which array to use as the data source
  * How to convert any item in the array to a View object
- * Using a Basic ArrayAdapter
+
+## Using a Basic ArrayAdapter
 
 To use a basic ArrayAdapter, you just need to initialize the adapter and attach the adapter to the ListView. First, initialize the adapter:
 
