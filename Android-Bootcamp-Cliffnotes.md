@@ -12,9 +12,9 @@ Cliffnotes are references giving you the "most important" Android topics with br
 ### Week 2 - Interaction and Navigation
 
 * [[Basic Event Listeners]]
-* [[Using Intents to Create Flows]]
 * [[Defining the ActionBar]]
 * [[Displaying Toasts]]
+* [[Using Intents to Create Flows]]
 * [[Common Implicit Intents]]
 
 ### Week 3 - Networking and Persistence
