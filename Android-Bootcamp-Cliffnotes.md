@@ -1,4 +1,4 @@
-Cliffnotes are references giving you the "most important" Android topics with brief explanations and relevant code snippets. The idea here is to distill the concepts down to shorter cliffnotes so you don't have to "read the book":
+Cliffnotes are references giving you the "most important" Android topics with brief explanations and relevant code snippets. The idea here is to distill the concepts down to shorter cliffnotes so you don't have to "read the book".
 
 ### Week 1 - Fundamentals and Views
 
