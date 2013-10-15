@@ -56,15 +56,15 @@ public abstract class EndlessScrollListener implements OnScrollListener {
 		}
 		// If it isn’t currently loading, we check to see if we have breached
 		// the visibleThreshold and need to reload more data.
-		// If we do need to reload some more data, we execute loadMore to fetch the data.
+		// If we do need to reload some more data, we execute onLoadMore to fetch the data.
 		if (!loading && (totalItemCount - visibleItemCount) <= (firstVisibleItem + visibleThreshold)) {
-			loadMore(currentPage + 1, totalItemCount);
+			onLoadMore(currentPage + 1, totalItemCount);
 			loading = true;
 		}
 	}
 
 	// Defines the process for actually loading more data based on page
-	public abstract void loadMore(int page, int totalItemsCount);
+	public abstract void onLoadMore(int page, int totalItemsCount);
 
 	@Override
 	public void onScrollStateChanged(AbsListView view, int scrollState) {
@@ -72,7 +72,7 @@ public abstract class EndlessScrollListener implements OnScrollListener {
 }
 ```
 
-Notice that this is an abstract class, and that in order to use this, you must extend this base class and define the `loadMore` method to actually retrieve the new data. We can define now an anonymous class within any activity that extends `EndlessScrollListener` and bind that to the AdapterView. For example:
+Notice that this is an abstract class, and that in order to use this, you must extend this base class and define the `onLoadMore` method to actually retrieve the new data. We can define now an anonymous class within any activity that extends `EndlessScrollListener` and bind that to the AdapterView. For example:
 
 ```java
 public class MainActivity extends Activity {
@@ -82,8 +82,8 @@ public class MainActivity extends Activity {
         ListView lvItems = (ListView) findViewById(R.id.lvItems);
         lvItems.setOnScrollListener(new EndlessScrollListener() {
 	    @Override
-	    public void loadMore(int page, int totalItemsCount) {
-                // whatever code is needed to append new items to your AdapterView
+	    public void onLoadMore(int page, int totalItemsCount) {
+                // Whatever code is needed to append new items to your AdapterView
                 // probably sending out a network request and appending items to your adapter. 
                 // Use the page or the totalItemsCount to retrieve correct data.
 	        customLoadMoreFromActivity(page); 
@@ -93,7 +93,7 @@ public class MainActivity extends Activity {
 }
 ```
 
-Now as you scroll, items will be automatically filling in because the `loadMore` method will be triggered once the user crosses the `visibleThreshold`. This approach works equally well for a `GridView` and the listener gives access to both the `page` as well as the `totalItemsCount` to support both pagination and offset based fetching.
+Now as you scroll, items will be automatically filling in because the `onLoadMore` method will be triggered once the user crosses the `visibleThreshold`. This approach works equally well for a `GridView` and the listener gives access to both the `page` as well as the `totalItemsCount` to support both pagination and offset based fetching.
 
 ## References
 
