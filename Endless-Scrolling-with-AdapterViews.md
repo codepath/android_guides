@@ -84,7 +84,9 @@ public class MainActivity extends Activity {
 	    @Override
 	    public void loadMore(int page, int totalItemsCount) {
                 // whatever code is needed to append new items to your AdapterView
-	        customLoadMoreFromActivity(page);
+                // probably sending out a network request and appending items to your adapter. 
+                // Use the page or the totalItemsCount to retrieve correct data.
+	        customLoadMoreFromActivity(page); 
 	    }
         });
     }
