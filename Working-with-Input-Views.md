@@ -158,7 +158,7 @@ public void setSpinnerToValue(Spinner spinner, String value) {
 }
 ```
 
-You can also load a spinner using a dynamic source of options, check out the [Spinners](http://developer.android.com/guide/topics/ui/controls/spinner.html) guide for more details. 
+You can also load a spinner using an adapter for a dynamic source of options, check out the [Spinners](http://developer.android.com/guide/topics/ui/controls/spinner.html) guide for more details. Also note that styling a spinner's text requires using a custom array adapter as explained [in this answer](http://stackoverflow.com/questions/9476665/how-to-change-spinner-text-size-and-text-color).
 
 ## References
 
