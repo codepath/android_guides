@@ -35,7 +35,32 @@ To access the resource directly in your Java code, simply use the `getResources.
 var submitText = getResources().getString(R.string.submit_label)
 ```
 
-And the string value will be retrieved. This similar pattern works for almost any resource from images (drawables) to colors. Although each resource is defined within different folders and files within the `res` directory.
+And the string value will be retrieved. This similar pattern works for almost any resource from images (drawables) to colors. However, each resource is defined within different folders and files within the `res` directory depending on their type.
+
+### Dynamic Resource Retrieval
+
+In certain cases, you might want to dynamically retrieve resources using just the key name rather than by "hardcoding" the resource id. For example, suppose I wanted to retrieve the "submit_label" string based on just that key name alone. This can be achieved using the `getIdentifier` method within an Activity:
+
+```java
+public String getStringValue(String key) {
+    // Retrieve the resource id
+    String packageName = getBaseContext().getPackageName();
+    Resources resources = getBaseContext().getResources();
+    int stringId = resources.getIdentifier(key, "string", packageName);
+    if (stringId == 0) { return null; }
+    // Return the string value based on the res id
+    return resources.getString(stringId);
+}
+```
+
+Now you can reference your string resources dynamically using:
+
+```java
+public String myKey = "submit_label"; // Maps to R.string.submit_label
+public String myStringValue = getStringValue(myKey); // Returns string text
+```
+
+This can be done similarly for other types of resources as well. Check out the [getResources](http://developer.android.com/reference/android/content/res/Resources.html) object and [getIdentifier](http://developer.android.com/reference/android/content/res/Resources.html#getIdentifier(java.lang.String, java.lang.String, java.lang.String\)) for more details.
 
 ## References
 
