@@ -86,7 +86,8 @@ public class MainActivity extends Activity {
                 // Whatever code is needed to append new items to your AdapterView
                 // probably sending out a network request and appending items to your adapter. 
                 // Use the page or the totalItemsCount to retrieve correct data.
-	        customLoadMoreFromActivity(page); 
+	        customLoadMoreDataFromApi(page); 
+                // or customLoadMoreDataFromApi(totalItemsCount); 
 	    }
         });
     }
