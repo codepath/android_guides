@@ -48,6 +48,6 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Implementing Pull to Refresh]] Guide
 * [[Must-have Libraries]] Guide
 * [[Implementing a Horizontal ListView]] Guide
-* [[Sharing Content with Intents]]
-
-If there's anything else, feel free to suggest new cliffnote pages and/or help contribute to them!
+* [[Sharing Content with Intents]] Guide
+ 
+If there's anything else, feel free to suggest new cliffnotes and/or help contribute to them!
