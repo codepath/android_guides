@@ -5,6 +5,12 @@ A common application feature is to have an AdapterView (such as a ListView or Gr
 Every AdapterView has support for binding to the `OnScrollListener` events which are triggered whenever a user scrolls through the collection. Using this system, we can define a basic `EndlessScrollListener` which supports most use cases by creating our own class that extends `OnScrollListener`:
 
 ```java
+package com.codepath.androidgridimagesearch;
+
+
+import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
+
 public abstract class EndlessScrollListener implements OnScrollListener {
 	// The minimum amount of items to have below your current scroll position
 	// before loading more.
@@ -38,10 +44,11 @@ public abstract class EndlessScrollListener implements OnScrollListener {
 	public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
 		// If the total item count is zero and the previous isn't, assume the
 		// list is invalidated and should be reset back to initial state
+		// If there are no items in the list, assume that initial items are loading
 		if (!loading && (totalItemCount < previousTotalItemCount)) {
 			this.currentPage = this.startingPageIndex;
 			this.previousTotalItemCount = totalItemCount;
-			this.loading = true;
+			if (totalItemCount == 0) { loading = true; } 
 		}
 
 		// If it’s still loading, we check to see if the dataset count has
@@ -54,6 +61,7 @@ public abstract class EndlessScrollListener implements OnScrollListener {
 				currentPage++;
 			}
 		}
+		
 		// If it isn’t currently loading, we check to see if we have breached
 		// the visibleThreshold and need to reload more data.
 		// If we do need to reload some more data, we execute onLoadMore to fetch the data.
@@ -68,6 +76,7 @@ public abstract class EndlessScrollListener implements OnScrollListener {
 
 	@Override
 	public void onScrollStateChanged(AbsListView view, int scrollState) {
+		// Don't take any action on changed
 	}
 }
 ```
