@@ -6,7 +6,7 @@ Sending and receiving data between applications with intents is most commonly us
 
 There are two ways to share content easily:
 
- * Using [ShareActionProvider](http://developer.android.com/training/sharing/shareaction.html) 
+ * [ShareActionProvider](http://developer.android.com/training/sharing/shareaction.html) 
  * [Sending Content with Intents](http://developer.android.com/training/sharing/send.html)
 
 ### Sending Content
