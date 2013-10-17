@@ -87,12 +87,15 @@ public class MainActivity extends Activity {
 	    @Override
 	    public void onLoadMore(int page, int totalItemsCount) {
                 // Whatever code is needed to append new items to your AdapterView
-                // probably sending out a network request and appending items to your adapter. 
-                // Use the page or the totalItemsCount to retrieve correct data.
 	        customLoadMoreDataFromApi(page); 
                 // or customLoadMoreDataFromApi(totalItemsCount); 
 	    }
         });
+    }
+
+    public void customLoadMoreDataFromApi(int offset) {
+      // This method probably sends out a network request and appends new data items to your adapter. 
+      // Use the offset value and add it as a parameter to your API request to retrieve paginated data.
     }
 }
 ```
