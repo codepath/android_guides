@@ -92,7 +92,8 @@ public class MainActivity extends Activity {
 	    }
         });
     }
-
+    
+    // Append more data into the adapter
     public void customLoadMoreDataFromApi(int offset) {
       // This method probably sends out a network request and appends new data items to your adapter. 
       // Use the offset value and add it as a parameter to your API request to retrieve paginated data.
