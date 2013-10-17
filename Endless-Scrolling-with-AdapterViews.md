@@ -83,8 +83,8 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         // ... the usual 
         ListView lvItems = (ListView) findViewById(R.id.lvItems);
+        // onLoadMore is triggered only when new data needs to be appended to the list
         lvItems.setOnScrollListener(new EndlessScrollListener() {
-            // onLoadMore is triggered only when new data needs to be appended to the list
 	    @Override
 	    public void onLoadMore(int page, int totalItemsCount) {
                 // Whatever code is needed to append new items to your AdapterView
