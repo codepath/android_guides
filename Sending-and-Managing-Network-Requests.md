@@ -65,8 +65,9 @@ You should also **handle failure cases** with [JsonHttpResponseHandler](http://l
 
 ```java
 client.getHomeTimeline(1, new JsonHttpResponseHandler() {
-  public void onFailure(JSONObject error) {
+  public void onFailure(Throwable e, JSONObject error) {
     // Handle the failure and alert the user to retry
+    Log.e("ERROR", e.toString());
   }
 });
 ```
