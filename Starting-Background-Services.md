@@ -138,6 +138,7 @@ public class MainActivity extends Activity {
   // Setup the callback for when data is received from the service
   public void setupServiceReceiver() {
     receiverForTest = new MyTestReceiver(new Handler());
+    // This is where we specify what happens when data is received from the service
     receiverForTest.setReceiver(new MyTestReceiver.Receiver() {
       @Override
       public void onReceiveResult(int resultCode, Bundle resultData) {
