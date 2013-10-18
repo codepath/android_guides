@@ -173,9 +173,7 @@ adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 spinner.setAdapter(adapter);
 ```
 
-Check out the [Spinners](http://developer.android.com/guide/topics/ui/controls/spinner.html) guide for more details. 
-
-Note that customizing or styling a spinner's text requires using a [custom array adapter and layout file](http://stackoverflow.com/questions/9476665/how-to-change-spinner-text-size-and-text-color).
+Check out the [Spinners](http://developer.android.com/guide/topics/ui/controls/spinner.html) guide for more details. Note that customizing or styling a spinner's text requires using a [custom array adapter and layout file](http://stackoverflow.com/questions/9476665/how-to-change-spinner-text-size-and-text-color).
 
 ## References
 
