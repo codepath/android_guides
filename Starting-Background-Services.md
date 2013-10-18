@@ -317,9 +317,9 @@ public class MainActivity extends Activity {
     // Create a PendingIntent to be triggered when the alarm goes off
     final PendingIntent pIntent = PendingIntent.getBroadcast(this, MyAlarmReceiver.REQUEST_CODE,
         intent, PendingIntent.FLAG_UPDATE_CURRENT);
+    // Setup periodic alarm every 5 seconds
     long firstMillis = System.currentTimeMillis(); // first run of alarm is immediate
     int intervalMillis = 5000; // 5 seconds
-    // Setup periodic alarm every 5 seconds
     AlarmManager alarm = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
     alarm.setInexactRepeating(AlarmManager.RTC_WAKEUP, firstMillis, intervalMillis, pIntent);
   }
