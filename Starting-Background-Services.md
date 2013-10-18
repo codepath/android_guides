@@ -59,13 +59,15 @@ Notice that we specify this in the manifest file with the `name` and `exported` 
 Once we have defined the service, let's take a look at how to trigger the service and pass the service data. This is done using the same Intent system we are already familiar with. We simply create an intent like normal specifying the IntentService to execute:
 
 ```java
-public void onStartService(View v) {
-    // Construct our Intent specifying the Service
-    Intent i = new Intent(this, MyTestService.class);
-    // Add extras to the bundle
-    i.putExtra("foo", "bar");
-    // Start the service
-    startService(i);
+public class MainActivity extends Activity { 
+    public void onStartService(View v) {
+        // Construct our Intent specifying the Service
+        Intent i = new Intent(this, MyTestService.class);
+        // Add extras to the bundle
+        i.putExtra("foo", "bar");
+        // Start the service
+        startService(i);
+    }
 }
 ```
 
