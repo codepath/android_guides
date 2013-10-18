@@ -61,6 +61,18 @@ client.getHomeTimeline(1, new JsonHttpResponseHandler() {
 });
 ```
 
+You should also **handle failure cases** with [JsonHttpResponseHandler](http://loopj.com/android-async-http/doc/com/loopj/android/http/JsonHttpResponseHandler.html#onFailure(java.lang.Throwable, org.json.JSONObject\)) using the `onFailure` method:
+
+```java
+client.getHomeTimeline(1, new JsonHttpResponseHandler() {
+  public void onFailure(JSONObject error) {
+    // Handle the failure and alert the user to retry
+  }
+});
+```
+
+Always handle failure cases so your application is robust to "losing internet" and user doesn't become confused.
+
 ### Displaying Remote Images (The "Easy" Way)
 
 In contrast, using the third party library [android-universal-image-loader](https://github.com/nostra13/Android-Universal-Image-Loader), we can download an image like this:
