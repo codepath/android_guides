@@ -158,7 +158,22 @@ public void setSpinnerToValue(Spinner spinner, String value) {
 }
 ```
 
-You can also load a spinner using an adapter for a dynamic source of options, check out the [Spinners](http://developer.android.com/guide/topics/ui/controls/spinner.html) guide for more details. Also note that styling a spinner's text requires using a custom array adapter as explained [in this answer](http://stackoverflow.com/questions/9476665/how-to-change-spinner-text-size-and-text-color).
+You can also load a spinner using an adapter for a dynamic source of options using an Adapter:
+
+```java
+Spinner spinner = (Spinner) findViewById(R.id.spinner);
+// Create an ArrayAdapter using the string array and a default spinner layout
+ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+        R.array.planets_array, android.R.layout.simple_spinner_item);
+// Specify the layout to use when the list of choices appears
+adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+// Apply the adapter to the spinner
+spinner.setAdapter(adapter);
+```
+
+Check out the [Spinners](http://developer.android.com/guide/topics/ui/controls/spinner.html) guide for more details. 
+
+Also note that customizing or styling a spinner's text requires using a custom array adapter and layout file as explained [in this answer](http://stackoverflow.com/questions/9476665/how-to-change-spinner-text-size-and-text-color).
 
 ## References
 
