@@ -2,7 +2,7 @@
 * [[Navigation Stack and Tasks]]
 * [[Notifications]]
 * [[Gestures and Touch Events]]
-* [[Creating Background Services]]
+* [[Starting Background Services]]
 * [[Animations]]
 * [[Drawables]]
 * [[Styles and Themes]]
