@@ -8,7 +8,6 @@
 * [[Getting Started with Gradle]]
 * [[Navigation Stack and Tasks]]
 * [[Gestures and Touch Events]]
-* [[Video and Audio Playback]]
 * [[Getting Started with Maven]]
 * [[Android Unit and Integration Testing]]
 * [[Flexible User Interfaces]]
@@ -19,6 +18,7 @@
 
 More reference topics:
 
+* [[Video and Audio Playback]]
 * [[Content Providers]]
 * [[Using Data Loaders]]
 * [[Creating an App Widget]]
