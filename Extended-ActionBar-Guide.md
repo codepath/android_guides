@@ -118,6 +118,70 @@ public class MainActivity extends SherlockFragmentActivity {
 }
 ```
 
+### Custom ActionBar Layout
+
+In certain cases, you might want to change the styling of the ActionBar title. For example, you may want to remove the icon, change the size of the title, tweak the color, or center the text. In order to achieve this, you need to replace the title with your own custom XML view. First, define your custom ActionBar XML in `res/layout/actionbar_title.xml`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical" >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/app_title"
+        android:textColor="#ffffff"
+        android:id="@+id/mytext"
+        android:textSize="25dp" />
+</LinearLayout>
+```
+
+Now we've defined the XML layout desired and we need to load this custom XML file and replace the ActionBar title with our customized XML inside the Activity by calling [setCustomView](http://developer.android.com/reference/android/app/ActionBar.html#setCustomView(int\)):
+
+```java
+// in onCreate
+getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM); 
+getSupportActionBar().setCustomView(R.layout.actionbar_title);
+```
+
+At this point, we now have replaced the default ActionBar with our preferred layout and have complete control over it's appearance. 
+
+### Custom ActionBar Styles
+
+In addition, to the ability to change the ActionBar layout, we can also tweak the ActionBar styles and properties by customizing our own theme. For example, we could add the following to `res/values/styles.xml`:
+
+```xml
+<resources>
+    <style name="MyCustomTheme" parent="@android:style/Theme.Holo.Light">
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+    </style>
+
+    <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">#ffffff</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+</resources>
+```
+
+Now tweak the theme for the application or activity within the `AndroidManifest.xml`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.codepath.example.servicesdemo"
+    ...>
+    <application
+        ...
+        android:theme="@style/MyCustomTheme" >
+</manifest>
+```
+
+Now your properties and styles will take affect within the ActionBar. For an easier way to skin the ActionBar, check out the [StyleGenerator](http://jgilfelt.github.com/android-actionbarstylegenerator) tool for easy style tweaking.
+
 ### Adding ActionView Items
 
 Unlike regular menu items, an action view is a widget that appears in the action bar as a substitute for an action button. ActionView is a full fledged 
