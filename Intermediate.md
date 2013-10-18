@@ -6,7 +6,7 @@
 * [[Styles and Themes]]
 * [[Extended ActionBar Guide]]
 * [[Getting Started with Gradle]]
-* [[Navigation Stack and Tasks]]
+* [[Navigation and Task Stacks]]
 * [[Gestures and Touch Events]]
 * [[Getting Started with Maven]]
 * [[Android Unit and Integration Testing]]
