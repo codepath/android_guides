@@ -88,8 +88,8 @@ The first approach to modifying the task stack is to set proprties on the [<acti
 Notice there we have specified the `launchMode` as "singleTop". There are four different "launch modes" to choose from that alter the task stack behaviors for that activity:
 
  * `standard` - The default behavior. Creates a new instance of the activity in the task.
- * `singleTop` - Re-use an activity instance if already at the top of the stack; otherwise create new instance.
- * `singleTask` - Re-use an activity instance if exists in an existing stack; otherwise create in a new task stack.
+ * `singleTop` - Reuse an activity instance if already at the top of the stack; otherwise create new instance.
+ * `singleTask` - Reuse an activity instance if exists in an existing stack; otherwise create in a new task stack.
  * `singleInstance` - Same as `singleTask` but no other activities are ever inserted into the created task stack.
 
 See the [official guide for stacks](http://developer.android.com/guide/components/tasks-and-back-stack.html#ManifestForTasks) for a more detailed explanation. This table may help clarify the different launch modes:
