@@ -329,15 +329,15 @@ There are several questions that come up commonly when "cloning screens" covered
 
 **How do I support different fonts?** 
 
-Fonts can be customized fairly easily using this [custom fonts](http://www.androidhive.info/2012/02/android-using-external-fonts/) guide. We aware that custom fonts can cause performance issues if used too much.
+Fonts can be customized fairly easily using this [custom fonts](http://www.androidhive.info/2012/02/android-using-external-fonts/) guide. Be aware that custom fonts can cause performance issues if used too much.
 
 **How do I center the ActionBar title?**
 
-ActionBar title can be centered only if you opt to totally customize the view being inflated. Instead of the default ActionBar text you can specify your own to use instead that is centered. This [stackoverflow answer](http://stackoverflow.com/questions/12387345/how-to-align-actionbar-title-center-in-android/12388200#12388200) explains it in detail.
+ActionBar title can be centered only if you opt to totally customize the view being inflated. Instead of the default ActionBar text you can specify your own to use instead that is centered. This [stackoverflow answer](http://stackoverflow.com/questions/12387345/how-to-align-actionbar-title-center-in-android/12388200#12388200) explains it in detail. Also, check out the [Advanced Actionbar](https://github.com/thecodepath/android_guides/wiki/Extended-ActionBar-Guide#custom-actionbar-layout) cliffnotes for more details.
 
 **How do I change the background color of the ActionBar?**
 
-Customize the theme of the ActionBar in the `styles.xml` as explained in [this stackoverflow post](http://stackoverflow.com/a/9249702) to adjust the color of the ActionBar.
+Customize the theme of the ActionBar in the `styles.xml` as explained in [this stackoverflow post](http://stackoverflow.com/a/9249702) to adjust the color of the ActionBar. Also, check out the [Advanced Actionbar](https://github.com/thecodepath/android_guides/wiki/Extended-ActionBar-Guide#custom-actionbar-styles) cliffnotes for more details. 
 
 **How do I create a pressed button state?**
 
