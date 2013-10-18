@@ -4,7 +4,7 @@ The core of navigation flows in Android apps centers around the Activity and the
 
 This is typically used in cases where we need to exert more fine-tuned control over the behavior of the task stack which determines the "history" of our application.
 
-**Note:** For the code to change the stack, jump right to the [Usage]() section of this document.
+**Note:** For the code to change the stack, jump right to the [Usage](https://github.com/thecodepath/android_guides/wiki/Navigation-and-Task-Stacks#usage) section of this document.
 
 ## Conceptual Overview
 
