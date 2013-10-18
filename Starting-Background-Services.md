@@ -16,7 +16,7 @@ A common point of confusion is when to use an AsyncTask and when to use an Inten
 
 IntentService are geared towards longer running tasks that should run in the background, independent of the application or activity that is currently open. The activity can be switched or the application can be paused and the IntentService will still continue to run in the background. For longer running tasks that are **independent of a particular Activity**, use IntentService.
 
-### Creating an IntentService
+## Creating an IntentService
 
 First, you define a class within your application that extends `IntentService` and defines the `onHandleIntent` which describes the work to do when this intent is executed:
 
