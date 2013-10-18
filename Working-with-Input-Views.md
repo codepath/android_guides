@@ -62,7 +62,7 @@ public void onCheckboxClicked(View view) {
 }
 ```
 
-Using this pattern you can manage the checkbox events and take the user input.
+Using this pattern you can manage the checkbox events and take the user input. Take a look at the [Official Checkbox Guide](http://developer.android.com/guide/topics/ui/controls/checkbox.html) for more details.
 
 ### Radio Buttons
 
@@ -109,6 +109,8 @@ public void onRadioButtonClicked(View view) {
     }
 }
 ```
+
+Check out the [official radio buttons guide](http://developer.android.com/guide/topics/ui/controls/radiobutton.html) for more details.
 
 ### Spinners
 
