@@ -109,6 +109,28 @@ It might be useful to understand when various modes might be appropriate in an a
 
 Check out the [understanding launch modes](http://www.intridea.com/blog/2011/6/16/android-understanding-activity-launchmode) guide for more detailed examples. Also check out [this blog post](http://blog.akquinet.de/2011/02/25/android-activities-and-tasks-series-%E2%80%93-activity%C2%A0attributes/) for another explanation.
 
+There are additional properties as well that can be set on an activity. For example, if an activity should not be added to the task stack at all, simply set the [noHistory](http://developer.android.com/guide/topics/manifest/activity-element.html#nohist) flag within the manifest:
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.todoapp"
+    … >
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        ... >
+        <activity
+            android:name="com.example.todoapp.TodoActivity"
+            android:label="@string/app_name" 
+            android:noHistory="true">
+        </activity>
+    </application>
+</manifest>
+```
+
+Once this is set, that activity will never be a part of the stack even when launched. You might also want to check out the [taskAffinity](http://developer.android.com/guide/topics/manifest/activity-element.html#aff) property as well as the [allowTaskReparenting](http://developer.android.com/guide/topics/manifest/activity-element.html#reparent) properties for more fine tuned control over the activity's behavior in the task stack.
+
 ### Configuring Intent Flags
 
 The other approach to modifying the task stack is to [set flags](http://developer.android.com/reference/android/content/Intent.html#FLAG_ACTIVITY_NEW_TASK) within an intent when starting an Activity.
