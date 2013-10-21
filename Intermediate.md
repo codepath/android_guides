@@ -8,12 +8,12 @@
 * [[Getting Started with Gradle]]
 * [[Navigation and Task Stacks]]
 * [[Gestures and Touch Events]]
-* [[Getting Started with Maven]]
-* [[Android Unit and Integration Testing]]
+* [[Push Notifications]]
 * [[Flexible User Interfaces]]
+* [[Android Unit and Integration Testing]]
+* [[Getting Started with Maven]]
 * [[Defining Custom Views]]
 * [[Contextual Menus]]
-* [[Push Notifications]]
 * [[Profiling Android Apps]]
 
 More reference topics:
