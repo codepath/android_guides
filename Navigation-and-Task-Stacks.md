@@ -65,7 +65,11 @@ If you only want to exclude it from recent tasks under certain one-off condition
 
 ### Configuring Activity Properties
 
-The first approach to modifying the task stack is to set proprties on the [<activity>](http://developer.android.com/guide/topics/manifest/activity-element.html) element within the `AndroidManifest.xml`. To tweak the behavior of the Activity in the manifest, we want to set the `launchMode` attribute. This looks like:
+The first approach to modifying the task stack is to set proprties on the [<activity>](http://developer.android.com/guide/topics/manifest/activity-element.html) element within the `AndroidManifest.xml`. 
+
+#### Launch Modes
+
+To tweak the behavior of the Activity in the manifest, we want to set the `launchMode` attribute. This looks like:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -108,6 +112,8 @@ It might be useful to understand when various modes might be appropriate in an a
  * `singleInstance` - Only one `AlarmAlert` activity at a time and it is always its own task. Anything it might launch (if anything) becomes a part of a separate task stack.
 
 Check out the [understanding launch modes](http://www.intridea.com/blog/2011/6/16/android-understanding-activity-launchmode) guide for more detailed examples. Also check out [this blog post](http://blog.akquinet.de/2011/02/25/android-activities-and-tasks-series-%E2%80%93-activity%C2%A0attributes/) for another explanation.
+
+#### Configuring No History
 
 There are additional properties as well that can be set on an activity. For example, if an activity should not be added to the task stack at all, simply set the [noHistory](http://developer.android.com/guide/topics/manifest/activity-element.html#nohist) flag within the manifest:
 
