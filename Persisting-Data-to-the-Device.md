@@ -92,6 +92,10 @@ public class User extends Model {
   @Column(name = "Age")
   public int age;
 
+  public Item() {
+    super();
+  }
+
   public Item(String name, int age){
     super();
     this.name = name;
