@@ -91,11 +91,14 @@ public class User extends Model {
 
   @Column(name = "Age")
   public int age;
-
+  
+  // Make sure to define this constructor (with no arguments)
+  // If you don't querying will fail to return results!
   public Item() {
     super();
   }
-
+  
+  // Be sure to call super() on additional constructors as well
   public Item(String name, int age){
     super();
     this.name = name;
