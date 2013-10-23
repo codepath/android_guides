@@ -47,7 +47,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [Customizing the User Interface](https://gist.github.com/nesquena/6c567083aec13d868017)
   * [[Cloning a Login Screen Layout]] Guide
   * [[Drawables]] Guide (Styling Views)
-  * [[Animations]]
+  * [[Animations]] for Layouts and Views
 * [[Implementing Pull to Refresh]] Guide
 * [[Must-have Libraries]] Guide
 * [[Implementing a Horizontal ListView]] Guide
