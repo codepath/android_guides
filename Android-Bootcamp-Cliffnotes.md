@@ -48,9 +48,9 @@ Cliffnotes are references giving you the "most important" Android topics with br
   * [[Cloning a Login Screen Layout]] Guide
   * [[Drawables]] Guide (Styling Views)
   * [[Animations]] for Layouts and Views
-* [[Implementing Pull to Refresh]] Guide
-* [[Must-have Libraries]] Guide
-* [[Implementing a Horizontal ListView]] Guide
 * [[Sharing Content with Intents]] Guide
+* [[Must-have Libraries]] Guide
+* [[Implementing Pull to Refresh]] Guide
+* [[Implementing a Horizontal ListView]] Guide
  
 If there's anything else, feel free to suggest new cliffnotes and/or help contribute to them!
