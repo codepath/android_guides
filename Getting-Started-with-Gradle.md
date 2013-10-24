@@ -6,7 +6,7 @@ Download **Gradle 1.8** from the [Gradle web site](http://services.gradle.org/di
 
 Extract the Gradle distribution to a folder, which we will call GRADLE_HOME. Add GRADLE_HOME/bin to your PATH environment variable.
 
-**Note:** At the moment, only Gradle 1.6 works correctly. Using Gradle 1.7+ will fail with a cryptic error.
+**Note:** At the moment, only Gradle 1.8 works correctly. Android Studio v0.3.0 requires 1.8 now.
 
 ## Define Environment Variables
 
