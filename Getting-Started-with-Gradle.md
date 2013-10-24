@@ -2,7 +2,7 @@ Getting started with Gradle on the command-line is easy!
 
 ## Install Gradle
 
-Download **Gradle 1.6** from the [Gradle web site](http://services.gradle.org/distributions/gradle-1.6-bin.zip).
+Download **Gradle 1.8** from the [Gradle web site](http://services.gradle.org/distributions/gradle-1.8-bin.zip).
 
 Extract the Gradle distribution to a folder, which we will call GRADLE_HOME. Add GRADLE_HOME/bin to your PATH environment variable.
 
