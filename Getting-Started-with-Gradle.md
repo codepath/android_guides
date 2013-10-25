@@ -6,9 +6,7 @@ Download Gradle (see specific links below) and then extract the Gradle distribut
 
 ### For Android Studio
 
-Download **Gradle 1.8** from the [Gradle web site](http://services.gradle.org/distributions/gradle-1.8-bin.zip).
-
-**Note:** At the moment, Android Studio v0.3.0 requires 1.8 now.
+Download **Gradle 1.8** from the [Gradle web site](http://services.gradle.org/distributions/gradle-1.8-bin.zip). At the moment, Android Studio v0.3.0 requires 1.8 now.
 
 ### For Command Line with Eclipse
 
