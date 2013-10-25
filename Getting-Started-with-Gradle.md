@@ -10,9 +10,7 @@ Download **Gradle 1.8** from the [Gradle web site](http://services.gradle.org/di
 
 ### For Command Line with Eclipse
 
-Download **Gradle 1.6** from the [Gradle web site](http://services.gradle.org/distributions/gradle-1.6-bin.zip).
-
-**Note:** At the moment, only Gradle 1.6 works correctly **with Eclipse**. Using Gradle 1.7+ will fail with a cryptic error.
+Download **Gradle 1.6** from the [Gradle web site](http://services.gradle.org/distributions/gradle-1.6-bin.zip). At the moment, only Gradle 1.6 works correctly **with Eclipse**. Using Gradle 1.7+ will fail with a cryptic error.
 
 ## Define Environment Variables
 
