@@ -2,7 +2,7 @@ Getting started with Gradle on the command-line is easy!
 
 ## Install Gradle
 
-Download Gradle and then extract the Gradle distribution to a folder, which we will call GRADLE_HOME. Add GRADLE_HOME/bin to your PATH environment variable.
+Download Gradle (see specific links below) and then extract the Gradle distribution to a folder, which we will call GRADLE_HOME. Add GRADLE_HOME/bin to your PATH environment variable.
 
 ### For Android Studio
 
