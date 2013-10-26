@@ -23,3 +23,4 @@ More reference topics:
 * [[Using Data Loaders]]
 * [[Creating an App Widget]]
 * [[Implementing the ViewPager]]
+* [[Using the PreferenceFragment]]
