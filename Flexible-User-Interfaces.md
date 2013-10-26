@@ -21,6 +21,20 @@ To be covered:
  * onSaveInstanceState to store state across rotation
  * Localization, using different language XML files
 
+### Supporting Different Screens and Densities
+
+A few quick tips to review when supporting different screen sizes:
+
+ * [Use "wrap_content" and "match_parent"](http://developer.android.com/training/multiscreen/screensizes.html#TaskUseWrapMatchPar)
+ * [Use RelativeLayout](http://developer.android.com/training/multiscreen/screensizes.html#TaskUseRelativeLayout)
+ * [Use Size Qualifiers](http://developer.android.com/training/multiscreen/screensizes.html#TaskUseSizeQuali)
+ * [Use Layout Aliases](http://developer.android.com/training/multiscreen/screensizes.html#TaskUseAliasFilters)
+
+and tips for support different densities:
+
+ * [Use density independent pixels](http://developer.android.com/training/multiscreen/screendensities.html#TaskUseDP)
+ * [Provide density targeted bitmaps](http://developer.android.com/training/multiscreen/screendensities.html#TaskProvideAltBmp)
+
 ### Creating a Master-Detail Flexible Interface
 
 Let's take an end-to-end look at creating a master-detail interface using fragments. Specifically creating an application with a list of items and then the ability to see the details for those items. On a phone, we will see a list as one activity and then select an item and have the **details open in a separate activity**. On a tablet, since we have considerably more space, we will have the list and the details on a single Activity.
