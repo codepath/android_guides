@@ -387,6 +387,39 @@ public boolean onOptionsItemSelected(MenuItem item) {
 
 Note that the fragment’s method is called only when the Activity didn’t consume the event first. Be sure to check out a more detailed guide about [fragments and action bar](http://www.grokkingandroid.com/adding-action-items-from-within-fragments/) if you have more questions.
 
+### Fragments with Arguments
+
+In certain cases, your fragment may want to accept certain arguments. A common pattern is to create a static `newInstance` method for creating a Fragment with arguments. This is because a Fragment **must have a constructor with no arguments**. Instead we want to use the `setArguments` method such as:
+
+```java
+public class DemoFragment extends Fragment {
+    public static DemoFragment newInstance(int someInt, String someTitle) {
+        DemoFragment fragmentDemo = new DemoFragment();
+        Bundle args = new Bundle();
+        args.putInt("someInt", someInt);
+        args.putInt("someTitle", someTitle);
+        fragmentDemo.setArguments(args);
+        return fragmentDemo;
+    }
+}
+```
+
+This sets certain arguments into the Fragment for later use. You can access the argument later by using:
+
+```
+public class DemoFragment extends Fragment {
+   @Override
+   public void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       // Get back arguments
+       int SomeInt = getArguments().getInt("someInt", 0);	
+       String someTitle = getArguments().getString("someTitle", "");	
+   }
+}
+```
+
+This pattern makes passing arguments to fragments fairly straightforward.
+
 ## References
 
  * <http://developer.android.com/reference/android/app/Fragment.html>
