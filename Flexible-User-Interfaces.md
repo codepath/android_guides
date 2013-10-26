@@ -444,6 +444,7 @@ public class ItemsListActivity extends FragmentActivity implements
 With that, if we run the application, we can now see that selecting an item in the item list will correctly bring up our detail activity. 
 
 <img src="http://i.imgur.com/JHwjiJo.png" width="450" alt="Phone 1" />
+&nbsp;
 <img src="http://i.imgur.com/IFS7Pxh.png" width="450" alt="Phone 2" />
 
 #### Creating a Two-Pane View
