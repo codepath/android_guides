@@ -457,8 +457,9 @@ On a tablet, the current listview activity looks odd. We really want a way to ha
 
 So, let's take a look at how to setup the two-pane view only for larger tablet devices and keep phones using the current behavior. Within Android, there is a concept of [Alternative Resources](http://developer.android.com/guide/topics/resources/providing-resources.html#AlternativeResources). That is, we can have resource files that are automatically selected based on certain "qualifiers". There are many, but one easy qualifier is "screen size". We can declare that if the screen size is "large", that a different XML layout will be used for the same activity. To do that, let's right-click to create a new "Android XML Layout File".
 
-![Image 1](http://i.imgur.com/0NZI0VK.png)
-![Image 2](http://i.imgur.com/HbztuOc.png)
+<img src="http://i.imgur.com/0NZI0VK.png" alt="image 1" width="450" />
+&nbsp;
+<img src="http://i.imgur.com/HbztuOc.png" alt="image 1" width="450" />
 
 The net result is we want to **create an alternate layout XML for our activity** at `res/layout-large/activity_items_list.xml`:
 
