@@ -8,6 +8,13 @@ This is typically used for creating robust applications that work across differe
 
 ## Usage
 
+The core features that make responsive, robust and flexible layouts possible are:
+
+ * [RelativeLayout](https://github.com/thecodepath/android_guides/wiki/Constructing-View-Layouts#relativelayout) - While `LinearLayout` has uses, the most responsive layout is the Relative which allows you to specify your layout in terms of the spacial relationships.
+ * [Alternative Resources](http://developer.android.com/guide/topics/resources/providing-resources.html#AlternativeResources) - The ability to have multiple resource files (XML, images, etc) that will be automatically selected based on specified qualifiers (screen size, time of day, locale, etc). Using [size qualifiers](http://developer.android.com/training/multiscreen/screensizes.html#TaskUseSizeQuali) is the best way to create flexible applications.
+ * [Fragments](https://github.com/thecodepath/android_guides/wiki/Creating-and-Using-Fragments) - Reusable modular components that Activities can be composed from. This allows us to have alternate activity layouts all using the same fragments.
+ * [Drawables and Nine-Patch](http://developer.android.com/training/multiscreen/screensizes.html#TaskUse9Patch) - Drawable XML shapes are inherently responsive but if we need to use images for buttons, we need to make sure that the images are setup to scale properly using the 9-patch system.
+
 To be covered:
 
  * Alternative Resources with Qualifiers
