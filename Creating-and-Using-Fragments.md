@@ -199,13 +199,8 @@ Fragments should define an interface as an inner type and require that the activ
 import android.support.v4.app.Fragment;
 
 public class MyListFragment extends Fragment {
+  // ...
   private OnItemSelectedListener listener;
-
-  @Override
-  public View onCreateView(LayoutInflater inflater, ViewGroup container,
-      Bundle savedInstanceState) {
-      // ...
-  }
 
   public interface OnItemSelectedListener {
     public void onRssItemSelected(String link);
