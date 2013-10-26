@@ -88,7 +88,7 @@ The important thing here is to notice just how much cleaner and clearer using th
 
 ### Displaying Remote Images (The "Hard" Way)
 
-Here's the code to construct an AsyncTask to download a remote image and display the image in an ImageView using just the official Google Android SDK.
+Here's the code to construct an AsyncTask to download a remote image and display the image in an ImageView using just the official Google Android SDK. 
 
 ```java
 package com.example.simplenetworking;
@@ -164,10 +164,11 @@ public class MainActivity extends Activity {
 }
 ```
 
-Of course, doing this the "hard" way is not recommended. Better off creating your own libraries or in most cases utilizing existing third-party libraries.
+Of course, doing this the "hard" way is not recommended. Better off creating your own libraries or in most cases utilizing existing third-party libraries. Note: If you use to above approach to download and display images in a ListView, you might run into some threading issues that cause buggy loading of images. The blog post [Multithreading for Performance ](http://android-developers.blogspot.com/2010/07/multithreading-for-performance.html) offers a solution. 
 
 ## References
 
  * <http://loopj.com/android-async-http/>
  * <http://developer.android.com/reference/java/net/HttpURLConnection.html>
  * <https://github.com/thecodepath/android-rest-client-template>
+ * <http://developer.android.com/training/displaying-bitmaps/process-bitmap.html#concurrency>
