@@ -17,12 +17,9 @@ The core features that make responsive, robust and flexible layouts possible are
 
 To be covered:
 
- * Alternative Resources with Qualifiers
- * Fragments in different configurations for tablet vs mobile
  * Managing screen sizes, orientations
  * onSaveInstanceState to store state across rotation
  * Localization, using different language XML files
- * 2 Pane, Master-Detail Interfaces
 
 ### Creating a Master-Detail Flexible Interface
 
