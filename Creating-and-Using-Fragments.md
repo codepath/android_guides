@@ -397,7 +397,7 @@ public class DemoFragment extends Fragment {
         DemoFragment fragmentDemo = new DemoFragment();
         Bundle args = new Bundle();
         args.putInt("someInt", someInt);
-        args.putInt("someTitle", someTitle);
+        args.putString("someTitle", someTitle);
         fragmentDemo.setArguments(args);
         return fragmentDemo;
     }
