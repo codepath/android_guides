@@ -406,7 +406,7 @@ public class DemoFragment extends Fragment {
 
 This sets certain arguments into the Fragment for later use. You can access the argument later by using:
 
-```
+```java
 public class DemoFragment extends Fragment {
    @Override
    public void onCreate(Bundle savedInstanceState) {
