@@ -411,7 +411,7 @@ public class ItemsListFragment extends Fragment {
         // Retrieve item based on position
         Item item = adapterItems.getItem(position);
         // Fire selected listener event with item
-        listener.onItemSelected(item);
+        listener.onItemSelected(item); // <--------------
       }
     });
     return view;
@@ -421,7 +421,7 @@ public class ItemsListFragment extends Fragment {
 
 and then let's setup the handler within our activity so we can handle the `onItemSelected` event properly:
 
-```
+```java
 public class ItemsListActivity extends FragmentActivity implements
     OnListItemSelectedListener {
 
