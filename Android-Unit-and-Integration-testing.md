@@ -6,7 +6,7 @@ Automated Testing is an important topic that helps us ensure quality when buildi
 
 There are three common approaches used for automated Android testing:
 
- * [Google Android Testing](http://developer.android.com/tools/testing/testing_android.html) - This is the framework included as part of the platform. ([Jump]())
+ * [Google Android Testing](http://developer.android.com/tools/testing/testing_android.html) - This is the framework included as part of the platform. ([Jump](#android-testing-framework))
  * [Robolectric](http://robolectric.org/index.html) - Unit tests that run outside the emulator making the tests very fast ([Jump]())
  * [Robotium](https://code.google.com/p/robotium/) - Black box integration testing for Android ([Jump]())
  
