@@ -2,7 +2,7 @@ We are a startup called [CodePath](http://thecodepath.com). We are just two peop
 
 As software engineers, we have a strong need to "keep up" with the rapidly changing field of software development. Have you ever wanted to play with a new technology and wished that you had other engineers to play around with, mentors to save you countless hours and guide your learning as well as high-quality curriculum and projects to make learning more fun?
 
-**Us too**. This is in large part why we founded [CodePath](http://thecodepath.com). We are both engineers and founders and we wanted a better way for engineers to learn exciting new languages and platforms. 
+**Yeah, so did we**. This is in large part why we founded [CodePath](http://thecodepath.com). We are both engineers and founders and we wanted a better way for engineers to learn exciting new languages and platforms. 
 
 ## Open-Source Documentation
 
