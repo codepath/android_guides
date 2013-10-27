@@ -31,7 +31,15 @@ The ActionBar icon and title displayed at the top of the screen is governed by t
 </application>
 ```
 
-Change the `android:label` or `android:icon` to modify the ActionBar icon or title for a given activity or for the application as a whole.
+Change the `android:label` or `android:icon` to modify the ActionBar icon or title for a given activity or for the application as a whole. In any Java activity, you can call `getActionBar()` to retrieve a reference to the [ActionBar](http://developer.android.com/reference/android/app/ActionBar.html) and modify or access properties:
+
+```java
+ActionBar actionBar = getActionBar();
+String title = actionBar.getTitle();
+actionBar.hide();
+```
+
+You can also change many other properties of the ActionBar not covered here. See the [Extended ActionBar Guide](https://github.com/thecodepath/android_guides/wiki/Extended-ActionBar-Guide) for more details.
 
 ### Adding Action Items
 
