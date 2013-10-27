@@ -1,4 +1,4 @@
-Welcome to the open-source Codepath Android Guides! Our goal is to become the central repository for complete and up-to-date Android content and tutorials.
+Welcome to the open-source Codepath Android Guides! Our goal is to become the **central crowd-sourced repository** for complete and up-to-date Android content and tutorials.
 
 Ever been frustrated finding information on outdated one-off blog posts and tutorials that have become irrelevant? We believe there's a better way. Why not have the community work together to create useful and detailed documentation for every aspect of Android (or any platform)?
 
