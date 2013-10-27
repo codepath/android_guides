@@ -360,7 +360,7 @@ public class FirstActivityTest {
 Now, we can write ourselves unit tests for a particular Activity using the Robolectric test file and "shadow" objects. We want to verify that the correct text is passed as the result into the intent when the launch button is pressed:
 
 ```java
-import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 import static org.robolectric.Robolectric.shadowOf;
 
@@ -396,7 +396,7 @@ public class FirstActivityTest {
   @Test
   public void shouldHaveButtonThatSaysAudit() throws Exception{
     // Verifies the button and text field exist
-    assertNotNull(btnLaunch);
+    assertThat(btnLaunch, notNullValue());
     assertNotNull(etResult);
     // Verifies the text of the button
     assertThat((String) btnLaunch.getText(), equalTo("Launch"));
@@ -434,6 +434,17 @@ Now, if we right-click and select "Run As...JUnit Test", the tests should pass g
 The Robolectric testing framework provides "shadow objects" that override certain aspects of the Android SDK. These objects allow the code being tested to execute outside of the Android environment. At times, it's useful to manipulate or access these shadow objects to achieve some expected result.
 
 For the full documentation of Shadow objects and more, check out the [Robolectric JavaDocs](http://robolectric.org/javadoc/index.html?overview-summary.html).
+
+#### Hamcrest Core Matchers
+
+Instead of the typical JUnit assertions such as `assertEqual`, we can also use the "hamcrest" matchers to leverage `assertThat` with certain "core matchers" such as:
+
+```java
+assertThat(btnLaunch, notNullValue());
+assertThat((String) btnLaunch.getText(), equalTo("Launch"));
+```
+
+Check out a full list of core matchers for use with `assertThat` in the [hamcrest docs](http://hamcrest.org/JavaHamcrest/javadoc/1.3/org/hamcrest/CoreMatchers.html).
 
 ## Libraries
 
