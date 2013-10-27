@@ -39,7 +39,7 @@ The guides below are categorized by their topic, so you can easily find guides o
 * [[Using Intents to Create Flows]]
 * [[Defining the ActionBar]]
 * [[Displaying Toasts]]
-* [[Managing Navigation and Task Stack]]
+* [[Common Navigation Paradigms]]
 * [[Extended ActionBar Guide]]
 * [[Common Implicit Intents]]
 * [[Gestures and Touch Events]]
