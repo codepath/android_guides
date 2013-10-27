@@ -10,10 +10,10 @@
 * [[Gestures and Touch Events]]
 * [[Flexible User Interfaces]]
 * [[Android Unit and Integration Testing]]
-* [[Getting Started with Maven]]
 * [[Push Notifications]]
 * [[Defining Custom Views]]
 * [[Contextual Menus]]
+* [[Getting Started with Maven]]
 
 More reference topics:
 
