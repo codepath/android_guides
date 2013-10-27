@@ -14,7 +14,6 @@
 * [[Push Notifications]]
 * [[Defining Custom Views]]
 * [[Contextual Menus]]
-* [[Profiling Android Apps]]
 
 More reference topics:
 
@@ -24,3 +23,4 @@ More reference topics:
 * [[Creating an App Widget]]
 * [[Implementing the ViewPager]]
 * [[Using the PreferenceFragment]]
+* [[Profiling Android Apps]]
