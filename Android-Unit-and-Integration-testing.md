@@ -427,13 +427,19 @@ public class FirstActivityTest {
 }
 ```
 
-Now, if we right-click and select "Run As...JUnit Test", the tests should pass green because the behavior for our SimpleApp is correct.
+Now, if we right-click and select "Run As...JUnit Test", the tests should pass green because the behavior for our SimpleApp is correct. Check out a richer set of examples in the [Robolectric Sample](https://github.com/robolectric/RobolectricSample/tree/master/src/test/java/com/pivotallabs) code.
 
 #### Shadow Objects
 
 The Robolectric testing framework provides "shadow objects" that override certain aspects of the Android SDK. These objects allow the code being tested to execute outside of the Android environment. At times, it's useful to manipulate or access these shadow objects to achieve some expected result.
 
-For the full documentation of Shadow objects and more, check out the [Robolectric JavaDocs](http://robolectric.org/javadoc/index.html?overview-summary.html).
+```java
+ShadowActivity shadowActivity = shadowOf(activity);
+Intent startedIntent = shadowActivity.getNextStartedActivity();
+ShadowIntent shadowIntent = shadowOf(startedIntent);
+```
+
+We can get the "shadow" of almost any Android object for richer testing. For the full documentation of Shadow objects and more, check out the [Robolectric JavaDocs](http://robolectric.org/javadoc/index.html?overview-summary.html).
 
 #### Hamcrest Core Matchers
 
