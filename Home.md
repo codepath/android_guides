@@ -1,6 +1,8 @@
 Welcome to the open-source Codepath Android Guides! Our goal is to become the **central crowd-sourced repository** for complete and up-to-date Android content and tutorials.
 
-Ever been frustrated finding information on outdated one-off blog posts and tutorials that have become irrelevant? We believe there's a better way. Why not have the community work together to create useful and detailed documentation for every aspect of Android (or any platform)?
+Ever been frustrated finding information on outdated one-off blog posts and tutorials that have become irrelevant? We believe there's a better way. Why not have the community work together to create useful and detailed documentation for every aspect of Android (or any platform)? There's absolutely no reason that we should have to make due with outdated, vague or un-editable content.
+
+## Introduction
 
 The guides below are categorized by their topic, so you can easily find guides on related topics whether that is views, styling, testing, or using sensors. If you see an error, incorrect explanation or deprecated solution, why not contribute?
 
