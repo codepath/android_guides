@@ -473,7 +473,7 @@ In addition to Robolectric, you may also want to check out the following related
  * [Spoon](http://square.github.io/spoon/) - Distributes instrumentation test execution and displays results from all devices.
  * [Fest-Android](http://square.github.io/fest-android/) - A set of FEST assertions geared toward testing Android.
 
-Check [this excellent square blog post](http://corner.squareup.com/2013/04/the-resurrection-of-testing-for-android.html) for an overview of the use of these tools.
+Check [this excellent square blog post](http://corner.squareup.com/2013/04/the-resurrection-of-testing-for-android.html) for an overview of the use of these tools. This [Big Nerd Ranch Testing](http://blog.bignerdranch.com/2583-testing-the-android-way/) post covers these same libraries as well.
 
 ## Libraries
 
