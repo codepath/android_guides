@@ -2,7 +2,7 @@ Welcome to the open-source Codepath Android Guides! Our goal is to become the **
 
 We have guides for everyone whether you are beginner, intermediate or advanced. Want to learn how to [[use the ActionBar|Defining the ActionBar]], we got that. Want to learn [[about testing|Android Unit and Integration Testing]] or how to [[build flexible user interfaces for multiple devices|Flexible User Interfaces]]? We got you covered. We don't teach you the "theoretical way", we cover exactly the things we do every day as we are developing apps at startups or for contracts.
 
-Ever been frustrated finding information on outdated one-off blog posts and tutorials that have become irrelevant? We believe there's a better way. Why not have the community work together to create useful and detailed documentation for every aspect of Android (or any platform)? There's absolutely no reason that we should have to make due with outdated, vague or un-editable content.
+Ever been **frustrated finding information on outdated one-off blog posts and tutorials** that has since become irrelevant? How many times was your answer only on a 2 year old **StackOverflow** post? We believe there's got to be a better way. Why not have the community work together to create useful and detailed documentation for every aspect of Android (or any platform)? There's absolutely no reason that we should have to make due with outdated, vague or un-editable content.
 
 Read about our [[mission to change the way people learn new technologies|The CodePath Goal]] and get involved! 
 
