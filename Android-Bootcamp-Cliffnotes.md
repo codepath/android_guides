@@ -41,7 +41,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 ### Bonus
 
 * [[Endless Scrolling with AdapterViews]]
-* [[Managing Navigation and Task Stack]]
+* [[Common Navigation Paradigms]]
   * [[Fragment Navigation Drawer]] Guide
   * [Fragment ActionBar Tabs](https://github.com/thecodepath/android_guides/wiki/Creating-and-Using-Fragments#fragments-and-tabs) Guide
 * [Customizing the User Interface](https://gist.github.com/nesquena/6c567083aec13d868017)
