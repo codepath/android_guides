@@ -320,11 +320,9 @@ Unfortunately, Robolectric doesn't support every situation so when you cannot ac
 
 #### Robolectric Example
 
-Let's take a look at testing "SimpleApp" with Robolectric. Keep in mind that Robolectric is unique in that the tests **do not require an emulator** to be running. 
+Let's take a look at testing "SimpleApp" with Robolectric. Keep in mind that Robolectric is unique in that the tests **do not require an emulator** to be running. First, we need to setup our project for Robolectric tests using our [step-by-step Robolectric installation guide](https://github.com/thecodepath/android_guides/wiki/Robolectric-Installation-for-Unit-Testing).
 
-Now, we need to [setup our project for Robolectric tests](https://github.com/thecodepath/android_guides/wiki/Robolectric-Installation-for-Unit-Testing) using our [step-by-step installation guide](https://github.com/thecodepath/android_guides/wiki/Robolectric-Installation-for-Unit-Testing).
-
-We can now create a unit test for our Activity by creating a new class in the "test" folder of our SimpleAppElectricTest called "FirstActivityTest". The rough skeleton of an activity test with Robolectric is:
+With the Robolectric test project setup, we can now create a unit test for our Activity by creating a new class in the "test" folder of our SimpleAppElectricTest called "FirstActivityTest". The rough skeleton of an activity test with Robolectric is:
 
 ```java
 import static org.junit.Assert.fail;
