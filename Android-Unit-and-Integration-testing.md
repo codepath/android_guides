@@ -216,7 +216,7 @@ This framework is designed to provide black box tests for Android applications. 
 
 #### Robotium Example
 
-Let's take a look at writing blackbox integration tests with Robotium for our "SimpleApp". First, you need to setup a "Test Project" much the same way as you would for the Android Testing Framework above. So check the previous "example" section above and generate a "Test Project" called "SimpleAppTest". Be sure to download the simple app and read what the app does in the previous section testing section as well.
+Let's take a look at writing blackbox integration tests with Robotium for our [SimpleApp](https://github.com/thecodepath/android-simple-app). First, you need to setup a "Test Project" much the same way as you would for the Android Testing Framework above. So check the previous "example" section above and generate a "Test Project" called "SimpleAppTest". Be sure to download the [SimpleApp](https://github.com/thecodepath/android-simple-app) and read what the app does in the previous section testing section as well.
 
 Next, we need to add the [robotium jar](https://code.google.com/p/robotium/downloads/list) to our Test Project. Download the latest "robotium-solo-X.X.jar". You need to add the robotium JAR to the Libraries on the projects Build Path.
 
@@ -318,9 +318,9 @@ Unfortunately, Robolectric doesn't support every situation so when you cannot ac
 
 #### Robolectric Example
 
-Let's take a look at testing "SimpleApp" with Robolectric. Keep in mind that Robolectric is unique in that the tests **do not require an emulator** to be running. First, we need to setup our project for Robolectric tests using our [step-by-step Robolectric installation guide](https://github.com/thecodepath/android_guides/wiki/Robolectric-Installation-for-Unit-Testing).
+Let's take a look at testing [SimpleApp](https://github.com/thecodepath/android-simple-app) with Robolectric. Keep in mind that Robolectric is unique in that the tests **do not require an emulator** to be running. First, we need to setup our project for Robolectric tests using our [step-by-step Robolectric installation guide](https://github.com/thecodepath/android_guides/wiki/Robolectric-Installation-for-Unit-Testing).
 
-With the Robolectric test project setup, we can now create a unit test for our Activity by creating a new class in the "test" folder of our SimpleAppElectricTest called "FirstActivityTest". The rough skeleton of an activity test with Robolectric is:
+With the Robolectric test project setup, we can now create a unit test for our Activity by creating a new class in the "test" folder of our `SimpleAppElectricTest` called "FirstActivityTest". The rough skeleton of an activity test with Robolectric is:
 
 ```java
 import static org.junit.Assert.fail;
