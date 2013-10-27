@@ -2,8 +2,6 @@ Robolectric is a framework which mocks part of the Android framework contained i
 
 Robolectric is designed to allow you to test Android applications on the JVM. This enables you to run your Android tests in your continuous integration environment without any additional setup and without an emulator running. Because of this Roboelectric is **really fast** in comparison to any other testing approach.
 
-## Installation
-
 Let's take a look at a step-by-step for setting up RoboElectric to test your project. 
 
 ## Download Library JARs
