@@ -14,13 +14,11 @@ The first question many developers have is which tools to use in their applicati
 
 ### Testing Comparisons
 
-Robolectric tests run really quickly, and are very stable, but the Android API simulation isn't 100% accurate or complete (though it's getting better and better).
-
 Emulator/instrumentation-based tests (including Robotium) are painfully slow but follow the Android API to the letter (except when they randomly fail, which is more often than you'd like).
 
-Robolectric works well for most common testing needs (and dramatically speeds up testing cycles). Robotium is great for testing the edges of the API that aren't yet simulated by Robolectric, and for testing actual phone behavior more rigorously.
+Robolectric works well for most common testing needs (and dramatically speeds up testing cycles) but does not work for every case and only supports unit tests. Robotium is great for testing the edges of the API that aren't yet simulated by Robolectric, and for testing actual phone behavior more rigorously through complete integration testing.
 
-The primary takeaway is **use Robolectric as much as possible** since it is the fastest testing by far. When tests fall outside the unit testing scope or features of Robolectric then rely on **Robotium sparingly for complete integration testing**.
+The primary takeaway is **use Robolectric unit tests as much as possible** since they are the fastest testing suite. When tests fall outside the unit testing scope or the features of Robolectric then we need to rely on **Robotium for complete integration testing**.
 
 ### Android Testing Framework
 
