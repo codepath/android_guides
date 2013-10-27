@@ -440,15 +440,29 @@ For the full documentation of Shadow objects and more, check out the [Robolectri
 Instead of the typical JUnit assertions such as `assertEqual`, we can also use the "hamcrest" matchers to leverage `assertThat` with certain "core matchers" such as:
 
 ```java
+// Not Null
 assertThat(btnLaunch, notNullValue());
+// Equals
 assertThat((String) btnLaunch.getText(), equalTo("Launch"));
+// All Conditions
+assertThat("myValue", allOf(startsWith("my"), containsString("Val")))
+// Any Conditions
+assertThat("myValue", anyOf(startsWith("foo"), containsString("Val")))
+// Both
+assertThat("fab", both(containsString("a")).and(containsString("b")))
+// Kind Of
+assertThat(activity, isA(FirstActivity.class))
+// Array Inclusion
+assertThat(Arrays.asList("foo", "bar"), hasItem("bar"))
+// IsNull
+assertThat(activity, is(nullValue())
 ```
 
 Check out a full list of core matchers for use with `assertThat` in the [hamcrest docs](http://hamcrest.org/JavaHamcrest/javadoc/1.3/org/hamcrest/CoreMatchers.html).
 
-#### FEST and Spoon
+#### Related Libraries
 
-In addition to Robolectric, you may also want to check out the following libraries:
+In addition to Robolectric, you may also want to check out the following related libraries:
 
  * [Spoon](http://square.github.io/spoon/) - Distributes instrumentation test execution and displays results from all devices.
  * [Fest-Android](http://square.github.io/fest-android/) - A set of FEST assertions geared toward testing Android.
