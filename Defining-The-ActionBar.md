@@ -11,13 +11,27 @@ Important to note that prior to 3.0, there was no ActionBar although there is a 
 
 ## ActionBar Basics
 
-Every application unless otherwise specified has an ActionBar by default. The ActionBar by default just has the application icon and an activity title. In any Java activity, you can call `getActionBar()` to retrieve a reference to the [ActionBar](http://developer.android.com/reference/android/app/ActionBar.html) and modify or access properties:
+Every application unless otherwise specified has an ActionBar by default. The ActionBar by default just has the application icon and an activity title. 
 
-```java
-ActionBar actionBar = getSupportActionBar();
-String title = actionBar.getTitle();
-actionBar.hide();
+![ActionBar](http://i.imgur.com/DighSEo.png)
+
+### Changing the ActionBar Icon or Title
+
+The ActionBar icon and title displayed at the top of the screen is governed by the `AndroidManifest.xml` file in the `application` and `activity` nodes:
+
+```xml
+<application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.codepath.example.simpleapp.FirstActivity"
+            android:label="@string/app_name" >
+        </activity>
+</application>
 ```
+
+Change the `android:label` or `android:icon` to modify the ActionBar icon or title for a given activity or for the application as a whole.
 
 ### Adding Action Items
 
