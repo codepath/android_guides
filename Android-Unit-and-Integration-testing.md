@@ -446,6 +446,15 @@ assertThat((String) btnLaunch.getText(), equalTo("Launch"));
 
 Check out a full list of core matchers for use with `assertThat` in the [hamcrest docs](http://hamcrest.org/JavaHamcrest/javadoc/1.3/org/hamcrest/CoreMatchers.html).
 
+#### FEST and Spoon
+
+In addition to Robolectric, you may also want to check out the following libraries:
+
+ * [Spoon](http://square.github.io/spoon/) - Distributes instrumentation test execution and displays results from all devices.
+ * [Fest-Android](http://square.github.io/fest-android/) - A set of FEST assertions geared toward testing Android.
+
+Check [this excellent square blog post](http://corner.squareup.com/2013/04/the-resurrection-of-testing-for-android.html) for an overview of the use of these tools.
+
 ## Libraries
 
 * [Robolectric](http://robolectric.org/index.html)
