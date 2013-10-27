@@ -222,7 +222,7 @@ Let's take a look at writing blackbox integration tests with Robotium for our "S
 
 Next, we need to add the [robotium jar](https://code.google.com/p/robotium/downloads/list) to our Test Project. Download the latest "robotium-solo-X.X.jar". You need to add the robotium JAR to the Libraries on the projects Build Path.
 
-![Build Path](http://i.imgur.com/3xdeZ6D.png)
+![Build Path](http://i.imgur.com/ghMdX4W.png)
 
 Now, within the integration test case, in the setUp method of your testing class, you can create a Solo object and specify the Activity to be started. The Solo object can then be used in your testXXX methods to get and set values in/from UI components and click buttons and such. A skeleton integration testing class with Robotium looks like:
 
