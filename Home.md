@@ -8,6 +8,8 @@ The guides below are categorized by their topic, so you can easily find guides o
 
 **Note:** We have scoured the web for content while creating these guides and adapted content from many source including the [Google Official Docs](http://developer.android.com/guide/components/index.html), [Vogella Tutorials](http://www.vogella.com/android.html) and countless others. At the bottom of every guide, there is citations for the content. We don't claim the content is original, but unlike those other sources, it is freely community contributed and editable.
 
+Read more about [[us and our vision for this||Our Goal]].
+
 ## Structure
 
 * [[Android Directory Structure]]
