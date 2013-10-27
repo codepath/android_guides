@@ -40,7 +40,7 @@ Welcome to the Codepath Android Guides!
 * [[Navigation and Task Stacks]]
 * [[Sharing Content with Intents]]
 
-### Networking, Models and Persistence
+## Networking, Models and Persistence
 
 * [[Creating and Executing Async Tasks]]
 * [[Handling ProgressBars]]
@@ -49,33 +49,27 @@ Welcome to the Codepath Android Guides!
 * [[Converting JSON to Models]]
 * [[ActiveAndroid Guide]]
 
-### Fragments
+## Fragments
 
 * [[Creating and Using Fragments]]
 * [[Fragment Navigation Drawer]]
 * [[Using DialogFragment]]
 * [[Flexible User Interfaces]]
 
-### Providers, Sensors and Components
+## Providers, Sensors and Components
 
 * [[Loading Contacts with Content Providers]]
 * [[Using Hardware, Sensors and Device Data]]
 * [[Google Maps Fragment Guide]]
 
-### Services
+## Services
 
 * [[Starting Background Services]]
 * [[Notifications]]
 
-### Workflow Guides
+## Workflow Guides
 
 * [[Getting Started with Gradle]]
 * [[Android Unit and Integration Testing]]
 * [[Robolectric Installation for Unit Testing]]
-
-### References
-
 * [[Must Have Libraries]] Guide
-
-
-
