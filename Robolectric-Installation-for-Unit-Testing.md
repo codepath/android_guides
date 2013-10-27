@@ -1,12 +1,12 @@
 Robolectric is a framework which mocks part of the Android framework contained in the android.jar file and which allows you to run Android tests directly on the JVM with the JUnit 4 framework.
 
-Robolectric is designed to allow you to test Android applications on the JVM. This enables you to run your Android tests in your continuous integration environment without any additional setup and without an emulator running. Because of this Roboelectric is **really fast** in comparison to any other testing approach.
+Robolectric is designed to allow you to test Android applications on the JVM. This enables you to run your Android tests in your continuous integration environment without any additional setup and without an emulator running. Because of this Robolectric is **really fast** in comparison to any other testing approach.
 
-Let's take a look at a step-by-step for setting up RoboElectric to test your project. 
+Let's take a look at a step-by-step for setting up Robolectric to test your project.
 
 ## Download Library JARs
 
-Let's download the [roboelectric jar with dependencies](https://www.dropbox.com/s/3xcxxvhviufpblk/robolectric-2.3-with-dependencies.jar) for use and an additional library called [fest-util.jar](https://www.dropbox.com/s/iibi53najlrmd57/fest-util-1.1.6.jar).
+Let's download the [robolectric jar with dependencies](https://www.dropbox.com/s/3xcxxvhviufpblk/robolectric-2.3-with-dependencies.jar) for use and an additional library called [fest-util.jar](https://www.dropbox.com/s/iibi53najlrmd57/fest-util-1.1.6.jar).
 
 ## Create Test Folder
 
@@ -14,7 +14,7 @@ We can have our tests live in the main project. First, we want to create a "test
 
 ![Screen 0](http://i.imgur.com/TedJHPG.png)
 
-## Create RoboElectric Java Test Project
+## Create Robolectric Java Test Project
 
 Next, let's create our electric test project for our app. Create a **Java Project** called "SimpleAppElectricTest". Do **not** create an Android project, or an Android JUnit project, but a simple **Java Project** .
 
@@ -40,9 +40,9 @@ Select "Projects" tab at the top of the "New Java Project dialog" - Click "Add..
 
 ![Screen 5](http://i.imgur.com/W1Jb5Qu.png)
 
-## Load RoboElectric Library
+## Load Robolectric Library
 
-Create a "lib" folder in the test project with "New...Folder". Move the roboelectric jar and the fest-util.jar into the lib folder for the SimpleAppElectricTest project.
+Create a "lib" folder in the test project with "New...Folder". Move the robolectric jar and the fest-util.jar into the lib folder for the SimpleAppElectricTest project.
 
 ![Screen 6](http://i.imgur.com/s3W4aqK.png)
 
@@ -126,4 +126,4 @@ Run the tests by right-clicking on the test project and selecting "Run As..." =>
 
 ![Screen 17](http://i.imgur.com/x5Cgs3n.png)
 
-And if that passes green, then RoboElectric has been properly installed!
+And if that passes green, then Robolectric has been properly installed!
