@@ -16,8 +16,8 @@ Read more about [[us and our vision for this|The CodePath Goal]].
 
 ## Structure
 
-* [[Android Directory Structure]]
-* [[Organizing your Source Files]]
+* [[Android Directory Structure]] (Files and Folders for Android apps)
+* [[Organizing your Source Files]] (Cleaning up your Apps)
 * [[Using Resource Files|Using String Resources]]
 
 ## Views and Layouts
