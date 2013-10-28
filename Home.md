@@ -18,21 +18,22 @@ Read more about [[us and our vision for this|The CodePath Goal]].
 
 * [[Android Directory Structure]]
 * [[Organizing your Source Files]]
-* [[Using String Resources]]
+* [[Using Resource Files|Using String Resources]]
 
 ## Views and Layouts
 
-* [[Constructing View Layouts]]
+* [[Constructing View Layouts]] (How to layout views)
 * [[Defining Views and their Attributes]]
-* [[Working with Input Views]]
+* [[Working with Input Views]] (Spinner, RatingBar, etc)
 * [[Working with the Soft Keyboard]]
 
 ### Designing and Styling Views
 
-* [[Drawables]]
-* [[Animations]]
-* [[Styles and Themes]]
-* [[Cloning a Login Screen Layout]] Guide
+* [[Drawables]] (and how to polish UI)
+* [[Animations]] (animating views)
+* [[Styles and Themes]] (consolidating view styles)
+* [[Cloning a Login Screen Layout]] Guide (creating complex UIs)
+* [Polishing a UI Tips and Tools](https://gist.github.com/nesquena/6c567083aec13d868017)
 
 ### AdapterViews
 
