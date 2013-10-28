@@ -77,7 +77,7 @@ Diving into the networking, model and persistence layers for data-driven apps:
 * [[Sending and Managing Network Requests]] (API Calls, Image Downloading)
 * [[Persisting Data to the Device]] (Preferences, Files, SQLite, ORMs)
 * [[Converting JSON to Models]] (JSON => Objects Deserialization)
-* [[ActiveAndroid Guide]] (ORM Guide)
+* [[ActiveAndroid ORM References|ActiveAndroid Guide]] 
 
 ## Fragments
 
