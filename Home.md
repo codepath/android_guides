@@ -67,7 +67,7 @@ Exploring how to allow user interaction and navigation within an app:
 
 Diving into the networking, model and persistence layers for data-driven apps:
 
-* [[Creating and Executing Async Tasks]]
+* [[Creating and Executing Async Tasks]] (Long-running Background Tasks)
 * [[Handling ProgressBars]] (with Long-Running Tasks)
 * [[Sending and Managing Network Requests]] (API Calls, Image Downloading)
 * [[Persisting Data to the Device]] (Preferences, Files, SQLite, ORMs)
