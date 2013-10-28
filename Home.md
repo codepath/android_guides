@@ -20,7 +20,7 @@ Exploring the foundations and structure of apps:
 
 * [[Android Directory Structure]] (Files and Folders for Android apps)
 * [[Organizing your Source Files]] (Cleaning up your Apps)
-* [[Using Resource Files|Using String Resources]]
+* [[Using Resource Files|Using String Resources]] (Understanding String Resources)
 
 ## Views and Layouts
 
