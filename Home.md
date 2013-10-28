@@ -16,11 +16,15 @@ Read more about [[us and our vision for this|The CodePath Goal]].
 
 ## Structure
 
+Exploring the foundations and structure of apps:
+
 * [[Android Directory Structure]] (Files and Folders for Android apps)
 * [[Organizing your Source Files]] (Cleaning up your Apps)
 * [[Using Resource Files|Using String Resources]]
 
 ## Views and Layouts
+
+Exploring the gritty details of views, layout, styling and common UI patterns:
 
 * [[Constructing View Layouts]] (How to layout views)
 * [[Defining Views and their Attributes]]
@@ -44,6 +48,8 @@ Read more about [[us and our vision for this|The CodePath Goal]].
 
 ## Interaction and Navigation
 
+Exploring how to allow user interaction and navigation within an app:
+
 * [[View Event Listeners|Basic Event Listeners]]
 * [[Navigating Activities with Intents|Using Intents to Create Flows]]
 * [[Exploring the ActionBar|Defining the ActionBar]]
@@ -57,6 +63,8 @@ Read more about [[us and our vision for this|The CodePath Goal]].
 
 ## Networking, Models and Persistence
 
+Diving into the networking, model and persistence layers for data-driven apps:
+
 * [[Creating and Executing Async Tasks]]
 * [[Handling ProgressBars]] (with Long-Running Tasks)
 * [[Sending and Managing Network Requests]] (API Calls, Image Downloading)
@@ -66,6 +74,8 @@ Read more about [[us and our vision for this|The CodePath Goal]].
 
 ## Fragments
 
+Understanding how to build powerful and flexible using Fragments:
+
 * [[Creating and Using Fragments]]
 * [[Fragment Navigation Drawer]]
 * [[Using DialogFragment]]
@@ -73,16 +83,22 @@ Read more about [[us and our vision for this|The CodePath Goal]].
 
 ## Providers, Sensors and Components
 
+Exploring sensors, data and components available via the Android SDK:
+
 * [[Loading Contacts with Content Providers]]
 * [[Using Hardware, Sensors and Device Data]]
 * [[Google Maps Fragment Guide]]
 
 ## Services
 
+Digging into how to run background services or leverage Android system services:
+
 * [[Starting Background Services]] (with ServiceIntent and Receivers)
 * [[Notifications]] (Persistent Notices on the Dashboard)
 
 ## Workflow Guides
+
+Focused on issues like deployment, testing, dependency management, etc:
 
 * [[Getting Started with Gradle]]
 * [[Android Unit and Integration Testing]] (with Roboelectric and Robotium)
