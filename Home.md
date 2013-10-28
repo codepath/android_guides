@@ -10,7 +10,7 @@ Read about our [[mission to change the way people learn new technologies|The Cod
 
 The guides below are categorized by their topic, so you can easily find guides on related topics whether that is views, styling, testing, or using sensors. If you see an error, incorrect explanation or deprecated solution, why not contribute?
 
-**Note:** We have scoured the web for content while creating these guides and adapted content from many source including the [Google Official Docs](http://developer.android.com/guide/components/index.html), [Vogella Tutorials](http://www.vogella.com/android.html) and countless others. At the bottom of every guide, there is citations for the content. We don't claim the content is original, but unlike those other sources, it is freely community contributed and editable.
+**Note:** We have scoured the web for content while creating these guides and adapted content from many source including the [Google Official Docs](http://developer.android.com/guide/components/index.html), [Vogella Tutorials](http://www.vogella.com/android.html) and countless others. At the bottom of every guide, there is citations for the content. **We don't claim the content is original**, but unlike those other sources, it is freely community contributed and editable. We have openly adapted, modified and brought together content from all the sources we could find for the benefit of everybody.
 
 Read more about [[us and our vision for this|The CodePath Goal]].
 
