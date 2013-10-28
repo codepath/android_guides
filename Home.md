@@ -32,44 +32,44 @@ Read more about [[us and our vision for this|The CodePath Goal]].
 * [[Drawables]] (and how to polish UI)
 * [[Animations]] (animating views)
 * [[Styles and Themes]] (consolidating view styles)
-* [[Cloning a Login Screen Layout]] Guide (creating complex UIs)
 * [Polishing a UI Tips and Tools](https://gist.github.com/nesquena/6c567083aec13d868017)
+* [[Cloning a Login Screen Layout]] Guide (creating complex UIs)
 
 ### AdapterViews
 
-* [[Using an ArrayAdapter with ListView]]
+* [[Using an ArrayAdapter with ListView]] (custom list items)
 * [[Implementing a Horizontal ListView]] Guide
 * [[Endless Scrolling with AdapterViews]]
 * [[Implementing Pull to Refresh]] Guide
 
 ## Interaction and Navigation
 
-* [[Basic Event Listeners]]
-* [[Using Intents to Create Flows]]
-* [[Defining the ActionBar]]
+* [[View Event Listeners|Basic Event Listeners]]
+* [[Navigating Activities with Intents|Using Intents to Create Flows]]
+* [[Exploring the ActionBar|Defining the ActionBar]]
 * [[Displaying Toasts]]
-* [[Common Navigation Paradigms]]
-* [[Extended ActionBar Guide]]
-* [[Common Implicit Intents]]
-* [[Gestures and Touch Events]]
-* [[Navigation and Task Stacks]]
-* [[Sharing Content with Intents]]
+* [[Common Navigation Paradigms]] (i.e Tabs, Swipe-able Views, Pull-out Drawer)
+* [[Extended ActionBar Guide]] (Split-bar, Custom ActionBar, etc)
+* [[Common Implicit Intents]] (Making a Call, Sending a Text, Opening a URL)
+* [[Gestures and Touch Events]] (Swipe, Shake, or Dragging Events)
+* [[Navigation and Task Stacks]] (Controlling the behavior of the task stack)
+* [[Sharing Content with Intents]] (and ShareActionProvider)
 
 ## Networking, Models and Persistence
 
 * [[Creating and Executing Async Tasks]]
-* [[Handling ProgressBars]]
-* [[Sending and Managing Network Requests]]
-* [[Persisting Data to the Device]]
-* [[Converting JSON to Models]]
-* [[ActiveAndroid Guide]]
+* [[Handling ProgressBars]] (with Long-Running Tasks)
+* [[Sending and Managing Network Requests]] (API Calls, Image Downloading)
+* [[Persisting Data to the Device]] (Preferences, Files, SQLite, ORMs)
+* [[Converting JSON to Models]] (JSON => Objects Deserialization)
+* [[ActiveAndroid Guide]] (ORM Guide)
 
 ## Fragments
 
 * [[Creating and Using Fragments]]
 * [[Fragment Navigation Drawer]]
 * [[Using DialogFragment]]
-* [[Flexible User Interfaces]]
+* [[Flexible User Interfaces]] (with Fragments)
 
 ## Providers, Sensors and Components
 
@@ -79,12 +79,12 @@ Read more about [[us and our vision for this|The CodePath Goal]].
 
 ## Services
 
-* [[Starting Background Services]]
-* [[Notifications]]
+* [[Starting Background Services]] (with ServiceIntent and Receivers)
+* [[Notifications]] (Persistent Notices on the Dashboard)
 
 ## Workflow Guides
 
 * [[Getting Started with Gradle]]
-* [[Android Unit and Integration Testing]]
+* [[Android Unit and Integration Testing]] (with Roboelectric and Robotium)
 * [[Robolectric Installation for Unit Testing]]
 * [[Must Have Libraries]] Guide
