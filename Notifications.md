@@ -43,7 +43,7 @@ A generic method for creating a simple notification might be:
 
 ```java
 //  createNotification(56, R.drawable.ic_launcher, "New Message", 
-/      "There is a new message from Bob!");
+//      "There is a new message from Bob!");
 private void createNotification(int nId, int iconRes, String title, String body) {
 	NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
 			this).setSmallIcon(iconRes)
