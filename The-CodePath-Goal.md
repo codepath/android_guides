@@ -22,4 +22,4 @@ Right now, we are [building curriculum](https://github.com/thecodepath/android_g
 
 At the moment, the best way to help is to **contribute to our guides**. If you see a missing topic, please raise an issue or add the wiki page yourself. If you see inaccurate information, [let us know](https://github.com/thecodepath/android_guides/issues)! If you want to learn Android, [join our free bootcamps](http://thecodepath.com/androidbootcamp). If you already know android and like what we are doing, **please email us** at **help (at) thecodepath.com** and we'd love to talk with you!
 
-Seriously, if you have any feedback or comments (or just want to chat with us), please reach out to **dev (AT) thecodepath (DOT) com**.
+Seriously, if you have any feedback or comments (or just want to chat with us), please reach out to **dev (at) thecodepath (dot) com**.
