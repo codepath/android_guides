@@ -81,7 +81,7 @@ Diving into the networking, model and persistence layers for data-driven apps:
 
 ## Fragments
 
-Understanding how to build powerful and flexible using Fragments:
+Understanding how to build powerful and flexible views using Fragments:
 
 * [[Creating and Using Fragments]]
 * [[Fragment Navigation Drawer]]
