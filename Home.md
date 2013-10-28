@@ -44,7 +44,7 @@ Exploring the gritty details of views, layout, styling and common UI patterns:
 * [[Animations]] (animating views)
 * [[Styles and Themes]] (consolidating view styles)
 * [Polishing a UI Tips and Tools](https://gist.github.com/nesquena/6c567083aec13d868017)
-* [[Cloning a Login Screen Layout]] Guide (creating attractive UIs)
+* [[Cloning a Login Screen Layout]] Guide (Creating attractive UIs, Q&A)
 
 ### AdapterViews
 
@@ -77,7 +77,7 @@ Diving into the networking, model and persistence layers for data-driven apps:
 * [[Sending and Managing Network Requests]] (API Calls, Image Downloading)
 * [[Persisting Data to the Device]] (Preferences, Files, SQLite, ORMs)
 * [[Converting JSON to Models]] (JSON => Objects Deserialization)
-* [[ActiveAndroid ORM References|ActiveAndroid Guide]] 
+* [[ActiveAndroid ORM References|ActiveAndroid Guide]] (and Q&A)
 
 ## Fragments
 
