@@ -4,7 +4,7 @@ Welcome to the open-source [Codepath](http://thecodepath.com) Android Cliffnotes
 
 [![CodePath](http://i.imgur.com/XgxWfyF.png)](http://thecodepath.com)
 
-We have guides for everyone whether you are **beginner, intermediate or advanced**. Want to learn how to [[use the ActionBar|Defining the ActionBar]] or the [[ins and outs of fragments|Creating and Using Fragments]]? We got that. Want to learn [[about testing|Android Unit and Integration Testing]] or how to [[build flexible user interfaces for multiple devices|Flexible User Interfaces]]? We got you covered. We don't waste time with the "theoretical approach" from a book. We cover **exactly the things we use every day** as we are developing apps for contracts.
+We have guides for everyone whether you are **beginner, intermediate or advanced**. Want to learn how to [[use the ActionBar|Defining the ActionBar]] or the [[ins and outs of fragments|Creating and Using Fragments]]? We got that. Want to learn [[about testing|Android Unit and Integration Testing]] or how to [[build flexible user interfaces for multiple devices|Flexible User Interfaces]]? We got you covered. We don't waste time with the "theoretical approach" you might get from a book. We cover **exactly the things we use every day** as we are developing apps for contracts.
 
 ## Motivation
 
