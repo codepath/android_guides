@@ -75,7 +75,7 @@ Any view can have an identifier attached that uniquely names that view for later
 
 ```
 
-This id can then be accessed within the Java code for the corresponding activity (in onCreate for example):
+This id can then be accessed within the Java code for the corresponding activity (in `onCreate` of Activity for example):
 
 ```java
 Button myButton = (Button) findViewById(R.id.my_button);
