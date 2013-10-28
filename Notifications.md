@@ -1,5 +1,3 @@
-# Creating Notifications
-
 ## Overview
 
 A notification is a message you can display to the user outside of your application's normal UI. Notifications appear in the phone's notification area and then can be expanded to see more information.
@@ -124,9 +122,7 @@ NotificationManager mNotificationManager =
 mNotificationManager.cancel(nId);
 ```
 
-## Things To Note
-
-See  the [official guide](http://developer.android.com/guide/topics/ui/notifiers/notifications.html) for more details.
+See  the [official notifications guide](http://developer.android.com/guide/topics/ui/notifiers/notifications.html) for more details.
 
 ## References
 
