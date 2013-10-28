@@ -1,6 +1,6 @@
 # CodePath Android Cliffnotes
 
-Welcome to the open-source [Codepath](http://thecodepath.com) Android Guides! Our goal is to become the **central crowd-sourced resource** for complete and up-to-date Android content and tutorials.
+Welcome to the open-source [Codepath](http://thecodepath.com) Android Guides! Our goal is to become the **central crowd-sourced resource** for complete and up-to-date Android content and tutorials. [Jump down to the notes](https://github.com/thecodepath/android_guides/wiki#structure).
 
 [![CodePath](http://i.imgur.com/XgxWfyF.png)](http://thecodepath.com)
 
