@@ -18,7 +18,7 @@ The cliffnotes below are **categorized by their topic**, so you can easily find 
 
 **Disclaimer:** We have scoured the web endlessly for content while creating these guides and adapted content from many source including the [Google Official Docs](http://developer.android.com/guide/components/index.html), [Vogella Tutorials](http://www.vogella.com/android.html) and countless other sources that had hidden gems of information. At the bottom of each guide, there are citations for the content we used. **We don't claim the content is original** (although we did develop quite a bit ourselves), but unlike those other sources listed, it is freely community editable. We have openly adapted, modified and brought together this content from all the sources we could find for the benefit of every engineer.
 
-Read more about [[us and our vision for this|The CodePath Goal]].
+Read more about [[us and our vision for all this|The CodePath Goal]].
 
 ## Structure
 
