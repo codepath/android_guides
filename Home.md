@@ -50,7 +50,7 @@ Exploring the gritty details of views, layout, styling and common UI patterns:
 
 Exploring how to allow user interaction and navigation within an app:
 
-* [[View Event Listeners|Basic Event Listeners]]
+* [[View Event Listeners|Basic Event Listeners]] (Clicks, Key Presses, Updates)
 * [[Navigating Activities with Intents|Using Intents to Create Flows]]
 * [[Exploring the ActionBar|Defining the ActionBar]]
 * [[Displaying Toasts]]
