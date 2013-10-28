@@ -1,4 +1,4 @@
-Welcome to the open-source Codepath Android Guides! Our goal is to become the **central crowd-sourced repository** for complete and up-to-date Android content and tutorials. 
+Welcome to the open-source Codepath Android Guides! Our goal is to become the **central crowd-sourced resource** for complete and up-to-date Android content and tutorials. 
 
 We have guides for everyone whether you are beginner, intermediate or advanced. Want to learn how to [[use the ActionBar|Defining the ActionBar]], we got that. Want to learn [[about testing|Android Unit and Integration Testing]] or how to [[build flexible user interfaces for multiple devices|Flexible User Interfaces]]? We got you covered. We don't teach you the "theoretical way", we cover exactly the things we do every day as we are developing apps at startups or for contracts.
 
