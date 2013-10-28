@@ -43,7 +43,7 @@ Exploring the gritty details of views, layout, styling and common UI patterns:
 
 ### AdapterViews
 
-* [[Using an ArrayAdapter with ListView]] (custom list items)
+* [[Using an ArrayAdapter with ListView]] (with custom list items)
 * [[Implementing a Horizontal ListView]] Guide
 * [[Endless Scrolling with AdapterViews]]
 * [[Implementing Pull to Refresh]] Guide
