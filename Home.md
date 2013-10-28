@@ -8,7 +8,7 @@ Read about our [[mission to change the way engineers learn new technologies|The 
 
 ## Introduction
 
-The guides below are categorized by their topic, so you can easily find guides on related topics whether that is views, styling, testing, or using sensors. If you see an error, incorrect explanation or deprecated solution, **why not contribute back** and make this better for the next person?
+The guides below are **categorized by their topic**, so you can easily find guides on related topics whether that is views, styling, testing, or using sensors. If you see an error, incorrect explanation or deprecated solution, **why not contribute back** and make this better for the next person?
 
 **Disclaimer:** We have scoured the web endlessly for content while creating these guides and adapted content from many source including the [Google Official Docs](http://developer.android.com/guide/components/index.html), [Vogella Tutorials](http://www.vogella.com/android.html) and countless others that had hidden gems. At the bottom of every guide, there is citations for the content we adapted. **We don't claim the content is original** (we didn't develop it all from scratch), but unlike those other sources, it is freely community contributed and editable. We have openly adapted, modified and brought together content from all the sources we could find for the benefit of everybody.
 
