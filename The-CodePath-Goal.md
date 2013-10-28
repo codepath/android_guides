@@ -15,3 +15,9 @@ We think as open-source developers and as software engineers, we can do better. 
 In addition, as engineers we always wish we could meet other engineers to hack with, and maybe even mentors to learn the new technologies from. Imagine how many hundreds of hours you could save if you had an experienced engineer in the trenches guiding your learning and reviewing your code. Not to mention people to hack on cool projects with. 
 
 Still, we would want it to be free and accessible to any serious engineers looking to learn new tech. Most engineers have full-time jobs. This is why we started the [free "evening" bootcamps](http://thecodepath.com/androidbootcamp) in San Francisco. Where we run engineers in cohorts through everything they need to know to do Android or iOS development.
+
+## How do I help?
+
+Right now, we are [building curriculum](https://github.com/thecodepath/android_guides/wiki), [creating in-person and online bootcamp](http://thecodepath.com/androidbootcamp) and [running meetup events](http://www.meetup.com/Learning-Android-Development/) to change the way people learn Android (and hack with other engineers).
+
+At the moment, the best way to help is to **contribute to our guides**. If you see a missing topic, please raise an issue or add the wiki page yourself. If you see inaccurate information, [let us know!](https://github.com/thecodepath/android_guides/issues). If you want to learn Android, [take our free bootcamp](http://thecodepath.com/androidbootcamp). If you already know android, please [email us](help@thecodepath.com) and we'd love to talk!
