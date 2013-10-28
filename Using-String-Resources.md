@@ -4,6 +4,21 @@ In Android, almost everything is a **resource**. [Defining resources](http://dev
 
 Resources are used for anything from defining colors, images, layouts, menus, and string values. The value of this is that nothing is hardcoded. Everything is defined in these resource files and then can be referenced within your application's code. The simplest of these resources and the most common is using **string resources** to allow for flexible, localized text. 
 
+### Types of Resources
+
+The following are the most common types of resources within Android apps:
+
+| Name                 | Folder    | Description                                     |
+| ----                 | ------    | -----------                                     |
+| Property Animations  | animator/ | XML files that define property animations.      |
+| Tween Animations     | anim/     | XML files that define tween animations.         |
+| Drawables            | drawable/ | Bitmap files or XML files that act as graphics  | 
+| Layout               | layout/   | XML files that define a user interface layout   |
+| Menu                 | menu/     | XML files that define menus or action bar items |
+| Values               | values/   | XML files with values such as strings, integers, and colors. |
+
+For the full list, check out the [Providing a Resource](http://developer.android.com/guide/topics/resources/providing-resources.html) guide.
+
 ### Defining a String Resource
 
 For every piece of text you want to display within your application (i.e the label of a button, or the text inside a TextView), you should first define the text in the `res/values/strings.xml` file. Each entry is a key (representing the id of the text) and a value (the text itself). For example, if I want a button to display "Submit", I might add the following string resource to `res/values/strings.xml`:
