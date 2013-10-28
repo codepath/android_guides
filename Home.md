@@ -39,7 +39,7 @@ Exploring the gritty details of views, layout, styling and common UI patterns:
 * [[Animations]] (animating views)
 * [[Styles and Themes]] (consolidating view styles)
 * [Polishing a UI Tips and Tools](https://gist.github.com/nesquena/6c567083aec13d868017)
-* [[Cloning a Login Screen Layout]] Guide (creating complex UIs)
+* [[Cloning a Login Screen Layout]] Guide (creating attractive UIs)
 
 ### AdapterViews
 
