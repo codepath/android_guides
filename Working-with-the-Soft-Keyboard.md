@@ -50,6 +50,12 @@ See the [EditText documentation](http://developer.android.com/reference/android/
 
 Although Android gives focus to the first text field in your layout when the activity starts, it does not show the input method. To show the input method when your activity starts, add the [android:windowSoftInputMode](http://developer.android.com/guide/topics/manifest/activity-element.html#wsoft) attribute to the `<activity>` element with the `"stateVisible"` value within the Android manifest. Check out [this guide](http://developer.android.com/training/keyboard-input/visibility.html#ShowOnStart) for more details.
 
+```xml
+<activity
+    android:name="com.example.myactivity"
+    android:windowSoftInputMode="stateVisible" />
+```
+
 ## References
 
  * <http://developer.android.com/training/keyboard-input/style.html>
