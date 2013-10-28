@@ -10,11 +10,11 @@ When we started learning Android and iOS, we were frustrated with the "outdated"
 
 We think as open-source developers and as software engineers, we can do better. Why not have a crowdsourced Android (or any platform for that matter) documentation repository that **anyone developer can edit**? Why can't we work together to **save others countless hours of pain and frustration** resulting from old blog posts and outdated tutorials?  
 
-## Free Bootcamps
+## Meet Engineers and Mentors
 
 In addition, as engineers we always wish we could meet other engineers to hack with, and maybe even mentors to learn the new technologies from. Imagine how many hundreds of hours you could save if you had an experienced engineer in the trenches guiding your learning and reviewing your code. Not to mention people to hack on cool projects with. 
 
-Still, we would want it to be free and accessible to any serious engineers looking to learn new tech. Most engineers have full-time jobs. This is why we started the [free "evening" bootcamps](http://thecodepath.com/androidbootcamp) in San Francisco. Where we run engineers in cohorts through everything they need to know to do Android or iOS development.
+Still, we would want it to be free and accessible to any serious engineers looking to learn new tech. Most engineers have full-time jobs. This is why we started the [free "evening" bootcamps](http://thecodepath.com/androidbootcamp) in San Francisco. Where we run engineers in cohorts through everything they need to know to do Android or iOS development. If you are in San Francisco and want to learn Android, be sure to check out our [free meetup events](http://www.meetup.com/Learning-Android-Development/) as well!
 
 ## How do I help?
 
