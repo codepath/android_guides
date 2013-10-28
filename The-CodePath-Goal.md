@@ -14,7 +14,7 @@ We think as open-source developers and as software engineers, we can do better. 
 
 In addition, as engineers we always wish we could meet other engineers to hack with, and maybe even mentors to learn the new technologies from. Imagine how many hundreds of hours you could save if you had an experienced engineer in the trenches guiding your learning and reviewing your code. Not to mention people to hack on cool projects with. 
 
-Still, we would want it all to be **free and accessible to any serious engineers** looking to learn new tech. Most engineers have full-time jobs. This is why we started the [free "evening" bootcamps](http://thecodepath.com/androidbootcamp) in San Francisco. Where we run engineers in cohorts through everything they need to know to do Android or iOS development. If you are in San Francisco and want to learn Android, be sure to check out our [free meetup events](http://www.meetup.com/Learning-Android-Development/) as well!
+Still, we would want it all to be **free and accessible to any serious engineers** looking to learn new tech. Most engineers have full-time jobs. This is why we started the [free "evening" bootcamps](http://thecodepath.com/androidbootcamp) in San Francisco. Where we run engineers in cohorts through everything they need to know to do Android or iOS development. If you are in San Francisco and want to learn Android, be sure to check out our [free meetup events](http://www.meetup.com/Learning-Android-Development/) as well! We want to help connect smart engineers together so they can build cool things. 
 
 ## How do I help?
 
