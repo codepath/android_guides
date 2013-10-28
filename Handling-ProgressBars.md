@@ -86,6 +86,7 @@ public class MainActivity extends Activity {
     }
 
     public void onStart() {
+        super.onStart();
         // Now you can switch on and off the progress
         setProgressBarIndeterminateVisibility(true); 
     }
