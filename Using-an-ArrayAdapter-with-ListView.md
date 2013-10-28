@@ -90,8 +90,8 @@ Next, we need to define the Adapter to describe the process of converting the Ja
 
 ```java
 public class UsersAdapter extends ArrayAdapter<User> {
-    public UsersAdapter(Context context, List<User> users) {
-       super(context, R.layout.item_user, users);
+    public UsersAdapter(Context context) {
+       super(context, R.layout.item_user);
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -124,7 +124,9 @@ Now, we can use that adapter in the Activity to display an array of items into t
 // Construct the data source
 ArrayList<User> arrayOfUsers = new ArrayList<User>();
 // Create the adapter to convert the array to views
-adapter = new UsersAdapter(this, arrayOfUsers);
+adapter = new UsersAdapter(this);
+// Add the collection of User objects to the adapter
+adapter.addAll(arrayOfUsers);
 // Attach the adapter to a ListView
 ListView listView = (ListView) findViewById(R.id.lvItems);
 listView.setAdapter(adapter);
