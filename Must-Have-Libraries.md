@@ -14,5 +14,6 @@ There are many third-party libraries for Android but several of them are "must h
  * <http://actionbarsherlock.com/>
  * <http://nineoldandroids.com/>
  * <https://github.com/roboguice/roboguice/wiki>
+ * <https://github.com/excilys/androidannotations/wiki>
  * <https://github.com/erikwt/PullToRefresh-ListView>
  * https://github.com/jfeinstein10/SlidingMenu
