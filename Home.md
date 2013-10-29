@@ -118,3 +118,4 @@ Focused on issues like deployment, testing, dependency management, etc:
 * [[Android Unit and Integration Testing]] (with Roboelectric and Robotium)
 * [[Robolectric Installation for Unit Testing]]
 * [[Must Have Libraries]] Guide
+* [Publishing to the Play Store](http://goo.gl/mUlGL1) (Slides)
