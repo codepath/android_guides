@@ -22,7 +22,7 @@ Read more about [[us and our vision for all this|The CodePath Goal]].
 
 ## Getting Started
 
-First Steps with Android:
+**Totally new to Android?** Start here.
 
 * [Setting up the Android Development Tools](http://goo.gl/Ml9YN) (Installation Slides)
 * [Architecture of Mobile Apps](http://goo.gl/AAsGLx) (Concept Slides)
