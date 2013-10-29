@@ -96,6 +96,7 @@ Understanding how to build powerful and flexible views using Fragments:
 * [[Using DialogFragment]]
 * [[Flexible User Interfaces]] (with Fragments)
 * [[ViewPager with FragmentPagerAdapter]] (**Needs Attention**)
+* [[Settings with PreferenceFragment]] (**Needs Attention**)
 
 ## Providers, Sensors and Components
 
@@ -104,6 +105,7 @@ Exploring sensors, data and components available via the Android SDK:
 * [[Loading Contacts with Content Providers]]
 * [[Using Hardware, Sensors and Device Data]]
 * [[Google Maps Fragment Guide]]
+* [[Video and Audio Playback]] (**Needs Attention**)
 
 ## Services
 
