@@ -151,14 +151,16 @@ public class SomeFragment extends Fragment {
 	ThingsAdapter adapter;
 	FragmentActivity listener;
         
-	// The onAttach method is called when the Fragment instance is associated with an Activity instance. 
+        // This event fires 1st, before creation of fragment or any views
+ 	// The onAttach method is called when the Fragment instance is associated with an Activity instance. 
 	// This does not mean the Activity is fully initialized.
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
 		this.listener = (FragmentActivity) activity;
 	}
-
+       
+        // This event fires 2nd, before views are created for the fragment
 	// The onCreate method is called when the Fragment instance is being created, or re-created.
 	// Use onCreate for any standard setup that does not require the activity to be completed
 	@Override
@@ -168,6 +170,7 @@ public class SomeFragment extends Fragment {
 		adapter = new ThingsAdapter(getActivity(), things);
 	}
 	
+        // This event fires 3rd, and is the first time views are available in the fragment
 	// The onCreateView method is called when Fragment should create its View object hierarchy. 
 	// Use onCreateView to get a handle to views as soon as they are freshly inflated
 	@Override
@@ -178,6 +181,7 @@ public class SomeFragment extends Fragment {
 		return v;
 	}
 	
+        // This fires 4th, and this is the first time the Activity is fully created.
 	// Accessing the view hierarchy of the parent activity must be done in the onActivityCreated
 	// At this point, it is safe to search for View objects by their ID, for example.
 	@Override
@@ -200,12 +204,16 @@ import android.support.v4.app.Fragment;
 
 public class MyListFragment extends Fragment {
   // ...
+  // Define the listener of the interface type
+  // listener is the activity itself
   private OnItemSelectedListener listener;
-
+  
+  // Define the events that the fragment will use to communicate
   public interface OnItemSelectedListener {
     public void onRssItemSelected(String link);
   }
-
+  
+  // Store the listener (activity) that will have events fired once the fragment is attached
   @Override
   public void onAttach(Activity activity) {
     super.onAttach(activity);
@@ -215,6 +223,11 @@ public class MyListFragment extends Fragment {
         throw new ClassCastException(activity.toString()
             + " must implement MyListFragment.OnItemSelectedListener");
       }
+  }
+ 
+  // Now we can fire the event when the user selects something in the fragment
+  public void onSomeClick(View v) {
+     listener.onRssItemSelected("some link");
   }
 }
 ```
@@ -228,20 +241,21 @@ public class RssfeedActivity extends FragmentActivity implements
   MyListFragment.OnItemSelectedListener {
     DetailFragment fragment;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rssfeed);
-        fragment = (DetailFragment) getSupportFragmentManager()
-              .findFragmentById(R.id.detailFragment);
-    }
-
   @Override
-    public void onRssItemSelected(String link) {
-          if (fragment != null && fragment.isInLayout()) {
-            fragment.setText(link);
-          }
-    }
+  protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_rssfeed);
+      fragment = (DetailFragment) getSupportFragmentManager()
+            .findFragmentById(R.id.detailFragment);
+  }
+  
+  // Now we can define the action to take in the activity when the fragment event fires
+  @Override
+  public void onRssItemSelected(String link) {
+      if (fragment != null && fragment.isInLayout()) {
+          fragment.setText(link);
+      }
+  }
 }
 ```
 
