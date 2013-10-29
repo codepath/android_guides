@@ -22,12 +22,12 @@ Read more about [[us and our vision for all this|The CodePath Goal]].
 
 ## Structure
 
-Getting Started:
+Getting Started with Android:
 
 * [Setting up the Android Development Tools](http://goo.gl/Ml9YN) (Installation Slides)
 * [Creating our First App](http://goo.gl/tFZBtn)
 
-Exploring the foundations and structure of apps:
+Exploring the foundations of app development:
 
 * [[Android Directory Structure]] (Files and Folders for Android apps)
 * [[Organizing your Source Files]] (Cleaning up your Apps)
