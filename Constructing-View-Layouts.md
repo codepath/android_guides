@@ -4,45 +4,7 @@ View Layouts are a type of View class whose primary purpose is to organize and p
 
 Android activities (screens) use layouts as a container for view controls, and layouts can actually contain other nested layouts as well. Nearly all Android activities have layout containers similar to the way that most HTML documents use "divs" to contain other content.
 
-There are two very commonly used layouts and then many more specialized layouts that are used in only very particular cases. The bread and butter layouts are **FrameLayout**, **LinearLayout**, and **RelativeLayout**. 
-
-## FrameLayout
-
-In a frame layout, the children are displayed with a z-index in the order of how they appear.  Put simply, the last child added to a `FrameLayout` will be drawn on top of all the previous children.  Think of it like a stack of items, the item last put on the stack will be drawn on top of the items below it.  This layout makes it very easy to draw on top of other layouts, especially for tasks such as button placement. 
-
-To arrange the children inside of a `FrameLayout` use the `android:gravity` attribute along with whatever `android:padding` and `android:margin` you need. 
-
-Example of FrameLayout snippet:
-```xml
-<FrameLayout
-    android:id="@+id/frame_layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <!-- Child1 is drawn first -->
-    <ImageView
-        android:id="@+id/child1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:contentDescription="Image"
-        android:src="@drawable/icon" />
-    <!-- Child2 is drawn over Child1 -->
-    <TextView
-        android:id="@+id/child2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Child 2"
-        android:gravity="top|left" />
-    <!-- Child3 is drawn over Child1 and Child2 -->
-    <TextView
-        android:id="@+id/child3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Child 3"
-        android:gravity="top|right" />
-</FrameLayout>
-```
-
-In this example, an `ImageView` is set to the full size of the `FrameLayout`.  We then draw two `TextView`'s over it.
+There are two very commonly used layouts and then many more specialized layouts that are used in only very particular cases. The bread and butter layouts are **LinearLayout**, **RelativeLayout**, and **FrameLayout**.
 
 ## LinearLayout
 
@@ -103,6 +65,44 @@ An example of a RelativeLayout:
             android:text="Login" />
 </RelativeLayout>
 ```
+
+## FrameLayout
+
+In a frame layout, the children are displayed with a z-index in the order of how they appear.  Put simply, the last child added to a `FrameLayout` will be drawn on top of all the previous children.  Think of it like a stack of items, the item last put on the stack will be drawn on top of the items below it.  This layout makes it very easy to draw on top of other layouts, especially for tasks such as button placement. 
+
+To arrange the children inside of a `FrameLayout` use the `android:gravity` attribute along with whatever `android:padding` and `android:margin` you need. 
+
+Example of FrameLayout snippet:
+```xml
+<FrameLayout
+    android:id="@+id/frame_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!-- Child1 is drawn first -->
+    <ImageView
+        android:id="@+id/child1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="Image"
+        android:src="@drawable/icon" />
+    <!-- Child2 is drawn over Child1 -->
+    <TextView
+        android:id="@+id/child2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Child 2"
+        android:gravity="top|left" />
+    <!-- Child3 is drawn over Child1 and Child2 -->
+    <TextView
+        android:id="@+id/child3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Child 3"
+        android:gravity="top|right" />
+</FrameLayout>
+```
+
+In this example, an `ImageView` is set to the full size of the `FrameLayout`.  We then draw two `TextView`'s over it.
 
 ## References
 
