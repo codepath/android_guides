@@ -25,7 +25,7 @@ Read more about [[us and our vision for all this|The CodePath Goal]].
 Getting Started with Android:
 
 * [Setting up the Android Development Tools](http://goo.gl/Ml9YN) (Installation Slides)
-* [Creating our First App](http://goo.gl/tFZBtn)
+* [Creating our First App](http://goo.gl/tFZBtn) (Simple Todo App Step-by-Step)
 
 Exploring the foundations of app development:
 
