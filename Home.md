@@ -20,13 +20,15 @@ The cliffnotes below are **categorized by their topic**, so you can easily find 
 
 Read more about [[us and our vision for all this|The CodePath Goal]].
 
-## Structure
+## Getting Started
 
-Getting Started with Android:
+First Steps with Android:
 
 * [Setting up the Android Development Tools](http://goo.gl/Ml9YN) (Installation Slides)
 * [Architecture of Mobile Apps](http://goo.gl/AAsGLx) (Concept Slides)
 * [Creating our First App](http://goo.gl/pBKfYP) (Simple Todo App Step-by-Step)
+
+## Structure
 
 Exploring the foundations of app development:
 
