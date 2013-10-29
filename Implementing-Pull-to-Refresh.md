@@ -61,7 +61,7 @@ public class TimelineActivity extends Activity {
             public void onSuccess(JSONArray json) {
                 // ...the data has come back, finish populating listview...
                 // Now we call onRefreshComplete to signify refresh has finished
-                TweetsListView.this.onRefreshComplete();
+                lvTweets.onRefreshComplete();
             }
 
             public void onFailure(Throwable e) {
