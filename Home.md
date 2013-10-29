@@ -26,7 +26,7 @@ First Steps with Android:
 
 * [Setting up the Android Development Tools](http://goo.gl/Ml9YN) (Installation Slides)
 * [Architecture of Mobile Apps](http://goo.gl/AAsGLx) (Concept Slides)
-* [Creating our First App](http://goo.gl/pBKfYP) (Step-by-Step Todo App)
+* [Developing our First App](http://goo.gl/pBKfYP) (Step-by-Step Todo App)
 
 ## Structure
 
