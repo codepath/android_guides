@@ -18,6 +18,8 @@ These guides were originally created and adapted by [Nathan Esquenazi](http://gi
 as a part of our [CodePath](http://thecodepath.com) training and bootcamps. We have also had contributions from many
 community members including:
 
- * [Trevor](https://github.com/trevor-e)
+ * [Trevor Elkins](https://github.com/trevor-e)
+ * [Roger Hu](https://github.com/rogerhu)
+ * [Adrian Romero](https://github.com/romeroadrian)
 
 If you are interested in contributing, check out our [contribution guidelines](https://github.com/thecodepath/android_guides/wiki/Contributing-Guidelines) for this project.
