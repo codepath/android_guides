@@ -68,7 +68,7 @@ An example of setting view attributes:
 
 ### View Identifiers
 
-Any view can have an identifier attached that uniquely names that view for later access. You can assign a view an id within the xml layout:
+Any view can have an identifier attached that uniquely names that view for later access. You can assign a view an id within the XML layout:
 
 ```xml
 <Button android:id="@+id/my_button">
@@ -80,6 +80,8 @@ This id can then be accessed within the Java code for the corresponding activity
 ```java
 Button myButton = (Button) findViewById(R.id.my_button);
 ```
+
+Any view with an id will retain its content at configuration change.
 
 ## References
 
