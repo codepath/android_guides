@@ -39,6 +39,10 @@ public class MyParcelable implements Parcelable {
         mData = in.readInt();
         mName = in.readString();
     }
+
+    public MyParcelable() {
+        //normal actions performed by class, it's still a normal object!
+    }
 }
 ```
 
