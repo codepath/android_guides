@@ -14,7 +14,7 @@ Read about our [[mission to change the way engineers learn new technologies|The 
 
 ## Overview
 
-The cliffnotes below are **categorized by their topic**, so you can easily find guides on related topics whether that is views, styling, testing, or using sensors. If you see an error, incorrect explanation or deprecated solution, **why not contribute back** and make these cliffnotes better for the next person? That in a nutshell is the core spirit of this initiative.
+The cliffnotes below are **categorized by their topic**, so you can easily find guides on related topics whether that is views, styling, testing, or using sensors. If you see an error, incorrect explanation or deprecated solution, **why not contribute back** and make these cliffnotes better for the next person? That in a nutshell is the core spirit of this initiative. Check out the [list of contributors](https://github.com/thecodepath/android_guides/blob/master/README.md#contributors) to this project.
 
 **Disclaimer:** We have scoured the web endlessly for content while creating these guides and adapted content from many source including the [Google Official Docs](http://developer.android.com/guide/components/index.html), [Vogella Tutorials](http://www.vogella.com/android.html) and countless other sources that had hidden gems of information. At the bottom of each guide, there are citations for the content we used. **We don't claim the content is original** (although we did develop quite a bit ourselves), but unlike those other sources listed, it is freely community editable. We have openly adapted, modified and brought together this content from all the sources we could find for the benefit of every engineer.
 
