@@ -90,6 +90,10 @@ Next, we need to define the Adapter to describe the process of converting the Ja
 
 ```java
 public class UsersAdapter extends ArrayAdapter<User> {
+    private static class ViewHolder {
+        TextView name;
+        TextView home;
+    }
     public UsersAdapter(Context context) {
        super(context, R.layout.item_user);
     }
@@ -97,24 +101,31 @@ public class UsersAdapter extends ArrayAdapter<User> {
     public View getView(int position, View convertView, ViewGroup parent) {
        // Get the data item for this position
        User user = getItem(position); 
+       ViewHolder viewHolder;       
        // Check if an existing view is being reused, otherwise inflate the view
-        View view = convertView;
-        if (view == null) {
-           LayoutInflater inflater = LayoutInflater.from(getContext());
-           view = inflater.inflate(R.layout.item_user, null);
-        }
+       if (convertView == null) {
+          viewHolder = new ViewHolder();
+          LayoutInflater inflater = LayoutInflater.from(getContext());
+          convertView = inflater.inflate(R.layout.item_user, null);
+          viewHolder.name = (TextView) view.findViewById(R.id.tvName);
+          viewHolder.home = (TextView) view.findViewById(R.id.tvHome);
+          convertView.setTag(viewHolder);
+       }
+       else {
+           viewHolder = (ViewHolder) convertView.getTag();
+       }
        // Populate the data into the template view using the data object
-       TextView tvName = (TextView) view.findViewById(R.id.tvName);
-       TextView tvHome = (TextView) view.findViewById(R.id.tvHome);
-       tvName.setText(user.name);
-       tvHome.setText(user.hometown);
+       viewHolder.name.setText(user.name);
+       viewHolder.home.setText(user.hometown);
        // Return the completed view to render on screen
-       return view;
+       return convertView;
    }
 }
 ```
 
-That adapter has a constructor and a "getView" method to describe the translation between the data item and the View to display.
+That adapter has a constructor and a "getView" method to describe the translation between the data item and the View to display.  `getView()` is what returns the actual view used as a row in the ListView.  
+
+In this example we also have a private static class called `ViewHolder`.  Making calls to `findViewById()` is really slow in practice, and if your adapter has to call it for each View in your row for every single row then you will quickly run into performance issues.  What the ViewHolder class does is cache the call to `findViewById()`.  Once your ListView has reached the max amount of rows it can display on a screen, Android is smart enough to begin recycling those row Views.  We check if a View is recycled with `if (convertView == null)`.  If it is not null then we have a recycled View and can just change its values, otherwise we need to create a new row View.  The magic behind this is the `setTag()` method which lets us attach an arbitrary object onto a View object, which is how we save the already inflated View for future reuse.
 
 ## Attaching the Adapter to a ListView
 
