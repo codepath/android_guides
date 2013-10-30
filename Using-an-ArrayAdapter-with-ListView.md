@@ -90,6 +90,7 @@ Next, we need to define the Adapter to describe the process of converting the Ja
 
 ```java
 public class UsersAdapter extends ArrayAdapter<User> {
+    // View lookup cache
     private static class ViewHolder {
         TextView name;
         TextView home;
@@ -100,9 +101,9 @@ public class UsersAdapter extends ArrayAdapter<User> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
        // Get the data item for this position
-       User user = getItem(position); 
-       ViewHolder viewHolder;       
+       User user = getItem(position);    
        // Check if an existing view is being reused, otherwise inflate the view
+       ViewHolder viewHolder; // view lookup cache stored in tag
        if (convertView == null) {
           viewHolder = new ViewHolder();
           LayoutInflater inflater = LayoutInflater.from(getContext());
@@ -110,8 +111,7 @@ public class UsersAdapter extends ArrayAdapter<User> {
           viewHolder.name = (TextView) view.findViewById(R.id.tvName);
           viewHolder.home = (TextView) view.findViewById(R.id.tvHome);
           convertView.setTag(viewHolder);
-       }
-       else {
+       } else {
            viewHolder = (ViewHolder) convertView.getTag();
        }
        // Populate the data into the template view using the data object
