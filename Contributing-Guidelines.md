@@ -1,5 +1,3 @@
-# Overview
-
 ## Guidelines
 
 The cliffnotes philosophy is all about cutting down the content keeping the guides **lean and practical**. In particular:
