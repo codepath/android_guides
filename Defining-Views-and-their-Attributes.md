@@ -81,7 +81,7 @@ This id can then be accessed within the Java code for the corresponding activity
 Button myButton = (Button) findViewById(R.id.my_button);
 ```
 
-Any view with an id will retain its content at configuration change.
+Another important note is that any view with an id specified will automatically retain its state on a configuration change (i.e phone orientation switch).
 
 ## References
 
