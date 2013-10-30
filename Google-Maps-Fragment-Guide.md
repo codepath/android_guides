@@ -91,7 +91,7 @@ The first step to getting Google Maps working on your emulator is to download a 
 
 To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/customer/login/?next=/) and follow the [installation guide](https://cloud.genymotion.com/page/doc/):
 
-1. Sign up for an account on the [genymotion website](https://cloud.genymotion.com/page/customer/login/?next=/)
+1. Sign up for an account on the [Genymotion Website](https://cloud.genymotion.com/page/customer/login/?next=/)
 2. (Mac or Linux) [Install VirtualBox](https://www.virtualbox.org/wiki/Downloads), a powerful free virtualization software.
 3. [Download Genymotion Emulator](https://cloud.genymotion.com/page/launchpad/download/) for your platform.
 4. Install the Genymotion Emulator
