@@ -21,5 +21,6 @@ community members including:
  * [Trevor Elkins](https://github.com/trevor-e)
  * [Roger Hu](https://github.com/rogerhu)
  * [Adrian Romero](https://github.com/romeroadrian)
+ * [Chunyan Song](https://github.com/chunyan)
 
 If you are interested in contributing, check out our [contribution guidelines](https://github.com/thecodepath/android_guides/wiki/Contributing-Guidelines) for this project.
