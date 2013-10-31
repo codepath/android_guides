@@ -376,6 +376,16 @@ public boolean onOptionsItemSelected(MenuItem item) {
 
 Note that the fragment’s method is called only when the Activity didn’t consume the event first. Be sure to check out a more detailed guide about [fragments and action bar](http://www.grokkingandroid.com/adding-action-items-from-within-fragments/) if you have more questions.
 
+### Navigating Between Fragments
+
+There are several methods for navigating between different fragments within a single Activity. The primary options are:
+
+ 1. [[ActionBar Tabs | ActionBar Tabs with Fragments]] - Tabs at the top
+ 2. [[Fragment Navigation Drawer]] - Slide out navigation menu
+ 3. [[ViewPager | ViewPager with FragmentPagerAdapter]] - Swiping between fragments
+
+Check the guides linked above for detailed steps for each of these approaches.
+
 ## References
 
  * <http://developer.android.com/reference/android/app/Fragment.html>
