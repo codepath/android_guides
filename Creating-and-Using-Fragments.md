@@ -251,7 +251,7 @@ If an activity needs to make a fragment perform an action, the easiest way is by
 
 ```java
 public class DemoFragment extends Fragment {
-  def doSomething(String param) {
+  public void doSomething(String param) {
      // do something in fragment
   }
 }
