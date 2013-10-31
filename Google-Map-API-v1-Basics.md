@@ -1,1 +1,0 @@
-`Google Map v1`
