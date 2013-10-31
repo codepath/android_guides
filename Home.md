@@ -92,6 +92,7 @@ Diving into the networking, model and persistence layers for data-driven apps:
 Understanding how to build powerful and flexible views using Fragments:
 
 * [[Creating and Using Fragments]]
+* [[ActionBar Tabs with Fragments]]
 * [[Fragment Navigation Drawer]]
 * [[Using DialogFragment]]
 * [[Flexible User Interfaces]] (with Fragments)
