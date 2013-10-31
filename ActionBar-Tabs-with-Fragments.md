@@ -6,7 +6,7 @@ There are several ways to setup tabs with fragments. The easiest is using Action
 
 To setup tabs using ActionBar and fragments, you need to add a `TabListener` implementation to your application which defines the behavior of a tab when activated. A good default implementation is just [adding this](https://gist.github.com/nesquena/f54a991ccb4e5929e0ec) to `FragmentTabListener.java`. 
 
-Once you have created the `FragmentTabListener` [from this snippet](https://gist.github.com/nesquena/f54a991ccb4e5929e0ec) within your app, simply setup the ActionBar and define which tabs you would like to display and attaches listeners for each tab:
+Once you have created the `FragmentTabListener` [from this snippet](https://gist.github.com/nesquena/f54a991ccb4e5929e0ec) within your app, simply setup the ActionBar and define which tabs you would like to display and attach listeners for each tab:
 
 ```java
 public class MainActivity extends FragmentActivity {
@@ -55,12 +55,54 @@ Google has released an updated support library "android-support-v7-appcompat" wh
 
 Now, we need to import the support library as a library project following the [usual steps](http://imgur.com/a/N8baF). `File => Import => Existing Android Code...` and then go to your **sdk folder** and select `sdk => extras => android => support => v7 => appcompat`. 
 
-![Screen 1](http://i.imgur.com/qUxwur2.png)
-![Screen 2](http://i.imgur.com/pRffDgs.png)
+![Screen 1](http://i.imgur.com/pRffDgs.png)
 
 Now, for your app, right-click and select "Properties..." and then add "android-support-v7-appcompat" as a library.
 
-![Screen 3](http://i.imgur.com/E5IYm69.png)
+![Screen 2](http://i.imgur.com/E5IYm69.png)
+
+To setup tabs using ActionBar and fragments, you need to add a `TabListener` implementation to your application which defines the behavior of a tab when activated. A good default implementation is just [adding this](https://gist.github.com/nesquena/8b9f9ec29582afd4d138) to `SupportFragmentTabListener.java`. 
+
+Once you have created the `SupportFragmentTabListener` [from this snippet](https://gist.github.com/nesquena/8b9f9ec29582afd4d138) within your app, simply setup the ActionBar and define which tabs you would like to display and attach listeners for each tab:
+
+```java
+public class MainActivity extends ActionBarActivity {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		setupTabs();
+	}
+
+	private void setupTabs() {
+		ActionBar actionBar = getSupportActionBar();
+		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		actionBar.setDisplayShowTitleEnabled(true);
+
+		Tab tab1 = actionBar
+		    .newTab()
+		    .setText("First")
+		    .setIcon(R.drawable.ic_home)
+		    .setTag("HomeTimelineFragment")
+		    .setTabListener(new SupportFragmentTabListener<FirstFragment>(R.id.flContainer, this,
+                        "first", FirstFragment.class));
+
+		actionBar.addTab(tab1);
+		actionBar.selectTab(tab1);
+
+		Tab tab2 = actionBar
+		    .newTab()
+		    .setText("Second")
+		    .setIcon(R.drawable.ic_mentions)
+		    .setTag("MentionsTimelineFragment")
+		    .setTabListener(new SupportFragmentTabListener<SecondFragment>(R.id.flContainer, this,
+                        "second", SecondFragment.class));
+		actionBar.addTab(tab2);
+	}
+
+}
+```
 
 #### With ActionBarSherlock
 
