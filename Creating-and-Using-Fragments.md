@@ -129,48 +129,6 @@ ft.commit();
 
 If the fragment should always be in the activity, use XML to statically add but if it's more complex use the Java-based approach.
 
-### Fragments with Arguments
-
-In certain cases, your fragment may want to accept certain arguments. A common pattern is to create a static `newInstance` method for creating a Fragment with arguments. This is because a Fragment **must have only a constructor with no arguments**. Instead we want to use the `setArguments` method such as:
-
-```java
-public class DemoFragment extends Fragment {
-    public static DemoFragment newInstance(int someInt, String someTitle) {
-        DemoFragment fragmentDemo = new DemoFragment();
-        Bundle args = new Bundle();
-        args.putInt("someInt", someInt);
-        args.putString("someTitle", someTitle);
-        fragmentDemo.setArguments(args);
-        return fragmentDemo;
-    }
-}
-```
-
-This sets certain arguments into the Fragment for later use. You can access the argument later by using:
-
-```java
-public class DemoFragment extends Fragment {
-   @Override
-   public void onCreate(Bundle savedInstanceState) {
-       super.onCreate(savedInstanceState);
-       // Get back arguments
-       int SomeInt = getArguments().getInt("someInt", 0);	
-       String someTitle = getArguments().getString("someTitle", "");	
-   }
-}
-```
-
-Now we can load a fragment dynamically in an Activity with:
-
-```java
-FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-DemoFragment fragmentDemo = DemoFragment.newInstance(5, "my title");
-ft.replace(R.id.your_placeholder, fragmentDemo);
-ft.commit();
-```
-
-This pattern makes passing arguments to fragments fairly straightforward.
-
 ### Fragment Lifecycle
 
 Fragment has many methods which can be overriden to plug into the lifecycle (similar to an Activity):
@@ -237,7 +195,83 @@ public class SomeFragment extends Fragment {
 
 ### Fragment <-> Activity Communication
 
-Fragments should not directly communicate with each other, only through an activity.  Fragments should be modular and reusable components. Let the activity respond to intents and fragment callbacks.
+Fragments should not directly communicate with each other, only through an activity.  Fragments should be modular and reusable components. Let the activity respond to intents and fragment callbacks in most cases.
+
+There are three ways a fragment and an activity can communicate:
+
+1. Activity can construct a fragment and set arguments
+2. Activity can call methods on a fragment instance
+3. Fragment can fire listener events on an activity via an interface
+
+#### Fragment with Arguments
+
+In certain cases, your fragment may want to accept certain arguments. A common pattern is to create a static `newInstance` method for creating a Fragment with arguments. This is because a Fragment **must have only a constructor with no arguments**. Instead we want to use the `setArguments` method such as:
+
+```java
+public class DemoFragment extends Fragment {
+    public static DemoFragment newInstance(int someInt, String someTitle) {
+        DemoFragment fragmentDemo = new DemoFragment();
+        Bundle args = new Bundle();
+        args.putInt("someInt", someInt);
+        args.putString("someTitle", someTitle);
+        fragmentDemo.setArguments(args);
+        return fragmentDemo;
+    }
+}
+```
+
+This sets certain arguments into the Fragment for later use. You can access the argument later by using:
+
+```java
+public class DemoFragment extends Fragment {
+   @Override
+   public void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       // Get back arguments
+       int SomeInt = getArguments().getInt("someInt", 0);	
+       String someTitle = getArguments().getString("someTitle", "");	
+   }
+}
+```
+
+Now we can load a fragment dynamically in an Activity with:
+
+```java
+FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+DemoFragment fragmentDemo = DemoFragment.newInstance(5, "my title");
+ft.replace(R.id.your_placeholder, fragmentDemo);
+ft.commit();
+```
+
+This pattern makes passing arguments to fragments fairly straightforward.
+
+### Fragment Methods
+
+If an activity needs to make a fragment perform an action, the easiest way is by having the activity invoke a method on the fragment instance. In the fragment, add a method:
+
+```java
+public class DemoFragment extends Fragment {
+  def doSomething(String param) {
+     // do something in fragment
+  }
+}
+```
+
+and then in the activity, get access to the fragment using the fragment manager and call the method:
+
+```java
+@Override
+public void onCreate(Bundle savedInstanceState) {
+     super.onCreate(savedInstanceState);
+     DemoFragment fragmentDemo = (DemoFragment) 
+         getSupportFragmentManager().findFragmentById(R.id.fragmentDemo)
+     fragmentDemo.doSomething("some param");
+}
+```
+
+and then the activity can communicate directly with the fragment through these methods.
+
+### Fragment Listener
 
 Fragments should define an interface as an inner type and require that the activity must implement this interface:
 
