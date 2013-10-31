@@ -129,6 +129,48 @@ ft.commit();
 
 If the fragment should always be in the activity, use XML to statically add but if it's more complex use the Java-based approach.
 
+### Fragments with Arguments
+
+In certain cases, your fragment may want to accept certain arguments. A common pattern is to create a static `newInstance` method for creating a Fragment with arguments. This is because a Fragment **must have only a constructor with no arguments**. Instead we want to use the `setArguments` method such as:
+
+```java
+public class DemoFragment extends Fragment {
+    public static DemoFragment newInstance(int someInt, String someTitle) {
+        DemoFragment fragmentDemo = new DemoFragment();
+        Bundle args = new Bundle();
+        args.putInt("someInt", someInt);
+        args.putString("someTitle", someTitle);
+        fragmentDemo.setArguments(args);
+        return fragmentDemo;
+    }
+}
+```
+
+This sets certain arguments into the Fragment for later use. You can access the argument later by using:
+
+```java
+public class DemoFragment extends Fragment {
+   @Override
+   public void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       // Get back arguments
+       int SomeInt = getArguments().getInt("someInt", 0);	
+       String someTitle = getArguments().getString("someTitle", "");	
+   }
+}
+```
+
+Now we can load a fragment dynamically in an Activity with:
+
+```java
+FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+DemoFragment fragmentDemo = DemoFragment.newInstance(5, "my title");
+ft.replace(R.id.your_placeholder, fragmentDemo);
+ft.commit();
+```
+
+This pattern makes passing arguments to fragments fairly straightforward.
+
 ### Fragment Lifecycle
 
 Fragment has many methods which can be overriden to plug into the lifecycle (similar to an Activity):
@@ -400,39 +442,6 @@ public boolean onOptionsItemSelected(MenuItem item) {
 ```
 
 Note that the fragment’s method is called only when the Activity didn’t consume the event first. Be sure to check out a more detailed guide about [fragments and action bar](http://www.grokkingandroid.com/adding-action-items-from-within-fragments/) if you have more questions.
-
-### Fragments with Arguments
-
-In certain cases, your fragment may want to accept certain arguments. A common pattern is to create a static `newInstance` method for creating a Fragment with arguments. This is because a Fragment **must have a constructor with no arguments**. Instead we want to use the `setArguments` method such as:
-
-```java
-public class DemoFragment extends Fragment {
-    public static DemoFragment newInstance(int someInt, String someTitle) {
-        DemoFragment fragmentDemo = new DemoFragment();
-        Bundle args = new Bundle();
-        args.putInt("someInt", someInt);
-        args.putString("someTitle", someTitle);
-        fragmentDemo.setArguments(args);
-        return fragmentDemo;
-    }
-}
-```
-
-This sets certain arguments into the Fragment for later use. You can access the argument later by using:
-
-```java
-public class DemoFragment extends Fragment {
-   @Override
-   public void onCreate(Bundle savedInstanceState) {
-       super.onCreate(savedInstanceState);
-       // Get back arguments
-       int SomeInt = getArguments().getInt("someInt", 0);	
-       String someTitle = getArguments().getString("someTitle", "");	
-   }
-}
-```
-
-This pattern makes passing arguments to fragments fairly straightforward.
 
 ## References
 
