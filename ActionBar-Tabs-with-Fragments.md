@@ -1,8 +1,8 @@
 ### Fragments and Tabs
 
-There are several ways to setup tabs with fragments. The easiest is using ActionBar tabs. Note: ActionBar tabs are not supported in Gingerbread, so many people use [ActionBarSherlock](http://actionbarsherlock.com/) when Gingerbread must be supported. Thankfully, the API is more or less identical with a few class name tweaks.
+There are several ways to setup tabs with fragments. The easiest is using ActionBar tabs. Note: Standard ActionBar tabs are not supported in Gingerbread, so many people use [ActionBarSherlock](http://actionbarsherlock.com/) when Gingerbread must be supported. Google has also released a support `ActionBarActivity` class which can be used for compatible tabs. Thankfully, both the support approaches are more or less identical in code with a few class name tweaks.
 
-#### Without ActionBarSherlock
+#### Without Gingerbread Support
 
 To setup tabs using ActionBar and fragments, you need to add a `TabListener` implementation to your application which defines the behavior of a tab when activated. A good default implementation is just [adding this](https://gist.github.com/nesquena/f54a991ccb4e5929e0ec) to `FragmentTabListener.java`. 
 
@@ -48,6 +48,19 @@ public class MainActivity extends FragmentActivity {
 	}
 }
 ```
+
+#### With ActionBarActivity Support
+
+Google has released an updated support library "android-support-v7-appcompat" which includes official support for the ActionBar with Gingerbread compatibility. To use this, first, we need to **upgrade to latest support library** by opening the Android SDK Manager and verifying we have the latest "Android Support Library".
+
+Now, we need to import the support library as a library project following the [usual steps](http://imgur.com/a/N8baF). `File => Import => Existing Android Code...` and then go to your **sdk folder** and select `sdk => extras => android => support => v7 => appcompat`. 
+
+![Screen 1](http://i.imgur.com/qUxwur2.png)
+![Screen 2](http://i.imgur.com/pRffDgs.png)
+
+Now, for your app, right-click and select "Properties..." and then add "android-support-v7-appcompat" as a library.
+
+![Screen 3](http://i.imgur.com/E5IYm69.png)
 
 #### With ActionBarSherlock
 
