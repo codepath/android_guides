@@ -245,7 +245,7 @@ ft.commit();
 
 This pattern makes passing arguments to fragments fairly straightforward.
 
-### Fragment Methods
+#### Fragment Methods
 
 If an activity needs to make a fragment perform an action, the easiest way is by having the activity invoke a method on the fragment instance. In the fragment, add a method:
 
@@ -271,7 +271,7 @@ public void onCreate(Bundle savedInstanceState) {
 
 and then the activity can communicate directly with the fragment through these methods.
 
-### Fragment Listener
+#### Fragment Listener
 
 If a fragment needs to communicate events to the activity, the fragment should define an interface as an inner type and require that the activity must implement this interface:
 
