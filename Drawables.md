@@ -393,7 +393,7 @@ Here we have customized the `divider` color and `dividerHeight` as well as the `
 
 We've now successfully customized the appearance of our ListView and it's items using a series of drawables. You can use these techniques to make a list look however you want based on the needs for your app.
 
-### Additional Drawable Types
+## Additional Drawable Types
 
  * [LevelList](http://developer.android.com/guide/topics/resources/drawable-resource.html#LevelList) - A Drawable that manages a number of alternate Drawables, each assigned a maximum numerical value.
  * [TransitionDrawable](http://developer.android.com/guide/topics/resources/drawable-resource.html#Transition) - A drawable object that can cross-fade between the two drawable resources. Used for animating between two drawables.
