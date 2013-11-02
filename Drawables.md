@@ -8,7 +8,7 @@ This is typically used for customizing the view graphics that are displayed with
 
 Drawables can be an initially overwhelming topic because there are many drawable types used in different situations such as drawing shapes, setting state behaviors for buttons, creating stretchable button backgrounds and creating compound drawable layers.
 
-Let's explore the drawable file types one by one and take a look at examples of each.
+Let's explore the drawable file types one by one and take a look at examples of each of them.
 
 ### Drawing Shapes
 
