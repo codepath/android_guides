@@ -1,6 +1,6 @@
 ## Overview
 
-This guide will instruct you on how use the Google Maps API v2 library to create a map within your application's activities and/or fragments. Test
+This guide will instruct you on how use the Google Maps API v2 library to create a map within your application's activities and/or fragments. Test 25
 
 ### Adding Markers to Map Fragment
 
