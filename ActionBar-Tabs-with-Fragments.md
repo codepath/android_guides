@@ -1,8 +1,8 @@
-### Fragments and Tabs
+## Fragments and Tabs
 
 There are several ways to setup tabs with fragments. The easiest is using ActionBar tabs. Note: Standard ActionBar tabs are not supported in Gingerbread, so many people use [ActionBarSherlock](http://actionbarsherlock.com/) when Gingerbread must be supported. Google has also released a support `ActionBarActivity` class which can be used for compatible tabs. Thankfully, both the support approaches are more or less identical in code with a few class name tweaks.
 
-#### Without Gingerbread Support
+### Without Gingerbread Support
 
 To setup tabs using ActionBar and fragments, you need to add a `TabListener` implementation to your application which defines the behavior of a tab when activated. A good default implementation is just [adding this](https://gist.github.com/nesquena/f54a991ccb4e5929e0ec) to `FragmentTabListener.java`. 
 
@@ -49,7 +49,7 @@ public class MainActivity extends FragmentActivity {
 }
 ```
 
-#### With ActionBarActivity Support
+### With ActionBarActivity Support
 
 Google has released an updated support library "android-support-v7-appcompat" which includes official support for the ActionBar with Gingerbread compatibility. To use this, first, we need to **upgrade to latest support library** by opening the Android SDK Manager and verifying we have the latest "Android Support Library".
 
@@ -104,7 +104,7 @@ public class MainActivity extends ActionBarActivity {
 }
 ```
 
-#### With ActionBarSherlock
+### With ActionBarSherlock
 
 Using [ActionBarSherlock](http://actionbarsherlock.com/), the code looks almost exactly the same. First you must download [ActionBarSherlock.zip](https://api.github.com/repos/JakeWharton/ActionBarSherlock/zipball/4.4.0). Import the code into Eclipse and mark the project as a library. Next, add the library to your application. Watch the [video](http://www.youtube.com/watch?v=4GJ6yY1lNNY) on the [FAQ](http://actionbarsherlock.com/faq.html) page for a detailed guide.
 
