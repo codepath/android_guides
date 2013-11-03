@@ -19,9 +19,9 @@ and then manage the visibility in the activity:
 ```java
 // on some click or some loading we need to wait for...
 ProgressBar pb = (ProgressBar) findViewById(R.id.pbLoading);
-pb.setVisibility(ProgressBar.visible);
+pb.setVisibility(ProgressBar.VISIBLE);
 // run a background job and once complete
-pb.setVisibility(ProgressBar.invisible);
+pb.setVisibility(ProgressBar.INVISIBLE);
 ```
 
 ### Result-based
