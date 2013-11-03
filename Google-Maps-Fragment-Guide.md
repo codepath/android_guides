@@ -10,6 +10,11 @@ First, let's download and setup the Google Play Services SDK. Open **Eclipse ⇒
 
 ![Play Services](http://www.androidhive.info/wp-content/uploads/2013/08/downloading-google-play-services-sdk.png)
 
+**Important Update**
+
+If after the latest update aka api version 19, if you still want this to work, please download 'Google play services for Froyo' instead of the 'Google Play services'. I spent quite some time to get it working with the latest library but there were many issues 
+
+
 ### Import Google Play Services
 
 After downloading play services we need to import it to Eclipse which will be used as a library for our maps project.
