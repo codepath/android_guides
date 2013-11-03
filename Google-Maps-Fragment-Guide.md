@@ -12,7 +12,7 @@ First, let's download and setup the Google Play Services SDK. Open **Eclipse ⇒
 
 **Important Update**
 
-If after the latest update aka api version 19, if you still want this to work, please download 'Google play services for Froyo' instead of the 'Google Play services'. I spent quite some time to get it working with the latest library but there were many issues 
+After the latest api update - version 19, if you still want this to work, please download 'Google play services for Froyo' instead of the 'Google Play services'. I spent quite some time to get it working with the latest library but there were many issues 
 
 
 ### Import Google Play Services
