@@ -11,7 +11,9 @@ We can display an indeterminate progress bar which we show to indicate waiting:
 ```xml
 <ProgressBar
   android:id="@+id/pbLoading"
-  android:visibility="invisible" />
+  android:visibility="invisible"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content" />
 ```
 
 and then manage the visibility in the activity:
