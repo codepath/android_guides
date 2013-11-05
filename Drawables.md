@@ -285,7 +285,7 @@ Next, let's setup the basic ListView xml in an activity:
 <ListView
        android:id="@+id/lvTest"
        android:layout_width="match_parent"
-       android:layout_height="wrap_content"">
+       android:layout_height="wrap_content">
 </ListView>
 ```
 
