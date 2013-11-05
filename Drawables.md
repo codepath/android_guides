@@ -38,7 +38,7 @@ and then applied to a TextView:
 <TextView
    android:layout_width="wrap_content"
    android:layout_height="wrap_content"
-   android:background="@drawable/shape_test"
+   android:background="@drawable/solid_color_shape"
    android:textColor="#ffffff"
    android:text="@string/hello_world" />
 ```
