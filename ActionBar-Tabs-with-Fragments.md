@@ -49,6 +49,8 @@ public class MainActivity extends FragmentActivity {
 }
 ```
 
+Now you have fragments that work for any Android version above 3.0. If you need gingerbread support, check out the approaches below.
+
 ### With ActionBarActivity Support
 
 Google has released an updated support library "android-support-v7-appcompat" which includes official support for the ActionBar with Gingerbread compatibility. To use this, first, we need to **upgrade to latest support library** by opening the Android SDK Manager and verifying we have the latest "Android Support Library".
@@ -106,7 +108,7 @@ public class MainActivity extends ActionBarActivity {
 
 ### With ActionBarSherlock
 
-Using [ActionBarSherlock](http://actionbarsherlock.com/), the code looks almost exactly the same. First you must download [ActionBarSherlock.zip](https://api.github.com/repos/JakeWharton/ActionBarSherlock/zipball/4.4.0). Import the code into Eclipse and mark the project as a library. Next, add the library to your application. Watch the [video](http://www.youtube.com/watch?v=4GJ6yY1lNNY) on the [FAQ](http://actionbarsherlock.com/faq.html) page for a detailed guide.
+Using [ActionBarSherlock](http://actionbarsherlock.com/), the code looks almost exactly the same but **automatically gingerbread and below**. First you must download [ActionBarSherlock.zip](https://api.github.com/repos/JakeWharton/ActionBarSherlock/zipball/4.4.0). Import the code into Eclipse and mark the project as a library. Next, add the library to your application. Watch the [video](http://www.youtube.com/watch?v=4GJ6yY1lNNY) on the [FAQ](http://actionbarsherlock.com/faq.html) page for a detailed guide.
 
 With ActionBarSherlock installed and added to your app, add [the gist code](https://gist.github.com/nesquena/0f0a1f50a2a64721309e) as the `SherlockTabListener` within your application.
 
