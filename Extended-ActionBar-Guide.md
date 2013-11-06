@@ -148,7 +148,7 @@ getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 getSupportActionBar().setCustomView(R.layout.actionbar_title);
 ```
 
-At this point, we now have replaced the default ActionBar with our preferred layout and have complete control over it's appearance. If you want to **include the app icon with the custom layout**:
+At this point, we now have replaced the default ActionBar with our preferred layout and have complete control over it's appearance. If you want to **include the app icon with the custom layout** you need to append `DISPLAY_SHOW_HOME` as well:
 
 ```java
 getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM | ActionBar.DISPLAY_SHOW_HOME); 
