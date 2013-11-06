@@ -37,7 +37,8 @@ Volley has two Main Class files that you will have to deal with basically.
 
 In your Activity's onCreate Method or in any other Java file you want you just create a new RequestQueue object like in the example below:
 
-`public YourActivity extends Activty{
+`
+public YourActivity extends Activty{
 
 	private RequestQueue mRequestQueue;
 
@@ -49,7 +50,8 @@ In your Activity's onCreate Method or in any other Java file you want you just c
 		mRequestQueue = Volley.newRequestQueue(this);
 		
 	}
-}`
+}
+`
 
 After this step you are ready to create your Request object or some extension of it: 
 
