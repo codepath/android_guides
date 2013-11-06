@@ -37,12 +37,11 @@ Volley has two Main Class files that you will have to deal with basically.
 
 In your Activity's onCreate Method or in any other Java file you want you just create a new RequestQueue object like in the example below:
 
-`
+```
 public YourActivity extends Activty{
 
 	private RequestQueue mRequestQueue;
 
-	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_screen_layout);
@@ -51,10 +50,75 @@ public YourActivity extends Activty{
 		
 	}
 }
-`
+```
 
-After this step you are ready to create your Request object or some extension of it: 
+After this step you are ready to create your Request object or some extension of it (we are using StringRequest in the example for the sake of simplicity): 
 
+``` 
+public YourActivity extends Activty{
+
+	private RequestQueue mRequestQueue;
+	private StringRequest mStringRequest_GET;
+	private StringRequest mStringRequest_POST;
+	
+	private String URL = "your_url_here";
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.main_screen_layout);
+		
+		mRequestQueue = Volley.newRequestQueue(this);
+		
+		buildRequestAndQueueIt();
+	}
+	
+	private void buildRequestAndQueueIt(){
+		
+		/*StringRequest using GET method*/
+		mStringRequest_GET = new StringRequest(
+			URL, 
+			new Response.Listener<String>() {
+				@Override
+				public void onResponse(String response) {
+					//Handle Response from URL
+				}
+            }, 
+			new Response.ErrorListener() {
+				@Override
+				public void onErrorResponse(VolleyError error) {
+					//Do something else if request goes wrong
+				}
+			}
+		);
+		
+		/*StringRequest using POST method*/
+		mStringRequest_POST = new StringRequest(
+			Method.POST,
+			URL, 
+			new Response.Listener<String>() {
+				@Override
+				public void onResponse(String response) {
+					//Handle Response from URL
+				}
+            }, 
+			new Response.ErrorListener() {
+				@Override
+				public void onErrorResponse(VolleyError error) {
+					//Do something else if request goes wrong
+				}
+			}
+		); 
+		// Optionally you can pass your own POST parameters by overriding getParams() Method 
+		// and adding a Map<String,String> with your parameters and their names
+		
+		/*Finally add your Requests to the RequestQueue*/
+		mRequestQueue.add(mStringRequest_GET);
+		mRequestQueue.add(mStringRequest_POST);
+	}
+}
+
+```
 **Needs Attention**
 
 # References
