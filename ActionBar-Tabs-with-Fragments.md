@@ -153,3 +153,22 @@ public class ActionBarSherlockActivity extends SherlockFragmentActivity {
 ```
 
 With this approach you can have easy tab navigation switching quickly between fragments.
+
+### Reference a Fragment in the Activity
+
+If you need to reference a fragment instance from within the activity, you can refer to the fragment by it's "tag". For example, if you created the following tab:
+
+```
+Tab tab1 = actionBar
+  ...
+  .setTabListener(new SupportFragmentTabListener<FirstFragment>(R.id.flContainer, this,
+      "first", FirstFragment.class));
+```
+
+You have assigned the tag "First" to that fragment and you can access the fragment for this tab later using `findFragmentByTag`:
+
+```java
+FirstFragment fragmentFirst = getSupportFragmentManager().findFragmentByTag("first");
+```
+
+This will return the fragment instance embedded for that tab.
