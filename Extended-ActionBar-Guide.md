@@ -148,7 +148,13 @@ getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 getSupportActionBar().setCustomView(R.layout.actionbar_title);
 ```
 
-At this point, we now have replaced the default ActionBar with our preferred layout and have complete control over it's appearance. 
+At this point, we now have replaced the default ActionBar with our preferred layout and have complete control over it's appearance. If you want to **include the app icon with the custom layout**:
+
+```java
+getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM | ActionBar.DISPLAY_SHOW_HOME); 
+```
+
+Note that this can also help ensure that the tabs appear below the title when using `ActionBarSherlock` caused by [a bug with the ActionBar](https://github.com/JakeWharton/ActionBarSherlock/issues/327).
 
 ### Custom ActionBar Styles
 
