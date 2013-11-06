@@ -51,7 +51,7 @@ public class User {
 
     public static ArrayList<User> fromJson(JSONArray jsonObjects) {
            ArrayList<User> users = new ArrayList<User>();
-           for (int i = 0; i < jsonObjects.length; i++) {
+           for (int i = 0; i < jsonObjects.length(); i++) {
                try {
                   users.add(new User(jsonObjects.getJSONObject(i)));
                } catch (JSONException e) {
