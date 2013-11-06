@@ -110,16 +110,18 @@ public YourActivity extends Activty{
 			}
 		); 
 		// Optionally you can pass your own POST parameters by overriding getParams() Method 
-		// and adding a Map<String,String> with your parameters and their names
+		// and adding a Map<String,String> with your parameters and their names.
 		
 		/*Finally add your Requests to the RequestQueue*/
 		mRequestQueue.add(mStringRequest_GET);
 		mRequestQueue.add(mStringRequest_POST);
 	}
 }
-
 ```
-**Needs Attention**
+
+And that's it you are done :) ! 
+
+Of course you can replace StringRequest with every other type of Request<T> you want or just create your own!
 
 # References
 
