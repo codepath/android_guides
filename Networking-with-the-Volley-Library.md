@@ -15,98 +15,55 @@ It has some built-in Requests, such as JsonObjectRequest, JsonArrayRequest, Stri
 
 ## Getting started
 
-1. First of all you have to download volley by cloning the project from `git clone https://android.googlesource.com/platform/frameworks/volley`
+We need to install volley as a [library project](http://imgur.com/a/N8baF). First, download the volley source code:
 
-2. After you have done this you just copy the **com** folder inside your package and start using Volley!
+```
+git clone https://android.googlesource.com/platform/frameworks/volley
+```
+
+and then we need to import the source code into our workspace and then mark it as a library. Now we can add this library as a dependency of any of our apps.
 
 ## How to use Volley?
 
-Volley has two Main Class files that you will have to deal with basically.
+Volley has two classes that you will have to deal with:
 
-1. RequestQueue
-2. Request (and any extension of it)
+1. RequestQueue - Requests are queued up here to be executed
+2. Request (and any extension of it) - Constructing an network request
 
-In your Activity's onCreate Method or in any other Java file you want you just create a new RequestQueue object like in the example below:
+A `Request` object comes in three major types:
 
-```
-public YourActivity extends Activty{
+* [JsonObjectRequest](http://files.evancharlton.com/volley-docs/com/android/volley/toolbox/JsonObjectRequest.html) — To send and receive JSON Object from the server
+* [JsonArrayRequest](http://files.evancharlton.com/volley-docs/com/android/volley/toolbox/JsonArrayRequest.html) — To receive JSON Array from the server
+* [ImageRequest](http://files.evancharlton.com/volley-docs/com/android/volley/toolbox/ImageRequest.html) - To receive an image from the server
+* [StringRequest](http://files.evancharlton.com/volley-docs/com/android/volley/toolbox/StringRequest.html) — To retrieve response body as String (ideally if you intend to parse the response by yourself)
 
+Constructing a request usually starts with one of these base types being created.
+
+### Constructing a RequestQueue
+
+All requests in Volley are placed in a queue first and then processed, here is how you will be creating a request queue:
+
+```java
+public MainActivity extends Activty{
 	private RequestQueue mRequestQueue;
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_screen_layout);
-		
+		// ...
 		mRequestQueue = Volley.newRequestQueue(this);
 		
 	}
 }
 ```
 
-After this step you are ready to create your Request object or some extension of it (we are using StringRequest in the example for the sake of simplicity): 
+### Accessing JSON Data
 
-``` 
-public YourActivity extends Activty{
+After this step you are ready to create your `Request` objects which represent a desired request. 
 
-	private RequestQueue mRequestQueue;
-	private StringRequest mStringRequest_GET;
-	private StringRequest mStringRequest_POST;
-	
-	private String URL = "your_url_here";
+```java 
+public YourActivity extends Activity {
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main_screen_layout);
-		
-		mRequestQueue = Volley.newRequestQueue(this);
-		
-		buildRequestAndQueueIt();
-	}
-	
-	private void buildRequestAndQueueIt(){
-		
-		/*StringRequest using GET method*/
-		mStringRequest_GET = new StringRequest(
-			URL, 
-			new Response.Listener<String>() {
-				@Override
-				public void onResponse(String response) {
-					//Handle Response from URL
-				}
-            }, 
-			new Response.ErrorListener() {
-				@Override
-				public void onErrorResponse(VolleyError error) {
-					//Do something else if request goes wrong
-				}
-			}
-		);
-		
-		/*StringRequest using POST method*/
-		mStringRequest_POST = new StringRequest(
-			Method.POST,
-			URL, 
-			new Response.Listener<String>() {
-				@Override
-				public void onResponse(String response) {
-					//Handle Response from URL
-				}
-            }, 
-			new Response.ErrorListener() {
-				@Override
-				public void onErrorResponse(VolleyError error) {
-					//Do something else if request goes wrong
-				}
-			}
-		); 
-		// Optionally you can pass your own POST parameters by overriding getParams() Method 
-		// and adding a Map<String,String> with your parameters and their names.
-		
-		/*Finally add your Requests to the RequestQueue*/
-		mRequestQueue.add(mStringRequest_GET);
-		mRequestQueue.add(mStringRequest_POST);
-	}
 }
 ```
 
@@ -117,3 +74,5 @@ Of course you can replace StringRequest with every other type of Request<T> you 
 ## References
 
 * <http://java.dzone.com/articles/android-%E2%80%93-volley-library>
+* <http://arnab.ch/blog/2013/08/asynchronous-http-requests-in-android-using-volley/>
+* <http://files.evancharlton.com/volley-docs/>
