@@ -17,7 +17,7 @@ It has some built-in Requests, such as JsonObjectRequest, JsonArrayRequest, Stri
 
 We need to install volley as a [library project](http://imgur.com/a/N8baF). First, download the volley source code:
 
-```
+```bash
 git clone https://android.googlesource.com/platform/frameworks/volley
 ```
 
@@ -93,7 +93,7 @@ public class MainActivity extends Activity {
 }
 ```
 
-And that will execute the request to the server and respond back with the result as specified in the `Response.Listener` callback. For a more detailed look at Volley, check out [this volley tutorial](http://arnab.ch/blog/2013/08/asynchronous-http-requests-in-android-using-volley/)
+And that will execute the request to the server and respond back with the result as specified in the `Response.Listener` callback. For a more detailed look at Volley, check out [this volley tutorial](http://arnab.ch/blog/2013/08/asynchronous-http-requests-in-android-using-volley/).
 
 ## References
 
