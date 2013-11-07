@@ -57,7 +57,7 @@ public MainActivity extends Activity {
 
 After this step you are ready to create your `Request` objects which represents a desired request to be executed. Then we add that request onto the queue. 
 
-```java 
+```java
 public class MainActivity extends Activity {
 	private RequestQueue mRequestQueue;
 
@@ -66,28 +66,26 @@ public class MainActivity extends Activity {
 	private void fetchJsonResponse() {
 		// Pass second argument as "null" for GET requests
 		JsonObjectRequest req = new JsonObjectRequest("http://ip.jsontest.com/", null,
-				new Response.Listener<JSONObject>() {
-					@Override
-					public void onResponse(JSONObject response) {
-						try {
-							VolleyLog.v("Response:%n %s", response.toString(4));
-							String result = "Your IP Address is " + response.getString("ip");
-							Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
-						} catch (JSONException e) {
-							e.printStackTrace();
-						}
-					}
-				}, new Response.ErrorListener() {
-					@Override
-					public void onErrorResponse(VolleyError error) {
-						VolleyLog.e("Error: ", error.getMessage());
-					}
-				});
+		    new Response.Listener<JSONObject>() {
+		        @Override
+		        public void onResponse(JSONObject response) {
+		            try {
+				String result = "Your IP Address is " + response.getString("ip");
+				Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
+			    } catch (JSONException e) {
+			        e.printStackTrace();
+			    }
+	                }
+		    }, new Response.ErrorListener() {
+			@Override
+			public void onErrorResponse(VolleyError error) {
+				VolleyLog.e("Error: ", error.getMessage());
+			}
+		});
 
 		/* Add your Requests to the RequestQueue to execute */
 		mRequestQueue.add(req);
 	}
-
 }
 ```
 
