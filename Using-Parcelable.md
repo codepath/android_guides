@@ -111,12 +111,15 @@ startActivity(i); // dataToSend is now passed to the new Activity
 and then access the data in the NewActivity using:
 
 ```java
-// NewActivity
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    MyParcelable object = (MyParcelable) getIntent().getParcelableExtra("myData");
+public class NewActivity extends Activity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        MyParcelable object = (MyParcelable) getIntent().getParcelableExtra("myData");
+    }
 }
 ```
+
+Now we can access the parcelable data from within the launched activity.
 
 ## Conclusion
 
