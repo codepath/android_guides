@@ -4,6 +4,8 @@ Due to Android's memory management scheme, you will often find yourself needing 
 
 To allow for your class instances to be sent as a Parcel you must implement the Parcelable interface along with a static field called CREATOR, which itself requires a special constructor in your class.
 
+### Defining a Parcelable Object
+
 Here is a typical implementation:
 
 ```java
@@ -94,17 +96,31 @@ You may notice some similarities between `Parcelable` and `Serializable`.  DO NO
 
 Using `Parcelable` compared to `Serializable` can achieve up to 10x performance increase in many cases for transport which is why it's the Android preferred method. :)
 
-## Conclusion
+### Passing Data Between Intents
 
-You should now be confident in making your classes `Parcelable`.  Taking our earlier example code, we can now achieve something like this:
+We can now pass the parcelable data between activities within an intent:
 
 ```java
-//somewhere inside an Activity
+// somewhere inside an Activity
 MyParcelable dataToSend = new MyParcelable();
 Intent i = new Intent(this, NewActivity.class);
-i.putExtra("myData", dataToSend); //using the (String name, Parcelable value) overload!
-startActivity(i); //dataToSend is now passed to the new Activity
+i.putExtra("myData", dataToSend); // using the (String name, Parcelable value) overload!
+startActivity(i); // dataToSend is now passed to the new Activity
 ```
+
+and then access the data in the NewActivity using:
+
+```java
+// NewActivity
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    MyParcelable object = (MyParcelable) getIntent().getParcelableExtra("myData");
+}
+```
+
+## Conclusion
+
+You should now be confident in making your classes `Parcelable`.  
 
 ## References
 
