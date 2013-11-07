@@ -1,16 +1,12 @@
-# Overview
+## Overview
 
-Volley is a library that makes networking for Android apps easier and most importantly, faster.
-
-Volley Library was announced by [Ficus Kirkpatrick](https://plus.google.com/+FicusKirkpatrick) at Google I/O '13!
+Volley is a library that makes networking for Android apps easier and most importantly, faster. Volley Library was announced by [Ficus Kirkpatrick](https://plus.google.com/+FicusKirkpatrick) at Google I/O '13!
 It was first used by the Play Store team in Play Store Application and then they released it as an Open Source Library.
 
-***
-
-# Why Volley?
+## Why Volley?
 
 * Volley can pretty much do everything with that has to do with Networking in Android.
-It has some built-in Requests, such as JsonObjectRequest-JsonArrayRequest-StringRequest etc, based on the generic type of the Request<T> class inside the Library. 
+It has some built-in Requests, such as JsonObjectRequest, JsonArrayRequest, StringRequest etc, based on the generic type of the Request<T> class inside the Library. 
 
 * Volley automatically schedule all network requests. It means that Volley will be taking care of all the network requests your app executes for fetching response or image from web.
 
@@ -20,15 +16,15 @@ It has some built-in Requests, such as JsonObjectRequest-JsonArrayRequest-String
 
 * Volley provides powerful customization abilities.
 
-* Volley provides Debugging and tracing tools
+* Volley provides debugging and tracing tools
 
-# Getting started
+## Getting started
 
 1. First of all you have to download volley by cloning the project from `git clone https://android.googlesource.com/platform/frameworks/volley`
 
 2. After you have done this you just copy the **com** folder inside your package and start using Volley!
 
-# How to use Volley?
+## How to use Volley?
 
 Volley has two Main Class files that you will have to deal with basically.
 
@@ -123,6 +119,6 @@ And that's it you are done :) !
 
 Of course you can replace StringRequest with every other type of Request<T> you want or just create your own!
 
-# References
+## References
 
 * <http://java.dzone.com/articles/android-%E2%80%93-volley-library>
