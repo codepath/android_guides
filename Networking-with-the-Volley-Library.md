@@ -42,7 +42,7 @@ A Request object comes in three major types:
 All requests in Volley are placed in a queue first and then processed, here is how you will be creating a request queue:
 
 ```java
-public MainActivity extends Activty{
+public MainActivity extends Activity {
 	private RequestQueue mRequestQueue;
 
 	protected void onCreate(Bundle savedInstanceState) {
