@@ -63,7 +63,7 @@ After this step you are ready to create your `Request` objects which represents 
 public class MainActivity extends Activity {
 	private RequestQueue mRequestQueue;
 
-  // ...
+        // ...
 
 	private void fetchJsonResponse() {
 		// Pass second argument as "null" for GET requests
