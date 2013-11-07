@@ -7,15 +7,10 @@ It was first used by the Play Store team in Play Store Application and then they
 
 * Volley can pretty much do everything with that has to do with Networking in Android.
 It has some built-in Requests, such as JsonObjectRequest, JsonArrayRequest, StringRequest etc, based on the generic type of the Request<T> class inside the Library. 
-
 * Volley automatically schedule all network requests. It means that Volley will be taking care of all the network requests your app executes for fetching response or image from web.
-
 * Volley provides transparent disk and memory caching.
-
 * Volley provides powerful cancellation request API. It means that you can cancel a single request or you can set blocks or scopes of requests to cancel.
-
 * Volley provides powerful customization abilities.
-
 * Volley provides debugging and tracing tools
 
 ## Getting started
