@@ -27,17 +27,15 @@ and then we need to import the source code into our workspace and then mark it a
 
 Volley has two classes that you will have to deal with:
 
-1. RequestQueue - Requests are queued up here to be executed
-2. Request (and any extension of it) - Constructing an network request
+1. `RequestQueue` - Requests are queued up here to be executed
+2. `Request` (and any extension of it) - Constructing an network request
 
-A `Request` object comes in three major types:
+A Request object comes in three major types:
 
 * [JsonObjectRequest](http://files.evancharlton.com/volley-docs/com/android/volley/toolbox/JsonObjectRequest.html) — To send and receive JSON Object from the server
 * [JsonArrayRequest](http://files.evancharlton.com/volley-docs/com/android/volley/toolbox/JsonArrayRequest.html) — To receive JSON Array from the server
 * [ImageRequest](http://files.evancharlton.com/volley-docs/com/android/volley/toolbox/ImageRequest.html) - To receive an image from the server
 * [StringRequest](http://files.evancharlton.com/volley-docs/com/android/volley/toolbox/StringRequest.html) — To retrieve response body as String (ideally if you intend to parse the response by yourself)
-
-Constructing a request usually starts with one of these base types being created.
 
 ### Constructing a RequestQueue
 
@@ -59,17 +57,43 @@ public MainActivity extends Activty{
 
 ### Accessing JSON Data
 
-After this step you are ready to create your `Request` objects which represent a desired request. 
+After this step you are ready to create your `Request` objects which represents a desired request to be executed. Then we add that request onto the queue. 
 
 ```java 
-public YourActivity extends Activity {
+public class MainActivity extends Activity {
+	private RequestQueue mRequestQueue;
+
+  // ...
+
+	private void fetchJsonResponse() {
+		// Pass second argument as "null" for GET requests
+		JsonObjectRequest req = new JsonObjectRequest("http://ip.jsontest.com/", null,
+				new Response.Listener<JSONObject>() {
+					@Override
+					public void onResponse(JSONObject response) {
+						try {
+							VolleyLog.v("Response:%n %s", response.toString(4));
+							String result = "Your IP Address is " + response.getString("ip");
+							Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
+						} catch (JSONException e) {
+							e.printStackTrace();
+						}
+					}
+				}, new Response.ErrorListener() {
+					@Override
+					public void onErrorResponse(VolleyError error) {
+						VolleyLog.e("Error: ", error.getMessage());
+					}
+				});
+
+		/* Add your Requests to the RequestQueue to execute */
+		mRequestQueue.add(req);
+	}
 
 }
 ```
 
-And that's it you are done :) ! 
-
-Of course you can replace StringRequest with every other type of Request<T> you want or just create your own!
+And that will execute the request to the server and respond back with the result as specified in the `Response.Listener` callback.
 
 ## References
 
