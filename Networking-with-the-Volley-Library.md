@@ -50,7 +50,6 @@ public MainActivity extends Activity {
 		setContentView(R.layout.main_screen_layout);
 		// ...
 		mRequestQueue = Volley.newRequestQueue(this);
-		
 	}
 }
 ```
