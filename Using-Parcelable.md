@@ -1,8 +1,10 @@
 ## Overview
 
-Due to Android's memory management scheme, you will often find yourself needing to communicate with different components of your application, system components, or other applications installed on the phone.  Parcelable will help you pass data between these components.  Android uses what is called the Binder to facilitate such communication in a highly optimized way.  The Binder communicates with Parcels, which is a message container.  The Binder marshalls the Parcel to be sent, sends and receives it, and then unmarshalls it on the other side to reconstruct a copy of the original Parcel.  
+Due to Android's memory management scheme, you will often find yourself needing to communicate with different components of your application, system components, or other applications installed on the phone.  `Parcelable` will help you pass data between these components. 
 
-To allow for your class instances to be sent as a Parcel you must implement the Parcelable interface along with a static field called CREATOR, which itself requires a special constructor in your class.
+Android uses what is called the Binder to facilitate such communication in a highly optimized way.  The Binder communicates with Parcels, which is a message container.  The Binder marshals the Parcel to be sent, sends and receives it, and then unmarshals it on the other side to reconstruct a copy of the original Parcel.  
+
+To allow for your class instances to be sent as a Parcel you must implement the `Parcelable` interface along with a static field called `CREATOR`, which itself requires a special constructor in your class.
 
 ### Defining a Parcelable Object
 
