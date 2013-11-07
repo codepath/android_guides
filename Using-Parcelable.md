@@ -121,10 +121,6 @@ public class NewActivity extends Activity {
 
 Now we can access the parcelable data from within the launched activity.
 
-## Conclusion
-
-You should now be confident in making your classes `Parcelable`.  
-
 ## References
 
 * <http://www.developerphil.com/parcelable-vs-serializable/>
