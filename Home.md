@@ -85,8 +85,8 @@ Diving into the networking, model and persistence layers for data-driven apps:
 * [[Persisting Data to the Device]] (Preferences, Files, SQLite, ORMs)
 * [[Converting JSON to Models]] (JSON => Objects Deserialization)
 * [[ActiveAndroid ORM References|ActiveAndroid Guide]] (and Q&A)
-* [[Using Parcelable]] (**Needs Attention**)
-* [[Networking with the Volley Library]] (**Needs Attention**)
+* [[Using Parcelable]]
+* [[Networking with the Volley Library]]
 
 ## Fragments
 
