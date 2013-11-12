@@ -125,7 +125,7 @@ Notice that we use the `AppTheme` generated for us to make modifications to [but
 
 ![Screen](http://i.imgur.com/fF7UiTo.png)
 
-There are a lot of style attributes that you can use when defining a theme. Check out [themes.xml](http://omapzoom.org/?p=platform/frameworks/base.git;a=blob;f=core/res/res/values/themes.xml;hb=master) for a comprehensive list of the thousands of default styles for an app. You can also check the [R.attr](http://developer.android.com/reference/android/R.attr.html) documentation for a full rundown as well.
+There are a lot of style attributes that you can use when defining a theme. Check out [themes.xml](http://omapzoom.org/?p=platform/frameworks/base.git;a=blob;f=core/res/res/values/themes.xml;hb=master) for a comprehensive list of the thousands of default styles for an app. You can also check the [R.attr](http://developer.android.com/reference/android/R.attr.html) documentation for a full rundown as well. There is a [useful holo theme generator tool](http://android-holo-colors.com/) for creating a theme that has a modified base color for certain widgets by default.
 
 #### Applying a Theme
 
