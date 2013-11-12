@@ -100,7 +100,7 @@ In many cases, you may want to **customize the default look of your application*
 
 ```xml
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- ...generated stuff here --!>
+    <!-- ...generated stuff here -->
      
     <style name="AppTheme" parent="AppBaseTheme">
         <item name="android:buttonStyle">@style/Widget.Button.Custom</item>
