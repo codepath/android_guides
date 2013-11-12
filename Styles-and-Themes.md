@@ -85,7 +85,7 @@ In some cases, we want to apply a consistent theme to all activities within our 
 
 This theme contains `item` nodes that often an reference other styles or colors:
 
-```java
+```xml
 <style name="LightThemeSelector" parent="android:Theme.Light">
     <item name="android:windowBackground">@color/custom_theme_color</item>
     <item name="android:colorBackground">@color/custom_theme_color</item>
