@@ -12,7 +12,7 @@ Let's explore the drawable file types one by one and take a look at examples for
 
 ### Drawing Shapes
 
-The Shape Drawable is an XML file that defines a geometric shape, including colors and gradients. This is used to create a complex shape that can then be attached as the background of a layout or a view on screen. For example, you can use a shape drawable to change the shape, border, and gradient of a button background.
+The [Shape Drawable](http://developer.android.com/guide/topics/resources/drawable-resource.html#Shape) is an XML file that defines a geometric shape, including colors and gradients. This is used to create a complex shape that can then be attached as the background of a layout or a view on screen. For example, you can use a shape drawable to change the shape, border, and gradient of a button background.
 
 A shape is simply a collection of properties that are combined to describe a background. The shape can be described with properties such as `corners` for rounding, `gradient` for backgrounds, `padding` for spacing, `solid` for background colors, and `stroke` for border. 
 
