@@ -96,14 +96,15 @@ This theme contains `item` nodes that often an reference other styles or colors:
 
 #### Customizing a Theme
 
-In many cases, you will want to **customize the default appearance of views** within your application. For example, you may want to set the `textColor` of a TextView or Button as the default for your application. This can be done by defining styles that inherit from the defaults and then overwriting those properties:
+In many cases, you will want to **customize the default appearance of views** within your application. For example, you may want to set the `textColor` of a TextView or Button as the default for your application. This can be done by defining styles that inherit from the defaults and then overwriting those properties in `res/values/styles.xml`:
 
 ```xml
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- ...generated stuff here -->
      
-    <!-- This is the app theme -->
+    <!-- This is the generated app theme -->
     <style name="AppTheme" parent="AppBaseTheme">
+        <!-- These are your custom properties -->
         <item name="android:buttonStyle">@style/Widget.Button.Custom</item>
         <item name="android:textViewStyle">@style/Widget.TextView.Custom</item>
     </style>
