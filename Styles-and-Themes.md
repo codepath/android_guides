@@ -83,6 +83,15 @@ In some cases, we want to apply a consistent theme to all activities within our 
 </style>
 ```
 
+This theme contains `item` nodes that often an reference other styles or colors:
+
+```java
+<style name="LightThemeSelector" parent="android:Theme.Light">
+    <item name="android:windowBackground">@color/custom_theme_color</item>
+    <item name="android:colorBackground">@color/custom_theme_color</item>
+</style>
+```
+
 To set a theme for all the activities of your application, open the AndroidManifest.xml file and edit the <application> tag to include the android:theme attribute with the style name. For example:
 
 ```xml
