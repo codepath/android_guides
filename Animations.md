@@ -23,7 +23,7 @@ Property animations were a more recent Android feature [introduced in 3.0](http:
 
 The first thing we should do is [download NineOldAndroids](https://github.com/JakeWharton/NineOldAndroids) and install this as a [library project](http://imgur.com/a/N8baF) in Eclipse for use with your apps.
 
-### Using Java
+#### Using Java
 
 Once we have setup NineOldAndroids, we can do property animations in a simple and highly compatible way. All we have to do is import the `animate` method and then we can compose and execute property animations on views. For example, suppose we want to fade out a button on screen. All we need to do is pass the button view into the `animate` method and then invoke the `alpha` property:
 
@@ -47,7 +47,7 @@ animate(btnExample).alpha(0.5f).rotation(90f).
 
 This applies multiple property animations at once including opacity change, rotation, scale and modifying the position of the button. Here we also can modify the duration, introduce a start delay and even execute a listener at the beginning or end of the animation. See the [Property Animation](http://developer.android.com/guide/topics/graphics/prop-animation.html) official docs for more detailed information.
 
-### Using XML
+#### Using XML
 
 We can also use NineOldAndroids to load property animations from XML. All we have to do is create an XML file that describes the object property animation we want to run. For example, if we wanted to animate a fade out for a button, we could add this file to `res/animator/fade_out.xml`:
 
@@ -118,7 +118,7 @@ See more details in the [Property Animation Resource](http://developer.android.c
 
 View animations is a slower and less flexible system for animation that predates the property animation system that was introduced later. **Property animations are generally preferred** but let's take a look at the older system and how to apply animations using the original XML syntax.
 
-### Using XML
+#### Using XML
 
 We can define our view animations using XML instead of using the Property XML Animations. First, we define
 our animations in the `res/anim` folder. You can see **several popular animations** by checking out [this Android Animation XML Pack](https://gist.github.com/nesquena/2dab264ed3bcec9e520a). 
