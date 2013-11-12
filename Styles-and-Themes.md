@@ -96,28 +96,33 @@ This theme contains `item` nodes that often an reference other styles or colors:
 
 #### Customizing a Theme
 
-In many cases, you may want to **customize the default look of your application**. For example, you may want to set the `textColor` of a TextView or Button as the default for your application. This can be done by defining styles that inherit from the defaults and then overwriting properties:
+In many cases, you will want to **customize the default appearance of views** within your application. For example, you may want to set the `textColor` of a TextView or Button as the default for your application. This can be done by defining styles that inherit from the defaults and then overwriting those properties:
 
 ```xml
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- ...generated stuff here -->
      
+    <!-- This is the app theme -->
     <style name="AppTheme" parent="AppBaseTheme">
         <item name="android:buttonStyle">@style/Widget.Button.Custom</item>
         <item name="android:textViewStyle">@style/Widget.TextView.Custom</item>
     </style>
     
+    <!-- This is the custom button styles for this application -->
     <style name="Widget.Button.Custom" parent="android:Widget.Button">
       <item name="android:textColor">#0000FF</item>
     </style>
     
+    <!-- This is the custom textview styles for this application -->
     <style name="Widget.TextView.Custom" parent="android:Widget.TextView">
       <item name="android:textColor">#00FF00</item>
     </style>
 </resources>
 ```
 
-Notice that we use the `AppTheme` generated for us to make modifications to [buttonStyle](http://developer.android.com/reference/android/R.attr.html#buttonStyle) and `textViewStyle` in order to determine the default styles for those controls. Next, we inherit from the default `Widget.Button` or `Widget.TextView` to take the default styles and make our changes.
+Notice that we use the `AppTheme` generated for us to make modifications to [buttonStyle](http://developer.android.com/reference/android/R.attr.html#buttonStyle) and `textViewStyle` in order to determine the default styles for those controls. Next, we inherit from the default `Widget.Button` or `Widget.TextView` to take the default styles and make our changes. The result of this is the default text color is different for Button and TextView:
+
+![Screen](http://i.imgur.com/fF7UiTo.png)
 
 There are a lot of style attributes that you can use when defining a theme. Check out [themes.xml](http://omapzoom.org/?p=platform/frameworks/base.git;a=blob;f=core/res/res/values/themes.xml;hb=master) for a comprehensive list of the thousands of default styles for an app. You can also check the [R.attr](http://developer.android.com/reference/android/R.attr.html) documentation for a full rundown as well.
 
