@@ -193,7 +193,7 @@ Let's also create a style (set of view properties) that includes setting the bac
 </style>
 ```
 
-This now represents the shape and background of the button in the default state along with all the other properties. We could apply this by setting the `background` of the button:
+This now represents the shape and background of the button in the default state along with all the other properties. We could apply this by setting the `style` of the button:
 
 ```xml
 <Button
