@@ -47,12 +47,12 @@ In many cases, you may want to extend a style and modify certain attributes. The
 If you want to inherit from styles that you've defined yourself, you do not even have to use the parent attribute. Instead, as a shortcut just prefix the name of the style you want to inherit to the name of your new style, separated by a period:
 
 ```xml
-<style name="LargeFont.Red">
-    <item name="android:textColor">#C80000</item>
+<style name="LargeFont">
+    <item name="android:textSize">40sp</item>
 </style>
 
-<style name="CodeFont.Red.Big">
-    <item name="android:textSize">30sp</item>
+<style name="LargeFont.Red">
+    <item name="android:textColor">#C80000</item>
 </style>
 ```
 
@@ -61,6 +61,10 @@ You can continue to extend styles inheriting from them by using multiple periods
 ```xml
 <style name="LargeFont.Red.Bold">
     <item name="android:textStyle">bold</item>
+</style>
+
+<style name="LargeFont.Red.Big">
+    <item name="android:textSize">30sp</item>
 </style>
 ```
 
