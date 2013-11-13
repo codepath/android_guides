@@ -47,6 +47,8 @@ and the resulting view looks like:
 
 ![Solid Shape](http://i.imgur.com/RPzvPc7.png)
 
+Note that **drawables can be applied to any view** and are usually set with the `background` property referencing the drawable resource.
+
 #### Gradient Colored Shapes
 
 Shapes also support [gradients backgrounds](http://developer.android.com/guide/topics/resources/drawable-resource.html#gradient-element) as well supporting properties such as `startColor`, `centerColor`, `endColor`, `angle`. Different gradients such as radial, linear or sweep can be selected using the `type` property. 
