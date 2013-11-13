@@ -121,7 +121,7 @@ For example, a state list XML for a button might look like the following:
 </selector>
 ```
 
-Now, when the view (i.e button) is pressed or focused, the drawable used for the view will change accordingly. 
+Now, when the view (i.e button) is pressed or focused, the drawable used for the view will change accordingly.  Note that **any view can have a state selector**, but the most common uses are with buttons and listview items.
 
 ### Creating a Layer List
 
