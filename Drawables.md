@@ -32,7 +32,7 @@ Here's an example of drawing a rounded rectangle with a border in `res/layout/dr
 </shape>
 ```
 
-and then applied to a TextView:
+and then applied to a TextView using the `background` property:
 
 ```xml
 <TextView
