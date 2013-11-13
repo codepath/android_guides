@@ -71,6 +71,29 @@ applied to a button and the resulting view looks like:
 
 ![Gradient Shape](http://i.imgur.com/g8b9XWb.png)
 
+You can also setup radial-type gradients with:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle" >
+    <corners android:radius="4dp" />
+    <stroke android:width="4dp" android:color="#CCFFFF" /> 
+    <gradient
+        android:startColor="#0078a5" 
+        android:endColor="#CCFFFF" 
+        android:gradientRadius="250"
+        android:type="radial"
+        />
+    <padding android:left="30dp" android:top="30dp" 
+             android:right="30dp" android:bottom="30dp" /> 
+</shape>
+```
+
+and applied to a TextView, this looks like:
+
+![Screen Radial Background](http://i.imgur.com/rReIfCC.png)
+
 Using solid color shapes and gradients we can customize the appearance of buttons, layouts and other views without requiring the use of any images.
 
 ### State List
