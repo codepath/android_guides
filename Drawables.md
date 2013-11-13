@@ -167,7 +167,7 @@ Keep in mind that a [LayerList](http://developer.android.com/guide/topics/resour
 
 ### Stretchable Nine-Patch Image
 
-A [NinePatch](http://developer.android.com/guide/topics/graphics/2d-graphics.html#nine-patch) is a PNG image in which you can define stretchable regions that Android scales when content within the View exceeds the normal image bounds. You typically assign this type of image as the background of a View which has width set to `wrap_content`. The most common use is a button that has to stretch based on the text displayed inside.
+A [NinePatch](http://developer.android.com/guide/topics/graphics/2d-graphics.html#nine-patch) is a PNG image in which you can **define stretchable regions that is stretched** when content within the View exceeds the normal image bounds. You typically assign this type of image as the background of a View which has width set to `wrap_content`. The most common use is a button that has to stretch based on the text displayed inside.
 
 NinePatch are images that have a "9" in the name such as `button_background.9.png` which signifies that this is a stretchable image. The [draw9patch](http://developer.android.com/tools/help/draw9patch.html) tool is used to create special nine-patch images.  a NinePatch is defined and stored, setting the background works the same as with any image:
 
@@ -178,7 +178,7 @@ NinePatch are images that have a "9" in the name such as `button_background.9.pn
         android:background="@drawable/button_background"/>
 ```
 
-Read more about NinePatch images in the [offical docs](http://developer.android.com/guide/topics/graphics/2d-graphics.html#nine-patch).
+Read more about NinePatch images in the [official docs](http://developer.android.com/guide/topics/graphics/2d-graphics.html#nine-patch).
 
 ## Customizing a Button
 
