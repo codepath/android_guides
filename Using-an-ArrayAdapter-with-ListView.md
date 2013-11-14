@@ -49,6 +49,7 @@ public class User {
        }
     }
 
+    // User.fromJson(jsonArray);
     public static ArrayList<User> fromJson(JSONArray jsonObjects) {
            ArrayList<User> users = new ArrayList<User>();
            for (int i = 0; i < jsonObjects.length(); i++) {
@@ -62,6 +63,8 @@ public class User {
     }
 }
 ```
+
+For more details, check out our guide on [[converting JSON into a model|Converting JSON to Models]].
 
 ### Creating the View Template
 
