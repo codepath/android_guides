@@ -10,7 +10,8 @@ The ArrayAdapter fits in the middle between the Array (data source) and the List
 To use a basic ArrayAdapter, you just need to initialize the adapter and attach the adapter to the ListView. First, initialize the adapter:
 
 ```java
-ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
+ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, 
+    android.R.layout.simple_list_item_1, items);
 ```
 
 The ArrayAdapter requires a type of the item to be converted to a View to be specified and then accepts three arguments: context (activity), XML Resource, and the data array.
