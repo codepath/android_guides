@@ -6,6 +6,7 @@ In Android apps, there are often cases where we need to play audio or video file
 
 ## References
 
+* <http://mrbool.com/how-to-play-video-formats-in-android-using-videoview/28299>
 * <http://developer.android.com/guide/topics/media/mediaplayer.html>
 * <http://developer.android.com/training/managing-audio/index.html>
 * <http://developer.android.com/guide/appendix/media-formats.html>
