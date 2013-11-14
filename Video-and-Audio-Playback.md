@@ -1,0 +1,11 @@
+## Overview
+
+In Android apps, there are often cases where we need to play audio or video files. Checking the [Supported Media Formats](http://developer.android.com/guide/appendix/media-formats.html) we can see that several audio formats (MP3, AAC, FLAC, Vorbis) and several video formats (H.264, MPEG-4) are playable by default. Let's take a look at how to play media within an app using [MediaPlayer](http://developer.android.com/reference/android/media/MediaPlayer.html) and [VideoView](http://developer.android.com/reference/android/widget/VideoView.html).
+
+**Needs Attention, Cliffnotes Here**
+
+## References
+
+* <http://developer.android.com/guide/topics/media/mediaplayer.html>
+* <http://developer.android.com/training/managing-audio/index.html>
+* <http://developer.android.com/guide/appendix/media-formats.html>
