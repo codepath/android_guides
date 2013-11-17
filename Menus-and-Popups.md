@@ -230,17 +230,17 @@ public class MainActivity extends Activity {
     // Setup menu item selection
     popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
         public boolean onMenuItemClick(MenuItem item) {
-          switch (item.getItemId()) {
-          case R.id.menu_keyword:
-            Toast.makeText(MainActivity.this, "Keyword!", Toast.LENGTH_SHORT).show();
-            return true;
-          case R.id.menu_popularity:
-            Toast.makeText(MainActivity.this, "Popularity!", Toast.LENGTH_SHORT).show();
-            return true;
-          default:
-            return false;
+            switch (item.getItemId()) {
+            case R.id.menu_keyword:
+              Toast.makeText(MainActivity.this, "Keyword!", Toast.LENGTH_SHORT).show();
+              return true;
+            case R.id.menu_popularity:
+              Toast.makeText(MainActivity.this, "Popularity!", Toast.LENGTH_SHORT).show();
+              return true;
+            default:
+              return false;
+            }
         }
-      }
     });
     // Handle dismissal with: popup.setOnDismissListener(...);
     // Show the menu
