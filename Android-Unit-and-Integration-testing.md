@@ -417,9 +417,9 @@ public class FirstActivityTest {
   }
 
   @After
-    public void tearDown() throws Exception {
+  public void tearDown() throws Exception {
     // Nothing Here
-    }
+  }
 
 }
 ```
