@@ -62,7 +62,7 @@ Exploring the gritty details of views, layout, styling and common UI patterns:
 
 ### Custom Views
 
-* [[Basic Painting with Views]]
+* [[Basic Painting with Views]] (Simple drawing app tutorial)
 * [[Defining Custom Views]] (**Needs Attention**)
 * [[Extending SurfaceView]] (**Needs Attention**)
 
