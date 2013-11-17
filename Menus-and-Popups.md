@@ -214,10 +214,10 @@ public class MainActivity extends Activity {
     setContentView(R.layout.activity_main);
     btnFilter = (Button) findViewById(R.id.btnFilter);
     btnFilter.setOnClickListener(new OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        showFilterPopup(v);
-      }
+        @Override
+        public void onClick(View v) {
+            showFilterPopup(v);
+        }
     });
     // ...
   }
