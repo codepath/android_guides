@@ -97,7 +97,7 @@ Understanding how to build powerful and flexible views using Fragments:
 * [[Creating and Using Fragments]]
 * [[ActionBar Tabs with Fragments]]
 * [[Fragment Navigation Drawer]]
-* [[Using DialogFragment]]
+* [[DialogFragment Overview|Using DialogFragment]]
 * [[Flexible User Interfaces]] (with Fragments)
 * [[ViewPager with FragmentPagerAdapter]] (**Needs Attention**)
 * [[Settings with PreferenceFragment]] (**Needs Attention**)
