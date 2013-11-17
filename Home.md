@@ -75,7 +75,7 @@ Exploring how to allow user interaction and navigation within an app:
 * [[Navigation and Task Stacks]] (Controlling the behavior of the task stack)
 * [[Sharing Content with Intents]] (and ShareActionProvider)
 * [[Menus and Popups]] (Context Menu, PopupMenu, PopupWindow)
-* [[Dialogs with DialogFragment|Using DialogFragment]]
+* [[Dialogs with DialogFragment|Using DialogFragment]] (Displaying a content overlay)
 
 ## Networking, Models and Persistence
 
