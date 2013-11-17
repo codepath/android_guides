@@ -26,3 +26,4 @@ Other less edited folders include:
 
  * <http://developer.android.com/tools/projects/index.html#ApplicationProjects>
  * <http://www.codeproject.com/Articles/395614/Basic-structure-of-an-Android-project>
+ * <http://mobile.tutsplus.com/tutorials/android/android-sdk-app-structure/>
