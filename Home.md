@@ -60,6 +60,10 @@ Exploring the gritty details of views, layout, styling and common UI patterns:
 * [[Endless Scrolling with AdapterViews]]
 * [[Implementing Pull to Refresh]] Guide
 
+### Custom Views
+
+* [[Simple Painting with Views]]
+
 ## Interaction and Navigation
 
 Exploring how to allow user interaction and navigation within an app:
