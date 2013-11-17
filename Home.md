@@ -62,7 +62,9 @@ Exploring the gritty details of views, layout, styling and common UI patterns:
 
 ### Custom Views
 
-* [[Simple Painting with Views]]
+* [[Basic Painting with Views]]
+* [[Defining Custom Views]] (**Needs Attention**)
+* [[Extending SurfaceView]] (**Needs Attention**)
 
 ## Interaction and Navigation
 
