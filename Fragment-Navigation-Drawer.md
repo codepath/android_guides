@@ -1,4 +1,4 @@
-In [[Managing Navigation and Task Stack]] cliffnotes, we discuss the various navigational structures available within Android applications. One of the most flexible is the [Navigation Drawer](http://developer.android.com/training/implementing-navigation/nav-drawer.html). The fully custom navigation drawer is totally managed by the user and can be read about on the [creating the navigation drawer](http://developer.android.com/training/implementing-navigation/nav-drawer.html#top) docs.
+In [[Common Navigation Paradigms]] cliffnotes, we discuss the various navigational structures available within Android applications. One of the most flexible is the [Navigation Drawer](http://developer.android.com/training/implementing-navigation/nav-drawer.html). The fully custom navigation drawer is totally managed by the user and can be read about on the [creating the navigation drawer](http://developer.android.com/training/implementing-navigation/nav-drawer.html#top) docs.
 
 ![Navigation Drawer](http://i.imgur.com/GG6JYZC.png)
 
