@@ -34,9 +34,9 @@ The Android testing API provides hooks into the Android component and applicatio
 
 Let's try testing a very simple application called [SimpleApp](https://github.com/thecodepath/android-simple-app). This app is just two activities. The first (`FirstActivity`) has a text field and a button. When you type in the text field and hit the button, a `SecondActivity` appears that displays the text entered.
 
-<img src="http://i.imgur.com/BhD9S8n.png" width="450" alt="Screen 1" />
+<img src="http://i.imgur.com/BhD9S8n.png" width="430" alt="Screen 1" />
 &nbsp;
-<img src="http://i.imgur.com/YOssiuC.png" width="450" alt="Screen 2" />
+<img src="http://i.imgur.com/YOssiuC.png" width="430" alt="Screen 2" />
 
 Let's take a look at how to test this very simple application using the Android testing framework. Make sure to [download SimpleApp](https://github.com/thecodepath/android-simple-app) and import the project into your workspace. First, let's create a new Test Project called "SimpleAppTest".
 
