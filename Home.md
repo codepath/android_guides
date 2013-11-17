@@ -10,7 +10,7 @@ We have guides for everyone whether you are **beginner, intermediate or advanced
 
 Ever been **frustrated finding information on outdated one-off blog posts and tutorials** that have long since become irrelevant? How many times have you been googling to find your answer only exists on an obscure **2 year old StackOverflow post**? We believe there's got to be a better way. Why not have the community work together to create useful and detailed documentation for every aspect of Android (or any platform)? There's absolutely no reason that we should have to make do with vague and outdated content anymore.
 
-Read about our [[mission to change the way engineers learn new technologies|The CodePath Goal]] and check out how you can [[get involved|The-CodePath-Goal#how-do-i-help]]! In addition, we are at present a fledgling startup so if you like this guide and what we are trying to do, please consider following us on twitter [@thecodepath](https://twitter.com/thecodepath) or [tipping us via gittip](https://www.gittip.com/nesquena/)! 
+Read about our [[mission to change the way engineers learn new technologies|The CodePath Goal]] and check out how you can [[get involved|The-CodePath-Goal#how-do-i-help]]! In addition, we are at present a fledgling startup so if you like this guide and what we are trying to do, please consider following us on twitter [@thecodepath](https://twitter.com/thecodepath) or [donating to the cause](https://www.gittip.com/nesquena/)! 
 
 ## Overview
 
