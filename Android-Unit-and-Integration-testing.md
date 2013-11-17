@@ -81,41 +81,42 @@ Now, we want to test the basic functions of the first activity. Namely, that I c
 import com.codepath.example.simpleapp.R;
 
 public class FirstActivityUnitTest extends
-android.test.ActivityUnitTestCase<FirstActivity> {
-    // ...
-    
+    android.test.ActivityUnitTestCase<FirstActivity> {
+
+  // ...
+
   // Sanity check for the layout
-	@SmallTest
-	public void testLayoutExists() {
-	  // Verifies the button and text field exist
-	  assertNotNull(activity.findViewById(R.id.btnLaunch));
-	  assertNotNull(activity.findViewById(R.id.etResult));
-	  // Verifies the text of the button
-	  Button view = (Button) activity.findViewById(R.id.btnLaunch);
-	  assertEquals("Incorrect label of the button", "Launch", view.getText());
-	}
-	
-	// Validate the intent is fired on button press with correct result from
-	// text field
-	@SmallTest
-	public void testIntentTriggerViaOnClick() {
-	  String fieldValue = "Testing Text";
-	  // Set a value into the text field
-	  EditText etResult = (EditText) activity.findViewById(R.id.etResult);
-	  etResult.setText(fieldValue);
-	  // Verify button exists on screen
-	  Button btnLaunch = (Button) activity.findViewById(R.id.btnLaunch);
-	  assertNotNull("Button should not be null", btnLaunch);
-	  // Trigger a click on the button
-	  btnLaunch.performClick();
-	  // Verify the intent was started with correct result extra
-	  Intent triggeredIntent = getStartedActivityIntent();
-	  assertNotNull("Intent should have triggered after button press",
-	      triggeredIntent);
-	  String data = triggeredIntent.getExtras().getString("result");
-	  assertEquals("Incorrect result data passed via the intent",
-	      "Testing Text", data);
-	}
+  @SmallTest
+  public void testLayoutExists() {
+    // Verifies the button and text field exist
+    assertNotNull(activity.findViewById(R.id.btnLaunch));
+    assertNotNull(activity.findViewById(R.id.etResult));
+    // Verifies the text of the button
+    Button view = (Button) activity.findViewById(R.id.btnLaunch);
+    assertEquals("Incorrect label of the button", "Launch", view.getText());
+  }
+
+  // Validate the intent is fired on button press with correct result from
+  // text field
+  @SmallTest
+  public void testIntentTriggerViaOnClick() {
+    String fieldValue = "Testing Text";
+    // Set a value into the text field
+    EditText etResult = (EditText) activity.findViewById(R.id.etResult);
+    etResult.setText(fieldValue);
+    // Verify button exists on screen
+    Button btnLaunch = (Button) activity.findViewById(R.id.btnLaunch);
+    assertNotNull("Button should not be null", btnLaunch);
+    // Trigger a click on the button
+    btnLaunch.performClick();
+    // Verify the intent was started with correct result extra
+    Intent triggeredIntent = getStartedActivityIntent();
+    assertNotNull("Intent should have triggered after button press",
+        triggeredIntent);
+    String data = triggeredIntent.getExtras().getString("result");
+    assertEquals("Incorrect result data passed via the intent",
+        "Testing Text", data);
+  }
 }
 ```
 
@@ -142,7 +143,7 @@ public class SimpleActivityFunctionalTest extends
   }
 
   public void testStartSecondActivity() throws Exception {
-       // Assertions in here
+      // Assertions in here
   }
 
   @Override
@@ -155,52 +156,52 @@ Let's add a simple end-to-end test for passing data into the TextView of the sec
 
 ```java
 public class SimpleActivityFunctionalTest extends
-ActivityInstrumentationTestCase2<FirstActivity> {
+    ActivityInstrumentationTestCase2<FirstActivity> {
   
   // ...
   
   public void testStartSecondActivity() throws Exception {		
-	  final String fieldValue = "Testing Text";
+      final String fieldValue = "Testing Text";
 	  
-	  // Set a value into the text field
-	  final EditText etResult = (EditText) activity.findViewById(R.id.etResult);
-	  activity.runOnUiThread(new Runnable() {
-	    @Override
-	    public void run() {
-	      etResult.setText(fieldValue);
-	    }
-	  });
-	  
-	  // Add monitor to check for the second activity
-	  ActivityMonitor monitor = getInstrumentation().addMonitor(
-	      SecondActivity.class.getName(), null, false);
-	  
-	  // find button and click it
-	  Button btnLaunch = (Button) activity.findViewById(R.id.btnLaunch);
-	  TouchUtils.clickView(this, btnLaunch);
-	  
-	  // Wait 2 seconds for the start of the activity
-	  SecondActivity secondActivity = (SecondActivity) monitor
-	      .waitForActivityWithTimeout(2000);
-	  assertNotNull(secondActivity);
+      // Set a value into the text field
+      final EditText etResult = (EditText) activity.findViewById(R.id.etResult);
+      activity.runOnUiThread(new Runnable() {
+          @Override
+          public void run() {
+               etResult.setText(fieldValue);
+          }
+      });
+      
+      // Add monitor to check for the second activity
+      ActivityMonitor monitor = getInstrumentation().addMonitor(
+          SecondActivity.class.getName(), null, false);
+      
+      // find button and click it
+      Button btnLaunch = (Button) activity.findViewById(R.id.btnLaunch);
+      TouchUtils.clickView(this, btnLaunch);
+      
+      // Wait 2 seconds for the start of the activity
+      SecondActivity secondActivity = (SecondActivity) monitor
+          .waitForActivityWithTimeout(2000);
+      assertNotNull(secondActivity);
+      
+      // Search for the textView
+      TextView textView = (TextView) secondActivity
+          .findViewById(R.id.tvResult);
+      
+      // check that the TextView is on the screen
+      ViewAsserts.assertOnScreen(secondActivity.getWindow().getDecorView(),
+          textView);
+      
+      // Validate the text on the TextView
+      assertEquals("Text should be the field value", fieldValue, textView
+          .getText().toString());
+      
+      // Press back and click again
+      this.sendKeys(KeyEvent.KEYCODE_BACK);
+  }
 	
-	  // Search for the textView
-	  TextView textView = (TextView) secondActivity
-	      .findViewById(R.id.tvResult);
-	  
-	  // check that the TextView is on the screen
-	  ViewAsserts.assertOnScreen(secondActivity.getWindow().getDecorView(),
-	      textView);
-	  
-	  // Validate the text on the TextView
-	  assertEquals("Text should be the field value", fieldValue, textView
-	      .getText().toString());
-	
-	  // Press back and click again
-	  this.sendKeys(KeyEvent.KEYCODE_BACK);
-	}
-	
-	// ...
+  // ...
 }
 ```
 
