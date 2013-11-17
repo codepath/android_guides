@@ -1,3 +1,7 @@
+## Overview
+
+Let's take a look at building a custom view that allows the user to paint on the screen by pressing down their finger. This will illustrate how to build custom components, how to draw shapes and paths on a view and also how to handle user touch interactions.
+
 ## Creating our Custom View
 
 Create a simple class for drawing that extends View called `SimpleDrawingView`:
