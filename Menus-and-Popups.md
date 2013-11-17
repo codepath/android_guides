@@ -1,21 +1,21 @@
 ## Overview
 
-Context Menus are the simplest way to provide the the user with a consistent experience for executing contextual actions. Of course the most common actions for an activity should live on the [[Action Bar|Defining The ActionBar]] but additional actions that are specific to an item or element can be displayed using secondary menus. 
+Context Menus are the simplest way to provide the the user with a consistent experience for executing contextual actions. Of course the most common actions for an activity should live on the primary [[Action Bar|Defining The ActionBar]] but actions that are specific to an item or element can be displayed contextually using secondary menus. In addition, apps often need to display popup overlays that contain either menus or additional content. This guide covers how to manage menus and popups within your applications.
 
 ## Usage
 
 In modern Android apps, there are a few mechanisms for displaying secondary content or actions related to an Activity:
 
-* [Contextual Action Mode](http://developer.android.com/guide/topics/ui/menus.html#CAB) - An "action mode" which is enabled when a user selects an item. Upon the item selection, the actionbar switches to a contextual mode that presents relevant actions.
+* [Contextual Action Modes](http://developer.android.com/guide/topics/ui/menus.html#CAB) - An "action mode" which is enabled when a user selects an item. Upon the item selection, the actionbar switches to a contextual mode that presents relevant actions.
 * [PopupMenu](http://developer.android.com/guide/topics/ui/menus.html#PopupMenu) - A modal menu that is anchored to a particular view within an activity and the menu appears below that view when displayed. Used to provide an overflow menu that allows for secondary actions on an item.
 * [PopupWindow](http://mrbool.com/how-to-implement-popup-window-in-android/28285) - A simple dialog box that gains focus when appearing on screen. Used to display additional information on screen and is simpler but less flexible than a DialogFragment.
 * [[DialogFragment|Using DialogFragment]] - A fully customizable dialog overlay that appears ontop of the activity and can contain arbitrary content as defined within the fragment. This is the most flexible but also the heaviest approach to displaying overlay content.
 
 Let's take a look at each one of these.
 
-### Contextual Action Mode
+### Contextual Action Modes
 
-The Contextual Action Mode can be enabled when a user selects or focuses on an item. Upon the item selection, the actionbar switches to a contextual mode that presents relevant actions for said item.
+Contextual Action Modes can be enabled when a user selects or focuses on any item. Upon the item selection, the ActionBar switches to a contextual mode that presents relevant actions for said item.
 
 Important actions related to the view item should be presented by constructing these contextual action modes whenever possible. The action mode is typically presented **upon long click of a view** or by selecting a checkbox within the activity. 
 
