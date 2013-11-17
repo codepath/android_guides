@@ -8,11 +8,9 @@ This guide instead explains how to setup a basic drawer filled with navigation i
 
 Next, be sure to [download the drawer image assets](http://developer.android.com/downloads/design/Android_Navigation_Drawer_Icon_20130516.zip) necessary and add the images into each of your drawable folders.
 
-### Add Android Support v13 SDK
+### Android Support v13 SDK
 
-You need to bump your Minimum version in AndroidManifest.xml to API v13.
-
-You'll also need to include android-support-v13.jar from the Android SDK directory (sdk/extras/android/support/v13/).
+You need to bump your Minimum version in `AndroidManifest.xml` to API v13. You'll also need to include `android-support-v13.jar` from the Android SDK directory (sdk/extras/android/support/v13/).
 
 ### Setup Drawer Layout Files
 
