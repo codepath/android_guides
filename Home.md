@@ -74,6 +74,8 @@ Exploring how to allow user interaction and navigation within an app:
 * [[Gestures and Touch Events]] (Swipe, Shake, or Dragging Events)
 * [[Navigation and Task Stacks]] (Controlling the behavior of the task stack)
 * [[Sharing Content with Intents]] (and ShareActionProvider)
+* [[Menus and Popups]] (Context Menu, PopupMenu, PopupWindow)
+* [[Dialogs with DialogFragment|Using DialogFragment]]
 
 ## Networking, Models and Persistence
 
