@@ -203,7 +203,7 @@ and with that, we have a very basic painting app that looks like:
 
 ### Reference for SimpleDrawingView
 
-The full source code for `SimpleDrawingView`:
+The full source code for our `SimpleDrawingView`:
 
 ```java
 package com.codepath.example.simpledrawapp;
