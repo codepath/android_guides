@@ -1,6 +1,6 @@
 ## Overview
 
-Context Menus are the simplest way to provide the the user with a consistent experience for executing contextual actions. Of course the most common actions for an activity should live on the primary [[Action Bar|Defining The ActionBar]] but actions that are specific to an item or element can be displayed contextually using secondary menus. In addition, apps often need to display popup overlays that contain either menus or additional content. This guide covers how to manage menus and popups within your applications.
+Apps often need to provide the user with a consistent experience for executing actions that are contextually specific. The most common actions for an activity live on the default [[Action Bar|Defining The ActionBar]] but actions that are more specific to an item or element can be displayed contextually using menus and popups. In addition to menus, apps often need to display popup overlays that contain informational content. This guide covers how to manage menus and popups within your Android apps.
 
 ## Usage
 
