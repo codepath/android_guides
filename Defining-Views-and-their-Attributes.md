@@ -87,3 +87,4 @@ Another important note is that any view with an id specified will automatically 
 
  * <http://developer.android.com/reference/android/view/View.html>
  * <http://developer.android.com/reference/android/widget/TextView.html>
+ * <http://mobile.tutsplus.com/tutorials/android/android-sdk-user-interface-design/>
