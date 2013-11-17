@@ -335,7 +335,7 @@ Read more details on the [PopupWindow tutorial](http://mrbool.com/how-to-impleme
 
 ### Deprecated Menu Strategies
 
-Prior to Android 3.0, there were several other relevent menu strategies which are now discouraged. The strategies that are now discouraged are:
+Prior to Android 3.0, there were several other relevent menu strategies which are now discouraged. The strategies that have been deprecated in modern apps are listed below:
 
  * [Options Menu](http://developer.android.com/guide/topics/ui/menus.html#options-menu) - This was a menu that appeared when a hardware "menu button" was pressed. This menu button has been deprecated and should no longer be used in modern apps. You can read more in the [Creating an Options Menu](http://developer.android.com/guide/topics/ui/menus.html#options-menu) official guide.
  * [Floating Context Menu](http://developer.android.com/guide/topics/ui/menus.html#FloatingContextMenu) - This was a contextual menu that appeared to float above the activity with a list of menu items to select. This approach is deprecated in favor of the aforementioned Contextual Action Mode in modern apps. See [this tutorial](http://mobile.tutsplus.com/tutorials/android/android-sdk-context-menus/) for another look at the deprecated floating context approach.
