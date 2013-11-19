@@ -21,7 +21,11 @@ There are three relevant animation types for us to understand:
 
 Property animations were a more recent Android feature [introduced in 3.0](http://android-developers.blogspot.com/2011/05/introducing-viewpropertyanimator.html). To use animations in a way that is **compatible with pre-3.0 Android versions**, we must use the [NineOldAndroids](http://nineoldandroids.com/) for all our property animations. 
 
-The first thing we should do is [download NineOldAndroids](https://github.com/JakeWharton/NineOldAndroids) and install this as a [library project](http://imgur.com/a/N8baF) in Eclipse for use with your apps.
+The first thing we should do is [download NineOldAndroids](https://github.com/JakeWharton/NineOldAndroids) and install this as a [library project](http://imgur.com/a/N8baF) in Eclipse for use with your apps. For any activity that uses NineOldAndroids, include a static import to the ViewPropertyAnimator, as below.
+
+```java
+import static com.nineoldandroids.view.ViewPropertyAnimator.animate;
+```
 
 #### Using Java
 
@@ -29,6 +33,9 @@ Once we have setup NineOldAndroids, we can do property animations in a simple an
 
 ```java
 Button btnExample = (Button) findViewById(R.id.btnExample);
+
+//  Note: in order to use the ViewPropertyAnimator like this add the following import:
+//  import static com.nineoldandroids.view.ViewPropertyAnimator.animate;
 animate(btnExample).alpha(0);
 ```
 
