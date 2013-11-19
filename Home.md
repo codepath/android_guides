@@ -66,22 +66,25 @@ Exploring the gritty details of views, layout, styling and common UI patterns:
 * [[Defining Custom Views]] (**Needs Attention**)
 * [[Extending SurfaceView]] (**Needs Attention**)
 
-## Interaction and Navigation
+## Interaction
 
 Exploring how to allow user interaction and navigation within an app:
 
 * [[View Event Listeners|Basic Event Listeners]] (Clicks, Key Presses, Updates)
-* [[Navigating Activities with Intents|Using Intents to Create Flows]] (Communicating between Activities)
 * [[Exploring the ActionBar|Defining the ActionBar]] (includes adding ActionItems)
 * [[Displaying Toasts]] (Quick notices and includes custom views)
-* [[Common Navigation Paradigms]] (i.e Tabs, Swipe-able Views, Pull-out Drawer)
 * [[Extended ActionBar Guide]] (Split-bar, Custom ActionBar, etc)
-* [[Common Implicit Intents]] (Making a Call, Sending a Text, Opening a URL)
 * [[Gestures and Touch Events]] (Swipe, Shake, or Dragging Events)
-* [[Navigation and Task Stacks]] (Controlling the behavior of the task stack)
-* [[Sharing Content with Intents]] (and ShareActionProvider)
 * [[Menus and Popups]] (Context Menu, PopupMenu, PopupWindow)
 * [[Dialogs with DialogFragment|Using DialogFragment]] (Displaying a content overlay)
+
+## Navigation
+
+* [[Navigating Activities with Intents|Using Intents to Create Flows]] (Communicating between Activities)
+* [[Common Navigation Paradigms]] (i.e Tabs, Swipe-able Views, Pull-out Drawer)
+* [[Common Implicit Intents]] (Making a Call, Sending a Text, Opening a URL)
+* [[Navigation and Task Stacks]] (Controlling the behavior of the task stack)
+* [[Sharing Content with Intents]] (and ShareActionProvider)
 
 ## Networking, Models and Persistence
 
