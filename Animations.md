@@ -71,7 +71,8 @@ set.playTogether(
     ObjectAnimator.ofFloat(tvLabel, "scaleX", 1.0f, 2.0f)
         .setDuration(2000),
     ObjectAnimator.ofObject(tvLabel, "backgroundColor", new ArgbEvaluator(),
-          /*Red*/0xFFFF8080, /*Blue*/0xFF8080FF).setDuration(2000)
+          /*Red*/0xFFFF8080, /*Blue*/0xFF8080FF)
+        .setDuration(2000)
 );
 set.start(); 
 ```
