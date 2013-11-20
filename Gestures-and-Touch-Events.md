@@ -14,6 +14,21 @@ You can see a visual guide of common gestures on the [gestures design patterns](
 
 Gestures are typically used for more involved user interactions within an application. Let's take a look at how to implement common gestures.
 
+### Double Tapping
+
+You can enable double tap events for any view within your activity using the [OnDoubleTapListener](https://gist.github.com/nesquena/b2f023bb04190b2653c7). First, copy the code for `OnDoubleTapListener` into your application and then you can apply the listener with:
+
+```java
+myView.setOnTouchListener(new OnDoubleTapListener(this) {
+  @Override
+  public void onDoubleTap(MotionEvent e) {
+    Toast.makeText(MainActivity.this, "Double Tap", Toast.LENGTH_SHORT).show();
+  }
+});
+```
+
+Now that view will be able to respond to a double tap event and you can handle the event accordingly.
+
 ### Swipe Gesture Detection
 
 Detecting finger swipes in a particular direction is best done using the built-in [onFling](http://developer.android.com/reference/android/view/GestureDetector.OnGestureListener.html#onFling\(android.view.MotionEvent, android.view.MotionEvent, float, float\)) event in the `GestureDetector.OnGestureListener`. 
@@ -98,21 +113,6 @@ and then define the individual list item layout with:
 ```
 
 Now `front` will be displayed by default and if I swipe left on an item, then the `back` will be displayed for that item. This simplifies swipes for the common case of menus for a ListView.
-
-### Double Tapping
-
-You can enable double tap events for any view within your activity using the [OnDoubleTapListener](https://gist.github.com/nesquena/b2f023bb04190b2653c7). First, copy the code for `OnDoubleTapListener` into your application and then you can apply the listener with:
-
-```java
-myView.setOnTouchListener(new OnDoubleTapListener(this) {
-  @Override
-  public void onDoubleTap(MotionEvent e) {
-    Toast.makeText(MainActivity.this, "Double Tap", Toast.LENGTH_SHORT).show();
-  }
-});
-```
-
-Now that view will be able to respond to a double tap event and you can handle the event accordingly.
 
 ### Pinch to Zoom
 
