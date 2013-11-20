@@ -16,7 +16,7 @@ Gestures are typically used for more involved user interactions within an applic
 
 ### Swipe Gesture Detection
 
-Detecting finger swipes in a particular direction is best done using the built-in [onFling](http://developer.android.com/reference/android/view/GestureDetector.OnGestureListener.html#onFling(android.view.MotionEvent, android.view.MotionEvent, float, float\)) event in the `GestureDetector.OnGestureListener`. 
+Detecting finger swipes in a particular direction is best done using the built-in [onFling](http://developer.android.com/reference/android/view/GestureDetector.OnGestureListener.html#onFling\(android.view.MotionEvent, android.view.MotionEvent, float, float\)) event in the `GestureDetector.OnGestureListener`. 
 
 A helper class that makes handling swipes as easy as possible can be found in the [OnSwipeTouchListener](https://gist.github.com/nesquena/ed58f34791da00da9751) class. Copy the `OnSwipeTouchListener` class to your own application and then you can use the listener to manage the swipe events with:
 
