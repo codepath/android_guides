@@ -52,7 +52,27 @@ animate(btnExample).alpha(0.5f).rotation(90f).
   });
 ```
 
-This applies multiple property animations at once including opacity change, rotation, scale and modifying the position of the button. Here we also can modify the duration, introduce a start delay and even execute a listener at the beginning or end of the animation. See the [Property Animation](http://developer.android.com/guide/topics/graphics/prop-animation.html) official docs for more detailed information.
+This applies multiple property animations at once including opacity change, rotation, scale and modifying the position of the button. Here we also can modify the duration, introduce a start delay and even execute a listener at the beginning or end of the animation. You can also use the [ObjectAnimator](http://developer.android.com/reference/android/animation/ObjectAnimator.html) method to add additional behavior such as repeating the animation with:
+
+```java
+ObjectAnimator scaleAnim = ObjectAnimator.ofFloat(tvLabel, "scaleX", 1.0f, 2.0f);
+scaleAnim.setDuration(3000);
+scaleAnim.setRepeatCount(ValueAnimator.INFINITE);
+scaleAnim.setRepeatMode(ValueAnimator.REVERSE);
+scaleAnim.start();
+```
+
+You can also play multiple `ObjectAnimator` objects together with the [AnimatorSet](http://developer.android.com/reference/android/animation/AnimatorSet.html) with:
+
+```java
+AnimatorSet set = new AnimatorSet();
+set.playTogether(
+    ObjectAnimator.ofFloat(myView, "rotationX", 0, 360),
+    ObjectAnimator.ofFloat(myView, "rotationY", 0, 180)
+)
+```
+
+See the [Property Animation](http://developer.android.com/guide/topics/graphics/prop-animation.html) official docs for more detailed information in addition to the [NineOldAndroids](http://nineoldandroids.com/) website.
 
 #### Using XML
 
