@@ -223,7 +223,7 @@ The [android:animateLayoutChanges](http://developer.android.com/reference/androi
 ### Activity Transitions
 
 In addition to property animations for views, we can also manage the animations and transitions for Activities as they become visible on screen. We do this by managing the transitions around the time we trigger an intent.
-The basic approach is that right after executing an intent with `startActivity`, you call the [overridePendingTransition](http://developer.android.com/reference/android/app/Activity.html#overridePendingTransition(int, int\)) method such as:
+The basic approach is that right after executing an intent with `startActivity`, you call the [overridePendingTransition](http://developer.android.com/reference/android/app/Activity.html#overridePendingTransition\(int, int\)) method such as:
 
 ```java
 Intent i = new Intent(MainActivity.this, SecondActivity.class);
@@ -257,7 +257,20 @@ This would move the X position of the new window from off the screen sliding in 
 </set> 
 ```
 
-This causes the parent activity to slide off screen to left. When these animations run together, it creates the effect that the new activity is pushing the old one off the screen while sliding in. You can see a more complete example on the [customizing activity transition tutorial](http://ahdidou.com/blog/customize-android-activities-transition/) as well as the [custom animation while switching](http://android-er.blogspot.com/2013/04/custom-animation-while-switching.html) tutorial. Yet another example can be found in the [blundell apps animate an activity](http://blog.blundell-apps.com/animate-an-activity/) tutorial.
+This causes the parent activity to slide off screen to left. When these animations run together, it creates the effect that the new activity is pushing the old one off the screen while sliding in. You can also control the "back" animation transition as well using `overridePendingTransition` with:  
+
+```java
+public class SecondActivity extends Activity {
+    // onBackPressed is what is called when back is hit, call `overridePendingTransition`
+    @Override
+    public void onBackPressed() {
+	finish();
+	overridePendingTransition(R.anim.left_in, R.anim.right_out);
+    }
+}
+```
+
+You can see a more complete example on the [customizing activity transition tutorial](http://ahdidou.com/blog/customize-android-activities-transition/) as well as the [custom animation while switching](http://android-er.blogspot.com/2013/04/custom-animation-while-switching.html) tutorial. Yet another example can be found in the [blundell apps animate an activity](http://blog.blundell-apps.com/animate-an-activity/) tutorial.
 
 ## Things To Note
 
