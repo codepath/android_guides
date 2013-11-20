@@ -33,7 +33,6 @@ Once we have setup NineOldAndroids, we can do property animations in a simple an
 
 ```java
 Button btnExample = (Button) findViewById(R.id.btnExample);
-
 //  Note: in order to use the ViewPropertyAnimator like this add the following import:
 //  import static com.nineoldandroids.view.ViewPropertyAnimator.animate;
 animate(btnExample).alpha(0);
@@ -67,9 +66,14 @@ You can also play multiple `ObjectAnimator` objects together with the [AnimatorS
 ```java
 AnimatorSet set = new AnimatorSet();
 set.playTogether(
-    ObjectAnimator.ofFloat(myView, "rotationX", 0, 360),
-    ObjectAnimator.ofFloat(myView, "rotationY", 0, 180)
-)
+    ObjectAnimator.ofFloat(tvLabel, "scaleX", 1.0f, 2.0f)
+	.setDuration(2000),
+    ObjectAnimator.ofFloat(tvLabel, "scaleX", 1.0f, 2.0f)
+        .setDuration(2000),
+    ObjectAnimator.ofObject(tvLabel, "backgroundColor", new ArgbEvaluator(),
+          /*Red*/0xFFFF8080, /*Blue*/0xFF8080FF).setDuration(2000)
+);
+set.start(); 
 ```
 
 See the [Property Animation](http://developer.android.com/guide/topics/graphics/prop-animation.html) official docs for more detailed information in addition to the [NineOldAndroids](http://nineoldandroids.com/) website.
