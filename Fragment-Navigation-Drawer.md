@@ -12,6 +12,10 @@ Next, be sure to [download the drawer image assets](http://developer.android.com
 
 You need to bump your Minimum version in `AndroidManifest.xml` to API v13. You'll also need to include `android-support-v13.jar` from the Android SDK directory (sdk/extras/android/support/v13/).
 
+### Android Support v4 JAR
+
+Verify that you have the latest support-v4.jar file. These JAR files do get updated between API versions. If you get NoClassDefErrors even though you've added the file, you may be missing the DrawerLayout class and other dependencies that were incorporated in API version 13. For best results, included the latest support-v4.jar from the most recent API version.
+
 ### Setup Drawer Layout Files
 
 You also need to setup a view that will represent the individual drawer item in a layout file such as `res/layout/drawer_nav_item.xml`:
