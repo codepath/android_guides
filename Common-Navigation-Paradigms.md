@@ -18,8 +18,6 @@ For a description of how to add ActionBar tabs to your Activity, check out the [
 To create a basic navigation drawer that toggles between displaying different fragments, check out the
 [[Fragment Navigation Drawer]] cliffnotes. For more details about creating a custom drawer check out the [Creating a Navigation Drawer](http://developer.android.com/training/implementing-navigation/nav-drawer.html#top) docs.   
 
-When using Navigation Drawers, verify that you have the latest support-v4.jar file.  If you get NoClassDefErrors even though you've added the file, you may be missing the DrawerLayout class. For best results, included  the latest support-v4.jar from the API.  These JAR files do get updated between API versions.
-
 ## References
 
  * <http://developer.android.com/design/patterns/navigation.html>
