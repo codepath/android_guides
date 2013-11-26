@@ -45,7 +45,7 @@ gradle -v
 
 ##  Gradle Project Setup
 
-To use Gradle in your Android application, you have to create a `build.gradle` file:
+To use Gradle in your Android application, you have to create a `build.gradle` file in your application root directory:
 
 ```bash
 buildscript {
@@ -93,10 +93,10 @@ Note that with Gradle 1.6 as downloaded above, the **SDK version must be specifi
 
 ## Using Gradle
 
-The following commands can be used now. To do a full build:
+To build the APK, run this command in the root directory:
 
 ```
-gradle build
+gradle assemble
 ```
 
 If a build occurs and you see the output:
@@ -108,6 +108,14 @@ Total time: 5.738 secs
 ```
 
 Then Gradle is successfully setup for your project. If you get an error, try googling the error. Usually the issue is that you need to [install the build tools](http://stackoverflow.com/questions/16619773/failed-to-import-new-gradle-project-failed-to-find-build-tools-revision-17-0-0) or make sure to use Gradle 1.6.
+
+If you have integration tests you want to run, make sure you have an open emulator or connected device and run this command in the root directory:
+
+```
+gradle build
+```
+
+This will build the apk, then automatically compile and run your integration tests.
 
 ## Resources
 
