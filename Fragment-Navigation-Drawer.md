@@ -2,6 +2,8 @@ In [[Common Navigation Paradigms]] cliffnotes, we discuss the various navigation
 
 ![Navigation Drawer](http://i.imgur.com/GG6JYZC.png)
 
+## Usage
+
 This guide instead explains how to setup a basic drawer filled with navigation items that switch different fragments into the content area. In this way, you can define multiple fragments, and then define the list of options which will display in the drawers items list. Each item when clicked will switch the relevant fragment into the activity's container view.
 
 ### Download Assets
@@ -148,4 +150,8 @@ public class MainActivity extends FragmentActivity {
 }
 ```
 
-Now if you run your application, you should see the navigation drawer and be able to select between your fragments.
+Now if you run your application, you should see the navigation drawer and be able to select between your fragments. For a more in-depth look at a navigation drawer with icons and sections, check out this [detailed navigation drawer tutorial](http://www.michenux.net/android-navigation-drawer-748.html).
+
+## References
+
+* <http://www.michenux.net/android-navigation-drawer-748.html>
