@@ -107,7 +107,7 @@ BUILD SUCCESSFUL
 Total time: 5.738 secs
 ```
 
-Then Gradle is successfully setup for your project. If you get an error, try googling the error. Usually the issue is that you need to [install the build tools](http://stackoverflow.com/questions/16619773/failed-to-import-new-gradle-project-failed-to-find-build-tools-revision-17-0-0) or make sure to use Gradle 1.6.
+Then Gradle is successfully set up for your project. If you get an error, try googling the error. Usually the issue is that you need to [install the build tools](http://stackoverflow.com/questions/16619773/failed-to-import-new-gradle-project-failed-to-find-build-tools-revision-17-0-0) or make sure to use Gradle 1.6.
 
 If you have integration tests you want to run, make sure you have an open emulator or connected device and run this command in the root directory:
 
