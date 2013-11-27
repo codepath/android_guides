@@ -18,8 +18,8 @@ Core Topics:
 
 More reference topics:
 
-* [[Push Notifications]]
 * [[Video and Audio Playback]]
+* [[Push Notifications]]
 * [[Content Providers]]
 * [[Using Data Loaders]]
 * [[Creating an App Widget]]
