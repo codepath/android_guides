@@ -156,9 +156,7 @@ getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM | ActionBar.DISPL
 
 Also, please note the comments mentioned in the setCustomView method in the Android documentation:
 
-```
-Custom navigation views appear between the application icon and any action buttons and may use any space available there. Common use cases for custom navigation views might include an auto-suggesting address bar for a browser or other navigation mechanisms that do not translate well to provided navigation modes.
-```
+"Custom navigation views appear between the application icon and any action buttons and may use any space available there."
 
 In other words, you can still define an onCreateOptionsMenu() method in your Activity to define the action buttons.  This custom view will then share space with the action buttons, which normally are placed to the right side of the Action Bar.
 
