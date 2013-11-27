@@ -21,7 +21,9 @@ Currently, Android Studio and Gradle actually operate very much independently of
 
    ![image](https://f.cloud.github.com/assets/326857/1445194/eba67782-421a-11e3-98aa-9d25a9e7e11a.png)
 
-2. Suppose you want to have your Google Play Services and Facebook SDK defined as dependencies.  Go to Project Structure->Modules and under your ProjectName, add the Google Play and Facebook module as a dependency to your module (look for the + sign at the right side):
+2. Suppose you want to have your Google Play Services and Facebook SDK defined as dependencies.  You need to use the Create Module from Existing Sources and mark the src directory as a "Source directory" (i.e. see https://developers.facebook.com/docs/getting-started/facebook-sdk-for-android-using-android-studio/3.0/) These modules will be used to define your dependencies in the next step.
+
+3. Go to Project Structure->Modules and under your ProjectName, add the Google Play and Facebook module as a dependency to your module (look for the + sign at the right side):
 
    ![image](https://f.cloud.github.com/assets/326857/1445028/307d4ec0-4217-11e3-8417-181d0db54f69.png)
 
@@ -33,4 +35,4 @@ Currently, Android Studio and Gradle actually operate very much independently of
 
    ![image](https://f.cloud.github.com/assets/326857/1460057/438638aa-440c-11e3-8f3b-05e8b21ece58.png)
 
-4. If you're adding libraries that also define R.java resource files, you cannot add them as .jar files.    You need to use the Create Module from Existing Sources and mark the src directory as a "Source directory" 
+Also, if you're adding libraries that also define R.java resource files (such as the PullToRefresh library mentioned in http://guides.thecodepath.com/android/Implementing-Pull-to-Refresh), you cannot add them as .jar files.  They must be included as Modules.  If you try to include them as .jar files, you may encounter R definitions not found during execution time.
