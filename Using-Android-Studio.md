@@ -15,7 +15,7 @@ There is one more way which isn't well documented, which is to choose neither op
 
 Currently, Android Studio and Gradle actually operate very much independently of each other.  Even if your Android Studio compiles correctly, you may find NoClassDefErrors when it tries to execute the software in your emulator.    Hopefully by the time Android Studio v1.0.0 there will be more UI to manage the dependencies in Gradle, but currently everything must be done by tweaking build.gradle files.
 
-# Manual dependency management
+## Manual dependency management
 
 1. If you want to use manual dependency management, reimport your project into Android Studio.  Do not choose either Gradle or Maven to build.
 
