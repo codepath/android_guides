@@ -113,7 +113,7 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 8. Click the genymobile icon ![Genymobile](https://cloud.genymotion.com/static/images/doc/genymotion-plugin-eclipse-button.png) and click "Start" on your virtual device.
 9. Wait for device to boot up and then run through initial setup
 
-**Note:** On Ubuntu 12.04, make sure to [3D acceleration mode](http://imgur.com/Kl9cOmb) by launching VirtualBox and going to `Settings -> Display` to fix. 
+**Note:** On Ubuntu 12.04, make sure to [3D acceleration mode](http://imgur.com/Kl9cOmb) by launching VirtualBox and going to `Settings -> Display` to fix.   VirtualBox appears to prone to memory leaks, so you may find yourself killing the process from time to time.   To avoid large CPU consumption by the compiz window manager and swapping in general, try increasing the video memory allocation and Base Memory (found in `Settings -> System`).
 
 ### Conclusion
 
