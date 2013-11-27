@@ -16,7 +16,7 @@ Core Topics:
 * [[Getting Started with Gradle]]
 * [[Getting Started with Maven]]
 
-More reference topics:
+Additional topics:
 
 * [[Video and Audio Playback]]
 * [[Push Notifications]]
