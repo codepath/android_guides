@@ -1,5 +1,3 @@
-# Custom Views
-
 ## Overview
 
 Android UI elements are all based on `View` (single element on screen) and `ViewGroup` (collection of elements on screen). There are many "widgets" and "layouts" built-in that can be used to build the UI such as views like [Button](http://developer.android.com/reference/android/widget/Button.html) and [TextView](http://developer.android.com/reference/android/widget/TextView.html), and layouts like [RelativeLayout](http://developer.android.com/reference/android/widget/RelativeLayout.html)
