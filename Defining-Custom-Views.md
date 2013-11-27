@@ -19,7 +19,7 @@ Creating custom views is centered around four primary aspects that we may need t
 
 To take a closer look, suppose we want to **create our own view control that allows the user to select between different shapes**. The view will display a single shape (square, circle or triangle) and clicking on the view will toggle the shape selected between the different options.
 
-![ShapeView 1](http://i.imgur.com/CUJnh0b.png)
+![ShapeView 1](http://i.imgur.com/T48Yv9L.png)
 
 ### Define Custom View Class
 
