@@ -1,3 +1,5 @@
+Core Topics:
+
 * [[Using DialogFragment]]
 * [[Notifications]]
 * [[Starting Background Services]]
@@ -5,18 +7,18 @@
 * [[Drawables]]
 * [[Styles and Themes]]
 * [[Extended ActionBar Guide]]
-* [[Getting Started with Gradle]]
 * [[Navigation and Task Stacks]]
 * [[Gestures and Touch Events]]
 * [[Flexible User Interfaces]]
 * [[Android Unit and Integration Testing]]
 * [[Menus and Popups]]
 * [[Defining Custom Views]]
-* [[Push Notifications]]
+* [[Getting Started with Gradle]]
 * [[Getting Started with Maven]]
 
 More reference topics:
 
+* [[Push Notifications]]
 * [[Video and Audio Playback]]
 * [[Content Providers]]
 * [[Using Data Loaders]]
