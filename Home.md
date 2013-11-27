@@ -138,3 +138,4 @@ Focused on issues like deployment, testing, dependency management, etc:
 * [[Robolectric Installation for Unit Testing]]
 * [[Must Have Libraries]] Guide
 * [Publishing to the Play Store](http://goo.gl/mUlGL1) (Slides)
+* [[Using Android Studio]] (**Needs Attention**, highly experimental)
