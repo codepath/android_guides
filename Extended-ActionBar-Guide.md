@@ -154,6 +154,14 @@ At this point, we now have replaced the default ActionBar with our preferred lay
 getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM | ActionBar.DISPLAY_SHOW_HOME); 
 ```
 
+Also, please note the comments mentioned in the setCustomView method in the Android documentation:
+
+```
+Custom navigation views appear between the application icon and any action buttons and may use any space available there. Common use cases for custom navigation views might include an auto-suggesting address bar for a browser or other navigation mechanisms that do not translate well to provided navigation modes.
+```
+
+In other words, you can still define an onCreateOptionsMenu() method in your Activity to define the action buttons.  This custom view will then share space with the action buttons, which normally are placed to the right side of the Action Bar.
+
 Note that this can also help ensure that the tabs appear below the title when using `ActionBarSherlock` caused by [a bug with the ActionBar](https://github.com/JakeWharton/ActionBarSherlock/issues/327).
 
 ### Custom ActionBar Styles
