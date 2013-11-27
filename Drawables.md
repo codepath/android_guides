@@ -178,7 +178,7 @@ NinePatch are images that have a "9" in the name such as `button_background.9.pn
         android:background="@drawable/button_background"/>
 ```
 
-Read more about NinePatch images in the [official docs](http://developer.android.com/guide/topics/graphics/2d-graphics.html#nine-patch).
+You can check out [great ready-made examples of pretty 9-patch buttons](http://www.dibbus.com/2011/03/9patch-images-in-android/) for examples. Read more about NinePatch images in the [official docs](http://developer.android.com/guide/topics/graphics/2d-graphics.html#nine-patch). 
 
 ## Customizing a Button
 
