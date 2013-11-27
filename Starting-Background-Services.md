@@ -250,7 +250,7 @@ public class MainActivity extends Activity {
 }
 ```
 
-Keep in mind that any application and any activity can "listen" for the messages using this same approach. This is what makes the `BroadcastReceiver` a more powerful approach for communication between services and activities.
+Keep in mind that any application and any activity can "listen" for the messages using this same approach. This is what makes the `BroadcastReceiver` a more powerful approach for communication between services and activities. See the official tutorial for [reporting status from an IntentService](http://developer.android.com/training/run-background-service/report-status.html) for more details.
 
 ## Using with AlarmManager for Periodic Tasks
 
