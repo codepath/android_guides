@@ -373,11 +373,11 @@ and then let's create a state list which describes the drawables to use in vario
         android:drawable="@drawable/gradient_bg" />
 
     <item android:state_pressed="true"
-        android:drawable="@drawable/gradient_pressed_bg" />
+          android:drawable="@drawable/gradient_pressed_bg" />
  
     <item android:state_selected="true"
-     android:state_pressed="false"
-        android:drawable="@drawable/gradient_pressed_bg" />
+          android:state_pressed="false"
+          android:drawable="@drawable/gradient_pressed_bg" />
 </selector>
 ```
 
