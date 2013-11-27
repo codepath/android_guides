@@ -2,7 +2,7 @@ If you find yourself highly dissatisfied with developing with Eclipse (i.e. havi
 
 ## Migrating from Eclipse
 
-Check out http://developer.android.com/sdk/installing/migrate.html.   The plugin attempts to export your Eclipse project to Gradle.  What it essentially does is relocates your Java and XML resource files to src/main/java and src/main/res respectively.  Gradle looks explicitly in the src/main directory and can compile successfully but fail to include your .class files if they are not located in these particular directories.
+Check out http://developer.android.com/sdk/installing/migrate.html.   The plugin attempts to export your Eclipse project to Gradle.  What it essentially does is relocates your Java and XML resource files to src/main/java and src/main/res respectively.  Gradle looks explicitly in the src/main directory and can compile successfully but fail to include your .class files if they are not located in these particular directories (see section about using Gradle in Android Studio)
 
 The plugin will also generate a build.gradle.  An example of what the file format is shown at: https://github.com/thecodepath/android_guides/wiki/Getting-Started-with-Gradle
 
