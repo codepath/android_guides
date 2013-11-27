@@ -107,7 +107,7 @@ There are three styles to be used with the big view: big picture style, big text
 ```java
 Notification noti = new Notification.Builder(this).
 .....
-.setStyle(new Notification.BigTextStyle().bigText(longText)) 
+.setStyle(new NotificationCompat.BigTextStyle().bigText(longText)) 
 ```
 
 ### Cancelling Notifications
