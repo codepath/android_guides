@@ -37,13 +37,11 @@ Currently, Android Studio and Gradle actually operate very much independently of
 
 ## Other Tips
 
-## Other tips
-
 * Verify that you can traverse the libs/ dir (there should be + signs).
 
   ![image](https://f.cloud.github.com/assets/326857/1445048/777ae8b4-4217-11e3-9ec0-29b0031527ac.png)
 
-If not, make sure to Add as Library.
+If not, make sure to Add as Library (right-click)
 
 * One useful tip -- inside Edit->Run Configurations, make sure to clear LogCat per
 run.  It's often easy to get confused of stack traces:
