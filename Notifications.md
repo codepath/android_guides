@@ -91,7 +91,7 @@ You can also add up to three additional action buttons as well:
 ```java
 // Setup your pending intents first and 
 // then call addAction(int icon, CharSequence title, PendingIntent intent)
-Notification noti = new Notification.Builder(this).
+Notification noti = new NotificationCompat.Builder(this).
     .....
     .setContentIntent(pIntent)
     .addAction(R.drawable.icon, "Share", sIntent)
@@ -105,7 +105,7 @@ Android 4.1 supports expandable notifications. You can also setup the notificati
 There are three styles to be used with the big view: big picture style, big text style, Inbox style. The following code demonstrates the usage of the BigTextStyle() which allows to use up to 256 dp.
 
 ```java
-Notification noti = new Notification.Builder(this).
+Notification noti = new NotificationCompat.Builder(this).
 .....
 .setStyle(new NotificationCompat.BigTextStyle().bigText(longText)) 
 ```
