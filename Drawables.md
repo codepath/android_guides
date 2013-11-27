@@ -318,14 +318,9 @@ and then populate the ListView with items:
 
 ```java
 ArrayList<String> items = new ArrayList<String>();
-items.add("Item 1");
-items.add("Item 2");
-items.add("Item 3");
-items.add("Item 4");
-items.add("Item 5");
-items.add("Item 6");
-items.add("Item 7");
-items.add("Item 8");
+for (int i = 1; i < 8; i++) {
+    items.add("Item " + i);
+}
 ArrayAdapter<String> aItems = new ArrayAdapter<String>(this, R.layout.item_simple, items);
 lvTest = (ListView) findViewById(R.id.lvTest);
 lvTest.setAdapter(aItems);
