@@ -24,3 +24,4 @@ More reference topics:
 * [[Implementing the ViewPager]]
 * [[Using the PreferenceFragment]]
 * [[Profiling Android Apps]]
+* [[Extending SurfaceView]]
