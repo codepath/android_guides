@@ -201,7 +201,7 @@ public class MyTestService extends IntentService {
       in.putExtra("resultCode", Activity.RESULT_OK);
       in.putExtra("resultValue", "My Result Value. Passed in: " + val);
       // Fire the broadcast with intent packaged
-      sendBroadcast(in);
+      LocalBroadcastManager.getInstance(this).sendBroadcast(in);
   }
 }
 ```
@@ -224,14 +224,16 @@ public class MainActivity extends Activity {
         super.onResume();
         // Register for the particular broadcast based on ACTION string
         IntentFilter filter = new IntentFilter(MyTestService.ACTION);
-        registerReceiver(testReceiver, filter);
+        LocalBroadcastManager.getInstance(this).registerReceiver(testReceiver, filter);
+        // or for non-local broadcast just `registerReceiver(testReceiver, filter)`
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         // Unregister the listener when the application is paused
-        unregisterReceiver(testReceiver);
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(testReceiver);
+        // or for regular broadcast just `unregisterReceiver(testReceiver)`
     }
 
     // Define the callback for what to do when data is received
