@@ -31,7 +31,7 @@ Currently, Android Studio and Gradle actually operate very much independently of
 
    ![image](https://f.cloud.github.com/assets/326857/1445499/431196bc-4222-11e3-8f80-bbc3bb3afe73.png)
 
-3. Make sure to mark the Google Play Services and Facebook SDK as a Library module.  Otherwise, you may get NoClassDefError exceptions when running.  Make sure that you have declared your dependencies and exported them correctly.
+3. Make sure to mark the Google Play Services and Facebook SDK as a Library module.  Otherwise, you may get NoClassDefError exceptions when running. 
 
    ![image](https://f.cloud.github.com/assets/326857/1460057/438638aa-440c-11e3-8f3b-05e8b21ece58.png)
 
