@@ -171,8 +171,13 @@ In addition, to the ability to change the ActionBar layout, we can also tweak th
     </style>
 
     <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
-        <item name="android:background">#ffffff</item>
-        <item name="android:textColor">#000000</item>
+        <item name="android:background">#ECD078</item>
+        <item name="android:titleTextStyle">@style/MyActionBar.TitleTextStyle</item>
+    </style>
+
+    <style name="MyActionBar.TitleTextStyle"   
+        parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">#53777A</item>
     </style>
 </resources>
 ```
