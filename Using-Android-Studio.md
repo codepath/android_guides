@@ -9,7 +9,7 @@ The plugin will also generate a build.gradle.  An example of what the file forma
 ## Dependency Configurations
 Android Studio gives you the option of using several different dependency management configurations.  Normally when you import existing projects, it tries looking for Maven or Gradle-based project files (pom.xml or build.gradle respectively).  You cannot switch dependency management systems after you've selected one.
 
-There is one more way which isn't documented, which is to choose neither option and rely on manual configuration within Android Studio to define the dependencies yourself.  Currently Gradle inside Android Studio is very slow (though there are parallel and daemon modes being added to speed things up), so for smaller projects you may actually find it easier to take advantage of Android Studio's Project Structure to define your dependencies.  
+There is one more way which isn't well documented, which is to choose neither option and rely on manual configuration within Android Studio to define the dependencies yourself.  Currently Gradle inside Android Studio is very slow (though there are parallel and daemon modes being added to speed things up), so for smaller projects you may actually find it easier to take advantage of Android Studio's Project Structure to define your dependencies.  
 
 ## Using Gradle in Android Studio
 
