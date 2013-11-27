@@ -201,7 +201,7 @@ public class MyTestService extends IntentService {
       in.putExtra("resultCode", Activity.RESULT_OK);
       in.putExtra("resultValue", "My Result Value. Passed in: " + val);
       // Fire the broadcast with intent packaged
-      LocalBroadcastManager.getInstance(this).sendBroadcast(in)
+      LocalBroadcastManager.getInstance(this).sendBroadcast(in);
       // or sendBroadcast(in) for a normal broadcast;
   }
 }
