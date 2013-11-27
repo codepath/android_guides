@@ -46,11 +46,11 @@ Next, let's add this view to our activity layout along with a caption and a butt
     android:layout_height="match_parent" >
     <com.codepath.example.customviewdemo.ShapeSelectorView
         android:id="@+id/shapeSelector"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btnSelect"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/tvPrompt" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true" />
 </RelativeLayout>
 ```
 
