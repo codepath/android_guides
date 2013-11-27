@@ -93,14 +93,14 @@ Example of FrameLayout snippet:
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Child 2"
-        android:gravity="top|left" />
+        android:layout_gravity="top|left" />
     <!-- Child3 is drawn over Child1 and Child2 -->
     <TextView
         android:id="@+id/child3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Child 3"
-        android:gravity="top|right" />
+        android:layout_gravity="top|right" />
 </FrameLayout>
 ```
 
