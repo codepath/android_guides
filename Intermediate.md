@@ -25,3 +25,4 @@ More reference topics:
 * [[Using the PreferenceFragment]]
 * [[Profiling Android Apps]]
 * [[Extending SurfaceView]]
+* [[Sending and Receiving SMS]]
