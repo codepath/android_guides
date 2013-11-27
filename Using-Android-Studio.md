@@ -35,4 +35,19 @@ Currently, Android Studio and Gradle actually operate very much independently of
 
    ![image](https://f.cloud.github.com/assets/326857/1460057/438638aa-440c-11e3-8f3b-05e8b21ece58.png)
 
-Also, if you're adding libraries that also define R.java resource files (such as the PullToRefresh library mentioned in http://guides.thecodepath.com/android/Implementing-Pull-to-Refresh), you cannot add them as .jar files.  They must be included as Modules.  If you try to include them as .jar files, you may encounter R definitions not found during execution time.
+## Other Tips
+
+## Other tips
+
+* Verify that you can traverse the libs/ dir (there should be + signs).
+
+  ![image](https://f.cloud.github.com/assets/326857/1445048/777ae8b4-4217-11e3-9ec0-29b0031527ac.png)
+
+If not, make sure to Add as Library.
+
+* One useful tip -- inside Edit->Run Configurations, make sure to clear LogCat per
+run.  It's often easy to get confused of stack traces:
+
+  ![image](https://f.cloud.github.com/assets/326857/1445221/6f620f78-421b-11e3-9708-df6185495289.png)
+
+ * If you're adding libraries that also define R.java resource files (such as the PullToRefresh library mentioned in http://guides.thecodepath.com/android/Implementing-Pull-to-Refresh), you cannot add them as .jar files.  They must be included as Modules.  If you try to include them as .jar files, you may encounter R definitions not found during execution time.
