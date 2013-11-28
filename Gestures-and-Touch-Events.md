@@ -219,7 +219,7 @@ viewDropZone.setOnDragListener(new OnDragListener() {
   @Override
   public boolean onDrag(View v, DragEvent event) {
       // Get the dragged view being dropped over a target view
-      View draggedView = (View) event.getLocalState();
+      final View draggedView = (View) event.getLocalState();
       switch (event.getAction()) {
       case DragEvent.ACTION_DRAG_STARTED:
           // Signals the start of a drag and drop operation.
@@ -243,8 +243,8 @@ viewDropZone.setOnDragListener(new OnDragListener() {
           // Make desired changes to the drop target below
           dropTarget.setTag("dropped");
           // Get owner of the dragged view and remove the view (if needed)
-          ViewGroup owner = (ViewGroup) draggedTextView.getParent();
-          owner.removeView(draggedTextView);
+          ViewGroup owner = (ViewGroup) draggedView.getParent();
+          owner.removeView(draggedView);
           break;
       case DragEvent.ACTION_DRAG_ENDED:
           // Signals to a View that the drag and drop operation has concluded.
