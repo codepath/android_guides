@@ -272,7 +272,7 @@ viewDropZone.setOnDragListener(new OnDragListener() {
 });
 ```
 
-Check out the [vogella dragging tutorial](http://www.vogella.com/articles/AndroidDragAndDrop/article.html) or [the javapapers dragging tutorial](http://javapapers.com/android/android-drag-and-drop/) for a detailed look at handling dragging and dropping. Read the official [drag and drop](http://developer.android.com/guide/topics/ui/drag-drop.html) guide for the official overview. 
+Check out the [vogella dragging tutorial](http://www.vogella.com/articles/AndroidDragAndDrop/article.html) or [the javapapers dragging tutorial](http://javapapers.com/android/android-drag-and-drop/) for a detailed look at handling dragging and dropping. Read the official [drag and drop](http://developer.android.com/guide/topics/ui/drag-drop.html) guide for a more detail overview. 
 
 ### Shake Detection
 
