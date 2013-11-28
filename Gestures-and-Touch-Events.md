@@ -218,6 +218,8 @@ viewDropZone.setOnDragListener(new OnDragListener() {
 
   @Override
   public boolean onDrag(View v, DragEvent event) {
+      // Get the dragged view being dropped over a target view
+      View draggedView = (View) event.getLocalState();
       switch (event.getAction()) {
       case DragEvent.ACTION_DRAG_STARTED:
           // Signals the start of a drag and drop operation.
@@ -236,32 +238,28 @@ viewDropZone.setOnDragListener(new OnDragListener() {
       case DragEvent.ACTION_DROP:
           // Signals to a View that the user has released the drag shadow, 
           // and the drag point is within the bounding box of the View. 
-          // Get the dragged view being dropped over a target view
-          View draggedTextView = (View) event.getLocalState();
           // Get View dragged item is being dropped on
-          TextView dropTarget = (TextView) v;
-          dropTarget.setTypeface(Typeface.DEFAULT_BOLD);
-          dropTarget.setText("Dropped!");
-          // Get owner of the dragged view
+          View dropTarget = v;
+          // Make desired changes to the drop target below
+          dropTarget.setTag("dropped");
+          // Get owner of the dragged view and remove the view (if needed)
           ViewGroup owner = (ViewGroup) draggedTextView.getParent();
-          // Remove the dragged view
           owner.removeView(draggedTextView);
-          // Display toast
-          showToast("Dropped into zone!");
           break;
       case DragEvent.ACTION_DRAG_ENDED:
           // Signals to a View that the drag and drop operation has concluded.
           // If event result is set, this means the dragged view was dropped in target
           if (event.getResult()) { // drop succeeded
               v.setBackground(enteredZoneBackground);
-          } else { // drop failed
-              final View draggedView = (View) event.getLocalState();
+          } else { // drop did not occur
+              // restore the view as visible
               draggedView.post(new Runnable() {
                   @Override
                   public void run() {
                       draggedView.setVisibility(View.VISIBLE);
                   }
               });
+              // restore drop zone default background
               v.setBackground(defaultBackground);
           }
       default:
