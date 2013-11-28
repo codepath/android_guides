@@ -17,7 +17,7 @@ One of the best ways to learn about Android is to checkout Android code in the w
 * [Android Snake Game](https://github.com/thecodepath/android_snake_game)
 * [Android Rest Client Multi-Service Demo](https://github.com/thecodepath/multi_fragments_demo)
 
-## Open-source Apps
+## Open-Source Apps
 
 * [Github Android App](https://github.com/github/android)
 * [Astrid Android's #1 Task Management Application ](https://github.com/todoroo/astrid)
