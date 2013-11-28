@@ -183,41 +183,96 @@ Check out the [PhotoView](https://github.com/chrisbanes/PhotoView) readme and sa
 
 ### Dragging and Dropping
 
-Dragging and dropping views is not particularly difficult to do thanks to the [OnDragListener](http://developer.android.com/reference/android/view/View.OnDragListener.html) built in since API 11. Unfortunately, to support gingerbread managing drag and drop becomes much more manual as you have to implement it using the `onTouch` handlers. With API 11 and above, you simply implement the `onDrag` event. 
+Dragging and dropping views is not particularly difficult to do thanks to the [OnDragListener](http://developer.android.com/reference/android/view/View.OnDragListener.html) built in since API 11. Unfortunately, to support gingerbread managing drag and drop becomes much more manual as you have to implement it using the `onTouch` handlers. With API 11 and above, you can leverage the built in drag handling.
+
+First, we want to attach an `onTouch` handler on the **views that are draggable** which will start the drag by creating a `DragShadow` with the [DragShadowBuilder](http://developer.android.com/reference/android/view/View.DragShadowBuilder.html) which is then dragged around the Activity once [startDrag](http://developer.android.com/reference/android/view/View.html#startDrag\(android.content.ClipData, android.view.View.DragShadowBuilder, java.lang.Object, int\)) is invoked on the view:
 
 ```java
-myView.setOnDragListener(new OnDragListener() {
+// This listener is attached to the view that should be draggable
+draggableView.setOnTouchListener(new OnTouchListener() {
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+            // Construct draggable shadow for view
+	    DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
+            // Start the drag of the shadow
+	    view.startDrag(null, shadowBuilder, view, 0);
+            // Hide the actual view as shadow is being dragged
+	    view.setVisibility(View.INVISIBLE);
+	    return true;
+	} else {
+	    return false;
+	}
+   }
+});
+```
+
+If we want to add "drag" or "drop" events, we should create a `DragListener` that is **attached to a drop zone** for the draggable object. We hook up the listener and manage the different dragging and dropping events for the zone:
+
+```java
+// This listener is attached to the view that should be a drop target
+viewDropZone.setOnDragListener(new OnDragListener() {
+  // Drawable for when the draggable enters the drop target
+  Drawable enteredZoneBackground = getResources().getDrawable(R.drawable.shape_border_green);
+  // Drawable for the default background of the drop target
+  Drawable defaultBackground = getResources().getDrawable(R.drawable.shape_border_red);
+
   @Override
   public boolean onDrag(View v, DragEvent event) {
-    switch (event.getAction()) {
-    case DragEvent.ACTION_DRAG_STARTED:
-      // Signals the start of a drag and drop operation.
-      // Code for that event here
-      break;
-    case DragEvent.ACTION_DRAG_ENTERED:
-      // Signals to a View that the drag point has 
-      // entered the bounding box of the View. Code for that event here
-      break;
-    case DragEvent.ACTION_DRAG_EXITED:
-      // Signals that the user has moved the drag shadow 
-      // outside the bounding box of the View. Code for that event here
-      break;
-    case DragEvent.ACTION_DROP:
-      // Signals to a View that the user has released the drag shadow, 
-      // and the drag point is within the bounding box of the View. Code for that event here
-      break;
-    case DragEvent.ACTION_DRAG_ENDED:
-      // Signals to a View that the drag and drop operation has concluded.
-      // Code for that event here
-    default:
-      break;
-    }
-    return true;
+      switch (event.getAction()) {
+      case DragEvent.ACTION_DRAG_STARTED:
+          // Signals the start of a drag and drop operation.
+          // Code for that event here
+          break;
+      case DragEvent.ACTION_DRAG_ENTERED:
+          // Signals to a View that the drag point has 
+          // entered the bounding box of the View. 
+          v.setBackground(enteredZoneBackground);
+          break;
+      case DragEvent.ACTION_DRAG_EXITED:
+          // Signals that the user has moved the drag shadow 
+          // outside the bounding box of the View. 
+          v.setBackground(defaultBackground);
+          break;
+      case DragEvent.ACTION_DROP:
+          // Signals to a View that the user has released the drag shadow, 
+          // and the drag point is within the bounding box of the View. 
+          // Get the dragged view being dropped over a target view
+          View draggedTextView = (View) event.getLocalState();
+          // Get View dragged item is being dropped on
+          TextView dropTarget = (TextView) v;
+          dropTarget.setTypeface(Typeface.DEFAULT_BOLD);
+          dropTarget.setText("Dropped!");
+          // Get owner of the dragged view
+          ViewGroup owner = (ViewGroup) draggedTextView.getParent();
+          // Remove the dragged view
+          owner.removeView(draggedTextView);
+          // Display toast
+          showToast("Dropped into zone!");
+          break;
+      case DragEvent.ACTION_DRAG_ENDED:
+          // Signals to a View that the drag and drop operation has concluded.
+          // If event result is set, this means the dragged view was dropped in target
+          if (event.getResult()) { // drop succeeded
+              v.setBackground(enteredZoneBackground);
+          } else { // drop failed
+              final View draggedView = (View) event.getLocalState();
+              draggedView.post(new Runnable() {
+                  @Override
+                  public void run() {
+                      draggedView.setVisibility(View.VISIBLE);
+                  }
+              });
+              v.setBackground(defaultBackground);
+          }
+      default:
+          break;
+      }
+      return true;
   }
 });
 ```
 
-Read the official [dragging and scaling](http://developer.android.com/training/gestures/scale.html) guide for a comprehensive overview. Check out the [dragging tutorial](http://www.vogella.com/articles/AndroidDragAndDrop/article.html) on Vogella for a detailed look at handling dragging and dropping.
+Check out the [vogella dragging tutorial](http://www.vogella.com/articles/AndroidDragAndDrop/article.html) or [the javapapers dragging tutorial](http://javapapers.com/android/android-drag-and-drop/) for a detailed look at handling dragging and dropping. Read the official [dragging and scaling](http://developer.android.com/training/gestures/scale.html) guide for the official overview. 
 
 ### Shake Detection
 
@@ -264,3 +319,4 @@ Additional multi-touch events such as "rotation" of fingers, finger movement eve
  * <http://androidrises.blogspot.com/2012/10/draw-line-on-finger-touch.html>
  * <http://mrbool.com/how-to-work-with-swipe-gestures-in-android/28088>
  * <http://www.codeproject.com/Articles/319401/Simple-Gestures-on-Android>
+ * <http://javapapers.com/android/android-drag-and-drop/>
