@@ -71,8 +71,8 @@ Exploring the gritty details of views, layout, styling and common UI patterns:
 Exploring how to allow user interaction and navigation within an app:
 
 * [[View Event Listeners|Basic Event Listeners]] (Clicks, Key Presses, Updates)
-* [[Exploring the ActionBar|Defining the ActionBar]] (includes adding ActionItems)
 * [[Displaying Toasts]] (Quick notices and includes custom views)
+* [[Exploring the ActionBar|Defining the ActionBar]] (includes adding ActionItems)
 * [[Extended ActionBar Guide]] (Split-bar, Custom ActionBar, etc)
 * [[Gestures and Touch Events]] (Swipe, Shake, or Dragging Events)
 * [[Menus and Popups]] (Context Menu, PopupMenu, PopupWindow)
