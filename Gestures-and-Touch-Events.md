@@ -272,7 +272,7 @@ viewDropZone.setOnDragListener(new OnDragListener() {
 });
 ```
 
-Check out the [vogella dragging tutorial](http://www.vogella.com/articles/AndroidDragAndDrop/article.html) or [the javapapers dragging tutorial](http://javapapers.com/android/android-drag-and-drop/) for a detailed look at handling dragging and dropping. Read the official [dragging and scaling](http://developer.android.com/training/gestures/scale.html) guide for the official overview. 
+Check out the [vogella dragging tutorial](http://www.vogella.com/articles/AndroidDragAndDrop/article.html) or [the javapapers dragging tutorial](http://javapapers.com/android/android-drag-and-drop/) for a detailed look at handling dragging and dropping. Read the official [drag and drop](http://developer.android.com/guide/topics/ui/drag-drop.html) guide for the official overview. 
 
 ### Shake Detection
 
@@ -319,4 +319,5 @@ Additional multi-touch events such as "rotation" of fingers, finger movement eve
  * <http://androidrises.blogspot.com/2012/10/draw-line-on-finger-touch.html>
  * <http://mrbool.com/how-to-work-with-swipe-gestures-in-android/28088>
  * <http://www.codeproject.com/Articles/319401/Simple-Gestures-on-Android>
+ * <http://developer.android.com/guide/topics/ui/drag-drop.html>
  * <http://javapapers.com/android/android-drag-and-drop/>
