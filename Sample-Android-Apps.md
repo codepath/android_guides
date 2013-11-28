@@ -3,12 +3,11 @@ One of the best ways to learn about Android is to checkout Android code in the w
 ## Code Samples
 
 * [Beginner Android Samples](https://github.com/thecodepath/intro_android_demo)
-* Intermediate Code Samples
-  * [Week 1: Drawables and Styles](https://github.com/thecodepath/android-drawable-styles-demo)
-  * [Week 2: Animations and Gestures](https://github.com/thecodepath/android-animation-gestures-demo)
-  * [Week 3: Custom Views](https://github.com/thecodepath/android-custom-view-demos)
-  * [Week 4: Services and Notifications](https://github.com/thecodepath/android-services-demo)
-  * [Week 5: Unit and Integration Testing](https://github.com/thecodepath/android-simple-test-demo)
+* [Drawables and Styles Demo](https://github.com/thecodepath/android-drawable-styles-demo)
+* [Animations and Gestures Demo](https://github.com/thecodepath/android-animation-gestures-demo)
+* [Custom Views Demo](https://github.com/thecodepath/android-custom-view-demos)
+* [Services and Notifications Demo](https://github.com/thecodepath/android-services-demo)
+* [Unit and Integration Testing Demo](https://github.com/thecodepath/android-simple-test-demo)
 * [Contacts Loader Demo](https://github.com/thecodepath/android-contacts-loader-demo)
 * [Google Maps Demo](https://github.com/thecodepath/android-google-maps-demo)
 * [Master-Detail Demo](https://github.com/thecodepath/android-master-detail-demo)
