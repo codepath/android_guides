@@ -72,11 +72,13 @@ In the typical case of using `startActivity`, the activity is launched and added
 However, in other cases the parent activity may want the launched activity to return a result back when it is finished. In this case, we use a different method to launch called `startActivityForResult` which allows the parent to retrieve the result based on a code that is returned (akin to an HTTP code).
 
 ```java
+// We set the REQUEST_CODE for this result
+private final int REQUEST_CODE = 20;
 // FirstActivity, launching an activity for a result
 public void onClick(View view) {
   Intent i = new Intent(ActivityOne.this, ActivityNamePrompt.class);
   i.putExtra("mode", 2); // pass arbitrary data to launched activity
-  // REQUEST_CODE can be any value we like, used to determine the result later
+  // REQUEST_CODE can be any value we like, used to determine the result type later
   startActivityForResult(i, REQUEST_CODE);
 }
 ```
