@@ -25,7 +25,7 @@ public void launchComposeView() {
 }
 ```
 
-In the launched second activity, the user can go back to the first by hitting "back" or if the developer wants to trigger the second activity to close, we need only call the [`finish` method](http://developer.android.com/reference/android/app/Activity.html#finish(\)):
+In the launched second activity, the user can go back to the first by hitting "back" or if the developer wants to trigger the second activity to close, we need only call the [`finish` method](http://developer.android.com/reference/android/app/Activity.html#finish\(\)):
 
 ```java
 // SecondActivity
