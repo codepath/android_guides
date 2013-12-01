@@ -36,7 +36,7 @@ public void onSubmit(View v) {
 }
 ```
 
-**Note:** The first argument of the constructor of an Intent used above is a [Context](http://developer.android.com/reference/android/content/Context.html) which at the moment is just the current Activity in scope.
+**Note:** The first argument of the Intent constructor used above is a [Context](http://developer.android.com/reference/android/content/Context.html) which at the moment is just the current Activity in scope.
 
 ### Passing Data to Launched Activities
 
