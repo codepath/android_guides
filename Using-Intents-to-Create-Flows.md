@@ -96,7 +96,7 @@ public void onSubmit(View v) {
   EditText etName = (EditText) findViewById(R.id.name);
   // Prepare data intent 
   Intent data = new Intent();
-  // Pass relevant result data back as a result
+  // Pass relevant data back as a result
   data.putExtra("name", etName.getText().toString());
   // Activity finished ok, return the data
   setResult(RESULT_OK, data); // set result code and bundle data for response
