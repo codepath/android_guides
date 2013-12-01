@@ -111,7 +111,9 @@ Once the sub-activity finishes, the onActivityResult() method in the calling act
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
   // REQUEST_CODE is defined above
   if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
+     // Extract name value from result extras
      String name = data.getExtras().getString("name");
+     // Toast the name to display temporarily on screen
      Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
   }
 } 
