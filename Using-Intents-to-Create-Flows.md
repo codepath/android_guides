@@ -26,17 +26,17 @@ public void launchComposeView() {
 }
 ```
 
-**Note:**The first argument of the constructor to Intent used above is a [Context](http://developer.android.com/reference/android/content/Context.html). For our purposes this is just the current Activity object in scope.
-
-In the launched second activity, the user can go back to the first by hitting "back" or if the developer wants to trigger the second activity to close, we need only call the [`finish` method](http://developer.android.com/reference/android/app/Activity.html#finish\(\)):
+Now, in the launched second activity, the user can go back to the first screen by hitting "back" or if the developer wants to trigger the second activity to close, we need only call the [`finish` method](http://developer.android.com/reference/android/app/Activity.html#finish\(\)):
 
 ```java
 // ActivityTwo.java
 public void onSubmit(View v) {
-  // closes the activity, returns to parent
+  // closes the activity and returns to first screen
   this.finish(); 
 }
 ```
+
+**Note:** The first argument of the constructor of an Intent used above is a [Context](http://developer.android.com/reference/android/content/Context.html). For our purposes this is just the current Activity object in scope.
 
 ### Passing Data to Launched Activities
 
