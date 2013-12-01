@@ -111,8 +111,8 @@ Once the sub-activity finishes, the onActivityResult() method in the calling act
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
   // REQUEST_CODE is defined above
   if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
-     Toast.makeText(this, data.getExtras().getString("name"),
-        Toast.LENGTH_SHORT).show();
+     String name = data.getExtras().getString("name");
+     Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
   }
 } 
 ```
