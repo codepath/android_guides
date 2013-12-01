@@ -2,7 +2,7 @@
 
 Intent is a powerful concept within the Android universe. An intent is a message that can be thought of as a request that is given to either an activity within your own app, an external application, or a built-in Android service.
 
-Think of an intent as a way for an Activity to communicate with the outside Android world. A few common tasks that an intent might be used for:
+Think of an intent as a way for an Activity to communicate with the outside Android world. A few key tasks that an intent might be used for within your apps:
 
  * Take the user to another screen (activity) within your application
  * Take the user to a particular URL within the Android web browser 
@@ -18,6 +18,7 @@ An "explicit" intent is used to launch other activities within your application.
 Using an intent is as simple as constructing the [Intent](http://developer.android.com/reference/android/content/Intent.html) with the correct parameters and then invoking that intent using the `startActivity` method:
 
 ```java
+// ActivityOne.java
 public void launchComposeView() {
   // first parameter is the context, second is the class of the activity to launch
   Intent i = new Intent(ActivityOne.this, ActivityTwo.class);
@@ -25,10 +26,12 @@ public void launchComposeView() {
 }
 ```
 
+**Note:**The first argument of the constructor to Intent used above is a [Context](http://developer.android.com/reference/android/content/Context.html). For our purposes this is just the current Activity object in scope.
+
 In the launched second activity, the user can go back to the first by hitting "back" or if the developer wants to trigger the second activity to close, we need only call the [`finish` method](http://developer.android.com/reference/android/app/Activity.html#finish\(\)):
 
 ```java
-// SecondActivity
+// ActivityTwo.java
 public void onSubmit(View v) {
   // closes the activity, returns to parent
   this.finish(); 
@@ -40,6 +43,7 @@ public void onSubmit(View v) {
 In addition to specifying the activity that we want to display, an intent can also pass key-value data between activities. Think of this as specifying the "request parameters" for an HTTP Request. You can specify the parameters by putting key-value pairs into the intent bundle:
 
 ```java
+// ActivityOne.java
 public void launchComposeView() {
   // first parameter is the context, second is the class of the activity to launch
   Intent i = new Intent(ActivityOne.this, ActivityTwo.class);
@@ -55,7 +59,7 @@ public void launchComposeView() {
 Once you have added data into the bundle, you can easily access that data within the launched activity:
 
 ```java
-// ActivityTwo (subactivity) can access any data passed into the inten
+// ActivityTwo.java (subactivity) can access any extras passed in
 protected void onCreate(Bundle savedInstanceState) {
    String username = getIntent().getStringExtra("username");
    String inReplyTo = getIntent().getStringExtra("in_reply_to");
@@ -72,6 +76,7 @@ In the typical case of using `startActivity`, the activity is launched and added
 However, in other cases the parent activity may want the launched activity to return a result back when it is finished. In this case, we use a different method to launch called `startActivityForResult` which allows the parent to retrieve the result based on a code that is returned (akin to an HTTP code).
 
 ```java
+// ActivityOne.java
 // REQUEST_CODE can be any value we like, used to determine the result type later
 private final int REQUEST_CODE = 20;
 // FirstActivity, launching an activity for a result
@@ -85,7 +90,7 @@ public void onClick(View view) {
 This will launch the subactivity, and when the subactivity is complete then it can return the result to the parent:
 
 ```java
-// ActivityNamePrompt, launched for a result
+// ActivityNamePrompt.java -- launched for a result
 @Override
 public void onSubmit(View v) {
   EditText etName = (EditText) findViewById(R.id.name);
@@ -101,7 +106,7 @@ public void onSubmit(View v) {
 Once the sub-activity finishes, the onActivityResult() method in the calling activity is be invoked:
 
 ```java
-// FirstActivity, time to handle the result of the sub-activity
+// ActivityOne.java, time to handle the result of the sub-activity
 @Override
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
   // REQUEST_CODE is defined above
