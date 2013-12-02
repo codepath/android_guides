@@ -78,7 +78,7 @@ Exploring how to allow user interaction and navigation within an app:
 * [[Gestures and Touch Events]] (Swipe, Shake, or Dragging Events)
 * [[Menus and Popups]] (Context Menu, PopupMenu, PopupWindow)
 * [[Dialogs with DialogFragment|Using DialogFragment]] (Displaying a content overlay)
-* [[Implementing a Rate Me Button]]
+* [[Implementing a Rate Me Feature]]
 
 ## Navigation
 
