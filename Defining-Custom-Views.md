@@ -198,10 +198,11 @@ public class ShapeSelectorView extends View {
   protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
     // Defines the extra padding for the shape name text
     int textPadding = 10;
+    int contentWidth = shapeWidth + getSuggestedMinimumWidth();
     // Try for a width based on our minimum
-    int minw = getPaddingLeft() + getPaddingRight() + getSuggestedMinimumWidth() + shapeWidth;
+    int minw = contentWidth + getPaddingLeft() + getPaddingRight();
     if (displayShapeName) { minw += textPadding; }
-    int w = resolveSizeAndState(minw, widthMeasureSpec, 1);
+    int w = resolveSizeAndState(minw, widthMeasureSpec, 0);
     // Ask for a height that would let the view get as big as it can
     int minh = shapeHeight + getPaddingBottom() + getPaddingTop();
     if (displayShapeName) { minh += textYOffset + textPadding; }
