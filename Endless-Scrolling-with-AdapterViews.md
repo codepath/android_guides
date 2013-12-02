@@ -1,8 +1,8 @@
 ## Overview
 
-A common application feature is to have an AdapterView (such as a ListView or GridView) that automatically loads more items as the user scrolls through the items (aka infinite scroll). This is done by triggering a request for more data once the user crosses a threshold of remaining items before they've hit the end. 
+A common application feature is to have an `AdapterView` (such as a `ListView` or `GridView`) that automatically loads more items as the user scrolls through the items (aka infinite scroll). This is done by triggering a request for more data once the user crosses a threshold of remaining items before they've hit the end. 
 
-Every AdapterView has support for binding to the `OnScrollListener` events which are triggered whenever a user scrolls through the collection. Using this system, we can define a basic `EndlessScrollListener` which supports most use cases by creating our own class that extends `OnScrollListener`:
+Every `AdapterView` has support for binding to the `OnScrollListener` events which are triggered whenever a user scrolls through the collection. Using this system, we can define a basic `EndlessScrollListener` which supports most use cases by creating our own class that extends `OnScrollListener`:
 
 ```java
 public abstract class EndlessScrollListener implements OnScrollListener {
@@ -106,7 +106,7 @@ public class MainActivity extends Activity {
 
 Now as you scroll, items will be automatically filling in because the `onLoadMore` method will be triggered once the user crosses the `visibleThreshold`. This approach works equally well for a `GridView` and the listener gives access to both the `page` as well as the `totalItemsCount` to support both pagination and offset based fetching.
 
-**Note:** Make sure to setup this listener on the Activity's onCreate method and not later on otherwise you may encounter unexpected issues.
+**Note:** Make sure to setup this listener in the `onCreate` method of the `Activity` and not later on otherwise you may encounter unexpected issues.
 
 ## References
 
