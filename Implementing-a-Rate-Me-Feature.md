@@ -9,7 +9,7 @@ This method is simpler to implement and is less annoying to users because it req
 
 To implement this method, you just need a `Button` or `View` with an `onClick` handler. For instance, let's say you have the xml-defined `Button`:
 
-```
+```xml
 <Button
     android:id="@+id/btnRate"
     android:text="Rate Me!"
@@ -19,7 +19,7 @@ To implement this method, you just need a `Button` or `View` with an `onClick` h
 
 The `onClick` handler points to a method called `rateMe`, so in the `Activity` file where this `Button` lives, you must define:
 
-```
+```java
 public void rateMe(View view) {
     try {
         startActivity(new Intent(Intent.ACTION_VIEW,
@@ -37,7 +37,7 @@ The `try/catch` block is necessary because the user may not have the Play Store 
 
 For this method, we make use of the open source library [AppRate](https://github.com/TimotheeJeannin/AppRate). Download this [jar](https://github.com/TimotheeJeannin/AppRate/raw/master/AppRateDownloads/AppRate_1.1.jar) and place it in your `libs` folder. In the `onCreate` method of your `MAIN` activity, place the codeblock to launch the prompt:
 
-```
+```java
 new AppRate(this).init();
 ```
 
@@ -45,7 +45,7 @@ The key difference between this method and the manual method is that this one la
 
 The above codeblock will launch the prompt as soon as they open your app, which is generally not the desired behavior. You'll most likely want to customize when your prompt occurs. Thankfully, most of the public methods for the [AppRate](https://github.com/TimotheeJeannin/AppRate) object return itself, so you can chain the methods together to easily customize the prompt. The following setup is recommended:
 
-```
+```java
 new AppRate(this)
     .setMinDaysUntilPrompt(7)
     .setMinLaunchesUntilPrompt(20)
