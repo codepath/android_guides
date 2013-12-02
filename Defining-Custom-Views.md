@@ -192,7 +192,7 @@ This will paint the square based on the `shapeColor` specified in the XML and wi
 
 In order to understand the width and height of a view that is being custom drawn, we need to define the `onMeasure` method which determines the width and height of the view based on it's contents. In this case, the height and width are determined by the shape and text drawn within the view. Let's define the `onMeasure` as follows:
 
-```
+```java
 public class ShapeSelectorView extends View {
   @Override
   protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
