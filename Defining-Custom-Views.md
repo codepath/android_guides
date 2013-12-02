@@ -213,7 +213,7 @@ public class ShapeSelectorView extends View {
 }
 ```
 
-Note that the calculations take into account the view's padding and calculate the content size. Also note that the `onMeasure` method must call the [setMeasuredDimension](http://developer.android.com/reference/android/view/View.html#setMeasuredDimension\(int, int\)) to determine the final width and height. Widths and heights are discussed using the [MeasureSpec](http://developer.android.com/reference/android/view/View.MeasureSpec.html) which encapsulates all the different types of constraints imposed by the parent layout for a view. The helper method [resolveSizeAndState()](http://developer.android.com/reference/android/view/View.html#resolveSizeAndState(int, int, int\)) returns an appropriate value by comparing the view's desired size to the spec passed into the method.
+Note that the calculations take into account the view's padding and calculate the content size. Also note that the `onMeasure` method must call the [setMeasuredDimension](http://developer.android.com/reference/android/view/View.html#setMeasuredDimension(int, int\)) to determine the final width and height. Widths and heights are discussed using the [MeasureSpec](http://developer.android.com/reference/android/view/View.MeasureSpec.html) which encapsulates all the different types of constraints imposed by the parent layout for a view. The helper method [resolveSizeAndState()](http://developer.android.com/reference/android/view/View.html#resolveSizeAndState(int, int, int\)) returns an appropriate value by comparing the view's desired size to the spec passed into the method.
 
 ### Toggling Between Shapes
 
