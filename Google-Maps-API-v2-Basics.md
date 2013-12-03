@@ -2,7 +2,36 @@
 
 This guide will instruct you on how use the Google Maps API v2 library to create a map within your application's activities and/or fragments.
 
+### Setup Map If Necessary
+
+Assuming you have added the GoogleMapv2 mapfragment to your layout, you should first run this method `onCreate()`. In my case, I am using the SupportMapFragment, either will work.
+
+```
+ private void setUpMapIfNeeded() {
+		    // Do a null check to confirm that we have not already instantiated the map.
+		    if (mapFragment == null) {
+		    	 mapFragment = ((SupportMapFragment) getFragmentManager().findFragmentById(R.id.map))
+				            .getMap();
+		        // Check if we were successful in obtaining the map.
+		        if (mapFragment != null) {
+		            // The Map is verified. It is now safe to manipulate the map.
+
+		        }
+		    }		   
+	 }
+```
+
+After you have run that it is safe for you to begin adding markers.
+
 ### Adding Markers to Map Fragment
+
+```
+Marker mapMarker = mapFragment.addMarker(new MarkerOptions()
+.position(listingPosition)					 								.title(listing.name)
+.snippet("Hours: " + listing.hoursOpen + " - "						 						+ listing.hoursClose)
+.icon(BitmapDescriptorFactory.fromResource(getMarkerType(listing.marker))));
+
+```
 
 ### Customize InfoWindow
 
