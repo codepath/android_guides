@@ -25,7 +25,7 @@ A `ViewPager` is a layout which can be added to any layout XML file inside a roo
 </LinearLayout>
 ```
 
-If you want an "indicator" that displays the pages available at the top as shown in the screenshot above, you need to include a nested indicator view called a []():
+If you want an "indicator" that displays the pages available at the top as shown in the screenshot above, you need to include a nested indicator view called a [PagerTabStrip](http://developer.android.com/reference/android/support/v4/view/PagerTabStrip.html):
 
 ```xml
 <android.support.v4.view.ViewPager
