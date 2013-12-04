@@ -63,13 +63,13 @@ Entries in the action bar are typically called actions. Use this method to infla
 ```xml
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
     <item
-        android:id="@+id/item1"
+        android:id="@+id/miCompose"
         android:icon="@drawable/ic_compose"
         android:showAsAction="ifRoom"
         android:title="Compose">
     </item>
     <item
-        android:id="@+id/item2"
+        android:id="@+id/miProfile"
         android:icon="@drawable/ic_profile"
         android:onClick="onProfileView"
         android:showAsAction="ifRoom|withText"
