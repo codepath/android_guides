@@ -126,9 +126,7 @@ public class MainActivity extends FragmentActivity {
 		vpPager.setAdapter(adapterViewPager);
 	}
 	
-	public static class MyPagerAdapter extends FragmentPagerAdapter {
-	  // ...
-        }
+	// ...
     }
 
 }
