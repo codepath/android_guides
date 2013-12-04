@@ -76,7 +76,7 @@ Make sure to setup your app to use the correct support theme within the `Android
 </manifest>
 ```
 
-For these compatibility items, you also need to be careful to **change the menu items** to use a custom prefix in `res/menu/example.xml` for the `showAsAction` instead of `android:showAsAction`:
+For these compatibility items, you also need to be careful to **change the menu items** to use a [custom prefix](http://developer.android.com/guide/topics/ui/actionbar.html#ActionItems) in `res/menu/example.xml` for the `showAsAction` instead of `android:showAsAction`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
