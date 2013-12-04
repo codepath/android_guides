@@ -25,7 +25,7 @@ A `ViewPager` is a layout which can be added to any layout XML file inside a roo
 
 ### Define Fragments
 
-Next, let's suppose we have two fragments `FirstFragment` and `SecondFragment` which contain a label in the layout and have implementations such as:
+Next, let's suppose we have defined two fragments `FirstFragment` and `SecondFragment` both of which contain a label in the layout and have implementations such as:
 
 ```java
 public class FirstFragment extends Fragment {
@@ -64,11 +64,77 @@ public class FirstFragment extends Fragment {
 
 ### Setup FragmentPagerAdapter
 
-Now we need to define the adapter that will properly determine how many pages exist and which fragment to display for each page of the adapter using a [FragmentPagerAdapter](http://developer.android.com/reference/android/support/v4/app/FragmentPagerAdapter.html):
+Now we need to define the adapter that will properly determine how many pages exist and which fragment to display for each page of the adapter by creating a [FragmentPagerAdapter](http://developer.android.com/reference/android/support/v4/app/FragmentPagerAdapter.html):
 
 ```java
+public class MainActivity extends FragmentActivity {
+	// ...
+	
+	public static class MyPagerAdapter extends FragmentPagerAdapter {
+		private static int NUM_ITEMS = 3;
+		
+        public MyPagerAdapter(FragmentManager fragmentManager) {
+            super(fragmentManager);
+        }
+        
+        // Returns total number of pages
+        @Override
+        public int getCount() {
+            return NUM_ITEMS;
+        }
+ 
+        // Returns the fragment to display for that page
+        @Override
+        public Fragment getItem(int position) {
+            switch (position) {
+            case 0: // Fragment # 0 - This will show FirstFragment
+                return FirstFragment.newInstance(0, "Page # 1");
+            case 1: // Fragment # 0 - This will show FirstFragment different title
+                return FirstFragment.newInstance(1, "Page # 2");
+            case 2: // Fragment # 1 - This will show SecondFragment
+                return SecondFragment.newInstance(2, "Page # 3");
+            default:
+            	return null;
+            }
+        }
+        
+        // Returns the page title for the top indicator
+        @Override
+        public CharSequence getPageTitle(int position) {
+        	return "Page " + position;
+        }
+        
+    }
 
+}
 ```
+
+### Apply the Adapter
+
+Finally, let's associate the `ViewPager` with a new instance of our adapter:
+
+```java
+public class MainActivity extends FragmentActivity {
+	FragmentPagerAdapter adapterViewPager;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+		ViewPager vpPager = (ViewPager) findViewById(R.id.vpPager);
+		adapterViewPager = new MyPagerAdapter(getSupportFragmentManager());
+		vpPager.setAdapter(adapterViewPager);
+	}
+	
+	public static class MyPagerAdapter extends FragmentPagerAdapter {
+	  // ...
+        }
+    }
+
+}
+```
+
+And now we have a basic functioning `ViewPager`. We might want to check out the [ViewPagerIndicator](http://viewpagerindicator.com/) for a better top indicator that is quite popular. We may also want to keep in mind the alternate [FragmentStatePagerAdapter](http://developer.android.com/reference/android/support/v4/app/FragmentStatePagerAdapter.html) in cases where there are many fragment pages and the pages are of a more dynamic nature.
 
 ## References
 
