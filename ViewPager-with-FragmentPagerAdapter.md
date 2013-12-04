@@ -111,6 +111,8 @@ public class MainActivity extends FragmentActivity {
 }
 ```
 
+For more complex cases with many pages, check out the [[more dynamic approach|ViewPager-with-FragmentPagerAdapter#dynamic-viewpager-fragments]] with `SmartFragmentStatePagerAdapter` explained later.
+
 ### Apply the Adapter
 
 Finally, let's associate the `ViewPager` with a new instance of our adapter:
