@@ -76,14 +76,13 @@ Make sure to setup your app to use the correct support theme within the `Android
 </manifest>
 ```
 
-For these compatibility items, you also need to be careful to **change the menu items** to use a custom prefix in `res/menu/example.xml`:
+For these compatibility items, you also need to be careful to **change the menu items** to use a custom prefix in `res/menu/example.xml` for the `showAsAction` instead of `android:showAsAction`:
 
 ```java
 <?xml version="1.0" encoding="utf-8"?>
 <menu
   xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:myapp="http://schemas.android.com/apk/res-auto"
->
+  xmlns:myapp="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/item_menu_ok" android:icon="@drawable/ic_action_ok"
         android:title="@string/ok" myapp:showAsAction="ifRoom"></item>
     <item android:id="@+id/item_menu_cancel" android:icon="@drawable/ic_action_cancel"
