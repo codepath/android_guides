@@ -32,6 +32,7 @@ If you want an "indicator" that displays the pages available at the top as shown
    android:id="@+id/vpPager"
    android:layout_width="match_parent"
    android:layout_height="wrap_content">
+
    <android.support.v4.view.PagerTabStrip
         android:id="@+id/pager_header"
         android:layout_width="match_parent"
@@ -39,6 +40,7 @@ If you want an "indicator" that displays the pages available at the top as shown
         android:layout_gravity="top"
         android:paddingBottom="4dp"
         android:paddingTop="4dp" />
+
 </android.support.v4.view.ViewPager>
 ```
 
