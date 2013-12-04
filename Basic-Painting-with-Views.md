@@ -120,8 +120,8 @@ public class SimpleDrawingView extends View {
     float touchX = event.getX();
     float touchY = event.getY();
     circlePoints.add(new Point(Math.round(touchX), Math.round(touchY)));
-    // redraw
-    invalidate();
+    // indicate view should be redrawn
+    postInvalidate();
     return true;
   }
 
@@ -164,12 +164,12 @@ public class SimpleDrawingView extends View {
         case MotionEvent.ACTION_DOWN:
             // Starts a new line in the path
             path.moveTo(pointX, pointY);
-            postInvalidate(); // Forces a view to redraw
+            postInvalidate(); // Indicate view should be redrawn
             return true;
         case MotionEvent.ACTION_MOVE:
             // Draws line between last point and this point
             path.lineTo(pointX, pointY);
-            postInvalidate(); // Forces a view to redraw
+            postInvalidate(); // Indicate view should be redrawn
             return true;
         default:
             return false;
