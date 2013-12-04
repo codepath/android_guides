@@ -70,8 +70,8 @@ Now we need to define the adapter that will properly determine how many pages ex
 public class MainActivity extends FragmentActivity {
 	// ...
 	
-	public static class MyPagerAdapter extends FragmentPagerAdapter {
-		private static int NUM_ITEMS = 3;
+    public static class MyPagerAdapter extends FragmentPagerAdapter {
+	private static int NUM_ITEMS = 3;
 		
         public MyPagerAdapter(FragmentManager fragmentManager) {
             super(fragmentManager);
