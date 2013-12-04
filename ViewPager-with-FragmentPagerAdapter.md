@@ -44,7 +44,7 @@ If you want an "indicator" that displays the pages available at the top as shown
 </android.support.v4.view.ViewPager>
 ```
 
-which will automatically display the page indicator for your pager.
+which will automatically display the page indicator for your pager. You might want to check out the popular [ViewPagerIndicator](http://viewpagerindicator.com/) for an improved page indicator. 
 
 ### Define Fragments
 
@@ -157,7 +157,37 @@ public class MainActivity extends FragmentActivity {
 }
 ```
 
-And now we have a basic functioning `ViewPager`. We might want to check out the [ViewPagerIndicator](http://viewpagerindicator.com/) for a better top indicator that is quite popular. 
+And now we have a basic functioning `ViewPager` with any number of fragments as pages which can be swiped between. 
+
+### Setup OnPageChangeListener
+
+If the Activity needs to be able listen for changes to the page selected or other events surrounding the `ViewPager`, then we just need to hook into the [ViewPager.OnPageChangeListener](http://developer.android.com/reference/android/support/v4/view/ViewPager.OnPageChangeListener.html) on the `ViewPager` to handle the events:
+
+```java
+// Attach the page change listener inside the activity
+vpPager.setOnPageChangeListener(new OnPageChangeListener() {
+	
+	// This method will be invoked when a new page becomes selected.
+	@Override
+	public void onPageSelected(int position) {
+		Toast.makeText(HomeActivity.this, 
+                    "Selected page position: " + position, Toast.LENGTH_SHORT).show();
+	}
+	
+	// This method will be invoked when the current page is scrolled
+	@Override
+	public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+		// Code goes here
+	}
+	
+	// Called when the scroll state changes: 
+	// SCROLL_STATE_IDLE, SCROLL_STATE_DRAGGING, SCROLL_STATE_SETTLING
+	@Override
+	public void onPageScrollStateChanged(int state) {
+		// Code goes here
+	}
+});
+```
 
 ## Dynamic ViewPager Fragments
 
