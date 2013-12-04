@@ -10,9 +10,9 @@ Customizing your own views involves extending `View` or an existing subclass, ov
 
 Creating custom views is centered around four primary aspects that we may need to control or modify:
 
- * [Drawing](http://developer.android.com/training/custom-views/custom-drawing.html) - Control the rendering of the view on screen visually by overriding the [onDraw](http://developer.android.com/reference/android/view/View.html#onDraw\(android.graphics.Canvas\)) method. 
- * [Interaction](http://developer.android.com/training/custom-views/making-interactive.html) - Control the ways the user can interact with the view with the [onTouchEvent](http://developer.android.com/reference/android/view/View.html#onTouchEvent\(android.view.MotionEvent\)) and gestures.
- * [Measurement](http://developer.android.com/guide/topics/ui/custom-components.html#custom) - Control the content dimensions of the view on screen by overriding the [onMeasure](http://developer.android.com/reference/android/view/View.html#onMeasure\(int, int\)) method.
+ * [Drawing](http://developer.android.com/training/custom-views/custom-drawing.html) - Control the rendering of the view on screen visually by overriding the <a href="http://developer.android.com/reference/android/view/View.html#onDraw(android.graphics.Canvas)">onDraw</a> method. 
+ * [Interaction](http://developer.android.com/training/custom-views/making-interactive.html) - Control the ways the user can interact with the view with the <a href="http://developer.android.com/reference/android/view/View.html#onTouchEvent(android.view.MotionEvent)">onTouchEvent</a> and gestures.
+ * [Measurement](http://developer.android.com/guide/topics/ui/custom-components.html#custom) - Control the content dimensions of the view on screen by overriding the <a href="http://developer.android.com/reference/android/view/View.html#onMeasure(int, int)">onMeasure</a> method.
  * [Attributes](http://developer.android.com/training/custom-views/create-view.html#customattr) - Defining custom XML attributes for your view and using them to control behavior with [TypedArray](http://developer.android.com/reference/android/content/res/TypedArray.html)
 
 To take a closer look, suppose we want to **create our own view control that allows the user to select between different shapes**. The view will display a single shape (square, circle or triangle) and clicking on the view will toggle the shape selected between the different options.
