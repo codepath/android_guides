@@ -25,6 +25,25 @@ A `ViewPager` is a layout which can be added to any layout XML file inside a roo
 </LinearLayout>
 ```
 
+If you want an "indicator" that displays the pages available at the top as shown in the screenshot above, you need to include a nested indicator view called a []():
+
+```xml
+<android.support.v4.view.ViewPager
+   android:id="@+id/vpPager"
+   android:layout_width="match_parent"
+   android:layout_height="wrap_content">
+   <android.support.v4.view.PagerTabStrip
+        android:id="@+id/pager_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp" />
+</android.support.v4.view.ViewPager>
+```
+
+which will automatically display the page indicator for your pager.
+
 ### Define Fragments
 
 Next, let's suppose we have defined two fragments `FirstFragment` and `SecondFragment` both of which contain a label in the layout and have implementations such as:
