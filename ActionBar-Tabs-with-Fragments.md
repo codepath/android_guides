@@ -71,9 +71,8 @@ Make sure to setup your app to use the correct support theme within the `Android
     package="com.codepath.apps.codepathbootcampapp"
     ...>
     <application
-        android:allowBackup="true"
-        ...
-        android:theme="@style/Theme.Base.AppCompat.Light.DarkActionBar" >
+        android:theme="@style/Theme.Base.AppCompat.Light.DarkActionBar" 
+        ...>
 </manifest>
 ```
 
