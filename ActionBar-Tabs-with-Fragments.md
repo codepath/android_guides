@@ -63,6 +63,20 @@ Now, for your app, right-click and select "Properties..." and then add "android-
 
 ![Screen 2](http://i.imgur.com/E5IYm69.png)
 
+Make sure to setup your app to use the correct support theme within the `AndroidManifest.xml`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.codepath.apps.codepathbootcampapp"
+    ...>
+    <application
+        android:allowBackup="true"
+        ...
+        android:theme="@style/Theme.Base.AppCompat.Light.DarkActionBar" >
+</manifest>
+```
+
 To setup tabs using ActionBar and fragments, you need to add a `TabListener` implementation to your application which defines the behavior of a tab when activated. A good default implementation is just [adding this](https://gist.github.com/nesquena/8b9f9ec29582afd4d138) to `SupportFragmentTabListener.java`. 
 
 Once you have created the `SupportFragmentTabListener` [from this snippet](https://gist.github.com/nesquena/8b9f9ec29582afd4d138) within your app, simply setup the ActionBar and define which tabs you would like to display and attach listeners for each tab:
