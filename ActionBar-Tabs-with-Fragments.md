@@ -78,7 +78,7 @@ Make sure to setup your app to use the correct support theme within the `Android
 
 For these compatibility items, you also need to be careful to **change the menu items** to use a custom prefix in `res/menu/example.xml` for the `showAsAction` instead of `android:showAsAction`:
 
-```java
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <menu
   xmlns:android="http://schemas.android.com/apk/res/android"
