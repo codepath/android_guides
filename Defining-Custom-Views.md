@@ -188,7 +188,7 @@ This will paint the square based on the `shapeColor` specified in the XML and wi
 
 ![ShapeView 1](http://i.imgur.com/CUJnh0b.png)
 
-You can read more on the official [Custom 2D Drawing Tutorial](http://developer.android.com/guide/topics/graphics/2d-graphics.html).
+You can read more about drawing on a canvad on the official [Custom 2D Drawing Tutorial](http://developer.android.com/guide/topics/graphics/2d-graphics.html).
 
 ### Calculating the Dimensions
 
