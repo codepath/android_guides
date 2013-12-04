@@ -132,8 +132,77 @@ public class MainActivity extends FragmentActivity {
 }
 ```
 
-And now we have a basic functioning `ViewPager`. We might want to check out the [ViewPagerIndicator](http://viewpagerindicator.com/) for a better top indicator that is quite popular. We may also want to keep in mind the alternate [FragmentStatePagerAdapter](http://developer.android.com/reference/android/support/v4/app/FragmentStatePagerAdapter.html) in cases where there are many fragment pages and the pages are of a more dynamic nature.
+And now we have a basic functioning `ViewPager`. We might want to check out the [ViewPagerIndicator](http://viewpagerindicator.com/) for a better top indicator that is quite popular. 
 
+## Dynamic ViewPager Fragments
+
+In certain cases, we may require a dynamic `ViewPager` with pages being added or removed on the fly. If your ViewPager is more dynamic with many pages and fragments, we will want to use the the alternate [FragmentStatePagerAdapter](http://developer.android.com/reference/android/support/v4/app/FragmentStatePagerAdapter.html) instead. Below shows us how to use this and also intelligently cache the fragments for easy lookup.
+
+First, copy in the [SmartFragmentStatePagerAdapter.java](https://gist.github.com/nesquena/c715c9b22fb873b1d259) which provides the intelligent caching functionality for our `ViewPager`. This solves the common problem of needing to **access the current item in the ViewPager**.
+
+Now, we want to extend from `SmartFragmentStatePagerAdapter` copied above when declaring our adapter so we can take advantage of the better memory management of the state pager:
+
+```java
+public class MainActivity extends FragmentActivity {
+    // ...
+    private SmartFragmentStatePagerAdapter adapterViewPager;
+    
+    // Extend from SmartFragmentStatePagerAdapter now instead for more dynamic ViewPager items
+    public static class MyPagerAdapter extends SmartFragmentStatePagerAdapter {
+	private static int NUM_ITEMS = 3;
+		
+        public MyPagerAdapter(FragmentManager fragmentManager) {
+            super(fragmentManager);
+        }
+        
+        // Returns total number of pages
+        @Override
+        public int getCount() {
+            return NUM_ITEMS;
+        }
+ 
+        // Returns the fragment to display for that page
+        @Override
+        public Fragment getItem(int position) {
+            switch (position) {
+            case 0: // Fragment # 0 - This will show FirstFragment
+                return FirstFragment.newInstance(0, "Page # 1");
+            case 1: // Fragment # 0 - This will show FirstFragment different title
+                return FirstFragment.newInstance(1, "Page # 2");
+            case 2: // Fragment # 1 - This will show SecondFragment
+                return SecondFragment.newInstance(2, "Page # 3");
+            default:
+            	return null;
+            }
+        }
+        
+        // Returns the page title for the top indicator
+        @Override
+        public CharSequence getPageTitle(int position) {
+        	return "Page " + position;
+        }
+        
+    }
+
+}
+```
+
+Now with this adapter in place, we can also easily access any fragments within the `ViewPager` with:
+
+```java
+adapterViewPager.getRegisteredFragment(0); 
+// returns first Fragment item within the pager
+```
+
+and we can easily access the "current" pager item with:
+
+```java
+adapterViewPager.getRegisteredFragment(vpPager.getCurrentItem());
+// returns current Fragment item displayed within the pager
+```
+
+This pattern should save your app quite a deal of memory and allow for much easier management of fragments within your pager for the right situation.
+ 
 ## References
 
 * <http://architects.dzone.com/articles/android-tutorial-using>
