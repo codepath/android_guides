@@ -188,6 +188,8 @@ This will paint the square based on the `shapeColor` specified in the XML and wi
 
 ![ShapeView 1](http://i.imgur.com/CUJnh0b.png)
 
+You can read more on the official [Custom 2D Drawing Tutorial](http://developer.android.com/guide/topics/graphics/2d-graphics.html).
+
 ### Calculating the Dimensions
 
 In order to understand the width and height of a view that is being custom drawn, we need to define the `onMeasure` method which determines the width and height of the view based on it's contents. In this case, the height and width are determined by the shape and text drawn within the view. Let's define the `onMeasure` as follows:
