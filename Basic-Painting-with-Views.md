@@ -164,16 +164,17 @@ public class SimpleDrawingView extends View {
         case MotionEvent.ACTION_DOWN:
             // Starts a new line in the path
             path.moveTo(pointX, pointY);
-            postInvalidate(); // Indicate view should be redrawn
-            return true;
+            break;
         case MotionEvent.ACTION_MOVE:
             // Draws line between last point and this point
             path.lineTo(pointX, pointY);
-            postInvalidate(); // Indicate view should be redrawn
-            return true;
+            break;
         default:
             return false;
         }
+
+       postInvalidate(); // Indicate view should be redrawn
+       return true; // Indicate we've consumed the touch
     }
 
    // ...
