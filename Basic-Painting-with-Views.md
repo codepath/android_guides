@@ -171,7 +171,7 @@ public class SimpleDrawingView extends View {
             break;
         default:
             return false;
-        }
+       }
 
        postInvalidate(); // Indicate view should be redrawn
        return true; // Indicate we've consumed the touch
