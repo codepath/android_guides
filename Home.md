@@ -110,7 +110,7 @@ Understanding how to build powerful and flexible views using Fragments:
 * [[Fragment Navigation Drawer]]
 * [[DialogFragment Overview|Using DialogFragment]]
 * [[Flexible User Interfaces]] (with Fragments)
-* [[ViewPager with FragmentPagerAdapter]] (**Needs Attention**)
+* [[ViewPager with FragmentPagerAdapter]]
 * [[Settings with PreferenceFragment]] (**Needs Attention**)
 
 ## Providers, Sensors and Components
