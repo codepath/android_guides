@@ -75,7 +75,7 @@ public String myKey = "submit_label"; // Maps to R.string.submit_label
 public String myStringValue = getStringValue(myKey); // Returns string text
 ```
 
-This can be done similarly for other types of resources as well. Check out the [getResources](http://developer.android.com/reference/android/content/res/Resources.html) object and [getIdentifier](http://developer.android.com/reference/android/content/res/Resources.html#getIdentifier(java.lang.String, java.lang.String, java.lang.String\)) for more details.
+This can be done similarly for other types of resources as well. Check out the [getResources](http://developer.android.com/reference/android/content/res/Resources.html) object and <a href="http://developer.android.com/reference/android/content/res/Resources.html#getIdentifier(java.lang.String, java.lang.String, java.lang.String)">getIdentifier</a> for more details.
 
 ## References
 
