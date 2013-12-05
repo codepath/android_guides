@@ -122,19 +122,22 @@ This will build the apk, then automatically compile and run your integration tes
 To add dependencies to your project, you need to modify the `build.gradle` file and add extra lines configuring the packages you require. For example, for certain Google or Android, dependencies look like:
 
 ```bash
-dependencies {
-    // Google Play Services
-    compile 'com.google.android.gms:play-services:4.0.30'
+android {
+  ...
+  dependencies {
+      // Google Play Services
+      compile 'com.google.android.gms:play-services:4.0.30'
 
-    // Support Libraries
-    compile 'com.android.support:support-v4:19.0.0'
-    compile 'com.android.support:appcompat-v7:19.0.0'
-    compile 'com.android.support:gridlayout-v7:19.0.0'
-    compile 'com.android.support:support-v7-mediarouter:19.0.0'
-    compile 'com.android.support:support-v13:19.0.0'
+      // Support Libraries
+      compile 'com.android.support:support-v4:19.0.0'
+      compile 'com.android.support:appcompat-v7:19.0.0'
+      compile 'com.android.support:gridlayout-v7:19.0.0'
+      compile 'com.android.support:support-v7-mediarouter:19.0.0'
+      compile 'com.android.support:support-v13:19.0.0'
 
-    // Note: these libraries require the "Google Repository" and "Android Repository"
-    //       to be installed via the SDK manager.
+      // Note: these libraries require the "Google Repository" and "Android Repository"
+      //       to be installed via the SDK manager.
+  }
 }
 ```
 
