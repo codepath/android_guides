@@ -117,6 +117,31 @@ gradle build
 
 This will build the apk, then automatically compile and run your integration tests.
 
+## Declaring Dependencies
+
+To add dependencies to your project, you need to modify the `build.gradle` file and add extra lines configuring the packages you require. For example, for certain Google or Android, dependencies look like:
+
+```bash
+dependencies {
+    // Google Play Services
+    compile 'com.google.android.gms:play-services:4.0.30'
+
+    // Support Libraries
+    compile 'com.android.support:support-v4:19.0.0'
+    compile 'com.android.support:appcompat-v7:19.0.0'
+    compile 'com.android.support:gridlayout-v7:19.0.0'
+    compile 'com.android.support:support-v7-mediarouter:19.0.0'
+    compile 'com.android.support:support-v13:19.0.0'
+
+    // Note: these libraries require the "Google Repository" and "Android Repository"
+    //       to be installed via the SDK manager.
+}
+```
+
+You can also add dependencies based on the [Maven Central Repository](http://search.maven.org/). The best tool for finding packages is actually the [Gradle Please](http://gradleplease.appspot.com/) utility that takes care of helping you locate the correct package and version to add to your gradle file for any library:
+
+<a href="http://gradleplease.appspot.com"><img src="http://i.imgur.com/MT7TbPg.png" title="Gradle Please Utility" /></a>
+
 ## Resources
 
 Check out the following links for more details:
