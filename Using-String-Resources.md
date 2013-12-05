@@ -50,7 +50,7 @@ To access the resource directly in your Java code, simply use the `getResources.
 var submitText = getResources().getString(R.string.submit_label)
 ```
 
-And the string value will be retrieved. This similar pattern works for almost any resource from images (drawables) to colors. However, each resource is defined within different folders and files within the `res` directory depending on their type.
+And the string value will be retrieved. This similar pattern works for almost any resource from images (drawables) to colors. The `getResources()` method returns a [Resources](http://developer.android.com/reference/android/content/res/Resources.html) object with many resource fetching methods. Each resource is defined within different folders and files within the `res` directory depending on their type.
 
 ### Dynamic Resource Retrieval
 
