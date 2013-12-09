@@ -112,8 +112,8 @@ public class UsersAdapter extends ArrayAdapter<User> {
           viewHolder = new ViewHolder();
           LayoutInflater inflater = LayoutInflater.from(getContext());
           convertView = inflater.inflate(R.layout.item_user, null);
-          viewHolder.name = (TextView) view.findViewById(R.id.tvName);
-          viewHolder.home = (TextView) view.findViewById(R.id.tvHome);
+          viewHolder.name = (TextView) convertView.findViewById(R.id.tvName);
+          viewHolder.home = (TextView) convertView.findViewById(R.id.tvHome);
           convertView.setTag(viewHolder);
        } else {
            viewHolder = (ViewHolder) convertView.getTag();
