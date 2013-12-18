@@ -30,7 +30,7 @@ Tests in Android are organized into their own projects. A test project is a dire
 
 The Android testing API provides hooks into the Android component and application life cycle. These hooks are called the instrumentation API and allow your tests to control the life cycle events. The Android instrumentation API allows you to run the test project and the normal Android project in the same process so that the test project can call methods of the Android project directly.
 
-#### Unit and Functional Examples
+#### Creating a Test Project
 
 Let's try testing a very simple application called [SimpleApp](https://github.com/thecodepath/android-simple-app). This app is just two activities. The first (`FirstActivity`) has a text field and a button. When you type in the text field and hit the button, a `SecondActivity` appears that displays the text entered.
 
@@ -42,7 +42,13 @@ Let's take a look at how to test this very simple application using the Android 
 
 ![Test Project](http://i.imgur.com/7APmagr.png)
 
-Select the "Test Target" as SimpleApp. Now we have our brand new test project for writing out app test cases. If we want to embed the test project within our existing application within a folder, check out [this step-by-step guide](http://jonblack.org/2012/11/24/creating-an-android-test-project-within-a-project/). Next, let's test the basic behavior of our application. Create a new test class called `FirstActivityUnitTest` extending from superclass `android.test.ActivityUnitTestCase`. The overall structure of a `ActivityUnitTestCase` is:
+Select the "Test Target" as SimpleApp. Now we have our brand new test project for writing out app test cases. If we want to embed the test project within our existing application within a folder, check out [this step-by-step guide](http://jonblack.org/2012/11/24/creating-an-android-test-project-within-a-project/). 
+
+#### Unit Testing
+
+Unit testing is about testing a particular component (i.e activity) in isolation of other components. These tests tend to be simpler and faster than integration tests. 
+
+Now, let's test the basic behavior of our application. Create a new test class called `FirstActivityUnitTest` extending from superclass `android.test.ActivityUnitTestCase`. The overall structure of a `ActivityUnitTestCase` is:
 
 ```java
 public class FirstActivityUnitTest extends
@@ -121,6 +127,10 @@ public class FirstActivityUnitTest extends
 ```
 
 The full source code for that file can be [found here](https://gist.github.com/nesquena/7f38c84891abe7528991). This is the basic structure of an Activity unit test. Now, in Eclipse we can right-click and select "Run As..." and then select "Android JUnit Test" and the tests will execute within the test runner. The tests should both pass and the "test bar" should be green.
+
+#### Functional Testing
+
+Functional testing is about testing a series of components (i.e activity) and their interactions with one another. These tests tend to be more complex and slower than unit tests.
 
 For completeness, let's also check out how to write functional tests. The last test was a simple "unit test" that checked the first activity. Let's now write an integration test that will test the flow of both activities and check the text is properly displayed on the second activity. Create a new test class called `SimpleActivityFunctionalTest` extending from superclass `android.test.ActivityInstrumentationTestCase2`. The overall structure of a `SimpleActivityFunctionalTest` is:
 
