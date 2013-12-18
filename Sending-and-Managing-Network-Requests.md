@@ -84,7 +84,7 @@ ImageView ivBasicImage = (ImageView) findViewById(R.id.ivBasicImage);
 imageLoader.displayImage(imageUri, ivBasicImage);
 ```
 
-The important thing here is to notice just how much cleaner and clearer using third-party high level libraries can make application development.
+The important thing here is to notice just how much cleaner and clearer app develop can be when using third-party high level libraries. An popular alternative to the universal-image-loader is called [Picasso](http://square.github.io/picasso/) which serves a similar purpose.
 
 ### Displaying Remote Images (The "Hard" Way)
 
