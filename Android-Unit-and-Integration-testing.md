@@ -131,7 +131,11 @@ You may notice the use of the `@SmallTest` annotation which is used to indicate 
 
 [![Size table](http://i.imgur.com/dwvkQI2.png)](http://googletesting.blogspot.com/2010/12/test-sizes.html)
 
-The full source code for that file can be [found here](https://gist.github.com/nesquena/7f38c84891abe7528991). This is the basic structure of an Activity unit test. Now, in Eclipse we can right-click and select "Run As..." and then select "Android JUnit Test" and the tests will execute within the test runner. The tests should both pass and the "test bar" should be green.
+The full source code for that file can be [found here](https://gist.github.com/nesquena/7f38c84891abe7528991). This is the basic structure of an Activity unit test. 
+
+![Run Tests](http://i.imgur.com/k6LjpW9.png)
+
+Now, in Eclipse we can right-click and select "Run As..." and then select "Android JUnit Test" and the tests will execute within the test runner. The tests should both pass and the "test bar" should be green.
 
 #### Functional Testing
 
@@ -228,6 +232,10 @@ public class SimpleActivityFunctionalTest extends
 
 The full functional test source code can be [found here](https://gist.github.com/nesquena/0c5be91e4cd7698cf3be). At this point we have tested the functionality of our basic application and we have explored both unit testing and functional testing approaches using the built-in Android Testing Framework.
 
+![Run Tests](http://i.imgur.com/k6LjpW9.png)
+
+Now, in Eclipse we can right-click and select "Run As..." and then select "Android JUnit Test" and the tests will execute within the test runner. The tests should both pass and the "test bar" should be green.
+
 #### More Details
 
 You can check out the [Testing API](http://developer.android.com/tools/testing/testing_android.html#TestAPI) on the official docs. To understand how to test activities in particular, check out the [Activity Testing Guide](http://developer.android.com/tools/testing/activity_testing.html) including the `ActivityInstrumentationTestCase2` class. You can also read about how to do testing [within the Eclipse IDE](http://developer.android.com/tools/testing/testing_eclipse.html).
@@ -315,6 +323,10 @@ public void testStartSecondActivity() throws Exception {
 ```
 
 The full source for this test can be [found here](https://gist.github.com/nesquena/631575e209e2cd165719). Compare this with the official Android testing and notice how much cleaner and clearer tests are with Robotium. 
+
+![Run Tests](http://i.imgur.com/k6LjpW9.png)
+
+Now, in Eclipse we can right-click and select "Run As..." and then select "Android JUnit Test" and the tests will execute within the test runner. The tests should both pass and the "test bar" should be green.
 
 #### Solo Actions
 
