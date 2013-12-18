@@ -6,9 +6,9 @@ Automated Testing is an important topic that helps us ensure quality when buildi
 
 There are three common approaches used for automated Android testing:
 
- * [Google Android Testing](http://developer.android.com/tools/testing/testing_android.html) - This is the framework included as part of the platform. ([Jump](https://github.com/thecodepath/android_guides/wiki/Android-Unit-and-Integration-testing#android-testing-framework))
- * [Robotium](https://code.google.com/p/robotium/) - Black box integration testing for Android ([Jump](https://github.com/thecodepath/android_guides/wiki/Android-Unit-and-Integration-testing#robotium))
- * [Robolectric](http://robolectric.org/index.html) - Unit tests that run outside the emulator making the tests very fast ([Jump](https://github.com/thecodepath/android_guides/wiki/Android-Unit-and-Integration-testing#robolectric))
+ * [Google Android Testing](http://developer.android.com/tools/testing/testing_android.html) - This is the framework included as part of the platform. ([Jump](#android-testing-framework))
+ * [Robotium](https://code.google.com/p/robotium/) - Black box integration testing for Android ([Jump](#robotium))
+ * [Robolectric](http://robolectric.org/index.html) - Unit tests that run outside the emulator making the tests very fast ([Jump](#robolectric))
  
 The first question many developers have is which tools to use in their applications. As everyone will tell you, this depends on your circumstance. However, I think for many apps the right combination is **using both Robolectric and Robotium**.
 
@@ -197,7 +197,8 @@ public class SimpleActivityFunctionalTest extends
       assertEquals("Text should be the field value", fieldValue, textView
           .getText().toString());
       
-      // Press back and click again
+      // Press back to return to original activity
+      // We have to manage the initial position within the emulator
       this.sendKeys(KeyEvent.KEYCODE_BACK);
   }
 	
@@ -281,6 +282,10 @@ public void testStartSecondActivity() throws Exception {
   // Validate the text on the TextView
   assertEquals("Text should be the field value", fieldValue, 
       textView.getText().toString());
+
+  // Return to the original activity
+  // We have to manage the initial position within the emulator
+  solo.goBack();
 }
 ```
 
