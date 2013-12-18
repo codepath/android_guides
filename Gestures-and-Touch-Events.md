@@ -179,7 +179,7 @@ mImageView.setImageDrawable(someBitmap);
 PhotoViewAttacher mAttacher = new PhotoViewAttacher(mImageView);
 ```
 
-Check out the [PhotoView](https://github.com/chrisbanes/PhotoView) readme and sample for more details.
+Check out the [PhotoView](https://github.com/chrisbanes/PhotoView) readme and sample for more details. You can also check the [TouchImageView](https://github.com/MikeOrtiz/TouchImageView) library which is a nice alternative.
 
 ### Dragging and Dropping
 
