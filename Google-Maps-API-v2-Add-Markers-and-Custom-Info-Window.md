@@ -39,7 +39,8 @@ If you want to use your own layout instead of the default options, you can do so
 
 Here is the layout file custom_info_window.xml
 
-```<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+```
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
