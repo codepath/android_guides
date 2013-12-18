@@ -127,6 +127,10 @@ public class FirstActivityUnitTest extends
 }
 ```
 
+You may notice the use of the `@SmallTest` annotation which is used to indicate the "scale" of each test method and categorize them into groups. This allows us to run only certain groups of tests instead of the entire suite to allow for faster targeted test executions. Google has a [blog post](http://googletesting.blogspot.com/2010/12/test-sizes.html) explaining the rules of thumb for organizing tests:
+
+[![Size table](http://i.imgur.com/dwvkQI2.png)](http://googletesting.blogspot.com/2010/12/test-sizes.html)
+
 The full source code for that file can be [found here](https://gist.github.com/nesquena/7f38c84891abe7528991). This is the basic structure of an Activity unit test. Now, in Eclipse we can right-click and select "Run As..." and then select "Android JUnit Test" and the tests will execute within the test runner. The tests should both pass and the "test bar" should be green.
 
 #### Functional Testing
@@ -156,6 +160,7 @@ public class SimpleActivityFunctionalTest extends
     activity = getActivity();
   }
 
+  @SmallTest
   public void testStartSecondActivity() throws Exception {
       // Assertions in here
   }
@@ -174,6 +179,7 @@ public class SimpleActivityFunctionalTest extends
   
   // ...
   
+  @MediumTest
   public void testStartSecondActivity() throws Exception {		
       final String fieldValue = "Testing Text";
 	  
@@ -258,7 +264,8 @@ public class RobotiumActivityFunctionalTest extends
   protected void setUp() throws Exception {
     solo = new Solo(getInstrumentation(), getActivity());
   }
-
+  
+  @SmallTest
   public void testSomething() {
     // Test something here
   }
@@ -280,6 +287,7 @@ public class RobotiumActivityFunctionalTest extends
 Now, let's write the tests for the basic behavior of our simple app which is to allow the user to enter text, hit the "Launch" button and then view that text in a second activity:
 
 ```java
+@MediumTest
 public void testStartSecondActivity() throws Exception {		
   final String fieldValue = "Testing Text";
   
