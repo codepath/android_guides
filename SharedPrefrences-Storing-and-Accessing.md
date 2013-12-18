@@ -43,3 +43,7 @@ The final step is to access the data like so.
 `String cookieName = mSettings.getString("cookieName", "missing");`
 
 This will either grab the value that was previously set with the key of "cookieName" or will return the string "missing" if it is not found. That's all there is to it.
+
+### References
+
+http://developer.android.com/reference/android/content/SharedPreferences.html
