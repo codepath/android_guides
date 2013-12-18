@@ -46,4 +46,4 @@ This will either grab the value that was previously set with the key of "cookieN
 
 ### References
 
-http://developer.android.com/reference/android/content/SharedPreferences.html
+* <http://developer.android.com/reference/android/content/SharedPreferences.html>
