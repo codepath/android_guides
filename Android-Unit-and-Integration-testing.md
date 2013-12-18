@@ -51,6 +51,9 @@ Unit testing is about testing a particular component (i.e activity) in isolation
 Now, let's test the basic behavior of our application. Create a new test class called `FirstActivityUnitTest` extending from superclass `android.test.ActivityUnitTestCase`. The overall structure of a `ActivityUnitTestCase` is:
 
 ```java
+// Import the resource object constant from our app for easy access
+import com.codepath.example.simpleapp.R;
+
 public class FirstActivityUnitTest extends
     android.test.ActivityUnitTestCase<FirstActivity> {
 
@@ -84,8 +87,6 @@ public class FirstActivityUnitTest extends
 Now, we want to test the basic functions of the first activity. Namely, that I can enter a text value into the field and then that value will be properly passed to the `SecondActivity` through an intent. Let's add those basic tests:
 
 ```java
-import com.codepath.example.simpleapp.R;
-
 public class FirstActivityUnitTest extends
     android.test.ActivityUnitTestCase<FirstActivity> {
 
@@ -136,6 +137,9 @@ For completeness, let's also check out how to write functional tests. The last t
 
 
 ```java
+// Import the resource object constant from our app for easy access
+import com.codepath.example.simpleapp.R;
+
 public class SimpleActivityFunctionalTest extends
     ActivityInstrumentationTestCase2<FirstActivity> {
 
@@ -237,6 +241,9 @@ Next, we need to add the [robotium jar](https://code.google.com/p/robotium/downl
 Now, within the integration test case, in the setUp method of your testing class, you can create a Solo object and specify the Activity to be started. The Solo object can then be used in your testXXX methods to get and set values in/from UI components and click buttons and such. A skeleton integration testing class with Robotium looks like:
 
 ```java
+// Import the resource object constant from our app for easy access
+import com.codepath.example.simpleapp.R;
+
 public class RobotiumActivityFunctionalTest extends
     ActivityInstrumentationTestCase2<FirstActivity> {
   // Solo Robotium helper object
