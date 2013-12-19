@@ -101,6 +101,7 @@ Diving into the networking, model and persistence layers for data-driven apps:
 * [[ActiveAndroid ORM References|ActiveAndroid Guide]] (and Q&A)
 * [[Using Parcelable]] (Pass data fast between activities)
 * [[Networking with the Volley Library]]
+* [[Storing and Accessing SharedPreferences]]
 
 ## Fragments
 
