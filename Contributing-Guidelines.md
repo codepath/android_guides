@@ -20,4 +20,4 @@ The most important thing is to **save people as much time as possible**. Include
 
 ## Missing Topics
 
-Check the [issues]() for this repository to see what types of contributions would be most impactful. In particular, I will [keep an issue](https://github.com/thecodepath/android_guides/issues/2) that contains the most important missing topics. Also look for items in the cliffnotes with the **Needs Attention** mark which indicates the guide needs some love.
+Check the [issues](https://github.com/thecodepath/android_guides/issues) for this repository to see what types of contributions would be most impactful. In particular, I will [keep an issue](https://github.com/thecodepath/android_guides/issues/2) that contains the most important missing topics. Also look for items in the cliffnotes with the **Needs Attention** mark which indicates the guide needs some love.
