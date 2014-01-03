@@ -158,7 +158,7 @@ but works similarly for the AlertDialog (just use the listeners defined for the 
 
 ```java
 public class EditNameDialog extends DialogFragment implements OnEditorActionListener {
-   private EditText mEditText;
+        private EditText mEditText;
 
 	public interface EditNameDialogListener {
 		void onFinishEditDialog(String inputText);
