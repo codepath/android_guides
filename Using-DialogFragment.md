@@ -65,7 +65,7 @@ public class EditNameDialog extends DialogFragment {
 		// Show soft keyboard automatically
 		mEditText.requestFocus();
 		getDialog().getWindow().setSoftInputMode(
-				LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+				WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
 		return view;
 	}
 }
