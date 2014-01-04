@@ -139,7 +139,7 @@ Now, we can use that adapter in the Activity to display an array of items into t
 // Construct the data source
 ArrayList<User> arrayOfUsers = new ArrayList<User>();
 // Create the adapter to convert the array to views
-adapter = new UsersAdapter(this);
+UsersAdapter adapter = new UsersAdapter(this);
 // Add the collection of User objects to the adapter
 adapter.addAll(arrayOfUsers);
 // Attach the adapter to a ListView
