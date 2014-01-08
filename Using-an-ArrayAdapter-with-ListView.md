@@ -90,7 +90,34 @@ First, we need to create an XML layout (item_user.xml) that represents the templ
 
 ### Defining the Adapter
 
-Next, we need to define the Adapter to describe the process of converting the Java object to a View (in the getView method):
+Next, we need to define the Adapter to describe the process of converting the Java object to a View (in the getView method). The simplest approach to this (but with slow performance is):
+
+```java
+public class UsersAdapter extends ArrayAdapter<User> {
+    public UsersAdapter(Context context) {
+       super(context, R.layout.item_user);
+    }
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+       // Get the data item for this position
+       User user = getItem(position);    
+       // Check if an existing view is being reused, otherwise inflate the view
+       if (convertView == null) {
+          convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_user, null);
+       }
+       // Lookup view for data population
+       TextView tvName = (TextView) convertView.findViewById(R.id.tvName);
+       TextView tvHome = (TextView) convertView.findViewById(R.id.tvHome);
+       // Populate the data into the template view using the data object
+       tvName.setText(user.name);
+       tvHome.setText(user.hometown);
+       // Return the completed view to render on screen
+       return convertView;
+   }
+}
+```
+
+To improve performance, we should modify the adapter by applying the **ViewHolder** pattern which speeds up the population of the ListView considerably for smoother, faster loading:
 
 ```java
 public class UsersAdapter extends ArrayAdapter<User> {
