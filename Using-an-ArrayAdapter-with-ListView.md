@@ -118,6 +118,8 @@ public class UsersAdapter extends ArrayAdapter<User> {
 }
 ```
 
+That adapter has a constructor and a `getView()` method to describe the **translation between the data item and the View** to display.  `getView()` is the method that returns the actual view used as a row within the ListView at a particular position.  
+
 To improve performance, we should modify this adapter by applying the **ViewHolder** pattern which speeds up the population of the ListView considerably by caching view lookups for smoother, faster loading:
 
 ```java
@@ -156,8 +158,6 @@ public class UsersAdapter extends ArrayAdapter<User> {
    }
 }
 ```
-
-That adapter has a constructor and a "getView" method to describe the translation between the data item and the View to display.  `getView()` is what returns the actual view used as a row in the ListView.  
 
 In this example we also have a private static class called `ViewHolder`.  Making calls to `findViewById()` is really slow in practice, and if your adapter has to call it for each View in your row for every single row then you will quickly run into performance issues.  What the ViewHolder class does is cache the call to `findViewById()`.  Once your ListView has reached the max amount of rows it can display on a screen, Android is smart enough to begin recycling those row Views.  We check if a View is recycled with `if (convertView == null)`.  If it is not null then we have a recycled View and can just change its values, otherwise we need to create a new row View.  The magic behind this is the `setTag()` method which lets us attach an arbitrary object onto a View object, which is how we save the already inflated View for future reuse.
 
