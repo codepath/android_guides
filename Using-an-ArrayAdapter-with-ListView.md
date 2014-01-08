@@ -90,13 +90,14 @@ First, we need to create an XML layout (item_user.xml) that represents the templ
 
 ### Defining the Adapter
 
-Next, we need to define the Adapter to describe the process of converting the Java object to a View (in the getView method). The simplest approach to this (but with slow performance is):
+Next, we need to define the Adapter to describe the process of converting the Java object to a View (in the getView method). The simpler approach to this (without view caching) is the following:
 
 ```java
 public class UsersAdapter extends ArrayAdapter<User> {
     public UsersAdapter(Context context) {
        super(context, R.layout.item_user);
     }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
        // Get the data item for this position
@@ -117,7 +118,7 @@ public class UsersAdapter extends ArrayAdapter<User> {
 }
 ```
 
-To improve performance, we should modify the adapter by applying the **ViewHolder** pattern which speeds up the population of the ListView considerably for smoother, faster loading:
+To improve performance, we should modify this adapter by applying the **ViewHolder** pattern which speeds up the population of the ListView considerably by caching view lookups for smoother, faster loading:
 
 ```java
 public class UsersAdapter extends ArrayAdapter<User> {
@@ -126,9 +127,11 @@ public class UsersAdapter extends ArrayAdapter<User> {
         TextView name;
         TextView home;
     }
+
     public UsersAdapter(Context context) {
        super(context, R.layout.item_user);
     }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
        // Get the data item for this position
