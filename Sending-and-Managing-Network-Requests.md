@@ -86,10 +86,10 @@ imageLoader.displayImage(imageUri, ivBasicImage);
 
 The important thing here is to notice just how much cleaner and clearer app develop can be when using third-party high level libraries. 
 
-Note that a popular alternative to the universal-image-loader library is called [Picasso](http://square.github.io/picasso/) which serves a similar purpose. After [downloading the Picasso jar](http://repo1.maven.org/maven2/com/squareup/picasso/picasso/2.1.1/picasso-2.1.1.jar), we can just load an image with:
+Note that a popular alternative to the universal-image-loader library is called [Picasso](http://square.github.io/picasso/) which serves a similar purpose. After [downloading the Picasso jar](http://repo1.maven.org/maven2/com/squareup/picasso/picasso/2.1.1/picasso-2.1.1.jar), we can load an image with:
 
 ```java
-Picasso.with(context).load("http://i.imgur.com/DvpvklR.png").into(imageView);
+Picasso.with(context).load(imageUri).into(ivBasicImage);
 ```
 
 For more details check out the [Picasso](http://square.github.io/picasso/) documentation.
