@@ -69,7 +69,7 @@ We could now run the app and verify that the JSON array of business has the form
 
 ### Setting up our Model
 
-The primary resource in the Yelp API is the **Business**. Let's create a Java class that will act as the **Business* model in our application:
+The primary resource in the Yelp API is the **Business**. Let's create a Java class that will act as the **Business** model in our application:
 
 ```java
 public class Business {
