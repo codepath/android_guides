@@ -1,6 +1,6 @@
 ## Overview
 
-Network requests are used to retrieve or modify API data or media from a server. This is extremely common in Android development especially for dynamic data-driven clients.
+Network requests are used to retrieve or modify API data or media from a server. This is a very common task in Android development especially for dynamic data-driven clients.
 
 The underlying class used for network connections is [URLConnection](http://developer.android.com/reference/java/net/HttpURLConnection.html) or [DefaultHTTPClient](http://developer.android.com/reference/org/apache/http/impl/client/DefaultHttpClient.html). Both of these are lower-level and require completely manual management of parsing the data from the input stream and executing the request asynchronously.
 
