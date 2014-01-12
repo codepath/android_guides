@@ -12,7 +12,7 @@ The app will do the following:
 2. Deserialize the JSON data for each of the movies into `BoxOfficeMovie` objects
 3. Build an array of `BoxOfficeMovie` objects and create an `ArrayAdapter` for those movies
 4. Define `getView` to define how to inflate a layout for each movie row and display each movie's data.
-5. Attach the adapter for the movies to a `ListView` to display the data on screen
+5. Attach the adapter for the movies to a ListView to display the data on screen
 
 To do this, we can organize the different components into the following objects:
 
