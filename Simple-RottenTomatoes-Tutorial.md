@@ -71,8 +71,9 @@ In particular, this app will use the [Box Office Movies](http://developer.rotten
     ]
   }, 
   {
+     "id": "770687943",
      ...
-  }
+  }]
 }
 ```
 
@@ -181,6 +182,11 @@ Looking at the JSON response format for the box office movies API, we can unders
         ]
       }
     ]
+  }, 
+  {
+     "id": "770687943",
+     ...
+  }]
 }
 ```
 
