@@ -2,6 +2,8 @@
 
 A toast provides simple feedback about an operation in a small popup. It only fills the amount of space required for the message and the current activity remains visible and interactive. Toasts automatically disappear after a timeout.
 
+![Toast](http://developer.android.com/images/toast.png)
+
 ### Simple Toast
 
 First, instantiate a Toast object with one of the makeText() methods. This method takes three parameters: the application Context, the text message, and the duration for the toast. 
