@@ -81,14 +81,15 @@ Next, let's define a method for accessing the Box Office Movies API within our c
 ```java
 public class RottenTomatoesClient {
     // ...
-	// http://api.rottentomatoes.com/api/public/v1.0/
-	//    lists/movies/box_office.json?apikey=<key>
-	public void getBoxOfficeMovies(JsonHttpResponseHandler handler) {
-		String url = getApiUrl("lists/movies/box_office.json");
-		RequestParams params = new RequestParams("apikey", API_KEY);
-		client.get(url, params, handler);
-	}
-	// ...
+
+    // http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=<key>
+    public void getBoxOfficeMovies(JsonHttpResponseHandler handler) {
+        String url = getApiUrl("lists/movies/box_office.json");
+        RequestParams params = new RequestParams("apikey", API_KEY);
+        client.get(url, params, handler);
+    }
+
+    // ...
 }
 ```
 
