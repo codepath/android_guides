@@ -79,19 +79,19 @@ You can pass objects from one activity to another in a Bundle if your class impl
   
 One thing you MUST always keep in mind is the order with which you write to the parcel and read from it. That order must be consistent. Otherwise you will start getting very crypt error messages which are very hard to debug.
 
-## Threading
+### Threading
 
 Android is full of features to help you deal with threads. This is a very important aspect of Android development because your app has to give snappy responses. So all your heavy work such as database operations and network access need to be done in a separate thread.
  
 For this reason it is important to know when to use a `Service`, a `Thread`, an `IntentService` or an `AsyncTask`. Learn about to them, check examples, and make sure you use them whenever appropriate. Perhaps the best place to start is this post summarizing your options: http://techtej.blogspot.com.es/2011/03/android-thread-constructspart-4.html You will realize that knowing about callbacks and listeners will be useful here too.
 
-## Broadcast Receivers
+### Broadcast Receivers
 
 Broadcast receivers are a great way to have your asynchronous tasks (refer to the previous topic above) communicate with the main thread or to receive push notifications from your phone. It is a powerful feature to understand and use. 
 
 Consider reading about it in the [official documentation](http://developer.android.com/reference/android/content/BroadcastReceiver.html). Also, refer again to the list of [common tasks](http://developer.android.com/guide/faq/commontasks.html) to get to know how to use them.
 
-## Compatibility
+### Compatibility
 
 According to the latest statistics I can see in my Developer Console, API 9 and above represents almost 97% of all active Android devices out there. The number of Android tablets is still much lower than that of Android phones. Take this year's Q1 sales for a reference. [28 million Android tablets were sold](http://www.businessinsider.com/android-ahead-of-ios-tablet-market-share-2013-5) as opposed to [156 million Android phones](http://www.gartner.com/newsroom/id/2482816) sold in the same period.
  
