@@ -40,10 +40,15 @@ Cliffnotes are references giving you the "most important" Android topics with br
 
 ### Week 6 - Drawables and Styles
 
-* [[Drawables]] Guide (Custom Appearance for Views)
+* [[Customize Appearance With Drawables|Drawables]]
 * [[Styles and Themes]]
 * [[Cloning a Login Screen Layout]] Guide
 * [Customizing the User Interface](https://gist.github.com/nesquena/6c567083aec13d868017)
+
+### Week 7 - Unit and Integration Testing
+
+* [[Android Unit and Integration Testing]]
+* [[Robolectric Installation for Unit Testing]]
 
 ### Bonus
 
