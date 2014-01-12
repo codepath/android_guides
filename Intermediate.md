@@ -14,7 +14,6 @@ Core Topics:
 * [[Menus and Popups]]
 * [[Defining Custom Views]]
 * [[Getting Started with Gradle]]
-* [[Getting Started with Maven]]
 
 Additional topics:
 
@@ -28,3 +27,4 @@ Additional topics:
 * [[Using the PreferenceFragment]]
 * [[Profiling Android Apps]]
 * [[Sending and Receiving SMS]]
+* [[Getting Started with Maven]]
