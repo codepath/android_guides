@@ -1,0 +1,399 @@
+## API
+
+RottenTomatoes has an [extensive API](http://developer.rottentomatoes.com/docs/read/json/v10) which includes a [Movie Search](http://developer.rottentomatoes.com/docs/read/json/v10/Movies_Search), [Lists](http://developer.rottentomatoes.com/docs/read/json/v10/Lists_Directory), [Box Office Movies](http://developer.rottentomatoes.com/docs/read/json/v10/Box_Office_Movies) and much more. We can use these APIs to create a simple demonstration of networking with Android.
+
+## App
+
+Let's build an Android app step by step. THe app will display a list of movies in the Theater Box Office including the poster, title, and cast. 
+
+![Screen Demo](http://i.imgur.com/zQPzAxD.png)
+
+The app will do the following:
+
+1. Download the box office movies from the [Box Office Movie API](http://developer.rottentomatoes.com/docs/read/json/v10/Box_Office_Movies)
+2. Decode the JSON details for each of the movies returned into BoxOfficeMovie objects
+3. Build an array of BoxOfficeMovie objects and create an ArrayAdapter for those movies
+4. Define `getView` to define how to inflate a layout for each movie row and display each movie's data.
+5. Attach the adapter for the movies to a ListView to display the data on screen
+
+To do this, we can organize the different components into the following objects:
+
+1. `RottenTomatoesClient` - Responsible for executing the API requests and retrieving the JSON
+2. `BoxOfficeMovie` - Model object responsible for encapsulating the attributes for each individual movie
+3. `BoxOfficeMoviesAdapter` - Responsible for mapping each `BoxOfficeMovie` to a particular view layout
+4. `BoxOfficeActivity` - Responsible for fetching and deserializing the data and configuring the adapter
+
+## Tutorial
+
+### Setup Basic Activity Layout
+
+Generate a project with the name "RottenTomatoesDemo", a minimum API of 10 and a first activity called **BoxOfficeActivity**. In the `res/layout/activity_box_office.xml`, let's drop out a ListView with the id `lvMovies`:
+
+```xml
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BoxOfficeActivity" >
+
+    <ListView
+        android:id="@+id/lvMovies"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true" >
+
+    </ListView>
+</RelativeLayout>
+```
+
+![Imgur](http://i.imgur.com/ze0XeWe.png)
+
+### Construct API Client
+
+Now, before we continue, we need to setup the [android-async-http-client](https://github.com/loopj/android-async-http/raw/master/releases/android-async-http-1.4.4.jar) for sending easy asynchronous network requests. Let's also install a library for easy remote image loading call [Picasso](http://repo1.maven.org/maven2/com/squareup/picasso/picasso/2.1.1/picasso-2.1.1.jar). Drop those jars into the "libs" folder of our Android app. 
+
+With those libraries installed, let's generate a Java class that will act as our RottenTomato API client for sending out the network requests to the specific endpoints. Create a Java class called `RottenTomatoesClient` with the following code:
+
+```java
+public class RottenTomatoesClient {
+    private final String API_KEY = "...getkey...";
+	private final String API_BASE_URL = 
+	    "http://api.rottentomatoes.com/api/public/v1.0/";
+	private AsyncHttpClient client;
+
+	public RottenTomatoesClient() {
+		this.client = new AsyncHttpClient();
+	}
+
+	private String getApiUrl(String relativeUrl) {
+		return API_BASE_URL + relativeUrl;
+	}
+}
+```
+
+Next, let's define a method for accessing the Box Office Movies API within our client by executing an asynchronous request to the [appropriate endpoint](http://developer.rottentomatoes.com/docs/read/json/v10/Box_Office_Movies):
+
+```java
+public class RottenTomatoesClient {
+    // ...
+	// http://api.rottentomatoes.com/api/public/v1.0/
+	//    lists/movies/box_office.json?apikey=<key>
+	public void getBoxOfficeMovies(JsonHttpResponseHandler handler) {
+		String url = getApiUrl("lists/movies/box_office.json");
+		RequestParams params = new RequestParams("apikey", API_KEY);
+		client.get(url, params, handler);
+	}
+	// ...
+}
+```
+
+Looking at the JSON response format for the box office movies API, we can understand what information we will be provided:
+
+```json
+{
+  "movies": [{
+    "id": "770687943",
+    "title": "Harry Potter and the Deathly Hallows - Part 2",
+    "year": 2011,
+    "mpaa_rating": "PG-13",
+    "runtime": 130,
+    "critics_consensus": "Thrilling, powerfully acted, and visually dazzling...",
+    "release_dates": {"theater": "2011-07-15"},
+    "ratings": {
+      "critics_rating": "Certified Fresh",
+      "critics_score": 97,
+      "audience_rating": "Upright",
+      "audience_score": 93
+    },
+    "synopsis": "Harry Potter and the Deathly Hallows, is the final adventure...",
+    "posters": {
+      "thumbnail": "http://content8.flixster.com/movie/11/15/86/11158674_mob.jpg",
+      "profile": "http://content8.flixster.com/movie/11/15/86/11158674_pro.jpg",
+      "detailed": "http://content8.flixster.com/movie/11/15/86/11158674_det.jpg",
+      "original": "http://content8.flixster.com/movie/11/15/86/11158674_ori.jpg"
+    },
+    "abridged_cast": [
+      {
+        "name": "Daniel Radcliffe",
+        "characters": ["Harry Potter"]
+      },
+      {
+        "name": "Rupert Grint",
+        "characters": [
+          "Ron Weasley",
+          "Ron Wesley"
+        ]
+      }
+    ]
+}
+```
+
+## Define the Data Model
+
+Next, let's define a model that represents the relevant data for a single box office movie. This movie needs to contain basic info for each `movie` such as `title`, `year`, `synopsis`, `posters.thumbnail`, `ratings.critics_score` and the `abridged_cast`. Create a Java class called `BoxOfficeMovie` with the relevant attributed defined:
+
+```
+public class BoxOfficeMovie {
+	private String title;
+	private int year;
+	private String synopsis;
+	private String posterUrl;
+	private int criticsScore;
+	private ArrayList<String> castList;
+
+	public String getTitle() {
+		return title;
+	}
+
+	public int getYear() {
+		return year;
+	}
+
+	public String getSynopsis() {
+		return synopsis;
+	}
+
+	public String getPosterUrl() {
+		return posterUrl;
+	}
+
+	public int getCriticsScore() {
+		return criticsScore;
+	}
+
+	public String getCastList() {
+		return TextUtils.join(", ", castList);
+	}
+}
+```
+
+Next, let's add a factory method for deserializing the JSON response in order to construct an instance of the `BoxOfficeMovie` class:
+
+```java
+public class BoxOfficeMovie {
+    // ...
+    
+    // Returns a BoxOfficeMovie given the expected JSON
+    // Reads `title`, `year`, `synopsis`, `posters.thumbnail`,
+    // `ratings.critics_score` and the `abridged_cast`
+    public static BoxOfficeMovie fromJSON(JSONObject jsonObject) {
+        BoxOfficeMovie b = new BoxOfficeMovie();
+        try {
+            // Deserialize json into object fields
+            b.title = jsonObject.getString("title");
+            b.year = jsonObject.getInt("year");
+            b.synopsis = jsonObject.getString("synopsis");
+            b.posterUrl = jsonObject.getJSONObject("posters").getString("thumbnail");
+            b.criticsScore = jsonObject.
+                getJSONObject("ratings").getInt("critics_score");
+            // Construct simple array of cast names
+            b.castList = new ArrayList<String>();
+            JSONArray abridgedCast = jsonObject.getJSONArray("abridged_cast");
+            for (int i = 0; i < abridgedCast.length(); i++) {
+                b.castList.add(abridgedCast.getJSONObject(i).getString("name"));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+        // Return new object
+        return b;
+    }
+  
+    // ...
+}
+```
+
+Let's also add a convenience static method for parsing an array of JSON movie dictionaries into an `ArrayList<BoxOfficeMovie>`:
+
+```java
+public class BoxOfficeMovie {
+    // ...
+    
+    // Decodes array of box office movie json results into business model objects
+    public static ArrayList<BoxOfficeMovie> fromJson(JSONArray jsonArray) {
+        ArrayList<BoxOfficeMovie> businesses = 
+            new ArrayList<BoxOfficeMovie>(jsonArray.length());
+        // Process each result in json array, decode and convert to business
+        // object
+        for (int i = 0; i < jsonArray.length(); i++) {
+            JSONObject businessJson = null;
+            try {
+                businessJson = jsonArray.getJSONObject(i);
+            } catch (Exception e) {
+                e.printStackTrace();
+                continue;
+            }
+
+            BoxOfficeMovie business = BoxOfficeMovie.fromJson(businessJson);
+            if (business != null) {
+                businesses.add(business);
+            }
+        }
+
+        return businesses;
+    }
+    
+    // ...
+}
+```
+
+### Construct an ArrayAdapter
+
+Now, we have the API Client (`RottenTomatoesClient`) and the data Model object (`BoxOfficeModel`). Final step is to construct an adapter that allows us to translate a `BoxOfficeMovie` into a particular view. Let's generate a Java class called `BoxOfficeMoviesAdapter` which extends from `ArrayAdapter<BoxOfficeMovie>`:
+
+```java
+public class BoxOfficeMoviesAdapter extends ArrayAdapter<BoxOfficeMovie> {
+	public BoxOfficeMoviesAdapter(Context context, ArrayList<BoxOfficeMovie> aMovies) {
+		super(context, 0, aMovies);
+	}
+	
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+		return null;
+	}
+}
+```
+
+Now, we need to define a layout to use for visualizing a particular movie. Let's create a layout file called `item_box_office_movie.xml` with a `RelativeLayout` root layout for defining the movie row layout:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp" >
+
+    <ImageView
+        android:id="@+id/ivPosterImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/movie_poster" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/ivPosterImage"
+        android:text="The Dark Knight"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tvCast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ivPosterImage"
+        android:layout_alignLeft="@+id/tvCriticsScore"
+        android:gravity="bottom"
+        android:text="Christian Bale, Joseph-Gordon Levitt"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/tvCriticsScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvTitle"
+        android:layout_below="@+id/tvTitle"
+        android:text="93%"
+        android:textSize="10sp" />
+
+</RelativeLayout>
+```
+
+and then fill in the `getView` method to finish off the `BoxOfficeMoviesAdapter`:
+
+```java
+public class BoxOfficeMoviesAdapter extends ArrayAdapter<BoxOfficeMovie> {
+    // ...
+    
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        // Get the data item for this position
+        BoxOfficeMovie movie = getItem(position);
+        // Check if an existing view is being reused, otherwise inflate the view
+        if (convertView == null) {
+        	LayoutInflater inflater = LayoutInflater.from(getContext());
+        	convertView = inflater.inflate(R.layout.adapter_item_box_office_movie, null);
+        }
+        // Lookup view for data population
+        TextView tvTitle = (TextView) convertView.findViewById(R.id.tvTitle);
+        TextView tvCriticsScore = (TextView) convertView.findViewById(R.id.tvCriticsScore);
+        TextView tvCast = (TextView) convertView.findViewById(R.id.tvCast);
+        ImageView ivPosterImage = (ImageView) convertView.findViewById(R.id.ivPosterImage);
+        // Populate the data into the template view using the data object
+        tvTitle.setText(movie.getTitle());
+        tvCriticsScore.setText("Score: " + movie.getCriticsScore() + "%");
+        tvCast.setText(movie.getCastList());
+        Picasso.with(getContext()).load(movie.getPosterUrl()).into(ivPosterImage);
+        // Return the completed view to render on screen
+        return convertView;
+    }
+    
+    // ...
+}
+```
+
+## Bringing It Together
+
+Now that we have defined the adapter, let's plug all of these components together within the `BoxOfficeActivity` by using the client to send out an API call, deserialize the response into an array of `BoxOfficeMovie` object and then render those into a ListView using the `BoxOfficeMoviesAdapter`. Let's start by initializing the ArrayList, adapter, and the ListView: 
+
+```
+public class BoxOfficeActivity extends Activity {
+	private ListView lvMovies;
+	private BoxOfficeMoviesAdapter adapterMovies;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_box_office);
+		lvMovies = (ListView) findViewById(R.id.lvMovies);
+		ArrayList<BoxOfficeMovie> aMovies = new ArrayList<BoxOfficeMovie>();
+		adapterMovies = new BoxOfficeMoviesAdapter(this, aMovies);
+		lvMovies.setAdapter(adapterMovies);
+	}
+	
+}
+```
+
+Now let's make a call to the box office API using the client:
+
+```java
+public class BoxOfficeActivity extends Activity {
+    protected void onCreate(Bundle savedInstanceState) {
+       // ...
+       // Fetch the data remotely
+       fetchBoxOfficeMovies();
+    }
+    
+    private void fetchBoxOfficeMovies() {
+        client = new RottenTomatoesClient();
+        client.getBoxOfficeMovies(new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int code, JSONObject body) {
+                JSONArray items = null;
+                try {
+                    // Get the movies json array
+                    items = body.getJSONArray("movies");
+                    // Parse json array into array of model objects
+                    ArrayList<BoxOfficeMovie> movies = BoxOfficeMovie.fromJson(items);
+                    // Load model objects into the adapter
+                    adapterMovies.addAll(movies);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+}
+```
+
+After running the app, we should see the populated box office movie data:
+
+![Imgur](http://i.imgur.com/zQPzAxD.png)
