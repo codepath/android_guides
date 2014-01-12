@@ -190,7 +190,7 @@ Looking at the JSON response format for the box office movies API, we can unders
 }
 ```
 
-## Define the Data Model
+### Define the Data Model
 
 Next, let's define a model that represents the relevant data for a single box office movie. This movie needs to contain basic info for each `movie` such as `title`, `year`, `synopsis`, `posters.thumbnail`, `ratings.critics_score` and the `abridged_cast`. Create a Java class called `BoxOfficeMovie` with the relevant attributed defined:
 
