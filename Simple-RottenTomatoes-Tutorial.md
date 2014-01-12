@@ -62,17 +62,16 @@ With those libraries installed, let's generate a Java class that will act as our
 ```java
 public class RottenTomatoesClient {
     private final String API_KEY = "...getkey...";
-	private final String API_BASE_URL = 
-	    "http://api.rottentomatoes.com/api/public/v1.0/";
-	private AsyncHttpClient client;
+    private final String API_BASE_URL = "http://api.rottentomatoes.com/api/public/v1.0/";
+    private AsyncHttpClient client;
 
-	public RottenTomatoesClient() {
-		this.client = new AsyncHttpClient();
-	}
-
-	private String getApiUrl(String relativeUrl) {
-		return API_BASE_URL + relativeUrl;
-	}
+    public RottenTomatoesClient() {
+        this.client = new AsyncHttpClient();
+    }
+    
+    private String getApiUrl(String relativeUrl) {
+        return API_BASE_URL + relativeUrl;
+    }
 }
 ```
 
