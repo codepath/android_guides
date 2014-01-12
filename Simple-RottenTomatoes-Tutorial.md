@@ -1,3 +1,5 @@
+This is a tutorial about building a basic app for displaying popular movies currently in theaters using the unauthenticated [RottenTomatoes](http://www.rottentomatoes.com/) API.
+
 ## API
 
 RottenTomatoes has an [extensive API](http://developer.rottentomatoes.com/docs/read/json/v10) which includes a [Movie Search](http://developer.rottentomatoes.com/docs/read/json/v10/Movies_Search), [Lists](http://developer.rottentomatoes.com/docs/read/json/v10/Lists_Directory), [Box Office Movies](http://developer.rottentomatoes.com/docs/read/json/v10/Box_Office_Movies) and much more. We can use these APIs to create a simple demonstration of networking with Android.
