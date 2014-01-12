@@ -54,7 +54,7 @@ In addition, my favorite book is by far [The Busy Coder's Guide to Android Devel
 
 All code examples are free and [can be found here](https://github.com/commonsguy/cw-omnibus/). Even if you don't buy the book, consider browsing through some of the examples there to learn how other programmers do things. Finally, Mark Murphy, the author of the book, is helpful whether you contact him by e-mail or on the [Stackoverflow website](http://stackoverflow.com/). Check out [his profile](http://stackoverflow.com/users/115145/commonsware). He is in the all time top-10 ranking list there.
 
-## Key Concept 
+## Key Concepts
 
 ### Configuration Changes
 
