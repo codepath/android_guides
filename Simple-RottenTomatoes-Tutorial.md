@@ -179,8 +179,8 @@ public class BoxOfficeMovie {
     // ...
     
     // Returns a BoxOfficeMovie given the expected JSON
-    // Reads `title`, `year`, `synopsis`, `posters.thumbnail`,
-    // `ratings.critics_score` and the `abridged_cast`
+    // BoxOfficeMovie.fromJSON(movieJsonDictionary)
+    // Stores the `title`, `year`, `synopsis`, `poster` and `criticsScore`
     public static BoxOfficeMovie fromJSON(JSONObject jsonObject) {
         BoxOfficeMovie b = new BoxOfficeMovie();
         try {
@@ -189,8 +189,7 @@ public class BoxOfficeMovie {
             b.year = jsonObject.getInt("year");
             b.synopsis = jsonObject.getString("synopsis");
             b.posterUrl = jsonObject.getJSONObject("posters").getString("thumbnail");
-            b.criticsScore = jsonObject.
-                getJSONObject("ratings").getInt("critics_score");
+            b.criticsScore = jsonObject.getJSONObject("ratings").getInt("critics_score");
             // Construct simple array of cast names
             b.castList = new ArrayList<String>();
             JSONArray abridgedCast = jsonObject.getJSONArray("abridged_cast");
@@ -209,16 +208,16 @@ public class BoxOfficeMovie {
 }
 ```
 
-Let's also add a convenience static method for parsing an array of JSON movie dictionaries into an `ArrayList<BoxOfficeMovie>`:
+Let's also add a convenience static method for parsing an array of JSON movie dictionaries into an `ArrayList<BoxOfficeMovie>` which we will use to manage the box office movie API endpoint response:
 
 ```java
 public class BoxOfficeMovie {
     // ...
     
     // Decodes array of box office movie json results into business model objects
+    // BoxOfficeMovie.fromJson(jsonArrayOfMovies)
     public static ArrayList<BoxOfficeMovie> fromJson(JSONArray jsonArray) {
-        ArrayList<BoxOfficeMovie> businesses = 
-            new ArrayList<BoxOfficeMovie>(jsonArray.length());
+        ArrayList<BoxOfficeMovie> businesses = new ArrayList<BoxOfficeMovie>(jsonArray.length());
         // Process each result in json array, decode and convert to business
         // object
         for (int i = 0; i < jsonArray.length(); i++) {
@@ -255,6 +254,7 @@ public class BoxOfficeMoviesAdapter extends ArrayAdapter<BoxOfficeMovie> {
 	
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
+                // TODO: Complete the definition of the view for each movie
 		return null;
 	}
 }
@@ -309,12 +309,14 @@ Now, we need to define a layout to use for visualizing a particular movie. Let's
 </RelativeLayout>
 ```
 
-and then fill in the `getView` method to finish off the `BoxOfficeMoviesAdapter`:
+and now we can fill in the `getView` method to finish off the `BoxOfficeMoviesAdapter`:
 
 ```java
 public class BoxOfficeMoviesAdapter extends ArrayAdapter<BoxOfficeMovie> {
     // ...
     
+    // Translates a particular `BoxOfficeMovie` given a position 
+    // into a relevant row within an AdapterView
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
@@ -324,7 +326,7 @@ public class BoxOfficeMoviesAdapter extends ArrayAdapter<BoxOfficeMovie> {
         	LayoutInflater inflater = LayoutInflater.from(getContext());
         	convertView = inflater.inflate(R.layout.adapter_item_box_office_movie, null);
         }
-        // Lookup view for data population
+        // Lookup views within item layout
         TextView tvTitle = (TextView) convertView.findViewById(R.id.tvTitle);
         TextView tvCriticsScore = (TextView) convertView.findViewById(R.id.tvCriticsScore);
         TextView tvCast = (TextView) convertView.findViewById(R.id.tvCast);
@@ -353,18 +355,18 @@ public class BoxOfficeActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_box_office);
-		lvMovies = (ListView) findViewById(R.id.lvMovies);
-		ArrayList<BoxOfficeMovie> aMovies = new ArrayList<BoxOfficeMovie>();
-		adapterMovies = new BoxOfficeMoviesAdapter(this, aMovies);
-		lvMovies.setAdapter(adapterMovies);
+	    super.onCreate(savedInstanceState);
+	    setContentView(R.layout.activity_box_office);
+	    lvMovies = (ListView) findViewById(R.id.lvMovies);
+	    ArrayList<BoxOfficeMovie> aMovies = new ArrayList<BoxOfficeMovie>();
+	    adapterMovies = new BoxOfficeMoviesAdapter(this, aMovies);
+	    lvMovies.setAdapter(adapterMovies);
 	}
 	
 }
 ```
 
-Now let's make a call to the box office API using the client:
+Now let's make a call to the box office API from the activity using our client:
 
 ```java
 public class BoxOfficeActivity extends Activity {
@@ -374,6 +376,8 @@ public class BoxOfficeActivity extends Activity {
        fetchBoxOfficeMovies();
     }
     
+    // Executes an API call to the box office endpoint, parses the results
+    // Converts them into an array of movie objects and adds them to the adapter
     private void fetchBoxOfficeMovies() {
         client = new RottenTomatoesClient();
         client.getBoxOfficeMovies(new JsonHttpResponseHandler() {
