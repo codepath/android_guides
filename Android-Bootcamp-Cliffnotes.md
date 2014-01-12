@@ -38,16 +38,20 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Using Hardware, Sensors and Device Data]]
 * [[Google Maps Fragment Guide]]
 
+### Week 6 - Drawables and Styles
+
+* [[Drawables]] Guide (Custom Appearance for Views)
+* [[Styles and Themes]]
+* [[Cloning a Login Screen Layout]] Guide
+* [Customizing the User Interface](https://gist.github.com/nesquena/6c567083aec13d868017)
+
 ### Bonus
 
 * [[Endless Scrolling with AdapterViews]]
 * [[Common Navigation Paradigms]]
   * [[Fragment Navigation Drawer]] Guide
   * [[Fragment ActionBar Tabs|ActionBar Tabs with Fragments]] Guide
-* [Customizing the User Interface](https://gist.github.com/nesquena/6c567083aec13d868017)
-  * [[Cloning a Login Screen Layout]] Guide
-  * [[Drawables]] Guide (Styling Views)
-  * [[Animations]] for Layouts and Views
+* [[Animations]] for Layouts and Views
 * [[Sharing Content with Intents]] Guide
 * [[Must-have Libraries]] Guide
 * [[Implementing Pull to Refresh]] Guide
