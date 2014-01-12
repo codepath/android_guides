@@ -1,9 +1,5 @@
 This is a tutorial about building a basic app for displaying popular movies currently in theaters using the unauthenticated [RottenTomatoes](http://www.rottentomatoes.com/) API.
 
-## API
-
-RottenTomatoes has an [extensive API](http://developer.rottentomatoes.com/docs/read/json/v10) which includes a [Movie Search](http://developer.rottentomatoes.com/docs/read/json/v10/Movies_Search), [Lists](http://developer.rottentomatoes.com/docs/read/json/v10/Lists_Directory), [Box Office Movies](http://developer.rottentomatoes.com/docs/read/json/v10/Box_Office_Movies) and much more. We can use one of these APIs to create a simple demonstration of networking with Android.
-
 ## App
 
 Let's build an Android app step by step. The app will display a list of popular movies currently in theaters  which includes the poster, title, and cast of each film. 
@@ -26,6 +22,57 @@ To do this, we can organize the different components into the following objects:
 4. `BoxOfficeActivity` - Responsible for fetching and deserializing the data and configuring the adapter
 
 ## Tutorial
+
+### Setup with the API
+
+RottenTomatoes has an [extensive API](http://developer.rottentomatoes.com/docs/read/json/v10) which includes a [Movie Search](http://developer.rottentomatoes.com/docs/read/json/v10/Movies_Search), [Lists](http://developer.rottentomatoes.com/docs/read/json/v10/Lists_Directory), [Box Office Movies](http://developer.rottentomatoes.com/docs/read/json/v10/Box_Office_Movies) and much more. We can use one of these APIs to create a simple demonstration of networking with Android.
+
+First, we need to ensure we have an API Key which is the mechanism used to authorize our API requests. We cannot make any API calls without first [registering for an account](http://developer.rottentomatoes.com/member/register) (or [signing in](https://secure.mashery.com/login/developer.rottentomatoes.com/)) and then setting up an API key.
+
+### Explore the API Endpoints
+
+In particular, this app will use the [Box Office Movies](http://developer.rottentomatoes.com/docs/read/json/v10/Box_Office_Movies) endpoint to retrieve a list of movies currently playing in theaters. The url to retrieve this data is `http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=<key>`. The response is as follows:
+
+```json
+{
+  "movies": [{
+    "id": "770687943",
+    "title": "Harry Potter and the Deathly Hallows - Part 2",
+    "year": 2011,
+    "mpaa_rating": "PG-13",
+    "runtime": 130,
+    "critics_consensus": "Thrilling, powerfully acted, and visually dazzling...",
+    "release_dates": {"theater": "2011-07-15"},
+    "ratings": {
+      "critics_rating": "Certified Fresh",
+      "critics_score": 97,
+      "audience_rating": "Upright",
+      "audience_score": 93
+    },
+    "synopsis": "Harry Potter and the Deathly Hallows, is the final adventure...",
+    "posters": {
+      "thumbnail": "http://content8.flixster.com/movie/11/15/86/11158674_mob.jpg",
+      "profile": "http://content8.flixster.com/movie/11/15/86/11158674_pro.jpg",
+      "detailed": "http://content8.flixster.com/movie/11/15/86/11158674_det.jpg",
+      "original": "http://content8.flixster.com/movie/11/15/86/11158674_ori.jpg"
+    },
+    "abridged_cast": [
+      {
+        "name": "Daniel Radcliffe",
+        "characters": ["Harry Potter"]
+      },
+      {
+        "name": "Rupert Grint",
+        "characters": [
+          "Ron Weasley",
+          "Ron Wesley"
+        ]
+      }
+    ]
+}
+```
+
+As you can see the API returns a **dictionary with a single "movies" key** which contains an **array of json dictionaries** which each represent the data for a particular film. This is the response we will parse and use to create our application.
 
 ### Setup Basic Activity Layout
 
