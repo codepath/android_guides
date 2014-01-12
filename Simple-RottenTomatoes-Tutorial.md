@@ -2,11 +2,11 @@ This is a tutorial about building a basic app for displaying popular movies curr
 
 ## API
 
-RottenTomatoes has an [extensive API](http://developer.rottentomatoes.com/docs/read/json/v10) which includes a [Movie Search](http://developer.rottentomatoes.com/docs/read/json/v10/Movies_Search), [Lists](http://developer.rottentomatoes.com/docs/read/json/v10/Lists_Directory), [Box Office Movies](http://developer.rottentomatoes.com/docs/read/json/v10/Box_Office_Movies) and much more. We can use these APIs to create a simple demonstration of networking with Android.
+RottenTomatoes has an [extensive API](http://developer.rottentomatoes.com/docs/read/json/v10) which includes a [Movie Search](http://developer.rottentomatoes.com/docs/read/json/v10/Movies_Search), [Lists](http://developer.rottentomatoes.com/docs/read/json/v10/Lists_Directory), [Box Office Movies](http://developer.rottentomatoes.com/docs/read/json/v10/Box_Office_Movies) and much more. We can use one of these APIs to create a simple demonstration of networking with Android.
 
 ## App
 
-Let's build an Android app step by step. THe app will display a list of movies in the Theater Box Office including the poster, title, and cast. 
+Let's build an Android app step by step. The app will display a list of popular movies currently in theaters  which includes the poster, title, and cast of each film. 
 
 ![Screen Demo](http://i.imgur.com/zQPzAxD.png)
 
