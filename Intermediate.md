@@ -19,12 +19,12 @@ Core Topics:
 Additional topics:
 
 * [[Video and Audio Playback]]
+* [[ViewPager with FragmentPagerAdapter]]
+* [[Extending SurfaceView]]
 * [[Push Notifications]]
 * [[Content Providers]]
 * [[Using Data Loaders]]
 * [[Creating an App Widget]]
-* [[Implementing the ViewPager]]
 * [[Using the PreferenceFragment]]
 * [[Profiling Android Apps]]
-* [[Extending SurfaceView]]
 * [[Sending and Receiving SMS]]
