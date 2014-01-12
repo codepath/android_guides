@@ -4,7 +4,7 @@ This is a tutorial about building a basic app for displaying popular movies curr
 
 Let's build an Android app step by step. The app will display a list of popular movies currently in theaters  which includes the poster, title, and cast of each film. 
 
-<img src="http://i.imgur.com/zQPzAxD.png" alt="Screen Demo" width="250" />
+<img src="http://i.imgur.com/zQPzAxD.png" alt="Screen Demo" width="300" />
 
 The app will do the following:
 
