@@ -52,8 +52,53 @@ With the basics in mind, it is time to start coding your first Android app. To b
 
 In addition, my favorite book is by far [The Busy Coder's Guide to Android Development](http://commonsware.com/Android/). The book is comprehensive with its over 2,400 pages but starts with the basics, explaining the concepts. It also has those "do-it-yourself" tutorials to help you retain what you are learning. The book is a bit expensive but it comes with a one-year subscription to keep it updated during the period.
 
-All code examples are free and can be found here:  https://github.com/commonsguy/cw-omnibus/ Even if you don't buy the book, consider browsing through some of the examples there to learn how other programmers do things. Finally, Mark Murphy, the author of the book, is helpful whether you contact him by e-mail or on the [Stackoverflow website](http://stackoverflow.com/). Check out [his profile](http://stackoverflow.com/users/115145/commonsware). He is in the all time top-10 ranking list there.
+All code examples are free and [can be found here](https://github.com/commonsguy/cw-omnibus/). Even if you don't buy the book, consider browsing through some of the examples there to learn how other programmers do things. Finally, Mark Murphy, the author of the book, is helpful whether you contact him by e-mail or on the [Stackoverflow website](http://stackoverflow.com/). Check out [his profile](http://stackoverflow.com/users/115145/commonsware). He is in the all time top-10 ranking list there.
+
+## Key Concept 
+
+### Configuration Changes
+
+The most common of these is caused by orientation changes. Whenever there is an orientation change, your activity needs to be destroyed and recreated to address the changes in layout. This means you need to handle this recreation process yourself, making sure your app doesn't crash. A lot of beginners (myself included) consider simply disabling these changes but this is consider a bad practice. Besides, even if you do disable orientation changes, there are other things that can cause configuration changes that you need to handle anyway. 
+
+Here are two good posts discussing this further: <http://stackoverflow.com/a/582585/362298> and <http://stackoverflow.com/questions/1111980/how-to-handle-screen-orientation-change-when-progress-dialog-and-background-thre>
+
+To force yourself to catch problems sooner than later, consider the following tip from a previous [post here on Reddit](http://www.reddit.com/r/androiddev/comments/19143c/is_your_app_stateful_test_your_might/). You can enable a developer setting to not keep activities, so that they always get destroyed and recreated. 
+  
+And more specifically, here are two examples of dealing with this problem when using a FragmentPagerAdapter, a common use case:  
+
+ - <http://stackoverflow.com/questions/17629463/fragmentpageradapter-how-to-handle-orientation-changes> 
+ - <http://stackoverflow.com/questions/18425646/fragmentpageradapter-not-restoring-fragments-upon-orientation-change>
+
+In a more abstract sense but still related to the topic, [an old post on avoiding memory leaks](http://www.curious-creature.org/2008/12/18/avoid-memory-leaks-on-android/ ) is probably worthy of your time as well. This was written by Romain Guy, a Google employee very active in the Android community. It is certainly worth [following him on Google+](https://plus.google.com/+RomainGuy).
+
+### Parcelable
+
+You can pass objects from one activity to another in a Bundle if your class implements the [Parcelable interface](http://developer.android.com/reference/android/os/Parcelable.html). Parcelables were designed specifically for performance and should almost always be used instead of Serializable. Here is a [good page explaining how to use it](http://shri.blog.kraya.co.uk/2010/04/26/android-parcel-data-to-pass-between-activities-using-parcelable-classes/). 
+  
+  You can also have inheritance while using it without adding too much of an overhead to the children [like this post](http://stackoverflow.com/questions/20018095/parcelable-inheritance-issue-with-getcreator-of-heir-class/20018463#20018463)
+  
+One thing you MUST always keep in mind is the order with which you write to the parcel and read from it. That order must be consistent. Otherwise you will start getting very crypt error messages which are very hard to debug.
+
+## Threading
+
+Android is full of features to help you deal with threads. This is a very important aspect of Android development because your app has to give snappy responses. So all your heavy work such as database operations and network access need to be done in a separate thread.
+ 
+For this reason it is important to know when to use a `Service`, a `Thread`, an `IntentService` or an `AsyncTask`. Learn about to them, check examples, and make sure you use them whenever appropriate. Perhaps the best place to start is this post summarizing your options: http://techtej.blogspot.com.es/2011/03/android-thread-constructspart-4.html You will realize that knowing about callbacks and listeners will be useful here too.
+
+## Broadcast Receivers
+
+Broadcast receivers are a great way to have your asynchronous tasks (refer to the previous topic above) communicate with the main thread or to receive push notifications from your phone. It is a powerful feature to understand and use. 
+
+Consider reading about it in the [official documentation](http://developer.android.com/reference/android/content/BroadcastReceiver.html). Also, refer again to the list of [common tasks](http://developer.android.com/guide/faq/commontasks.html) to get to know how to use them.
+
+## Compatibility
+
+According to the latest statistics I can see in my Developer Console, API 9 and above represents almost 97% of all active Android devices out there. The number of Android tablets is still much lower than that of Android phones. Take this year's Q1 sales for a reference. [28 million Android tablets were sold](http://www.businessinsider.com/android-ahead-of-ios-tablet-market-share-2013-5) as opposed to [156 million Android phones](http://www.gartner.com/newsroom/id/2482816) sold in the same period.
+ 
+Supporting older Android versions turned out to be easier than I thought initially. I am using the [ActionBarSherlock](http://actionbarsherlock.com/) for providing the same UI experience in terms of ActionBar layout. I know now that the official Android Support Library has a similar library called [ActionBarCompat](http://android-developers.blogspot.pt/2013/08/actionbarcompat-and-io-2013-app-source.html) which is probably worth considering to avoid relying too much on third-party libraries.
+ 
+Aside from the ActionBarSherlock, though, most things in the UI can done to all API levels using the [Support Library](http://developer.android.com/tools/support-library/index.html). You just have to make sure to use the right sets of classes. For example, instead of using "android.app.Fragment" when creating a new fragment, you use android.support.v4.app.Fragment instead.
 
 ## Wrapping Up
 
-Again this guide above was originally posted [on reddit](http://www.reddit.com/r/Android/comments/1roag7/i_developed_an_app_and_created_a_starting_guide/) and was adapted here for wider access.
+Again please note this guide above was originally posted [on reddit](http://www.reddit.com/r/Android/comments/1roag7/i_developed_an_app_and_created_a_starting_guide/) and was adapted here for wider access. For more details, check out the [original document](https://docs.google.com/document/d/19uj9TS0Hzaxyv8IM1D20d23GdU9aAkXo5BYfL15VG0I/edit).
