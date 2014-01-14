@@ -468,6 +468,28 @@ public class FirstActivityTest {
 
 Now, if we right-click and select "Run As...JUnit Test", the tests should pass green because the behavior for our SimpleApp is correct. Check out a richer set of examples in the [Robolectric Sample](https://github.com/robolectric/RobolectricSample/tree/master/src/test/java/com/pivotallabs) code.
 
+#### Accessing the Android Manifest
+
+When you run a Robolectric test standalone, by clicking "Run As...JUnit Test", you may see the test terminate with an error and the following warning:
+
+```
+WARNING: No manifest file found at ./AndroidManifest.xml. Falling back to the Android OS resources only. To remove this warning, annotate your test class with @Config(manifest=Config.NONE).
+```
+
+This message occurs when your current run configuration (the JUnit Test configuration) cannot access the AndroidManifest.xml file in the application that is being tested. Don't worry about any need to create an AndroidManifest file for the testing project. To resolve this problem, choose a directory on the build path for your testing project (such as SimpleAppElectricTest/test/, because /src/ was removed earlier from the build path). In that directory, create a file called `org.robolectric.Config.properties`. (This filename is case-sensitive.)
+
+In the new properties file, define the location of the manifest file, relative to your *testing* application:
+
+```
+manifest: ../SimpleAppElectric/AndroidManifest.xml
+
+```
+
+
+Creating this file is easier than providing a @Config decorator for each test that you run with JUnit.
+
+SimpleAppElectric/test is a source directory for SimpleAppElectricTest/test, so this should fix the problem right away. However, you may need to restart Eclipse or manually reload the project (F5) so that the file is visible in SimpleAppElectricTest.
+   
 #### Shadow Objects
 
 The Robolectric testing framework provides "shadow objects" that override certain aspects of the Android SDK. These objects allow the code being tested to execute outside of the Android environment. At times, it's useful to manipulate or access these shadow objects to achieve some expected result.
