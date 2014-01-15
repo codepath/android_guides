@@ -8,30 +8,28 @@ We've also added resources of our own here including Java resources from [this g
 
 ## High Level Guide
 
-* If you are starting from scratch, first get the [Android SDK here](http://developer.android.com/sdk/index.html)
-* If you are really starting from scratch, you should learn Java first (see resources below)
-* Consider starting with this [video tutorial](http://www.youtube.com/watch?v=Z149x12sXsw) - This is a great series that will guide you through the basics of an Android app. I recommend that you not only watch the video but repeat what he is doing simultaneously.
+* If you are starting from scratch with no programming knowledge, you should learn Java first (see resources below)
+* If you have never done Android development, first setup your Android environment by following these [Android Setup Slides](https://docs.google.com/presentation/d/1JOICG5Ow6QgMBrUKChenvSSxjylCpeQKvfvpPbJMx3M/edit)
+* Consider starting with building a simple [todo app](http://goo.gl/pBKfYP) with slides or alternately with this [video tutorial](http://www.youtube.com/watch?v=Z149x12sXsw) - This is a great series that will guide you through the basics of an Android app. I recommend that you not only watch the video but repeat what he is doing simultaneously.
 * A great companion book is [The Busy Coder's Guide to Android Development](http://commonsware.com/Android/). If you don't want or can't buy the book, consider looking at its many code examples [available for free](https://github.com/commonsguy/cw-omnibus/)
 - Learn how to search for solutions before you ask questions; check sources like [StackOverflow](http://stackoverflow.com/) and the [cliffnotes](http://guides.thecodepath.com/android) for answers.
 * Learn how to debug your code -- This means using **LogCat** and reading stack traces, also learning how to use breakpoints
-* Your friends can be a great source of help and feedback. Ask kindly, do not harass them. 
-* Unless your app is the next big thing since sliced bread, do not bother too much with announcing it before it's ready. There are too many "pre-apps" out there, nobody cares.
 
 ## Learning to Program with Java
 
 If you never programmed at all before or if you are interested in starting with the basics, spend the first few months just on learning Java. Learn the syntax and understand how everything works. You’ll need to be able to create classes, create and call methods, use interfaces as well as know how inheritance works, before you can go to the next step. These are the basics of Java, and you’ll use them extensively when developing Android apps. Helpful resources for learning Java:
 
-* [Java Language Fundamentals](http://en.wikibooks.org/wiki/Java_Programming/Language_Fundamentals)
-* [Programming by doing Java](http://programmingbydoing.com/)
+* [CodePath Java for Android Slides](https://www.dropbox.com/s/6z8s8tlnnovqeij/Introduction%20to%20Java%20%28prequel%20for%20Android%29.pdf)
+* [Programming by doing Java](http://programmingbydoing.com/) - Great step-by-step guide
 * [Head First Java Book](http://www.amazon.com/Head-First-Java-2nd-Edition/dp/0596009208)
 * [The Java help subreddit](http://www.reddit.com/r/javahelp)
 * [The official Oracle Java tutorials](http://docs.oracle.com/javase/tutorial/getStarted/index.html)
-* [CodePath Java for Android Slides](https://www.dropbox.com/s/6z8s8tlnnovqeij/Introduction%20to%20Java%20%28prequel%20for%20Android%29.pdf)
 * [Learn Java Online](http://www.learnjavaonline.org/) - Interactive Java Tutorial
 * [Free Java Book](http://java2s.com/Book/Java/CatalogJava.htm) - Solid online book
 * [Udemy Free Java Course](https://www.udemy.com/java-tutorial/) - Free videos to learn Java
 * [CodingBat Java Exercises](http://codingbat.com/) - Exercises to practice Java
 * [Best Ways to Learn Java Overview](http://www.onvard.com/tracks/best-way-to-learn-java) - Overview article
+* [Java Language Fundamentals](http://en.wikibooks.org/wiki/Java_Programming/Language_Fundamentals)
 
 Be sure to check out these particular Java topics as well:
 
