@@ -17,7 +17,7 @@ We've also added resources of our own here including Java resources from [this g
 * Your friends can be a great source of help and feedback. Ask kindly, do not harass them. 
 * Unless your app is the next big thing since sliced bread, do not bother too much with announcing it before it's ready. There are too many "pre-apps" out there, nobody cares.
 
-## Starting from the Beginning
+## Learning to Program with Java
 
 If you never programmed at all before or if you are interested in starting with the basics, spend the first few months just on learning Java. Learn the syntax and understand how everything works. You’ll need to be able to create classes, create and call methods, use interfaces as well as know how inheritance works, before you can go to the next step. These are the basics of Java, and you’ll use them extensively when developing Android apps. Helpful resources for learning Java:
 
@@ -41,7 +41,9 @@ Be sure to check out these particular Java topics as well:
 * [Using Event Listeners](http://docs.oracle.com/javase/tutorial/uiswing/events/intro.html)
 * [Creating your own Callbacks and Listeners](http://stackoverflow.com/a/1477229/362298)
 
-Understanding the concepts is a good thing because it lets you search for practical ways to achieve something. Almost everything you can think of doing has already been tried and documented by someone else. You just need to know how to find it. Which leads me to my next set of things you may consider to learn first:
+## Practical Tips for Android Development
+
+Understanding the concepts above is a good thing because it allows you search for practical ways to achieve something. Almost everything you can think of doing has already been tried and documented by someone else. You just need to know how to find it. Which leads me to my next set of things you may consider to learn first:
 
 * **Learn how to search** -- I cannot stress this enough. Seriously, just Google it. If you are stuck or in doubt, search for your question. And most of all: Search before you ask.
 * **Learn how to debug your code** There is a surprisingly high number of learners who do not debug their code at all and can't really [understand their code's log](http://stackoverflow.com/questions/6065258/how-to-interpret-logcat). If you are using Eclipse,  [check this out] (http://stackoverflow.com/questions/8551818/how-to-debug-android-application-line-by-line-using-eclipse)
@@ -50,6 +52,25 @@ Speaking of Eclipse, the IDE most people still use to program for Android, wheth
 
   * The alternative IDE most people talk about, Android Studio (which is based on IntelliJ), is still in an **early access** preview. The official Android page has the [following warning about it](http://developer.android.com/sdk/installing/studio.html): "Android Studio is currently available as an early access preview. Several features are either incomplete or not yet implemented and you may encounter bugs."
   * Most tutorials and documentation for beginners are still based on the use of Eclipse. All the resources I talk about here which are connected to an IDE, refer to Eclipse.
+
+## Understanding HTTP and APIs
+
+**HTTP REST APIs and JSON**
+
+In addition to understanding Java and OOP, most Android development requires the use of data from a server-side database and as such requires you to have a solid conceptual understanding of RESTful APIs, consuming HTTP endpoints and parsing JSON responses. Here are a few resources to get started:
+
+ * [Beginners Guide to REST](http://www.andrewhavens.com/posts/20/beginners-guide-to-creating-a-rest-api/)
+ * [Another Guide to REST](http://net.tutsplus.com/tutorials/other/a-beginners-introduction-to-http-and-rest/)
+ * [Documentation for Twitter API](https://dev.twitter.com/docs/api/1.1)
+ * [JSON Overview Tutorial](http://www.copterlabs.com/blog/json-what-it-is-how-it-works-how-to-use-it/)
+ * [Parsing JSON in Java](http://www.tutorialspoint.com/json/json_java_example.htm)
+
+You also need to know how to understand XML since a great deal of Android development takes place in XML files:
+
+ * [XML Basics](http://www.xmlnews.org/docs/xml-basics.html)
+ * [W3Schools XML Tutorial](http://www.w3schools.com/xml/xml_whatis.asp)
+
+Once you understand Java, OOP (Classes, Inheritance, etc), XML and APIs with JSON, you now have the proper context to enter the world of Android development.
   
 ## Beginning Android Resources
 
