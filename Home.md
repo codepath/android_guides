@@ -29,6 +29,7 @@ Read more about [[us and our vision for all this|The CodePath Goal]]. If you wan
 * [Developing our First App](http://goo.gl/pBKfYP) (Step-by-Step Todo App)
 * [[Sample Android Apps]] (Code repositories)
 * [[Beginning Android Resources]] (Detailed Post With Many Links)
+* [[Troubleshooting Common Issues]] (Running into problems?)
 
 ## Structure
 
