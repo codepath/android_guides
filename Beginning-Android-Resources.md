@@ -55,8 +55,6 @@ Speaking of Eclipse, the IDE most people still use to program for Android, wheth
 
 ## Understanding HTTP and APIs
 
-**HTTP REST APIs and JSON**
-
 In addition to understanding Java and OOP, most Android development requires the use of data from a server-side database and as such requires you to have a solid conceptual understanding of RESTful APIs, consuming HTTP endpoints and parsing JSON responses. Here are a few resources to get started:
 
  * [Beginners Guide to REST](http://www.andrewhavens.com/posts/20/beginners-guide-to-creating-a-rest-api/)
