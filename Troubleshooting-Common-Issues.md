@@ -2,7 +2,9 @@ If you are having trouble with Android, Eclipse, or the Emulator, check here for
 
 ## Eclipse
 
-**Problem with Autocompletion?** - You should be able to use Autocompletion (Ctrl + Space) to complete words as you code. If you can't, try the following steps:
+### Problem with Autocompletion?
+
+You should be able to use Autocompletion (Ctrl + Space) to complete words as you code. If you can't, try the following steps:
 
 1. Try restarting eclipse, quit and re-open. Check to see if autocompletion has returned. 
 2. Open eclipse and go to the following in the menu: `Preferences > Java > Editor > Content Assist > Advanced`. Select all checkboxes here (especially ones mentioning Java) and click OK.
@@ -11,13 +13,32 @@ If you are having trouble with Android, Eclipse, or the Emulator, check here for
 <img src="http://i.imgur.com/FT2hAm4.png" width="450" />
 <img src="http://i.imgur.com/fopm3WG.png" width="470" />
 
-**See a red line under a class that should exist (i.e ArrayList, View)?** - Hover over the class and select "import" from the list of suggestions or better use "Cmd + Shift + O" to auto-import all missing types.
+### Getting "Cannot Be Resolved to a Type" Error 
+
+See a red line under a class that should exist (i.e ArrayList, View)? - Hover over the class and select "import" from the list of suggestions or better use "Cmd + Shift + O" to auto-import all missing types.
 
 ![Red Line](http://i.imgur.com/ibxttW4.png)
 
+### Getting "R cannot be resolved to a variable" errors?
+
+This means that the project does not have an `R` file generated and is usually a sign of a bad state. Try a seres of steps to fix:
+
+1. Try running `Project => Clean` to regenerate the file
+2. Look for errors in "Console" or "Problems" to resolve
+2. Try relaunching Eclipse
+
+<img src="http://i.imgur.com/ChMkx09.png" width="450" />&nbsp;
+<img src="http://i.imgur.com/AXcdNlW.png" width="450" />
+
+### Getting "Error executing aapt: Return code 138" in "Problems"?
+
+Getting this error means your Android installation is likely corrupted in some way. Typically this error will occur on projects in particular cases such as generating a new icon or adding a new xml file. If you see this error in your "Problems" window after a clean, try **closing and reopening Eclipse** first, then try doing a `Project => Clean`. 
+
+If the same message persists, you may need to do a **complete reinstallation** of the [ADT Bundle](http://developer.android.com/sdk/index.html) which includes eclipse. You should delete the entire existing ADT bundle from your computer (including eclipse and SDK folder) and re-download the bundle, extract the contents and re-setup from scratch. Users rarely experience this error after a total reinstall. 
+
 ## Emulator
 
-**App running in emulator but no logs showing up in LogCat?**
+### App running in emulator but no logs showing up in LogCat?
 
 * Switch to DDMS mode in Eclipse
 * Verify the emulator is listed and select the emulator
@@ -26,7 +47,7 @@ If you are having trouble with Android, Eclipse, or the Emulator, check here for
 
 ![Reset ADB](http://i.imgur.com/5pj2rZA.png)
 
-**Booting the emulator is slow?**
+### Booting the emulator is slow?
 
 * Open "Window => Android Virtual Device Manager"
 * Click "Edit" on your Virtual Device and verify "Intel x86" is selected for CPU
@@ -34,7 +55,7 @@ If you are having trouble with Android, Eclipse, or the Emulator, check here for
 
 ![Intel HAXM](http://i.imgur.com/gU6KWNO.png)
 
-**Started emulator either doesn't boot, freezes computer or looks glitchy**
+### Started emulator either doesn't boot, freezes computer or looks glitchy
 
 * Go to [Intel HAXM page](http://software.intel.com/en-us/articles/intel-hardware-accelerated-execution-manager) and **install the latest hotfixes** for your platform.
 * Open "Window => Android Virtual Device Manager"
@@ -46,7 +67,7 @@ If you are having trouble with Android, Eclipse, or the Emulator, check here for
 
 ## Android
 
-**I am getting an error "Application has stopped" in a dialog and my app closes**
+### I am getting an error "Application has stopped" in a dialog and my app closes
 
 * This means your application had a runtime crash
 * If you don't see LogCat, open with `Window => Show View => Other => Android => LogCat`
