@@ -27,8 +27,8 @@ This means that the project does not have an `R` file generated and is usually a
 2. Look for errors in "Console" or "Problems" to resolve
 2. Try relaunching Eclipse
 
-<img src="http://i.imgur.com/ChMkx09.png" width="450" />&nbsp;
-<img src="http://i.imgur.com/AXcdNlW.png" width="450" />
+<img src="http://i.imgur.com/ChMkx09.png" width="440" />&nbsp;
+<img src="http://i.imgur.com/AXcdNlW.png" width="440" />
 
 ### Getting "Error executing aapt: Return code 138" in "Problems"?
 
@@ -75,5 +75,5 @@ If the same message persists, you may need to do a **complete reinstallation** o
 * Find the error stacktrace and identify the line (in your code) that triggered the error.
 * This is often a NullPointerException (accessing a null object) or other null references (such as an `android:onClick` handler referencing a non-existent method)
 
-![Show LogCat](http://i.imgur.com/851bDxf.png)
-![LogCat](http://i.imgur.com/lZlJ2z1.png)
+<img src="http://i.imgur.com/851bDxf.png" alt="Show LogCat" width="300">
+<img src="http://i.imgur.com/lZlJ2z1.png" alt="LogCat" width="600">
