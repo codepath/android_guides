@@ -36,7 +36,7 @@ If you are having trouble with Android, Eclipse, or the Emulator, check here for
 
 **Started emulator either doesn't boot, freezes computer or looks glitchy**
 
-* Go to [Intel HAXM page](http://software.intel.com/en-us/articles/intel-hardware-accelerated-execution-manager) and download latest hotfixes and install.
+* Go to [Intel HAXM page](http://software.intel.com/en-us/articles/intel-hardware-accelerated-execution-manager) and **install the latest hotfixes** for your platform.
 * Open "Window => Android Virtual Device Manager"
 * Click "Edit" on your Virtual Device and toggle the "Use Host GPU" checkbox
 * Verify the CPU has "Intel x86" selected rather than "ARM"
