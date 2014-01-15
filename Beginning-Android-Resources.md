@@ -2,6 +2,10 @@
 
 This guide is **not original content** was adapted from this [reddit post](http://www.reddit.com/r/Android/comments/1roag7/i_developed_an_app_and_created_a_starting_guide/)  and [this document](https://docs.google.com/document/d/19uj9TS0Hzaxyv8IM1D20d23GdU9aAkXo5BYfL15VG0I/edit) which is the original source. The original content was created by [jokerbrb](http://www.reddit.com/user/jokerbrb). The information has been formatted, cleaned up and made available here.
 
+In addition, resources linked from [HalfApp's "How to get started programming Android apps"](http://halfapp.com/blog/get-started-programming-android-apps/) blog post has been integrated into this article as well.
+
+We've also added resources of our own here including Java resources from [this gist](https://gist.github.com/nesquena/6136ca4c461a9309e579) and links that we recommend to people when first learning Android.
+
 ## High Level Guide
 
 * If you are starting from scratch, first get the [Android SDK here](http://developer.android.com/sdk/index.html)
@@ -15,9 +19,22 @@ This guide is **not original content** was adapted from this [reddit post](http:
 
 ## Starting from the Beginning
 
-If you never programmed at all before or if you are interested in some basic information, consider looking at these first:
+If you never programmed at all before or if you are interested in starting with the basics, spend the first few months just on learning Java. Learn the syntax and understand how everything works. You’ll need to be able to create classes, create and call methods, use interfaces as well as know how inheritance works, before you can go to the next step. These are the basics of Java, and you’ll use them extensively when developing Android apps. Helpful resources for learning Java:
 
 * [Java Language Fundamentals](http://en.wikibooks.org/wiki/Java_Programming/Language_Fundamentals)
+* [Programming by doing Java](http://programmingbydoing.com/)
+* [Head First Java Book](http://www.amazon.com/Head-First-Java-2nd-Edition/dp/0596009208)
+* [The Java help subreddit](http://www.reddit.com/r/javahelp)
+* [The official Oracle Java tutorials](http://docs.oracle.com/javase/tutorial/getStarted/index.html)
+* [CodePath Java for Android Slides](https://www.dropbox.com/s/6z8s8tlnnovqeij/Introduction%20to%20Java%20%28prequel%20for%20Android%29.pdf)
+* [Learn Java Online](http://www.learnjavaonline.org/) - Interactive Java Tutorial
+* [Free Java Book](http://java2s.com/Book/Java/CatalogJava.htm) - Solid online book
+* [Udemy Free Java Course](https://www.udemy.com/java-tutorial/) - Free videos to learn Java
+* [CodingBat Java Exercises](http://codingbat.com/) - Exercises to practice Java
+* [Best Ways to Learn Java Overview](http://www.onvard.com/tracks/best-way-to-learn-java) - Overview article
+
+Be sure to check out these particular Java topics as well:
+
 * [Dealing with Exceptions](http://en.wikibooks.org/wiki/Java_Programming/Exceptions)
 * [Understanding Threads and Runnables](http://en.wikibooks.org/wiki/Java_Programming/Threads_and_Runnables)
 * [Using Interfaces](http://en.wikibooks.org/wiki/Java_Programming/Interfaces)
@@ -36,15 +53,21 @@ Speaking of Eclipse, the IDE most people still use to program for Android, wheth
   
 ## Beginning Android Resources
 
-With the basics in mind, it is time to start coding your first Android app. To begin, download and install the [Android Developer Tools] (http://developer.android.com/sdk/index.html). Then consider the following tutorials and resources:
+With the basics in mind, it is time to start coding your first Android app. To begin, download and install the [Android Developer Tools] (http://developer.android.com/sdk/index.html). The Android SDK is actually a bundle of helpful tools consisting of Android libraries, emulator, debugger and documentation. It gives you a framework of Java classes and methods that all Android devices are able to use. The whole SDK is neatly packaged inside Eclipse or Android Studio, allowing you to only worry about your code and how devices implement it.
+
+Android apps are a bit different from ordinary Java applications, because they’re build around Activities and Fragments, which both have lifecycles that determine the state of the app. When learning Android it’s not about learning how to code, it’s more about understanding the way Android works. That means that you’ll spend the majority of the time learning about Activity lifecycles, Fragments, ListViews, Bundles and other important Android concepts.
+
+Consider starting with the following tutorials and resources:
 
 * [The Android official training guides](http://developer.android.com/training/index.html) are a good place to start. The [Building Your First App](http://developer.android.com/training/basics/firstapp/index.html) lesson is very easy to follow  and already gives you a good understanding of some key concepts of the Android SDK.
 
 * [The Android Development Tutorial](http://www.youtube.com/watch?v=Z149x12sXsw) by Derek Banas is great for those of you who prefer video lessons. It has 25 video lessons in total ranging from 10 to 30 minutes each. I used the first lessons to get a feel of the development process, specially to understand layouts.
+
+* [Android Guides](https://github.com/thecodepath/android_guides/wiki) give you even more explained code recipes and examples on how to build most common things in an Android app. I wish this was published when I started learning. It would have certainly helped.
+
+* [Vogella Android Tutorials](http://www.vogella.com/tutorials/Android/article.html) - Awesome free tutorials for most common Android topics. Great as a supplementary resource on top of these [Android Cliffnotes](http://guides.thecodepath.com/android).
   
 * [Common tasks](http://developer.android.com/guide/faq/commontasks.html) are a useful list of typical things you can do in your app and how to develop them.
-  
-* [Android Guides](https://github.com/thecodepath/android_guides/wiki) give you even more explained code recipes and examples on how to build most common things in an Android app. I wish this was published when I started learning. It would have certainly helped.
   
 * [Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm&hl=en) is a great app available on the Google Play Store. You probably have heard of it. This app won't teach you anything about how to develop Android apps but it will show you what an Android app can do with your phone. I learned a lot from it. Whenever I realised I wanted to do something specific, I knew I could do it because I had done it before on Tasker.
   
@@ -52,7 +75,7 @@ With the basics in mind, it is time to start coding your first Android app. To b
 
 In addition, my favorite book is by far [The Busy Coder's Guide to Android Development](http://commonsware.com/Android/). The book is comprehensive with its over 2,400 pages but starts with the basics, explaining the concepts. It also has those "do-it-yourself" tutorials to help you retain what you are learning. The book is a bit expensive but it comes with a one-year subscription to keep it updated during the period.
 
-All code examples are free and [can be found here](https://github.com/commonsguy/cw-omnibus/). Even if you don't buy the book, consider browsing through some of the examples there to learn how other programmers do things. Finally, Mark Murphy, the author of the book, is helpful whether you contact him by e-mail or on the [Stackoverflow website](http://stackoverflow.com/). Check out [his profile](http://stackoverflow.com/users/115145/commonsware). He is in the all time top-10 ranking list there.
+All code examples are free and [can be found here](https://github.com/commonsguy/cw-omnibus/). Even if you don't buy the book, consider browsing through some of the examples there to learn how other programmers do things. Finally, Mark Murphy, the author of the book, is helpful whether you contact him by e-mail or on the [StackOverflow website](http://stackoverflow.com/). Check out [his profile](http://stackoverflow.com/users/115145/commonsware). He is in the all time top-10 ranking list there.
 
 ## Key Concepts
 
