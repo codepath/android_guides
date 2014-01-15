@@ -11,7 +11,7 @@ You should be able to use Autocompletion (Ctrl + Space) to complete words as you
 3. Open eclipse and go to the following in the menu: `Preferences > General > Keys` and the find the Command "Content Assist" in the list and remap the "Binding" to a different set of keys and click OK.
 
 <img src="http://i.imgur.com/FT2hAm4.png" width="440" />
-<img src="http://i.imgur.com/fopm3WG.png" width="450" />
+<img src="http://i.imgur.com/fopm3WG.png" width="460" />
 
 ### Getting "Cannot Be Resolved to a Type" Error 
 
