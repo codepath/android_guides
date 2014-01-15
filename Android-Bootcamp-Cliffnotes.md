@@ -4,6 +4,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 
 * [[Android Directory Structure]]
 * [[Organizing your Source Files]]
+* [[Troubleshooting Common Issues]]
 * [[Using String Resources]]
 * [[Constructing View Layouts]]
 * [[Defining Views and their Attributes]] 
