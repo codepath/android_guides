@@ -174,7 +174,7 @@ public class MyCustomObject {
 ```
 Then go to the site [Parcelabler](http://devk.it/proj/parcelabler/) designed by Dallas Gutauckis.
 Paste your object into the "Code" text box provided.
-Then watch the magic happen as this site turns your object into the once plain and non-passable object into.
+Then watch the magic happen as this site turns your once plain and non-passable object into object into.
 
 ```java 
 public class MyCustomObject implements Parcelable {
