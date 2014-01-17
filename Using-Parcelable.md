@@ -261,4 +261,4 @@ The site is also able to handle all of the primitives and Java object I didn't i
 * <http://developer.android.com/reference/android/os/Parcelable.html>
 * <http://developer.android.com/reference/android/os/Parcel.html>
 * <http://stackoverflow.com/questions/6201311/how-to-read-write-a-boolean-when-implementing-the-parcelable-interface>
-*<http://devk.it/proj/parcelabler/>
+* <http://devk.it/proj/parcelabler/>
