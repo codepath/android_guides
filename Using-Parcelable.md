@@ -123,6 +123,137 @@ public class NewActivity extends Activity {
 
 Now we can access the parcelable data from within the launched activity.
 
+
+### Creating a Parcelable the easy way.
+
+Generate your normal object like so. 
+
+```java
+public class MyCustomObject {
+	
+	private int num1;
+	private String string1;
+	private boolean bool1;
+	
+	public MyCustomObject() {
+		
+	}
+
+	public MyCustomObject(int num1, String string1, boolean bool1) {
+		super();
+		this.num1 = num1;
+		this.string1 = string1;
+		this.bool1 = bool1;
+	}
+
+	public int getNum1() {
+		return num1;
+	}
+
+	public void setNum1(int num1) {
+		this.num1 = num1;
+	}
+
+	public String getString1() {
+		return string1;
+	}
+
+	public void setString1(String string1) {
+		this.string1 = string1;
+	}
+
+	public boolean isBool1() {
+		return bool1;
+	}
+
+	public void setBool1(boolean bool1) {
+		this.bool1 = bool1;
+	}
+	
+}
+```
+Then go to the site [Parcelabler](http://devk.it/proj/parcelabler/) designed by Dallas Gutauckis.
+Paste your object into the "Code" text box provided.
+Then watch the magic happen as this site turns your object into the once plain and non-passable object into.
+
+```java 
+public class MyCustomObject implements Parcelable {
+	
+	private int num1;
+	private String string1;
+	private boolean bool1;
+	
+	public MyCustomObject() {
+		
+	}
+
+	public MyCustomObject(int num1, String string1, boolean bool1) {
+		super();
+		this.num1 = num1;
+		this.string1 = string1;
+		this.bool1 = bool1;
+	}
+
+	public int getNum1() {
+		return num1;
+	}
+
+	public void setNum1(int num1) {
+		this.num1 = num1;
+	}
+
+	public String getString1() {
+		return string1;
+	}
+
+	public void setString1(String string1) {
+		this.string1 = string1;
+	}
+
+	public boolean isBool1() {
+		return bool1;
+	}
+
+	public void setBool1(boolean bool1) {
+		this.bool1 = bool1;
+	}
+	
+
+    protected MyCustomObject(Parcel in) {
+        num1 = in.readInt();
+        string1 = in.readString();
+        bool1 = in.readByte() != 0x00;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(num1);
+        dest.writeString(string1);
+        dest.writeByte((byte) (bool1 ? 0x01 : 0x00));
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<MyCustomObject> CREATOR = new Parcelable.Creator<MyCustomObject>() {
+        @Override
+        public MyCustomObject createFromParcel(Parcel in) {
+            return new MyCustomObject(in);
+        }
+
+        @Override
+        public MyCustomObject[] newArray(int size) {
+            return new MyCustomObject[size];
+        }
+    };
+}
+```
+A very pretty Parcelable object that you can copy and paste back into your project.
+The site is also able to handle all of the primitives and Java object I didn't include in this tutorial. On top of that it also can handle your own custom parcelable objects and objects that extend other objects that you have already created. This is a util that I stumbled upon searching for a easier way to create Parcelable objects that I can use in my projects. Hope you enjoy.
+
 ## References
 
 * <http://www.developerphil.com/parcelable-vs-serializable/>
@@ -130,3 +261,4 @@ Now we can access the parcelable data from within the launched activity.
 * <http://developer.android.com/reference/android/os/Parcelable.html>
 * <http://developer.android.com/reference/android/os/Parcel.html>
 * <http://stackoverflow.com/questions/6201311/how-to-read-write-a-boolean-when-implementing-the-parcelable-interface>
+*<http://devk.it/proj/parcelabler/>
