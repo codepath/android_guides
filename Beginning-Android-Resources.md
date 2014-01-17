@@ -1,6 +1,6 @@
 ## Attribution
 
-This guide is **not original content** was adapted from this [reddit post](http://www.reddit.com/r/Android/comments/1roag7/i_developed_an_app_and_created_a_starting_guide/)  and [this document](https://docs.google.com/document/d/19uj9TS0Hzaxyv8IM1D20d23GdU9aAkXo5BYfL15VG0I/edit) which is the original source. The original content was created by [jokerbrb](http://www.reddit.com/user/jokerbrb). The information has been formatted, cleaned up and made available here.
+This guide is **not original content** was adapted from this [reddit post](http://www.reddit.com/r/Android/comments/1roag7/i_developed_an_app_and_created_a_starting_guide/)  and [this document](https://docs.google.com/document/d/19uj9TS0Hzaxyv8IM1D20d23GdU9aAkXo5BYfL15VG0I/edit) which is the original source. The original content was created by [jokerbrb](http://www.reddit.com/user/jokerbrb), developer of [The Talker App](https://play.google.com/store/apps/details?id=com.thetalkerapp.main). The information has been formatted, cleaned up and made available here.
 
 In addition, resources linked from [HalfApp's "How to get started programming Android apps"](http://halfapp.com/blog/get-started-programming-android-apps/) blog post has been integrated into this article as well. We've also added resources of our own here including Java resources from [this gist](https://gist.github.com/nesquena/6136ca4c461a9309e579) and links that we recommend to people when first learning Android.
 
