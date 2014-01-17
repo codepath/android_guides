@@ -123,10 +123,9 @@ public class NewActivity extends Activity {
 
 Now we can access the parcelable data from within the launched activity.
 
+### Creating a Parcelable, The Easier Way
 
-### Creating a Parcelable the easy way.
-
-Generate your normal object like so. 
+Generate your normal class like so:
 
 ```java
 public class MyCustomObject {
