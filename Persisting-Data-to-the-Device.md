@@ -73,7 +73,7 @@ A SQLite tutorial is covered in the book [_Programming Android_](http://shop.ore
 
  * [Programming Android SQLite Tutorial](https://github.com/bmeike/ProgrammingAndroidExamples/tree/master/MicroJobs)
 
-In many cases, rather than interacting with SQL directly, Android apps can leverage one of the many available higher level ORMS (object relational mappers) to persist Java models to a database table.
+In many cases, rather than interacting with SQL directly, Android apps can leverage one of the many available higher-level ORMs (object relational mappers) to persist Java models to a database table.
 
 ### Object Relational Mappers
 
