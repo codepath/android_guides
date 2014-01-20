@@ -69,7 +69,7 @@ While not covered in this class in detail, you can read more in the following tu
  * [AndroidHive Tutorial](http://www.androidhive.info/2011/11/android-sqlite-database-tutorial/)
  * [Techotopia Tutorial](http://www.techotopia.com/index.php/An_Android_SQLite_Database_Tutorial)
 
-A tutorial on using SQLite without a third-party ORM is covered in the book [http://shop.oreilly.com/product/0636920010364.do](_Programming Android_), published by O'Reilly. The authors maintain their complete working examples from the book on Github. The "MicroJobs" example shows how to use the database helper class in an activity. 
+A tutorial on using SQLite without a third-party ORM is covered in the book [_Programming Android_](http://shop.oreilly.com/product/0636920010364.do), published by O'Reilly. The authors maintain complete working examples from the book on Github. The "MicroJobs" example shows how to use the database helper class in an activity. 
 
  * [Programming Android SQLite Tutorial](https://github.com/bmeike/ProgrammingAndroidExamples/tree/master/MicroJobs)
 
