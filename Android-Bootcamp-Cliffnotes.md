@@ -26,6 +26,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Converting JSON to Models]]
 * [[Persisting Data to the Device]]
 * [[ActiveAndroid Guide]]
+* [[RottenTomatoes Networking Tutorial]]
 
 ### Week 4 - Advanced Views and Using Fragments
 
