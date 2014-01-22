@@ -71,7 +71,7 @@ While not covered in this class in detail, you can read more in the following tu
 
 A SQLite tutorial is covered in the book [_Programming Android_](http://shop.oreilly.com/product/0636920010364.do), published by O'Reilly. The authors maintain complete working examples from the book on Github. The "MicroJobs" example shows how to use the database helper class in an activity. 
 
- * [Programming Android SQLite Tutorial](https://github.com/bmeike/ProgrammingAndroidExamples/tree/master/MicroJobs)
+ * [Programming Android SQLite Tutorial](https://github.com/bmeike/ProgrammingAndroidExamples/tree/master/MicroJobs/src/com/oreilly/demo/android/pa/microjobs)
 
 In many cases, rather than interacting with SQL directly, Android apps can leverage one of the many available higher-level ORMs (object relational mappers) to persist Java models to a database table.
 
