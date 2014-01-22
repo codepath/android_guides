@@ -381,7 +381,7 @@ public class BoxOfficeMoviesAdapter extends ArrayAdapter<BoxOfficeMovie> {
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
         	LayoutInflater inflater = LayoutInflater.from(getContext());
-        	convertView = inflater.inflate(R.layout.adapter_item_box_office_movie, null);
+        	convertView = inflater.inflate(R.layout.item_box_office_movie, null);
         }
         // Lookup views within item layout
         TextView tvTitle = (TextView) convertView.findViewById(R.id.tvTitle);
@@ -427,6 +427,8 @@ Now let's make a call to the box office API from the activity using our client:
 
 ```java
 public class BoxOfficeActivity extends Activity {
+    RottenTomatoesClient client;
+
     protected void onCreate(Bundle savedInstanceState) {
        // ...
        // Fetch the data remotely
