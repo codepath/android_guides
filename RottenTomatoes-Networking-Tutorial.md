@@ -438,7 +438,7 @@ public class BoxOfficeActivity extends Activity {
     // Executes an API call to the box office endpoint, parses the results
     // Converts them into an array of movie objects and adds them to the adapter
     private void fetchBoxOfficeMovies() {
-        client = new RottenTomatoesClient();
+        RottenTomatoesClient client = new RottenTomatoesClient();
         client.getBoxOfficeMovies(new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int code, JSONObject body) {
