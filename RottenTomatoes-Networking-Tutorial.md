@@ -107,9 +107,9 @@ Generate a project with the name "RottenTomatoesDemo", a minimum API of 10 and a
 
 ### Construct API Client
 
-Now, before we continue, we need to setup the [android-async-http-client](https://github.com/loopj/android-async-http/raw/master/releases/android-async-http-1.3.2.jar) for sending easy asynchronous network requests. Let's also install a library for easy remote image loading call [Picasso](http://repo1.maven.org/maven2/com/squareup/picasso/picasso/2.1.1/picasso-2.1.1.jar). Drop those jars into the "libs" folder of our Android app.
+Now, before we continue, we need to setup the [android-async-http-client](https://raw2.github.com/loopj/android-async-http/master/releases/android-async-http-1.4.3.jar) for sending easy asynchronous network requests. _Note: There are known issues with AndroidAsyncHttpClient version 1.4.4, so at the moment it is best to stick with 1.4.3._
 
-_Note: There are known issues with AndroidAsyncHttpClient version 1.4 versions, so at the moment it is best to stick with 1.3._
+Let's also install a library for easy remote image loading call [Picasso](http://repo1.maven.org/maven2/com/squareup/picasso/picasso/2.1.1/picasso-2.1.1.jar). Drop those jars into the "libs" folder of our Android app.
 
 With those libraries installed, let's generate a Java class that will act as our RottenTomato API client for sending out the network requests to the specific endpoints. Create a Java class called `RottenTomatoesClient` with the following code:
 
