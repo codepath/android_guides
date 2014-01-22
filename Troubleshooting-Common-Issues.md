@@ -65,6 +65,12 @@ If the same message persists, you may need to do a **complete reinstallation** o
 
 ![Host GPU](http://i.imgur.com/5pMO0PH.png)
 
+### Emulator is crashing unexpectedly and my mac has dual-monitors
+
+Check out [this post for quick fix](http://timvoet.com/2013/01/04/avd-emulator-crashes-on-mac/).In short, we have to edit a file specifying the X/Y coordinates for the virtual device to use to position itself on startup. If these coordinates are outside the normal bounds of the primary monitor, then the emulator will crash.
+ * Edit the file `~/.android/avd/.avd/emulator-user.ini`
+ * Reset the value of both `window.x` and `window.y` to 0
+
 ## Android
 
 ### I am getting an error "Application has stopped" in a dialog and my app closes
