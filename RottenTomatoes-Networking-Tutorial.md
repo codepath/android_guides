@@ -236,9 +236,9 @@ public class BoxOfficeMovie {
     // ...
     
     // Returns a BoxOfficeMovie given the expected JSON
-    // BoxOfficeMovie.fromJSON(movieJsonDictionary)
+    // BoxOfficeMovie.fromJson(movieJsonDictionary)
     // Stores the `title`, `year`, `synopsis`, `poster` and `criticsScore`
-    public static BoxOfficeMovie fromJSON(JSONObject jsonObject) {
+    public static BoxOfficeMovie fromJson(JSONObject jsonObject) {
         BoxOfficeMovie b = new BoxOfficeMovie();
         try {
             // Deserialize json into object fields
@@ -438,7 +438,7 @@ public class BoxOfficeActivity extends Activity {
     // Executes an API call to the box office endpoint, parses the results
     // Converts them into an array of movie objects and adds them to the adapter
     private void fetchBoxOfficeMovies() {
-        RottenTomatoesClient client = new RottenTomatoesClient();
+        client = new RottenTomatoesClient();
         client.getBoxOfficeMovies(new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int code, JSONObject body) {
