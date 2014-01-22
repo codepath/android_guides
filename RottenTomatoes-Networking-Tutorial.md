@@ -286,7 +286,7 @@ public class BoxOfficeMovie {
                 continue;
             }
 
-            BoxOfficeMovie business = BoxOfficeMovie.fromJson(businessJson);
+            BoxOfficeMovie business = BoxOfficeMovie.fromJSON(businessJson);
             if (business != null) {
                 businesses.add(business);
             }
