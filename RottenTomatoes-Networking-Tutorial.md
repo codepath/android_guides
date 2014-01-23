@@ -455,7 +455,9 @@ public class BoxOfficeActivity extends Activity {
                     // Parse json array into array of model objects
                     ArrayList<BoxOfficeMovie> movies = BoxOfficeMovie.fromJson(items);
                     // Load model objects into the adapter
-                    adapterMovies.addAll(movies);
+                    for (BoxOfficeMovie movie : movies) {
+                       adapterMovies.add(movie);
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -464,8 +466,6 @@ public class BoxOfficeActivity extends Activity {
     }
 }
 ```
-
-_Note: The ArrayAdapter.addAll method is [supported only from API level 11](http://developer.android.com/reference/android/widget/ArrayAdapter.html#addAll\(java.util.Collection<? extends T>\)), so you might need to update the AndroidManifest.xml accordingly._
 
 After running the app, we should see the populated box office movie data:
 
