@@ -1,4 +1,6 @@
-### Phone Call
+Let's take a look at the most common implicit intents such as making a phone call, launching a web address, sending an email, etc.
+
+## Phone Call
 
 Permissions:
 
@@ -14,7 +16,7 @@ callIntent.setData(Uri.parse("tel:0377778888"));
 startActivity(callIntent);
 ```
 
-### Send Email
+## Send Email
 
 Compose an email in the phone email client:
 
@@ -27,7 +29,7 @@ intent.putExtra(Intent.EXTRA_TEXT, "mail body");
 startActivity(Intent.createChooser(intent, ""));
 ```
 
-### Launch Website
+## Launch Website
 
 Launch a website in the phone browser:
 
@@ -36,7 +38,7 @@ Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.goog
 startActivity(browserIntent);
 ```
 
-### Open Google Play Store
+## Open Google Play Store
 
 Open app page on Google Play:
 
@@ -46,7 +48,7 @@ Intent i = new Intent(Intent.ACTION_VIEW,
 startActivity(i);
 ```
 
-### Compose SMS
+## Compose SMS
 
 ```java
 Uri smsUri = Uri.parse("tel:" + to);
@@ -57,7 +59,7 @@ intent.setType("vnd.android-dir/mms-sms");
 startActivity(intent);
 ```
 
-### Google Maps
+## Google Maps
  
 Show location in maps application:
 
@@ -72,7 +74,7 @@ intent.setData(Uri.parse(data));
 startActivity(intent);
 ```
 
-### Capture Photo
+## Capture Photo
 
 ```java
 Uri uri = Uri.fromFile(new File(file));
@@ -81,7 +83,7 @@ intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
 startActivity(intent);
 ```
 
-### Sharing Content
+## Sharing Content
 
 Images or binary data:
 
