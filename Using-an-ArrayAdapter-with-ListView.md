@@ -198,3 +198,7 @@ adapter.clear()
 ```
 
 Using the adapter now, you can add, remove and modify users and the items within the ListView will automatically reflect any changes.
+
+## References
+
+ * <http://lucasr.org/2012/04/05/performance-tips-for-androids-listview/>
