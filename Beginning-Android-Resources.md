@@ -2,7 +2,8 @@
 
 This guide is **not original content** was adapted from this [reddit post](http://www.reddit.com/r/Android/comments/1roag7/i_developed_an_app_and_created_a_starting_guide/)  and [this document](https://docs.google.com/document/d/19uj9TS0Hzaxyv8IM1D20d23GdU9aAkXo5BYfL15VG0I/edit) which is the original source. The original content was created by [jokerbrb](http://www.reddit.com/user/jokerbrb), developer of [The Talker App](https://play.google.com/store/apps/details?id=com.thetalkerapp.main). The information has been formatted, cleaned up and made available here.
 
-In addition, resources linked from [HalfApp's "How to get started programming Android apps"](http://halfapp.com/blog/get-started-programming-android-apps/) blog post has been integrated into this article as well. We've also added resources of our own here including Java resources from [this gist](https://gist.github.com/nesquena/6136ca4c461a9309e579) and links that we recommend to people when first learning Android.
+In addition, resources linked from [HalfApp's "How to get started programming Android apps"](http://halfapp.com/blog/get-started-programming-android-apps/) blog post has been integrated into this article as well. This post also incorporates [this other reddit post](http://www.reddit.com/r/Android/comments/1w3woc/a_step_by_step_guide_about_how_to_get_started_and/).
+We've also added resources of our own here including Java resources from [this gist](https://gist.github.com/nesquena/6136ca4c461a9309e579) and links that we recommend to people when first learning Android.
 
 ## High Level Guide
 
@@ -66,6 +67,15 @@ Speaking of Eclipse, the IDE most people still use to program for Android, wheth
 
   * The alternative IDE most people talk about, Android Studio (which is based on IntelliJ), is still in an **early access** preview. The official Android page has the [following warning about it](http://developer.android.com/sdk/installing/studio.html): "Android Studio is currently available as an early access preview. Several features are either incomplete or not yet implemented and you may encounter bugs."
   * Most tutorials and documentation for beginners are still based on the use of Eclipse. All the resources I talk about here which are connected to an IDE, refer to Eclipse.
+
+In terms of design resources check out:
+
+ * [Android App Patterns](http://www.android-app-patterns.com/) - Repository of Android interfaces for dozens of categories. **Great way to explore the Android design standards**
+ * [IconFinder](https://www.iconfinder.com/) - Excellent source of free to use graphics
+ * [NounProject](http://thenounproject.com/) - Another source of free icons and graphics
+ * [Icon Generator](http://android-ui-utils.googlecode.com/hg/asset-studio/dist/icons-launcher.html) - Easily generate icons and images for use in your apps
+ * [AndroidNiceties](http://androidniceties.tumblr.com/) - Inspiring examples of Android app interfaces
+ * [Android Design Principles](http://developer.android.com/design/get-started/principles.html)
   
 ## Beginning Android Resources
 
@@ -141,3 +151,9 @@ Aside from the ActionBarSherlock, though, most things in the UI can done to all 
 ## Wrapping Up
 
 Again please note this guide above was originally posted [on reddit](http://www.reddit.com/r/Android/comments/1roag7/i_developed_an_app_and_created_a_starting_guide/) and was adapted here for wider access. For more details, check out the [original document](https://docs.google.com/document/d/19uj9TS0Hzaxyv8IM1D20d23GdU9aAkXo5BYfL15VG0I/edit).
+
+## References
+
+* <http://www.reddit.com/r/Android/comments/1roag7/i_developed_an_app_and_created_a_starting_guide/>
+* <http://halfapp.com/blog/get-started-programming-android-apps/>
+* <http://www.reddit.com/r/Android/comments/1w3woc/a_step_by_step_guide_about_how_to_get_started_and/>
