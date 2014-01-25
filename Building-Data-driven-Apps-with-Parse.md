@@ -1,5 +1,3 @@
-# 
-
 ## Registration
 
 First, we need to [sign up for a Parse account](https://www.parse.com/#signup) unless we are already registered. Next, we want to [setup our data](https://www.parse.com/apps/quickstart#parse_data/mobile/android/native) for our Android app. 
