@@ -104,6 +104,7 @@ Diving into the networking, model and persistence layers for data-driven apps:
 * [[RottenTomatoes Networking Tutorial]]
 * [[Networking with the Volley Library]]
 * [[Storing and Accessing SharedPreferences]]
+* [[Building Data-driven Apps with Parse]]
 
 ## Fragments
 
