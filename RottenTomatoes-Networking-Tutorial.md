@@ -411,7 +411,7 @@ public class BoxOfficeMoviesAdapter extends ArrayAdapter<BoxOfficeMovie> {
 
 Now that we have defined the adapter, let's plug all of these components together within the `BoxOfficeActivity` by using the client to send out an API call, deserialize the response into an array of `BoxOfficeMovie` object and then render those into a ListView using the `BoxOfficeMoviesAdapter`. Let's start by initializing the ArrayList, adapter, and the ListView: 
 
-```
+```java
 public class BoxOfficeActivity extends Activity {
 	private ListView lvMovies;
 	private BoxOfficeMoviesAdapter adapterMovies;
