@@ -123,7 +123,7 @@ public class NewActivity extends Activity {
 
 Now we can access the parcelable data from within the launched activity.
 
-### Creating a Parcelable, The Easier Way
+### Creating a Parcelable, The Easier Way ( using Eclipse)
 
 Generate your normal class like so:
 
@@ -253,6 +253,11 @@ public class MyCustomObject implements Parcelable {
 A very pretty Parcelable object that you can copy and paste back into your project.
 The site is also able to handle all of the primitives and Java object I didn't include in this tutorial. On top of that it also can handle your own custom parcelable objects and objects that extend other objects that you have already created. This is a util that I stumbled upon searching for a easier way to create Parcelable objects that I can use in my projects. Hope you enjoy.
 
+### Creating a Parcelable, The Easier Way ( using IntelliJ (and Android Studio))
+
+- Addition to automatic Parcelable creation.
+For all of you IntelliJ (and Android Studio) users there is a plugin designed by mcharmas called the [android-parcelable-intellij-plugin](https://github.com/mcharmas/android-parcelable-intellij-plugin) that can be imported directly into IntelliJ(Android Studio) and it creates parcelables just like the Parcelabler site but without going to the web. It is not completely finished but the plug-in does work in all of the situations that I have thrown at it. 
+
 ## References
 
 * <http://www.developerphil.com/parcelable-vs-serializable/>
@@ -261,3 +266,4 @@ The site is also able to handle all of the primitives and Java object I didn't i
 * <http://developer.android.com/reference/android/os/Parcel.html>
 * <http://stackoverflow.com/questions/6201311/how-to-read-write-a-boolean-when-implementing-the-parcelable-interface>
 * <http://devk.it/proj/parcelabler/>
+* <https://github.com/mcharmas/android-parcelable-intellij-plugin>
