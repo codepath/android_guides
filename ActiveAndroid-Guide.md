@@ -31,22 +31,22 @@ Make sure to **uninstall the app** afterward on the emulator to ensure the schem
 
 > I read somewhere that ActiveAndroid automatically creates another auto-increment ID column, is this true?  What field names should I avoid using?
 
-This is true, see https://github.com/pardom/ActiveAndroid/wiki/Creating-your-database-model for more details. The column is called ["mId"](https://github.com/pardom/ActiveAndroid/blob/master/src/com/activeandroid/Model.java#L40)
+This is true, see [creating your database model](https://github.com/pardom/ActiveAndroid/wiki/Creating-your-database-model) for more details. The column is called ["mId"](https://github.com/pardom/ActiveAndroid/blob/master/src/com/activeandroid/Model.java#L40)
 
 > How do you specify the data type (int, text)?  Does AA automatically know what the column type should be?
 
-Inferred automatically from the type of the field
+The type is inferred automatically from the type of the field.
 
 > How do I store dates into ActiveAndroid?
 
-AA supports serializing Date fields automatically! Simply do:
+AA supports serializing Date fields automatically. Simply:
 
 ```java
 @Column(name = "timestamp", index = true)
 private Date timestamp; 
 ```
 
-and the date will be serialized to SQLite. You can parse strings into a Date using ``:
+and the date will be serialized to SQLite. You can parse strings into a Date object using [SimpleDateFormat](http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html):
 
 ```java
 public void setDateFromString(String date) {
