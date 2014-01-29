@@ -14,7 +14,7 @@ Using ActiveAndroid is as simple as the following steps:
 
 > How does ActiveAndroid handle duplicate IDs?  For example, I want to make sure no duplicate twitter IDs are inserted.  Is there a way to specify a column is primary key in the model?
 
-The solution is to mark the column recording the unique id of an object as a unique column acting as your pseudo primary key. As [explained here]([Here's an issue](https://github.com/pardom/ActiveAndroid/issues/22), the annotation is:
+The solution is to mark the column recording the unique id of an object as a unique column acting as your pseudo primary key. As [explained here](https://github.com/pardom/ActiveAndroid/issues/22), the annotation is:
 
 ```java
 @Table(name = "items")
