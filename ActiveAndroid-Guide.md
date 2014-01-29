@@ -37,6 +37,25 @@ This is true, see https://github.com/pardom/ActiveAndroid/wiki/Creating-your-dat
 
 Inferred automatically from the type of the field
 
+> How do I store dates into ActiveAndroid?
+
+AA supports serializing Date fields automatically! Simply do:
+
+```java
+@Column(name = "timestamp", index = true)
+private Date timestamp; 
+```
+
+and the date will be serialized to SQLite. You can parse strings into a Date using ``:
+
+```java
+public void setDateFromString(String date) {
+    SimpleDateFormat sf = new SimpleDateFormat("EEE MMM dd HH:mm:ss ZZZZZ yyyy");
+    sf.setLenient(true);
+    this.timestamp = sf.parse(date);
+}
+```
+
 > How do you represent a 1-1 relationship?  
 
 Check out https://github.com/pardom/ActiveAndroid/wiki/Creating-your-database-model#relationships if you haven't yet. Basically there are many ways to manage this. You can declare a type "User" and then that field will be associated with a foreign key representing the user: https://github.com/pardom/ActiveAndroid/blob/master/src/com/activeandroid/Model.java#L135. You manage this process more manually by simply constructing and assigning the user object and then calling save on the parent. You do need to call save separately in most cases.
