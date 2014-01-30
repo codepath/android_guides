@@ -87,7 +87,7 @@ Let's also install a library for remote image loading called [Picasso](http://re
 
 Drop those jars into the "libs" folder of our Android app before continuing.
 
-## Setup Internet Permission
+### Setup Internet Permission
 
 Add the proper internet permissions to the `AndroidManifest.xml` within the `manifest` node:
 
