@@ -128,7 +128,7 @@ public class MainActivity extends Activity {
   }
 
   // Starts the IntentService
-  public void onStartService(View v) {
+  public void onStartService() {
     Intent i = new Intent(this, MyTestService.class);
     i.putExtra("foo", "bar");
     i.putExtra("receiver", receiverForTest);
