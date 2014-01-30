@@ -127,7 +127,7 @@ ActiveAndroid queries map to SQL queries and are built by chaining methods.
 ```java
 List<User> users = new Select()
 		.from(User.class).where("age > ?", 25)
-                .limit(25).offset(0)
+		.limit(25).offset(0)
 		.orderBy("age ASC").execute();
 ```
 
