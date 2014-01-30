@@ -87,6 +87,16 @@ Let's also install a library for remote image loading called [Picasso](http://re
 
 Drop those jars into the "libs" folder of our Android app before continuing.
 
+## Setup Internet Permission
+
+Add the proper internet permissions to the `AndroidManifest.xml` within the `manifest` node:
+
+```xml
+<uses-permission android:name="android.permission.INTERNET" /> 
+```
+
+Once you add this, network requests can be executed.
+
 ### Setup Basic Activity Layout
 
 Generate a project with the name "RottenTomatoesDemo", a minimum API of 10 and a first activity called **BoxOfficeActivity**. In the `res/layout/activity_box_office.xml`, let's drop out a ListView with the id `lvMovies`:
