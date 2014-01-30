@@ -61,7 +61,7 @@ client.getHomeTimeline(1, new JsonHttpResponseHandler() {
 });
 ```
 
-You should also **handle failure cases** with [JsonHttpResponseHandler](http://loopj.com/android-async-http/doc/com/loopj/android/http/JsonHttpResponseHandler.html#onFailure(java.lang.Throwable, org.json.JSONObject\)) using the `onFailure` method:
+You should also **handle failure cases** with [JsonHttpResponseHandler](http://loopj.com/android-async-http/doc/com/loopj/android/http/JsonHttpResponseHandler.html#onFailure\(java.lang.Throwable, org.json.JSONObject\)) using the `onFailure` method:
 
 ```java
 client.getHomeTimeline(1, new JsonHttpResponseHandler() {
@@ -72,7 +72,7 @@ client.getHomeTimeline(1, new JsonHttpResponseHandler() {
 });
 ```
 
-Always handle failure cases so your application is robust to "losing internet" and user doesn't become confused.
+Always handle failure cases so your application is robust to "losing internet" and user doesn't become confused with unexpected results.
 
 ### Displaying Remote Images (The "Easy" Way)
 
