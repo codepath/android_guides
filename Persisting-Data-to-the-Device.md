@@ -98,12 +98,12 @@ public class User extends Model {
   
   // Make sure to define this constructor (with no arguments)
   // If you don't querying will fail to return results!
-  public Item() {
+  public User() {
     super();
   }
   
   // Be sure to call super() on additional constructors as well
-  public Item(String name, int age){
+  public User(String name, int age){
     super();
     this.name = name;
     this.age = age;
