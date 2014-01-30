@@ -12,6 +12,14 @@ Using ActiveAndroid is as simple as the following steps:
 
 ## Common Questions
 
+> I am getting an "SQLiteException: no such table" error when I try to run the app
+
+This is because ActiveAndroid only generates the schema if there is no existing database file. In order to "regenerate" the schema after creating a new model, the easiest way is to uninstall the app from the emulator and allow it to be fully re-installed. This is because this clears the database file and triggers ActiveAndroid to recreate the tables based on the annotated models in the project.
+
+> I am getting a NullPointerException when trying to save a model
+
+This is because ActiveAndroid needs you to save all objects separately. Before saving a tweet for example, be sure to save the associated user object first. So when you have a tweet that references a user be sure to `user.save()` before you call `tweet.save()` since storing the user requires the local id to be set and assigned as the foreign key for the tweet.
+
 > How does ActiveAndroid handle duplicate IDs?  For example, I want to make sure no duplicate twitter IDs are inserted.  Is there a way to specify a column is primary key in the model?
 
 The solution is to mark the column recording the unique id of an object as a unique column acting as your pseudo primary key. As [explained here](https://github.com/pardom/ActiveAndroid/issues/22), the annotation is:
