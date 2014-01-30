@@ -21,11 +21,11 @@ See a red line under a class that should exist (i.e ArrayList, View)? - Hover ov
 
 ### Getting "R cannot be resolved to a variable" errors?
 
-This means that the project does not have an `R` file generated and is usually a sign of a bad state. Try a seres of steps to fix:
+This means that the project does not have an `R` file generated and is usually a sign of an **invalid file within res**. Try a seres of steps to fix:
 
-1. Try running `Project => Clean` to regenerate the file
-2. Look for errors in "Console" or "Problems" to resolve
-2. Try relaunching Eclipse
+1. Look for errors in "Console" or "Problems" to resolve (usually invalid XML)
+2. Try running `Project => Clean` to regenerate the `R` file
+3. Try closing and relaunching Eclipse
 
 <img src="http://i.imgur.com/ChMkx09.png" width="440" />&nbsp;
 <img src="http://i.imgur.com/AXcdNlW.png" width="440" />
