@@ -6,14 +6,13 @@ In this guide, we will walk you through the step by step process of getting an e
 
 ### Download Google Play Services
 
-First, let's download and setup the Google Play Services SDK. Open **Eclipse ⇒ Windows ⇒ Android SDK** Manager and check whether you have already downloaded Google Play Services or not under Extras section. If not select play services and install the package.
+First, let's download and setup the Google Play Services SDK. Open **Eclipse ⇒ Windows ⇒ Android SDK** Manager and check whether you have already downloaded "Google Play Services for Froyo" or not under Extras section. If not select "Google Play Services for Froyo" and install the package.
 
-![Play Services](http://www.androidhive.info/wp-content/uploads/2013/08/downloading-google-play-services-sdk.png)
+![Play Services](http://i.imgur.com/BLQHeEC.png)
 
 **Important Note**
 
-After the latest API update (version 19), if you run into any issues, please make sure to download 'Google Play Services for Froyo' instead of the 'Google Play services' since the latest library drops support for previous versions.
-
+After the latest API update (version 19), if you run into any issues, please make sure to download 'Google Play Services for Froyo' instead of the 'Google Play services' since the latest library drops support for previous SDK versions.
 
 ### Import Google Play Services
 
@@ -21,12 +20,12 @@ After downloading play services we need to import it to Eclipse which will be us
 
 1. In Eclipse goto **File ⇒ Import ⇒ Android ⇒ Existing Android Code Into Workspace**
 
-2. Click on Browse and select Google Play Services project from your android sdk folder. You can locate play services library project from
-<your-android-sdk-path>\extras\google\google_play_services\libproject\google-play-services_lib
+2. Click on Browse and select "Google Play Services For Froyo" project from your android sdk folder. You can locate play services library project from
+`<your-android-sdk-path>\extras\google\google_play_services_froyo\libproject\google-play-services_lib`
 
-3. Importantly while importing check Copy projects into workspace option as shown in the below image.
+3. Be sure to check "Copy projects into workspace" option as shown in the below image.
 
-![Google Play Load](http://www.androidhive.info/wp-content/uploads/2013/08/importing-google-play-services.png)
+![Google Play Load](http://i.imgur.com/selHZVR.png)
 
 ### Retrieve your SHA-1 Fingerprint
 
@@ -86,7 +85,7 @@ Enter your API Key into the meta data for `com.google.android.maps.v2.API_KEY`:
 
 Now we need to use Google Play Services project as a library to use project. So right click on project and select properties. In the properties window on left side select Android. On the right you can see a Add button under library section. Click it and select google play services project which we imported previously.
 
-![Library](http://www.androidhive.info/wp-content/uploads/2013/08/linking-google-play-services-to-project-2.png)
+![Library](http://i.imgur.com/X4yauRd.png)
 
 ### Genymotion
 
