@@ -100,10 +100,11 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 2. (Mac or Linux) [Install VirtualBox](https://www.virtualbox.org/wiki/Downloads), a powerful free virtualization software.
 3. [Download Genymotion Emulator](https://cloud.genymotion.com/page/launchpad/download/) for your platform.
 4. Install the Genymotion Emulator
-  * Windows: Run the msi installer
-  * Mac: Open dmg and drag apps to Applications directory
-5. Run Genymotion application
-6. Sign in and add your first virtual device (Nexus S - 4.2.2 with Google Apps - API 17)
+  * Windows: Run the MSI installer
+  * Mac: Open the dmg and drag both apps to Applications directory
+5. Run the Genymotion application
+6. Sign in and add your first virtual device (Nexus S - 4.3 - API 18)
+   * Do **not start your emulator** yet
 7. Install the Eclipse Plugin
    * Go to the "Help/Install New Software..." menu
    * Add a new software site: Genymobile - http://plugins.genymotion.com/eclipse
@@ -111,9 +112,13 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
    * Accept licenses and install
    * Restart eclipse
 8. Click the genymobile icon ![Genymobile](https://cloud.genymotion.com/static/images/doc/genymotion-plugin-eclipse-button.png) and click "Start" on your virtual device.
+  * Make sure to start your emulator **through the eclipse plugin**
 9. Wait for device to boot up and then run through initial setup
+10. Download the latest [Google Play Services APK](http://wiki.rootzwiki.com/Google_Apps#Universal_Packages_2) for 4.3
+11. Drag and drop the zip file onto the running Genymotion emulator
+12. Close and restart the emulator and Google Play Store should now be installed
 
-**Note:** On Ubuntu 12.04, make sure to [3D acceleration mode](http://imgur.com/Kl9cOmb) by launching VirtualBox and going to `Settings -> Display` to fix.   VirtualBox appears to prone to memory leaks, so you may find yourself killing the process from time to time.   To avoid large CPU consumption by the compiz window manager and swapping in general, try increasing the video memory allocation and Base Memory (found in `Settings -> System`).
+**Note:** On Ubuntu 12.04, make sure to [3D acceleration mode](http://imgur.com/Kl9cOmb) by launching VirtualBox and going to `Settings -> Display` to fix. VirtualBox appears to prone to memory leaks, so you may find yourself killing the process from time to time. To avoid large CPU consumption by the compiz window manager and swapping in general, try increasing the video memory allocation and Base Memory (found in `Settings -> System`).
 
 ### Conclusion
 
