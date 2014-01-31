@@ -116,6 +116,7 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 9. Wait for device to boot up and then run through initial setup
 10. Download the latest [Google Play Services APK](http://wiki.rootzwiki.com/Google_Apps#Universal_Packages_2) for 4.3
 11. Drag and drop the zip file onto the running Genymotion emulator
+    * Seeing a crash of Google services is to be expected
 12. Close and restart the emulator and Google Play Store should now be installed
 
 **Note:** On Ubuntu 12.04, make sure to [3D acceleration mode](http://imgur.com/Kl9cOmb) by launching VirtualBox and going to `Settings -> Display` to fix. VirtualBox appears to prone to memory leaks, so you may find yourself killing the process from time to time. To avoid large CPU consumption by the compiz window manager and swapping in general, try increasing the video memory allocation and Base Memory (found in `Settings -> System`).
