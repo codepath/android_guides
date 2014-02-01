@@ -411,10 +411,7 @@ public class BoxOfficeMoviesAdapter extends ArrayAdapter<BoxOfficeMovie> {
         tvTitle.setText(movie.getTitle());
         tvCriticsScore.setText("Score: " + movie.getCriticsScore() + "%");
         tvCast.setText(movie.getCastList());
-        // R.drawable.movie_poster is from 
-        // http://content8.flixster.com/movie/11/15/86/11158674_mob.jpg
-        Picasso.with(getContext()).load(movie.getPosterUrl()).
-           placeholder(R.drawable.movie_poster).into(ivPosterImage);
+        Picasso.with(getContext()).load(movie.getPosterUrl()).into(ivPosterImage);
         // Return the completed view to render on screen
         return convertView;
     }
