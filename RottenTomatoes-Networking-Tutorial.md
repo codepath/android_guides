@@ -348,6 +348,7 @@ Now, we need to define a layout to use for visualizing a particular movie. Let's
         android:id="@+id/ivPosterImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:src="@drawable/movie_poster" />
@@ -410,7 +411,10 @@ public class BoxOfficeMoviesAdapter extends ArrayAdapter<BoxOfficeMovie> {
         tvTitle.setText(movie.getTitle());
         tvCriticsScore.setText("Score: " + movie.getCriticsScore() + "%");
         tvCast.setText(movie.getCastList());
-        Picasso.with(getContext()).load(movie.getPosterUrl()).into(ivPosterImage);
+        // R.drawable.movie_poster is from 
+        // http://content8.flixster.com/movie/11/15/86/11158674_mob.jpg
+        Picasso.with(getContext()).load(movie.getPosterUrl()).
+           placeholder(R.drawable.movie_poster).into(ivPosterImage);
         // Return the completed view to render on screen
         return convertView;
     }
