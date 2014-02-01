@@ -57,7 +57,6 @@ public void onShareItem(View v) {
     }
 }
 
-
 public Uri getLocalBitmapUri(ImageView imageView) {
     Bitmap bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
     // Write image to default external storage directory   
