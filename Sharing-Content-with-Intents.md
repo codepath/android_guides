@@ -103,24 +103,28 @@ public boolean onCreateOptionsMenu(Menu menu) {
     MenuItem item = menu.findItem(R.id.menu_item_share);
     // Fetch and store ShareActionProvider
     miShareAction = (ShareActionProvider) item.getActionProvider();
+    setupShareAction();
     // Return true to display menu
     return true;
 }
 ```
 
-Attach the share intent for the provider:
+Attach the share intent for the provider by calling this method:
 
 ```java
-// Fetch Bitmap Uri locally
-Uri bmpUri = getLocalBitmapUri(); // see previous section
-// Create share intent as described above
-Intent shareIntent = new Intent();
-shareIntent.setAction(Intent.ACTION_SEND);
-shareIntent.setAction(Intent.ACTION_SEND);
-shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
-shareIntent.setType("image/*");
-// Attach share event to the menu item provider
-miShareAction.setShareIntent(shareIntent);
+public void setupShareAction() {
+    // Fetch Bitmap Uri locally
+    SmartImageView ivImage = (SmartImageView) findViewById(R.id.ivResult);
+    Uri bmpUri = getLocalBitmapUri(ivImage); // see previous section
+    // Create share intent as described above
+    Intent shareIntent = new Intent();
+    shareIntent.setAction(Intent.ACTION_SEND);
+    shareIntent.setAction(Intent.ACTION_SEND);
+    shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
+    shareIntent.setType("image/*");
+    // Attach share event to the menu item provider
+    miShareAction.setShareIntent(shareIntent);
+}
 ```
 
 Check out the [official guide for easy sharing](http://developer.android.com/training/sharing/shareaction.html) for more information.
