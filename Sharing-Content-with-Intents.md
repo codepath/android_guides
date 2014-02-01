@@ -8,6 +8,15 @@ Sending and receiving data between applications with intents is most commonly us
 
 You can send content by invoking an implicit intent. 
 
+#### Sending HTML
+
+```java
+Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+sharingIntent.setType("text/html");
+sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, Html.fromHtml("<p>This is the text shared.</p>"));
+startActivity(Intent.createChooser(sharingIntent,"Share using"));
+```
+
 #### Sending Images
 
 To send images or binary data:
@@ -34,7 +43,23 @@ and then later assuming it has been loaded, this is how you can trigger a share:
 public void onShareItem(View v) {
     // Get access to bitmap image from view
     SmartImageView ivImage = (SmartImageView) findViewById(R.id.ivResult);
-    Bitmap bitmap = ((BitmapDrawable) ivImage.getDrawable()).getBitmap();
+    Uri bmpUri = getLocalBitmapUri(ivImage);
+    if (bmpUri != null) {
+        // Construct a ShareIntent with link to image
+        Intent shareIntent = new Intent();
+        shareIntent.setAction(Intent.ACTION_SEND);
+        shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
+        shareIntent.setType("image/*");
+        // Launch sharing dialog for image
+        startActivity(Intent.createChooser(shareIntent, "Share Content"));	
+    } else {
+        // ...sharing failed, handle error
+    }
+}
+
+
+public Uri getLocalBitmapUri(ImageView imageView) {
+    Bitmap bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
     // Write image to default external storage directory   
     Uri bmpUri = null;
     try {
@@ -47,28 +72,7 @@ public void onShareItem(View v) {
     } catch (IOException e) {
         e.printStackTrace();
     }
-	
-    if (bmpUri != null) {
-        // Construct a ShareIntent with link to image
-	Intent shareIntent = new Intent();
-	shareIntent.setAction(Intent.ACTION_SEND);
-	shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
-	shareIntent.setType("image/*");
-	// Launch sharing dialog for image
-	startActivity(Intent.createChooser(shareIntent, "Share Content"));	
-    } else {
-	// ...sharing failed, handle error
-    }
 }
-```
-
-#### Sending HTML
-
-```java
-Intent sharingIntent = new Intent(Intent.ACTION_SEND);
-sharingIntent.setType("text/html");
-sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, Html.fromHtml("<p>This is the text shared.</p>"));
-startActivity(Intent.createChooser(sharingIntent,"Share using"));
 ```
 
 ### ShareActionProvider
