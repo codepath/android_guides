@@ -341,7 +341,9 @@ Now, we need to define a layout to use for visualizing a particular movie. Let's
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="5dp" >
-
+    
+    <!-- @drawable/movie_poster sourced from 
+         http://content8.flixster.com/movie/11/15/86/11158674_mob.jpg -->
     <ImageView
         android:id="@+id/ivPosterImage"
         android:layout_width="wrap_content"
