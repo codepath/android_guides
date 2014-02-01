@@ -483,3 +483,226 @@ public class BoxOfficeActivity extends Activity {
 After running the app, we should see the populated box office movie data:
 
 ![Imgur](http://i.imgur.com/zQPzAxD.png)
+
+### Adding a Detail View
+
+Suppose we wanted to add a detail view which would display more details about a movie when the movie was selected within the list. In order to achieve that we would need to:
+
+1. Generate an activity for the details view
+2. Define the detail Layout XML with views
+3. Setup an item click listener for the list of movies
+4. Fire an intent when a user selects a movie from the list
+5. Pass the movie through the intent and populate the detail view
+
+First, let's generate the activity that will display all the details by selecting `File => New => Other => Android Activity` and naming our activity "BoxOfficeDetailActivity". This activity should simply display additional information about the film for people to view, let's edit the layout `res/layout/activity_box_office_detail.xml` to include all the movie details and a larger poster:
+
+```xml
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    tools:context=".BoxOfficeDetailActivity" >
+    
+    <!-- @drawable/large_movie_poster sourced from 
+         http://content8.flixster.com/movie/11/15/86/11158674_pro.jpg -->
+    <ImageView
+        android:id="@+id/ivPosterImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/large_movie_poster" />
+
+    <TextView
+        android:id="@+id/tvAudienceScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvCriticsScore"
+        android:layout_below="@+id/tvCriticsScore"
+        android:layout_marginTop="5dp"
+        android:text="Audience Score: 93%"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tvCriticsScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvTitle"
+        android:layout_below="@+id/tvTitle"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/ivPosterImage"
+        android:text="Critics Score: 93%"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tvCast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ivPosterImage"
+        android:layout_alignLeft="@+id/tvTitle"
+        android:gravity="bottom"
+        android:text="Christian Bale, Joseph-Gordon Levitt"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ivPosterImage"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@+id/ivPosterImage"
+        android:text="The Dark Knight"
+        android:textSize="18sp" />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivPosterImage"
+        android:layout_marginTop="10dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tvCriticsConsensus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="This is an excellent movie that has action and romance" />
+
+            <TextView
+                android:id="@+id/tvSynopsis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="This is a story about a protagonist defeating an antagonist" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
+```
+
+Next, we want to be able to pass the movie object from the list to this detail view, so let's make our `BoxOfficeMovie` serializable:
+
+```java
+public class BoxOfficeMovie implements Serializable {
+	private static final long serialVersionUID = -8959832007991513854L;
+	// ...
+}
+```
+
+We also want to be able to access a few key attributes of the API data for the detail page such as a larger picture and critics consensus:
+
+```java
+public class BoxOfficeMovie implements Serializable {
+    // ...
+    private String largePosterUrl;
+    private String criticsConsensus;
+	
+    public static BoxOfficeMovie fromJson(JSONObject jsonObject) {
+        // ...
+        b.largePosterUrl = jsonObject.getJSONObject("posters").getString("profile");
+        b.criticsConsensus = jsonObject.getString("critics_consensus"); 
+        b.audienceScore = jsonObject.getJSONObject("ratings").getInt("audience_score");
+        // ...
+    }
+  
+    // ...
+    public String getLargePosterUrl() {
+        return largePosterUrl;
+    }
+
+    public String getCriticsConsensus() {
+        return criticsConsensus;
+    }
+	
+    public int getAudienceScore() {
+        return audienceScore;
+    }
+}
+```
+
+
+Let's now add an item click handler to our `BoxOfficeActivity` which will launch the detail view with an intent:
+
+```java
+public class BoxOfficeActivity extends Activity {
+   // ...
+   public static final String MOVIE_DETAIL_KEY = "movie";
+   
+   @Override
+   protected void onCreate(Bundle savedInstanceState) { 
+      // ...
+      setupMovieSelectedListener();  
+   }
+   
+   // ...
+  
+   public void setupMovieSelectedListener() {
+       lvMovies.setOnItemClickListener(new OnItemClickListener() {
+           @Override
+           public void onItemClick(AdapterView<?> adapterView, View item, int position, long rowId) {
+               // Launch the detail view passing movie as an extra
+               Intent i = new Intent(BoxOfficeActivity.this, BoxOfficeDetailActivity.class);
+               i.putExtra(MOVIE_DETAIL_KEY, adapterMovies.getItem(position));
+               startActivity(i);
+           }
+        });
+    } 
+}
+```
+
+Now, let's populate the data from the movie into the details view with `BoxOfficeDetailActivity`:
+
+```java
+public class BoxOfficeDetailActivity extends Activity {
+	private ImageView ivPosterImage;
+	private TextView tvTitle;
+	private TextView tvSynopsis;
+	private TextView tvCast;
+	private TextView tvAudienceScore;
+	private TextView tvCriticsScore;
+	private TextView tvCriticsConsensus;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_box_office_detail);
+        // Fetch views
+        ivPosterImage = (ImageView) findViewById(R.id.ivPosterImage);
+        tvTitle = (TextView) findViewById(R.id.tvTitle);
+        tvSynopsis = (TextView) findViewById(R.id.tvSynopsis);
+        tvCast = (TextView) findViewById(R.id.tvCast);
+        tvCriticsConsensus = (TextView) findViewById(R.id.tvCriticsConsensus);
+        tvAudienceScore =  (TextView) findViewById(R.id.tvAudienceScore);
+        tvCriticsScore = (TextView) findViewById(R.id.tvCriticsScore);
+        // Use the movie to populate the data into our views
+        BoxOfficeMovie movie = (BoxOfficeMovie) 
+            getIntent().getSerializableExtra(BoxOfficeActivity.MOVIE_DETAIL_KEY);
+        loadMovie(movie);
+    }
+	
+    // Populate the data for the movie
+    public void loadMovie(BoxOfficeMovie movie) {
+        // Populate data
+        tvTitle.setText(movie.getTitle());
+        tvCriticsScore.setText(Html.fromHtml("<b>Critics Score:</b> " + movie.getCriticsScore() + "%"));
+        tvAudienceScore.setText(Html.fromHtml("<b>Audience Score:</b> " + movie.getAudienceScore() + "%"));
+        tvCast.setText(movie.getCastList());
+        tvSynopsis.setText(Html.fromHtml("<b>Synopsis:</b> " + movie.getSynopsis()));
+        tvCriticsConsensus.setText(Html.fromHtml("<b>Consensus:</b> " + movie.getCriticsConsensus()));
+        // R.drawable.large_movie_poster from 
+        // http://content8.flixster.com/movie/11/15/86/11158674_pro.jpg -->
+        Picasso.with(this).load(movie.getLargePosterUrl()).
+          resize(120, 177).placeholder(R.drawable.large_movie_poster).
+          into(ivPosterImage);
+    }  
+
+}
+```
+
+With this, we should now be able to view the movie detail view:
+
+<img src="http://i.imgur.com/9Uw7qLc.png" width="400" />
