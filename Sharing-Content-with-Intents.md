@@ -39,13 +39,13 @@ public void onShareItem(View v) {
     Uri bmpUri = null;
     try {
         File file =  new File(Environment.getExternalStoragePublicDirectory(  
-	   	   Environment.DIRECTORY_DOWNLOADS), "share_image.png");  
-	FileOutputStream out = new FileOutputStream(file);
-	bitmap.compress(Bitmap.CompressFormat.PNG, 90, out);
-	out.close();
-	bmpUri = Uri.fromFile(file);
+            Environment.DIRECTORY_DOWNLOADS), "share_image.png");  
+        FileOutputStream out = new FileOutputStream(file);
+        bitmap.compress(Bitmap.CompressFormat.PNG, 90, out);
+        out.close();
+        bmpUri = Uri.fromFile(file);
     } catch (IOException e) {
-	e.printStackTrace();
+        e.printStackTrace();
     }
 	
     if (bmpUri != null) {
