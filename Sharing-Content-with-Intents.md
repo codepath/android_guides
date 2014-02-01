@@ -106,10 +106,14 @@ public boolean onCreateOptionsMenu(Menu menu) {
 Attach the share intent for the provider:
 
 ```java
+// Fetch Bitmap Uri locally
+Uri bmpUri = getLocalBitmapUri(); // see previous section
 // Create share intent as described above
 Intent shareIntent = new Intent();
 shareIntent.setAction(Intent.ACTION_SEND);
-// ...
+shareIntent.setAction(Intent.ACTION_SEND);
+shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
+shareIntent.setType("image/*");
 // Attach share event to the menu item provider
 miShareAction.setShareIntent(shareIntent);
 ```
