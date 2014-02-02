@@ -62,6 +62,7 @@ Exploring the gritty details of views, layout, styling and common UI patterns:
 * [[Implementing a Horizontal ListView]] Guide
 * [[Endless Scrolling with AdapterViews]]
 * [[Implementing Pull to Refresh]] Guide
+* [[Implementing a Heterogenous ListView]] (with different item types)
 
 ### Custom Views
 
