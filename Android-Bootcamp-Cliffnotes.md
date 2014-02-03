@@ -64,5 +64,6 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Must-have Libraries]] Guide
 * [[Implementing Pull to Refresh]] Guide
 * [[Implementing a Horizontal ListView]] Guide
+* [[Implementing a Heterogenous-ListView]] Guide
  
 If there's anything else, feel free to suggest new cliffnotes and/or help contribute to them!
