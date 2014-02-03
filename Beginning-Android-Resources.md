@@ -10,8 +10,7 @@ In addition, resources linked from [HalfApp's "How to get started programming An
 * **Programming** - If you are starting from scratch with no programming knowledge, you should learn Java first (see resources in next section)
 * **First App** - Consider starting by building a simple [todo app](http://goo.gl/pBKfYP) by following the slides. Alternately try this [video tutorial](http://www.youtube.com/watch?v=Z149x12sXsw) that will guide you through the basics of an Android app. I recommend that you not only watch the video but repeat what he is doing simultaneously.
 * **Reference Book** - A great companion book is [The Busy Coder's Guide to Android Development](http://commonsware.com/Android/). If you don't want or can't buy the book, consider looking at its many code examples [available for free](https://github.com/commonsguy/cw-omnibus/)
-- **Finding Solutions** - Learn how to search for solutions before you ask questions; check sources like [StackOverflow](http://stackoverflow.com/) and the [cliffnotes](http://guides.thecodepath.com/android) for answers.
-* **Debugging** - Learn how to debug your code. This means using **LogCat** and reading stack traces, also learning how to use breakpoints.
+- **Finding Solutions** - Learn how to search for solutions before you ask questions; check sources like [StackOverflow](http://stackoverflow.com/) and the [cliffnotes](http://guides.thecodepath.com/android) for answers. Learn how to debug your code. This means using **LogCat** and reading stack traces, also learning how to use breakpoints.
 
 ## Learning to Program with Java
 
