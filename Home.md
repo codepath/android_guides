@@ -27,9 +27,9 @@ Read more about [[us and our vision for all this|The CodePath Goal]]. If you wan
 * [Setting up the Android Development Tools](http://goo.gl/Ml9YN) (Installation Slides)
 * [Architecture of Mobile Apps](http://goo.gl/AAsGLx) (Concept Slides)
 * [Developing our First App](http://goo.gl/pBKfYP) (Step-by-Step Todo App)
-* [[Sample Android Apps]] (Code repositories)
-* [[Beginning Android Resources]] (Detailed Post With Many Links)
 * [[Troubleshooting Common Issues]] (Running into problems?)
+* [[Beginning Android Resources]] (Detailed Post With Many Links)
+* [[Sample Android Apps]] (Code repositories)
 
 ## Structure
 
