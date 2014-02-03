@@ -98,7 +98,7 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 
 ### Enable GPS on Emulator
 
-Next, be sure to boot the genymotion emulator from **within the Eclipse plugin**:
+Next, if you **don't have the emulator started yet**, be sure to boot the genymotion emulator from **within the Eclipse plugin**:
 
 ![Emulator](http://i.imgur.com/OsGYNpE.png)
 
