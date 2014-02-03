@@ -2,13 +2,87 @@
 
 Using the ActiveAndroid ORM makes managing client-side models extremely easy in simple cases. For more advanced or custom cases, you can use [SQLiteOpenHelper](http://www.androidhive.info/2011/11/android-sqlite-database-tutorial/) to manage the database communication directly. But for simple model mapping from JSON, ActiveAndroid keeps things simple. 
 
-Using ActiveAndroid is as simple as the following steps:
+First, we define our models:
+
+```java
+@Table(name = "Items")
+public class Item extends Model {
+    @Column(name = "remote_id", unique = true, onUniqueConflict = Column.ConflictAction.REPLACE)
+    public int remoteId;
+    @Column(name = "Name")
+    public String name;
+    @Column(name = "Category")
+    public Category category;
+
+        public Item(){
+                super();
+        }
+        public Item(String name, Category category){
+                super();
+                this.name = name;
+                this.category = category;
+        }
+}
+
+@Table(name = "Categories")
+public class Category extends Model {
+    @Column(name = "remote_id", unique = true, onUniqueConflict = Column.ConflictAction.REPLACE)
+    public int remoteId;
+    @Column(name = "Name")
+    public String name;
+
+    public List<Item> items() {
+        return getMany(Item.class, "Category");
+    }
+}
+```
+
+and then you can create records:
+
+```java
+// Create a category
+Category restaurants = new Category();
+restaurants.name = "Restaurants";
+restaurants.save();
+
+// Create an item 
+Item item = new Item();
+item.category = restaurants;
+item.name = "Outback Steakhouse";
+item.save();
+
+// Deleting items
+Item item = Item.load(Item.class, 1);
+item.delete();
+// or
+new Delete().from(Item.class).where("Id = ?", 1).execute();
+```
+
+We can query records with:
+
+```java
+@Table(name = "Items")
+public class Item extends Model {
+  // ...
+    public static List<Item> getAll(Category category) {
+        return new Select()
+          .from(Item.class)
+          .where("Category = ?", category.getId())
+          .orderBy("Name ASC")
+          .execute();
+    }
+}
+```
+
+That's ActiveAndroid in a nutshell. Check these official reference guides for more detailed information:
 
  * [Install ActiveAndroid and perform initial setup](https://github.com/pardom/ActiveAndroid/wiki/Getting-started)
  * [Define your application models](https://github.com/pardom/ActiveAndroid/wiki/Creating-your-database-model)
  * [Persist data using save](https://github.com/pardom/ActiveAndroid/wiki/Saving-to-the-database)
  * [Query the local database](https://github.com/pardom/ActiveAndroid/wiki/Querying-the-database)
  * [Perform data schema migrations](https://github.com/pardom/ActiveAndroid/wiki/Schema-migrations)
+
+Be sure to review the common questions below.
 
 ## Common Questions
 
