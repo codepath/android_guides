@@ -6,26 +6,22 @@ In this guide, we will walk you through the step by step process of getting an e
 
 ### Download Google Play Services
 
-First, let's download and setup the Google Play Services SDK. Open **Eclipse ⇒ Windows ⇒ Android SDK** Manager and check whether you have already downloaded "Google Play Services for Froyo" or not under Extras section. If not select "Google Play Services for Froyo" and install the package.
+First, let's download and setup the Google Play Services SDK. Open **Eclipse ⇒ Windows ⇒ Android SDK** Manager and check whether you have already downloaded "Google Play services" or not under Extras section. If not, select "Google Play services" and install the package.
 
-![Play Services](http://i.imgur.com/BLQHeEC.png)
-
-**Important Note**
-
-After the latest API update (version 19), if you run into any issues, please make sure to download 'Google Play Services for Froyo' instead of the 'Google Play services' since the latest library drops support for previous SDK versions.
+![Play Services](http://i.imgur.com/3ZJsWEw.png)
 
 ### Import Google Play Services
 
-After downloading play services we need to import it to Eclipse which will be used as a library for our maps project.
+After downloading the play services we need to import the project to Eclipse which will be used as a library for our maps project.
 
 1. In Eclipse goto **File ⇒ Import ⇒ Android ⇒ Existing Android Code Into Workspace**
 
-2. Click on Browse and select "Google Play Services For Froyo" project from your android sdk folder. You can locate play services library project from
-`<your-android-sdk-path>\extras\google\google_play_services_froyo\libproject\google-play-services_lib`
+2. Click on Browse and select "Google Play Services" project from your android sdk folder. You can locate the play services library project from
+`<your-android-sdk-path>\extras\google\google_play_services\libproject\google-play-services_lib`
 
 3. Be sure to check "Copy projects into workspace" option as shown in the below image.
 
-![Google Play Load](http://i.imgur.com/selHZVR.png)
+![Google Play Load](http://i.imgur.com/EHefxss.png)
 
 ### Retrieve your SHA-1 Fingerprint
 
@@ -67,26 +63,6 @@ Note the API Key for use in the next step:
 
 ![Key](http://www.androidhive.info/wp-content/uploads/2013/08/google-console-android-maps-api-key1.png)
 
-### Import Maps Demo
-
-Now that we have our Genymotion emulator properly setup, let's import the [demo application](https://github.com/thecodepath/android-google-maps-demo) we can use to verify if maps are showing up correctly. 
-
-1. Download the [Maps Demo](https://github.com/thecodepath/android-google-maps-demo/archive/master.zip) application and extract the files.
-2. Run "File...Import...Existing Android Code Into Workspace" and hit "Finish"
-3. Expand MapDemo application and open up the "AndroidManifest.xml"
-
-Enter your API Key into the meta data for `com.google.android.maps.v2.API_KEY`:
-
-```xml
-<meta-data
-   android:name="com.google.android.maps.v2.API_KEY"
-   android:value="YOUR-KEY-HERE" />
-```
-
-Now we need to use Google Play Services project as a library to use project. So right click on project and select properties. In the properties window on left side select Android. On the right you can see a Add button under library section. Click it and select google play services project which we imported previously.
-
-![Library](http://i.imgur.com/X4yauRd.png)
-
 ### Genymotion
 
 The first step to getting Google Maps working on your emulator is to download a third-party emulator called [Genymotion](http://www.genymotion.com/). The reason for this is that the official emulator does a terrible job of supporting the Google Play Services. While it is possible to get the Intel HAXM fast emulator working with the Play Services SDK, at the moment it's far more trouble then it's worth. 
@@ -119,6 +95,44 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 12. Close and restart the emulator and Google Play Store should now be installed
 
 **Note:** On Ubuntu 12.04, make sure to [3D acceleration mode](http://imgur.com/Kl9cOmb) by launching VirtualBox and going to `Settings -> Display` to fix. VirtualBox appears to prone to memory leaks, so you may find yourself killing the process from time to time. To avoid large CPU consumption by the compiz window manager and swapping in general, try increasing the video memory allocation and Base Memory (found in `Settings -> System`).
+
+### Enable GPS on Emulator
+
+Next, be sure to boot the genymotion emulator from **within the Eclipse plugin**:
+
+![Emulator](http://i.imgur.com/OsGYNpE.png)
+
+Now we need to enable the GPS location:
+
+![Emulator](http://i.imgur.com/oAdAKA0.png)
+
+With GPS location enabled, let's now setup our map demo.
+
+### Import Maps Demo
+
+Once we have our Genymotion emulator properly setup, let's import the [maps demo application](https://github.com/thecodepath/android-google-maps-demo) so we can use this to verify if maps are showing up correctly. 
+
+1. Download the [Maps Demo](https://github.com/thecodepath/android-google-maps-demo/archive/master.zip) application and extract the files.
+2. Run "File...Import...Existing Android Code Into Workspace", select the project and hit "Finish"
+3. Expand MapDemo application and open up the "AndroidManifest.xml"
+
+Enter your API Key into the meta data for `com.google.android.maps.v2.API_KEY`:
+
+```xml
+<meta-data
+   android:name="com.google.android.maps.v2.API_KEY"
+   android:value="YOUR-KEY-HERE" />
+```
+
+Now we need to use Google Play Services project as a library to use project. So right click on project and select properties. In the properties window on left side select Android. On the right you can see a Add button under library section. Click it and select google play services project which we imported previously.
+
+![Library](http://i.imgur.com/9dsbUBP.png)
+
+Now we want to run the map demo, and if everything went well we should see:
+
+<img src="http://i.imgur.com/3KFfS9G.png" width="350" />
+
+**Note:** If you don't, you may have not properly installed the Google Play services on the emulator (see instructions in genymotion setup above) or you may need to update the Google Play services on your emulator by following the instructions given in the app.
 
 ### Conclusion
 
