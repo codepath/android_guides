@@ -56,8 +56,8 @@ Cliffnotes are references giving you the "most important" Android topics with br
 
 * [[Endless Scrolling with AdapterViews]]
 * [[Common Navigation Paradigms]]
-  * [[Fragment Navigation Drawer]] Guide
   * [[Fragment ActionBar Tabs|ActionBar Tabs with Fragments]] Guide
+  * [[Fragment Navigation Drawer]] Guide
   * [[ViewPager with FragmentPagerAdapter]] Guide
 * [[Animations]] for Layouts and Views
 * [[Sharing Content with Intents]] Guide
