@@ -47,7 +47,7 @@ In the output you can see SHA 1 finger print:
 
 Now open [Google API Console](https://cloud.google.com/console), create and select a project, select "APIs & Auth" on left side and turn on Google Maps Android API v2 toggle switch.
 
-![Services](http://www.androidhive.info/wp-content/uploads/2013/08/android-google-console-maps-api.png)
+![Services](http://i.imgur.com/i4NUoJy.png)
 
 Now select "Credentials" on left side and on the right side click on "Create New Key" =>  "Android Key"
 
