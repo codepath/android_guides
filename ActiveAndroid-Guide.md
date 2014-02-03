@@ -38,7 +38,7 @@ public class Category extends Model {
 }
 ```
 
-Note that **ActiveAndroid creates a local id (mId) in addition to our remoteId which is the id on the server (for networked applications). Now we can create records:
+Note that **ActiveAndroid creates a local id (mId)** in addition to our manually managed remoteId (unique) which is the id on the server (for networked applications). Now we can create records:
 
 ```java
 // Create a category
