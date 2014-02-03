@@ -17,8 +17,9 @@ public class Item extends Model {
         public Item(){
                 super();
         }
-        public Item(String name, Category category){
+        public Item(String remoteId, String name, Category category){
                 super();
+                this.remoteId = remoteId;
                 this.name = name;
                 this.category = category;
         }
@@ -37,16 +38,18 @@ public class Category extends Model {
 }
 ```
 
-and then you can create records:
+Note that **ActiveAndroid creates a local id (mId) in addition to our remoteId which is the id on the server (for networked applications). Now we can create records:
 
 ```java
 // Create a category
 Category restaurants = new Category();
+restaurants.remoteId = 1;
 restaurants.name = "Restaurants";
 restaurants.save();
 
 // Create an item 
 Item item = new Item();
+item.remoteId = 1;
 item.category = restaurants;
 item.name = "Outback Steakhouse";
 item.save();
@@ -55,7 +58,7 @@ item.save();
 Item item = Item.load(Item.class, 1);
 item.delete();
 // or
-new Delete().from(Item.class).where("Id = ?", 1).execute();
+new Delete().from(Item.class).where("remote_id = ?", 1).execute();
 ```
 
 We can query records with:
