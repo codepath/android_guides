@@ -37,6 +37,8 @@ Next, we need to configure the `application` node with the `name` property of `c
 </manifest>
 ```
 
+Now you are ready to use ActiveAndroid. If you have an custom application class, check out more details for how to approach that in the [installation guide](https://github.com/pardom/ActiveAndroid/wiki/Getting-started).
+
 ### Usage
 
 First, we define our models:
