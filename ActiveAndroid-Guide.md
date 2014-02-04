@@ -117,8 +117,9 @@ We can query records with:
 ```java
 @Table(name = "Items")
 public class Item extends Model {
-  // ...
+    // ...
     public static List<Item> getAll(Category category) {
+        // This is how you execute a query
         return new Select()
           .from(Item.class)
           .where("Category = ?", category.getId())
