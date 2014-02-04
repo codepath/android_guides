@@ -44,28 +44,34 @@ Now you are ready to use ActiveAndroid. If you have an custom application class,
 First, we define our models:
 
 ```java
+import com.activeandroid.Model;
+
 @Table(name = "Items")
 public class Item extends Model {
+    // This is how you avoid duplicates
     @Column(name = "remote_id", unique = true, onUniqueConflict = Column.ConflictAction.REPLACE)
     public int remoteId;
     @Column(name = "Name")
     public String name;
     @Column(name = "Category")
     public Category category;
-
-        public Item(){
-                super();
-        }
-        public Item(String remoteId, String name, Category category){
-                super();
-                this.remoteId = remoteId;
-                this.name = name;
-                this.category = category;
-        }
+    
+    // Make sure to have a default constructor for every ActiveAndroid model
+    public Item(){
+       super();
+    }
+    
+    public Item(String remoteId, String name, Category category){
+        super();
+        this.remoteId = remoteId;
+        this.name = name;
+        this.category = category;
+    }
 }
 
 @Table(name = "Categories")
 public class Category extends Model {
+    // This is how you avoid duplicates
     @Column(name = "remote_id", unique = true, onUniqueConflict = Column.ConflictAction.REPLACE)
     public int remoteId;
     @Column(name = "Name")
