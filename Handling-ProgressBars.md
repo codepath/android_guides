@@ -86,14 +86,14 @@ public class MainActivity extends Activity {
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS); 
         setContentView(R.layout.activity_main);
     }
-
-    public void onStart() {
-        super.onStart();
-        // Now you can switch on and off the progress
+    
+    // Should be called manually when an async task has started
+    public void showProgressBar() {
         setProgressBarIndeterminateVisibility(true); 
     }
     
-    public void onFinish() {
+    // Should be called when an async task has finished
+    public void hideProgressBar() {
     	setProgressBarIndeterminateVisibility(false); 
     }
 }
@@ -110,17 +110,21 @@ public class MainActivity extends Activity {
         requestWindowFeature(Window.FEATURE_PROGRESS); 
         setContentView(R.layout.activity_main);
     }
-
-    public void onStart() {
-        // Now you can switch on and off the progress
+    
+    // Should be called manually when an async task has started
+    public void showProgressBar() {
         setProgressBarVisibility(true);
+    }
+
+    public void updateProgressValue(int value) {
         // Manage the progress (i.e within an AsyncTask)
         // Valid ranges are from 0 to 10000 (both inclusive). 
         // If 10000 is given, the progress bar will be completely filled and will fade out.
-        setProgress(1000);
+        setProgress(value);
     }
     
-    public void onFinish() {
+    // Should be called when an async task has finished
+    public void hideProgressBar() {
     	setProgressBarVisibility(false);
     }
 }
