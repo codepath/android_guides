@@ -77,6 +77,12 @@ public class Category extends Model {
     @Column(name = "Name")
     public String name;
 
+    // Make sure to have a default constructor for every ActiveAndroid model
+    public Category(){
+       super();
+    }
+
+    // Used to return items from another table based on the foreign key
     public List<Item> items() {
         return getMany(Item.class, "Category");
     }
