@@ -2,6 +2,43 @@
 
 Using the ActiveAndroid ORM makes managing client-side models extremely easy in simple cases. For more advanced or custom cases, you can use [SQLiteOpenHelper](http://www.androidhive.info/2011/11/android-sqlite-database-tutorial/) to manage the database communication directly. But for simple model mapping from JSON, ActiveAndroid keeps things simple. 
 
+### Installation
+
+Download the [ActiveAndroid-3.1.jar](https://www.dropbox.com/s/xkzfx999lzvb838/ActiveAndroid-3.1-adcddac4c58.jar) and drag the library into your "libs" folder.
+
+Next, we need to configure the `application` node with the `name` property of `com.activeandroid.app.Application` to use the correct application class name within the `AndroidManifest.xml`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    ...>
+    <!- add the name property to your application node ->
+    <application
+        android:name="com.activeandroid.app.Application"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        
+        <!- add the following metadata for version and database name ->
+        <meta-data
+            android:name="AA_DB_NAME"
+            android:value="RestClient.db" />
+        <meta-data
+            android:name="AA_DB_VERSION"
+            android:value="1" />
+
+        <activity
+            android:name="com.codepath.apps.activities.MainActivity"
+            android:noHistory="true"
+            android:label="@string/app_name" >
+            <!- ... ->
+        </activity>
+    </application>
+</manifest>
+```
+
+### Usage
+
 First, we define our models:
 
 ```java
