@@ -137,9 +137,11 @@ Fill in your API Key into the meta data for `com.google.android.maps.v2.API_KEY`
   <activity 
      ...>
   </activity>
+
   <meta-data
      android:name="com.google.android.maps.v2.API_KEY"
      android:value="YOUR-KEY-HERE" />
+
 </application>
 ```
 
