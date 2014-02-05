@@ -78,7 +78,7 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
   * Windows: Run the MSI installer
   * Mac: Open the dmg and drag both apps to Applications directory
 5. Run the Genymotion application
-6. Sign in and add your first virtual device (Nexus S - 4.3 - API 18)
+6. Sign in and add your first virtual device (Nexus 4 - 4.3 - API 18)
    * Do **not start your emulator** yet
 7. Install the Eclipse Plugin
    * Go to the "Help/Install New Software..." menu
