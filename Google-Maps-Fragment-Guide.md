@@ -151,7 +151,7 @@ For more information including how to use the maps, check out the source of this
 
 Use this checklist for troubleshooting below:
 
- * **Trouble launching Genymotion?**
+* **Trouble launching Genymotion?**
    * Did you install [VirtualBox](https://www.virtualbox.org/wiki/Downloads) first. Run VirtualBox to ensure that it was installed correctly.
    * Did you properly move Genymotion into the Applications folder?
    * Launch VirtualBox, verify the emulator is listed and ensure it is **powered off**
