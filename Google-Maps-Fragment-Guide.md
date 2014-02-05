@@ -155,12 +155,18 @@ Use this checklist for troubleshooting below:
    * Did you install [VirtualBox](https://www.virtualbox.org/wiki/Downloads) first. Run VirtualBox to ensure that it was installed correctly.
    * Did you properly move Genymotion into the Applications folder?
    * Launch VirtualBox, verify the emulator is listed and ensure it is **powered off**
+   * Open Genymotion app and verify the emulator is listed there
+   * Restart Eclipse and try to launch the emulator again
+   * Restart your computer and try to launch the emulator again
 * **Trouble seeing the map in the demo app?**
    * Did you enter the API Key into the `AndroidManifest.xml` as explained in the demo setup?
    * Did you enable "Google Maps Android API v2" toggle switch on the Google API Console under "APIs & Auth"?
    * Did you enable GPS location and set a location on the emulator?
    * Did you download the latest [Google Play Services APK](http://goo.im/gapps/gapps-jb-20130813-signed.zip) and install that onto your emulator? See the genymotion section steps 10-12.
    * Did you try running Play services on your emulator and sign in with a Google account?
+   * Uninstall the "Map Demo" from the emulator first, then re-install
+   * Restart Eclipse and try to launch the app again 
+   * Restart your computer and try to launch the app again
 
 ## References
 
