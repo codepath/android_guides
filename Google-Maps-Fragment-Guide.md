@@ -53,13 +53,17 @@ Now select "Credentials" on left side and on the right side click on "Create New
 
 ![Access](http://www.androidhive.info/wp-content/uploads/2013/08/google-console-creating-a-key.png)
 
-It will popup a window asking the SHA1 and package name. Enter your `SHA 1` and your `android project package name` separated by semicolon ; and click on create. For now enter:
+It will popup a window asking the SHA1 and package name. Enter your `SHA 1` and your `android project package name` separated by semicolon ; and click on create. The format is:
+
+`<YOURSHA1KEY>;com.example.mapdemo`
+
+For example you might enter:
 
 ```
 BE:03:E1:44:39:7B:E8:17:02:9F:7F:B7:98:82:EA:DF:84:D0:FB:6A;com.example.mapdemo
 ```
 
-Note the API Key for use in the next step:
+**Note the API Key** for use in the next step while setting up the map demo app:
 
 ![Key](http://www.androidhive.info/wp-content/uploads/2013/08/google-console-android-maps-api-key1.png)
 
@@ -71,29 +75,37 @@ The first step to getting Google Maps working on your emulator is to download a 
 
 To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/customer/login/?next=/) and follow the [installation guide](https://cloud.genymotion.com/page/doc/):
 
+#### Installation
+
 1. Sign up for an account on the [Genymotion Website](https://cloud.genymotion.com/page/customer/login/?next=/)
 2. (Mac or Linux) You **must** [install VirtualBox](https://www.virtualbox.org/wiki/Downloads), a powerful free virtualization software for Genymotion to run.
 3. [Download Genymotion Emulator](https://cloud.genymotion.com/page/launchpad/download/) for your platform.
 4. Install the Genymotion Emulator
   * Windows: Run the MSI installer
   * Mac: Open the dmg and drag both apps to Applications directory
-5. Run the Genymotion application
-6. Sign in and add your first virtual device (Nexus 4 - 4.3 - API 18)
-   * Do **not start your emulator** yet
-7. Install the Eclipse Plugin
+5. Install the Eclipse Plugin
    * Go to the "Help/Install New Software..." menu
    * Add a new software site: Genymobile - http://plugins.genymotion.com/eclipse
    * Check all genymobile entries
    * Accept licenses and install
    * Restart eclipse
-8. Click the genymobile icon ![Genymobile](https://cloud.genymotion.com/static/images/doc/genymotion-plugin-eclipse-button.png) and click "Start" on your virtual device.
+
+#### Configuration
+
+1. Run the Genymotion application
+2. Sign in and add your first virtual device (Nexus 4 - 4.3 - API 18)
+   * Do **not start your emulator** yet!
+3. Click the genymobile icon ![Genymobile](https://cloud.genymotion.com/static/images/doc/genymotion-plugin-eclipse-button.png) and click "Start" on your virtual device.
   * Make sure to start your emulator **through the eclipse plugin**
-9. Wait for device to boot up and then run through the initial setup
-10. Download the latest [Google Play Services APK](http://goo.im/gapps/gapps-jb-20130813-signed.zip) for 4.3 from [Rootz Wiki](http://wiki.rootzwiki.com/Google_Apps#Universal_Packages_2)
-11. Drag and drop the zip file onto the running Genymotion emulator device
+4. Wait for device to boot up into a useable state
+
+#### Setup Google Play Services
+
+1. Download the latest [Google Play Services APK](http://goo.im/gapps/gapps-jb-20130813-signed.zip) for 4.3 from [Rootz Wiki](http://wiki.rootzwiki.com/Google_Apps#Universal_Packages_2)
+2. Drag and drop the zip file onto the running Genymotion emulator device
     * Seeing a **crash dialog of Google services** is to be expected
-12. **Close and restart the emulator** and Google Play Store should now be installed
-13. After restart, open the "Play Store" app on your emulator and **sign in** with a google account
+3. **Close and restart the emulator** and Google Play Store should now be installed
+4. After restart, open the "Play Store" app on your emulator and **sign in** with a google account
 
 **Note:** On Ubuntu 12.04, make sure to [3D acceleration mode](http://imgur.com/Kl9cOmb) by launching VirtualBox and going to `Settings -> Display` to fix. VirtualBox appears to prone to memory leaks, so you may find yourself killing the process from time to time. To avoid large CPU consumption by the compiz window manager and swapping in general, try increasing the video memory allocation and Base Memory (found in `Settings -> System`).
 
@@ -165,7 +177,7 @@ Use this checklist for troubleshooting below:
  * Did you enter the correct API Key into the `AndroidManifest.xml` as explained in the map demo setup?
  * Did you enable the "Google Maps Android API v2" toggle switch on the Google API Console under "APIs & Auth" tab?
  * Did you enable GPS location for the emulator and set a location by going to the map?
- * Did you download the latest [Google Play Services APK](http://goo.im/gapps/gapps-jb-20130813-signed.zip) and install that onto your emulator? See the genymotion section steps 10-12.
+ * Did you download the latest [Google Play Services APK](http://goo.im/gapps/gapps-jb-20130813-signed.zip) and install that onto your emulator? See the [google play genymotion section](https://github.com/thecodepath/android_guides/wiki/_preview#wiki-setup-google-play-services).
  * Did you try running "Play Store" on your emulator and sign in with a Google account?
  * Uninstall the "Map Demo" from the emulator first, then re-install
  * Restart Eclipse and try to launch the app again 
