@@ -32,7 +32,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 
 * [[Working with Input Views]]
 * [[Handling ProgressBars]]
-* [[Implementing a Heterogenous ListView]] Guide
+* [[Implementing a Heterogenous ListView]]
 * [[Creating and Using Fragments]]
 
 ### Week 5 - Hardware and SDK Components
