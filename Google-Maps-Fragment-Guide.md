@@ -30,7 +30,7 @@ Open your terminal and execute the following command to generate SHA-1 fingerpri
 On Windows:
 
 ```
-keytool -list -v -keystore "%USERPROFILE%\.android\debug.keystore" -alias androiddebugkey -storepass android -keypass android
+"C:\Program Files (x86)\Java\jdk1.7.0_60\bin\keytool.exe" -list -v -keystore "%USERPROFILE%\.android\debug.keystore" -alias androiddebugkey -storepass android -keypass android
 ```
 
 On Mac or Linux:
