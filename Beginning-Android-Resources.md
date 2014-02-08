@@ -70,6 +70,7 @@ In terms of design resources check out:
 
  * [Android App Patterns](http://www.android-app-patterns.com/) - Repository of Android interfaces for dozens of categories. **Great way to explore the Android design standards**
  * [IconFinder](https://www.iconfinder.com/) - Excellent source of free to use graphics
+ * [iconmonstr](http://iconmonstr.com/) - Great source of icons with customized shapes and colors
  * [NounProject](http://thenounproject.com/) - Another source of free icons and graphics
  * [Icon Generator](http://android-ui-utils.googlecode.com/hg/asset-studio/dist/icons-launcher.html) - Easily generate icons and images for use in your apps
  * [AndroidNiceties](http://androidniceties.tumblr.com/) - Inspiring examples of Android app interfaces
