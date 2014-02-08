@@ -91,6 +91,7 @@ Exploring how to allow user interaction and navigation within an app:
 * [[Common Implicit Intents]] (Making a Call, Sending a Text, Opening a URL)
 * [[Navigation and Task Stacks]] (Controlling the behavior of the task stack)
 * [[Sharing Content with Intents]] (and ShareActionProvider)
+* [[Using Parcelable]] (Pass data fast between activities)
 
 ## Networking, Models and Persistence
 
@@ -102,7 +103,6 @@ Diving into the networking, model and persistence layers for data-driven apps:
 * [[Persisting Data to the Device]] (Preferences, Files, SQLite, ORMs)
 * [[Converting JSON to Models]] (JSON => Objects Deserialization)
 * [[ActiveAndroid ORM References|ActiveAndroid Guide]] (and Q&A)
-* [[Using Parcelable]] (Pass data fast between activities)
 * [[RottenTomatoes Networking Tutorial]]
 * [[Networking with the Volley Library]]
 * [[Storing and Accessing SharedPreferences]]
