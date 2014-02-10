@@ -188,16 +188,50 @@ With this approach you can have easy tab navigation switching quickly between fr
 If you need to reference a fragment instance from within the activity, you can refer to the fragment by it's "tag". For example, if you created the following tab:
 
 ```
+private final String FIRST_TAB_TAG = "first";
 Tab tab1 = actionBar
   ...
   .setTabListener(new SupportFragmentTabListener<FirstFragment>(R.id.flContainer, this,
-      "first", FirstFragment.class));
+      FIRST_TAB_TAG, FirstFragment.class));
 ```
 
-You have assigned the tag "First" to that fragment and you can access the fragment for this tab later using `findFragmentByTag`:
+You have assigned the tag "First" to that fragment during construction and you can access the fragment for this tab later using `findFragmentByTag`:
 
 ```java
-FirstFragment fragmentFirst = getSupportFragmentManager().findFragmentByTag("first");
+FirstFragment fragmentFirst = getSupportFragmentManager().findFragmentByTag(FIRST_TAB_TAG);
 ```
 
 This will return the fragment instance embedded for that tab.
+
+### Tab Selection
+
+Once the ActionBar has been set to `ActionBar.NAVIGATION_MODE_TABS` navigation mode, we can look at the currently selected tab index with [getSelectedNavigationIndex()](http://developer.android.com/reference/android/app/ActionBar.html#getSelectedNavigationIndex\(\)):
+
+```java
+// Returns tab index currently selected
+getSupportActionBar().getSelectedNavigationIndex()
+```
+
+We can set the currently selected tab by index with [setSelectedNavigationItem](http://developer.android.com/reference/android/app/ActionBar.html#setSelectedNavigationItem\(int\)):
+
+```java
+// sets current tab by index to the first tab on the bar
+getSupportActionBar().setSelectedNavigationItem(0);
+```
+
+We can also access arbitrary tabs, check the number of tabs or remove them:
+
+```java
+// returns the tab object at position 0
+getSupportActionBar().getTabAt(0); 
+// returns the total number of tabs
+getSupportActionBar().getTabCount();
+// Removes the first tab
+getSupportActionBar().removeTabAt(0); 
+// Returns the currently selected tab object
+getSupportActionBar().getSelectedTab();
+// Select a tab given the tab object
+getSupportActionBar().selectTab(someTabObject);
+```
+
+Using these methods described above, we can modify the tabs and their selected states at runtime.
