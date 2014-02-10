@@ -209,7 +209,7 @@ Once the ActionBar has been set to `ActionBar.NAVIGATION_MODE_TABS` navigation m
 
 ```java
 // Returns tab index currently selected
-getSupportActionBar().getSelectedNavigationIndex()
+getSupportActionBar().getSelectedNavigationIndex();
 ```
 
 We can set the currently selected tab by index with [setSelectedNavigationItem](http://developer.android.com/reference/android/app/ActionBar.html#setSelectedNavigationItem\(int\)):
