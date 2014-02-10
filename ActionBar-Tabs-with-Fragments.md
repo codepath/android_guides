@@ -235,3 +235,5 @@ getSupportActionBar().selectTab(someTabObject);
 ```
 
 Using these methods described above, we can modify the tabs and their selected states at runtime.
+
+**Note:** Occasionally, you might attempt to switch the current tab and load a fragment in the wrong event (for example `onActivityResult`) and encounter an error such as `IllegalStateException: cannot perform this action after onSaveInstanceState`. This is typically tied to replacing fragments onto the content pane at a time where state loss could occur. Read [this article](http://www.androiddesignpatterns.com/2013/08/fragment-transaction-commit-state-loss.html) for a detailed description of the issue. See [this solution](http://stackoverflow.com/a/18345899) for one common approach to solving this.
