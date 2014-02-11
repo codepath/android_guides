@@ -95,7 +95,7 @@ To add the fragment **statically**, simply embed the fragment in the activity's 
 
 The second way is by adding the fragment **dynamically** in Java using the `FragmentManager`. The `FragmentManager` class and the [FragmentTransaction class](http://developer.android.com/reference/android/app/FragmentTransaction.html) allow you to add, remove and replace fragments in the layout of your activity.
 
-In this case, you need a "placeholder" that can later be replaced with the fragment:
+In this case, you need a "placeholder" FrameLayout that can later be replaced with the fragment:
 
 ```java
 <?xml version="1.0" encoding="utf-8"?>
@@ -131,12 +131,12 @@ If the fragment should always be in the activity, use XML to statically add but 
 
 ### Fragment Lifecycle
 
-Fragment has many methods which can be overriden to plug into the lifecycle (similar to an Activity):
+Fragment has many methods which can be overridden to plug into the lifecycle (similar to an Activity):
 
 - `onAttach()` is called when a fragment is connected to an activity
 - `onCreate()` is called to do initial creation of the fragment.
-- `onCreateView()` is called by Android once the Fragment should create
-- `onActivityCreated()` is called when host activity has completed its `onCreate()`.
+- `onCreateView()` is called by Android once the Fragment should inflate a view
+- `onActivityCreated()` is called when host activity has completed its `onCreate()` method.
 - `onDestroyView()` is called when fragment is being destroyed
 - `onStart()` is called once the fragment gets visible
 - `onResume()` - Allocate “expensive” resources such as registering for location, sensor updates, etc.
@@ -162,7 +162,7 @@ public class SomeFragment extends Fragment {
        
         // This event fires 2nd, before views are created for the fragment
 	// The onCreate method is called when the Fragment instance is being created, or re-created.
-	// Use onCreate for any standard setup that does not require the activity to be completed
+	// Use onCreate for any standard setup that does not require the activity to be fully created
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -183,7 +183,7 @@ public class SomeFragment extends Fragment {
 	
         // This fires 4th, and this is the first time the Activity is fully created.
 	// Accessing the view hierarchy of the parent activity must be done in the onActivityCreated
-	// At this point, it is safe to search for View objects by their ID, for example.
+	// At this point, it is safe to search for activity View objects by their ID, for example.
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
@@ -205,10 +205,12 @@ There are three ways a fragment and an activity can communicate:
 
 #### Fragment with Arguments
 
-In certain cases, your fragment may want to accept certain arguments. A common pattern is to create a static `newInstance` method for creating a Fragment with arguments. This is because a Fragment **must have only a constructor with no arguments**. Instead we want to use the `setArguments` method such as:
+In certain cases, your fragment may want to accept certain arguments. A common pattern is to create a static `newInstance` method for creating a Fragment with arguments. This is because a Fragment **must have only a constructor with no arguments**. Instead, we want to use the `setArguments` method such as:
 
 ```java
 public class DemoFragment extends Fragment {
+    // Creates a new fragment given an int and title
+    // DemoFragment.newInstance(5, "Hello");
     public static DemoFragment newInstance(int someInt, String someTitle) {
         DemoFragment fragmentDemo = new DemoFragment();
         Bundle args = new Bundle();
@@ -220,7 +222,7 @@ public class DemoFragment extends Fragment {
 }
 ```
 
-This sets certain arguments into the Fragment for later use. You can access the argument later by using:
+This sets certain arguments into the Fragment for later access within `onCreate`. You can access the arguments later by using:
 
 ```java
 public class DemoFragment extends Fragment {
@@ -237,22 +239,23 @@ public class DemoFragment extends Fragment {
 Now we can load a fragment dynamically in an Activity with:
 
 ```java
+// Within the activity
 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 DemoFragment fragmentDemo = DemoFragment.newInstance(5, "my title");
 ft.replace(R.id.your_placeholder, fragmentDemo);
 ft.commit();
 ```
 
-This pattern makes passing arguments to fragments fairly straightforward.
+This pattern makes passing arguments to fragments for initialization fairly straightforward.
 
 #### Fragment Methods
 
-If an activity needs to make a fragment perform an action, the easiest way is by having the activity invoke a method on the fragment instance. In the fragment, add a method:
+If an activity needs to make a fragment perform an action after initialization, the easiest way is by having the activity invoke a method on the fragment instance. In the fragment, add a method:
 
 ```java
 public class DemoFragment extends Fragment {
   public void doSomething(String param) {
-     // do something in fragment
+      // do something in fragment
   }
 }
 ```
@@ -260,16 +263,18 @@ public class DemoFragment extends Fragment {
 and then in the activity, get access to the fragment using the fragment manager and call the method:
 
 ```java
-@Override
-public void onCreate(Bundle savedInstanceState) {
-     super.onCreate(savedInstanceState);
-     DemoFragment fragmentDemo = (DemoFragment) 
-         getSupportFragmentManager().findFragmentById(R.id.fragmentDemo)
-     fragmentDemo.doSomething("some param");
+public class MainActivity extends FragmentActivity {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        DemoFragment fragmentDemo = (DemoFragment) 
+            getSupportFragmentManager().findFragmentById(R.id.fragmentDemo);
+        fragmentDemo.doSomething("some param");
+    }
 }
 ```
 
-and then the activity can communicate directly with the fragment through these methods.
+and then the activity can communicate directly with the fragment by invoking this method.
 
 #### Fragment Listener
 
