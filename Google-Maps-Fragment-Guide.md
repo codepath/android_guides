@@ -113,6 +113,8 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 
 **Note:** Are you getting an error when starting the emulator? `Error Failed to load VMMR0.r0`? Follow the [advice here](https://forums.virtualbox.org/viewtopic.php?f=8&t=40525#p186381). In short, go to [virtual box page](https://www.virtualbox.org/wiki/Downloads) and download and install VirtualBox 4.3.6 Oracle VM VirtualBox Extension Pack.
 
+**Note:** If you get `Failed to load OVI` error when re-adding the emulator, you need to use a new name for the same device. For example, "Nexus 4 - 4.3 - API 18" might be called "Nexus 4 - 4.3 - API 18 New".
+
 ### Enable GPS on Emulator
 
 Next, if you **don't have the emulator started yet**, be sure to boot the genymotion emulator from **within the Eclipse plugin**:
