@@ -47,6 +47,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Styles and Themes]]
 * [[Cloning a Login Screen Layout]] Guide
 * [Customizing the User Interface](https://gist.github.com/nesquena/6c567083aec13d868017)
+* [[Animations]] for Layouts and Views
 
 ### Week 7 - Unit and Integration Testing
 
@@ -60,7 +61,6 @@ Cliffnotes are references giving you the "most important" Android topics with br
   * [[Fragment ActionBar Tabs|ActionBar Tabs with Fragments]] Guide
   * [[Fragment Navigation Drawer]] Guide
   * [[ViewPager with FragmentPagerAdapter]] Guide
-* [[Animations]] for Layouts and Views
 * [[Sharing Content with Intents]] Guide
 * [[Must-have Libraries]] Guide
 * [[Implementing Pull to Refresh]] Guide
