@@ -439,7 +439,7 @@ public class TodoItem extends ParseObject {
 
 By default, the list of objects in this relation are not downloaded. You can get the list of Posts by calling findInBackground on the ParseQuery returned by getQuery. The code would look like:
 
-```
+```java
 fetchedTodoItem.getTagsRelation().getQuery().findInBackground(new FindCallback<Tag>() {
     void done(List<Tag> results, ParseException e) {
       if (e == null) {
