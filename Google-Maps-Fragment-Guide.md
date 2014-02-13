@@ -184,7 +184,7 @@ Use this checklist for troubleshooting below:
 
 **Trouble seeing the map in the demo app?**
 
- * Does the package namespace in the Android Key on the Google API Console match the package namespace of the maps demo i.e `<YOURSHA1KEY>;com.example.mapdemo`?
+ * Does the package namespace in the Android Key on the Google API Console match the package of the maps demo i.e `<YOURSHA1KEY>;com.example.mapdemo`?
  * Did you enter the correct API Key into the `AndroidManifest.xml` as explained in the map demo setup?
  * Did you enable the "Google Maps Android API v2" toggle switch on the Google API Console under "APIs & Auth" tab?
  * Did you enable GPS location for the emulator and set a location by going to the map?
