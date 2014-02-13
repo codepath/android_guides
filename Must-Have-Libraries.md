@@ -11,8 +11,17 @@ There are many third-party libraries for Android but several of them are "must h
  * [SlidingMenu](https://github.com/jfeinstein10/SlidingMenu) - Library that allows developers to easily create applications with sliding menus like those made popular in the Google+, YouTube, and Facebook apps.
  * [HoloEverywhere](https://github.com/Prototik/HoloEverywhere) - Backport Holo theme from Android 4.2 to 2.1+
 
+## Resources
+
+Check out the following resources for finding libraries:
+
+ * <http://www.androidviews.net/>
+ * <http://appdevwiki.com/wiki/show/HomePage>
+ * <http://androidweekly.net/toolbox>
+
 ## References
 
+ * <http://www.vogella.com/tutorials/AndroidUsefulLibraries/article.html>
  * <http://actionbarsherlock.com/>
  * <http://nineoldandroids.com/>
  * <https://github.com/roboguice/roboguice/wiki>
