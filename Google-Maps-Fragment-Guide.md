@@ -111,6 +111,8 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 
 **Note:** On Ubuntu 12.04, make sure to [3D acceleration mode](http://imgur.com/Kl9cOmb) by launching VirtualBox and going to `Settings -> Display` to fix. VirtualBox appears to prone to memory leaks, so you may find yourself killing the process from time to time. To avoid large CPU consumption by the compiz window manager and swapping in general, try increasing the video memory allocation and Base Memory (found in `Settings -> System`).
 
+**Note:** Are you getting an error when starting the emulator? `Error Failed to load VMMR0.r0`? Follow the [advice here](https://forums.virtualbox.org/viewtopic.php?f=8&t=40525#p186381). In short, go to [virtual box page](https://www.virtualbox.org/wiki/Downloads) and download and install VirtualBox 4.3.6 Oracle VM VirtualBox Extension Pack.
+
 ### Enable GPS on Emulator
 
 Next, if you **don't have the emulator started yet**, be sure to boot the genymotion emulator from **within the Eclipse plugin**:
