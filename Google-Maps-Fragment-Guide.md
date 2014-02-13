@@ -12,6 +12,8 @@ First, let's download and setup the Google Play Services SDK. Open **Eclipse ⇒
 
 ### Import Google Play Services
 
+**Note: Skip this step when using Android Studio! This is for Eclipse only!**
+
 After downloading the play services we need to import the project to Eclipse which will be used as a library for our maps project.
 
 1. In Eclipse goto **File ⇒ Import ⇒ Android ⇒ Existing Android Code Into Workspace**
@@ -83,7 +85,7 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 4. Install the Genymotion Emulator
   * Windows: Run the MSI installer
   * Mac: Open the dmg and drag both apps to Applications directory
-5. Install the Eclipse Plugin
+5. Install the Eclipse Plugin (See [this guide for Android Studio](http://google-android-studio.blogspot.com/2013/11/plugins-in-android-studio-example.html))
    * Go to the "Help/Install New Software..." menu
    * Add a new software site: Genymobile - http://plugins.genymotion.com/eclipse
    * Check all genymobile entries
@@ -95,7 +97,7 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 1. Run the Genymotion application
 2. Sign in and add your first virtual device (Nexus 4 - 4.3 - API 18)
    * Do **not start your emulator** yet!
-3. Click the genymobile icon ![Genymobile](https://cloud.genymotion.com/static/images/doc/genymotion-plugin-eclipse-button.png) and click "Start" on your virtual device.
+3. From **within eclipse**, click the genymobile icon ![Genymobile](https://cloud.genymotion.com/static/images/doc/genymotion-plugin-eclipse-button.png) and click "Start" on your virtual device.
   * Make sure to start your emulator **through the eclipse plugin**
 4. Wait for device to boot up into a useable state
 
@@ -128,6 +130,8 @@ Once we have our Genymotion emulator properly setup, let's import the [maps demo
 1. Download the [Maps Demo](https://github.com/thecodepath/android-google-maps-demo/archive/master.zip) application and extract the zip file.
 2. Run "File...Import...Existing Android Code Into Workspace", select the project and hit "Finish"
 3. Expand MapDemo application and open up the "AndroidManifest.xml"
+
+**Note:** For Android Studio users, download this [alternate maps demo](https://github.com/thecodepath/android-google-maps-demo/archive/studio.zip) and import into Studio as an existing project. Follow steps below.
 
 Fill in your API Key into the meta data for `com.google.android.maps.v2.API_KEY` within the **application node** in the `AndroidManifest.xml`:
 
@@ -176,6 +180,7 @@ Use this checklist for troubleshooting below:
 
 **Trouble seeing the map in the demo app?**
 
+ * Does the package namespace in the Android Key on the Google API Console match the package namespace of the maps demo?
  * Did you enter the correct API Key into the `AndroidManifest.xml` as explained in the map demo setup?
  * Did you enable the "Google Maps Android API v2" toggle switch on the Google API Console under "APIs & Auth" tab?
  * Did you enable GPS location for the emulator and set a location by going to the map?
