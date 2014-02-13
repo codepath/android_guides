@@ -179,6 +179,8 @@ ParseUser currentUser = ParseUser.getCurrentUser(); // this will now be null
 
 That's the basics of what you need to work with users. See more details by checking out the [User](https://www.parse.com/docs/android_guide#users) official docs.
 
+You can also have a [Facebook Login](https://www.parse.com/docs/android_guide#fbusers-setup) or [Twitter Login](https://www.parse.com/docs/android_guide#twitterusers-setup) for your users easily following the guides linked.
+
 ### Querying Users
 
 To query for users, you need to use the special user query:
@@ -345,6 +347,111 @@ query.findInBackground(new FindCallback<TodoItem>() {
 ```
 
 See a list of [query constraints](https://www.parse.com/docs/android_guide#queries-constraints) here and check the [queries overview](https://www.parse.com/docs/android_guide#queries) for explanation of compound queries and relational queries.
+
+### Associations
+
+Objects can have relationships with other objects. To model this behavior, any `ParseObject` can be used as a value in other `ParseObject`s. Internally, the Parse framework will store the referred-to object in just one place, to maintain consistency.
+
+#### One-to-One Relationships
+
+For example, each Comment in a blogging app might correspond to one Post. To create a new Post with a single Comment, you could write:
+
+```java
+@ParseClassName("Category")
+public class Category extends ParseObject {
+   // ...
+}
+
+@ParseClassName("TodoItem")
+public class TodoItem extends ParseObject {
+        // ...
+
+	// Associate each item with a user
+	public void setOwner(ParseUser user) {
+		put("owner", user);
+	}
+	
+	// Get the user for this item
+	public ParseUser getOwner()  {
+           return getParseUser("owner");
+	}
+
+	// Associate each item with a category
+	public void setCategory(Category category) {
+		put("category", category);
+	}
+	
+	// Get the category for this item
+	public Category getCategory()  {
+           return (Category) getParseObject(category);
+	}
+}
+
+// Create the category
+Category cat = new Category("Personal");
+// Get the user
+ParseUser currentUser = ParseUser.getCurrentUser();
+// Create the item
+TodoItem item = new TodoItem("Get milk and eggs");
+item.setCategory(category);
+item.setOwner(currentUser);
+item.saveInBackground();
+```
+
+By default, when fetching an object, related `ParseObject`s are not fetched. These objects' values cannot be retrieved until they have been fetched like so:
+
+```java
+fetchedTodoItem.getCategory()
+    .fetchIfNeededInBackground(new GetCallback<Category>() {
+        public void done(Category object, ParseException e) {
+          String title = category.getTitle();
+        }
+    });
+```
+
+#### Many-to-Many Relationships
+
+You can also model a many-to-many relation using the `ParseRelation` object. This works similar to `ArrayList`, except that you don't need to download all the `ParseObject`s in a relation at once.
+
+```java
+@ParseClassName("Tag")
+public class Tag extends ParseObject {
+   // ...this is a tag to describe an item
+}
+
+@ParseClassName("TodoItem")
+public class TodoItem extends ParseObject {
+   public ParseRelation<Tag> getTagsRelation() {
+      return getRelation("tags");
+  }
+
+  public void addTag(Tag tag) {
+    getTagsRelation().add(tag);
+    saveInBackground();
+  }
+
+  public void removeTag(Tag tag) {
+     getTagsRelation().remove(tag);
+     saveInBackground();
+  }
+}
+```
+
+By default, the list of objects in this relation are not downloaded. You can get the list of Posts by calling findInBackground on the ParseQuery returned by getQuery. The code would look like:
+
+```
+fetchedTodoItem.getTagsRelation().getQuery().findInBackground(new FindCallback<Tag>() {
+    void done(List<Tag> results, ParseException e) {
+      if (e == null) {
+        // results have all the Posts the current user liked.
+      } else {
+        // There was an error
+      }
+    }
+});
+```
+
+For more details, check out the official [Relational Data](https://www.parse.com/docs/android_guide#objects-pointers) guide. For more complex many-to-many relationships, check out this official [join tables](https://www.parse.com/docs/relations_guide#manytomany-jointables) guide.
 
 ### Deleting Objects
 
