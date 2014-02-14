@@ -125,8 +125,8 @@ public class HeterogenousListActivity extends Activity {
 		lvColors = (ListView) findViewById(R.id.lvColors);
 		ArrayList<SimpleColor> aColors = new ArrayList<SimpleColor>();
 		// Populate colors into the array
-                aColors.add(new SimpleColor("Blue", SimpleColor.BLUE));
-                // Attach the adapter
+		aColors.add(new SimpleColor("Blue", SimpleColor.BLUE));
+		// Attach the adapter
 		ColorArrayAdapter adapterColors = new ColorArrayAdapter(this, aColors);
 		lvColors.setAdapter(adapterColors);
 	}
