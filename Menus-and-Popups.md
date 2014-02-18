@@ -40,7 +40,8 @@ Next, let's define a [ActionMode.Callback](http://developer.android.com/referenc
 ```java
 public class MainActivity extends Activity {
   // Tracks current contextual action mode
-	private ActionMode currentActionMode; 
+  private ActionMode currentActionMode; 
+  // Define the callback when ActionMode is activated
   private ActionMode.Callback modeCallBack = new ActionMode.Callback() {
     // Called when the action mode is created; startActionMode() was called
     @Override
