@@ -47,8 +47,8 @@ public class EditNameDialog extends DialogFragment {
 		// Empty constructor required for DialogFragment
 	}
 	
-	public static ExampleDialogFragment newInstance(String title) {
-		ExampleDialogFragment frag = new ExampleDialogFragment();
+	public static EditNameDialog newInstance(String title) {
+		EditNameDialog frag = new EditNameDialog();
 		Bundle args = new Bundle();
 		args.putString("title", title);
 		frag.setArguments(args);
