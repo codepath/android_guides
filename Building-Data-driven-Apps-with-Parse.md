@@ -467,6 +467,17 @@ Naturally we can also delete in an offline manner with:
 todoItem.deleteEventually();
 ```
 
+## Additional Features
+
+Parse has many powerful features in addition to the core functionality listed above:
+
+* [Parse Push](https://parse.com/tutorials/android-push-notifications) - Super easy push notifications
+* [Integrating with Facebook SDK](https://parse.com/tutorials/integrating-facebook-in-android) - Step by step for Facebook account integration
+* [Using Parse Files](https://parse.com/docs/android_guide#files-classes) - Reference for how to store files (i.e images) to Parse
+* [Mealspotting Tutorial](https://parse.com/tutorials/mealspotting) - Tutorial including how to store images associated to a record.
+* [AnyWall Tutorial](https://parse.com/tutorials/anywall-android) - Tutorial including how to read geolocation and use this data within your app.
+* [CloudCode Guide](https://parse.com/docs/cloud_code_guide#cloud_code) - Guide on how to write cloud-based code that adds error checking, validation or triggers "server-side" 
+
 ## References
 
  * <https://www.parse.com/docs/android_guide>
