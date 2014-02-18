@@ -100,7 +100,7 @@ public class MainActivity extends Activity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     tvName = (TextView) findViewById(R.id.tvName);
-    tvName..setOnLongClickListener(new View.OnLongClickListener() {
+    tvName.setOnLongClickListener(new View.OnLongClickListener() {
       // Called when the user long-clicks on someView
       public boolean onLongClick(View view) {
          if (currentActionMode != null) { return false; }
