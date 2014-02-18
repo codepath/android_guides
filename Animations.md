@@ -348,7 +348,7 @@ ft.replace(R.id.fragment_container, newFragment, "fragment");
 ft.commit();
 ```
 
-You can even [check out the source code](http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android/4.4_r1/frameworks/base/core/res/res/anim/slide_in_right.xml?av=f) of those animations.
+Read more about Fragment Transitions in this [detailed article](http://android-er.blogspot.com/2013/04/implement-animation-in.html). You can even [check out the source code](http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android/4.4_r1/frameworks/base/core/res/res/anim/slide_in_right.xml?av=f) of those animations. 
 
 ## Things To Note
 
