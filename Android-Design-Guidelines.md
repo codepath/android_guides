@@ -63,6 +63,7 @@ One of the best ways to understand the best practices and patterns for app desig
  * [androidux](http://androidux.com/)
  * [inspired-ui](http://android.inspired-ui.com/)
  * [androidpatterns](http://www.androidpatterns.com/)
+ * [mobilepatterns](http://www.mobile-patterns.com/)
 
 Using these sites above to build up an intuitive understanding of how to build different UIs in your apps.
 
