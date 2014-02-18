@@ -339,7 +339,16 @@ ft.commit();
 
 **Compatibility Note:** The animation files explained above are used in conjunction with support fragments. Keep in mind that if you are not using support fragments, you need to use object animations instead as [explained on StackOverflow](http://stackoverflow.com/a/9856449).
 
-Note that Android has built-in animations with [R.anim](http://developer.android.com/reference/android/R.anim.html) that can be used as well and you can even [check out the source code](http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android/4.4_r1/frameworks/base/core/res/res/anim/slide_in_right.xml?av=f) of those animations.
+Note that Android has built-in animations with [R.anim](http://developer.android.com/reference/android/R.anim.html) that can be used as well by reference `android.R.anim` such as:
+
+```java
+FragmentTransaction fts = getSupportFragmentManager().beginTransaction();
+fts.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+ft.replace(R.id.fragment_container, newFragment, "fragment");
+ft.commit();
+```
+
+You can even [check out the source code](http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android/4.4_r1/frameworks/base/core/res/res/anim/slide_in_right.xml?av=f) of those animations.
 
 ## Things To Note
 
