@@ -121,9 +121,12 @@ In this case, you need a "placeholder" FrameLayout that can later be replaced wi
 and then you can use the [FragmentManager](http://developer.android.com/reference/android/app/FragmentManager.html) to create a [FragmentTransaction](http://developer.android.com/reference/android/app/FragmentTransaction.html) which allows us to replace the FrameLayout with any fragment at runtime:
 
 ```java
+// Begin the transaction
 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+// Replace the container with the new fragment
 ft.replace(R.id.your_placeholder, new FooFragment());
 // or ft.add(R.id.your_placeholder, new FooFragment());
+// Execute the changes specified
 ft.commit();
 ```
 
@@ -390,6 +393,32 @@ There are several methods for navigating between different fragments within a si
  3. [[ViewPager | ViewPager with FragmentPagerAdapter]] - Swiping between fragments
 
 Check the guides linked above for detailed steps for each of these approaches.
+
+### Managing Fragment Backstack
+
+A record of all Fragment transactions is kept for each Activity by the FragmentManager.  When used properly, this allows the user to hit the device’s back button to remove previously added Fragments (not unlike how the back button removes an Activity). Simply call [addToBackstack](http://developer.android.com/reference/android/app/FragmentTransaction.html#addToBackStack\(java.lang.String\)) on each FragmentTransaction that should be recorded:
+
+```java
+// Create the transaction
+FragmentTransaction fts = getSupportFragmentManager().beginTransaction();
+// Replace the content of the container
+fts.replace(R.id.flContainer, new FirstFragment());	
+// Append this transaction to the backstack
+fts.addToBackStack("optional tag");
+// Commit the changes
+fts.commit();
+```
+
+Programmatically, you can also pop from the back stack at any time through the manager:
+
+```java
+FragmentManager fragmentManager = getSupportFragmentManager();
+if (fragmentManager.getBackStackEntryCount() > 0) {
+    fragmentManager.popBackStack();
+}
+```
+
+With this approach, we can easily keep the history of which fragments have appeared dynamically on screen and allow the user to easily navigate to previous fragments.
 
 ## References
 
