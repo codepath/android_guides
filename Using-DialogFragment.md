@@ -28,7 +28,7 @@ Let's start by providing the code for creating a completely custom dialog based 
 	<EditText
 		android:id="@+id/txt_your_name"
 		android:layout_width="match_parent"  android:layout_height="wrap_content" 
-		android:inputType=”text”
+		android:inputType="text"
 		android:imeOptions="actionDone" />
 </LinearLayout>
 ```
