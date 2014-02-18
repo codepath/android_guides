@@ -11,11 +11,12 @@ dynamically within the Java code.
 
 ## Usage
 
-There are three relevant animation types for us to understand:
+There are four relevant animation types for us to understand:
 
  * [Property Animation](http://developer.android.com/guide/topics/graphics/prop-animation.html) - This is the animation of any property between two values. Frequently used to animate views on screen such as rotating an image or fading out a button.
  * [Layout Animation](http://developer.android.com/guide/topics/graphics/prop-animation.html#layout) - This allows us to enable animations on any layout container or other ViewGroup such as a ListView. With layout animations enabled, all changes to views inside the container will be animated.
  * [Activity Transitions](http://ahdidou.com/blog/customize-android-activities-transition/#.Uli6O2Q6VZ8) - Animates the transition as an Activity enters the screen when an Intent is executed.
+ * [Fragment Transitions](http://android-er.blogspot.com/2013/04/implement-animation-in.html) - Animates the transition as a fragment enters or exits the screen when a transaction occurs.
 
 ### Property Animations
 
@@ -296,6 +297,49 @@ public class SecondActivity extends Activity {
 ```
 
 You can see a more complete example on the [customizing activity transition tutorial](http://ahdidou.com/blog/customize-android-activities-transition/) as well as the [custom animation while switching](http://android-er.blogspot.com/2013/04/custom-animation-while-switching.html) tutorial. Yet another example can be found in the [blundell apps animate an activity](http://blog.blundell-apps.com/animate-an-activity/) tutorial.
+
+### Fragment Transitions
+
+Similar to activities, we can also animate the transition between fragments by invoking the [setCustomAnimations](http://developer.android.com/reference/android/app/FragmentTransaction.html#setCustomAnimations\(int, int\)) method on a `FragmentTransaction`. The animations are simply view animation XML files as used for activity transitions above. For example, suppose we want the fragment to slide in from the left and push the old fragment out. First, let's define the custom view animations starting with `res/anim/slide_in_left.xml`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <translate android:fromXDelta="-50%p" android:toXDelta="0"
+        android:duration="@android:integer/config_mediumAnimTime"/>
+    <alpha android:fromAlpha="0.0" android:toAlpha="1.0"
+        android:duration="@android:integer/config_mediumAnimTime" />
+</set>
+```
+
+and then `res/anim/slide_out_right.xml` as well:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <translate android:fromXDelta="0" android:toXDelta="50%p"
+     android:duration="@android:integer/config_mediumAnimTime"/>
+    <alpha android:fromAlpha="1.0" android:toAlpha="0.0"
+      android:duration="@android:integer/config_mediumAnimTime" />
+</set>
+```
+
+Now we just have to configure the animations of the fragment transaction before we replace the fragment or call commit:
+
+```java
+// Create the transaction
+FragmentTransaction fts = getSupportFragmentManager().beginTransaction();
+// Configure the "in" and "out" animation files
+fts.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+// Perform the fragment replacement
+ft.replace(R.id.fragment_container, newFragment, "fragment");
+// Start the animated transition.
+ft.commit();
+```
+
+**Compatibility Note:** The animation files explained above are used in conjunction with support fragments. Keep in mind that if you are not using support fragments, you need to use object animations instead as [explained on StackOverflow](http://stackoverflow.com/a/9856449).
+
+Note that Android has built-in animations with [R.anim](http://developer.android.com/reference/android/R.anim.html) that can be used as well and you can even [check out the source code](http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android/4.4_r1/frameworks/base/core/res/res/anim/slide_in_right.xml?av=f) of those animations.
 
 ## Things To Note
 
