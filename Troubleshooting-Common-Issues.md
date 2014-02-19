@@ -36,6 +36,40 @@ Getting this error means your Android installation is likely corrupted in some w
 
 If the same message persists, you may need to do a **complete reinstallation** of the [ADT Bundle](http://developer.android.com/sdk/index.html) which includes eclipse. You should delete the entire existing ADT bundle from your computer (including eclipse and SDK folder) and re-download the bundle, extract the contents and re-setup from scratch. Users rarely experience this error after a total reinstall. 
 
+### Imported Project Won't Compile
+
+If you have imported an existing Android project into the Eclipse workspace and the project gives an error such as "cannot resolve target android-17" or another obscure error, follow this checklist below.
+
+**Select Build Target**
+
+Right click on the project name in the package explorer on the left side and select "Properties". Select "Android" on the left side and then pick a sensible "Project Build Target" (i.e Android 4.4.2). 
+
+<img src="http://i.imgur.com/UiMC3iN.png" width="450" />
+
+**Fix Imported Libraries**
+
+Right click on the project name in the package explorer on the left side and select "Properties". Select "Android" on the left side and verify there are no "missing" libraries. If there is a missing library project, remove that library and add the library into your project using the "Add" button. Keep in mind you need to have the necessary library projects loaded into eclipse for this to work. (See screenshot above)
+
+**Fix Build Path**
+
+Right click on the project name in the package explorer on the left side and select "Properties". Select "Java Build Path" on the left side and select the tab "Libraries". Expand all the groups displayed there. Ensure that there are no "missing" libraries or folders on the build path.
+
+<img src="http://i.imgur.com/ZfZPZtS.png" width="450" />
+
+**Fix Project Properties**
+
+Right click on the project name in the package explorer on the left side and select `Android Tools => Fix Project Properties`.
+
+<img src="http://i.imgur.com/tmXvUeX.png" width="450" />
+
+**Clean the Project**
+
+Select `Project => Clean` and then either select "Clean all projects" or ensure the broken project is selected in the list. Then hit OK. 
+
+**Restart Eclipse**
+
+If after all these steps and a clean the project is still not able to compile, try restarting eclipse and see if the project is able to compile successfully after a reboot.
+
 ## Emulator
 
 ### App running in emulator but no logs showing up in LogCat?
