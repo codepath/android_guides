@@ -97,7 +97,7 @@ The second way is by adding the fragment **dynamically** in Java using the `Frag
 
 In this case, you need a "placeholder" FrameLayout that can later be replaced with the fragment:
 
-```java
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -110,10 +110,10 @@ In this case, you need a "placeholder" FrameLayout that can later be replaced wi
         android:layout_height="wrap_content"
         android:text="TextView" />
 
-    <FrameLayout
+  <FrameLayout
        android:id="@+id/your_placeholder"
        android:layout_height="match_parent">
-    </FrameLayout>
+  </FrameLayout>
 
 </LinearLayout>
 ```
