@@ -27,7 +27,7 @@ Android powers millions of phones, tablets, and other devices in a wide variety 
 
 #### Typography and Color
 
-Check out the [typography guide](http://developer.android.com/design/style/typography.html) to understand the common font types for Android apps and default type colors and sizes. Check out the [colors guide](http://developer.android.com/design/style/color.html) which includes common color palettes for Android apps. 
+Check out the [typography guide](http://developer.android.com/design/style/typography.html) to understand the common font types for Android apps and default type colors and sizes. Check out the [colors guide](http://developer.android.com/design/style/color.html) which includes common color palettes for Android apps. For color schemes, also check out [ColourLovers](http://www.colourlovers.com/palettes/new/past-month/meta?page=1) for color scheme and the [adobe kuler](https://kuler.adobe.com) color wheel.
 
 #### Iconography
 
