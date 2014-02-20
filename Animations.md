@@ -174,9 +174,9 @@ Now, we can load that animation in an activity with:
 
 ```java
 // Inflate animation from XML
-animFadein = AnimationUtils.loadAnimation(this, R.anim.fade_in);  
+Animation animFadein = AnimationUtils.loadAnimation(this, R.anim.fade_in);  
 // Setup listeners (optional)
-animFadein.setListener(new AnimatorListenerAdapter() {
+animFadein.setAnimationListener(new AnimationListener() {
     @Override
     public void onAnimationStart(Animator animation) {
         // Fires when animation starts
