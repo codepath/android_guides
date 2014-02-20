@@ -20,6 +20,8 @@ The cliffnotes below are **categorized by their topic**, so you can easily find 
 
 Read more about [[us and our vision for all this|The CodePath Goal]]. If you want to **contribute to this guide**, please read the [[Contributing Guidelines]].
 
+**Need Help?** Please join the [google groups](https://groups.google.com/forum/#!forum/codepath-android-guides) for these guides where you can post related questions.
+
 ## Getting Started
 
 **Totally new to Android?** Start here.
