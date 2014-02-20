@@ -178,7 +178,7 @@ Animation animFadein = AnimationUtils.loadAnimation(this, R.anim.fade_in);
 // Setup listeners (optional)
 animFadein.setAnimationListener(new AnimationListener() {
     @Override
-    public void onAnimationStart(Animator animation) {
+    public void onAnimationStart(Animation animation) {
         // Fires when animation starts
     }
 });
