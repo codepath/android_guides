@@ -6,6 +6,8 @@ Welcome to the open-source [Codepath](http://thecodepath.com) Android Cliffnotes
 
 We have guides for everyone whether you are a **beginner, intermediate or expert**. Want to learn how to [[use the ActionBar|Defining the ActionBar]] or the [[ins and outs of fragments|Creating and Using Fragments]]? We got that. Want to learn [[about automated integration testing|Android Unit and Integration Testing]] or how to [[build flexible user interfaces for multiple devices|Flexible User Interfaces]]? We got you covered. We don't waste time with the "theoretical approach" you might get from a book. We cover **exactly the things we use every day** as we are developing apps for contracts.
 
+**Need Help?** Please join the [google groups](https://groups.google.com/forum/#!forum/codepath-android-guides) for these guides where you can post related questions.
+
 ## Motivation
 
 Ever been **frustrated finding information on outdated one-off blog posts and tutorials** that have long since become irrelevant? How many times have you been googling to find your answer only exists on an obscure **2 year old StackOverflow post**? We believe there's got to be a better way. Why not have the community work together to create useful and detailed documentation for every aspect of Android (or any platform)? There's absolutely no reason that we should have to make do with vague and outdated content anymore.
@@ -19,8 +21,6 @@ The cliffnotes below are **categorized by their topic**, so you can easily find 
 **Disclaimer:** We have scoured the web endlessly for content while creating these guides and adapted content from many source including the [Google Official Docs](http://developer.android.com/guide/components/index.html), [Vogella Tutorials](http://www.vogella.com/android.html) and countless other sources that had hidden gems of information. At the bottom of each guide, there are citations for the content we used. **We don't claim the content is original** (although we did develop quite a bit ourselves), but unlike those other sources listed, it is freely community editable. We have openly adapted, modified and brought together this content from all the sources we could find for the benefit of every engineer.
 
 Read more about [[us and our vision for all this|The CodePath Goal]]. If you want to **contribute to this guide**, please read the [[Contributing Guidelines]].
-
-**Need Help?** Please join the [google groups](https://groups.google.com/forum/#!forum/codepath-android-guides) for these guides where you can post related questions.
 
 ## Getting Started
 
