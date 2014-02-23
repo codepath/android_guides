@@ -357,45 +357,45 @@ Objects can have relationships with other objects. To model this behavior, any `
 For example, each Comment in a blogging app might correspond to one Post. To create a new Post with a single Comment, you could write:
 
 ```java
-@ParseClassName("Category")
-public class Category extends ParseObject {
+@ParseClassName("Post")
+public class Post extends ParseObject {
    // ...
 }
 
-@ParseClassName("TodoItem")
-public class TodoItem extends ParseObject {
+@ParseClassName("Comment")
+public class Comment extends ParseObject {
         // ...
 
-	// Associate each item with a user
+	// Associate each comment with a user
 	public void setOwner(ParseUser user) {
 		put("owner", user);
 	}
 	
-	// Get the user for this item
+	// Get the user for this comment
 	public ParseUser getOwner()  {
            return getParseUser("owner");
 	}
 
-	// Associate each item with a category
-	public void setCategory(Category category) {
-		put("category", category);
+	// Associate each comment with a post
+	public void setPost(Post post) {
+		put("post", post);
 	}
 	
-	// Get the category for this item
-	public Category getCategory()  {
-           return (Category) getParseObject(category);
+	// Get the post for this item
+	public Post getPost()  {
+           return (Post) getParseObject("post");
 	}
 }
 
-// Create the category
-Category cat = new Category("Personal");
+// Create the post
+Post cat = new Post("Welcome Spring!");
 // Get the user
 ParseUser currentUser = ParseUser.getCurrentUser();
-// Create the item
-TodoItem item = new TodoItem("Get milk and eggs");
-item.setCategory(category);
-item.setOwner(currentUser);
-item.saveInBackground();
+// Create the comment
+Comment comment = new Comment("Get milk and eggs");
+comment.setPost(post);
+comment.setOwner(currentUser);
+comment.saveInBackground();
 ```
 
 By default, when fetching an object, related `ParseObject`s are not fetched. These objects' values cannot be retrieved until they have been fetched like so:
