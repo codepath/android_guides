@@ -13,8 +13,8 @@ private void setUpMapIfNeeded() {
         mapFragment = ((SupportMapFragment) getFragmentManager().findFragmentById(R.id.map))
 	    .getMap();
         // Check if we were successful in obtaining the map.
-	if (mapFragment != null) {
-	    // The Map is verified. It is now safe to manipulate the map.
+        if (mapFragment != null) {
+           // The Map is verified. It is now safe to manipulate the map.
         }
     }		   
 }
