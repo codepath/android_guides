@@ -7,18 +7,17 @@ This guide will instruct you on how use the Google Maps API v2 library to create
 Assuming you have added the GoogleMapv2 mapfragment to your layout, you should first run this method `onCreate()`. In my case, I am using the SupportMapFragment, either will work.
 
 ```java
- private void setUpMapIfNeeded() {
-		    // Do a null check to confirm that we have not already instantiated the map.
-		    if (mapFragment == null) {
-		    	 mapFragment = ((SupportMapFragment) getFragmentManager().findFragmentById(R.id.map))
-				            .getMap();
-		        // Check if we were successful in obtaining the map.
-		        if (mapFragment != null) {
-		            // The Map is verified. It is now safe to manipulate the map.
-
-		        }
-		    }		   
-	 }
+private void setUpMapIfNeeded() {
+    // Do a null check to confirm that we have not already instantiated the map.
+    if (mapFragment == null) {
+        mapFragment = ((SupportMapFragment) getFragmentManager().findFragmentById(R.id.map))
+	    .getMap();
+        // Check if we were successful in obtaining the map.
+	if (mapFragment != null) {
+	    // The Map is verified. It is now safe to manipulate the map.
+        }
+    }		   
+}
 ```
 
 After you have run that it is safe for you to begin adding markers.
@@ -27,17 +26,18 @@ After you have run that it is safe for you to begin adding markers.
 
 ```java
 Marker mapMarker = mapFragment.addMarker(new MarkerOptions()
-.position(listingPosition)					 								.title(listing.name)
-.snippet("Hours: " + listing.hoursOpen + " - "						 						+ listing.hoursClose)
-.icon(BitmapDescriptorFactory.fromResource(getMarkerType(listing.marker))));
-
+    .position(listingPosition)					 								    
+    .title(listing.name)
+    .snippet("Hours: " + listing.hoursOpen + " - "						 						  
+        + listing.hoursClose)
+    .icon(BitmapDescriptorFactory.fromResource(getMarkerType(listing.marker))));
 ```
 
 ### Customize InfoWindow
 
-If you want to use your own layout instead of the default options, you can do so by creating your own InfoWindowAdpater seen below.
+If you want to use your own layout instead of the default options, you can do so by creating your own InfoWindowAdapter seen below.
 
-Here is the layout file custom_info_window.xml
+Here is the layout file `custom_info_window.xml`
 
 ```xml
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -77,7 +77,7 @@ class CustomWindowAdapter implements InfoWindowAdapter{
 
 	@Override
 	public View getInfoContents(Marker marker) {
-		 // Getting view from the layout file
+	    // Getting view from the layout file
 	    View v = mInflater.inflate(R.layout.custom_info_window, null);
 	    	   
 	    TextView title = (TextView) v.findViewById(R.id.tv_info_window_title);
@@ -94,7 +94,7 @@ class CustomWindowAdapter implements InfoWindowAdapter{
 		// TODO Auto-generated method stub
 		return null;
 	}
-    }
+}
 ```
 
 
