@@ -132,6 +132,7 @@ Exploring sensors, data and components available via the Android SDK:
 * [[Google Maps Fragment Guide]] (and [Setup Genymotion](https://github.com/thecodepath/android_guides/wiki/Google-Maps-Fragment-Guide#genymotion))
 * [[Creating Content Providers]] (**Needs Attention**)
 * [[Video and Audio Playback]] (**Needs Attention**)
+* [[Google Maps API v2 Usage]]
 
 ## Services
 
