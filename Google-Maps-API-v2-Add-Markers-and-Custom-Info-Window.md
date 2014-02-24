@@ -6,7 +6,7 @@ This guide will instruct you on how use the Google Maps API v2 library to create
 
 Assuming you have added the GoogleMapv2 mapfragment to your layout, you should first run this method `onCreate()`. In my case, I am using the SupportMapFragment, either will work.
 
-```
+```java
  private void setUpMapIfNeeded() {
 		    // Do a null check to confirm that we have not already instantiated the map.
 		    if (mapFragment == null) {
@@ -25,7 +25,7 @@ After you have run that it is safe for you to begin adding markers.
 
 ### Adding Markers to Map Fragment
 
-```
+```java
 Marker mapMarker = mapFragment.addMarker(new MarkerOptions()
 .position(listingPosition)					 								.title(listing.name)
 .snippet("Hours: " + listing.hoursOpen + " - "						 						+ listing.hoursClose)
@@ -39,7 +39,7 @@ If you want to use your own layout instead of the default options, you can do so
 
 Here is the layout file custom_info_window.xml
 
-```
+```xml
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -67,7 +67,7 @@ Here is the layout file custom_info_window.xml
 And here is the code you need to implement your own InfoWindowAdpapter class.
 
 
-```
+```java
 class CustomWindowAdapter implements InfoWindowAdapter{
 	LayoutInflater mInflater;
 	
@@ -100,5 +100,6 @@ class CustomWindowAdapter implements InfoWindowAdapter{
 
 You would use this by setting your InfoWindowAdapter to this new class after you have initialized your map. In the case of my example I am running this after I have run `setUpMapIfNeeded()` in my `onCreate()`.
 
-`			mapFragment.setInfoWindowAdapter(new CustomWindowAdapter(getActivity().getLayoutInflater(), mapRatingHash));
-`
+```java
+mapFragment.setInfoWindowAdapter(new CustomWindowAdapter(getActivity().getLayoutInflater(), mapRatingHash));
+```
