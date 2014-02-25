@@ -150,8 +150,9 @@ public class MainActivity extends FragmentActivity {
 }
 ```
 
-Now if you run your application, you should see the navigation drawer and be able to select between your fragments. For a more in-depth look at a navigation drawer with icons and sections, check out this [detailed navigation drawer tutorial](http://www.michenux.net/android-navigation-drawer-748.html).
+Now if you run your application, you should see the navigation drawer and be able to select between your fragments. For a more in-depth look at a navigation drawer with icons and sections, check out this [detailed navigation drawer tutorial](http://www.michenux.net/android-navigation-drawer-748.html). You might also want to check out this [drawer tutorial from AndroidHive](http://www.androidhive.info/2013/11/android-sliding-menu-using-navigation-drawer/).
 
 ## References
 
 * <http://www.michenux.net/android-navigation-drawer-748.html>
+* <http://www.androidhive.info/2013/11/android-sliding-menu-using-navigation-drawer/>
