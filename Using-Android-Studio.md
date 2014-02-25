@@ -7,7 +7,7 @@ Since [version 0.4](http://tools.android.com/recent/androidstudio040released), A
 The plugin will also generate a build.gradle.  An example of what the file format is shown at: https://github.com/thecodepath/android_guides/wiki/Getting-Started-with-Gradle
 
 ## Dependency Configurations
-Android Studio gives you the option of using several different dependency management configurations.  Normally when you import existing projects, it tries looking for Maven or Gradle-based project files (pom.xml or build.gradle respectively).  You cannot switch dependency management systems after you've selected one.
+Android Studio gives you the option of using several different dependency management configurations.  Normally when you import existing projects, it tries looking for Maven or Gradle-based project files (pom.xml or build.gradle respectively).  You cannot switch dependency management systems after you've selected one.  
 
 ## Using Gradle in Android Studio
 
