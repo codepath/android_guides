@@ -39,7 +39,11 @@ Button btnExample = (Button) findViewById(R.id.btnExample);
 animate(btnExample).alpha(0);
 ```
 
-This will automatically create and execute the animation to fade out the button. The animate method has many properties that mirror the methods from the [ViewPropertyAnimator](http://developer.android.com/reference/android/view/ViewPropertyAnimator.html) class including changing many possible properties such as opacity, rotation, scale, x&y positions, and more. For example, here's a more complex animation being executed:
+This will automatically create and execute the animation to fade out the button: 
+
+![Simple Fadeout](http://i.imgur.com/dsyRMsl.gif)
+
+The animate method has many properties that mirror the methods from the [ViewPropertyAnimator](http://developer.android.com/reference/android/view/ViewPropertyAnimator.html) class including changing many possible properties such as opacity, rotation, scale, x&y positions, and more. For example, here's a more complex animation being executed:
 
 ```java
 animate(btnExample).alpha(0.5f).rotation(90f).
@@ -77,6 +81,10 @@ set.playTogether(
 );
 set.start(); 
 ```
+
+This results in the following:
+
+![Animation 3](http://i.imgur.com/Q2uORr7.gif)
 
 See the [Property Animation](http://developer.android.com/guide/topics/graphics/prop-animation.html) official docs for more detailed information in addition to the [NineOldAndroids](http://nineoldandroids.com/) website.
 
@@ -145,6 +153,10 @@ anim.addListener(new AnimatorListenerAdapter() {
 anim.start();
 ```
 
+This results in the following:
+
+![Complex Animation](http://i.imgur.com/0AB0E2Q.gif) 
+
 See more details in the [Property Animation Resource](http://developer.android.com/guide/topics/resources/animation-resource.html#Property) guide.
 
 ### View Animations
@@ -156,7 +168,7 @@ View animations is a slower and less flexible system for animation that predates
 We can define our view animations using XML instead of using the Property XML Animations. First, we define
 our animations in the `res/anim` folder. You can see **several popular animations** by checking out [this Android Animation XML Pack](https://gist.github.com/nesquena/2dab264ed3bcec9e520a). 
 
-For example, a value animation XML file might look like this for fading in an object:
+For example, a value animation XML file might look like this for fading in an object in `res/anim/fade_out.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -164,27 +176,41 @@ For example, a value animation XML file might look like this for fading in an ob
     android:fillAfter="true" >
     <alpha
         android:duration="1000"
-        android:fromAlpha="0.0"
+        android:fromAlpha="1.0"
         android:interpolator="@android:anim/accelerate_interpolator"
-        android:toAlpha="1.0" />
+        android:toAlpha="0.0" />
 </set>
 ```
 
-Now, we can load that animation in an activity with:
+Now, we can load that animation within an activity and apply this to a view:
 
 ```java
 // Inflate animation from XML
-Animation animFadein = AnimationUtils.loadAnimation(this, R.anim.fade_in);  
+Animation animFadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out);  
 // Setup listeners (optional)
-animFadein.setAnimationListener(new AnimationListener() {
+animFadeOut.setAnimationListener(new AnimationListener() {
     @Override
     public void onAnimationStart(Animation animation) {
         // Fires when animation starts
     }
+
+    @Override
+    public void onAnimationEnd(Animation animation) {
+       // ...			
+    }
+
+    @Override
+    public void onAnimationRepeat(Animation animation) {
+       // ...			
+    }
 });
 // start the animation
-btnExample.startAnimation(animFadein);
+btnExample.startAnimation(animFadeOut);
 ```
+
+This results in the following:
+
+![Simple Fadeout](http://i.imgur.com/dsyRMsl.gif)
 
 See more details in the [View Animation Resource](http://developer.android.com/guide/topics/resources/animation-resource.html#View) guide or this [more detailed tutorial](http://www.androidhive.info/2013/06/android-working-with-xml-animations/#fade_in).
 
