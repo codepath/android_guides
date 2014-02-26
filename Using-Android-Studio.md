@@ -11,7 +11,7 @@ Android Studio gives you the option of using several different dependency manage
 
 ## Using Gradle in Android Studio
 
-When you make changes to the build.gradle, the changes should now be reflected in the IDE.  You may have targetSDK versions conflicts (i.e. Facebook SDK targets for API versions above 17), so you may need to resolve your Gradle configurations to be consistent.
+When you make changes to the build.gradle, the changes should now be reflected in the IDE.  You may have target SDK versions conflicts (i.e. Facebook SDK targets for API versions above 17), so you may need to resolve your Gradle configurations to be consistent.
 
 ## Other Notes
 
