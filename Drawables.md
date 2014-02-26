@@ -435,3 +435,4 @@ We've now successfully customized the appearance of our ListView and it's items 
  * <http://androidcookbook.com/Recipe.seam;jsessionid=8BED36512503CA63614CA9237248CBE7?recipeId=3307>
  * <http://www.androidhive.info/2012/02/android-custom-listview-with-image-and-text/>
  * <http://cyrilmottier.com/2011/08/08/listview-tips-tricks-3-create-fancy-listviews/>
+ * <http://bnotions.com/efficient-use-of-drawables-to-develop-a-dynamic-ui-on-android/>
