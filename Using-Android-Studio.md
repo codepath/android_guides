@@ -11,7 +11,7 @@ Android Studio gives you the option of using several different dependency manage
 
 ## Using Gradle in Android Studio
 
-As of Android Studio and Gradle actually operate very much independently of each other.  Even if your Android Studio compiles correctly, you may find NoClassDefErrors when it tries to execute the software in your emulator.    When you make changes to the build.gradle, the changes will now be reflected in the UI (previous v0.3 versions did not).
+When you make changes to the build.gradle, the changes should now be reflected in the IDE.  You may have targetSDK versions conflicts (i.e. Facebook SDK targets for API versions above 17), so you may need to resolve your Gradle configurations to be consistent.
 
 ## Other Notes
 
