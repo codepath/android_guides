@@ -352,6 +352,22 @@ Read more about Fragment Transitions in this [detailed article](http://android-e
 
 **Extended Note:** Check out [this stackoverflow post](http://stackoverflow.com/a/15816189/313399) if you are want to animate the appearance of a DialogFragment.
 
+### Animated Images
+
+In certain cases, we want to be able to display animated images such as an simple animated GIF. The underlying class for making this happen is called [AnimationDrawable](http://developer.android.com/reference/android/graphics/drawable/AnimationDrawable.html) which is an XML format for describing a sequence of images to display. 
+
+One of the simplest ways to display an animated gif is to use a third-party library. [gifanimateddrawable](https://github.com/Hipmob/gifanimateddrawable) is an easy way to convert a gif into an `AnimationDrawable`. Another library is [gif-movie-view](https://github.com/sbakhtiarov/gif-movie-view) or [ImageViewEx](https://github.com/frapontillo/ImageViewEx#animated-gifs). Using the "gif-movie_view" library, assuming you have the gif as a local drawable, displaying the gif is as simple as:
+
+```xml
+<com.basv.gifmoviewview.widget.GifMovieView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onGifClick"
+            custom:gif="@drawable/my_animated_gif" />
+```
+
+Any of these listed libraries will make displaying animated gifs very simple and easy.
+
 ## Things To Note
 
 * There are actually three types of animation systems on Android:
