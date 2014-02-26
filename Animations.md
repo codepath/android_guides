@@ -396,7 +396,13 @@ public class MainActivity extends Activity {
 }
 ```
 
+and now we have this:
+
+![GIF](http://i.imgur.com/YEmtaE6.gif)
+
 You can also check out the popular [ImageViewEx](https://github.com/frapontillo/ImageViewEx) library for another solution. An alternative method is simply to [use a WebView](http://droid-blog.net/2011/10/17/tutorial-how-to-play-animated-gifs-in-android-part-3/). Any of these approaches will make displaying animated gifs fairly straightforward.
+
+
 
 ## Things To Note
 
