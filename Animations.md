@@ -322,6 +322,10 @@ public class SecondActivity extends Activity {
 }
 ```
 
+This results in the following:
+
+![Activity Transition](http://i.imgur.com/lRU3wrn.gif)
+
 You can see a more complete example on the [customizing activity transition tutorial](http://ahdidou.com/blog/customize-android-activities-transition/) as well as the [custom animation while switching](http://android-er.blogspot.com/2013/04/custom-animation-while-switching.html) tutorial. Yet another example can be found in the [blundell apps animate an activity](http://blog.blundell-apps.com/animate-an-activity/) tutorial.
 
 ### Fragment Transitions
@@ -365,14 +369,18 @@ ft.commit();
 
 **Compatibility Note:** The animation files explained above are used in conjunction with support fragments. Keep in mind that if you are not using support fragments, you need to use object animations instead as [explained on StackOverflow](http://stackoverflow.com/a/9856449).
 
-Note that Android has built-in animations with [R.anim](http://developer.android.com/reference/android/R.anim.html) that can be used as well by reference `android.R.anim` such as:
+Note that Android has **built-in animations** with [R.anim](http://developer.android.com/reference/android/R.anim.html) that can be used as well by reference `android.R.anim` such as:
 
 ```java
 FragmentTransaction fts = getSupportFragmentManager().beginTransaction();
 fts.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-ft.replace(R.id.fragment_container, newFragment, "fragment");
-ft.commit();
+fts.replace(R.id.fragment_container, newFragment, "fragment");
+fts.commit();
 ```
+
+This results in the following:
+
+![Fragment Transition](http://i.imgur.com/Y9L82FI.gif)
 
 Read more about Fragment Transitions in this [detailed article](http://android-er.blogspot.com/2013/04/implement-animation-in.html). You can even [check out the source code](http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android/4.4_r1/frameworks/base/core/res/res/anim/slide_in_right.xml?av=f) of those animations. For a step-by-step example on how to implement a "flip" animation, check out the official [Fragment Flip Tutorial](http://developer.android.com/training/animation/cardflip.html). 
 
