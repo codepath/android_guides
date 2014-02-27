@@ -12,7 +12,28 @@ You can see a visual guide of common gestures on the [gestures design patterns](
 
 ## Usage
 
-Gestures are typically used for more involved user interactions within an application. Let's take a look at how to implement common gestures.
+### Handling Touches
+
+At the heart of all gestures is the [onTouchListener](http://developer.android.com/reference/android/view/View.OnTouchListener.html) and the `onTouch` method which has access to [MotionEvent](http://developer.android.com/reference/android/view/MotionEvent.html) data. Every view has an `onTouchListener` which can be specified:
+
+```java
+myView.setOnTouchListener(new OnTouchListener() {
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        // Interpret MotionEvent data
+        // Handle touch here
+        return true;
+    }
+});
+```
+
+Each `onTouch` event has access to the [MotionEvent](http://developer.android.com/reference/android/view/MotionEvent.html) which describe movements in terms of an **action code** and a **set of axis values**. The action code specifies the state change that occurred such as a pointer going down or up. The axis values describe the position and other movement properties:
+
+ * `getAction()` - Returns an integer constant such as `MotionEvent.ACTION_DOWN`
+ * `getX()` - Returns the x coordinate of the touch event
+ * `getY()` - Returns the y coordinate of the touch event
+
+Within an `onTouch` event, we can then use a [GestureDetector](http://developer.android.com/reference/android/view/GestureDetector.html) to understand gestures based on a series of motion events. Gestures are often used for user interactions within an app. Let's take a look at how to implement common gestures.
 
 ### Double Tapping
 
