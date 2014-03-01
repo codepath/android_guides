@@ -6,7 +6,7 @@ In Android apps, there are often cases where we need to play audio or video file
 
 ## Audio Playback and Capture
 
-...
+In this section we will take a look at how to play audio content using the [MediaPlayer](http://developer.android.com/reference/android/media/MediaPlayer.html) and capture audio with the [MediaRecorder](http://developer.android.com/reference/android/media/MediaRecorder.html).
 
 ### Playing Local Audio
 
@@ -21,6 +21,8 @@ In Android apps, there are often cases where we need to play audio or video file
 ...
 
 ## Video Playback and Capture 
+
+In this section we will take a look at how to play video content using the [VideoView](http://developer.android.com/reference/android/widget/VideoView.html) and capture video with the [MediaRecorder](http://developer.android.com/reference/android/media/MediaRecorder.html).
 
 ### Playing Local Video
 
