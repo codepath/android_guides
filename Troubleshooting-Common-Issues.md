@@ -36,6 +36,10 @@ Getting this error means your Android installation is likely corrupted in some w
 
 If the same message persists, you may need to do a **complete reinstallation** of the [ADT Bundle](http://developer.android.com/sdk/index.html) which includes eclipse. You should delete the entire existing ADT bundle from your computer (including eclipse and SDK folder) and re-download the bundle, extract the contents and re-setup from scratch. Users rarely experience this error after a total reinstall. 
 
+### Getting "Unable to execute dex: Multiple dex files define"?
+
+This problem prevents a project from being built, and instead displays the error "Unable to execute dex: Multiple dex files define" when compiling is attempted. The issue is that the bin directory becomes included in the project build path. Excluding the bin from the build path often resolves the problem. Right click on the project name, select `Build Path -> Configure Build Path` and in Java Build Path, go to the tab `Order and Export`. See the full details of the [solution here](http://stackoverflow.com/a/7884908). 
+
 ### Imported Project Won't Compile
 
 If you have imported an existing Android project into the Eclipse workspace and the project gives an error such as "cannot resolve target android-17" or another obscure error, follow this checklist below.
