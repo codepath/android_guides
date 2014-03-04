@@ -42,7 +42,7 @@ and change the theme to a sherlock compatible theme in the manifest:
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.Sherlock.Light.DarkActionBar" >
-        <!-- … !>
+        <!-- … -->
     </application>
 </manifest>
 ```
