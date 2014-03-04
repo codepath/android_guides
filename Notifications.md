@@ -78,7 +78,7 @@ Notification noti =
         .setContentIntent(pIntent).build();
         
 // Hide the notification after its selected
-noti.flags |= Notification.FLAG_AUTO_CANCEL;
+noti.setAutoCancel(true);
 
 NotificationManager mNotificationManager = 
     (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
