@@ -45,7 +45,7 @@ A few quick things to help make implementing push notifications easier:
 
 ## Google Cloud Messaging
 
-...**Needs Attention**...
+**Needs Attention**
 
 ## References
 
