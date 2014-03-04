@@ -26,6 +26,12 @@ Receiving push notifications sent with Parse can be done using the [BroadcastRec
 
 Often you might want your BroadcastReceiver to communicate with a host activity. There can be a bit of confusion around how to access an activity from the receiver. The easiest way to communicate between an activity and a receiver is to **have the receiver be defined as an inner class** within the activity [as explained here](http://stackoverflow.com/a/10218242) in detail. Once you've defined the receiver that way, accessing the internal state of the Activity is easy.
 
+### Creating Dashboard Notifications
+
+By default, Parse will create dashboard notifications based on certain details of the push message that are sent if you specify the "alert" and "title" properties in the notification. In the event that you want to manually manage the notifications, all you have to do is avoid sending the `alert` or `title` so parse doesn't create the notification for you. 
+
+Details of setting up custom push notifications can be [found in this guide](https://www.parse.com/questions/update-notification-in-android). Check out the [[Notifications|Notifications#creating-a-notification]] guide for a detailed look at creating and managing these notices. See also how to [group notifications](http://developer.android.com/training/notify-user/managing.html) by modifying existing notices. This is useful if you want to avoid stacking a bunch of notifications and instead group messages or only show the latest one.
+
 ### Source Code
 
 We have a full demo of Parse Push sending and receiving which [can be found on Github](https://github.com/thecodepath/ParsePushNotificationExample/tree/master/src/com/test). Check out [MyCustomReceiver](https://github.com/thecodepath/ParsePushNotificationExample/blob/master/src/com/test/MyCustomReceiver.java) and [MainActivity](https://github.com/thecodepath/ParsePushNotificationExample/blob/master/src/com/test/MainActivity.java). 
