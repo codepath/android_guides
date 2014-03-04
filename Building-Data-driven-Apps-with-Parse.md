@@ -275,6 +275,8 @@ public class TodoItem extends ParseObject {
 
 Notice that now our model has `getBody`, `setBody` as well as property methods for storing which user created the TodoItem.
 
+**Note:** When creating Parse models, avoid **creating unnecessary member instance variables** and instead rely directly on `getString`-type methods to retrieve the values of database properties.
+
 ### Saving or Updating Objects
 
 Let's suppose we wanted to save a `TodoItem` to the Parse database, simply create a new `TodoItem`, set the data attributes and then trigger a save with `saveInBackground`:
