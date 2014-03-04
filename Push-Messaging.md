@@ -43,6 +43,10 @@ A few quick things to help make implementing push notifications easier:
  * Make sure to register for the broadcasts using the [LocalBroadcastManager](http://developer.android.com/reference/android/support/v4/content/LocalBroadcastManager.html) with the `LocalBroadcastManager.getInstance(this).registerReceiver` method. 
  * If you need to communicate between a receiver and then a second activity that is not currently in the foreground, you may consider **persisting the notification** to disk in SQLite. This way we can easily access that from another Activity once that activity switches to the foreground.
 
+## Google Cloud Messaging
+
+...**Needs Attention**...
+
 ## References
 
 * <http://developer.android.com/google/gcm/index.html>
