@@ -12,9 +12,11 @@ Check out [this official tutorial](https://parse.com/tutorials/android-push-noti
 
 ### Receiving Push Notifications
 
+Check out the [Receiving Push Guide](https://parse.com/docs/push_guide#receiving/Android) for a basic overview of receiving Push messages within an Android app. There are two basic ways to receive push notifications.
+
 #### Push Invoking Activity
 
-Check out the [Push Guide](https://parse.com/docs/push_guide#receiving/Android) for a basic overview of receiving Push messages within an Android app. There are two basic ways to receive push notifications. If you are using [advanced targeting](https://parse.com/docs/push_guide#sending-queries/Android), you can have Parse trigger a particular activity to launch. This is pretty straightforward but you can use a more custom approach if you need more flexibility.
+If you are using [advanced targeting](https://parse.com/docs/push_guide#sending-queries/Android), you can have Parse trigger a particular activity to launch. This is pretty straightforward approach to bringing up an activity when a push is received but you can use a more custom approach if you need more flexibility with how a notification is handled.
 
 #### Push Broadcast Receiver
 
