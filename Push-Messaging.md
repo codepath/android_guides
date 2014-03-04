@@ -1,6 +1,10 @@
 ## Overview
 
-This guide will show you how to configure an Android app to send and receive push notifications. 
+This guide will show you how to configure an Android app to send and receive push notifications. There are several approaches to sending push notifications.
+
+## Parse Push
+
+One approach is to use the [Parse Push](https://parse.com/tutorials/android-push-notifications) service to send and receive push notifications.
 
 ### Sending Push Notifications
 
