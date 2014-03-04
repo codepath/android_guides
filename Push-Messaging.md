@@ -12,7 +12,7 @@ Check out [this official tutorial](https://parse.com/tutorials/android-push-noti
 
 Check out the [Push Guide](https://parse.com/docs/push_guide#receiving/Android) for a basic overview of receiving Push messages within an Android app. There are two basic ways to receive push notifications. If you are using [advanced targeting](https://parse.com/docs/push_guide#sending-queries/Android), you can have Parse trigger a particular activity to launch. This is pretty straightforward but you can use a more custom approach if you need more flexibility.
 
-### Push Broadcast Receiver
+#### Push Broadcast Receiver
 
 Receiving push notifications sent with Parse can be done using the [BroadcastReceiver](http://developer.android.com/reference/android/content/BroadcastReceiver.html) to manage the incoming push events. Any activity can register to handle these broadcast events. If you want to implement the push notification receiver, then check out [this excellent tutorial](http://ahirazitai.blogspot.in/2013/05/push-notification.html). Full source code for that tutorial can be [found on github](https://github.com/ahiraz/pushNotificationDemo). 
 
