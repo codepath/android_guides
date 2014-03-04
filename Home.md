@@ -152,3 +152,4 @@ Focused on issues like deployment, testing, dependency management, etc:
 * [[Must Have Libraries]] Guide
 * [Publishing to the Play Store](http://goo.gl/mUlGL1) (Slides)
 * [[Using Android Studio]] (**Needs Attention**, highly experimental)
+* [[Popular External Tools]]
