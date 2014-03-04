@@ -85,7 +85,19 @@ Before we continue, we need to setup the [android-async-http-client](https://raw
 
 Let's also install a library for remote image loading called [Picasso](http://repo1.maven.org/maven2/com/squareup/picasso/picasso/2.1.1/picasso-2.1.1.jar) so we can easily display movie posters. 
 
-Drop those jars into the "libs" folder of our Android app before continuing.
+Drop those jars into the "libs" folder of our Android app before continuing (_Eclipse_).
+
+Or, include the following to our build.gradle file (_Android Studio_).
+
+```
+repositories {
+    mavenCentral()
+}
+dependencies {
+    compile 'com.squareup.picasso:picasso:2.2.0'
+    compile 'com.loopj.android:android-async-http:1.4.3'
+}
+```
 
 ### Setup Internet Permission
 
