@@ -34,3 +34,12 @@ These are the best services for easy push messaging:
 * [Mixpanel Push](https://mixpanel.com/docs/people-analytics/android-push)
 * [PushBots](https://pushbots.com/)
 * [Pushover](https://pushover.net/)
+
+### A/B Testing
+
+These are the best A/B testing services:
+
+* [Apptimize](http://apptimize.com/)
+* [Arise](http://arise.io/)
+* [Splitforce](https://www.splitforce.com)
+* [Leanplum](https://www.leanplum.com/)
