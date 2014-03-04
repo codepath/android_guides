@@ -10,7 +10,7 @@ There are many third-party libraries for Android but several of them are "must h
 
 ### Convenience
 
- * [ButterKnife](http://jakewharton.github.io/butterknife/) - Using Java annotations, makes Android development better by simplifying common tasks. [Download](http://jakewharton.github.io/butterknife/#download) and install as a jar.
+ * [ButterKnife](http://jakewharton.github.io/butterknife/) - Using Java annotations, makes Android development better by simplifying common tasks. [Download](http://jakewharton.github.io/butterknife/#download) and install as a jar. Make sure to [setup eclipse integration](http://jakewharton.github.io/butterknife/ide-eclipse.html) for this to work.
  * [AndroidAnnotations](https://github.com/excilys/androidannotations) - Framework that speeds up Android development. It takes care of the plumbing, and lets you concentrate on what's really important. By simplifying your code, it facilitates its maintenance
  * [RoboGuice](https://github.com/roboguice/roboguice) - Powerful extensions to Android using dependency injection.
 
