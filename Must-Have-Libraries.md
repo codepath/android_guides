@@ -32,6 +32,7 @@ There are many third-party libraries for Android but several of them are "must h
 
  * [SlidingMenu](https://github.com/jfeinstein10/SlidingMenu) - Library that allows developers to easily create applications with sliding menus like those made popular in the Google+, YouTube, and Facebook apps.
  * [Crouton](https://github.com/keyboardsurfer/Crouton) - Context-sensitive, configurable toasts for displaying temporary messages
+ * [AChartEngine](http://jaxenter.com/effort-free-graphs-on-android-with-achartengine-46199.html) - This is a charting software library for Android applications
  
 ## Resources
 
