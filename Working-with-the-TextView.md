@@ -98,15 +98,14 @@ We're going to use a basic layout file with a TextView, marked with an id of "cu
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-        >
+              android:layout_height="fill_parent">
  
     <TextView
             android:id="@+id/custom_font"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="This is the Chantelli Antiqua font."
-            />
+    />
 </LinearLayout>
 ```
 
@@ -120,6 +119,10 @@ Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Chantelli_Antiqua.t
 // Assign the typeface to the view
 txt.setTypeface(font);
 ```
+
+And this will result in:
+
+![Custom](http://i.imgur.com/WW2QWpe.png)
 
 You'll also want to keep an eye on the total size of your custom fonts, as this can grow quite large if you're using a lot of different typefaces.
 
