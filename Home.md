@@ -47,10 +47,10 @@ Exploring the gritty details of views, layout, styling and common UI patterns:
 
 * [[Constructing View Layouts]] (How to layout views)
 * [[Defining Views and their Attributes]]
+* [[Working with the ImageView]]
 * [[Working with Input Views]] (Spinner, RatingBar, etc)
 * [[Working with the Soft Keyboard]]
 * [[Working with the WebView]]
-* [[Working with the ImageView]]
 
 ### Designing and Styling Views
 
