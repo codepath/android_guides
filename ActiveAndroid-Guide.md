@@ -4,7 +4,21 @@ Using the ActiveAndroid ORM makes managing client-side models extremely easy in 
 
 ### Installation
 
-Download the [ActiveAndroid-3.1.jar](https://www.dropbox.com/s/xkzfx999lzvb838/ActiveAndroid-3.1-adcddac4c58.jar) and drag the library into your "libs" folder.
+#### Get the Latest ActiveAndroid Library
+
+1. Download the latest build of [ActiveAndroid](https://github.com/pardom/ActiveAndroid/archive/master.zip).
+
+2. Unzip the `master.zip` file.
+
+3. Open up the **Terminal** and navigate to the directory that was just unzipped.
+
+4. Type `ant` to build the project and generate a project jar file.
+
+5. Move the generated jar file from `dist/ActiveAndroid.jar` to the `libs` directory in your **project home**.
+
+        mv dist/ActiveAndroid.jar <your_project_home>/libs/
+
+#### Configure Your Application
 
 Next, we need to configure the `application` node with the `name` property of `com.activeandroid.app.Application` to use the correct application class name within the `AndroidManifest.xml`:
 
