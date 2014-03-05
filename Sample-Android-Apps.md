@@ -12,6 +12,7 @@ One of the best ways to learn about Android is to checkout Android code in the w
 * [Contacts Loader Demo](https://github.com/thecodepath/android-contacts-loader-demo)
 * [Google Maps Demo](https://github.com/thecodepath/android-google-maps-demo)
 * [Master-Detail Demo](https://github.com/thecodepath/android-master-detail-demo)
+* [Crouton Alert Demo](https://github.com/thecodepath/android-crouton-sample)
 * [Tons of examples from commonsguy](https://github.com/commonsguy/cw-omnibus)
 * [Novoda Android samples](https://github.com/novoda/android)
 * [Android Snake Game](https://github.com/thecodepath/android_snake_game)
