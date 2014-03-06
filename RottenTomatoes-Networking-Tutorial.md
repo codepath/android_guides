@@ -612,6 +612,7 @@ public class BoxOfficeMovie implements Serializable {
     // ...
     private String largePosterUrl;
     private String criticsConsensus;
+    private int audienceScore;
 	
     public static BoxOfficeMovie fromJson(JSONObject jsonObject) {
         // ...
