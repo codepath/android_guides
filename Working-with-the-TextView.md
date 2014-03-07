@@ -126,9 +126,45 @@ And this will result in:
 
 You'll also want to keep an eye on the total size of your custom fonts, as this can grow quite large if you're using a lot of different typefaces.
 
+## Displaying Images within a TextView
+
+A TextView is actually surprisingly powerful and actually supports having images displayed as a part of it's content area. Any images stored in the "drawable" folders can actually be embedded within a TextView at several key locations in relation to the text using the [android:drawableRight](http://developer.android.com/reference/android/widget/TextView.html#attr_android:drawableRight) and the `android:drawablePadding` property. For example:
+
+```xml
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"     
+    android:gravity="center"
+    android:text="@string/my_contacts"
+    android:drawableRight="@drawable/ic_action_add_group"
+    android:drawablePadding="8dp"
+/>
+```
+
+Which results in:
+
+![Contacts View](http://i.imgur.com/LoN8jpH.png)
+
+In Android, many views inherit from `TextView` such as `Button`s, `EditText`s, `RadioButton`s which means that all of these views support the same functionality. For example, we can also do:
+
+```xml
+<EditText
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="@string/user_name"
+    android:drawableLeft="@drawable/ic_action_person"
+    android:drawablePadding="8dp"
+/>
+```
+
+Which results in:
+
+![EditText with drawable](http://i.imgur.com/GZiIf1C.png)
+
 ## References
 
 * <http://code.tutsplus.com/tutorials/customize-android-fonts--mobile-1601>
 * <http://www.androidhive.info/2012/02/android-using-external-fonts/>
 * <http://stackoverflow.com/questions/3651086/android-using-custom-font>
 * <http://www.tutorialspoint.com/android/android_custom_fonts.htm>
+* <http://antonioleiva.com/textview_power_drawables/>
