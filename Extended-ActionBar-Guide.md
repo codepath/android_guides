@@ -219,7 +219,7 @@ in the ActionBar:
 
 Next, we can attach that layout to any item by specifying the `android:action_layout` property:
 
-```java
+```xml
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
     <item
         android:id="@+id/s"
