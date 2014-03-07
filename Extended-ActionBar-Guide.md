@@ -199,11 +199,10 @@ Now your properties and styles will take affect within the ActionBar. For an eas
 ### Adding ActionView Items
 
 Unlike regular menu items, an action view is a widget that appears in the action bar as a substitute for an action button. ActionView is a full fledged 
-view that is constructed via a layout XML file which is embedded into the ActionBar. First, you need to create the XML layout that will be embedded
-in the ActionBar:
+view that is constructed via a layout XML file which is embedded into the ActionBar. First, you need to create the XML layout that will be embedded in the ActionBar in `res/layout/action_view_button.xml`:
 
 ```xml
-<!-- res/layout/action_view_button -->
+<!-- res/layout/action_view_button.xml -->
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -225,11 +224,11 @@ Next, we can attach that layout to any item by specifying the `android:action_la
         android:id="@+id/s"
         android:orderInCategory="40"
         android:showAsAction="ifRoom"
-        android:actionLayout="@layout/test" />
+        android:actionLayout="@layout/action_view_button" />
 </menu>
 ```
 
-and now the views specified in the layout are embedded in the ActionBar. We can access the embedded ActionView in the Activity by overrding the `onPrepareOptionsMenu` method:
+and now the views specified in the layout are embedded in the ActionBar. We can access a reference to the embedded ActionView in the Activity by overriding the `onPrepareOptionsMenu` method:
 
 ```java
 @Override
@@ -242,7 +241,7 @@ public boolean onPrepareOptionsMenu(Menu menu) {
 }
 ```
 
-Using ActionView can help you add anything to your ActionBar.
+Using ActionView can help you add any custom views you'd like to your ActionBar.
 
 ### Adding SearchView to ActionBar
 
