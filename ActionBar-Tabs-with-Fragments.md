@@ -240,7 +240,7 @@ Using these methods described above, we can modify the tabs and their selected s
 
 ### Styling Tabs
 
-Styling the ActionBar requires using the [[Styles|Styles and Themes]] system for declaring the look of the ActionBar and tabs. We can tweak the styles of these by building a custom theme:
+Styling the ActionBar requires using the [[Styles|Styles and Themes]] system for declaring the look of the ActionBar and tabs. We can tweak the styles of these by building a custom theme in the `res/values-v14/styles.xml`:
 
 ```xml
 <style name="MyTheme" parent="android:Theme.Holo.Light.DarkActionBar">
