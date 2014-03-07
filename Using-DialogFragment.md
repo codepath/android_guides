@@ -110,7 +110,7 @@ class MyAlertDialogFragment extends DialogFragment {
    
    @Override
    public Dialog onCreateDialog(Bundle savedInstanceState) {
-   	int title = getArguments().getInt("title");
+   	String title = getArguments().getString("title");
    	AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(mContext);
    	alertDialogBuilder.setTitle("Really?");
    	alertDialogBuilder.setMessage("Are you sure?");
