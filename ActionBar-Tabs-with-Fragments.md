@@ -252,4 +252,9 @@ Styling the ActionBar requires using the [[Styles|Styles and Themes]] system for
 </style>
 ```
 
-Check out [this article](http://blog.alwold.com/2013/08/28/styling-tabs-in-the-android-action-bar/) for a detailed look at styling tabs in the action bar which also requires an understanding of [[Drawables]].
+There are actually three related aspects to styling different parts of the ActionBar:
+
+* `actionBarTabStyle` – This determines the style of the individual tabs themselves including the indicator.
+* `actionBarTabBarStyle` – This determines the style of the overall tab bar which contains the tabs.
+
+Check out [this article](http://blog.alwold.com/2013/08/28/styling-tabs-in-the-android-action-bar/) for a detailed look at styling tabs in the action bar which also requires an understanding of [[Drawables]]. Also be sure to browse the [Styling ActionBar](https://developer.android.com/training/basics/actionbar/styling.html) official guide as well even though it is a bit verbose.
