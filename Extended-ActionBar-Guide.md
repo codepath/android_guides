@@ -90,13 +90,13 @@ You can control the order of items within the ActionBar using `orderinCategory` 
    android:id="@+id/menu_ordinary"
    android:orderInCategory="200"
    android:showAsAction="ifRoom"
-   android:title="Ordinary"/>
+   android:title="Ordinary" />
 
 <item
    android:id="@+id/menu_important"
    android:orderInCategory="20"
    android:showAsAction="ifRoom"
-   android:title="Important"/>
+   android:title="Important" />
 ```
 
 Using split action bar also allows navigation tabs to collapse into the main action bar if you remove the icon and title leaving only tabs at the top and all the actions on the bottom with:
@@ -225,7 +225,7 @@ Next, we can attach that layout to any item by specifying the `android:action_la
         android:id="@+id/s"
         android:orderInCategory="40"
         android:showAsAction="ifRoom"
-        android:actionLayout="@layout/test"
+        android:actionLayout="@layout/test" />
 </menu>
 ```
 
