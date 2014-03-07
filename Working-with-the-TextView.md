@@ -161,6 +161,8 @@ Which results in:
 
 ![EditText with drawable](http://i.imgur.com/GZiIf1C.png)
 
+The relevant attributes here are `drawableLeft`, `drawableRight`, `drawableTop` and `drawableBottom` along with `drawablePadding`. Check out [this TextView article](http://antonioleiva.com/textview_power_drawables/) for a more detailed look at how to use this functionality. 
+
 ## References
 
 * <http://code.tutsplus.com/tutorials/customize-android-fonts--mobile-1601>
