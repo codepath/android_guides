@@ -4,7 +4,9 @@ In Android apps, there are often settings pages that contain different options t
 
 To retrieve an instance of `SharedPreferences` that the preference hierarchy in this fragment will use, call `PreferenceManager.getDefaultSharedPreferences(android.content.Context)` with a context in the same package as this fragment.
 
-## Needs attention
+## Usage
+
+**Needs attention**
 
 ## References
 
