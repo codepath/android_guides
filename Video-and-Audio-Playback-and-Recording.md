@@ -106,9 +106,7 @@ Recording audio is as simple as starting and stopping the `MediaRecorder`:
 ```java
 // Verify that the device has a mic first
 PackageManager pmanager = this.getPackageManager();
-if (!pmanager.hasSystemFeature(PackageManager.FEATURE_MICROPHONE)) {
-	Toast.makeText(this, "This device doesn't have a mic!", Toast.LENGTH_LONG).show();
-} else {
+if (pmanager.hasSystemFeature(PackageManager.FEATURE_MICROPHONE)) {
     // Set the file location for the audio
     mFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
     mFileName += "/audiorecordtest.3gp";
@@ -123,6 +121,8 @@ if (!pmanager.hasSystemFeature(PackageManager.FEATURE_MICROPHONE)) {
     // Start the recording
     mediaRecorder.prepare();
     mediaRecorder.start();
+} else { // no mic on device
+    Toast.makeText(this, "This device doesn't have a mic!", Toast.LENGTH_LONG).show();
 }
 ```
 
@@ -172,19 +172,110 @@ In this section we will take a look at how to play video content using the [Vide
 
 ### Playing Local Video
 
-...
+Playing local video in a [supported format](http://developer.android.com/guide/appendix/media-formats.html) can be done using the `VideoView`. First, setup the `VideoView` in your layout:
+
+```xml
+<VideoView
+    android:id="@+id/video_view"
+    android:layout_width="320px"
+    android:layout_height="240px" />
+```
+
+Next, we can store local files such as [small_video.mp4](http://techslides.com/demos/sample-videos/small.mp4) in `res/raw/small_video.mp4` and than play the video in the view with:
+
+```java
+VideoView mVideoView = (VideoView) findViewById(R.id.video_view);
+mVideoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() +"/"+R.raw.small_video));
+mVideoView.setMediaController(new MediaController(this));
+mVideoView.requestFocus();
+mVideoView.start();
+```
+
+See [this edumobile tutorial](http://www.edumobile.org/android/android-beginner-tutorials/how-to-play-a-video-file/) for a more detailed look at using [VideoView](http://developer.android.com/reference/android/widget/VideoView.html).
 
 ### Playing Streaming Video
 
-...
+To play back remote video in a [supported format](http://developer.android.com/guide/appendix/media-formats.html), we can still use the `VideoView`. First, setup the correct permissions in the `Android Manifest.xml`:
+
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+```
+
+Now, we can play remote video with:
+
+```java
+final VideoView mVideoView = (VideoView) findViewById(R.id.video_view);
+mVideoView.setVideoPath("http://techslides.com/demos/sample-videos/small.mp4");
+MediaController mediaController = new MediaController(this);
+mediaController.setAnchorView(mVideoView);
+mVideoView.setMediaController(mediaController);
+mVideoView.requestFocus();
+mVideoView.setOnPreparedListener(new OnPreparedListener() {
+    // Close the progress bar and play the video
+    public void onPrepared(MediaPlayer mp) {
+        mVideoView.start();
+    }
+});
+```
+
+You can see a more complete example of remote streaming with [this androidbegin tutorial](http://www.androidbegin.com/tutorial/android-video-streaming-videoview-tutorial/).
 
 ### Capturing Video
 
-...
+Capturing video can be done using intents to capture video using the camera. First, let's setup the necessary permissions in `AndroidManifest.xml`:
+
+```xml
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+```
+
+Next, we can trigger recording video by starting an intent triggering a video capture action:
+
+```java
+private static final int VIDEO_CAPTURE = 101;
+Uri videoUri;
+public void startRecordingVideo() {
+    if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FRONT)) {
+        Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+        File mediaFile = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/myvideo.mp4");
+        videoUri = Uri.fromFile(mediaFile);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, videoUri);
+        startActivityForResult(intent, VIDEO_CAPTURE);
+    } else {
+        Toast.makeText(this, "No camera on device", Toast.LENGTH_LONG).show();
+    }
+}
+```
+
+and then we need to manage the `onActivityResult` for when the video has been captured:
+
+```java
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    if (requestCode == VIDEO_CAPTURE) {
+        if (resultCode == RESULT_OK) {
+            Toast.makeText(this, "Video has been saved to:\n" + data.getData(), Toast.LENGTH_LONG).show();
+            playbackRecordedVideo();
+        } else if (resultCode == RESULT_CANCELED) {
+            Toast.makeText(this, "Video recording cancelled.",  Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, "Failed to record video",  Toast.LENGTH_LONG).show();
+        }
+    }
+}
+
+public void playbackRecordedVideo() {
+    VideoView mVideoView = (VideoView) findViewById(R.id.video_view);
+    mVideoView.setVideoURI(videoUri);
+    mVideoView.setMediaController(new MediaController(this));
+    mVideoView.requestFocus();
+    mVideoView.start(); 
+}
+```
+
+For a more detailed look, check out the [techtopia tutorial](http://www.techotopia.com/index.php/Video_Recording_and_Image_Capture_on_Android_using_Camera_Intents#Calling_the_Video_Capture_Intent) on video recording.
 
 ### Streaming from 3gp Youtube Source
 
-There are a few ways of video playback on the android device. Most of which include downloading the content to the device for playback. If you want to stream a video from a network hosted source. the youtube api gives you the ability to do so using their provided 3gp stream. The provided [YouTube Android Player API](https://developers.google.com/youtube/android/player/) allows you to do so with very little code.
+There are a few ways of video playback on the android device. Most of which include downloading the content to the device for playback. If you want to stream a video from a network hosted source. the youtube api gives you the ability to do so using their provided 3gp stream. The provided [YouTube Android Player API](https://developers.google.com/youtube/android/player/) allows you to do so with very little code. Check out [this truiton tutorial](http://www.truiton.com/2013/08/android-youtube-api-tutorial/) to learn more about playing video with YouTube SDK.
 
 ## References
 
