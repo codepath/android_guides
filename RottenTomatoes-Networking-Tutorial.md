@@ -101,7 +101,13 @@ dependencies {
 
 ### Download Assets
 
-Make sure to download the two placeholder movie posters and drag both [small_movie_poster.png](http://i.imgur.com/o8Y6d6u.png/small_movie_poster.png) and [large_movie_poster.png](http://i.imgur.com/Z2MYNbj.png/large_movie_poster.png) into `res/drawable-mdpi` for use later.
+Make sure to download the two placeholder movie posters:
+
+<a href="http://i.imgur.com/o8Y6d6u.png/small_movie_poster.png"><img 
+src="http://i.imgur.com/o8Y6d6u.png/small_movie_poster.png" /></a>
+<a href="http://i.imgur.com/Z2MYNbj.png/large_movie_poster.png"><img src="http://i.imgur.com/Z2MYNbj.png/large_movie_poster.png" /></a>
+
+Drag both [small_movie_poster.png](http://i.imgur.com/o8Y6d6u.png/small_movie_poster.png) and [large_movie_poster.png](http://i.imgur.com/Z2MYNbj.png/large_movie_poster.png) into `res/drawable-hdpi` for use later.
 
 ### Setup Internet Permission
 
