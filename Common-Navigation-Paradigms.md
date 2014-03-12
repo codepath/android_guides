@@ -22,53 +22,6 @@ Check out the [[ViewPager with FragmentPagerAdapter]] cliffnotes for more detail
 To create a basic navigation drawer that toggles between displaying different fragments, check out the
 [[Fragment Navigation Drawer]] cliffnotes. For more details about creating a custom drawer check out the [Creating a Navigation Drawer](http://developer.android.com/training/implementing-navigation/nav-drawer.html#top) docs.   
 
-Although both of the navigation drawer examples show how fragments can be substituted with the navigation drawer, you can also use RelativeLayout/LinearLayout if you wish to use the drawer as an overlay to your currently displayed Activity.  
-
-Instead of &lt;FrameLayout&gt; you can subsitute for &lt;LinearLayout&gt;
-
-```java
-<android.support.v4.widget.DrawerLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:id="@+id/drawer_layout">
-
-        <LinearLayout
-                android:id="@+id/content_frame"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-
-        <!-- The navigation drawer -->
-        <ListView android:id="@+id/left_drawer"
-                  android:layout_width="240dp"
-                  android:layout_height="wrap_content"
-                  android:layout_gravity="start"
-                  android:choiceMode="singleChoice"
-                  android:divider="@android:color/transparent"
-                  android:dividerHeight="0dp"
-                  android:background="#111"/>
-</android.support.v4.widget.DrawerLayout>
-```
-
-Instead of:
-
-```java
- // Insert the fragment by replacing any existing fragment
-    FragmentManager fragmentManager = getFragmentManager();
-    fragmentManager.beginTransaction()
-                   .replace(R.id.content_frame, fragment)
-                   .commit();
-```
-
-You can also use the LinearLayout container to inflate the Activity:
-
-```java
-LayoutInflater inflater = getLayoutInflater();
-LinearLayout container = (LinearLayout) findViewById(R.id.content_frame);
-inflater.inflate(R.layout.activity_main, container);
-```
-
 ## References
 
  * <http://developer.android.com/design/patterns/navigation.html>
