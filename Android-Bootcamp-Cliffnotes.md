@@ -70,7 +70,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Popular External Tools]]
 * [[Getting Started with Gradle]]
 
-### Bonus
+### Recommended
 
 * [[Endless Scrolling with AdapterViews]]
 * [[Extended ActionBar Guide]]
