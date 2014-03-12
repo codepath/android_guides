@@ -26,7 +26,7 @@ public void onLaunchCamera(View view) {
     // create Intent to take a picture and return control to the calling application
     Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
     intent.putExtra(MediaStore.EXTRA_OUTPUT, getPhotoFileUri(photoFileName)); // set the image file name
-    // start the image capture Intent
+    // Start the image capture intent to take photo
     startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
 }
 
@@ -40,7 +40,7 @@ public void onActivityResult(int requestCode, int resultCode, Intent data) {
          // Load the taken image into a preview
          ImageView ivPreview = (ImageView) findViewById(R.id.ivPreview);
          ivPreview.setImageBitmap(takenImage);   
-       } else {
+       } else { // Result was a failure
     	   Toast.makeText(this, "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
        }
     }
@@ -48,14 +48,16 @@ public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 // Returns the Uri for a photo stored on disk given the fileName
 public Uri getPhotoFileUri(String fileName) {
-  File mediaStorageDir = new File(
+    // Get safe storage directory for photos
+    File mediaStorageDir = new File(
         Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), APP_TAG);
 
     // Create the storage directory if it does not exist
     if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()){
         Log.d(APP_TAG, "failed to create directory");
     }
-    // Specify the file target for the photo
+
+    // Return the file target for the photo based on filename
     return Uri.fromFile(new File(mediaStorageDir.getPath() + File.separator + fileName));
 }
 ```
