@@ -23,7 +23,7 @@ For the full list, check out the [Providing a Resource](http://developer.android
 
 For every piece of text you want to display within your application (i.e the label of a button, or the text inside a TextView), you should first define the text in the `res/values/strings.xml` file. Each entry is a key (representing the id of the text) and a value (the text itself). For example, if I want a button to display "Submit", I might add the following string resource to `res/values/strings.xml`:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hello">Hello!</string>
