@@ -131,10 +131,10 @@ Exploring sensors, data and components available via the Android SDK:
 
 * [[Loading Contacts with Content Providers]]
 * [[Using Hardware, Sensors and Device Data]] (Camera, Photo Roll, Location)
-* [[Google Maps Fragment Guide]] (and [Setup Genymotion](https://github.com/thecodepath/android_guides/wiki/Google-Maps-Fragment-Guide#genymotion))
-* [[Creating Content Providers]] (**Needs Attention**)
 * [[Video and Audio Playback and Recording]]
+* [[Google Maps Fragment Guide]] (and [Setup Genymotion](https://github.com/thecodepath/android_guides/wiki/Google-Maps-Fragment-Guide#genymotion))
 * [[Google Maps API v2 Usage]]
+* [[Creating Content Providers]] (**Needs Attention**)
 
 ## Services
 
