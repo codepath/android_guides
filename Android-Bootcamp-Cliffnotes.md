@@ -37,6 +37,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Handling ProgressBars]]
 * [[Implementing a Heterogenous ListView]]
 * [[Creating and Using Fragments]]
+* [[Working with the ScrollView]]
 
 ### Week 5 - Hardware and SDK Components
 
