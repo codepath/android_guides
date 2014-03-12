@@ -18,6 +18,7 @@ The [camera](http://developer.android.com/guide/topics/media/camera.html) implem
 Easy way works in most cases, using the intent to [launch the camera](http://developer.android.com/guide/topics/media/camera.html):
 
 ```java
+public final String APP_TAG = "MyCustomApp";
 public final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034;
 public String photoFileName = "photo.jpg";
 
@@ -48,11 +49,11 @@ public void onActivityResult(int requestCode, int resultCode, Intent data) {
 // Returns the Uri for a photo stored on disk given the fileName
 public Uri getPhotoFileUri(String fileName) {
   File mediaStorageDir = new File(
-        Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "MyCustomApp");
+        Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), APP_TAG);
 
     // Create the storage directory if it does not exist
     if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()){
-        Log.d("MyCustomApp", "failed to create directory");
+        Log.d(APP_TAG, "failed to create directory");
     }
     // Specify the file target for the photo
     return Uri.fromFile(new File(mediaStorageDir.getPath() + File.separator + fileName));
