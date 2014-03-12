@@ -18,24 +18,13 @@ The [camera](http://developer.android.com/guide/topics/media/camera.html) implem
 Easy way works in most cases, using the intent to [launch the camera](http://developer.android.com/guide/topics/media/camera.html):
 
 ```java
-public void getPhotoFileUri(fileName) {
-  File mediaStorageDir = new File(
-        Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
-        "MyCameraApp");
-
-    // Create the storage directory if it does not exist
-    if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()){
-        Log.d("MyCameraApp", "failed to create directory");
-    }
-    // Specify the file target for the photo
-    fileUri = Uri.fromFile(new File(mediaStorageDir.getPath() + File.separator +
-		        fileName));
-}
+public final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034;
+public String photoFileName = "photo.jpg";
 
 public void onLaunchCamera(View view) {
     // create Intent to take a picture and return control to the calling application
     Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-    intent.putExtra(MediaStore.EXTRA_OUTPUT, getPhotoFileUri("photo.jpg")); // set the image file name
+    intent.putExtra(MediaStore.EXTRA_OUTPUT, getPhotoFileUri(photoFileName)); // set the image file name
     // start the image capture Intent
     startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
 }
@@ -43,10 +32,23 @@ public void onLaunchCamera(View view) {
 @Override
 public void onActivityResult(int requestCode, int resultCode, Intent data) {
     if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
-       Uri takenPhotoUri = getPhotoFileUri("photo.jpg");
+       Uri takenPhotoUri = getPhotoFileUri(photoFileName);
        // by this point we have the camera photo on disk
        // Bitmap takenImage = BitmapFactory.decodeFile(filePath);
     }
+}
+
+// Returns the Uri for a photo stored on disk given the fileName
+public void getPhotoFileUri(fileName) {
+  File mediaStorageDir = new File(
+        Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "MyCustomApp");
+
+    // Create the storage directory if it does not exist
+    if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()){
+        Log.d("MyCameraApp", "failed to create directory");
+    }
+    // Specify the file target for the photo
+    fileUri = Uri.fromFile(new File(mediaStorageDir.getPath() + File.separator + fileName));
 }
 ```
 
@@ -63,13 +65,24 @@ Easy way is to use an intent to launch the gallery:
 
 ```java
 // PICK_PHOTO_CODE is a constant integer
+public final static int PICK_PHOTO_CODE = 1046;
+
 public void onPickPhoto(View view) {
     Intent intent = new Intent(Intent.ACTION_PICK,
         MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
     startActivityForResult(intent, PICK_PHOTO_CODE);
 }
 
-// Used to retrieve the actual filesystem URI based on the media store result
+@Override
+public void onActivityResult(int requestCode, int resultCode, Intent data) {
+   if (requestCode == PICK_PHOTO_CODE) {
+      photoUri = getFileUri(data.getData());
+      // Do something with the photo based on Uri
+      Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
+   }
+}
+
+// Used to retrieve the actual filesystem Uri based on the media store result
 private String getFileUri(Uri mediaStoreUri) {
 		String[] filePathColumn = { MediaStore.Images.Media.DATA };
     Cursor cursor = getActivity().getContentResolver().query(mediaStoreUri,
@@ -78,17 +91,7 @@ private String getFileUri(Uri mediaStoreUri) {
     int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
     String fileUri = cursor.getString(columnIndex);
     cursor.close();
-    
     return fileUri;
-}
-
-@Override
-public void onActivityResult(int requestCode, int resultCode, Intent data) {
-   if (requestCode == PICK_PHOTO_CODE) {
-      photoUri = getFileUri(data.getData());
-      // do something to the photo
-      // Bitmap selectedImage = BitmapFactory.decodeFile(filePath);
-   }
 }
 ```
 
