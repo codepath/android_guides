@@ -236,7 +236,8 @@ Uri videoUri;
 public void startRecordingVideo() {
     if (getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FRONT)) {
         Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
-        File mediaFile = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/myvideo.mp4");
+        File mediaFile = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + 
+            "/myvideo.mp4");
         videoUri = Uri.fromFile(mediaFile);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, videoUri);
         startActivityForResult(intent, VIDEO_CAPTURE);
