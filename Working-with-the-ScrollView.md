@@ -13,7 +13,7 @@ To make any content vertically scrollable, simply wrap that content in a `Scroll
 ```xml
 <ScrollView
   android:layout_width="fill_parent"
-  android:layout_height="fill_parent"
+  android:layout_height="fill_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
