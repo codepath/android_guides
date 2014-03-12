@@ -26,11 +26,11 @@ Read more about [[us and our vision for all this|The CodePath Goal]]. If you wan
 
 **Totally new to Android?** Start here.
 
+* [[Beginning Android Resources]] (Detailed Post With Many Links)
 * [Setting up the Android Development Tools](http://goo.gl/Ml9YN) (Installation Slides)
 * [Architecture of Mobile Apps](http://goo.gl/AAsGLx) (Concept Slides)
 * [Developing our First App](http://goo.gl/pBKfYP) (Step-by-Step Todo App)
 * [[Troubleshooting Common Issues]] (Running into problems?)
-* [[Beginning Android Resources]] (Detailed Post With Many Links)
 * [[Sample Android Apps]] (Code repositories)
 * [Setting up Android Studio](http://goo.gl/X2SVFR) (Experimental Install Slides)
 
