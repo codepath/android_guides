@@ -32,9 +32,16 @@ public void onLaunchCamera(View view) {
 @Override
 public void onActivityResult(int requestCode, int resultCode, Intent data) {
     if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
-       Uri takenPhotoUri = getPhotoFileUri(photoFileName);
-       // by this point we have the camera photo on disk
-       // Bitmap takenImage = BitmapFactory.decodeFile(filePath);
+       if (resultCode == RESULT_OK) {
+         Uri takenPhotoUri = getPhotoFileUri(photoFileName);
+         // by this point we have the camera photo on disk
+         Bitmap takenImage = BitmapFactory.decodeFile(takenPhotoUri.getPath());
+         // Load the taken image into a preview
+         ImageView ivPreview = (ImageView) findViewById(R.id.ivPreview);
+         ivPreview.setImageBitmap(takenImage);   
+       } else {
+    	   Toast.makeText(this, "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
+       }
     }
 }
 
