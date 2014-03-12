@@ -553,7 +553,8 @@ First, let's generate the activity that will display all the details by selectin
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/ivPosterImage"
-        android:layout_alignLeft="@+id/tvTitle"
+        android:layout_alignLeft="@+id/tvAudienceScore"
+        android:layout_below="@+id/tvAudienceScore"
         android:gravity="bottom"
         android:text="Christian Bale, Joseph-Gordon Levitt"
         android:textSize="12sp" />
