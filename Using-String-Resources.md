@@ -31,7 +31,16 @@ For every piece of text you want to display within your application (i.e the lab
 </resources>
 ```
 
-Now if I ever reference the string resource for `submit_label`, the default will be for "Submit" to be displayed. Later though, you could create **qualified resource files** that change this value for different countries or between devices.
+Now if I ever reference the string resource for `submit_label`, the default will be for "Submit" to be displayed. Later though, you could create **qualified resource files** that change this value for different countries or between devices. We can also store more complex strings (with html or special characters) by using CDATA to escape the string such as:
+
+```xml
+<string name="feedback_label">
+<![CDATA[
+    Please <a href="http://highlight.com">let us know</a> if you have feedback on this or if 
+    you would like to log in with another identity service. Thanks! This is a longer string!  
+]]>
+</string>
+```
 
 ### Referencing a Resource
 
