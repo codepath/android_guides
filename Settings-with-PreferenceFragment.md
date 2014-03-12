@@ -6,7 +6,7 @@ To retrieve an instance of `SharedPreferences` that the preference hierarchy in 
 
 ## Usage
 
-**Needs attention**
+...**Needs attention**...
 
 ## References
 
