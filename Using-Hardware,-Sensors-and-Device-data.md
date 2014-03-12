@@ -45,7 +45,7 @@ public void getPhotoFileUri(fileName) {
 
     // Create the storage directory if it does not exist
     if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()){
-        Log.d("MyCameraApp", "failed to create directory");
+        Log.d("MyCustomApp", "failed to create directory");
     }
     // Specify the file target for the photo
     fileUri = Uri.fromFile(new File(mediaStorageDir.getPath() + File.separator + fileName));
