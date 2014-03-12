@@ -32,6 +32,7 @@ Read more about [[us and our vision for all this|The CodePath Goal]]. If you wan
 * [[Troubleshooting Common Issues]] (Running into problems?)
 * [[Beginning Android Resources]] (Detailed Post With Many Links)
 * [[Sample Android Apps]] (Code repositories)
+* [Setting up Android Studio](http://goo.gl/X2SVFR) (Experimental Install Slides)
 
 ## Structure
 
