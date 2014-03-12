@@ -20,7 +20,6 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Displaying Toasts]]
 * [[Using Intents to Create Flows]]
 * [[Common Implicit Intents]]
-* [[Common Navigation Paradigms]]
 
 ### Week 3 - Networking and Persistence
 
