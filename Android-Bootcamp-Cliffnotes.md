@@ -29,6 +29,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Persisting Data to the Device]]
 * [[ActiveAndroid Tips and Q&A|ActiveAndroid Guide]]
 * [[RottenTomatoes Networking Tutorial]]
+* [[Building Data driven Apps with Parse]]
 
 ### Week 4 - Advanced Views and Using Fragments
 
