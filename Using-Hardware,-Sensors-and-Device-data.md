@@ -77,9 +77,12 @@ Easy way is to use an intent to launch the gallery:
 // PICK_PHOTO_CODE is a constant integer
 public final static int PICK_PHOTO_CODE = 1046;
 
+// Trigger gallery selection for a photo
 public void onPickPhoto(View view) {
+    // Create intent for picking a photo from the gallery
     Intent intent = new Intent(Intent.ACTION_PICK,
         MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+    // Bring up gallery to select a photo
     startActivityForResult(intent, PICK_PHOTO_CODE);
 }
 
