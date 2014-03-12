@@ -85,25 +85,18 @@ public void onPickPhoto(View view) {
 
 @Override
 public void onActivityResult(int requestCode, int resultCode, Intent data) {
-   if (requestCode == PICK_PHOTO_CODE) {
-      photoUri = getFileUri(data.getData());
-      // Do something with the photo based on Uri
-      Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
-   }
-}
-
-// Used to retrieve the actual filesystem Uri based on the media store result
-private String getFileUri(Uri mediaStoreUri) {
-		String[] filePathColumn = { MediaStore.Images.Media.DATA };
-    Cursor cursor = getActivity().getContentResolver().query(mediaStoreUri,
-            filePathColumn, null, null, null);
-    cursor.moveToFirst();
-    int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-    String fileUri = cursor.getString(columnIndex);
-    cursor.close();
-    return fileUri;
+    if (data != null) {
+        Uri photoUri = data.getData();
+        // Do something with the photo based on Uri
+        Bitmap selectedImage = MediaStore.Images.Media.getBitmap(this.getContentResolver(), photoUri);
+        // Load the selected image into a preview
+        ImageView ivPreview = (ImageView) findViewById(R.id.ivPreview);
+        ivPreview.setImageBitmap(selectedImage);   
+    }
 }
 ```
+
+Note that there is a try-catch block required around the `MediaStore.Images.Media.getBitmap` line which was removed from above for brevity.
 
 ### Playing Videos
 
