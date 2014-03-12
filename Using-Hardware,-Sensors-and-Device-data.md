@@ -39,7 +39,7 @@ public void onActivityResult(int requestCode, int resultCode, Intent data) {
 }
 
 // Returns the Uri for a photo stored on disk given the fileName
-public void getPhotoFileUri(fileName) {
+public Uri getPhotoFileUri(String fileName) {
   File mediaStorageDir = new File(
         Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "MyCustomApp");
 
@@ -48,7 +48,7 @@ public void getPhotoFileUri(fileName) {
         Log.d("MyCustomApp", "failed to create directory");
     }
     // Specify the file target for the photo
-    fileUri = Uri.fromFile(new File(mediaStorageDir.getPath() + File.separator + fileName));
+    return Uri.fromFile(new File(mediaStorageDir.getPath() + File.separator + fileName));
 }
 ```
 
