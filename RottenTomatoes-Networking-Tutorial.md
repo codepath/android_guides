@@ -99,6 +99,10 @@ dependencies {
 }
 ```
 
+### Download Assets
+
+Make sure to download the two placeholder movie posters and drag both [small_movie_poster.png](http://i.imgur.com/o8Y6d6u.png/small_movie_poster.png) and [large_movie_poster.png](http://i.imgur.com/Z2MYNbj.png/large_movie_poster.png) into `res/drawable-mdpi` for use later.
+
 ### Setup Internet Permission
 
 Add the proper internet permissions to the `AndroidManifest.xml` within the `manifest` node:
@@ -354,7 +358,7 @@ Now, we need to define a layout to use for visualizing a particular movie. Let's
     android:layout_height="match_parent"
     android:padding="5dp" >
     
-    <!-- @drawable/movie_poster sourced from 
+    <!-- @drawable/small_movie_poster sourced from 
          http://content8.flixster.com/movie/11/15/86/11158674_mob.jpg -->
     <ImageView
         android:id="@+id/ivPosterImage"
@@ -365,7 +369,7 @@ Now, we need to define a layout to use for visualizing a particular movie. Let's
         android:maxHeight="93dp"
         android:scaleType="fitXY"
         android:adjustViewBounds="true"
-        android:src="@drawable/movie_poster" />
+        android:src="@drawable/small_movie_poster" />
 
     <TextView
         android:id="@+id/tvTitle"
