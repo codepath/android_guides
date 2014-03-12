@@ -181,7 +181,7 @@ public void onLocationChanged(Location location) {
 }
 ```
 
-For using maps check out the [Android Maps Tutorial](http://www.vogella.com/articles/AndroidGoogleMaps/article.html).
+For using maps check out the [[Cliffnotes for Maps|Google Maps Fragment Guide]] or the [Android Maps Tutorial](http://www.vogella.com/articles/AndroidGoogleMaps/article.html).
 
 ## References
  
