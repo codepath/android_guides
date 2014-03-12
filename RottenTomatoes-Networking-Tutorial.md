@@ -360,9 +360,11 @@ Now, we need to define a layout to use for visualizing a particular movie. Let's
         android:id="@+id/ivPosterImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:maxHeight="93dp"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
         android:src="@drawable/movie_poster" />
 
     <TextView
@@ -382,6 +384,7 @@ Now, we need to define a layout to use for visualizing a particular movie. Let's
         android:layout_alignBottom="@+id/ivPosterImage"
         android:layout_alignLeft="@+id/tvCriticsScore"
         android:layout_below="@+id/tvCriticsScore"
+        android:lines="1"
         android:gravity="bottom"
         android:text="Christian Bale, Joseph-Gordon Levitt"
         android:textSize="10sp" />
@@ -525,6 +528,9 @@ First, let's generate the activity that will display all the details by selectin
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:maxHeight="179dp"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
         android:src="@drawable/large_movie_poster" />
 
     <TextView
@@ -618,7 +624,7 @@ public class BoxOfficeMovie implements Serializable {
 	
     public static BoxOfficeMovie fromJson(JSONObject jsonObject) {
         // ...
-        b.largePosterUrl = jsonObject.getJSONObject("posters").getString("profile");
+        b.largePosterUrl = jsonObject.getJSONObject("posters").getString("detailed");
         b.criticsConsensus = jsonObject.getString("critics_consensus"); 
         b.audienceScore = jsonObject.getJSONObject("ratings").getInt("audience_score");
         // ...
