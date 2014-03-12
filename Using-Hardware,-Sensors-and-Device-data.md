@@ -101,13 +101,15 @@ private String getFileUri(Uri mediaStoreUri) {
 
 ```java
 public void playUrl(String url) {
-    // videoview defined in the layout XML
+    VideoView videoView = (VideoView) findViewById(R.id.video_view);
     videoView.setVideoPath(url);
     videoView.setMediaController(new MediaController(this));       
     videoView.requestFocus();   
     videoView.start();
 }
 ```
+
+See our [[Video and Audio Playback and Recording]] cliffnotes for a more detailed look.
 
 ### Accessing Sensors
 
