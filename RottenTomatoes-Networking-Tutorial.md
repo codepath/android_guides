@@ -381,6 +381,7 @@ Now, we need to define a layout to use for visualizing a particular movie. Let's
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/ivPosterImage"
         android:layout_alignLeft="@+id/tvCriticsScore"
+        android:layout_below="@+id/tvCriticsScore"
         android:gravity="bottom"
         android:text="Christian Bale, Joseph-Gordon Levitt"
         android:textSize="10sp" />
