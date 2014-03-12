@@ -74,6 +74,8 @@ Cliffnotes are references giving you the "most important" Android topics with br
 
 * [[Endless Scrolling with AdapterViews]]
 * [[Extended ActionBar Guide]]
+* [[Menus and Popups]]
+* [[Dialogs with DialogFragment]]
 * [[Common Navigation Paradigms]]
   * [[Fragment ActionBar Tabs|ActionBar Tabs with Fragments]] Guide
   * [[Fragment Navigation Drawer]] Guide
@@ -81,5 +83,6 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Sharing Content with Intents]] Guide
 * [[Implementing Pull to Refresh]] Guide
 * [[Implementing a Horizontal ListView]] Guide
+* [[Push Messaging]] (with Parse)
  
 If there's anything else, feel free to suggest new cliffnotes and/or help contribute to them!
