@@ -44,7 +44,9 @@ Cliffnotes are references giving you the "most important" Android topics with br
 
 * [[Loading Contacts with Content Providers]]
 * [[Using Hardware, Sensors and Device Data]]
-* [[Google Maps Fragment Guide]]
+* [[Google Maps Setup Guide|Google Maps Fragment Guide]]
+* [[Google Maps API v2 Usage]]
+* [[Video and Audio Playback and Recording]]
 
 ### Week 6 - Drawables and Styles
 
