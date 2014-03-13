@@ -40,7 +40,7 @@ We can create a custom listview of user objects by subclassing ArrayAdapter, des
 
 ### Constructing Models
 
-In order to create models, you will likely be loading the data from a source (i.e database or JSON API), so you should create two additional methods in each model to allow for construction of a list or a singular item if the data is coming from a JSON API:
+In order to create models, you will likely be loading the data from a source (i.e database or JSON API), so you should create two additional methods in each model to allow for construction of a list or a singular item **if the data is coming from a JSON API**:
 
 ```java
 public class User {
@@ -158,7 +158,7 @@ adapter.addAll(newUsers);
 which will append the new items to the list. You can also clear the entire list at any time with:
 
 ```
-adapter.clear()
+adapter.clear();
 ```
 
 Using the adapter now, you can add, remove and modify users and the items within the ListView will automatically reflect any changes.
