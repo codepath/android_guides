@@ -145,7 +145,7 @@ public class MainActivity extends Activity {
     // Setup contextual action mode when item is clicked
     lvItems.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
       public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-        if (currentActionMode != null) { return false; }
+        if (currentActionMode != null) { return; }
         currentListItemIndex = position;
         currentActionMode = startActionMode(modeCallBack);
         view.setSelected(true);
