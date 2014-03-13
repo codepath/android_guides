@@ -47,10 +47,12 @@ By default, contents of an ImageView control are of a certain size-usually the s
     android:minWidth="50dp"
     android:maxHeight="150dp"
     android:maxWidth="150dp"
+    android:scaleType="fitXY"
+    android:adjustViewBounds="true"
 />
 ```
 
-Here we are specifying that the control should have a specific minimum and maximum size. Note that when used alone, specifying these sizes does not preserve the aspect ratio of the image, and therefore it can look squished, squashed, or otherwise not ideal.
+Here we are specifying that the control should have a specific minimum and maximum size. Note that we need to include the last two options (`scaleType` and `adjustViewBounds`) in order for the dimensions to be respected properly.
 
 You can specify that the ImageView control preserve its aspect ratio using the [adjustViewBounds](http://developer.android.com/reference/android/widget/ImageView.html#attr_android:adjustViewBounds) attribute. The most common scale type associates that with the `fitXY` type, which scales both the height and the width up or down until it fits within the maximum dimensions specified. In XML, this property would appear within your ImageView control as:
 
