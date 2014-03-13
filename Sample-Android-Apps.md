@@ -10,7 +10,7 @@ One of the best ways to learn about Android is to checkout Android code in the w
 * [Services and Notifications Demo](https://github.com/thecodepath/android-services-demo)
 * [Unit and Integration Testing Demo](https://github.com/thecodepath/android-simple-test-demo)
 * [Audio and Video Demo](https://github.com/thecodepath/android-audio-video-demo)
-* [Menus + Popups + Fragments Demo](https://github.com/thecodepath/android-menus-popups-dialogs-demo)
+* [Menus, Popups, and Fragments Demo](https://github.com/thecodepath/android-menus-popups-dialogs-demo)
 * [Contacts Loader Demo](https://github.com/thecodepath/android-contacts-loader-demo)
 * [Google Maps Demo](https://github.com/thecodepath/android-google-maps-demo)
 * [Master-Detail Demo](https://github.com/thecodepath/android-master-detail-demo)
