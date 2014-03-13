@@ -145,11 +145,13 @@ Once the adapter is attached, items will automatically be populated into the Lis
 
 ```java
 // Add item to adapter
-User newUser = new User(jsonObject);
+User newUser = new User("Nathan", "San Diego");
 adapter.add(newUser);
 // Or even append an entire new collection
 // Fetching some data, data has now returned
 // If data was JSON, convert to ArrayList of User objects.
+JSONArray jsonArray = ...;
+ArrayList<User> newUsers = User.fromJson(jsonArray)
 adapter.addAll(newUsers);
 ```
 
