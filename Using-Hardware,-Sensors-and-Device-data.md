@@ -119,7 +119,7 @@ See our [[Video and Audio Playback and Recording]] cliffnotes for a more detaile
 
 ### Accessing Sensors
 
-Different devices have a [variety of sensors](http://developer.android.com/guide/topics/sensors/sensors_overview.html) that can be accessed via the Sensor framework. Possible tasks include:
+Different devices have a [variety of sensors](http://developer.android.com/guide/topics/sensors/sensors_overview.html) that can be accessed via the Sensor framework. Possible tasks related to sensors include:
 
  * List available sensors
  * Determine sensor capabilities (range, resolution, etc)
@@ -132,18 +132,34 @@ You can register for sensor events:
 public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.main);
-
-    mSensorManager = 
-        (SensorManager)getSystemService(Context.SENSOR_SERVICE);
-    mLight = mSensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
-    mSensorManager.registerListener(this, mLight,    
-        SensorManager.SENSOR_DELAY_NORMAL);
+    // Get the sensor manager
+    SensorManager mSensorManager = 
+        (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+    // Store the particular sensor
+    Sensor mLight = mSensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+    // Register a listener if the sensor exists
+    if (mLight != null) {
+        mSensorManager.registerListener(this, mLight,    
+            SensorManager.SENSOR_DELAY_NORMAL);
+    }
 }
 
-public void onSensorChanged(SensorEvent event) {
-    ...
-}
+private SensorEventListener lightSensorListener = new SensorEventListener() {		
+	@Override
+	public void onSensorChanged(SensorEvent event) {
+		Log.d("MY_APP", event.toString());
+	}
+	
+	@Override
+	public void onAccuracyChanged(Sensor sensor, int accuracy) {
+		Log.d("MY_APP", sensor.toString() + " - " + accuracy);
+	}
+};
 ```
+
+Common sensors that devices have available are for temperature, light, pressure, acceleration, motion, and orientation. See the [full list of sensors](http://developer.android.com/guide/topics/sensors/sensors_overview.html#sensors-intro) for more details.
+
+
 
 ### Location
 
