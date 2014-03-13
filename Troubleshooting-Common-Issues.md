@@ -8,7 +8,7 @@ This problem will cause new Android projects not to generate an initial Activity
 
 Fixed by updating the Eclipse plugin: Eclipse --> Help --> Install New Software --> Pasted URL `http://dl-ssl.google.com/android/eclipse/`, check "Developer Tools" and hit Finiah. Leave unchecked "Contact all update sites during install to find required software". Now regenerate the project.
 
-![Screen](http://i.imgur.com/Hg8QXDP.png)
+<img src="http://i.imgur.com/Hg8QXDP.png" width="460" />
 
 See [this stackoverflow post](http://stackoverflow.com/questions/22219392/eclipse-doesnt-create-main-activity-and-layout) and [this other one](http://stackoverflow.com/questions/6470802/what-to-do-about-eclipses-no-repository-found-containing-error-messages) for more details.
 
