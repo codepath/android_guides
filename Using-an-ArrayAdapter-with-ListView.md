@@ -161,7 +161,7 @@ adapter.clear()
 
 Using the adapter now, you can add, remove and modify users and the items within the ListView will automatically reflect any changes.
 
-### Improving Performance with the ViewHolder Pattern
+## Improving Performance with the ViewHolder Pattern
 
 To improve performance, we should modify the custom adapter by applying the **ViewHolder** pattern which speeds up the population of the ListView considerably by caching view lookups for smoother, faster loading:
 
