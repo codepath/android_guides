@@ -26,9 +26,13 @@ Given a Java object that has certain fields:
 
 ```java
 public class User {
-    public Long id;
     public String name;
     public String hometown;
+
+    public User(String name, String hometown) {
+       this.name = name;
+       this.hometown = hometown;
+    }
 }
 ```
 
@@ -36,13 +40,12 @@ We can create a custom listview of user objects by subclassing ArrayAdapter, des
 
 ### Constructing Models
 
-In order to create models, you will likely be loading the data from a source (i.e database or JSON API), so you should create two additional methods in each model to allow for construction of a list or a singular item:
+In order to create models, you will likely be loading the data from a source (i.e database or JSON API), so you should create two additional methods in each model to allow for construction of a list or a singular item if the data is coming from a JSON API:
 
 ```java
 public class User {
     public User(JSONObject object){
         try {
-            this.id = object.getLong("id");
             this.name = object.getString("name");
             this.hometown = object.getString("hometown");
        } catch (JSONException e) {
@@ -69,7 +72,7 @@ For more details, check out our guide on [[converting JSON into a model|Converti
 
 ### Creating the View Template
 
-First, we need to create an XML layout (item_user.xml) that represents the template for the item:
+Next, we need to create an XML layout that represents the template for the item in `res/layout/item_user.xml`:
 
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -120,7 +123,47 @@ public class UsersAdapter extends ArrayAdapter<User> {
 
 That adapter has a constructor and a `getView()` method to describe the **translation between the data item and the View** to display.  `getView()` is the method that returns the actual view used as a row within the ListView at a particular position.  
 
-To improve performance, we should modify this adapter by applying the **ViewHolder** pattern which speeds up the population of the ListView considerably by caching view lookups for smoother, faster loading:
+## Attaching the Adapter to a ListView
+
+Now, we can use that adapter in the Activity to display an array of items into the ListView:
+
+```java
+// Construct the data source
+ArrayList<User> arrayOfUsers = new ArrayList<User>();
+// Create the adapter to convert the array to views
+UsersAdapter adapter = new UsersAdapter(this, arrayOfUsers);
+// Attach the adapter to a ListView
+ListView listView = (ListView) findViewById(R.id.lvItems);
+listView.setAdapter(adapter);
+```
+
+At this point, the ListView is now successfully bound to the users array data.
+
+## Populating Data into ListView
+
+Once the adapter is attached, items will automatically be populated into the ListView based on the contents of the array. You can add new items to the adapter at any time with:
+
+```java
+// Add item to adapter
+User newUser = new User(jsonObject);
+adapter.add(newUser);
+// Or even append an entire new collection
+// Fetching some data, data has now returned
+// If data was JSON, convert to ArrayList of User objects.
+adapter.addAll(newUsers);
+```
+
+which will append the new items to the list. You can also clear the entire list at any time with:
+
+```
+adapter.clear()
+```
+
+Using the adapter now, you can add, remove and modify users and the items within the ListView will automatically reflect any changes.
+
+### Improving Performance with the ViewHolder Pattern
+
+To improve performance, we should modify the custom adapter by applying the **ViewHolder** pattern which speeds up the population of the ListView considerably by caching view lookups for smoother, faster loading:
 
 ```java
 public class UsersAdapter extends ArrayAdapter<User> {
@@ -160,44 +203,6 @@ public class UsersAdapter extends ArrayAdapter<User> {
 ```
 
 In this example we also have a private static class called `ViewHolder`.  Making calls to `findViewById()` is really slow in practice, and if your adapter has to call it for each View in your row for every single row then you will quickly run into performance issues.  What the ViewHolder class does is cache the call to `findViewById()`.  Once your ListView has reached the max amount of rows it can display on a screen, Android is smart enough to begin recycling those row Views.  We check if a View is recycled with `if (convertView == null)`.  If it is not null then we have a recycled View and can just change its values, otherwise we need to create a new row View.  The magic behind this is the `setTag()` method which lets us attach an arbitrary object onto a View object, which is how we save the already inflated View for future reuse.
-
-## Attaching the Adapter to a ListView
-
-Now, we can use that adapter in the Activity to display an array of items into the ListView:
-
-```java
-// Construct the data source
-ArrayList<User> arrayOfUsers = new ArrayList<User>();
-// Create the adapter to convert the array to views
-UsersAdapter adapter = new UsersAdapter(this, arrayOfUsers);
-// Attach the adapter to a ListView
-ListView listView = (ListView) findViewById(R.id.lvItems);
-listView.setAdapter(adapter);
-```
-
-At this point, the ListView is now successfully bound to the users array data.
-
-## Populating Data into ListView
-
-Once the adapter is attached, items will automatically be populated into the ListView based on the contents of the array. You can add new items to the adapter at any time with:
-
-```java
-// Add item to adapter
-User newUser = new User(jsonObject);
-adapter.add(newUser);
-// Or even append an entire new collection
-// Fetching some data, data has now returned
-// If data was JSON, convert to ArrayList of User objects.
-adapter.addAll(newUsers);
-```
-
-which will append the new items to the list. You can also clear the entire list at any time with:
-
-```
-adapter.clear()
-```
-
-Using the adapter now, you can add, remove and modify users and the items within the ListView will automatically reflect any changes.
 
 ## References
 
