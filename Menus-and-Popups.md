@@ -213,6 +213,7 @@ public class MainActivity extends Activity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
+    // Locate filter button and attach click listener
     btnFilter = (Button) findViewById(R.id.btnFilter);
     btnFilter.setOnClickListener(new OnClickListener() {
         @Override
@@ -258,7 +259,7 @@ With that setup, whenever the button is pressed, the menu will be displayed and 
 
 In addition to contextual action modes and popup menus, there are also a more customizable [PopupWindow](http://developer.android.com/reference/android/widget/PopupWindow.html) concept. `PopupWindow` is a floating content container that appears over the current activity like a simplified [[DialogFragment|Using DialogFragment]] that is less flexible but easier to implement. Popups are usually used to show some additional information or something user wants to know after an event takes place.
 
-To display a `PopupWindow`, let's first [download a background](http://i.imgur.com/C89eYBC.png) to use for the popup within `res/drawable/popup_bg.9.png`. The background is a nine-patch image which will be used as the background for the popup content. 
+To display a `PopupWindow`, let's first [download a background](http://i.imgur.com/C89eYBC.png/popup_bg.9.png) to use for the popup within `res/drawable/popup_bg.9.png`. The background is a nine-patch image which will be used as the background for the popup content. 
 
 Next, let's define an arbitrary XML layout file which will be **displayed within the popup** at `res/layout/popup_content.xml`:
 
@@ -278,7 +279,6 @@ Next, let's define an arbitrary XML layout file which will be **displayed within
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#ffffff" />
 </RelativeLayout>
-
 ```
 
 Now, we have the background and the content layout defined so we can **setup the popup to display when a button is clicked** with:
@@ -291,6 +291,7 @@ public class DemoWindowActivity extends Activity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_demo_window);
+    // Locate the show popup button and attach click listener
     btnShowPopup = (Button) findViewById(R.id.btnShowPopup);
     btnShowPopup.setOnClickListener(new OnClickListener() {
       @Override
