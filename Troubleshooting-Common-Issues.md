@@ -6,7 +6,7 @@ If you are having trouble with Android, Eclipse, or the Emulator, check here for
 
 This problem will cause new Android projects not to generate an initial Activity, even when that box was checked. `/src` and `/res/layout` were empty. 
 
-Fixed by updating the Eclipse plugin: `Eclipse --> Help --> Install New Software` and enter the URL `http://dl-ssl.google.com/android/eclipse/`, check "Developer Tools" and hit Finiah. Leave unchecked "Contact all update sites during install to find required software". Now regenerate the project.
+Fixed by updating the Eclipse plugin: `Eclipse --> Help --> Install New Software` and enter the URL `http://dl-ssl.google.com/android/eclipse/`, check "Developer Tools" and hit `Finish`. Leave unchecked "Contact all update sites during install to find required software". Now regenerate the project.
 
 <img src="http://i.imgur.com/Hg8QXDP.png" width="460" />
 
