@@ -76,15 +76,15 @@ and showing the dialog in an Activity:
 public class FragmentDialogDemo extends FragmentActivity {
   @Override
   public void onCreate(Bundle savedInstanceState) {
-  	super.onCreate(savedInstanceState);
-  	setContentView(R.layout.main);
-  	showEditDialog();
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.main);
+      showEditDialog();
   }
   
   private void showEditDialog() {
-  	FragmentManager fm = getSupportFragmentManager();
-  	EditNameDialog editNameDialog = EditNameDialog.newInstance("Some Title");
-  	editNameDialog.show(fm, "fragment_edit_name");
+      FragmentManager fm = getSupportFragmentManager();
+      EditNameDialog editNameDialog = EditNameDialog.newInstance("Some Title");
+      editNameDialog.show(fm, "fragment_edit_name");
   }
 }
 ```
@@ -96,39 +96,39 @@ Dialog objects that we can construct. For more details about the different types
 
 ```java
 class MyAlertDialogFragment extends DialogFragment {
-	public MyAlertDialogFragment() {
-		// Empty constructor required for DialogFragment
-	}
-   
-   public static MyAlertDialogFragment newInstance(String title) {
-   	MyAlertDialogFragment frag = new MyAlertDialogFragment();
-   	Bundle args = new Bundle();
-   	args.putString("title", title);
-   	frag.setArguments(args);
-   	return frag;
-   }
-   
-   @Override
-   public Dialog onCreateDialog(Bundle savedInstanceState) {
-   	String title = getArguments().getString("title");
-   	AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(mContext);
-   	alertDialogBuilder.setTitle("Really?");
-   	alertDialogBuilder.setMessage("Are you sure?");
-   	alertDialogBuilder.setPositiveButton("OK",  new DialogInterface.OnClickListener() {
-   	  @Override
-   	  public void onClick(DialogInterface dialog, int which) {
-   	  	 // on success
-   	  }
-   	});
-   	alertDialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-   		@Override
-   		public void onClick(DialogInterface dialog, int which) {
-   			dialog.dismiss();
-   		}
-   	});
-   	
-   	
-   	return alertDialogBuilder.create();
+    public MyAlertDialogFragment() {
+          // Empty constructor required for DialogFragment
+    }
+    
+    public static MyAlertDialogFragment newInstance(String title) {
+        MyAlertDialogFragment frag = new MyAlertDialogFragment();
+    	Bundle args = new Bundle();
+    	args.putString("title", title);
+    	frag.setArguments(args);
+    	return frag;
+    }
+    
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+         String title = getArguments().getString("title");
+         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+         alertDialogBuilder.setTitle(title);
+         alertDialogBuilder.setMessage("Are you sure?");
+         alertDialogBuilder.setPositiveButton("OK",  new DialogInterface.OnClickListener() {
+             @Override
+             public void onClick(DialogInterface dialog, int which) {
+               	   // on success
+             }
+         });
+         alertDialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+             @Override
+             public void onClick(DialogInterface dialog, int which) {
+                 dialog.dismiss();
+             }
+         });
+         
+         return alertDialogBuilder.create();
+    }
 }
 ```
 
@@ -158,33 +158,33 @@ but works similarly for the AlertDialog (just use the listeners defined for the 
 
 ```java
 public class EditNameDialog extends DialogFragment implements OnEditorActionListener {
-        private EditText mEditText;
+    private EditText mEditText;
 
-	public interface EditNameDialogListener {
-		void onFinishEditDialog(String inputText);
-	}
+    public interface EditNameDialogListener {
+        void onFinishEditDialog(String inputText);
+    }
 	
-	// ...
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-			// ...
-			mEditText.setOnEditorActionListener(this);
-	}
+    // ...
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+        Bundle savedInstanceState) {
+        // ...
+        mEditText.setOnEditorActionListener(this);
+    }
 	
-	// Fires whenever the textfield has an action performed
-	// In this case, when the "Done" button is pressed
-	@Override
-	public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-		if (EditorInfo.IME_ACTION_DONE == actionId) {
-			// Return input text to activity
-			EditNameDialogListener listener = (EditNameDialogListener) getActivity();
-			listener.onFinishEditDialog(mEditText.getText().toString());
-			this.dismiss();
-			return true;
-		}
-		return false;
-	}
+    // Fires whenever the textfield has an action performed
+    // In this case, when the "Done" button is pressed
+    @Override
+    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+        if (EditorInfo.IME_ACTION_DONE == actionId) {
+            // Return input text to activity
+            EditNameDialogListener listener = (EditNameDialogListener) getActivity();
+            listener.onFinishEditDialog(mEditText.getText().toString());
+            dismiss();
+            return true;
+        }
+        return false;
+    }
 }
 ```
 
