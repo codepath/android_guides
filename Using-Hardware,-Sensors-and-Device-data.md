@@ -3,7 +3,7 @@
 With Android, there is a lot of access to hardware features using built-in Android libraries and the Google Play SDK. A few examples of things you might need to access:
 
  * Taking a photo/video with the camera.
- * Accessing and playing photo/video/audio.
+ * Accessing and playing video and audio.
  * Accessing hardware sensors like accelerometers, light sensors, etc.
  * Using the Locations API.
  * Using the Maps API.
