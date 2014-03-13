@@ -12,7 +12,7 @@ The minimum that must be implemented when creating a DialogFragment is either th
 
 ### Custom View
 
-Let's start by providing the code for creating a completely custom dialog based on an XML view. First, an example fragment XML file:
+Let's start by providing the code for creating a completely custom dialog based on an XML view. First, an example fragment XML file in `res/layout/fragment_edit_name.xml`:
 
 ```xml
 <!-- fragment_edit_name.xml -->
