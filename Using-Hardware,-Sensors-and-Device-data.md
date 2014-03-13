@@ -110,7 +110,7 @@ Different devices have a [variety of sensors](http://developer.android.com/guide
  * Acquire raw sensor data
  * Register sensor event listeners
 
-#### Sensor Types
+### Sensor Types
 
 Common sensors that devices have available are for temperature, light, pressure, acceleration, motion, and orientation. Here's a list of guides:
 
