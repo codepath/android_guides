@@ -142,6 +142,7 @@ public class MainActivity extends Activity {
     populateListView(); // Fill array with string items and attach to listview
     lvItems = (ListView) findViewById(R.id.lvItems);
     lvItems.setAdapter(adapterItems);
+    // Setup contextual action mode when item is clicked
     lvItems.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
       public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
         System.out.println("Long click");
