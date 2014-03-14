@@ -40,6 +40,15 @@ This means that the project does not have an `R` file generated and is usually a
 <img src="http://i.imgur.com/ChMkx09.png" width="440" />&nbsp;
 <img src="http://i.imgur.com/AXcdNlW.png" width="440" />
 
+### Getting "R cannot be resolved" or "resource can not be resolved" errors?
+
+This common issue is a beginner gotcha. In certain cases, you will accidentally import `android.R` which will shadow the local resources with the built-in Android resources.
+
+<img src="http://i.imgur.com/n9WNqat.png" width="440" />&nbsp;
+<img src="http://i.imgur.com/ZUnGWU1.png" width="440" />
+
+The simple fix is to **make sure you don't import android.R**. Remove that line at the top of your source file. See [this StackOverflow post](http://stackoverflow.com/questions/885009/r-cannot-be-resolved-android-error) to learn more about this issue.
+
 ### Getting "Error executing aapt: Return code 138" in "Problems"?
 
 Getting this error means your Android installation is likely corrupted in some way. Typically this error will occur on projects in particular cases such as generating a new icon or adding a new xml file. If you see this error in your "Problems" window after a clean, try **closing and reopening Eclipse** first, then try doing a `Project => Clean`. 
