@@ -39,21 +39,6 @@ public void onRestoreInstanceState(Bundle savedInstanceState) {
 
 Read more on the [Recreating an Activity](http://developer.android.com/training/basics/activity-lifecycle/recreating.html) guide.
 
-## Locking Screen Orientation
-
-If you want to lock the screen orientation change of any screen (activity) of your android application you just need to set the `android:screenOrientation` property of an `<activity>` within the `AndroidManifest.xml`:
-
-```xml
-<activity
-    android:name="com.techblogon.screenorientationexample.MainActivity"
-    android:screenOrientation="portrait"
-    android:label="@string/app_name" >
-    <!-- ... -->
-</activity>
-```
-
-Now that activity is forced to always be displayed in "portrait" mode. 
-
 ## Retaining Fragments
 
 In many cases, we can avoid problems when an Activity is re-created by simply using fragments. If your views and state are within a fragment, we can easily have the fragment be retained when the activity is re-created:
@@ -82,6 +67,22 @@ public class RetainedFragment extends Fragment {
 ```
 
 Now you can check to see if the fragment already exists by tag before creating one and the fragment will retain it's state across configuration changes. See the [Handling Runtime Changes](http://developer.android.com/guide/topics/resources/runtime-changes.html#RetainingAnObject) guide for more details.
+
+
+## Locking Screen Orientation
+
+If you want to lock the screen orientation change of any screen (activity) of your android application you just need to set the `android:screenOrientation` property of an `<activity>` within the `AndroidManifest.xml`:
+
+```xml
+<activity
+    android:name="com.techblogon.screenorientationexample.MainActivity"
+    android:screenOrientation="portrait"
+    android:label="@string/app_name" >
+    <!-- ... -->
+</activity>
+```
+
+Now that activity is forced to always be displayed in "portrait" mode. 
 
 ## References
 
