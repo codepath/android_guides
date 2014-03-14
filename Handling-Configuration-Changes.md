@@ -30,7 +30,6 @@ The system will call that method before an Activity is destroyed. Then later the
 public void onRestoreInstanceState(Bundle savedInstanceState) {
     // Always call the superclass so it can restore the view hierarchy
     super.onRestoreInstanceState(savedInstanceState);
-   
     // Restore state members from saved instance
     someIntValue = savedInstanceState.getInt(SOME_VALUE);
     someStringValue = savedInstanceState.getString(SOME_OTHER_VALUE);
