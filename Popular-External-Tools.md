@@ -43,3 +43,9 @@ These are the best A/B testing services:
 * [Arise](http://arise.io/)
 * [Splitforce](https://www.splitforce.com)
 * [Leanplum](https://www.leanplum.com/)
+
+### Device Testing
+
+These are the best resources for testing your app across multiple real and emulated devices. 
+
+* [TestObject](http://testobject.com) - New experimental site for scheduled or manual black box testing of Android apps or mobile web sites. Allows testing on real devices.
