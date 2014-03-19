@@ -294,7 +294,7 @@ Now we have our `IntentService` task defined and our receiver that will be setup
 
 ```xml
 <receiver
-    android:name="MyAlarmReceiver"
+    android:name=".MyAlarmReceiver"
     android:process=":remote" >
 </receiver>
 
