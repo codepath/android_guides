@@ -65,6 +65,7 @@ Entries in the action bar are typically called actions. Use this method to infla
     <item
         android:id="@+id/miCompose"
         android:icon="@drawable/ic_compose"
+        android:onClick="onComposeAction"
         android:showAsAction="ifRoom"
         android:title="Compose">
     </item>
@@ -115,10 +116,10 @@ The second way is to use the `onOptionsItemSelected()` method. Using the MenuIte
 public boolean onOptionsItemSelected(MenuItem item) {
     // Handle presses on the action bar items
     switch (item.getItemId()) {
-        case R.id.item1:
+        case R.id.miCompose:
             composeMessage();
             return true;
-        case R.id.item2:
+        case R.id.miProfile:
             showProfileView();
             return true;
         default:
