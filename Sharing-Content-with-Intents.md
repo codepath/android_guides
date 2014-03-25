@@ -63,7 +63,8 @@ public Uri getLocalBitmapUri(ImageView imageView) {
     Uri bmpUri = null;
     try {
         File file =  new File(Environment.getExternalStoragePublicDirectory(  
-            Environment.DIRECTORY_DOWNLOADS), "share_image.png");  
+            Environment.DIRECTORY_DOWNLOADS), "share_image.png");
+        file.mkdirs();  
         FileOutputStream out = new FileOutputStream(file);
         bitmap.compress(Bitmap.CompressFormat.PNG, 90, out);
         out.close();
