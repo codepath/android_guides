@@ -1,3 +1,5 @@
+[Parse](https://www.parse.com) is a service that provides one of the easiest ways to get a database and RESTful API up and running. If you want to build a mobile app and don't want to code the back-end, give Parse a try.
+
 ## Registration
 
 First, we need to [sign up for a Parse account](https://www.parse.com/#signup) unless we are already registered. Next, we need to [setup our data](https://www.parse.com/apps/quickstart#parse_data/mobile/android/native) for our Android app. 
