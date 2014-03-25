@@ -90,11 +90,22 @@ public Bitmap getImageBitmap(ImageView imageView) {
 }
 ```
 
+Make sure to add the appropriate permissions to your `AndroidManifest.xml`:
+
+```xml
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+```
+
+and setup the "SD Card" within the emulator device settings:
+
+<img src="http://i.imgur.com/nvA2ZKz.png" width="300" />
+
 ### ShareActionProvider
 
 This is how you can easily use an ActionBar share icon to activate a ShareIntent. Add an ActionBar icon in `menu.xml` specifying the `ShareActionProvider` class:
 
-**Note:** This is an alternative to using a sharing intent as described in the previous section. You either can use a sharing intent or the provider as described below. Also, `ShareActionProvider` is only available in API 14 or above unless the supportv7 library is used.
+**Note:** This is **an alternative to using a sharing intent** as described in the previous section. You either can use a sharing intent **or** the provider as described below. Also, `ShareActionProvider` is only available in API 14 or above unless the supportv7 library is included.
 
 ```xml
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
