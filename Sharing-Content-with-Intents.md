@@ -58,7 +58,7 @@ public void onShareItem(View v) {
 }
 
 public Uri getLocalBitmapUri(ImageView imageView) {
-    Bitmap bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
+    Bitmap bitmap = getImageBitmap(imageView);
     // Write image to default external storage directory   
     Uri bmpUri = null;
     try {
@@ -71,6 +71,22 @@ public Uri getLocalBitmapUri(ImageView imageView) {
     } catch (IOException e) {
         e.printStackTrace();
     }
+    return bmpUri;
+}
+
+public Bitmap getImageBitmap(ImageView imageView) {
+    Drawable drawable = imageView.getDrawable();
+    Bitmap bmp;
+    if (drawable instanceof BitmapDrawable){
+        bmp = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
+    } else { // workaround to convert color to bitmap
+        bmp = Bitmap.createBitmap(drawable.getBounds().width(), 
+            drawable.getBounds().height(), Config.ARGB_8888);
+        Canvas canvas = new Canvas(bmp); 
+        drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+        drawable.draw(canvas);
+    }
+    return bmp;
 }
 ```
 
