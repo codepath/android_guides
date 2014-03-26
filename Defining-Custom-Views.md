@@ -184,7 +184,7 @@ public class ShapeSelectorView extends View {
     super.onDraw(canvas);
     canvas.drawRect(0, 0, shapeWidth, shapeHeight, paintShape);
     if (displayShapeName) {
-      canvas.drawText("Square", 0, shapeWidth + textXOffset, paintShape);
+      canvas.drawText("Square", shapeWidth + textXOffset, shapeHeight + textXOffset, paintShape);
     }
   }
 
@@ -216,7 +216,6 @@ public class ShapeSelectorView extends View {
     int contentWidth = shapeWidth + getSuggestedMinimumWidth();
     // Try for a width based on our minimum
     int minw = contentWidth + getPaddingLeft() + getPaddingRight();
-    if (displayShapeName) { minw += textPadding; }
     int w = resolveSizeAndState(minw, widthMeasureSpec, 0);
     // Ask for a height that would let the view get as big as it can
     int minh = shapeHeight + getPaddingBottom() + getPaddingTop();
