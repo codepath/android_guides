@@ -168,19 +168,32 @@ public class ShapeSelectorView extends View {
   // ...
   private int shapeWidth = 100;
   private int shapeHeight = 100;
-  private int textOffset = 30;
+  private int textXOffset = 0;
+  private int textYOffset = 30;
   private Paint paintShape;
 
   // ...
+  public ShapeSelectorView(Context context, AttributeSet attrs) {
+    super(context, attrs);
+    setupAttributes(attrs);
+    setupPaint();
+  }
 
   @Override
   protected void onDraw(Canvas canvas) {
     super.onDraw(canvas);
     canvas.drawRect(0, 0, shapeWidth, shapeHeight, paintShape);
     if (displayShapeName) {
-      canvas.drawText("Square", 0, shapeHeight + textOffset, paintShape);
+      canvas.drawText("Square", 0, shapeWidth + textXOffset, paintShape);
     }
   }
+
+  private void setupPaint() { 
+      paintShape = new Paint();
+      paintShape.setStyle(Style.FILL);
+      paintShape.setColor(shapeColor);
+      paintShape.setTextSize(30);
+   }
 }
 ```
 
