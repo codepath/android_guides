@@ -273,8 +273,8 @@ public class ShapeSelectorView extends View {
       canvas.drawCircle(shapeWidth / 2, shapeHeight / 2, shapeWidth / 2, paintShape);
       textXOffset = 12;
     } else if (shapeSelected.equals("triangle")) {
-          canvas.drawPath(getTrianglePath(), paintShape);
-          textXOffset = 0;
+      canvas.drawPath(getTrianglePath(), paintShape);
+      textXOffset = 0;
     }
     if (displayShapeName) {
       canvas.drawText(shapeSelected, 0 + textXOffset, shapeHeight + textYOffset, paintShape);
