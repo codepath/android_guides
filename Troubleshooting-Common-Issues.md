@@ -112,7 +112,7 @@ In some cases, even after requesting Internet access in the Manifest.xml, you mi
 
 <img src="http://i.imgur.com/aCuexMz.png" width="440" />
 
-One fix for this is to manually specify DNS in `Configuration / Target / Emulator` launch parameters: `-dns-server 8.8.8.8` (that's a Google one).
+One fix for this is to manually specify DNS in `Configuration / Target / Emulator` launch parameters: `-dns-server 8.8.8.8` (that's a Google one). Make sure to **restart the emulator** after making this change to see the effect.
 
 ### Booting the emulator is slow?
 
