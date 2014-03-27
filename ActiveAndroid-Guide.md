@@ -2,21 +2,23 @@
 
 Using the ActiveAndroid ORM makes managing client-side models extremely easy in simple cases. For more advanced or custom cases, you can use [SQLiteOpenHelper](http://www.androidhive.info/2011/11/android-sqlite-database-tutorial/) to manage the database communication directly. But for simple model mapping from JSON, ActiveAndroid keeps things simple. 
 
+ActiveAndroid works like any ORM by **mapping java classes to database tables** and **mapping java class member variables to table columns**. Through this process, each table represents a particular Java model and the columns represent the respective data fields. This allows us to create, modify, delete and query our SQLite database using model objects instead of raw SQL.
+
 ### Installation
+
+You can download a [recent ActiveAndroid JAR](https://www.dropbox.com/s/xkzfx999lzvb838/ActiveAndroid-3.1-adcddac4c58.jar) snapshot and drag this into the "libs" folder or generate the latest JAR yourself based on the source.
 
 #### Get the Latest ActiveAndroid Library
 
 1. Download the latest build of [ActiveAndroid](https://github.com/pardom/ActiveAndroid/archive/master.zip).
-
 2. Unzip the `master.zip` file.
-
 3. Open up the **Terminal** and navigate to the directory that was just unzipped.
-
 4. Type `ant` to build the project and generate a project jar file.
-
 5. Move the generated jar file from `dist/ActiveAndroid.jar` to the `libs` directory in your **project home**.
 
-        mv dist/ActiveAndroid.jar <your_project_home>/libs/
+```
+mv dist/ActiveAndroid.jar <your_project_home>/libs/
+```
 
 #### Configure Your Application
 
