@@ -6,9 +6,7 @@ ActiveAndroid works like any ORM by **mapping java classes to database tables** 
 
 ### Installation
 
-You can download a [recent ActiveAndroid JAR](https://www.dropbox.com/s/xkzfx999lzvb838/ActiveAndroid-3.1-adcddac4c58.jar) snapshot and drag this into the "libs" folder or generate the latest JAR yourself based on the source.
-
-#### Get the Latest ActiveAndroid Library
+You can download a [recent ActiveAndroid JAR](https://www.dropbox.com/s/xkzfx999lzvb838/ActiveAndroid-3.1-adcddac4c58.jar) snapshot and drag this into the "libs" folder OR generate the latest JAR yourself based on the source as described below:
 
 1. Download the latest build of [ActiveAndroid](https://github.com/pardom/ActiveAndroid/archive/master.zip).
 2. Unzip the `master.zip` file.
@@ -20,7 +18,7 @@ You can download a [recent ActiveAndroid JAR](https://www.dropbox.com/s/xkzfx999
 mv dist/ActiveAndroid.jar <your_project_home>/libs/
 ```
 
-#### Configure Your Application
+### Configuration
 
 Next, we need to configure the `application` node with the `name` property of `com.activeandroid.app.Application` to use the correct application class name within the `AndroidManifest.xml`:
 
@@ -28,7 +26,7 @@ Next, we need to configure the `application` node with the `name` property of `c
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     ...>
-    <!- add the name property to your application node ->
+    <!- adjust the name property of your application node ->
     <application
         android:name="com.activeandroid.app.Application"
         android:icon="@drawable/ic_launcher"
