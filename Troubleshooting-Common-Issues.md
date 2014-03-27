@@ -49,9 +49,7 @@ This common issue is a beginner gotcha. In certain cases, you will accidentally 
 <img src="http://i.imgur.com/n9WNqat.png" width="440" />&nbsp;
 <img src="http://i.imgur.com/ZUnGWU1.png" width="440" />
 
-The simple fix is to **make sure you don't import android.R**. Remove that line at the top of your source file. See [this StackOverflow post](http://stackoverflow.com/questions/885009/r-cannot-be-resolved-android-error) to learn more about this issue.
-
-A more comprehensive guide to every possible way this error can crop up can be found in this [comprehensive troubleshooting guide](http://www.techrepublic.com/blog/software-engineer/a-comprehensive-troubleshooting-guide-for-androids-r-cannot-be-resolved-error/).
+The simple fix is to **make sure you don't import android.R**. Remove that line at the top of your source file. See [this StackOverflow post](http://stackoverflow.com/questions/885009/r-cannot-be-resolved-android-error) to learn more about this issue. A more comprehensive guide to every possible way this error can crop up can be found in this [comprehensive troubleshooting guide](http://www.techrepublic.com/blog/software-engineer/a-comprehensive-troubleshooting-guide-for-androids-r-cannot-be-resolved-error/).
 
 ### Getting "Error executing aapt: Return code 138" in "Problems"?
 
