@@ -110,11 +110,10 @@ This is how you can easily use an ActionBar share icon to activate a ShareIntent
 ```xml
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-            android:id="@+id/menu_item_share"
-            android:showAsAction="ifRoom"
-            android:title="Share"
-            android:actionProviderClass=
-                "android.widget.ShareActionProvider" />
+        android:id="@+id/menu_item_share"
+        android:showAsAction="ifRoom"
+        android:title="Share"
+        android:actionProviderClass="android.widget.ShareActionProvider" />
     ...
 </menu>
 ```
