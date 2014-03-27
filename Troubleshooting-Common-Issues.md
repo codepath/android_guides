@@ -65,6 +65,19 @@ If the same message persists across multiple projects, you may need to do a **co
 
 This problem prevents a project from being built, and instead displays the error "Unable to execute dex: Multiple dex files define" when compiling is attempted. The issue is that the bin directory becomes included in the project build path. Excluding the bin from the build path often resolves the problem. Right click on the project name, select `Build Path -> Configure Build Path` and in Java Build Path, go to the tab `Order and Export`. See the full details of the [solution here](http://stackoverflow.com/a/7884908). 
 
+### Getting "gen already exists but is not a source folder"
+
+This problem can be fixed by following these steps:
+
+1. Right click on the project and go to "Properties"
+2. Select "Java Build Path" on the left
+3. Open the "Source" tab
+4. Click "Add Folder..."
+5. Check the "gen" folder and click "Ok" and "Ok" again
+6. Right click on the project and select `Android Tools => Fix Project Properties`
+
+See the [Stackoverflow](http://stackoverflow.com/questions/6185600/android-fbreaderj-gen-already-exists-but-is-not-a-source-folder-convert-to-a-s) for the full details.
+
 ### Imported Project Won't Compile
 
 If you have imported an existing Android project into the Eclipse workspace and the project gives an error such as "cannot resolve target android-17" or another obscure error, follow this checklist below.
