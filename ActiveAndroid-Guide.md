@@ -55,6 +55,8 @@ Now you are ready to use ActiveAndroid. If you have an custom application class,
 
 ### Usage
 
+#### Defining Models
+
 First, we define our models:
 
 ```java
@@ -103,7 +105,11 @@ public class Category extends Model {
 }
 ```
 
-Note that **ActiveAndroid creates a local id (mId)** in addition to our manually managed remoteId (unique) which is the id on the server (for networked applications). Now we can create records:
+Note that **ActiveAndroid creates a local id (mId)** in addition to our manually managed remoteId (unique) which is the id on the server (for networked applications). 
+
+#### CRUD Operations
+
+Now we can create, modify and delete records for these models backed by SQLite:
 
 ```java
 // Create a category
@@ -126,6 +132,8 @@ item.delete();
 new Delete().from(Item.class).where("remote_id = ?", 1).execute();
 ```
 
+#### Querying Records
+
 We can query records with:
 
 ```java
@@ -143,7 +151,11 @@ public class Item extends Model {
 }
 ```
 
-That's ActiveAndroid in a nutshell. Check these official reference guides for more detailed information:
+That's ActiveAndroid in a nutshell. 
+
+#### Official Reference Guides
+
+Check these official reference guides for more detailed information:
 
  * [Install ActiveAndroid and perform initial setup](https://github.com/pardom/ActiveAndroid/wiki/Getting-started)
  * [Define your application models](https://github.com/pardom/ActiveAndroid/wiki/Creating-your-database-model)
