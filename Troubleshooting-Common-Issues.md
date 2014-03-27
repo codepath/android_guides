@@ -80,7 +80,7 @@ See this [stackoverflow post](http://stackoverflow.com/questions/6185600/android
 
 ### Getting "Unable to instantiate activity ComponentInfo{...}"?
 
-If this error contains information about the `java.lang.ClassNotFoundException` then this usually means on the following issues:
+If this error contains information about the `java.lang.ClassNotFoundException` then this usually means one the following issues:
 
 1. Please verify that every Activity is registered in your `AndroidManifest.xml`
 2. Check that you're Activity is a public class and not protected or private
