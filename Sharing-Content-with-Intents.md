@@ -137,7 +137,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
 }
 ```
 
-Construct and attach the share intent for the provider by calling this method when the image has loaded:
+Construct and attach the share intent for the provider but only **after image has been loaded**:
 
 ```java
 @Override
