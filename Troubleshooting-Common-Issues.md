@@ -31,7 +31,7 @@ See a red line under a class that should exist (i.e ArrayList, View)? - Hover ov
 
 ### Getting "R cannot be resolved to a variable" errors?
 
-This means that the project does not have an `R` file generated and is usually a sign of an **invalid file within res**. Try a seres of steps to fix:
+This means that the project does not have an `R` file generated and is usually a sign of an **invalid file within res**. Try a series of steps to fix:
 
 1. Look for errors in "Console" or "Problems" to resolve (usually invalid XML)
 2. Try running `Project => Clean` to regenerate the `R` file
@@ -39,6 +39,8 @@ This means that the project does not have an `R` file generated and is usually a
 
 <img src="http://i.imgur.com/ChMkx09.png" width="440" />&nbsp;
 <img src="http://i.imgur.com/AXcdNlW.png" width="440" />
+
+A more comprehensive guide to every possible way this error can crop up can be found in this [comprehensive troubleshooting guide](http://www.techrepublic.com/blog/software-engineer/a-comprehensive-troubleshooting-guide-for-androids-r-cannot-be-resolved-error/).
 
 ### Getting "R cannot be resolved" or "resource can not be resolved" errors?
 
@@ -48,6 +50,8 @@ This common issue is a beginner gotcha. In certain cases, you will accidentally 
 <img src="http://i.imgur.com/ZUnGWU1.png" width="440" />
 
 The simple fix is to **make sure you don't import android.R**. Remove that line at the top of your source file. See [this StackOverflow post](http://stackoverflow.com/questions/885009/r-cannot-be-resolved-android-error) to learn more about this issue.
+
+A more comprehensive guide to every possible way this error can crop up can be found in this [comprehensive troubleshooting guide](http://www.techrepublic.com/blog/software-engineer/a-comprehensive-troubleshooting-guide-for-androids-r-cannot-be-resolved-error/).
 
 ### Getting "Error executing aapt: Return code 138" in "Problems"?
 
