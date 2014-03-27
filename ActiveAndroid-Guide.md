@@ -59,7 +59,7 @@ Now you are ready to use ActiveAndroid. If you have an custom application class,
 
 #### Defining Models
 
-First, we define our models:
+First, we define our models by annotating the class with the table mapping and the member variables with the column mapping:
 
 ```java
 import com.activeandroid.Model;
@@ -89,7 +89,7 @@ public class Item extends Model {
 
 @Table(name = "Categories")
 public class Category extends Model {
-    // This is how you avoid duplicates
+    // This is how you avoid duplicates based on a unique ID
     @Column(name = "remote_id", unique = true, onUniqueConflict = Column.ConflictAction.REPLACE)
     public int remoteId;
     @Column(name = "Name")
@@ -107,7 +107,7 @@ public class Category extends Model {
 }
 ```
 
-Note that **ActiveAndroid creates a local id (mId)** in addition to our manually managed remoteId (unique) which is the id on the server (for networked applications). 
+Note that **ActiveAndroid creates a local id (mId)** in addition to our manually managed `remoteId` (unique) which is the id on the server (for networked applications). 
 
 #### CRUD Operations
 
@@ -130,13 +130,13 @@ item.save();
 // Deleting items
 Item item = Item.load(Item.class, 1);
 item.delete();
-// or
+// or with
 new Delete().from(Item.class).where("remote_id = ?", 1).execute();
 ```
 
 #### Querying Records
 
-We can query records with:
+We can query records with a simple query syntax using the `Select` object:
 
 ```java
 @Table(name = "Items")
