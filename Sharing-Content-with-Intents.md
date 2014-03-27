@@ -34,8 +34,9 @@ startActivity(Intent.createChooser(sharingIntent, "Share image using"));
 You may want to send an image that were loaded from a remote URL. Assuming you are using a third party library like `SmartImageView`, here is how you might share an image that came from the network and was loaded into an ImageView. First, we need to load the bitmap into the view from the URL:
 
 ```java
-// Get access to SmartImageView object and the loaded Bitmap 
+// Get access to SmartImageView 
 SmartImageView ivImage = (SmartImageView) findViewById(R.id.ivResult);
+// Fire async request to load image
 ivImage.setImageUrl(imageUrl);
 ```
 
@@ -45,7 +46,7 @@ and then later assuming after the image has completed loading, this is how you c
 // Can be triggered by a view event such as a button press
 public void onShareItem(View v) {
     // Get access to bitmap image from view
-    SmartImageView ivImage = (SmartImageView) findViewById(R.id.ivResult);
+    ImageView ivImage = (ImageView) findViewById(R.id.ivResult);
     // Get access to the URI for the bitmap
     Uri bmpUri = getLocalBitmapUri(ivImage);
     if (bmpUri != null) {
@@ -142,8 +143,9 @@ Construct and attach the share intent for the provider by calling this method wh
 @Override
 protected void onCreate(Bundle savedInstanceState) {
     // ...
-    // Get access to SmartImageView object and then load Bitmap 
+    // Get access to SmartImageView
     SmartImageView ivImage = (SmartImageView) findViewById(R.id.ivResult);
+    // Load image async from remote URL, setup share when completed
     ivImage.setImageUrl(result.getFullUrl(), new OnCompleteListener() {
         @Override
         public void onComplete() {
@@ -156,7 +158,7 @@ protected void onCreate(Bundle savedInstanceState) {
 // Gets the image URI and setup the associated share intent to hook into the provider
 public void setupShareIntent() {
     // Fetch Bitmap Uri locally
-    SmartImageView ivImage = (SmartImageView) findViewById(R.id.ivResult);
+    ImageView ivImage = (ImageView) findViewById(R.id.ivResult);
     Uri bmpUri = getLocalBitmapUri(ivImage); // see previous remote images section
     // Create share intent as described above
     Intent shareIntent = new Intent();
