@@ -55,9 +55,11 @@ The simple fix is to **make sure you don't import android.R**. Remove that line 
 
 The first culprit of this error is simply an **invalid id specified** in one of your Android XML files. For example if one of your android layout or menu XML files has an "android:id" specified that is incorrect such as "btn_foo" or "id/btn_foo" instead of the correct "@+id/btn_foo", you may experience this issue for a project.
 
-Getting this error could also mean your Android installation is likely corrupted in some way. Typically this error will occur on projects in particular cases such as generating a new icon or adding a new xml file. If you see this error in your "Problems" window after a clean, try **closing and reopening Eclipse** first, then try doing a `Project => Clean`. 
+Another culprit might be having an `app:` prefix in your `res/menu` files. Check your menu files and verify that if you don't have the support-v7 library included that your menu xml files **do not contain** `app:showAsAction` but instead have `android:showAsAction`. Make sure to clean and rebuild once you've made this change.
 
-If the same message persists, you may need to do a **complete reinstallation** of the [ADT Bundle](http://developer.android.com/sdk/index.html) which includes eclipse. You should delete the entire existing ADT bundle from your computer (including eclipse and SDK folder) and re-download the bundle, extract the contents and re-setup from scratch. Users rarely experience this error after a total reinstall. 
+Getting this error could also mean your Android project compilation is likely corrupted in some way. Typically this error will occur on projects in particular cases such as generating a new icon or adding a new xml file. If you see this error in your "Problems" window after a clean, try **closing and reopening Eclipse** first, then try doing a `Project => Clean`. 
+
+If the same message persists across multiple projects, you may need to do a **complete reinstallation** of the [ADT Bundle](http://developer.android.com/sdk/index.html) which includes eclipse. You should delete the entire existing ADT bundle from your computer (including eclipse and SDK folder) and re-download the bundle, extract the contents and re-setup from scratch. Users rarely experience this error after a total reinstall. 
 
 ### Getting "Unable to execute dex: Multiple dex files define"?
 
