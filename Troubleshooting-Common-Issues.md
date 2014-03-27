@@ -65,7 +65,7 @@ If the same message persists across multiple projects, you may need to do a **co
 
 This problem prevents a project from being built, and instead displays the error "Unable to execute dex: Multiple dex files define" when compiling is attempted. The issue is that the bin directory becomes included in the project build path. Excluding the bin from the build path often resolves the problem. Right click on the project name, select `Build Path -> Configure Build Path` and in Java Build Path, go to the tab `Order and Export`. See the full details of the [solution here](http://stackoverflow.com/a/7884908). 
 
-### Getting "gen already exists but is not a source folder"
+### Getting "gen already exists but is not a source folder"?
 
 This problem can be fixed by following these steps:
 
@@ -76,7 +76,17 @@ This problem can be fixed by following these steps:
 5. Check the "gen" folder and click "Ok" and "Ok" again
 6. Right click on the project and select `Android Tools => Fix Project Properties`
 
-See the [Stackoverflow](http://stackoverflow.com/questions/6185600/android-fbreaderj-gen-already-exists-but-is-not-a-source-folder-convert-to-a-s) for the full details.
+See this [stackoverflow post](http://stackoverflow.com/questions/6185600/android-fbreaderj-gen-already-exists-but-is-not-a-source-folder-convert-to-a-s) for the full details.
+
+### Getting "Unable to instantiate activity ComponentInfo{...}"?
+
+If this error contains information about the `java.lang.ClassNotFoundException` then this usually means on the following issues:
+
+1. Please verify that each Activity is in your `AndroidManifest.xml` as every Activity within an app must be  registered in your `AndroidManifest.xml`
+2. Check that you're Activity is a public class and not protected or private
+3. Ensure that any dependency jars are checked in the "Java Build Path" 
+
+For more possibilities, check out this [stackoverflow post](http://stackoverflow.com/questions/4688277/java-lang-runtimeexception-unable-to-instantiate-activity-componentinfo) for the full details.
 
 ### Imported Project Won't Compile
 
