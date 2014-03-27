@@ -82,7 +82,7 @@ See this [stackoverflow post](http://stackoverflow.com/questions/6185600/android
 
 If this error contains information about the `java.lang.ClassNotFoundException` then this usually means on the following issues:
 
-1. Please verify that each Activity is in your `AndroidManifest.xml` as every Activity within an app must be  registered in your `AndroidManifest.xml`
+1. Please verify that every Activity is registered in your `AndroidManifest.xml`
 2. Check that you're Activity is a public class and not protected or private
 3. Ensure that any dependency jars are checked in the "Java Build Path" 
 
