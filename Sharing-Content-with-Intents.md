@@ -4,7 +4,7 @@ Intents allow us to communicate data between Android apps and implicit intents a
 
 Sending and receiving data between applications with intents is most commonly used for social sharing of content. Intents allow users to share information quickly and easily, using their favorite applications.
 
-### Sending Content
+### Sending Local Content
 
 You can send content by invoking an implicit intent. 
 
@@ -29,7 +29,9 @@ shareIntent.putExtra(Intent.EXTRA_STREAM, uri.toString());
 startActivity(Intent.createChooser(sharingIntent, "Share image using"));
 ```
 
-You may want to send an image that comes from a remote URL. Assuming you are using a third party library like SmartImageView, here is how you might share an image that came from the network and was loaded in an ImageView. First, we load the bitmap into the view:
+### Sending Remote Images
+
+You may want to send an image that comes from a remote URL. Assuming you are using a third party library like `SmartImageView`, here is how you might share an image that came from the network and was loaded in an ImageView. First, we need to load the bitmap into the view:
 
 ```java
 // Get access to SmartImageView object and the loaded Bitmap 
@@ -37,12 +39,14 @@ SmartImageView ivImage = (SmartImageView) findViewById(R.id.ivResult);
 ivImage.setImageUrl(imageUrl);
 ```
 
-and then later assuming it has been loaded, this is how you can trigger a share:
+and then later assuming after the image has completed loading, this is how you can trigger a share:
 
 ```java
+// Can be triggered by a view event such as a button press
 public void onShareItem(View v) {
     // Get access to bitmap image from view
     SmartImageView ivImage = (SmartImageView) findViewById(R.id.ivResult);
+    // Get access to the URI for the bitmap
     Uri bmpUri = getLocalBitmapUri(ivImage);
     if (bmpUri != null) {
         // Construct a ShareIntent with link to image
@@ -51,43 +55,36 @@ public void onShareItem(View v) {
         shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
         shareIntent.setType("image/*");
         // Launch sharing dialog for image
-        startActivity(Intent.createChooser(shareIntent, "Share Content"));	
+        startActivity(Intent.createChooser(shareIntent, "Share Image"));	
     } else {
         // ...sharing failed, handle error
     }
 }
 
+// Returns the URI path to the Bitmap displayed in specified ImageView
 public Uri getLocalBitmapUri(ImageView imageView) {
-    Bitmap bitmap = getImageBitmap(imageView);
-    // Write image to default external storage directory   
+    // Extract Bitmap from ImageView drawable
+    Drawable drawable = imageView.getDrawable();
+    Bitmap bmp = null;
+    if (drawable instanceof BitmapDrawable){
+       bmp = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
+    } else {
+       return null;
+    }
+    // Store image to default external storage directory
     Uri bmpUri = null;
     try {
         File file =  new File(Environment.getExternalStoragePublicDirectory(  
-            Environment.DIRECTORY_DOWNLOADS), "share_image.png");
-        file.mkdirs();  
+	        Environment.DIRECTORY_DOWNLOADS), "share_image_" + System.currentTimeMillis() + ".png");
+        file.getParentFile().mkdirs();
         FileOutputStream out = new FileOutputStream(file);
-        bitmap.compress(Bitmap.CompressFormat.PNG, 90, out);
+        bmp.compress(Bitmap.CompressFormat.PNG, 90, out);
         out.close();
         bmpUri = Uri.fromFile(file);
     } catch (IOException e) {
         e.printStackTrace();
     }
     return bmpUri;
-}
-
-public Bitmap getImageBitmap(ImageView imageView) {
-    Drawable drawable = imageView.getDrawable();
-    Bitmap bmp;
-    if (drawable instanceof BitmapDrawable){
-        bmp = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
-    } else { // workaround to convert color to bitmap
-        bmp = Bitmap.createBitmap(drawable.getBounds().width(), 
-            drawable.getBounds().height(), Config.ARGB_8888);
-        Canvas canvas = new Canvas(bmp); 
-        drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
-        drawable.draw(canvas);
-    }
-    return bmp;
 }
 ```
 
@@ -104,9 +101,11 @@ and setup the "SD Card" within the emulator device settings:
 
 ### ShareActionProvider
 
-This is how you can easily use an ActionBar share icon to activate a ShareIntent. Add an ActionBar icon in `menu.xml` specifying the `ShareActionProvider` class:
+This is how you can easily use an ActionBar share icon to activate a ShareIntent. We need to add an ActionBar menu item in `res/menu/` in the XML specifying the `ShareActionProvider` class.
 
 **Note:** This is **an alternative to using a sharing intent** as described in the previous section. You either can use a sharing intent **or** the provider as described below. Also, `ShareActionProvider` is only available in API 14 or above unless the supportv7 library is included.
+
+**Note:** The following assumes the use of a third-party image library `SmartImageView` with a release that supports callbacks such as [this smart-image-view jar](https://www.dropbox.com/s/k2ljqalmzlqymkh/android-smart-image-view-3-27-14.jar), note that the following code snippet won't work with certain older versions of `SmartImageView`.
 
 ```xml
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
@@ -120,27 +119,43 @@ This is how you can easily use an ActionBar share icon to activate a ShareIntent
 </menu>
 ```
 
-Get access to menu item in Java so you can attach the share intent:
+Get access to share provider menu item in Java so you can attach the share intent:
 
 ```java
+private ShareActionProvider miShareAction;
+
 @Override
 public boolean onCreateOptionsMenu(Menu menu) {
     // Inflate menu resource file.
     getMenuInflater().inflate(R.menu.second_activity, menu);
     // Locate MenuItem with ShareActionProvider
     MenuItem item = menu.findItem(R.id.menu_item_share);
-    // Fetch and store ShareActionProvider
+    // Fetch reference to the share action provider
     miShareAction = (ShareActionProvider) item.getActionProvider();
-    setupShareAction();
     // Return true to display menu
     return true;
 }
 ```
 
-Attach the share intent for the provider by calling this method:
+Attach the share intent for the provider by calling this method when the image has loaded:
 
 ```java
-public void setupShareAction() {
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    // ...
+    // Get access to SmartImageView object and then load Bitmap 
+    SmartImageView ivImage = (SmartImageView) findViewById(R.id.ivResult);
+    ivImage.setImageUrl(result.getFullUrl(), new OnCompleteListener() {
+        @Override
+        public void onComplete() {
+            // Setup share intent now that image has loaded
+            setupShareIntent();
+        }
+    });
+}
+
+// Gets the image URI and setup the associated share intent to hook into the provider
+public void setupShareIntent() {
     // Fetch Bitmap Uri locally
     SmartImageView ivImage = (SmartImageView) findViewById(R.id.ivResult);
     Uri bmpUri = getLocalBitmapUri(ivImage); // see previous section
@@ -153,6 +168,39 @@ public void setupShareAction() {
     // Attach share event to the menu item provider
     miShareAction.setShareIntent(shareIntent);
 }
+
+// Returns the URI path to the Bitmap displayed in specified ImageView
+public Uri getLocalBitmapUri(ImageView imageView) {
+    // Extract Bitmap from ImageView drawable
+    Drawable drawable = imageView.getDrawable();
+    Bitmap bmp = null;
+    if (drawable instanceof BitmapDrawable){
+       bmp = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
+    } else {
+       return null;
+    }
+    // Store image to default external storage directory
+    Uri bmpUri = null;
+    try {
+        File file =  new File(Environment.getExternalStoragePublicDirectory(  
+	        Environment.DIRECTORY_DOWNLOADS), "share_image_" + System.currentTimeMillis() + ".png");
+        file.getParentFile().mkdirs();
+        FileOutputStream out = new FileOutputStream(file);
+        bmp.compress(Bitmap.CompressFormat.PNG, 90, out);
+        out.close();
+        bmpUri = Uri.fromFile(file);
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    return bmpUri;
+}
+```
+
+Make sure to add the appropriate permissions to your `AndroidManifest.xml`:
+
+```xml
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 ```
 
 Check out the [official guide for easy sharing](http://developer.android.com/training/sharing/shareaction.html) for more information.
