@@ -87,7 +87,7 @@ The library has rich support for [customizing the refresh graphics](https://gith
 </style>
 ```
 
-The various styles you can override are;
+The various styles you can override are:
 
 * ptr_headerContainer
 * ptr_header
