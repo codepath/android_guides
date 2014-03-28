@@ -99,11 +99,11 @@ Check out the [default styles file](https://github.com/erikwt/PullToRefresh-List
 
 ### Troubleshooting
 
-**Error inflating class eu.erikw.PullToRefreshListView**
+#### Error inflating class eu.erikw.PullToRefreshListView
 
 Be sure to run a `Project => Clean` on both the library project and the application if you receive this exception. 
 
-**Refresh never seems to complete**
+#### Refresh never seems to complete
 
 Make sure that when the data is finished loading that you call `lvTweets.onRefreshComplete();` in order to complete the refresh.
 
