@@ -95,7 +95,7 @@ The various styles you can override are:
 * ptr_spinner
 * ptr_text
 
-Check out the [official library readme](https://github.com/erikwt/PullToRefresh-ListView#style) for more details.
+Check out the [default styles file](https://github.com/erikwt/PullToRefresh-ListView/blob/master/libraryproject/res/values/ptr_default_style.xml) for a style reference. You can also see the [official library readme](https://github.com/erikwt/PullToRefresh-ListView#style) for more details.
 
 ### Troubleshooting
 
