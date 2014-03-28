@@ -72,6 +72,8 @@ public class TimelineActivity extends Activity {
 }
 ```
 
+Make sure that when the network request is complete that you call `lvTweets.onRefreshComplete();` in order to complete the refresh as shown above.
+
 ### (Optional) Step 4: Customize Refresh Style
 
 The library has rich support for [customizing the refresh graphics](https://github.com/erikwt/PullToRefresh-ListView#style). To do so, override the style attributes to your liking, like the following example:
@@ -94,6 +96,16 @@ The various styles you can override are;
 * ptr_text
 
 Check out the [official library readme](https://github.com/erikwt/PullToRefresh-ListView#style) for more details.
+
+### Troubleshooting
+
+**Error inflating class eu.erikw.PullToRefreshListView**
+
+Be sure to run a `Project => Clean` on both the library project and the application if you receive this exception. 
+
+**Refresh never seems to complete**
+
+Make sure that when the data is finished loading that you call `lvTweets.onRefreshComplete();` in order to complete the refresh.
 
 ## References
 
