@@ -83,6 +83,38 @@ If you want to lock the screen orientation change of any screen (activity) of yo
 
 Now that activity is forced to always be displayed in "portrait" mode. 
 
+## Manually Managing Configuration Changes
+
+If your application doesn't need to update resources during a specific configuration change and you have a performance limitation that requires you to avoid the activity restart, then you can declare that your activity handles the configuration change itself, which prevents the system from restarting your activity. 
+
+However, this technique should be considered **a last resort** when you must avoid restarts due to a configuration change and is not recommended for most applications. To take this approach, we must add the `android:configChanges` node to the activity within the `AndroidManifest.xml`:
+
+```xml
+<activity android:name=".MyActivity"
+          android:configChanges="orientation|screenSize|keyboardHidden"
+          android:label="@string/app_name">
+```
+
+Now, when one of these configurations change, MyActivity does not restart. Instead, the activity receives a call to `onConfigurationChanged()`:
+
+```java
+// Within the activity which receives these changes
+// Checks the current device orientation, and toasts accordingly
+@Override
+public void onConfigurationChanged(Configuration newConfig) {
+    super.onConfigurationChanged(newConfig);
+
+    // Checks the orientation of the screen
+    if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+        Toast.makeText(this, "landscape", Toast.LENGTH_SHORT).show();
+    } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+        Toast.makeText(this, "portrait", Toast.LENGTH_SHORT).show();
+    }
+}
+```
+
+See the [Handling the Change](http://developer.android.com/guide/topics/resources/runtime-changes.html#HandlingTheChange) docs. For more about which configuration changes you can handle in your activity, see the [android:configChanges](http://developer.android.com/guide/topics/manifest/activity-element.html#config) documentation and the [Configuration](http://developer.android.com/reference/android/content/res/Configuration.html) class.
+
 ## References
 
 * <http://developer.android.com/guide/topics/resources/runtime-changes.html>
