@@ -95,7 +95,7 @@ However, this technique should be considered **a last resort** when you must avo
           android:label="@string/app_name">
 ```
 
-Now, when one of these configurations change, MyActivity does not restart. Instead, the activity receives a call to `onConfigurationChanged()`:
+Now, when one of these configurations change, the activity does not restart. Instead, the activity receives a call to `onConfigurationChanged()`:
 
 ```java
 // Within the activity which receives these changes
