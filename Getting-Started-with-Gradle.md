@@ -91,7 +91,7 @@ android {
 
 Note that with Gradle 1.6 as downloaded above, the **SDK version must be specified as 17**. Changing to 18 at this time may break the Gradle build. 
 
-Within the `buildscript` block, the `classpath` definition should also be set to `com.android.tools.build:gradle:0.4+`, since this works with Gradle 1.6. Higher values will require a later Gradle version.
+Within the `buildscript` block, the `classpath` definition should also be set to `com.android.tools.build:gradle:0.4+`. This works with Gradle 1.6. Higher classpath values require a later Gradle version.
 
 ## Using Gradle
 
