@@ -31,7 +31,7 @@ The ActionBar icon and title displayed at the top of the screen is governed by t
 </application>
 ```
 
-Change the `android:label` or `android:icon` to modify the ActionBar icon or title for a given activity or for the application as a whole. In any Java activity, you can call `getActionBar()` to retrieve a reference to the [ActionBar](http://developer.android.com/reference/android/app/ActionBar.html) and modify or access properties:
+Change the `android:label` or `android:icon` to modify the ActionBar icon or title for a given activity or for the application as a whole. Note: if you reference an icon that doesn't exist, the Eclipse Integrated Development Environment may fail with an error message that "aadt.exe" has stopped. To avoid this, follow the instructions below to generate your new icons before referencing them. In any Java activity, you can call `getActionBar()` to retrieve a reference to the [ActionBar](http://developer.android.com/reference/android/app/ActionBar.html) and modify or access properties:
 
 ```java
 ActionBar actionBar = getActionBar();
@@ -58,7 +58,7 @@ public class MainActivity extends Activity {
 }
 ```
 
-Entries in the action bar are typically called actions. Use this method to inflate a menu resource that defines all the action items within a `res/menu` xml file, for example: 
+Entries in the action bar are typically called actions. Use this method to inflate a menu resource that defines all the action items within a `res/menu` xml file, as shown in the example below. Do not copy the example below into your own code unless the icon referred to, "@drawable/ic_compose," exists, or you will cause the "aadt.exe" error message described above. Do not copy the code into your own code unless you have defined a Java method to receive the onClick event, "onComposeAction". You would define this method in the Activity file. For the example below, a minimal declaration would be "public void onComposeAction(MenuItem menuItem) { }." 
 
 ```xml
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
