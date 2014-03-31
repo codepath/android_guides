@@ -31,7 +31,7 @@ The ActionBar icon and title displayed at the top of the screen is governed by t
 </application>
 ```
 
-Change the `android:label` or `android:icon` to modify the ActionBar icon or title for a given activity or for the application as a whole. Note: if you reference an icon that doesn't exist, the Eclipse Integrated Development Environment may fail with an error message that "aadt.exe" has stopped. To avoid this, follow the instructions below to generate your new icons before referencing them. In any Java activity, you can call `getActionBar()` to retrieve a reference to the [ActionBar](http://developer.android.com/reference/android/app/ActionBar.html) and modify or access properties:
+Change the `android:label` or `android:icon` to modify the ActionBar icon or title for a given activity or for the application as a whole. Note: if you reference an icon that doesn't exist, the Eclipse Integrated Development Environment may fail with an error message that "aadt.exe" has stopped. To avoid this, follow the instructions below under "IconSet Generator" to generate your new icons before referencing them. In any Java activity, you can call `getActionBar()` to retrieve a reference to the [ActionBar](http://developer.android.com/reference/android/app/ActionBar.html) and modify or access properties:
 
 ```java
 ActionBar actionBar = getActionBar();
