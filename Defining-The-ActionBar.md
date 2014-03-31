@@ -111,7 +111,7 @@ public class MainActivity extends Activity {
 }
 ```
 
-The second way is to use the `onOptionsItemSelected()` method. Using the MenuItem passed to this method, you can identify the action by calling getItemId(). This returns the unique ID provided by the <item> tag's id attribute so you can perform the appropriate action:
+The second way is to use the `onOptionsItemSelected()` method. Using the MenuItem passed to this method, you can identify the action by calling getItemId(). This returns the unique ID provided by the item tag's id attribute so you can perform the appropriate action:
 
 ```java
 @Override
