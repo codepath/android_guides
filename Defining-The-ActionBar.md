@@ -17,7 +17,7 @@ Every application unless otherwise specified has an ActionBar by default. The Ac
 
 ### Changing the ActionBar Icon or Title
 
-The ActionBar icon and title displayed at the top of the screen is governed by the `AndroidManifest.xml` file in the `application` and `activity` nodes. In the example below, the activity "FirstActivity" will have an ActionBar with the string value of the resource identified by @string/app_name. If the value of that resource is "Foo," the string displayed in the ActionBar for this activity will be "Foo." (The description in the preceding sentences relating to the "application" node is unclear. Perhaps the author was suggesting that the android:icon attribute is relevant, but it's not clear if an android:label attribute can appear, should appear, or may not appear, nor whether the android:icon attribute must be at the top level or may also be in lower levels and what happens in such a case.)
+The ActionBar icon and title displayed at the top of the screen is governed by the `AndroidManifest.xml` file in the `application` and `activity` nodes. In the example below, the activity "FirstActivity" will have an ActionBar with the string value of the resource identified by @string/app_name. If the value of that resource is "Foo," the string displayed in the ActionBar for this activity will be "Foo." (The description in the preceding sentences relating to the "application" node is unclear. Perhaps the author was suggesting that the android:icon attribute is relevant, but it's not clear if an android:label attribute can appear, should appear, or may not appear, nor whether the android:icon attribute must be at the top level or may also be in lower levels and what happens in such a case. It would be helpful to have a screenshot next to the XML, with arrows linking the XML fields and the resulting rendering in the screenshot.)
 
 ```xml
 <application
@@ -31,7 +31,7 @@ The ActionBar icon and title displayed at the top of the screen is governed by t
 </application>
 ```
 
-Change the `android:label` or `android:icon` to modify the ActionBar icon or title for a given activity or for the application as a whole. Note: if you reference an icon that doesn't exist, the Eclipse Integrated Development Environment may fail with an error message that "aadt.exe" has stopped. To avoid this, follow the instructions below under "IconSet Generator" to generate your new icons before referencing them. In any Java activity, you can call `getActionBar()` to retrieve a reference to the [ActionBar](http://developer.android.com/reference/android/app/ActionBar.html) and modify or access properties:
+Change the `android:label` or `android:icon` to modify the ActionBar icon or title for a given activity or for the application as a whole. Note: if you reference an icon that doesn't exist, the Eclipse Integrated Development Environment may fail with an error message that "aadt.exe" has stopped. To avoid this, follow the instructions below under "IconSet Generator" to generate your new icons before referencing them. In any Java activity, you can call `getActionBar()` to retrieve a reference to the [ActionBar](http://developer.android.com/reference/android/app/ActionBar.html) and modify or access properties. (It is not clear why one would want to do this.)
 
 ```java
 ActionBar actionBar = getActionBar();
@@ -58,7 +58,9 @@ public class MainActivity extends Activity {
 }
 ```
 
-Entries in the action bar are typically called actions. Use this method to inflate a menu resource that defines all the action items within a `res/menu` xml file, as shown in the example below. Do not copy the example below into your own code unless the icon referred to, "@drawable/ic_compose," exists, or you will cause the "aadt.exe" error message described above. Do not copy the code into your own code unless you have defined a Java method to receive the onClick event, "onComposeAction". You would define this method in the Activity file. For the example below, a minimal declaration would be "public void onComposeAction(MenuItem menuItem) { }." 
+(The information above is incomplete. The inflate() call may return successfully but nothing is displayed. Something else is required but it isn't clear what that is: changes to the manifest.xml file, changes to Eclipse project settings, or something else.)
+
+Entries in the action bar are typically called actions. Use this method to inflate a menu resource that defines all the action items within a `res/menu` xml file, as shown in the example below. Do not copy the example below into your own code unless the icon referred to, "@drawable/ic_compose," exists, or you will cause the "aadt.exe" error message described above. Do not copy the code into your own code unless you have defined a Java method to receive the onClick event, "onComposeAction" or your program will fail with an exception caused by the missing method. You would define this method in the Activity file. For the example below, a minimal declaration would be "public void onComposeAction(MenuItem menuItem) { }." 
 
 ```xml
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
@@ -85,7 +87,7 @@ Notice that to request that an item appear directly in the action bar as an acti
 
 ### Handling ActionBar Clicks
 
-There are two ways to handle the click for an ActionBar item. First, you can use the `android:onClick` handler in the menu XML, similar to handling button clicks:
+There are two ways to handle the click for an ActionBar item. (It is not clear why there are two ways or how to choose which one to use.) First, you can use the `android:onClick` handler in the menu XML, similar to handling button clicks:
 
 ```xml
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
@@ -99,7 +101,7 @@ There are two ways to handle the click for an ActionBar item. First, you can use
 </menu>
 ```
 
-and then define the method `onComposeAction` in the parent activity:
+and then define the method `onComposeAction` in the parent activity. Note that you must define the method before attempting to run the application or an exception will be thrown for the missing method--the error is detected at runtime, not within the Eclipse Integrated Development Environment.
 
 ```java
 public class MainActivity extends Activity {
