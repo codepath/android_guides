@@ -86,6 +86,18 @@ If this error contains information about the `java.lang.ClassNotFoundException` 
 
 For more possibilities, check out this [stackoverflow post](http://stackoverflow.com/questions/4688277/java-lang-runtimeexception-unable-to-instantiate-activity-componentinfo) for the full details.
 
+### Generated Project has Placeholder Fragment
+
+In more recent versions of eclipse, activities are generated with a built-in placeholder fragment which can't be easily disabled. If you want to remove this placeholder fragment and work directly with an activity, you can follow these steps:
+
+1. Copy contents of fragment XML at `res/layout/fragment_main.xml`
+2. Replace entire contents of activity XML with the contents of the fragment XML
+3. Delete the fragment XML at `res/layout/fragment_main.xml`
+4. Remove the if statement in the `onCreate` in the Activity class file at `src/com.../MainActivity.java`
+5. Remove the `PlaceholderFragment` inner class defined within `src/com.../MainActivity.java` 
+
+See [this guide for a more detailed set of instructions](https://gist.github.com/nesquena/8de33f701e387be0a80d) with images.
+
 ### Imported Project Won't Compile
 
 If you have imported an existing Android project into the Eclipse workspace and the project gives an error such as "cannot resolve target android-17" or another obscure error, follow this checklist below.
