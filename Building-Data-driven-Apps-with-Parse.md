@@ -30,7 +30,7 @@ public class ParseApplication extends Application {
 }
 ```
 
-We also need to make sure to set this as the `android:name` for the application within the `AndroidManifest.xml`. (In the previous sentence, it is unclear to what "this" refers and why "we need to make sure" that this change is made--will a failure to make the change cause a problem?)
+We also need to make sure to set the application instance above as the `android:name` for the application within the `AndroidManifest.xml`. This change in the manifest determines which application class is instantiated when the app is launched:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
