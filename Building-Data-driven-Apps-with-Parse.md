@@ -90,7 +90,7 @@ If you see "Congrats! You saved your first object", then Parse is setup successf
 
 ## Creating Data Classes
 
-Suppose we had a simple todo application with user accounts and items persisted to Parse. The next step is to simply create our models using the [dashboard](https://www.parse.com/apps) to manage your new app. Visit the "Data Browser" for the correct application and let's create our `User` and `TodoItem` objects for our app.
+Suppose we had a simple todo application with user accounts and items persisted to Parse. The next step is to create our models using the [dashboard](https://www.parse.com/apps) to manage your new app. Visit the "Data Browser" for the correct application and let's create our `User` and `TodoItem` objects for our app.
 
 First, **remove the test code that we added previously** and drop the "TestObject" listed in the browser to clear testing data.
 
@@ -120,7 +120,7 @@ At the core of many apps, there is a notion of user accounts that lets users acc
 
 ### User Signup
 
-Creating a new user account is as simple as constructing a `ParseUser` object and calling `signUpInBackground`:
+Creating a new user account is the process of constructing a `ParseUser` object and calling `signUpInBackground`:
 
 ```java
 // Create the ParseUser
@@ -281,7 +281,7 @@ Notice that now our model has `getBody`, `setBody` as well as property methods f
 
 ### Saving or Updating Objects
 
-Let's suppose we wanted to save a `TodoItem` to the Parse database, simply create a new `TodoItem`, set the data attributes and then trigger a save with `saveInBackground`:
+Let's suppose we wanted to save a `TodoItem` to the Parse database, create a new `TodoItem`, set the data attributes and then trigger a save with `saveInBackground`:
 
 ```java
 TodoItem todoItem = new TodoItem("Do laundry");
