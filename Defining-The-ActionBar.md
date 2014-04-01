@@ -87,7 +87,7 @@ Notice that to request that an item appear directly in the action bar as an acti
 
 ### Handling ActionBar Clicks
 
-There are two ways to handle the click for an ActionBar item. The first attaches clicks via the XML and other attaches the click handler in the Java code. The first approach is you can use the `android:onClick` handler in the menu XML, similar to handling button clicks:
+There are two ways to handle the click for an ActionBar item. The first approach is you can use the `android:onClick` handler in the menu XML, similar to handling button clicks:
 
 ```xml
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
