@@ -17,7 +17,7 @@ Every application unless otherwise specified has an ActionBar by default. The Ac
 
 ### Changing the ActionBar Icon or Title
 
-The ActionBar icon and title displayed at the top of the screen is governed by the `AndroidManifest.xml` file within the `activity` nodes. In the example below, the activity "FirstActivity" will have an ActionBar with the string value of the resource identified by @string/app_name. If the value of that resource is "Foo," the string displayed in the ActionBar for this activity will be "Foo." Note that the `application` node can supply a `android:label` that acts as the default for activities and components with no other specified label.
+The ActionBar icon and title displayed at the top of the screen is governed by the `AndroidManifest.xml` file within the `activity` nodes. In the example below, the activity "FirstActivity" will have an ActionBar with the string value of the resource identified by `@string/activity_name`. If the value of that resource is "Foo," the string displayed in the ActionBar for this activity will be "Foo." Note that the `application` node can supply a `android:label` that acts as the default for activities and components with no other specified label.
 
 ```xml
 <application
@@ -31,7 +31,7 @@ The ActionBar icon and title displayed at the top of the screen is governed by t
 </application>
 ```
 
-Change the `android:label` or `android:icon` to modify the ActionBar icon or title for a given activity or for the application as a whole. In any Java activity, you can call `getActionBar()` to retrieve a reference to the [ActionBar](http://developer.android.com/reference/android/app/ActionBar.html) and modify or access any properties of the ActionBar at runtime:
+Change the `android:label` or `android:icon` to modify the ActionBar icon or title for a given activity or for the application as a whole. In any Java activity, you can also call `getActionBar()` to retrieve a reference to the [ActionBar](http://developer.android.com/reference/android/app/ActionBar.html) and modify or access any properties of the ActionBar at runtime:
 
 ```java
 ActionBar actionBar = getActionBar();
