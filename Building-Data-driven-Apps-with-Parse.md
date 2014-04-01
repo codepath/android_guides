@@ -30,7 +30,7 @@ public class ParseApplication extends Application {
 }
 ```
 
-We also need to make sure to set this as the `android:name` for the application within the `AndroidManifest.xml`:
+We also need to make sure to set this as the `android:name` for the application within the `AndroidManifest.xml`. (In the previous sentence, it is unclear to what "this" refers and why "we need to make sure" that this change is made--will a failure to make the change cause a problem?)
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
