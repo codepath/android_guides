@@ -40,7 +40,12 @@ This means that the project does not have an `R` file generated and is usually a
 <img src="http://i.imgur.com/ChMkx09.png" width="440" />&nbsp;
 <img src="http://i.imgur.com/AXcdNlW.png" width="440" />
 
-A more comprehensive guide to every possible way this error can crop up can be found in this [comprehensive troubleshooting guide](http://www.techrepublic.com/blog/software-engineer/a-comprehensive-troubleshooting-guide-for-androids-r-cannot-be-resolved-error/).
+Be sure to check for these possibilities if that does not work, this is an indication there is an issue with your resources (within `res`):
+
+ * Check the `res/menu` XML files **very carefully**. Do the `@drawable` and `@string` references resolve? Is the `showAsAction` specified as "app:". If it is, try changing it to `android:`.
+ * Check the `res/drawable*` files and make sure they are named appropriately (only lowercase letters, numbers and underscores)
+
+A more comprehensive guide to every possible way this error can crop up can be found in this [comprehensive troubleshooting guide](http://www.techrepublic.com/blog/software-engineer/a-comprehensive-troubleshooting-guide-for-androids-r-cannot-be-resolved-error/) but b
 
 ### Getting "R cannot be resolved" or "resource can not be resolved" errors?
 
