@@ -162,7 +162,7 @@ Creating a build file that includes ActionBarSherlock in your project can be cha
 
 Here is a basic `build.gradle` file that overcomes this conflict.
 
-Before you create the buildfile, install the Android Support Repository from the SDK Manager. This is under SDK Manager->Extras->Android Support Repository. (See [madhead's StackOverflow answer](http://stackoverflow.com/questions/18559660/android-gradle-build-fails-could-not-find-com-google-androidsupport-v4r18)). At the time of writing, I also had installed Android Support Library for API 19, but simply having the most recent Android Support Library jar will not fix the error.
+Before you create the buildfile, install the Android Support Repository from the SDK Manager. This is under SDK Manager->Extras->Android Support Repository. (See [madhead's StackOverflow answer.](http://stackoverflow.com/questions/18559660/android-gradle-build-fails-could-not-find-com-google-androidsupport-v4r18)) At the time of writing, I also had installed Android Support Library for API 19, but simply having a recent Android Support Library jar will not fix the error.
 
 Okay. Now, create `build.gradle` in your Android project:
 
