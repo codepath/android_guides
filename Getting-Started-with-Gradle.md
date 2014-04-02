@@ -193,7 +193,7 @@ android {
     buildToolsVersion '17'
 
     dependencies {
-	compile fileTree(dir: 'libs', include: '*.jar')
+        compile fileTree(dir: 'libs', include: '*.jar')
     }
 
     sourceSets {
