@@ -4,6 +4,8 @@ In Android, the common "pull to refresh" UX concept is not built in to a ListVie
 
 Thankfully, there is an excellent third-party [pull-to-refresh](https://github.com/erikwt/PullToRefresh-ListView) library that can be used to make this interaction extremely easy to implement. 
 
+**Note:** If using Gradle and Android Studio, you may want to check out this alternative library called [chrisbanes/ActionBar-PullToRefresh](https://github.com/chrisbanes/ActionBar-PullToRefresh). [Quick start](https://github.com/chrisbanes/ActionBar-PullToRefresh/wiki/QuickStart-Stock) can be followed for easy setup.
+
 ### Step 1: Installation
 
 Download the zip of [pull-to-refresh](https://github.com/erikwt/PullToRefresh-ListView/archive/master.zip) and then [import the library folder](http://imgur.com/a/N8baF) into Eclipse with **File => Import => Existing Android Code Into Workspace**. Call the project "PullToRefresh" and then start the import. This folder is now a "library project" and can then be included as a library in your Android apps. Make sure to mark this project as a library and then include the library in your application Check the [Detailed Instructions Here](http://imgur.com/a/N8baF) for a step-by-step of this process.
