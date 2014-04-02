@@ -162,7 +162,7 @@ Creating a build file that includes ActionBarSherlock in your project can be par
 
 Here is a basic `build.gradle` file that overcomes this conflict.
 
-Before you create the buildfile, install the Android Support Repository from the SDK Manager. This is under SDK Manager->Extras->Android Support Repository. (See [http://stackoverflow.com/questions/18559660/android-gradle-build-fails-could-not-find-com-google-androidsupport-v4r18](madhead's StackOverflow answer)). At the time of writing, I also had installed Android Support Library for API 19, but simply having the most recent Android Support Library jar will not fix the error.
+Before you create the buildfile, install the Android Support Repository from the SDK Manager. This is under SDK Manager->Extras->Android Support Repository. (See [madhead's StackOverflow answer](http://stackoverflow.com/questions/18559660/android-gradle-build-fails-could-not-find-com-google-androidsupport-v4r18)). At the time of writing, I also had installed Android Support Library for API 19, but simply having the most recent Android Support Library jar will not fix the error.
 
 Okay. Now, create `build.gradle` in your Android project:
 
@@ -210,7 +210,7 @@ android {
 }
 ```
 
-Note how `repositories` is specified with two different values. This seems to be necessary to overcome a missing library on the new mavenCentral() target; if the older Maven URL is omitted, the aar package for ActionBarSherlock will fail to build.
+Note how `repositories` is specified with two different values. This seems to be necessary to overcome a missing library on the new mavenCentral() target; if the other Maven URL is omitted, the aar package for ActionBarSherlock will fail to build.
 
 ## Resources
 
