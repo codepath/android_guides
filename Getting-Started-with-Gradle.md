@@ -210,7 +210,7 @@ android {
 }
 ```
 
-Note how `repositories` is specified with two different values. This seems to be necessary to overcome a missing library on the new mavenCentral() target; if the other Maven URL is omitted, the aar package for ActionBarSherlock will fail to build.
+Note how `repositories` is specified with two different values. This seems to be necessary to overcome a missing library on the new mavenCentral() target; if the other Maven URL is omitted, the repository package for ActionBarSherlock will fail to build.
 
 ## Resources
 
