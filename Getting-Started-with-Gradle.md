@@ -119,6 +119,12 @@ gradle build
 
 This will build the apk, then automatically compile and run your integration tests.
 
+If you want to delete old APKs before you re-run either `gradle assemble` (build without tests) or `gradle build` (build with tests), run:
+
+```
+gradle clean
+```
+
 ## Declaring Dependencies
 
 To add dependencies to your project, you need to modify the `build.gradle` file and add extra lines configuring the packages you require. For example, for certain Google or Android, dependencies look like:
