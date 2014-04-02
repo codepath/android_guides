@@ -31,6 +31,8 @@ export GRADLE_HOME=/your_gradle_directory
 export PATH=$PATH:$GRADLE_HOME/bin
 ```
 
+Finally, if you are experimenting with different versions of Gradle, remember to source your path definition file (`source ~/.bash_profile` or wherever your PATH was defined) so that $PATH points to the correct Gradle binary and the old one is no longer in your $PATH. Run `echo $PATH` to confirm.
+
 ## Install API 17 and Build Tools
 
 In order for Gradle to work, ensure you have the API 17 SDK installed including the **latest Android SDK Platform-tools and Android SDK Build-tools**. Check this in the Android SDK Manager from within Eclipse. 
@@ -152,6 +154,63 @@ android {
 You can also add dependencies based on the [Maven Central Repository](http://search.maven.org/). The best tool for finding packages is actually the [Gradle Please](http://gradleplease.appspot.com/) utility that takes care of helping you locate the correct package and version to add to your gradle file for any library:
 
 <a href="http://gradleplease.appspot.com"><img src="http://i.imgur.com/MT7TbPg.png" title="Gradle Please Utility" /></a>
+
+
+## Integrating Gradle, ActionBarSherlock, and the Android Support Libraries
+
+Creating a build file that includes ActionBarSherlock in your project can be particularly confusing because ActionBarSherlock imports its own version of the Android support package. If you are using com.android.support classes in your own code (for fragments, tab navigation, and so on), and you have a `com.android.support` jar in your /libs, you are likely to run into compiler errors when you start to include ABS. 
+
+Here is a basic `build.gradle` file that overcomes this conflict.
+
+Before you create the buildfile, install the Android Support Repository from the SDK Manager. This is under SDK Manager->Extras->Android Support Repository. (See [http://stackoverflow.com/questions/18559660/android-gradle-build-fails-could-not-find-com-google-androidsupport-v4r18](madhead's StackOverflow answer)). At the time of writing, I also had installed Android Support Library for API 19, but simply having the most recent Android Support Library jar will not fix the error.
+
+Okay. Now, create `build.gradle` in your Android project:
+
+```
+buildscript {
+    repositories {
+        maven { url 'http://repo1.maven.org/maven2' }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.4+'
+    }
+}
+
+apply plugin: 'android'
+
+repositories{
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
+    compile 'com.android.support:support-v4:13.0.+'
+}
+
+android {
+    compileSdkVersion 17
+    buildToolsVersion '17'
+
+    dependencies {
+	compile fileTree(dir: 'libs', include: '*.jar')
+    }
+
+    sourceSets {
+        main {
+	    manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+	}
+    }
+}
+```
+
+Note how `repositories` is specified with two different values. This seems to be necessary to overcome a missing library on the new mavenCentral() target; if the older Maven URL is omitted, the aar package for ActionBarSherlock will fail to build.
 
 ## Resources
 
