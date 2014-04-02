@@ -109,6 +109,10 @@ Be sure to run a `Project => Clean` on both the library project and the applicat
 
 Make sure that when the data is finished loading that you call `lvTweets.onRefreshComplete();` in order to complete the refresh.
 
+#### Can't import into Gradle
+
+If using Gradle and Android Studio, you may want to check out this alternative library called [chrisbanes/ActionBar-PullToRefresh](https://github.com/chrisbanes/ActionBar-PullToRefresh). [Quick start](https://github.com/chrisbanes/ActionBar-PullToRefresh/wiki/QuickStart-Stock) can be followed for easy setup.
+
 ## References
 
 * <https://github.com/erikwt/PullToRefresh-ListView> - Third-party library for pull to refresh
