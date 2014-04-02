@@ -156,9 +156,9 @@ You can also add dependencies based on the [Maven Central Repository](http://sea
 <a href="http://gradleplease.appspot.com"><img src="http://i.imgur.com/MT7TbPg.png" title="Gradle Please Utility" /></a>
 
 
-## Integrating Gradle, ActionBarSherlock, and the Android Support Libraries
+### Integrating Gradle, ActionBarSherlock, and the Android Support Libraries
 
-Creating a build file that includes ActionBarSherlock in your project can be particularly confusing because ActionBarSherlock imports its own version of the Android support package. If you are using com.android.support classes in your own code (for fragments, tab navigation, and so on), and you have a `com.android.support` jar in your /libs, you are likely to run into compiler errors when you start to include ABS. 
+Creating a build file that includes ActionBarSherlock in your project can be particularly confusing because ActionBarSherlock imports its own version of the Android support package. If you are using com.android.support classes in your own code (for fragments, tab navigation, and so on), and you have a `com.android.support` jar in your `/libs`, you are likely to run into compiler errors when you start to include ABS. 
 
 Here is a basic `build.gradle` file that overcomes this conflict.
 
