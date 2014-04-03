@@ -6,7 +6,7 @@ There are several ways to setup tabs with fragments. The easiest is using Action
 
 To setup tabs using ActionBar and fragments that are not gingerbread compatible, you need to add a `TabListener` implementation to your application which defines the behavior of a tab when activated. A good default implementation is just [adding this](https://gist.github.com/nesquena/f54a991ccb4e5929e0ec) to `FragmentTabListener.java`. 
 
-Once you have created the `FragmentTabListener` [from this snippet](https://gist.github.com/nesquena/f54a991ccb4e5929e0ec) within your app, simply setup the ActionBar and define which tabs you would like to display and attach listeners for each tab:
+Once you have created the `FragmentTabListener` [from this snippet](https://gist.github.com/nesquena/f54a991ccb4e5929e0ec) within your app, setup the ActionBar and define which tabs you would like to display and attach listeners for each tab:
 
 ```java
 public class MainActivity extends FragmentActivity {
@@ -92,7 +92,7 @@ For these compatibility items, you also need to be careful to **change the menu 
 
 To setup tabs using ActionBar and fragments, you need to add a `TabListener` implementation to your application which defines the behavior of a tab when activated. A good default implementation is just [adding this](https://gist.github.com/nesquena/8b9f9ec29582afd4d138) to `SupportFragmentTabListener.java`. 
 
-Once you have created the `SupportFragmentTabListener` [from this snippet](https://gist.github.com/nesquena/8b9f9ec29582afd4d138) within your app, simply setup the ActionBar and define which tabs you would like to display and attach listeners for each tab:
+Once you have created the `SupportFragmentTabListener` [from this snippet](https://gist.github.com/nesquena/8b9f9ec29582afd4d138) within your app, setup the ActionBar and define which tabs you would like to display and attach listeners for each tab:
 
 ```java
 public class MainActivity extends ActionBarActivity {
@@ -139,7 +139,7 @@ Using [ActionBarSherlock](http://actionbarsherlock.com/), the code looks almost 
 
 With ActionBarSherlock installed and added to your app, add [the gist code](https://gist.github.com/nesquena/0f0a1f50a2a64721309e) as the `SherlockTabListener` within your application.
 
-Once you have created the `SherlockTabListener` [from this snippet](https://gist.github.com/nesquena/0f0a1f50a2a64721309e) within your app, simply setup the ActionBar and define which tabs you would like to display and attaches listeners for each tab:
+Once you have created the `SherlockTabListener` [from this snippet](https://gist.github.com/nesquena/0f0a1f50a2a64721309e) within your app, setup the ActionBar and define which tabs you would like to display and attaches listeners for each tab:
 
 ```java
 public class ActionBarSherlockActivity extends SherlockFragmentActivity {
