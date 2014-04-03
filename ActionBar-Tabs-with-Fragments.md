@@ -83,10 +83,14 @@ For these compatibility items, you also need to be careful to **change the menu 
 <menu
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:myapp="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/item_menu_ok" android:icon="@drawable/ic_action_ok"
-        android:title="@string/ok" myapp:showAsAction="ifRoom"></item>
-    <item android:id="@+id/item_menu_cancel" android:icon="@drawable/ic_action_cancel"
-        android:title="@string/cancel" myapp:showAsAction="ifRoom"></item>
+    <item android:id="@+id/item_menu_ok" 
+          android:icon="@drawable/ic_action_ok"
+          android:title="@string/ok" 
+          myapp:showAsAction="ifRoom"></item>
+    <item android:id="@+id/item_menu_cancel" 
+          android:icon="@drawable/ic_action_cancel"
+          android:title="@string/cancel" 
+          myapp:showAsAction="ifRoom"></item>
 </menu>
 ```
 
