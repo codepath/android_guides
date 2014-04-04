@@ -76,7 +76,7 @@ In addition to the listeners described above, there are a few other common liste
 
 #### TextChangedListener
 
-If you want to handle an event as the text in the view is being changed, you only need to look as far as the [addTextChangedListener](http://developer.android.com/reference/android/widget/TextView.html#addTextChangedListener(android.text.TextWatcher\)) method on an EditText (or even TextView):
+If you want to handle an event as the text in the view is being changed, you only need to look as far as the [addTextChangedListener](http://developer.android.com/reference/android/widget/TextView.html#addTextChangedListener\(android.text.TextWatcher\)) method on an EditText (or even TextView):
 
 ```java
 EditText etValue = (EditText) findViewById(R.id.etValue);
