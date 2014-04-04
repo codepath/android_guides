@@ -9,6 +9,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Constructing View Layouts]]
 * [[Defining Views and their Attributes]] 
 * [[Working with the TextView]]
+* [[Working with the EditText]]
 * [[Working with the ImageView]]
 * [[Working with the Soft Keyboard]]
 * [[Using an ArrayAdapter with ListView]]
