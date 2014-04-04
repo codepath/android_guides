@@ -21,7 +21,7 @@ The ImageView handles all the loading and scaling of the image for you. Note the
 
 ### Sizing ImageView Controls
 
-By default, contents of an ImageView control are of a certain size-usually the size of the graphic dimensions. They are also bounded by their layout_width and layout_height attributes. You can also specify minimum and maximum height and width attributes:
+By default, contents of an ImageView control are of a certain size -- usually the size of the image dimensions. They are also bounded by their layout_width and layout_height attributes. You can also specify minimum and maximum height and width attributes with the following:
 
 ```xml
 <ImageView
@@ -35,7 +35,7 @@ By default, contents of an ImageView control are of a certain size-usually the s
 />
 ```
 
-Here we are specifying that the control should have a specific minimum and maximum size. We are also  specifying that the ImageView preserve its aspect ratio using the [adjustViewBounds](http://developer.android.com/reference/android/widget/ImageView.html#attr_android:adjustViewBounds) attribute. The most common scale type associates that with the `fitXY` type as shown above, which scales both the height and the width up or down until it fits within the maximum dimensions specified. By combining these properties together we can control the rough size of the image and still adjust the image according to the proper aspect ratio.
+In the above we are also  specifying that the ImageView preserve its aspect ratio using the [adjustViewBounds](http://developer.android.com/reference/android/widget/ImageView.html#attr_android:adjustViewBounds) attribute. The `scaleType` above has been set to `fitXY` which scales both the height and the width up or down until it fits within the maximum dimensions specified. By combining these properties together we can control the rough size of the image and still adjust the image according to the proper aspect ratio.
 
 ### Scale Types
 
