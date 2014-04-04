@@ -19,23 +19,6 @@ At the simplest level, an [ImageView](http://developer.android.com/reference/and
 
 The ImageView handles all the loading and scaling of the image for you. Note the [scaleType attribute](http://developer.android.com/reference/android/widget/ImageView.ScaleType.html) which defines how the images will be scaled to fit in your layout. In the example, using scaleType "center", the image will be displayed at its native resolution and centered in the view, regardless of how much space the view consumes.
 
-### Working with Bitmaps
-
-We can change the bitmap displayed in an ImageView to a drawable resource with:
-
-```java
-ImageView image = (ImageView) findViewById(R.id.test_image);
-image.setImageResource(R.drawable.test2);
-```
-
-or to any arbitrary bitmap with:
-
-```java
-ImageView image = (ImageView) findViewById(R.id.test_image);
-Bitmap bMap = BitmapFactory.decodeFile("/sdcard/test2.png");
-image.setImageBitmap(bMap);
-```
-
 ### Sizing ImageView Controls
 
 By default, contents of an ImageView control are of a certain size-usually the size of the graphic dimensions. They are also bounded by their layout_width and layout_height attributes. You can also specify minimum and maximum height and width attributes:
@@ -86,6 +69,23 @@ To create alternative bitmap drawables for different densities, you should follo
 ![Densities](http://developer.android.com/images/screens_support/screens-densities.png)
 
 See the [screens support](http://developer.android.com/guide/practices/screens_support.html) reference for a more detailed look at supporting a wide range of devices. Also check out the [iconography](http://developer.android.com/design/style/iconography.html) guide for more details.
+
+### Working with Bitmaps
+
+We can change the bitmap displayed in an ImageView to a drawable resource with:
+
+```java
+ImageView image = (ImageView) findViewById(R.id.test_image);
+image.setImageResource(R.drawable.test2);
+```
+
+or to any arbitrary bitmap with:
+
+```java
+ImageView image = (ImageView) findViewById(R.id.test_image);
+Bitmap bMap = BitmapFactory.decodeFile("/sdcard/test2.png");
+image.setImageBitmap(bMap);
+```
 
 ### Scaling a Bitmap
 
