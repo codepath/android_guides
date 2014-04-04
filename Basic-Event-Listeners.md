@@ -120,7 +120,7 @@ First, we need to setup an "action" button for our text field. To setup an "acti
 </EditText>
 ```
 
-In particular, `singleLine` and `imeOptions` are required for the [Done button](http://imgur.com/WAwMn9k.png) to display. Now, we can hook into a [editor listener](http://developer.android.com/reference/android/widget/TextView.html#setOnEditorActionListener(android.widget.TextView.OnEditorActionListener\)) for when the done button is pressed with:
+In particular, `singleLine` and `imeOptions` are required for the [Done button](http://imgur.com/WAwMn9k.png) to display. Now, we can hook into a [editor listener](http://developer.android.com/reference/android/widget/TextView.html#setOnEditorActionListener\(android.widget.TextView.OnEditorActionListener\)) for when the done button is pressed with:
 
 ```java
 etValue.setOnEditorActionListener(new OnEditorActionListener() {
@@ -140,7 +140,7 @@ This is often great whenever a user needs to type text and then explicitly have 
 
 ### Input View Listeners
 
-Similarly to EditText, many common input views have listeners of their own including NumberPicker has [setOnValueChangedListener](http://developer.android.com/reference/android/widget/NumberPicker.html#setOnValueChangedListener(android.widget.NumberPicker.OnValueChangeListener\)) and SeekBar has [setOnSeekBarChangeListener](http://developer.android.com/reference/android/widget/SeekBar.html#setOnSeekBarChangeListener(android.widget.SeekBar.OnSeekBarChangeListener\)) which allow us to listen for changes:
+Similarly to EditText, many common input views have listeners of their own including NumberPicker has [setOnValueChangedListener](http://developer.android.com/reference/android/widget/NumberPicker.html#setOnValueChangedListener\(android.widget.NumberPicker.OnValueChangeListener\)) and SeekBar has [setOnSeekBarChangeListener](http://developer.android.com/reference/android/widget/SeekBar.html#setOnSeekBarChangeListener\(android.widget.SeekBar.OnSeekBarChangeListener\)) which allow us to listen for changes:
 
 ```java
 NumberPicker npValue = (NumberPicker) findViewById(R.id.npValue);
