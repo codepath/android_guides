@@ -61,27 +61,35 @@ You can see a list of [all available input types here](http://developer.android.
 We might want to limit the entry to a single-line of text (avoid newlines):
 
 ```xml
-android:singleLine="true"
-android:lines="1"
+<EditText
+  android:singleLine="true"
+  android:lines="1"
+/>
 ```
 
 You might also want to use the capitalize attribute to automatically capitalize each sentence, word or character:
 
 ```xml
-android:capitalize="sentences"
+<EditText
+  android:capitalize="sentences"
+/>
 ```
 
 You can limit the characters that can be entered into a field using the digits attribute:
 
 ```xml
-android:inputType="number"
-android:digits="01"
+<EditText
+  android:inputType="number"
+  android:digits="01"
+/>
 ```
 
 This would restrict the digits entered to just "0" and "1". We might want to limit the total number of characters with:
 
 ```xml
-android:maxLength="5"
+<EditText
+  android:maxLength="5"
+/>
 ```
 
 Using these properties we can define the expected input behavior for text fields.
