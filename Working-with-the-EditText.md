@@ -40,7 +40,21 @@ By default, any text contents within an EditText control is displayed as plain t
 </EditText>
 ```
 
-Most common input types include: `textMultiLine`, `textUri`, `textEmailAddress`, `textPersonName`, `textPassword`, `number`, `phone`, `date`, `time`. You can see a list of [all available input types here](http://developer.android.com/reference/android/widget/TextView.html#attr_android:inputType).
+Most common input types include: 
+
+| Type               | Description                    |
+| -------------      |:-------------:                 |
+| textUri            | Text that will be used as a URI                   |
+| textEmailAddress   | Text that will be used as an e-mail address       |
+| textPersonName     | Text that is the name of a person                 |
+| textPassword       | Text that is a password that should be obscured   |
+| number             | A numeric only field                              |
+| phone              | For entering a phone number                       |
+| date               | For entering a date                               |
+| time               | For entering a time                               |
+| textMultiLine      | Allow multiple lines of text in the field         |
+
+You can see a list of [all available input types here](http://developer.android.com/reference/android/widget/TextView.html#attr_android:inputType).
 
 ### Further Entry Customization
 
