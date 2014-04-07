@@ -226,7 +226,7 @@ public void setDateFromString(String date) {
 Check out the [relationships section](https://github.com/pardom/ActiveAndroid/wiki/Creating-your-database-model#relationships) if you haven't yet. There are many ways to manage this. You can declare a type "User" and then that field will be associated with a [foreign key representing the user](https://github.com/pardom/ActiveAndroid/blob/master/src/com/activeandroid/Model.java#L135). 
 
 ```java
-public class User {
+public class User extends Model {
   public String email;
   public Address address;
 }
