@@ -15,6 +15,21 @@ The [camera](http://developer.android.com/guide/topics/media/camera.html) implem
  * The easy way - launch the camera with an intent, designating a file path, and handle the onActivityResult.
  * The hard way - use the Camera API to embed the camera preview within your app, adding your own custom controls.
 
+Make sure to enable access to the external storage first before using the camera:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  ...>
+    <!- ... -->
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!- ... -->
+</manifest>
+```
+
 Easy way works in most cases, using the intent to [launch the camera](http://developer.android.com/guide/topics/media/camera.html):
 
 ```java
@@ -70,6 +85,21 @@ Similar to the camera, the media picker implementation depends on the level of c
 
  * The easy way - launch the Gallery with an intent, and get the media URI in onActivityResult.
  * The hard way - fetch thumbnail and full-size URIs from the MediaStore ContentProvider.
+
+Make sure to enable access to the external storage first before using the camera:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  ...>
+    <!- ... -->
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!- ... -->
+</manifest>
+```
 
 Easy way is to use an intent to launch the gallery:
 
