@@ -239,7 +239,7 @@ This allows for bulk deletes.
 
 > Question: Is it possible to do joins with ActiveAndroid? 
 
-Joins are done using the query language AA provides: https://github.com/pardom/ActiveAndroid/blob/master/src/com/activeandroid/query/From.java read more here: https://github.com/pardom/ActiveAndroid/wiki/Querying-the-database
+Joins are done using the query language AA provides in the [From class](https://github.com/pardom/ActiveAndroid/blob/master/src/com/activeandroid/query/From.java). You can read more here on the [Querying the Database docs](https://github.com/pardom/ActiveAndroid/wiki/Querying-the-database)
 
 > Question: What are the best practices when interacting with the sqlite in Android, is ORM/DAO the way to go?
 
