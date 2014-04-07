@@ -227,8 +227,8 @@ Check out the [relationships section](https://github.com/pardom/ActiveAndroid/wi
 
 ```java
 public class User {
-  private String email;
-  private Address address;
+  public String email;
+  public Address address;
 }
 ```
 
