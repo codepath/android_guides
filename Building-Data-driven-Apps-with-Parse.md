@@ -297,7 +297,7 @@ Note that there are two ways to save an object: `saveInBackground` which execute
 
 See the [saving objects](https://www.parse.com/docs/android_guide#objects-saving) and [updating docs](https://www.parse.com/docs/android_guide#objects-updating) docs for more details. Also, check out the [relational data](https://www.parse.com/docs/android_guide#objects-pointers) section.
 
-### Fetching Objects
+### Querying Objects
 
 #### Objects By Id
 
