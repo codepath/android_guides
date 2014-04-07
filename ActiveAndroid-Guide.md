@@ -223,7 +223,25 @@ public void setDateFromString(String date) {
 
 > Question: How do you represent a 1-1 relationship?  
 
-Check out the [relationships section](https://github.com/pardom/ActiveAndroid/wiki/Creating-your-database-model#relationships) if you haven't yet. There are many ways to manage this. You can declare a type "User" and then that field will be associated with a [foreign key representing the user](https://github.com/pardom/ActiveAndroid/blob/master/src/com/activeandroid/Model.java#L135). You can manage this process by simply constructing and assigning the user object to a field of the parent object and then calling save on the parent. You should make sure to call save separately on the associated object in most cases.
+Check out the [relationships section](https://github.com/pardom/ActiveAndroid/wiki/Creating-your-database-model#relationships) if you haven't yet. There are many ways to manage this. You can declare a type "User" and then that field will be associated with a [foreign key representing the user](https://github.com/pardom/ActiveAndroid/blob/master/src/com/activeandroid/Model.java#L135). 
+
+```java
+public class User {
+  private String email;
+  private Address address;
+}
+```
+
+You can manage this process by simply constructing and assigning the user object to a field of the parent object and then calling save on the parent. 
+
+```java
+User u = new User("bob@foo.com");
+u.address = new Address("135 Hesby St, Los Angeles, CA");
+u.address.save();
+u.save();
+```
+
+You should make sure to **call save separately on the associated object** in most cases.
 
 > Question: How do I delete all the records from a table?
 
