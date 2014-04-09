@@ -268,4 +268,4 @@ Styling the tabs more completely requires an understanding of [[Drawables]] as w
  * Check out [this article](http://blog.alwold.com/2013/08/28/styling-tabs-in-the-android-action-bar/) for a detailed look at styling tabs in the action bar
  * This [second article](http://blog.stylingandroid.com/archives/1249) details how to style tabs as well with several examples.
  * You can supply a [custom view](http://developer.android.com/reference/android/app/ActionBar.Tab.html#setCustomView\(android.view.View\)) for each tab in truly custom cases that radically changes the look and feel of the tab.
- * In certain cases, you might prefer replacing tabs with the ViewPager and using a third-party [tab indicator](https://github.com/astuetz/PagerSlidingTabStrip) which might more easily achieve the desired effect.
+ * In certain cases, you might replace tabs with the ViewPager and using a third-party [tab indicator](https://github.com/astuetz/PagerSlidingTabStrip) which more easily achieves the desired effect.
