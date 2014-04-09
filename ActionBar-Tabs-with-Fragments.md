@@ -246,6 +246,8 @@ Using these methods described above, we can modify the tabs and their selected s
 
 The easiest way to style the ActionBar tabs is using the nifty [Android ActionBar Style Generator](http://jgilfelt.github.io/android-actionbarstylegenerator/). This utility will allow you to easily drop-in a new skin for the ActionBar.
 
+![Tab Generator](http://i.imgur.com/xEvwLrb.png)
+
 Doing a custom styling of the ActionBar requires using the [[Styles|Styles and Themes]] system for declaring the look of the ActionBar and tabs more manually. We can tweak the styles of these by building a custom theme in the `res/values-v14/styles.xml`:
 
 ```xml
