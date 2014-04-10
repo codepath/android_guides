@@ -276,3 +276,22 @@ Note that fully customizing tabs requires an understanding of [[Drawables]] as w
 
 ### Styling tabs with ActionBarSherlock
 
+If you are using ActionBarSherlock, you will need to do the following to style your tabs:
+
+1. Change background color of tab container:
+You will need to customize "android:actionBarTabBarStyle" in order to achieve this. "actionBarTabBarStyle" determines the style of the overall tab bar. It includes the whole container that includes all of the tabs.
+
+.* Create style for "Widget.Sherlock.Light.ActionBar.TabView" in res/values-v14/styles.xml.
+.* Reference this style for "actionBarTabBarStyle".
+
+```xml
+<style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <!-- API 14 theme customizations can go here. -->
+        <item name="android:actionBarTabBarStyle">@style/ActionBarTabStyle</item>
+        <item name="actionBarTabBarStyle">@style/ActionBarTabStyle</item>
+</style>
+
+<style name="ActionBarTabStyle" parent="Widget.Sherlock.Light.ActionBar.TabView">
+    <item name="android:background">#ffffff</item>
+</style>
+```
