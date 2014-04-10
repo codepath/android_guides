@@ -273,3 +273,5 @@ Browse the [Styling the ActionBar](https://developer.android.com/training/basics
  * Consider replacing tabs with the ViewPager and using a third-party [tab indicator](https://github.com/astuetz/PagerSlidingTabStrip) which more easily achieves the desired effect.
 
 Note that fully customizing tabs requires an understanding of [[Drawables]] as well. 
+
+### Styling tabs with ActionBarSherlock
