@@ -275,3 +275,22 @@ Browse the [Styling the ActionBar](https://developer.android.com/training/basics
 Note that fully customizing tabs requires an understanding of [[Drawables]] as well. 
 
 ### Styling tabs with ActionBarSherlock
+
+Due to limitations in Android's theming system any theme customizations must be declared in two attributes. The normal android-prefixed attributes apply the theme to the native action bar and the unprefixed attributes are for the custom implementation. Since both theming APIs are exactly the same you need only reference your customizations twice rather than having to implement them twice.
+
+The easiest way to convey exactly what this entails is with an example. The following is the full theme from the “Styled” example mentioned above:
+
+```xml
+<style name="Theme.Styled" parent="Theme.Sherlock.Light.DarkActionBar">
+    <item name="actionBarStyle">@style/Widget.Styled.ActionBar</item>
+    <item name="android:actionBarStyle">@style/Widget.Styled.ActionBar</item>
+</style>
+
+<style name="Widget.Styled.ActionBar" parent="Widget.Sherlock.Light.ActionBar.Solid.Inverse">
+    <item name="background">@drawable/bg_striped</item>
+    <item name="android:background">@drawable/bg_striped</item>
+
+    <item name="backgroundSplit">@drawable/bg_striped_split</item>
+    <item name="android:backgroundSplit">@drawable/bg_striped_split</item>
+</style>
+```
