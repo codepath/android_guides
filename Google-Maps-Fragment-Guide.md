@@ -35,6 +35,12 @@ On Windows:
 "C:\Program Files (x86)\Java\jdk1.7.0_60\bin\keytool.exe" -list -v -keystore "%USERPROFILE%\.android\debug.keystore" -alias androiddebugkey -storepass android -keypass android
 ```
 
+or, depending on the installation location of your JDK:
+
+```
+"C:\Program Files\Java\jre7\bin\keytool.exe" -list -v -keystore "%USERPROFILE%\.android\debug.keystore" -alias androiddebugkey -storepass android -keypass android
+```
+
 On Mac or Linux:
 
 ```
