@@ -104,6 +104,8 @@ First, let's add the correct permissions to our `AndroidManifest.xml`:
 Recording audio is as simple as starting and stopping the `MediaRecorder`:
 
 ```java
+// File path of recorded audio 
+private String mFileName;
 // Verify that the device has a mic first
 PackageManager pmanager = this.getPackageManager();
 if (pmanager.hasSystemFeature(PackageManager.FEATURE_MICROPHONE)) {
