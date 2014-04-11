@@ -20,12 +20,13 @@ These guides were originally created and adapted by [Nathan Esquenazi](http://gi
 as a part of our [CodePath](http://thecodepath.com) training and bootcamps. We have also had contributions from many
 community members including:
 
+ * [Vishal Kapoor](https://github.com/kapoor)
+ * [Nidhi Shah](https://github.com/nidhi1608)
+ * [Ari Lacenski](https://github.com/tensory)
+ * [Chunyan Song](https://github.com/chunyan)
  * [Trevor Elkins](https://github.com/trevor-e)
  * [Roger Hu](https://github.com/rogerhu)
  * [Adrian Romero](https://github.com/romeroadrian)
- * [Chunyan Song](https://github.com/chunyan)
  * [Aaron Fleshner](https://github.com/adfleshner)
- * [Ari Lacenski](https://github.com/tensory)
- * [Vishal Kapoor](https://github.com/kapoor)
 
 If you are interested in contributing, check out our [contribution guidelines](https://github.com/thecodepath/android_guides/wiki/Contributing-Guidelines) for this project.
