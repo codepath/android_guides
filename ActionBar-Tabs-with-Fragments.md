@@ -274,16 +274,19 @@ Browse the [Styling the ActionBar](https://developer.android.com/training/basics
 
 Note that fully customizing tabs requires an understanding of [[Drawables]] as well. 
 
-### Styling tabs with ActionBarSherlock
+### Styling Tabs with ActionBarSherlock
 
-If you are using ActionBarSherlock, you will need to do the following to style your tabs:
+If you are using ActionBarSherlock, you will need to do the following to custom style your tabs:
 
 #### Change background color of tab container:
 
-You will need to customize 'android:actionBarTabBarStyle' in order to achieve this. 'actionBarTabBarStyle' determines the style of the overall tab bar. It includes the whole container that includes all of the tabs.
+You will need to customize `android:actionBarTabBarStyle` in order to achieve this. `actionBarTabBarStyle` determines the style of the overall tab bar. It includes the whole container that includes all of the tabs.
 
-* Create style for "Widget.Sherlock.Light.ActionBar.TabView" in res/values-v14/styles.xml.
+* Create style for "Widget.Sherlock.Light.ActionBar.TabView" in `res/values-v14/styles.xml`.
 * Reference this style for "actionBarTabBarStyle".
+
+
+In `res/values/styles.xml`:
 
 ```xml
 <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
@@ -298,7 +301,8 @@ You will need to customize 'android:actionBarTabBarStyle' in order to achieve th
 ```
 
 #### Format ActionBarSherlock tab text
-Customize "android:actionBarTabBarStyle" in in res/values-v14/styles.xml as follows:
+
+Customize "android:actionBarTabBarStyle" in `res/values-v14/styles.xml` as follows:
 
 ```xml
 <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
@@ -316,7 +320,7 @@ Customize "android:actionBarTabBarStyle" in in res/values-v14/styles.xml as foll
 </style>
 ```
 
-To define a selector to choose different text color based on tab state, create res/color/actionbar_color_selector.xml
+To define a selector to choose different text color based on tab state, create `res/color/actionbar_color_selector.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -351,7 +355,7 @@ Override 'actionBarTabStyle' - it determines the style of the tabs themselves. T
 
 * Create the tab_bar_background drawable. This will be a state list drawable, which has different visual appearance depending on whether the tab is selected and/or pressed. In the state list, we’ll reference two other drawables for when the button is selected, and we’ll just use a plain color for the unselected states.
 
-tab_bar_background.xml:
+In `res/drawable/tab_bar_background.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -366,7 +370,7 @@ tab_bar_background.xml:
 
 * We’ll also need to create a colors.xml file to define the two colors we used in the state list drawable:.
 
-res\values\colors.xml:
+In `res/values/colors.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -378,7 +382,7 @@ res\values\colors.xml:
 
 * Now, we need to create the drawables for the different backgrounds. The indicator under the active tab comes from the background drawable, so in our custom version, we’ll include an indicator in the proper color. To do this, I used a hack where I create a layer list with a rectangle shape with a 2dp stroke around the exterior, then offset the rectangle so that the top, left and right sides are outside the bounds of the view, so you only see the bottom line. In the case of the “pressed” version, the fill color is set on the rectangle to indicate that it is pressed.
 
-tab_bar_background_selected.xml
+In `res/drawable/tab_bar_background_selected.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -392,7 +396,7 @@ tab_bar_background_selected.xml
 </layer-list>
 ``` 
 
-tab_bar_background_selected_pressed.xml
+In `res/drawable/tab_bar_background_selected_pressed.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -406,7 +410,7 @@ tab_bar_background_selected_pressed.xml
 </layer-list>
 ```
 
-* Finally, we need to set the background for the tabs to the “tab_bar_background” drawable in res/values-v14/styles.xml.
+* Finally, we need to set the background for the tabs to the “tab_bar_background” drawable in `res/values-v14/styles.xml`:
 
 ```xml
 <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
@@ -421,6 +425,8 @@ tab_bar_background_selected_pressed.xml
     <item name="android:background">@drawable/tab_bar_background</item>
 </style>
 ```
+
+With those steps, you now have fully customized tabs!
 
 ## References
 
