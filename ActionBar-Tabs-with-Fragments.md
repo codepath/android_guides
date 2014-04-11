@@ -331,7 +331,7 @@ Sometimes its required to change the text typeface depending on the tab state. e
 
 ```java
 public void onTabSelected(Tab tab, FragmentTransaction ft) {
-     ...
+    ...
 	String formattedName = "<b>" + tab.getText() + "</b>";
 	tab.setText(Html.fromHtml(formattedName));
 }
