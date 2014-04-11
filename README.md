@@ -20,12 +20,12 @@ These guides were originally created and adapted by [Nathan Esquenazi](http://gi
 as a part of our [CodePath](http://thecodepath.com) training and bootcamps. We have also had contributions from many
 community members including:
 
- * [Vishal Kapoor](https://github.com/kapoor)
- * [Nidhi Shah](https://github.com/nidhi1608)
- * [Ari Lacenski](https://github.com/tensory)
- * [Chunyan Song](https://github.com/chunyan)
+ * [Vishal Kapoor](https://github.com/kapoor) (CodePath Alumni)
+ * [Nidhi Shah](https://github.com/nidhi1608) (CodePath Alumni)
+ * [Ari Lacenski](https://github.com/tensory) (CodePath Alumni)
+ * [Chunyan Song](https://github.com/chunyan) (CodePath Alumni)
+ * [Roger Hu](https://github.com/rogerhu) (CodePath Alumni)
  * [Trevor Elkins](https://github.com/trevor-e)
- * [Roger Hu](https://github.com/rogerhu)
  * [Adrian Romero](https://github.com/romeroadrian)
  * [Aaron Fleshner](https://github.com/adfleshner)
 
