@@ -302,7 +302,6 @@ Customize "android:actionBarTabBarStyle" in in res/values-v14/styles.xml as foll
 
 ```xml
 <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-
     <!-- API 14 theme customizations can go here. -->
     ...
     <item name="android:actionBarTabTextStyle">@style/ActionBarTabTextStyle</item>
