@@ -344,3 +344,80 @@ public void onTabUnselected(Tab tab, FragmentTransaction ft) {
 	}
 }
 ```
+
+#### Format ActionBarSherlock indicator
+
+Override 'actionBarTabStyle'. It determines the style of the tabs themselves. The tab is the area that includes the text, its background, and the little indicator bar under the text. If you want to customize the indicator, you need to alter this one.
+
+*create the tab_bar_background drawable. This will be a state list drawable, which has different visual appearance depending on whether the tab is selected and/or pressed. In the state list, we’ll reference two other drawables for when the button is selected, and we’ll just use a plain color for the unselected states.
+
+tab_bar_background.xml:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+ 
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:state_focused="false" android:state_selected="false" android:state_pressed="false" android:drawable="@color/transparent"/>
+  <item android:state_focused="false" android:state_selected="true" android:state_pressed="false" android:drawable="@drawable/tab_bar_background_selected"/>
+  <item android:state_selected="false" android:state_pressed="true" android:drawable="@color/tab_highlight"/>
+  <item android:state_selected="true" android:state_pressed="true" android:drawable="@drawable/tab_bar_background_selected_pressed"/>
+</selector>
+```
+
+* We’ll also need to create a colors.xml file to define the two colors we used in the state list drawable:.
+
+res\values\colors.xml:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="transparent">#000000</color>
+    <color name="tab_highlight">#65acee</color>
+</resources>
+```
+
+* Now, we need to create the drawables for the different backgrounds. The indicator under the active tab comes from the background drawable, so in our custom version, we’ll include an indicator in the proper color. To do this, I used a hack where I create a layer list with a rectangle shape with a 2dp stroke around the exterior, then offset the rectangle so that the top, left and right sides are outside the bounds of the view, so you only see the bottom line. In the case of the “pressed” version, the fill color is set on the rectangle to indicate that it is pressed.
+
+tab_bar_background_selected.xml
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+ 
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:top="-5dp" android:left="-5dp" android:right="-5dp">
+        <shape android:shape="rectangle">
+            <stroke android:color="#65acee" android:width="2dp"/>
+        </shape>
+    </item>
+</layer-list>
+``` 
+
+tab_bar_background_selected_pressed.xml
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+ 
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:top="-5dp" android:left="-5dp" android:right="-5dp">
+        <shape android:shape="rectangle">
+            <stroke android:color="#65acee" android:width="2dp"/>
+        </shape>
+    </item>
+</layer-list>
+```
+
+* Finally, we need to set the background for the tabs to the “tab_bar_background” drawable in styles.xml.
+
+```xml
+<style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+
+    <!-- API 14 theme customizations can go here. -->
+    ...    
+    <item name="android:actionBarTabStyle">@style/Widget.Sherlock.Light.ActionBar.Tab</item>
+    <item name="actionBarTabStyle">@style/Widget.Sherlock.Light.ActionBar.Tab</item>
+</style>
+
+<style name="Widget.Sherlock.Light.ActionBar.Tab">
+    <item name="android:background">@drawable/tab_bar_background</item>
+</style>
+```
