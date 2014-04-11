@@ -278,7 +278,7 @@ Note that fully customizing tabs requires an understanding of [[Drawables]] as w
 
 If you are using ActionBarSherlock, you will need to do the following to style your tabs:
 
-#####1. Change background color of tab container:
+#### Change background color of tab container:
 
 You will need to customize "android:actionBarTabBarStyle" in order to achieve this. "actionBarTabBarStyle" determines the style of the overall tab bar. It includes the whole container that includes all of the tabs.
 
@@ -293,6 +293,36 @@ You will need to customize "android:actionBarTabBarStyle" in order to achieve th
 </style>
 
 <style name="ActionBarTabStyle" parent="Widget.Sherlock.Light.ActionBar.TabView">
-    <item name="android:background">#ffffff</item>
+    <item name="android:background">@color/white</item>
 </style>
+```
+
+#### Format ActionBarSherlock tab text
+Customize "android:actionBarTabBarStyle" in in res/values-v14/styles.xml as follows:
+
+```xml
+<style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+
+    <!-- API 14 theme customizations can go here. -->
+    ...
+    <item name="android:actionBarTabTextStyle">@style/ActionBarTabTextStyle</item>
+    <item name="actionBarTabTextStyle">@style/ActionBarTabTextStyle</item>    
+</style>
+
+<style name="ActionBarTabTextStyle" parent="Widget.Sherlock.ActionBar.TabText">
+    <item name="android:textColor">@color/actionbar_color_selector</item>
+    <item name="android:fontFamily">sans-serif-light</item>
+    <item name="android:textSize">16sp</item>
+    <item name="android:textAllCaps">false</item>
+</style>
+```
+
+To define a selector to choose different text color based on tab state, create res/color/actionbar_color_selector.xml
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true" android:color="@color/red" />
+    <item android:color="@color/black" />
+</selector>
 ```
