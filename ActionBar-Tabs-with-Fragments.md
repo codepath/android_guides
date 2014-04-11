@@ -282,8 +282,8 @@ If you are using ActionBarSherlock, you will need to do the following to style y
 
 You will need to customize "android:actionBarTabBarStyle" in order to achieve this. "actionBarTabBarStyle" determines the style of the overall tab bar. It includes the whole container that includes all of the tabs.
 
-..* Create style for "Widget.Sherlock.Light.ActionBar.TabView" in res/values-v14/styles.xml.
-..* Reference this style for "actionBarTabBarStyle".
+* Create style for "Widget.Sherlock.Light.ActionBar.TabView" in res/values-v14/styles.xml.
+* Reference this style for "actionBarTabBarStyle".
 
 ```xml
 <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
