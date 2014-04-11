@@ -421,3 +421,7 @@ tab_bar_background_selected_pressed.xml
     <item name="android:background">@drawable/tab_bar_background</item>
 </style>
 ```
+
+## References
+
+ * http://blog.alwold.com/2013/08/28/styling-tabs-in-the-android-action-bar/
