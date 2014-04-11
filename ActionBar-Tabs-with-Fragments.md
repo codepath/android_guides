@@ -326,7 +326,7 @@ To define a selector to choose different text color based on tab state, create r
 </selector>
 ```
 
-Sometimes its required to change the text typeface depending on the tab state. e.g. You might want to change the text typeface to bold if that tab is selected. We can achieve this in the 'onTabSelected' and 'onTabUnselected' methods in 'SherlockTabListener'.
+Sometimes its required to change the text typeface depending on the tab state. e.g. You might want to change the text typeface to bold for the selected tab. We can achieve this in the 'onTabSelected' and 'onTabUnselected' methods in 'SherlockTabListener'.
 
 ```java
 public void onTabSelected(Tab tab, FragmentTransaction ft) {
