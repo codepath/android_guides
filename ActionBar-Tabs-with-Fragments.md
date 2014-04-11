@@ -280,7 +280,7 @@ If you are using ActionBarSherlock, you will need to do the following to style y
 
 #### Change background color of tab container:
 
-You will need to customize "android:actionBarTabBarStyle" in order to achieve this. "actionBarTabBarStyle" determines the style of the overall tab bar. It includes the whole container that includes all of the tabs.
+You will need to customize 'android:actionBarTabBarStyle' in order to achieve this. 'actionBarTabBarStyle' determines the style of the overall tab bar. It includes the whole container that includes all of the tabs.
 
 * Create style for "Widget.Sherlock.Light.ActionBar.TabView" in res/values-v14/styles.xml.
 * Reference this style for "actionBarTabBarStyle".
@@ -325,4 +325,23 @@ To define a selector to choose different text color based on tab state, create r
     <item android:state_selected="true" android:color="@color/red" />
     <item android:color="@color/black" />
 </selector>
+```
+
+Sometimes its required to change the text typeface depending on the tab state. e.g. You might want to change the text typeface to bold if that tab is selected. We can achieve this in the 'onTabSelected' and 'onTabUnselected' methods in 'SherlockTabListener'.
+
+```java
+public void onTabSelected(Tab tab, FragmentTransaction ft) {
+        ...
+	String formattedName = "<b>" + tab.getText() + "</b>";
+	tab.setText(Html.fromHtml(formattedName));
+}
+
+public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+	if (mFragment != null) {
+		String formattedName = tab.getText().toString();
+		tab.setText(Html.fromHtml(formattedName));
+		// Detach the fragment, because another one is being attached
+		ft.detach(mFragment);
+	}
+}
 ```
