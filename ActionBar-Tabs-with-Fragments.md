@@ -349,7 +349,7 @@ public void onTabUnselected(Tab tab, FragmentTransaction ft) {
 
 Override 'actionBarTabStyle' - it determines the style of the tabs themselves. The tab is the area that includes the text, its background, and the little indicator bar under the text. If you want to customize the indicator, you need to alter this one.
 
-* create the tab_bar_background drawable. This will be a state list drawable, which has different visual appearance depending on whether the tab is selected and/or pressed. In the state list, we’ll reference two other drawables for when the button is selected, and we’ll just use a plain color for the unselected states.
+#####1. create the tab_bar_background drawable. This will be a state list drawable, which has different visual appearance depending on whether the tab is selected and/or pressed. In the state list, we’ll reference two other drawables for when the button is selected, and we’ll just use a plain color for the unselected states.
 
 tab_bar_background.xml:
 
@@ -364,7 +364,7 @@ tab_bar_background.xml:
 </selector>
 ```
 
-* We’ll also need to create a colors.xml file to define the two colors we used in the state list drawable:.
+2. We’ll also need to create a colors.xml file to define the two colors we used in the state list drawable:.
 
 res\values\colors.xml:
 
@@ -376,7 +376,7 @@ res\values\colors.xml:
 </resources>
 ```
 
-* Now, we need to create the drawables for the different backgrounds. The indicator under the active tab comes from the background drawable, so in our custom version, we’ll include an indicator in the proper color. To do this, I used a hack where I create a layer list with a rectangle shape with a 2dp stroke around the exterior, then offset the rectangle so that the top, left and right sides are outside the bounds of the view, so you only see the bottom line. In the case of the “pressed” version, the fill color is set on the rectangle to indicate that it is pressed.
+3. Now, we need to create the drawables for the different backgrounds. The indicator under the active tab comes from the background drawable, so in our custom version, we’ll include an indicator in the proper color. To do this, I used a hack where I create a layer list with a rectangle shape with a 2dp stroke around the exterior, then offset the rectangle so that the top, left and right sides are outside the bounds of the view, so you only see the bottom line. In the case of the “pressed” version, the fill color is set on the rectangle to indicate that it is pressed.
 
 tab_bar_background_selected.xml
 
@@ -406,7 +406,7 @@ tab_bar_background_selected_pressed.xml
 </layer-list>
 ```
 
-* Finally, we need to set the background for the tabs to the “tab_bar_background” drawable in res/values-v14/styles.xml.
+4. Finally, we need to set the background for the tabs to the “tab_bar_background” drawable in res/values-v14/styles.xml.
 
 ```xml
 <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
