@@ -349,7 +349,7 @@ public void onTabUnselected(Tab tab, FragmentTransaction ft) {
 
 Override 'actionBarTabStyle' - it determines the style of the tabs themselves. The tab is the area that includes the text, its background, and the little indicator bar under the text. If you want to customize the indicator, you need to alter this one.
 
-*create the tab_bar_background drawable. This will be a state list drawable, which has different visual appearance depending on whether the tab is selected and/or pressed. In the state list, we’ll reference two other drawables for when the button is selected, and we’ll just use a plain color for the unselected states.
+* create the tab_bar_background drawable. This will be a state list drawable, which has different visual appearance depending on whether the tab is selected and/or pressed. In the state list, we’ll reference two other drawables for when the button is selected, and we’ll just use a plain color for the unselected states.
 
 tab_bar_background.xml:
 
