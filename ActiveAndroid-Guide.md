@@ -90,7 +90,7 @@ public class Item extends Model {
 @Table(name = "Categories")
 public class Category extends Model {
     // This is how you avoid duplicates based on a unique ID
-    @Column(name = "remote_id", unique = true, onUniqueConflict = Column.ConflictAction.REPLACE)
+    @Column(name = "remote_id", unique = true)
     public int remoteId;
     @Column(name = "Name")
     public String name;
