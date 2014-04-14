@@ -54,12 +54,12 @@ This will automatically execute the request asynchronously and fire the `onSucce
 Similar to sending a regular HTTP request, [android-async-http](http://loopj.com/android-async-http/) can also be used for sending JSON API requests:
 
 ```java
+String url = "https://ajax.googleapis.com/ajax/services/search/images";
 AsyncHttpClient client = new AsyncHttpClient();
 RequestParams params = new RequestParams();
 params.put("q", "android");
 params.put("rsz", "8");
-client.get("https://ajax.googleapis.com/ajax/services/search/images", params, 
-    new JsonHttpResponseHandler() {    	    
+client.get(url, params, new JsonHttpResponseHandler() {    	    
     @Override
     public void onSuccess(JSONObject response) {
        // Handle resulting parsed JSON response here
