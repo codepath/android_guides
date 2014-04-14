@@ -135,11 +135,11 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		ivBasicImage = (ImageView) findViewById(R.id.ivBasicImage);
 		String url = "http://2.gravatar.com/avatar/858dfac47ab8176458c005414d3f0c36?s=128&d=&r=G";
-                // Download image from URL and display within ImageView
+		// Download image from URL and display within ImageView
 		new ImageDownloadTask().execute(url);
 	}
         
-        // Defines the background task to download and then load the image within the ImageView
+	// Defines the background task to download and then load the image within the ImageView
 	private class ImageDownloadTask extends AsyncTask<String, Void, Bitmap> {
 		protected Bitmap doInBackground(String... addresses) {
 			// Convert string to URL
@@ -152,7 +152,7 @@ public class MainActivity extends Activity {
 			return bitmap;
 		}
                
-                // Returns the URL object based on the address given
+		// Returns the URL object based on the address given
 		private URL getUrlFromString(String address) {
 			URL url;
 			try {
@@ -163,7 +163,7 @@ public class MainActivity extends Activity {
 			return url;
 		}
 
-                // Returns an input stream by connecting to the given URL
+		// Returns an input stream by connecting to the given URL
 		private InputStream getInputStream(URL url) {
 			InputStream in;
 			// Open connection
@@ -178,7 +178,7 @@ public class MainActivity extends Activity {
 			return in;
 		}
                 
-                // Convert the input stream into a Bitmap object using BitmapFactory
+		// Convert the input stream into a Bitmap object using BitmapFactory
 		private Bitmap decodeBitmap(InputStream in) {
 			Bitmap bitmap;
 			try {
@@ -193,7 +193,7 @@ public class MainActivity extends Activity {
 			return bitmap;
 		}
                 
-                // Fires after the task is completed, displaying the bitmap into the ImageView
+		// Fires after the task is completed, displaying the bitmap into the ImageView
 		@Override
 		protected void onPostExecute(Bitmap result) {
 			// Set bitmap image for the result
