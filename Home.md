@@ -121,6 +121,7 @@ Exploring the strategies for data persistence:
 * [[Persisting Data to the Device]] (Preferences, Files, SQLite, ORMs)
 * [[ActiveAndroid ORM References|ActiveAndroid Guide]] (and Q&A)
 * [[Storing and Accessing SharedPreferences]]
+* [[Settings with PreferenceFragment]] (**Needs Attention**)
 
 ## Fragments
 
@@ -132,7 +133,6 @@ Understanding how to build powerful and flexible views using Fragments:
 * [[DialogFragment Overview|Using DialogFragment]]
 * [[Flexible User Interfaces]] (with Fragments)
 * [[ViewPager with FragmentPagerAdapter]]
-* [[Settings with PreferenceFragment]] (**Needs Attention**)
 
 ## Providers, Sensors and Components
 
