@@ -106,12 +106,12 @@ Exploring how to allow user interaction and navigation within an app:
 
 Diving into the networking, model and persistence layers for data-driven apps:
 
-* [[Creating and Executing Async Tasks]] (Long-running Background Tasks)
-* [[Handling ProgressBars]] (with Long-Running Tasks)
 * [[Sending and Managing Network Requests]] (API Calls, Image Downloading)
 * [[Persisting Data to the Device]] (Preferences, Files, SQLite, ORMs)
 * [[Converting JSON to Models]] (JSON => Objects Deserialization)
 * [[ActiveAndroid ORM References|ActiveAndroid Guide]] (and Q&A)
+* [[Creating and Executing Async Tasks]] (Long-running Background Tasks)
+* [[Handling ProgressBars]] (with Long-Running Tasks)
 * [[RottenTomatoes Networking Tutorial]]
 * [[Networking with the Volley Library]]
 * [[Storing and Accessing SharedPreferences]]
