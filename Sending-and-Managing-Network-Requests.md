@@ -58,7 +58,8 @@ AsyncHttpClient client = new AsyncHttpClient();
 RequestParams params = new RequestParams();
 params.put("q", "android");
 params.put("rsz", "8");
-client.get("https://ajax.googleapis.com/ajax/services/search/images", params, new JsonHttpResponseHandler() {    	    
+client.get("https://ajax.googleapis.com/ajax/services/search/images", params, 
+    new JsonHttpResponseHandler() {    	    
     @Override
     public void onSuccess(JSONObject response) {
        // Handle resulting parsed JSON response here
