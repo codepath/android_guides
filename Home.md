@@ -102,20 +102,25 @@ Exploring how to allow user interaction and navigation within an app:
 * [[Sharing Content with Intents]] (and ShareActionProvider)
 * [[Using Parcelable]] (Pass data fast between activities)
 
-## Networking, Models and Persistence
+## Networking and Models
 
-Diving into the networking, model and persistence layers for data-driven apps:
+Diving into the networking and model layers for data-driven apps:
 
 * [[Sending and Managing Network Requests]] (API Calls, Image Downloading)
-* [[Persisting Data to the Device]] (Preferences, Files, SQLite, ORMs)
 * [[Converting JSON to Models]] (JSON => Objects Deserialization)
-* [[ActiveAndroid ORM References|ActiveAndroid Guide]] (and Q&A)
 * [[Creating and Executing Async Tasks]] (Long-running Background Tasks)
 * [[Handling ProgressBars]] (with Long-Running Tasks)
 * [[RottenTomatoes Networking Tutorial]]
 * [[Networking with the Volley Library]]
-* [[Storing and Accessing SharedPreferences]]
 * [[Building Data-driven Apps with Parse]]
+
+## Persistence
+
+Exploring the strategies for data persistence:
+
+* [[Persisting Data to the Device]] (Preferences, Files, SQLite, ORMs)
+* [[ActiveAndroid ORM References|ActiveAndroid Guide]] (and Q&A)
+* [[Storing and Accessing SharedPreferences]]
 
 ## Fragments
 
