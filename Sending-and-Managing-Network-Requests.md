@@ -71,9 +71,7 @@ The request will be sent out with the appropriate parameters passed in the query
 
 ### Sending an Authenticated API Request
 
-API requests tend to be JSON or XML responses that are sent to a server and then the result needs to be parsed and processed as data models on the client.
-
-In addition, many API requests require authentication in order to identify the user making the request. This is typically done with a standard [OAuth](http://oauth.net/2/) process for authentication.
+API requests tend to be JSON or XML responses that are sent to a server and then the result needs to be parsed and processed as data models on the client. In addition, many API requests require authentication in order to identify the user making the request. This is typically done with a standard [OAuth](http://oauth.net/2/) process for authentication.
 
 We have created a library to make this as simple as possible called [android-oauth-handler](https://github.com/thecodepath/android-oauth-handler) and a skeleton app to act as a template for a simple rest client called [android-rest-client-template](https://github.com/thecodepath/android-rest-client-template). You can see the details of these libraries by checking out their READMEs.
 
