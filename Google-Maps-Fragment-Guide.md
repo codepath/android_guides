@@ -161,7 +161,13 @@ Fill in your API Key into the meta data for `com.google.android.maps.v2.API_KEY`
 </application>
 ```
 
-Now we need to **include Google Play Services project** as a library to use in our demo app. So right click on project and select "Properties". In the Properties window on left side select "Android". On the right you can see a Add button under library section. Click it and select google play services project which we imported previously.
+#### Include the Google Play Services Library
+
+**Android Studio users:** You need to install the "Google Repository" through the Android Studio SDK Manager. Gradle will pull the Google Play Services library from there.
+
+![Google Repository](http://i.imgur.com/azsdjaz.png)
+
+**Eclipse users:** You need to **include Google Play Services project** as a library to use in our demo app. So right click on project and select "Properties". In the Properties window on left side select "Android". On the right you can see a Add button under library section. Click it and select google play services project which we imported previously.
 
 ![Library](http://i.imgur.com/9dsbUBP.png)
 
