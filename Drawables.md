@@ -254,7 +254,7 @@ Now the button shows up nicely but doesn't have any "pressed" or "focused" state
 
 This describes the look of the button in all three major states (default, pressed and focused). Now we need to create two more Shape drawable states. One for `res/drawable/nice_button_pressed.xml` and another for `res/drawable/nice_button_focused.xml`:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
     <gradient
