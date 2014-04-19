@@ -10,6 +10,8 @@ One approach is to use the [Parse Push](https://parse.com/tutorials/android-push
 
 Check out [this official tutorial](https://parse.com/tutorials/android-push-notifications) for a step-by-step guide to sending simple push notifications. Full source code can be [found on Github](https://github.com/ParsePlatform/PushTutorial). For full details and options, check out the [official parse Push guide](https://parse.com/docs/push_guide#setup/Android). 
 
+**Running into issues?** Check out the [push troubleshooting guide](https://parse.com/docs/push_guide#troubleshooting/Android). Also compare your app with this [sample reference app](https://github.com/thecodepath/ParsePushNotificationExample/tree/master/src/com/test).
+
 ### Receiving Push Notifications
 
 Check out the [Receiving Push Guide](https://parse.com/docs/push_guide#receiving/Android) for a basic overview of receiving Push messages within an Android app. There are two basic ways to receive push notifications.
