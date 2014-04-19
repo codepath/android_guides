@@ -47,7 +47,15 @@ A few quick things to help make implementing push notifications easier:
 
 ## Google Cloud Messaging
 
-(**Needs Attention**)
+Check out these external links below:
+
+ * <http://developer.android.com/google/gcm/gs.html>
+ * [AndroidHive GCM Tutorial](http://www.androidhive.info/2012/10/android-push-notifications-using-google-cloud-messaging-gcm-php-and-mysql/)
+ * <https://developers.google.com/cloud/samples/mbs/android/enable_push>
+ * <http://javapapers.com/android/google-cloud-messaging-gcm-for-android-and-push-notifications/>
+ * <http://hmkcode.com/android-google-cloud-messaging-tutorial/>
+
+(**Needs Attention**) 
 
 ## References
 
