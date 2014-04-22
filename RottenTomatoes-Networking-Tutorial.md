@@ -122,7 +122,7 @@ Add the proper internet permissions to the `AndroidManifest.xml` within the `man
 <uses-permission android:name="android.permission.INTERNET" /> 
 ```
 
-Once you add this, network requests can be executed.
+Once you add this, network requests can be executed.  Make sure that the permissions are not defined before the <application>...</application> is declared.  Otherwise, you may notice that your network requests are quietly being ignored.
 
 ### Setup Basic Activity Layout
 
