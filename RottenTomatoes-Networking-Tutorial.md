@@ -89,17 +89,18 @@ Let's also install a library for remote image loading called [Picasso](http://re
 
 Drop those jars into the "libs" folder of our Android app before continuing (_Eclipse_).
 
-Or, include the following to our build.gradle file (_Android Studio_).
+_Android Studio_ users:
+
+You can also drop these jars into the "libs" folder.  Make sure to use the Add as Library...option (control-    click on the library file).  Recheck inside build.gradle to verify that the dependencies have been added:
 
 ```
-repositories {
-    mavenCentral()
-}
 dependencies {
-    compile 'com.squareup.picasso:picasso:2.2.0'
-    compile 'com.loopj.android:android-async-http:1.4.3'
+    compile files('libs/android-async-http-1.4.3.jar')
+    compile files('libs/picasso-2.1.1.jar')
 }
 ```
+
+_Android Studio_ also allows you to use add the files without needing to download them yourself. Go to Project Structure -> Modules-> Dependencies.  Click on + -> Library Dependency and add "com.squareup.picasso:picasso:2.2.0" and "com.loopj.android:android-async-http:1.4.3". 
 
 ### Download Assets
 
