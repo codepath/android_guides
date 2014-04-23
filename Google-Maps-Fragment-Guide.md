@@ -213,7 +213,7 @@ Hopefully with these troubleshooting steps you have gotten things working!
 
 ### Map Access Across Computers
 
-Often when collaborating on a project with others, you need to have the maps work across multiple computers. The problem is that the map sha-1 fingerprint is different from computer to computer and thus by default the maps will only work on the computer that was used to generate the key.
+Often when collaborating on a project with others, you need to have the maps work across multiple computers. The problem is that the map key fingerprint is different from computer to computer and thus by default the maps will only work on the computer that was used to generate the key.
 
 The simplest fix is described in detail within [this stack overflow post](http://stackoverflow.com/a/9653946/313399) but in short you can get the `debug.keystore` from one of the team members, check that into git and then instruct other team members to replace their `debug.keystore` file with the one from repository. See also [this link](http://groups.google.com/group/android-developers/browse_thread/thread/c9051635ab37f252) and [this guide](http://developer.android.com/guide/publishing/app-signing.html#debugmode). 
 
