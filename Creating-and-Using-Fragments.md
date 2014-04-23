@@ -457,6 +457,7 @@ to this approach instead leveraging `add`, `show`, and `hide` in the `FragmentTr
 
 // Replace the switch method
 protected void displayFragmentA() {
+    FragmentTransaction ft = getSupportFragmentManager();
     if (fragmentA.isAdded()) { // if the fragment is already in container
         ft.show(fragmentA);
     } else { // fragment needs to be added to frame container
@@ -466,6 +467,8 @@ protected void displayFragmentA() {
     if (fragmentB.isAdded()) { ft.hide(fragmentB); }
     // Hide fragment C
     if (fragmentC.isAdded()) { ft.hide(fragmentC); }
+    // Commit changes
+    ft.commit();
 }
 ```
 
