@@ -69,7 +69,8 @@ Intent intent = new Intent(this, SomeActivity.class);
 //   public static PendingIntent getActivity (Context context, int requestCode, 
 //     Intent intent, int flags)
 //Note : the flags is an important parameter
-// if flag == 0, the extras set to intent for first time ever will be sent always irrespective of what you set //to intent everytime
+// if flag == 0, the extras set to intent for first time ever will be sent always irrespective of what you set
+//to intent everytime
 // Set flag to PendingIntent.FLAG_UPDATE_CURRENT to pass updated extras set to Intent
 PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, flags);
 // Now we can attach this to the notification using setContentIntent
