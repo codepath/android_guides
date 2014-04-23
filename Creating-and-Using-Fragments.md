@@ -420,6 +420,57 @@ if (fragmentManager.getBackStackEntryCount() > 0) {
 
 With this approach, we can easily keep the history of which fragments have appeared dynamically on screen and allow the user to easily navigate to previous fragments.
 
+### Fragment Hiding vs Replace
+
+In many of the examples above, we call `transaction.replace(...)` to load a dynamic fragment which first removes the existing fragment from the activity invoking `onStop` and `onDestroy` for that fragment before adding the new fragment to the container. This can be good because this will release memory and make the UI snappier. However, in many cases, we may want to keep both fragments around and simply switch their visibility. This allows all fragments to maintain their state more effectively. To do this, we might change:
+
+```java
+// Within an activity
+
+private FragmentA fragmentA;
+private FragmentB fragmentB;
+private FragmentC fragmentC;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    if (savedInstanceState == null) {
+        fragmentA = FragmentA.newInstance("foo");
+        fragmentB = FragmentB.newInstance("bar");
+        fragmentC = FragmentC.newInstance("baz");
+    }
+}
+
+protected void displayFragmentA() {
+    FragmentTransaction ft = getSupportFragmentManager();
+    // removes the existing fragment calling onDestroy
+    ft.replace(R.id.flContainer, fragmentA); 
+    ft.commit();
+}
+```
+
+to this instead leveraging `add`, `show`, and `hide` in the `FragmentTransaction`:
+
+```java
+// ...
+
+// Replacing switch method above
+protected void displayFragmentA() {
+    if (fragmentA.isAdded()) { // if the fragment is already in container
+        ft.show(fragmentA);
+    } else { // fragment needs to be added to frame container
+        ft.add(R.id.flContainer, fragmentA, "A");
+    }
+    // Hide fragment B
+    if (fragmentB.isAdded()) { ft.hide(fragmentB); }
+    // Hide fragment C
+    if (fragmentC.isAdded()) { ft.hide(fragmentC); }
+}
+```
+
+Using this approach, all three fragments will remain in the container once added initially and then we are simply revealing the desired fragment and hiding the others within the container. Check out [this stackoverflow](http://stackoverflow.com/a/13185025/313399) for a discussion on deciding when to replace vs hide and show.
+
 ## References
 
  * <http://developer.android.com/reference/android/app/Fragment.html>
