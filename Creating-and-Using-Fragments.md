@@ -422,7 +422,7 @@ With this approach, we can easily keep the history of which fragments have appea
 
 ### Fragment Hiding vs Replace
 
-In many of the examples above, we call `transaction.replace(...)` to load a dynamic fragment which first removes the existing fragment from the activity invoking `onStop` and `onDestroy` for that fragment before adding the new fragment to the container. This can be good because this will release memory and make the UI snappier. However, in many cases, we may want to keep both fragments around and simply switch their visibility. This allows all fragments to maintain their state more effectively. To do this, we might change:
+In many of the examples above, we call `transaction.replace(...)` to load a dynamic fragment which first removes the existing fragment from the activity invoking `onStop` and `onDestroy` for that fragment before adding the new fragment to the container. This can be good because this will release memory and make the UI snappier. However, in many cases, we may want to keep both fragments around in the container and simply toggle their visibility. This allows all fragments to maintain their state because they are never removed from the container. To do this, we might modify this code:
 
 ```java
 // Within an activity
@@ -450,12 +450,12 @@ protected void displayFragmentA() {
 }
 ```
 
-to this instead leveraging `add`, `show`, and `hide` in the `FragmentTransaction`:
+to this approach instead leveraging `add`, `show`, and `hide` in the `FragmentTransaction`:
 
 ```java
-// ...
+// ...onCreate stays the same
 
-// Replacing switch method above
+// Replace the switch method
 protected void displayFragmentA() {
     if (fragmentA.isAdded()) { // if the fragment is already in container
         ft.show(fragmentA);
