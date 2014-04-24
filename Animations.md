@@ -73,7 +73,7 @@ AnimatorSet set = new AnimatorSet();
 set.playTogether(
     ObjectAnimator.ofFloat(tvLabel, "scaleX", 1.0f, 2.0f)
 	.setDuration(2000),
-    ObjectAnimator.ofFloat(tvLabel, "scaleX", 1.0f, 2.0f)
+    ObjectAnimator.ofFloat(tvLabel, "scaleY", 1.0f, 2.0f)
         .setDuration(2000),
     ObjectAnimator.ofObject(tvLabel, "backgroundColor", new ArgbEvaluator(),
           /*Red*/0xFFFF8080, /*Blue*/0xFF8080FF)
