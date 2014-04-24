@@ -182,7 +182,7 @@ Now we want to run the map demo, and if everything went well we should see:
 
 At this point, you should have the Google map displaying in your sample application. If you don't, try restarting the emulator and uninstalling / reinstalling the map demo application. Eventually you will see the maps if you registered your key properly.
 
-For more information including how to use the maps, check out the source of this article on [androidhive](http://www.androidhive.info/2013/08/android-working-with-google-maps-v2/).
+For more information including how to use the maps, check out the source of the [Maps Usage Cliffnotes|Google-Maps-API-v2-Usage] as well as this article on [androidhive](http://www.androidhive.info/2013/08/android-working-with-google-maps-v2/).
 
 ### Troubleshooting
 
