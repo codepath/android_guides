@@ -4,7 +4,7 @@ If you find yourself highly dissatisfied with developing with Eclipse (i.e. havi
 
 Since [version 0.4](http://tools.android.com/recent/androidstudio040released), Android Studio now has the ability to import your Eclipse projects directly.  When you do the import, your Java and XML resource files are relocated to src/main/java and src/main/res respectively.  Gradle looks explicitly in the src/main directory and can compile successfully but will fail to include your .class files if they are not located in these particular directories.
 
-The plugin will also generate a build.gradle.  An example of what the file format is shown at: https://github.com/thecodepath/android_guides/wiki/Getting-Started-with-Gradle
+The plugin will also generate a build.gradle.  An example of what the file format is shown in the [[Gradle cliffnotes|Getting-Started-with-Gradle]].
 
 ## Dependency Configurations
 
