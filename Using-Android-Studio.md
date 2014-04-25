@@ -1,4 +1,4 @@
-If you find yourself highly dissatisfied with developing with Eclipse (i.e. having to restart whenever recompiles somehow don't work, too many window panes to find, poor XML editing/validation, etc.), you may wish to download a copy of Android Studio (http://developer.android.com/sdk/installing/studio.html).  It currently is alpha and there are updates to the IDE every week, so be forewarned.  It is based on the [JetBrains](http://jetbrains.com) family of IDE's, but made free for Android developers.
+If you find yourself highly dissatisfied with developing with Eclipse (i.e. having to restart whenever recompiles somehow don't work, too many window panes to find, poor XML editing/validation, etc.), you may wish to download a copy of Android Studio (http://developer.android.com/sdk/installing/studio.html).  It currently is beta and there are updates to the IDE every week, so be forewarned.  It is based on the [JetBrains](http://jetbrains.com) family of IDE's, but made free for Android developers.
 
 ## Migrating from Eclipse
 
