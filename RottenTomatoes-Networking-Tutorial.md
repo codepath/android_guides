@@ -102,8 +102,6 @@ dependencies {
 }
 ```
 
-_Android Studio_ also allows you to use add the files without needing to download them yourself. Go to Project Structure -> Modules-> Dependencies.  Click on + -> Library Dependency and add "com.squareup.picasso:picasso:2.2.0" and "com.loopj.android:android-async-http:1.4.3". 
-
 ### Download Assets
 
 Make sure to download the two placeholder movie posters:
