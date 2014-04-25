@@ -1,4 +1,4 @@
-If you find yourself highly dissatisfied with developing with Eclipse (i.e. having to restart whenever recompiles somehow don't work, too many window panes to find, poor XML editing/validation, etc.), you may wish to download a copy of Android Studio (http://developer.android.com/sdk/installing/studio.html).  It currently is beta and there are updates to the IDE every week, but the constant improvements are making it better (see http://tools.android.com/recent for more detials).  This program is based on the [JetBrains](http://jetbrains.com) family of IDE's, so if you're used IntelliJ, PyCharms, or RubyMine, you'll fine the user experience very familiar.  Fortunately, this IDE is made free for Android developers.
+If you find yourself highly dissatisfied with developing with Eclipse (i.e. having to restart whenever recompiles somehow don't work, too many window panes to find, poor XML editing/validation, etc.), you may wish to download a copy of [Android Studio](http://developer.android.com/sdk/installing/studio.html).  It currently is beta and there are updates to the IDE every week, but the constant improvements are making it better (see [recent tools page](http://tools.android.com/recent) for more details).  This program is based on the [JetBrains](http://jetbrains.com) family of IDE's, so if you're used IntelliJ, PyCharms, or RubyMine, you'll fine the user experience very familiar.  Fortunately, this IDE is made free for Android developers.
 
 ## Migrating from Eclipse
 
@@ -7,6 +7,7 @@ Since [version 0.4](http://tools.android.com/recent/androidstudio040released), A
 The plugin will also generate a build.gradle.  An example of what the file format is shown at: https://github.com/thecodepath/android_guides/wiki/Getting-Started-with-Gradle
 
 ## Dependency Configurations
+
 Android Studio gives you the option of using several different dependency management configurations.  Normally when you import existing projects, it tries looking for Maven or Gradle-based project files (pom.xml or build.gradle respectively).  You cannot switch dependency management systems after you've selected one. 
 
 ## Using Gradle in Android Studio
