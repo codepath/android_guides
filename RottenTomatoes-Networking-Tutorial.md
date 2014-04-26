@@ -432,7 +432,7 @@ public class BoxOfficeMoviesAdapter extends ArrayAdapter<BoxOfficeMovie> {
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
         	LayoutInflater inflater = LayoutInflater.from(getContext());
-        	convertView = inflater.inflate(R.layout.item_box_office_movie, null);
+        	convertView = inflater.inflate(R.layout.item_box_office_movie, parent, false);
         }
         // Lookup views within item layout
         TextView tvTitle = (TextView) convertView.findViewById(R.id.tvTitle);
