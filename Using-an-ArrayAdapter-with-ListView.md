@@ -107,7 +107,7 @@ public class UsersAdapter extends ArrayAdapter<User> {
        User user = getItem(position);    
        // Check if an existing view is being reused, otherwise inflate the view
        if (convertView == null) {
-          convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_user, null);
+          convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_user, parent, false);
        }
        // Lookup view for data population
        TextView tvName = (TextView) convertView.findViewById(R.id.tvName);
@@ -188,7 +188,7 @@ public class UsersAdapter extends ArrayAdapter<User> {
        if (convertView == null) {
           viewHolder = new ViewHolder();
           LayoutInflater inflater = LayoutInflater.from(getContext());
-          convertView = inflater.inflate(R.layout.item_user, null);
+          convertView = inflater.inflate(R.layout.item_user, parent, false);
           viewHolder.name = (TextView) convertView.findViewById(R.id.tvName);
           viewHolder.home = (TextView) convertView.findViewById(R.id.tvHome);
           convertView.setTag(viewHolder);
