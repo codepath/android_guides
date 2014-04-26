@@ -93,7 +93,7 @@ Drop those jars into the "libs" folder of our Android app before continuing
 
 _Android Studio_ users:
 
-You can also drop these jars into the "libs" folder too and add each file by right-clicking and choosing the Add as Library option (right click on the .jar file), or you can simply edit the build.gradle file and add them as dependencies that can be downloaded via a remote repository:
+You can also drop these jars into the "libs" folder too and add each file by right-clicking on the .jar file and choosing the Add as Library option, or you can simply edit the build.gradle file and add them as dependencies that can be downloaded via a remote repository:
 
 ```
 repositories {
