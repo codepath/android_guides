@@ -30,10 +30,13 @@ Read more about [[us and our vision for all this|The CodePath Goal]]. If you wan
 * [Setting up the Android Development Tools](http://goo.gl/Ml9YN) (Installation Slides)
 * [Architecture of Mobile Apps](http://goo.gl/AAsGLx) (Concept Slides)
 * [Developing our First App Using Eclipse](http://goo.gl/pBKfYP) (Step-by-Step Todo App)
-* [Developing our First App Using Android Studio](http://goo.gl/iwozwi) (Step-by-Step Todo App)
 * [[Troubleshooting Common Issues]] (Running into problems?)
 * [[Sample Android Apps]] (Code repositories)
+
+**Using Android Studio?** See below.
+
 * [Setting up Android Studio](http://goo.gl/X2SVFR) (Experimental Install Slides)
+* [Developing our First App Using Android Studio](http://goo.gl/iwozwi) (Step-by-Step Todo App)
 
 ## Structure
 
