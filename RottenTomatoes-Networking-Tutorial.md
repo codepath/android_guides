@@ -93,12 +93,15 @@ Drop those jars into the "libs" folder of our Android app before continuing
 
 _Android Studio_ users:
 
-You can drop these jars into the "libs" folder.  Make sure to use the Add as Library...option (control-    click on the library file).  Recheck inside build.gradle to verify that the dependencies have been added:
+You can also drop these jars into the "libs" folder too and add each file by right-clicking and choosing the Add as Library option (right click on the .jar file), or you can simply edit the build.gradle file and add them as Maven dependencies:
 
 ```
+repositories {
+    mavenCentral()
+}
 dependencies {
-    compile files('libs/android-async-http-1.4.3.jar')
-    compile files('libs/picasso-2.1.1.jar')
+    compile 'com.squareup.picasso:picasso:2.2.0'
+    compile 'com.loopj.android:android-async-http:1.4.3'
 }
 ```
 
