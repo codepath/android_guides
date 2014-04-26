@@ -209,3 +209,4 @@ In this example we also have a private static class called `ViewHolder`.  Making
 ## References
 
  * <http://lucasr.org/2012/04/05/performance-tips-for-androids-listview/>
+ * <http://www.doubleencore.com/2013/05/layout-inflation-as-intended/>
