@@ -44,9 +44,12 @@ SSH to your build server.
     $ ssh ari@ci.mydomain.com:9222
 
 Go to your build environment's home directory.
+
     $ sudo su ciandroid
     $ cd
+
 Make yourself a directory for downloads.
+
     $ mkdir downloads
     $ cd downloads
 
