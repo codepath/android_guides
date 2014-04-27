@@ -181,14 +181,13 @@ All of the following screenshots are intended as a starting point only.
 
 SCREENSHOT PARTY
 
-Run Your Build
---------------
+### Run Your Build
 
-Once your Jenkins job has been created, give it a go. Click `Build Now` on the job page. If it didn't succeed for any reason, `Console Output` under the page for the failed build will tell you the reason. Don't get discouraged!
+Once your Jenkins job has been created, give it a go. Click **Build Now** on the job page. If the build didn't succeed for any reason, `Console Output` under the page for the failed build will help you debug it. Don't get discouraged!
 
-When the build has succeeded, Gradle will put your build APK in a `/build` directory in your project's location on the build machine. 
+When the build has succeeded, Gradle will put your build APK in a `/build` directory in your project's location in `/ci` on the build machine. 
 
-Congratulations on a passing build!
+Congratulations on building your Android project automatically!
 
 References:
 https://ingorichter.blogspot.com/2012/02/jenkins-change-workspaces
