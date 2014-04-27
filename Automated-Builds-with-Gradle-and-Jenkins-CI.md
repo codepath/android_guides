@@ -36,7 +36,7 @@ You'll need `wget`. Check that you've got it:
 If it's not installed, [go get it](http://osxdaily.com/2012/05/22/install-wget-mac-os-x/). (My build machine is a Mac.)
 
 ### Install Android SDK
-This guide is written with the assumption that you've gone ahead to create a user environment for your Android builds. So, your work will be separate from any other activities on the build machine, but you need to remember to make these changes as the build node user.
+Let's assume you've decided to make an environment for your Android builds. So, your work will be separate from any other activities on the build machine, but you need to remember to make these changes as the build node user.
 
 I have found it helpful to have two accounts on the build server, my own account `ari` with superuser privileges, and then the `ciandroid` account with normal user privileges. If you've created an Android user as I recommend, but you logged in as your superuser, remember to `sudo su ciandroid` (using the password of your own account, _not_ the ciandroid password). Install Gradle and the Android SDK within the `ciandroid` home directory.
 
