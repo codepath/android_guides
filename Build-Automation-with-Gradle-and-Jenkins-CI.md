@@ -4,7 +4,7 @@ This tutorial reflects the author's workplace build environment, with [Jenkins C
 
 ## Build Your Project Locally
 Use your local machine as a testbed to keep track of your environment configuration: 
-your `$PATH` environment variable, and the other environment variables you set in order to get Gradle to run. This step is ready as soon as you can run `gradle assemble` in your project and see `BUILD SUCCESSFUL`.
+your `PATH` environment variable, and the other environment variables you set in order to get Gradle to run. This step is ready as soon as you can run `gradle assemble` in your project and see `BUILD SUCCESSFUL`.
 
 ### Confirm Your Jenkins Configuration
 This tutorial presumes that you already have a Jenkins installation running.
@@ -63,10 +63,9 @@ Also download the Gradle binary. Remember, you want Gradle 1.6.
 
     $ wget https://services.gradle.org/distributions/gradle-1.6-bin.zip'
 
-Unzip both of these directories and place the contents in their own locations within your home directory. The directory names can be anything you like, but I like the following setup:
+Unzip both of these directories and place the contents in their own locations within your home directory. The directory names can be anything you like, but I like the following setup. The Gradle binary is in `/Users/ciandroid/bin/` and the Android SDK is in `/Users/ciandroid/src/`.
 
  ![Directory structure on the build server](https://dl.dropboxusercontent.com/u/10808663/gradle_jenkins_android/directories_on_build_server.png)
-The Gradle binary is in `/Users/ciandroid/bin/` and the Android SDK is in `/Users/ciandroid/src/`.
 
 Now it's time to set your build environment's `PATH` variable and other variables that Jenkins will use to locate Android and Gradle.
 
@@ -89,9 +88,9 @@ Save and quit your editor. Reload `.bash_profile`:
 ### Install Android SDK Packages
 For this step, it's especially helpful to have GUI access to the build server. Installing particular Android SDK packages from the command line is tricky. So if you have not already done so, use VNC to connect to your build machine and open a terminal there.
 
-SCREENSHOT: Android SDK package manager
+![Android SDK manager on build machine](https://dl.dropboxusercontent.com/u/10808663/gradle_jenkins_android/android_sdk_manager.png)
 
-At the prompt, type `android` and hit Enter to launch the Android SDK Manager in a window. If this doesn't work, your `$PATH` variable has not been set up with the Android SDK location.   
+At the prompt, type `android` and hit Enter to launch the Android SDK Manager in a window. If this doesn't work, your `PATH` variable has not been set up with the Android SDK location.   
 
 You will want to install the same Android SDK packages on your build machine as you did to get Gradle running locally. Before you begin, take a look at the `build.gradle` file in your project.
 
