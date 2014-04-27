@@ -55,7 +55,7 @@ Now download the Android SDK without Eclipse bundled. Go to [Android SDK](http:/
 
 ![List of Android SDK downloads from developers.android.com](https://dl.dropboxusercontent.com/u/10808663/gradle_jenkins_android/sdk_downloads.png)
 
-In a shell on your build machine, `wget` the correct SDK URL:
+On your build machine, `wget` the correct SDK URL:
 
     $ wget http://dl.google.com/android/android-sdk_r22.6.2-macosx.zip
 
@@ -81,7 +81,7 @@ Make your `.bash_profile` look like the following, replacing paths as needed:
     export GRADLE_HOME=/Users/ciandroid/gradle-1.6
     export PATH=$PATH:GRADLE_HOME/bin
 
-Save and quit your editor. Reload `.bash_profile`:
+Save the file and quit your editor. Reload `.bash_profile`:
 
     $ source ~./bash_profile
  
@@ -113,8 +113,8 @@ then make sure to download that API version in the Android SDK Manager.
 Download the complete SDK package set for the API levels that you named in the `android: compileSdkVersion` section of your `build.gradle` file.
 
 #### Extras
-Android Support Repository
-Android Support Library
+* Android Support Repository
+* Android Support Library
 
 ### Load your Test Project on the Build Server
 Your environment should be ready to go! You can type `gradle` at a prompt to see that it's installed. 
@@ -137,27 +137,31 @@ In your build environment, create a directory for Android project source code, a
 
 Hopefully, this is what you'll get:
 
-SCREENSHOT: BUILD SUCCESSFUL
+![Successful build output](https://dl.dropboxusercontent.com/u/10808663/gradle_jenkins_android/build_successful.png)
     
 ### Configure Jenkins
 Now you are ready to set up Jenkins to build for you.
 
-Pre-existing settings on your build machine may cause your setup to vary from these directions. Since I was already using a separate Jenkins node for other projects, I created a node for the Android project. The following steps in this section aren't necessary if you are building all Jenkins jobs within the same user environment.
+Pre-existing settings on your build machine may cause your setup to vary from these directions. Since I was already using a separate Jenkins node for other projects, I created a node for the Android project. You can skip to [Create the Build Job](#create-the-build-job) if, instead, you are building all Jenkins jobs within the same user environment.
 
 SCREENSHOT: JENKINS CONFIGURATION
 
 ### Set Up SSH Keys
 If you are using SSH key authentication to connect Jenkins, your `ciandroid` user will need its own SSH key pair. In my work environment, I already had a key pair ready to drop into a `/Users/ciandroid/.ssh` directory. When you set up SSH keys for your build environment, make certain that the `.ssh/` directory and contents are owned by the build environment user (`ciandroid`) and not by any other user. Use `chown` on the  `.ssh/` directory to fix it if necessary. 
 
-Using the menus in the Jenkins UI, go to **Jenkins** -> **Manage Jenkins** -> **Manage Nodes** -> **New Node**. Select "Dumb Slave" and give it a name like `android`.
+### Create the Build Node
+Using the menus in the Jenkins UI, go to **Jenkins** -> **Manage Jenkins** -> **Manage Nodes** -> **New Node**. Select "Dumb Slave" and give it the name `android`.
 
-SCREENSHOT: CONFIGURATION
+![Creating a build node](https://dl.dropboxusercontent.com/u/10808663/gradle_jenkins_android/create_android_build_node.png)
 
 You'll need to provide your own values for your **Host** and **Credentials** settings, tailored to your own systems. But make sure to set **Remote FS root** with the `ci/` path you created earlier. Also ensure that **Environment Variables** is checked under the **Node Properties** section, and fill in values for `ANDROID_HOME` and `PATH`.
 
 When you set this up, a Jenkins jarfile called `slave.jar` will be downloaded into your node environment `ci/` directory.
 
+### Create the Build Job
 Now you have a Jenkins node that's capable of running jobs. You're ready to create the Jenkins job that actually runs the build.
+
+![Creating a new job](https://dl.dropboxusercontent.com/u/10808663/gradle_jenkins_android/create_new_build.png)
 
 Go back to the Jenkins main page and hit **New Item**. Give the job a name and select "Build a free-style software project." In the job configuration screen that follows, you will do all the setup to tell Jenkins about your source.
 
