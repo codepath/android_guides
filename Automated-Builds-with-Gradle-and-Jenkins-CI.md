@@ -14,6 +14,7 @@ Go to your Jenkins environment through the web UI and determine whether it's run
 In my workspace configuration, Jenkins was set up with multiple node environments because the same machine is used to build iOS and Django projects.
 
 Here's how to determine whether Jenkins is already set up to sandbox projects in their own environments. 
+
 1. On the build machine, are there already other user accounts corresponding to other projects?
 2. On Jenkins UI, when you go to "Manage Jenkins" -> "Configure Jenkins", do you see multiple nodes?
 
