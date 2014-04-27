@@ -14,8 +14,13 @@ Android Studio gives you the option of using several different dependency manage
 
 When you make changes to the build.gradle, the changes should now be reflected in the IDE.  You may have target SDK versions conflicts (i.e. Facebook SDK targets for API versions above 17), so you may need to resolve your Gradle configurations to be consistent.
 
-Android Studio should update the build.gradle file if you try to add dependencies.  For instance, if you Ctrl-click on a .jar file inside your libs/ directory, you should be able to "Add as Library".  This will automatically add the entry as a dependency in the build.gradle file.
+Android Studio should update the build.gradle file if you try to add dependencies. Any .jar files in the libs/ directory are already incorporated at compile time.  You can verify this fact by opening the Gradle file for the specific module you're using:
 
+```
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+```
 Also, you should be able to do the same with Maven dependencies.  go to Project Structure -> Modules-> Dependencies. Click on + -> Library Dependency and add modules such as "com.loopj.android:android-async-http:1.4.3".   Double-check the build.gradle file to see that this change was added.
 
 Regardless, you should keep track of what gets changed in the build.gradle since that is ultimately the file Android Studio uses to handle dependency management.
