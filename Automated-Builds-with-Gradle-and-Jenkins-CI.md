@@ -29,6 +29,7 @@ SCREENSHOT: how to do all of that
 Whether you are using the default environment or working with a build node, your machine is ready to be customized for Android and Gradle. You'll be re-creating many features of your local development environment.
 
 You'll need `wget`. Check that you've got it:
+
 `which wget`
 
 If it's not installed, [http://osxdaily.com/2012/05/22/install-wget-mac-os-x/ install it]. (My build machine is a Mac.)
