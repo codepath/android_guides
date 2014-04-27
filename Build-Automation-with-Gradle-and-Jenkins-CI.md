@@ -144,8 +144,6 @@ Now you are ready to set up Jenkins to build for you.
 
 Pre-existing settings on your build machine may cause your setup to vary from these directions. Since I was already using a separate Jenkins node for other projects, I created a node for the Android project. You can skip to [Create the Build Job](#create-the-build-job) if, instead, you are building all Jenkins jobs within the same user environment.
 
-SCREENSHOT: JENKINS CONFIGURATION
-
 ### Set Up SSH Keys
 If you are using SSH key authentication to connect Jenkins, your `ciandroid` user will need its own SSH key pair. In my work environment, I already had a key pair ready to drop into a `/Users/ciandroid/.ssh` directory. When you set up SSH keys for your build environment, make certain that the `.ssh/` directory and contents are owned by the build environment user (`ciandroid`) and not by any other user. Use `chown` on the  `.ssh/` directory to fix it if necessary. 
 
@@ -179,15 +177,23 @@ Make sure you hit "Save" after all this work!
 
 All of the following screenshots are intended as a starting point only.
 
-SCREENSHOT PARTY
+![Screenshot 1](https://dl.dropboxusercontent.com/u/10808663/gradle_jenkins_android/create_job1.png)
+
+![Screenshot 2](https://dl.dropboxusercontent.com/u/10808663/gradle_jenkins_android/create_job2.png)
+
+![Screenshot 3](https://dl.dropboxusercontent.com/u/10808663/gradle_jenkins_android/create_job3.png)
+
+![Screenshot 4](https://dl.dropboxusercontent.com/u/10808663/gradle_jenkins_android/create_job4.png)
 
 ### Run Your Build
 Once your Jenkins job has been created, give it a go. Click **Build Now** on the job page. If the build didn't succeed for any reason, **Console Output** under the page for the failed build will help you debug it. Don't get discouraged!
 
 When the build has succeeded, Gradle will put your build APK in a `build/` directory in your project's location in `ci/` on the build machine. 
 
-Congratulations on building your Android project automatically!
+From here, you can configure Jenkins to build on push, run tests automatically, and upload APKs to a deployment system such as [Hockey](hockeyapp.net).
+
+Congratulations on building your Android project! 
 
 ## References
-* https://ingorichter.blogspot.com/2012/02/jenkins-change-workspaces
+* http://ingorichter.blogspot.com/2012/02/jenkins-change-workspaces-and-build.html
 * http://www.ericrgon.com/android-with-circle-ci/ - extra tips on building with CircleCI
