@@ -48,28 +48,30 @@ Make yourself a directory for downloads.
     $ mkdir downloads
     $ cd downloads
 
-## Set Up the Android Environment
-Now download the Android SDK without Eclipse bundled. Go to [Android SDK](http://developer.android.com/sdk/index.html) and copy the URL to the the SDK Tools Only download that's appropriate for your build machine OS.
+### Set Up the Android Environment
+Now download the Android SDK without Eclipse bundled. Go to [Android SDK](http://developer.android.com/sdk/index.html) and copy the URL for the **SDK Tools Only** download that's appropriate for your build machine OS.
 
 SCREENSHOT: download_sdk_tools.png
 
 In a shell on your build machine, `wget` the correct SDK URL:
+
     $ wget http://dl.google.com/android/android-sdk_r22.6.2-macosx.zip
+
 Also download the Gradle binary. Remember, you want Gradle 1.6.
+
     $ wget https://services.gradle.org/distributions/gradle-1.6-bin.zip'
+
 Unzip both of these directories and place the contents in their own locations within your home directory. The directory names can be anything you like, but I like the following setup:
 
 SCREENSHOT: directories 
 
 The Gradle binary is in `/Users/ciandroid/bin/` and the Android SDK is in `/Users/ciandroid/src/`.
 
-Now it's time to set your build environment's PATH variable and other variables that Jenkins will use to locate Android and Gradle.
+Now it's time to set your build environment's `PATH` variable and other variables that Jenkins will use to locate Android and Gradle.
 
-Change to your CI environment's home directory (`ciandroid` home dir) and edit your .bash_profile file. 
+`cd` to your CI environment's home directory (`ciandroid` home dir) and edit your `.bash_profile` file. If you're not using bash, edit the right config file for your environment.
 
-(If you're not using bash, edit the right config file for your environment.)
-
-Make your `.bash_profile` look like the following, replacing paths as needed for your OS:
+Make your `.bash_profile` look like the following, replacing paths as needed:
 
     # Android 
     export ANDROID_HOME=/Users/ciandroid/android-sdk-macosx
