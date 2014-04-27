@@ -1,6 +1,6 @@
 Once you've begun to use Gradle to build and test projects (see [Getting Started with Gradle](https://github.com/thecodepath/android_guides/wiki/Getting-Started-with-Gradle)), you might like to build automatically, run tests on every push to master, and push your builds to a deployment system.
  
-This tutorial reflects the author's workplace build environment, with [Jenkins CI](http://jenkins-ci.org/) running on a build server on the local network. You may be able to adapt this guide if you are using [http://docs.travis-ci.com/user/languages/java/ Travis CI] or [https://circleci.com/docs/android CircleCI].
+This tutorial reflects the author's workplace build environment, with [Jenkins CI](http://jenkins-ci.org/) running on a build server on the local network. You may be able to adapt this guide if you are using [http://docs.travis-ci.com/user/languages/java/](Travis CI) or [https://circleci.com/docs/android]( CircleCI).
 
 ## Build Your Project Locally
 Use your local machine as a testbed to keep track of your environment configuration: 
@@ -19,14 +19,14 @@ Here's how to determine whether Jenkins is already set up to sandbox projects in
 
 SCREENSHOT: Manage Jenkins->Configure Jenkins
 
-If this is the case, you should set up an environment just for your Android build tasks. 
+If this is the case, you should set up a node environment just for your Android build tasks. 
 
 You'll be creating a new user account on the Jenkins server, linking this account to a new virtual node configuration that runs on that user account, and then configuring your Jenkins job to run on the new node. 
 
 SCREENSHOT: how to do all of that 
 
-
-Whether you are using the default account or working with a build node, your environment is ready to be customized for Android and Gradle. You'll be re-creating your local development environment to run Gradle on the remote server.
+## Configure Your Build Machine
+Whether you are using the default environment or working with a build node, your machine is ready to be customized for Android and Gradle. You'll be re-creating many features of your local development environment.
 
 You'll need `wget`. Check that you've got it:
 `which wget`
@@ -34,24 +34,18 @@ You'll need `wget`. Check that you've got it:
 If it's not installed, [http://osxdaily.com/2012/05/22/install-wget-mac-os-x/ install it]. (My build machine is a Mac.)
 
 ### Install Android SDK
-This guide is written with the assumption that you've gone ahead to create a user environment for your Android builds. So, your work will be separate from any other activities on the build machine, but you need to remember to make these changes as the Android user.
+This guide is written with the assumption that you've gone ahead to create a user environment for your Android builds. So, your work will be separate from any other activities on the build machine, but you need to remember to make these changes as the build node user.
 
-I have found it helpful to have two accounts on the build server, my own account `ari` with root privileges, and then a `ciandroid` account with normal user privileges. If you've created an Android user as I recommend, but you logged in as your own user, remember to `sudo su ciandroid` (using the password of your ADMIN account, not the ciandroid password). Install Gradle and Android within the `ciandroid` home directory.
+I have found it helpful to have two accounts on the build server, my own account `ari` with root privileges, and then the `ciandroid` account with normal user privileges. If you've created an Android user as I recommend, but you logged in as your own user, remember to `sudo su ciandroid` (using the password of your ADMIN account, not the ciandroid password). Install Gradle and Android within the `ciandroid` home directory.
 
 SSH to your build server.
-   
-`ssh ari@ci.mydomain.com:9222`
-
-Accounts on your build server:
-Wait a minute... `ari`?
-
+    $ ssh ari@ci.mydomain.com:9222
 Go to your build environment's home directory.
-
-`sudo su ciandroid
-cd ~`
-
-Make yourself a directory for downloads:
-`mkdir downloads; cd downloads`
+    $ sudo su ciandroid
+    $ cd
+Make yourself a directory for downloads.
+    $ mkdir downloads
+    $ cd downloads
 
 ## Set Up the Android Environment
 Now download the Android SDK without Eclipse bundled. Go to [Android SDK](http://developer.android.com/sdk/index.html) and copy the URL to the the SDK Tools Only download that's appropriate for your build machine OS.
