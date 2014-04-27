@@ -53,7 +53,7 @@ Go to your build environment's home directory.
 
 Now download the Android SDK without Eclipse bundled. Go to [Android SDK](http://developer.android.com/sdk/index.html) and copy the URL for the **SDK Tools Only** download that's appropriate for your build machine OS.
 
-SCREENSHOT: download_sdk_tools.png
+![List of Android SDK downloads from developers.android.com](https://dl.dropboxusercontent.com/u/10808663/gradle_jenkins_android/sdk_downloads.png)
 
 In a shell on your build machine, `wget` the correct SDK URL:
 
@@ -65,8 +65,7 @@ Also download the Gradle binary. Remember, you want Gradle 1.6.
 
 Unzip both of these directories and place the contents in their own locations within your home directory. The directory names can be anything you like, but I like the following setup:
 
-SCREENSHOT: directories 
-
+ ![Directory structure on the build server](https://dl.dropboxusercontent.com/u/10808663/gradle_jenkins_android/directories_on_build_server.png)
 The Gradle binary is in `/Users/ciandroid/bin/` and the Android SDK is in `/Users/ciandroid/src/`.
 
 Now it's time to set your build environment's `PATH` variable and other variables that Jenkins will use to locate Android and Gradle.
