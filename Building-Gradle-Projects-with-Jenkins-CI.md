@@ -79,7 +79,7 @@ Make your `.bash_profile` look like the following, replacing paths as needed:
     export GRADLE_HOME=/Users/ciandroid/gradle-1.6
     export PATH=$PATH:GRADLE_HOME/bin
 
-Save the file and quit your editor. Reload `.bash_profile`:
+Save and quit. Reload `.bash_profile`:
 
     $ source ~./bash_profile
  
