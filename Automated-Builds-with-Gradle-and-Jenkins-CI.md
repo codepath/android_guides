@@ -35,7 +35,6 @@ You'll need `wget`. Check that you've got it:
 
 If it's not installed, [go get it](http://osxdaily.com/2012/05/22/install-wget-mac-os-x/). (My build machine is a Mac.)
 
-### Install Android SDK
 Let's assume you've decided to make an environment for your Android builds. So, your work will be separate from any other activities on the build machine, but you need to remember to make these changes as the build node user.
 
 I have found it helpful to have two accounts on the build server, my own account `ari` with superuser privileges, and then the `ciandroid` account with normal user privileges. If you've created an Android user as I recommend, but you logged in as your superuser, remember to `sudo su ciandroid` (using the password of your own account, _not_ the ciandroid password). Install Gradle and the Android SDK within the `ciandroid` home directory.
@@ -54,7 +53,7 @@ Make yourself a directory for downloads.
     $ mkdir downloads
     $ cd downloads
 
-### Set Up the Android Environment
+### Install the Android SDK
 Now download the Android SDK without Eclipse bundled. Go to [Android SDK](http://developer.android.com/sdk/index.html) and copy the URL for the **SDK Tools Only** download that's appropriate for your build machine OS.
 
 SCREENSHOT: download_sdk_tools.png
@@ -83,7 +82,7 @@ Make your `.bash_profile` look like the following, replacing paths as needed:
     export ANDROID_HOME=/Users/ciandroid/android-sdk-macosx
     export PATH=$PATH:$ANDROID_HOME/tools
 
-	# Gradle
+    # Gradle
     export GRADLE_HOME=/Users/ciandroid/gradle-1.6
     export PATH=$PATH:GRADLE_HOME/bin
 
