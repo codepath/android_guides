@@ -37,7 +37,7 @@ Let's create a build node. I have found it helpful to create two accounts on the
 
 SSH to your build server.
 
-    $ ssh ari@ci.mydomain.com:9222
+    $ ssh ari@ci.mydomain.com:9229
 
 Become the build node user with `su`, and go to your build environment's home directory.
 
