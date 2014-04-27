@@ -40,7 +40,9 @@ This guide is written with the assumption that you've gone ahead to create a use
 I have found it helpful to have two accounts on the build server, my own account `ari` with root privileges, and then the `ciandroid` account with normal user privileges. If you've created an Android user as I recommend, but you logged in as your own user, remember to `sudo su ciandroid` (using the password of your ADMIN account, not the ciandroid password). Install Gradle and Android within the `ciandroid` home directory.
 
 SSH to your build server.
+
     $ ssh ari@ci.mydomain.com:9222
+
 Go to your build environment's home directory.
     $ sudo su ciandroid
     $ cd
@@ -82,10 +84,10 @@ Make your `.bash_profile` look like the following, replacing paths as needed:
     export PATH=$PATH:GRADLE_HOME/bin
 
 Save and quit your editor. Reload `.bash_profile`:
-`$ source ~./bash_profile `    
+
+    $ source ~./bash_profile
  
-Install Android SDK Packages
-----------------------------
+### Install Android SDK Packages
 For this step, it's especially helpful to have GUI access to the build server. Installing particular Android SDK packages from the command line is tricky. So if you have not already done so, use VNC to connect to your build machine and open a terminal there.
 
 SCREENSHOT: Android SDK package manager
@@ -96,11 +98,11 @@ You will want to install the same Android SDK packages on your build machine as 
 
 Here are the SDK packages names you'll definitely need:
 
-Tools > 
-Android SDK Tools (latest version)
-Android SDK Platform-tools (latest version)
-Android SDK Build-tools (latest version)
-Android SDK Build-tools for the version of Android that you listed in the `build.gradle` file as the `android: buildToolsVersion` target. If your `build.gradle` says 
+#### Tools
+* Android SDK Tools (latest version)
+* Android SDK Platform-tools (latest version)
+* Android SDK Build-tools (latest version)
+* Android SDK Build-tools for the version of Android that you listed in the `build.gradle` file as the `android: buildToolsVersion` target. If your `build.gradle` says 
 
     android {
         buildToolsVersion '17'
@@ -109,16 +111,14 @@ Android SDK Build-tools for the version of Android that you listed in the `build
     
 then make sure to download that API version in the Android SDK Manager. 
 
-Android API >
+#### Android API
 Download the complete SDK package set for the API levels that you named in the `android: compileSdkVersion` section of your `build.gradle` file.
 
-Extras >
+#### Extras
 Android Support Repository
 Android Support Library
 
-
-Load your Test Project on the Build Server
-------------------------------------------
+### Load your Test Project on the Build Server
 Your environment should be ready to go! You can type `gradle` at a prompt to see that it's installed. 
 
 Now you need to get your project onto the build server so that Jenkins can find it.
@@ -126,6 +126,7 @@ Now you need to get your project onto the build server so that Jenkins can find 
 Again, if you are using separate environments for different projects (as suggested), make sure you are the `ciandroid` user in your build environment and that you are in the home directory for that user.
 
 In your build environment, create a directory for Android project source code, and check out your project from version control into that location. I put my projects in `/Users/ciandroid/ci/`.
+
     $ whoami
     ciandroid
     $ cd ~/ci; pwd
