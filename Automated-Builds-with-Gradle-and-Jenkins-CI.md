@@ -6,19 +6,19 @@ This tutorial reflects the author's workplace build environment, with [Jenkins C
 Use your local machine as a testbed to keep track of your environment configuration: 
 your `$PATH` environment variable, and the other environment variables you set in order to get Gradle to run. This step is ready as soon as you can run `gradle assemble` in your project and see `BUILD SUCCESSFUL`.
 
-### Understand Your Jenkins Configuration
+### Confirm Your Jenkins Configuration
 This tutorial presumes that you already have a Jenkins installation running.
 
-Go to your Jenkins environment through the web UI and determine whether it's running all jobs as the same user, or is configured to use separate user accounts for different jobs. A basic Jenkins configuration will use only one user account on its host server. If you currently have no jobs configured or the existing jobs are all sharing the Jenkins default environment, you can skip ahead to "Set Up the Android Environment", but do consider migrating to the build node approach with a separate user!
+Go to your Jenkins environment through the web UI and determine whether it's running all jobs as the same user, or is configured to use separate user accounts for different jobs. A basic Jenkins configuration will use only one user account on its host server. If you currently have no jobs configured or the existing jobs are all sharing the Jenkins default environment, you can skip ahead to [Install the Android SDK](#install-the-android-sdk), but do consider migrating to the build node approach with a separate user!
 
 In my workspace configuration, Jenkins was set up with multiple node environments because the same machine is used to build iOS and Django projects.
 
 Here's how to determine whether Jenkins is already set up to sandbox projects in their own environments. 
 
 1. On the build machine, are there already other user accounts corresponding to other projects?
-2. On Jenkins UI, when you go to "Manage Jenkins" -> "Configure Jenkins", do you see multiple nodes?
+2. On Jenkins UI, when you go to **Manage Jenkins** -> **Configure Jenkins**, do you see multiple nodes?
 
-![List of all nodes on this Jenkins host](https://www.dropbox.com/s/cl2sri3bol1o6ox/ss_nodes_list.png)
+![List of all nodes on this Jenkins host](https://dl.dropboxusercontent.com/u/10808663/gradle_jenkins_android/nodes_list.png)
 
 If this is the case, you should set up a node environment just for your Android build tasks. 
 
@@ -35,9 +35,9 @@ You'll need `wget`. Check that you've got it:
 
 If it's not installed, [go get it](http://osxdaily.com/2012/05/22/install-wget-mac-os-x/). (My build machine is a Mac.)
 
-Let's assume you've decided to make an environment for your Android builds. So, your work will be separate from any other activities on the build machine, but you need to remember to make these changes as the build node user.
+Let's create a build node. So, your work will be separate from any other activities on the build machine, but you need to remember to make these changes as the build node user.
 
-I have found it helpful to have two accounts on the build server, my own account `ari` with superuser privileges, and then the `ciandroid` account with normal user privileges. If you've created an Android user as I recommend, but you logged in as your superuser, remember to `sudo su ciandroid` (using the password of your own account, _not_ the ciandroid password). Install Gradle and the Android SDK within the `ciandroid` home directory.
+I have found it helpful to have two accounts on the build server, my own account `ari` with superuser privileges, and then the `ciandroid` account with normal user privileges. If you've created an Android user as I recommend, but you logged in as your superuser, remember to `sudo su ciandroid` (using the password of your own account, _not_ the `ciandroid` password). Install Gradle and the Android SDK within the `ciandroid` home directory.
 
 SSH to your build server.
 
@@ -48,12 +48,9 @@ Go to your build environment's home directory.
     $ sudo su ciandroid
     $ cd
 
-Make yourself a directory for downloads.
-
-    $ mkdir downloads
-    $ cd downloads
-
 ### Install the Android SDK
+`cd` to your home directory (`/Users/ciandroid`), or your preferred folder for file downloads.
+
 Now download the Android SDK without Eclipse bundled. Go to [Android SDK](http://developer.android.com/sdk/index.html) and copy the URL for the **SDK Tools Only** download that's appropriate for your build machine OS.
 
 SCREENSHOT: download_sdk_tools.png
