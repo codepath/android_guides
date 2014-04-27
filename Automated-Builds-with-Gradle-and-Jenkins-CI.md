@@ -1,4 +1,4 @@
-Once you've begun to use Gradle to build and test projects (see [Getting Started with Gradle](https://github.com/thecodepath/android_guides/wiki/Getting-Started-with-Gradle)), you might like to build automatically, run tests on every push to master, and push your builds to a deployment system.
+Once you've begun to use Gradle to build and test projects (see [Getting Started with Gradle](https://github.com/thecodepath/android_guides/wiki/Getting-Started-with-Gradle)), you might like to build automatically, run tests on every push to your repo, and push your builds to a deployment system.
  
 This tutorial reflects the author's workplace build environment, with [Jenkins CI](http://jenkins-ci.org/) running on a build server on the local network. You may be able to adapt this guide if you are using [Travis CI](http://docs.travis-ci.com/user/languages/java/) or [CircleCI](https://circleci.com/docs/android/).
 
@@ -32,12 +32,12 @@ You'll need `wget`. Check that you've got it:
 
 `which wget`
 
-If it's not installed, [http://osxdaily.com/2012/05/22/install-wget-mac-os-x/ install it]. (My build machine is a Mac.)
+If it's not installed, [go get it](http://osxdaily.com/2012/05/22/install-wget-mac-os-x/). (My build machine is a Mac.)
 
 ### Install Android SDK
 This guide is written with the assumption that you've gone ahead to create a user environment for your Android builds. So, your work will be separate from any other activities on the build machine, but you need to remember to make these changes as the build node user.
 
-I have found it helpful to have two accounts on the build server, my own account `ari` with root privileges, and then the `ciandroid` account with normal user privileges. If you've created an Android user as I recommend, but you logged in as your own user, remember to `sudo su ciandroid` (using the password of your ADMIN account, not the ciandroid password). Install Gradle and Android within the `ciandroid` home directory.
+I have found it helpful to have two accounts on the build server, my own account `ari` with superuser privileges, and then the `ciandroid` account with normal user privileges. If you've created an Android user as I recommend, but you logged in as your superuser, remember to `sudo su ciandroid` (using the password of your own account, _not_ the ciandroid password). Install Gradle and the Android SDK within the `ciandroid` home directory.
 
 SSH to your build server.
 
