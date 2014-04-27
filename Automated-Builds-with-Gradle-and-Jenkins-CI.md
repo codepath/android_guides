@@ -3,8 +3,9 @@ Once you've begun to use Gradle to build and test projects (see [Getting Started
 This tutorial reflects the author's workplace build environment, with [Jenkins CI](http://jenkins-ci.org/) running on a build server on the local network. You may be able to adapt this guide if you are using [http://docs.travis-ci.com/user/languages/java/ Travis CI] or [https://circleci.com/docs/android CircleCI].
 
 Get Ready
-=========
-1. Build your project with Gradle on your local machine.
+---------
+Build your project with Gradle on your local machine
+
 Use your local machine as a testbed to keep track of your environment configuration: 
 your $PATH environment variable, and the other environment variables you set in order to get Gradle to run. This step is ready as soon as you can run `gradle assemble` in your project and see `BUILD SUCCESSFUL`.
 
