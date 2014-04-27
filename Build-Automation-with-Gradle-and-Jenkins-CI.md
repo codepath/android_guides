@@ -172,7 +172,7 @@ Jenkins build configurations can have many steps. The key fields you want to loo
  * Build Triggers
  * Build
  
-Also, look for an "Advanced" button just below the `Restrict where this project can be run` setting. This is where Jenkins hides the setting for the source code path on your build node. The `workspace` part of this path is like a variable name for the default source path you added when you set up the Jenkins node. So, `workspace/` stands in for `/Users/ciandroid/ci/`. 
+Also, look for an "Advanced" button just below the `Restrict where this project can be run` setting. This is where Jenkins hides the setting for the source code path on your build node. The `workspace` part of this path is like a variable name for the **Remote FS root** path you added when you set up the Jenkins node. So, `workspace/` stands in for `/Users/ciandroid/ci/`. 
 
 Under the **Build** heading, add shell execute statements with the "Add build step" tool:
 * `gradle clean`
