@@ -24,10 +24,8 @@ If this is the case, you should set up a node environment just for your Android 
 
 You'll be creating a new user account on the Jenkins server, linking this account to a new virtual node configuration that runs on that user account, and then configuring your Jenkins job to run on the new node. 
 
-SCREENSHOT: how to do all of that 
-
 ## Configure Your Build Machine
-Whether you are using the default environment or working with a build node, your machine is ready to be customized for Android and Gradle. You'll be re-creating many features of your local development environment.
+Your machine is ready to be customized for Android and Gradle. You'll be re-creating many features of your local development environment.
 
 You'll need `wget`. Check that you've got it:
 
@@ -35,21 +33,21 @@ You'll need `wget`. Check that you've got it:
 
 If it's not installed, [go get it](http://osxdaily.com/2012/05/22/install-wget-mac-os-x/). (My build machine is a Mac.)
 
-Let's create a build node. So, your work will be separate from any other activities on the build machine, but you need to remember to make these changes as the build node user.
-
-I have found it helpful to have two accounts on the build server, my own account `ari` with superuser privileges, and then the `ciandroid` account with normal user privileges. If you've created an Android user as I recommend, but you logged in as your superuser, remember to `sudo su ciandroid` (using the password of your own account, _not_ the `ciandroid` password). Install Gradle and the Android SDK within the `ciandroid` home directory.
+Let's create a build node. I have found it helpful to create two accounts on the build server, my own account `ari` with superuser privileges, and then the `ciandroid` account with normal user privileges. 
 
 SSH to your build server.
 
     $ ssh ari@ci.mydomain.com:9222
 
-Go to your build environment's home directory.
+Become the build node user with `su`, and go to your build environment's home directory.
 
     $ sudo su ciandroid
     $ cd
 
+Note: if `su` prompts you for a password, it wants your **superuser** password, not the account password for the `ciandroid` user.
+
 ### Install the Android SDK
-`cd` to your home directory (`/Users/ciandroid`), or your preferred folder for file downloads.
+`cd` to your home directory (`/Users/ciandroid`), or your preferred place for file downloads.
 
 Now download the Android SDK without Eclipse bundled. Go to [Android SDK](http://developer.android.com/sdk/index.html) and copy the URL for the **SDK Tools Only** download that's appropriate for your build machine OS.
 
@@ -161,7 +159,6 @@ One more detail: My build machine uses SSH on a nonstandard port. If this sounds
     Port: [your machine's SSH port number]
     JVM Options: -Djava.awt.headless=true
    
-
 ### Create the Build Job
 Now you have a Jenkins node that's capable of running jobs. You're ready to create the Jenkins job that actually runs the build.
 
@@ -175,6 +172,8 @@ Jenkins build configurations can have many steps. The key fields you want to loo
  * Build Triggers
  * Build
  
+Also, look for an "Advanced" button just below the `Restrict where this project can be run` setting. This is where Jenkins hides the setting for the source code path on your build node. The `workspace` part of this path is like a variable name for the default source path you added when you set up the Jenkins node. So, `workspace/` stands in for `/Users/ciandroid/ci/`. 
+
 Under the **Build** heading, add shell execute statements with the "Add build step" tool:
 * `gradle clean`
 * `gradle assemble`
@@ -186,6 +185,8 @@ All of the following screenshots are intended as a starting point only.
 ![Screenshot 1](https://dl.dropboxusercontent.com/u/10808663/gradle_jenkins_android/create_job1.png)
 
 ![Screenshot 2](https://dl.dropboxusercontent.com/u/10808663/gradle_jenkins_android/create_job2.png)
+
+![Setting the node source location](https://dl.dropboxusercontent.com/u/10808663/gradle_jenkins_android/create_job_node_source.png)
 
 ![Screenshot 3](https://dl.dropboxusercontent.com/u/10808663/gradle_jenkins_android/create_job3.png)
 
