@@ -124,7 +124,6 @@ Now you need to get your project onto the build server so that Jenkins can find 
 Again, if you are using separate environments for different projects (as suggested), make sure you are the `ciandroid` user in your build environment and that you are in the home directory for that user.
 
 In your build environment, create a directory for Android project source code, and check out your project from version control into that location. I put my projects in `/Users/ciandroid/ci/`.
-
     $ whoami
     ciandroid
     $ cd ~/ci; pwd
@@ -132,25 +131,22 @@ In your build environment, create a directory for Android project source code, a
     $ git clone git@bitbucket.org/my_repo/project.git
     Cloning into 'project'...
 
-Try Running Gradle
-------------------
+### Try Running Gradle
 `cd` into the project directory on your build machine. Make sure you see your `build.gradle` file, and run `gradle assemble`.
 
 Hopefully, this is what you'll get:
 
 SCREENSHOT: BUILD SUCCESSFUL
     
-Configure Jenkins
------------------
+### Configure Jenkins
 Now you are ready to set up Jenkins to build for you.
 
-Pre-existing settings on your build machine may cause your setup to vary from these directions. Since I was already using a separate Jenkins node for other projects, I created a node for the Android project using the configuration webpage. The following steps in this portion aren't necessary if you are building all Jenkins jobs within the same user environment.
+Pre-existing settings on your build machine may cause your setup to vary from these directions. Since I was already using a separate Jenkins node for other projects, I created a node for the Android project. The following steps in this section aren't necessary if you are building all Jenkins jobs within the same user environment.
 
 SCREENSHOT: JENKINS CONFIGURATION
 
-Set Up SSH Keys
----------------
-If you are using SSH authentication to connect Jenkins, your `ciandroid` user will need its own SSH key pair. In my work environment, I already had a key pair ready to drop into a /Users/ciandroid/.ssh directory. When you set up SSH keys for your build environment, make certain that the `.ssh/` directory and contents are owned by the build environment user (`ciandroid`) and not by any other user. Use `chown` on the  `.ssh/` directory to fix it if necessary. 
+### Set Up SSH Keys
+If you are using SSH key authentication to connect Jenkins, your `ciandroid` user will need its own SSH key pair. In my work environment, I already had a key pair ready to drop into a `/Users/ciandroid/.ssh` directory. When you set up SSH keys for your build environment, make certain that the `.ssh/` directory and contents are owned by the build environment user (`ciandroid`) and not by any other user. Use `chown` on the  `.ssh/` directory to fix it if necessary. 
 
 Using the menus in the Jenkins UI, go to **Jenkins** -> **Manage Jenkins** -> **Manage Nodes** -> **New Node**. Select "Dumb Slave" and give it a name like `android`.
 
@@ -158,11 +154,11 @@ SCREENSHOT: CONFIGURATION
 
 You'll need to provide your own values for your **Host** and **Credentials** settings, tailored to your own systems. But make sure to set **Remote FS root** with the `ci/` path you created earlier. Also ensure that **Environment Variables** is checked under the **Node Properties** section, and fill in values for `ANDROID_HOME` and `PATH`.
 
-When you set this up, a Jenkins jarfile called `slave.jar` will be downloaded into your node environment `ci` directory.
+When you set this up, a Jenkins jarfile called `slave.jar` will be downloaded into your node environment `ci/` directory.
 
 Now you have a Jenkins node that's capable of running jobs. You're ready to create the Jenkins job that actually runs the build.
 
-Go back to the Jenkins main page and hit "New Item". Give the job a name and select "Build a free-style software project." In the screen that follows, the job configuration, you will do all the setup to tell Jenkins about your source.
+Go back to the Jenkins main page and hit **New Item**. Give the job a name and select "Build a free-style software project." In the job configuration screen that follows, you will do all the setup to tell Jenkins about your source.
 
 Jenkins build configurations can have many steps. The key fields you want to look out for are:
  * `Restrict where this project can be run`: give it the name of the build node you created
