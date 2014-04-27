@@ -2,46 +2,48 @@ Once you've begun to use Gradle to build and test projects (see [Getting Started
  
 This tutorial reflects the author's workplace build environment, with [Jenkins CI](http://jenkins-ci.org/) running on a build server on the local network. You may be able to adapt this guide if you are using [http://docs.travis-ci.com/user/languages/java/ Travis CI] or [https://circleci.com/docs/android CircleCI].
 
-Get Ready
----------
-Build your project with Gradle on your local machine
-
+## Build Your Project Locally
 Use your local machine as a testbed to keep track of your environment configuration: 
-your $PATH environment variable, and the other environment variables you set in order to get Gradle to run. This step is ready as soon as you can run `gradle assemble` in your project and see `BUILD SUCCESSFUL`.
+your `$PATH` environment variable, and the other environment variables you set in order to get Gradle to run. This step is ready as soon as you can run `gradle assemble` in your project and see `BUILD SUCCESSFUL`.
 
-Go to your Jenkins environment through the UI and determine whether Jenkins is running all jobs as the same user, or is configured to use separate user accounts for different jobs. A basic Jenkins configuration will use only one user account on its host server. If you currently have no jobs configured or the existing jobs are all sharing the Jenkins default environment, you can skip ahead to "Setting up the Android Environment", but do consider  migrating to the build node approach!
+### Understand Your Jenkins Configuration
+This tutorial presumes that you already have a Jenkins installation running.
+
+Go to your Jenkins environment through the web UI and determine whether it's running all jobs as the same user, or is configured to use separate user accounts for different jobs. A basic Jenkins configuration will use only one user account on its host server. If you currently have no jobs configured or the existing jobs are all sharing the Jenkins default environment, you can skip ahead to "Set Up the Android Environment", but do consider migrating to the build node approach with a separate user!
 
 In my workspace configuration, Jenkins was set up with multiple node environments because the same machine is used to build iOS and Django projects.
 
-Setting up an Android Build Node
-Assumes you want to sandbox Android behavior in its own user account. Two ways to figure out whether this applies in your build environment: 1) on the build machine, are there already other user accounts corresponding to other projects? 2) on Jenkins UI, when you go to "Manage Jenkins" -> "Configure Jenkins" do you see multiple nodes?
+Here's how to determine whether Jenkins is already set up to sandbox projects in their own environments. 
+1. On the build machine, are there already other user accounts corresponding to other projects?
+2. On Jenkins UI, when you go to "Manage Jenkins" -> "Configure Jenkins", do you see multiple nodes?
 
 SCREENSHOT: Manage Jenkins->Configure Jenkins
 
-If this is the case, you should follow suit and set up a environment just for your Android build tasks. you'll be creating a new user account on the Jenkins server, linking this account to a new virtual node configuration that runs on that user account, and then configuring your Jenkins job to run on the new node. 
+If this is the case, you should set up an environment just for your Android build tasks. 
+
+You'll be creating a new user account on the Jenkins server, linking this account to a new virtual node configuration that runs on that user account, and then configuring your Jenkins job to run on the new node. 
 
 SCREENSHOT: how to do all of that 
 
-Setting Up the Android Environment
-By now, whether you are using the default account or working with a build node, your environment is ready to be customized for Android and Gradle. You'll be re-creating your local development environment to run Gradle on the remote server.
+
+Whether you are using the default account or working with a build node, your environment is ready to be customized for Android and Gradle. You'll be re-creating your local development environment to run Gradle on the remote server.
 
 You'll need `wget`. Check that you've got it:
 `which wget`
 
-If it's not installed, [http://osxdaily.com/2012/05/22/install-wget-mac-os-x/ install it]. My build environment is a Mac.
+If it's not installed, [http://osxdaily.com/2012/05/22/install-wget-mac-os-x/ install it]. (My build machine is a Mac.)
 
-Install Android SDK
--------------------
+### Install Android SDK
+This guide is written with the assumption that you've gone ahead to create a user environment for your Android builds. So, your work will be separate from any other activities on the build machine, but you need to remember to make these changes as the Android user.
+
+I have found it helpful to have two accounts on the build server, my own account `ari` with root privileges, and then a `ciandroid` account with normal user privileges. If you've created an Android user as I recommend, but you logged in as your own user, remember to `sudo su ciandroid` (using the password of your ADMIN account, not the ciandroid password). Install Gradle and Android within the `ciandroid` home directory.
+
 SSH to your build server.
    
-`ssh ari@ci.companydomain.com:9222`
+`ssh ari@ci.mydomain.com:9222`
 
 Accounts on your build server:
 Wait a minute... `ari`?
-
-This guide is written with the assumption that you've gone ahead to create a user environment for your Android builds. So, your work will be separate from any other activities on the build machine, but you need to be careful to make these changes as the Android user. * ask Will
-
-I have found it helpful to have two accounts on the build server, my own account `ari` with root privileges, and then a `ciandroid` account with normal user privileges. If you've created an Android user as I recommend, but you logged in as your own user, remember to `sudo su ciandroid` (using the password of your ADMIN account, not the ciandroid password). Install Gradle and Android within the `ciandroid` home directory.
 
 Go to your build environment's home directory.
 
@@ -51,16 +53,15 @@ cd ~`
 Make yourself a directory for downloads:
 `mkdir downloads; cd downloads`
 
-Now download the Android SDK without Eclipse bundled. On your local machine, hit developer.android.com to grab a download link (just right-click on the "Download the SDK Tools" button to copy the URL to your clipboard.)
+## Set Up the Android Environment
+Now download the Android SDK without Eclipse bundled. Go to [Android SDK](http://developer.android.com/sdk/index.html) and copy the URL to the the SDK Tools Only download that's appropriate for your build machine OS.
 
 SCREENSHOT: download_sdk_tools.png
 
-`wget http://dl.google.com/android/android-sdk_r22.6.2-macosx.zip`
-
+In a shell on your build machine, `wget` the correct SDK URL:
+    $ wget http://dl.google.com/android/android-sdk_r22.6.2-macosx.zip
 Also download the Gradle binary. Remember, you want Gradle 1.6.
-
-'wget https://services.gradle.org/distributions/gradle-1.6-bin.zip'
-
+    $ wget https://services.gradle.org/distributions/gradle-1.6-bin.zip'
 Unzip both of these directories and place the contents in their own locations within your home directory. The directory names can be anything you like, but I like the following setup:
 
 SCREENSHOT: directories 
