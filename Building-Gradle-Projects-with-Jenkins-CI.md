@@ -92,7 +92,7 @@ At the prompt, type `android` and hit Enter to launch the Android SDK Manager in
 
 You will want to install the same Android SDK packages on your build machine as you did to get Gradle running locally. Before you begin, take a look at the `build.gradle` file in your project.
 
-Here are the SDK packages names you'll definitely need:
+Here are the SDK package names you'll definitely need:
 
 #### Tools
 * Android SDK Tools (latest version)
