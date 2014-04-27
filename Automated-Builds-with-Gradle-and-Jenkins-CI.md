@@ -18,7 +18,7 @@ Here's how to determine whether Jenkins is already set up to sandbox projects in
 1. On the build machine, are there already other user accounts corresponding to other projects?
 2. On Jenkins UI, when you go to "Manage Jenkins" -> "Configure Jenkins", do you see multiple nodes?
 
-SCREENSHOT: Manage Jenkins->Configure Jenkins
+![List of all nodes on this Jenkins host](https://www.dropbox.com/s/cl2sri3bol1o6ox/ss_nodes_list.png)
 
 If this is the case, you should set up a node environment just for your Android build tasks. 
 
