@@ -145,7 +145,7 @@ Now you are ready to set up Jenkins to build for you.
 Pre-existing settings on your build machine may cause your setup to vary from these directions. Since I was already using a separate Jenkins node for other projects, I created a node for the Android project. You can skip to [Create the Build Job](#create-the-build-job) if, instead, you are building all Jenkins jobs within the same user environment.
 
 ### Set Up SSH Keys
-If you are using SSH key authentication to connect Jenkins, your `ciandroid` user will need its own SSH key pair. In my work environment, I already had a key pair ready to drop into a `/Users/ciandroid/.ssh` directory. When you set up SSH keys for your build environment, make certain that the `.ssh/` directory and contents are owned by the build environment user (`ciandroid`) and not by any other user. Use `chown` on the  `.ssh/` directory to fix it if necessary. 
+If you are using SSH key authentication to connect Jenkins, your `ciandroid` user will need its own SSH key pair. In my work environment, I already had a key pair ready to drop into a `/Users/ciandroid/.ssh` directory. When you set up SSH keys for your build environment, make certain that the `.ssh/` directory and contents are owned by the build environment user (`ciandroid`) and not by any other user. Use `chown` on the  `.ssh/` directory to fix it if necessary.
 
 ### Create the Build Node
 Using the menus in the Jenkins UI, go to **Jenkins** -> **Manage Jenkins** -> **Manage Nodes** -> **New Node**. Select "Dumb Slave" and give it the name `android`.
@@ -154,7 +154,13 @@ Using the menus in the Jenkins UI, go to **Jenkins** -> **Manage Jenkins** -> **
 
 You'll need to provide your own values for your **Host** and **Credentials** settings, tailored to your own systems. But make sure to set **Remote FS root** with the `ci/` path you created earlier. Also ensure that **Environment Variables** is checked under the **Node Properties** section, and fill in values for `ANDROID_HOME` and `PATH`.
 
-When you set this up, a Jenkins jarfile called `slave.jar` will be downloaded into your node environment `ci/` directory.
+When you set this up, a Jenkins jarfile called `slave.jar` will be downloaded into your node environment `ci/` directory. 
+
+One more detail: My build machine uses SSH on a nonstandard port. If this sounds familiar, you may need to hit the "Advanced" button on the **Host** section and provide the following extra values in the hidden fields:
+
+    Port: [your machine's SSH port number]
+    JVM Options: -Djava.awt.headless=true
+   
 
 ### Create the Build Job
 Now you have a Jenkins node that's capable of running jobs. You're ready to create the Jenkins job that actually runs the build.
