@@ -140,10 +140,10 @@ Hopefully, this is what you'll get:
 ### Configure Jenkins
 Now you are ready to set up Jenkins to build for you.
 
-Pre-existing settings on your build machine may cause your setup to vary from these directions. Since I was already using a separate Jenkins node for other projects, I created a node for the Android project. You can skip to [Create the Build Job](#create-the-build-job) if, instead, you are building all Jenkins jobs within the same user environment.
+Pre-existing settings on your build machine may cause your setup to vary from these directions. You can skip to [Create the Build Job](#create-the-build-job) if you didn't set up an Android user environment, and instead you are building all Jenkins jobs within the same user environment.
 
 ### Set Up SSH Keys
-If you are using SSH key authentication to connect Jenkins, your `ciandroid` user will need its own SSH key pair. In my work environment, I already had a key pair ready to drop into a `/Users/ciandroid/.ssh` directory. When you set up SSH keys for your build environment, make certain that the `.ssh/` directory and contents are owned by the build environment user (`ciandroid`) and not by any other user. Use `chown` on the  `.ssh/` directory to fix it if necessary.
+If you are using SSH key authentication to connect Jenkins, your `ciandroid` user will need its own SSH key pair. In my work environment, I already had a key pair ready to drop into `/Users/ciandroid/.ssh`. When you set up SSH keys for your build environment, make certain that the `.ssh/` directory and contents are owned by the build environment user (`ciandroid`) and not by any other user. Use `chown` on the  `.ssh/` directory to fix it if necessary.
 
 ### Create the Build Node
 Using the menus in the Jenkins UI, go to **Jenkins** -> **Manage Jenkins** -> **Manage Nodes** -> **New Node**. Select "Dumb Slave" and give it the name `android`.
