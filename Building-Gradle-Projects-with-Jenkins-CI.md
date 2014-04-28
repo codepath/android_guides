@@ -146,7 +146,7 @@ Pre-existing settings on your build machine may cause your setup to vary from th
 If you are using SSH key authentication to connect Jenkins, your `ciandroid` user will need its own SSH key pair. In my work environment, I already had a key pair ready to drop into `/Users/ciandroid/.ssh`. When you set up SSH keys for your build environment, make certain that the `.ssh/` directory and contents are owned by the build environment user (`ciandroid`) and not by any other user. Use `chown` on the  `.ssh/` directory to fix it if necessary.
 
 ### Create the Build Node
-Using the menus in the Jenkins UI, go to **Jenkins** -> **Manage Jenkins** -> **Manage Nodes** -> **New Node**. Select "Dumb Slave" and give it the name `android`.
+Using the menus in the Jenkins UI, go to **Jenkins** -> **Manage Jenkins** -> **Manage Nodes** -> **New Node**. Select "Dumb Slave" and give it the name `ciandroid`.
 
 ![Creating a build node](https://dl.dropboxusercontent.com/u/10808663/gradle_jenkins_android/create_android_build_node.png)
 
