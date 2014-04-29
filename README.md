@@ -22,6 +22,7 @@ community members including:
 
  * [Vishal Kapoor](https://github.com/kapoor) (CodePath Alumni)
  * [Nidhi Shah](https://github.com/nidhi1608) (CodePath Alumni)
+ * [Vibhor Bharadwaj](https://github.com/vibhorB) (CodePath Alumni)
  * [Ari Lacenski](https://github.com/tensory) (CodePath Alumni)
  * [Chunyan Song](https://github.com/chunyan) (CodePath Alumni)
  * [Roger Hu](https://github.com/rogerhu) (CodePath Alumni)
