@@ -68,8 +68,7 @@ Intent intent = new Intent(this, SomeActivity.class);
 // Next, let's turn this into a PendingIntent using
 //   public static PendingIntent getActivity(Context context, int requestCode, 
 //       Intent intent, int flags)
-// unique request id to differentiate between various notification with same NotifId
-int requestID = (int) System.currentTimeMillis(); 
+int requestID = (int) System.currentTimeMillis(); //unique requestID to differentiate between various notification with same NotifId
 int flags = PendingIntent.FLAG_CANCEL_CURRENT; // cancel old intent and create new one
 PendingIntent pIntent = PendingIntent.getActivity(this, requestID, intent, flags);
 // Now we can attach this to the notification using setContentIntent
