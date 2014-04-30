@@ -42,6 +42,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Creating and Using Fragments]]
 * [[Fragment ActionBar Tabs|ActionBar Tabs with Fragments]]
 * [[Working with the ScrollView]]
+* [[Implementing Pull to Refresh]] Guide
 
 ### Week 5 - Hardware and SDK Components
 
@@ -83,7 +84,6 @@ Cliffnotes are references giving you the "most important" Android topics with br
   * [[Fragment ActionBar Tabs|ActionBar Tabs with Fragments]] Guide
   * [[Fragment Navigation Drawer]] Guide
   * [[ViewPager with FragmentPagerAdapter]] Guide
-* [[Implementing Pull to Refresh]] Guide
 * [[Implementing a Horizontal ListView]] Guide
 * [[Push Messaging]] (with Parse)
  
