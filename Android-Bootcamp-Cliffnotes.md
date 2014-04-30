@@ -21,6 +21,8 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Displaying Toasts]]
 * [[Using Intents to Create Flows]]
 * [[Common Implicit Intents]]
+* [[Endless Scrolling with AdapterViews]]
+* [[Sharing Content with Intents]] Guide
 
 ### Week 3 - Networking and Persistence
 
@@ -74,7 +76,6 @@ Cliffnotes are references giving you the "most important" Android topics with br
 
 ### Recommended
 
-* [[Endless Scrolling with AdapterViews]]
 * [[Extended ActionBar Guide]]
 * [[Menus and Popups]]
 * [[Using DialogFragment]]
@@ -82,7 +83,6 @@ Cliffnotes are references giving you the "most important" Android topics with br
   * [[Fragment ActionBar Tabs|ActionBar Tabs with Fragments]] Guide
   * [[Fragment Navigation Drawer]] Guide
   * [[ViewPager with FragmentPagerAdapter]] Guide
-* [[Sharing Content with Intents]] Guide
 * [[Implementing Pull to Refresh]] Guide
 * [[Implementing a Horizontal ListView]] Guide
 * [[Push Messaging]] (with Parse)
