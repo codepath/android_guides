@@ -54,10 +54,10 @@ Cliffnotes are references giving you the "most important" Android topics with br
 
 ### Week 6 - Drawables and Styles
 
+* [Customizing the User Interface](https://gist.github.com/nesquena/6c567083aec13d868017) Outline
 * [[Customize Appearance With Drawables|Drawables]]
 * [[Styles and Themes]]
 * [[Cloning a Login Screen Layout]]
-* [Customizing the User Interface](https://gist.github.com/nesquena/6c567083aec13d868017)
 * [[Android Design Guidelines]]
 
 ### Week 7 - Animations and Gestures
