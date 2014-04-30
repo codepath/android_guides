@@ -14,7 +14,7 @@ Ever been **frustrated finding information on outdated one-off blog posts and tu
 
 Read about our [mission to change the way engineers learn new technologies](https://github.com/thecodepath/android_guides/wiki/The-CodePath-Goal) and we would love for you to [get involved](https://github.com/thecodepath/android_guides/wiki/The-CodePath-Goal#how-do-i-help)! In addition, we are a fledgling startup so if you like this guide and what we are trying to do, please consider following us on twitter [@thecodepath](https://twitter.com/thecodepath) or [tipping via gittip](https://www.gittip.com/nesquena/)! 
 
-## Located in San Francisco?
+## Live in San Francisco?
 
 Located in the San Francisco Bay Area and interested in learning with others in a more structured program? Check out our local [Android](http://www.meetup.com/Learning-Android-Development) or [iOS](http://www.meetup.com/Learning-iOS-Development-SF/) meetup events. We have free evening events and at-cost 1-day workshops to make learning social and connect you with others passionate about mobile.
 
