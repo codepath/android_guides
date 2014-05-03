@@ -25,7 +25,7 @@ These are the best tools for distributing beta builds for your apps:
 
 * [TestFairy](http://blog.testfairy.com/testflight-sdk-users-welcome-to-testfairy/) - Complete Testflight Replacement
 * [DeployGate](https://deploygate.com/docs/sdk) - Painless OTA distribution for apps
-* [HockeyApp](hockeyapp.net)
+* [HockeyApp](http://hockeyapp.net)
 
 ### Push Messaging
 
