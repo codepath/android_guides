@@ -88,9 +88,11 @@ Consider starting with the following tutorials and resources:
 
 * [The Android Development Tutorial](http://www.youtube.com/watch?v=Z149x12sXsw) by Derek Banas is great for those of you who prefer video lessons. It has 25 video lessons in total ranging from 10 to 30 minutes each. I used the first lessons to get a feel of the development process, specially to understand layouts.
 
-* [Android Guides](https://github.com/thecodepath/android_guides/wiki) give you even more explained code recipes and examples on how to build most common things in an Android app. I wish this was published when I started learning. It would have certainly helped.
+* [CodePath Android Guides](https://github.com/thecodepath/android_guides/wiki) give you even more explained code recipes and examples on how to build most common things in an Android app. I wish this was published when I started learning. It would have certainly helped.
 
 * [Vogella Android Tutorials](http://www.vogella.com/tutorials/Android/article.html) - Awesome free tutorials for most common Android topics. Great as a supplementary resource on top of these [Android Cliffnotes](http://guides.thecodepath.com/android).
+
+* [CodeLearn Android Tutorial](http://www.codelearn.org/android-tutorial) - Interesting interactive tutorial for learning Android step-by-step. Definitely worth a look as you build a twitter client step-by-step.
   
 * [Common tasks](http://developer.android.com/guide/faq/commontasks.html) are a useful list of typical things you can do in your app and how to develop them.
   
