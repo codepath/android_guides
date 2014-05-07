@@ -16,7 +16,7 @@ In addition, resources linked from [HalfApp's "How to get started programming An
 
 If you never programmed at all before or if you are interested in starting with the basics, spend the first few months just on learning Java. Learn the syntax and understand how everything works. You’ll need to be able to create classes, create and call methods, use interfaces as well as know how inheritance works, before you can go to the next step. These are the basics of Java, and you’ll use them extensively when developing Android apps. Helpful resources for learning Java:
 
-* [CodePath Java for Android Slides](https://www.dropbox.com/s/6z8s8tlnnovqeij/Introduction%20to%20Java%20%28prequel%20for%20Android%29.pdf)
+* [CodePath Java for Android Slides](https://www.dropbox.com/s/4u8jjlgtrm65a8q/Introduction%20to%20Java%20%28prequel%20for%20Android%29.pdf)
 * [Programming by doing Java](http://programmingbydoing.com/) - Great step-by-step guide
 * [Head First Java Book](http://www.amazon.com/Head-First-Java-2nd-Edition/dp/0596009208)
 * [The Java help subreddit](http://www.reddit.com/r/javahelp)
