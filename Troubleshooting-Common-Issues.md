@@ -91,6 +91,27 @@ If this error contains information about the `java.lang.ClassNotFoundException` 
 
 For more possibilities, check out this [stackoverflow post](http://stackoverflow.com/questions/4688277/java-lang-runtimeexception-unable-to-instantiate-activity-componentinfo) for the full details.
 
+#### Getting "java.lang.ClassCastException: android.widget.foo cannot be cast to android.widget.bar"?
+
+There are several possible reasons for this exception. The most logical is that in the code you are literally casting a view to an incorrect type. For example, suppose we defined a layout XML with:
+
+```xml
+<EditText
+    android:id="@+id/etNewItem"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
+```
+
+Now suppose in the Activity code we write:
+
+```java
+ImageView etNewItem = (ImageView) findViewById(R.id.etNewItem);
+```
+
+This would generate the error above "java.lang.ClassCastException: android.widget.EditText cannot be cast to android.widget.ImageView". First, **check if you have improperly cast a view to the wrong type**.
+
+If that doesn't work, and the view appears to be properly cast to the correct type, then the resource mapping may simply be confused. In that case, as [explained here](http://stackoverflow.com/a/20215613/313399), you need to **clean your project** by running `Project => Clean...` from the menu. Cleaning will regenerate the resource mappings and often fix this issue.
+
 ### Generated Project has Placeholder Fragment
 
 In more recent versions of eclipse, activities are generated with a built-in placeholder fragment which can't be easily disabled. If you want to remove this placeholder fragment and work directly with an activity, you can follow these steps:
