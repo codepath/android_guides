@@ -91,7 +91,7 @@ If this error contains information about the `java.lang.ClassNotFoundException` 
 
 For more possibilities, check out this [stackoverflow post](http://stackoverflow.com/questions/4688277/java-lang-runtimeexception-unable-to-instantiate-activity-componentinfo) for the full details.
 
-#### Getting "java.lang.ClassCastException: android.widget.foo cannot be cast to android.widget.bar"?
+### Getting "java.lang.ClassCastException: android.widget.foo cannot be cast to android.widget.bar"?
 
 There are several possible reasons for this exception. The most logical is that in the code you are literally casting a view to an incorrect type. For example, suppose we defined a layout XML with:
 
