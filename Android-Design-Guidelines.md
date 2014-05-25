@@ -61,8 +61,8 @@ One of the best ways to understand the best practices and patterns for app desig
  * [androidniceties](http://androidniceties.tumblr.com/)
  * [auipatterns](http://www.auipatterns.com/)
  * [androidux](http://androidux.com/)
- * [inspired-ui](http://android.inspired-ui.com/)
- * [androidpatterns](http://www.androidpatterns.com/) - UI patterns organized by questions, like "How can I let users manage their accounts"?
+ * [inspired-ui](http://android.inspired-ui.com/) - Endless list of beautiful UI design
+ * [androidpatterns](http://www.androidpatterns.com/) - UI patterns organized by questions, such as "How can I let users manage their accounts?"
  * [mobilepatterns](http://www.mobile-patterns.com/)
 
 Using these sites above to build up an intuitive understanding of how to build different UIs in your apps.
