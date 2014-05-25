@@ -74,7 +74,7 @@ When developing a mobile application, there are a few stages you will probably g
 The simplest way you can wireframe is by creating low-fidelity sketches on paper by hand. You can print a [scaled Android frame](http://cdn.shopify.com/s/files/1/0042/9602/files/Android-Handset-Sketchpad-v1-BW.pdf?338) to make this easier. You can also leverage many [excellent digital tools](http://mashable.com/2013/04/02/wireframing-tools-mobile/) as well:
 
 * The [Pencil Project](http://pencil.evolus.vn/) - Excellent free cross-platform wireframing tool with Android stencils
-* [FluidUI](https://www.fluidui.com/) - Online wireframing tool, free for limited use and features (no export), with comprehensive android stencils
+* [FluidUI](https://www.fluidui.com/) - Online wireframing tool, free for limited use with comprehensive android stencils
 * [MockingBird](https://gomockingbird.com/) - Online wireframing tool, free for limited use, no android stencils
 * [Balsamiq](http://www.balsamiq.com/) - Extremely powerful wireframing tool used by many industry professionals
 
