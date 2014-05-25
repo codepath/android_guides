@@ -57,10 +57,10 @@ Following these and related guides explains in detail how to create consistent a
 One of the best ways to understand the best practices and patterns for app design is benchmarking other popular applications on the platform. One of the best ways to do this is to buy an Android device and use a variety of popular applications. In addition to that, we can benchmark by checking websites dedicated to giving us a wide sampling of apps and how they achieve certain common UI patterns. For this, we can check out the following sites:
 
  * [android app patterns](http://www.android-app-patterns.com/) - Groups of sample screenshots from apps, showing their overall look and feel.
- * [androidpttrns](http://androidpttrns.com/)
- * [androidniceties](http://androidniceties.tumblr.com/)
- * [auipatterns](http://www.auipatterns.com/)
- * [androidux](http://androidux.com/)
+ * [androidpttrns](http://androidpttrns.com/) - More common UI examples
+ * [androidniceties](http://androidniceties.tumblr.com/) - Blog of beautiful interfaces
+ * [auipatterns](http://www.auipatterns.com/) - Explores common patterns for UI
+ * [androidux](http://androidux.com/) - Explores common patterns for UX
  * [inspired-ui](http://android.inspired-ui.com/) - Endless list of beautiful UI design
  * [androidpatterns](http://www.androidpatterns.com/) - UI patterns organized by questions, such as "How can I let users manage their accounts?"
  * [mobilepatterns](http://www.mobile-patterns.com/)
