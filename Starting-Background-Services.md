@@ -358,3 +358,7 @@ In cases where we want to avoid services altogether, you might want to consider 
 ## Concluding Background Services
 
 This guide has shown you the basics of using an IntentService and communicating between a service and an Activity. For a more complete example of an `IntentService` in action, check out [this tutorial on peachpit](http://www.peachpit.com/articles/article.aspx?p=1823692&seqNum=4).
+
+## References
+
+* <http://corner.squareup.com/2013/12/android-main-thread-2.html>
