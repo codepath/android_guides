@@ -74,7 +74,7 @@ In other cases, we want content to horizontally scroll in which case we need to 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" >   
+        android:orientation="horizontal" >   
         <!-- child views in here -->
     </LinearLayout>
 </HorizontalScrollView>
