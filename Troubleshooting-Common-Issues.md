@@ -6,6 +6,8 @@ If you are having trouble with Android, Eclipse, or the Emulator, check here for
 
 **Note:** Easiest way to avoid placeholder fragments is to update to latest eclipse and select **Empty Activity** rather than **Blank Activity** when generating activities which does not include the fragment placeholder.
 
+<img src="http://i.imgur.com/u3r3LPd.png" width="460" />
+
 In recent versions of Eclipse, a "Blank Activity" is generated with a built-in placeholder fragment which can't be easily disabled. If you want to remove this placeholder fragment from a "Blank Activity" and work directly with the activity, you can follow these steps:
 
 1. Copy contents of fragment XML at `res/layout/fragment_main.xml`
@@ -19,6 +21,8 @@ See [this guide for a more detailed set of instructions](https://gist.github.com
 ### Getting "Errors running builder 'Android Resource Manager' on project" on project generation?
 
 Try updating ADT "Help => Check for Updates" and then open the "Window => Android SDK Manager" and install the latest build tools and any other updates through the manager? Then restart Eclipse and create a new workspace. See [this post](http://stackoverflow.com/questions/20043521/errors-running-builder-android-resource-manager-on-adt) and [this post](http://stackoverflow.com/questions/18096315/mac-error-create-android-project-errors-running-builder-android-resource-man) for more options.
+
+<img src="http://i.imgur.com/IB2yN5I.png" width="460" />
 
 When generating a project, you should see the option to use a "Empty Activity" rather than a "Blank Activity". If you don't see both options, try running updates and installing latest build tools in SDK manager and restarting again.
 
