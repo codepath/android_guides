@@ -1,6 +1,20 @@
 If you are having trouble with Android, Eclipse, or the Emulator, check here for common problems and solutions for [Android development problems](http://www.vogella.com/articles/AndroidDevelopmentProblems/article.html). A few of the most common ones encountered are listed below.
 
-## Eclipse
+## Setting Up Eclipse
+
+### Generated Project has Placeholder Fragment
+
+**Note:** Easiest way to avoid placeholder fragments is to update to latest eclipse and select **Empty** rather than **Blank** when generating activities which does not include the fragment placeholder.
+
+In recent versions of Eclipse, a "Blank Activity" is generated with a built-in placeholder fragment which can't be easily disabled. If you want to remove this placeholder fragment from a "Blank Activity" and work directly with the activity, you can follow these steps:
+
+1. Copy contents of fragment XML at `res/layout/fragment_main.xml`
+2. Replace entire contents of activity XML with the contents of the fragment XML
+3. Delete the fragment XML at `res/layout/fragment_main.xml`
+4. Remove the if statement in the `onCreate` in the Activity class file at `src/com.../MainActivity.java`
+5. Remove the `PlaceholderFragment` inner class defined within `src/com.../MainActivity.java` 
+
+See [this guide for a more detailed set of instructions](https://gist.github.com/nesquena/8de33f701e387be0a80d) with images.
 
 ### Getting "Errors running builder 'Android Resource Manager' on project" on project generation?
 
@@ -30,6 +44,9 @@ You should be able to use Autocompletion (Ctrl + Space) to complete words as you
 
 <img src="http://i.imgur.com/FT2hAm4.png" width="440" />
 <img src="http://i.imgur.com/fopm3WG.png" width="460" />
+
+
+## Using Eclipse
 
 ### Getting "Cannot Be Resolved to a Type" Error 
 
@@ -119,18 +136,6 @@ ImageView etNewItem = (ImageView) findViewById(R.id.etNewItem);
 This would generate the error above "java.lang.ClassCastException: android.widget.EditText cannot be cast to android.widget.ImageView". First, **check if you have improperly cast a view to the wrong type**.
 
 If that doesn't work, and the view appears to be properly cast to the correct type, then the resource mapping may simply be confused. In that case, as [explained here](http://stackoverflow.com/a/20215613/313399), you need to **clean your project** by running `Project => Clean...` from the menu. Cleaning will regenerate the resource mappings and often fix this issue.
-
-### Generated Project has Placeholder Fragment
-
-In more recent versions of eclipse, activities are generated with a built-in placeholder fragment which can't be easily disabled. If you want to remove this placeholder fragment and work directly with an activity, you can follow these steps:
-
-1. Copy contents of fragment XML at `res/layout/fragment_main.xml`
-2. Replace entire contents of activity XML with the contents of the fragment XML
-3. Delete the fragment XML at `res/layout/fragment_main.xml`
-4. Remove the if statement in the `onCreate` in the Activity class file at `src/com.../MainActivity.java`
-5. Remove the `PlaceholderFragment` inner class defined within `src/com.../MainActivity.java` 
-
-See [this guide for a more detailed set of instructions](https://gist.github.com/nesquena/8de33f701e387be0a80d) with images.
 
 ### Imported Project Won't Compile
 
