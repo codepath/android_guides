@@ -2,6 +2,14 @@ If you are having trouble with Android, Eclipse, or the Emulator, check here for
 
 ## Eclipse
 
+### Getting "Errors running builder 'Android Resource Manager' on project" on project generation?
+
+Try updating ADT "Help => Check for Updates" and then open the "Window => Android SDK Manager" and install the latest build tools and any other updates through the manager? Then restart Eclipse and create a new workspace. See [this post](http://stackoverflow.com/questions/20043521/errors-running-builder-android-resource-manager-on-adt) and [this post](http://stackoverflow.com/questions/18096315/mac-error-create-android-project-errors-running-builder-android-resource-man) for more options.
+
+When generating a project, you should see the option to use a "Empty Activity" rather than a "Blank Activity". If you don't see both options, try running updates and installing latest build tools in SDK manager and restarting again.
+
+Another workaround is to simply deselect the "create activity" button at the 2nd step of the wizard, and now the project will be generated successfully. Then you can add an activity to your project easily with `File => New => Other => Android => Android Activity`.
+
 ### Generated Project Missing Activities?
 
 This problem will cause new Android projects not to generate an initial Activity, even when that box was checked. `/src` and `/res/layout` were empty. 
