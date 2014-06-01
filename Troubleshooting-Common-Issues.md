@@ -4,7 +4,7 @@ If you are having trouble with Android, Eclipse, or the Emulator, check here for
 
 ### Generated Project has Placeholder Fragment
 
-**Note:** Easiest way to avoid placeholder fragments is to update to latest eclipse and select **Empty** rather than **Blank** when generating activities which does not include the fragment placeholder.
+**Note:** Easiest way to avoid placeholder fragments is to update to latest eclipse and select **Empty Activity** rather than **Blank Activity** when generating activities which does not include the fragment placeholder.
 
 In recent versions of Eclipse, a "Blank Activity" is generated with a built-in placeholder fragment which can't be easily disabled. If you want to remove this placeholder fragment from a "Blank Activity" and work directly with the activity, you can follow these steps:
 
