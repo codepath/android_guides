@@ -26,7 +26,7 @@ Try updating ADT "Help => Check for Updates" and then open the "Window => Androi
 
 When generating a project, you should see the option to use a "Empty Activity" rather than a "Blank Activity". If you don't see both options, try running updates and installing latest build tools in SDK manager and restarting again.
 
-As a last resort, make sure to [re-install Java 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) and then uninstall your existing ADT setup, download ADT again, and then update all packages from scratch on the new installation. Restart eclipse and often this will resolve your issues.
+As a last resort (aka "nuclear option"), make sure to [re-install Java 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) and then **uninstall your existing ADT setup**, re-download ADT again, and then update all packages from scratch on the new installation. Restart the new eclipse and often this will resolve any issues.
 
 ### Generated Project Missing Activities?
 
