@@ -40,7 +40,7 @@ See [this stackoverflow post](http://stackoverflow.com/questions/22219392/eclips
 
 ### Getting "java.lang.IllegalStateException: You need to use a Theme.AppCompat theme..."
 
-This happens when the Android project was generated with a minimum SDK of 10 or below. In this case, you'll notice that the activity Java class (i.e src/.../MainActivity.java) extends from `ActionBarActivity` in order to support older versions of Android. However, when an activity extends from `ActionBarActivity`, this requires the app to use a "backwards compatible theme". Easiest fix is to change the theme for the application within the `AndroidManifest.xml` such that `application:theme` is set to `@style/Theme.AppCompat.Light.DarkActionBar` as shown below:
+This happens when the Android project was generated with a minimum SDK of 10 or below. One fix is to simply generate new projects with a minimum SDK of 14. However in order to maintain compatibility with older versions, you'll notice that the activity Java class (i.e src/.../MainActivity.java) extends from `ActionBarActivity` rather than `Activity`. When an activity extends from `ActionBarActivity`, this requires the app to use a "backwards compatible theme". Easiest fix is to change the theme for the application within the `AndroidManifest.xml` such that `application:theme` is set to `@style/Theme.AppCompat.Light.DarkActionBar` as shown below:
 
 <img src="http://i.imgur.com/aIXHlQM.gif" width="700" />
 
