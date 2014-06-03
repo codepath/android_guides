@@ -38,6 +38,14 @@ Fixed by updating the Eclipse plugin: `Eclipse > Help > Install New Software` an
 
 See [this stackoverflow post](http://stackoverflow.com/questions/22219392/eclipse-doesnt-create-main-activity-and-layout) and [this other one](http://stackoverflow.com/questions/6470802/what-to-do-about-eclipses-no-repository-found-containing-error-messages) for more details.
 
+### Getting "java.lang.IllegalStateException: You need to use a Theme.AppCompat theme..."
+
+This happens when the Android project was generated with a minimum SDK of 10 or below. In this case, you'll notice that the activity Java class (i.e src/.../MainActivity.java) extends from `ActionBarActivity` in order to support older versions of Android. However, when an activity extends from `ActionBarActivity`, this requires the app to use a "backwards compatible theme". Easiest fix is to change the theme for the application within the `AndroidManifest.xml` such that `application:theme` is set to `@style/Theme.AppCompat.Light.DarkActionBar` as shown below:
+
+<img src="http://i.imgur.com/aIXHlQM.gif" width="700" />
+
+See [this issue](http://stackoverflow.com/questions/18063395/actionbarcompat-java-lang-illegalstateexception-you-need-to-use-a-theme-appcom), [this issue](http://stackoverflow.com/questions/21814825/you-need-to-use-a-theme-appcompat-theme-or-descendant-with-this-activity) or [this issue](http://stackoverflow.com/questions/21331836/java-lang-illegalstateexception-you-need-to-use-a-theme-appcompat-theme-or-des) for more details.
+
 ### Problem with Autocompletion?
 
 You should be able to use Autocompletion (Ctrl + Space) to complete words as you code. If you can't, try the following steps:
