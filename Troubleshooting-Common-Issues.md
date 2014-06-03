@@ -40,9 +40,9 @@ See [this stackoverflow post](http://stackoverflow.com/questions/22219392/eclips
 
 ### Getting "java.lang.IllegalStateException: You need to use a Theme.AppCompat theme..."
 
-First, try simply running "Project...Clean" from the top-menu on the project and then re-running. If that doesn't work, it might be the issue explained in the next paragraph.
+First, try simply running `Project => Clean...` from the top-menu on the project and then re-running the app. If it still doesn't work, it might be the issue explained in the next paragraph.
 
-This happens when the Android project was generated with a minimum SDK of 10 or below. One fix is to simply generate new projects with a minimum SDK of 14. However when generating with a lower minSDK, in order to maintain compatibility with older versions, you'll notice that the activity Java class (i.e src/.../MainActivity.java) extends from `ActionBarActivity` rather than the standard `Activity` class. When an activity extends from `ActionBarActivity`, this requires the app to use a "backwards compatible theme". Easiest fix is to change the theme for the application within the `AndroidManifest.xml` such that `application:theme` is set to `@style/Theme.AppCompat.Light.DarkActionBar` as shown below:
+This happens when the Android project was generated with a minimum SDK of 10 or below. One fix is to simply generate new projects with a minimum SDK of 14 instead. However when generating with a lower minSDK, in order to maintain compatibility with older versions, you'll notice that the activity Java class (i.e src/.../MainActivity.java) extends from `ActionBarActivity` rather than the standard `Activity` class. When an activity extends from `ActionBarActivity`, this requires the app to use a "backwards compatible theme". Easiest fix is to change the theme for the application within the `AndroidManifest.xml` such that `application:theme` is set to `@style/Theme.AppCompat.Light.DarkActionBar` as shown below:
 
 <img src="http://i.imgur.com/aIXHlQM.gif" width="750" />
 
