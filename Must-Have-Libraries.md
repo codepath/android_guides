@@ -46,7 +46,6 @@ There are many third-party libraries for Android but several of them are "must h
 Check out the following resources for finding libraries:
 
  * <http://androidlibs.org/>
- * <http://www.androidviews.net/>
  * <http://appdevwiki.com/wiki/show/HomePage>
  * <http://androidweekly.net/toolbox>
  * <http://android-arsenal.com>
