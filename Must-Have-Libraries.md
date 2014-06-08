@@ -49,6 +49,7 @@ Check out the following resources for finding libraries:
  * <http://www.androidviews.net/>
  * <http://appdevwiki.com/wiki/show/HomePage>
  * <http://androidweekly.net/toolbox>
+ * <http://android-arsenal.com>
 
 ## References
 
