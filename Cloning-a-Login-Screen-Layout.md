@@ -363,6 +363,14 @@ You have probably noticed that there are multiple drawable folders (i.e drawable
 
 You can hide the ActionBar by modifying the "theme" of the Activity as described in this [Hiding the ActionBar](http://www.caincode.com/hiding-3-dot-action-bar-android-app/) tutorial or programmatically at runtime in Java with `getActionBar().hide()`
 
+**How do I add a border to an image or other view?**
+
+You can add a border to any view by creating a "drawable shape xml" and applying that as the `android:background` of the view. See [this stackoverflow post](http://stackoverflow.com/a/3264140) for details.
+
+**How do I add a background image to a view?**
+
+Simply drag the image to the `res/drawable-xhdpi` folder and then apply the image to any view by setting `android:background="@drawable/my_image_name"`. See [this stackoverflow post](http://stackoverflow.com/a/8177819) for more details.
+
 **How do I remove the grey border from ImageButton?**
 
 You can remove the border by either setting `android:background` to "@null" or setting `style` to "android:attr/borderlessButtonStyle":
