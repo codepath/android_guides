@@ -14,13 +14,17 @@ First, I will make the downloadable assets available. Keep in mind these were st
  * [Facebook Connect](http://i.imgur.com/TJxrci5.png/facebook_connect.png)
  * [LinkedIn Connect](http://i.imgur.com/dhYw2xF.png/linkedin_connect.png)
 
-Download those and **drag the button images into the drawable-xhdpi folder**. Note that in production applications you would multiple sizes of these images for [different image densities](http://developer.android.com/guide/practices/screens_support.html#DesigningResources). We are going to ignore that and provide only extra-high density for this demo (they will be resampled for other densities).
+Download those and **drag the button images into the drawable-xhdpi folder** from the file system: 
+
+<img width="500" src="http://i.imgur.com/ORFbSDO.gif" />
+
+Note that in production applications you would multiple sizes of these images for [different image densities](http://developer.android.com/guide/practices/screens_support.html#DesigningResources). We are going to ignore that and provide only extra-high density for this demo (they will be resampled for other densities).
 
 ### Create Project
 
 Generate a new Android project that uses the highlight icon as the launcher icon:
 
-<img width="400" src="http://imgur.com/GiWY8gB.png" />
+<img width="500" src="http://i.imgur.com/fGBDHSi.gif" />
 
 Generate the project with **minimum SDK of 13** and no additional changes.
 
@@ -327,13 +331,13 @@ While this guide gets us pretty close, keep in mind that in a production app you
 
 There are several questions that come up commonly when "cloning screens" covered below:
 
-**How do I support different fonts?** 
+**How do I support different fonts in my app?** 
 
-Fonts can be customized fairly easily using this [custom fonts](http://www.androidhive.info/2012/02/android-using-external-fonts/) guide. Be aware that custom fonts can cause performance issues if used too much.
+Fonts can be customized fairly easily using this [custom fonts](http://guides.codepath.com/android/Working-with-the-TextView#using-custom-fonts) guide. Be aware that custom fonts can cause performance issues if used too much.
 
-**How do I center the ActionBar title?**
+**How do I style the title in the ActionBar?**
 
-ActionBar title can be centered only if you opt to totally customize the view being inflated. Instead of the default ActionBar text you can specify your own to use instead that is centered. This [stackoverflow answer](http://stackoverflow.com/questions/12387345/how-to-align-actionbar-title-center-in-android/12388200#12388200) explains it in detail. Also, check out the [Advanced Actionbar](https://github.com/thecodepath/android_guides/wiki/Extended-ActionBar-Guide#custom-actionbar-layout) cliffnotes for more details.
+ActionBar title can be styled or centered only if you opt to customize the XML view being inflated to display in the ActionBar. Instead of using the default ActionBar text you can specify your own to use instead that is styled as desired. Check out the [Advanced ActionBar](http://guides.codepath.com/android/Extended-ActionBar-Guide#custom-actionbar-layout) cliffnotes for details. This [related stackoverflow post](http://stackoverflow.com/questions/12387345/how-to-align-actionbar-title-center-in-android/12388200#12388200) also explains it in detail. 
 
 **How do I change the background color of the ActionBar?**
 
