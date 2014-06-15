@@ -143,6 +143,8 @@ public boolean onCreateOptionsMenu(Menu menu) {
 
 ### With Support v7 Library
 
+**Note: This section requires the supportv7 compatibility library to be included**
+
 ```xml
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
