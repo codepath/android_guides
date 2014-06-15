@@ -79,7 +79,7 @@ Entries in the action bar are typically called actions. Use this method to infla
 
 Notice that to request that an item appear directly in the action bar as an action button, include `showAsAction="ifRoom"` in the `<item>` tag. If there's not enough room for the item in the action bar, it will appear in the action overflow. If `withText` is specified as well (as in the second item), the text will be displayed with the icon.
 
-**Note:** The above code refers to the `@drawable/ic_compose` resource which would have to exist for this to compile. To generate ActionBar icons, be sure to use the **IconSet wizard within eclipse** to create the icons. Follow [this step-by-step guide](http://imgur.com/a/8cmLM) to generate icons by selecting **File => New => Other => Android => Android Icon Set**.
+**Note:** The above code refers to the `@drawable/ic_compose` resource which would have to exist for this to compile. To generate ActionBar icons, be sure to use the **IconSet wizard within Eclipse** to create the icons. Follow [this step-by-step guide](http://imgur.com/a/8cmLM) to generate icons by selecting **File => New => Other => Android => Android Icon Set**.
 
 ### Handling ActionBar Clicks
 
