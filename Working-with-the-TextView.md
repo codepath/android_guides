@@ -99,7 +99,7 @@ view.setText(Html.fromHtml("This <i>is</i> a <b>test</b>"));
 
 Note that all tags are not supported. See [this article](http://javatechig.com/android/display-html-in-android-textview) for a more detailed look at supported tags and usages. If you want to store your HTML text within `res/values/strings.xml`, you have to use CDATA to escape such as:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <string name="htmlFormattedText">
     <![CDATA[
@@ -112,6 +112,22 @@ Note that all tags are not supported. See [this article](http://javatechig.com/a
 and access the content with `getString(R.string.htmlFormattedText)` to load this within the TextView.
 
 For more advanced cases, you can also check out the [html-textview](https://github.com/dschuermann/html-textview) library which adds support for almost any HTML tag within this third-party TextView.
+
+## Autolinking URLs
+
+TextView has [native support](http://developer.android.com/reference/android/widget/TextView.html#attr_android:autoLink) for automatically locating URLs within the their text content and making them clickable links which can be opened in the browser. To do this, enable the `android:autolink` property:
+
+```xml
+<TextView
+     android:id="@+id/custom_font"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:autoLink="all"
+     android:linksClickable="true"
+/>
+```
+
+If you encounter issues with links not being clickable as expected, check out [this stackoverflow post](http://stackoverflow.com/a/2746708) for a workaround.
 
 ## Using Custom Fonts
 
