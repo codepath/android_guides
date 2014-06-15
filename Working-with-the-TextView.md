@@ -97,7 +97,7 @@ There are several related text color properties in addition such as `android:tex
     android:layout_height="wrap_content"
     android:textColorHighlight="#7C82D2"
     android:textColorHint="#2DC942"
-   android:textColorLink="#8DE67F"
+    android:textColorLink="#8DE67F"
 />
 ```
 
