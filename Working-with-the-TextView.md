@@ -51,19 +51,6 @@ The `android:textStyle` attribute can be used to put emphasis on text. The possi
 />
 ```
 
-### Text Color
-
-The `android:textColor` attribute's value is a hexadecimal RGB value with an optional alpha channel, similar to what's found in CSS:
-
-```xml
-<TextView
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:text="A light blue color."
-    android:textColor="#00ccff"
-/>
-```
-
 ### Text Shadow
 
 You can use three different attributes to customize the appearance of your text shadow:
@@ -86,6 +73,35 @@ The floating point numbers don't have a specific unit - they are merely arbitrar
     android:shadowDy="1"
 />
 ```
+
+### Text Color
+
+The `android:textColor` attribute's value is a hexadecimal RGB value with an optional alpha channel, similar to what's found in CSS:
+
+```xml
+<TextView
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="A light blue color."
+    android:textColor="#00ccff"
+/>
+```
+
+### Related Text Colors
+
+There are several related text color properties in addition such as `android:textColorHighlight`, `android:textColorHint`, and `android:textColorLink` which affect the properties for highlighting, hint, and link color respectively:
+
+```xml
+<TextView
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textColorHighlight="#7C82D2"
+    android:textColorHint="#2DC942"
+   android:textColorLink="#8DE67F"
+/>
+```
+
+In cases where we want to change the TextView colors within the theme itself, we need to [modify the styles.xml](http://stackoverflow.com/a/21984419) in these cases.
 
 ## Inserting HTML Formatting
 
