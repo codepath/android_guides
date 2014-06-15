@@ -104,9 +104,13 @@ and setup the "SD Card" within the emulator device settings:
 
 This is how you can easily use an ActionBar share icon to activate a ShareIntent. We need to add an ActionBar menu item in `res/menu/` in the XML specifying the `ShareActionProvider` class.
 
-**Note:** This is **an alternative to using a sharing intent** as described in the previous section. You either can use a sharing intent **or** the provider as described below. Also, `ShareActionProvider` is only available in API 14 or above unless the supportv7 library is included.
+**Note:** This is **an alternative to using a sharing intent** as described in the previous section. You either can use a sharing intent **or** the provider as described below. 
 
 **Note:** The following assumes the use of a third-party image library `SmartImageView` with a release that supports callbacks such as [this smart-image-view jar](https://www.dropbox.com/s/k2ljqalmzlqymkh/android-smart-image-view-3-27-14.jar), note that the following code snippet won't work with certain older versions of `SmartImageView`.
+
+### Without Support Library
+
+**Note:** `ShareActionProvider` is only available in API 14 or above unless the supportv7 library is included in which case you must follow the next section instead.
 
 ```xml
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
@@ -137,7 +141,42 @@ public boolean onCreateOptionsMenu(Menu menu) {
 }
 ```
 
-Construct and attach the share intent for the provider but only **after image has been loaded**:
+### Or With Support v7 Library
+
+```xml
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_item_share"
+        app:showAsAction="ifRoom"
+        android:title="Share"
+        app:actionProviderClass="android.support.v7.widget.ShareActionProvider" />
+    ...
+</menu>
+```
+
+Get access to share provider menu item in Java so you can attach the share intent later:
+
+```java
+private ShareActionProvider miShareAction;
+
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+    // Inflate menu resource file.
+    getMenuInflater().inflate(R.menu.second_activity, menu);
+    // Locate MenuItem with ShareActionProvider
+    MenuItem item = menu.findItem(R.id.menu_item_share);
+    // Fetch reference to the share action provider
+    miShareAction = (ShareActionProvider) MenuItemCompat.getActionProvider(item);
+    // Return true to display menu
+    return true;
+}
+```
+
+### Attach Share Intent for Content
+
+Now, once you've setup the ShareActionProvider menu item (either for supportv7 or standard), construct and attach the share intent for the provider but only **after image has been loaded**:
 
 ```java
 @Override
@@ -178,6 +217,8 @@ Make sure to add the appropriate permissions to your `AndroidManifest.xml`:
 ```
 
 Check out the [official guide for easy sharing](http://developer.android.com/training/sharing/shareaction.html) for more information.
+
+
 
 ## References
 
