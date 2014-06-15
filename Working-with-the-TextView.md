@@ -27,7 +27,7 @@ In addition to the above, there is another attribute value named "normal" which 
 
 ### Text Style
 
-The `android:textStyle` attribute can be used to put emphasis on text. The possible values are: `normal`, `bold`, `italic`. You can also specify `bold|italic`.
+The `android:textStyle` attribute can be used to put emphasis on the text. The possible values are: `normal`, `bold`, `italic`. You can also specify `bold|italic`.
 
 ```xml
 <TextView
