@@ -87,6 +87,32 @@ The floating point numbers don't have a specific unit - they are merely arbitrar
 />
 ```
 
+## Inserting HTML Formatting
+
+TextView natively supports [HTML](http://developer.android.com/reference/android/text/Html.html) by translating HTML tags to [spannable](http://developer.android.com/reference/android/text/Spannable.html) sections within the view. To apply basic HTML formatting to text, add text to the TextView with:
+
+```java
+TextView view = (TextView)findViewById(R.id.sampleText);
+String formattedText = getString(R.string.htmlFormattedText);
+view.setText(Html.fromHtml("This <i>is</i> a <b>test</b>"));
+```
+
+Note that all tags are not supported. See [this article](http://javatechig.com/android/display-html-in-android-textview) for a more detailed look at supported tags and usages. If you want to store your HTML text within `res/values/strings.xml`, you have to use CDATA to escape such as:
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<string name="htmlFormattedText">
+    <![CDATA[
+        Please <a href="http://highlight.com">let us know</a> if you have <b>feedback on this</b> or if 
+        you would like to log in with <i>another identity service</i>. Thanks!   
+    ]]>
+</string>
+```
+
+and access the content with `getString(R.string.htmlFormattedText)` to load this within the TextView.
+
+For more advanced cases, you can also check out the [html-textview](https://github.com/dschuermann/html-textview) library which adds support for almost any HTML tag within this third-party TextView.
+
 ## Using Custom Fonts
 
 We can actually use any custom font that we'd like within our applications. Check out [fontsquirrel](http://www.fontsquirrel.com/) for an easy source of free fonts. For example, we can download [Chantelli Antiqua](http://www.fontsquirrel.com/fonts/Chantelli-Antiqua) as an example. Download it and **place the TTF file in the ./assets/fonts directory**.
