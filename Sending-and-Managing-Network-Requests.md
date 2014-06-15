@@ -25,7 +25,7 @@ In order to access the internet, be sure to specify the following permissions in
 
 ### Checking for Network Connectivity
 
-To verify network availability you can define and call this method:
+First, make sure to setup the `android.permission.ACCESS_NETWORK_STATE` permission as shown above. To verify network availability you can then define and call this method:
 
 ```java
 private Boolean isNetworkAvailable() {
