@@ -141,7 +141,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
 }
 ```
 
-### Or With Support v7 Library
+### With Support v7 Library
 
 ```xml
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
