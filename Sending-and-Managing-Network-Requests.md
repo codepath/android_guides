@@ -18,8 +18,42 @@ In order to access the internet, be sure to specify the following permissions in
     android:versionName="1.0" >
  
    <uses-permission android:name="android.permission.INTERNET" /> 
+   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
 </manifest>
 ```
+
+### Checking for Network Connectivity
+
+To verify network availability you can define and call this method:
+
+```java
+private Boolean isNetworkAvailable() {
+    ConnectivityManager connectivityManager 
+          = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+    NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+    return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
+}
+```
+
+You can also verify internet access with this method:
+
+```java
+public Boolean isOnline() {
+    try {
+        Process p1 = java.lang.Runtime.getRuntime().exec("ping -c 1 www.google.com");
+        int returnVal = p1.waitFor();
+        boolean reachable = (returnVal==0);
+        return reachable;
+    } catch (Exception e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+    return false;
+}
+```
+
+See [this official connectivity guide](http://developer.android.com/training/monitoring-device-state/connectivity-monitoring.html) for more details.
 
 ### Sending an HTTP Request
 
