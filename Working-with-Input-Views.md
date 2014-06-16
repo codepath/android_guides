@@ -8,6 +8,7 @@ Android has support for many different input controls for accepting input from t
  * [Radio Buttons](http://developer.android.com/guide/topics/ui/controls/radiobutton.html)
  * [Toggle Buttons](http://developer.android.com/guide/topics/ui/controls/togglebutton.html)
  * [Spinners](http://developer.android.com/guide/topics/ui/controls/spinner.html)
+ * [NumberPicker](http://developer.android.com/reference/android/widget/NumberPicker.html)
  * [Date and Time Pickers](http://developer.android.com/guide/topics/ui/controls/pickers.html)
 
 Adding an input control to your UI is as simple as adding an XML element to your XML layout.
@@ -174,6 +175,49 @@ spinner.setAdapter(adapter);
 ```
 
 Check out the [Spinners](http://developer.android.com/guide/topics/ui/controls/spinner.html) guide for more details. Note that customizing a spinner's text requires using a [custom array adapter and layout file](http://stackoverflow.com/questions/9476665/how-to-change-spinner-text-size-and-text-color).
+
+### NumberPicker
+
+This is a widget that enables the user to select a number from a predefined range. First, we put the NumberPicker within the layout XML:
+
+```xml
+ <NumberPicker 
+        android:id="@+id/np_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"  
+/>
+```
+
+Then we **must define the desired range at runtime** in the Activity:
+
+```java
+public class DemoPickerActivity extends Activity {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_demo_picker);
+        NumberPicker numberPicker = (NumberPicker) findViewById(R.id.numberpicker);
+        numberPicker.setMinValue(0); 
+        numberPicker.setMaxValue(100);    
+        numberPicker.setWrapSelectorWheel(true);
+    }
+}
+```
+
+Note we set the range with `setMinValue` and `setMaxValue` and made the selector wrap with [setWrapSelectorWheel](http://developer.android.com/reference/android/widget/NumberPicker.html#setWrapSelectorWheel\(boolean\)). If you want to listen as the value changes, we can use the `OnValueChangeListener` listener:
+
+```java
+// within onCreate
+numberPicker.setOnValueChangedListener( 
+    new NumberPicker.OnValueChangeListener() {
+        @Override
+        public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                Log.d("DEBUG", "Selected number in picker is " + newVal);
+            }
+});
+```
+
+You can also call `getValue` to retrieve the numeric value any time. See the [NumberPicker docs](http://developer.android.com/reference/android/widget/NumberPicker.html#setWrapSelectorWheel\(boolean\)) for more details.
 
 ## References
 
