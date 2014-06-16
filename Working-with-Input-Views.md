@@ -182,7 +182,7 @@ This is a widget that enables the user to select a number from a predefined rang
 
 ```xml
  <NumberPicker 
-        android:id="@+id/np_size"
+        android:id="@+id/np_total"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"  
 />
@@ -196,7 +196,8 @@ public class DemoPickerActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_demo_picker);
-        NumberPicker numberPicker = (NumberPicker) findViewById(R.id.numberpicker);
+        NumberPicker numberPicker = 
+            (NumberPicker) findViewById(R.id.np_total);
         numberPicker.setMinValue(0); 
         numberPicker.setMaxValue(100);    
         numberPicker.setWrapSelectorWheel(true);
@@ -208,12 +209,11 @@ Note we set the range with `setMinValue` and `setMaxValue` and made the selector
 
 ```java
 // within onCreate
-numberPicker.setOnValueChangedListener( 
-    new NumberPicker.OnValueChangeListener() {
-        @Override
-        public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                Log.d("DEBUG", "Selected number in picker is " + newVal);
-            }
+numberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+    @Override
+    public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+        Log.d("DEBUG", "Selected number in picker is " + newVal);
+    }
 });
 ```
 
