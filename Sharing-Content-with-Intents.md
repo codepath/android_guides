@@ -110,10 +110,11 @@ Drawable mDrawable = siv.getDrawable();
 Bitmap mBitmap = ((BitmapDrawable)mDrawable).getBitmap();
 Bitmap mutableBitmap = mBitmap.copy(Bitmap.Config.ARGB_8888, true);
 
-=View view  = new View(this);
+View view  = new View(this);
 view.draw(new Canvas(mutableBitmap));
 
-String path = Images.Media.insertImage(getContentResolver(), mBitmap, "Image Description", null);
+String path = Images.Media.insertImage(getContentResolver(), 
+    mBitmap, "Image Description", null);
 
 Uri uri = Uri.parse(path);
 return uri;
