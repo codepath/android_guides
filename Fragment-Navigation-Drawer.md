@@ -23,13 +23,14 @@ You also need to setup a view that will represent the individual drawer item in 
     android:id="@android:id/text1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:textAppearance="?android:attr/textAppearanceListItemSmall"
+    android:background="@android:drawable/list_selector_background"
     android:gravity="center_vertical"
+    android:minHeight="?listPreferredItemHeightSmall"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    android:textColor="#111"
-    android:background="?android:attr/activatedBackgroundIndicator"
-    android:minHeight="?android:attr/listPreferredItemHeightSmall"/>
+    android:textAppearance="?textAppearanceListItem"
+    android:textSize="16dp"
+    android:textColor="#111" />
 ```
 
 Then in your `res/values/strings.xml` add the following:
