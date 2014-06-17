@@ -31,7 +31,7 @@ startActivity(Intent.createChooser(sharingIntent, "Share image using"));
 
 ### Sharing Remote Images
 
-You may want to send an image that were loaded from a remote URL. Assuming you are using a third party library like `SmartImageView`, here is how you might share an image that came from the network and was loaded into an ImageView. First, we need to load the bitmap into the view from the URL:
+You may want to send an image that were loaded from a remote URL. Assuming you are using a third party library like `SmartImageView`, here is how you might share an image that came from the network and was loaded into an ImageView.  There are two ways to accomplish this.   The first way, shown below, takes the bitmap from the view and loads it into a file.  
 
 ```java
 // Get access to SmartImageView 
@@ -99,6 +99,28 @@ Make sure to add the appropriate permissions to your `AndroidManifest.xml`:
 and setup the "SD Card" within the emulator device settings:
 
 <img src="http://i.imgur.com/nvA2ZKz.png" width="300" />
+
+
+### Sharing Remote Images (without explicit file IO)
+The second way to share an Image does not require you to write the image into a file.  This code can safely be executed on the UI thread.    The approach was suggested on this webpage http://www.nurne.com/2012/07/android-how-to-attach-image-file-from.html .
+
+```java
+		SmartImageView siv = (SmartImageView) findViewById(R.id.ivResult);
+		Drawable mDrawable = siv.getDrawable();
+		Bitmap mBitmap = ((BitmapDrawable)mDrawable).getBitmap();
+		Bitmap mutableBitmap = mBitmap.copy(Bitmap.Config.ARGB_8888, true);
+
+		View view  = new View(this);
+		view.draw(new Canvas(mutableBitmap));
+
+		String path = Images.Media.insertImage(getContentResolver(), mBitmap, "Peter", null);
+
+		Uri uri = Uri.parse(path);
+		return uri;
+```
+
+You get the Drawable from the ImageView.  You get the Bitmap from the Drawable (a bitmap is essentially the raw memory containing the image pixels).   That bitmap is immutable (read-only), so make a copy of the bitmap.
+and draw the copy into a Canvas.  The Canvas constructor requires a non-read-only bitmap.   Put that drawn bitmap into the Media image store.   That gives you a path which can be used instead of a file path.
 
 ### ShareActionProvider
 
