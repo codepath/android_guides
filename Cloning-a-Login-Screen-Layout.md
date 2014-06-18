@@ -382,6 +382,10 @@ You can remove the border by either setting `android:background` to "@null" or s
      android:src="@drawable/image_button_graphic" />
 ```
 
+**How do I get rid of the padding around the edges of my screen?**
+
+You need to go to the XML Layout and check the root `RelativeLayout` and remove the `android:paddingxxxx` properties that are set by default. After removing these properties, that padding around the edges of your layout will disappear. 
+
 ## References
 
 * <http://www.android-app-patterns.com/category/login-screens>
