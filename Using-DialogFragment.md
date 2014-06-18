@@ -176,6 +176,7 @@ public class EditNameDialog extends DialogFragment implements OnEditorActionList
 	
     // Fires whenever the textfield has an action performed
     // In this case, when the "Done" button is pressed
+    // REQUIRES a 'soft keyboard' (virtual keyboard)
     @Override
     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
         if (EditorInfo.IME_ACTION_DONE == actionId) {
@@ -202,6 +203,8 @@ public class FragmentDialogDemo extends FragmentActivity implements EditNameDial
   }
 }
 ```
+
+**Note:** `setOnEditorActionListener` used above to dismiss requires the use of the soft keyboard in the emulator which [can be enabled through AVD](http://imgur.com/a/kf1s9) or by testing on a device. If you don't want to enable soft keyboard, you may want to dismiss on a button click or on a keypress instead.
 
 ## Things To Note
 
