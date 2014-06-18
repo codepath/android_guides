@@ -208,7 +208,11 @@ public class UsersAdapter extends ArrayAdapter<User> {
 
 In this example we also have a private static class called `ViewHolder`.  Making calls to `findViewById()` is really slow in practice, and if your adapter has to call it for each View in your row for every single row then you will quickly run into performance issues.  What the ViewHolder class does is cache the call to `findViewById()`.  Once your ListView has reached the max amount of rows it can display on a screen, Android is smart enough to begin recycling those row Views.  We check if a View is recycled with `if (convertView == null)`.  If it is not null then we have a recycled View and can just change its values, otherwise we need to create a new row View.  The magic behind this is the `setTag()` method which lets us attach an arbitrary object onto a View object, which is how we save the already inflated View for future reuse.
 
+### Beyond ViewHolders
+[Customizing Android ListView Rows by Subclassing](http://www.bignerdranch.com/blog/customizing-android-listview-rows-subclassing/) describes a strategy for obtaining instances of child views using a similar approach as a ViewHolder but without the explicit ViewHolder subclass.
+
 ## References
 
  * <http://lucasr.org/2012/04/05/performance-tips-for-androids-listview/>
  * <http://www.doubleencore.com/2013/05/layout-inflation-as-intended/>
+ * <http://www.bignerdranch.com/blog/customizing-android-listview-rows-subclassing/>
