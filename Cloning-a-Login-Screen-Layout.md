@@ -341,7 +341,7 @@ See the [Working with ImageView](http://guides.codepath.com/android/Working-with
 
 **How do I support text with rich formatting (bold words, links) in a TextView?**
 
-The [TextView] has [basic support for HTML text formatting](http://guides.codepath.com/android/Working-with-the-TextView#inserting-html-formatting) and can even [autolink URLs contained within the text](http://guides.codepath.com/android/Working-with-the-TextView#autolinking-urls).
+The `TextView` has [basic support for HTML text formatting](http://guides.codepath.com/android/Working-with-the-TextView#inserting-html-formatting) and can even [autolink URLs contained within the text](http://guides.codepath.com/android/Working-with-the-TextView#autolinking-urls).
 
 **How do I get rid of the padding around the edges of the activity?**
 
