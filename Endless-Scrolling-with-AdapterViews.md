@@ -104,7 +104,15 @@ public class MainActivity extends Activity {
 
 Now as you scroll, items will be automatically filling in because the `onLoadMore` method will be triggered once the user crosses the `visibleThreshold`. This approach works equally well for a `GridView` and the listener gives access to both the `page` as well as the `totalItemsCount` to support both pagination and offset based fetching.
 
-**Note:** Make sure to setup this listener in the `onCreate` method of the `Activity` and not later on otherwise you may encounter unexpected issues.
+## Troubleshooting
+
+If you are running into problems, please carefully consider the following suggestions:
+
+* Make sure to setup the `setOnScrollListener` listener in the `onCreate` method of the `Activity` and not later on otherwise you may encounter unexpected issues. 
+
+* In order for the pagination system to continue working reliably, you should make sure to **clear the adapter** of items (or notify adapter after clearing the array) before appending new items to the list.
+
+* In order for this pagination system to trigger, keep in mind that as `customLoadMoreDataFromApi` is called, new data needs to be **appended to the existing data source**. In other words, only clear items from the list when on the initial "page". Subsequent "pages" of data should be appended to the existing data.
 
 ## References
 
