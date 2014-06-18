@@ -361,7 +361,7 @@ You have probably noticed that there are multiple drawable folders (i.e drawable
 
 **How would I hide the top ActionBar?**
 
-You can hide the ActionBar by modifying the "theme" of the Activity as described in this [Hiding the ActionBar](http://www.caincode.com/hiding-3-dot-action-bar-android-app/) tutorial or programmatically at runtime in Java with `getActionBar().hide()`
+You can hide the ActionBar by modifying the "theme" of the Activity as described in this [stackoverflow post](http://stackoverflow.com/a/19545450) or programmatically at runtime in Java with `getActionBar().hide()` within the `onCreate` method after `setContentView`.
 
 **How do I add a border to an image or other view?**
 
