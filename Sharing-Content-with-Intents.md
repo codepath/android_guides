@@ -108,10 +108,6 @@ The second way to share an Image does not require you to write the image into a 
 SmartImageView siv = (SmartImageView) findViewById(R.id.ivResult);
 Drawable mDrawable = siv.getDrawable();
 Bitmap mBitmap = ((BitmapDrawable)mDrawable).getBitmap();
-Bitmap mutableBitmap = mBitmap.copy(Bitmap.Config.ARGB_8888, true);
-
-View view  = new View(this);
-view.draw(new Canvas(mutableBitmap));
 
 String path = Images.Media.insertImage(getContentResolver(), 
     mBitmap, "Image Description", null);
@@ -120,8 +116,7 @@ Uri uri = Uri.parse(path);
 return uri;
 ```
 
-You get the `Drawable` from the `ImageView`.  You get the Bitmap from the Drawable (a bitmap is essentially the raw memory containing the image pixels).  That bitmap is immutable (read-only), so make a copy of the bitmap.
-and draw the copy into a Canvas.  The Canvas constructor requires a non-read-only bitmap.   Put that drawn bitmap into the Media image store.  That gives you a path which can be used instead of a file path.
+You get the `Drawable` from the `ImageView`.  You get the Bitmap from the Drawable.  Put that bitmap into the Media image store.  That gives you a path which can be used instead of a file path or URL.  Note the original webpage had an additional problem with immutable bitmaps, solved by drawing the bitmap into a canvas (never shown on screen).  See linked page above for details.
 
 ### ShareActionProvider
 
