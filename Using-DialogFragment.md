@@ -6,11 +6,11 @@ This is typically used for displaying an alert dialog, a confirm dialog, or prom
 
 It should be mentioned that DialogFragment is now the canonical way to display overlays and using Dialog directly is considered bad practice.
 
-**Note:** The guide below required every fragment related class imported to use the `android.support.v4.app` namespace and **not** the `android.app` namespace. If anything (FragmentManager, DialogFragment, etc) uses the other namespace, compile-time errors will occur.
-
 ## Usage
 
 The minimum that must be implemented when creating a DialogFragment is either the `onCreateView` method or the `onCreateDialog` method. Use `onCreateView` when the entire view of the dialog is going to be defined via custom XML. Use `onCreateDialog` when you just need to construct and configure a standard Dialog class (such as AlertDialog) to display.
+
+**Note:** The entire guide below requires every fragment related class imported to use the `android.support.v4.app` namespace and **not** the `android.app` namespace. If any imported class (FragmentManager, DialogFragment, etc) uses the `android.app` namespace, compile-time errors will occur.
 
 ### Custom View
 
