@@ -166,7 +166,7 @@ Adding this single line in the innermost loop, terminates the loop when the matc
 	for (int i = 0; i < adapter.getCount(); i++) {
 		if (adapter.getItem(i).equals(value)) {
 			index = i;
-          break; // ADD TO TERMINATE LOOP WHEN item FOUND
+             break; // ADD TO TERMINATE LOOP WHEN item FOUND
 		}
 	}
 ```
