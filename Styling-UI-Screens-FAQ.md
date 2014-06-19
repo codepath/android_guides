@@ -10,11 +10,13 @@ The recommended way to layout most screens is often by using the [powerful Relat
 
 **How do I get rid of the padding around the edges of the activity?**
 
-You need to go to the XML Layout and check the root `RelativeLayout` and remove the `android:paddingxxxx` properties that are set by default. After removing these properties, that padding around the edges of your layout will disappear. 
+You need to go to the XML Layout and check the root `RelativeLayout` and remove each of the `android:padding` properties that are set by default. After removing these properties from the root layout, that padding around the edges of your layout will disappear. 
 
 **How do I set the opacity of a layout or view?**
 
-The opacity of any view can be set in the XML Layout in two ways. First, the `background` property supports alpha values when specifying a color hex as [described here](http://stackoverflow.com/a/11019879) in the format of "#AARRGGBB" for example "#80a4113b" would set the alpha channel to 50% for the color "#a4113b". In short using "hex opacity values", you can make the background color semi-transparent. Alternatively, you can use the [android:alpha](http://developer.android.com/reference/android/view/View.html#attr_android:alpha) property which must be a floating point from 0 to 1. Note though that `alpha` sets **both the view and all of it's children** to this opacity which is often not desired.
+The opacity of any view can be set in the XML Layout in two ways. First, the `android:background` property of any view supports alpha channels when specifying a color hex with alpha values [described here](http://stackoverflow.com/a/11019879) in the format of "#AARRGGBB" for example "#80a4113b" would set the alpha channel to 50% for the color "#a4113b". In short using "hex opacity values", you can make the background color of any view semi-transparent. 
+
+Alternatively, you can use the [android:alpha](http://developer.android.com/reference/android/view/View.html#attr_android:alpha) property which must be a floating point from 0 to 1. Note though that `alpha` sets **both the view and all of it's children** to this opacity which is often not desired.
 
 **How do I set an entire region to have a particular background color or image?**
 
@@ -22,7 +24,7 @@ Simply assign the [android:background](http://developer.android.com/reference/an
 
 ### Views
 
-**How do I control the way images are resized within an ImageView?**
+**How do I control the way images are displayed or scaled within an ImageView?**
 
 See the [Working with ImageView](http://guides.codepath.com/android/Working-with-the-ImageView) guide in particular the [sizing section](http://guides.codepath.com/android/Working-with-the-ImageView#sizing-imageview-controls) and [scale types](http://guides.codepath.com/android/Working-with-the-ImageView#scale-types).
 
@@ -36,23 +38,47 @@ Fonts can be customized fairly easily using this [custom fonts](http://guides.co
 
 **How do I customize the style of a button?**
 
-Styling a button requires the use of either image assets (see the [ImageButton](http://developer.android.com/reference/android/widget/ImageButton.html)) or alternatively applying the concept of [custom drawables](http://guides.codepath.com/android/Drawables#customizing-a-button). For readymade solutions, check out [these nice looking pre-built buttons](http://www.dibbus.com/2011/03/9patch-images-in-android/) or [this handy button generator](http://angrytools.com/android/button/)
+Styling a button requires the use of either image assets (see the [ImageButton](http://developer.android.com/reference/android/widget/ImageButton.html)) or alternatively applying the concept of [custom drawables](http://guides.codepath.com/android/Drawables#customizing-a-button). For readymade solutions, check out [these nice looking pre-built buttons](http://www.dibbus.com/2011/03/9patch-images-in-android/) or [this handy button generator](http://angrytools.com/android/button/).
 
-**How do I create a custom pressed button state?**
+**How do I control the pressed state of the button?**
 
-Button states are created by using a "drawable" xml resource called a [State List](http://developer.android.com/guide/topics/resources/drawable-resource.html#StateList). The core is you define each state with it's own drawable by assigning the background of the button as the state list. Check out our [Drawables Cliffnotes](https://github.com/thecodepath/android_guides/wiki/Drawables) or the [Button Custom Background Official Guide](http://developer.android.com/guide/topics/ui/controls/button.html#CustomBackground) for specific details.
+Button states are created by using a "drawable" xml resource called a [State List](http://developer.android.com/guide/topics/resources/drawable-resource.html#StateList). The core is you define each state with it's own drawable by assigning the background of the button as the state list. This involves creating an XML file within a `res/drawable` folder called "states_my_image_button.xml":
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+  <item  android:drawable="@drawable/btn_pressed" 
+       android:state_pressed="true"/> 
+
+  <item android:drawable="@drawable/btn_normal" />
+</selector>
+```
+
+Check out the [Button Custom Background Official Guide](http://developer.android.com/guide/topics/ui/controls/button.html#CustomBackground) for specific details.
 
 **How would I create images that look good at any resolution?**
 
-You have probably noticed that there are multiple drawable folders (i.e drawable-hdpi, drawable-ldpi) which allow us to provide [multiple resolutions for different density screens](http://developer.android.com/training/basics/supporting-devices/screens.html#create-bitmaps). Also, there are cases where the button has an image background that needs to stretch to support different text. In this case you might need to [draw a 9-patch](http://developer.android.com/tools/help/draw9patch.html) stretchable button. Check out the [Button Custom Background Official Guide](http://developer.android.com/guide/topics/ui/controls/button.html#CustomBackground) for specific details.
+You have probably noticed that there are multiple drawable folders (i.e drawable-hdpi, drawable-xhdpi) which allow us to provide [multiple resolutions for different density screens](http://developer.android.com/training/basics/supporting-devices/screens.html#create-bitmaps). An easy guide for which sizes to create can be found in [[this ImageView guide|Working-with-the-ImageView#supporting-multiple-densities]]
 
-**How do I add a border to an image or other view?**
+Also, there are cases where a button has an image background that needs to stretch to support different text content. In this case you might need to [draw a 9-patch](http://developer.android.com/tools/help/draw9patch.html) stretchable button. Check out the [Button Custom Background Official Guide](http://developer.android.com/guide/topics/ui/controls/button.html#CustomBackground) for specific details. You can also check out [these nice looking 9-patch buttons](http://www.dibbus.com/2011/03/9patch-images-in-android/) for use too.
 
-You can add a border to any view by creating a "drawable shape xml" and applying that as the `android:background` of the view. See [this stackoverflow post](http://stackoverflow.com/a/3264140) for details.
+**How do I add a border to an image or another view?**
+
+You can add a border to any view by creating a "drawable shape xml" and applying that as the `android:background` of the view. Create an XML file in `res/drawable` called "shape_view_border.xml":
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#FFFFFF" />
+    <stroke android:width="1dp" android:color="#000000" />
+</shape>
+```
+
+The `stroke` is the border properties and `solid` is the background color of the rest of the view. See [this stackoverflow post](http://stackoverflow.com/a/3264140) for more details.
 
 **How do I add a background image to a view?**
 
-Simply drag the image to the `res/drawable-xhdpi` folder and then apply the image to any view by setting `android:background="@drawable/my_image_name"`. See [this stackoverflow post](http://stackoverflow.com/a/8177819) for more details.
+Simply drag the image to the `res/drawable-xhdpi` folder and then apply the image to any view by setting `android:background="@drawable/my_image_name"`. See [this stackoverflow post](http://stackoverflow.com/a/8177819) for more details. If you need more control of how the image is scaled, see [this post](http://stackoverflow.com/a/16139059) using a FrameLayout.
 
 **How do I remove the grey border from an ImageButton?**
 
@@ -65,11 +91,13 @@ You can remove the border by either setting `android:background` to "@null" or s
      android:src="@drawable/image_button_graphic" />
 ```
 
+Using this code the border on the imagebutton will be removed.
+
 ### ActionBar
 
 **How do I style the title in the ActionBar?**
 
-ActionBar title can be styled or centered only if you opt to customize the XML view being inflated to display in the ActionBar. Instead of using the default ActionBar text you can specify your own to use instead that is styled as desired. Check out the [Advanced ActionBar](http://guides.codepath.com/android/Extended-ActionBar-Guide#custom-actionbar-layout) cliffnotes for details. This [related stackoverflow post](http://stackoverflow.com/questions/12387345/how-to-align-actionbar-title-center-in-android/12388200#12388200) also explains it in detail. 
+ActionBar title can be styled or centered only if you opt to customize the XML view being inflated to display in the ActionBar. Instead of using the default ActionBar text you can specify your own to use instead that is styled as desired. Check out the [Advanced ActionBar](http://guides.codepath.com/android/Extended-ActionBar-Guide#custom-actionbar-layout) cliffnotes for details. This [related stackoverflow post](http://stackoverflow.com/questions/12387345/how-to-align-actionbar-title-center-in-android/12388200#12388200) also explains the steps in detail. 
 
 **How do I change the background color of the ActionBar?**
 
