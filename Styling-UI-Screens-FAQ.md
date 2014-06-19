@@ -6,7 +6,7 @@ This is an FAQ that addresses common questions that arise when building UI scree
 
 **How do I properly layout this complex screen?**
 
-The recommended way to layout most screens is often by using the [powerful RelativeLayout](http://guides.codepath.com/android/Constructing-View-Layouts#relativelayout) system. Note that you can also **embed layouts within each other**. LinearLayouts positioned within a root RelativeLayout can be a powerful way to achieve complex layouts as well.
+The recommended way to layout most screens is often by using the [[powerful RelativeLayout|Constructing-View-Layouts#relativelayout]] system. Note that you can also **embed layouts within each other**. LinearLayouts positioned within a root RelativeLayout can be a powerful way to achieve complex layouts as well.
 
 **How do I get rid of the padding around the edges of the activity?**
 
