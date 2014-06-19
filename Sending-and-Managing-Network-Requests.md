@@ -135,7 +135,13 @@ Note that as shown above you should also **handle failure cases** with [JsonHttp
 
 ### Displaying Remote Images (The "Easy" Way)
 
-In contrast, using the third party library [android-universal-image-loader](https://github.com/nostra13/Android-Universal-Image-Loader) after [proper setup](https://github.com/nostra13/Android-Universal-Image-Loader#quick-setup), we can download an image like this:
+Using a third party library from Square called [Picasso](http://square.github.io/picasso/) which serves a similar purpose. After [downloading the Picasso jar](http://repo1.maven.org/maven2/com/squareup/picasso/picasso/2.3.2/picasso-2.3.2.jar), we can load a remote image  into any ImageView with:
+
+```java
+Picasso.with(context).load(imageUri).into(ivBasicImage);
+```
+
+For more details check out the [Picasso](http://square.github.io/picasso/) documentation. An alternative to Picasso is another popular library called [android-universal-image-loader](https://github.com/nostra13/Android-Universal-Image-Loader) which after [proper setup](https://github.com/nostra13/Android-Universal-Image-Loader#quick-setup), allows us to download an image like this:
 
 ```java
 String imageUri = "http://2.gravatar.com/avatar/858dfac47ab8176458c005414d3f0c36?s=128&d=&r=G";
@@ -143,15 +149,7 @@ ImageView ivBasicImage = (ImageView) findViewById(R.id.ivBasicImage);
 imageLoader.displayImage(imageUri, ivBasicImage);
 ```
 
-The important thing here is to notice just how much cleaner and clearer app develop can be when using third-party high level libraries. 
-
-Note that a popular alternative to the universal-image-loader library is called [Picasso](http://square.github.io/picasso/) which serves a similar purpose. After [downloading the Picasso jar](http://repo1.maven.org/maven2/com/squareup/picasso/picasso/2.1.1/picasso-2.1.1.jar), we can load an image with:
-
-```java
-Picasso.with(context).load(imageUri).into(ivBasicImage);
-```
-
-For more details check out the [Picasso](http://square.github.io/picasso/) documentation.
+With either of these libraries we can easily load images from the network.
 
 ### Displaying Remote Images (The "Hard" Way)
 
