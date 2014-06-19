@@ -284,7 +284,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
 }
 ```
 
-For more advanced searching functionality, check out the [Creating a Search Interface](http://developer.android.com/guide/topics/search/search-dialog.html) guide.
+Note that if we want **gingerbread compatibility**, we need to use the `android.support.v7.widget.SearchView` version of SearchView, and `MenuItemCompat.getActionView(searchItem)` to find the view. See [this writeup](http://antonioleiva.com/actionbarcompat-action-views/) for details. For more advanced searching functionality, check out the [Creating a Search Interface](http://developer.android.com/guide/topics/search/search-dialog.html) guide.
 
 ### Using ActionProvider and ShareActionProvider
 
