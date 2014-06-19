@@ -138,15 +138,15 @@ Note that as shown above you should also **handle failure cases** with [JsonHttp
 Using a third party library from Square called [Picasso](http://square.github.io/picasso/) which serves a similar purpose. After [downloading the Picasso jar](http://repo1.maven.org/maven2/com/squareup/picasso/picasso/2.3.2/picasso-2.3.2.jar), we can load a remote image  into any ImageView with:
 
 ```java
+String imageUri = "http://2.gravatar.com/avatar/858dfac47ab8176458c005414d3f0c36";
+ImageView ivBasicImage = (ImageView) findViewById(R.id.ivBasicImage);
 Picasso.with(context).load(imageUri).into(ivBasicImage);
 ```
 
 For more details check out the [Picasso](http://square.github.io/picasso/) documentation. An alternative to Picasso is another popular library called [android-universal-image-loader](https://github.com/nostra13/Android-Universal-Image-Loader) which after [proper setup](https://github.com/nostra13/Android-Universal-Image-Loader#quick-setup), allows us to download an image like this:
 
 ```java
-String imageUri = "http://2.gravatar.com/avatar/858dfac47ab8176458c005414d3f0c36?s=128&d=&r=G";
-ImageView ivBasicImage = (ImageView) findViewById(R.id.ivBasicImage);
-imageLoader.displayImage(imageUri, ivBasicImage);
+ImageLoader.getInstance().displayImage(imageUri, ivBasicImage);
 ```
 
 With either of these libraries we can easily load images from the network.
