@@ -153,7 +153,7 @@ With either of these libraries we can easily load images from the network.
 
 ### Displaying Remote Images (The "Hard" Way)
 
-Here's the code to construct an AsyncTask to download a remote image and display the image in an ImageView using just the official Google Android SDK. 
+Suppose we wanted to load an image using only the built-in Android network constructs. Here's the code to construct an `AsyncTask` to download a remote image and display the image in an ImageView using just the official Google Android SDK. See the [[Creating and Executing Async Tasks]] for more information about executing asynchronous background tasks. 
 
 ```java
 package com.example.simplenetworking;
@@ -166,7 +166,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		ivBasicImage = (ImageView) findViewById(R.id.ivBasicImage);
-		String url = "http://2.gravatar.com/avatar/858dfac47ab8176458c005414d3f0c36?s=128&d=&r=G";
+		String url = "http://2.gravatar.com/avatar/858dfac47ab8176458c005414d3f0c36?s=256&d=&r=G";
 		// Download image from URL and display within ImageView
 		new ImageDownloadTask().execute(url);
 	}
