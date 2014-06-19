@@ -26,19 +26,19 @@ Simply assign the [android:background](http://developer.android.com/reference/an
 
 **How do I control the way images are displayed or scaled within an ImageView?**
 
-See the [Working with ImageView](http://guides.codepath.com/android/Working-with-the-ImageView) guide in particular the [sizing section](http://guides.codepath.com/android/Working-with-the-ImageView#sizing-imageview-controls) and [scale types](http://guides.codepath.com/android/Working-with-the-ImageView#scale-types).
+See the [[Working with ImageView|Working-with-the-ImageView]] guide in particular the [[sizing section|Working-with-the-ImageView#sizing-imageview-controls]] and [[scale types|Working-with-the-ImageView#scale-types]].
 
 **How do I support text with rich formatting (bold words, links) in a TextView?**
 
-The `TextView` has [basic support for HTML text formatting](http://guides.codepath.com/android/Working-with-the-TextView#inserting-html-formatting) and can even [autolink URLs contained within the text](http://guides.codepath.com/android/Working-with-the-TextView#autolinking-urls).
+The `TextView` has [[basic support for HTML text formatting|Working-with-the-TextView#inserting-html-formatting]] and can even [[autolink URLs contained within the text|Working-with-the-TextView#autolinking-urls]].
 
 **How do I support different fonts in my app?** 
 
-Fonts can be customized fairly easily using this [custom fonts](http://guides.codepath.com/android/Working-with-the-TextView#using-custom-fonts) guide. Be aware that custom fonts can cause performance issues if used too much.
+Fonts can be customized fairly easily using this [[custom fonts|Working-with-the-TextView#using-custom-fonts]] guide. Be aware that custom fonts can cause performance issues if used too much.
 
 **How do I customize the style of a button?**
 
-Styling a button requires the use of either image assets (see the [ImageButton](http://developer.android.com/reference/android/widget/ImageButton.html)) or alternatively applying the concept of [custom drawables](http://guides.codepath.com/android/Drawables#customizing-a-button). For readymade solutions, check out [these nice looking pre-built buttons](http://www.dibbus.com/2011/03/9patch-images-in-android/) or [this handy button generator](http://angrytools.com/android/button/).
+Styling a button requires the use of either image assets (see the [ImageButton](http://developer.android.com/reference/android/widget/ImageButton.html)) or alternatively applying the concept of [[custom drawables|Drawables#customizing-a-button]]. For readymade solutions, check out [these nice looking pre-built buttons](http://www.dibbus.com/2011/03/9patch-images-in-android/) or [this handy button generator](http://angrytools.com/android/button/).
 
 **How do I control the pressed state of the button?**
 
@@ -97,11 +97,11 @@ Using this code the border on the imagebutton will be removed.
 
 **How do I style the title in the ActionBar?**
 
-ActionBar title can be styled or centered only if you opt to customize the XML view being inflated to display in the ActionBar. Instead of using the default ActionBar text you can specify your own to use instead that is styled as desired. Check out the [Advanced ActionBar](http://guides.codepath.com/android/Extended-ActionBar-Guide#custom-actionbar-layout) cliffnotes for details. This [related stackoverflow post](http://stackoverflow.com/questions/12387345/how-to-align-actionbar-title-center-in-android/12388200#12388200) also explains the steps in detail. 
+ActionBar title can be styled or centered only if you opt to customize the XML view being inflated to display in the ActionBar. Instead of using the default ActionBar text you can specify your own to use instead that is styled as desired. Check out the [[Advanced ActionBar|Extended-ActionBar-Guide#custom-actionbar-layout]] cliffnotes for details. This [related stackoverflow post](http://stackoverflow.com/questions/12387345/how-to-align-actionbar-title-center-in-android/12388200#12388200) also explains the steps in detail. 
 
 **How do I change the background color of the ActionBar?**
 
-Customize the theme of the ActionBar in the `styles.xml` as explained in [this stackoverflow post](http://stackoverflow.com/a/9249702) to adjust the color of the ActionBar. Also, check out the [Advanced Actionbar](https://github.com/thecodepath/android_guides/wiki/Extended-ActionBar-Guide#custom-actionbar-styles) cliffnotes for more details. 
+Customize the theme of the ActionBar in the `styles.xml` as explained in [this stackoverflow post](http://stackoverflow.com/a/9249702) to adjust the color of the ActionBar. Also, check out the [[Advanced Actionbar|Extended-ActionBar-Guide#custom-actionbar-styles]] cliffnotes for more details. 
 
 **How would I hide the top ActionBar?**
 
