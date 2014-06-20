@@ -155,7 +155,7 @@ public void setSpinnerToValue(Spinner spinner, String value) {
 	for (int i = 0; i < adapter.getCount(); i++) {
 		if (adapter.getItem(i).equals(value)) {
 			index = i;
-                        break; // terminate loop
+			break; // terminate loop
 		}
 	}
 	spinner.setSelection(index);
