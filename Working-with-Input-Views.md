@@ -155,20 +155,11 @@ public void setSpinnerToValue(Spinner spinner, String value) {
 	for (int i = 0; i < adapter.getCount(); i++) {
 		if (adapter.getItem(i).equals(value)) {
 			index = i;
+                        break; // terminate loop
 		}
 	}
 	spinner.setSelection(index);
 }
-```
-
-Adding this single line in the innermost loop, terminates the loop when the matching entry is found.  The "break" statement in Java terminates the immediately enclosing for, do, while, or switch.   You break to the end of the iteration or switch, _not_ to the end of merely the nested-if statement.
-```java
-	for (int i = 0; i < adapter.getCount(); i++) {
-		if (adapter.getItem(i).equals(value)) {
-			index = i;
-             break; // ADD TO TERMINATE LOOP WHEN item FOUND
-		}
-	}
 ```
 
 You can also load a spinner using an adapter for a dynamic source of options using an Adapter:
