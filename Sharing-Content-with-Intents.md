@@ -196,7 +196,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
 
 Now, once you've setup the ShareActionProvider menu item (either for supportv7 or standard), construct and attach the share intent for the provider but only **after image has been loaded** as shown below using the `OnCompleteListener` for the `SmartImageView`.
 
-**Note:** The following assumes the use of a **recent release** of the third-party image library `SmartImageView` which supports completion callbacks. If you can't call the method below, update the version of the library by downloading [this smart-image-view jar](https://www.dropbox.com/s/k2ljqalmzlqymkh/android-smart-image-view-3-27-14.jar), the following code snippet **won't work with older versions** of `SmartImageView`.
+**Note:** The following requires a **recent release** of the third-party image library `SmartImageView` which supports completion callbacks. Update the version of the library used by downloading [this smart-image-view jar](https://www.dropbox.com/s/k2ljqalmzlqymkh/android-smart-image-view-3-27-14.jar), the following code snippet **won't work with older versions** of `SmartImageView`.
 
 ```java
 @Override
