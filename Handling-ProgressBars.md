@@ -82,7 +82,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Request the feature before setting content view
+        // MUST request the feature before setting content view
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS); 
         setContentView(R.layout.activity_main);
     }
@@ -99,14 +99,14 @@ public class MainActivity extends Activity {
 }
 ```
 
-You can also use a **result-based progress** bar displayed in the ActionBar as well:
+Note that for this to work, you must call `requestWindowFeature` as shown above before `setContentView` in `onCreate`. You can also use a **result-based progress** bar displayed in the ActionBar as well:
 
 ```java
 public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Request the feature before setting content view
+        // MUST request the feature before setting content view
         requestWindowFeature(Window.FEATURE_PROGRESS); 
         setContentView(R.layout.activity_main);
     }
@@ -129,6 +129,8 @@ public class MainActivity extends Activity {
     }
 }
 ```
+
+Note that for this to work, you must call `requestWindowFeature` as shown above before `setContentView` in `onCreate`.
 
 ## References
 
