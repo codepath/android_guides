@@ -1,4 +1,4 @@
-Getting started with Gradle on the command-line is easy!
+Getting started with Gradle on the command line is easy!
 
 ## Install Gradle
 
@@ -222,4 +222,4 @@ Check out the following links for more details:
  * [Building with Gradle](http://www.vogella.com/articles/AndroidBuild/article.html)
  * [Gradle User Guide](http://tools.android.com/tech-docs/new-build-system/user-guide)
  * [Gradle Example Project](https://github.com/pestrada/android-tdd-playground)
- * [Building Android Projects with Gradle](https://spring.io/guides/gs/gradle-android/) - This resource is particularly geared toward creating a Gradle wrapper for use with Android Studio.
+ * [Building Android Projects with Gradle](https://spring.io/guides/gs/gradle-android/) This resource covers creating a Gradle wrapper for use with Android Studio.
