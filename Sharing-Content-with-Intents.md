@@ -124,8 +124,6 @@ This is how you can easily use an ActionBar share icon to activate a ShareIntent
 
 **Note:** This is **an alternative to using a sharing intent** as described in the previous section. You either can use a sharing intent **or** the provider as described below. 
 
-**Note:** The following assumes the use of a third-party image library `SmartImageView` with a release that supports callbacks such as [this smart-image-view jar](https://www.dropbox.com/s/k2ljqalmzlqymkh/android-smart-image-view-3-27-14.jar), note that the following code snippet won't work with certain older versions of `SmartImageView`.
-
 #### Without Support Library
 
 **Note:** `ShareActionProvider` is only available in API 14 or above unless the supportv7 library is included in which case you must follow the next section instead.
@@ -197,6 +195,8 @@ public boolean onCreateOptionsMenu(Menu menu) {
 #### Attach Share Intent for Content
 
 Now, once you've setup the ShareActionProvider menu item (either for supportv7 or standard), construct and attach the share intent for the provider but only **after image has been loaded**:
+
+**Note:** The following assumes the use of a third-party image library `SmartImageView` with a release that supports callbacks such as [this smart-image-view jar](https://www.dropbox.com/s/k2ljqalmzlqymkh/android-smart-image-view-3-27-14.jar), note that the following code snippet won't work with certain older versions of `SmartImageView`.
 
 ```java
 @Override
