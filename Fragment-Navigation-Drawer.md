@@ -93,7 +93,8 @@ public class FragmentNavigationDrawer extends DrawerLayout {
 			// Setup navigation items array
 			drawerNavItems = new ArrayList<FragmentNavigationDrawer.FragmentNavItem>();
 			// Set the adapter for the list view
-			drawerAdapter = new ArrayAdapter<String>(getActivity(), drawerItemRes, new ArrayList<String>());
+			drawerAdapter = new ArrayAdapter<String>(getActivity(), drawerItemRes, 
+                            new ArrayList<String>());
 			this.drawerContainerRes = drawerContainerRes; 
 			// Setup drawer list view and related adapter
 			lvDrawer = drawerListView;
@@ -205,12 +206,14 @@ public class FragmentNavigationDrawer extends DrawerLayout {
 			) {
 				public void onDrawerClosed(View view) {
 					// setTitle(getCurrentTitle());
-					getActivity().supportInvalidateOptionsMenu(); // call onPrepareOptionsMenu()
+					// call onPrepareOptionsMenu()
+					getActivity().supportInvalidateOptionsMenu(); 
 				}
 
 				public void onDrawerOpened(View drawerView) {
 					// setTitle("Navigate");
-					getActivity().supportInvalidateOptionsMenu(); // call onPrepareOptionsMenu()
+					// call onPrepareOptionsMenu()
+					getActivity().supportInvalidateOptionsMenu(); 
 				}
 			};
 		}
@@ -365,11 +368,10 @@ Instead of &lt;FrameLayout&gt; you can substitute that for a &lt;LinearLayout&gt
 Instead of this:
 
 ```java
- // Insert the fragment by replacing any existing fragment
-    FragmentManager fragmentManager = getFragmentManager();
-    fragmentManager.beginTransaction()
-                   .replace(R.id.content_frame, fragment)
-                   .commit();
+// Insert the fragment by replacing any existing fragment
+getFragmentManager().beginTransaction()
+       .replace(R.id.content_frame, fragment)
+       .commit();
 ```
 
 You can instead use the `LinearLayout` container to inflate the Activity directly:
