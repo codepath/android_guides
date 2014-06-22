@@ -109,8 +109,9 @@ TextView natively supports [HTML](http://developer.android.com/reference/android
 
 ```java
 TextView view = (TextView)findViewById(R.id.sampleText);
-String formattedText = getString(R.string.htmlFormattedText);
-view.setText(Html.fromHtml("This <i>is</i> a <b>test</b>"));
+String formattedText = "This <i>is</i> a <b>test</b>";
+// or getString(R.string.htmlFormattedText);
+view.setText(Html.fromHtml(formattedText));
 ```
 
 Note that all tags are not supported. See [this article](http://javatechig.com/android/display-html-in-android-textview) for a more detailed look at supported tags and usages. If you want to store your HTML text within `res/values/strings.xml`, you have to use CDATA to escape such as:
