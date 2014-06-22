@@ -10,7 +10,7 @@ This is typically used for displaying the title of the application and providing
 
 ## Usage
 
-In the [Defining ActionBar](https://github.com/thecodepath/android_guides/wiki/Defining-The-ActionBar#actionbar-basics) cliffnotes we looked at the basics of adding items to the ActionBar and handling clicks. In this section, we take a look at how to use `ActionBarSherlock` to support all Android versions and also at several powerful and extensible ActionBar features:
+In the [[Defining ActionBar|Defining-The-ActionBar#actionbar-basics]] cliffnotes we looked at the basics of adding items to the ActionBar and handling clicks. In this section, we take a look at how to use `ActionBarSherlock` to support all Android versions and also at several powerful and extensible ActionBar features:
 
  * Using the split action bar to have a top and bottom menu
  * Adding an Action View (action_layout) and SearchView
@@ -64,7 +64,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
 }
 ```
 
-See the [Defining ActionBar](https://github.com/thecodepath/android_guides/wiki/Defining-The-ActionBar#actionbar-basics) cliffnotes
+See the [[Defining the ActionBar|Defining-The-ActionBar#actionbar-basics]] cliffnotes
 for the basic details of adding items and handling clicks.
 
 
