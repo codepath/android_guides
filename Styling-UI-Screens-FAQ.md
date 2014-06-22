@@ -42,7 +42,7 @@ Styling a button requires the use of either image assets (see the [ImageButton](
 
 **How do I control the pressed state of the button?**
 
-Button states are created by using a "drawable" xml resource called a [State List](http://developer.android.com/guide/topics/resources/drawable-resource.html#StateList). The core is you define each state with it's own drawable by assigning the background of the button as the state list. This involves creating an XML file within a `res/drawable` folder called "states_my_image_button.xml":
+Button states are created by using a "drawable" xml resource called a [State List](http://developer.android.com/guide/topics/resources/drawable-resource.html#StateList). The core is you define each state with it's own drawable by assigning the `android:background` property of the button as the state list. This involves creating an XML file within a `res/drawable` folder called `states_my_image_button.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -52,6 +52,15 @@ Button states are created by using a "drawable" xml resource called a [State Lis
 
   <item android:drawable="@drawable/btn_normal" />
 </selector>
+```
+
+and then setting this as the background of the `ImageButton` within the layout:
+
+```xml
+<Button
+    android:background="@drawable/states_my_image_button"  
+    ...
+/>
 ```
 
 Check out the [Button Custom Background Official Guide](http://developer.android.com/guide/topics/ui/controls/button.html#CustomBackground) for specific details.
@@ -64,7 +73,7 @@ Also, there are cases where a button has an image background that needs to stret
 
 **How do I add a border to an image or another view?**
 
-You can add a border to any view by creating a "drawable shape xml" and applying that as the `android:background` of the view. Create an XML file in `res/drawable` called "shape_view_border.xml":
+You can add a border to any view by creating a "drawable shape xml" and applying that as the `android:background` of the view. Create an XML file in `res/drawable` called `shape_view_border.xml`:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
