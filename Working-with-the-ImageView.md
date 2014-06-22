@@ -25,13 +25,13 @@ By default, contents of an ImageView control are of a certain size -- usually th
 
 ```xml
 <ImageView
-    ...
     android:minHeight="50dp"
     android:minWidth="50dp"
     android:maxHeight="150dp"
     android:maxWidth="150dp"
     android:scaleType="fitXY"
     android:adjustViewBounds="true"
+    ...
 />
 ```
 
