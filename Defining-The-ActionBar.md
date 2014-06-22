@@ -39,7 +39,7 @@ String title = actionBar.getTitle();
 actionBar.hide();
 ```
 
-You can also change many other properties of the ActionBar not covered here. See the [Extended ActionBar Guide](https://github.com/thecodepath/android_guides/wiki/Extended-ActionBar-Guide) for more details.
+You can also change many other properties of the ActionBar not covered here. See the [[Extended ActionBar Guide|Extended-ActionBar-Guide]] for more details.
 
 ### Adding Action Items
 
