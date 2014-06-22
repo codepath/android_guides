@@ -103,7 +103,7 @@ Another culprit might be having an `app:` prefix in your `res/menu` files. Check
 
 Getting this error could also mean your Android project compilation is likely corrupted in some way. Typically this error will occur on projects in particular cases such as generating a new icon or adding a new xml file. If you see this error in your "Problems" window after a clean, try **closing and reopening Eclipse** first, then try doing a `Project => Clean`. 
 
-### Getting "Unable to execute dex: Multiple dex files define"?
+### Getting "Unable to execute dex: Multiple dex files define" or "java.nio.BufferOverflowException"?
 
 This problem prevents a project from being built, and instead displays the error "Unable to execute dex: Multiple dex files define" when compiling is attempted. The issue is that the bin directory becomes included in the project build path. Excluding the bin from the build path often resolves the problem. Right click on the project name, select `Build Path -> Configure Build Path` and in Java Build Path, go to the tab `Order and Export`. See the full details of the [solution here](http://stackoverflow.com/a/7884908). 
 
