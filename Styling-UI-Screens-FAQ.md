@@ -48,11 +48,11 @@ See the [[Working with ImageView|Working-with-the-ImageView]] guide in particula
 
 ```xml
 <ImageView
-    ...
     android:maxHeight="150dp"
     android:maxWidth="150dp"
     android:scaleType="fitXY"
     android:adjustViewBounds="true"
+    ...
 />
 ```
 
