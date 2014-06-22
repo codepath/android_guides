@@ -43,7 +43,7 @@ In your Layout XML, use the following code to add the TwoWayView:
 
 ### Populating Data into TwoWayView
 
-Now we can populate data into the `TwoWayView` much like any ListView as described in [the Adapter guide](https://github.com/thecodepath/android_guides/wiki/Using-an-ArrayAdapter-with-ListView). For example, we might create a very simple array of items:
+Now we can populate data into the `TwoWayView` much like any ListView as described in [[the Adapter guide|Using-an-ArrayAdapter-with-ListView]]. For example, we might create a very simple array of items:
 
 ```java
 ArrayList<String> items = new ArrayList<String>();
@@ -68,7 +68,7 @@ The view will now present the items horizontally like:
 
 ### Conclusion
 
-Here we have implemented a simple Horizontal ListView using a popular third-party library. Obviously this example is very simple but you can follow the steps in the [the Adapter guide](https://github.com/thecodepath/android_guides/wiki/Using-an-ArrayAdapter-with-ListView) to create arbitrarily complex list items.
+Here we have implemented a simple Horizontal ListView using a popular third-party library. Obviously this example is very simple but you can follow the steps in the [[the Adapter guide|Using-an-ArrayAdapter-with-ListView]] to create arbitrarily complex list items.
 
 ## References
 
