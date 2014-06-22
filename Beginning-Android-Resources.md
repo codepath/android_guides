@@ -88,7 +88,7 @@ Consider starting with the following tutorials and resources:
 
 * [The Android Development Tutorial](http://www.youtube.com/watch?v=Z149x12sXsw) by Derek Banas is great for those of you who prefer video lessons. It has 25 video lessons in total ranging from 10 to 30 minutes each. I used the first lessons to get a feel of the development process, specially to understand layouts.
 
-* [CodePath Android Guides](https://github.com/thecodepath/android_guides/wiki) give you even more explained code recipes and examples on how to build most common things in an Android app. I wish this was published when I started learning. It would have certainly helped.
+* [CodePath Android Guides](https://guides.codepath.com) gives you even more explained code recipes and examples on how to build most common things in an Android app. I wish this was published when I started learning. It would have certainly helped.
 
 * [Vogella Android Tutorials](http://www.vogella.com/tutorials/Android/article.html) - Awesome free tutorials for most common Android topics. Great as a supplementary resource on top of these [Android Cliffnotes](http://guides.thecodepath.com/android).
 

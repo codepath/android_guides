@@ -104,7 +104,7 @@ This is great for any time you want to have the UI update as the user enters tex
 
 #### OnEditorActionListener
 
-Another case is when you want an action to occur once the user has finished typing text with the [Soft Keyboard](https://github.com/thecodepath/android_guides/wiki/Working-with-the-Soft-Keyboard). Keep in mind that this is especially useful when you can see the virtual keyboard which is disabled by default in the emulator but can be enabled as explained in [this graphic](http://imgur.com/a/kf1s9).
+Another case is when you want an action to occur once the user has finished typing text with the [[Soft Keyboard|Working-with-the-Soft-Keyboard]]. Keep in mind that this is especially useful when you can see the virtual keyboard which is disabled by default in the emulator but can be enabled as explained in [this graphic](http://imgur.com/a/kf1s9).
 
 First, we need to setup an "action" button for our text field. To setup an "action button" such as a [Done  button on the soft Keyboard](http://imgur.com/WAwMn9k.png), simply configure your EditText with the following properties:
 

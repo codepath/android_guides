@@ -18,7 +18,7 @@ An `EditText` is added to a layout with all default behaviors with the following
 </EditText>
 ```
 
-Note that an [EditText](http://developer.android.com/reference/android/widget/EditText.html) is simply a thin extension of the [TextView](https://github.com/thecodepath/android_guides/wiki/Working-with-the-TextView) and inherits all of the same properties.
+Note that an [EditText](http://developer.android.com/reference/android/widget/EditText.html) is simply a thin extension of the [[TextView|Working-with-the-TextView]] and inherits all of the same properties.
 
 ### Retrieving the Value
 

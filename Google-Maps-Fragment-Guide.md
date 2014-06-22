@@ -203,7 +203,7 @@ Use this checklist for troubleshooting below:
  * Did you enter the correct API Key into the `AndroidManifest.xml` as explained in the map demo setup?
  * Did you enable the "Google Maps Android API v2" toggle switch on the Google API Console under "APIs & Auth" tab?
  * Did you enable GPS location for the emulator and set a location by going to the map?
- * Did you download the latest [Google Play Services APK](http://goo.im/gapps/gapps-jb-20130813-signed.zip) and install that onto your emulator? See the [google play genymotion section](https://github.com/thecodepath/android_guides/wiki/_preview#wiki-setup-google-play-services).
+ * Did you download the latest [Google Play Services APK](http://goo.im/gapps/gapps-jb-20130813-signed.zip) and install that onto your emulator? See the [[google play genymotion section|Google-Maps-Fragment-Guide#setup-google-play-services]].
  * Did you try running "Play Store" on your emulator and sign in with a Google account?
  * Uninstall the "Map Demo" from the emulator first, then re-install
  * Restart Eclipse and try to launch the app again 

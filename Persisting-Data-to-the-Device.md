@@ -131,7 +131,7 @@ List<User> users = new Select()
 		.orderBy("age ASC").execute();
 ```
 
-This will automatically query the database and return the results as a List for use. For more information, check out our [ActiveAndroid Guide](https://github.com/thecodepath/android_guides/wiki/ActiveAndroid-Guide) for links to more resources and answers to common questions.
+This will automatically query the database and return the results as a List for use. For more information, check out our [[ActiveAndroid Guide|ActiveAndroid-Guide]] for links to more resources and answers to common questions.
 
 ## References
 

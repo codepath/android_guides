@@ -171,11 +171,11 @@ Intent browserIntent = new Intent(Intent.ACTION_VIEW,
 startActivity(browserIntent);
 ```
 
-You can see a list of [Common Implicit Intents](https://github.com/thecodepath/android_guides/wiki/Common-Implicit-Intents) on another page of this wiki.
+You can see a list of [[Common Implicit Intents|Common-Implicit-Intents]] on another page of this wiki.
 
 ## References
 
  * <http://developer.android.com/guide/components/intents-filters.html>
  * <http://developer.android.com/reference/android/content/Intent.html>
  * <http://www.vogella.com/articles/AndroidIntent/article.html>
- * [Common Implicit Intents](https://github.com/thecodepath/android_guides/wiki/Common-Implicit-Intents)
+ * [[Common Implicit Intents|Common-Implicit-Intents]]

@@ -1,6 +1,6 @@
 ## Overview
 
-AsyncTask is a mechanism for executing operations in a background thread without having to manually handle thread creation or execution. AsyncTasks were designed to be used for short operations (a few seconds at the most) and you might want to use a [Service](https://github.com/thecodepath/android_guides/wiki/Starting-Background-Services) and/or [Executor](http://developer.android.com/reference/java/util/concurrent/Executor.html) for very long running tasks.
+AsyncTask is a mechanism for executing operations in a background thread without having to manually handle thread creation or execution. AsyncTasks were designed to be used for short operations (a few seconds at the most) and you might want to use a [[Service|Starting-Background-Services]] and/or [Executor](http://developer.android.com/reference/java/util/concurrent/Executor.html) for very long running tasks.
 
 This is typically used for long running tasks that cannot be done on UIThread, such as downloading network data from an API or indexing data from elsewhere on the device.
 
