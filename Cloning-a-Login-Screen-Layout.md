@@ -4,7 +4,7 @@ This guide is going to walk us through the step-by-step process of recreating th
 
 <img width="400" src="http://www.android-app-patterns.com/img/sets/login-screens/155_2_login-screens.png" />
 
-**Note:** Jump to the [[Common Q&A|Cloning-a-Login-Screen-Layout#common-qa]] for more general answers to common questions.
+**Note:** Jump to the [[Styling Screens Q&A|Styling-UI-Screens-FAQ]] for more general answers to common questions.
 
 ### Cutting Assets
 
