@@ -140,7 +140,7 @@ In certain cases, you might want to change the styling of the ActionBar title. F
 </LinearLayout>
 ```
 
-Now we've defined the XML layout desired and we need to load this custom XML file and replace the ActionBar title with our customized XML inside the Activity by calling [setCustomView](http://developer.android.com/reference/android/app/ActionBar.html#setCustomView(int\)):
+Now we've defined the XML layout desired and we need to load this custom XML file and replace the ActionBar title with our customized XML inside the Activity by calling [setCustomView](http://developer.android.com/reference/android/app/ActionBar.html#setCustomView\(int\)):
 
 ```java
 // in onCreate
