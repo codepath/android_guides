@@ -63,6 +63,7 @@ First, we define our models by annotating the class with the table mapping and t
 
 ```java
 import com.activeandroid.Model;
+import com.activeandroid.annotation.Table;
 
 @Table(name = "Items")
 public class Item extends Model {
