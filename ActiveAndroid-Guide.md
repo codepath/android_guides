@@ -79,7 +79,7 @@ public class Item extends Model {
        super();
     }
     
-    public Item(String remoteId, String name, Category category){
+    public Item(int remoteId, String name, Category category){
         super();
         this.remoteId = remoteId;
         this.name = name;
