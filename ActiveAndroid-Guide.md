@@ -195,6 +195,19 @@ public class SampleModel extends Model {
 
 Make sure to **uninstall the app** afterward on the emulator to ensure the schema changes take effect.
 
+> Problem: I am getting `SQLiteConstraintException: foreign key constraint failed (code 19)`
+
+This is because you need to make sure to **CASCADE the delete** to associated objects when an existing object is being replaced. For example, if you have a `Post` that contains a `User`, you need to:
+
+```java
+class Post extends Model
+    @Column(name = "user", onUpdate = ForeignKeyAction.CASCADE, onDelete = ForeignKeyAction.CASCADE)
+    private User user; // the embedded user in the tweet
+end
+```
+
+Note how we are forcing the CASCADE so the user get's removed as well and can be replaced.
+
 > Question: I read somewhere that ActiveAndroid automatically creates another auto-increment ID column, is this true?  What field names should I avoid using?
 
 This is true, see [creating your database model](https://github.com/pardom/ActiveAndroid/wiki/Creating-your-database-model) for more details. The column is called ["mId"](https://github.com/pardom/ActiveAndroid/blob/master/src/com/activeandroid/Model.java#L40)
