@@ -200,13 +200,13 @@ Make sure to **uninstall the app** afterward on the emulator to ensure the schem
 This is because you need to make sure to **CASCADE the delete** to associated objects when an existing object is being replaced. For example, if you have a `Post` that contains a `User`, you need to:
 
 ```java
-class Post extends Model
+class Post extends Model {
     @Column(name = "user", onUpdate = ForeignKeyAction.CASCADE, onDelete = ForeignKeyAction.CASCADE)
     private User user; // the embedded user in the tweet
-end
+}
 ```
 
-Note how we are forcing the CASCADE so the user get's removed as well and can be replaced.
+Note how we are forcing the CASCADE so the user get's removed as well and can be replaced. Make sure to **uninstall the app** afterward on the emulator to ensure the schema changes take effect.
 
 > Question: I read somewhere that ActiveAndroid automatically creates another auto-increment ID column, is this true?  What field names should I avoid using?
 
