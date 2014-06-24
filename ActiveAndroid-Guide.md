@@ -195,7 +195,7 @@ public class SampleModel extends Model {
 
 Make sure to **uninstall the app** afterward on the emulator to ensure the schema changes take effect.
 
-> Problem: I am getting `SQLiteConstraintException: foreign key constraint failed (code 19)`
+> Problem: `SQLiteConstraintException: foreign key constraint failed` when saving object
 
 This is because you need to make sure to **CASCADE the delete** to associated objects when an existing object is being replaced. For example, if you have a `Post` that contains a `User`, you need to:
 
