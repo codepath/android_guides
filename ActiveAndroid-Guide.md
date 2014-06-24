@@ -200,7 +200,7 @@ Make sure to **uninstall the app** afterward on the emulator to ensure the schem
 This is because you need to make sure to **CASCADE the delete** to associated objects when an existing object is being replaced. For example, if you have a `Post` that contains a `User`, you need to:
 
 ```java
-class Post extends Model {
+public class Post extends Model {
     @Column(name = "user", onUpdate = ForeignKeyAction.CASCADE, onDelete = ForeignKeyAction.CASCADE)
     private User user; // the embedded user in the tweet
 }
