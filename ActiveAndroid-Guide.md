@@ -72,7 +72,7 @@ public class Item extends Model {
     public int remoteId;
     @Column(name = "Name")
     public String name;
-    @Column(name = "Category")
+    @Column(name = "Category", onUpdate = ForeignKeyAction.CASCADE, onDelete = ForeignKeyAction.CASCADE)
     public Category category;
     
     // Make sure to have a default constructor for every ActiveAndroid model
