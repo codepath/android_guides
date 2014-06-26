@@ -22,7 +22,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Using Intents to Create Flows]]
 * [[Common Implicit Intents]]
 * [[Endless Scrolling with AdapterViews]]
-* [[Sharing Content with Intents]] Guide
+* [[Sharing Content with Intents]]
 
 ### Week 3 - Networking and Persistence
 
@@ -42,7 +42,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Creating and Using Fragments]]
 * [[Fragment ActionBar Tabs|ActionBar Tabs with Fragments]]
 * [[Working with the ScrollView]]
-* [[Implementing Pull to Refresh]] Guide
+* [[Implementing Pull to Refresh]]
 
 ### Week 5 - Hardware and SDK Components
 
