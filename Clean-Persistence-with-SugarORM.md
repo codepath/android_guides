@@ -8,7 +8,7 @@
 
 SugarORM has no dependencies, so installation is as simple as downloading the `.jar` file and putting it in your `libs` folder. Maven central hosting is currently being [planned](https://github.com/satyan/sugar/issues/91), and this page will update with additional information whenever SugarORM becomes available on Maven.
 
-The current stable release is [v1.2](https://github.com/satyan/sugar/releases/tag/v1.2), and this is the [jar](https://github.com/satyan/sugar/blob/master/dist/sugar-1.2.jar).
+The current stable release is [v1.2](https://github.com/satyan/sugar/releases/tag/v1.2), and this is the [jar](https://github.com/satyan/sugar/blob/master/dist/sugar-1.2.jar?raw=true).
 
 ## Integrate
 
