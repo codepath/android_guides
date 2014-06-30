@@ -117,7 +117,7 @@ Check out the [understanding launch modes](http://www.intridea.com/blog/2011/6/1
 
 There are additional properties as well that can be set on an activity. For example, if an activity should not be added to the task stack at all, simply set the [noHistory](http://developer.android.com/guide/topics/manifest/activity-element.html#nohist) flag within the manifest:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.todoapp"
