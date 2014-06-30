@@ -155,7 +155,7 @@ startActivity(i);
 The following flags are available to be set on the intent:
 
 * `FLAG_ACTIVITY_NEW_TASK` - Start the activity in a new task or reuse an existing task tied to that activity.
-* `FLAG_ACTIVITY_SINGLE_TOP` - If the activity being started is the same as the current activity, then reuses the existing instance which receives a call to [onNewIntent()](http://developer.android.com/reference/android/app/Activity.html#onNewIntent(android.content.Intent\))
+* `FLAG_ACTIVITY_SINGLE_TOP` - If the activity being started is the same as the current activity, then reuses the existing instance which receives a call to [onNewIntent()](http://developer.android.com/reference/android/app/Activity.html#onNewIntent\(android.content.Intent\))
 * `FLAG_ACTIVITY_CLEAR_TOP` - If the activity being started is already running in the current task, delivers us back to the existing instance and clears the stack.
 
 There are almost a dozen other flags you can set as well, for example `FLAG_ACTIVITY_BROUGHT_TO_FRONT`, `FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS`, and `FLAG_ACTIVITY_MULTIPLE_TASK`.  For a more comprehensive list, check out [this article](http://blog.akquinet.de/2010/04/15/android-activites-and-tasks-series-intent-flags/). 
