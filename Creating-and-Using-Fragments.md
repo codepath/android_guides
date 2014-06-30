@@ -1,6 +1,6 @@
 ## Overview
 
-A fragment is a reusable class implementing a portion of an activity.  A Fragment typically defines a part of a user interface. Fragments must be embedded in activities; they cannot run independent of activities.
+A fragment is a reusable class implementing a portion of an activity.  A Fragment typically defines a part of a user interface. Fragments must be embedded in activities; they cannot run independently of activities.
 
 A fragment has a separate layout XML file. A Fragment encapsulates functionality so that it is easier to reuse within activity and layouts.
 
