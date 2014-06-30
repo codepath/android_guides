@@ -159,7 +159,7 @@ adapter.addAll(newUsers);
 
 which will append the new items to the list. You can also clear the entire list at any time with:
 
-```
+```java
 adapter.clear();
 ```
 
