@@ -262,3 +262,4 @@ When the app runs, it will check the version of the current database, and compar
 * <https://github.com/satyan/sugar>
 * <https://github.com/pardom/ActiveAndroid> 
 * <http://satyan.github.io/sugar/creation.html>
+* <https://github.com/satyan/sugar/blob/master/library/src/com/orm/query/Select.java>
