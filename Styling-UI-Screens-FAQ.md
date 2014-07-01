@@ -161,6 +161,10 @@ ActionBar title can be styled or centered only if you opt to customize the XML v
 
 Customize the theme of the ActionBar in the `styles.xml` as explained in [this stackoverflow post](http://stackoverflow.com/a/9249702) to adjust the color of the ActionBar. Also, check out the [[Advanced Actionbar|Extended-ActionBar-Guide#custom-actionbar-styles]] cliffnotes for more details. 
 
+#### How do I style tabs in the ActionBar?
+
+Easiest way is to use the [ActionBar Style Generator](http://jgilfelt.github.io/android-actionbarstylegenerator/) to customize the appearance. Check out this [ActionBar Tabs](http://guides.codepath.com/android/ActionBar-Tabs-with-Fragments#styling-tabs) guide for more details.
+
 #### How would I hide the top ActionBar?
 
 You can hide the ActionBar by modifying the "theme" of the Activity in the `AndroidManifest.xml` as described in this [stackoverflow post](http://stackoverflow.com/a/19545450) or programmatically at runtime in Java with `getActionBar().hide()` within the `onCreate` method after `setContentView` in an Activity.
