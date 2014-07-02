@@ -45,7 +45,7 @@ There are many third-party libraries for Android but several of them are "must h
  * [AChartEngine](http://jaxenter.com/effort-free-graphs-on-android-with-achartengine-46199.html) - This is a charting software library for Android applications
  * [HoloGraphLibrary](https://github.com/Androguide/HoloGraphLibrary) - Newer graphing library
  * [AndroidCharts](https://github.com/dacer/AndroidCharts) - Easy to use charts
- * [AndroidGraphView](http://android-graphview.org/) - library for Android to programmatically create flexible and nice-looking diagrams.
+ * [AndroidGraphView](http://android-graphview.org/) - library to create flexible and nice-looking diagrams.
  * [AndroidPlot](http://androidplot.com/docs/quickstart/) - plotting library for Android
  
 ## Resources
