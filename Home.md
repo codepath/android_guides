@@ -72,7 +72,7 @@ Exploring the gritty details of views, layout, styling and common UI patterns:
 * [[Drawables]] (and how to polish UI views)
 * [[Styles and Themes]] (Consolidating view styles)
 * [[Animations]] (Animating views, layouts, activities and more)
-* [Polishing a UI Tips and Tools](https://gist.github.com/nesquena/6c567083aec13d868017) (Links to key resources)
+* [Polishing a UI Tips and Tools] (Links to key resources)
 * [[Android Design Guidelines]] (Overview of Android design standards)
 * [[Styling UI Screens FAQ]] (Answers to common questions around building screens)
 * [[Cloning a Login Screen Layout Guide]] (Creating attractive UIs, Q&A)
