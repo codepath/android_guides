@@ -61,7 +61,7 @@ Exploring the gritty details of views, layout, styling and common UI patterns:
 * [[Defining Views and their Attributes]] (Gravity, Margin, Padding, etc)
 * [[Working with the TextView]] (Properties, Drawables, Custom Fonts)
 * [[Working with the EditText]] (Properties)
-* [[Working with the ImageView]]
+* [[Working with the ImageView]] (Size, Scale, Density, Raw Bitmaps)
 * [[Working with Input Views]] (Spinner, RatingBar, etc)
 * [[Working with the Soft Keyboard]]
 * [[Working with the WebView]]
