@@ -75,14 +75,14 @@ Exploring the gritty details of views, layout, styling and common UI patterns:
 * [Polishing a UI Tips and Tools](https://gist.github.com/nesquena/6c567083aec13d868017) (Links to key resources)
 * [[Android Design Guidelines]] (Overview of Android design standards)
 * [[Styling UI Screens FAQ]] (Answers to common questions around building screens)
-* [[Cloning a Login Screen Layout]] Guide (Creating attractive UIs, Q&A)
+* [[Cloning a Login Screen Layout Guide]] (Creating attractive UIs, Q&A)
 
 ### AdapterViews
 
 * [[Using an ArrayAdapter with ListView]] (with custom list items)
 * [[Endless Scrolling with AdapterViews]] (Infinite pagination)
-* [[Implementing Pull to Refresh]] Guide
-* [[Implementing a Horizontal ListView]] Guide (Scrolls horizontally)
+* [[Implementing Pull to Refresh Guide]]
+* [[Implementing a Horizontal ListView Guide]] (Scrolls horizontally)
 * [[Implementing a Heterogenous ListView]] (with different item types)
 
 ### Custom Views
