@@ -70,19 +70,19 @@ Exploring the gritty details of views, layout, styling and common UI patterns:
 ### Designing and Styling Views
 
 * [[Drawables]] (and how to polish UI views)
-* [[Styles and Themes]] (consolidating view styles)
-* [[Animations]] (animating views, layouts, activities and more)
+* [[Styles and Themes]] (Consolidating view styles)
+* [[Animations]] (Animating views, layouts, activities and more)
 * [Polishing a UI Tips and Tools](https://gist.github.com/nesquena/6c567083aec13d868017) (Links to key resources)
-* [[Android Design Guidelines]] (overview of Android design standards)
-* [[Styling UI Screens FAQ]] (answers to common questions around building screens)
+* [[Android Design Guidelines]] (Overview of Android design standards)
+* [[Styling UI Screens FAQ]] (Answers to common questions around building screens)
 * [[Cloning a Login Screen Layout]] Guide (Creating attractive UIs, Q&A)
 
 ### AdapterViews
 
 * [[Using an ArrayAdapter with ListView]] (with custom list items)
-* [[Endless Scrolling with AdapterViews]] (infinite pagination)
+* [[Endless Scrolling with AdapterViews]] (Infinite pagination)
 * [[Implementing Pull to Refresh]] Guide
-* [[Implementing a Horizontal ListView]] Guide (scrolls horizontally)
+* [[Implementing a Horizontal ListView]] Guide (Scrolls horizontally)
 * [[Implementing a Heterogenous ListView]] (with different item types)
 
 ### Custom Views
@@ -97,7 +97,7 @@ Exploring how to allow user interaction and navigation within an app:
 
 * [[View Event Listeners|Basic Event Listeners]] (Clicks, Key Presses, Updates)
 * [[Displaying Toasts]] (Quick notices and includes custom views)
-* [[Exploring the ActionBar|Defining the ActionBar]] (includes adding ActionItems)
+* [[Exploring the ActionBar|Defining the ActionBar]] (Includes adding ActionItems)
 * [[Extended ActionBar Guide]] (Split-bar, Custom ActionBar, etc)
 * [[Gestures and Touch Events]] (Swipe, Shake, or Dragging Events)
 * [[Menus and Popups]] (Context Menu, PopupMenu, PopupWindow)
@@ -107,7 +107,7 @@ Exploring how to allow user interaction and navigation within an app:
 ## Navigation
 
 * [[Navigating Activities with Intents|Using Intents to Create Flows]] (Communicating between Activities)
-* [[Common Navigation Paradigms]] (i.e Tabs, Swipe-able Views, Pull-out Drawer)
+* [[Common Navigation Paradigms]] (Tabs, Swipe-able Views, Pull-out Drawer)
 * [[Common Implicit Intents]] (Making a Call, Sending a Text, Opening a URL)
 * [[Navigation and Task Stacks]] (Controlling the behavior of the task stack)
 * [[Sharing Content with Intents]] (and ShareActionProvider)
@@ -118,7 +118,7 @@ Exploring how to allow user interaction and navigation within an app:
 Diving into the networking and model layers for data-driven apps:
 
 * [[Sending and Managing Network Requests]] (API Calls, Image Downloading)
-* [[Converting JSON to Models]] (JSON => Objects Deserialization)
+* [[Converting JSON to Models]] (JSON to Objects Deserialization)
 * [[Creating and Executing Async Tasks]] (Long-running Background Tasks)
 * [[Handling ProgressBars]] (with Long-Running Tasks)
 * [[RottenTomatoes Networking Tutorial]]
