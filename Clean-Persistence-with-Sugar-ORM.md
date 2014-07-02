@@ -1,4 +1,4 @@
-[SugarORM](https://github.com/satyan/sugar) is a database persistence library that provides a simple and concise way to integrate your application models into SQLite. In contrast to [ActiveAndroid](https://github.com/pardom/ActiveAndroid), which is mature, powerful, and flexible, SugarORM is:
+[Sugar ORM](https://github.com/satyan/sugar) is a database persistence library that provides a simple and concise way to integrate your application models into SQLite. In contrast to [ActiveAndroid](https://github.com/pardom/ActiveAndroid), which is mature, powerful, and flexible, Sugar ORM is:
 
 * Less verbose
 * Quicker to set up
@@ -6,7 +6,7 @@
 
 ## Install
 
-SugarORM has no dependencies, so installation is as simple as downloading the `.jar` file and putting it in your `libs` folder. Maven central hosting is currently being [planned](https://github.com/satyan/sugar/issues/91), and this page will update with additional information whenever SugarORM becomes available on Maven.
+Sugar ORM has no dependencies, so installation is as simple as downloading the `.jar` file and putting it in your `libs` folder. Maven central hosting is currently being [planned](https://github.com/satyan/sugar/issues/91), and this page will update with additional information whenever Sugar ORM becomes available on Maven.
 
 The current stable release is [v1.2](https://github.com/satyan/sugar/blob/master/dist/sugar-1.2.jar?raw=true), but the beta release [v1.3_beta](https://github.com/satyan/sugar/blob/master/dist/sugar-1.3_beta.jar?raw=true) is highly recommended. Once you have the `.jar` file in your `libs` folder, finishing the installation requires just setting the `android:name` attribute of the `application` tag in your `AndroidManifest.xml`:
 
@@ -32,7 +32,7 @@ The current stable release is [v1.2](https://github.com/satyan/sugar/blob/master
 </manifest>
 ```
 
-There are four additional parameters you can set. `DATABASE` is the name of the database file that will be created by SugarORM. `VERSION` is the version of the database schema. This is used for schema migrations, which are described in more detail below. `QUERY_LOG` can be set to `"true"` or `"false"` and determines whether to log debug messages for the queries made to the underlying SQLite database. Finally, `DOMAIN_PACKAGE_NAME` narrows down the packages that SugarORM scans for Classes to persist.
+There are four additional parameters you can set. `DATABASE` is the name of the database file that will be created by Sugar ORM. `VERSION` is the version of the database schema. This is used for schema migrations, which are described in more detail below. `QUERY_LOG` can be set to `"true"` or `"false"` and determines whether to log debug messages for the queries made to the underlying SQLite database. Finally, `DOMAIN_PACKAGE_NAME` narrows down the packages that Sugar ORM scans for Classes to persist.
 
 ## Integrate
 
@@ -102,11 +102,11 @@ public Author extends SugarRecord<Author> {
 }
 ```
 
-This makes it even easier to drop in SugarORM into an existing project and have things just work right out of the box.
+This makes it even easier to drop in Sugar ORM into an existing project and have things just work right out of the box.
 
 ## Operations
 
-The typical family of database operations has an interface in SugarORM. Most follow the format of `ModelName.operation(ModelName.class, arguments)`.
+The typical family of database operations has an interface in Sugar ORM. Most follow the format of `ModelName.operation(ModelName.class, arguments)`.
 
 ### Static methods
 
@@ -177,7 +177,7 @@ This removes the `Author` with `ID = 23` from the database. A common gotcha here
 
 ### Query Builder
 
-In addition to the above operations, SugarORM also comes with a query building interface. Using it allows you to separate the query step from the execution step. In this way, you can save a query and execute it multiple times, where each execution is done against the current database state.
+In addition to the above operations, Sugar ORM also comes with a query building interface. Using it allows you to separate the query step from the execution step. In this way, you can save a query and execute it multiple times, where each execution is done against the current database state.
 
 ##### Conditions
 
