@@ -86,6 +86,6 @@ Cliffnotes are references giving you the "most important" Android topics with br
   * [[Fragment ActionBar Tabs|ActionBar Tabs with Fragments]] Guide
   * [[Fragment Navigation Drawer]] Guide
   * [[ViewPager with FragmentPagerAdapter]] Guide
-* [[Implementing a Horizontal ListView]] Guide
+* [[Implementing a Horizontal ListView Guide]]
  
 If there's anything else, feel free to suggest new cliffnotes and/or help contribute to them!
