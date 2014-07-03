@@ -8,7 +8,7 @@ As software engineers, we have a strong need to "keep up" with the rapidly chang
 
 When we started learning Android and iOS, we were frustrated with the "outdated", vague and deprecated guides we saw littered around the internet. Why was open-source software changing the world but if I wanted to learn about how to use fragments for Android, finding up-to-date and **practical** documentation was like pulling teeth. Often only **stack overflow** and a random blog post would be available to help me learn. And often the posts had outdated or misleading information.
 
-We think as open-source developers and as software engineers, we can do better. Why not have a crowdsourced Android (or any platform for that matter) documentation repository that **anyone developer can edit**? Why can't we work together to **save others countless hours of pain and frustration** resulting from old blog posts and outdated tutorials? Please help us get the word out to as many Android developers as possible!
+We think as open-source developers and as software engineers, we can do better. Why not have a crowdsourced Android (or any platform for that matter) documentation repository that **any developer can edit**? Why can't we work together to **save others countless hours of pain and frustration** resulting from old blog posts and outdated tutorials? Please help us get the word out to as many Android developers as possible!
 
 ## Meet Engineers and Mentors
 
