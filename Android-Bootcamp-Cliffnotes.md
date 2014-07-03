@@ -42,7 +42,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Creating and Using Fragments]]
 * [[Fragment ActionBar Tabs|ActionBar Tabs with Fragments]]
 * [[Working with the ScrollView]]
-* [[Implementing Pull to Refresh]]
+* [[Implementing Pull to Refresh Guide]]
 
 ### Week 5 - Hardware and SDK Components
 
@@ -51,6 +51,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Google Maps Setup Guide|Google Maps Fragment Guide]]
 * [[Google Maps API v2 Usage]]
 * [[Video and Audio Playback and Recording]]
+* [[Push Messaging]] (with Parse)
 
 ### Week 6 - Drawables and Styles
 
@@ -58,7 +59,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Styling UI Screens FAQ]]
 * [[Customize Appearance With Drawables|Drawables]]
 * [[Styles and Themes]]
-* [[Cloning a Login Screen Layout]]
+* [[Cloning a Login Screen Layout Guide]]
 * [[Android Design Guidelines]]
 
 ### Week 7 - Animations and Gestures
@@ -86,6 +87,5 @@ Cliffnotes are references giving you the "most important" Android topics with br
   * [[Fragment Navigation Drawer]] Guide
   * [[ViewPager with FragmentPagerAdapter]] Guide
 * [[Implementing a Horizontal ListView]] Guide
-* [[Push Messaging]] (with Parse)
  
 If there's anything else, feel free to suggest new cliffnotes and/or help contribute to them!
