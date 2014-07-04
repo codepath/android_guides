@@ -78,3 +78,4 @@ Here we have implemented a simple Horizontal ListView using a popular third-part
  * <https://github.com/MeetMe/Android-HorizontalListView>
  * <https://github.com/dinocore1/DevsmartLib-Android>
  * <https://github.com/twotoasters/HorizontalImageScroller-Android>
+ * <https://developer.android.com/preview/material/ui-widgets.html>
