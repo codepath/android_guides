@@ -42,7 +42,7 @@ There are many third-party libraries for Android but several of them are "must h
 
 ### Drawing
 
- * [Leonids](https://github.com/plattysoft/Leonids) - Simple and easy particle effects
+ * [Leonids](https://github.com/plattysoft/Leonids) - Simple and easy particle effects ([tutorial](http://www.plattysoft.com/2014/05/30/leonids-particle-system-lib/))
  * [AChartEngine](http://jaxenter.com/effort-free-graphs-on-android-with-achartengine-46199.html) - This is a charting software library for Android applications
  * [HoloGraphLibrary](https://github.com/Androguide/HoloGraphLibrary) - Newer graphing library
  * [AndroidCharts](https://github.com/dacer/AndroidCharts) - Easy to use charts
