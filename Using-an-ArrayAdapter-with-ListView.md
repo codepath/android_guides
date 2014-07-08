@@ -14,9 +14,9 @@ ArrayAdapter<String> itemsAdapter =
     new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
 ```
 
-The ArrayAdapter requires a type of the item to be converted to a View to be specified and then accepts three arguments: context (activity), XML Resource, and the data array.
+The ArrayAdapter requires the type of the item to be converted to a View to be specified and then accepts three arguments: context (activity), XML Resource, and the data array.
 
-By default, this will convert the items in the array into View by calling toString on the item and then inserting the result into a TextView that is displayed as the list item for that data. If the app requires a more complex translation between item and View, we need to create a custom ArrayAdapter.
+By default, this will convert each item in the array into a view by calling toString on the item and then inserting the result into a TextView that is displayed as the list item for that data. If the app requires a more complex translation between item and View, we need to create a custom ArrayAdapter.
 
 ## Using a Custom ArrayAdapter
 
