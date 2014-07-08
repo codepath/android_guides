@@ -207,7 +207,7 @@ and with that, we have a very basic painting app that looks like:
 
 ### Efficient Drawing with Bitmap Cache
 
-When drawing onto a canvas, you can often significantly improve render times by caching the image into a bitmap as outlined [in this stackoverflow post](http://stackoverflow.com/a/3408641)
+When drawing onto a canvas, you can often significantly improve render times by caching the image into a bitmap as outlined [in this stackoverflow post](http://stackoverflow.com/a/3408641).
 
 ```java
 Bitmap mField = null;
