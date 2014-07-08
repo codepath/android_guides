@@ -255,6 +255,15 @@ adapterViewPager.getRegisteredFragment(vpPager.getCurrentItem());
 ```
 
 This pattern should save your app quite a deal of memory and allow for much easier management of fragments within your pager for the right situation.
+
+## ViewPager with Visible Adjacent Pages
+
+If you are interested in a ViewPager with visible adjacent pages that are partially visible, you can follow these guides:
+
+* [ViewPager with Protruding Children](http://blog.neteril.org/blog/2013/10/14/android-tip-viewpager-with-protruding-children/)
+* [ViewPager with Page Boundaries](http://stackoverflow.com/questions/13914609/viewpager-with-previous-and-next-page-boundaries)
+
+![ViewPager Adjacent](http://i.stack.imgur.com/ddm1j.jpg)
  
 ## References
 
