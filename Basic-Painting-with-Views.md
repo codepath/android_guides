@@ -205,6 +205,29 @@ and with that, we have a very basic painting app that looks like:
 
 ![Circle 3](http://i.imgur.com/RixrXoy.png)
 
+### Efficient Drawing with Bitmap Cache
+
+When drawing onto a canvas, you can often significantly improve render times by caching the image into a bitmap as outlined [in this stackoverflow post](http://stackoverflow.com/a/3408641)
+
+```java
+Bitmap mField = null;
+
+public void init()
+{
+  mField = new Bitmap(...dimensions...);
+  Canvas c = new Canvas(mField);
+  c.drawRect(...);
+  ...
+}
+
+public void onDraw(Canvas c)
+{
+  c.drawBitmap(mField);
+}
+```
+
+This is a common pattern for improving drawing performance.
+
 ### Reference for SimpleDrawingView
 
 The full source code for our `SimpleDrawingView`:
