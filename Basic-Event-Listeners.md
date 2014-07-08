@@ -67,7 +67,7 @@ lvItems.setOnItemLongClickListener(new OnItemLongClickListener() {
 });
 ```
 
-**Note:** If the item is more complex and does not seem to be properly responding to clicks after setting up the handler, the views inside the item might be drawing the focus. Check out [this stackoverflow post](http://stackoverflow.com/questions/6703390/listview-setonitemclicklistener-not-working-by-adding-button) and add the property `android:descendantFocusability="blocksDescendants"` to the root layout within the template for the item. 
+**Troubleshooting: Item Click Not Firing** If the item is more complex and does not seem to be properly responding to clicks after setting up the handler, the views inside the item might be drawing the focus. Check out [this stackoverflow post](http://stackoverflow.com/questions/6703390/listview-setonitemclicklistener-not-working-by-adding-button) and add the property `android:descendantFocusability="blocksDescendants"` to the root layout within the template for the item. 
 
 ### EditText Common Listeners
 
