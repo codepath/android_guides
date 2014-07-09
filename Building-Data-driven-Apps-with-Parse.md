@@ -402,7 +402,19 @@ comment.setOwner(currentUser);
 comment.saveInBackground();
 ```
 
-By default, when fetching an object, related `ParseObject`s are not fetched. These objects' values cannot be retrieved until they have been fetched like so:
+By default, when fetching an object, related `ParseObject`s are not fetched. We can preload (eagerly fetch these) by using the `include` method on any `ParseQuery`:
+
+```java
+ParseQuery<ParseObject> query = ParseQuery.getQuery(Comment.class);
+// Include the post data with each comment
+query.include("owner"); // the key which the associated object was stored
+// Execute query with eager-loaded owner
+query.findInBackground(new FindCallback<ParseObject>() {
+ ....
+}
+```
+
+Otherwise, these objects' values cannot be retrieved until they have been fetched like so:
 
 ```java
 fetchedTodoItem.getCategory()
@@ -455,7 +467,7 @@ fetchedTodoItem.getTagsRelation().getQuery().findInBackground(new FindCallback<T
 });
 ```
 
-For more details, check out the official [Relational Data](https://www.parse.com/docs/android_guide#objects-pointers) guide. For more complex many-to-many relationships, check out this official [join tables](https://www.parse.com/docs/relations_guide#manytomany-jointables) guide.
+For more details, check out the official [Relational Data](https://www.parse.com/docs/android_guide#objects-pointers) guide. For more complex many-to-many relationships, check out this official [join tables](https://www.parse.com/docs/relations_guide#manytomany-jointables) guide when the many-to-many requires additional metadata.
 
 ### Deleting Objects
 
