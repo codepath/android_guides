@@ -55,7 +55,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 
 ### Week 6 - Drawables and Styles
 
-* [Customizing UI Quickstart](https://gist.github.com/nesquena/6c567083aec13d868017) Outline
+* [[Customizing UI Quickstart|Polishing a UI Tips and Tools]] Outline
 * [[Styling UI Screens FAQ]]
 * [[Customize Appearance With Drawables|Drawables]]
 * [[Styles and Themes]]
