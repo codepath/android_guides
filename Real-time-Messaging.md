@@ -14,6 +14,8 @@ PubNub can be setup very quickly using [this setup guide](http://www.pubnub.com/
 
 PubNub works by allowing any number of clients to subscribe and send **messages** to any number of different **channels**. All clients subscribed to a channel will get messages sent to that channel in real-time.
 
+![PubNub](http://pubnub.github.io/slides/workshop/pictures/broadcast.png)
+
 To subscribe and send messages to a channel, we leverage the easy-to-use Android SDK. Check out [this step-by-step tutorial](http://www.pubnub.com/docs/java/android/tutorial/data-push.html#_step_2_access_the_api) as well as this [handy quickstart guide](http://www.pubnub.com/docs/java/android/tutorial/quick-start.html). We can also take a look at the [Android PubNub Code](https://github.com/pubnub/java/tree/master/android) which includes a detailed README. A complete example of using PubNub can be [found within this example](https://github.com/pubnub/java/tree/master/android/examples/PubnubExample/src/com/pubnub/examples/pubnubExample10).
 
 If we want to **use PubNub as a service** such that the messages are being received even when the app isn't open, we can check out [this simple example](https://github.com/pubnub/java/tree/master/android/examples/SubscribeAtBoot/src/com/pubnub/examples/subscribeAtBoot) which describes how to setup a `PubNubService` which subscribes to a channel and receives messages starting up as soon as the device boots. This solution is expanded on in [this stackoverflow post](http://stackoverflow.com/a/9608967/313399). 
