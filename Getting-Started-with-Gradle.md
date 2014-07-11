@@ -214,6 +214,10 @@ android {
 
 Note how `repositories` is specified with two different values. This seems to be necessary to overcome a missing library on the new mavenCentral() target; if the other Maven URL is omitted, the repository package for ActionBarSherlock will fail to build.
 
+### Loading Dependencies with Gradle and Eclipse
+
+Eclipse does not have great support for dependency loading via Gradle. However, scripts can be written that make this possible. Check out [the solution found on this site](http://www.nodeclipse.org/projects/gradle/android) for a working way to import dependencies into Eclipse. You can also check out [this gist](https://gist.github.com/nesquena/9e261582e55620d5fbd8). 
+
 ## Resources
 
 Check out the following links for more details:
