@@ -6,9 +6,22 @@ This guide will show you how to configure an Android app to send and receive pus
 
 One approach is to use the [Parse Push](https://parse.com/tutorials/android-push-notifications) service to send and receive push notifications.
 
+### Setup
+
+Check out [this official tutorial](https://parse.com/tutorials/android-push-notifications) for a step-by-step guide to setting up push notifications with Parse. You can also review this [Parse Setup Guide](https://parse.com/docs/push_guide#setup/Android) for full instructions.
+
 ### Sending Push Notifications
 
-Check out [this official tutorial](https://parse.com/tutorials/android-push-notifications) for a step-by-step guide to sending simple push notifications. Full source code can be [found on Github](https://github.com/ParsePlatform/PushTutorial). For full details and options, check out the [official parse Push guide](https://parse.com/docs/push_guide#setup/Android). 
+Check out [this official tutorial](https://parse.com/tutorials/android-push-notifications) for a step-by-step guide to sending simple push notifications. 
+
+```java
+ParsePush push = new ParsePush();
+push.setChannel("mychannel");
+push.setMessage("this is my message");
+push.sendInBackground();
+```
+
+Full source code can be [found on Github](https://github.com/ParsePlatform/PushTutorial). For full details and options, check out the [official parse Push guide](https://parse.com/docs/push_guide#sending/Android).  
 
 **Running into issues?** Check out the [push troubleshooting guide](https://parse.com/docs/push_guide#troubleshooting/Android). Also compare your app with this [sample reference app](https://github.com/thecodepath/ParsePushNotificationExample/tree/master/src/com/test).
 
