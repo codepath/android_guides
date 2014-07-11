@@ -87,7 +87,22 @@ public String myKey = "submit_label"; // Maps to R.string.submit_label
 public String myStringValue = getStringValue(myKey); // Returns string text
 ```
 
-This can be done similarly for other types of resources as well. Check out the [getResources](http://developer.android.com/reference/android/content/res/Resources.html) object and <a href="http://developer.android.com/reference/android/content/res/Resources.html#getIdentifier(java.lang.String, java.lang.String, java.lang.String)">getIdentifier</a> for more details.
+This can be done similarly for other types of resources as well. For example, for dynamically retrieving a view by a string ID:
+
+```java
+// getViewByStringId("tvTest");
+public View getViewByStringId(String id) {
+    // Retrieve the resource id
+    String packageName = getBaseContext().getPackageName();
+    Resources resources = getBaseContext().getResources();
+    int viewId = resources.getIdentifier(id, "id", packageName);
+    if (viewId == 0) { return null; }
+    // Return the string value based on the res id
+    return findViewById(viewId);
+}
+```
+
+Check out the [getResources](http://developer.android.com/reference/android/content/res/Resources.html) object and <a href="http://developer.android.com/reference/android/content/res/Resources.html#getIdentifier(java.lang.String, java.lang.String, java.lang.String)">getIdentifier</a> for more details.
 
 ## References
 
