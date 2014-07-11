@@ -114,6 +114,30 @@ and then setting this as the background of the `ImageButton` within the layout:
 
 Check out the [Button Custom Background Official Guide](http://developer.android.com/guide/topics/ui/controls/button.html#CustomBackground) for specific details.
 
+#### How would I toggle the text color of a button or view in different states?
+
+You can use a color selector drawable stored in the `res/color/states_button_color.xml`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+ <selector xmlns:android="http://schemas.android.com/apk/res/android">
+     <item android:state_pressed="true" 
+           android:color="#000000" /> <!-- pressed -->
+     <item android:color="#FFFFFF" /> <!-- default -->
+ </selector>
+```
+
+and then applied to a button with:
+
+```xml
+<Button
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:textColor="@color/states_button_color" />
+```
+
+See [this stackoverflow post](http://stackoverflow.com/a/3565624/313399) for more details.
+
 #### How would I create a toggle button that alternates between two images?
 
 For this, we'd use a custom [ToggleButton as described here](http://mirhoseini.info/how-to-create-a-toggle-button-with-custom-image-and-no-text-in-android/) which has a different image applied for the checked and unchecked states.
