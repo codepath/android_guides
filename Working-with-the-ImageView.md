@@ -143,6 +143,8 @@ Using a third party library called [svg-android](https://code.google.com/p/svg-a
 ```java
 // Parse an SVG resource from the "raw" resource folder
 SVG svg = SVGParser.getSVGFromResource(getResources(), R.raw.android);
+// Fix issue with renderer on certain devices
+myImageView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 // Get a drawable from the parsed SVG and set it as the drawable for the ImageView
 myImageView.setImageDrawable(svg.createPictureDrawable());
 ```
