@@ -371,6 +371,7 @@ int todoId = getIntent().getStringExtra("todo_id");
 ParseQuery<TodoItem> query = ParseQuery.getQuery(TodoItem.class);
 // First try to find from the cache and only then go to network
 query.setCachePolicy(ParseQuery.CachePolicy.CACHE_ELSE_NETWORK); // or CACHE_ONLY
+// Execute the query to find the object with ID
 query.getInBackground(todoId, new GetCallback<TodoItem>() {
   public void done(TodoItem item, ParseException e) {
     if (e == null) {
@@ -380,7 +381,7 @@ query.getInBackground(todoId, new GetCallback<TodoItem>() {
 }
 ```
 
-You can also use `query.getFirst()` instead to retrieve the item in a synchronous style.
+You can also use `query.getFirst()` instead to retrieve the item in a synchronous style. Review the different [caching policies](https://parse.com/docs/android_guide#queries-caching) to understand how to make this fast.
 
 While we could [implement parceling ourselves](http://www.androidbook.com/akc/display?url=DisplayNoteIMPURL&reportId=4539&ownerUserId=android) this is not ideal as it's pretty complex to manage the state of Parse objects. We could also [use a Proxy object](https://www.parse.com/questions/passing-around-parseobjects-in-android) to pass the data as well but this can be brittle.
 
