@@ -66,11 +66,11 @@ Since Android has so many different screen sizes, resolutions and densities, the
 
 To create alternative bitmap drawables for different densities, you should follow the 3:4:6:8 scaling ratio between the four generalized densities. This means that if you generate a 100x100 for mdpi (baseline), then you should generate the same resource in 150x150 for hdpi, 200x200 image for xhdpi devices, and finally a 75x75 image for ldpi devices. 
 
-To resize more automatically, check out the [Final Android Resizer](https://github.com/asystat/Final-Android-Resizer) by [downloading and running this JAR](https://github.com/asystat/Final-Android-Resizer/blob/master/Executable%20Jar/Final%20Android%20Resizer.jar?raw=true)
-
 ![Densities](http://developer.android.com/images/screens_support/screens-densities.png)
 
 See the [screens support](http://developer.android.com/guide/practices/screens_support.html) reference for a more detailed look at supporting a wide range of devices. Also check out the [iconography](http://developer.android.com/design/style/iconography.html) guide for more details.
+
+To resize more automatically, check out the [Final Android Resizer](https://github.com/asystat/Final-Android-Resizer) by [downloading and running this JAR](https://github.com/asystat/Final-Android-Resizer/blob/master/Executable%20Jar/Final%20Android%20Resizer.jar?raw=true) which allows us to select a resources directory, choose the current density and will automatically generate the corresponding sizes.
 
 ### Working with Bitmaps
 
