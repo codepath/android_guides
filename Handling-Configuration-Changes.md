@@ -38,6 +38,84 @@ public void onRestoreInstanceState(Bundle savedInstanceState) {
 
 Read more on the [Recreating an Activity](http://developer.android.com/training/basics/activity-lifecycle/recreating.html) guide.
 
+## Saving Fragment State
+
+Fragments also have a `onSaveInstanceState()` method which is called when their state needs to be saved:
+
+```java
+public class MySimpleFragment extends Fragment {
+    private int someStateValue;
+    private final int SOME_VALUE_KEY = "someValueToSave";
+   
+    // Fires when a configuration change occurs and fragment needs to save state
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(SOME_VALUE_KEY, someStateValue);
+    }
+}
+
+Then we can pull data out of this saved state in `onCreateView`:
+
+```java
+public class MySimpleFragment extends Fragment {
+   // ...
+
+   // Inflate the view for the fragment based on layout XML
+   @Override
+   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.my_simple_fragment, container, false);
+        if (savedInstanceState != null) {
+            someStateValue = savedInstanceState.getInt(SOME_VALUE_KEY);
+            // Do something with value if needed
+        }
+        return view;
+   }
+}
+```
+
+For the fragment state to be saved properly, we need to be sure that we aren't unnecessarily recreating the fragment on configuration changes. This means being careful not to reinitialize existing fragments when they already exist. Any fragments being initialized in an Activity need to be re-found after the change:
+
+```java
+public class  ParentActivity extends FragmentActivity {
+    private MySimpleFragment fragmentSimple;
+    private final String SIMPLE_FRAGMENT_TAG = "myfragmenttag";
+
+    protected void onCreate(Bundle savedInstanceState) {
+        if (savedInstanceState != null) { // saved instance state, fragment may exist
+           // on savedInstanceState don't recreate fragments, 
+           // look up the instance that already exists by tag
+           fragmentSimple = (CharacterCardsFragment)  
+              getSupportFragmentManager().findFragmentByTag(SIMPLE_FRAGMENT_TAG);
+        }
+        // only create fragments if they haven't been instantiated already
+        if (fragmentSimple == null) { 
+           fragmentSimple = new MySimpleFragment();
+        }
+    }
+}
+
+This requires us to be careful to add a tag whenever putting a fragment into the activity inside a transaction:
+
+```java
+public class  ParentActivity extends FragmentActivity {
+    private MySimpleFragment fragmentSimple;
+    private final String SIMPLE_FRAGMENT_TAG = "myfragmenttag";
+
+    protected void onCreate(Bundle savedInstanceState) {
+        // fragment lookup from above
+        // Now when putting in the fragment
+        // always add a tag to a fragment being inserted
+        getSupportFragmentManager()
+            .beginTransaction()
+            .replace(R.id.container, fragment, SIMPLE_FRAGMENT_TAG)
+            .commit();
+    }
+}
+```
+
+With this simple pattern, we can properly re-use fragments and restore their state across configuration changes.
+
 ## Retaining Fragments
 
 In many cases, we can avoid problems when an Activity is re-created by simply using fragments. If your views and state are within a fragment, we can easily have the fragment be retained when the activity is re-created:
