@@ -97,7 +97,7 @@ public class  ParentActivity extends FragmentActivity {
 }
 ```
 
-This requires us to be careful to include a tag for lookup whenever putting a fragment into the activity within a transaction:
+This requires us to be careful to **include a tag for lookup** whenever putting a fragment into the activity within a transaction:
 
 ```java
 public class  ParentActivity extends FragmentActivity {
