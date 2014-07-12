@@ -62,15 +62,25 @@ Bottom row (l-r): fitCenter, fitStart, fitEnd, fitXY.
 
 ### Supporting Multiple Densities
 
-Since Android has so many different screen sizes, resolutions and densities, there is a system for selecting the correct image asset for the correct device. There are specific drawable folders for each device density category including: ldpi (low), mdpi (medium), hdpi (high), and xhdpi (extra high). Notice that every app has folders for image drawables such as `drawable-mdpi` which is for "medium" density devices. 
+Since Android has so many different screen sizes, resolutions and densities, there is a system for selecting the correct image asset for the correct device. There are specific drawable folders for each device density category including: ldpi (low), mdpi (medium), hdpi (high), and xhdpi (extra high). Notice that every app has folders for image drawables such as `drawable-mdpi` which is for "medium dots per inch". 
 
-To create alternative bitmap drawables for different densities, you should follow the 3:4:6:8 scaling ratio between the four generalized densities. This means that if you generate a 100x100 for mdpi (baseline), then you should generate the same resource in 150x150 for hdpi, 200x200 image for xhdpi devices, and finally a 75x75 image for ldpi devices. 
+To create alternative bitmap drawables for different densities, you should follow the 3:4:6:8 scaling ratio between the four generalized densities. Refer to the chart below:
+
+| Density  | DPI  | Example Device  | Scale  | Pixels        | 
+|--------- |----  | ----------------| ------ | ----------   | 
+| ldpi     | 120  | Galaxy Y        | 0.75x  | 1px = 0.75dp |
+| mdpi     | 160  | Galaxy Tab      | 1.0x   | 1px = 1dp    |
+| hdpi     | 240  | Galaxy S II	    | 1.5x   | 1px = 1.5dp  |
+| xhdpi    | 320  | Nexus 4         | 2.0x   | 1px = 2dp    |
+| xxhdpi   | 480  | Nexus 5         | 3.0x   | 1px = 3dp    |
+
+This means that if you generate a 100x100 for mdpi (1x baseline), then you should generate the same resource in 150x150 for hdpi (1.5x), 200x200 image for xhdpi devices (2.0x), 300x300 image for xxhdpi (3.0x) and a 75x75 image for ldpi devices (0.75x). 
 
 ![Densities](http://developer.android.com/images/screens_support/screens-densities.png)
 
-See the [screens support](http://developer.android.com/guide/practices/screens_support.html) reference for a more detailed look at supporting a wide range of devices. Also check out the [iconography](http://developer.android.com/design/style/iconography.html) guide for more details.
+To resize more easily, check out the [Final Android Resizer](https://github.com/asystat/Final-Android-Resizer) by [downloading and running this JAR](https://github.com/asystat/Final-Android-Resizer/blob/master/Executable%20Jar/Final%20Android%20Resizer.jar?raw=true) which allows us to select a resources directory, choose a extra high density image and the tool will automatically generate the corresponding lower sizes for us.
 
-To resize more automatically, check out the [Final Android Resizer](https://github.com/asystat/Final-Android-Resizer) by [downloading and running this JAR](https://github.com/asystat/Final-Android-Resizer/blob/master/Executable%20Jar/Final%20Android%20Resizer.jar?raw=true) which allows us to select a resources directory, choose the current density and will automatically generate the corresponding sizes.
+See the [screens support](http://developer.android.com/guide/practices/screens_support.html) reference for a more detailed look at supporting a wide range of devices. Also check out the [iconography](http://developer.android.com/design/style/iconography.html) guide for more details.
 
 ### Working with Bitmaps
 
