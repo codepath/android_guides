@@ -369,10 +369,18 @@ and then refetch the object using the object ID within the child Activity:
 ```java
 int todoId = getIntent().getStringExtra("todo_id");
 ParseQuery<TodoItem> query = ParseQuery.getQuery(TodoItem.class);
+// First try to find from the cache and only then go to network
+query.setCachePolicy(ParseQuery.CachePolicy.CACHE_ELSE_NETWORK); // or CACHE_ONLY
 query.getInBackground(todoId, new GetCallback<TodoItem>() {
-  // ...
+  public void done(TodoItem item, ParseException e) {
+    if (e == null) {
+       // item was found 
+    }
+  }
 }
 ```
+
+You can also use `query.getFirst()` instead to retrieve the item in a synchronous style.
 
 While we could [implement parceling ourselves](http://www.androidbook.com/akc/display?url=DisplayNoteIMPURL&reportId=4539&ownerUserId=android) this is not ideal as it's pretty complex to manage the state of Parse objects. We could also [use a Proxy object](https://www.parse.com/questions/passing-around-parseobjects-in-android) to pass the data as well but this can be brittle.
 
