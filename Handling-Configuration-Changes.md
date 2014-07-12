@@ -2,7 +2,7 @@
 
 There are various situations such as when the screen orientation is rotated where the Activity can actually be destroyed and removed from memory and then recreated from scratch again. In these situations, the best practice is to manage for cases where the Activity is re-created by properly saving and restoring the state.
 
-## Saving and Restoring State
+## Saving and Restoring Activity State
 
 As your activity begins to stop, the system calls `onSaveInstanceState()` so your activity can save state information with a collection of key-value pairs. The default implementation of this method **automatically saves** information about the state of the activity's **view hierarchy**, such as the text in an `EditText` widget or the scroll position of a `ListView`.
 
@@ -38,7 +38,7 @@ public void onRestoreInstanceState(Bundle savedInstanceState) {
 
 Read more on the [Recreating an Activity](http://developer.android.com/training/basics/activity-lifecycle/recreating.html) guide.
 
-## Saving Fragment State
+## Saving and Restoring Fragment State
 
 Fragments also have a `onSaveInstanceState()` method which is called when their state needs to be saved:
 
@@ -54,6 +54,7 @@ public class MySimpleFragment extends Fragment {
         outState.putInt(SOME_VALUE_KEY, someStateValue);
     }
 }
+```
 
 Then we can pull data out of this saved state in `onCreateView`:
 
@@ -74,7 +75,7 @@ public class MySimpleFragment extends Fragment {
 }
 ```
 
-For the fragment state to be saved properly, we need to be sure that we aren't unnecessarily recreating the fragment on configuration changes. This means being careful not to reinitialize existing fragments when they already exist. Any fragments being initialized in an Activity need to be re-found after the change:
+For the fragment state to be saved properly, we need to be sure that we aren't **unnecessarily recreating the fragment** on configuration changes. This means being careful not to reinitialize existing fragments when they already exist. Any fragments being initialized in an Activity need to be **looked up by tag** after a configuration change:
 
 ```java
 public class  ParentActivity extends FragmentActivity {
@@ -85,7 +86,7 @@ public class  ParentActivity extends FragmentActivity {
         if (savedInstanceState != null) { // saved instance state, fragment may exist
            // on savedInstanceState don't recreate fragments, 
            // look up the instance that already exists by tag
-           fragmentSimple = (CharacterCardsFragment)  
+           fragmentSimple = (MySimpleFragment)  
               getSupportFragmentManager().findFragmentByTag(SIMPLE_FRAGMENT_TAG);
         }
         // only create fragments if they haven't been instantiated already
@@ -94,8 +95,9 @@ public class  ParentActivity extends FragmentActivity {
         }
     }
 }
+```
 
-This requires us to be careful to add a tag whenever putting a fragment into the activity inside a transaction:
+This requires us to be careful to include a tag for lookup whenever putting a fragment into the activity within a transaction:
 
 ```java
 public class  ParentActivity extends FragmentActivity {
@@ -108,7 +110,7 @@ public class  ParentActivity extends FragmentActivity {
         // always add a tag to a fragment being inserted
         getSupportFragmentManager()
             .beginTransaction()
-            .replace(R.id.container, fragment, SIMPLE_FRAGMENT_TAG)
+            .replace(R.id.container, fragmentSimple, SIMPLE_FRAGMENT_TAG)
             .commit();
     }
 }
@@ -143,7 +145,7 @@ public class RetainedFragment extends Fragment {
 }
 ```
 
-Now you can check to see if the fragment already exists by tag before creating one and the fragment will retain it's state across configuration changes. See the [Handling Runtime Changes](http://developer.android.com/guide/topics/resources/runtime-changes.html#RetainingAnObject) guide for more details.
+Now you can **check to see if the fragment already exists by tag** before creating one and the fragment will retain it's state across configuration changes. See the [Handling Runtime Changes](http://developer.android.com/guide/topics/resources/runtime-changes.html#RetainingAnObject) guide for more details.
 
 
 ## Locking Screen Orientation
