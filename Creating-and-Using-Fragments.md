@@ -86,7 +86,7 @@ To add the fragment **statically**, simply embed the fragment in the activity's 
         android:id="@+id/fooFragment"
         android:layout_height="match_parent"
         android:layout_marginTop="?android:attr/actionBarSize"
-        class="com.example.android.FooFragment" ></fragment>
+        android:name="com.example.android.FooFragment" ></fragment>
 
 </LinearLayout>
 ```
