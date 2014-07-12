@@ -64,7 +64,9 @@ Bottom row (l-r): fitCenter, fitStart, fitEnd, fitXY.
 
 Since Android has so many different screen sizes, resolutions and densities, there is a system for selecting the correct image asset for the correct device. There are specific drawable folders for each device density category including: ldpi (low), mdpi (medium), hdpi (high), and xhdpi (extra high). Notice that every app has folders for image drawables such as `drawable-mdpi` which is for "medium" density devices. 
 
-To create alternative bitmap drawables for different densities, you should follow the 3:4:6:8 scaling ratio between the four generalized densities. This means that if you generate a 100x100 for mdpi (baseline), then you should generate the same resource in 150x150 for hdpi, 200x200 image for xhdpi devices, and finally a 75x75 image for ldpi devices.
+To create alternative bitmap drawables for different densities, you should follow the 3:4:6:8 scaling ratio between the four generalized densities. This means that if you generate a 100x100 for mdpi (baseline), then you should generate the same resource in 150x150 for hdpi, 200x200 image for xhdpi devices, and finally a 75x75 image for ldpi devices. 
+
+To resize more automatically, check out the [Final Android Resizer](https://github.com/asystat/Final-Android-Resizer) by [downloading and running this JAR](https://github.com/asystat/Final-Android-Resizer/blob/master/Executable%20Jar/Final%20Android%20Resizer.jar?raw=true)
 
 ![Densities](http://developer.android.com/images/screens_support/screens-densities.png)
 
