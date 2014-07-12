@@ -52,6 +52,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Google Maps API v2 Usage]]
 * [[Video and Audio Playback and Recording]]
 * [[Push Messaging]] (with Parse)
+* [[Real-time Messaging]] (with PubNub)
 
 ### Week 6 - Drawables and Styles
 
