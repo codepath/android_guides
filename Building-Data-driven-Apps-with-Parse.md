@@ -376,8 +376,6 @@ query.getInBackground(todoId, new GetCallback<TodoItem>() {
 
 While we could [implement parceling ourselves](http://www.androidbook.com/akc/display?url=DisplayNoteIMPURL&reportId=4539&ownerUserId=android) this is not ideal as it's pretty complex to manage the state of Parse objects. We could also [use a Proxy object](https://www.parse.com/questions/passing-around-parseobjects-in-android) to pass the data as well but this can be brittle.
 
-As I mentioned in email, ParseObject are a bit weird and don't serialize well. Either use a proxy object: https://www.parse.com/questions/passing-around-parseobjects-in-android or simply pass the ID of the object and then look up the item by ID: http://guides.codepath.com/android/Building-Data-driven-Apps-with-Parse#objects-by-id
-
 ### Associations
 
 Objects can have relationships with other objects. To model this behavior, any `ParseObject` can be used as a value in other `ParseObject`s. Internally, the Parse framework will store the referred-to object in just one place, to maintain consistency.
