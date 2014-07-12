@@ -352,6 +352,32 @@ query.findInBackground(new FindCallback<TodoItem>() {
 
 See a list of [query constraints](https://www.parse.com/docs/android_guide#queries-constraints) here and check the [queries overview](https://www.parse.com/docs/android_guide#queries) for explanation of compound queries and relational queries.
 
+### Passing Objects Between Activities
+
+Often with Android development, you need to pass an object from one Activity to another. This is done using the `Intent` system and passing objects as extras within a bundle. Unfortunately, `ParseObject` does not currently implement Parcelable or Serializable. 
+
+The simplest way to pass data between activities in Parse is simply to pass the object ID into the Intent:
+
+```java
+Intent i = new Intent(this, SomeNewActivity.class);
+i.putExtra("todo_id", myTodoItem.getObjectId());
+startActivity(i);
+```
+
+and then refetch the object using the object ID within the child Activity:
+
+```java
+int todoId = getIntent().getStringExtra("todo_id");
+ParseQuery<TodoItem> query = ParseQuery.getQuery(TodoItem.class);
+query.getInBackground(todoId, new GetCallback<TodoItem>() {
+  // ...
+}
+```
+
+While we could [implement parceling ourselves](http://www.androidbook.com/akc/display?url=DisplayNoteIMPURL&reportId=4539&ownerUserId=android) this is not ideal as it's pretty complex to manage the state of Parse objects. We could also [use a Proxy object](https://www.parse.com/questions/passing-around-parseobjects-in-android) to pass the data as well but this can be brittle.
+
+As I mentioned in email, ParseObject are a bit weird and don't serialize well. Either use a proxy object: https://www.parse.com/questions/passing-around-parseobjects-in-android or simply pass the ID of the object and then look up the item by ID: http://guides.codepath.com/android/Building-Data-driven-Apps-with-Parse#objects-by-id
+
 ### Associations
 
 Objects can have relationships with other objects. To model this behavior, any `ParseObject` can be used as a value in other `ParseObject`s. Internally, the Parse framework will store the referred-to object in just one place, to maintain consistency.
