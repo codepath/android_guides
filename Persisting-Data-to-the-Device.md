@@ -77,9 +77,9 @@ In many cases, rather than interacting with SQL directly, Android apps can lever
 
 ### Object Relational Mappers
 
-Instead of accessing the SQLite database directly, there is no shortage of higher-level wrappers for managing SQL persistence. There are many popular ORMs for Android, but one of the easiest to use is [ActiveAndroid](https://github.com/pardom/ActiveAndroid/wiki/Getting-started) ([cliffnotes](https://github.com/thecodepath/android_guides/wiki/ActiveAndroid-Guide)). Here's a few alternatives as well:
+Instead of accessing the SQLite database directly, there is no shortage of higher-level wrappers for managing SQL persistence. There are many popular ORMs for Android, but one of the easiest to use is [ActiveAndroid](https://github.com/pardom/ActiveAndroid/wiki/Getting-started) ([[cliffnotes|ActiveAndroid-Guide]]). Here's a few alternatives as well:
 
- * [Sugar ORM](http://satyan.github.io/sugar/index.html) - Very easy syntax, uses reflection to infer data ([cliffnotes](https://github.com/thecodepath/android_guides/wiki/Clean-Persistence-with-Sugar-ORM))
+ * [Sugar ORM](http://satyan.github.io/sugar/index.html) - Very easy syntax, uses reflection to infer data ([[cliffnotes|Clean-Persistence-with-Sugar-ORM]])
  * [Siminov](http://siminov.github.io/android-orm/) - Another viable alternative syntax
  * [greenDAO](http://greendao-orm.com/) - Slightly different take (DAO vs ORM)
  * [ORMLite](http://ormlite.com/sqlite_java_android_orm.shtml) - Lightweight and speed is prioritized
