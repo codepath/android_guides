@@ -84,13 +84,11 @@ public class  ParentActivity extends FragmentActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         if (savedInstanceState != null) { // saved instance state, fragment may exist
-           // on savedInstanceState don't recreate fragments, 
            // look up the instance that already exists by tag
            fragmentSimple = (MySimpleFragment)  
               getSupportFragmentManager().findFragmentByTag(SIMPLE_FRAGMENT_TAG);
-        }
-        // only create fragments if they haven't been instantiated already
-        if (fragmentSimple == null) { 
+        } else if (fragmentSimple == null) { 
+           // only create fragment if they haven't been instantiated already
            fragmentSimple = new MySimpleFragment();
         }
     }
@@ -105,13 +103,14 @@ public class  ParentActivity extends FragmentActivity {
     private final String SIMPLE_FRAGMENT_TAG = "myfragmenttag";
 
     protected void onCreate(Bundle savedInstanceState) {
-        // fragment lookup from above
-        // Now when putting in the fragment
-        // always add a tag to a fragment being inserted
-        getSupportFragmentManager()
-            .beginTransaction()
-            .replace(R.id.container, fragmentSimple, SIMPLE_FRAGMENT_TAG)
-            .commit();
+        // ... fragment lookup or instantation from above...
+        // Always add a tag to a fragment being inserted into container
+        if (!fragmentSimple.isInLayout()) {
+            getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.container, fragmentSimple, SIMPLE_FRAGMENT_TAG)
+                .commit();
+        }
     }
 }
 ```
