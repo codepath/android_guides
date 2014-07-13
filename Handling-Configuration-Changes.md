@@ -45,7 +45,7 @@ Fragments also have a `onSaveInstanceState()` method which is called when their 
 ```java
 public class MySimpleFragment extends Fragment {
     private int someStateValue;
-    private final int SOME_VALUE_KEY = "someValueToSave";
+    private final string SOME_VALUE_KEY = "someValueToSave";
    
     // Fires when a configuration change occurs and fragment needs to save state
     @Override
