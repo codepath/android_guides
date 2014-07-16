@@ -49,6 +49,13 @@ There are many third-party libraries for Android but several of them are "must h
  * [AndroidCharts](https://github.com/dacer/AndroidCharts) - Easy to use charts
  * [AndroidGraphView](http://android-graphview.org/) - library to create flexible and nice-looking diagrams.
  * [AndroidPlot](http://androidplot.com/docs/quickstart/) - plotting library for Android
+
+### Scanning
+
+ * [ZXing](https://github.com/zxing/zxing) - Barcode or QR scanner
+ * [barcodescanner](https://github.com/dm77/barcodescanner) - Newer alternative
+ * [zxscanlib](https://github.com/LivotovLabs/zxscanlib) - ZXing alternative
+ * [android-quick-response-code](https://code.google.com/p/android-quick-response-code/) - Another alternative
  
 ## Resources
 
