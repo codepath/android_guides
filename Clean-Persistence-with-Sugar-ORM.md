@@ -8,7 +8,7 @@
 
 Sugar ORM has no dependencies, so installation is as simple as downloading the `.jar` file and putting it in your `libs` folder. Maven central hosting is currently being [planned](https://github.com/satyan/sugar/issues/91), and this page will update with additional information whenever Sugar ORM becomes available on Maven.
 
-The current stable release is [v1.2](https://github.com/satyan/sugar/blob/master/dist/sugar-1.2.jar?raw=true), but the beta release [v1.3_beta](https://github.com/satyan/sugar/blob/master/dist/sugar-1.3_beta.jar?raw=true) is highly recommended. Once you have the `.jar` file in your `libs` folder, finishing the installation requires just setting the `android:name` attribute of the `application` tag in your `AndroidManifest.xml`:
+The current stable release is [v1.3](https://github.com/satyan/sugar/releases/download/v1.3/sugar-1.3.jar), but the beta release [v1.4_beta](https://github.com/satyan/sugar/releases/download/v1.4_beta/sugar-1.4_beta.jar) is highly recommended. Once you have the `.jar` file in your `libs` folder, finishing the installation requires just setting the `android:name` attribute of the `application` tag in your `AndroidManifest.xml`:
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
