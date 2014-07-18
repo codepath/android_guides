@@ -18,15 +18,17 @@ In recent versions of Eclipse, a "Blank Activity" is generated with a built-in p
 
 See [this guide for a more detailed set of instructions](https://gist.github.com/nesquena/8de33f701e387be0a80d) with images.
 
-### Getting "Errors running builder 'Android Resource Manager' on project" on project generation?
+### Project generation fails with "Errors running builder 'Android Resource Manager' on project"?
+
+Read
+
+You may also want to [re-install Java 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) from this location and retry again and then see [this workaround](https://code.google.com/p/android/issues/detail?id=68755#c18) in this bug report for this issue.
 
 Try updating ADT "Help => Check for Updates" and then open the "Window => Android SDK Manager" and install the latest build tools and any other updates through the manager? Then restart Eclipse and create a new workspace. See [this post](http://stackoverflow.com/questions/20043521/errors-running-builder-android-resource-manager-on-adt) and [this post](http://stackoverflow.com/questions/18096315/mac-error-create-android-project-errors-running-builder-android-resource-man) for more options.
 
 <img src="http://i.imgur.com/IB2yN5I.png" width="460" />
 
-When generating a project, you should see the option to use a "Empty Activity" rather than a "Blank Activity". If you don't see both options, try running updates and installing latest build tools in SDK manager and restarting again.
-
-You may also want to [re-install Java 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) from this location and retry again and then if still broken **uninstall your existing ADT setup**, [re-download the ADT bundle](http://developer.android.com/sdk/index.html) again, and then update all packages from scratch on the new installation. Restart the new eclipse and often this will resolve any issues.
+When generating a project, you should also see the option to use a "Empty Activity" rather than a "Blank Activity". If you don't see both options, try running updates and installing latest build tools in SDK manager and restarting again.
 
 ### Generated Project Missing Activities?
 
