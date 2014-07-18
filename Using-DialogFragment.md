@@ -206,6 +206,10 @@ public class FragmentDialogDemo extends FragmentActivity implements EditNameDial
 
 **Note:** `setOnEditorActionListener` used above to dismiss requires the use of the soft keyboard in the emulator which [can be enabled through AVD](http://imgur.com/a/kf1s9) or by testing on a device. If you don't want to enable soft keyboard, you may want to dismiss on a button click or on a keypress instead.
 
+## Styling Dialogs
+
+Styling a DialogFragment with a custom layout works just the [same as styling any views](http://guides.codepath.com/android/Styles-and-Themes). Styling an `AlertDialog` requires changing several key properties in `styles.xml` such as the `android:alertDialogTheme` as shown in this app [here](https://github.com/aliHafizji/Cheddar-Android/blob/master/res/values/styles_cheddar.xml#L15) and defining your own dialog style extending from `@android:style/Theme.Holo.Light.Dialog` as shown [here](https://github.com/aliHafizji/Cheddar-Android/blob/master/res/values/styles_cheddar.xml#L15).
+
 ## Things To Note
 
 * Notice that we are using the support library version of fragments for better compatibility in our code samples. The non-support version works identically.
