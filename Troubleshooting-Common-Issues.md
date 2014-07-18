@@ -20,11 +20,9 @@ See [this guide for a more detailed set of instructions](https://gist.github.com
 
 ### Project generation fails with "Errors running builder 'Android Resource Manager' on project"?
 
-Read
+See [this workaround which launches ADT with Java 6 instead](https://code.google.com/p/android/issues/detail?id=68755#c18) in this bug report for this issue. In short, this may be caused by installing Java 7 via the Oracle JDK download. 
 
-You may also want to [re-install Java 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) from this location and retry again and then see [this workaround](https://code.google.com/p/android/issues/detail?id=68755#c18) in this bug report for this issue.
-
-Try updating ADT "Help => Check for Updates" and then open the "Window => Android SDK Manager" and install the latest build tools and any other updates through the manager? Then restart Eclipse and create a new workspace. See [this post](http://stackoverflow.com/questions/20043521/errors-running-builder-android-resource-manager-on-adt) and [this post](http://stackoverflow.com/questions/18096315/mac-error-create-android-project-errors-running-builder-android-resource-man) for more options.
+Also try updating ADT "Help => Check for Updates" and then open the "Window => Android SDK Manager" and install the latest build tools and any other updates through the manager? Then restart Eclipse and create a new workspace. See [this post](http://stackoverflow.com/questions/20043521/errors-running-builder-android-resource-manager-on-adt) and [this post](http://stackoverflow.com/questions/18096315/mac-error-create-android-project-errors-running-builder-android-resource-man) for more options.
 
 <img src="http://i.imgur.com/IB2yN5I.png" width="460" />
 
