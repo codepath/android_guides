@@ -72,7 +72,7 @@ will create the appropriate column indicating a relationship between `Book` and 
 To prevent a member field from being persisted in the SQLite database, you can ignore it with an annotation:
 
 ```java
-public Author extends SugarRecord<Author> {
+public class Author extends SugarRecord<Author> {
     String fullName;
     int age;
 
