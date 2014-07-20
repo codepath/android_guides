@@ -219,7 +219,7 @@ The type is inferred automatically from the type of the field.
 
 > Question: How do I store dates into ActiveAndroid?
 
-AA supports serializing Date fields automatically. Simply:
+AA supports serializing Date fields automatically. It is stored internally as a timestamp (INTEGER) in milliseconds.
 
 ```java
 @Column(name = "timestamp", index = true)
@@ -233,6 +233,12 @@ public void setDateFromString(String date) {
     SimpleDateFormat sf = new SimpleDateFormat("EEE MMM dd HH:mm:ss ZZZZZ yyyy");
     sf.setLenient(true);
     this.timestamp = sf.parse(date);
+}
+```
+
+```java
+public static List<Model> findRecent(Date newerThan) {
+    return new Select().from(Model.class).where("timestamp > ?", newerThan.getTimeInMillis()).execute();
 }
 ```
 
