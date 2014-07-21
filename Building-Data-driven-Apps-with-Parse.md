@@ -516,6 +516,12 @@ Naturally we can also delete in an offline manner with:
 todoItem.deleteEventually();
 ```
 
+## Troubleshooting
+
+> Can't save object, I get "com.parse.ParseException: object not found for update"
+
+This is usually an ACL Error which can be fixed by reviewing [this post](https://parse.com/questions/comparseparseexception-object-not-found-for-update-error-when-the-object-exists), [this one](https://www.parse.com/questions/android-object-not-found-for-update) and also [this post](https://parse.com/questions/how-to-update-objects-in-android).
+
 ## Additional Features
 
 Parse has many powerful features in addition to the core functionality listed above:
