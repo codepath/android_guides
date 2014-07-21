@@ -62,7 +62,7 @@ And that's it! For camel cased field names, the underlying SQL database creates 
 Creating relationships between models also just *works*:
 
 ```java
-public Book extends SugarRecord<Book> {
+public class Book extends SugarRecord<Book> {
     Author author;
 }
 ```
@@ -88,7 +88,7 @@ This will prevent `password` from having a column created for it in the underlyi
 While the above integration is simple, clean, and quick, integrating with v1.3 beta is strictly better. The only difference between the two versions in terms of their integration is that `Context` is no longer a required argument in v1.3 beta. A no argument constructor is the only remaining requirement. The above `Book` model would become:
 
 ```java
-public Author extends SugarRecord<Author> {
+public class Author extends SugarRecord<Author> {
     String fullName;
     int age;
 
@@ -227,7 +227,7 @@ contains the version information. This number is used to apply migrations if it 
 To create a migration, make a new folder in `assets` called `sugar_upgrades` and populate it with `<version>.sql` files. These files should contain raw SQL statements separated by semicolons. Let's illustrate how this all works with an example. Using the above `Author` model, add a new field:
 
 ```java
-public Author extends SugarRecord<Author> {
+public class Author extends SugarRecord<Author> {
     String fullName;
     int age;
     int income;  // This is a new field
