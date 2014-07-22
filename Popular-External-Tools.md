@@ -18,6 +18,7 @@ These are the best crash reporting tools:
 * [Crashlytics](http://try.crashlytics.com/) - Awesome and simple crash reporting
 * [New Relic for Android](https://docs.newrelic.com/docs/mobile-apps/android-installation-and-configuration) - Crash reporting and performance optimization
 * [HockeyApp](http://support.hockeyapp.net/kb/client-integration-android-other-platforms/hockeyapp-for-android-sdk)
+* [Rollbar](https://rollbar.com/docs/notifier/rollbar-android/)
 
 ### OTA Builds
 
