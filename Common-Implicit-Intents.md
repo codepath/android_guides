@@ -43,9 +43,9 @@ startActivity(browserIntent);
 Open app page on Google Play:
 
 ```java
-Intent i = new Intent(Intent.ACTION_VIEW, 
+Intent intent = new Intent(Intent.ACTION_VIEW, 
   Uri.parse("market://details?id=" + context.getPackageName()));
-startActivity(i);
+startActivity(intent);
 ```
 
 ## Compose SMS
@@ -88,10 +88,10 @@ startActivity(intent);
 Images or binary data:
 
 ```java
-Intent shareIntent = new Intent(Intent.ACTION_SEND);
-shareIntent.setType("image/jpg");
+Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+sharingIntent.setType("image/jpg");
 Uri uri = Uri.fromFile(new File(getFilesDir(), "foo.jpg"));
-shareIntent.putExtra(Intent.EXTRA_STREAM, uri.toString());
+sharingIntent.putExtra(Intent.EXTRA_STREAM, uri.toString());
 startActivity(Intent.createChooser(sharingIntent, "Share image using"));
 ```
 
