@@ -20,6 +20,10 @@ To subscribe and send messages to a channel, we leverage the easy-to-use Android
 
 If we want to **use PubNub as a service** such that the messages are being received even when the app isn't open, we can check out [this simple example](https://github.com/pubnub/java/tree/master/android/examples/SubscribeAtBoot/src/com/pubnub/examples/subscribeAtBoot) which describes how to setup a `PubNubService` which subscribes to a channel and receives messages starting up as soon as the device boots. This solution is expanded on in [this stackoverflow post](http://stackoverflow.com/a/9608967/313399). 
 
+## Sinch
+
+Check out this [detailed guide](http://sinch.github.io/android-messaging-tutorial/) for creating a real-time messaging client using [Sinch](http://www.sinch.com/docs/android/user-guide/).
+
 ## References
 
 * <http://www.pubnub.com/docs/java/android/android-sdk.html>
