@@ -4,9 +4,37 @@ At the moment, Android Studio v0.5.8 requires gradle 1.10 (no lower, no higher).
 
 You do not need to download Gradle manually for Android Studio.  You just need to make sure that you have selected the "Use default gradle wrapper" option for your project.
 
-(When this option is used, Android Studio will rely on the gradle/wrapper/gradle-wrapper.properties file in the project directory to determine what version of Gradle to use.  If the version needed does not exist, it will be downloaded and stored in a separate directory.  For Unix machines, the various Gradle versions will live in ~/.gradle/wrapper.)
+Android Studio should handle most of the setup work, but if you are setting things up manually (i.e. in Eclipse), then you can follow the same process.
 
-Also, Android Studio uses a Gradle plug-in (http://tools.android.com/tech-docs/new-build-system) with this wrapper option.  You will need to make sure that the plugin is supported by the Gradle version you are using.  For instance, the distributionUrl in the gradle.properties file will attempt to use Gradle v1.12:
+### For Command Line with Eclipse
+
+Download **Gradle 1.6** from the [Gradle web site](http://services.gradle.org/distributions/gradle-1.6-bin.zip). At the moment, only Gradle 1.6 works correctly **with Eclipse**. Using Gradle 1.7+ will fail with a cryptic error.
+
+The current recommendation is to setup the Gradle wrapper by adding these lines to your build.gradle file: (http://www.gradle.org/docs/current/userguide/gradle_wrapper.html):
+
+```
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.4'
+}
+```
+
+Then run:
+
+```
+gradle wrapper
+```
+
+The files below will be generated.  (Similarly, Android Studio will create the same directory structure when the "wrapper" option is used in Android Studio):
+
+```
+ gradlew
+  gradlew.bat
+  gradle/wrapper/
+    gradle-wrapper.jar
+    gradle-wrapper.properties
+```
+
+The gradle-wrapper.properties file determines what version of Gradle to use:
 
 ```
 #Wed Apr 10 15:27:10 PDT 2013
@@ -17,7 +45,9 @@ zipStorePath=wrapper/dists
 distributionUrl=http\://services.gradle.org/distributions/gradle-1.12-all.zip
 ```
 
-The Android Studio Gradle plugin 0.11+ can support Gradle 1.12, so we can specify it in the build.gradle file:
+Gradle will see if the version has already been installed.  If not, it will be downloaded and stored in a separate directory.  (For Unix machines, the various Gradle downloads will live in ~/.gradle/wrapper.)
+
+In addition, you will need to setup the Android Gradle plugin by setting your build.gradle to have a dependency:
 
 ```
 buildscript {
@@ -25,20 +55,18 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.11.+'
+        classpath 'com.android.tools.build:gradle:0.12.+'
     }
 }
 ```
 
-Both Gradle and the Android Studio plugin are constantly changing, so check http://tools.android.com/tech-docs/new-build-system often especially if you are upgrading Android Studio.  Keep in mind that the Android Gradle plugin finds your SDK by what is defined in the local.properties file of your project:
+Google maintains this Android plugin and you can find the latest updates at http://tools.android.com/tech-docs/new-build-system.  Both Gradle and the Android Studio plugin are constantly evolving, so you check the site to see what versions of Gradle are supported for which plugin.
+
+Also, keep in mind that the Android Gradle plugin finds your SDK by what is defined in the local.properties file.  You will need to create this local.properties file:
 
 ```
 sdk.dir=/Applications/Android Studio.app/sdk
 ```
-
-### For Command Line with Eclipse
-
-Download **Gradle 1.6** from the [Gradle web site](http://services.gradle.org/distributions/gradle-1.6-bin.zip). At the moment, only Gradle 1.6 works correctly **with Eclipse**. Using Gradle 1.7+ will fail with a cryptic error.
 
 ## Install API 17 and Build Tools
 
@@ -49,10 +77,10 @@ In order for Gradle to work, ensure you have the API 17 SDK installed including 
 Finally, you can check your working installation by running:
 
 ```
-gradle -v
+./gradlew -v
 ```
 
-If you are using Android Studio and want to verify your gradle wrapper installation is working, you should be using gradlew (Unix) or gradlew.bat (Windows) in your project directory.
+If you are using Windows, you will be using gradlew.bat instead.
 
 ```
 ./gradlew -v
@@ -113,7 +141,7 @@ Within the `buildscript` block, the Gradle `classpath` definition should also be
 To build the APK, run this command in the root directory:
 
 ```
-gradle assemble
+gradlew assemble
 ```
 
 If a build occurs and you see the output:
@@ -129,7 +157,7 @@ Then Gradle is successfully set up for your project. If you get an error, try go
 If you have integration tests you want to run, make sure you have an open emulator or connected device and run this command in the root directory:
 
 ```
-gradle build
+gradlew build
 ```
 
 This will build the apk, then automatically compile and run your integration tests.
@@ -137,7 +165,7 @@ This will build the apk, then automatically compile and run your integration tes
 If you want to delete old APKs before you re-run either `gradle assemble` (build without tests) or `gradle build` (build with tests), run:
 
 ```
-gradle clean
+gradlew clean
 ```
 
 ## Declaring Dependencies
