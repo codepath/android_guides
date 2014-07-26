@@ -8,7 +8,7 @@ Download Gradle (see specific links below) and then extract the Gradle distribut
 
 At the moment, Android Studio v0.5.8 requires gradle 1.10 (no lower, no higher).
 
-Download **Gradle 1.10** from the [Gradle web site](http://services.gradle.org/distributions/gradle-1.10-bin.zip). 
+You do not need to download Gradle yourself since Android Studio will normally install a Gradle wrapper, which allows each project you create to have a custom Gradle build.
 
 ### For Command Line with Eclipse
 
