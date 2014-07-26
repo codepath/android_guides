@@ -222,16 +222,6 @@ Before you create the build file, install the Android Support Repository from th
 Okay. Now, create `build.gradle` in your Android project:
 
 ```
-buildscript {
-    repositories {
-        maven { url 'http://repo1.maven.org/maven2' }
-    }
-
-    dependencies {
-        classpath 'com.android.tools.build:gradle:0.4+'
-    }
-}
-
 apply plugin: 'android'
 
 repositories{
@@ -241,6 +231,8 @@ repositories{
 dependencies {
     compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
     compile 'com.android.support:support-v4:13.0.+'
+    classpath 'com.android.tools.build:gradle:0.12+'
+
 }
 
 android {
@@ -264,8 +256,6 @@ android {
     }
 }
 ```
-
-Note how `repositories` is specified with two different values. This seems to be necessary to overcome a missing library on the new mavenCentral() target; if the other Maven URL is omitted, the repository package for ActionBarSherlock will fail to build.
 
 ### Loading Dependencies with Gradle and Eclipse
 
