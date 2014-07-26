@@ -31,12 +31,14 @@ gradle wrapper
 The files below will be generated.  Similarly, Android Studio will create the same directory structure when the "wrapper" option is used :
 
 ```
- gradlew
+  gradlew
   gradlew.bat
   gradle/wrapper/
     gradle-wrapper.jar
     gradle-wrapper.properties
 ```
+
+The gradlew and gradlew.bat files are shell scripts that will enable you to run Gradle even if you haven't installed it on a machine.  By checking these files into your source code, other people also do not need to go through the process of manually downloading Gradle.
 
 The gradle-wrapper.properties file determines what version of Gradle to use:
 
