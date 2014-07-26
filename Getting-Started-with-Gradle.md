@@ -25,7 +25,7 @@ task wrapper(type: Wrapper) {
 Then run:
 
 ```
-./gradle wrapper 
+gradle wrapper 
 ```
 
 The files below will be generated.  Similarly, Android Studio will create the same directory structure when the "wrapper" option is used :
