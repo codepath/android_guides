@@ -6,7 +6,7 @@ You do not need to download Gradle manually for Android Studio.  You just need t
 
 (When this option is used, Android Studio will rely on the gradle/wrapper/gradle-wrapper.properties file in the project directory to determine what version of Gradle to use.  If the version needed does not exist, it will be downloaded and stored in a separate directory.  For Unix machines, the various Gradle versions will live in ~/.gradle/wrapper.)
 
-Also, Android Studio uses a Gradle plug-in (http://tools.android.com/tech-docs/new-build-system) with this wrapper option.  You will need to make sure that the plugin is supported by the Gradle version you are using.  For instance, the distributionUrl in gradle.properties file will attempt to use Gradle v1.12:
+Also, Android Studio uses a Gradle plug-in (http://tools.android.com/tech-docs/new-build-system) with this wrapper option.  You will need to make sure that the plugin is supported by the Gradle version you are using.  For instance, the distributionUrl in the gradle.properties file will attempt to use Gradle v1.12:
 
 ```
 #Wed Apr 10 15:27:10 PDT 2013
