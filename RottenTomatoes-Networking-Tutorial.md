@@ -369,50 +369,54 @@ Now, we need to define a layout to use for visualizing a particular movie. Let's
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="5dp" >
-    
-    <!-- @drawable/small_movie_poster sourced from 
-         http://content8.flixster.com/movie/11/15/86/11158674_mob.jpg -->
+
     <ImageView
         android:id="@+id/ivPosterImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:maxHeight="93dp"
+        android:layout_centerVertical="true"
+        android:maxHeight="70dp"
         android:scaleType="fitXY"
         android:adjustViewBounds="true"
-        android:src="@drawable/small_movie_poster" />
+        android:src="@drawable/ic_launcher" />
 
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="5dp"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_toRightOf="@+id/ivPosterImage"
-        android:text="The Dark Knight"
-        android:textSize="12sp" />
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tvCast"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/ivPosterImage"
-        android:layout_alignLeft="@+id/tvCriticsScore"
-        android:layout_below="@+id/tvCriticsScore"
-        android:lines="1"
-        android:gravity="bottom"
-        android:text="Christian Bale, Joseph-Gordon Levitt"
-        android:textSize="10sp" />
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:textStyle="bold"
+            android:hint="The Dark Knight"
+            android:textSize="12sp" />
+        
+        <TextView
+            android:id="@+id/tvCriticsScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tvTitle"
+            android:layout_below="@+id/tvTitle"
+            android:hint="91%"
+            android:textSize="12sp" />
 
-    <TextView
-        android:id="@+id/tvCriticsScore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tvTitle"
-        android:layout_below="@+id/tvTitle"
-        android:text="93%"
-        android:textSize="10sp" />
+        <TextView
+            android:id="@+id/tvCast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvCriticsScore"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:hint="Christian Bale, Joseph-Gordon Levitt, Heath Ledger, Maggie Gylenhall"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
 
 </RelativeLayout>
 ```
