@@ -93,13 +93,13 @@ In order for Gradle to work, ensure you have the API 17 SDK installed including 
 Finally, you can check your working installation by running:
 
 ```
-./gradlew -v
+bash ./gradlew -v
 ```
 
 If you are using Windows, you will be using gradlew.bat instead.
 
 ```
-./gradlew -v
+bash ./gradlew -v
 ```
 
 ##  Gradle Project Setup
