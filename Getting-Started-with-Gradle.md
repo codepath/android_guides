@@ -2,7 +2,7 @@
 
 At the moment, Android Studio v0.5.8 requires gradle 1.10 (no lower, no higher).
 
-You do not need to download Gradle manually now that Android Studio will automatically install Gradle for each project.  You just need to make sure that you have selected "Use default gradle wrapper" option.  When this option is selected, Android Studio will use the gradle/wrapper/gradle-wrapper.properties file in your project to download Gradle if it hasn't been installed.
+You do not need to download Gradle manually now that Android Studio will automatically install Gradle for each project.  You just need to make sure that you have selected the "Use default gradle wrapper" option.  When this option is selected, Android Studio will rely on the gradle/wrapper/gradle-wrapper.properties file in your project to determine what version of Gradle to use.  
 
 
 ### For Command Line with Eclipse
