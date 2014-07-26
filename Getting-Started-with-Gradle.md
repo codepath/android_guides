@@ -72,7 +72,7 @@ gradle -v
 If you are using Android Studio and want to verify your gradle wrapper installation is working, you should be using gradlew (Unix) or gradlew.bat (Windows) in your project directory.
 
 ```
-gradlew -v
+./gradlew -v
 ```
 
 ##  Gradle Project Setup
