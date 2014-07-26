@@ -66,13 +66,7 @@ Finally, you can check your working installation by running:
 gradle -v
 ```
 
-If you are using Android Studio and want to verify your gradle wrapper installation is working, type:
-
-```
-./gradlew -v
-```
-
-(or gradlew.bat on Windows machines)
+If you are using Android Studio and want to verify your gradle wrapper installation is working, you should be using gradlew (Unix) or gradlew.bat (Windows) in your project directory.
 
 ##  Gradle Project Setup
 
