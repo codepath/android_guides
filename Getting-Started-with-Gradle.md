@@ -30,32 +30,15 @@ buildscript {
 }
 ```
 
-Both Gradle and the Android Studio plugin are constantly changing, so check http://tools.android.com/tech-docs/new-build-system often especially if you are upgrading Android Studio.
+Both Gradle and the Android Studio plugin are constantly changing, so check http://tools.android.com/tech-docs/new-build-system often especially if you are upgrading Android Studio.  Keep in mind that the Android Gradle plugin finds your SDK by what is defined in the local.properties file of your project:
+
+```
+sdk.dir=/Applications/Android Studio.app/sdk
+```
 
 ### For Command Line with Eclipse
 
 Download **Gradle 1.6** from the [Gradle web site](http://services.gradle.org/distributions/gradle-1.6-bin.zip). At the moment, only Gradle 1.6 works correctly **with Eclipse**. Using Gradle 1.7+ will fail with a cryptic error.
-
-## Define Environment Variables
-
-Define the ANDROID_HOME environment variable which points to your Android SDK.
-
-```bash
-// Unix
-export ANDROID_HOME=~/android-sdks
-
-// Windows
-set ANDROID_HOME=C:\android-sdks
-```
-
-Afterwards, you have to configure the GRADLE_HOME environment variable on your path:
-
-```bash
-export GRADLE_HOME=/your_gradle_directory
-export PATH=$PATH:$GRADLE_HOME/bin
-```
-
-Finally, if you are experimenting with different versions of Gradle, remember to source your path definition file (`source ~/.bash_profile` or wherever your PATH was defined) so that $PATH points to the correct Gradle binary and the old one is no longer in your $PATH. Run `echo $PATH` to confirm.
 
 ## Install API 17 and Build Tools
 
