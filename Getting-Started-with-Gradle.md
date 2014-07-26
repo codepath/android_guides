@@ -1,6 +1,6 @@
 ### For Android Studio
 
-At the moment, Android Studio v0.5.8 requires gradle 1.10 (no lower, no higher).
+At the moment, Android Studio v0.8.2 requires Gradle 1.10 (no lower, no higher).
 
 You do not need to download Gradle manually for Android Studio.  You just need to make sure that you have selected the "Use default gradle wrapper" option for your project.
 
