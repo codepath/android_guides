@@ -10,9 +10,7 @@ Also, Android Studio uses a Gradle plug-in (http://tools.android.com/tech-docs/n
 
 ```
 #Wed Apr 10 15:27:10 PDT 2013
-.
-.
-.
+
 distributionUrl=http\://services.gradle.org/distributions/gradle-1.12-all.zip
 ```
 
