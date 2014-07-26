@@ -2,9 +2,9 @@
 
 At the moment, Android Studio v0.5.8 requires gradle 1.10 (no lower, no higher).
 
-You do not need to download Gradle manually for Android Studio.  You just need to make sure that you have selected the "Use default gradle wrapper" option for your project.  
+You do not need to download Gradle manually for Android Studio.  You just need to make sure that you have selected the "Use default gradle wrapper" option for your project.
 
-(When this option is used, Android Studio will rely on the gradle/wrapper/gradle-wrapper.properties file in the project directory to determine what version of Gradle to use.  If the version needed does not exist, it will be downloaded and stored in a separate directory - ~/.gradle/wrapper in Unix-based machines))
+(When this option is used, Android Studio will rely on the gradle/wrapper/gradle-wrapper.properties file in the project directory to determine what version of Gradle to use.  If the version needed does not exist, it will be downloaded and stored in a separate directory.  For Unix machines, the various Gradle versions will live in ~/.gradle/wrapper.)
 
 Also, Android Studio uses a Gradle plug-in (http://tools.android.com/tech-docs/new-build-system) with this wrapper option.  You will need to make sure that the plugin is supported by the Gradle version you are using.  For instance, the gradle.properties file defined here is Gradle v1.12:
 
@@ -123,7 +123,7 @@ android {
 
 Note that with Gradle 1.6 as downloaded above, the **SDK version must be specified as 17**. Changing to 18 at this time may break the Gradle build. 
 
-Within the `buildscript` block, the `classpath` definition should also be set to `com.android.tools.build:gradle:0.4+`. This works with Gradle 1.6. Higher classpath values require a later Gradle version.
+Within the `buildscript` block, the Gradle `classpath` definition should also be set to `com.android.tools.build:gradle:0.4+`. This version works with Gradle 1.6. Higher values require a later Gradle version.
 
 ## Using Gradle
 
@@ -192,7 +192,7 @@ Creating a build file that includes ActionBarSherlock in your project can be cha
 
 Here is a basic `build.gradle` file that overcomes this conflict.
 
-Before you create the buildfile, install the Android Support Repository from the SDK Manager. This is under SDK Manager->Extras->Android Support Repository. (See [madhead's StackOverflow answer.](http://stackoverflow.com/questions/18559660/android-gradle-build-fails-could-not-find-com-google-androidsupport-v4r18)) At the time of writing, I also had installed Android Support Library for API 19, but simply having a recent Android Support Library jar will not fix the error.
+Before you create the build file, install the Android Support Repository from the SDK Manager. This is under SDK Manager->Extras->Android Support Repository. (See [madhead's StackOverflow answer.](http://stackoverflow.com/questions/18559660/android-gradle-build-fails-could-not-find-com-google-androidsupport-v4r18)) At the time of writing, I also had installed Android Support Library for API 19, but simply having a recent Android Support Library jar will not fix the error.
 
 Okay. Now, create `build.gradle` in your Android project:
 
@@ -255,3 +255,4 @@ Check out the following links for more details:
  * [Gradle User Guide](http://tools.android.com/tech-docs/new-build-system/user-guide)
  * [Gradle Example Project](https://github.com/pestrada/android-tdd-playground)
  * [Building Android Projects with Gradle](https://spring.io/guides/gs/gradle-android/) This resource covers creating a Gradle wrapper for use with Android Studio.
+ * [Gradle wrapper](http://www.gradle.org/docs/current/userguide/gradle_wrapper.html) More background information of the Gradle wrapper.
