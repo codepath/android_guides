@@ -4,13 +4,15 @@ At the moment, Android Studio v0.5.8 requires gradle 1.10 (no lower, no higher).
 
 You do not need to download Gradle manually for Android Studio.  You just need to make sure that you have selected the "Use default gradle wrapper" option for your project.
 
-Android Studio should handle most of the setup work, but if you are setting things up manually (i.e. in Eclipse), then you can follow the same process.
+Android Studio should handle most of the setup work, but if you are interested in how things work, read the section below.
 
 ### For Command Line with Eclipse
 
 Download **Gradle 1.6** from the [Gradle web site](http://services.gradle.org/distributions/gradle-1.6-bin.zip). At the moment, only Gradle 1.6 works correctly **with Eclipse**. Using Gradle 1.7+ will fail with a cryptic error.
 
-The current recommendation is to setup the Gradle wrapper by adding these lines to your build.gradle file: (http://www.gradle.org/docs/current/userguide/gradle_wrapper.html):
+### How to setup the Gradle wrapper
+
+The current recommendation is to setup the Gradle wrapper (http://www.gradle.org/docs/current/userguide/gradle_wrapper.html).  The reason is that once the appropriate shell scripts and configuration has been added to your source code, other users do not need to install Gradle themselves.  To generate this initial set of files (Android Studio will automatically do so), you need to add these lines to your build.gradle file: 
 
 ```
 task wrapper(type: Wrapper) {
@@ -45,7 +47,7 @@ zipStorePath=wrapper/dists
 distributionUrl=http\://services.gradle.org/distributions/gradle-1.12-all.zip
 ```
 
-Gradle will see if the version has already been installed.  If not, it will be downloaded and stored in a separate directory.  (For Unix machines, the various Gradle downloads will live in ~/.gradle/wrapper.)
+Gradle will use this configuration to see if the version has already been installed.  If not, it will be downloaded and stored in a separate directory.  (For Unix machines, the various Gradle downloads will live in ~/.gradle/wrapper.)
 
 In addition, you will need to setup the Android Gradle plugin by setting your build.gradle to have a dependency:
 
