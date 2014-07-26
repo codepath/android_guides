@@ -12,7 +12,7 @@ Download **Gradle 1.6** from the [Gradle web site](http://services.gradle.org/di
 
 ### How to setup the Gradle wrapper
 
-The current recommendation is to setup the Gradle wrapper (http://www.gradle.org/docs/current/userguide/gradle_wrapper.html).  The reason is that once the appropriate shell scripts and configuration has been added to your source code, other users do not need to install Gradle themselves.  To generate this initial set of files (Android Studio will automatically do so), you need to add these lines to your build.gradle file: 
+The current recommendation is to setup the Gradle wrapper (http://www.gradle.org/docs/current/userguide/gradle_wrapper.html).  The reason is that other people trying to use your project do not need to install Gradle themselves.  To generate this initial set of files (Android Studio will automatically do so when you select the wrapper option), you need to add these lines to your build.gradle file: 
 
 ```
 task wrapper(type: Wrapper) {
