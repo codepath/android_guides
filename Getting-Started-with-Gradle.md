@@ -1,14 +1,9 @@
-Getting started with Gradle on the command line is easy!
-
-## Install Gradle
-
-Download Gradle (see specific links below) and then extract the Gradle distribution to a folder, which we will call GRADLE_HOME. Add GRADLE_HOME/bin to your PATH environment variable.
-
 ### For Android Studio
 
 At the moment, Android Studio v0.5.8 requires gradle 1.10 (no lower, no higher).
 
-You do not need to download Gradle yourself since Android Studio will normally install a Gradle wrapper, which allows each project you create to have a custom Gradle build.
+You do not need to download Gradle manually now that Android Studio will automatically install Gradle for each project.  You just need to make sure that you have selected "Use default gradle wrapper" option.  When this option is selected, Android Studio will use the gradle/wrapper/gradle-wrapper.properties file in your project to download Gradle if it hasn't been installed.
+
 
 ### For Command Line with Eclipse
 
@@ -47,6 +42,14 @@ Finally, you can check your working installation by running:
 gradle -v
 ```
 
+If you are using Android Studio and want to verify your gradle wrapper installation is working, type:
+
+```
+./gradlew -v
+```
+
+(or gradlew.bat on Windows machines)
+
 ##  Gradle Project Setup
 
 To use Gradle in your Android application, you have to create a `build.gradle` file in your application root directory:
@@ -58,7 +61,7 @@ buildscript {
   }
 
   dependencies {
-    classpath 'com.android.tools.build:gradle:0.4'
+    classpath 'com.android.tools.build:gradle:0.12+'
   }
 }
 
