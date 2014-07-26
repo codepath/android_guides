@@ -142,7 +142,7 @@ Within the `buildscript` block, the Gradle `classpath` definition should also be
 
 ## Using Gradle
 
-To build the APK, run this command in the root directory:
+To build the APK, run this command in the root directory of your project:
 
 ```
 gradlew assemble
