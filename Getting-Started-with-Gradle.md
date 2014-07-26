@@ -16,7 +16,7 @@ The current recommendation is to setup the Gradle wrapper (http://www.gradle.org
 
 To generate this initial set of files (Android Studio will automatically do so when you select the wrapper option), you need to add these lines to your build.gradle file: 
 
-```
+```bash
 task wrapper(type: Wrapper) {
     gradleVersion = '1.4'
 }
@@ -53,7 +53,7 @@ Gradle will use this configuration to see if the version has already been instal
 
 In addition, you will need to setup the Android Gradle plugin by setting your build.gradle to have a dependency:
 
-```
+```bash
 buildscript {
     repositories {
         mavenCentral()
