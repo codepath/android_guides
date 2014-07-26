@@ -38,7 +38,7 @@ The files below will be generated.  Similarly, Android Studio will create the sa
     gradle-wrapper.properties
 ```
 
-The gradlew and gradlew.bat files are shell scripts that will enable you to run Gradle even if you haven't installed it on a machine.  By checking these files into your source code, other people also do not need to go through the process of manually downloading Gradle.
+The gradlew and gradlew.bat files are scripts that will enable you to run Gradle even if you haven't installed it on a machine.  By checking these files into your source code, other people on Unix and Windows platforms do not need to go through the process of manually downloading Gradle.
 
 The gradle-wrapper.properties file determines what version of Gradle to use:
 
