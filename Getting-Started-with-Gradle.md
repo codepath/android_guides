@@ -74,13 +74,12 @@ sdk.dir=/Applications/Android Studio.app/sdk
 
 If you don't want to set local.properties, you can also define the ANDROID_HOME environment variable which points to your Android SDK.
 
-```
+```bash
 // Unix
 export ANDROID_HOME=~/android-sdks
 
 // Windows
 set ANDROID_HOME=C:\android-sdks
-
 ```
 
 ## Install API 17 and Build Tools
