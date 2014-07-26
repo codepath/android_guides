@@ -72,6 +72,17 @@ Also, keep in mind that the Android Gradle plugin finds your SDK by what is defi
 sdk.dir=/Applications/Android Studio.app/sdk
 ```
 
+If you don't want to set local.properties, you can also define the ANDROID_HOME environment variable which points to your Android SDK.
+
+```
+// Unix
+export ANDROID_HOME=~/android-sdks
+
+// Windows
+set ANDROID_HOME=C:\android-sdks
+
+```
+
 ## Install API 17 and Build Tools
 
 In order for Gradle to work, ensure you have the API 17 SDK installed including the **latest Android SDK Platform-tools and Android SDK Build-tools**. Check this in the Android SDK Manager from within Eclipse. 
