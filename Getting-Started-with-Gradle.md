@@ -66,7 +66,7 @@ buildscript {
 
 Google maintains this Android plugin and you can find the latest updates at http://tools.android.com/tech-docs/new-build-system.  Both Gradle and the Android Studio plugin are constantly evolving, so you check the site to see what versions of Gradle are supported for which plugin.
 
-Also, keep in mind that the Android Gradle plugin finds your SDK by what is defined in the local.properties file.  You will need to create this local.properties file:
+Also, keep in mind that the Android Gradle plugin finds your SDK by what is defined in the local.properties file.  You will need to create this local.properties file in your project directory:
 
 ```
 sdk.dir=/Applications/Android Studio.app/sdk
