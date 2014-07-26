@@ -541,7 +541,7 @@ First, let's generate the activity that will display all the details by selectin
     android:layout_height="match_parent"
     android:padding="5dp"
     tools:context=".BoxOfficeDetailActivity" >
-    
+
     <!-- @drawable/large_movie_poster sourced from 
          http://content8.flixster.com/movie/11/15/86/11158674_pro.jpg -->
     <ImageView
@@ -550,10 +550,32 @@ First, let's generate the activity that will display all the details by selectin
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:maxHeight="179dp"
+        android:maxHeight="160dp"
         android:scaleType="fitXY"
         android:adjustViewBounds="true"
-        android:src="@drawable/large_movie_poster" />
+        android:src="@drawable/ic_launcher" />
+
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ivPosterImage"
+        android:textStyle="bold"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@+id/ivPosterImage"
+        android:text="The Dark Knight"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvCriticsScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvTitle"
+        android:layout_below="@+id/tvTitle"
+        android:layout_marginTop="5dp"
+        android:text="Critics Score: 93%"
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/tvAudienceScore"
@@ -566,46 +588,24 @@ First, let's generate the activity that will display all the details by selectin
         android:textSize="14sp" />
 
     <TextView
-        android:id="@+id/tvCriticsScore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tvTitle"
-        android:layout_below="@+id/tvTitle"
-        android:layout_marginTop="5dp"
-        android:layout_toRightOf="@+id/ivPosterImage"
-        android:text="Critics Score: 93%"
-        android:textSize="14sp" />
-
-    <TextView
         android:id="@+id/tvCast"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/ivPosterImage"
         android:layout_alignLeft="@+id/tvAudienceScore"
         android:layout_below="@+id/tvAudienceScore"
-        android:gravity="bottom"
+        android:layout_marginTop="5dp"
         android:text="Christian Bale, Joseph-Gordon Levitt"
         android:textSize="12sp" />
-
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/ivPosterImage"
-        android:layout_marginLeft="8dp"
-        android:layout_toRightOf="@+id/ivPosterImage"
-        android:text="The Dark Knight"
-        android:textSize="18sp" />
 
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ivPosterImage"
-        android:layout_marginTop="10dp" >
+        android:layout_margin="10dp" >
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical" >
 
             <TextView
