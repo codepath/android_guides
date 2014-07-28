@@ -221,14 +221,31 @@ LocationClient mLocationClient;
 public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    // Connect the location client to start receiving updates
+    // Create the location client to start receiving updates
     mLocationClient = new LocationClient(this, this, this);
+}
+
+protected void onStart() {
+    super.onStart();
+    // Connect the client.
     mLocationClient.connect();
 }
 
-public void onConnected(Bundle arg0) {
+protected void onStop() {
+    // Disconnecting the client invalidates it.
+    mLocationClient.disconnect();
+    super.onStop();
+}
+
+public void onConnected(Bundle dataBundle) {
     Location mCurrentLocation = mLocationClient.getLastLocation();
     Log.d("DEBUG", "current location: " + mCurrentLocation.toString());
+    LatLng latLng = new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude());
+}
+
+public void onDisconnected() {
+    // Display the connection status
+    Toast.makeText(this, "Disconnected. Please re-connect.", Toast.LENGTH_SHORT).show();
 }
 ```
 
