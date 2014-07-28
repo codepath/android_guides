@@ -258,12 +258,87 @@ This pattern should save your app quite a deal of memory and allow for much easi
 
 ## ViewPager with Visible Adjacent Pages
 
-If you are interested in a ViewPager with visible adjacent pages that are partially visible, you can follow these guides:
+If you are interested in a ViewPager with visible adjacent pages that are partially visible:
+
+![ViewPager Adjacent](http://i.stack.imgur.com/ddm1j.jpg)
+
+We can do that with by tuning a few properties of our pager. First, here's how the `ViewPager` might be defined in the XML Layout:
+
+```xml
+<android.support.v4.view.ViewPager
+  	android:id="@+id/pager"
+  	android:gravity="center"
+  	android:layout_width="match_parent"
+  	android:layout_height="0px"
+  	android:paddingLeft="24dp"
+  	android:paddingRight="12dp"
+  	android:layout_weight="1" />
+```
+
+Next, we need to tune these properties of the pager in the containing fragment or activity:
+
+```
+ViewPager vpPager = (ViewPager) view.findViewById(R.id.vpPager);
+vpPager.setClipToPadding(false);
+vpPager.setPageMargin(12);
+// Now setup the adapter as normal
+```
+
+Finally we need to adjust the width inside the adapter:
+
+```
+class MyPageAdapter : FragmentStatePagerAdapter {
+    public override float GetPageWidth (int position) {
+        return 0.93f;
+    }	
+    
+    // ...
+}
+```
+
+For more details, you can follow these guides:
 
 * [ViewPager with Protruding Children](http://blog.neteril.org/blog/2013/10/14/android-tip-viewpager-with-protruding-children/)
 * [ViewPager with Page Boundaries](http://stackoverflow.com/questions/13914609/viewpager-with-previous-and-next-page-boundaries)
 
-![ViewPager Adjacent](http://i.stack.imgur.com/ddm1j.jpg)
+## Animating the Scroll with PageTransformer
+
+We can customize how the pages animate as they are being swiped between using the [PageTransformer](http://developer.android.com/reference/android/support/v4/view/ViewPager.PageTransformer.html). This transformer exists within the support library and is compatible with API 11 or greater. Usage is pretty straightforward, just attach a PageTransformer to the ViewPager:
+
+```java
+vpPager.setPageTransformer(false, new ViewPager.PageTransformer() { 
+    @Override
+    public void transformPage(View page, float position) {
+        // Do our transformations to the pages here
+    }
+});
+```
+
+The first argument is set to true if the **supplied PageTransformer requires page views to be drawn from last to first** instead of first to last. The second argument is the transformer which requires defining the `transformPage` method to define the sliding page behavior. 
+
+The `transformPage` method accepts two parameters: `page` which is the particular page to be modified and `position` which indicates where a given page is located **relative to the center of the screen**. The page **which fills the screen** is at **position 0**. The page immediately to the right is at **position 1**. If the user scrolls halfway between pages one and two, page one has a position of -0.5 and page two has a position of 0.5.
+
+```java
+vpPager.setPageTransformer(false, new ViewPager.PageTransformer() { 
+    @Override
+    public void transformPage(View page, float position) {
+        int pageWidth = view.getWidth();
+        int pageHeight = view.getHeight();
+
+        if (position < -1) { // [-Infinity,-1)
+            // This page is way off-screen to the left.
+            view.setAlpha(0);
+        } else if(position <= 1){ // Page to the left, page centered, page to the right
+           // modify page view animations here for pages in view 
+        } else { // (1,+Infinity]
+            // This page is way off-screen to the right.
+            view.setAlpha(0);
+        }
+    }
+});
+```
+
+For more details, check out [the official guide](http://developer.android.com/training/animation/screen-slide.html#pagetransformer) or [this guide](http://howrobotswork.wordpress.com/2013/06/27/create-viewpager-transitions-a-pagertransformer-example/). You can also review this cool [rotating page transformer effect](https://stevenkideckel.wordpress.com/tag/pagetransformer/) for another example.
  
 ## References
 
