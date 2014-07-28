@@ -73,6 +73,41 @@ public Uri getPhotoFileUri(String fileName) {
 
 Check out the official [Photo Basics](http://developer.android.com/training/camera/photobasics.html) guide for more details.
 
+### Resizing the Picture
+
+Photos taken with the Camera intent are often quite large. After taking a photo, you may want to consider [resizing the Bitmap](http://guides.codepath.com/android/Working-with-the-ImageView#scaling-a-bitmap) to a more manageable size before displaying in an `ImageView`.
+
+### Rotating the Picture
+
+When using the Camera intent to capture a photo, the picture is always taken in the orientation the camera is built into the device. To get your image rotated correctly you'll have to read the orientation information that is stored into the picture (EXIF meta data) and perform the following transformation:
+
+```java
+public Bitmap rotateBitmapOrientation(String photoFilePath) {
+    // Create and configure BitmapFactory
+    BitmapFactory.Options bounds = new BitmapFactory.Options();
+    bounds.inJustDecodeBounds = true;
+    BitmapFactory.decodeFile(file, bounds);
+    BitmapFactory.Options opts = new BitmapFactory.Options();
+    Bitmap bm = BitmapFactory.decodeFile(file, opts);
+    // Read EXIF Data
+    ExifInterface exif = new ExifInterface(file);
+    String orientString = exif.getAttribute(ExifInterface.TAG_ORIENTATION);
+    int orientation = orientString != null ? Integer.parseInt(orientString) : ExifInterface.ORIENTATION_NORMAL;
+    int rotationAngle = 0;
+    if (orientation == ExifInterface.ORIENTATION_ROTATE_90) rotationAngle = 90;
+    if (orientation == ExifInterface.ORIENTATION_ROTATE_180) rotationAngle = 180;
+    if (orientation == ExifInterface.ORIENTATION_ROTATE_270) rotationAngle = 270;
+    // Rotate Bitmap
+    Matrix matrix = new Matrix();
+    matrix.setRotate(rotationAngle, (float) bm.getWidth() / 2, (float) bm.getHeight() / 2);
+    Bitmap rotatedBitmap = Bitmap.createBitmap(bm, 0, 0, bounds.outWidth, bounds.outHeight, matrix, true);
+    // Return result
+    return rotatedBitmap;
+}
+```
+
+See [this guide](http://stackoverflow.com/a/12933632/313399) for the source for this answer. Be aware that on certain devices even the EXIF data isn't set properly, in which case you should [checkout this workaround](http://stackoverflow.com/a/8864367/313399) for a fix.
+
 ## Accessing Stored Media
 
 Similar to the camera, the media picker implementation depends on the level of customization required:
