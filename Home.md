@@ -179,3 +179,4 @@ Focused on issues like deployment, testing, dependency management, etc:
 * [Publishing to the Play Store](http://goo.gl/mUlGL1) (Slides)
 * [[Popular External Tools]] (Analytics, Crash Reporting)
 * [[Using Android Studio]] (**Needs Attention**, highly experimental)
+* [[Collaborating on Projects with Git]] (Git, Team)
