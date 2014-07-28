@@ -516,6 +516,49 @@ Naturally we can also delete in an offline manner with:
 todoItem.deleteEventually();
 ```
 
+## Local Storage Mode
+
+Parse now supports a more powerful form of [local data storage](https://parse.com/docs/android_guide#localdatastore) out of the box which can be used to store and retrieve ParseObjects, even when the network is unavailable. To enable this functionality, simply call Parse.enableLocalDatastore() before your call to initialize:
+
+```java
+// Within the Android Application where Parse is initialized
+Parse.enableLocalDatastore(this);
+Parse.initialize(this, PARSE_APPLICATION_ID, PARSE_CLIENT_KEY);
+```
+
+### Saving To Local Store
+
+You can store a ParseObject in the local datastore by pinning it. Pinning a ParseObject is recursive, just like saving, so any objects that are pointed to by the one you are pinning will also be pinned:
+
+```java
+TodoItem todoItem = new TodoItem("Do laundry");
+// Set the current user, assuming a user is signed in
+todoItem.setOwner(ParseUser.getCurrentUser());
+// Store object offline
+todoItem.pinInBackground();
+```
+
+### Querying from Local Store
+
+We can query from the local offline store with the `fromLocalDatastore` flag during any query operation:
+
+```java
+// Specify which class to query
+ParseQuery<TodoItem> query = ParseQuery.getQuery(TodoItem.class);
+// Flag indicates we will use offline store
+query.fromLocalDatastore();
+// Specify the object id
+query.getInBackground("aFuEsvjoHt", new GetCallback<TodoItem>() {
+  public void done(TodoItem item, ParseException e) {
+     // ...
+  }
+});
+```
+
+### Further Details
+
+For the full summary of how to utilize the offline mode for Parse, be sure to review the [official local store guide](https://parse.com/docs/android_guide#localdatastore) in the Parse docs.
+
 ## Troubleshooting
 
 > Can't save object, I get "com.parse.ParseException: object not found for update"
