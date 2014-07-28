@@ -185,4 +185,5 @@ If using Gradle and Android Studio, you may want to check out this alternative l
 
 ## References
 
+* <http://antonioleiva.com/swiperefreshlayout/>
 * <https://github.com/erikwt/PullToRefresh-ListView> - Third-party library for pull to refresh
