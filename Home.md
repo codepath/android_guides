@@ -152,8 +152,7 @@ Exploring sensors, data and components available via the Android SDK:
 
 * [[Loading Contacts with Content Providers]]
 * [[Accessing the Camera and Stored Media]] (Camera, Photo Roll)
-* [[Listening to Sensors and Location]]
-* [[Using Hardware, Sensors and Device Data]] (Camera, Photo Roll, Location)
+* [[Listening to Sensors and Location]] (Light, Accelerometer, Location)
 * [[Video and Audio Playback and Recording]] (MediaPlayer, VideoView)
 * [[Google Maps Setup Guide|Google Maps Fragment Guide]] (and [[Setup Genymotion|Google-Maps-Fragment-Guide#setup-emulator]])
 * [[Google Maps API v2 Usage]] (Markers, InfoWindow)
