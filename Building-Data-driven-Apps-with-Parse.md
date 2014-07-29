@@ -449,10 +449,11 @@ query.findInBackground(new FindCallback<ParseObject>() {
 
 We can eagerly load nested associations as well. If you have an objectA which has a column referencing objectB and then objectB has a column referencing objectC, you can get objectB and objectC by doing:
 
-```
+```java
 ParseQuery<ParseObject> query = ParseQuery.getQuery(Comment.class);
 // Include the post data with each comment
 query.include("ObjectB.ObjectC"); // the key which the associated object was stored
+// ...
 ```
 
 Otherwise, these associated objects can only be retrieved once they have been fetched separately:
