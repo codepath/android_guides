@@ -447,7 +447,15 @@ query.findInBackground(new FindCallback<ParseObject>() {
 }
 ```
 
-Otherwise, these objects' values cannot be retrieved until they have been fetched like so:
+We can eagerly load nested associations as well. If you have an objectA which has a column referencing objectB and then objectB has a column referencing objectC, you can get objectB and objectC by doing:
+
+```
+ParseQuery<ParseObject> query = ParseQuery.getQuery(Comment.class);
+// Include the post data with each comment
+query.include("ObjectB.ObjectC"); // the key which the associated object was stored
+```
+
+Otherwise, these associated objects can only be retrieved once they have been fetched separately:
 
 ```java
 fetchedTodoItem.getCategory()
@@ -564,6 +572,29 @@ For the full summary of how to utilize the offline mode for Parse, be sure to re
 > Can't save object, I get "com.parse.ParseException: object not found for update"
 
 This is usually an ACL Error which can be fixed by reviewing [this post](https://parse.com/questions/comparseparseexception-object-not-found-for-update-error-when-the-object-exists), [this one](https://www.parse.com/questions/android-object-not-found-for-update) and also [this post](https://parse.com/questions/how-to-update-objects-in-android).
+
+> Can't construct query based on an associated object
+
+If your data model has association pointer of other object, parse requires us to pass the associated object and not the object's id. For example,  Post(ParseObject) has a Author(ParseObject) relationship and author attribute is ParsePointer. If you have author object id "yiadffao89" and want to find all posts by an author:
+
+```
+new ParseQuery("Post")
+    .whereEqualTo("author",  ParseObject.createWithoutData(Author.class, "yiadffao89 "))
+    .find();
+```
+
+> Parse LoginUI library’s sample projects are using Gradle and will not work with Eclipse.
+
+Steps to import [ParseUI](https://github.com/ParsePlatform/ParseUI-Android) into Eclipse:
+
+1. Create a new Eclipse project without any activity. (In wizard don’t select main activity).
+2. Copy following from sample project to newly created eclipse project.
+   * `AndroidManifest.xml`
+   * `src` directory
+   * `res` directory
+   * Update `strings.xml` with your parse/facebook/twitter keys.
+3. Clean and rebuild newly created eclipse project.
+4. Run project
 
 ## Additional Features
 
