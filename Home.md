@@ -35,10 +35,10 @@ If you are an experienced engineer (2+ years of professional experience in softw
 * [[Beginning Android Resources]] (Detailed Post With Many Links)
 * [Setting up the Android Development Tools](http://goo.gl/Ml9YN) (Installation Slides)
 * [Architecture of Mobile Apps](http://goo.gl/AAsGLx) (Concept Slides)
+* [[Mobile Screen Archetypes]] (Common mobile app screen categories)
 * [Developing our First App Using Eclipse](http://goo.gl/pBKfYP) (Step-by-Step Todo App)
 * [[Troubleshooting Common Issues]] (Running into problems?)
 * [[Sample Android Apps]] (Code repositories)
-* [[Mobile Screen Archetypes]] (Common mobile app screen categories)
 
 **Using Android Studio?** See below.
 
