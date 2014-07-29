@@ -38,6 +38,7 @@ If you are an experienced engineer (2+ years of professional experience in softw
 * [Developing our First App Using Eclipse](http://goo.gl/pBKfYP) (Step-by-Step Todo App)
 * [[Troubleshooting Common Issues]] (Running into problems?)
 * [[Sample Android Apps]] (Code repositories)
+* [[Mobile Screen Archetypes]] (Common mobile app screen categories)
 
 **Using Android Studio?** See below.
 
