@@ -577,7 +577,7 @@ This is usually an ACL Error which can be fixed by reviewing [this post](https:/
 
 If your data model has association pointer of other object, parse requires us to pass the associated object and not the object's id. For example,  Post(ParseObject) has a Author(ParseObject) relationship and author attribute is ParsePointer. If you have author object id "yiadffao89" and want to find all posts by an author:
 
-```
+```java
 new ParseQuery("Post")
     .whereEqualTo("author",  ParseObject.createWithoutData(Author.class, "yiadffao89 "))
     .find();
