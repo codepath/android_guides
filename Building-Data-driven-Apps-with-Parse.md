@@ -583,6 +583,19 @@ new ParseQuery("Post")
     .find();
 ```
 
+> Compound equality constraints are seemingly ignored!
+
+Rather than checking for multiple equality values, we need to instead use the `whereNotContainedIn` condition to include all equality conditions within a single compound condition.
+
+```java
+// FAILS
+ParseQuery = ParseQuery.getQuery(Sample.class);
+query.whereNotEqualTo("key", "valueA");
+query.whereNotEqualTo("key", "valueB");
+// WORKS
+query.whereNotContainedIn("status", ImmutableList.of("valueA", "valueB));
+```
+
 > Parse LoginUI library’s sample projects are using Gradle and will not work with Eclipse.
 
 Steps to import [ParseUI](https://github.com/ParsePlatform/ParseUI-Android) into Eclipse:
