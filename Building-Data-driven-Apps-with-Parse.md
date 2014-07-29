@@ -593,7 +593,7 @@ ParseQuery = ParseQuery.getQuery(Sample.class);
 query.whereNotEqualTo("key", "valueA");
 query.whereNotEqualTo("key", "valueB");
 // WORKS
-query.whereNotContainedIn("status", ImmutableList.of("valueA", "valueB));
+query.whereNotContainedIn("key", ImmutableList.of("valueA", "valueB"));
 ```
 
 > Parse LoginUI library’s sample projects are using Gradle and will not work with Eclipse.
