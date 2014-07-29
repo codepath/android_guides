@@ -31,15 +31,15 @@ Login screens usually require the following tasks:
 
 First, sign in pages:
 
-<img src="http://www.android-app-patterns.com/img/screens/52935e9985697.png" width="300" alt="Sign In" />&nbsp;
-<img src="http://www.android-app-patterns.com/img/sets/login-screens/155_2_login-screens.png" width="300" alt="Sign In 2" />&nbsp;
-<img src="http://www.android-app-patterns.com/img/sets/login-screens/facebook-login.jpeg" width="300" alt="Sign In 3" />
+<img src="http://www.android-app-patterns.com/img/screens/52935e9985697.png" height="420" alt="Sign In" />&nbsp;
+<img src="http://www.android-app-patterns.com/img/sets/login-screens/155_2_login-screens.png" height="420" alt="Sign In 2" />&nbsp;
+<img src="http://www.android-app-patterns.com/img/sets/login-screens/facebook-login.jpeg" height="420" alt="Sign In 3" />
 
 And of course, signup:
 
-<img src="http://www.android-app-patterns.com/img/screens/52409664366a5.png" width="300" alt="Sign Up" />&nbsp;
-<img src="http://www.android-app-patterns.com/img/sets/signup/149_7_signup.png" width="300" alt="Sign Up 2" />&nbsp;
-<img src="http://www.android-app-patterns.com/img/sets/signup/foodspotting-signup.png" width="300" alt="Sign Up 3" />
+<img src="http://www.android-app-patterns.com/img/screens/52409664366a5.png" height="420" alt="Sign Up" />&nbsp;
+<img src="http://www.android-app-patterns.com/img/sets/signup/149_7_signup.png" height="420" alt="Sign Up 2" />&nbsp;
+<img src="http://www.android-app-patterns.com/img/sets/signup/foodspotting-signup.png" height="420" alt="Sign Up 3" />
 
 Check out more examples of login screens on [mobile app patterns](http://www.android-app-patterns.com/category/login-screens).
 
@@ -57,9 +57,9 @@ Streams usually require the following tasks:
 
 **Examples:**
 
-<img src="http://www.android-app-patterns.com/img/sets/streams/144_4_streams.png" width="300" alt="Stream" />&nbsp;
-<img src="http://www.android-app-patterns.com/img/sets/streams/twitter-stream-2.png" width="300" alt="Stream" />&nbsp;
-<img src="http://www.android-app-patterns.com/img/sets/streams/facebook-stream.jpeg" width="300" alt="Stream" />
+<img src="http://www.android-app-patterns.com/img/sets/streams/144_4_streams.png" height="420" alt="Stream" />&nbsp;
+<img src="http://www.android-app-patterns.com/img/sets/streams/twitter-stream-2.png" height="420" alt="Stream" />&nbsp;
+<img src="http://www.android-app-patterns.com/img/sets/streams/facebook-stream.jpeg" height="420" alt="Stream" />
 
 Check out more examples of streams on [mobile app patterns](http://www.android-app-patterns.com/category/streams).
 
@@ -69,9 +69,9 @@ This archetype is focused on displaying all relevant information about a single 
 
 **Examples:**
 
-<img src="http://www.android-app-patterns.com/img/screens/52935ea54ecfa.png" width="300" alt="Detail" />&nbsp;
-<img src="http://www.android-app-patterns.com/img/sets/content-item/164_9_content-item.png" width="300" alt="Detail" />&nbsp;
-<img src="http://www.android-app-patterns.com/img/sets/content-item/148_5_content-item.png" width="300" alt="Detail" />
+<img src="http://www.android-app-patterns.com/img/screens/52935ea54ecfa.png" height="420" alt="Detail" />&nbsp;
+<img src="http://www.android-app-patterns.com/img/sets/content-item/164_9_content-item.png" height="420" alt="Detail" />&nbsp;
+<img src="http://www.android-app-patterns.com/img/sets/content-item/148_5_content-item.png" height="420" alt="Detail" />
 
 Check out more examples of detail screens on [mobile app patterns](http://www.android-app-patterns.com/category/content-item).
 
@@ -81,9 +81,9 @@ This archetype is focused on allowing the user to create a new item by filling i
 
 **Examples:**
 
-<img src="http://www.android-app-patterns.com/img/sets/content-creation/144_15_content-creation.png" width="300" alt="Creation" />&nbsp;
-<img src="http://www.android-app-patterns.com/img/screens/537fede2cda9d.png" width="300" alt="Creation" />&nbsp;
-<img src="http://www.android-app-patterns.com/img/sets/content-creation/Google%20Plus_4_content-creation.png" width="300" alt="Creation" />
+<img src="http://www.android-app-patterns.com/img/sets/content-creation/144_15_content-creation.png" height="420" alt="Creation" />&nbsp;
+<img src="http://www.android-app-patterns.com/img/screens/537fede2cda9d.png" height="420" alt="Creation" />&nbsp;
+<img src="http://www.android-app-patterns.com/img/sets/content-creation/Google%20Plus_4_content-creation.png" height="420" alt="Creation" />
 
 Check out more examples of creation screens on [mobile app patterns](http://www.android-app-patterns.com/category/content-creation).
 
@@ -93,9 +93,9 @@ This archetype is focused on allowing the user to view information about their o
 
 **Examples:**
 
-<img src="http://www.android-app-patterns.com/img/sets/profile-pages/159_15_profile-pages.png" width="300" alt="Profile" />&nbsp;
-<img src="http://www.android-app-patterns.com/img/sets/profile-pages/149_5_profile-pages.png" width="300" alt="Profile" />&nbsp;
-<img src="http://www.android-app-patterns.com/img/sets/profile-pages/Pinterest_4_profile-pages.png" width="300" alt="Profile" />
+<img src="http://www.android-app-patterns.com/img/sets/profile-pages/159_15_profile-pages.png" height="420" alt="Profile" />&nbsp;
+<img src="http://www.android-app-patterns.com/img/sets/profile-pages/149_5_profile-pages.png" height="420" alt="Profile" />&nbsp;
+<img src="http://www.android-app-patterns.com/img/sets/profile-pages/Pinterest_4_profile-pages.png" height="420" alt="Profile" />
 
 Check out more examples of profile screens on [mobile app patterns](http://www.android-app-patterns.com/category/profile-pages).
 
@@ -105,9 +105,9 @@ This archetype is focused on giving the user the ability to tune preferences ass
 
 **Examples:**
 
-<img src="http://www.android-app-patterns.com/img/sets/settings/148_12_settings.png" width="300" alt="Profile" />&nbsp;
-<img src="http://www.android-app-patterns.com/img/sets/settings/155_10_settings.png" width="300" alt="Profile" />&nbsp;
-<img src="http://www.android-app-patterns.com/img/sets/settings/Pinterest_1_settings.png" width="300" alt="Profile" />
+<img src="http://www.android-app-patterns.com/img/sets/settings/148_12_settings.png" height="420" alt="Profile" />&nbsp;
+<img src="http://www.android-app-patterns.com/img/sets/settings/155_10_settings.png" height="420" alt="Profile" />&nbsp;
+<img src="http://www.android-app-patterns.com/img/sets/settings/Pinterest_1_settings.png" height="420" alt="Profile" />
 
 Check out more examples of settings screens on [mobile app patterns](http://www.android-app-patterns.com/category/settings).
 
