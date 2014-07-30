@@ -21,11 +21,15 @@ This archetype is focused on the "signed out" view. This is where the user signs
 
 Login screens usually require the following components:
 
- * Accepting varying types of form input from user for basic login / signup (see: [[text fields|Working with the EditText]], [[input fields|Working with Input Views]])
+ * Accepting varying types of form input from user for basic login / signup
+   * See: [[text fields|Working with the EditText]], [[input fields|Working with Input Views]]
  * Validation of form inputs for invalid data (i.e bad emails, duplicate emails)
- * Sending requests to server to authenticate or create new user accounts (see: [[sending requests|Sending and Managing Network Requests]])
- * Integrating third-party connection SDKs (i.e Facebook SDK) (see: [[parse sdk|Building Data driven Apps with Parse]])
- * Loading states during authentication or creation (see: [[progress bars|Handling ProgressBars]]
+ * Sending requests to server to authenticate or create new user accounts 
+   * See: [[sending requests|Sending and Managing Network Requests]]
+ * Integrating third-party connection SDKs (i.e Facebook SDK) 
+   * See: [[parse sdk|Building Data driven Apps with Parse]]
+ * Loading states during authentication or creation 
+   * See: [[progress bars|Handling ProgressBars]]
 
 **Examples:**
 
@@ -49,11 +53,17 @@ This archetype is focused on the primary content or data that a user consumes wi
 
 Streams usually require the following components:
 
- * Sending network requests to retrieve lists of content data to display (see: [[sending requests|Sending and Managing Network Requests]])
- * Creating a list of items based on that source data including displaying text and media (see: [[listview|Using an ArrayAdapter with ListView]])
- * Handling cases where the user wants to view more information on a piece of content (see: [[events|Basic-Event-Listeners]])
+ * Sending network requests to retrieve lists of content data to display 
+   * See: [[sending requests|Sending and Managing Network Requests]]
+ * Creating a list of items based on that source data including displaying text and media
+   * See: [[listview|Using an ArrayAdapter with ListView]]
+ * Endless scrolling which paginates as user consumes content
+   * See: [[endless scrolling|Endless-Scrolling-with-AdapterViews]]
+ * Handling cases where the user wants to view more information on a piece of content
+   * See: [[events|Basic-Event-Listeners]]
  * Allowing the user to take primary actions on this content such as deleting or editing 
- * Optimizing the display of items such that scrolling the stream is smooth (see: [[viewholder|Using-an-ArrayAdapter-with-ListView#improving-performance-with-the-viewholder-pattern]]
+ * Optimizing the display of items such that scrolling the stream is smooth 
+   * See: [[viewholder|Using-an-ArrayAdapter-with-ListView#improving-performance-with-the-viewholder-pattern]]
 
 **Examples:**
 
@@ -69,10 +79,14 @@ This archetype is focused on displaying all relevant information about a single 
 
 Detail views usually require the following components:
 
-* Sending network request to retrieve additional details or media for the data item (see: [[sending requests|Sending and Managing Network Requests]])
-* Action buttons that allow user to interact with the item (see: [[events|Basic-Event-Listeners]])
-* Option for user to share the content out to other apps (see: [[sharing|Sharing Content with Intents]])
-* Scrollable text or media content to read about the item (see: [[scrollview|Working with the ScrollView]])
+* Sending network request to retrieve additional details or media for the data item 
+  * See: [[sending requests|Sending and Managing Network Requests]]
+* Action buttons that allow user to interact with the item 
+  * See: [[events|Basic-Event-Listeners]]
+* Option for user to share the content out to other apps 
+  * See: [[sharing|Sharing Content with Intents]]
+* Scrollable text or media content to read about the item 
+  * See: [[scrollview|Working with the ScrollView]]
 
 **Examples:**
 
@@ -88,12 +102,17 @@ This archetype is focused on allowing the user to create a new item by filling i
 
 Creation screens usually require the following tasks:
 
-* Input fields of various types to collect information (see: [[input fields|Working with Input Views]])
+* Input fields of various types to collect information 
+  * See: [[input fields|Working with Input Views]]
 * Ability to validate fields for correctness before creation
-* Sending network request to create new valid content item (see: [[sending requests|Sending and Managing Network Requests]])
-* Option to capture a photo or select from photo gallery (see: [[camera and media|Accessing the Camera and Stored Media]])
-* Option to capture current location of device (see: [[location|Listening to Sensors and Location]])
-* Option to share or include friends related to the item (see: [[parse sdk|Building Data driven Apps with Parse]])
+* Sending network request to create new valid content item 
+  * See: [[sending requests|Sending and Managing Network Requests]]
+* Option to capture a photo or select from photo gallery 
+  * See: [[camera and media|Accessing the Camera and Stored Media]]
+* Option to capture current location of device 
+  * See: [[location|Listening to Sensors and Location]]
+* Option to share or include friends related to the item 
+  * See: [[parse sdk|Building Data driven Apps with Parse]]
 
 **Examples:**
 
@@ -109,10 +128,13 @@ This archetype is focused on allowing the user to view information about their o
 
 Profile screens usually require the following components:
 
-* Grid or list of recent content items for user (see: [[listview|Using an ArrayAdapter with ListView]])
-* Images associated with the user's identity (see: [[picasso|Sending-and-Managing-Network-Requests#displaying-remote-images-the-easy-way]])
+* Grid or list of recent content items for user
+  * See: [[listview|Using an ArrayAdapter with ListView]]
+* Images associated with the user's identity 
+  * See: [[picasso|Sending-and-Managing-Network-Requests#displaying-remote-images-the-easy-way]]
 * List of related users (followers, following)
-* Action items when on another user's account (see: [[events|Basic-Event-Listeners]])
+* Action items when on another user's account 
+  * See: [[events|Basic-Event-Listeners]]
 
 **Examples:**
 
@@ -128,11 +150,14 @@ This archetype is focused on giving the user the ability to tune preferences ass
 
 Settings screens usually require the following components:
 
-* Persisting settings after they are saved (see [[preferences|Storing-and-Accessing-SharedPreferences]])
-* Input fields and labels for modifying settings (see: [[input fields|Working with Input Views]])
+* Persisting settings after they are saved 
+  * See: [[preferences|Storing-and-Accessing-SharedPreferences]]
+* Input fields and labels for modifying settings 
+  * See: [[input fields|Working with Input Views]]
 * Validating new input from the user
 * Connecting with third-party accounts
-* Affecting behavior of push notifications (see: [[push messaging|Push Messaging]], [[notifications|Notifications]]
+* Affecting behavior of push notifications 
+  * See: [[push messaging|Push Messaging]], [[notifications|Notifications]]
 
 **Examples:**
 
