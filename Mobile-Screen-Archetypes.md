@@ -19,7 +19,7 @@ The six archetypes are provided in more detail below.
 
 This archetype is focused on the "signed out" view. This is where the user signs in or registers for a new account. This can usually take the form of username / password although commonly includes third-party authentication such as facebook or twitter connect for easy access. 
 
-Login screens usually require the following tasks:
+Login screens usually require the following components:
 
  * Accepting varying types of form input from user for basic login / signup
  * Validation of form inputs for invalid data (i.e bad emails, duplicate emails)
@@ -47,7 +47,7 @@ Check out more examples of login screens on [mobile app patterns](http://www.and
 
 This archetype is focused on the primary content or data that a user consumes within the application. This is typically time-based displaying activities from other users that might be of interest. This is usually a list of discrete items which contain different data properties. The primary data is usually text or media content while secondary data includes the timestamp and the author.
 
-Streams usually require the following tasks:
+Streams usually require the following components:
 
  * Sending network requests to retrieve lists of content data to display
  * Creating a list of items based on that source data including displaying text and media
@@ -67,6 +67,13 @@ Check out more examples of streams on [mobile app patterns](http://www.android-a
 
 This archetype is focused on displaying all relevant information about a single discrete item within the application. This usually is a view that is reached when a user is consuming content in a stream that they would like to view in more detail or interact with. Typically this view contains additional data not displayed on the stream as well as actions a user can perform such as editing their items, liking or commenting on other user's content.
 
+Detail views usually require the following components:
+
+* Sending network request to retrieve additional details or media for the data item
+* Action buttons that allow user to interact with the item
+* Option for user to share the content out to other apps
+* Scrollable text or media content to read about the item
+
 **Examples:**
 
 <img src="http://www.android-app-patterns.com/img/screens/52935ea54ecfa.png" height="420" alt="Detail" />&nbsp;
@@ -78,6 +85,15 @@ Check out more examples of detail screens on [mobile app patterns](http://www.an
 ### 4. Creation
 
 This archetype is focused on allowing the user to create a new item by filling in all the properties for the item using a creation flow. This typically involves presenting the user with a series of input fields and allowing them to attach media such as a photo from the camera or metadata such as their location. Usually this is broken up into discrete steps and/or a great deal of fields are optional.
+
+Creation screens usually require the following tasks:
+
+* Input fields of various types to collect information
+* Ability to validate fields for correctness before creation
+* Sending network request to create new valid content item
+* Option to capture a photo or select from photo gallery
+* Option to capture current location of device
+* Option to share or include friends related to the item
 
 **Examples:**
 
@@ -91,6 +107,13 @@ Check out more examples of creation screens on [mobile app patterns](http://www.
 
 This archetype is focused on allowing the user to view information about their own account, view their own content, and provide them account related action items. Typically, the profile contains important statistics about the user (i.e number of followers), displays recent content, and provides access to actions such as editing their profile, changing their picture, logging out, etc.
 
+Profile screens usually require the following components:
+
+* Grid or list of recent content items for user
+* Images associated with the user's identity
+* List of related users (followers, following)
+* Action items when on another user's account
+
 **Examples:**
 
 <img src="http://www.android-app-patterns.com/img/sets/profile-pages/159_15_profile-pages.png" height="420" alt="Profile" />&nbsp;
@@ -102,6 +125,14 @@ Check out more examples of profile screens on [mobile app patterns](http://www.a
 ### 6. Settings
 
 This archetype is focused on giving the user the ability to tune preferences associated with their account and/or the behavior of the app. The settings available range from notification and privacy settings, to profile settings such as username or email and to preferences affecting the behavior of the app.
+
+Settings screens usually require the following components:
+
+* Persisting settings after they are saved
+* Input fields and labels for changing settings
+* Validating new input from the user
+* Connecting with third-party accounts
+* Affecting behavior of push notifications
 
 **Examples:**
 
