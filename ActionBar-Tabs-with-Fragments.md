@@ -191,7 +191,7 @@ With this approach you can have easy tab navigation switching quickly between fr
 
 If you need to reference a fragment instance from within the activity, you can refer to the fragment by it's "tag". For example, if you created the following tab:
 
-```
+```java
 private final String FIRST_TAB_TAG = "first";
 Tab tab1 = actionBar
   ...
@@ -248,22 +248,40 @@ The easiest way to style the ActionBar tabs is using the nifty [Android ActionBa
 
 ![Tab Generator](http://i.imgur.com/xEvwLrb.png)
 
-Doing a custom styling of the ActionBar requires using the [[Styles|Styles and Themes]] system for declaring the look of the ActionBar and tabs more manually. We can tweak the styles of these by building a custom theme in the `res/values-v14/styles.xml`:
+Doing a custom styling of the ActionBar requires using the [[Styles|Styles and Themes]] system for declaring the look of the ActionBar and tabs more manually by setting various tab related styles and themes. There are actually a few related styles for different sections of the ActionBar Tabs:
+
+* `actionBarTabBarStyle` – This determines the style of the overall tab bar which contains the tabs.
+* `actionBarTabStyle` – This determines the style of the individual tabs themselves including the indicator.
+* `actionBarTabTextStyle` - This determines the style of the tab text.
+
+We can tweak the styles of these by building a custom theme in the `res/values-v14/styles.xml`:
 
 ```xml
-<style name="MyTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-    <item name="android:actionBarTabStyle">@style/MyTheme.ActionBar.Tab</item>
+<style name="MyTheme" parent="@android:style/Theme.Holo.Light">
+    <item name="android:actionBarTabBarStyle">@style/MyTheme.ActionBar.TabBar</item>
+    <item name="android:actionBarTabStyle">@style/MyTheme.ActionBar.TabView</item>
+    <item name="android:actionBarTabTextStyle">@style/MyTheme.ActionBar.TabText</item>
 </style>
- 
-<style name="MyTheme.ActionBar.Tab">
+
+<style name="MyTheme.ActionBar.TabBar" parent="android:style/Widget.Holo.Light.ActionBar.TabBar">
+    <!-- This is an ORANGE background -->
     <item name="android:background">@drawable/tab_bar_background</item>
+</style>
+
+<style name="MyTheme.ActionBar.TabView" parent="android:style/Widget.Holo.ActionBar.TabView">
+    <!-- This is a GREEN background -->
+    <item name="android:background">@drawable/tab_view_background</item>
+</style>
+
+<style name="MyTheme.ActionBar.TabText" parent="android:style/Widget.Holo.ActionBar.TabText">
+    <!-- This is PURPLE text color when selected and WHITE color otherwise -->
+    <item name="android:textColor">@color/selector_tab_text</item>
 </style>
 ```
 
-There are actually a few related styles for different parts of the ActionBar:
+The result of these styles is this with the **actionBarTabBarStyle** set orange, the **actionBarTabStyle** set green and the **actionBarTabTextStyle** set purple (selected) or white:
 
-* `actionBarTabStyle` – This determines the style of the individual tabs themselves including the indicator.
-* `actionBarTabBarStyle` – This determines the style of the overall tab bar which contains the tabs.
+<img src="http://i.imgur.com/GmDYVXQ.png" width="400" alt="TabBar" />
 
 Browse the [Styling the ActionBar](https://developer.android.com/training/basics/actionbar/styling.html) official guide for a basic overview. If you are serious about wrestling tabs styles into submission though, check out these resources as well:
 
