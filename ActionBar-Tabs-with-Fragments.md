@@ -287,11 +287,9 @@ The result of these styles is this with the **actionBarTabBarStyle** set orange,
 
 #### Customize Tabs with Indicator Colors
 
-If we want to override the tab indicator color, we need to do more a more advanced styling of the tabs using a layer-list to draw the tabs. 
+To customize the tabs including bottom indicators, we will be overriding `actionBarTabStyle` which determines the style of the tabs themselves. The tab is the area that includes the text, its background, and the little indicator colored bar under the text. If you want to customize the indicator, you need to alter this style.
 
-We will be override 'actionBarTabStyle' which determines the style of the tabs themselves. The tab is the area that includes the text, its background, and the little indicator bar under the text. If you want to customize the indicator, you need to alter this one.
-
-First, we will create the tab_bar_background drawable. This will be a state list drawable, which has different layer list for visual appearance depending on whether the tab is selected or not. In `res/drawable/tab_bar_background.xml`:
+First, we need to create the `tab_bar_background` drawable which defines the tab drawables for each state. This will be a selector drawable, which has different layer-lists applied depending on whether the tab is selected or not. In `res/drawable/tab_bar_background.xml` we can add:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -327,9 +325,9 @@ First, we will create the tab_bar_background drawable. This will be a state list
 </selector>
 ```
 
-Each state is a layer-list for the different background states. The indicator under the active tab comes from the background drawable, so in our custom version, we included an indicator in the proper color. To do this, we created a layer list with a rectangle shape with a 2dp stroke around the exterior, then offset the rectangle so that the top, left and right sides are outside the bounds of the view, so you only see the bottom line. 
+Each state applies a different layer-list representing the different tab states. The indicator under the active tab comes from the background drawable. To draw the indicator, we created a layer-list for a rectangle shape with a 2dp stroke around the exterior, then offset the rectangle so that the top, left and right sides are outside the bounds of the view, so we will only see the bottom line. 
 
-Finally, we need to set the background for the tabs to the “tab_bar_background” drawable in `res/values-v14/styles.xml`:
+Finally, we need to set the background for the tabs to the `tab_bar_background` drawable in `res/values-v14/styles.xml`:
 
 ```xml
 <style name="MyTheme" parent="android:Theme.Holo.Light">  
@@ -341,26 +339,27 @@ Finally, we need to set the background for the tabs to the “tab_bar_background
 </style>
 ```
 
-With those steps, you now have fully customized tabs with this result:
+With these steps in place, we now have fully customized tabs with this result:
 
 <img src="http://i.imgur.com/tzYnzUG.png" width="400" alt="TabBar" />
 
 #### Setting Tab Text Color
 
-We can use a color selector to determine the color of the tab based on it's selected state. This allows the tab to be one color when selected and another when unselected. First, we need to define a color selector in `res/color/selector_tab_text.xml`:
+We may also want to customize the tab text color based on the selected state of the tab. This allows the tab to be one color when selected and another color when unselected. To do this, we need to define a color selector in `res/color/selector_tab_text.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- SELECTED COLOR -->
     <item android:state_selected="true"
         android:color="#6e62ff"/>
-    
+    <!-- UNSELECTED COLOR -->
     <item android:state_selected="false"
         android:color="#f8fff4"/>
 </selector>
 ```
 
-and then we can apply this color selector to the tab text within `res/values/styles.xml`:
+and then we can apply this color selector to the tab text color within `res/values/styles.xml`:
 
 ```xml
 <style name="MyTheme" parent="@android:style/Theme.Holo.Light">
@@ -368,7 +367,7 @@ and then we can apply this color selector to the tab text within `res/values/sty
 </style>
 
 <style name="MyTheme.ActionBar.TabText" parent="android:style/Widget.Holo.ActionBar.TabText">
-    <!-- This is PURPLE text color when selected and WHITE color otherwise -->
+    <!-- This is a PURPLE text color when selected and a WHITE color otherwise -->
     <item name="android:textColor">@color/selector_tab_text</item>
 </style>
 ```
