@@ -194,7 +194,7 @@ Now tweak the theme for the application or activity within the `AndroidManifest.
 </manifest>
 ```
 
-Now your properties and styles will take affect within the ActionBar. Check out this [styling the ActionBar](http://developer.android.com/guide/topics/ui/actionbar.html#Style) section for more details. For an easier way to skin the ActionBar, check out the [StyleGenerator](http://jgilfelt.github.com/android-actionbarstylegenerator) tool for easy style tweaking. 
+Now your properties and styles will take affect within the ActionBar. If you want to style the tabs for the ActionBar, see our [[Tabs Styling Cliffnotes|ActionBar-Tabs-with-Fragments#styling-tabs]]. Check out this [styling the ActionBar](http://developer.android.com/guide/topics/ui/actionbar.html#Style) section for more details. For an easier way to skin the ActionBar, check out the [ActionBar Style Generator](http://jgilfelt.github.com/android-actionbarstylegenerator) tool for easy style tweaking. 
 
 ### Adding ActionView Items
 
