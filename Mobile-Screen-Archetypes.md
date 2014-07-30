@@ -49,11 +49,11 @@ This archetype is focused on the primary content or data that a user consumes wi
 
 Streams usually require the following components:
 
- * Sending network requests to retrieve lists of content data to display
- * Creating a list of items based on that source data including displaying text and media
- * Handling cases where the user wants to view more information on a piece of content
- * Allowing the user to take primary actions on this content such as deleting or editing
- * Optimizing the display of items such that scrolling the stream is smooth
+ * Sending network requests to retrieve lists of content data to display (see: [[sending requests|Sending and Managing Network Requests]])
+ * Creating a list of items based on that source data including displaying text and media (see: [[listview|Using an ArrayAdapter with ListView]])
+ * Handling cases where the user wants to view more information on a piece of content (see: [[events|http://guides.codepath.com/android/Basic-Event-Listeners]])
+ * Allowing the user to take primary actions on this content such as deleting or editing 
+ * Optimizing the display of items such that scrolling the stream is smooth (see: [[viewholder|Using-an-ArrayAdapter-with-ListView#improving-performance-with-the-viewholder-pattern]]
 
 **Examples:**
 
