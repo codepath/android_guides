@@ -21,11 +21,11 @@ This archetype is focused on the "signed out" view. This is where the user signs
 
 Login screens usually require the following components:
 
- * Accepting varying types of form input from user for basic login / signup
+ * Accepting varying types of form input from user for basic login / signup (see: [[text fields|Working with the EditText]], [[input fields|Working with Input Views]])
  * Validation of form inputs for invalid data (i.e bad emails, duplicate emails)
- * Sending requests to server to authenticate or create new user accounts
- * Integrating third-party connection SDKs (i.e Facebook SDK)
- * Loading states during authentication or creation
+ * Sending requests to server to authenticate or create new user accounts (see: [[sending requests|Sending and Managing Network Requests]])
+ * Integrating third-party connection SDKs (i.e Facebook SDK) (see: [[parse sdk|Building Data driven Apps with Parse]])
+ * Loading states during authentication or creation (see: [[progress bars|Handling ProgressBars]]
 
 **Examples:**
 
