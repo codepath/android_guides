@@ -51,7 +51,7 @@ Streams usually require the following components:
 
  * Sending network requests to retrieve lists of content data to display (see: [[sending requests|Sending and Managing Network Requests]])
  * Creating a list of items based on that source data including displaying text and media (see: [[listview|Using an ArrayAdapter with ListView]])
- * Handling cases where the user wants to view more information on a piece of content (see: [[events|http://guides.codepath.com/android/Basic-Event-Listeners]])
+ * Handling cases where the user wants to view more information on a piece of content (see: [[events|Basic-Event-Listeners]])
  * Allowing the user to take primary actions on this content such as deleting or editing 
  * Optimizing the display of items such that scrolling the stream is smooth (see: [[viewholder|Using-an-ArrayAdapter-with-ListView#improving-performance-with-the-viewholder-pattern]]
 
@@ -69,10 +69,10 @@ This archetype is focused on displaying all relevant information about a single 
 
 Detail views usually require the following components:
 
-* Sending network request to retrieve additional details or media for the data item
-* Action buttons that allow user to interact with the item
-* Option for user to share the content out to other apps
-* Scrollable text or media content to read about the item
+* Sending network request to retrieve additional details or media for the data item (see: [[sending requests|Sending and Managing Network Requests]])
+* Action buttons that allow user to interact with the item (see: [[events|Basic-Event-Listeners]])
+* Option for user to share the content out to other apps (see: [[sharing|Sharing Content with Intents]])
+* Scrollable text or media content to read about the item (see: [[scrollview|Working with the ScrollView]])
 
 **Examples:**
 
@@ -88,12 +88,12 @@ This archetype is focused on allowing the user to create a new item by filling i
 
 Creation screens usually require the following tasks:
 
-* Input fields of various types to collect information
+* Input fields of various types to collect information (see: [[input fields|Working with Input Views]])
 * Ability to validate fields for correctness before creation
-* Sending network request to create new valid content item
-* Option to capture a photo or select from photo gallery
-* Option to capture current location of device
-* Option to share or include friends related to the item
+* Sending network request to create new valid content item (see: [[sending requests|Sending and Managing Network Requests]])
+* Option to capture a photo or select from photo gallery (see: [[camera and media|Accessing the Camera and Stored Media]])
+* Option to capture current location of device (see: [[location|Listening to Sensors and Location]])
+* Option to share or include friends related to the item (see: [[parse sdk|Building Data driven Apps with Parse]])
 
 **Examples:**
 
@@ -109,10 +109,10 @@ This archetype is focused on allowing the user to view information about their o
 
 Profile screens usually require the following components:
 
-* Grid or list of recent content items for user
-* Images associated with the user's identity
+* Grid or list of recent content items for user (see: [[listview|Using an ArrayAdapter with ListView]])
+* Images associated with the user's identity (see: [[picasso|Sending-and-Managing-Network-Requests#displaying-remote-images-the-easy-way]])
 * List of related users (followers, following)
-* Action items when on another user's account
+* Action items when on another user's account (see: [[events|Basic-Event-Listeners]])
 
 **Examples:**
 
@@ -128,11 +128,11 @@ This archetype is focused on giving the user the ability to tune preferences ass
 
 Settings screens usually require the following components:
 
-* Persisting settings after they are saved
-* Input fields and labels for changing settings
+* Persisting settings after they are saved (see [[preferences|Storing-and-Accessing-SharedPreferences]])
+* Input fields and labels for modifying settings (see: [[input fields|Working with Input Views]])
 * Validating new input from the user
 * Connecting with third-party accounts
-* Affecting behavior of push notifications
+* Affecting behavior of push notifications (see: [[push messaging|Push Messaging]], [[notifications|Notifications]]
 
 **Examples:**
 
