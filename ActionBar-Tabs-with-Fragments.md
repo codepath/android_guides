@@ -244,11 +244,13 @@ Using these methods described above, we can modify the tabs and their selected s
 
 ### Styling Tabs
 
-The easiest way to style the ActionBar tabs is using the nifty [Android ActionBar Style Generator](http://jgilfelt.github.io/android-actionbarstylegenerator/). This utility will allow you to easily drop-in a new skin for the ActionBar.
+There are several different ways of styling the tabs within the ActionBar. The easiest way to style the ActionBar tabs is using the nifty [Android ActionBar Style Generator](http://jgilfelt.github.io/android-actionbarstylegenerator/). This utility will allow you to easily drop-in a new skin for the ActionBar.
 
 ![Tab Generator](http://i.imgur.com/xEvwLrb.png)
 
-Doing a custom styling of the ActionBar requires using the [[Styles|Styles and Themes]] system for declaring the look of the ActionBar and tabs more manually by setting various tab related styles and themes. There are actually a few related styles for different sections of the ActionBar Tabs:
+#### Custom Styles
+
+Doing custom styling of the ActionBar requires using the [[Styles|Styles and Themes]] system for declaring the look of the ActionBar and tabs more manually by setting various tab related styles and themes. There are actually a few related styles for different sections of the ActionBar Tabs:
 
 * `actionBarTabBarStyle` – This determines the style of the overall tab bar which contains the tabs.
 * `actionBarTabStyle` – This determines the style of the individual tabs themselves including the indicator.
@@ -274,14 +276,107 @@ We can tweak the styles of these by building a custom theme in the `res/values-v
 </style>
 
 <style name="MyTheme.ActionBar.TabText" parent="android:style/Widget.Holo.ActionBar.TabText">
-    <!-- This is PURPLE text color when selected and WHITE color otherwise -->
-    <item name="android:textColor">@color/selector_tab_text</item>
+    <!-- This is a WHITE tab color -->
+    <item name="android:textColor">@android:color/white</item>
 </style>
 ```
 
 The result of these styles is this with the **actionBarTabBarStyle** set orange, the **actionBarTabStyle** set green and the **actionBarTabTextStyle** set purple (selected) or white:
 
-<img src="http://i.imgur.com/GmDYVXQ.png" width="400" alt="TabBar" />
+<img src="http://i.imgur.com/u8bRsr4.png" width="400" alt="TabBar" />
+
+#### Customize Tabs with Indicator Colors
+
+If we want to override the tab indicator color, we need to do more a more advanced styling of the tabs using a layer-list to draw the tabs. 
+
+We will be override 'actionBarTabStyle' which determines the style of the tabs themselves. The tab is the area that includes the text, its background, and the little indicator bar under the text. If you want to customize the indicator, you need to alter this one.
+
+First, we will create the tab_bar_background drawable. This will be a state list drawable, which has different layer list for visual appearance depending on whether the tab is selected or not. In `res/drawable/tab_bar_background.xml`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+  <!-- UNSELECTED TAB STATE -->
+  <item android:state_selected="false" android:state_pressed="false">
+      <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+        <!-- Bottom indicator color for the UNSELECTED tab state -->
+        <item android:top="-5dp" android:left="-5dp" android:right="-5dp">
+             <shape android:shape="rectangle">
+                 <stroke android:color="#65acee" android:width="2dp"/>
+             </shape>
+        </item>
+      </layer-list>
+  </item>
+  <!-- SELECTED TAB STATE -->
+  <item android:state_selected="true" android:state_pressed="false">
+    <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+       <!-- Tab background color for the SELECTED tab state -->
+       <item>
+          <shape>
+              <solid android:color="#cef9ff"/>
+          </shape>
+       </item>
+       <!-- Bottom indicator color for the SELECTED tab state -->
+       <item android:top="-5dp" android:left="-5dp" android:right="-5dp">
+           <shape android:shape="rectangle">
+               <stroke android:color="#5beea6" android:width="2dp"/>
+           </shape>
+       </item>
+    </layer-list>
+  </item>
+</selector>
+```
+
+Each state is a layer-list for the different background states. The indicator under the active tab comes from the background drawable, so in our custom version, we included an indicator in the proper color. To do this, we created a layer list with a rectangle shape with a 2dp stroke around the exterior, then offset the rectangle so that the top, left and right sides are outside the bounds of the view, so you only see the bottom line. 
+
+Finally, we need to set the background for the tabs to the “tab_bar_background” drawable in `res/values-v14/styles.xml`:
+
+```xml
+<style name="MyTheme" parent="android:Theme.Holo.Light">  
+    <item name="android:actionBarTabStyle">@style/MyTheme.ActionBar.TabView</item>
+</style>
+
+<style name="MyTheme.ActionBar.TabView" parent="android:style/Widget.Holo.ActionBar.TabView">
+    <item name="android:background">@drawable/tab_bar_background</item>
+</style>
+```
+
+With those steps, you now have fully customized tabs with this result:
+
+<img src="http://i.imgur.com/tzYnzUG.png" width="400" alt="TabBar" />
+
+#### Setting Tab Text Color
+
+We can use a color selector to determine the color of the tab based on it's selected state. This allows the tab to be one color when selected and another when unselected. First, we need to define a color selector in `res/color/selector_tab_text.xml`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true"
+        android:color="#6e62ff"/>
+    
+    <item android:state_selected="false"
+        android:color="#f8fff4"/>
+</selector>
+```
+
+and then we can apply this color selector to the tab text within `res/values/styles.xml`:
+
+```xml
+<style name="MyTheme" parent="@android:style/Theme.Holo.Light">
+    <item name="android:actionBarTabTextStyle">@style/MyTheme.ActionBar.TabText</item>
+</style>
+
+<style name="MyTheme.ActionBar.TabText" parent="android:style/Widget.Holo.ActionBar.TabText">
+    <!-- This is PURPLE text color when selected and WHITE color otherwise -->
+    <item name="android:textColor">@color/selector_tab_text</item>
+</style>
+```
+The result of these styles is that the text color is purple when tab is selected and white otherwise.
+
+<img src="http://i.imgur.com/Xt7AAlo.png" width="400" alt="TabBar" />
+
+#### Additional Examples
 
 Browse the [Styling the ActionBar](https://developer.android.com/training/basics/actionbar/styling.html) official guide for a basic overview. If you are serious about wrestling tabs styles into submission though, check out these resources as well:
 
@@ -318,7 +413,7 @@ In `res/values/styles.xml`:
 </style>
 ```
 
-#### Format ActionBarSherlock tab text
+#### Format ActionBarSherlock Tab Text
 
 Customize "android:actionBarTabBarStyle" in `res/values-v14/styles.xml` as follows:
 
@@ -367,7 +462,7 @@ public void onTabUnselected(Tab tab, FragmentTransaction ft) {
 }
 ```
 
-#### Format ActionBarSherlock indicator
+#### Format ActionBarSherlock Indicator
 
 Override 'actionBarTabStyle' - it determines the style of the tabs themselves. The tab is the area that includes the text, its background, and the little indicator bar under the text. If you want to customize the indicator, you need to alter this one.
 
