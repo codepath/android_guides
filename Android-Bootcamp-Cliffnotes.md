@@ -47,7 +47,8 @@ Cliffnotes are references giving you the "most important" Android topics with br
 ### Week 5 - Hardware and SDK Components
 
 * [[Loading Contacts with Content Providers]]
-* [[Using Hardware, Sensors and Device Data]]
+* [[Accessing the Camera and Stored Media]]
+* [[Listening to Sensors and Location]]
 * [[Google Maps Setup Guide|Google Maps Fragment Guide]]
 * [[Google Maps API v2 Usage]]
 * [[Video and Audio Playback and Recording]]
