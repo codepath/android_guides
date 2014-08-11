@@ -31,7 +31,6 @@ Let's take a look at a step-by-step for setting up Robolectric to test your proj
    dependencies {
      compile fileTree(dir: 'libs', include: ['*.jar'])
 
-     // borrowed from https://github.com/robolectric/deckard-gradle/blob/master/build.gradle
      androidTestCompile 'org.hamcrest:hamcrest-integration:1.1'
      androidTestCompile 'org.hamcrest:hamcrest-core:1.1'
      androidTestCompile 'org.hamcrest:hamcrest-library:1.1'
