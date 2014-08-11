@@ -61,12 +61,12 @@ Let's take a look at a step-by-step for setting up Robolectric to test your proj
 
 ## Creating resource directory
 
-Create an androidTest/resources/org.roboelectric.Config.properties file:
+   Create an androidTest/resources/org.roboelectric.Config.properties file:
 
-```
-# Robolectric doesn't know how to support SDK 19 yet.
-emulateSdk=18
-```
+   ```
+   # Robolectric doesn't know how to support SDK 19 yet.
+   emulateSdk=18
+   ```
 
 ## Running tests
 
