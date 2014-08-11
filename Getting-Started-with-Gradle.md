@@ -133,8 +133,8 @@ android {
       assets.srcDirs = ['assets']
     }
 
-    instrumentTest.setRoot('tests')
-    instrumentTest {
+    androidTest.setRoot('tests')
+    androidTest {
       java.srcDirs = ['tests/src']
       res.srcDirs = ['tests/res']
       assets.srcDirs = ['tests/assets']
