@@ -4,6 +4,76 @@ Robolectric is designed to allow you to test Android applications on the JVM. Th
 
 Let's take a look at a step-by-step for setting up Robolectric to test your project.
 
+# Setting up for Android Studio
+
+## Configure build.gradle.
+
+   You'll need to setup your build.gradle configuration to include the Robolectric Gradle plugin:
+
+   ```
+   buildscript {
+      repositories {
+         mavenCentral()
+      } 
+      dependencies {
+         classpath 'com.android.tools.build:gradle:0.12.+'
+         classpath 'org.robolectric:robolectric-gradle-plugin:0.12.+'
+      }
+   }
+
+   apply plugin: 'roboelectric'
+   ``` 
+
+   Within your dependencies, you need to include the following defines.  The exclude modules
+   are intended to remove transitive dependencies. 
+
+   ```
+   dependencies {
+     compile fileTree(dir: 'libs', include: ['*.jar'])
+
+     // borrowed from https://github.com/robolectric/deckard-gradle/blob/master/build.gradle
+     androidTestCompile 'org.hamcrest:hamcrest-integration:1.1'
+     androidTestCompile 'org.hamcrest:hamcrest-core:1.1'
+     androidTestCompile 'org.hamcrest:hamcrest-library:1.1'
+
+     androidTestCompile('junit:junit:4.+') {
+        exclude module: 'hamcrest-core'
+     }
+     androidTestCompile('org.robolectric:robolectric:2.3') {
+        exclude module: 'classworlds'
+        exclude module: 'commons-logging'
+        exclude module: 'httpclient'
+        exclude module: 'maven-artifact'
+        exclude module: 'maven-artifact-manager'
+        exclude module: 'maven-error-diagnostics'
+        exclude module: 'maven-model'
+        exclude module: 'maven-project'
+        exclude module: 'maven-settings'
+        exclude module: 'plexus-container-default'
+        exclude module: 'plexus-interpolation'
+        exclude module: 'plexus-utils'
+        exclude module: 'wagon-file'
+        exclude module: 'wagon-http-lightweight'
+        exclude module: 'wagon-provider-api'
+    }
+  }
+  ```
+
+## Creating resource directory
+
+Create an androidTest/resources/org.roboelectric.Config.properties file:
+
+```
+# Robolectric doesn't know how to support SDK 19 yet.
+emulateSdk=18
+```
+
+## Running tests
+
+Currently, there is a bug in Android Studio that triggers "java.lang.RuntimeException: Stub!" errors when trying to run from the IDE (for more context, see https://github.com/robolectric/deckard-gradle/blob/master/README.md).  If you type ./gradlew test from the command line, tests should run correctly.  
+
+# Setting up for Eclipse
+
 ## Download Library JARs
 
 Let's download the [robolectric jar with dependencies](https://www.dropbox.com/s/3xcxxvhviufpblk/robolectric-2.3-with-dependencies.jar) for use and an additional library called [fest-util.jar](https://www.dropbox.com/s/iibi53najlrmd57/fest-util-1.1.6.jar) and then [fest-android.jar](http://repo1.maven.org/maven2/com/squareup/fest-android/1.0.7/fest-android-1.0.7.jar).
