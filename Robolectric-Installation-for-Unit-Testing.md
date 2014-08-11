@@ -70,7 +70,7 @@ Let's take a look at a step-by-step for setting up Robolectric to test your proj
 
 ## Running tests
 
-Proceed with the next section about Verifying Installation.  
+Proceed with the next section about [Verifying installation](https://github.com/thecodepath/android_guides/wiki/Robolectric-Installation-for-Unit-Testing#verify-installation).
 
 Note: currently, there is a bug in Android Studio that triggers "java.lang.RuntimeException: Stub!" errors when trying to run from the IDE (for more context, see https://github.com/robolectric/deckard-gradle/blob/master/README.md).  If you type ./gradlew test from the command line, tests should run correctly.  
 
