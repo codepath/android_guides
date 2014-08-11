@@ -6,7 +6,7 @@ Let's take a look at a step-by-step for setting up Robolectric to test your proj
 
 # Setting up for Android Studio
 
-## Configure build.gradle.
+## Configure build.gradle
 
    You'll need to setup your build.gradle configuration to include the Robolectric Gradle plugin:
 
@@ -25,8 +25,8 @@ Let's take a look at a step-by-step for setting up Robolectric to test your proj
    ``` 
 
    Within your dependencies, you need to include the following defines.  The exclude modules
-   are intended to remove transitive dependencies. 
-
+   are intended to remove transitive dependencies (template borrowed from 
+   https://github.com/robolectric/deckard-gradle/blob/master/README.md)
    ```
    dependencies {
      compile fileTree(dir: 'libs', include: ['*.jar'])
