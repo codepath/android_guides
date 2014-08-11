@@ -60,7 +60,8 @@ Let's take a look at a step-by-step for setting up Robolectric to test your proj
 
 ## Creating resource directory
 
-   Create an androidTest/resources/org.roboelectric.Config.properties file:
+   Create an androidTest/resources/org.roboelectric.Config.properties file.  Note that the directory
+   needs to be resources/ (not to be confused with /res directory used to store your layotu files).   
 
    ```
    # Robolectric doesn't know how to support SDK 19 yet.
@@ -69,7 +70,9 @@ Let's take a look at a step-by-step for setting up Robolectric to test your proj
 
 ## Running tests
 
-Currently, there is a bug in Android Studio that triggers "java.lang.RuntimeException: Stub!" errors when trying to run from the IDE (for more context, see https://github.com/robolectric/deckard-gradle/blob/master/README.md).  If you type ./gradlew test from the command line, tests should run correctly.  
+Proceed with the next section about Verifying Installation.  
+
+Note: currently, there is a bug in Android Studio that triggers "java.lang.RuntimeException: Stub!" errors when trying to run from the IDE (for more context, see https://github.com/robolectric/deckard-gradle/blob/master/README.md).  If you type ./gradlew test from the command line, tests should run correctly.  
 
 # Setting up for Eclipse
 
@@ -162,7 +165,7 @@ Click the "Arguments" tab - Under "Working directory:" select the "Other:" radio
 
 ![Screen 16](http://i.imgur.com/GYfck1l.png)
 
-## Verify Installation
+# Verify Installation
 
 Create a temporary test to verify that the installation was correct. Create a file in the "test" folder in SimpleAppElectricTest. Create "MyActivityTest" in the "com.codepath.example.simpleapp.test" with the following code:
 
