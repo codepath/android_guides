@@ -24,6 +24,7 @@ There are many third-party libraries for Android but several of them are "must h
  * [Picasso](http://square.github.io/picasso/) - A powerful image downloading and caching library for Android.
  * [Ion](https://github.com/koush/ion) - Powerful asynchronous networking library. [Download](https://github.com/koush/ion#get-ion) as a jar here.
  * [Android Async HTTP](http://loopj.com/android-async-http/) - Asynchronous networking client for loading remote content such as JSON.
+ * [Retrofit](http://square.github.io/retrofit/) - A type-safe REST client for Android and Java which intelligently maps an API into a client interface using annotations. 
 
 ### ListView
 
