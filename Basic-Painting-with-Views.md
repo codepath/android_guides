@@ -296,3 +296,19 @@ public class SimpleDrawingView extends View {
 	}
 }
 ```
+
+## Drawing with Density Independent Pixels
+
+When drawing or animating, you often want to draw using density independent pixels in order to be robust to different device sizes and densities. You may also want to determine the device height or width in order to draw intelligently. Copy this [DeviceDimensionsHelper.java](https://gist.github.com/nesquena/318b6930aac3a56f96a4) utility class to `DeviceDimensionsHelper.java` in your project and use anywhere that you have a context to determine screen dimensions or do translations between `dp` and `px`:
+
+```java
+// Get height or width of screen
+int screenHeight = DeviceDimensionsHelper.getDisplayHeight(this);
+int screenWidth = DeviceDimensionsHelper.getDisplayWidth(this);
+// Convert dp to pixels
+float px = DeviceDimensionsHelper.convertDpToPixel(25f, this);
+// Convert pixels to dp
+float dp = DeviceDimensionsHelper.convertPixelsToDp(25f, this);
+```
+
+You can then use this to do smarter drawing for more responsive custom views.
