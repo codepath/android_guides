@@ -179,5 +179,6 @@ Focused on issues like deployment, testing, dependency management, etc:
 * [[Must Have Libraries]] (Networking, Persistence, Compatibility, Convenience, etc)
 * [Publishing to the Play Store](http://goo.gl/mUlGL1) (Slides)
 * [[Popular External Tools]] (Analytics, Crash Reporting)
-* [[Using Android Studio]] (**Needs Attention**, highly experimental)
+* [[Using Android Studio]] (**Needs Attention**)
 * [[Collaborating on Projects with Git]] (Git, Team)
+* [[Debugging and Profiling Apps]] (**Needs Attention**)
