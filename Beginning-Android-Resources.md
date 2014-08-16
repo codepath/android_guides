@@ -1,10 +1,16 @@
 ## Attribution
 
-This guide is **not original content**: it was adapted from this [reddit post](http://www.reddit.com/r/Android/comments/1roag7/i_developed_an_app_and_created_a_starting_guide/)  and [this document](https://docs.google.com/document/d/19uj9TS0Hzaxyv8IM1D20d23GdU9aAkXo5BYfL15VG0I/edit) which is the original source. The original content was created by [jokerbrb](http://www.reddit.com/user/jokerbrb), developer of [The Talker App](https://play.google.com/store/apps/details?id=com.thetalkerapp.main). This post also incorporates [this other reddit post](http://www.reddit.com/r/Android/comments/1w3woc/a_step_by_step_guide_about_how_to_get_started_and/) by [santaschesthairs](http://www.reddit.com/user/santaschesthairs). The information has been formatted, cleaned up and made available here. 
+This guide is **not original content**, instead this post is an amalgamation of numerous other guides discussing the process of learning Android.
 
-In addition, resources linked from [HalfApp's "How to get started programming Android apps"](http://halfapp.com/blog/get-started-programming-android-apps/) blog post has been integrated into this article as well. We've also added resources of our own here including Java resources from [this gist](https://gist.github.com/nesquena/6136ca4c461a9309e579) and links that we recommend to people when first learning Android.
+It was originally adapted from this [reddit post](http://www.reddit.com/r/Android/comments/1roag7/i_developed_an_app_and_created_a_starting_guide/)  and [this document](https://docs.google.com/document/d/19uj9TS0Hzaxyv8IM1D20d23GdU9aAkXo5BYfL15VG0I/edit) which is the original source. The original content was created by [jokerbrb](http://www.reddit.com/user/jokerbrb), developer of [The Talker App](https://play.google.com/store/apps/details?id=com.thetalkerapp.main). 
 
-Recently, [HawkBlue](http://www.reddit.com/user/Hawk_Blue) post about [his Android journey](http://www.reddit.com/r/Android/comments/2dofph/just_published_my_first_app_a_comprehensive_guide/) has been incorporated as well. You can check out his published [GPA Calculator](https://play.google.com/store/apps/details?id=com.praneeth.gpacalculator&hl=en) on the Play Store.
+However, this guide now incorporates the following list of other sources as well:
+
+ * [This other reddit post](http://www.reddit.com/r/Android/comments/1w3woc/a_step_by_step_guide_about_how_to_get_started_and/) by [santaschesthairs](http://www.reddit.com/user/santaschesthairs). The information has been formatted, cleaned up and made available here. 
+
+* [HalfApp's "How to get started programming Android apps"](http://halfapp.com/blog/get-started-programming-android-apps/) blog post has been integrated into this article as well. We've also added resources of our own here including Java resources from [this gist](https://gist.github.com/nesquena/6136ca4c461a9309e579) and links that we recommend to people when first learning Android.
+
+* [HawkBlue](http://www.reddit.com/user/Hawk_Blue)'s post about [his Android journey](http://www.reddit.com/r/Android/comments/2dofph/just_published_my_first_app_a_comprehensive_guide/) has been incorporated as well. You can check out his published [GPA Calculator](https://play.google.com/store/apps/details?id=com.praneeth.gpacalculator&hl=en) on the Play Store.
 
 ## High Level Guide
 
