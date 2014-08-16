@@ -1,4 +1,4 @@
-## Attribution
+## Attributions
 
 This guide is **not original content**, instead this post is an amalgamation of numerous other guides discussing the process of learning Android. This guide currently incorporates content from the following list of sources:
 
