@@ -195,7 +195,7 @@ public class MainActivity extends Activity {
 
 and now we are able to remove items from the list.
 
-### Persistent to File
+### Persist Items to File
 
 First, we need to **load a third-party JAR file** to make reading and writing easier. First, download [commons-io-2.4.jar](https://www.dropbox.com/s/ynokptio9g49ig0/commons-io-2.4.jar) and copy and paste the file into the `libs` folder in Android Studio.
 
