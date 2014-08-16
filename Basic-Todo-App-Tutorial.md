@@ -6,6 +6,8 @@ This tutorial is a complementary reference which can be used in conjunction with
 
 First, we create a new Android project with **minimum SDK 14** named `SimpleTodo` and then select "Empty Activity". Hit Finish to generate the project.
 
+<img src="http://i.imgur.com/rX7FoFU.png" alt="Fix imports" width="600" />
+
 ### Configuring Android Studio
 
 Go into Preferences for Android Studio. On a Mac through `Android Studio => Preferences` or on Windows with `File -> Settings`. Then find `Editor -> Auto Import` and for Java we need to:
