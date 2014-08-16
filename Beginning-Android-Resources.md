@@ -176,3 +176,4 @@ Again please note this guide above was originally posted [on reddit](http://www.
 * <http://www.reddit.com/r/Android/comments/1roag7/i_developed_an_app_and_created_a_starting_guide/>
 * <http://halfapp.com/blog/get-started-programming-android-apps/>
 * <http://www.reddit.com/r/Android/comments/1w3woc/a_step_by_step_guide_about_how_to_get_started_and/>
+* <http://www.reddit.com/r/Android/comments/2dofph/just_published_my_first_app_a_comprehensive_guide/>
