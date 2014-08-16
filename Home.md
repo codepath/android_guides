@@ -44,7 +44,7 @@ If you are an experienced engineer (2+ years of professional experience in softw
 
 * [Setting up Android Studio](http://goo.gl/X2SVFR) (Experimental Install Slides)
 * [Developing our First App Using Android Studio](http://goo.gl/8R7Mty) (Step-by-Step Todo App)
-* [[Todo App Article|Basic Todo App Tutorial]] (Todo App in article format)
+* [[Todo App Guide|Basic Todo App Tutorial]] (Todo App in article format)
 
 ## Structure
 
