@@ -6,6 +6,15 @@ This tutorial is a complementary reference which can be used in conjunction with
 
 First, we create a new Android project with **minimum SDK 14** named `SimpleTodo` and then select "Empty Activity". Hit Finish to generate the project.
 
+### Configuring Android Studio
+
+Go into Preferences for Android Studio. On a Mac through `Android Studio => Preferences` or on Windows with `File -> Settings`. Then find `Editor -> Auto Import` and for Java we need to:
+
+ * Change `Insert imports on paste` to `All`
+ * Check `Add unambigious imports on the fly` option
+
+<img src="http://i.imgur.com/mNZB3JB.png" alt="Fix imports" width="600" />
+
 ### Creating our Layout
 
 Next, we need to define the layout of our views. In particular, we want to add `Button`, a `EditText` and a `ListView` to our Activity in `app/src/main/res/layout/activity_main.xml`:
@@ -117,10 +126,11 @@ First, let's add an `android:onClick` handler to our layout XML file in `app/src
     android:layout_height="wrap_content"
     android:text="Add Item"
     android:id="@+id/btnAddItem"
-    android:onClick="onAddItem"
     android:layout_alignParentBottom="true"
     android:layout_alignParentRight="true"
-    android:layout_alignParentEnd="true" />
+    android:layout_alignParentEnd="true" 
+    android:onClick="onAddItem"
+/>
 ```
 
 and then add the following method handler to the Activity file:
@@ -141,3 +151,113 @@ public class MainActivity extends Activity {
 }
 ```
 
+And now we are able to add items to the list.
+
+### Removing Items
+
+```java
+public class MainActivity extends Activity {
+
+    // ...
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        // ... existing code ...
+        items.add("Second Item");
+        // Setup remove listener
+        setupListViewListener();
+    }
+
+    private void setupListViewListener() {
+        lvItems.setOnItemLongClickListener(
+                new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapter,
+                                           View item, int pos, long id) {
+                items.remove(pos);
+                itemsAdapter.notifyDataSetChanged();
+                return true;
+            }
+
+        });
+    }
+
+    // ...onAddItem method
+
+}
+```
+
+and now we are able to remove items from the list.
+
+### Persistent to File
+
+First, we need to **load a third-party JAR file** to make reading and writing easier. First, download [commons-io-2.4.jar](https://www.dropbox.com/s/ynokptio9g49ig0/commons-io-2.4.jar) and copy and paste the file into the `libs` folder in Android Studio.
+
+Next, right-click on the jar within the lib folder and select `Add as Library...` and then hit `OK`. Then if you don't notice a sync happen, select `Tools => Android => Sync Project with Gradle Files` to reload the dependencies. 
+
+With the library loaded, we need to define the methods to read and write the data to a file:
+
+```java
+public class MainActivity extends Activity {
+
+    private void readItems() {
+        File filesDir = getFilesDir();
+        File todoFile = new File(filesDir, "todo.txt");
+        try {
+            items = new ArrayList<String>(FileUtils.readLines(todoFile));
+        } catch (IOException e) {
+            items = new ArrayList<String>();
+        }
+    }
+
+    private void writeItems() {
+        File filesDir = getFilesDir();
+        File todoFile = new File(filesDir, "todo.txt");
+        try {
+            FileUtils.writeLines(todoFile, items);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+and then call those methods when the app is launched (read from disk) and then write to disk when items change (items added or removed) within the `Activity`:
+
+```java
+public class MainActivity extends Activity {
+
+   @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        // ... super, setContentView, define lvItems
+        readItems(); // <---- Add this line
+        itemsAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, items);
+        // ... rest of existing code
+    }
+
+    private void setupListViewListener() {
+        lvItems.setOnItemLongClickListener(
+                new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapter,
+                                           View item, int pos, long id) {
+                items.remove(pos);
+                itemsAdapter.notifyDataSetChanged();
+                writeItems(); // <---- Add this line
+                return true;
+            }
+
+        });
+    }
+
+    public void onAddItem(View v) {
+        EditText etNewItem = (EditText) findViewById(R.id.etNewItem);
+        String itemText = etNewItem.getText().toString();
+        itemsAdapter.add(itemText);
+        etNewItem.setText("");
+        writeItems(); // <---- Add this line
+    }
+
+}
+```
