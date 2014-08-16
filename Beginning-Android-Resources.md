@@ -1,10 +1,8 @@
 ## Attribution
 
-This guide is **not original content**, instead this post is an amalgamation of numerous other guides discussing the process of learning Android.
+This guide is **not original content**, instead this post is an amalgamation of numerous other guides discussing the process of learning Android. This guide currently incorporates content from the following list of sources:
 
-It was originally adapted from this [reddit post](http://www.reddit.com/r/Android/comments/1roag7/i_developed_an_app_and_created_a_starting_guide/)  and [this document](https://docs.google.com/document/d/19uj9TS0Hzaxyv8IM1D20d23GdU9aAkXo5BYfL15VG0I/edit) which is the original source. The original content was created by [jokerbrb](http://www.reddit.com/user/jokerbrb), developer of [The Talker App](https://play.google.com/store/apps/details?id=com.thetalkerapp.main). 
-
-However, this guide now incorporates the following list of other sources as well:
+* This guide was originally adapted from this [reddit post](http://www.reddit.com/r/Android/comments/1roag7/i_developed_an_app_and_created_a_starting_guide/)  and [this document](https://docs.google.com/document/d/19uj9TS0Hzaxyv8IM1D20d23GdU9aAkXo5BYfL15VG0I/edit) which is the original source. The original content was created by [jokerbrb](http://www.reddit.com/user/jokerbrb), developer of [The Talker App](https://play.google.com/store/apps/details?id=com.thetalkerapp.main). 
 
  * [This other reddit post](http://www.reddit.com/r/Android/comments/1w3woc/a_step_by_step_guide_about_how_to_get_started_and/) by [santaschesthairs](http://www.reddit.com/user/santaschesthairs). The information has been formatted, cleaned up and made available here. 
 
