@@ -88,7 +88,7 @@ public class MainActivity extends Activity {
 
 ### Creating List of Items
 
-We need to create a list of todo items to display and an adapter to display them in our `ListView`:
+We need to create a list of todo items to display and an adapter to display them in our `ListView` within the `Activity` java file:
 
 ```java
 public class MainActivity extends Activity {
@@ -133,7 +133,7 @@ First, let's add an `android:onClick` handler to our layout XML file in `app/src
 />
 ```
 
-and then add the following method handler to the Activity file:
+and then add the following method handler to the Activity java file:
 
 ```java
 public class MainActivity extends Activity {
@@ -155,27 +155,33 @@ And now we are able to add items to the list.
 
 ### Removing Items
 
+Let's hook up an event handler so that when an item is long clicked (pressed and held), the item will be removed:
+
 ```java
 public class MainActivity extends Activity {
 
-    // ...
+    // ... variable declarations
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // ... existing code ...
         items.add("Second Item");
-        // Setup remove listener
-        setupListViewListener();
+        // Setup remove listener method call
+        setupListViewListener(); 
     }
 
+    // Attaches a long click listener to the listview
     private void setupListViewListener() {
         lvItems.setOnItemLongClickListener(
                 new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapter,
                                            View item, int pos, long id) {
+                // Remove the item within array at position
                 items.remove(pos);
+                // Refresh the adapter
                 itemsAdapter.notifyDataSetChanged();
+                // Return true consumes the long click event (marks it handled)
                 return true;
             }
 
