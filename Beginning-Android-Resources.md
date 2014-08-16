@@ -4,6 +4,8 @@ This guide is **not original content**: it was adapted from this [reddit post](h
 
 In addition, resources linked from [HalfApp's "How to get started programming Android apps"](http://halfapp.com/blog/get-started-programming-android-apps/) blog post has been integrated into this article as well. We've also added resources of our own here including Java resources from [this gist](https://gist.github.com/nesquena/6136ca4c461a9309e579) and links that we recommend to people when first learning Android.
 
+Recently, [HawkBlue](http://www.reddit.com/user/Hawk_Blue) post about [his Android journey](http://www.reddit.com/r/Android/comments/2dofph/just_published_my_first_app_a_comprehensive_guide/) has been incorporated as well. You can check out his published [GPA Calculator](https://play.google.com/store/apps/details?id=com.praneeth.gpacalculator&hl=en) on the Play Store.
+
 ## High Level Guide
 
 * **Installation** - If you have never done Android development, first setup your Android environment by following these [Android Setup Slides](https://docs.google.com/presentation/d/1JOICG5Ow6QgMBrUKChenvSSxjylCpeQKvfvpPbJMx3M/edit)
@@ -28,6 +30,8 @@ If you never programmed at all before or if you are interested in starting with 
 * [CodingBat Java Exercises](http://codingbat.com/) - Exercises to practice Java
 * [Best Ways to Learn Java Overview](http://www.onvard.com/tracks/best-way-to-learn-java) - Overview article
 * [Java Language Fundamentals](http://en.wikibooks.org/wiki/Java_Programming/Language_Fundamentals)
+* [Java: A Beginners Guide](http://www.amazon.com/Java-Beginners-Guide-Herbert-Schildt/dp/0071809252)
+* [TutorialsPoint Java Guide](http://www.tutorialspoint.com/java/java_basic_syntax.htm)
 
 Be sure to check out these particular Java topics as well:
 
@@ -92,15 +96,23 @@ Consider starting with the following tutorials and resources:
 
 * [Vogella Android Tutorials](http://www.vogella.com/tutorials/Android/article.html) - Awesome free tutorials for most common Android topics. Great as a supplementary resource on top of these [Android Cliffnotes](http://guides.thecodepath.com/android).
 
+* [Developing Android Apps by Google](https://www.udacity.com/course/ud853) - Udacity course created by Google that teaches the core concepts involved in developing Android apps through videos and course work. 
+
+* [Programming Android Applications on Coursera](https://www.coursera.org/course/android) - Coursera online course from the University of Maryland.
+
 * [CodeLearn Android Tutorial](http://www.codelearn.org/android-tutorial) - Interesting interactive tutorial for learning Android step-by-step. Definitely worth a look as you build a twitter client step-by-step.
   
 * [Common tasks](http://developer.android.com/guide/faq/commontasks.html) are a useful list of typical things you can do in your app and how to develop them.
   
 * [Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm&hl=en) is a great app available on the Google Play Store. You probably have heard of it. This app won't teach you anything about how to develop Android apps but it will show you what an Android app can do with your phone. I learned a lot from it. Whenever I realised I wanted to do something specific, I knew I could do it because I had done it before on Tasker.
+
+* [Building Mobile Applications Course](http://cs76.tv/2012/spring/#about,lectures) - Courseware including videos and slides with high-level overview of Android development.
   
 * [DevAppsDirect](https://play.google.com/store/apps/details?id=com.inappsquared.devappsdirect&hl=en) is another great app you can get from the Play Store. While it also won't teach you how to develop an app, it will show you what is available out there. The app maintains a list of open source libraries you can use in your project for a variety of purposes. Knowing what you can reuse will save you a lot of time in the future.
 
-In addition, my favorite book is by far [The Busy Coder's Guide to Android Development](http://commonsware.com/Android/). The book is comprehensive with its over 2,400 pages but starts with the basics, explaining the concepts. It also has those "do-it-yourself" tutorials to help you retain what you are learning. The book is a bit expensive but it comes with a one-year subscription to keep it updated during the period.
+* [Android Programming: Pushing the Limits](http://www.amazon.com/Android-Programming-Pushing-Erik-Hellman/dp/1118717376) is a solid book to check out.
+
+* [The Busy Coder's Guide to Android Development](http://commonsware.com/Android/) is comprehensive with its over 2,400 pages but starts with the basics, explaining the concepts. It also has those "do-it-yourself" tutorials to help you retain what you are learning. The book is a bit expensive but it comes with a one-year subscription to keep it updated during the period.
 
 All code examples are free and [can be found here](https://github.com/commonsguy/cw-omnibus/). Even if you don't buy the book, consider browsing through some of the examples there to learn how other programmers do things. Finally, Mark Murphy, the author of the book, is helpful whether you contact him by e-mail or on the [StackOverflow website](http://stackoverflow.com/). Check out [his profile](http://stackoverflow.com/users/115145/commonsware). He is in the all time top-10 ranking list there.
 
