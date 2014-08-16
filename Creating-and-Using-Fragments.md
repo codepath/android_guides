@@ -155,7 +155,7 @@ public class SomeFragment extends Fragment {
 	FragmentActivity listener;
         
         // This event fires 1st, before creation of fragment or any views
- 	// The onAttach method is called when the Fragment instance is associated with an Activity instance. 
+ 	// The onAttach method is called when the Fragment instance is associated with an Activity. 
 	// This does not mean the Activity is fully initialized.
 	@Override
 	public void onAttach(Activity activity) {
