@@ -72,7 +72,47 @@ Let's take a look at a step-by-step for setting up Robolectric to test your proj
 
 Proceed with the next section about [Verifying installation](https://github.com/thecodepath/android_guides/wiki/Robolectric-Installation-for-Unit-Testing#verify-installation).
 
-Note: currently, there is a bug in Android Studio that triggers "java.lang.RuntimeException: Stub!" errors when trying to run from the IDE (for more context, see https://github.com/robolectric/deckard-gradle/blob/master/README.md).  If you type ./gradlew test from the command line, tests should run correctly.  
+If you type ./gradlew test from the command line, tests should run correctly.  
+
+## Debugging Tests
+
+If you want to be able to debug your tests inside Android Studio, here is what you need to do.
+
+1. Make sure you run the test as a JUnit test, not as an Android Application Test.  You can control-click on the file and click on Run.  The icons look different (1st icon is Android test, while the 2nd icon is JUnit.)
+
+   ![image](http://i.imgur.com/RDmmdI2.png)
+
+2. When you run a JUnit test with Android Studio, you will see the dreaded `Stub!` exception:
+
+   ```
+      java.lang.RuntimeException: Stub!
+          at junit.runner.BaseTestRunner.<init>(BaseTestRunner.java:5)
+          at junit.textui.TestRunner.<init>(TestRunner.java:54)
+          at junit.textui.TestRunner.<init>(TestRunner.java:48)
+          at junit.textui.TestRunner.<init>(TestRunner.java:41)
+   ```
+
+   Each time you modify/update build.gradle (or restart Android Studio), you must edit app/app.iml      
+   and move the orderEntry for the Android SDK to the end. 
+
+   ```
+    	    	<orderEntry type="library" exported="" scope="TEST" name="wagon-provider-api-1.0-beta-6" level="project" />
+    	    	<orderEntry type="library" exported="" scope="TEST" name="xercesMinimal-1.9.6.2" level="project" />
+    	    	<orderEntry type="jdk" jdkName="Android API 19 Platform" jdkType="Android SDK" />			    		<---make sure this is the last orderEntry
+    		</component>
+    	</module>
+   ```
+
+   For Android Studio, dependency ordering is currently not modifiable via any GUI (Google took   
+this feature out in subsequent releases).  Therefore, you must modify the project iml file directly as such and reload the project.  Hopefully this issue can get fixed soon but for now you have to move things around manually.
+
+3. Executing tests as JUnit means they will be generated into a separate directory, so Android Studio won't know how to find the generated class files.  Go to Run -> Edit Configuration -> Defaults -> JUnit:
+
+   1. Start an unit test.  Assuming you did step 1, it will report the missing class.
+   2. Click on the output from the terminal and copy the entire --classpath parameter.
+   3. Edit classpath and add /[projectPath]/build/test-classes/debug (i.e. /Users/rhu/projects/codepath-twitter-client/app/build/test-classes)
+
+   ![image](http://imgur.com/EQdtUck.png)
 
 # Setting up for Eclipse
 
