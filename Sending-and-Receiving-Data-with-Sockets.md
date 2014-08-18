@@ -2,7 +2,7 @@
 
 Sockets
 
-[Read about sockets generally](http://docs.oracle.com/javase/tutorial/networking/sockets/index.html)
+Read about sockets generally on the [Oracle Sockets Tutorial](http://docs.oracle.com/javase/tutorial/networking/sockets/index.html)
 
 ### Socket Programming (Client)
 
