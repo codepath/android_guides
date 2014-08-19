@@ -26,10 +26,10 @@ Let's take a look at a step-by-step for setting up Robolectric to test your proj
 
    Within your dependencies, you need to include the following defines.  The exclude modules
    are intended to remove duplicate dependency definitions (template borrowed from 
-   https://github.com/robolectric/deckard-gradle/blob/master/README.md).  For instance,
-   the support-v4.jar will likely to be specified as a compilation dependency already.
-   Roboelectric also specifies it as a dependency and will trigger a com.android.dex.DexException
-   error.
+   https://github.com/robolectric/deckard-gradle/blob/master/README.md).  
+
+   For instance, the support-v4.jar will likely to be specified as a compilation dependency already. Roboelectric also specifies it as a dependency and will trigger a (Lcom/example/android/app/FragmentLayoutSupport; had used a different Landroid/support/v4/app/FragmentActivity; during pre-verification) error if it is not excluded.
+
    ```
    dependencies {
      compile fileTree(dir: 'libs', include: ['*.jar'])
