@@ -25,11 +25,15 @@ Let's take a look at a step-by-step for setting up Robolectric to test your proj
    ``` 
 
    Within your dependencies, you need to include the following defines.  The exclude modules
-   are intended to remove transitive dependencies (template borrowed from 
-   https://github.com/robolectric/deckard-gradle/blob/master/README.md)
+   are intended to remove duplicate dependency definitions (template borrowed from 
+   https://github.com/robolectric/deckard-gradle/blob/master/README.md).  For instance,
+   the support-v4.jar will likely to be specified as a compilation dependency already.
+   Roboelectric also specifies it as a dependency and will trigger a com.android.dex.DexException
+   error.
    ```
    dependencies {
      compile fileTree(dir: 'libs', include: ['*.jar'])
+     compile 'com.android.support:support-v4:19.1.0'
 
      androidTestCompile 'org.hamcrest:hamcrest-integration:1.1'
      androidTestCompile 'org.hamcrest:hamcrest-core:1.1'
@@ -51,6 +55,7 @@ Let's take a look at a step-by-step for setting up Robolectric to test your proj
         exclude module: 'plexus-container-default'
         exclude module: 'plexus-interpolation'
         exclude module: 'plexus-utils'
+        exclude module: 'support-v4'
         exclude module: 'wagon-file'
         exclude module: 'wagon-http-lightweight'
         exclude module: 'wagon-provider-api'
