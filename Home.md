@@ -1,8 +1,8 @@
 # CodePath Android Cliffnotes
 
-Welcome to the open-source [Codepath](http://thecodepath.com) Android Cliffnotes! Our goal is to become the **central crowdsourced resource** for complete and up-to-date practical Android developer guides for any topic. [[Just take me to the notes|Home#getting-started]]!
+Welcome to the open-source [Codepath](http://codepath.com) Android Cliffnotes! Our goal is to become the **central crowdsourced resource** for complete and up-to-date practical Android developer guides for any topic. [[Just take me to the notes|Home#getting-started]]!
 
-[![CodePath](http://i.imgur.com/XgxWfyF.png)](http://thecodepath.com)
+[![CodePath](http://i.imgur.com/XgxWfyF.png)](http://codepath.com)
 
 We have Android guides for everyone whether you are a **beginner, intermediate or expert**. Want to learn how to [[use the ActionBar|Defining the ActionBar]] or the [[ins and outs of fragments|Creating and Using Fragments]]? We got that. Want to learn [[about automated integration testing|Android Unit and Integration Testing]] or how to [[build flexible user interfaces for multiple devices|Flexible User Interfaces]]? We got you covered. We don't waste time with the "theoretical approach" you might get from a book. We cover **exactly the things we use every day** as we are developing apps for contracts.
 
@@ -26,7 +26,7 @@ Read more about [[us and our vision for all this|The CodePath Goal]]. If you wan
 
 Located in the San Francisco Bay Area and interested in learning with others in a more structured program? Check out our local [Android](http://www.meetup.com/Learning-Android-Development) or [iOS](http://www.meetup.com/Learning-iOS-Development-SF/) meetup events. We have free evening events and at-cost 1-day workshops to make learning social and connect you with others passionate about mobile.
 
-If you are an experienced engineer (2+ years of professional experience in software development) and serious about learning Android, check out our [free evening 8-week Android bootcamp](http://thecodepath.com/androidbootcamp). Learn how to build mobile apps while collaborating with other engineers and designers. Work on solving important problems for non-profits with our free 8-week accelerated evening mobile bootcamp. Compete for $10,000 worth of cash prizes. [Learn more and apply here](https://gist.github.com/nesquena/638c239b723159aaa096).
+If you are an experienced engineer (2+ years of professional experience in software development) and serious about learning Android, check out our [free evening 8-week Android bootcamp](http://codepath.com/androidbootcamp). Learn how to build mobile apps while collaborating with other engineers and designers. Work on solving important problems for non-profits with our free 8-week accelerated evening mobile bootcamp. Compete for $10,000 worth of cash prizes. [Learn more and apply here](https://gist.github.com/nesquena/638c239b723159aaa096).
 
 ## Getting Started
 

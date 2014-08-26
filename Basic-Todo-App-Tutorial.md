@@ -1,4 +1,4 @@
-This tutorial is a complementary reference which can be used in conjunction with [this Todo app presentation](https://docs.google.com/a/thecodepath.com/presentation/d/15JnmfmFa0hJOEkBhG_TeymChLzDzpOTJvBlOj29A9fY/edit) to reference the source code step-by-step. 
+This tutorial is a complementary reference which can be used in conjunction with [this Todo app presentation](https://docs.google.com/a/codepath.com/presentation/d/15JnmfmFa0hJOEkBhG_TeymChLzDzpOTJvBlOj29A9fY/edit) to reference the source code step-by-step. 
 
 **Note:** This tutorial is designed for Android Studio and not for Eclipse. For building this in Eclipse, see [this slide presentation](http://goo.gl/pBKfYP).
 
