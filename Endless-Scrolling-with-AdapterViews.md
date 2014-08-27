@@ -146,6 +146,16 @@ public abstract class GenericAdapter<T> extends BaseAdapter {
 		this.serverListSize = serverListSize;
 	}
 
+
+/**
+	 * disable click events on indicating rows
+	 */
+	@Override
+	public boolean isEnabled(int position) {
+		 
+		return getItemViewType(position) == VIEW_TYPE_ACTIVITY;
+	}
+
 	/**
 	 * One type is normal data row, the other type is Progressbar
 	 */
