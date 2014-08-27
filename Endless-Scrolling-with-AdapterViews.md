@@ -107,7 +107,7 @@ Now as you scroll, items will be automatically filling in because the `onLoadMor
 
 ## Adapter
 
-To display the last row as a Progressbar indicating that the ListView is loading data. We can do the trick in Adapter. By defining two types of views in getItemViewType(int position), we can display the last row differently from a normal data row. It can be displaying a Progressbar or some text to indicate that the ListView has reached the last row by comparing the size of data List to the number of items on the server side.
+To display the last row as a Progressbar indicating that the ListView is loading data, we do the trick in Adapter. Having defined two types of views in getItemViewType(int position), we can display the last row differently from a normal data row. It can be a Progressbar or some text to indicate that the ListView has reached the last row by comparing the size of data List to the number of items on the server side.
 
 ```java
 /**
