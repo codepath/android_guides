@@ -104,10 +104,19 @@ public class MainActivity extends Activity {
 
 Now as you scroll, items will be automatically filling in because the `onLoadMore` method will be triggered once the user crosses the `visibleThreshold`. This approach works equally well for a `GridView` and the listener gives access to both the `page` as well as the `totalItemsCount` to support both pagination and offset based fetching.
 
+## Troubleshooting
 
-## Adapter
+If you are running into problems, please carefully consider the following suggestions:
 
-To display the last row as a Progressbar indicating that the ListView is loading data, we do the trick in Adapter. Having defined two types of views in getItemViewType(int position), we can display the last row differently from a normal data row. It can be a Progressbar or some text to indicate that the ListView has reached the last row by comparing the size of data List to the number of items on the server side.
+* Make sure to setup the `setOnScrollListener` listener in the `onCreate` method of the `Activity` and not later on otherwise you may encounter unexpected issues. 
+
+* In order for the pagination system to continue working reliably, you should make sure to **clear the adapter** of items (or notify adapter after clearing the array) before appending new items to the list.
+
+* In order for this pagination system to trigger, keep in mind that as `customLoadMoreDataFromApi` is called, new data needs to be **appended to the existing data source**. In other words, only clear items from the list when on the initial "page". Subsequent "pages" of data should be appended to the existing data.
+
+## Displaying Progress with Custom Adapter
+
+To display the last row as a ProgressBar indicating that the ListView is loading data, we do the trick in Adapter. Having defined two types of views in `getItemViewType(int position)`, we can display the last row differently from a normal data row. It can be a ProgressBar or some text to indicate that the ListView has reached the last row by comparing the size of data List to the number of items on the server side.
 
 ```java
 /**
@@ -115,7 +124,7 @@ To display the last row as a Progressbar indicating that the ListView is loading
  *  implement method getDataRow(int position, View convertView, ViewGroup parent),
  *  which supplies a View present data in a ListRow.
  *  
- *  This parent Adapter takes care of displaying Progressbar in a row or 
+ *  This parent Adapter takes care of displaying ProgressBar in a row or 
  *  indicating that it has reached the last row.
  * 
  */
@@ -252,16 +261,6 @@ public abstract class GenericAdapter<T> extends BaseAdapter {
 
 }
 ```
-
-## Troubleshooting
-
-If you are running into problems, please carefully consider the following suggestions:
-
-* Make sure to setup the `setOnScrollListener` listener in the `onCreate` method of the `Activity` and not later on otherwise you may encounter unexpected issues. 
-
-* In order for the pagination system to continue working reliably, you should make sure to **clear the adapter** of items (or notify adapter after clearing the array) before appending new items to the list.
-
-* In order for this pagination system to trigger, keep in mind that as `customLoadMoreDataFromApi` is called, new data needs to be **appended to the existing data source**. In other words, only clear items from the list when on the initial "page". Subsequent "pages" of data should be appended to the existing data.
 
 ## References
 
