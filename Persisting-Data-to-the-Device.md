@@ -61,9 +61,7 @@ You can also inspect and transfer files to emulators or devices using the DDMS F
 
 ### SQLite
 
-For maximum control, developers can use SQLite directly by leveraging the [SQLiteOpenHelper](http://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper.html) for executing SQL requests and managing a local database.
-
-While not covered in this class in detail, you can read more in the following tutorials:
+For maximum control, developers can use SQLite directly by leveraging the [SQLiteOpenHelper](http://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper.html) for executing SQL requests and managing a local database. You can read more in the following tutorials:
 
  * [Vogella SQLite Tutorial](http://www.vogella.com/articles/AndroidSQLite/article.html)
  * [AndroidHive Tutorial](http://www.androidhive.info/2011/11/android-sqlite-database-tutorial/)
