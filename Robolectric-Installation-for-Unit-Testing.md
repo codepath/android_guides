@@ -21,7 +21,7 @@ Let's take a look at a step-by-step for setting up Robolectric to test your proj
       }
    }
 
-   apply plugin: 'roboelectric'
+   apply plugin: 'robolectric'
    ``` 
 
    Within your dependencies, you need to include the following defines.  The exclude modules
