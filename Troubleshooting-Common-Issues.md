@@ -2,6 +2,27 @@ If you are having trouble with Android, Eclipse, or the Emulator, check here for
 
 ## Setting Up Eclipse
 
+### Project generation fails with "Errors running builder 'Android Resource Manager' on project"?
+
+Here's a workaround that lets you keep Java 7 as the default but run ADT with Java 6 when you have both installed. Find the Eclipse app in `<YOUR_ADT_PATH>/eclipse/Eclipse.app` and right click and select "Show Package Contents" and then navigate to `/Contents/MacOS/eclipse.ini` in an editor.  Before the `-vmargs` line, insert these two lines:
+
+```
+-vm
+/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Commands/java
+```
+
+Read [comments about the workaround which launches ADT with Java 6 instead](https://code.google.com/p/android/issues/detail?id=68755#c18) in this bug report for this issue. 
+
+### Generated Project Missing Activities?
+
+This problem will cause new Android projects not to generate an initial Activity, even when that box was checked. `/src` and `/res/layout` were empty. 
+
+Fixed by updating the Eclipse plugin: `Eclipse > Help > Install New Software` and enter the URL `http://dl-ssl.google.com/android/eclipse/` into "Work with", make sure "Developer Tools" is checked and hit `Finish`. Leave unchecked "Contact all update sites during install to find required software". Now regenerate the project.
+
+<img src="http://i.imgur.com/Hg8QXDP.png" width="460" />
+
+See [this stackoverflow post](http://stackoverflow.com/questions/22219392/eclipse-doesnt-create-main-activity-and-layout) and [this other one](http://stackoverflow.com/questions/6470802/what-to-do-about-eclipses-no-repository-found-containing-error-messages) for more details.
+
 ### Generated Project has Placeholder Fragment
 
 **Note:** Easiest way to avoid placeholder fragments is to update to latest eclipse and select **Empty Activity** rather than **Blank Activity** when generating activities which does not include the fragment placeholder.
@@ -17,33 +38,6 @@ In recent versions of Eclipse, a "Blank Activity" is generated with a built-in p
 5. Remove the `PlaceholderFragment` inner class defined within `src/com.../MainActivity.java` 
 
 See [this guide for a more detailed set of instructions](https://gist.github.com/nesquena/8de33f701e387be0a80d) with images.
-
-### Project generation fails with "Errors running builder 'Android Resource Manager' on project"?
-
-Here's a workaround that lets you keep Java 7 as the default but run ADT with Java 6 when you have both installed. Find the Eclipse app in `<YOUR_ADT_PATH>/eclipse/Eclipse.app` and right click and select "Show Package Contents" and then navigate to `/Contents/MacOS/eclipse.ini` in an editor.  Before the `-vmargs` line, insert these two lines:
-
-```
--vm
-/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Commands/java
-```
-
-Read [comments about the workaround which launches ADT with Java 6 instead](https://code.google.com/p/android/issues/detail?id=68755#c18) in this bug report for this issue. 
-
-Also try updating ADT "Help => Check for Updates" and then open the "Window => Android SDK Manager" and install the latest build tools and any other updates through the manager? Then restart Eclipse and create a new workspace. See [this post](http://stackoverflow.com/questions/20043521/errors-running-builder-android-resource-manager-on-adt) and [this post](http://stackoverflow.com/questions/18096315/mac-error-create-android-project-errors-running-builder-android-resource-man) for more options.
-
-<img src="http://i.imgur.com/IB2yN5I.png" width="460" />
-
-When generating a project, you should also see the option to use a "Empty Activity" rather than a "Blank Activity". If you don't see both options, try running updates and installing latest build tools in SDK manager and restarting again.
-
-### Generated Project Missing Activities?
-
-This problem will cause new Android projects not to generate an initial Activity, even when that box was checked. `/src` and `/res/layout` were empty. 
-
-Fixed by updating the Eclipse plugin: `Eclipse > Help > Install New Software` and enter the URL `http://dl-ssl.google.com/android/eclipse/` into "Work with", make sure "Developer Tools" is checked and hit `Finish`. Leave unchecked "Contact all update sites during install to find required software". Now regenerate the project.
-
-<img src="http://i.imgur.com/Hg8QXDP.png" width="460" />
-
-See [this stackoverflow post](http://stackoverflow.com/questions/22219392/eclipse-doesnt-create-main-activity-and-layout) and [this other one](http://stackoverflow.com/questions/6470802/what-to-do-about-eclipses-no-repository-found-containing-error-messages) for more details.
 
 ### Getting "java.lang.IllegalStateException: You need to use a Theme.AppCompat theme..."
 
