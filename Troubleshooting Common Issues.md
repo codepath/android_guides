@@ -4,6 +4,10 @@ If you are having trouble with Android, Eclipse, or the Emulator, check here for
 
 ### Project generation fails with "Errors running builder 'Android Resource Manager' on project"?
 
+When generating a new project in Eclipse, the generation fails:
+
+<img src="http://i.imgur.com/j0j986J.png" width="600" />
+
 Here's a workaround that lets you keep Java 7 as the default but run ADT with Java 6 when you have both installed. Find the Eclipse app in `<YOUR_ADT_PATH>/eclipse/Eclipse.app` and right click and select "Show Package Contents" and then navigate to `/Contents/MacOS/eclipse.ini` in an editor.  Before the `-vmargs` line, insert these two lines:
 
 ```
