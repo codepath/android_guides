@@ -40,7 +40,13 @@ The opacity of any view can be set in the XML Layout in two ways. First, the `an
 
 Alternatively, you can use the [android:alpha](http://developer.android.com/reference/android/view/View.html#attr_android:alpha) property which must be a floating point from 0 to 1. Note though that `alpha` sets **both the view and all of it's children** to this opacity which is often not desired.
 
-### Views
+### Images
+
+#### How do I load images into an Android app for display?
+
+First, you need to make sure the image filename only contains **lowercase letters, numbers and underscores** (i.e my_image_file.png). After renaming the image to a valid resource name, **copy the image into the drawable-mdpi folder** as [[shown here|Cloning-a-Login-Screen-Layout-Guide#cutting-assets]]. 
+
+Unless you want the image to be a small standard size, **do not** use the icon generator when creating the images. Instead to generate images that work at all densities, [download and run this JAR](https://github.com/asystat/Final-Android-Resizer/blob/master/Executable%20Jar/Final%20Android%20Resizer.jar?raw=true) which allows us to select our resources directory, choose an extra high density image and the tool will automatically generate the corresponding lower density image sizes.
 
 #### How do I control the way images are displayed or scaled within an ImageView?
 
@@ -57,6 +63,35 @@ See the [[Working with ImageView|Working-with-the-ImageView]] guide in particula
 ```
 
 There are many different `android:scaleType` values which you can read about in [[this scale types guide|Working-with-the-ImageView#scale-types]].
+
+#### How would I create images that look good at any resolution?
+
+You have probably noticed that there are multiple drawable folders (i.e drawable-hdpi, drawable-xhdpi) which allow us to provide [multiple resolutions for different density screens](http://developer.android.com/training/basics/supporting-devices/screens.html#create-bitmaps). An easy guide for which sizes to create can be found in [[this ImageView guide|Working-with-the-ImageView#supporting-multiple-densities]].
+
+Also, there are cases where a button has an image background that needs to stretch to support different text content. In this case you might need to [draw a 9-patch](http://developer.android.com/tools/help/draw9patch.html) stretchable button. Check out the [Button Custom Background Official Guide](http://developer.android.com/guide/topics/ui/controls/button.html#CustomBackground) for specific details. You can also check out [these nice looking 9-patch buttons](http://www.dibbus.com/2011/03/9patch-images-in-android/) for use too.
+
+#### How do I add a background image to a view?
+
+Simply drag the image to the `res/drawable-mdpi` folder and then apply the image to any view by setting `android:background="@drawable/my_image_name"`. See [this stackoverflow post](http://stackoverflow.com/a/8177819) for more details. If you need more control of how the image is scaled, see [this post](http://stackoverflow.com/a/16139059) using a FrameLayout.
+
+#### How would I create a toggle button that alternates between two images?
+
+For this, we'd use a custom [ToggleButton as described here](http://mirhoseini.info/how-to-create-a-toggle-button-with-custom-image-and-no-text-in-android/) which has a different image applied for the checked and unchecked states.
+
+#### How do I remove the grey border from an ImageButton?
+
+You can remove the border by either setting `android:background` to "@null" or setting `style` to "android:attr/borderlessButtonStyle":
+
+```xml
+<ImageButton
+     ...
+     style="?android:attr/borderlessButtonStyle"
+     android:src="@drawable/image_button_graphic" />
+```
+
+Using this code the border on the imagebutton will be removed.
+
+### Views
 
 #### How do I support text with rich formatting (bold words, links) in a TextView?
 
@@ -85,7 +120,7 @@ Refer to the [official TextView docs](http://developer.android.com/reference/and
 
 Fonts can be customized fairly easily using this [[custom fonts|Working-with-the-TextView#using-custom-fonts]] guide. Be aware that custom fonts can cause performance issues if used too much.
 
-#### How do I customize the border or outline of an image, text field or another view?
+#### How do I customize the border or outline of a text field or another view?
 
 You can add a border to any view by creating a "drawable shape xml" and applying that as the `android:background` of the view. Create an XML file in `res/drawable` called `shape_view_border.xml`:
 
@@ -180,42 +215,15 @@ and then applied to a button with:
 
 See [this stackoverflow post](http://stackoverflow.com/a/3565624/313399) for more details.
 
-#### How would I create a toggle button that alternates between two images?
-
-For this, we'd use a custom [ToggleButton as described here](http://mirhoseini.info/how-to-create-a-toggle-button-with-custom-image-and-no-text-in-android/) which has a different image applied for the checked and unchecked states.
-
-#### How would I create images that look good at any resolution?
-
-You have probably noticed that there are multiple drawable folders (i.e drawable-hdpi, drawable-xhdpi) which allow us to provide [multiple resolutions for different density screens](http://developer.android.com/training/basics/supporting-devices/screens.html#create-bitmaps). An easy guide for which sizes to create can be found in [[this ImageView guide|Working-with-the-ImageView#supporting-multiple-densities]].
-
-Also, there are cases where a button has an image background that needs to stretch to support different text content. In this case you might need to [draw a 9-patch](http://developer.android.com/tools/help/draw9patch.html) stretchable button. Check out the [Button Custom Background Official Guide](http://developer.android.com/guide/topics/ui/controls/button.html#CustomBackground) for specific details. You can also check out [these nice looking 9-patch buttons](http://www.dibbus.com/2011/03/9patch-images-in-android/) for use too.
-
-#### How do I add a background image to a view?
-
-Simply drag the image to the `res/drawable-xhdpi` folder and then apply the image to any view by setting `android:background="@drawable/my_image_name"`. See [this stackoverflow post](http://stackoverflow.com/a/8177819) for more details. If you need more control of how the image is scaled, see [this post](http://stackoverflow.com/a/16139059) using a FrameLayout.
-
-#### How do I remove the grey border from an ImageButton?
-
-You can remove the border by either setting `android:background` to "@null" or setting `style` to "android:attr/borderlessButtonStyle":
-
-```xml
-<ImageButton
-     ...
-     style="?android:attr/borderlessButtonStyle"
-     android:src="@drawable/image_button_graphic" />
-```
-
-Using this code the border on the imagebutton will be removed.
-
 ### ActionBar
+
+#### How do I change the background color of the ActionBar?
+
+Customize the theme of the ActionBar in the `styles.xml` as explained in the [[Advanced Actionbar|Extended-ActionBar-Guide#custom-actionbar-styles]] to adjust the color of the ActionBar. Also, check out [this stackoverflow post](http://stackoverflow.com/a/9249702) for more details. 
 
 #### How do I style the title in the ActionBar?
 
 ActionBar title can be styled or centered only if you opt to customize the XML view being inflated to display in the ActionBar. Instead of using the default ActionBar text you can specify your own to use instead that is styled as desired. Check out the [[Advanced ActionBar|Extended-ActionBar-Guide#custom-actionbar-layout]] cliffnotes for details. This [related stackoverflow post](http://stackoverflow.com/questions/12387345/how-to-align-actionbar-title-center-in-android/12388200#12388200) also explains the steps in detail. 
-
-#### How do I change the background color of the ActionBar?
-
-Customize the theme of the ActionBar in the `styles.xml` as explained in [this stackoverflow post](http://stackoverflow.com/a/9249702) to adjust the color of the ActionBar. Also, check out the [[Advanced Actionbar|Extended-ActionBar-Guide#custom-actionbar-styles]] cliffnotes for more details. 
 
 #### How do I style tabs in the ActionBar?
 
@@ -223,4 +231,17 @@ Easiest way is to use the [ActionBar Style Generator](http://jgilfelt.github.io/
 
 #### How would I hide the top ActionBar?
 
-You can hide the ActionBar by modifying the "theme" of the Activity in the `AndroidManifest.xml` as described in this [stackoverflow post](http://stackoverflow.com/a/19545450) or programmatically at runtime in Java with `getActionBar().hide()` within the `onCreate` method after `setContentView` in an Activity.
+You can hide the ActionBar by modifying the "theme" of an Activity in the `AndroidManifest.xml` such as:
+
+```xml
+<activity android:name=".Activity"
+    android:label="@string/app_name"
+    android:theme="@android:style/Theme.Holo.Light.NoActionBar">
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+</activity>
+```
+
+You can also hide the ActionBar programmatically at runtime in Java with `getActionBar().hide()` within the `onCreate` method after `setContentView` in an Activity.
