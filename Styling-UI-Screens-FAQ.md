@@ -85,6 +85,20 @@ Refer to the [official TextView docs](http://developer.android.com/reference/and
 
 Fonts can be customized fairly easily using this [[custom fonts|Working-with-the-TextView#using-custom-fonts]] guide. Be aware that custom fonts can cause performance issues if used too much.
 
+#### How do I customize the border or outline of an image, text field or another view?
+
+You can add a border to any view by creating a "drawable shape xml" and applying that as the `android:background` of the view. Create an XML file in `res/drawable` called `shape_view_border.xml`:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#FFFFFF" />
+    <stroke android:width="1dp" android:color="#000000" />
+</shape>
+```
+
+The `stroke` is the border properties and `solid` is the background color of the rest of the view. See [this stackoverflow post](http://stackoverflow.com/a/3264140) for more details.
+
 #### How do I customize the style of a button?
 
 Styling a button requires the use of either image assets (see the [ImageButton](http://developer.android.com/reference/android/widget/ImageButton.html)) or alternatively applying the concept of [[custom drawables|Drawables#customizing-a-button]]. For readymade solutions, check out [these nice looking pre-built buttons](http://www.dibbus.com/2011/03/9patch-images-in-android/) or [this handy button generator](http://angrytools.com/android/button/).
@@ -147,20 +161,6 @@ For this, we'd use a custom [ToggleButton as described here](http://mirhoseini.i
 You have probably noticed that there are multiple drawable folders (i.e drawable-hdpi, drawable-xhdpi) which allow us to provide [multiple resolutions for different density screens](http://developer.android.com/training/basics/supporting-devices/screens.html#create-bitmaps). An easy guide for which sizes to create can be found in [[this ImageView guide|Working-with-the-ImageView#supporting-multiple-densities]].
 
 Also, there are cases where a button has an image background that needs to stretch to support different text content. In this case you might need to [draw a 9-patch](http://developer.android.com/tools/help/draw9patch.html) stretchable button. Check out the [Button Custom Background Official Guide](http://developer.android.com/guide/topics/ui/controls/button.html#CustomBackground) for specific details. You can also check out [these nice looking 9-patch buttons](http://www.dibbus.com/2011/03/9patch-images-in-android/) for use too.
-
-#### How do I add a border to an image or another view?
-
-You can add a border to any view by creating a "drawable shape xml" and applying that as the `android:background` of the view. Create an XML file in `res/drawable` called `shape_view_border.xml`:
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="#FFFFFF" />
-    <stroke android:width="1dp" android:color="#000000" />
-</shape>
-```
-
-The `stroke` is the border properties and `solid` is the background color of the rest of the view. See [this stackoverflow post](http://stackoverflow.com/a/3264140) for more details.
 
 #### How do I add a background image to a view?
 
