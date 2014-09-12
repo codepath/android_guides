@@ -62,7 +62,7 @@ There are many different `android:scaleType` values which you can read about in 
 
 The `TextView` has [[basic support for HTML text formatting|Working-with-the-TextView#inserting-html-formatting]]:
 
-```
+```java
 TextView view = (TextView)findViewById(R.id.sampleText);
 view.setText(Html.fromHtml("This <i>is</i> a <b>test</b>"));
 ```
@@ -97,11 +97,40 @@ You can add a border to any view by creating a "drawable shape xml" and applying
 </shape>
 ```
 
-The `stroke` is the border properties and `solid` is the background color of the rest of the view. See [this stackoverflow post](http://stackoverflow.com/a/3264140) for more details.
+The `stroke` is the border properties and `solid` is the background color of the rest of the view. You can apply this border and background to any view with:
+
+```xml
+<EditText
+    android:background="@drawable/shape_view_border"  
+    ...
+/>
+```
+
+See [this stackoverflow post](http://stackoverflow.com/a/3264140) for more details. 
 
 #### How do I customize the style of a button?
 
-Styling a button requires the use of either image assets (see the [ImageButton](http://developer.android.com/reference/android/widget/ImageButton.html)) or alternatively applying the concept of [[custom drawables|Drawables#customizing-a-button]]. For readymade solutions, check out [these nice looking pre-built buttons](http://www.dibbus.com/2011/03/9patch-images-in-android/) or [this handy button generator](http://angrytools.com/android/button/).
+Styling a button requires the use of either image assets (see the [ImageButton](http://developer.android.com/reference/android/widget/ImageButton.html)) or alternatively applying the concept of [[custom drawables|Drawables#customizing-a-button]]. For example, to style a button with drawables, you could create a shape at `res/drawable/shape_fancy_button.xml`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <gradient android:startColor="#0078a5"  android:endColor="#00adee"  android:angle="90"/>
+    <stroke android:width="1dp" android:color="#0076a3" />
+    <corners android:radius="8dp" />
+</shape>
+```
+
+This would create a button with a background gradient, 1dp border (stroke) and rounded corners. You could then apply this to the button with:
+
+```xml
+<Button
+    android:background="@drawable/shape_fancy_button"  
+    ...
+/>
+```
+
+For readymade solutions, check out [these nice looking pre-built buttons](http://www.dibbus.com/2011/03/9patch-images-in-android/) or [this handy button generator](http://angrytools.com/android/button/).
 
 #### How do I control the pressed state of the button?
 
@@ -135,8 +164,7 @@ You can use a color selector drawable stored in the `res/color/states_button_col
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
  <selector xmlns:android="http://schemas.android.com/apk/res/android">
-     <item android:state_pressed="true" 
-           android:color="#000000" /> <!-- pressed -->
+     <item android:state_pressed="true" android:color="#000000" /> <!-- pressed -->
      <item android:color="#FFFFFF" /> <!-- default -->
  </selector>
 ```
