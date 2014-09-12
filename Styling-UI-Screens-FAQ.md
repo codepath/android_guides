@@ -120,6 +120,10 @@ Refer to the [official TextView docs](http://developer.android.com/reference/and
 
 Fonts can be customized fairly easily using this [[custom fonts|Working-with-the-TextView#using-custom-fonts]] guide. Be aware that custom fonts can cause performance issues if used too much.
 
+#### How do I change the color of the bottom line indicator for a text field?
+
+The easiest way to change the bottom line indicator is to use this [holo theme generator](http://android-holo-colors.com/) to change the color. Choose the desired color and select "YES" for EditText and then drag the generated resources into your 'res' folder. See [this stackoverflow post](http://stackoverflow.com/questions/12470487/how-to-change-the-color-of-the-line-in-ics-styled-edittext) for more details.
+
 #### How do I customize the border or outline of a text field or another view?
 
 You can add a border to any view by creating a "drawable shape xml" and applying that as the `android:background` of the view. Create an XML file in `res/drawable` called `shape_view_border.xml`:
