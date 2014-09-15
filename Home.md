@@ -127,6 +127,7 @@ Diving into the networking and model layers for data-driven apps:
 * [[Networking with the Volley Library]]
 * [[Building Data-driven Apps with Parse]]
 * [[Sending and Receiving Data with Sockets]] (**Needs Attention**)
+* [[Building Simple Chat Client with Parse]]
 
 ## Persistence
 
