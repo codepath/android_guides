@@ -1,0 +1,510 @@
+The following tutorial explains how to build a very simple chat application in Android using Parse backend-as-a-service. 
+
+## 1. Parse Registration
+
+Follow the [registration](https://github.com/thecodepath/android_guides/wiki/Building-Data-driven-Apps-with-Parse#registration) guide to sign up for a parse account unless you are already registed. 
+
+## 2. Setup Parse
+
+* Next, create an app in parse and call it `SimpleChat`. Make note of the `Application ID` and `Client Key` values after you have done so.
+* Create a new android project (minSDK 14) and call it `SimpleChat`.
+* Name the first activity `ChatActivity`.
+* Follow the steps mentioned under the [setup](https://github.com/thecodepath/android_guides/wiki/Building-Data-driven-Apps-with-Parse#setup) guide to create and setup your project in eclipse.
+* Your application class should look like this after you have performed the above steps:
+
+```java
+public class ChatApplication extends Application {
+
+	@Override
+	public void onCreate() {
+		super.onCreate();
+		Parse.initialize(this, "AERqqIXGvzHQa7Nmg45xa5T8zWRRjqT8UmbFQeeI", "8bXPznF5eSLWq0sY9gTUuPrEF5BJlia7ltmLQFRh");
+	}
+
+}
+```
+* Make sure you have added these lines before the `<application>` tag in your `AndroidManifest.xml`.
+
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+```
+* Also add the fully qualified name of your `Application` subclass to the `<application>` tag in your `AndroidManifest.xml`.
+
+```xml
+android:name="com.codepath.simplechat.ChatApplication"
+```
+
+## 3. Design Layout
+
+Open your layout file `activity_chat.xml`, add an `EditText` and a `Button` to compose and send text messages.
+
+```xml
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <EditText
+        android:id="@+id/etMessage"
+        android:layout_toLeftOf="@+id/btSend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top"
+        android:hint="@string/message_hint"
+        android:imeOptions="actionSend"/>
+      <Button
+        android:id="@+id/btSend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|right"
+        android:paddingRight="10dp"
+        android:layout_alignParentRight="true"
+        android:text="@string/send"
+        android:textSize="18sp" >
+    </Button>
+
+</RelativeLayout>
+```
+
+* Add the following values to res-->values-->strings.xml file.
+
+```xml
+<string name="message_hint">Say anything</string>
+<string name="send">Send</string>
+```
+
+## 4. Login With Anonymous ParseUser
+
+For the sake of simplicity, we will use anonymous user to log into our simple chat app. An anonymous user is a user that can be created without a username and password but still has all of the same capabilities as any other ParseUser. After logging out, an anonymous user is abandoned, and its data is no longer accessible. 
+
+Open your main activity class (`ChatActivity.java`) and make the  following changes:
+
+```java
+public class ChatActivity extends Activity {
+	private static final String TAG = ChatActivity.class.getName();
+	private static String sUserId;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_chat);
+        if (ParseUser.getCurrentUser() != null) {
+			startWithCurrentUser();
+		} else {
+			login();
+		}
+    }
+    
+    // Get the userId from the cached currentUser object
+    private void startWithCurrentUser() {
+    	sUserId = ParseUser.getCurrentUser().getObjectId();		
+	}
+    
+    // Create an anonymous user using ParseAnonymousUtils and set sUserId 
+    private void login() {
+		ParseAnonymousUtils.logIn(new LogInCallback() {
+			@Override
+			public void done(ParseUser user, ParseException e) {
+				if (e != null) {
+					Log.d(TAG, "Anonymous login failed.");
+				} else {
+					startWithCurrentUser();
+				}
+			}
+		});		
+	}
+}
+```
+
+## 5. Save Messages
+
+Next, we will setup UI views in ChatActivity.java. On click of 'Send' button, we'll save the message object to Parse. This is done by constructing a new `ParseObject` and then calling `saveInBackground()` to persist data to the database.
+
+```java
+
+...
+
+public static final String USER_ID_KEY = "userId";
+
+private EditText etMessage;
+private Button btSend;
+
+...
+
+// Get the userId from the cached currentUser object
+private void startWithCurrentUser() {
+sUserId = ParseUser.getCurrentUser().getObjectId();  
+saveMessage();
+}
+
+private void saveMessage() {
+        etMessage = (EditText) findViewById(R.id.etMessage);
+        btSend = (Button) findViewById(R.id.btSend);
+        btSend.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                String data = etMessage.getText().toString();
+                ParseObject message = new ParseObject("Messages");
+                message.put(USER_ID_KEY, sUserId);
+                message.put("message", data);
+                message.saveInBackground(new SaveCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                    	Toast.makeText(ChatActivity.this, "Successfully sent message to parse.", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                etMessage.setText("");
+            }
+        });
+    }
+```
+
+## 6. Verify Save
+
+At this point, run your application and try to send a text to parse. If the save was successful, you should see 'Successfully sent message to parse.' toast on your screen. To make sure the data was saved, you can look at the `message` class in the Data Browser of your app on Parse.
+
+## 7. Update Layout
+
+* Now that we have verified that messages are successfully being saved to your parse database, lets go ahead and build the UI to retrive these messages. Open your layout file `activity_chat.xml`and add a `ListView` to display text messages from parse.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+  android:orientation="vertical"
+  android:background="#ffffff"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+    <ListView
+      android:id="@+id/lvChat"
+      android:transcriptMode="alwaysScroll"
+      android:layout_above="@+id/llSend"
+      android:layout_width="wrap_content" 
+      android:layout_height="match_parent" />
+    <RelativeLayout 
+      android:id="@+id/llSend"
+      android:layout_alignParentBottom="true"
+      android:layout_width="fill_parent"
+      android:background="#ffffffff"
+      android:paddingTop="5dp"
+      android:paddingBottom="10dp"
+      android:paddingLeft="0dp"
+      android:paddingRight="0dp"
+      android:layout_height="wrap_content" >
+      <EditText
+        android:id="@+id/etMessage"
+        android:layout_toLeftOf="@+id/btSend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top"
+        android:hint="@string/message_hint"
+        android:imeOptions="actionSend"/>
+      <Button
+        android:id="@+id/btSend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|right"
+        android:paddingRight="10dp"
+        android:layout_alignParentRight="true"
+        android:text="@string/send"
+        android:textSize="18sp" >
+    </Button>
+    </RelativeLayout>
+</RelativeLayout>
+```
+
+* We will be showing the logged in user's gravatar and messages on the right and the other gravatars and messages on the left. You can read more about creating gravatars [here](https://en.gravatar.com/site/implement/images/). We need to create another layout file for list view row. This is the main design component in this project as we define actual custom list design here. Name it `chat_item.xml`.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+    <ImageView
+        android:id="@+id/ivProfileLeft"
+        android:contentDescription="@string/profile_other"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/ic_launcher" />
+    <TextView
+        android:textSize="18sp"
+        android:id="@+id/tvText"
+        android:padding="20dp"
+        android:lines="3"
+        android:layout_marginRight="64dp"
+        android:layout_width="match_parent"
+        android:layout_height="64dp">
+    </TextView>
+    <ImageView
+        android:id="@+id/ivProfileRight"
+        android:contentDescription="@string/profile_me"
+        android:layout_marginLeft="-64dp"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/ic_launcher" />
+</LinearLayout>
+```
+
+* Add the following values to  res-->values-->strings.xml file.
+
+```xml
+<string name="profile_me">My Profile Pic</string>
+<string name="profile_other">Other profile pic</string>
+```
+
+
+## 8. Create Model Class
+
+Now create `Message.java` class. This model class will be used to provide message data to `ListView`.
+
+```java
+public class Message {
+	public String userId;
+	public String text;
+}
+```
+
+## 9. Create Custom List Adapter
+
+Create a class named `ChatListAdapter.java` with below code. This is a custom list adapter class which provides data to list view. In other words it renders the layout_row.xml in list by pre-filling appropriate information. Also, download [picasso image](https://www.dropbox.com/s/25py1bmjr45936v/picasso-2.3.4.jar?dl=1) library and drag it to the libs folder of your project.
+
+```java
+public class ChatListAdapter extends BaseAdapter {	
+	private Context context;
+	private String mUserId;
+	private ArrayList<Message> mMessages;
+	
+	public ChatListAdapter(Context context, String userId, ArrayList<Message> messages) {
+	        this.context = context;
+	        this.mUserId = userId;
+	        this.mMessages = messages;
+	}
+
+	@Override
+	public int getCount() {
+		return mMessages.size();
+	}
+
+	@Override
+	public Object getItem(int position) {
+		return mMessages.get(position);
+	}
+
+	@Override
+	public long getItemId(int position) {
+		return 0;
+	}
+
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+		if (convertView == null) {
+			convertView = LayoutInflater.from(context).inflate(R.layout.chat_item, parent, false);
+			final ViewHolder holder = new ViewHolder();
+			holder.imageLeft = (ImageView)convertView.findViewById(R.id.ivProfileLeft);
+			holder.imageRight = (ImageView)convertView.findViewById(R.id.ivProfileRight);
+			holder.text = (TextView)convertView.findViewById(R.id.tvText);
+			convertView.setTag(holder);
+		}
+		final Message message = (Message)getItem(position);
+		final ViewHolder holder = (ViewHolder)convertView.getTag();
+		final boolean isMe = message.userId.equals(mUserId);
+		// Show-hide image based on the logged-in user. Display the profile image to the right for the current user, left for all other users.
+		if (isMe) {
+			holder.imageRight.setVisibility(View.VISIBLE);
+			holder.imageLeft.setVisibility(View.GONE);
+			holder.text.setGravity(Gravity.CENTER_VERTICAL | Gravity.RIGHT);
+		} else {
+			holder.imageLeft.setVisibility(View.VISIBLE);
+			holder.imageRight.setVisibility(View.GONE);
+			holder.text.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
+		}
+		final ImageView profileView = isMe ? holder.imageRight : holder.imageLeft;
+		Picasso.with(context).load(getProfileUrl(message.userId)).into(profileView);
+		holder.text.setText(message.text);
+		return convertView;
+	}
+	
+	// Create a gravatar based on the hash value obtained from userId
+	private static String getProfileUrl(final String userId) {
+		String hex = "";
+		try {
+			final MessageDigest digest = MessageDigest.getInstance("MD5");
+			final byte[] hash = digest.digest(userId.getBytes());
+			final BigInteger bigInt = new BigInteger(hash);
+			hex = bigInt.toString(16);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "http://www.gravatar.com/avatar/" + hex + "?d=identicon";
+	}
+	
+	final class ViewHolder {
+		public ImageView imageLeft;
+		public ImageView imageRight;
+		public TextView text;
+	}
+
+}
+```
+
+## 10. Bind Adapter to the ListView
+
+Next, we will setup the ListView and bind our custom adapter to this ListView.
+
+```java
+...
+...
+
+private ListView lvChat;
+private ChatListAdapter mAdapter;
+
+...
+	
+private void saveMessage() {
+    	etMessage = (EditText) findViewById(R.id.etMessage);
+		btSend = (Button) findViewById(R.id.btSend);
+		lvChat = (ListView) findViewById(R.id.lvChat);
+		mAdapter = new ChatListAdapter(ChatActivity.this, sUserId, mMessages);
+		lvChat.setAdapter(mAdapter);
+		btSend.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				String data = etMessage.getText().toString();
+				ParseObject message = new ParseObject("Messages");
+				message.put(USER_ID_KEY, sUserId);
+				message.put("message", data);
+				message.saveInBackground(new SaveCallback() {
+					@Override
+					public void done(ParseException e) {
+						receiveMessage();
+					}
+				});
+				etMessage.setText("");
+			}
+		});
+    }
+```
+
+## 11. Recieve Messages
+
+Fetch last 50 messages from parse and bind them to the ListView with the use of our custom adapter.
+
+```java
+...
+
+private static final int MAX_CHAT_MESSAGES_TO_SHOW = 50;
+
+...
+
+private void receiveMessage() {
+		ParseQuery<ParseObject> query = ParseQuery.getQuery("Messages");
+		query.setLimit(MAX_CHAT_MESSAGES_TO_SHOW);
+		query.orderByDescending("createdAt");
+		query.findInBackground(new FindCallback<ParseObject>() {
+			public void done(List<ParseObject> messages, ParseException e) {
+				if (e == null) {
+					final ArrayList<Message> newMessages = new ArrayList<Message>();					
+					for (int i = messages.size() - 1; i >= 0; i--) {
+						final Message message = new Message();
+						message.userId = messages.get(i).getString(USER_ID_KEY);
+						message.text = messages.get(i).getString("message");
+						newMessages.add(message);
+					}
+					addItemstoListView(newMessages);
+				} else {
+					Log.d("message", "Error: " + e.getMessage());
+				}
+			}
+		});
+	}
+	
+private void addItemstoListView(final List<Message> messages) {
+		mMessages.clear();
+		mMessages.addAll(messages);
+		mAdapter.notifyDataSetChanged();
+		lvChat.invalidate();
+	}
+```
+
+## 12. Refresh Messages
+
+Finally, refresh the ListView with latest messages using a handler. The handler will call a runnable to fetch new messages every 100ms.
+
+```java
+...
+
+private Handler handler = new Handler();
+
+...
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_chat);
+if (ParseUser.getCurrentUser() != null) {
+		startWithCurrentUser();
+	} else {
+		login();
+	}
+handler.postDelayed(runnable, 100);
+}
+
+private Runnable runnable = new Runnable() {
+	   @Override
+	   public void run() {
+	      refreshMessages();
+	      handler.postDelayed(this, 100);
+	   }
+};
+
+private void refreshMessages() {
+	receiveMessage();		
+}
+```
+
+## 13. SimpleChatManifest.xml
+
+```xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.codepath.simplechat"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+    
+    <uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name="com.codepath.simplechat.ChatApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".ChatActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
+```
+
+## 14. Final Output
+
+Run your project and test it out with your friend. Below is the final output.
+
+![Chat App|250](http://i.imgur.com/3UZ6ZNy.png)
