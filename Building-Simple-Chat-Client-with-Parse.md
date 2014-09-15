@@ -14,13 +14,12 @@ Follow the [registration](https://github.com/thecodepath/android_guides/wiki/Bui
 
 ```java
 public class ChatApplication extends Application {
-
-	@Override
-	public void onCreate() {
-		super.onCreate();
-		Parse.initialize(this, "AERqqIXGvzHQa7Nmg45xa5T8zWRRjqT8UmbFQeeI", "8bXPznF5eSLWq0sY9gTUuPrEF5BJlia7ltmLQFRh");
-	}
-
+    @Override
+    public void onCreate() {
+        super.onCreate();
+	Parse.initialize(this, "AERqqIXGvzHQa7Nmg45xa5T8zWRRjqT8UmbFQeeI", 
+            "8bXPznF5eSLWq0sY9gTUuPrEF5BJlia7ltmLQFRh");
+    }
 }
 ```
 * Make sure you have added these lines before the `<application>` tag in your `AndroidManifest.xml`.
@@ -83,38 +82,38 @@ Open your main activity class (`ChatActivity.java`) and make the  following chan
 
 ```java
 public class ChatActivity extends Activity {
-	private static final String TAG = ChatActivity.class.getName();
-	private static String sUserId;
+    private static final String TAG = ChatActivity.class.getName();
+    private static String sUserId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
         if (ParseUser.getCurrentUser() != null) {
-			startWithCurrentUser();
-		} else {
-			login();
-		}
+            startWithCurrentUser();
+        } else {
+            login();
+        }
     }
     
     // Get the userId from the cached currentUser object
     private void startWithCurrentUser() {
-    	sUserId = ParseUser.getCurrentUser().getObjectId();		
-	}
+        sUserId = ParseUser.getCurrentUser().getObjectId();		
+    }
     
     // Create an anonymous user using ParseAnonymousUtils and set sUserId 
     private void login() {
-		ParseAnonymousUtils.logIn(new LogInCallback() {
-			@Override
-			public void done(ParseUser user, ParseException e) {
-				if (e != null) {
-					Log.d(TAG, "Anonymous login failed.");
-				} else {
-					startWithCurrentUser();
-				}
-			}
-		});		
-	}
+        ParseAnonymousUtils.logIn(new LogInCallback() {
+	    @Override
+	    public void done(ParseUser user, ParseException e) {
+                if (e != null) {
+                    Log.d(TAG, "Anonymous login failed.");
+                } else {
+                    startWithCurrentUser();
+                }
+            }
+       });		
+    }
 }
 ```
 
@@ -123,7 +122,6 @@ public class ChatActivity extends Activity {
 Next, we will setup UI views in ChatActivity.java. On click of 'Send' button, we'll save the message object to Parse. This is done by constructing a new `ParseObject` and then calling `saveInBackground()` to persist data to the database.
 
 ```java
-
 ...
 
 public static final String USER_ID_KEY = "userId";
@@ -135,8 +133,8 @@ private Button btSend;
 
 // Get the userId from the cached currentUser object
 private void startWithCurrentUser() {
-sUserId = ParseUser.getCurrentUser().getObjectId();  
-saveMessage();
+    sUserId = ParseUser.getCurrentUser().getObjectId();  
+    saveMessage();
 }
 
 private void saveMessage() {
@@ -153,13 +151,14 @@ private void saveMessage() {
                 message.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {
-                    	Toast.makeText(ChatActivity.this, "Successfully sent message to parse.", Toast.LENGTH_SHORT).show();
+                    	Toast.makeText(ChatActivity.this, "Successfully sent message to parse.",
+                             Toast.LENGTH_SHORT).show();
                     }
                 });
                 etMessage.setText("");
             }
         });
-    }
+}
 ```
 
 ## 6. Verify Save
