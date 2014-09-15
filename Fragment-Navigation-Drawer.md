@@ -29,7 +29,7 @@ You also need to setup a view that will represent the individual drawer item in 
     android:paddingRight="16dp"
     android:minHeight="?android:attr/listPreferredItemHeightSmall"
     android:textAppearance="?android:attr/textAppearanceListItemSmall"
-    android:textSize="16dp"
+    android:textSize="16sp"
     android:textColor="#111" />
 ```
 
