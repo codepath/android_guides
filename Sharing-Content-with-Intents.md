@@ -31,13 +31,13 @@ startActivity(Intent.createChooser(sharingIntent, "Share image using"));
 
 ### Sharing Remote Images
 
-You may want to send an image that were loaded from a remote URL. Assuming you are using a third party library like `SmartImageView`, here is how you might share an image that came from the network and was loaded into an ImageView.  There are two ways to accomplish this.   The first way, shown below, takes the bitmap from the view and loads it into a file.  
+You may want to send an image that were loaded from a remote URL. Assuming you are using a third party library like `Picasso`, here is how you might share an image that came from the network and was loaded into an ImageView.  There are two ways to accomplish this.   The first way, shown below, takes the bitmap from the view and loads it into a file.  
 
 ```java
-// Get access to SmartImageView 
-SmartImageView ivImage = (SmartImageView) findViewById(R.id.ivResult);
+// Get access to ImageView 
+ImageView ivImage = (ImageView) findViewById(R.id.ivResult);
 // Fire async request to load image
-ivImage.setImageUrl(imageUrl);
+Picasso.with(context).load(imageUrl).into(ivImage);
 ```
 
 and then later assuming after the image has completed loading, this is how you can trigger a share:
@@ -105,7 +105,7 @@ and setup the "SD Card" within the emulator device settings:
 The second way to share an Image does not require you to write the image into a file.  This code can safely be executed on the UI thread.    The approach was suggested on this webpage http://www.nurne.com/2012/07/android-how-to-attach-image-file-from.html .
 
 ```java
-SmartImageView siv = (SmartImageView) findViewById(R.id.ivResult);
+ImageView siv = (ImageView) findViewById(R.id.ivResult);
 Drawable mDrawable = siv.getDrawable();
 Bitmap mBitmap = ((BitmapDrawable)mDrawable).getBitmap();
 
@@ -116,7 +116,7 @@ Uri uri = Uri.parse(path);
 return uri;
 ```
 
-You get the `Drawable` from the `ImageView`.  You get the Bitmap from the Drawable.  Put that bitmap into the Media image store.  That gives you a path which can be used instead of a file path or URL.  Note the original webpage had an additional problem with immutable bitmaps, solved by drawing the bitmap into a canvas (never shown on screen).  See linked page above for details.
+You get the `Drawable` from the `ImageView`.  You get the `Bitmap` from the `Drawable`.  Put that bitmap into the Media image store.  That gives you a path which can be used instead of a file path or URL.  Note the original webpage had an additional problem with immutable bitmaps, solved by drawing the bitmap into a canvas (never shown on screen).  See linked page above for details.
 
 ### ShareActionProvider
 
@@ -159,7 +159,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
 
 #### With Support v7 Library
 
-**Note: This section requires the supportv7 compatibility library to be included**
+**Note: This section requires the `supportv7` compatibility library to be included**
 
 ```xml
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
@@ -194,24 +194,29 @@ public boolean onCreateOptionsMenu(Menu menu) {
 
 #### Attach Share Intent for Content
 
-Now, once you've setup the ShareActionProvider menu item (either for supportv7 or standard), construct and attach the share intent for the provider but only **after image has been loaded** as shown below using the `OnCompleteListener` for the `SmartImageView`.
+Now, once you've setup the ShareActionProvider menu item (either for supportv7 or standard), construct and attach the share intent for the provider but only **after image has been loaded** as shown below using the `Callback` for `Picasso`.
 
-**Note:** The following requires a **recent release** of the third-party image library `SmartImageView` which supports completion callbacks. Update the version of the library used by downloading [this smart-image-view jar](https://www.dropbox.com/s/k2ljqalmzlqymkh/android-smart-image-view-3-27-14.jar), the following code snippet **won't work with older versions** of `SmartImageView`.
+**Note:** The following requires a **recent release** of the third-party image library `Picasso` which supports completion callbacks. Make sure to use an updated the version of the library used by downloading [this Picasso jar](http://repo1.maven.org/maven2/com/squareup/picasso/picasso/2.3.4/picasso-2.3.4.jar).
 
 ```java
 @Override
 protected void onCreate(Bundle savedInstanceState) {
     // ...
-    // Get access to SmartImageView
-    SmartImageView ivImage = (SmartImageView) findViewById(R.id.ivResult);
+    // Get access to ImageView
+    ImageView ivImage = (ImageView) findViewById(R.id.ivResult);
     // Load image async from remote URL, setup share when completed
-    ivImage.setImageUrl(result.getFullUrl(), new OnCompleteListener() {
-        @Override
-        public void onComplete() {
-            // Setup share intent now that image has loaded
+    Picasso.with(this).load(result.getFullUrl()).into(ivImage, new Callback() {
+  	@Override
+  	public void onSuccess() {
+	    // Setup share intent now that image has loaded
             setupShareIntent();
-        }
-    });
+  	}
+  	
+  	@Override
+  	public void onError() { 
+  	    // ...
+  	}
+   });
 }
 
 // Gets the image URI and setup the associated share intent to hook into the provider
