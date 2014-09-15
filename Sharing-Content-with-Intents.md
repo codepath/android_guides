@@ -206,16 +206,16 @@ protected void onCreate(Bundle savedInstanceState) {
     ImageView ivImage = (ImageView) findViewById(R.id.ivResult);
     // Load image async from remote URL, setup share when completed
     Picasso.with(this).load(result.getFullUrl()).into(ivImage, new Callback() {
-  	@Override
-  	public void onSuccess() {
-	    // Setup share intent now that image has loaded
+        @Override
+        public void onSuccess() {
+            // Setup share intent now that image has loaded
             setupShareIntent();
-  	}
-  	
-  	@Override
-  	public void onError() { 
-  	    // ...
-  	}
+        }
+        
+        @Override
+        public void onError() { 
+            // ...
+        }
    });
 }
 
