@@ -563,7 +563,7 @@ private int drawerContainerRes;
 
 To change the color of the selected item in your navigation drawer, you need to define layout drawable to  state the list item state when normal and pressed. It needs overall three xml files. One is for normal state, second is for pressed state and third one to combine both the layouts.
 
-![Imgur](http://i.imgur.com/VDUQnKX)
+![Imgur](http://imgur.com/VDUQnKX)
 
 Create a xml file under res > drawable folder named `list_item_bg_normal.xml` and paste the following code. (If you don’t see drawable folder, create a new folder and name it as drawable)
 
