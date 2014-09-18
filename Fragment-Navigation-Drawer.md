@@ -463,7 +463,7 @@ public class NavDrawerItem {
 
 ## Create Custom Adapter
 
-Next, create a custom list adapter to bind the data to your custom `ListView`. 
+Next, create a custom adapter class for `ListView` which provides a custom layout for individual list item in the `ListView`.
 
 ```java
 public class NavDrawerListAdapter extends BaseAdapter {
@@ -557,6 +557,80 @@ private int drawerContainerRes;
 
 ...
 
+```
+
+## Custom Background for Selected Item
+
+To change the color of the selected item in your navigation drawer, you need to define layout drawable to  state the list item state when normal and pressed. It needs overall three xml files. One is for normal state, second is for pressed state and third one to combine both the layouts.
+
+![Imgur](http://i.imgur.com/VDUQnKX)
+
+Create a xml file under res > drawable folder named `list_item_bg_normal.xml` and paste the following code. (If you don’t see drawable folder, create a new folder and name it as drawable)
+
+```xml
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+  <gradient
+      android:startColor="#eeeeee"
+      android:endColor="#eeeeee"
+      android:angle="90" />
+</shape>
+```
+
+Create another xml layout under res > drawable named `list_item_bg_pressed.xml` with following content.
+
+```xml
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+  <gradient
+      android:startColor="@android:color/holo_orange_light"
+      android:endColor="@android:color/holo_orange_light"
+      android:angle="90" />
+</shape>
+```
+
+Create another xml file to combine both the drawable states under res > drawable named `list_selector.xml`.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+ 
+    <item android:drawable="@drawable/list_item_bg_normal" android:state_activated="false"/>
+    <item android:drawable="@drawable/list_item_bg_pressed" android:state_pressed="true"/>
+    <item android:drawable="@drawable/list_item_bg_pressed" android:state_activated="true"/>
+ 
+</selector>
+```
+
+Update `android:background` attribute of your `RelativeLayout` under `res/layout/drawer_nav_item.xml`.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/list_selector"
+    android:layout_height="48dp">
+ 
+    <ImageView
+        android:id="@+id/ivIcon"
+        android:layout_width="25dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_centerVertical="true" />
+ 
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@id/ivIcon"
+        android:minHeight="?android:attr/listPreferredItemHeightSmall"
+        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+        android:gravity="center_vertical"
+        android:paddingRight="40dp"/>
+   
+</RelativeLayout>
 ```
 
 
