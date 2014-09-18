@@ -386,7 +386,7 @@ inflater.inflate(R.layout.activity_main, container);
 
 In order to add icons adjacent to the title in navigation drawer, you can use a custom `ListView` along with a custom list adapter.
 
-! [Imgur](http://i.imgur.com/U5AWxz4)
+![Imgur](http://i.imgur.com/U5AWxz4)
 
 ## Download Nav Drawer Item icons
 
