@@ -382,6 +382,184 @@ LinearLayout container = (LinearLayout) findViewById(R.id.content_frame);
 inflater.inflate(R.layout.activity_main, container);
 ```
 
+## Add Icons
+
+In order to add icons adjacent to the title in navigation drawer, you can use a custom `ListView` along with a custom list adapter.
+
+[Imgur](http://i.imgur.com/U5AWxz4)
+
+## Download Nav Drawer Item icons
+
+Download the following icons and add them to your drawable folders by right clicking the `res` folder > New > Other > Android > Android Icon Set. The follow the instructions on the wizard. This will automatically include correctly sized icons in each of your drawables folders.
+* [ic_one](http://i.imgur.com/PfXVA78.png)
+* [ic_two](http://i.imgur.com/xzIdYlo.png)
+* [ic_three](http://i.imgur.com/k5o1mCJ.png)
+
+## Update Drawer Layout File
+
+Update `res/layout/drawer_nav_item.xml` to accommodate the drawer item icon.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="48dp">
+ 
+    <ImageView
+        android:id="@+id/ivIcon"
+        android:layout_width="25dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_centerVertical="true" />
+ 
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@id/ivIcon"
+        android:minHeight="?android:attr/listPreferredItemHeightSmall"
+        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+        android:gravity="center_vertical"
+        android:paddingRight="40dp"/>
+   
+</RelativeLayout>
+```
+
+## Add Model
+
+Create a model class for your drawer icon. Name it `NavDrawerItem.java`.
+
+```java
+public class NavDrawerItem {    
+    private String mTitle;
+    private int mIcon;
+     
+    public NavDrawerItem(){}
+ 
+    public NavDrawerItem(String title, int icon){
+        this.mTitle = title;
+        this.mIcon = icon;
+    }
+     
+    public String getTitle(){
+        return this.mTitle;
+    }
+     
+    public int getIcon(){
+        return this.mIcon;
+    }
+     
+    public void setTitle(String title){
+        this.mTitle = title;
+    }
+     
+    public void setIcon(int icon){
+        this.mIcon = icon;
+    }     
+}
+```
+
+## Create Custom Adapter
+
+Next, create a custom list adapter to bind the data to your custom `ListView`. 
+
+```java
+public class NavDrawerListAdapter extends BaseAdapter {
+
+	private Context context;
+    private ArrayList<NavDrawerItem> navDrawerItems;
+     
+    public NavDrawerListAdapter(Context context, ArrayList<NavDrawerItem> navDrawerItems){
+        this.context = context;
+        this.navDrawerItems = navDrawerItems;
+    }
+ 
+    @Override
+    public int getCount() {
+        return navDrawerItems.size();
+    }
+ 
+    @Override
+    public Object getItem(int position) {       
+        return navDrawerItems.get(position);
+    }
+ 
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+ 
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        if (convertView == null) {
+            LayoutInflater mInflater = (LayoutInflater)
+                    context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+            convertView = mInflater.inflate(R.layout.drawer_nav_item, null);
+        }
+          
+        ImageView imgIcon = (ImageView) convertView.findViewById(R.id.ivIcon);
+        TextView txtTitle = (TextView) convertView.findViewById(R.id.tvTitle);
+          
+        imgIcon.setImageResource(navDrawerItems.get(position).getIcon());        
+        txtTitle.setText(navDrawerItems.get(position).getTitle());
+         
+        return convertView;
+    }
+
+}
+```
+
+## Update FragmentNavigationDrawer
+
+Now you should create an instance of `NavDrawerListAdapter`, add list items to it and assign this adapter to your Navigation Drawer ListView. Update the following code in `FragmentNavigationDrawer.java`.
+
+```java
+...
+private ActionBarDrawerToggle drawerToggle;
+private ListView lvDrawer;
+private NavDrawerListAdapter drawerAdapter;
+private ArrayList<NavDrawerItem> navDrawerItems;
+private ArrayList<FragmentNavItem> drawerNavItems;    
+private int drawerContainerRes;
+
+// setupDrawerConfiguration((ListView) findViewById(R.id.lvDrawer), R.layout.drawer_list_item, R.id.flContent);
+ 	public void setupDrawerConfiguration(ListView drawerListView, int drawerItemRes, int drawerContainerRes) {
+ 		// Setup navigation items array
+ 		drawerNavItems = new ArrayList<FragmentNavigationDrawer.FragmentNavItem>(); 		
+ 		navDrawerItems = new ArrayList<NavDrawerItem>(); 				
+ 		this.drawerContainerRes = drawerContainerRes;  
+ 		// Setup drawer list view
+ 		lvDrawer = drawerListView; 
+ 		// Setup item listener
+ 		lvDrawer.setOnItemClickListener(new FragmentDrawerItemListener());
+ 		// ActionBarDrawerToggle ties together the the proper interactions
+ 		// between the sliding drawer and the action bar app icon
+ 		drawerToggle = setupDrawerToggle();
+ 		setDrawerListener(drawerToggle);
+ 		// set a custom shadow that overlays the main content when the drawer
+ 		setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
+ 		// Setup action buttons
+ 		getActionBar().setDisplayHomeAsUpEnabled(true);
+ 		getActionBar().setHomeButtonEnabled(true);
+ 	}
+
+ 	// addNavItem("First", R.drawable.ic_one, "First Fragment", FirstFragment.class)
+ 	public void addNavItem(String navTitle, int icon, String windowTitle, Class<? extends Fragment> fragmentClass) { 
+ 		// adding nav drawer items to array
+ 		navDrawerItems.add(new NavDrawerItem(navTitle, icon)); 
+ 		// Set the adapter for the list view
+ 		drawerAdapter = new NavDrawerListAdapter(getActivity(), navDrawerItems); 	
+ 		lvDrawer.setAdapter(drawerAdapter);
+ 		drawerNavItems.add(new FragmentNavItem(windowTitle, fragmentClass));
+ 	}
+
+...
+
+```
+
+
 ## References
 
 * <http://www.michenux.net/android-navigation-drawer-748.html>
