@@ -388,14 +388,14 @@ In order to add icons adjacent to the title in navigation drawer, you can use a 
 
 ![NavIcons|250](http://i.imgur.com/U5AWxz4l.png)
 
-## Download Nav Drawer Item icons
+### Download Nav Drawer Item icons
 
 Download the following icons and add them to your drawable folders by right clicking the `res` folder > New > Other > Android > Android Icon Set. The follow the instructions on the wizard. This will automatically include correctly sized icons in each of your drawables folders.
 * [ic_one](http://i.imgur.com/PfXVA78.png)
 * [ic_two](http://i.imgur.com/xzIdYlo.png)
 * [ic_three](http://i.imgur.com/k5o1mCJ.png)
 
-## Update Drawer Layout File
+### Update Drawer Layout File
 
 Update `res/layout/drawer_nav_item.xml` to accommodate the drawer item icon.
 
@@ -427,7 +427,7 @@ Update `res/layout/drawer_nav_item.xml` to accommodate the drawer item icon.
 </RelativeLayout>
 ```
 
-## Add Model
+### Add Model
 
 Create a model class for your drawer icon. Name it `NavDrawerItem.java`.
 
@@ -461,7 +461,7 @@ public class NavDrawerItem {
 }
 ```
 
-## Create Custom Adapter
+### Create Custom Adapter
 
 Next, create a custom adapter class for `ListView` which provides a custom layout for individual list item in the `ListView`.
 
@@ -511,7 +511,7 @@ public class NavDrawerListAdapter extends BaseAdapter {
 }
 ```
 
-## Update FragmentNavigationDrawer
+### Update FragmentNavigationDrawer
 
 Now you should create an instance of `NavDrawerListAdapter`, add list items to it and assign this adapter to your Navigation Drawer ListView. Update the following code in `FragmentNavigationDrawer.java`.
 
