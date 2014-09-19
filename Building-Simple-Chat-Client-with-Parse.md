@@ -141,10 +141,10 @@ private Button btSend;
 // Get the userId from the cached currentUser object
 private void startWithCurrentUser() {
     sUserId = ParseUser.getCurrentUser().getObjectId();  
-    saveMessage();
+    setupMessagePosting();
 }
 
-private void saveMessage() {
+private void setupMessagePosting() {
         etMessage = (EditText) findViewById(R.id.etMessage);
         btSend = (Button) findViewById(R.id.btSend);
         btSend.setOnClickListener(new OnClickListener() {
@@ -353,7 +353,8 @@ private ChatListAdapter mAdapter;
 
 ...
 	
-private void saveMessage() {
+// Setup message field and posting
+private void setupMessagePosting() {
     	etMessage = (EditText) findViewById(R.id.etMessage);
     	btSend = (Button) findViewById(R.id.btSend);
     	lvChat = (ListView) findViewById(R.id.lvChat);
@@ -380,9 +381,9 @@ private void saveMessage() {
 }
 ```
 
-## 11. Recieve Messages
+## 11. Receive Messages
 
-Fetch last 50 messages from parse and bind them to the ListView with the use of our custom adapter.
+Now we can fetch last 50 messages from parse and bind them to the ListView with the use of our custom messages adapter.
 
 ```java
 ...
@@ -395,30 +396,19 @@ private void receiveMessage() {
 		ParseQuery<ParseObject> query = ParseQuery.getQuery("Messages");
 		query.setLimit(MAX_CHAT_MESSAGES_TO_SHOW);
 		query.orderByDescending("createdAt");
-		query.findInBackground(new FindCallback<ParseObject>() {
-			public void done(List<ParseObject> messages, ParseException e) {
-				if (e == null) {
-					final ArrayList<Message> newMessages = new ArrayList<Message>();					
-					for (int i = messages.size() - 1; i >= 0; i--) {
-						final Message message = new Message();
-						message.userId = messages.get(i).getString(USER_ID_KEY);
-						message.text = messages.get(i).getString("message");
-						newMessages.add(message);
-					}
-					addItemstoListView(newMessages);
+		query.findInBackground(new FindCallback<Message>() {
+			public void done(List<Message> messages, ParseException e) {
+				if (e == null) {					
+					mMessages.clear();
+					mMessages.addAll(messages);
+					mAdapter.notifyDataSetChanged();
+					lvChat.invalidate();
 				} else {
 					Log.d("message", "Error: " + e.getMessage());
 				}
 			}
 		});
-	}
-	
-private void addItemstoListView(final List<Message> messages) {
-		mMessages.clear();
-		mMessages.addAll(messages);
-		mAdapter.notifyDataSetChanged();
-		lvChat.invalidate();
-	}
+}
 ```
 
 ## 12. Refresh Messages
@@ -434,33 +424,34 @@ private Handler handler = new Handler();
 
 @Override
 protected void onCreate(Bundle savedInstanceState) {
-super.onCreate(savedInstanceState);
-setContentView(R.layout.activity_chat);
-if (ParseUser.getCurrentUser() != null) {
-		startWithCurrentUser();
-	} else {
-		login();
-	}
-handler.postDelayed(runnable, 100);
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_chat);
+    if (ParseUser.getCurrentUser() != null) {
+        startWithCurrentUser();
+    } else {
+    	login();
+    }
+    // Run the runnable every 100ms
+    handler.postDelayed(runnable, 100);
 }
 
+// Defines a runnable which is run every 100ms
 private Runnable runnable = new Runnable() {
-	   @Override
-	   public void run() {
-	      refreshMessages();
-	      handler.postDelayed(this, 100);
-	   }
+    @Override
+    public void run() {
+       refreshMessages();
+       handler.postDelayed(this, 100);
+    }
 };
 
 private void refreshMessages() {
-	receiveMessage();		
+    receiveMessage();		
 }
 ```
 
 ## 13. SimpleChatManifest.xml
 
 ```xml
-
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.codepath.simplechat"
@@ -496,6 +487,6 @@ private void refreshMessages() {
 
 ## 14. Final Output
 
-Run your project and test it out with your friend. Below is the final output.
+Run your project and test it out with your pair partner. Below is the final output.
 
 ![Chat App|250](http://i.imgur.com/3UZ6ZNy.png)
