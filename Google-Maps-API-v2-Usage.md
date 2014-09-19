@@ -205,10 +205,10 @@ private void dropPinEffect(final Marker marker) {
 
 ```java
 Marker marker = map.addMarker(new MarkerOptions()
-								.position(point)
-								.title(etMessage.getText().toString())								
-								.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+		.position(point)
+		.title(etMessage.getText().toString())								
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
 						
-						dropPinEffect(marker);		
+dropPinEffect(marker);		
 ```
 
