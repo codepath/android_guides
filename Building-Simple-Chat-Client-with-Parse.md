@@ -2,12 +2,14 @@ The following tutorial explains how to build a very simple chat application in A
 
 ## 1. Parse Registration
 
-Follow the [registration](https://github.com/thecodepath/android_guides/wiki/Building-Data-driven-Apps-with-Parse#registration) guide to sign up for a parse account unless you are already registed. 
+Follow the [registration](https://github.com/thecodepath/android_guides/wiki/Building-Data-driven-Apps-with-Parse#registration) guide to sign up for a parse account unless you are already registered. 
 
 ## 2. Setup Parse
 
+Let's setup Parse into a brand new Android app following the steps below.
+
 * Next, create an app in parse and call it `SimpleChat`. Make note of the `Application ID` and `Client Key` values after you have done so.
-* Create a new android project (minSDK 14) and call it `SimpleChat`.
+* Generate a new android project (minSDK 14) and call it `SimpleChat`.
 * Name the first activity `ChatActivity`.
 * Follow the steps mentioned under the [setup](https://github.com/thecodepath/android_guides/wiki/Building-Data-driven-Apps-with-Parse#setup) guide to create and setup your project in eclipse.
 * Your application class should look like this after you have performed the above steps:
@@ -17,8 +19,8 @@ public class ChatApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-	Parse.initialize(this, "AERqqIXGvzHQa7Nmg45xa5T8zWRRjqT8UmbFQeeI", 
-            "8bXPznF5eSLWq0sY9gTUuPrEF5BJlia7ltmLQFRh");
+	Parse.initialize(this, "AERqqIXGvzH7Nmg45xa5T8zWRRjqT8UmbFQeeI", 
+            "8bXPznF5eSLWq0sY9gTUrEF5BJlia7ltmLQFRh");
     }
 }
 ```
@@ -31,12 +33,16 @@ public class ChatApplication extends Application {
 * Also add the fully qualified name of your `Application` subclass to the `<application>` tag in your `AndroidManifest.xml`.
 
 ```xml
-android:name="com.codepath.simplechat.ChatApplication"
+<application
+  android:name="com.codepath.simplechat.ChatApplication"
+  ...
+  <activity ... />
+/>
 ```
 
-## 3. Design Layout
+## 3. Design Messages Layout
 
-Open your layout file `activity_chat.xml`, add an `EditText` and a `Button` to compose and send text messages.
+Let's create an XML layout which allows us to post messages by typing into a text field. Open your layout file `activity_chat.xml`, add an `EditText` and a `Button` to compose and send text messages.
 
 ```xml
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -67,7 +73,7 @@ Open your layout file `activity_chat.xml`, add an `EditText` and a `Button` to c
 </RelativeLayout>
 ```
 
-* Add the following values to res-->values-->strings.xml file.
+* Add the following values to `res-->values-->strings.xml` file.
 
 ```xml
 <string name="message_hint">Say anything</string>
@@ -76,7 +82,7 @@ Open your layout file `activity_chat.xml`, add an `EditText` and a `Button` to c
 
 ## 4. Login With Anonymous ParseUser
 
-For the sake of simplicity, we will use anonymous user to log into our simple chat app. An anonymous user is a user that can be created without a username and password but still has all of the same capabilities as any other ParseUser. After logging out, an anonymous user is abandoned, and its data is no longer accessible. 
+For the sake of simplicity, we will use an anonymous user to log into our simple chat app. An anonymous user is a user that can be created without a username and password but still has all of the same capabilities as any other ParseUser. After logging out, an anonymous user is abandoned, and its data is no longer accessible. 
 
 Open your main activity class (`ChatActivity.java`) and make the  following changes:
 
@@ -89,9 +95,10 @@ public class ChatActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
-        if (ParseUser.getCurrentUser() != null) {
+        // User login
+        if (ParseUser.getCurrentUser() != null) { // start with existing user
             startWithCurrentUser();
-        } else {
+        } else { // If not logged in, login as a new anonymous user
             login();
         }
     }
@@ -119,7 +126,7 @@ public class ChatActivity extends Activity {
 
 ## 5. Save Messages
 
-Next, we will setup UI views in ChatActivity.java. On click of 'Send' button, we'll save the message object to Parse. This is done by constructing a new `ParseObject` and then calling `saveInBackground()` to persist data to the database.
+Next, we will setup UI views in `ChatActivity.java`. On click of 'Send' button, we'll save the message object to Parse. This is done by constructing a new `ParseObject` and then calling `saveInBackground()` to persist data to the database.
 
 ```java
 ...
@@ -268,7 +275,7 @@ public class Message {
 
 ## 9. Create Custom List Adapter
 
-Create a class named `ChatListAdapter.java` with below code. This is a custom list adapter class which provides data to list view. In other words it renders the layout_row.xml in list by pre-filling appropriate information. Also, download [picasso image](https://www.dropbox.com/s/25py1bmjr45936v/picasso-2.3.4.jar?dl=1) library and drag it to the libs folder of your project.
+Create a class named `ChatListAdapter.java` with below code. This is a custom list adapter class which provides data to list view. In other words it renders the layout_row.xml in list by pre-filling appropriate information. Also, download [Picasso image](https://www.dropbox.com/s/25py1bmjr45936v/picasso-2.3.4.jar?dl=1) library and drag it to the libs folder of your project.
 
 ```java
 public class ChatListAdapter extends ArrayAdapter<Message> {	
@@ -276,7 +283,7 @@ public class ChatListAdapter extends ArrayAdapter<Message> {
 	
 	public ChatListAdapter(Context context, String userId, List<Message> messages) {
 	        this.mUserId = userId;
-                super(context, 0, messages);
+	        super(context, 0, messages);
 	}
 
 	@Override
