@@ -102,3 +102,73 @@ You would use this by setting your InfoWindowAdapter to this new class after you
 ```java
 mapFragment.setInfoWindowAdapter(new CustomWindowAdapter(getActivity().getLayoutInflater(), mapRatingHash));
 ```
+
+## Show `AlertDialog` on LongClick
+
+You can use the following code to bring up an `AlertDialog` for users to type a message on MapLongClick event. On completion, it adds a marker to the maps which when pressed displays the message in an info window.
+
+```java
+
+public class MapDemoActivity extends FragmentActivity implements
+		GooglePlayServicesClient.ConnectionCallbacks,
+		GooglePlayServicesClient.OnConnectionFailedListener,
+		OnMapLongClickListener {
+
+        ...
+
+        @Override
+	protected void onCreate(Bundle savedInstanceState) {
+		
+                ...
+
+
+		map.setOnMapLongClickListener(this);
+	}
+
+        ...
+
+        @Override
+	public void onMapLongClick(final LatLng point) {
+		Toast.makeText(getApplicationContext(), "long press", Toast.LENGTH_LONG)
+				.show();
+
+		// get message_item.xml view
+		View MessageView = LayoutInflater.from(MapDemoActivity.this).inflate(R.layout.message_item, null);
+
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MapDemoActivity.this);
+		
+		// set message_item.xml to alertdialog builder
+		alertDialogBuilder.setView(MessageView);
+		final EditText etMessage = (EditText) MessageView.findViewById(R.id.etMessage);
+		
+		// set dialog message
+		alertDialogBuilder
+				.setCancelable(false)
+				.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+						// Crrate and add marker
+						map.addMarker(new MarkerOptions()
+								.position(point)
+								.title(etMessage.getText().toString())
+								                               .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+					}
+				})
+				.setNegativeButton("Cancel",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int id) {
+								dialog.cancel();
+							}
+						});
+
+		// create alert dialog
+		AlertDialog alertDialog = alertDialogBuilder.create();
+
+		// show it
+		alertDialog.show();
+
+	}
+}
+```
+
+
+
