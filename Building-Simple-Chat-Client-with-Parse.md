@@ -84,13 +84,11 @@ Open your main activity class (`ChatActivity.java`) and make the  following chan
 public class ChatActivity extends Activity {
     private static final String TAG = ChatActivity.class.getName();
     private static String sUserId;
-    private ArrayList<Message> mMessages;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
-        mMessages = new ArrayList<Message>();
         if (ParseUser.getCurrentUser() != null) {
             startWithCurrentUser();
         } else {
@@ -273,30 +271,12 @@ public class Message {
 Create a class named `ChatListAdapter.java` with below code. This is a custom list adapter class which provides data to list view. In other words it renders the layout_row.xml in list by pre-filling appropriate information. Also, download [picasso image](https://www.dropbox.com/s/25py1bmjr45936v/picasso-2.3.4.jar?dl=1) library and drag it to the libs folder of your project.
 
 ```java
-public class ChatListAdapter extends BaseAdapter {	
-	private Context context;
+public class ChatListAdapter extends ArrayAdapter<Message> {	
 	private String mUserId;
-	private ArrayList<Message> mMessages;
 	
-	public ChatListAdapter(Context context, String userId, ArrayList<Message> messages) {
-	        this.context = context;
+	public ChatListAdapter(Context context, String userId, List<Message> messages) {
 	        this.mUserId = userId;
-	        this.mMessages = messages;
-	}
-
-	@Override
-	public int getCount() {
-		return mMessages.size();
-	}
-
-	@Override
-	public Object getItem(int position) {
-		return mMessages.get(position);
-	}
-
-	@Override
-	public long getItemId(int position) {
-		return 0;
+                super(context, 0, messages);
 	}
 
 	@Override
@@ -312,7 +292,8 @@ public class ChatListAdapter extends BaseAdapter {
 		final Message message = (Message)getItem(position);
 		final ViewHolder holder = (ViewHolder)convertView.getTag();
 		final boolean isMe = message.userId.equals(mUserId);
-		// Show-hide image based on the logged-in user. Display the profile image to the right for the current user, left for all other users.
+		// Show-hide image based on the logged-in user. 
+                // Display the profile image to the right for the current user, left for all other users.
 		if (isMe) {
 			holder.imageRight.setVisibility(View.VISIBLE);
 			holder.imageLeft.setVisibility(View.GONE);
@@ -360,17 +341,19 @@ Next, we will setup the ListView and bind our custom adapter to this ListView.
 ...
 
 private ListView lvChat;
+private ArrayList<Message> mMessages;
 private ChatListAdapter mAdapter;
 
 ...
 	
 private void saveMessage() {
     	etMessage = (EditText) findViewById(R.id.etMessage);
-		btSend = (Button) findViewById(R.id.btSend);
-		lvChat = (ListView) findViewById(R.id.lvChat);
-		mAdapter = new ChatListAdapter(ChatActivity.this, sUserId, mMessages);
-		lvChat.setAdapter(mAdapter);
-		btSend.setOnClickListener(new OnClickListener() {
+    	btSend = (Button) findViewById(R.id.btSend);
+    	lvChat = (ListView) findViewById(R.id.lvChat);
+    	mMessages = new ArrayList<Message>();
+    	mAdapter = new ChatListAdapter(ChatActivity.this, sUserId, mMessages);
+    	lvChat.setAdapter(mAdapter);
+    	btSend.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
@@ -386,8 +369,8 @@ private void saveMessage() {
 				});
 				etMessage.setText("");
 			}
-		});
-    }
+	});
+}
 ```
 
 ## 11. Recieve Messages
