@@ -103,7 +103,7 @@ You would use this by setting your InfoWindowAdapter to this new class after you
 mapFragment.setInfoWindowAdapter(new CustomWindowAdapter(getActivity().getLayoutInflater(), mapRatingHash));
 ```
 
-### Show `AlertDialog` on LongClick
+### Show AlertDialog on LongClick
 
 You can use the following code to bring up an `AlertDialog` for users to type a message on MapLongClick event. On completion, it adds a marker to the maps which when pressed displays the message in an info window.
 
