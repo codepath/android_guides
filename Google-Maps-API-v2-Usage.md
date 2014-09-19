@@ -147,10 +147,10 @@ public class MapDemoActivity extends FragmentActivity implements
 				.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
 						// Crrate and add marker
-						map.addMarker(new MarkerOptions()
+						Marker marker = map.addMarker(new MarkerOptions()
 								.position(point)
-								.title(etMessage.getText().toString())
-								                               .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+								.title(etMessage.getText().toString())								
+								.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
 					}
 				})
 				.setNegativeButton("Cancel",
