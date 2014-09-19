@@ -84,11 +84,13 @@ Open your main activity class (`ChatActivity.java`) and make the  following chan
 public class ChatActivity extends Activity {
     private static final String TAG = ChatActivity.class.getName();
     private static String sUserId;
+    private ArrayList<Message> mMessages;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
+        mMessages = new ArrayList<Message>();
         if (ParseUser.getCurrentUser() != null) {
             startWithCurrentUser();
         } else {
