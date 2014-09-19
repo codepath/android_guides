@@ -170,5 +170,45 @@ public class MapDemoActivity extends FragmentActivity implements
 }
 ```
 
+### Falling Pin Animation
 
+To implement falling pin animation, add marker to the desired position in map and then call this function with that marker.
+
+```java
+private void dropPinEffect(final Marker marker) {
+        final Handler handler = new Handler();
+        final long start = SystemClock.uptimeMillis();
+        final long duration = 1500;
+
+        final Interpolator interpolator = new BounceInterpolator();
+
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                long elapsed = SystemClock.uptimeMillis() - start;
+                float t = Math.max(
+                        1 - interpolator.getInterpolation((float) elapsed
+                                / duration), 0);
+                marker.setAnchor(0.5f, 1.0f + 14 * t);
+
+                if (t > 0.0) {
+                    // Post again 15ms later.
+                    handler.postDelayed(this, 15);
+                } else {
+                    marker.showInfoWindow();
+
+                }
+            }
+        });
+    }
+```
+
+```java
+Marker marker = map.addMarker(new MarkerOptions()
+								.position(point)
+								.title(etMessage.getText().toString())								
+								.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+						
+						dropPinEffect(marker);		
+```
 
