@@ -4,7 +4,7 @@ DialogFragment is a specialized Fragment used when you want to display an overla
 
 This is typically used for displaying an alert dialog, a confirm dialog, or prompting the user for information within an overlay without having to switch to another Activity.
 
-It should be mentioned that DialogFragment is now the canonical way to display overlays and using Dialog directly is considered bad practice.
+DialogFragment is now the canonical way to display overlays; using Dialog directly is considered bad practice.
 
 ## Usage
 
