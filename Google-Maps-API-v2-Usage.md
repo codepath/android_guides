@@ -146,7 +146,7 @@ public class MapDemoActivity extends FragmentActivity implements
 				.setCancelable(false)
 				.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
-						// Crrate and add marker
+						// Create and add marker
 						Marker marker = map.addMarker(new MarkerOptions()
 								.position(point)
 								.title(etMessage.getText().toString())								
