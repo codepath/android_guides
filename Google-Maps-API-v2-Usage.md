@@ -107,6 +107,50 @@ mapFragment.setInfoWindowAdapter(new CustomWindowAdapter(getActivity().getLayout
 
 You can use the following code to bring up an `AlertDialog` for users to type a message on MapLongClick event. On completion, it adds a marker to the maps which when pressed displays the message in an info window.
 
+```xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_root"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="10dp" >
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:text="Title : " />
+
+    <EditText
+        android:id="@+id/etTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tvTitle"
+        android:layout_toRightOf="@+id/tvTitle" >
+    </EditText>
+
+    <TextView
+        android:id="@+id/tvSnippet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTitle"
+        android:paddingTop="20dp"
+        android:text="Snippet : " />
+
+    <EditText
+        android:id="@+id/etSnippet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tvSnippet"
+        android:layout_below="@+id/tvTitle"
+        android:layout_toRightOf="@+id/tvSnippet" >
+    </EditText>
+
+</RelativeLayout>
+```
+
 ```java
 
 public class MapDemoActivity extends FragmentActivity implements
@@ -139,7 +183,8 @@ public class MapDemoActivity extends FragmentActivity implements
 		
 		// set message_item.xml to alertdialog builder
 		alertDialogBuilder.setView(MessageView);
-		final EditText etMessage = (EditText) MessageView.findViewById(R.id.etMessage);
+		final EditText etTitle = (EditText) MessageView.findViewById(R.id.etTitle);
+		final EditText etSnippet = (EditText) MessageView.findViewById(R.id.etSnippet);
 		
 		// set dialog message
 		alertDialogBuilder
@@ -149,7 +194,8 @@ public class MapDemoActivity extends FragmentActivity implements
 						// Create and add marker
 						Marker marker = map.addMarker(new MarkerOptions()
 								.position(point)
-								.title(etMessage.getText().toString())								
+								.title(etTitle.getText().toString())
+								.snippet(etSnippet.getText().toString())							
 								.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
 					}
 				})
@@ -211,4 +257,3 @@ Marker marker = map.addMarker(new MarkerOptions()
 						
 dropPinEffect(marker);		
 ```
-
