@@ -166,7 +166,7 @@ Exploring sensors, data and components available via the Android SDK:
 
 Digging into how to run background services or leverage Android system services:
 
-* [[Starting Background Services]] (with ServiceIntent and Receivers)
+* [[Starting Background Services]] (with IntentService and Receivers)
 * [[Notifications]] (Persistent Notices on the Dashboard)
 * [[Push Messaging]] (**Needs Attention**)
 * [[Real-time Messaging]] (**Needs Attention**)
