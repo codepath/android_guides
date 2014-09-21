@@ -85,7 +85,7 @@ If you want to be able to debug your tests inside Android Studio, here is what y
 
 1. Make sure you run the test as a JUnit test, not as an Android Application Test.  You can control-click on the file and click on Run.  The icons look different (1st icon is Android test, while the 2nd icon is JUnit.)
 
-   ![image](http://i.imgur.com/RDmmdI2.png)
+   ![](http://i.imgur.com/RDmmdI2.png)
 
 2. When you run a JUnit test with Android Studio, you will see the dreaded `Stub!` exception:
 
