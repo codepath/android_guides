@@ -184,7 +184,7 @@ private void setupMessagePosting() {
 
 At this point, run your application and try to send a text to parse. If the save was successful, you should see 'Successfully sent message to parse.' toast on your screen. To make sure the data was saved, you can look at the `message` class in the Data Browser of your app on Parse.
 
-## 7. Update Layout
+## 7. Add ListView to Chat Layout
 
 * Now that we have verified that messages are successfully being saved to your parse database, lets go ahead and build the UI to retrieve these messages. Open your layout file `activity_chat.xml`and add a `ListView` to display the text messages from parse.
 
@@ -280,7 +280,7 @@ At this point, run your application and try to send a text to parse. If the save
 
 ## 8. Create Model Class
 
-Now create `Message.java` class which will extend from `ParseObject`. This model class will be used to provide message data to `ListView` and can be used to retrieve and save messages to Parse.
+Now let's create a `Message.java` class which will extend from `ParseObject`. This model class will provide message data for the `ListView` and will be used to retrieve and save messages to Parse.
 
 ```java
 @ParseClassName("Message")
@@ -307,14 +307,14 @@ We also need to make sure to register this class with Parse before we call Parse
 
 ```java
 public class ChatApplication extends Application {
-  @Override
-  public void onCreate() {
-    super.onCreate();
-    // Register your parse models
-    ParseObject.registerSubclass(Message.class);
-    // Add your initialization code here
-    Parse.initialize(this, "7zBztvyG4hYQ9XghgfqYxfRcL3SMBYWAj0GUL", "iZWhgJRu6yKm3iNMbTaguLcNCV3qedijWL");
-  }		
+	// ...
+	public void onCreate() {
+		super.onCreate();
+                // Register your parse models here
+                ParseObject.registerSubclass(Message.class);
+                // Existing initialization happens after all classes are registered
+		Parse.initialize(this, YOUR_APPLICATION_ID, YOUR_CLIENT_KEY);
+	}
 }
 ```
 
