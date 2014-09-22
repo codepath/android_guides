@@ -446,7 +446,7 @@ private void receiveMessage() {
                 // Construct query to execute
 		ParseQuery<Message> query = ParseQuery.getQuery(Message.class);
 		query.setLimit(MAX_CHAT_MESSAGES_TO_SHOW);
-		query.orderByDescending("createdAt");
+		query.orderByAscending("createdAt");
                 // Execute query for messages asynchronously
 		query.findInBackground(new FindCallback<Message>() {
 			public void done(List<Message> messages, ParseException e) {
