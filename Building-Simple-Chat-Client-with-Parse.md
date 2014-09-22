@@ -38,7 +38,7 @@ public class ChatApplication extends Application {
 
 ```xml
 <application
-  android:name="com.codepath.simplechat.ChatApplication"
+  android:name=".ChatApplication"
   ...
   <activity ... />
 />
