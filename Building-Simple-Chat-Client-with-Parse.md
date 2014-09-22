@@ -13,8 +13,8 @@ Let's setup Parse into a brand new Android app following the steps below.
 * Next, create an app in Parse and call it `SimpleChat`. Make note of the `Application ID` and `Client Key` values after you have done so.
 * Follow the the steps mentioned under the [[setup|Building-Data-driven-Apps-with-Parse#setup]] guide to create and setup your project in eclipse.
   * Drag the [Parse jars](https://parse.com/downloads/android/Parse/latest) into your `libs` folder 
-  * Create a class called `ChatApplication` which extends from `Application`
-  * In the application, initialize parse with  your application id and client key
+  * Create a class called `ChatApplication` which extends from `android.app.Application`
+  * In the application, initialize parse with your application id and client key
 * Your application class should look like this after you have performed the above steps:
 
 ```java
