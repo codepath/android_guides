@@ -2,26 +2,30 @@ The following tutorial explains how to build a very simple chat application in A
 
 ## 1. Parse Registration
 
-Follow the [registration](https://github.com/thecodepath/android_guides/wiki/Building-Data-driven-Apps-with-Parse#registration) guide to sign up for a parse account unless you are already registered. 
+Follow the [[registration|Building-Data-driven-Apps-with-Parse#registration]] guide to sign up for a parse account unless you are already registered. 
 
 ## 2. Setup Parse
 
 Let's setup Parse into a brand new Android app following the steps below.
 
-* Next, create an app in parse and call it `SimpleChat`. Make note of the `Application ID` and `Client Key` values after you have done so.
-* Generate a new android project (minSDK 14) and call it `SimpleChat`.
-* Name the first activity `ChatActivity`.
-* Follow the steps mentioned under the [setup](https://github.com/thecodepath/android_guides/wiki/Building-Data-driven-Apps-with-Parse#setup) guide to create and setup your project in eclipse.
+* Generate a new android project in your IDE (minSDK 14) and call it `SimpleChat`.
+  * Name the first activity `ChatActivity`.
+* Next, create an app in Parse and call it `SimpleChat`. Make note of the `Application ID` and `Client Key` values after you have done so.
+* Follow the the steps mentioned under the [[setup|Building-Data-driven-Apps-with-Parse#setup]] guide to create and setup your project in eclipse.
+  * Drag the [Parse jars](https://parse.com/downloads/android/Parse/latest) into your `libs` folder 
+  * Create a class called `ChatApplication` which extends from `Application`
+  * In the application, initialize parse with  your application id and client key
 * Your application class should look like this after you have performed the above steps:
 
 ```java
 public class ChatApplication extends Application {
-    @Override
-    public void onCreate() {
-        super.onCreate();
-	Parse.initialize(this, "AERqqIXGvzH7Nmg45xa5T8zWRRjqT8UmbFQeeI", 
-            "8bXPznF5eSLWq0sY9gTUrEF5BJlia7ltmLQFRh");
-    }
+	public static final String YOUR_APPLICATION_ID = "AERqqIXGvzH7Nmg45xa5T8zWRRjqT8UmbFQeeI";
+	public static final String YOUR_CLIENT_KEY = "8bXPznF5eSLWq0sY9gTUrEF5BJlia7ltmLQFRh";
+	@Override
+	public void onCreate() {
+		super.onCreate();
+		Parse.initialize(this, YOUR_APPLICATION_ID, YOUR_CLIENT_KEY);
+	}
 }
 ```
 * Make sure you have added these lines before the `<application>` tag in your `AndroidManifest.xml`.
