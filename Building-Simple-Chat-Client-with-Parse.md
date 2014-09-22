@@ -60,6 +60,7 @@ Let's create an XML layout which allows us to post messages by typing into a tex
         android:layout_toLeftOf="@+id/btSend"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btSend"
         android:gravity="top"
         android:hint="@string/message_hint"
         android:imeOptions="actionSend"/>
