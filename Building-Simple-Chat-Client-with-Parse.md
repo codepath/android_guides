@@ -149,9 +149,12 @@ private void startWithCurrentUser() {
     setupMessagePosting();
 }
 
+// Setup button event handler which posts the entered message to Parse
 private void setupMessagePosting() {
+        // Find the text field and button
         etMessage = (EditText) findViewById(R.id.etMessage);
         btSend = (Button) findViewById(R.id.btSend);
+        // When send button is clicked, create message object on Parse
         btSend.setOnClickListener(new OnClickListener() {
 
             @Override
