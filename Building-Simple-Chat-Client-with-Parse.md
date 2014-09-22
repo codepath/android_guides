@@ -310,9 +310,9 @@ public class ChatApplication extends Application {
 	// ...
 	public void onCreate() {
 		super.onCreate();
-                // Register your parse models here
-                ParseObject.registerSubclass(Message.class);
-                // Existing initialization happens after all classes are registered
+		// Register your parse models here
+		ParseObject.registerSubclass(Message.class);
+		// Existing initialization happens after all classes are registered
 		Parse.initialize(this, YOUR_APPLICATION_ID, YOUR_CLIENT_KEY);
 	}
 }
