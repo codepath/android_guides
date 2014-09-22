@@ -160,9 +160,9 @@ private void setupMessagePosting() {
             @Override
             public void onClick(View v) {
                 String data = etMessage.getText().toString();
-                ParseObject message = new ParseObject("Messages");
+                ParseObject message = new ParseObject("Message");
                 message.put(USER_ID_KEY, sUserId);
-                message.put("message", data);
+                message.put("body", data);
                 message.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {
@@ -182,26 +182,29 @@ At this point, run your application and try to send a text to parse. If the save
 
 ## 7. Update Layout
 
-* Now that we have verified that messages are successfully being saved to your parse database, lets go ahead and build the UI to retrive these messages. Open your layout file `activity_chat.xml`and add a `ListView` to display text messages from parse.
+* Now that we have verified that messages are successfully being saved to your parse database, lets go ahead and build the UI to retrieve these messages. Open your layout file `activity_chat.xml`and add a `ListView` to display the text messages from parse.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" 
   android:orientation="vertical"
   android:background="#ffffff"
-  android:layout_width="fill_parent"
-  android:layout_height="fill_parent">
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
     <ListView
       android:id="@+id/lvChat"
       android:transcriptMode="alwaysScroll"
+      android:layout_alignParentTop="true"
+      android:layout_alignParentLeft="true"
+      android:layout_alignParentRight="true"
       android:layout_above="@+id/llSend"
       android:layout_width="wrap_content" 
       android:layout_height="match_parent" />
     <RelativeLayout 
       android:id="@+id/llSend"
       android:layout_alignParentBottom="true"
-      android:layout_width="fill_parent"
-      android:background="#ffffffff"
+      android:layout_width="match_parent"
+      android:background="#ffffff"
       android:paddingTop="5dp"
       android:paddingBottom="10dp"
       android:paddingLeft="0dp"
@@ -210,10 +213,12 @@ At this point, run your application and try to send a text to parse. If the save
       <EditText
         android:id="@+id/etMessage"
         android:layout_toLeftOf="@+id/btSend"
+        android:layout_alignBottom="@+id/btSend"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="top"
         android:hint="@string/message_hint"
+        android:inputType="textShortMessage"
         android:imeOptions="actionSend"/>
       <Button
         android:id="@+id/btSend"
@@ -229,7 +234,7 @@ At this point, run your application and try to send a text to parse. If the save
 </RelativeLayout>
 ```
 
-* We will be showing the logged in user's gravatar and messages on the right and the other gravatars and messages on the left. You can read more about creating gravatars [here](https://en.gravatar.com/site/implement/images/). We need to create another layout file for list view row. This is the main design component in this project as we define actual custom list design here. Name it `chat_item.xml`.
+* We will be showing the logged in user's gravatar and messages on the right and the other gravatars and messages on the left. You can read more about creating gravatars [here](https://en.gravatar.com/site/implement/images/). We need to create another layout file to represent each chat message row in the list view. Put this into `res/layout/chat_item.xml`.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -245,7 +250,7 @@ At this point, run your application and try to send a text to parse. If the save
         android:src="@drawable/ic_launcher" />
     <TextView
         android:textSize="18sp"
-        android:id="@+id/tvText"
+        android:id="@+id/tvBody"
         android:padding="20dp"
         android:lines="3"
         android:layout_marginRight="64dp"
@@ -262,24 +267,52 @@ At this point, run your application and try to send a text to parse. If the save
 </LinearLayout>
 ```
 
-* Add the following values to  res-->values-->strings.xml file.
+* Add the following values to `res-->values-->strings.xml` file.
 
 ```xml
 <string name="profile_me">My Profile Pic</string>
 <string name="profile_other">Other profile pic</string>
 ```
 
-
 ## 8. Create Model Class
 
-Now create `Message.java` class. This model class will be used to provide message data to `ListView`.
+Now create `Message.java` class which will extend from `ParseObject`. This model class will be used to provide message data to `ListView` and can be used to retrieve and save messages to Parse.
 
 ```java
-public class Message {
-	public String userId;
-	public String text;
+@ParseClassName("Message")
+public class Message extends ParseObject {
+    public String getUserId() {
+    	return getString("userId");
+    }
+    
+    public String getBody() {
+    	return getString("body");
+    }
+    
+    public void setUserId(String userId) {
+        put("userId", userId);	
+    }
+    
+    public void setBody(String body) {
+    	put("body", body);
+    }
 }
 ```
+
+We also need to make sure to register this class with Parse before we call Parse.initialize within the `ChatApplication.java` file:
+
+public class ChatApplication extends Application {
+  @Override
+  public void onCreate() {
+    super.onCreate();
+    // Register your parse models
+    ParseObject.registerSubclass(Message.class);
+    // Add your initialization code here
+    Parse.initialize(this, "7zBztvyG4hYQ9XghgfqYxfRcL3SMBYWAj0GUL", "iZWhgJRu6yKm3iNMbTaguLcNCV3qedijWL");
+  }		
+}
+
+With our model defined with Parse and properly registered, we can now use this model to store and retrieve message data.
 
 ## 9. Create Custom List Adapter
 
@@ -290,41 +323,42 @@ public class ChatListAdapter extends ArrayAdapter<Message> {
 	private String mUserId;
 	
 	public ChatListAdapter(Context context, String userId, List<Message> messages) {
-	        this.mUserId = userId;
 	        super(context, 0, messages);
+	        this.mUserId = userId;
 	}
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		if (convertView == null) {
-			convertView = LayoutInflater.from(context).inflate(R.layout.chat_item, parent, false);
+			convertView = LayoutInflater.from(getContext()).
+			    inflate(R.layout.chat_item, parent, false);
 			final ViewHolder holder = new ViewHolder();
 			holder.imageLeft = (ImageView)convertView.findViewById(R.id.ivProfileLeft);
 			holder.imageRight = (ImageView)convertView.findViewById(R.id.ivProfileRight);
-			holder.text = (TextView)convertView.findViewById(R.id.tvText);
+			holder.body = (TextView)convertView.findViewById(R.id.tvBody);
 			convertView.setTag(holder);
 		}
 		final Message message = (Message)getItem(position);
 		final ViewHolder holder = (ViewHolder)convertView.getTag();
-		final boolean isMe = message.userId.equals(mUserId);
+		final boolean isMe = message.getUserId().equals(mUserId);
 		// Show-hide image based on the logged-in user. 
-                // Display the profile image to the right for the current user, left for all other users.
+                // Display the profile image to the right for our user, left for other users.
 		if (isMe) {
 			holder.imageRight.setVisibility(View.VISIBLE);
 			holder.imageLeft.setVisibility(View.GONE);
-			holder.text.setGravity(Gravity.CENTER_VERTICAL | Gravity.RIGHT);
+			holder.body.setGravity(Gravity.CENTER_VERTICAL | Gravity.RIGHT);
 		} else {
 			holder.imageLeft.setVisibility(View.VISIBLE);
 			holder.imageRight.setVisibility(View.GONE);
-			holder.text.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
+			holder.body.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
 		}
 		final ImageView profileView = isMe ? holder.imageRight : holder.imageLeft;
-		Picasso.with(context).load(getProfileUrl(message.userId)).into(profileView);
-		holder.text.setText(message.text);
+		Picasso.with(getContext()).load(getProfileUrl(message.getUserId())).into(profileView);
+		holder.body.setText(message.getBody());
 		return convertView;
 	}
 	
-	// Create a gravatar based on the hash value obtained from userId
+	// Create a gravatar image based on the hash value obtained from userId
 	private static String getProfileUrl(final String userId) {
 		String hex = "";
 		try {
@@ -341,7 +375,7 @@ public class ChatListAdapter extends ArrayAdapter<Message> {
 	final class ViewHolder {
 		public ImageView imageLeft;
 		public ImageView imageRight;
-		public TextView text;
+		public TextView body;
 	}
 
 }
@@ -349,7 +383,7 @@ public class ChatListAdapter extends ArrayAdapter<Message> {
 
 ## 10. Bind Adapter to the ListView
 
-Next, we will setup the ListView and bind our custom adapter to this ListView.
+Next, we will setup the ListView and bind our custom adapter to this ListView within the `ChatActivity.java` source file:
 
 ```java
 ...
@@ -373,10 +407,11 @@ private void setupMessagePosting() {
 
 			@Override
 			public void onClick(View v) {
-				String data = etMessage.getText().toString();
-				ParseObject message = new ParseObject("Messages");
-				message.put(USER_ID_KEY, sUserId);
-				message.put("message", data);
+				String body = etMessage.getText().toString();
+				// Use Message model to create new messages now      
+				Message message = new Message();
+				message.setUserId(sUserId);
+				message.setBody(body);
 				message.saveInBackground(new SaveCallback() {
 					@Override
 					public void done(ParseException e) {
@@ -391,7 +426,7 @@ private void setupMessagePosting() {
 
 ## 11. Receive Messages
 
-Now we can fetch last 50 messages from parse and bind them to the ListView with the use of our custom messages adapter.
+Now we can fetch last 50 messages from parse and bind them to the ListView with the use of our custom messages adapter within `ChatActivity.java`:
 
 ```java
 ...
@@ -400,10 +435,13 @@ private static final int MAX_CHAT_MESSAGES_TO_SHOW = 50;
 
 ...
 
+// Query messages from Parse so we can load them into the chat adapter
 private void receiveMessage() {
-		ParseQuery<ParseObject> query = ParseQuery.getQuery("Messages");
+                // Construct query to execute
+		ParseQuery<Message> query = ParseQuery.getQuery(Message.class);
 		query.setLimit(MAX_CHAT_MESSAGES_TO_SHOW);
 		query.orderByDescending("createdAt");
+                // Execute query for messages asynchronously
 		query.findInBackground(new FindCallback<Message>() {
 			public void done(List<Message> messages, ParseException e) {
 				if (e == null) {					
@@ -419,13 +457,16 @@ private void receiveMessage() {
 }
 ```
 
-## 12. Refresh Messages
+Now, we should be able to see the messages in the list after posting but we won't yet see them update on load or as new messages are created on other clients.
 
-Finally, refresh the ListView with latest messages using a handler. The handler will call a runnable to fetch new messages every 100ms.
+## 12. Refreshing Messages
+
+Finally, let's periodically refresh the ListView with latest messages using a handler. The handler will call a runnable to fetch new messages every 100ms. This is a primitive "polling" rather than "push" technique for loading new messages but will work for the purposes of this simple project.
 
 ```java
 ...
 
+// Create a handler which can run code periodically
 private Handler handler = new Handler();
 
 ...
@@ -439,7 +480,7 @@ protected void onCreate(Bundle savedInstanceState) {
     } else {
     	login();
     }
-    // Run the runnable every 100ms
+    // Run the runnable object defined every 100ms
     handler.postDelayed(runnable, 100);
 }
 
@@ -458,6 +499,8 @@ private void refreshMessages() {
 ```
 
 ## 13. SimpleChatManifest.xml
+
+The final manifest for this chat application looks like:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
