@@ -305,6 +305,7 @@ public class Message extends ParseObject {
 
 We also need to make sure to register this class with Parse before we call Parse.initialize within the `ChatApplication.java` file:
 
+```java
 public class ChatApplication extends Application {
   @Override
   public void onCreate() {
@@ -315,6 +316,7 @@ public class ChatApplication extends Application {
     Parse.initialize(this, "7zBztvyG4hYQ9XghgfqYxfRcL3SMBYWAj0GUL", "iZWhgJRu6yKm3iNMbTaguLcNCV3qedijWL");
   }		
 }
+```
 
 With our model defined with Parse and properly registered, we can now use this model to store and retrieve message data.
 
