@@ -39,8 +39,12 @@ public class ChatApplication extends Application {
 ```xml
 <application
   android:name=".ChatApplication"
+  android:icon="@drawable/ic_launcher"
+  android:label="@string/app_name"
   ...>
-  <activity ... />
+  <activity 
+     ... 
+  />
 />
 ```
 
