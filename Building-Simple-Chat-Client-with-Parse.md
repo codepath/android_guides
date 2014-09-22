@@ -39,7 +39,7 @@ public class ChatApplication extends Application {
 ```xml
 <application
   android:name=".ChatApplication"
-  ...
+  ...>
   <activity ... />
 />
 ```
