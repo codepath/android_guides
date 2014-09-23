@@ -19,8 +19,8 @@ These are the best crash reporting tools:
 
 * [Crashlytics](http://try.crashlytics.com/) - Awesome and simple crash reporting
 * [New Relic for Android](https://docs.newrelic.com/docs/mobile-apps/android-installation-and-configuration) - Crash reporting and performance optimization
-* [HockeyApp](http://support.hockeyapp.net/kb/client-integration-android-other-platforms/hockeyapp-for-android-sdk)
-* [Rollbar](https://rollbar.com/docs/notifier/rollbar-android/)
+* [HockeyApp](http://support.hockeyapp.net/kb/client-integration-android-other-platforms/hockeyapp-for-android-sdk) - Crash reporting and app distributions
+* [Rollbar](https://rollbar.com/docs/notifier/rollbar-android/) - Robust crash reporting
 
 ### OTA Builds
 
@@ -28,7 +28,7 @@ These are the best tools for distributing beta builds for your apps:
 
 * [TestFairy](http://blog.testfairy.com/testflight-sdk-users-welcome-to-testfairy/) - Complete Testflight Replacement
 * [DeployGate](https://deploygate.com/docs/sdk) - Painless OTA distribution for apps
-* [HockeyApp](http://hockeyapp.net)
+* [HockeyApp](http://hockeyapp.net) - Simple OTA app distributions
 
 ### Push Messaging
 
