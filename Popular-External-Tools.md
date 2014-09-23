@@ -11,6 +11,7 @@ These are the best mobile analytics reporting tools:
 * [Google Analytics for Android](https://developers.google.com/analytics/devguides/collection/android/?csw=1) - Tried and true Android analytics
 * [Countly](https://count.ly/resources/installation/android) - New open-source mobile analytics
 * [Flurry](http://www.flurry.com/solutions/analytics) - Tracks users and time spent on app
+* [Localytics](http://www.localytics.com/) - All-in-one analytics platform for mobile
 
 ### Crash Reporting
 
