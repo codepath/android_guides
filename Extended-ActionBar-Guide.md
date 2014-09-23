@@ -32,6 +32,8 @@ public class MainActivity extends SherlockFragmentActivity {
 }
 ```
 
+*NOTE:*  if you receive any `cannot override final method` errors, please refer to this [article](http://www.grokkingandroid.com/adding-actionbarsherlock-to-your-project/) on how to fix the problem.  You will have to modify the imported `View` classes.
+
 and change the theme to a sherlock compatible theme in the manifest:
 
 ```xml
