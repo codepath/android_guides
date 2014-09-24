@@ -393,7 +393,7 @@ For the spinner, you can find the nine-patch file for the corner triangle at thi
 
 ## 6. Create `themes.xml` file
 
-To define our theme go to `res/values/styles.xml` file. In our theme definition, we set some custom styles using the â€˜itemâ€™ element. Note how the default OS attribute `android:actionBarStyle` has been overridden to style the action bar along with the custom attributes. For more information on styling action bar, check out [styling action bar tabs](http://guides.codepath.com/android/ActionBar-Tabs-with-Fragments#styling-tabs) cliffnotes.
+To define our theme go to `res/values/styles.xml` file. In our theme definition, we set some custom styles using the `item` element. Note how the default OS attribute `android:actionBarStyle` has been overridden to style the action bar along with the custom attributes. For more information on styling action bar, check out [styling action bar tabs](http://guides.codepath.com/android/ActionBar-Tabs-with-Fragments#styling-tabs) cliffnotes.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
