@@ -8,7 +8,7 @@ We will be defining three themes in our app and use a spinner view to switch bet
 
 ## 1. Create a New Android Application Project
 
-* Open Eclipse IDE and go to File â†’ New â†’ Project â†’ Android Application Project. 
+* Open Eclipse IDE and go to File > New > Project > Android Application Project. 
 * Enter App name: ThemeSwitcher (minSDK 14)
 * Name the first activity "ThemeActivity"
 * Keep other defualt selections, go Next till you reach Finish.
