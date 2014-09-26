@@ -12,7 +12,7 @@ Next, be sure to [download the drawer image assets](http://developer.android.com
 
 ### Android Support v4 JAR file
 
-Verify that you have the latest support-v4.jar file. These JAR files do get updated between API versions. If you get NoClassDefErrors even though you've added the file, you may be missing the DrawerLayout class and other dependencies that were incorporated in API version 13. For best results, included the latest support-v4.jar from the most recent API version.
+Verify that you have the latest support-v4.jar file. These JAR files do get updated between API versions. If you get NoClassDefErrors even though you've added the file, you may be missing the DrawerLayout class and other dependencies that were incorporated in API version 13. For best results, included the [latest support-v4.jar](https://yuku-android-util.googlecode.com/git/ActionBarSherlock4/libs/android-support-v4.jar) from the most recent API version.
 
 ### Setup Drawer Layout Files
 
@@ -47,9 +47,9 @@ Then in your `res/values/strings.xml` add the following:
 
 First, let's define a `FragmentNavigationDrawer.java` class within our application which makes working with the navigation drawer within an activity much simpler. Choose the source below based on your version of the support library.
 
-**Support Version 4:** Define the `FragmentNavigationDrawer` class by copying the text from the [linked gist](https://gist.github.com/nesquena/4e9f618b71c30842e89c). 
+**Support Version 4:** Define the `FragmentNavigationDrawer` class by copying the [source code from here](https://gist.github.com/nesquena/4e9f618b71c30842e89c). 
 
-**Support Version 7:** Define the `FragmentNavigationDrawer` class by copying the text from the [linked gist](https://gist.github.com/nesquena/8bec293b16b20a0e6f8b). 
+**Support Version 7:** Define the `FragmentNavigationDrawer` class by copying the text from the [source code from here](https://gist.github.com/nesquena/8bec293b16b20a0e6f8b). 
 
 ### Define Fragments
 
