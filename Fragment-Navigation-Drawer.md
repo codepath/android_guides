@@ -124,7 +124,7 @@ public class MainActivity extends FragmentActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
-                // Uncomment to inflate menu items to Action Bar      
+		// Uncomment to inflate menu items to Action Bar      
 		// inflater.inflate(R.menu.main, menu);
 		return super.onCreateOptionsMenu(menu);
 	}
