@@ -301,7 +301,7 @@ private ArrayList<NavDrawerItem> navDrawerItems;
 private ArrayList<FragmentNavItem> drawerNavItems;    
 private int drawerContainerRes;
 
-// setupDrawerConfiguration((ListView) findViewById(R.id.lvDrawer), R.layout.drawer_list_item, R.id.flContent);
+ 	// setupDrawerConfiguration((ListView) findViewById(R.id.lvDrawer), R.layout.drawer_list_item, R.id.flContent);
  	public void setupDrawerConfiguration(ListView drawerListView, int drawerItemRes, int drawerContainerRes) {
  		// Setup navigation items array
  		drawerNavItems = new ArrayList<FragmentNavigationDrawer.FragmentNavItem>(); 		
@@ -332,7 +332,7 @@ private int drawerContainerRes;
  		drawerNavItems.add(new FragmentNavItem(windowTitle, fragmentClass));
  	}
 
-...
+    ...
 
 ```
 
