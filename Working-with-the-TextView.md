@@ -12,7 +12,7 @@ As stated in the overview, there are three different default typefaces which are
 
 ```xml
 <TextView
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="This is a 'sans' demo!"
     android:typeface="sans"
@@ -31,7 +31,7 @@ The `android:textStyle` attribute can be used to put emphasis on the text. The p
 
 ```xml
 <TextView
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="This is bold!"
     android:textStyle="bold"
@@ -44,7 +44,7 @@ The `android:textStyle` attribute can be used to put emphasis on the text. The p
 
 ```xml
 <TextView
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="15sp is the 'normal' size."
     android:textSize="15sp"
@@ -64,7 +64,7 @@ The floating point numbers don't have a specific unit - they are merely arbitrar
 
 ```xml
 <TextView
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="A light blue shadow."
     android:shadowColor="#00ccff"
@@ -80,7 +80,7 @@ The `android:textColor` attribute's value is a hexadecimal RGB value with an opt
 
 ```xml
 <TextView
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="A light blue color."
     android:textColor="#00ccff"
@@ -93,7 +93,7 @@ There are several related text color properties in addition such as `android:tex
 
 ```xml
 <TextView
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:textColorHighlight="#7C82D2"
     android:textColorHint="#2DC942"
@@ -137,7 +137,7 @@ TextView has [native support](http://developer.android.com/reference/android/wid
 ```xml
 <TextView
      android:id="@+id/custom_font"
-     android:layout_width="fill_parent"
+     android:layout_width="match_parent"
      android:layout_height="wrap_content"
      android:autoLink="all"
      android:linksClickable="true"
@@ -156,12 +156,12 @@ We're going to use a basic layout file with a TextView, marked with an id of "cu
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
  
     <TextView
             android:id="@+id/custom_font"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="This is the Chantelli Antiqua font."
     />
