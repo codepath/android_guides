@@ -75,7 +75,7 @@ Check out the official [Photo Basics](http://developer.android.com/training/came
 
 ### Resizing the Picture
 
-Photos taken with the Camera intent are often quite large. After taking a photo, you may want to consider [resizing the Bitmap](http://guides.codepath.com/android/Working-with-the-ImageView#scaling-a-bitmap) to a more manageable size before displaying in an `ImageView`.
+Photos taken with the Camera intent are often quite large. After taking a photo, you may want to consider [[resizing the Bitmap|Working-with-the-ImageView#scaling-a-bitmap]] to a more manageable size before displaying in an `ImageView`.
 
 ### Rotating the Picture
 

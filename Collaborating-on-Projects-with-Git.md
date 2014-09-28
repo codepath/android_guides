@@ -42,7 +42,7 @@ Package Explorer -> Right click the project -> "Android Tools" -> "Fix Project P
 Project -> Clean
 ```
 
-Then review this detailed [import troubleshooting guide](http://guides.codepath.com/android/Troubleshooting-Common-Issues#imported-project-wont-compile) if you are still running into problems while compiling. This likely involves having to cleanup the dependencies for the project.
+Then review this detailed [[import troubleshooting guide|Troubleshooting-Common-Issues#imported-project-wont-compile]] if you are still running into problems while compiling. This likely involves having to cleanup the dependencies for the project.
 
 ## Map Access Across Computers
 

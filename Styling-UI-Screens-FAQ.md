@@ -231,7 +231,7 @@ ActionBar title can be styled or centered only if you opt to customize the XML v
 
 #### How do I style tabs in the ActionBar?
 
-Easiest way is to use the [ActionBar Style Generator](http://jgilfelt.github.io/android-actionbarstylegenerator/) to customize the appearance. Check out this [ActionBar Tabs](http://guides.codepath.com/android/ActionBar-Tabs-with-Fragments#styling-tabs) guide for more details.
+Easiest way is to use the [ActionBar Style Generator](http://jgilfelt.github.io/android-actionbarstylegenerator/) to customize the appearance. Check out this [[ActionBar Tabs|ActionBar-Tabs-with-Fragments#styling-tabs]] guide for more details.
 
 #### How would I hide the top ActionBar?
 

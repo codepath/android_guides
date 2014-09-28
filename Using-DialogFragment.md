@@ -208,7 +208,7 @@ public class FragmentDialogDemo extends FragmentActivity implements EditNameDial
 
 ## Styling Dialogs
 
-Styling a DialogFragment with a custom layout works just the [same as styling any views](http://guides.codepath.com/android/Styles-and-Themes). Styling an `AlertDialog` requires changing several key properties in `styles.xml` such as the `android:alertDialogTheme` as shown in this app [here](https://github.com/aliHafizji/Cheddar-Android/blob/master/res/values/styles_cheddar.xml#L15) and defining your own dialog style extending from `@android:style/Theme.Holo.Light.Dialog` as shown [here](https://github.com/aliHafizji/Cheddar-Android/blob/master/res/values/styles_cheddar.xml#L15).
+Styling a DialogFragment with a custom layout works just the [[same as styling any views|Styles-and-Themes]]. Styling an `AlertDialog` requires changing several key properties in `styles.xml` such as the `android:alertDialogTheme` as shown in this app [here](https://github.com/aliHafizji/Cheddar-Android/blob/master/res/values/styles_cheddar.xml#L15) and defining your own dialog style extending from `@android:style/Theme.Holo.Light.Dialog` as shown [here](https://github.com/aliHafizji/Cheddar-Android/blob/master/res/values/styles_cheddar.xml#L15).
 
 ## Things To Note
 
