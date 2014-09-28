@@ -105,21 +105,25 @@ image.setImageBitmap(bMap);
 
 ### Scaling a Bitmap
 
-If we need to resize a Bitmap, we can just call the [createScaledBitmap](http://developer.android.com/reference/android/graphics/Bitmap.html#createScaledBitmap\(android.graphics.Bitmap, int, int, boolean\)) method to resize any bitmap to our desired width and height:
+If we need to resize a Bitmap, we can call the [createScaledBitmap](http://developer.android.com/reference/android/graphics/Bitmap.html#createScaledBitmap\(android.graphics.Bitmap, int, int, boolean\)) method to resize any bitmap to our desired width and height:
 
 ```java
+// Load a bitmap from the drawable folder
 Bitmap bMap = BitmapFactory.decodeResource(getResources(), R.drawable.my_image);
+// Resize the bitmap to 150x100 (width x height)
 Bitmap bMapScaled = Bitmap.createScaledBitmap(bMap, 150, 100, true);
+// Loads the resized Bitmap into an ImageView
 ImageView image = (ImageView) findViewById(R.id.test_image);
 image.setImageBitmap(bMapScaled);
 ```
 
-You often might want to resize a bitmap but preserve the aspect ratio using helpers like this:
+You often want to resize a bitmap but preserve the aspect ratio using helpers like these:
 
 ```java
 public class BitmapScaler
 {
-	// scale and keep aspect ratio
+	// Scale and maintain aspect ratio given a desired width
+        // BitmapScaler.scaleToFitWidth(bitmap, 100);
 	public static Bitmap scaleToFitWidth(Bitmap b, int width)
 	{
 		float factor = width / (float) b.getWidth();
@@ -127,7 +131,8 @@ public class BitmapScaler
 	}
 
 
-	// scale and keep aspect ratio
+	// Scale and maintain aspect ratio given a desired height
+        // BitmapScaler.scaleToFitHeight(bitmap, 100);
 	public static Bitmap scaleToFitHeight(Bitmap b, int height)
 	{
 		float factor = height / (float) b.getHeight();
@@ -138,7 +143,17 @@ public class BitmapScaler
 }
 ```
 
-See [this gist](https://gist.github.com/nesquena/3885707fd3773c09f1bb) for the full source code of this scaler utility. Check out [this source](http://androidsnippets.wordpress.com/2012/10/25/how-to-scale-a-bitmap-as-per-device-width-and-height/) to scale a bitmap based instead on relative device width and height.
+See [this gist](https://gist.github.com/nesquena/3885707fd3773c09f1bb) for the full source code of this scaler utility class. 
+
+In other cases, you may want to determine the device height or width in order to resize the image accordingly. Copy this [DeviceDimensionsHelper.java](https://gist.github.com/nesquena/318b6930aac3a56f96a4) utility class to `DeviceDimensionsHelper.java` in your project and use anywhere that you have a context to determine the screen dimensions:
+
+```java
+// Get height or width of screen at runtime
+int screenHeight = DeviceDimensionsHelper.getDisplayHeight(this);
+int screenWidth = DeviceDimensionsHelper.getDisplayWidth(this);
+```
+
+Check out [this source](http://androidsnippets.wordpress.com/2012/10/25/how-to-scale-a-bitmap-as-per-device-width-and-height/) for more information on how to scale a bitmap based instead on relative device width and height.
 
 ### Displaying SVG Images
 
