@@ -78,7 +78,11 @@ This means that if you generate a 100x100 for mdpi (1x baseline), then you shoul
 
 ![Densities](http://developer.android.com/images/screens_support/screens-densities.png)
 
-To resize more easily, check out the [Final Android Resizer](https://github.com/asystat/Final-Android-Resizer) by [downloading and running this JAR](https://github.com/asystat/Final-Android-Resizer/blob/master/Executable%20Jar/Final%20Android%20Resizer.jar?raw=true) which allows us to select a resources directory, choose a extra high density image and the tool will automatically generate the corresponding lower sizes for us.
+To resize images more easily, check out the [Final Android Resizer](https://github.com/asystat/Final-Android-Resizer) by [downloading and running this JAR](https://github.com/asystat/Final-Android-Resizer/blob/master/Executable%20Jar/Final%20Android%20Resizer.jar?raw=true). 
+
+<a href="https://github.com/asystat/Final-Android-Resizer/blob/master/Executable%20Jar/Final%20Android%20Resizer.jar?raw=true"><img src="http://i.imgur.com/Usx4iXH.png" alt="final resizer" width="350" /></a>
+
+This handy utility allows us to select a resources directory, choose an extra high density image and the tool will automatically generate the corresponding lower size images for us and place them in the correct folders.
 
 See the [screens support](http://developer.android.com/guide/practices/screens_support.html) reference for a more detailed look at supporting a wide range of devices. Also check out the [iconography](http://developer.android.com/design/style/iconography.html) guide for more details.
 
