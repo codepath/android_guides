@@ -1,20 +1,22 @@
-In Android development, any time you want to show a list of items vertically you will want to use a ListView and an Adapter. The simplest adapter is called an ArrayAdapter because the adapter takes an Array and converts the items into View objects to be loaded into the ListView container.
+In Android development, any time you want to show a vertical list of items you will want to use a ListView which is populated using an Adapter. The simplest adapter to use is called an `ArrayAdapter` because the adapter converts an Array of objects into View items loaded into the ListView container.
 
-The ArrayAdapter fits in the middle between the Array (data source) and the List View (representation) and describes two things:
+<img src="http://i.imgur.com/mk82Jd2.jpg" width="600" />
 
- * Which array to use as the data source
- * How to convert any item in the array to a View object
+The `ArrayAdapter` fits in between an `ArrayList` (data source) and the List View (visual representation) and configures two aspects:
+
+ * Which array to use as the data source for the list
+ * How to convert any given item in the array into a corresponding View object
 
 ## Using a Basic ArrayAdapter
 
-To use a basic ArrayAdapter, you just need to initialize the adapter and attach the adapter to the ListView. First, initialize the adapter:
+To use a basic `ArrayAdapter`, you just need to initialize the adapter and attach the adapter to the ListView. First, we initialize the adapter:
 
 ```java
 ArrayAdapter<String> itemsAdapter = 
     new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
 ```
 
-The ArrayAdapter requires the type of the item to be converted to a View to be specified and then accepts three arguments: context (activity), XML Resource, and the data array.
+The `ArrayAdapter` requires the type of the item to be converted to a View to be specified and then accepts three arguments: context (activity), XML Resource, and the data array.
 
 Now, we just need to connect the adapter to a ListView:
 
@@ -23,15 +25,15 @@ ListView listView = (ListView) findViewById(R.id.lvItems);
 listView.setAdapter(itemsAdapter);
 ```
 
-By default, this will convert each item in the array into a view by calling toString on the item and then inserting the result into a TextView that is displayed as the list item for that data. If the app requires a more complex translation between item and View, we need to create a custom ArrayAdapter. 
+By default, this will convert each item in the array into a view by calling toString on the item and then inserting the result into a `TextView` that is displayed as the row for that data item. If the app requires a more complex translation between item and View then we need to create a custom `ArrayAdapter` instead. 
 
 ## Using a Custom ArrayAdapter
 
-When we want to display a series of items into a list using a custom representation of the items, we need to use our own custom XML layout for each item. To do this, we need to create our own custom ArrayAdapter class. See [this repo for the source code](https://github.com/thecodepath/android-custom-array-adapter-demo). First, we want to have a model to represent the data within each list item.
+When we want to display a series of items into a list using a custom representation of the items, we need to use our own custom XML layout for each item. To do this, we need to create our own custom `ArrayAdapter` class. See [this repo for the source code](https://github.com/thecodepath/android-custom-array-adapter-demo). First, we often need to define a model to represent the data within each list item.
 
 ### Defining the Model
 
-Given a Java object that has certain fields:
+Given a Java object that has certain fields defined such as a `User` class:
 
 ```java
 public class User {
@@ -45,43 +47,11 @@ public class User {
 }
 ```
 
-We can create a custom listview of user objects by subclassing ArrayAdapter, describing how to translate the object into a view within that class and then using it like any other adapter.
-
-### Constructing Models
-
-In order to create models, you will likely be loading the data from a source (i.e database or JSON API), so you should create two additional methods in each model to allow for construction of a list or a singular item **if the data is coming from a JSON API**:
-
-```java
-public class User {
-    public User(JSONObject object){
-        try {
-            this.name = object.getString("name");
-            this.hometown = object.getString("hometown");
-       } catch (JSONException e) {
-            e.printStackTrace();
-       }
-    }
-
-    // User.fromJson(jsonArray);
-    public static ArrayList<User> fromJson(JSONArray jsonObjects) {
-           ArrayList<User> users = new ArrayList<User>();
-           for (int i = 0; i < jsonObjects.length(); i++) {
-               try {
-                  users.add(new User(jsonObjects.getJSONObject(i)));
-               } catch (JSONException e) {
-                  e.printStackTrace();
-               }
-          }
-          return users;
-    }
-}
-```
-
-For more details, check out our guide on [[converting JSON into a model|Converting JSON to Models]].
+We can create a custom `ListView` of `User` objects by subclassing `ArrayAdapter` to describe how to translate the object into a view within that class and then using it like any other adapter.
 
 ### Creating the View Template
 
-Next, we need to create an XML layout that represents the template for the item in `res/layout/item_user.xml`:
+Next, we need to create an XML layout that represents the view template for each item in `res/layout/item_user.xml`:
 
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -102,12 +72,12 @@ Next, we need to create an XML layout that represents the template for the item 
 
 ### Defining the Adapter
 
-Next, we need to define the Adapter to describe the process of converting the Java object to a View (in the getView method). The simpler approach to this (without view caching) is the following:
+Next, we need to define the adapter to describe the process of converting the Java object to a View (in the `getView` method). The naive approach to this (without any view caching) looks like the following:
 
 ```java
 public class UsersAdapter extends ArrayAdapter<User> {
     public UsersAdapter(Context context, ArrayList<User> users) {
-       super(context, R.layout.item_user, users);
+       super(context, 0, users);
     }
 
     @Override
@@ -130,7 +100,7 @@ public class UsersAdapter extends ArrayAdapter<User> {
 }
 ```
 
-That adapter has a constructor and a `getView()` method to describe the **translation between the data item and the View** to display.  `getView()` is the method that returns the actual view used as a row within the ListView at a particular position.  
+That adapter has a constructor and a `getView()` method to describe the **translation between the data item and the View** to display.  `getView()` is the method that returns the actual view used as a row within the `ListView` at a particular position.  
 
 ## Attaching the Adapter to a ListView
 
@@ -172,9 +142,43 @@ adapter.clear();
 
 Using the adapter now, you can add, remove and modify users and the items within the ListView will automatically reflect any changes.
 
+### Constructing Models from External Source
+
+In order to create model instances, you will likely be loading the data from an external source (i.e database or REST JSON API), so you should create two additional methods in each model to allow for construction of a list or a singular item **if the data is coming from a JSON API**:
+
+```java
+public class User {
+    // Constructor to convert JSON object into a Java class instance
+    public User(JSONObject object){
+        try {
+            this.name = object.getString("name");
+            this.hometown = object.getString("hometown");
+       } catch (JSONException e) {
+            e.printStackTrace();
+       }
+    }
+
+    // Factory method to convert an array of JSON objects into a list of objects
+    // User.fromJson(jsonArray);
+    public static ArrayList<User> fromJson(JSONArray jsonObjects) {
+           ArrayList<User> users = new ArrayList<User>();
+           for (int i = 0; i < jsonObjects.length(); i++) {
+               try {
+                  users.add(new User(jsonObjects.getJSONObject(i)));
+               } catch (JSONException e) {
+                  e.printStackTrace();
+               }
+          }
+          return users;
+    }
+}
+```
+
+For more details, check out our guide on [[converting JSON into a model|Converting JSON to Models]]. If you are not using a JSON source for your data, you can safely skip this step.
+
 ## Improving Performance with the ViewHolder Pattern
 
-To improve performance, we should modify the custom adapter by applying the **ViewHolder** pattern which speeds up the population of the ListView considerably by caching view lookups for smoother, faster loading:
+To improve performance, we should modify the custom adapter by applying the **ViewHolder** pattern which speeds up the population of the ListView considerably by caching view lookups for smoother, faster item loading:
 
 ```java
 public class UsersAdapter extends ArrayAdapter<User> {
@@ -216,6 +220,7 @@ public class UsersAdapter extends ArrayAdapter<User> {
 In this example we also have a private static class called `ViewHolder`.  Making calls to `findViewById()` is really slow in practice, and if your adapter has to call it for each View in your row for every single row then you will quickly run into performance issues.  What the ViewHolder class does is cache the call to `findViewById()`.  Once your ListView has reached the max amount of rows it can display on a screen, Android is smart enough to begin recycling those row Views.  We check if a View is recycled with `if (convertView == null)`.  If it is not null then we have a recycled View and can just change its values, otherwise we need to create a new row View.  The magic behind this is the `setTag()` method which lets us attach an arbitrary object onto a View object, which is how we save the already inflated View for future reuse.
 
 ### Beyond ViewHolders
+
 [Customizing Android ListView Rows by Subclassing](http://www.bignerdranch.com/blog/customizing-android-listview-rows-subclassing/) describes a strategy for obtaining instances of child views using a similar approach as a ViewHolder but without the explicit ViewHolder subclass.
 
 ## References
