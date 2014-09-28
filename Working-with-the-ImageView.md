@@ -117,7 +117,7 @@ ImageView image = (ImageView) findViewById(R.id.test_image);
 image.setImageBitmap(bMapScaled);
 ```
 
-You often want to resize a bitmap but preserve the aspect ratio using helpers like these:
+You often want to resize a bitmap but preserve the aspect ratio [using a BitmapScaler utility class](https://gist.github.com/nesquena/3885707fd3773c09f1bb) with code like this:
 
 ```java
 public class BitmapScaler
@@ -142,8 +142,6 @@ public class BitmapScaler
         // ...
 }
 ```
-
-See [this gist](https://gist.github.com/nesquena/3885707fd3773c09f1bb) for the full source code of this scaler utility class. 
 
 In other cases, you may want to determine the device height or width in order to resize the image accordingly. Copy this [DeviceDimensionsHelper.java](https://gist.github.com/nesquena/318b6930aac3a56f96a4) utility class to `DeviceDimensionsHelper.java` in your project and use anywhere that you have a context to determine the screen dimensions:
 
