@@ -71,6 +71,7 @@ There are many third-party libraries for Android but several of them are "must h
 
 Check out the following resources for finding libraries:
 
+ * [Android Elementals](https://github.com/cesards/AndroidElementals)
  * <http://androidlibs.org/>
  * <http://appdevwiki.com/wiki/show/HomePage>
  * <http://androidweekly.net/toolbox>
