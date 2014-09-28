@@ -18,7 +18,7 @@ Still, we would want it all to be **free and accessible to any serious engineers
 
 ## How do I help?
 
-Right now, we are [building curriculum](https://github.com/thecodepath/android_guides/wiki), [creating in-person and online bootcamps](http://codepath.com/androidbootcamp) and [running meetup events](http://www.meetup.com/Learning-Android-Development/) to change the way people learn Android (and hack with other engineers).
+Right now, we are [building curriculum](http://guides.codepath.com), [creating in-person and online bootcamps](http://codepath.com/androidbootcamp) and [running meetup events](http://www.meetup.com/Learning-Android-Development/) to change the way people learn Android (and hack with other engineers).
 
 At the moment, the best way to help is to **contribute to our guides** or tell as many developers about them as possible. If you see a missing topic, please [raise an issue](https://github.com/thecodepath/android_guides/issues) or add the wiki page yourself. A [list of missing cliffnotes](https://github.com/thecodepath/android_guides/issues/2) might be a good place to start. If you see inaccurate information, [let us know](https://github.com/thecodepath/android_guides/issues) or fix it directly! 
 
