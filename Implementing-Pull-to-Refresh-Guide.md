@@ -94,8 +94,8 @@ Next, for each ListView that we want to add pull-to-refresh functionality to, we
 ```xml
 <ListView
     android:id="@+id/pull_to_refresh_listview"
-    android:layout_height="fill_parent"
-    android:layout_width="fill_parent" />
+    android:layout_height="match_parent"
+    android:layout_width="match_parent" />
 ```
 
 would be replaced with:
@@ -103,8 +103,8 @@ would be replaced with:
 ```xml
 <eu.erikw.PullToRefreshListView
     android:id="@+id/pull_to_refresh_listview"
-    android:layout_height="fill_parent"
-    android:layout_width="fill_parent" />
+    android:layout_height="match_parent"
+    android:layout_width="match_parent" />
 ```
 
 All other properties in the XML can stay the same.

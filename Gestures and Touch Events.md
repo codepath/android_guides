@@ -93,7 +93,7 @@ Check out the [swipelistview](https://github.com/47deg/android-swipelistview#dem
  xmlns:swipe="http://schemas.android.com/apk/res-auto"
  android:id="@+id/example_lv_list"
  android:listSelector="#00000000"
- android:layout_width="fill_parent"
+ android:layout_width="match_parent"
  android:layout_height="wrap_content"
  swipe:swipeFrontView="@+id/front"
  swipe:swipeBackView="@+id/back"
@@ -108,8 +108,8 @@ and then define the individual list item layout with:
 
 ```xml
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="fill_parent"
-             android:layout_height="fill_parent">
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
     <LinearLayout
             android:id="@+id/back"
             android:tag="back"
@@ -187,8 +187,8 @@ One of the most common use cases for a pinch or pannable view is for an ImageVie
 ```xml
 <uk.co.senab.photoview.PhotoView
     android:id="@+id/iv_photo"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent" />
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
 ```
 
 and then in the Java:

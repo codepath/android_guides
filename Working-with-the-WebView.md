@@ -21,8 +21,8 @@ To add a `WebView` to your Application, simply include the `<WebView>` element i
 <?xml version="1.0" encoding="utf-8"?>
 <WebView  xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/webview"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
 />
 ```
 

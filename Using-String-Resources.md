@@ -51,7 +51,7 @@ Now that we have defined our string resource, we can access that resource in eit
 
 ```xml
 <Button
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="@string/submit_label" />
 ```

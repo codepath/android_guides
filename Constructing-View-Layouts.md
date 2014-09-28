@@ -31,10 +31,10 @@ Example of LinearLayout snippet:
   android:layout_width="match_parent"
   android:layout_height="match_parent">
    
-  <TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
+  <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
             android:text="Email:" android:padding="5dp"/>
              
-  <EditText android:layout_width="fill_parent" android:layout_height="wrap_content"
+  <EditText android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"/>            
 </LinearLayout>
 ```
@@ -52,13 +52,13 @@ An example of a RelativeLayout:
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
  
-    <TextView android:id="@+id/label" android:layout_width="fill_parent"
+    <TextView android:id="@+id/label" android:layout_width="match_parent"
               android:layout_height="wrap_content" android:text="Email" />
  
-    <EditText android:id="@+id/inputEmail" android:layout_width="fill_parent"
+    <EditText android:id="@+id/inputEmail" android:layout_width="match_parent"
               android:layout_height="wrap_content" android:layout_below="@id/label" />
    
     <Button android:id="@+id/btnLogin" android:layout_width="wrap_content"

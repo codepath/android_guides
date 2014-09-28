@@ -107,7 +107,7 @@ and can even [[autolink URLs contained within the text|Working-with-the-TextView
 ```xml
 <TextView
      android:id="@+id/custom_font"
-     android:layout_width="fill_parent"
+     android:layout_width="match_parent"
      android:layout_height="wrap_content"
      android:autoLink="all"
      android:linksClickable="true"
