@@ -123,7 +123,7 @@ You often want to resize a bitmap but preserve the aspect ratio [using a BitmapS
 public class BitmapScaler
 {
 	// Scale and maintain aspect ratio given a desired width
-        // BitmapScaler.scaleToFitWidth(bitmap, 100);
+	// BitmapScaler.scaleToFitWidth(bitmap, 100);
 	public static Bitmap scaleToFitWidth(Bitmap b, int width)
 	{
 		float factor = width / (float) b.getWidth();
@@ -132,7 +132,7 @@ public class BitmapScaler
 
 
 	// Scale and maintain aspect ratio given a desired height
-        // BitmapScaler.scaleToFitHeight(bitmap, 100);
+	// BitmapScaler.scaleToFitHeight(bitmap, 100);
 	public static Bitmap scaleToFitHeight(Bitmap b, int height)
 	{
 		float factor = height / (float) b.getHeight();
