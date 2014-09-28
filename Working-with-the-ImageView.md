@@ -147,8 +147,9 @@ In other cases, you may want to determine the device height or width in order to
 
 ```java
 // Get height or width of screen at runtime
-int screenHeight = DeviceDimensionsHelper.getDisplayHeight(this);
 int screenWidth = DeviceDimensionsHelper.getDisplayWidth(this);
+// Resize a Bitmap maintaining aspect ratio based on screen width
+BitmapScaler.scaleToFitWidth(bitmap, screenWidth);
 ```
 
 Check out [this source](http://androidsnippets.wordpress.com/2012/10/25/how-to-scale-a-bitmap-as-per-device-width-and-height/) for more information on how to scale a bitmap based instead on relative device width and height.
