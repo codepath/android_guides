@@ -285,6 +285,7 @@ This sending code can be exposed as an endpoint or utilized on the server-side t
 A simple Sinatra-based ruby application that supports these endpoints might look like:
 
 ```ruby
+# Device table with three fields (registration id, user id and platform)
 class Device
     include Mongoid::Document
     
