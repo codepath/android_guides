@@ -243,18 +243,25 @@ Note we also register the `GcmMessageHandler` as a service and setup the play se
 
 ## Step 3: Setup Web Server
 
+### Overview
+
 Your HTTP web server needs two features:
 
-- 1. Endpoint for mapping a `user_id` to an android `device_id` (`POST /devices/register`)
+- 1. Endpoint for mapping a `user_id` to an android `device_id`
 - 2. Logic for sending specified `data` messages to sets of android `device_ids`
 
-High-level details:
+### 1. Implement Registration Endpoint
 
-- 1. Endpoint for **registering a user id to a device id**
+We need an endpoint for **registering a user id to a device id**:
+
   - Probably requires a database table for user to device mappings
-  - Create a device_id and link that to a registered user for later access
+  - Create a device_id linked to a registered user for later access
   - Sample endpoint: `POST /register?user_id=123&device_id=abc`
-- 2. Code for **sending data to specified device ids**
+
+### 2. Implement Sending Logic
+
+We need code for **sending data to specified device ids**:
+
   - To send GCM pushes, send a POST request to GCM send endpoint with data and registered ids
     - `POST https://android.googleapis.com/gcm/send`
   - Request requires two headers:
@@ -274,23 +281,69 @@ High-level details:
   
 This sending code can be exposed as an endpoint or utilized on the server-side to notify users when new items are created or available.
 
+### Sample Ruby Server Implementation
+
+A simple Sinatra-based ruby application that supports these endpoints might look like:
+
+```
+class Device
+    include Mongoid::Document
+    
+    field :reg_id, :type => String
+    field :user_id, :type => String
+    field :os, :type => String, :default => 'android'    
+end
+
+# Registration endpoint mapping device_id to user_id
+# POST /register?reg_id=abc&user_id=123
+post '/register' do
+  if Device.where(reg_id: params[:reg_id]).count == 0
+    device = Device.new(:reg_id => params[:reg_id], :user => params[:user_id], :os => 'android')
+    device.save!
+  end
+end
+
+# Sending logic
+# send_gcm_message(["abc", "cdf"])
+def send_gcm_message(title, body, reg_ids)
+  # Find devices with the corresponding reg_ids
+  devices = Device.where(:reg_id => reg_ids)
+  # Construct JSON payload
+  post_args = {
+    :registration_ids => registration_ids,
+    :data => {
+      :title  => title,
+      :body => body,
+      :anything => "foobar"
+    }
+  }
+  # Send the request with JSON args and headers
+  RestClient.post 'https://android.googleapis.com/gcm/send', post_args.to_json, 
+    :Authorization => 'key=' + settings.AUTHORIZE_KEY, :content_type => :json, :accept => :json
+end
+```
+
+Now we can register users with device ids and send messages to them when necessary.
+
 ## Easy Local Testing with Ruby
 
-Install [GCM gem](https://github.com/spacialdb/gcm) with:
+We can easily send messages to GCM registered devices using the  ruby [GCM gem](https://github.com/spacialdb/gcm). First we must have [ruby installed](https://www.ruby-lang.org/en/installation/) (default on OSX) and then we can install GCM with:
 
 ```
 gem install gcm
 ```
 
-and then test sending a push with (for example open up `irb`):
+and send test pushes by running `irb` in the command-line:
 
 ```ruby
 require 'gcm'
 gcm = GCM.new("YOUR-SERVER-KEY-HERE")
-registration_ids= ["YOUR-DEVICE-ID"]
+registration_ids= ["YOUR-DEVICE-ID", "ANOTHER-DEVICE-ID"]
 options = { :data => { :title =>"foobar", :body => "this is a longer message" } }
 response = gcm.send(registration_ids, options)
 ```
+
+This will send messages to the devices specified.
 
 ## References
 
