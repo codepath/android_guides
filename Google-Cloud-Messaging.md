@@ -142,8 +142,9 @@ public class GcmBroadcastReceiver extends WakefulBroadcastReceiver {
         // Explicitly specify that GcmMessageHandler will handle the intent.
         ComponentName comp = new ComponentName(context.getPackageName(),
                 GcmMessageHandler.class.getName());
-        // Start the service, keeping the device awake while it is launching.
+        // Start the service, keeping the device awake while it is executing.
         startWakefulService(context, (intent.setComponent(comp)));
+        // Return successful
         setResultCode(Activity.RESULT_OK);
     }
 }
@@ -190,7 +191,6 @@ public class GcmMessageHandler extends IntentService {
 		Log.i("GCM", "Received : (" + messageType + ")  " + extras.getString("title"));
 		// Notify receiver the intent is completed
 		GcmBroadcastReceiver.completeWakefulIntent(intent);
-
 	}
 
 	// Creates notification based on title and body received
