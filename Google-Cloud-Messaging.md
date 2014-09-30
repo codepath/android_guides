@@ -93,32 +93,32 @@ Copy source of [GCMClientManager.java](https://gist.github.com/nesquena/fede8447
 ```java
 public class FirstActivity extends Activity {
     private GCMClientManager pushClientManager;
-	     String PROJECT_NUMBER = "<YOUR PROJECT NUMBER HERE>";
-	
-	 @Override
-	 protected void onCreate(Bundle savedInstanceState) {
-		    super.onCreate(savedInstanceState);
-		    setContentView(R.layout.activity_main);
-		    pushClientManager = new GCMClientManager(this, PROJECT_NUMBER);
-		    pushClientManager.registerIfNeeded(new RegistrationCompletedHandler() {
-		       @Override
-		       public void onSuccess(String registrationId, boolean isNewRegistration) {
-			       Toast.makeText(MainActivity.this, registrationId, 
-			          Toast.LENGTH_SHORT).show();
-			       // SEND async device registration to your back-end server 
-			       // linking user with device registration id
-			       // POST https://my-back-end.com/devices/register?user_id=123&device_id=abc
-		       }
-		
-		       @Override
-		       public void onFailure(String ex) {
-		         super.onFailure(ex);
-		         // If there is an error registering, don't just keep trying to register.
-		         // Require the user to click a button again, or perform
-		         // exponential back-off when retrying.
-		       }
-		    });
-	  }
+       String PROJECT_NUMBER = "<YOUR PROJECT NUMBER HERE>";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        pushClientManager = new GCMClientManager(this, PROJECT_NUMBER);
+        pushClientManager.registerIfNeeded(new RegistrationCompletedHandler() {
+           @Override
+           public void onSuccess(String registrationId, boolean isNewRegistration) {
+    	       Toast.makeText(MainActivity.this, registrationId, 
+    	          Toast.LENGTH_SHORT).show();
+    	       // SEND async device registration to your back-end server 
+    	       // linking user with device registration id
+    	       // POST https://my-back-end.com/devices/register?user_id=123&device_id=abc
+           }
+
+           @Override
+           public void onFailure(String ex) {
+             super.onFailure(ex);
+             // If there is an error registering, don't just keep trying to register.
+             // Require the user to click a button again, or perform
+             // exponential back-off when retrying.
+           }
+        });
+    }
 }
 ```
 	 
