@@ -79,7 +79,7 @@ In order to use GCM, we need to go through the following steps:
     - Endpoint for registering a user with a device ID
     - Endpoint for sending a push notification to a specified set of device IDs
 
-Read about [[Google Cloud Messaging]] in detail here. Check out these external links below:
+Read our [[Google Cloud Messaging]] cliffnotes for specific implementation details. Check out these external links below for reference:
 
  * <http://developer.android.com/google/gcm/gs.html>
  * [AndroidHive GCM Tutorial](http://www.androidhive.info/2012/10/android-push-notifications-using-google-cloud-messaging-gcm-php-and-mysql/)
