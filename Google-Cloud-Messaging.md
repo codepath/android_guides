@@ -196,7 +196,8 @@ public class GcmMessageHandler extends IntentService {
 	private void createNotification(String title, String body) {
 		Context context = getBaseContext();
 		NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
-				.setSmallIcon(R.drawable.ic_launcher).setContentTitle(title).setContentText(body);
+		    .setSmallIcon(R.drawable.ic_launcher).setContentTitle(title)
+		    .setContentText(body);
 		NotificationManager mNotificationManager = (NotificationManager) context
 				.getSystemService(Context.NOTIFICATION_SERVICE);
 		mNotificationManager.notify(MESSAGE_NOTIFICATION_ID, mBuilder.build());
