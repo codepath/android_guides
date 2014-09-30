@@ -1,10 +1,13 @@
 ## Overview
 
-This guide will show you how to configure an Android app to send and receive push notifications. There are several approaches to sending push notifications.
+This guide will show you how to configure an Android app to send and receive push notifications. There are several approaches to sending push notifications. The two most common are:
+
+ - [Parse Push](#parse-push) - Push wrapper around GCM that makes push simple and easy
+ - [Google Cloud Messaging](#google-cloud-messaging) - The foundation of push messaging in Android
 
 ## Parse Push
 
-One approach is to use the [Parse Push](https://parse.com/tutorials/android-push-notifications) service to send and receive push notifications.
+First approach is to use the [Parse Push](https://parse.com/tutorials/android-push-notifications) service to send and receive push notifications.
 
 ### Setup
 
@@ -60,7 +63,7 @@ A few quick things to help make implementing push notifications easier:
 
 ## Google Cloud Messaging
 
-Google Cloud Messaging for Android (GCM) is a service that allows you to send data from your server to your users' Android-powered device, and also to receive messages from devices on the same connection. 
+Second approach is the more manual one using GCM. Google Cloud Messaging for Android (GCM) is a service that allows you to send data from your server to your users' Android-powered device, and also to receive messages from devices on the same connection. 
 
 A GCM implementation includes a Google-provided connection server, a 3rd-party app server that interacts with the connection server, and a GCM-enabled client app running on an Android device:
 
