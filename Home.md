@@ -169,7 +169,8 @@ Digging into how to run background services or leverage Android system services:
 
 * [[Starting Background Services]] (with IntentService and Receivers)
 * [[Notifications]] (Persistent Notices on the Dashboard)
-* [[Push Messaging]] (**Needs Attention**)
+* [[Push Messaging]]
+* [[Google Cloud Messaging]]
 * [[Real-time Messaging]] (**Needs Attention**)
 
 ## Workflow Guides
