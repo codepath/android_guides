@@ -169,11 +169,6 @@ public class GcmMessageHandler extends IntentService {
 	}
 
 	@Override
-	public void onCreate() {
-		super.onCreate();
-	}
-
-	@Override
 	protected void onHandleIntent(Intent intent) {
 		// Retrieve data extras from push notification
 		Bundle extras = intent.getExtras();
