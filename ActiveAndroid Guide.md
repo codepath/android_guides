@@ -156,9 +156,67 @@ public class Item extends Model {
 
 That's ActiveAndroid in a nutshell. 
 
-#### Content Providers
+#### Executing Custom SQL
 
-First, override the default identity column for all ActiveAndroid models:
+To run custom SQL with no need for a result, use the `SQLiteUtils.execSql` method:
+
+```java
+// Note nothing is returned from this
+SQLiteUtils.execSql("DELETE FROM table_name");
+```
+
+If you need to execute a custom query and want to get a `List` of items back use `SQLiteUtils.rawQuery`:
+
+```java
+List<TodoItem> importantItems = 
+  SQLiteUtils.rawQuery(TodoItem.class, 
+     "SELECT * from todo_items where priority = ?", 
+     new String[] { "high" });
+```
+
+See [SQLiteUtils implementation](https://github.com/pardom/ActiveAndroid/blob/master/src/com/activeandroid/util/SQLiteUtils.java#L105) for more details.
+
+#### Populating ListView with CursorAdapter
+
+Review this [[Custom CursorAdapter and ListViews|Populating a ListView with a CursorAdapter]] guide in order to load content from a `Cursor` into a `ListView`. In summary, in order to populate a `ListView` directly from the content within the ActiveAndroid SQLite database, we we can define this method on the model to retrieve a `Cursor` for the result set:
+
+```java
+public class TodoItem extends Model {
+    // ...
+
+    // Return cursor for result set for all todo items
+    public static Cursor fetchResultCursor() {
+        String tableName = Cache.getTableInfo(TodoItem.class).getTableName();
+        // Query all items without any conditions
+        String resultRecords = new Select(tableName + ".*, " + tableName + ".Id as _id").
+            from(TodoItem.class).toSql();
+        // Execute query on the underlying ActiveAndroid SQLite database
+        Cursor resultCursor = Cache.openDatabase().rawQuery(resultRecords, null);
+        return resultCursor;
+    }
+}
+```
+
+We need to define a custom `TodoCursorAdapter` as [[outlined here|Populating-a-ListView-with-a-CursorAdapter#defining-the-adapter]] in order to define which XML template to use for the cursor rows and how to populate the template views with the relevant data. 
+
+Next, we can fetch the data cursor containing all todo items with `TodoItem.fetchResultCursor()` and populate the `ListView` using our custom `CursorAdapter`:
+
+```java
+// Find ListView to populate
+ListView lvItems = (ListView) findViewById(R.id.lvItems);
+// Get data cursor
+Cursor todoCursor = TodoItem.fetchResultCursor();
+// Setup cursor adapter
+TodoCursorAdapter todoAdapter = new TodoCursorAdapter(this, todoCursor);
+// Attach cursor adapter to ListView 
+lvItems.setAdapter(todoAdapter);
+```
+
+That's all we have to do to load data from ActiveAndroid directly through a `Cursor` into a list.
+
+#### Loading with Content Providers
+
+Instead of using the underlying SQLite database directly, we can instead expose the ActiveAndroid data as a content provider with a few simple additions. First, override the default identity column for all ActiveAndroid models:
 
 ```java
 @Table(name = "Items", id = BaseColumns._ID)
@@ -168,18 +226,24 @@ public class Item extends Model { ... }
 Then you can the [SimpleCursorAdapter](http://developer.android.com/reference/android/widget/SimpleCursorAdapter.html) to populate adapters using the underlying database directly:
 
 ```java
-myListView.setAdapter(new SimpleCursorAdapter(getActivity(),
-        android.R.layout.simple_list_item_1,
-        null,
-        new String[] { "MyProperty" },
-        new int[] { android.R.id.text1 },
-        0));
+// Define a SimpleCursorAdapter loading the body into the TextView in simple_list_item_1
+SimpleCursorAdapter adapterTodo = new SimpleCursorAdapter(getActivity(),
+  android.R.layout.simple_list_item_1, null,
+  new String[] { "body" },
+  new int[] { android.R.id.text1 },
+  0);
+// Attach the simple adapter to the list
+myListView.setAdapter(adapterTodo);
+```
 
-getActivity().getSupportLoaderManager().initLoader(0, null, new LoaderCallbacks<Cursor>() {
+You could also use [[a custom CursorAdapter|Populating a ListView with a CursorAdapter#defining-the-adapter]] instead for more flexibility. Next, we can load the data into the list using the content provider system through a `CursorLoader`:
+
+```java
+MyActivity.this.getSupportLoaderManager().initLoader(0, null, new LoaderCallbacks<Cursor>() {
         @Override
-        public Loader<Cursor> onCreateLoader(int arg0, Bundle cursor) {
-            return new CursorLoader(getActivity(),
-                ContentProvider.createUri(MyEntityClass.class, null),
+        public Loader<Cursor> onCreateLoader(int id, Bundle cursor) {
+            return new CursorLoader(MyActivity.this,
+                ContentProvider.createUri(TodoItem.class, null),
                 null, null, null, null
             );
         }
@@ -187,7 +251,7 @@ getActivity().getSupportLoaderManager().initLoader(0, null, new LoaderCallbacks<
 });
 ```
 
-You must also have the following provider in your AndroidManifest.xml:
+You must also register the content provider in your AndroidManifest.xml:
 
 ```xml
 <application ...>
