@@ -202,7 +202,15 @@ public class GcmMessageHandler extends IntentService {
 }
 ```
 
-Note that above, the push is handled by simply creating a notification. You may want to perform another action instead as [outlined in this more elaborate example](https://github.com/thecodepath/ParsePushNotificationExample/blob/master/src/com/test/MyCustomReceiver.java).
+Note that above the push message is handled by creating a notification. There are a few actions that are commonly taken when a push is received:
+
+ * [[Create a notification|Notifications#creating-a-notification]]
+ * [[Update an Activity|Starting-Background-Services#communicating-from-a-service-to-an-application]]
+ * [Launch New activity](https://github.com/thecodepath/ParsePushNotificationExample/blob/master/src/com/test/MyCustomReceiver.java#L69)
+
+You can review examples of these [outlined in this more elaborate code sample](https://github.com/thecodepath/ParsePushNotificationExample/blob/master/src/com/test/MyCustomReceiver.java). 
+
+In certain cases when receiving a push, you want to update an activity if the activity is on the screen. Otherwise, you want to raise a notification. The solutions to this are [outlined in this post](http://stackoverflow.com/a/18311830/313399) with a [code sample here](http://stackoverflow.com/a/15949723/313399).
 
 ### Register with Manifest
 
