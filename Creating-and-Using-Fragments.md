@@ -45,7 +45,7 @@ public class FooFragment extends Fragment {
       // Defines the xml file for the fragment
       View view = inflater.inflate(R.layout.foo, container, false);
       // Setup handles to view objects here
-      // etFoo = (EditText) v.findViewById(R.id.etFoo);
+      // etFoo = (EditText) view.findViewById(R.id.etFoo);
       return view;
     }
 }
