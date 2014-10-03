@@ -206,7 +206,7 @@ Note that above the push message is handled by creating a notification. There ar
 
  * [[Create a notification|Notifications#creating-a-notification]]
  * [[Update an Activity|Starting-Background-Services#communicating-from-a-service-to-an-application]]
- * [Launch New activity](https://github.com/thecodepath/ParsePushNotificationExample/blob/master/src/com/test/MyCustomReceiver.java#L69)
+ * [Launch new activity](https://github.com/thecodepath/ParsePushNotificationExample/blob/master/src/com/test/MyCustomReceiver.java#L69)
 
 You can review examples of these [outlined in this more elaborate code sample](https://github.com/thecodepath/ParsePushNotificationExample/blob/master/src/com/test/MyCustomReceiver.java). 
 
