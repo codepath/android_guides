@@ -1,8 +1,8 @@
-In Android development, any time you want to show a vertical list of items you will want to use a ListView which is populated using an Adapter. The simplest adapter to use is called an `ArrayAdapter` because the adapter converts an Array of objects into View items loaded into the ListView container.
+In Android development, any time we want to show a vertical list of scrollable items we will use a `ListView` which has data populated using an `Adapter`. The simplest adapter to use is called an `ArrayAdapter` because the adapter converts an `ArrayList` of objects into `View` items loaded into the `ListView` container.
 
 <img src="http://i.imgur.com/mk82Jd2.jpg" width="600" />
 
-The `ArrayAdapter` fits in between an `ArrayList` (data source) and the List View (visual representation) and configures two aspects:
+The `ArrayAdapter` fits in between an `ArrayList` (data source) and the `ListView` (visual representation) and configures two aspects:
 
  * Which array to use as the data source for the list
  * How to convert any given item in the array into a corresponding View object
