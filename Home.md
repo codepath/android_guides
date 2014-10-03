@@ -139,6 +139,7 @@ Exploring the strategies for data persistence:
 * [[ActiveAndroid ORM References|ActiveAndroid Guide]] (and Q&A)
 * [[Clean Persistence with Sugar ORM]] (Integration, Installation, Queries, Migrations)
 * [[Storing and Accessing SharedPreferences]]
+* [[Populating a ListView with a CursorAdapter]]
 * [[Settings with PreferenceFragment]] (**Needs Attention**)
 
 ## Fragments
