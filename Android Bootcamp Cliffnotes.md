@@ -34,6 +34,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[ActiveAndroid Tips and Q&A|ActiveAndroid Guide]]
 * [[RottenTomatoes Networking Tutorial]]
 * [[Building Data driven Apps with Parse]]
+* [[Local Databases with SQLiteOpenHelper]]
 * [[Populating a ListView with a CursorAdapter]]
 
 ### Week 4 - Advanced Views and Fragments
