@@ -1,4 +1,4 @@
-## Troubleshooting Q&A
+## Common Questions 
 
 > Can't save object, I get "com.parse.ParseException: object not found for update"
 
