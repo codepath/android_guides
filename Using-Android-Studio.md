@@ -21,6 +21,27 @@ Also, you should be able to do the same with Maven dependencies.  go to Project 
 
 Regardless, you should keep track of what gets changed in the build.gradle since that is ultimately the file Android Studio uses to handle dependency management.
 
+## Use Gradle wrapper
+
+[Gradle wrapper](http://developer.android.com/sdk/installing/studio-build.html#gradleWrapper) allows you to seamlessly work with multiple projects that require different versions of Gradle. 
+
+Depending on the version of Android Studio you're using, you might get cryptic errors messages when compiling a project if Gradle Wrapper is missing. It might help to start with one:
+
+1. Add a `gradle-wrapper.jar` in `gradle/wrapper`
+2. Add a `properties` file like so:
+
+```
+distributionBase=GRADLE_USER_HOME
+distributionPath=wrapper/dists
+zipStoreBase=GRADLE_USER_HOME
+zipStorePath=wrapper/dists
+distributionUrl=http\://services.gradle.org/distributions/gradle-1.12-all.zip
+```
+
+## Preferred keyboard shortcuts
+
+It's possible to choose different keyboard shortcuts from common IDEs to continue to be productive in Android Studio. Go to `Apple -> Search for 'shortcuts' -> Select Keymap` -> Choose from drop down.
+
 ## Other Notes
 
 * One useful tip -- inside Edit->Run Configurations, make sure to clear LogCat per
