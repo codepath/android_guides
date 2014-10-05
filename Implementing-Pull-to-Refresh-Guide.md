@@ -6,6 +6,8 @@ In Android, the common "pull to refresh" UX concept is not built in to a ListVie
 
 [SwipeRefreshLayout](https://developer.android.com/reference/android/support/v4/widget/SwipeRefreshLayout.html) is a ViewGroup that can hold only one scrollable view as a child. This can be either a `ScrollView` or an `AdapterView` such as a `ListView`. 
 
+**Note:** This layout only exists within more recent versions of support-v4 as [explained in this post](http://stackoverflow.com/a/23325011/313399). You must download and use a [recent jar](https://dl-ssl.google.com/android/repository/support_r20.zip) of the support library for this to work.
+
 ### Step 1: Wrap ListView
 
 We can use this by first wrapping the scrollable view with a `SwipeRefreshLayout` in the XML layout:
@@ -74,8 +76,6 @@ public class TimelineActivity extends Activity {
     }
 }
 ```
-
-**Note:** This layout only exists within more recent versions of support-v4 as [explained in this post](http://stackoverflow.com/a/23325011/313399). You must download and use later versions of the support library for this to work.
 
 ## Using Third-Party Library
 
