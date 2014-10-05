@@ -76,10 +76,12 @@ public class TodoItemDatabase extends SQLiteOpenHelper {
     	// SQL for creating the tables
     }
  
-    // This method is called when database is upgraded like modifying the table structure, 
+    // This method is called when database is upgraded like 
+    // modifying the table structure, 
     // adding constraints to database, etc
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, 
+        int newVersion) {
     	// SQL for upgrading the tables
     }
 }
