@@ -273,9 +273,14 @@ public class SQLiteExampleActivity extends Activity {
 
 **Note:** In many cases, rather than interacting with SQL directly, Android apps can leverage one of the many available [[higher-level ORMs|Persisting-Data-to-the-Device#object-relational-mappers]] (object relational mappers) to persist Java models to a database table instead.
 
+## Working with Multiple Tables
+
+Once you understand the basics of SQLite above, be sure to review [this more advanced tutorial](http://www.androidhive.info/2013/09/android-sqlite-database-with-multiple-tables/) which explores working with SQLite when you have multiple associated tables.
+
 ## References
 
 * [Vogella SQLite Tutorial](http://www.vogella.com/articles/AndroidSQLite/article.html)
 * [AndroidHive Tutorial](http://www.androidhive.info/2011/11/android-sqlite-database-tutorial/)
 * [Techotopia Tutorial](http://www.techotopia.com/index.php/An_Android_SQLite_Database_Tutorial)
 * [Programming Android SQLite Tutorial](https://github.com/bmeike/ProgrammingAndroidExamples/tree/master/MicroJobs/src/com/oreilly/demo/android/pa/microjobs)
+* [Multiple Tables](http://www.androidhive.info/2013/09/android-sqlite-database-with-multiple-tables/)
