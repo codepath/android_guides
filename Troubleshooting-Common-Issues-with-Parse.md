@@ -44,7 +44,6 @@ Steps to import [ParseUI](https://github.com/ParsePlatform/ParseUI-Android) into
 
 It looks like public read access to data is necessary for local datastore to work. Local datastore returned no results when role-specific read access was setup.
 
-
 ## Caching vs. Pinning
 
 Even though it may not be apparent from Parse documentation, [caching](https://parse.com/docs/android_guide#queries-caching) and [pinning](https://parse.com/docs/android_guide#localdatastore-pin) are different concepts. Mixing the two results in an exception like so:
