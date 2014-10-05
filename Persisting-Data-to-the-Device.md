@@ -61,9 +61,31 @@ You can also inspect and transfer files to emulators or devices using the DDMS F
 
 ### SQLite
 
-For maximum control, developers can use SQLite directly by leveraging the [SQLiteOpenHelper](http://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper.html) for executing SQL requests and managing a local database. 
+For maximum control, developers can use SQLite directly by leveraging the [SQLiteOpenHelper](http://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper.html) for executing SQL requests and managing a local database:
 
-Check out our [[managing databases with SQLiteOpenHelper|Local-Databases-with-SQLiteOpenHelper]] guide for a more detailed look. In many cases, rather than interacting with SQL directly, Android apps can leverage one of the many available higher-level ORMs (object relational mappers) to persist Java models to a database table as shown below.
+```java
+public class TodoItemDatabase extends SQLiteOpenHelper { 
+    public TodoItemDatabase(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+ 
+    // These is where we need to write create table statements. 
+    // This is called when database is created.
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+    	// SQL for creating the tables
+    }
+ 
+    // This method is called when database is upgraded like modifying the table structure, 
+    // adding constraints to database, etc
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+    	// SQL for upgrading the tables
+    }
+}
+```
+
+Check out our [[managing databases with SQLiteOpenHelper|Local-Databases-with-SQLiteOpenHelper]] guide for a more detailed look at working with SQLite. In many cases, rather than interacting with SQL directly, Android apps can leverage one of the many available higher-level ORMs (object relational mappers) to persist Java models to a database table as shown below.
 
 ### Object Relational Mappers
 
