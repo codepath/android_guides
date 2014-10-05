@@ -1,4 +1,4 @@
-## Common Questions 
+## Common Issues 
 
 > Can't save object, I get "com.parse.ParseException: object not found for update"
 
@@ -39,85 +39,6 @@ Steps to import [ParseUI](https://github.com/ParsePlatform/ParseUI-Android) into
    * Update `strings.xml` with your parse/facebook/twitter keys.
 3. Clean and rebuild newly created eclipse project.
 4. Run project
-
-## Begin with proper ACLs
-
-Parse takes its [access control lists](https://parse.com/docs/android_guide#users-acls) very seriously--every object has public read and _owner-only_ write access by default. If you have multiple users adding data to your Parse application and they are not all part of the same [role](https://parse.com/docs/android_guide#roles), it's possible that data created by one user cannot be modified by another. The error message is rather cryptic:
-
-```
-exception: com.parse.ParseException: object not found for update
-```
-
-Review related threads [here](https://parse.com/questions/comparseparseexception-object-not-found-for-update-error-when-the-object-exists), [here](https://www.parse.com/questions/android-object-not-found-for-update) and also [here](https://parse.com/questions/how-to-update-objects-in-android).
-
-**Note**: It may **not** be possible to fix the ACLs manually for all rows in Parse DB and they keep reverting to their original values.
-
-### Solution
-
-As a one-time operation, fix your ACLs.
-
-```java
-
-// Define a new role with desired read and write access.
-final ParseACL roleACL = new ParseACL();
-roleACL.setPublicReadAccess(true);
-final ParseRole role = new ParseRole("Engineer", roleACL);
- 
-// Add users to this role.
-final ParseQuery<ParseUser> userQuery = ParseUser.getQuery();
-userQuery.findInBackground(new FindCallback<ParseUser>() {
-   @Override
-   public void done(List<ParseUser> parseUsers, ParseException e) {
-      if (e == null) {
-         for (final ParseUser user : parseUsers) {
-            role.getUsers().add(user);
-         }
- 
-         role.saveInBackground(new SaveCallback() {
-            @Override
-            public void done(ParseException e) {
-               if (e == null) {
-                  Log.d("debug", "Saved role " + role.getName());
-               } else {
-                  Log.d("debug", "Couldn't save role " + e.toString());
-               }
-            }
-         });
-      } else {
-         Log.d("debug", "Couldn't get users " + e.toString());
-      }
-   }
-});
-```
-
-```java
-// Set ACLs on the data based on the role.
-final ParseQuery<ParseObject> query = ...
-final ParseACL roleACL = new ParseACL();
-roleACL.setPublicReadAccess(true);
-roleACL.setRoleReadAccess("Engineer", true);
-roleACL.setRoleWriteAccess("Engineer", true);
-query.findInBackground(new FindCallback<ParseObject>() {
-
-   @Override
-   public void done(List<ParseObject> parseObjects, ParseException e) {
-      for (ParseObject obj : parseObjects) {
-         final MyObj myObj = (MyObj) obj;
-         myObj.setACL(roleACL);
-         myObj.saveInBackground(...) { }
-});
-```
-
-For every new object accessible by this role, be sure to set the ACL too.
-
-```java
-final ParseACL roleACL = new ParseACL();
-roleACL.setPublicReadAccess(true);
-roleACL.setRoleReadAccess("Engineer", true);
-roleACL.setRoleWriteAccess("Engineer", true);
-myObj.setACL(reportACL);
-```
-
 
 ## Local Datastore and Public Read Access
 
@@ -207,4 +128,82 @@ pinDataLocally(data) {
 persistDataRemotely(data) {
    data.saveEventually(...) { ... }
 }
+```
+
+## Configuring Proper ACLs
+
+Parse takes its [access control lists](https://parse.com/docs/android_guide#users-acls) very seriously--every object has public read and _owner-only_ write access by default. If you have multiple users adding data to your Parse application and they are not all part of the same [role](https://parse.com/docs/android_guide#roles), it's possible that data created by one user cannot be modified by another. The error message is rather cryptic:
+
+```
+exception: com.parse.ParseException: object not found for update
+```
+
+Review related threads [here](https://parse.com/questions/comparseparseexception-object-not-found-for-update-error-when-the-object-exists), [here](https://www.parse.com/questions/android-object-not-found-for-update) and also [here](https://parse.com/questions/how-to-update-objects-in-android).
+
+**Note**: It may **not** be possible to fix the ACLs manually for all rows in Parse DB and they keep reverting to their original values.
+
+### Solution
+
+As a one-time operation, fix your ACLs.
+
+```java
+
+// Define a new role with desired read and write access.
+final ParseACL roleACL = new ParseACL();
+roleACL.setPublicReadAccess(true);
+final ParseRole role = new ParseRole("Engineer", roleACL);
+ 
+// Add users to this role.
+final ParseQuery<ParseUser> userQuery = ParseUser.getQuery();
+userQuery.findInBackground(new FindCallback<ParseUser>() {
+   @Override
+   public void done(List<ParseUser> parseUsers, ParseException e) {
+      if (e == null) {
+         for (final ParseUser user : parseUsers) {
+            role.getUsers().add(user);
+         }
+ 
+         role.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+               if (e == null) {
+                  Log.d("debug", "Saved role " + role.getName());
+               } else {
+                  Log.d("debug", "Couldn't save role " + e.toString());
+               }
+            }
+         });
+      } else {
+         Log.d("debug", "Couldn't get users " + e.toString());
+      }
+   }
+});
+```
+
+```java
+// Set ACLs on the data based on the role.
+final ParseQuery<ParseObject> query = ...
+final ParseACL roleACL = new ParseACL();
+roleACL.setPublicReadAccess(true);
+roleACL.setRoleReadAccess("Engineer", true);
+roleACL.setRoleWriteAccess("Engineer", true);
+query.findInBackground(new FindCallback<ParseObject>() {
+
+   @Override
+   public void done(List<ParseObject> parseObjects, ParseException e) {
+      for (ParseObject obj : parseObjects) {
+         final MyObj myObj = (MyObj) obj;
+         myObj.setACL(roleACL);
+         myObj.saveInBackground(...) { }
+});
+```
+
+For every new object accessible by this role, be sure to set the ACL too.
+
+```java
+final ParseACL roleACL = new ParseACL();
+roleACL.setPublicReadAccess(true);
+roleACL.setRoleReadAccess("Engineer", true);
+roleACL.setRoleWriteAccess("Engineer", true);
+myObj.setACL(reportACL);
 ```
