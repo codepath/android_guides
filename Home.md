@@ -137,9 +137,10 @@ Exploring the strategies for data persistence:
 
 * [[Persisting Data to the Device]] (Preferences, Files, SQLite, ORMs)
 * [[ActiveAndroid ORM References|ActiveAndroid Guide]] (and Q&A)
-* [[Clean Persistence with Sugar ORM]] (Integration, Installation, Queries, Migrations)
 * [[Storing and Accessing SharedPreferences]]
+* [[Local Databases with SQLiteOpenHelper]]
 * [[Populating a ListView with a CursorAdapter]]
+* [[Clean Persistence with Sugar ORM]] (Integration, Installation, Queries, Migrations)
 * [[Settings with PreferenceFragment]] (**Needs Attention**)
 
 ## Fragments
