@@ -8,6 +8,7 @@ Content providers support the four basic operations, normally called CRUD-operat
 
 ## References
 
+* <http://code.tutsplus.com/tutorials/android-sdk_content-providers--mobile-5549>
 * <http://www.grokkingandroid.com/android-tutorial-writing-your-own-content-provider/>
 * <http://developer.android.com/guide/topics/providers/content-providers.html>
 * <https://thenewcircle.com/s/post/1375/android_content_provider_tutorial>
