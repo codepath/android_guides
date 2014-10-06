@@ -159,7 +159,7 @@ Understanding how to build powerful and flexible views using Fragments:
 
 ## Sensors and Device SDKs
 
-Exploring sensors, data and components available via the Android SDK:
+Exploring sensors and components available via the Android SDK:
 
 * [[Accessing the Camera and Stored Media]] (Camera, Photo Roll)
 * [[Listening to Sensors and Location]] (Light, Accelerometer, Location)
