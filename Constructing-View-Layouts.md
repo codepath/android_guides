@@ -108,6 +108,14 @@ Example of FrameLayout snippet:
 
 In this example, an `ImageView` is set to the full size of the `FrameLayout`.  We then draw two `TextView`'s over it.
 
+## Optimizing Layout Performance
+
+To optimize layout performance, minimize the number of instantiated layouts and especially minimize deep nested layouts whenever possible. This is why you should generally use a `RelativeLayout` whenever possible instead of nested `LinearLayout`. Review the following references for more detail on optimizing your view hierarchy:
+
+- [Android Layout Tricks](http://android-developers.blogspot.ca/2009/02/android-layout-tricks-1.html?m=1)
+- [Optimizing Layouts](http://developer.android.com/training/improving-layouts/optimizing-layout.html)
+- [Layout Optimization](http://code.tutsplus.com/tutorials/android-sdk-tools-layout-optimization--mobile-5245)
+
 ## References
 
  * <http://developer.android.com/guide/topics/ui/declaring-layout.html>
