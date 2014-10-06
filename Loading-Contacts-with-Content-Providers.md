@@ -423,3 +423,4 @@ Now we have completed the process of loading the contacts into our list using a 
  * <https://developer.android.com/training/load-data-background/setup-loader.html>
  * <http://www.compiletimeerror.com/2013/12/how-to-use-android-cursorloader.html#.VDHm9GRdUt0>
  * <http://developer.android.com/reference/android/widget/SimpleCursorAdapter.html>
+ * <http://www.higherpass.com/Android/Tutorials/Working-With-Android-Contacts/>
