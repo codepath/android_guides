@@ -119,8 +119,8 @@ public class ContactFetcher {
 		final String[] numberProjection = new String[] { Phone.NUMBER, Phone.TYPE, };
 		Cursor phone = new CursorLoader(context, Phone.CONTENT_URI, numberProjection,
 				Phone.CONTACT_ID + "= ?", 
-                                new String[] { String.valueOf(contact.id) },
-                                null).loadInBackground();
+				new String[] { String.valueOf(contact.id) },
+				null).loadInBackground();
 
 		if (phone.moveToFirst()) {
 			final int contactNumberColumnIndex = phone.getColumnIndex(Phone.NUMBER);
@@ -147,8 +147,8 @@ public class ContactFetcher {
 
 		Cursor email = new CursorLoader(context, Email.CONTENT_URI, emailProjection,
 				Email.CONTACT_ID + "= ?", 
-                                new String[] { String.valueOf(contact.id) },
-                                null).loadInBackground();
+				new String[] { String.valueOf(contact.id) },
+				null).loadInBackground();
 
 		if (email.moveToFirst()) {
 			final int contactEmailColumnIndex = email.getColumnIndex(Email.DATA);
