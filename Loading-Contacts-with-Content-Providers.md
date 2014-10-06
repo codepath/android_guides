@@ -412,6 +412,7 @@ Now we have completed the process of loading the contacts into our list using a 
 
 ## References
 
+ * <http://code.tutsplus.com/tutorials/android-sdk_loading-data_cursorloader--mobile-5673>
  * <http://www.app-solut.com/blog/2011/03/working-with-the-contactscontract-to-query-contacts-in-android/>
  * <https://developer.android.com/training/load-data-background/setup-loader.html>
  * <http://www.compiletimeerror.com/2013/12/how-to-use-android-cursorloader.html#.VDHm9GRdUt0>
