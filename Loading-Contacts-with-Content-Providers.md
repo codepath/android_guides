@@ -246,6 +246,7 @@ and creating the adapter item xml:
         android:layout_alignBaseline="@+id/tvPhone"
         android:layout_alignBottom="@+id/tvPhone"
         android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/tvPhone"
         android:text="bob@fake.com"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
