@@ -118,7 +118,7 @@ public class ContactFetcher {
 		// Get numbers
 		final String[] numberProjection = new String[] { Phone.NUMBER, Phone.TYPE, };
 		Cursor phone = new CursorLoader(context, Phone.CONTENT_URI, numberProjection,
-				RawContacts.CONTACT_ID + "= ?", 
+				Phone.CONTACT_ID + "= ?", 
                                 new String[] { String.valueOf(contact.id) },
                                 null).loadInBackground();
 
@@ -146,7 +146,7 @@ public class ContactFetcher {
 		final String[] emailProjection = new String[] { Email.DATA, Email.TYPE };
 
 		Cursor email = new CursorLoader(context, Email.CONTENT_URI, emailProjection,
-				RawContacts.CONTACT_ID + "= ?", 
+				Email.CONTACT_ID + "= ?", 
                                 new String[] { String.valueOf(contact.id) },
                                 null).loadInBackground();
 
@@ -188,7 +188,7 @@ public class ContactsAdapter extends ArrayAdapter<Contact> {
 		// Get the data item
 		Contact contact = getItem(position);
 		// Check if an existing view is being reused, otherwise inflate the view
-		View view = convertView;
+		View view = convertView; 
 		if (view == null) {
 			LayoutInflater inflater = LayoutInflater.from(getContext());
 			view = inflater.inflate(R.layout.adapter_contact_item, parent, false);
@@ -198,6 +198,8 @@ public class ContactsAdapter extends ArrayAdapter<Contact> {
 		TextView tvEmail = (TextView) view.findViewById(R.id.tvEmail);
 		TextView tvPhone = (TextView) view.findViewById(R.id.tvPhone);
 		tvName.setText(contact.name);
+		tvEmail.setText("");
+		tvPhone.setText("");
 		if (contact.emails.size() > 0 && contact.emails.get(0) != null) {
 			tvEmail.setText(contact.emails.get(0).address);
 		}
@@ -247,6 +249,7 @@ and creating the adapter item xml:
         android:layout_alignBottom="@+id/tvPhone"
         android:layout_alignParentRight="true"
         android:layout_toRightOf="@+id/tvPhone"
+        android:paddingLeft="5dp"
         android:text="bob@fake.com"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
