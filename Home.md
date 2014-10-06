@@ -143,6 +143,8 @@ Exploring the strategies for data persistence:
 * [[Populating a ListView with a CursorAdapter]]
 * [[Clean Persistence with Sugar ORM]] (Integration, Installation, Queries, Migrations)
 * [[Settings with PreferenceFragment]] (**Needs Attention**)
+* [[Loading Contacts with Content Providers]] (CursorLoader, LoaderManager)
+* [[Creating Content Providers]] (**Needs Attention**)
 
 ## Fragments
 
@@ -155,17 +157,15 @@ Understanding how to build powerful and flexible views using Fragments:
 * [[Flexible User Interfaces]] (with Fragments)
 * [[ViewPager with FragmentPagerAdapter]]
 
-## Providers, Sensors and Components
+## Sensors and Device SDKs
 
 Exploring sensors, data and components available via the Android SDK:
 
-* [[Loading Contacts with Content Providers]] (CursorLoader, LoaderManager)
 * [[Accessing the Camera and Stored Media]] (Camera, Photo Roll)
 * [[Listening to Sensors and Location]] (Light, Accelerometer, Location)
 * [[Video and Audio Playback and Recording]] (MediaPlayer, VideoView)
 * [[Google Maps Setup Guide|Google Maps Fragment Guide]] (and [[Setup Genymotion|Google-Maps-Fragment-Guide#setup-emulator]])
 * [[Google Maps API v2 Usage]] (Markers, InfoWindow)
-* [[Creating Content Providers]] (**Needs Attention**)
 
 ## Services
 
