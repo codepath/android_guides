@@ -159,7 +159,7 @@ Understanding how to build powerful and flexible views using Fragments:
 
 Exploring sensors, data and components available via the Android SDK:
 
-* [[Loading Contacts with Content Providers]]
+* [[Loading Contacts with Content Providers]] (CursorLoader, LoaderManager)
 * [[Accessing the Camera and Stored Media]] (Camera, Photo Roll)
 * [[Listening to Sensors and Location]] (Light, Accelerometer, Location)
 * [[Video and Audio Playback and Recording]] (MediaPlayer, VideoView)
