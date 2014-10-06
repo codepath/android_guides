@@ -2,7 +2,7 @@
 
 The following guide walks step by step through loading contacts from the phone using Content Providers. See [the full sample here](https://github.com/thecodepath/contacts-loader-example) for the source code. 
 
-Note that this is loading the content synchronously which should be avoided and parses the contacts with their numbers and emails into an `ArrayList`. For an example of how to load contacts asynchronously and using a `CursorAdapter`, jump down to the [[the CursorAdapter section|#using-cursorloader-and-simplecursoradapter]] farther down instead.
+Note that this is loading the content synchronously which should be avoided and parses the contacts with their numbers and emails into an `ArrayList`. For an example of how to load contacts asynchronously and using a `CursorAdapter`, jump down to the [[the CursorAdapter section|Loading-Contacts-with-Content- Providers#using-cursorloader-and-simplecursoradapter]] farther down instead.
 
 ### Permissions
 
