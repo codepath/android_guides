@@ -141,7 +141,7 @@ Exploring the strategies for data persistence:
 * [[Storing and Accessing SharedPreferences]]
 * [[Local Databases with SQLiteOpenHelper]]
 * [[Populating a ListView with a CursorAdapter]]
-* [[Clean Persistence with Sugar ORM]] (Integration, Installation, Queries, Migrations)
+* [[Clean Persistence with Sugar ORM]] (Installation, Queries, Migrations)
 * [[Settings with PreferenceFragment]] (**Needs Attention**)
 * [[Loading Contacts with Content Providers]] (CursorLoader, LoaderManager)
 * [[Creating Content Providers]] (**Needs Attention**)
