@@ -371,9 +371,9 @@ Create another xml file to combine both the drawable states under res > drawable
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
  
-    <item android:drawable="@drawable/list_item_bg_normal" android:state_activated="false"/>
     <item android:drawable="@drawable/list_item_bg_pressed" android:state_pressed="true"/>
     <item android:drawable="@drawable/list_item_bg_pressed" android:state_activated="true"/>
+    <item android:drawable="@drawable/list_item_bg_normal" android:state_activated="false"/>
  
 </selector>
 ```
