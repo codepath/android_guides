@@ -145,7 +145,7 @@ The `stroke` is the border properties and `solid` is the background color of the
 />
 ```
 
-See [this stackoverflow post](http://stackoverflow.com/a/3264140) for more details. 
+See [this stackoverflow post about setting borders](http://stackoverflow.com/a/3264140) for more details.  If you want to have a border on just one edge of a view, this is unfortunately more difficult to do but can be achieved with layer lists as [described in this post about borders on one edge](http://stackoverflow.com/a/4313329).
 
 #### How do I customize the style of a button?
 
