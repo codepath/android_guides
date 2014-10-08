@@ -23,21 +23,29 @@ After you have run that it is safe for you to begin adding markers.
 
 ### Adding Markers to Map Fragment
 
+We can add a marker to the map with the following code specifying the position (`LatLng`), icon (`BitmapDescriptor`), title, and snippet:
+
 ```java
+// Use green marker icon
+BitmapDescriptor defaultMarker =
+    BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN);
+// listingPosition is a LatLng point
 Marker mapMarker = mapFragment.addMarker(new MarkerOptions()
     .position(listingPosition)					 								    
     .title(listing.name)
-    .snippet("Hours: " + listing.hoursOpen + " - "						 						  
-        + listing.hoursClose)
-    .icon(BitmapDescriptorFactory.fromResource(getMarkerType(listing.marker))));
+    .snippet("Open at: " + listing.hoursOpen)
+    .icon(defaultMarker));
 ```
 
 ### Show AlertDialog on LongClick
 
-You can use the following code to bring up an `AlertDialog` for users to type a message on `MapLongClick` event. On completion, it adds a marker to the maps which when pressed displays the message in an info window. First, create a new xml file in `res/layout/message_item.xml`:
+You can use the following code to bring up an `AlertDialog` for users to type a message on `MapLongClick` event. On completion, we can add a marker to the map which when pressed displays the message typed. 
+
+#### Create Alert Dialog Template
+
+First, we need to create a new xml file in `res/layout/message_item.xml` which will be displayed as the alert window:
 
 ```xml
-
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/layout_root"
@@ -56,6 +64,7 @@ You can use the following code to bring up an `AlertDialog` for users to type a 
         android:id="@+id/etTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/etSnippet"
         android:layout_alignBottom="@+id/tvTitle"
         android:layout_toRightOf="@+id/tvTitle" >
     </EditText>
@@ -66,7 +75,7 @@ You can use the following code to bring up an `AlertDialog` for users to type a 
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvTitle"
         android:paddingTop="20dp"
-        android:text="Snippet : " />
+        android:text="Snippet:" />
 
     <EditText
         android:id="@+id/etSnippet"
@@ -80,129 +89,172 @@ You can use the following code to bring up an `AlertDialog` for users to type a 
 </RelativeLayout>
 ```
 
-and then to setup the dialog which will add the marker:
+#### Implement OnMapLongClickListener Event 
+
+If we want to setup a long click listener, we need to implement the `OnMapLongClickListener` and setup the listener for the map:
 
 ```java
 public class MapDemoActivity extends FragmentActivity implements
-		GooglePlayServicesClient.ConnectionCallbacks,
-		GooglePlayServicesClient.OnConnectionFailedListener,
-		OnMapLongClickListener {
+  GooglePlayServicesClient.ConnectionCallbacks,
+  GooglePlayServicesClient.OnConnectionFailedListener,
+  OnMapLongClickListener {
 
-        ...
+    ...
 
-        @Override
-	protected void onCreate(Bundle savedInstanceState) {
-		
-                ...
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        // ...
+        // Attach long click listener to the map
+        map.setOnMapLongClickListener(this);
+    }
 
+    ...
 
-		map.setOnMapLongClickListener(this);
-	}
-
-        ...
-
-	@Override
-	public void onMapLongClick(final LatLng point) {
-		Toast.makeText(getApplicationContext(), "long press", Toast.LENGTH_LONG)
-				.show();
-
-		// get message_item.xml view
-		View MessageView = 
-                   LayoutInflater.from(MapDemoActivity.this).
-                         inflate(R.layout.message_item, null);
-
-		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MapDemoActivity.this);
-		
-		// set message_item.xml to alertdialog builder
-		alertDialogBuilder.setView(MessageView);
-		final EditText etTitle = (EditText) MessageView.findViewById(R.id.etTitle);
-		final EditText etSnippet = (EditText) MessageView.findViewById(R.id.etSnippet);
-		
-		// set dialog message
-		alertDialogBuilder
-				.setCancelable(false)
-				.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int id) {
-						// Create and add marker
-						Marker marker = map.addMarker(new MarkerOptions()
-								.position(point)
-								.title(etTitle.getText().toString())
-								.snippet(etSnippet.getText().toString())							
-								.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-					}
-				})
-				.setNegativeButton("Cancel",
-						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int id) {
-								dialog.cancel();
-							}
-						});
-
-		// create alert dialog
-		AlertDialog alertDialog = alertDialogBuilder.create();
-
-		// show the dialog
-		alertDialog.show();
-
-	}
+    // Fires when a long press happens on the map
+    @Override
+    public void onMapLongClick(final LatLng point) {
+      Toast.makeText(getApplicationContext(), "Long Press", Toast.LENGTH_LONG).show();
+      // Custom code here...
+    }
 }
 ```
+
+Now, when we run this, we should see a toast when the user long clicks on the map. 
+
+#### Define the Alert Dialog
+
+Next, let's trigger an alert dialog which will be displayed to accept input from the user within `MapDemoActivity`:
+
+```java
+     // ... 
+
+     @Override
+     public void onMapLongClick(LatLng point) {
+         Toast.makeText(getApplicationContext(), "Long Press", Toast.LENGTH_LONG).show();
+         // Custom code here...
+         // Display the alert dialog
+         showAlertDialogForPoint(point);
+     } 
+     
+     // Display the alert that adds the marker
+     private void showAlertDialogForPoint(final LatLng point) {
+        // inflate message_item.xml view
+        View  messageView = LayoutInflater.from(MapDemoActivity.this).
+          inflate(R.layout.message_item, null);
+        // Create alert dialog builder
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        // set message_item.xml to AlertDialog builder
+        alertDialogBuilder.setView(messageView);
+
+        // Create alert dialog
+        final AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // Configure dialog button (OK)
+        alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "OK", 
+          new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Define color of marker icon
+                BitmapDescriptor defaultMarker =
+                   BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN);
+                // Extract content from alert dialog
+                String title = ((EditText) alertDialog.findViewById(R.id.etTitle)).
+                    getText().toString();
+                String snippet = ((EditText) alertDialog.findViewById(R.id.etSnippet)).
+                    getText().toString();
+                // Creates and adds marker to the map
+                Marker marker = map.addMarker(new MarkerOptions()
+                  .position(point)
+                  .title(title)
+                  .snippet(snippet)       
+                  .icon(defaultMarker));
+            }
+        });
+
+        // Configure dialog button (Cancel)
+        alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", 
+        new DialogInterface.OnClickListener() {
+          public void onClick(DialogInterface dialog, int id) { dialog.cancel(); }
+        });
+
+        // Display the dialog
+        alertDialog.show();
+    }
+
+    // ...
+```
+
+When we run the app now, the long click on the map should trigger a dialog which allows us to enter text which will be associated with a map marker.
 
 ### Falling Pin Animation
 
 To implement falling pin animation, add marker to the desired position in map and then call this function with that marker.
 
 ```java
-private void dropPinEffect(final Marker marker) {
-        final Handler handler = new Handler();
+    private void dropPinEffect(final Marker marker) {
+        // Handler allows us to repeat a code block after a specified delay
+        final android.os.Handler handler = new android.os.Handler();
         final long start = SystemClock.uptimeMillis();
         final long duration = 1500;
 
-        // import android.view.animation.Interpolator
-        final Interpolator interpolator = new BounceInterpolator();
+        // Use the bounce interpolator
+        final android.view.animation.Interpolator interpolator = 
+            new BounceInterpolator();
 
+        // Animate marker with a bounce updating its position every 15ms
         handler.post(new Runnable() {
             @Override
             public void run() {
                 long elapsed = SystemClock.uptimeMillis() - start;
+                // Calculate t for bounce based on elapsed time 
                 float t = Math.max(
                         1 - interpolator.getInterpolation((float) elapsed
                                 / duration), 0);
+                // Set the anchor
                 marker.setAnchor(0.5f, 1.0f + 14 * t);
-
+           
                 if (t > 0.0) {
-                    // Post again 15ms later.
+                    // Post this event again 15ms from now.
                     handler.postDelayed(this, 15);
-                } else {
+                } else { // done elapsing, show window
                     marker.showInfoWindow();
                 }
             }
         });
-}
+    }
 ```
 
-In `public void onMapLongClick(final LatLng point)` add the call to `dropPinEffect(marker);`:
+In `private void showAlertDialogForPoint` add the call to `dropPinEffect(marker);` at the end to animate the placement of the marker:
 
 ```java
-@Override
-public void onMapLongClick(final LatLng point) {
+    // Display the alert that adds the marker
+    private void showAlertDialogForPoint(final LatLng point) {
         // ...
 
-        alertDialogBuilder
-                .setCancelable(false)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // Create and add marker
-                        Marker marker = map.addMarker(new MarkerOptions()
-                                .position(point)
-                                .title(etTitle.getText().toString())
-                                .snippet(etSnippet.getText().toString())                            
-                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-                        
-                        // --> Add the drop pin effect call here below
-                        dropPinEffect(marker);
-                    }
-                })		
+        alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "OK",
+            new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Define color of marker icon
+                BitmapDescriptor defaultMarker = BitmapDescriptorFactory
+                    .defaultMarker(BitmapDescriptorFactory.HUE_GREEN);
+                // Extract content from alert dialog
+                String title = ((EditText) alertDialog.findViewById(R.id.etTitle))
+                    .getText().toString();
+                String snippet = ((EditText) alertDialog.findViewById(R.id.etSnippet))
+                    .getText().toString();
+                // Creates and adds marker to the map
+                Marker marker = map.addMarker(new MarkerOptions().position(point)
+                    .title(title).snippet(snippet).icon(defaultMarker));
+
+                // Animate marker using drop effect
+                // --> Call the dropPinEffect method here
+                dropPinEffect(marker);
+            }
+          });
+
+         // ...
+    }
 ```
 
 ### Customize InfoWindow
