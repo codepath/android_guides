@@ -105,7 +105,7 @@ mapFragment.setInfoWindowAdapter(new CustomWindowAdapter(getActivity().getLayout
 
 ### Show AlertDialog on LongClick
 
-You can use the following code to bring up an `AlertDialog` for users to type a message on MapLongClick event. On completion, it adds a marker to the maps which when pressed displays the message in an info window.
+You can use the following code to bring up an `AlertDialog` for users to type a message on MapLongClick event. On completion, it adds a marker to the maps which when pressed displays the message in an info window. Create a new xml file `src/res/layout/message_item.xml`
 
 ```xml
 
@@ -249,11 +249,20 @@ private void dropPinEffect(final Marker marker) {
     }
 ```
 
+In `public void onMapLongClick(final LatLng point)` add `dropPinEffect(marker);`
 ```java
-Marker marker = map.addMarker(new MarkerOptions()
-		.position(point)
-		.title(etMessage.getText().toString())								
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-						
-dropPinEffect(marker);		
+        alertDialogBuilder
+                .setCancelable(false)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // Create and add marker
+                        Marker marker = map.addMarker(new MarkerOptions()
+                                .position(point)
+                                .title(etTitle.getText().toString())
+                                .snippet(etSnippet.getText().toString())                            
+                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+                        
+                        dropPinEffect(marker);
+                    }
+                })		
 ```
