@@ -119,7 +119,7 @@ You can use the following code to bring up an `AlertDialog` for users to type a 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="20dp"
-        android:text="Title : " />
+        android:text="Title:" />
 
     <EditText
         android:id="@+id/etTitle"
