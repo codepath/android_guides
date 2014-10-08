@@ -34,9 +34,7 @@ Marker mapMarker = mapFragment.addMarker(new MarkerOptions()
 
 ### Customize InfoWindow
 
-If you want to use your own layout instead of the default options, you can do so by creating your own InfoWindowAdapter seen below.
-
-Here is the layout file `custom_info_window.xml`
+If you want to use your own layout instead of the default options, you can do so by creating your own InfoWindowAdapter seen below. Create a layout file in `res/layout/custom_info_window.xml`:
 
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -63,7 +61,7 @@ Here is the layout file `custom_info_window.xml`
 </LinearLayout>
 ```
 
-And here is the code you need to implement your own InfoWindowAdpapter class.
+And here is the code you need to implement your own `InfoWindowAdpapter` class.
 
 
 ```java
@@ -105,7 +103,7 @@ mapFragment.setInfoWindowAdapter(new CustomWindowAdapter(getActivity().getLayout
 
 ### Show AlertDialog on LongClick
 
-You can use the following code to bring up an `AlertDialog` for users to type a message on MapLongClick event. On completion, it adds a marker to the maps which when pressed displays the message in an info window. Create a new xml file `src/res/layout/message_item.xml`
+You can use the following code to bring up an `AlertDialog` for users to type a message on `MapLongClick` event. On completion, it adds a marker to the maps which when pressed displays the message in an info window. First, create a new xml file in `res/layout/message_item.xml`:
 
 ```xml
 
@@ -151,8 +149,9 @@ You can use the following code to bring up an `AlertDialog` for users to type a 
 </RelativeLayout>
 ```
 
-```java
+and then to setup the dialog which will add the marker:
 
+```java
 public class MapDemoActivity extends FragmentActivity implements
 		GooglePlayServicesClient.ConnectionCallbacks,
 		GooglePlayServicesClient.OnConnectionFailedListener,
@@ -177,7 +176,9 @@ public class MapDemoActivity extends FragmentActivity implements
 				.show();
 
 		// get message_item.xml view
-		View MessageView = LayoutInflater.from(MapDemoActivity.this).inflate(R.layout.message_item, null);
+		View MessageView = 
+                   LayoutInflater.from(MapDemoActivity.this).
+                         inflate(R.layout.message_item, null);
 
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MapDemoActivity.this);
 		
@@ -209,7 +210,7 @@ public class MapDemoActivity extends FragmentActivity implements
 		// create alert dialog
 		AlertDialog alertDialog = alertDialogBuilder.create();
 
-		// show it
+		// show the dialog
 		alertDialog.show();
 
 	}
@@ -226,6 +227,7 @@ private void dropPinEffect(final Marker marker) {
         final long start = SystemClock.uptimeMillis();
         final long duration = 1500;
 
+        // import android.view.animation.Interpolator
         final Interpolator interpolator = new BounceInterpolator();
 
         handler.post(new Runnable() {
@@ -242,14 +244,14 @@ private void dropPinEffect(final Marker marker) {
                     handler.postDelayed(this, 15);
                 } else {
                     marker.showInfoWindow();
-
                 }
             }
         });
-    }
+}
 ```
 
-In `public void onMapLongClick(final LatLng point)` add `dropPinEffect(marker);`
+In `public void onMapLongClick(final LatLng point)` add the call to `dropPinEffect(marker);`:
+
 ```java
         alertDialogBuilder
                 .setCancelable(false)
@@ -262,6 +264,7 @@ In `public void onMapLongClick(final LatLng point)` add `dropPinEffect(marker);`
                                 .snippet(etSnippet.getText().toString())                            
                                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
                         
+                        // Add the drop pin effect call here below
                         dropPinEffect(marker);
                     }
                 })		
