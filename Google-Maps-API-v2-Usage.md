@@ -268,7 +268,7 @@ public void onMapLongClick(final LatLng point) {
                                 .snippet(etSnippet.getText().toString())                            
                                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
                         
-                        // ----> Add the drop pin effect call here below
+                        // --> Add the drop pin effect call here below
                         dropPinEffect(marker);
                     }
                 })		
