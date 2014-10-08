@@ -170,7 +170,7 @@ public class MapDemoActivity extends FragmentActivity implements
 
         ...
 
-        @Override
+	@Override
 	public void onMapLongClick(final LatLng point) {
 		Toast.makeText(getApplicationContext(), "long press", Toast.LENGTH_LONG)
 				.show();
@@ -253,6 +253,10 @@ private void dropPinEffect(final Marker marker) {
 In `public void onMapLongClick(final LatLng point)` add the call to `dropPinEffect(marker);`:
 
 ```java
+@Override
+public void onMapLongClick(final LatLng point) {
+        // ...
+
         alertDialogBuilder
                 .setCancelable(false)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -264,7 +268,7 @@ In `public void onMapLongClick(final LatLng point)` add the call to `dropPinEffe
                                 .snippet(etSnippet.getText().toString())                            
                                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
                         
-                        // Add the drop pin effect call here below
+                        // ----> Add the drop pin effect call here below
                         dropPinEffect(marker);
                     }
                 })		
