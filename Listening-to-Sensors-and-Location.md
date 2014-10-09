@@ -143,3 +143,4 @@ For using maps check out the [[Cliffnotes for Maps|Google Maps Fragment Guide]] 
 * <http://developer.android.com/guide/topics/sensors/sensors_overview.html>
 * <http://www.vogella.com/articles/AndroidLocationAPI/article.html>
 * <http://www.vogella.com/articles/AndroidGoogleMaps/article.html>
+* <https://developer.android.com/training/location/receive-location-updates.html>
