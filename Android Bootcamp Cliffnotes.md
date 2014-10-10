@@ -78,6 +78,8 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Must-have Libraries]] Guide
 * [[Basic Painting with Views]]
 * [[Flexible User Interfaces]]
+* [[Starting Background Services]]
+* [[Notifications]]
 * [[Android Unit and Integration testing]]
 * [Publishing to the Play Store](http://goo.gl/mUlGL1)
 * [[Popular External Tools]]
