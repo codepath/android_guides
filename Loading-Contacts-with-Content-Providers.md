@@ -1,8 +1,17 @@
 ## Overview
 
+There are two approaches to accessing data from content providers:
+
+1. Execute `CursorLoader`, iterate result cursor and construct `ArrayList` of objects
+2. Use the `LoaderManager` to execute query and bind result cursor to list using `SimpleCursorAdapter`
+
+The different method are both outlined below. In the first, the content provider data for contacts is loaded synchronously and the cursor is iterated manually into an `ArrayList<Contact>` objects. In the second, the loader manager is used to fetch the cursor and the cursor is loaded directly into a `SimpleCursorAdapter`.
+
+## Loading Data From CursorLoader into Java Objects
+
 The following guide walks step by step through loading contacts from the phone using Content Providers. See [the full sample here](https://github.com/thecodepath/contacts-loader-example) for the source code. 
 
-Note that this is loading the content synchronously which should be avoided and parses the contacts with their numbers and emails into an `ArrayList`. For an example of how to load contacts asynchronously and using a `CursorAdapter`, jump down to the 
+Note that this is loading the content synchronously from the CursorLoader which should be avoided. This code parses the contacts with their numbers and emails into an `ArrayList`. For an example of how to load contacts asynchronously and using a `CursorAdapter`, jump down to the 
 [[the CursorAdapter section|Loading-Contacts-with-Content-Providers#using-cursorloader-and-simplecursoradapter]] farther down instead.
 
 ### Permissions
@@ -91,7 +100,7 @@ public class ContactFetcher {
 				null, // the selection args (none)
 				null // the sort order (default)
 		);
-
+                // This should probably be run from an AsyncTask
 		Cursor c = cursorLoader.loadInBackground();
 		if (c.moveToFirst()) {
 			do {
