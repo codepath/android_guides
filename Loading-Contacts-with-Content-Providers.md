@@ -3,7 +3,7 @@
 There are two approaches to accessing data from content providers:
 
 1. Execute `CursorLoader`, iterate result cursor and construct `ArrayList` of objects
-2. Use the `LoaderManager` to execute query and bind result cursor to list using `SimpleCursorAdapter`
+2. Use the `LoaderManager` to execute query asynchronously and bind result cursor to list using `SimpleCursorAdapter`
 
 The different method are both outlined below. In the first, the content provider data for contacts is loaded synchronously and the cursor is iterated manually into an `ArrayList<Contact>` objects. In the second, the loader manager is used to fetch the cursor and the cursor is loaded directly into a `SimpleCursorAdapter`.
 
