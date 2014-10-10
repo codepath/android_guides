@@ -50,11 +50,12 @@ Cliffnotes are references giving you the "most important" Android topics with br
 ### Week 5 - Hardware and SDK Components
 
 * [[Loading Contacts with Content Providers]]
+* [[Populating a ListView with a CursorAdapter]]
 * [[Accessing the Camera and Stored Media]]
+* [[Video and Audio Playback and Recording]]
 * [[Listening to Sensors and Location]]
 * [[Google Maps Setup Guide|Google Maps Fragment Guide]]
 * [[Google Maps API v2 Usage]]
-* [[Video and Audio Playback and Recording]]
 * [[Push Messaging]] (with Parse)
 * [[Real-time Messaging]] (with PubNub)
 
