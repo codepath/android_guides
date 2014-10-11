@@ -130,7 +130,7 @@ Diving into the networking and model layers for data-driven apps:
 * [[Building Simple Chat Client with Parse]]
 * [[Troubleshooting Common Issues with Parse]]
 * [[Sending and Receiving Data with Sockets]] (**Needs Attention**)
-* [[Consuming APIs with Retrofit]] (**Needs Attention**)
+* [[Consuming APIs with Retrofit]]
 
 ## Persistence
 
