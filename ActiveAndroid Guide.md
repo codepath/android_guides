@@ -8,7 +8,7 @@ For example, a "Tweet" model would be mapped to a "tweets" table in the database
 
 ### Installation
 
-You can download a [recent ActiveAndroid JAR](https://www.dropbox.com/s/xkzfx999lzvb838/ActiveAndroid-3.1-adcddac4c58.jar) snapshot and drag this into the "libs" folder OR generate the latest JAR yourself based on the source as described below:
+You can download a [recent ActiveAndroid JAR](https://www.dropbox.com/s/cee2ldq6chuzplp/ActiveAndroid-3.1-08c6335cd.jar?dl=0) snapshot and drag this into the "libs" folder OR generate the latest JAR yourself based on the source as described below:
 
 1. Download the latest build of [ActiveAndroid](https://github.com/pardom/ActiveAndroid/archive/master.zip).
 2. Unzip the `master.zip` file.
