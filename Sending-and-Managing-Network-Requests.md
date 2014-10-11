@@ -107,7 +107,9 @@ The request will be sent out with the appropriate parameters passed in the query
 
 API requests tend to be JSON or XML responses that are sent to a server and then the result needs to be parsed and processed as data models on the client. In addition, many API requests require authentication in order to identify the user making the request. This is typically done with a standard [OAuth](http://oauth.net/2/) process for authentication.
 
-We have created a library to make this as simple as possible called [android-oauth-handler](https://github.com/thecodepath/android-oauth-handler) and a skeleton app to act as a template for a simple rest client called [android-rest-client-template](https://github.com/thecodepath/android-rest-client-template). You can see the details of these libraries by checking out their READMEs.
+Fortunately, there are several OAuth libraries out there to simplify the process of authentication such as [scribe](https://github.com/fernandezpablo85/scribe-java) and [signpost](https://code.google.com/p/oauth-signpost/). You can explore several examples of [using scribe](https://github.com/fernandezpablo85/scribe-java/tree/master/src/test/java/org/scribe/examples) or [signpost](https://github.com/mttkay/signpost-examples) to authenticate.
+
+We have created a meta-library to make this as simple as possible called [android-oauth-handler](https://github.com/thecodepath/android-oauth-handler) and a skeleton app to act as a template for a simple rest client called [android-rest-client-template](https://github.com/thecodepath/android-rest-client-template). You can see the details of these libraries by checking out their respective READMEs.
 
 Using these wrappers, you can then send an API request and properly process the response using code like this:
 
