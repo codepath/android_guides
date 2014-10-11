@@ -67,9 +67,8 @@ import com.activeandroid.annotation.Table;
 
 @Table(name = "Items")
 public class Item extends Model {
-    // This is how you avoid duplicates
     @Column(name = "remote_id", unique = true, onUniqueConflict = Column.ConflictAction.REPLACE)
-    public int remoteId;
+    public long remoteId;
     @Column(name = "Name")
     public String name;
     @Column(name = "Category", onUpdate = ForeignKeyAction.CASCADE, onDelete = ForeignKeyAction.CASCADE)
@@ -90,9 +89,8 @@ public class Item extends Model {
 
 @Table(name = "Categories")
 public class Category extends Model {
-    // This is how you avoid duplicates based on a unique ID
     @Column(name = "remote_id", unique = true)
-    public int remoteId;
+    public long remoteId;
     @Column(name = "Name")
     public String name;
 
