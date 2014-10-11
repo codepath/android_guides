@@ -1,8 +1,8 @@
 ## Overview
 
-Using the ActiveAndroid ORM makes managing client-side models extremely easy in simple cases. For more advanced or custom cases, you can use [SQLiteOpenHelper](http://www.androidhive.info/2011/11/android-sqlite-database-tutorial/) to manage the database communication directly. But for simple model mapping from JSON, ActiveAndroid keeps things simple.  
+Using the ActiveAndroid ORM makes managing client-side models extremely easy in simple cases. For more advanced or custom cases, you can use [[SQLiteOpenHelper|Local-Databases-with-SQLiteOpenHelper]] to manage the database communication directly. But for simple model mapping from JSON, ActiveAndroid keeps things simple.  
 
-ActiveAndroid works like any Object Relational Mapper by mapping java classes to database tables and mapping java class member variables to table columns. Through this process, each table represents a particular Java model and the columns represent the respective data fields. Similarly, each row in the database represents a particular object. This allows us to create, modify, delete and query our SQLite database using model objects instead of raw SQL.
+ActiveAndroid works like any **Object Relational Mapper** by mapping java classes to database tables and mapping java class member variables to the table columns. Through this process, **each table** maps to a **Java model** and **the columns** in the table represent the respective **data fields**. Similarly, each row in the database represents a particular object. This allows us to create, modify, delete and query our SQLite database using model objects instead of raw SQL.
 
 For example, a "Tweet" model would be mapped to a "tweets" table in the database. The Tweet model might have a "body" field that maps to a body column in the table and a "timestamp" field that maps to a timestamp column. Through this process, each row would map to a particular tweet.
 
@@ -16,7 +16,7 @@ You can download a [recent ActiveAndroid JAR](https://www.dropbox.com/s/cee2ldq6
 4. Type `ant` to build the project and generate a project jar file.
 5. Move the generated jar file from `dist/ActiveAndroid.jar` to the `libs` directory in your **project home**.
 
-```
+```bash
 mv dist/ActiveAndroid.jar <your_project_home>/libs/
 ```
 
@@ -67,10 +67,13 @@ import com.activeandroid.annotation.Table;
 
 @Table(name = "Items")
 public class Item extends Model {
+    // This is the unique id given by the server
     @Column(name = "remote_id", unique = true, onUniqueConflict = Column.ConflictAction.REPLACE)
     public long remoteId;
+    // This is a regular field
     @Column(name = "Name")
     public String name;
+    // This is an association to another activeandroid model
     @Column(name = "Category", onUpdate = ForeignKeyAction.CASCADE, onDelete = ForeignKeyAction.CASCADE)
     public Category category;
     
@@ -89,8 +92,10 @@ public class Item extends Model {
 
 @Table(name = "Categories")
 public class Category extends Model {
+    // This is the unique id given by the server
     @Column(name = "remote_id", unique = true)
     public long remoteId;
+    // This is a regular field
     @Column(name = "Name")
     public String name;
 
@@ -281,11 +286,11 @@ This is because ActiveAndroid only generates the schema if there is no existing 
 
 > Problem: I am getting a NullPointerException when trying to save a model
 
-This is because ActiveAndroid needs you to save all objects separately. Before saving a tweet for example, be sure to save the associated user object first. So when you have a tweet that references a user be sure to `user.save()` before you call `tweet.save()` since storing the user requires the local id to be set and assigned as the foreign key for the tweet.
+This is because ActiveAndroid needs you to **save all objects separately**. Before saving a tweet for example, be sure to save the associated user object first. So when you have a tweet that references a user be sure to `user.save()` before you call `tweet.save()` since storing the user requires the local id to be set and assigned as the foreign key for the tweet.
 
-> Question: How does ActiveAndroid handle duplicate IDs?  For example, I want to make sure no duplicate twitter IDs are inserted.  Is there a way to specify a column is primary key in the model?
+> Question: How does ActiveAndroid handle duplicate IDs?  For example, I want to make sure no duplicate twitter IDs are inserted.  Is there a way to specify a column is the primary key in the model?
 
-The solution is to mark the column recording the unique id of an object as a unique column acting as your pseudo primary key. As [explained here](https://github.com/pardom/ActiveAndroid/issues/22), the annotation is:
+The first step is to mark the column recording the unique id of an object as a unique column acting as your pseudo primary key. As [explained here](https://github.com/pardom/ActiveAndroid/issues/22), the annotation is:
 
 ```java
 @Table(name = "items")
@@ -298,21 +303,45 @@ public class SampleModel extends Model {
 }
 ```
 
-Make sure to **uninstall the app** afterward on the emulator to ensure the schema changes take effect.
+Make sure to **uninstall the app** afterward on the emulator to ensure the schema changes take effect. **Note** that you may need to manually ensure that you don't attempt to re-create existing objects by verifying they are not already in the database.
 
 > Problem: `SQLiteConstraintException: foreign key constraint failed` when saving object
 
-This is because you need to make sure to **CASCADE the delete** to associated objects when an existing object is being replaced. For example, if you have a `Post` that contains a `User`, you need to:
+This error means that you are **attempting to save a object** which would create a duplicate row in the database. This means that the object you are trying to save has the same `remoteId` (or other unique column) as an object already in the database. 
+
+With ActiveAndroid, be sure to avoid attempting to save duplicate data. Instead, you can check to ensure the data has not already been saved before saving a new object:
 
 ```java
-@Table(name = "posts")
-public class Post extends Model {
-    @Column(name = "user", onUpdate = ForeignKeyAction.CASCADE, onDelete = ForeignKeyAction.CASCADE)
-    private User user; // the embedded user in the tweet
+@Table(name="users")
+public class User extends Model {
+    @Column(name = "remote_id", unique = true)
+    public long remoteId;
+
+    // Finds existing user based on remoteId or creates new user and returns
+    public static User findOrCreateFromJson(JSONObject json) {
+    	User user = User.fromJSON(json);
+    	User existingUser = 
+          new Select().from(User.class).where("remote_id = ?", user.remoteId).executeSingle(); 
+    	if (existingUser != null) { 
+    	    // found and return existing
+    	    return existingUser;
+    	} else {
+    	    // create and return new
+    	    user.save();
+    	    return user;
+    	}
+    }    
 }
 ```
 
-Note how we are forcing the CASCADE so the user get's removed as well and can be replaced. Make sure to **uninstall the app** afterward on the emulator to ensure the schema changes take effect.
+Then when you want to create this record and avoid duplicates, you can just call:
+
+```
+User user = User.findOrCreateFromJson(objectJson);
+// Returns either the existing user or the created user
+```
+
+This will avoid any foreign key constraint exceptions.
 
 > Question: I read somewhere that ActiveAndroid automatically creates another auto-increment ID column, is this true?  What field names should I avoid using?
 
