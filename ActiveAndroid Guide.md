@@ -416,7 +416,7 @@ Joins are done using the query language AA provides in the [From class](https://
 
 > Question: What are the best practices when interacting with the sqlite in Android, is ORM/DAO the way to go?
 
-I've seen people use both SQLiteOpenHelper and several different ORMs. It's common to use the SQLiteOpenHelper in cases where an ORM breaks down or isn't necessary. Since Models are typically formed anyways though and persistence on Android in many cases can map very closely to objects, ORMs like AA can be helpful especially for simple mappings.
+Developers use both SQLiteOpenHelper and several different ORMs. It's common to use the SQLiteOpenHelper in cases where an ORM breaks down or isn't necessary. Since Models are typically formed anyways though and persistence on Android in many cases can map very closely to objects, ORMs like ActiveAndroid can be helpful especially for simple database mappings.
 
 ## References
 
