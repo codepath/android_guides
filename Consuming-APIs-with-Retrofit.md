@@ -6,7 +6,29 @@
 
 Read [this external guide](http://engineering.meetme.com/2014/03/best-practices-for-consuming-apis-on-android/) for an overview of proper usage. 
 
-## Retrofit and OAuth
+## Retrofit and Authentication
+
+### Using Authentication Headers
+
+Headers can be added to a request using a `RequestInterceptor`. To send requests to an authenticated API, add headers to your requests using an interceptor as outlined below:
+
+```java
+// Define the interceptor, add authentication headers
+RequestInterceptor requestInterceptor = new RequestInterceptor() {
+  @Override
+  public void intercept(RequestFacade request) {
+    request.addHeader("User-Agent", "Retrofit-Sample-App");
+  }
+};
+
+// Add interceptor when building adapter
+RestAdapter restAdapter = new RestAdapter.Builder()
+  .setEndpoint("https://api.github.com")
+  .setRequestInterceptor(requestInterceptor)
+  .build();
+```
+
+### Using OAuth
 
 In order to authenticate with OAuth, we need to sign each network request sent out with a special header that embeds the access token for the user that is obtained during the OAuth process. The actual OAuth process needs to be completed with a third-party library such as [signpost](https://code.google.com/p/oauth-signpost/) and then the access token needs to be added to the header using a [request interceptor](https://github.com/square/retrofit/issues/316). Relevant links for Retrofit and authentication below:
 
