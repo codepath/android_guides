@@ -55,7 +55,7 @@ Next, we need to configure the `application` node with the `name` property of `c
 </manifest>
 ```
 
-Now you are ready to use ActiveAndroid. If you have an custom application class, check out more details for how to approach that in the [installation guide](https://github.com/pardom/ActiveAndroid/wiki/Getting-started).
+**Note** that you must either directly use the `com.activeandroid.app.Application` as your application class (specified in the manifest) or if you have an custom application class, check out more details for how to approach that in the [installation guide](https://github.com/pardom/ActiveAndroid/wiki/Getting-started). Now you are ready to use ActiveAndroid. 
 
 ### Usage
 
