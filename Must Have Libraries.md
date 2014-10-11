@@ -2,9 +2,9 @@
 
 There are many third-party libraries for Android but several of them are "must have" libraries that are extremely popular and are often used in almost any Android project. Each has different purposes but all of them make life as a developer much more pleasant. The major libraries are listed below in a few categories.
 
-### Standard Kit
+### Standard Pack
 
-This "standard kit" is a list of libraries that are quite popular, widely applicable and should probably be used on most projects:
+This "standard pack" listed below are libraries that are quite popular, widely applicable and should probably be setup within most Android apps:
 
  1. [Retrofit](http://square.github.io/retrofit/) - A type-safe REST client for Android which intelligently maps an API into a client interface using annotations. 
  1. [Picasso](http://square.github.io/picasso/) - A powerful image downloading and caching library for Android. 
