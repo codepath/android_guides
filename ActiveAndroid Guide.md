@@ -280,6 +280,17 @@ Be sure to review the common questions below.
 
 ## Common Questions
 
+> Problem: I am getting a "java.lang.NullPointerException at com.activeandroid.Cache.getTableInfo"
+
+You have not properly configured ActiveAndroid. You need to initialize ActiveAndroid within your application. Either by leveraging the ActiveAndroid `Application` class in your manifest:
+
+```xml
+<application
+        android:name="com.activeandroid.app.Application"
+```
+
+or by calling `ActiveAndroid.initialize(this);` in your own custom `Application` class as [outlined here](https://github.com/pardom/ActiveAndroid/wiki/Getting-started#configuring-your-project).
+
 > Problem: I am getting an "SQLiteException: no such table" error when I try to run the app
 
 This is because ActiveAndroid only generates the schema if there is no existing database file. In order to "regenerate" the schema after creating a new model, the easiest way is to uninstall the app from the emulator and allow it to be fully re-installed. This is because this clears the database file and triggers ActiveAndroid to recreate the tables based on the annotated models in the project.
