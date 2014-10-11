@@ -303,7 +303,7 @@ public class SampleModel extends Model {
 }
 ```
 
-Make sure to **uninstall the app** afterward on the emulator to ensure the schema changes take effect. **Note** that you may need to manually ensure that you don't attempt to re-create existing objects by verifying they are not already in the database.
+Make sure to **uninstall the app** afterward on the emulator to ensure the schema changes take effect. Note that you may need to manually ensure that you don't attempt to re-create existing objects by verifying they are not already in the database **as shown below**.
 
 > Problem: `SQLiteConstraintException: foreign key constraint failed` when saving object
 
@@ -341,7 +341,7 @@ User user = User.findOrCreateFromJson(objectJson);
 // Returns either the existing user or the created user
 ```
 
-This will avoid any foreign key constraint exceptions.
+This will help avoid any foreign key constraint exceptions due to duplicate rows.
 
 > Question: I read somewhere that ActiveAndroid automatically creates another auto-increment ID column, is this true?  What field names should I avoid using?
 
