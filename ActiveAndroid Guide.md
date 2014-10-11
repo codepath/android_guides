@@ -336,7 +336,7 @@ public class User extends Model {
 
 Then when you want to create this record and avoid duplicates, you can just call:
 
-```
+```java
 User user = User.findOrCreateFromJson(objectJson);
 // Returns either the existing user or the created user
 ```
