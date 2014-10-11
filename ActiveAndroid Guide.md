@@ -2,6 +2,8 @@
 
 Using the ActiveAndroid ORM makes managing client-side models extremely easy in simple cases. For more advanced or custom cases, you can use [[SQLiteOpenHelper|Local-Databases-with-SQLiteOpenHelper]] to manage the database communication directly. But for simple model mapping from JSON, ActiveAndroid keeps things simple.  
 
+<img src="http://i.imgur.com/Aw6NNFE.png" width="500" alt="orm" />
+
 ActiveAndroid works like any **Object Relational Mapper** by mapping java classes to database tables and mapping java class member variables to the table columns. Through this process, **each table** maps to a **Java model** and **the columns** in the table represent the respective **data fields**. Similarly, each row in the database represents a particular object. This allows us to create, modify, delete and query our SQLite database using model objects instead of raw SQL.
 
 For example, a "Tweet" model would be mapped to a "tweets" table in the database. The Tweet model might have a "body" field that maps to a body column in the table and a "timestamp" field that maps to a timestamp column. Through this process, each row would map to a particular tweet.
@@ -316,7 +318,7 @@ public class SampleModel extends Model {
 
 Make sure to **uninstall the app** afterward on the emulator to ensure the schema changes take effect. Note that you may need to manually ensure that you don't attempt to re-create existing objects by verifying they are not already in the database **as shown below**.
 
-> Problem: `SQLiteConstraintException: foreign key constraint failed` when saving object
+> Problem: `SQLiteConstraintException: foreign key constraint failed (code 19)` when saving an object
 
 This error means that you are **attempting to save a object** which would create a duplicate row in the database. This means that the object you are trying to save has the same `remoteId` (or other unique column) as an object already in the database. 
 
@@ -427,7 +429,7 @@ Joins are done using the query language AA provides in the [From class](https://
 
 > Question: What are the best practices when interacting with the sqlite in Android, is ORM/DAO the way to go?
 
-Developers use both SQLiteOpenHelper and several different ORMs. It's common to use the SQLiteOpenHelper in cases where an ORM breaks down or isn't necessary. Since Models are typically formed anyways though and persistence on Android in many cases can map very closely to objects, ORMs like ActiveAndroid can be helpful especially for simple database mappings.
+Developers use both [SQLiteOpenHelper](https://github.com/thecodepath/android_guides/wiki/Local-Databases-with-SQLiteOpenHelper) and [several different ORMs](Persisting-Data-to-the-Device#object-relational-mappers). It's common to use the SQLiteOpenHelper in cases where an ORM breaks down or isn't necessary. Since Models are typically formed anyways though and persistence on Android in many cases can map very closely to objects, ORMs like ActiveAndroid can be helpful especially for simple database mappings.
 
 ## References
 
