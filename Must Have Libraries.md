@@ -55,6 +55,7 @@ This "standard pack" listed below are libraries that are quite popular, widely a
  * [Android StackBlur](https://github.com/kikoso/android-stackblur) - Dynamically blur images
  * [Android Satellite Menu](https://github.com/siyamed/android-satellite-menu/) - Radial menu which is configurable reminiscent of the "Path" menu style.
  * [ArcMenu](https://github.com/daCapricorn/ArcMenu) - Alternate radial menu modeled after the "Path" menu style.
+ * [Android Bootstrap](https://github.com/Bearded-Hen/Android-Bootstrap) - Bootstrap UI widgets
 
 ### Drawing
 
