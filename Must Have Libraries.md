@@ -19,8 +19,10 @@ This "standard pack" listed below are libraries that are quite popular, widely a
  * [Dagger](http://square.github.io/dagger/) - A fast dependency injector for Android and Java.
  * [Parceler](https://github.com/johncarl81/parceler) - Android Parcelable made easy through code generation.
  * [IcePick](https://github.com/frankiesardo/icepick) - Android Instance State made easy
+ * [Hugo](https://github.com/JakeWharton/hugo) - Easier logging within your app
  * [AndroidAnnotations](https://github.com/excilys/androidannotations) - Framework that speeds up Android development. It takes care of the plumbing, and lets you concentrate on what's really important. By simplifying your code, it facilitates its maintenance
  * [RoboGuice](https://github.com/roboguice/roboguice) - Powerful extensions to Android using dependency injection.
+ * [Calligraphy](https://github.com/chrisjenx/Calligraphy) - Custom fonts made easy
 
 ### Extensions 
 
@@ -28,6 +30,7 @@ This "standard pack" listed below are libraries that are quite popular, widely a
  * [EventBus](https://github.com/greenrobot/EventBus) - Android optimized event bus that simplifies communication between components.
  * [Tape](http://square.github.io/tape/) - Tape is a collection of queue-related classes for Android and Java
  * [RxJava](https://github.com/ReactiveX/RxJava) - Reactive Extensions for the JVM
+ * [Priority JobQueue](https://github.com/path/android-priority-jobqueue) - Easier background tasks
 
 ### Networking
 
@@ -41,21 +44,36 @@ This "standard pack" listed below are libraries that are quite popular, widely a
  * [PullToRefresh-ListView](https://github.com/erikwt/PullToRefresh-ListView) - Easy to use pull-to-refresh functionality for ListViews. [Download](https://github.com/erikwt/PullToRefresh-ListView/archive/master.zip) and install as a [library project](http://imgur.com/a/N8baF).
  * [StickyListHeaders](https://github.com/emilsjolander/StickyListHeaders) - An android library for section headers that stick to the top of a ListView
  * [ListViewAnimations](https://github.com/nhaarman/ListViewAnimations) - Easy way to animate ListView items
+ * [EtsyStaggeredGrid](https://github.com/etsy/AndroidStaggeredGrid) - Staggered GridView
+ * [Cardslib](https://github.com/gabrielemariotti/cardslib) - Card UI for Lists or Grids
+ * [SwipeListView](https://github.com/47deg/android-swipelistview) - Swipeable List
 
-### View Pager Enhancements
+### Easy Navigation 
 
-* [PagerSlidingTabStrip](https://github.com/astuetz/PagerSlidingTabStrip) - An interactive indicator to navigate between the different pages of a ViewPager. 
-* [ViewPagerIndicator](https://github.com/JakeWharton/Android-ViewPagerIndicator) - Paging indicator widgets compatible with the ViewPager from the Android Support Library and ActionBarSherlock. 
+ * [PagerSlidingTabStrip](https://github.com/astuetz/PagerSlidingTabStrip) - An interactive indicator to navigate between the different pages of a ViewPager. 
+ * [ViewPagerIndicator](https://github.com/JakeWharton/Android-ViewPagerIndicator) - Paging indicator widgets compatible with the ViewPager from the Android Support Library and ActionBarSherlock. 
+ * [JazzyViewPager](https://github.com/jfeinstein10/JazzyViewPager) - Pager with more animations
+ * [SlidingMenu](https://github.com/jfeinstein10/SlidingMenu) - Library that allows developers to easily create applications with sliding menus like those made popular in the Google+, YouTube, and Facebook apps.
+ * [MenuDrawer](https://github.com/SimonVT/android-menudrawer) - Library for easy menu drawers
+ * [Android Satellite Menu](https://github.com/siyamed/android-satellite-menu/) - Radial menu which is configurable reminiscent of the "Path" menu style.
+ * [ArcMenu](https://github.com/daCapricorn/ArcMenu) - Alternate radial menu modeled after the "Path" menu style.
+ * [AndroidSlidingUpPanel](https://github.com/umano/AndroidSlidingUpPanel) - Sliding Up Panel 
 
 ### UI Components
 
- * [SlidingMenu](https://github.com/jfeinstein10/SlidingMenu) - Library that allows developers to easily create applications with sliding menus like those made popular in the Google+, YouTube, and Facebook apps.
  * [Crouton](https://github.com/keyboardsurfer/Crouton) - Context-sensitive, configurable alert notices much better than toasts. Download jar [from here](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22de.keyboardsurfer.android.widget%22). See [working sample code](https://github.com/thecodepath/android-crouton-sample)
  * [RoundedImageView](https://github.com/vinc3m1/RoundedImageView) - Easily round corners or create oval-shaped images with this popular library.
  * [Android StackBlur](https://github.com/kikoso/android-stackblur) - Dynamically blur images
- * [Android Satellite Menu](https://github.com/siyamed/android-satellite-menu/) - Radial menu which is configurable reminiscent of the "Path" menu style.
- * [ArcMenu](https://github.com/daCapricorn/ArcMenu) - Alternate radial menu modeled after the "Path" menu style.
  * [Android Bootstrap](https://github.com/Bearded-Hen/Android-Bootstrap) - Bootstrap UI widgets
+ * [PhotoView](https://github.com/chrisbanes/PhotoView) - ImageView that supports touch gestures
+ * [ShowcaseView](https://github.com/amlcurran/ShowcaseView) - Highlight the best bits of your app
+ * [FadingActionBar](https://github.com/ManuelPeinado/FadingActionBar) - Cool actionbar fade effect
+ * [AndroidViewAnimations](https://github.com/daimajia/AndroidViewAnimations) - Easily apply common animations
+ * [ProgressWheel](https://github.com/Todd-Davies/ProgressWheel) - Better progress bar
+ * [SmoothProgressBar](https://github.com/castorflex/SmoothProgressBar) - Horizontal indeterminate progress
+ * [CircularProgressButton](https://github.com/dmytrodanylyk/circular-progress-button) - Button that can display progress
+ * [Rebound](http://facebook.github.io/rebound/) - Easy spring dynamics
+ * [BetterPickers](https://github.com/derekbrameyer/android-betterpickers) - BetterPickers for easy input selection
 
 ### Drawing
 
@@ -72,6 +90,11 @@ This "standard pack" listed below are libraries that are quite popular, widely a
  * [barcodescanner](https://github.com/dm77/barcodescanner) - Newer alternative
  * [zxscanlib](https://github.com/LivotovLabs/zxscanlib) - ZXing alternative
  * [android-quick-response-code](https://code.google.com/p/android-quick-response-code/) - Another alternative
+
+### Persistence
+
+ * [ActiveAndroid](https://github.com/pardom/ActiveAndroid)
+ * [greenDAO](https://github.com/greenrobot/greenDAO)
 
 ### Compatibility
 
