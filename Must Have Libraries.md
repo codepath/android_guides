@@ -43,6 +43,7 @@ This "standard pack" listed below are libraries that are quite popular, widely a
 
  * [PullToRefresh-ListView](https://github.com/erikwt/PullToRefresh-ListView) - Easy to use pull-to-refresh functionality for ListViews. [Download](https://github.com/erikwt/PullToRefresh-ListView/archive/master.zip) and install as a [library project](http://imgur.com/a/N8baF).
  * [StickyListHeaders](https://github.com/emilsjolander/StickyListHeaders) - An android library for section headers that stick to the top of a ListView
+ * [PinnedListView](https://github.com/beworker/pinned-section-listview) - Pinned Section with ListView
  * [ListViewAnimations](https://github.com/nhaarman/ListViewAnimations) - Easy way to animate ListView items
  * [EtsyStaggeredGrid](https://github.com/etsy/AndroidStaggeredGrid) - Staggered GridView
  * [Cardslib](https://github.com/gabrielemariotti/cardslib) - Card UI for Lists or Grids
@@ -58,6 +59,7 @@ This "standard pack" listed below are libraries that are quite popular, widely a
  * [Android Satellite Menu](https://github.com/siyamed/android-satellite-menu/) - Radial menu which is configurable reminiscent of the "Path" menu style.
  * [ArcMenu](https://github.com/daCapricorn/ArcMenu) - Alternate radial menu modeled after the "Path" menu style.
  * [AndroidSlidingUpPanel](https://github.com/umano/AndroidSlidingUpPanel) - Sliding Up Panel 
+ * [DraggablePanel](https://github.com/pedrovgs/DraggablePanel) - Panels that can be dragged
 
 ### UI Components
 
@@ -74,6 +76,7 @@ This "standard pack" listed below are libraries that are quite popular, widely a
  * [CircularProgressButton](https://github.com/dmytrodanylyk/circular-progress-button) - Button that can display progress
  * [Rebound](http://facebook.github.io/rebound/) - Easy spring dynamics
  * [BetterPickers](https://github.com/derekbrameyer/android-betterpickers) - BetterPickers for easy input selection
+ * [AndroidImageSlider](https://github.com/daimajia/AndroidImageSlider) - Animated image transitions
 
 ### Drawing
 
