@@ -6,13 +6,15 @@ There are many third-party libraries for Android but several of them are "must h
 
 This "standard pack" listed below are libraries that are quite popular, widely applicable and should probably be setup within most Android apps:
 
- 1. [Retrofit](http://square.github.io/retrofit/) - A type-safe REST client for Android which intelligently maps an API into a client interface using annotations. 
- 1. [Picasso](http://square.github.io/picasso/) - A powerful image downloading and caching library for Android. 
- 1. [ButterKnife](http://jakewharton.github.io/butterknife/) - Using Java annotations, makes Android development better by simplifying common tasks.
- 1. [Parceler](https://github.com/johncarl81/parceler) - Android Parcelable made easy through code generation. 
- 1. [IcePick](https://github.com/frankiesardo/icepick) - Android Instance State made easy
- 1. [Crouton](https://github.com/keyboardsurfer/Crouton) - Context-sensitive, configurable alert notices much better than toasts. Download jar [from here]
- 1. [Hugo](https://github.com/JakeWharton/hugo) - Easier logging within your app
+| Name            | Description                                                 |  
+| ----            | ------------                                                |
+| [Retrofit](http://square.github.io/retrofit/) | A type-safe REST client for Android which intelligently maps an API into a client interface using annotations.            |
+| [Picasso](http://square.github.io/picasso/) | A powerful image downloading and caching library for Android. |
+| [ButterKnife](http://jakewharton.github.io/butterknife/) | Using Java annotations, makes Android development better by simplifying common tasks. |
+| [Parceler](https://github.com/johncarl81/parceler) | Android Parcelable made easy through code generation |
+| [IcePick](https://github.com/frankiesardo/icepick) | Android Instance State made easy |
+| [Crouton](https://github.com/keyboardsurfer/Crouton) | Context-sensitive, configurable alert notices much better than toasts |
+| [Hugo](https://github.com/JakeWharton/hugo) | Easier logging using annotations |
 
 ### Convenience
 
