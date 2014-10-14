@@ -114,7 +114,7 @@ public class MapDemoActivity extends FragmentActivity implements
     // Fires when a long press happens on the map
     @Override
     public void onMapLongClick(final LatLng point) {
-      Toast.makeText(getApplicationContext(), "Long Press", Toast.LENGTH_LONG).show();
+      Toast.makeText(this, "Long Press", Toast.LENGTH_LONG).show();
       // Custom code here...
     }
 }
