@@ -324,5 +324,5 @@ class CustomWindowAdapter implements InfoWindowAdapter{
 You would use this by setting your InfoWindowAdapter to this new class after you have initialized your map. In the case of my example I am running this after I have run `setUpMapIfNeeded()` in my `onCreate()`.
 
 ```java
-mapFragment.setInfoWindowAdapter(new CustomWindowAdapter(getActivity().getLayoutInflater(), mapRatingHash));
+map.setInfoWindowAdapter(new CustomWindowAdapter(getActivity().getLayoutInflater(), null));
 ```
