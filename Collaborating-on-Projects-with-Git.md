@@ -12,12 +12,10 @@ git init
 
 Next, setup a **.gitignore** file at the **root** with the [contents from this file](https://gist.githubusercontent.com/nesquena/5617544/raw/.gitignore) to ignore files that shouldn't be shared between collaborators.
 
-If you have **already committed files** and need to **remove them after adding the ignore**, you can run:
+If you have **already committed files** and need to **remove them after adding the ignore**, you can run this command to remove them before committing.
 
 ```
 git rm -r --cached . 
-git add .
-git commit -am "Remove ignored files"
 ```
 
 You can now add the initial files to git using the SourceTree / [Github](https://mac.github.com/) client or by typing:
