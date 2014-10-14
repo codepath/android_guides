@@ -10,12 +10,14 @@ First, you need to properly setup git for your project:
 git init
 ```
 
-Next, setup a **.gitignore** file at the **root** with the [contents from this file](https://gist.githubusercontent.com/nesquena/5617544/raw/53710b374e7df3302df43b552488d876040ada3d/.gitignore) to ignore files that shouldn't be shared between collaborators.
+Next, setup a **.gitignore** file at the **root** with the [contents from this file](https://gist.githubusercontent.com/nesquena/5617544/raw/.gitignore) to ignore files that shouldn't be shared between collaborators.
 
-Next, make sure you have **setup a repository on github** and then add that repo as the origin:
+If you have **already committed files** and need to **remove them after adding the ignore**, you can run:
 
 ```
-git remote add origin git@github.com:myusername/reponame.git
+git rm -r --cached . 
+git add .
+git commit -am "Remove ignored files"
 ```
 
 You can now add the initial files to git using the SourceTree / [Github](https://mac.github.com/) client or by typing:
@@ -25,13 +27,19 @@ git add .
 git commit -am "Initial commit"
 ```
 
+Next, make sure you have **setup a repository on github** and then add that repo as the origin:
+
+```bash
+git remote add origin git@github.com:myusername/reponame.git
+```
+
 and now go ahead and push the code to Github with:
 
 ```
 git push origin master
 ```
 
-You can also use your favorite Git GUI (for example [SourceTree](http://www.sourcetreeapp.com/)) to do a lot of this process as well.
+You can also use your favorite Git GUI (for example the [Github](https://mac.github.com/) client) to do a lot of this process as well.
 
 ## Importing Shared Projects
 
