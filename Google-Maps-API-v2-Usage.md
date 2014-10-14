@@ -298,20 +298,22 @@ class CustomWindowAdapter implements InfoWindowAdapter{
 		mInflater = i;
 	}
 
+        // This defines the contents within the info window based on the marker
 	@Override
 	public View getInfoContents(Marker marker) {
 	    // Getting view from the layout file
 	    View v = mInflater.inflate(R.layout.custom_info_window, null);
-	    	   
+	    // Populate fields	
 	    TextView title = (TextView) v.findViewById(R.id.tv_info_window_title);
 	    title.setText(marker.getTitle());
 
 	    TextView description = (TextView) v.findViewById(R.id.tv_info_window_description);
 	    description.setText(marker.getSnippet());
-
+	    // Return info window contents
 	    return v;
 	}
-
+        
+        // This changes the frame of the info window; returning null uses the default frame.
 	@Override
 	public View getInfoWindow(Marker marker) {
 		return null;
@@ -325,3 +327,5 @@ You would use this by setting your `InfoWindowAdapter` to this new class after y
 ```java
 map.setInfoWindowAdapter(new CustomWindowAdapter(getLayoutInflater()));
 ```
+
+This will use the custom adapter to create the information window, allowing us to customize how the information is displayed.
