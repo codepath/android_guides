@@ -10,10 +10,11 @@ Assuming you have added the GoogleMapv2 mapfragment to your layout, you should f
 private void setUpMapIfNeeded() {
     // Do a null check to confirm that we have not already instantiated the map.
     if (mapFragment == null) {
-        mapFragment = ((SupportMapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
+        mapFragment = ((SupportMapFragment) getFragmentManager().findFragmentById(R.id.map));
         // Check if we were successful in obtaining the map.
         if (mapFragment != null) {
            // The Map is verified. It is now safe to manipulate the map.
+           map = mapFragment.getMap();
         }
     }		   
 }
