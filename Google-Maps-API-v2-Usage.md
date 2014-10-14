@@ -260,7 +260,7 @@ In `private void showAlertDialogForPoint` add the call to `dropPinEffect(marker)
 
 ### Customize InfoWindow
 
-If you want to use your own layout instead of the default options, you can do so by creating your own InfoWindowAdapter seen below. Create a layout file in `res/layout/custom_info_window.xml`:
+If you want to use your own layout instead of the default options, you can do so by creating your own `InfoWindowAdapter` seen below. Create a layout file in `res/layout/custom_info_window.xml`:
 
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -320,7 +320,7 @@ class CustomWindowAdapter implements InfoWindowAdapter{
 ```
 
 
-You would use this by setting your InfoWindowAdapter to this new class after you have initialized your map. In the case of my example I am running this after I have run `setUpMapIfNeeded()` in my `onCreate()`.
+You would use this by setting your `InfoWindowAdapter` to this new class after you have initialized your map. In the case of my example I am running this after I have run `setUpMapIfNeeded()` in my `onCreate()`.
 
 ```java
 map.setInfoWindowAdapter(new CustomWindowAdapter(getLayoutInflater()));
