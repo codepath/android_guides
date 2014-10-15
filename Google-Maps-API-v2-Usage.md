@@ -33,8 +33,8 @@ BitmapDescriptor defaultMarker =
 // listingPosition is a LatLng point
 Marker mapMarker = mapFragment.addMarker(new MarkerOptions()
     .position(listingPosition)					 								    
-    .title(listing.name)
-    .snippet("Open at: " + listing.hoursOpen)
+    .title("Some title here")
+    .snippet("Some description here")
     .icon(defaultMarker));
 ```
 
