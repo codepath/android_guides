@@ -144,6 +144,7 @@ Exploring the strategies for data persistence:
 * [[Clean Persistence with Sugar ORM]] (Installation, Queries, Migrations)
 * [[Settings with PreferenceFragment]] (**Needs Attention**)
 * [[Loading Contacts with Content Providers]] (CursorLoader, LoaderManager)
+* [[Interacting with the Calendar]] (CalendarProvider)
 * [[Creating Content Providers]] (**Needs Attention**)
 
 ## Fragments
