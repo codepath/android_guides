@@ -8,7 +8,7 @@ This guide outlines how to programmatically interact with a user's calendar usin
 
 For general usage of intents for interacting with the Calendar which is generally simpler but more limited when compared to content providers, check out [this calendar intents guide](http://www.grokkingandroid.com/intents-of-androids-calendar-app/).
 
-See [this tutsplus guide](http://code.tutsplus.com/tutorials/android-essentials-adding-events-to-the-users-calendar--mobile-8363) for how to add an event to the users calendar using intents.
+See [this tutsplus guide](http://code.tutsplus.com/tutorials/android-essentials-adding-events-to-the-users-calendar--mobile-8363) for details on how to add an event to the users calendar using intents.
 
 ### Interacting with Calendar Content Provider 
 
