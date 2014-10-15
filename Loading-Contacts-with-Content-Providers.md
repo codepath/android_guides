@@ -94,7 +94,7 @@ public class ContactFetcher {
 	public ArrayList<Contact> fetchAll() {
 		ArrayList<Contact> listContacts = new ArrayList<Contact>();
 		CursorLoader cursorLoader = new CursorLoader(context, 
-                                ContactsContract.Contacts.CONTENT_URI, // uri
+				ContactsContract.Contacts.CONTENT_URI, // uri
 				null, // the columns to retrieve (all)
 				null, // the selection criteria (none)
 				null, // the selection args (none)
