@@ -27,7 +27,6 @@ public class MainActivity extends FragmentActivity {
 			.newTab()
 			.setText("First")
 			.setIcon(R.drawable.ic_home)
-			.setTag("HomeTimelineFragment")
 			.setTabListener(
 				new FragmentTabListener<FirstFragment>(R.id.flContainer, this, "first",
 								FirstFragment.class));
@@ -39,7 +38,6 @@ public class MainActivity extends FragmentActivity {
 			.newTab()
 			.setText("Second")
 			.setIcon(R.drawable.ic_mentions)
-			.setTag("MentionsTimelineFragment")
 			.setTabListener(
 			    new FragmentTabListener<SecondFragment>(R.id.flContainer, this, "second",
 								SecondFragment.class));
@@ -117,7 +115,6 @@ public class MainActivity extends ActionBarActivity {
 		    .newTab()
 		    .setText("First")
 		    .setIcon(R.drawable.ic_home)
-		    .setTag("HomeTimelineFragment")
 		    .setTabListener(new SupportFragmentTabListener<FirstFragment>(R.id.flContainer, this,
                         "first", FirstFragment.class));
 
@@ -128,7 +125,6 @@ public class MainActivity extends ActionBarActivity {
 		    .newTab()
 		    .setText("Second")
 		    .setIcon(R.drawable.ic_mentions)
-		    .setTag("MentionsTimelineFragment")
 		    .setTabListener(new SupportFragmentTabListener<SecondFragment>(R.id.flContainer, this,
                         "second", SecondFragment.class));
 		actionBar.addTab(tab2);
@@ -195,17 +191,48 @@ If you need to reference a fragment instance from within the activity, you can r
 private final String FIRST_TAB_TAG = "first";
 Tab tab1 = actionBar
   ...
-  .setTabListener(new SupportFragmentTabListener<FirstFragment>(R.id.flContainer, this,
+  .setTabListener(new FragmentTabListener<FirstFragment>(R.id.flContainer, this,
       FIRST_TAB_TAG, FirstFragment.class));
 ```
 
-You have assigned the tag "First" to that fragment during construction and you can access the fragment for this tab later using `findFragmentByTag`:
+You have assigned the tag `FIRST_TAB_TAG` to that fragment during construction and you can access the fragment for this tab later using `findFragmentByTag`:
 
 ```java
 FirstFragment fragmentFirst = getSupportFragmentManager().findFragmentByTag(FIRST_TAB_TAG);
 ```
 
-This will return the fragment instance embedded for that tab.
+This will return the fragment instance embedded for that tab. 
+
+### Communicating Arguments to Fragment
+
+In certain cases we need to be able to pass arguments into the tab fragments during their construction. Fortunately, the `FragmentTabListener` can accept an optional `Bundle` argument which will be passed into the fragment automatically during creation:
+
+```java
+// Construct the bundle passing in arguments
+Bundle firstBundle = new Bundle();
+args.putInt("someInt", someInt);
+args.putString("someTitle", someTitle);
+// Pass bundle into the tab listener constructor
+Tab tab1 = actionBar
+  ...
+  .setTabListener(new FragmentTabListener<FirstFragment>(
+      R.id.flContainer, this, "First", FirstFragment.class, 
+      firstBundle)); // <-- Bundle passed here
+```
+
+Then within the `FirstFragment` we can access these arguments with `getArguments`:
+
+```java
+public class FirstFragment extends Fragment {
+   @Override
+   public void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       // Get back arguments
+       int SomeInt = getArguments().getInt("someInt", 0);	
+       String someTitle = getArguments().getString("someTitle", "");	
+   }
+}
+```
 
 ### Tab Selection
 
