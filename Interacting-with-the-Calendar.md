@@ -2,7 +2,7 @@
 
 This guide outlines how to programmatically interact with a user's calendar using intents or through the `CalendarProvider`.
 
-**Needs Attention**
+(**Needs Attention**)
 
 ### Using Intents to Manage the Calendar
 
