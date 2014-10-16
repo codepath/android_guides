@@ -25,9 +25,17 @@ Android powers millions of phones, tablets, and other devices in a wide variety 
  * [Designing for Multiple Screens](http://developer.android.com/training/multiscreen/index.html)
  * [Metrics and Grids](http://developer.android.com/design/style/metrics-grids.html)
 
-#### Typography and Color
+##### Color Schemes
 
-Check out the [typography guide](http://developer.android.com/design/style/typography.html) to understand the common font types for Android apps and default type colors and sizes. Check out the [colors guide](http://developer.android.com/design/style/color.html) which includes common color palettes for Android apps. For color schemes, also check out [ColourLovers](http://www.colourlovers.com/palettes/new/past-month/meta?page=1) for color scheme and the [adobe kuler](https://kuler.adobe.com) color wheel.
+Check out the [color scheme guide](http://www.google.com/design/spec/style/color.html) and the [android colors](http://developer.android.com/design/style/color.html) which includes common color palettes for Android apps. For nice color schemes check out:
+
+  * [ColourLovers](http://www.colourlovers.com/palettes/new/past-month/meta?page=1) for color scheme 
+  * [adobe kuler](https://kuler.adobe.com) color wheel for color selection
+  * [Colors library](https://github.com/MatthewYork/Colours) - Android library with pre-defined colors
+
+#### Typography
+
+Check out the [typography guide](http://developer.android.com/design/style/typography.html) to understand the common font types for Android apps and default type colors and sizes. See the [calligraphy library](https://github.com/chrisjenx/Calligraphy) for each custom fonts.
 
 #### Iconography
 
