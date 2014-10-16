@@ -2,7 +2,7 @@
 
 When learning Android app development, one of the most important topics to understand is how to create delightful mobile interfaces and interactions. This means understanding the conventions within the Android universe, common style guidelines, patterns, etc.
 
-![Image](http://developer.android.com/design/media/creative_vision_main.png)
+<img src="http://developer.android.com/design/media/creative_vision_main.png" width="500" alt="Design" />
 
 ### Guidelines
 
