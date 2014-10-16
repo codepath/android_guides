@@ -20,7 +20,7 @@ As you plan your app for Android, keep in mind that different platforms play by 
 
 Check out the [UI Overview](http://developer.android.com/design/get-started/ui-overview.html) page which provides a high-level tour of key UI element. In particular, check out the [Common App UI](http://developer.android.com/design/get-started/ui-overview.html#app) which outlines the key UI elements including the Action Bar, Navigation Drawer and Content Area.
 
-##### Color Schemes
+#### Color Schemes
 
 Check out the [color scheme guide](http://www.google.com/design/spec/style/color.html) and the [android colors](http://developer.android.com/design/style/color.html) which includes common color palettes for Android apps. For nice color schemes check out:
 
