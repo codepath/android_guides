@@ -81,6 +81,12 @@ If you are publishing your application on Google Play you can use the <uses-feat
 
 If you add this element and descriptor to your application's manifest, users will see your application on Google Play only if their device has an accelerometer. You should set the descriptor to `android:required="true"` only if your application relies entirely on a specific sensor.
 
+### Sensors in the Background
+
+In certain cases, an app wants to be listening to sensors in the background even while the app is not running. While this can be extremely draining to the battery if caution is not taken, this can be done with the use of a `Service`. 
+
+See [this sensors in the background](http://code.tutsplus.com/tutorials/android-barometer-logger-acquiring-sensor-data--mobile-10558). To get sensor readings while the phone is asleep, we can implement a [partial wake lock as described here](http://nosemaj.org/android-persistent-sensors). Here's [working sample code](https://github.com/AndroidExamples/android-sensor-example) for this as well.
+
 ## Location Sensor
 
 Location requires the use of the [Google Play SDK](http://developer.android.com/google/play-services/setup.html). The [Location API](http://www.vogella.com/articles/AndroidLocationAPI/article.html) is a higher-level API that wraps the underlying location sensor. You can accomplish tasks like:
