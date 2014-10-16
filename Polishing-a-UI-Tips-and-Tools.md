@@ -6,7 +6,7 @@ Simple guide for improving the UI for any application including links to tools:
 * **Launcher Icon** - Select a pleasant launcher icon (create a [launcher icon](http://imgur.com/a/8cmLM) and update in manifest)
 * **Vibrant Color Scheme** - Pick a primary color and a secondary color for [coloring your app](http://www.google.com/design/spec/style/color.html#color-ui-color-application) using a [sensible color scheme](http://www.colourlovers.com/palettes/new/past-month/meta?page=1).
 * **Design Guidelines** - Review these [[design cliffnotes|Android-Design-Guidelines]] for an  overview of design guidelines and patterns.
-  * [Core Principles](http://developer.android.com/design/get-started/principles.html) - Understand the core motivating principles of Android UI
+  * [Core Principles](http://developer.android.com/design/get-started/principles.html) - Core motivating principles of Android UI
   * [Pure Android](http://developer.android.com/design/patterns/pure-android.html) - Simple guidelines for following Android standards
   * [App Structure](http://developer.android.com/design/patterns/app-structure.html) - Guidelines for general app structure
 * **Styling with Generators**
