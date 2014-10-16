@@ -45,6 +45,14 @@ Android powers millions of phones, tablets, and other devices in a wide variety 
  * [Designing for Multiple Screens](http://developer.android.com/training/multiscreen/index.html)
  * [Metrics and Grids](http://developer.android.com/design/style/metrics-grids.html)
 
+### Designing for Android Articles
+
+* [How to Get Started in Android App Design](http://code.tutsplus.com/tutorials/how-to-get-started-in-android-app-design--mobile-4402)
+* [Designing For A Maturing Android](http://www.smashingmagazine.com/2013/05/08/brave-new-world-designing-for-a-maturing-android/)
+* [How To Design For Android Devices](http://blog.mengto.com/how-to-design-for-android-devices/)
+* [Design Tips for Building Android Apps](http://www.developer.com/ws/android/development-tools/design-tips-for-building-android-mobile-and-tablet-apps.html)
+* [30 Beautiful Android Apps](http://thenextweb.com/apps/2013/11/04/30-beautifully-designed-android-apps/)
+
 ### Common Patterns
 
 There are about a dozen common UI patterns that are integrated into almost every app. When you are building Android screens, it's essential you adhere to these common pattern guides. The most important ones are listed below:
@@ -59,14 +67,6 @@ There are about a dozen common UI patterns that are integrated into almost every
  * [Settings](http://developer.android.com/design/patterns/settings.html) - Place in your app where users indicate their preferences for how your app should behave
 
 Following these and related guides explains in detail how to create consistent and delightful mobile apps.
-
-### Designing for Android Articles
-
-* [How to Get Started in Android App Design](http://code.tutsplus.com/tutorials/how-to-get-started-in-android-app-design--mobile-4402)
-* [Designing For A Maturing Android](http://www.smashingmagazine.com/2013/05/08/brave-new-world-designing-for-a-maturing-android/)
-* [How To Design For Android Devices](http://blog.mengto.com/how-to-design-for-android-devices/)
-* [Design Tips for Building Android Apps](http://www.developer.com/ws/android/development-tools/design-tips-for-building-android-mobile-and-tablet-apps.html)
-* [30 Beautiful Android Apps](http://thenextweb.com/apps/2013/11/04/30-beautifully-designed-android-apps/)
 
 ### Benchmarking
 
