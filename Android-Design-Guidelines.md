@@ -12,18 +12,13 @@ The official Android docs has an [excellent set of design resources](http://deve
 
 Check out [these design principles](http://developer.android.com/design/get-started/principles.html) which were developed by and for the Android User Experience Team to keep users' best interests in mind. Consider them as you apply your own creativity and design thinking. Deviate with purpose.
 
-#### UI Overview
+#### Pure Android
+
+As you plan your app for Android, keep in mind that different platforms play by different rules and conventions. Design decisions that make perfect sense on one platform will look and feel misplaced in the context of a different platform. If you have built web and/or mobile apps in the past, review [this Pure Android Guide](http://developer.android.com/design/patterns/pure-android.html) for look at how to avoid making Android design faux pas.
+
+#### User Interface Overview
 
 Check out the [UI Overview](http://developer.android.com/design/get-started/ui-overview.html) page which provides a high-level tour of key UI element. In particular, check out the [Common App UI](http://developer.android.com/design/get-started/ui-overview.html#app) which outlines the key UI elements including the Action Bar, Navigation Drawer and Content Area.
-
-#### Flexible Design
-
-Android powers millions of phones, tablets, and other devices in a wide variety of screen sizes and form factors. By taking advantage of Android's flexible layout system, you can create apps that gracefully scale from large tablets to smaller phones. Check out the following resources for more information: 
-
- * [Device Displays](http://developer.android.com/design/style/devices-displays.html)
- * [Multi-pane Layouts](http://developer.android.com/design/patterns/multi-pane-layouts.html)
- * [Designing for Multiple Screens](http://developer.android.com/training/multiscreen/index.html)
- * [Metrics and Grids](http://developer.android.com/design/style/metrics-grids.html)
 
 ##### Color Schemes
 
@@ -41,9 +36,14 @@ Check out the [typography guide](http://developer.android.com/design/style/typog
 
 An icon is any graphic that takes up a small portion of screen real estate and provides a quick, intuitive representation of an action, a status, or an app. Icons must be created to work across a wide array of devices. There are also many different types of icons such as the "Launcher" icon on the home screen, ActionBar icons, and notification icons. Check out the [iconography guide](http://developer.android.com/design/style/iconography.html) for a detailed look. In particular, work to understand the [design tips](http://developer.android.com/design/style/iconography.html#DesignTips) and follow the correct naming conventions for different icons.
 
-#### Pure Android
+#### Flexible Design
 
-As you plan your app for Android, keep in mind that different platforms play by different rules and conventions. Design decisions that make perfect sense on one platform will look and feel misplaced in the context of a different platform. If you have built web and/or mobile apps in the past, review [this Pure Android Guide](http://developer.android.com/design/patterns/pure-android.html) for look at how to avoid making Android design faux pas.
+Android powers millions of phones, tablets, and other devices in a wide variety of screen sizes and form factors. By taking advantage of Android's flexible layout system, you can create apps that gracefully scale from large tablets to smaller phones. Check out the following resources for more information: 
+
+ * [Device Displays](http://developer.android.com/design/style/devices-displays.html)
+ * [Multi-pane Layouts](http://developer.android.com/design/patterns/multi-pane-layouts.html)
+ * [Designing for Multiple Screens](http://developer.android.com/training/multiscreen/index.html)
+ * [Metrics and Grids](http://developer.android.com/design/style/metrics-grids.html)
 
 ### Common Patterns
 
