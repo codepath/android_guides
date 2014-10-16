@@ -103,7 +103,7 @@ and applied to a TextView, this looks like:
 
 ![Screen Radial Background](http://i.imgur.com/rReIfCC.png)
 
-Using solid color shapes and gradients we can customize the appearance of buttons, layouts and other views without requiring the use of any images.
+Using solid color shapes and gradients we can customize the appearance of buttons, layouts and other views without requiring the use of any images. Note that custom shapes can be created at runtime using [other shape drawable types](http://kirill-poletaev.blogspot.com/2013/02/android-beginner-tutorial-part-90-path.html) using `PathShape` and `ArcShape`.
 
 ### State List
 
@@ -426,6 +426,40 @@ Here we have customized the `divider` color and `dividerHeight` as well as the `
 ![Customized ListView](http://i.imgur.com/MLpQC8W.png)
 
 We've now successfully customized the appearance of our ListView and it's items using a series of drawables. You can use these techniques to make a list look however you want based on the needs for your app.
+
+## Drawables at Runtime
+
+We can access drawables at runtime within our Java code by accessing the background of a view that has the drawable applied. For example, given this layer list at `res/drawables/message_bubble.xml`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/outerRectangle">
+        <shape android:shape="rectangle" >
+            <solid android:color="#FF00FF" />
+        </shape>
+    </item>
+    <item android:left="10dp">
+        <shape android:shape="rectangle" >
+            <solid android:color="#ffccd2" />
+        </shape>
+    </item>
+</layer-list>
+```
+
+We can then access the `outerRectangle` by the specified id from within our activity:
+
+```java
+// Get drawable layer list from the background
+LayerDrawable bubble = (LayerDrawable) tvFoo.getBackground();
+// Access 
+GradientDrawable outerRect = (GradientDrawable) 
+  bubble.findDrawableByLayerId(R.id.outerRectangle);
+// Change the solid color of the drawable 
+outerRect.setColor(Color.parseColor("#2f8f22"));
+```
+
+Note that the shape is accessed as a `GradientDrawable` here even though the shape is a solid color.
 
 ## Additional Drawable Types
 
