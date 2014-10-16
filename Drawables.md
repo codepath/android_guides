@@ -169,6 +169,8 @@ Keep in mind that a [LayerList](http://developer.android.com/guide/topics/resour
 
 A [NinePatch](http://developer.android.com/guide/topics/graphics/2d-graphics.html#nine-patch) is a PNG image in which you can **define stretchable regions that is stretched** when content within the View exceeds the normal image bounds. You typically assign this type of image as the background of a View which has width set to `wrap_content`. The most common use is a button that has to stretch based on the text displayed inside.
 
+<img src="http://i.imgur.com/JHVsslP.png" width="450" alt="9patch" />
+
 NinePatch are images that have a "9" in the name such as `button_background.9.png` which signifies that this is a stretchable image. The [draw9patch](http://developer.android.com/tools/help/draw9patch.html) tool is used to create special nine-patch images or you can use [the online 9-patch utility](http://android-ui-utils.googlecode.com/hg/asset-studio/dist/nine-patches.html). A NinePatch is defined and stored, setting the background works the same as with any image:
 
 ```xml
