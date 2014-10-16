@@ -8,7 +8,14 @@ This is typically used for customizing the view graphics that are displayed with
 
 Drawables can be an initially overwhelming topic because there are many drawable types used in different situations such as drawing shapes, setting state behaviors for buttons, creating stretchable button backgrounds and creating compound drawable layers.
 
-Let's explore the drawable file types one by one and take a look at examples for each.
+There are at least 17 types of drawables but there are 4 that are most important to understand:
+
+1. Shape Drawables - Defines a shape with properties such as stroke, fill, and padding
+2. StateList Drawables - Defines a list of drawables to use for different states
+3. LayerList Drawables - Defines a list of drawables group together into a composite result
+4. NinePatch Drawables - A PNG file with stretchable regions to allow proper resizing
+
+Let's explore these drawable file types one by one and take a look at examples of usage.
 
 ### Drawing Shapes
 
