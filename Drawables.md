@@ -171,7 +171,12 @@ A [NinePatch](http://developer.android.com/guide/topics/graphics/2d-graphics.htm
 
 <img src="http://i.imgur.com/JHVsslP.png" width="450" alt="9patch" />
 
-NinePatch are images that have a "9" in the name such as `button_background.9.png` which signifies that this is a stretchable image. The [draw9patch](http://developer.android.com/tools/help/draw9patch.html) tool is used to create special nine-patch images or you can use [the online 9-patch utility](http://android-ui-utils.googlecode.com/hg/asset-studio/dist/nine-patches.html). A NinePatch is defined and stored, setting the background works the same as with any image:
+NinePatch are images that have a "9" in the name such as `button_background.9.png` which signifies that this is a stretchable image. As shown above, the thin black lines indicate the vertical and horizontal "stretchable" and "fill" areas for the image. An example of a 9-patch image is embedded below (left is the 9patch graphic, right is an example of use in an app):
+
+<img src="http://i.imgur.com/btT0ybk.png" height="60" /> &nbsp;
+<img src="http://i.imgur.com/oSFvjxF.png" height="60" />
+
+See this [simple guide](http://radleymarx.com/blog/simple-guide-to-9-patch/) for more information. You can also refer to the [official nine-patch docs](http://developer.android.com/guide/topics/graphics/2d-graphics.html#nine-patch). A NinePatch is defined and saved in the `drawable` folder and setting the background works the same as with any image:
 
 ```xml
 <Button android:layout_width="wrap_content"
@@ -180,7 +185,7 @@ NinePatch are images that have a "9" in the name such as `button_background.9.pn
         android:background="@drawable/button_background"/>
 ```
 
-You can check out [great ready-made examples of pretty 9-patch buttons](http://www.dibbus.com/2011/03/9patch-images-in-android/) for examples. Also be sure to read more about NinePatch images in the [official docs](http://developer.android.com/guide/topics/graphics/2d-graphics.html#nine-patch) if you are still confused. 
+The [draw9patch](http://developer.android.com/tools/help/draw9patch.html) tool is used to create special nine-patch images or you can use [the online 9-patch utility](http://android-ui-utils.googlecode.com/hg/asset-studio/dist/nine-patches.html). You can check out [great ready-made examples of pretty 9-patch buttons](http://www.dibbus.com/2011/03/9patch-images-in-android/) for examples.
 
 ## Customizing a Button
 
