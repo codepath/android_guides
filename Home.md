@@ -106,6 +106,7 @@ Exploring how to allow user interaction and navigation within an app:
 * [[Menus and Popups]] (Context Menu, PopupMenu, PopupWindow)
 * [[Dialogs with DialogFragment|Using DialogFragment]] (Displaying a content overlay)
 * [[Implementing a Rate Me Feature]] (For getting Play Store ratings)
+* [[Repeating Periodic Tasks]] (Handler, ScheduledThreadPoolExecutor)
 
 ## Navigation
 
