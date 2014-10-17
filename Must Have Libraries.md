@@ -34,6 +34,7 @@ This "standard pack" listed below are libraries that are quite popular, widely a
  * [Tape](http://square.github.io/tape/) - Tape is a collection of queue-related classes for Android and Java
  * [RxJava](https://github.com/ReactiveX/RxJava) - Reactive Extensions for the JVM
  * [Priority JobQueue](https://github.com/path/android-priority-jobqueue) - Easier background tasks
+ * [ACRA](http://acra.ch/) - Crash reporting made easy and free. Check the [setup instructions](https://github.com/ACRA/acra/wiki/BasicSetup) and [open-source backend](https://github.com/ACRA/acralyzer).
 
 ### Networking
 
