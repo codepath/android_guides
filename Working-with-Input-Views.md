@@ -140,6 +140,10 @@ and then specify the string array of options in `res/values/planets_array.xml`:
 </resources>
 ```
 
+Check out the [Spinners](http://developer.android.com/guide/topics/ui/controls/spinner.html) guide for more details. Note that customizing a spinner's text requires using a [custom array adapter and layout file](http://stackoverflow.com/questions/9476665/how-to-change-spinner-text-size-and-text-color).
+
+#### Getting and Setting Values
+
 Get the selected item out a spinner using:
 
 ```java
@@ -162,6 +166,8 @@ public void setSpinnerToValue(Spinner spinner, String value) {
 }
 ```
 
+#### Custom ArrayAdapter Source
+
 You can also load a spinner using an adapter for a dynamic source of options using an Adapter:
 
 ```java
@@ -175,7 +181,16 @@ adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 spinner.setAdapter(adapter);
 ```
 
-Check out the [Spinners](http://developer.android.com/guide/topics/ui/controls/spinner.html) guide for more details. Note that customizing a spinner's text requires using a [custom array adapter and layout file](http://stackoverflow.com/questions/9476665/how-to-change-spinner-text-size-and-text-color).
+#### Multiple Select Spinner
+
+By default, the spinner only allows the user to select one option from the list. Check out the following resources surrounding multiple selection spinners:
+
+ * [MultiSelectSpinner](https://github.com/wongk/MultiSelectSpinner) - Simple multi-select library
+ * [MultiSelect Tutorial 1](http://v4all123.blogspot.in/2013/09/spinner-with-multiple-selection-in.html)
+ * [MultiSelect Tutorial 2](http://asnehal.wordpress.com/2012/04/03/multi-select-drop-down-list-in-android/)
+ * [Simple Multi Dialog](http://labs.makemachine.net/2010/03/android-multi-selection-dialogs/)
+
+Any of those should help guide you through the process.
 
 ### NumberPicker
 
