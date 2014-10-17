@@ -7,6 +7,8 @@ The `ArrayAdapter` fits in between an `ArrayList` (data source) and the `ListVie
  * Which array to use as the data source for the list
  * How to convert any given item in the array into a corresponding View object
 
+Note as shown above that there are other data sources besides an `ArrayAdapter` such as the [[CursorAdapter|Populating-a-ListView-with-a-CursorAdapter]] which instead binds directly to a result set from a [[Local SQLite Database|Local-Databases-with-SQLiteOpenHelper]].
+
 ## Using a Basic ArrayAdapter
 
 To use a basic `ArrayAdapter`, you just need to initialize the adapter and attach the adapter to the ListView. First, we initialize the adapter:
