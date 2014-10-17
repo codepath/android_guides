@@ -3,9 +3,9 @@
 Building beautiful Android apps starts with understanding how to approach building a delightful UI and each of the components that contributes:
 
 <a href="http://androidniceties.tumblr.com/">
-  <img src="http://i.imgur.com/Zt9ZIys.jpg" alt="design" width="300" />
-  <img src="http://i.imgur.com/UECNpcx.png" alt="design" width="300" />
-  <img src="http://i.imgur.com/I4qigt5.jpg" alt="design" width="300" />
+  <img src="http://i.imgur.com/Zt9ZIys.jpg" alt="design" width="250" />&nbsp;
+  <img src="http://i.imgur.com/UECNpcx.png" alt="design" width="250" />&nbsp;
+  <img src="http://i.imgur.com/I4qigt5.jpg" alt="design" width="250" />
 </a>
 
 Polishing up the user interface of your application starts with the following enhancements:
