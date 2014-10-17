@@ -57,8 +57,7 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleItemViewHo
 
 ```java
 public class MainActivity extends Activity {
-
-	RecyclerView recyclerView;
+	private RecyclerView recyclerView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
