@@ -147,7 +147,7 @@ Fragment has many methods which can be overridden to plug into the lifecycle (si
 
 The lifecycle execution order is mapped out below:
 
-<a href="http://i.imgur.com/0EVReuq.png"><img src="http://i.imgur.com/0EVReuq.png" alt="lifecycle" width="450" /></a>
+<a href="http://i.imgur.com/0EVReuq.png"><img src="http://i.imgur.com/0EVReuq.png" alt="lifecycle" width="500" /></a>
 
 The most common ones to override are `onCreateView` which is in almost every fragment to setup the inflated view, `onCreate` for any data initialization and `onActivityCreated` used for setting up things that can only take place once the Activity has been fully created.
 
