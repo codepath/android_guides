@@ -42,7 +42,7 @@ Let's take a look at how to test this very simple application using the Android 
 
 ![Test Project](http://i.imgur.com/7APmagr.png)
 
-Select the "Test Target" as SimpleApp. Now we have our brand new test project for writing out app test cases. If we want to embed the test project within our existing application within a folder, check out [this step-by-step guide](http://jonblack.org/2012/11/24/creating-an-android-test-project-within-a-project/). 
+Select the "Test Target" as SimpleApp. Now we have our brand new test project for writing out app test cases. If we want to embed the test project within our existing application within a folder, check out [this step-by-step guide](https://web.archive.org/web/20140117014928/http://jonblack.org/2012/11/24/creating-an-android-test-project-within-a-project/). 
 
 #### Unit Testing
 
