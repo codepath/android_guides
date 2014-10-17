@@ -4,7 +4,7 @@ This guide will instruct you on how use the Google Maps API v2 library to create
 
 ### Setup Map If Necessary
 
-Assuming you have added the GoogleMapv2 mapfragment to your layout, you should first run this method `onCreate()`. In my case, I am using the SupportMapFragment, either will work.
+Assuming you have added the GoogleMap v2 mapfragment to your layout, you should first run this method `onCreate()`. In my case, I am using the SupportMapFragment, either will work.
 
 ```java
 private void setUpMapIfNeeded() {
@@ -21,6 +21,18 @@ private void setUpMapIfNeeded() {
 ```
 
 After you have run that it is safe for you to begin adding markers.
+
+### Controlling the Camera
+
+The map location center and zoom can be manipulated using the [moveCamera](http://developer.android.com/reference/com/google/android/gms/maps/GoogleMap.html#moveCamera\(com.google.android.gms.maps.CameraUpdate\)) or [animateCamera](http://developer.android.com/reference/com/google/android/gms/maps/GoogleMap.html#animateCamera\(com.google.android.gms.maps.CameraUpdate\)) which both take a [CameraUpdate](http://developer.android.com/reference/com/google/android/gms/maps/CameraUpdate.html) object. For example, to retarget the camera to a new latitude and longitude we can do:
+
+```java
+LatLng latLng = new LatLng(latitude, longitude);
+CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLng(latLng);
+map.animateCamera(cameraUpdate);
+```
+
+Check the [CameraUpdateFactory](http://developer.android.com/reference/com/google/android/gms/maps/CameraUpdateFactory.html) for the available camera update types including `newLatLng`, `newLatLngZoom`, `zoomTo`, and more.
 
 ### Adding Markers to Map Fragment
 
