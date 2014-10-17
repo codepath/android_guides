@@ -145,7 +145,11 @@ Fragment has many methods which can be overridden to plug into the lifecycle (si
 - `onResume()` - Allocate “expensive” resources such as registering for location, sensor updates, etc.
 - `onPause()` - Release “expensive” resources. Commit any changes.
 
-The most common are `onCreateView` which is in almost every fragment to setup the view, `onCreate` for any initialization and `onActivityCreated` used for setting up things that can only take place once the Activity is created.
+The lifecycle execution order is mapped out below:
+
+<a href="http://i.imgur.com/0EVReuq.png"><img src="http://i.imgur.com/0EVReuq.png" alt="lifecycle" width="450" /></a>
+
+The most common ones to override are `onCreateView` which is in almost every fragment to setup the inflated view, `onCreate` for any data initialization and `onActivityCreated` used for setting up things that can only take place once the Activity has been fully created.
 
 Here's an example of how you might use the various fragment lifecycle events:
 
