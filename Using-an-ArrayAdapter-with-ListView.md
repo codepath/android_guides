@@ -31,7 +31,7 @@ By default, this will convert each item in the array into a view by calling toSt
 
 ## Using a Custom ArrayAdapter
 
-When we want to display a series of items into a list using a custom representation of the items, we need to use our own custom XML layout for each item. To do this, we need to create our own custom `ArrayAdapter` class. See [this repo for the source code](https://github.com/thecodepath/android-custom-array-adapter-demo). First, we often need to define a model to represent the data within each list item.
+When we want to display a series of items into a list using a custom representation of the items, we need to use our own custom XML layout for each item. To do this, we need to create our own custom `ArrayAdapter` class. See [this repo for the source code](https://github.com/codepath/android-custom-array-adapter-demo). First, we often need to define a model to represent the data within each list item.
 
 ### Defining the Model
 

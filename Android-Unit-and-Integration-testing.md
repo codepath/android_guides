@@ -32,13 +32,13 @@ The Android testing API provides hooks into the Android component and applicatio
 
 #### Creating a Test Project
 
-Let's try testing a very simple application called [SimpleApp](https://github.com/thecodepath/android-simple-app). This app is just two activities. The first (`FirstActivity`) has a text field and a button. When you type in the text field and hit the button, a `SecondActivity` appears that displays the text entered.
+Let's try testing a very simple application called [SimpleApp](https://github.com/codepath/android-simple-app). This app is just two activities. The first (`FirstActivity`) has a text field and a button. When you type in the text field and hit the button, a `SecondActivity` appears that displays the text entered.
 
 <img src="http://i.imgur.com/BhD9S8n.png" width="430" alt="Screen 1" />
 &nbsp;
 <img src="http://i.imgur.com/YOssiuC.png" width="430" alt="Screen 2" />
 
-Let's take a look at how to test this very simple application using the Android testing framework. Make sure to [download SimpleApp](https://github.com/thecodepath/android-simple-app) and import the project into your workspace. First, let's create a new Test Project called "SimpleAppTest".
+Let's take a look at how to test this very simple application using the Android testing framework. Make sure to [download SimpleApp](https://github.com/codepath/android-simple-app) and import the project into your workspace. First, let's create a new Test Project called "SimpleAppTest".
 
 ![Test Project](http://i.imgur.com/7APmagr.png)
 
@@ -246,7 +246,7 @@ This framework is designed to provide black box tests for Android applications. 
 
 #### Robotium Example
 
-Let's take a look at writing blackbox integration tests with Robotium for our [SimpleApp](https://github.com/thecodepath/android-simple-app). First, you need to setup a "Test Project" much the same way as you would for the Android Testing Framework above. So check the previous "example" section above and generate a "Test Project" called "SimpleAppTest". Be sure to download the [SimpleApp](https://github.com/thecodepath/android-simple-app) and read what the app does in the previous section testing section as well.
+Let's take a look at writing blackbox integration tests with Robotium for our [SimpleApp](https://github.com/codepath/android-simple-app). First, you need to setup a "Test Project" much the same way as you would for the Android Testing Framework above. So check the previous "example" section above and generate a "Test Project" called "SimpleAppTest". Be sure to download the [SimpleApp](https://github.com/codepath/android-simple-app) and read what the app does in the previous section testing section as well.
 
 Next, we need to add the [robotium jar](https://code.google.com/p/robotium/downloads/list) to our Test Project. Download the latest "robotium-solo-X.X.jar". You need to add the robotium JAR to the Libraries on the projects Build Path.
 
@@ -361,7 +361,7 @@ Unfortunately, Robolectric doesn't support every situation so when you cannot ac
 
 #### Robolectric Example
 
-Let's take a look at testing [SimpleApp](https://github.com/thecodepath/android-simple-app) with Robolectric. Keep in mind that Robolectric is unique in that the tests **do not require an emulator** to be running. First, we need to setup our project for Robolectric tests using our [[step-by-step Robolectric installation guide|Robolectric-Installation-for-Unit-Testing]].
+Let's take a look at testing [SimpleApp](https://github.com/codepath/android-simple-app) with Robolectric. Keep in mind that Robolectric is unique in that the tests **do not require an emulator** to be running. First, we need to setup our project for Robolectric tests using our [[step-by-step Robolectric installation guide|Robolectric-Installation-for-Unit-Testing]].
 
 With the Robolectric test project setup, we can now create a unit test for our Activity by creating a new class in the "test" folder of our `SimpleAppElectricTest` called "FirstActivityTest". The rough skeleton of an activity test with Robolectric is:
 

@@ -41,7 +41,7 @@ Let's take an end-to-end look at creating a master-detail interface using fragme
 
 ![Master Detail Pattern](http://developer.android.com/images/training/basics/fragments-screen-mock.png)
 
-**Note:** The full application source can be downloaded in our [android-master-detail-demo](https://github.com/thecodepath/android-master-detail-demo) repository.
+**Note:** The full application source can be downloaded in our [android-master-detail-demo](https://github.com/codepath/android-master-detail-demo) repository.
 
 #### Creating the Application
 
@@ -624,7 +624,7 @@ Here we are calling the `setActivateOnItemClick` method only if we are in a two-
 
 We have now successfully built an end-to-end master-detail application that has a list of items and a detail view. On the phone, the list and detail are on separate activities but on the larger tablet, we used an alternate resource file so that we could have a two-pane interface. This has demonstrated the power and flexibility of fragments, alternative resources and relative layouts when used in conjunction within an app. You could imagine this exact same pattern being applied to a Twitter app or a Yelp app.
 
-The full application source can be downloaded in our [android-master-detail-demo](https://github.com/thecodepath/android-master-detail-demo) repository. Check out the [Adaptive UI](http://developer.android.com/training/multiscreen/adaptui.html) official docs and the [Building a Flexible UI](http://developer.android.com/training/basics/fragments/fragment-ui.html) doc for more details.
+The full application source can be downloaded in our [android-master-detail-demo](https://github.com/codepath/android-master-detail-demo) repository. Check out the [Adaptive UI](http://developer.android.com/training/multiscreen/adaptui.html) official docs and the [Building a Flexible UI](http://developer.android.com/training/basics/fragments/fragment-ui.html) doc for more details.
 
 ## References
 

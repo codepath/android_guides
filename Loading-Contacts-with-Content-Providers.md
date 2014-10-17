@@ -9,7 +9,7 @@ The two different methods are outlined below. In the first, the content provider
 
 ## Loading Data From CursorLoader into Java Objects
 
-The following guide walks step by step through loading contacts from the phone using Content Providers. See [the full sample here](https://github.com/thecodepath/contacts-loader-example) for the source code. 
+The following guide walks step by step through loading contacts from the phone using Content Providers. See [the full sample here](https://github.com/codepath/contacts-loader-example) for the source code. 
 
 Note that this is loading the content synchronously from the CursorLoader which should be avoided. This code parses the contacts with their numbers and emails into an `ArrayList`. 
 

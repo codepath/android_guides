@@ -26,7 +26,7 @@ push.sendInBackground();
 
 Full source code can be [found on Github](https://github.com/ParsePlatform/PushTutorial). For full details and options, check out the [official parse Push guide](https://parse.com/docs/push_guide#sending/Android).  
 
-**Running into issues?** Check out the [push troubleshooting guide](https://parse.com/docs/push_guide#troubleshooting/Android). Also compare your app with this [sample reference app](https://github.com/thecodepath/ParsePushNotificationExample/tree/master/src/com/test).
+**Running into issues?** Check out the [push troubleshooting guide](https://parse.com/docs/push_guide#troubleshooting/Android). Also compare your app with this [sample reference app](https://github.com/codepath/ParsePushNotificationExample/tree/master/src/com/test).
 
 ### Receiving Push Notifications
 
@@ -52,7 +52,7 @@ Details of setting up custom push notifications can be [found in this guide](htt
 
 ### Source Code
 
-We have a full demo of Parse Push sending and receiving which [can be found on Github](https://github.com/thecodepath/ParsePushNotificationExample/tree/master/src/com/test). Check out [MyCustomReceiver](https://github.com/thecodepath/ParsePushNotificationExample/blob/master/src/com/test/MyCustomReceiver.java) and [MainActivity](https://github.com/thecodepath/ParsePushNotificationExample/blob/master/src/com/test/MainActivity.java). 
+We have a full demo of Parse Push sending and receiving which [can be found on Github](https://github.com/codepath/ParsePushNotificationExample/tree/master/src/com/test). Check out [MyCustomReceiver](https://github.com/codepath/ParsePushNotificationExample/blob/master/src/com/test/MyCustomReceiver.java) and [MainActivity](https://github.com/codepath/ParsePushNotificationExample/blob/master/src/com/test/MainActivity.java). 
 
 ### Gotchas
 

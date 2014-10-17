@@ -231,7 +231,7 @@ When using the `onCreateDialog` method there are many built-in Dialog types to t
 
 ## Libraries
 
-* CodePath [android-view-helpers](https://github.com/thecodepath/android-view-helpers) for an easier way to create simple alert and progress modals.
+* CodePath [android-view-helpers](https://github.com/codepath/android-view-helpers) for an easier way to create simple alert and progress modals.
 
 ## References
 

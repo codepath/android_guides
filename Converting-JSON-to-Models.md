@@ -24,7 +24,7 @@ The first step in retrieving any API-based model data is to execute a network re
 }
 ```
 
-Sending out this API request can be done in any number of ways but first requires us to register for a Yelp developer account and use OAuth 1.0a to authenticate with our provided access_token. You might for example use our [rest-client-template](https://github.com/thecodepath/android-rest-client-template) to manage this authentication and then construct a `YelpClient` that has a `search` method:
+Sending out this API request can be done in any number of ways but first requires us to register for a Yelp developer account and use OAuth 1.0a to authenticate with our provided access_token. You might for example use our [rest-client-template](https://github.com/codepath/android-rest-client-template) to manage this authentication and then construct a `YelpClient` that has a `search` method:
 
 ```java
 public class YelpClient extends OAuthBaseClient {

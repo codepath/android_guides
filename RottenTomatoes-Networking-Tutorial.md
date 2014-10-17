@@ -21,7 +21,7 @@ To do this, we can organize the different components into the following objects:
 3. `BoxOfficeMoviesAdapter` - Responsible for mapping each `BoxOfficeMovie` to a particular view layout
 4. `BoxOfficeActivity` - Responsible for fetching and deserializing the data and configuring the adapter
 
-The full source code for this app can be [downloaded here](https://github.com/thecodepath/android-rottentomatoes-demo) for review as well.
+The full source code for this app can be [downloaded here](https://github.com/codepath/android-rottentomatoes-demo) for review as well.
 
 ## Tutorial
 
@@ -520,7 +520,7 @@ After running the app, we should see the populated box office movie data:
 
 ![Imgur](http://i.imgur.com/zQPzAxD.png)
 
-The full source code for this app can be [downloaded here](https://github.com/thecodepath/android-rottentomatoes-demo) for review as well.
+The full source code for this app can be [downloaded here](https://github.com/codepath/android-rottentomatoes-demo) for review as well.
 
 ### Adding a Detail View
 
@@ -750,4 +750,4 @@ With this, we should now be able to view the movie detail view:
 
 <img src="http://i.imgur.com/9Uw7qLc.png" width="400" />
 
-The full source code for this app can be [downloaded here](https://github.com/thecodepath/android-rottentomatoes-demo) for review as well.
+The full source code for this app can be [downloaded here](https://github.com/codepath/android-rottentomatoes-demo) for review as well.
