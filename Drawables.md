@@ -130,7 +130,7 @@ For example, a state list XML for a button background might look like the follow
 
 Now, when the view (i.e button) is pressed or focused, the drawable used for the view will change accordingly.  Note that **any view can have a state selector**, but the most common uses are with buttons and listview items. There are also color state selectors which allow a color to be chosen based on view state such as in a file named `res/color/button_text.xml`:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_pressed="true" android:color="#ffff0000"/> 
@@ -139,7 +139,7 @@ Now, when the view (i.e button) is pressed or focused, the drawable used for the
 </selector>
 ```
 
-and applied to any field that accepts a color value such as the `textColor` property of a button:
+and applied to any field that accepts a color value such as the `textColor` property of a button in a layout file:
 
 ```xml
 <Button
@@ -149,7 +149,7 @@ and applied to any field that accepts a color value such as the `textColor` prop
     android:textColor="@color/button_text" />
 ```
 
-Using state lists allows us to create dynamic views that respond to pressed, checked, enabled or other related states.
+Using state lists allows us to easily define dynamic views that respond to pressed, checked, enabled or other related states.
 
 ### Creating a Layer List
 
