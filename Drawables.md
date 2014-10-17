@@ -107,9 +107,9 @@ Using solid color shapes and gradients we can customize the appearance of button
 
 ### State List
 
-A [StateListDrawable](http://developer.android.com/guide/topics/resources/drawable-resource.html#StateList) is a drawable object defined in XML that uses a several different images to represent the same graphic, depending on the state of the object. For example, a Button widget can exist in one of several different states (pressed, focused, or niether) and, using a state list drawable, you can provide a different background image for each state. The state list supports different view states such as `android:state_pressed`, `android:state_focused`, `android:state_hovered`, `android:state_selected`, among many others.
+A [StateListDrawable](http://developer.android.com/guide/topics/resources/drawable-resource.html#StateList) is a drawable object defined in XML that uses a several different images to represent the same graphic, depending on the state of the object. For example, a Button widget can exist in one of several different states (pressed, focused, or niether) and, using a state list drawable, you can provide a different background image for each state. The state list supports different view states such as `android:state_pressed`, `android:state_focused`, `android:state_enabled`, `android:state_selected`, among many others.
 
-For example, a state list XML for a button might look like the following:
+For example, a state list XML for a button background might look like the following in a file such as `res/drawable/selector_button_bg`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -128,13 +128,46 @@ For example, a state list XML for a button might look like the following:
 </selector>
 ```
 
-Now, when the view (i.e button) is pressed or focused, the drawable used for the view will change accordingly.  Note that **any view can have a state selector**, but the most common uses are with buttons and listview items.
+Now, when the view (i.e button) is pressed or focused, the drawable used for the view will change accordingly.  Note that **any view can have a state selector**, but the most common uses are with buttons and listview items. There are also color state selectors which allow a color to be chosen based on view state such as in a file named `res/color/button_text.xml`:
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" android:color="#ffff0000"/> 
+    <item android:state_focused="true" android:color="#ff0000ff"/> 
+    <item android:color="#ff000000"/> 
+</selector>
+```
+
+and applied to any field that accepts a color value such as the `textColor` property of a button:
+
+```xml
+<Button
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/button_text"
+    android:textColor="@color/button_text" />
+```
+
+Using state lists allows us to create dynamic views that respond to pressed, checked, enabled or other related states.
 
 ### Creating a Layer List
 
 A [LayerDrawable](http://developer.android.com/guide/topics/resources/drawable-resource.html#LayerList) is a drawable object that manages an array of other drawables. Each drawable in the list is drawn in the order of the list—the last drawable in the list is drawn on top. Each drawable is represented by an `<item>` element inside a single `<layer-list>` element.
 
-The LayerList can be used to draw multiple other drawables (shapes, images, etc) and position them in relationship to one another. For example, the following layer list draws several shapes:
+The LayerList can be used to draw multiple other drawables (shapes, images, etc) and position them in relationship to one another. The layers are placed on top of one another by default with the last item  being drawn on the top. Layers can then have their coordinates shifted using the `left`, `right`, `top`, and `bottom` properties. 
+
+<img src="http://i.imgur.com/SwTEJ3x.png" alt="layerlists" width="750" />
+
+Common use cases for layer lists include:
+
+ * [View Box Shadows](http://stackoverflow.com/a/15333015/313399)
+ * [One-Sided View Border](http://stackoverflow.com/a/4313329/313399)
+ * [Layered Backgrounds](http://nick.perfectedz.com/android-layerlist-tip/)
+ * [Drawing Cards](http://android-dev-tips-and-tricks.blogspot.com/2014/02/creating-card-ui.html)
+ * [Drawing Triangles](https://looksok.wordpress.com/2013/08/24/android-triangle-arrow-defined-as-an-xml-shape/) 
+
+For a simple example, the following layer list draws several shapes in relation each other:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -170,7 +203,7 @@ and this results in the following:
 
 ![Layer List](http://i.imgur.com/T1BN9tf.png)
 
-Keep in mind that a [LayerList](http://developer.android.com/guide/topics/resources/drawable-resource.html#LayerList) can also draw images and any other types of drawables. You can use this to create more complex drawings and overlay multiple drawables ontop of each other. See more examples within the [official docs](http://developer.android.com/guide/topics/resources/drawable-resource.html#LayerList).
+Keep in mind that the items in a [LayerList](http://developer.android.com/guide/topics/resources/drawable-resource.html#LayerList) can also be images or any other type of drawable. You can use this to create more complex drawings and overlay multiple drawables on top of each other. See more examples within the [official docs](http://developer.android.com/guide/topics/resources/drawable-resource.html#LayerList).
 
 ### Stretchable Nine-Patch Image
 
