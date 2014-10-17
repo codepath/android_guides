@@ -29,7 +29,7 @@ private Runnable runnableCode = new Runnable() {
       // Do something here
       Log.e("Handlers", "Called");
       // Repeat this runnable code block again every 2 seconds
-      mHandler.postDelayed(mRunnable, 2000);
+      handler.postDelayed(runnableCode, 2000);
     }
 };
 ```
