@@ -11,7 +11,11 @@ Recommended methods are outlined below.
 
 ### Handler
 
-Using a handler to execute `Runnable` code involves creating a `Handler` and then instructing this object to run things:
+Using a handler to execute `Runnable` code involves creating a `Handler` and then "posting" messages to the event message queue on the thread.
+
+<img src="http://i.imgur.com/2vg53fk.png" alt="handler" width="450" />
+
+Using a handler to execute a periodic runnable task is demonstrated below:
 
 ```java
 // Create the Handler object 
@@ -24,7 +28,7 @@ private Runnable runnableCode = new Runnable() {
     public void run() {
       // Do something here
       Log.e("Handlers", "Called");
-      // Repeat this runnable code block every 2 seconds
+      // Repeat this runnable code block again every 2 seconds
       mHandler.postDelayed(mRunnable, 2000);
     }
 };
