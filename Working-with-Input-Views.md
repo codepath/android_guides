@@ -190,7 +190,7 @@ By default, the spinner only allows the user to select one option from the list.
  * [MultiSelect Tutorial 2](http://asnehal.wordpress.com/2012/04/03/multi-select-drop-down-list-in-android/)
  * [Simple Multi Dialog](http://labs.makemachine.net/2010/03/android-multi-selection-dialogs/)
 
-Any of those should help guide you through the process.
+Note that we can also use a `ListView` in this case instead to avoid a spinner altogether.
 
 ### NumberPicker
 
