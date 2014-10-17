@@ -1,6 +1,14 @@
 ## Overview
 
-Polishing up the user interface of your application involves many components but should start with the following enhancements:
+Building beautiful Android apps starts with understanding how to approach building a delightful UI and each of the components that contributes:
+
+<a href="http://androidniceties.tumblr.com/">
+  <img src="http://i.imgur.com/Zt9ZIys.jpg" alt="design" width="300" />
+  <img src="http://i.imgur.com/UECNpcx.png" alt="design" width="300" />
+  <img src="http://i.imgur.com/I4qigt5.jpg" alt="design" width="300" />
+</a>
+
+Polishing up the user interface of your application starts with the following enhancements:
 
  1. Pick a **Vibrant Color Scheme** - Pick a primary color and a secondary color for [coloring your app](http://www.google.com/design/spec/style/color.html#color-ui-color-application) using a [sensible color scheme](http://www.colourlovers.com/palettes/new/past-month/meta?page=1).
  2. Use **Proper Icons and Colorful Images** - Use images, icons and backgrounds for your UIs leveraging resources like [IconFinder](https://www.iconfinder.com/), [iconmonstr](http://iconmonstr.com/), [NounProject](http://thenounproject.com/), [flickr](https://www.flickr.com/search/) and [Google Image Search](http://www.google.com/imghp) to locate relevant assets. Adhere carefully to the [iconography style guidelines](http://developer.android.com/design/style/iconography.html) for Android
