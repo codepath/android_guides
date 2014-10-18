@@ -109,6 +109,7 @@ This "standard pack" listed below are libraries that are quite popular, widely a
  * [ActionBarSherlock](http://actionbarsherlock.com/) - Fully backwards compatible ActionBar support library. Widely used. [Download](https://api.github.com/repos/JakeWharton/ActionBarSherlock/zipball/4.4.0) and install as a [library project](http://imgur.com/a/N8baF).
  * [NineOldAndroids](http://nineoldandroids.com/) - Fully compatible animation library that works with all versions of Android. Widely used. [Download](https://github.com/JakeWharton/NineOldAndroids/zipball/master) and install as a [library project](http://imgur.com/a/N8baF).
  * [HoloEverywhere](https://github.com/Prototik/HoloEverywhere) - Backport Holo theme from Android 4.2 to 2.1+
+ * [CropImage](https://github.com/biokys/cropimage) - Simple compatible cropping intent for images
  
 ## Resources
 
