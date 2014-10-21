@@ -17,7 +17,7 @@ We will be defining multiple themes in our app and use a spinner view to switch 
 
 Create a simple layout for our app. Later on we'll be applying all our styles and themes to this layout file.
 
-Add the following to `res/values/strings.xml`.
+Next, let's add the strings for our input views and a string-array which lists out our themes. Feel free to replace `YOUR-CUSTOM-THEME` with a theme name of your choice below. Add the following to `res/values/strings.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -43,7 +43,7 @@ Add the following to `res/values/strings.xml`.
 </resources>
 ```
 
-Open `res/layout/activity_theme.xml` file and go to the respective xml tab. Then paste the code below.
+Next, let's create an activity layout where the themes will be selected and applied. Open `res/layout/activity_theme.xml` file and go to the xml tab. Then paste the code below.
 
 ```xml
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -143,7 +143,7 @@ Open `res/layout/activity_theme.xml` file and go to the respective xml tab. Then
 </RelativeLayout>
 ```
 
-Note that the spinner is bound to a string array. Spinner will display the theme names that we will be defining later on.
+Note that the spinner is bound to the string array and will display the theme names that we will be defining later on.
 
 If you run your application now, you should see the following output.
 
@@ -151,10 +151,9 @@ If you run your application now, you should see the following output.
 
 ## 3. Custom Attributes
 
-As you may know, Android provides the ability to add custom views to your layouts. This lets you alter the behavior of existing components or create your very own specialized components.Typically you would also want to define your own attributes for these views. This can be done in the `/res/values/attrs.xml` file. 
+As you may know, Android provides the ability to add custom views to your layouts. This lets you alter the behavior of existing components or create your very own specialized components. Typically you would also want to define your own attributes for these views representing each valid key for your theme. This can be done in the `res/values/attrs.xml` file. 
 
 Here we need to declare the styleable attributes so we can use them in XML markup. These are the custom attributes you would like your theme to define. 
-
 
 Create a file called `attrs.xml` inside `/res/values/` and add the following
 
@@ -181,7 +180,7 @@ These attributes can be defined in each theme later and then applied to views on
 
 ## 4. Dimensions
 
-Create `/res/values/dimens.xml` file. This is a XML resource that carries dimension values.
+When defining paddings or text sizes, the proper pattern is to store the explicit values in a `dimens.xml` and then refer only to the label for those dimensions. Create a `res/values/dimens.xml` file which stores these dimension values:
 
 ```xml
 <resources>
@@ -207,7 +206,8 @@ A more sophisticated method to setting the properties of your views in the layou
 
 Add a folder called `drawable` under `res` folder.
 
-`res/drawable/white_gray_gradient_background.xml`:
+In `res/drawable/white_gray_gradient_background.xml` to define the background for our first theme:
+
 ```xml
 <shape xmlns:android="http://schemas.android.com/apk/res/android" >
 
@@ -219,7 +219,8 @@ Add a folder called `drawable` under `res` folder.
 </shape>
 ```
 
-`res/drawable/button_wh_normal.xml`:
+Define the normal button state in `res/drawable/button_wh_normal.xml`:
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
@@ -242,7 +243,7 @@ Add a folder called `drawable` under `res` folder.
 </shape>
 ```
 
-`res/drawable/button_wh_pressed.xml`:
+Define the pressed button state `res/drawable/button_wh_pressed.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -267,7 +268,7 @@ Add a folder called `drawable` under `res` folder.
 ```
 
 
-`res/drawable/button_wh.xml`:
+Define the state list for the button in `res/drawable/button_wh.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -279,9 +280,9 @@ Add a folder called `drawable` under `res` folder.
 </selector>
 ```
 
-For the spinner, you can find the nine-patch file for the corner triangle at this location: `/Android/android-sdks/platforms/<sdk-version>/data/res/drawable/spinner_default_holo_light.9.png`. Copy this to your `drawable` folder.
+For the spinner, [download the nine-patch file](http://i.imgur.com/C5goXvG.png/spinner_default_holo_light.9.png) for the corner triangle. You can also find this in your SDK folder at: `/path/to/android/sdk/platforms/<sdk-version>/data/res/drawable/spinner_default_holo_light.9.png`. Copy this stretchy nine-patch graphic to your `drawable` folder.
 
-`res/drawable/spinner_wh_background.xml`:
+Let's define the style for our spinner. First the background in `res/drawable/spinner_wh_background.xml` creating a layer-list:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -304,9 +305,8 @@ For the spinner, you can find the nine-patch file for the corner triangle at thi
 </layer-list>
 ```
 
-Open `res/values/styles.xml` file. This is where you'll define your styles.
+Now we can open `res/values/styles.xml` file. This is where you'll define all your view styles in `res/values/styles.xml`:
 
-`res/values/styles.xml`:
 ```xml
 <resources>
 
@@ -390,7 +390,7 @@ Open `res/values/styles.xml` file. This is where you'll define your styles.
     
     <!-- =============================================================== -->
     <!-- Customize YOUR_CUSTOM_THEME Styles -->
-    <!-- Define your styles here. -->
+    <!-- Define your own styles below. -->
     <!-- =============================================================== -->
 
 </resources>
@@ -398,7 +398,7 @@ Open `res/values/styles.xml` file. This is where you'll define your styles.
 
 ## 6. Create `themes.xml` file
 
-To define our theme, create `res/values/themes.xml` file. In our theme definition, we set some custom styles using the `item` element. Note how the default OS attribute `android:actionBarStyle` has been overridden to style the action bar along with the custom attributes. For more information on styling action bar, check out [[styling the action bar|Extended-ActionBar-Guide#custom-actionbar-styles]] cliffnotes.
+To define the theme attributes we use a `themes.xml` file. In our theme definition, we set some custom styles using the `item` element. Note how the default OS attribute `android:actionBarStyle` has been overridden to style the action bar along with the custom attributes. For more information on styling action bar, check out [[styling the action bar|Extended-ActionBar-Guide#custom-actionbar-styles]] cliffnotes. Add the following to `res/values/themes.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -422,13 +422,13 @@ To define our theme, create `res/values/themes.xml` file. In our theme definitio
 </resources>
 ```
 
-To have multiple themes, you will want to create multiple theme definitions in `themes.xml` as shown in the XML above.
+Note that the theme simply defines the correct style references for each attribute we defined earlier. The theme acts as a "style controller" defining which styles to apply to different aspects of the view. To have multiple themes, you will want to create multiple theme definitions in `themes.xml` as shown in the XML above.
 
 ## 7. Apply Custom Styles
 
-Update your layout file and apply the custom styles to your views. Note the `style` attribute applied to many of the views below.
+Update your layout file and apply the custom styles to your views. Note that the `style` attribute has been applied to many of the views below.
 
-Edit `res/layout/activity_theme.xml` to apply the theme attributes to each item:
+Edit `res/layout/activity_theme.xml` to apply the theme attributes to each item in order to apply them based on the theme:
 
 ```xml
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -553,8 +553,8 @@ We can set the theme of our application or individual activities in the manifest
 
 ```java
 public class ThemeApplication extends Application {
-	// App level variable to retain selected spinner value
-	public static int currentPosition;
+    // App level variable to retain selected spinner value
+    public static int currentPosition;
 }
 ```
 
@@ -589,7 +589,7 @@ public class Utils {
 }
 ```
 
-`ThemeActivity.java`:
+Now in the `ThemeActivity.java` to enable custom themes being applied:
 
 ```java
 public class ThemeActivity extends Activity {
@@ -600,7 +600,6 @@ public class ThemeActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		Utils.onActivityCreateSetTheme(this);
 		setContentView(R.layout.activity_theme);
-
 		setupSpinnerItemSelection();
 	}
 
@@ -631,4 +630,4 @@ public class ThemeActivity extends Activity {
 ```
 
 
-If you run your app at this point, you should have applied the styles for 'Holo-Light' theme. It is upto the reader to define various styles for 'console' and 'navy' themes.
+If you run your app at this point, you should have applied the styles for 'Holo-Light' theme. It is now up to the reader to **define the styles and drawables for your own custom theme**.
