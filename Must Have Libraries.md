@@ -45,6 +45,8 @@ This "standard pack" listed below are libraries that are quite popular, widely a
 
 ### ListView
 
+ * [EasyListViewAdapters](https://github.com/birajpatel/EasyListViewAdapters) - Building multi-row-type listview made much cleaner & easier.
+ * [GridListViewAdapters](https://github.com/birajpatel/GridListViewAdapters) - Easily build unlimited Grid cards list like play-store. (ListView working as unlimited GridView)
  * [StickyListHeaders](https://github.com/emilsjolander/StickyListHeaders) - An android library for section headers that stick to the top of a ListView
  * [PinnedListView](https://github.com/beworker/pinned-section-listview) - Pinned Section with ListView
  * [ListViewAnimations](https://github.com/nhaarman/ListViewAnimations) - Easy way to animate ListView items
