@@ -561,8 +561,7 @@ public class Utils {
 	private static int sTheme;
 
 	public final static int THEME_HOLO_LIGHT = 0;
-	public final static int THEME_CONSOLE = 1;
-	public final static int THEME_NAVY = 2;
+	public final static int THEME_YOUR_CUSTOM_THEME = 1;
 
 	public static void changeToTheme(Activity activity, int theme) {
 		sTheme = theme;
@@ -578,11 +577,8 @@ public class Utils {
 		case THEME_HOLO_LIGHT:
 			activity.setTheme(R.style.Theme_Holo_Light);
 			break;
-		case THEME_CONSOLE:
-			activity.setTheme(R.style.Theme_Console);
-			break;
-		case THEME_NAVY:
-			activity.setTheme(R.style.Theme_Navy);
+		case THEME_YOUR_CUSTOM_THEME:
+			activity.setTheme(R.style.Theme_YOUR_CUSTOM_THEME);
 			break;
 		}
 	}
