@@ -8,10 +8,10 @@ We will be defining multiple themes in our app and use a spinner view to switch 
 
 ## 1. Create a New Android Application Project
 
-* Open Eclipse IDE and go to File > New > Project > Android Application Project. 
-* Enter App name: ThemeSwitcher (minSDK 14)
+* Open Eclipse IDE and go to `File > New > Project > Android Application Project`. 
+* Enter App name: `ThemeSwitcher` (minSDK 14)
 * Name the first activity "ThemeActivity"
-* Keep other defualt selections, go Next till you reach Finish.
+* Keep other default selections, go Next till you reach Finish.
 
 ## 2. Design Layout
 
@@ -143,8 +143,6 @@ Open `res/layout/activity_theme.xml` file and go to the respective xml tab. Then
 </RelativeLayout>
 ```
 
-
-
 Note that the spinner is bound to a string array. Spinner will display the theme names that we will be defining later on.
 
 If you run your application now, you should see the following output.
@@ -175,7 +173,11 @@ Create a file called `attrs.xml` inside `/res/values/` and add the following
 </resources>
 ```
 
-An `<attr>` element has two xml attributes `name` and `format`. `name` lets you title the attribute and this is how you refer to each in code, e.g., `R.attr.my_attribute`. The format attribute can have different values depending on the 'type' of attribute you want. In this case, it is a "reference" to another attribute i.e. it references another resource id (e.g, `@color/my_color`, `@layout/my_layout`). Other examples of possible formats are `pixels`, `color`, `boolean`, `dimension`, `integer`, and `float`, `string`, `fraction`, `enum` and `flag`.
+An `<attr>` element has two xml attributes `name` and `format`. `name` lets you title the attribute and this is how you refer to each in code, e.g., `R.attr.my_attribute`. The format attribute can have different values depending on the 'type' of attribute you want. 
+
+In this case, it is a "reference" to another attribute i.e. it references another resource id (e.g, `@color/my_color`, `@layout/my_layout`). Other examples of possible formats are `pixels`, `color`, `boolean`, `dimension`, `integer`, and `float`, `string`, `fraction`, `enum` and `flag`.
+
+These attributes can be defined in each theme later and then applied to views on the page by adding a `style` property indicating the attribute to apply.
 
 ## 4. Dimensions
 
@@ -426,7 +428,7 @@ To have multiple themes, you will want to create multiple theme definitions in `
 
 Update your layout file and apply the custom styles to your views. Note the `style` attribute applied to many of the views below.
 
-`res/layout/activity_theme.xml`:
+Edit `res/layout/activity_theme.xml` to apply the theme attributes to each item:
 
 ```xml
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -540,6 +542,8 @@ Update your layout file and apply the custom styles to your views. Note the `sty
 
 </RelativeLayout>
 ```
+
+Note that the `style="?somethemeattr" is the [syntax for a reference to a resource value](http://www.linuxtopia.org/online_books/android/devguide/guide/topics/resources/android_resources-i18n_ReferencesToThemeAttributes.html) in the currently applied theme. 
 
 ## 8. Apply Dynamic Themes
 
