@@ -15,7 +15,36 @@ We will be defining three themes in our app and use a spinner view to switch bet
 
 ## 2. Design Layout
 
-Create a simple layout for our app. Later on we'll be applying all our styles and themes to this layout file. Open `res/layout/activity_theme.xml` file and go to the respective xml tab. Then paste the code below.
+Create a simple layout for our app. Later on we'll be applying all our styles and themes to this layout file.
+
+Add the following to `res/values/strings.xml`.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Theme Switcher</string>
+    
+    <string name="settings_text_select_theme">Select Theme:</string>
+    <string name="settings_text_credentials">Credentials</string>
+    <string name="settings_text_username_hint">username</string>
+    <string name="settings_text_password_hint">password</string>
+    <string name="settings_text_sync_automatically">Sync automatically</string>
+    <string name="settings_text_location">Location</string>
+    <string name="settings_text_state_on">On</string>
+    <string name="settings_text_state_off">Off</string>
+    <string name="settings_text_clear_data">Clear Data</string>
+
+    <string-array name="theme_array">
+        <item>Holo-Light</item>
+        <item>Console</item>
+        <item>Navy</item>
+    </string-array>
+
+</resources>
+```
+
+Open `res/layout/activity_theme.xml` file and go to the respective xml tab. Then paste the code below.
 
 ```xml
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -115,32 +144,7 @@ Create a simple layout for our app. Later on we'll be applying all our styles an
 </RelativeLayout>
 ```
 
-Also add the following to `res/values/strings.xml`.
 
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <string name="app_name">Theme Switcher</string>
-    
-    <string name="settings_text_select_theme">Select Theme:</string>
-    <string name="settings_text_credentials">Credentials</string>
-    <string name="settings_text_username_hint">username</string>
-    <string name="settings_text_password_hint">password</string>
-    <string name="settings_text_sync_automatically">Sync automatically</string>
-    <string name="settings_text_location">Location</string>
-    <string name="settings_text_state_on">On</string>
-    <string name="settings_text_state_off">Off</string>
-    <string name="settings_text_clear_data">Clear Data</string>
-
-    <string-array name="theme_array">
-        <item>Holo-Light</item>
-        <item>Console</item>
-        <item>Navy</item>
-    </string-array>
-
-</resources>
-```
 
 Note that the spinner is bound to a string array. Spinner will display the theme names that we will be defining later on.
 
