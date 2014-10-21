@@ -387,12 +387,7 @@ Open `res/values/styles.xml` file. This is where you'll define your styles.
     </style>
     
     <!-- =============================================================== -->
-    <!-- Console styles -->
-    <!-- Define your styles here. -->
-    <!-- =============================================================== -->
-    
-    <!-- =============================================================== -->
-    <!-- Navy styles -->
+    <!-- Customize YOUR-CUSTOM-THEME Styles -->
     <!-- Define your styles here. -->
     <!-- =============================================================== -->
 
