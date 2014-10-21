@@ -203,103 +203,6 @@ Create `/res/values/dimens.xml` file. This is a XML resource that carries dimens
 
 A more sophisticated method to setting the properties of your views in the layout is give a view a style, which is a group of attributes, instead of defining the values of individual attributes. For example, you could set the styles of all of your title TextViews to have the style textTitle.  This style could have custom text color, font, and margin properties. In addition to styles, you will be using drawables to customize your views. A drawable resource is a general concept for a graphic that can be drawn to the screen. For more information, refer the cliffnotes on [[drawables|Drawables]].
 
-Open `res/values/styles.xml` file. This is where you'll define your styles.
-
-`res/values/styles.xml`:
-```xml
-<resources>
-
-    <!--
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-    -->
-    <style name="AppBaseTheme" parent="android:Theme.Light">
-        <!--
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        -->
-    </style>
-
-    <!-- Application theme. -->
-    <style name="AppTheme" parent="AppBaseTheme">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
-    </style>
-
-    <style name="switch_text_appearance" parent="@android:style/TextAppearance.Holo.Small">
-        <item name="android:textColor">#FFF</item>
-    </style>
-
-    <!-- =============================================================== -->
-    <!-- Holo-Light styles -->
-    <!-- =============================================================== -->
-
-    <style name="page_background_wh">
-        <item name="android:background">@drawable/white_gray_gradient_background</item>
-        <item name="android:paddingLeft">@dimen/activity_horizontal_padding</item>
-        <item name="android:paddingRight">@dimen/activity_horizontal_padding</item>
-    </style>
-
-    <style name="text_subheader_wh">
-        <item name="android:textColor">#000</item>
-        <item name="android:textSize">@dimen/text_subheader_text_size</item>
-        <item name="android:shadowDy">1.0</item>
-        <item name="android:shadowRadius">1</item>
-        <item name="android:shadowColor">#000</item>
-    </style>
-
-    <style name="text_large_wh">
-        <item name="android:textColor">@android:color/background_dark</item>
-        <item name="android:textSize">@dimen/text_large_text_size</item>
-        <item name="android:shadowDy">1.0</item>
-        <item name="android:shadowRadius">1</item>
-        <item name="android:shadowColor">#888</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:layout_marginTop">@dimen/text_large_margin_top</item>
-    </style>
-
-    <style name="text_regular_wh">
-        <item name="android:textColor">@android:color/background_dark</item>
-        <item name="android:textSize">@dimen/text_regular_text_size</item>
-    </style>
-
-    <style name="white_background_wh">
-        <item name="android:background">@android:drawable/dialog_holo_light_frame</item>
-        <item name="android:layout_marginTop">@dimen/card_margin_top</item>
-        <item name="android:layout_marginBottom">@dimen/card_margin_top</item>
-        <item name="android:padding">@dimen/white_background_padding</item>
-    </style>
-
-    <style name="button_wh" parent="text_large_wh">
-        <item name="android:background">@drawable/button_wh</item>
-        <item name="android:layout_marginTop">@dimen/view_margin</item>
-    </style>
-
-    <style name="spinner_wh">
-        <item name="android:background">@drawable/spinner_wh_background</item>
-    </style>
-
-    <style name="horizontal_line_wh">
-        <item name="android:background">#00000000</item>
-    </style>
-    
-    <style name="action_bar_wh" parent="android:Widget.Holo.ActionBar">
-        <item name="android:background">#AFAFAF</item>
-    </style>
-    
-    <!-- =============================================================== -->
-    <!-- Console styles -->
-    <!-- Define your styles here. -->
-    <!-- =============================================================== -->
-    
-    <!-- =============================================================== -->
-    <!-- Navy styles -->
-    <!-- Define your styles here. -->
-    <!-- =============================================================== -->
-
-</resources>
-```
-
 Add a folder called `drawable` under `res` folder.
 
 `res/drawable/white_gray_gradient_background.xml`:
@@ -397,6 +300,103 @@ For the spinner, you can find the nine-patch file for the corner triangle at thi
     </item>
 
 </layer-list>
+```
+
+Open `res/values/styles.xml` file. This is where you'll define your styles.
+
+`res/values/styles.xml`:
+```xml
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <style name="switch_text_appearance" parent="@android:style/TextAppearance.Holo.Small">
+        <item name="android:textColor">#FFF</item>
+    </style>
+
+    <!-- =============================================================== -->
+    <!-- Holo-Light styles -->
+    <!-- =============================================================== -->
+
+    <style name="page_background_wh">
+        <item name="android:background">@drawable/white_gray_gradient_background</item>
+        <item name="android:paddingLeft">@dimen/activity_horizontal_padding</item>
+        <item name="android:paddingRight">@dimen/activity_horizontal_padding</item>
+    </style>
+
+    <style name="text_subheader_wh">
+        <item name="android:textColor">#000</item>
+        <item name="android:textSize">@dimen/text_subheader_text_size</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">1</item>
+        <item name="android:shadowColor">#000</item>
+    </style>
+
+    <style name="text_large_wh">
+        <item name="android:textColor">@android:color/background_dark</item>
+        <item name="android:textSize">@dimen/text_large_text_size</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">1</item>
+        <item name="android:shadowColor">#888</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">@dimen/text_large_margin_top</item>
+    </style>
+
+    <style name="text_regular_wh">
+        <item name="android:textColor">@android:color/background_dark</item>
+        <item name="android:textSize">@dimen/text_regular_text_size</item>
+    </style>
+
+    <style name="white_background_wh">
+        <item name="android:background">@android:drawable/dialog_holo_light_frame</item>
+        <item name="android:layout_marginTop">@dimen/card_margin_top</item>
+        <item name="android:layout_marginBottom">@dimen/card_margin_top</item>
+        <item name="android:padding">@dimen/white_background_padding</item>
+    </style>
+
+    <style name="button_wh" parent="text_large_wh">
+        <item name="android:background">@drawable/button_wh</item>
+        <item name="android:layout_marginTop">@dimen/view_margin</item>
+    </style>
+
+    <style name="spinner_wh">
+        <item name="android:background">@drawable/spinner_wh_background</item>
+    </style>
+
+    <style name="horizontal_line_wh">
+        <item name="android:background">#00000000</item>
+    </style>
+    
+    <style name="action_bar_wh" parent="android:Widget.Holo.ActionBar">
+        <item name="android:background">#AFAFAF</item>
+    </style>
+    
+    <!-- =============================================================== -->
+    <!-- Console styles -->
+    <!-- Define your styles here. -->
+    <!-- =============================================================== -->
+    
+    <!-- =============================================================== -->
+    <!-- Navy styles -->
+    <!-- Define your styles here. -->
+    <!-- =============================================================== -->
+
+</resources>
 ```
 
 ## 6. Create `themes.xml` file
