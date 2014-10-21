@@ -366,7 +366,7 @@ Add a folder called `drawable` under `res` folder.
 </selector>
 ```
 
-For the spinner, you can find the nine-patch file for the corner triangle at this location: `/Android/android-sdks/plataforms//data/res/spinner_default_holo_light.9.png`. Copy this to your `drawable` folder.
+For the spinner, you can find the nine-patch file for the corner triangle at this location: `/Android/android-sdks/platforms/<sdk-version>/data/res/drawable/spinner_default_holo_light.9.png`. Copy this to your `drawable` folder.
 
 `res/drawable/spinner_wh_background.xml`:
 
@@ -422,7 +422,7 @@ To define our theme go to `res/values/themes.xml` file. In our theme definition,
 </resources>
 ```
 
-To have multiple themes, you will want to create multiple theme definitions in `themes.xml` as should in the XML above.
+To have multiple themes, you will want to create multiple theme definitions in `themes.xml` as shown in the XML above.
 
 ## 7. Apply Custom Styles
 
