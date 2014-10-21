@@ -37,8 +37,7 @@ Add the following to `res/values/strings.xml`.
 
     <string-array name="theme_array">
         <item>Holo-Light</item>
-        <item>Console</item>
-        <item>Navy</item>
+        <item>YOUR-CUSTOM-THEME</item>
     </string-array>
 
 </resources>
