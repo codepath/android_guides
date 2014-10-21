@@ -175,7 +175,7 @@ Create a file called `attrs.xml` inside `/res/values/` and add the following
 </resources>
 ```
 
-An `<attr>` element has two xml attributes `name` and `format`. `name` lets you call it something and this is how you end up referring to it in code, e.g., `R.attr.my_attribute`. The format attribute can have different values depending on the 'type' of attribute you want.In this case, it is a reference to another attribute i.e. it references another resource id (e.g, "@color/my_color", "@layout/my_layout"). Other examples of possible formats are pixels, color, boolean, dimension, integer, and float, string, fraction, enum and flag.
+An `<attr>` element has two xml attributes `name` and `format`. `name` lets you title the attribute and this is how you refer to each in code, e.g., `R.attr.my_attribute`. The format attribute can have different values depending on the 'type' of attribute you want. In this case, it is a "reference" to another attribute i.e. it references another resource id (e.g, `@color/my_color`, `@layout/my_layout`). Other examples of possible formats are `pixels`, `color`, `boolean`, `dimension`, `integer`, and `float`, `string`, `fraction`, `enum` and `flag`.
 
 ## 4. Dimensions
 
