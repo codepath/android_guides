@@ -413,13 +413,8 @@ To define our theme, create `res/values/themes.xml` file. In our theme definitio
         <item name="android:actionBarStyle">@style/action_bar_wh</item>
     </style>
 
-    <style name="Theme.Console" parent="android:Theme.Holo">
-    	<!-- Define your styles here. -->
-    </style>
-    
-
-    <style name="Theme.Navy" parent="android:Theme.Holo">
-    	<!-- Define your styles here. -->
+    <style name="Theme.YOUR-CUSTOM-THEME" parent="android:Theme.Holo">
+    	<!-- Define styles for YOUR-CUSTOM-THEME here. -->
     </style>
 
 </resources>
