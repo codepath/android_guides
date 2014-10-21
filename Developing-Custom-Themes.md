@@ -2,7 +2,7 @@ The following tutorial explain how to build a application that can switch betwee
 
 A `style` in Android is a collection of attribute/value pairs applied to a view. A `style` is a `xml` resource and it separates the design attributes from `XML` layout. Styles in Android is similar in concept to CSS on web because it separates design from the content. A `Theme` is a `Style` that applies to the entire application or a certain `Activity`.
 
-We will be defining three themes in our app and use a spinner view to switch between themes.  By the end of this exercise, you should know how to define a theme in your resources in an XML file, how to define attributes of the theme, how to apply those to your layout file, and finally how to dynamically change the theme of an activity. Below is the final output.
+We will be defining multiple themes in our app and use a spinner view to switch between themes.  By the end of this exercise, you should know how to define a theme in your resources in an XML file, how to define attributes of the theme, how to apply those to your layout file, and finally how to dynamically change the theme of an activity. Below is the final output.
 
 ![Imgur](http://i.imgur.com/a7glYfd.png)
 
