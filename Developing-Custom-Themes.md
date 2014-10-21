@@ -153,7 +153,12 @@ If you run your application now, you should see the following output.
 
 ## 3. Custom Attributes
 
-Next, we need to declare the styleable attributes so we can use them in XML markup. These are the custom attributes you would like your theme to define. Create a file called `attrs.xml` inside `/res/values/` and add the following
+As you may know, Android provides the ability to add custom views to your layouts. This lets you alter the behavior of existing components or create your very own specialized components.Typically you would also want to define your own attributes for these views. This can be done in the `/res/values/attrs.xml` file. 
+
+Here we need to declare the styleable attributes so we can use them in XML markup. These are the custom attributes you would like your theme to define. 
+
+
+Create a file called `attrs.xml` inside `/res/values/` and add the following
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -170,7 +175,7 @@ Next, we need to declare the styleable attributes so we can use them in XML mark
 </resources>
 ```
 
-The format attribute indicates what type of values you can define. In this case, it is a reference to another attribute Other examples of possible formats are pixels, color, boolean, integer, and float.
+An `<attr>` element has two xml attributes `name` and `format`. `name` lets you call it something and this is how you end up referring to it in code, e.g., `R.attr.my_attribute`. The format attribute can have different values depending on the 'type' of attribute you want.In this case, it is a reference to another attribute i.e. it references another resource id (e.g, "@color/my_color", "@layout/my_layout"). Other examples of possible formats are pixels, color, boolean, dimension, integer, and float, string, fraction, enum and flag.
 
 ## 4. Dimensions
 
