@@ -387,7 +387,7 @@ Open `res/values/styles.xml` file. This is where you'll define your styles.
     </style>
     
     <!-- =============================================================== -->
-    <!-- Customize YOUR-CUSTOM-THEME Styles -->
+    <!-- Customize YOUR_CUSTOM_THEME Styles -->
     <!-- Define your styles here. -->
     <!-- =============================================================== -->
 
@@ -414,7 +414,7 @@ To define our theme, create `res/values/themes.xml` file. In our theme definitio
     </style>
 
     <style name="Theme.YOUR_CUSTOM_THEME" parent="android:Theme.Holo">
-    	<!-- Define styles for YOUR-CUSTOM-THEME here. -->
+    	<!-- Define styles for YOUR_CUSTOM_THEME here. -->
     </style>
 
 </resources>
