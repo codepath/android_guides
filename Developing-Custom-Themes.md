@@ -286,7 +286,7 @@ Let's define the style for our spinner. First the background in `res/drawable/sp
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
     android:opacity="transparent" >
 
     <item android:state_pressed="true">
@@ -302,7 +302,7 @@ Let's define the style for our spinner. First the background in `res/drawable/sp
     <item android:drawable="@drawable/spinner_default_holo_light">
     </item>
 
-</layer-list>
+</selector>
 ```
 
 Now we can open `res/values/styles.xml` file. This is where you'll define all your view styles in `res/values/styles.xml`:
