@@ -82,6 +82,7 @@ This "standard pack" listed below are libraries that are quite popular, widely a
  * [SmoothProgressBar](https://github.com/castorflex/SmoothProgressBar) - Horizontal indeterminate progress
  * [Rebound](http://facebook.github.io/rebound/) - Easy spring dynamics
  * [AndroidImageSlider](https://github.com/daimajia/AndroidImageSlider) - Animated image transitions
+ * [Paralloid](https://github.com/chrisjenx/Paralloid) - Parallax sliding effect made easy
 
 ### Drawing
 
