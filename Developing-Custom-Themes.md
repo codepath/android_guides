@@ -282,7 +282,7 @@ Define the state list for the button in `res/drawable/button_wh.xml`:
 
 For the spinner, [download the nine-patch file](http://i.imgur.com/C5goXvG.png/spinner_default_holo_light.9.png) for the corner triangle. You can also find this in your SDK folder at: `/path/to/android/sdk/platforms/<sdk-version>/data/res/drawable/spinner_default_holo_light.9.png`. Copy this stretchy nine-patch graphic to your `drawable` folder.
 
-Let's define the style for our spinner. First the background in `res/drawable/spinner_wh_background.xml` creating a layer-list:
+Let's define the style for our spinner. First the background in `res/drawable/spinner_wh_background.xml` creating a selector:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -397,6 +397,8 @@ Now we can open `res/values/styles.xml` file. This is where you'll define all yo
 ```
 
 Above in the `styles.xml` is where we define the "implementation" of the style attributes we defined earlier. The attributes view properties change depending on the theme being created but the names of the attributes are the same across themes.
+
+**Note:** The style `white_background_wh` uses this built-in [nine patch dialog 9-patch image](https://raw.githubusercontent.com/derekbrameyer/android-betterpickers/master/library/res/drawable-hdpi/dialog_full_holo_light.9.png) called `dialog_full_holo_light.9.png` to achieve the border shadow for the layout.
 
 ## 6. Create `themes.xml` file
 
