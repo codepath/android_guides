@@ -157,7 +157,25 @@ This results in the following:
 
 ![Complex Animation](http://i.imgur.com/0AB0E2Q.gif) 
 
-See more details in the [Property Animation Resource](http://developer.android.com/guide/topics/resources/animation-resource.html#Property) guide.
+You can use `AnimatorSet` to choreograph compound animations using sets of sets:
+
+```java
+// Create two animations to play together
+ObjectAnimator bounceAnim = ...;
+ObjectAnimator squashAnim = ...;
+// Construct set 1 playing together
+AnimatorSet bouncer = new AnimatorSet();
+bouncer.play(bounceAnim).with(squashAnim);
+// Create second animation to play after
+ObjectAnimator fadeAnim = ObjectAnimator.ofFloat(view1, "alpha", 1f, 0f);
+fadeAnim.setDuration(250);
+// Play bouncer before fade
+AnimatorSet animatorSet = new AnimatorSet();
+animatorSet.play(bouncer).before(fadeAnim);
+animatorSet.start();
+``` 
+
+See more details in the [Property Animation](http://developer.android.com/guide/topics/graphics/prop-animation.html) topic guide and the [Animation Resource](http://developer.android.com/guide/topics/resources/animation-resource.html#Property) guide.
 
 ### View Animations
 
