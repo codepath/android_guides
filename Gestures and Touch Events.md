@@ -6,7 +6,6 @@ Gesture recognition and handling touch events is an important part of developing
  * Double tapping for zooming
  * Pinch to zoom in or out
  * Dragging and dropping
- * Handling a shake action
 
 You can see a visual guide of common gestures on the [gestures design patterns](http://developer.android.com/design/patterns/gestures.html) guide.
 
