@@ -328,6 +328,7 @@ Additional multi-touch events such as "rotation" of fingers, finger movement eve
 * [gesticulate](https://github.com/aglover/gesticulate) - Android swipe detection made simple
 * [android-gesture-detectors](https://github.com/Almeros/android-gesture-detectors) - small framework for gesture detection
 * [PhotoView](https://github.com/chrisbanes/PhotoView) - ImageView for Android that supports zooming, by various touch gestures.
+* [DraggablePanel](https://github.com/pedrovgs/DraggablePanel) - Cool draggable panels like YouTube
 
 ## References
 
