@@ -332,7 +332,6 @@ public class User extends Model {
 
     // Finds existing user based on remoteId or creates new user and returns
     public static User findOrCreateFromJson(JSONObject json) {
-    	User user = User.fromJSON(json);
     	User existingUser = 
           new Select().from(User.class).where("remote_id = ?", user.remoteId).executeSingle(); 
     	if (existingUser != null) { 
@@ -340,6 +339,7 @@ public class User extends Model {
     	    return existingUser;
     	} else {
     	    // create and return new
+    	    User user = User.fromJSON(json);
     	    user.save();
     	    return user;
     	}
