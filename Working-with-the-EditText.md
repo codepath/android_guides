@@ -94,6 +94,20 @@ This would restrict the digits entered to just "0" and "1". We might want to lim
 
 Using these properties we can define the expected input behavior for text fields.
 
+### Adjusting Colors
+
+You can adjust the highlight background color of selected text within an `EditText` with the `android:textColorHighlight` property:
+
+```xml
+<EditText
+    android:textColorHighlight="#7cff88"
+/>
+```
+
+with a result such as this:
+
+<img src="http://i.imgur.com/cbfm3Fb.png" width="315" />
+
 ### Displaying Placeholder Hints
 
 You may want to set the hint for the EditText control to prompt a user for specific input with:
