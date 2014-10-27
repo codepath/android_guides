@@ -346,12 +346,12 @@ This results in the following:
 
 You can see several complete examples of activity transitions in the following resources:
 
- * [Card Flip Guide](http://developer.android.com/training/animation/cardflip.html)
- * [Customizing Activity Transition](http://ahdidou.com/blog/customize-android-activities-transition/)
- * [Custom switching animation](http://android-er.blogspot.com/2013/04/custom-animation-while-switching.html)
- * [Blundell's animating an activity](http://blog.blundell-apps.com/animate-an-activity/)
+ * [Card Flip Animation](http://developer.android.com/training/animation/cardflip.html)
+ * [Flipboard Activity Transition](http://ahdidou.com/blog/customize-android-activities-transition/)
+ * [Sliding In From Left Animation](http://android-er.blogspot.com/2013/04/custom-animation-while-switching.html)
+ * [Sliding Drawer Animation](http://blog.blundell-apps.com/animate-an-activity/)
 
-Check these out to get a deeper understanding of how to create custom and unique transitions.
+Check out these above to get a deeper understanding of how to create custom and unique transitions.
 
 ### Fragment Transitions
 
