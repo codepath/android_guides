@@ -12,6 +12,7 @@ We need a way to send data to a computer from our android device. Easiest way is
 * http://stackoverflow.com/a/20131985/313399 - stackoverflow snippet which connects to a host, and can send data to it via an asynctask
 * http://stackoverflow.com/questions/6309201/sending-tcp-data-from-android-as-client-no-data-being-sent - stackoverflow snippet sending data to an ip address via a socket
 * http://thinkandroid.wordpress.com/2010/03/27/incorporating-socket-programming-into-your-applications/ (client piece is phone, server piece needs to be on computer)
+* [TurnMeOffMobile](https://github.com/panwrona/TurnMeOffMobile) - Simple TCP Client as Android widget with connection handled by AsyncTasks + IP number finding dynamically.
 
 ## Socket Programming (Server)
 
