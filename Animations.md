@@ -344,7 +344,14 @@ This results in the following:
 
 ![Activity Transition](http://i.imgur.com/lRU3wrn.gif)
 
-You can see a more complete example on the [customizing activity transition tutorial](http://ahdidou.com/blog/customize-android-activities-transition/) as well as the [custom animation while switching](http://android-er.blogspot.com/2013/04/custom-animation-while-switching.html) tutorial. Yet another example can be found in the [blundell apps animate an activity](http://blog.blundell-apps.com/animate-an-activity/) tutorial.
+You can see several complete examples of activity transitions in the following resources:
+
+ * [Card Flip Guide](http://developer.android.com/training/animation/cardflip.html)
+ * [Customizing Activity Transition](http://ahdidou.com/blog/customize-android-activities-transition/)
+ * [Custom switching animation](http://android-er.blogspot.com/2013/04/custom-animation-while-switching.html)
+ * [Blundell's animating an activity](http://blog.blundell-apps.com/animate-an-activity/)
+
+Check these out to get a deeper understanding of how to create custom and unique transitions.
 
 ### Fragment Transitions
 
