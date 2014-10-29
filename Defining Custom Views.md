@@ -347,6 +347,47 @@ The result of this is the following:
 
 There are many events which can be customized for a view, check out the [Custom Components](http://developer.android.com/guide/topics/ui/custom-components.html#custom) guide for a more details.
 
+### Saving View Instance State
+
+Views are responsible for maintaining their own state when configuration changes (i.e phone is rotated) occur. You can do this by implementing [View#onSaveInstanceState](http://developer.android.com/reference/android/view/View.html#onSaveInstanceState%28%29) and [View#onRestoreInstanceState](http://developer.android.com/reference/android/view/View.html#onRestoreInstanceState%28android.os.Parcelable%29) in order to save and then restore the view state. For example, to maintain the selected shape index for our shape selector:
+
+```java
+public class ShapeSelectorView extends View {
+  // This is the view state for this shape selector
+  private int currentShapeIndex = 0;
+
+  @Override
+  public Parcelable onSaveInstanceState() {
+    // Construct bundle
+    Bundle bundle = new Bundle();
+    // Store base view state
+    bundle.putParcelable("instanceState", super.onSaveInstanceState());
+    // Save our custom view state to bundle
+    bundle.putInt("currentShapeIndex", this.currentShapeIndex);
+    // ... store any other custom state here ...
+    // Return the bundle
+    return bundle;
+  }
+
+  @Override
+  public void onRestoreInstanceState(Parcelable state) {
+    // Checks if the state is the bundle we saved
+    if (state instanceof Bundle) {
+      Bundle bundle = (Bundle) state;
+      // Load back our custom view state
+      this.currentShapeIndex = bundle.getInt("currentShapeIndex");
+      // ... load any other custom state here ...
+      // Load base view state back
+      state = bundle.getParcelable("instanceState");
+    }
+    // Pass base view state on to super
+    super.onRestoreInstanceState(state);
+  }
+}
+```
+
+Once you've defined these saving and restoring methods, your view will be capable of automatically persisting state when configuration changes occur.
+
 ## Extending Existing Views
 
 There is an even easier option for creating a custom View which is useful in certain circumstances. If there is a component that is already very similar to what you want, you can simply extend that component and just override the behavior that you want to change and get the rest of the behavior for free.
