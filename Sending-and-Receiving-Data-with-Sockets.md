@@ -88,7 +88,8 @@ method.
             tcpClient.stopClient();
         }
     }
-	```
+```
+
 After receiving proper message, we are sending command, or if we received wrong message, we are sending message "wrong" and stopping client.
 After this we are being transferred to the 'onPostExecute' method:
 
