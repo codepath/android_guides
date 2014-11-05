@@ -66,7 +66,7 @@ Let's take a look at a step-by-step for setting up Robolectric to test your proj
 ## Creating resource directory
 
    Create an androidTest/resources/org.robolectric.Config.properties file.  Note that the directory
-   needs to be resources/ (not to be confused with /res directory used to store your layotu files).   
+   needs to be resources/ (not to be confused with /res directory used to store your layout files).   
 
    ```
    # Robolectric doesn't know how to support SDK 19 yet.
