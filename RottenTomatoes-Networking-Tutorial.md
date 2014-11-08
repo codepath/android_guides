@@ -83,7 +83,7 @@ As you can see the API returns a **dictionary with a single "movies" key** which
 
 ### Install Library Dependencies
 
-Before we continue, we need to setup the [android-async-http-client](http://search.maven.org/remotecontent?filepath=com/loopj/android/android-async-http/1.4.6/android-async-http-1.4.6.jar) for sending asynchronous network requests. _Note: There are known issues with AndroidAsyncHttpClient version 1.4.4, so at the moment it is best to stick with 1.4.3._
+Before we continue, we need to setup the [android-async-http-client](http://central.maven.org/maven2/com/loopj/android/android-async-http/1.4.3/android-async-http-1.4.3.jar) for sending asynchronous network requests. _Note: There are known issues with AndroidAsyncHttpClient version 1.4.4, so at the moment it is best to stick with 1.4.3._
 
 Let's also install a library for remote image loading called [Picasso](http://repo1.maven.org/maven2/com/squareup/picasso/picasso/2.1.1/picasso-2.1.1.jar) so we can easily display movie posters. 
 
