@@ -91,6 +91,7 @@ This "standard pack" listed below are libraries that are quite popular, widely a
  * [Leonids](https://github.com/plattysoft/Leonids) - Simple and easy particle effects ([See Tutorial](http://www.plattysoft.com/2014/05/30/leonids-particle-system-lib/))
  * [AChartEngine](http://jaxenter.com/effort-free-graphs-on-android-with-achartengine-46199.html) - This is a charting software library for Android applications
  * [HoloGraphLibrary](https://github.com/Androguide/HoloGraphLibrary) - Newer graphing library
+ * [EazeGraph](https://github.com/blackfizz/EazeGraph) - Another newer library with potential
  * [AndroidCharts](https://github.com/dacer/AndroidCharts) - Easy to use charts
  * [AndroidGraphView](http://android-graphview.org/) - library to create flexible and nice-looking diagrams.
  * [AndroidPlot](http://androidplot.com/docs/quickstart/) - plotting library for Android
