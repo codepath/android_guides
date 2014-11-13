@@ -37,7 +37,7 @@ Add this to the XML layout for activity so our custom view is embedded within:
 
 ### Simple Drawing with Canvas
 
-Let's try drawing a couple of circle on screen. This requires us to define a `Paint` object which controls the styling and color of what is drawn. Let's start by preparing the paint:
+Let's try drawing a couple of circles on screen. This requires us to define a `Paint` object which controls the styling and color of what is drawn. Let's start by preparing the paint:
 
 ```java
 public class SimpleDrawingView extends View {
