@@ -260,7 +260,7 @@ This pattern should save your app quite a deal of memory and allow for much easi
 Alternatively, you can use the method setOffscreenPageLimit(int limit) provided by ViewPager to tell the system how many pages' instances you want the system to keep in memory on either side of your current page. As a result, more memory will be consumed. So be careful when tweaking this setting if your pages have complex layouts. 
 For example, to let the system keep 3 pages' instances on both sides of the current page:
 ```java
-adapterViewPager.setOffscreenPageLimit(2);
+vpPager.setOffscreenPageLimit(2);
 ```
 ## ViewPager with Visible Adjacent Pages
 
