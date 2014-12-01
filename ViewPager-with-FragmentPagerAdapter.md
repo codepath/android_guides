@@ -256,6 +256,9 @@ adapterViewPager.getRegisteredFragment(vpPager.getCurrentItem());
 
 This pattern should save your app quite a deal of memory and allow for much easier management of fragments within your pager for the right situation.
 
+## Set Off Screen Page Limit
+Alternatively, you can use the method setOffscreenPageLimit(int limit) provided by ViewPager to tell the system how many pages' instances you want the system to keep in memory on either side of your current page. As a result, more memory will be consumed. So be careful when tweaking this setting if your pages have complex layouts. 
+
 ## ViewPager with Visible Adjacent Pages
 
 If you are interested in a ViewPager with visible adjacent pages that are partially visible:
