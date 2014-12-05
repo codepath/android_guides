@@ -55,6 +55,7 @@ This "standard pack" listed below are libraries that are quite popular, widely a
  * [Cardslib](https://github.com/gabrielemariotti/cardslib) - Card UI for Lists or Grids
  * [SwipeListView](https://github.com/47deg/android-swipelistview) - Swipeable List
  * [PullToRefresh-ListView](https://github.com/erikwt/PullToRefresh-ListView) - Easy to use pull-to-refresh functionality for ListViews. [Download](https://github.com/erikwt/PullToRefresh-ListView/archive/master.zip) and install as a [library project](http://imgur.com/a/N8baF).
+ * [QuickReturn](https://github.com/lawloretienne/QuickReturn) - Reveal or hide a header or footer as the list is scrolled in a direction.
 
 ### Easy Navigation 
 
