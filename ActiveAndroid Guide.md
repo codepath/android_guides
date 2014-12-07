@@ -183,7 +183,7 @@ See [SQLiteUtils implementation](https://github.com/pardom/ActiveAndroid/blob/ma
 
 #### Populating ListView with CursorAdapter
 
-Review this [[Custom CursorAdapter and ListViews|Populating a ListView with a CursorAdapter]] guide in order to load content from a `Cursor` into a `ListView`. In summary, in order to populate a `ListView` directly from the content within the ActiveAndroid SQLite database, we we can define this method on the model to retrieve a `Cursor` for the result set:
+Review this [[Custom CursorAdapter and ListViews|Populating a ListView with a CursorAdapter]] guide in order to load content from a `Cursor` into a `ListView`. In summary, in order to populate a `ListView` directly from the content within the ActiveAndroid SQLite database, we can define this method on the model to retrieve a `Cursor` for the result set:
 
 ```java
 public class TodoItem extends Model {
@@ -228,7 +228,7 @@ Instead of using the underlying SQLite database directly, we can instead expose 
 public class Item extends Model { ... }
 ```
 
-Then you can the [SimpleCursorAdapter](http://developer.android.com/reference/android/widget/SimpleCursorAdapter.html) to populate adapters using the underlying database directly:
+Then you can use the [SimpleCursorAdapter](http://developer.android.com/reference/android/widget/SimpleCursorAdapter.html) to populate adapters using the underlying database directly:
 
 ```java
 // Define a SimpleCursorAdapter loading the body into the TextView in simple_list_item_1
