@@ -33,18 +33,18 @@ If you are an experienced engineer (2+ years of professional experience in softw
 **Totally new to Android?** Start here.
 
 * [[Beginning Android Resources]] (Detailed Post With Many Links)
-* [Setting up the Android Development Tools](http://goo.gl/Ml9YN) (Installation Slides)
+* [Setting up Android Studio](http://goo.gl/X2SVFR) (Installation Slides)
 * [Architecture of Mobile Apps](http://goo.gl/AAsGLx) (Concept Slides)
 * [[Mobile Screen Archetypes]] (Common mobile app screen categories)
-* [Developing our First App Using Eclipse](http://goo.gl/pBKfYP) (Step-by-Step Todo App)
-* [[Troubleshooting Common Issues]] (Running into problems?)
+* [Developing our First App Using Android Studio](http://goo.gl/8R7Mty) (Step-by-Step Todo App)
+* [[Todo App Guide|Basic Todo App Tutorial]] (Todo App steps in guide format)
 * [[Sample Android Apps]] (Code repositories)
 
-**Using Android Studio?** See below.
+**Using Eclipse?** See below.
 
-* [Setting up Android Studio](http://goo.gl/X2SVFR) (Experimental Install Slides)
-* [Developing our First App Using Android Studio](http://goo.gl/8R7Mty) (Step-by-Step Todo App)
-* [[Todo App Guide|Basic Todo App Tutorial]] (Todo App in article format)
+* [Setting up Eclipse ADT](http://goo.gl/Ml9YN) (Detailed Slides)
+* [Developing our First App Using Eclipse ADT](http://goo.gl/pBKfYP) (Step-by-Step Todo App)
+* [[Troubleshooting Eclipse Issues|Troubleshooting Common Issues]] (Running into problems?)
 
 ## Structure
 
