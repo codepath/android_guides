@@ -2,6 +2,6 @@ This page will compile common issues experienced with Android Studio 1.0 or abov
 
 **Needs Attention**
 
-## Eclipse Issues
+## Eclipse ADT Issues
 
 For common issues experienced with Eclipse, check the [[Troubleshooting Eclipse Issues]] page instead for a detailed list of common problems.
