@@ -6,7 +6,7 @@ When learning Android app development, one of the most important topics to under
 
 ### Guidelines
 
-The official Android docs has an [excellent set of design resources](http://developer.android.com/design/get-started/principles.html). This section will highlight a few key design guidelines and link to the appropriate guides. You can also check out thee [Android design tips](http://www.androiddesign.tips) for a quick overview.
+The official Android docs has an [excellent set of design resources](http://developer.android.com/design/get-started/principles.html). This section will highlight a few key design guidelines and link to the appropriate guides. You can also check out these [Android design tips](http://www.androiddesign.tips) for a quick overview.
 
 #### Design Principles
 
