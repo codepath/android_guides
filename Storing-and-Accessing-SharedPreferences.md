@@ -12,7 +12,7 @@ SharedPreferences mSettings = getActivity().getSharedPreferences("Settings", 0);
 
 The string Settings is the name of the settings file you wish to access. If it does not exist it will be created. The mode value of 0 designates the default behavior.
 
-The next step is to create and Editor instance of SharedPreferences like so.
+The next step is to create an Editor instance of SharedPreferences like so.
 
 ```java
 SharedPreferences.Editor editor = mSettings.edit();
@@ -33,13 +33,13 @@ Once you are finished adding data you need to 'commit()' the edits by calling.
 editor.commit();
 ```
 
-That's the last step. Your data is stored and you can then access using the below method.
+That's the last step. Your data is stored and you can then access your data using the method below.
 
 ### Accessing Stored Data from SharedPrefrences
 
-Once you have stored some data to your SharedPrefrences you may retrieve this value and other by using the following method.
+Once you have stored some data to your SharedPrefrences you may retrieve this value and others by using the following method.
 
-First you need to instantiate and instance of your shared preferences. 
+First you need to instantiate an instance of your shared preferences. 
 
 ```java
 SharedPreferences mSettings = getActivity().getSharedPreferences("Settings", 0);
