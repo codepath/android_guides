@@ -192,6 +192,7 @@ Focused on issues like deployment, testing, dependency management, etc:
 * [[Robolectric Installation for Unit Testing]]
 * [[Must Have Libraries]] (Networking, Persistence, Compatibility, Convenience, etc)
 * [Publishing to the Play Store](http://goo.gl/mUlGL1) (Slides)
+* [[Publishing with Android Studio|Publishing-to-the-Play-Store---Android-Studio-users]]
 * [[Popular External Tools]] (Analytics, Crash Reporting)
 * [[Collaborating on Projects with Git]] (Git, Team)
 * [[Debugging and Profiling Apps]] (**Needs Attention**)
