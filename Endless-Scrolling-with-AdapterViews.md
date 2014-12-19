@@ -44,7 +44,7 @@ public abstract class EndlessScrollListener implements OnScrollListener {
 			this.previousTotalItemCount = totalItemCount;
 			if (totalItemCount == 0) { this.loading = true; } 
 		}
-
+//sample message
 		// If it’s still loading, we check to see if the dataset count has
 		// changed, if so we conclude it has finished loading and update the current page
 		// number and total item count.
