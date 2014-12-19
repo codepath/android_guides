@@ -2,9 +2,8 @@
 1. Remove Log method calls
 2. Digitally sign and export the app
 3. Sign up for a Publisher Account on Google Play
-4. Pay a one-time fee of $25
-5. Fill out a form to add a new app to your account
-6. Publish the app!
+4. Upload APK and enter application details
+
 
 ### Disable Log calls
 To avoid deleting all the log calls manually, Android Studio provides tools to do so easily. 
@@ -41,3 +40,52 @@ This option for Proguard is only applicable when optimizing and will remove all 
 
 ### Generate release ready apk
 Digitally signing and exporting is easier than it sounds, using the wizard built into Android Studio.
+
+To make use of it, click Generate Signed APK under Build menu.
+
+![](http://imgur.com/mf91VDf)
+
+Select the module that has the app code, if prompted to do so.
+
+Create a new key store if first time. Else, skip. 
+
+The key store holds the private digital key needed to sign the application. Store it in a common location, for further use. 
+
+Provide an Alias for the key in the key store and enter its validity in number of years.
+
+Fill in at least one field of the certificate's organizational details.
+
+![](http://imgur.com/rH4kjv1)
+
+Pick desired key from key store or create a new one.
+
+![](http://imgur.com/h2wGaKW)
+
+Finally, pick the folder in which the apk file will be saved. Make sure the Build Type is set to release.
+
+![](http://imgur.com/uWvSJ9x)
+
+**Note:** Same key store is needed to sign updates for the same app.
+**Note:** For different apps a new keystore could be generated every time, but the recommended approach is to generate one key store per developer/organization and then sign all apps with the same key store.
+**Note:** Remember your password and the keystore location.
+
+### Become a Publisher
+[Here](http://developer.android.com/distribute/googleplay/start.html) you can find a useful checklist of all the steps required to sign up for a publisher account.
+
+At the same page you can also find instructions on **Setting Up a Google Wallet Merchant Account**, if there's the case of selling apps, providing in app purchases or subscriptions. 
+ 
+1. Go to [Google Play Developer Console](https://play.google.com/apps/publish/) which enables developers to easily publish and distribute their applications.
+2. Enter basic information about your developer identity.
+3. Read and accept the Developer Distribution Agreement for your country or region.
+4. Pay the $25 USD registration fee.
+5. Confirm verification by e-mail.
+
+### Developer console
+This is the place to manage the (un)published apps. There is the possibility to get everything ready in a draft status before actually publishing the application.
+
+[This](http://developer.android.com/distribute/tools/launch-checklist.html) is another very important checklist to help understand the publishing process and determine which steps were left out.
+
+##References
+* <http://developer.android.com/tools/publishing/publishing_overview.html>
+* <http://developer.android.com/distribute/googleplay/start.html>
+* <http://developer.android.com/distribute/tools/launch-checklist.html>
