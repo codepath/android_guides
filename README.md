@@ -18,7 +18,7 @@ Read about our [mission to change the way engineers learn new technologies](http
 
 Located in the San Francisco Bay Area and interested in learning with others in a more structured program? Check out our local [Android](http://www.meetup.com/Learning-Android-Development) or [iOS](http://www.meetup.com/Learning-iOS-Development-SF/) meetup events. We have free evening events and at-cost 1-day workshops to make learning social and connect you with others passionate about mobile.
 
-If you are an experienced engineer (2+ years of professional experience in software development) and serious about learning Android, check out our [free evening 8-week Android bootcamp](http://codepath.com/androidbootcamp). Learn how to build mobile apps while collaborating with other engineers and designers. Work on solving important problems for non-profits with our free 8-week accelerated evening mobile bootcamp. Compete for $10,000 worth of cash prizes. [Learn more and apply here](https://gist.github.com/nesquena/638c239b723159aaa096).
+If you are an experienced engineer (2+ years of professional experience in software development) and serious about learning Android, check out our [free evening 8-week Android bootcamp](http://codepath.com/androidbootcamp). Learn how to build mobile apps while collaborating with other engineers and designers. Work on solving important problems for non-profits with our free 8-week accelerated evening mobile bootcamp. Compete for $10,000 worth of cash prizes. [Learn more and apply here](http://courses.codepath.com/snippets/intro_to_android/about_bootcamp).
 
 ## Contributors
 
