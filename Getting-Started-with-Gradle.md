@@ -6,7 +6,7 @@ Android Studio should handle most of the setup work, but if you are interested i
 
 ### Intro to the Gradle wrapper
 
-When you setup a project in Android Studio, it automatically generates several files for you that helps to allow people to build your code without needing to install Gradle ahead of time.
+When you setup a project in Android Studio, it automatically generates several files for you that helps to allow people to build your code without needing to install Gradle ahead of time, which is useful especially when needing to do continuous integration testing.
 
 By checking in the gradlew and gradlew.bat files into your source code repository, other people on Unix and Windows platforms do not need to go through the process of manually downloading Gradle or installing Android Studio.
 
