@@ -2,7 +2,7 @@ If you find yourself highly dissatisfied with developing with Eclipse (i.e. havi
 
 ## Migrating from Eclipse
 
-Since [version 0.4](http://tools.android.com/recent/androidstudio040released), Android Studio now has the ability to import your Eclipse projects directly.  When you do the import, your Java and XML resource files are relocated to src/main/java and src/main/res respectively.  Gradle looks explicitly in the src/main directory and can compile successfully but will fail to include your .class files if they are not located in these particular directories.
+Android Studio now has the ability to import your Eclipse projects directly.  When you do the import, your Java and XML resource files are relocated to src/main/java and src/main/res respectively.  Gradle looks explicitly in the src/main directory and can compile successfully but will fail to include your .class files if they are not located in these particular directories.
 
 The plugin will also generate a build.gradle.  An example of what the file format is shown in the [[Gradle cliffnotes|Getting-Started-with-Gradle]].
 
@@ -25,18 +25,7 @@ Regardless, you should keep track of what gets changed in the build.gradle since
 
 [Gradle wrapper](http://developer.android.com/sdk/installing/studio-build.html#gradleWrapper) allows you to seamlessly work with multiple projects that require different versions of Gradle. 
 
-Depending on the version of Android Studio you're using, you might get cryptic errors messages when compiling a project if Gradle Wrapper is missing. It might help to start with one:
-
-1. Add a `gradle-wrapper.jar` in `gradle/wrapper`
-2. Add a `properties` file like so:
-
-```
-distributionBase=GRADLE_USER_HOME
-distributionPath=wrapper/dists
-zipStoreBase=GRADLE_USER_HOME
-zipStorePath=wrapper/dists
-distributionUrl=http\://services.gradle.org/distributions/gradle-1.12-all.zip
-```
+Android Studio should normally handle creating the Gradle wrapper.  If you are interested in how it works under the covers, read through [[Gradle cliffnotes|Getting-Started-with-Gradle]].
 
 ## Preferred keyboard shortcuts
 
