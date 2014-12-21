@@ -4,7 +4,7 @@ At the moment, Android Studio v1.0.0 requires Gradle 2.2.1 or higher.  Android S
 
 Android Studio should handle most of the setup work, but if you are interested in how things work, read the section below.
 
-### What is Gradle wrapper
+### What is the Gradle wrapper
 
 When you setup a project in Android Studio, it automatically generates several files for you that helps to allow people to build your code without needing to install Gradle ahead of time.
 
