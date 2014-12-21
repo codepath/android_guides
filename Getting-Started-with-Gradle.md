@@ -109,7 +109,7 @@ android {
   ...
   dependencies {
       // Google Play Services
-      compile 'com.google.android.gms:play-services:4.0.30'
+      compile 'com.google.android.gms:play-services:6.5.+'
 
       // Support Libraries
       compile 'com.android.support:support-v4:21.0.+'
