@@ -126,7 +126,7 @@ android {
 
 You can also add dependencies based on the [Maven Central Repository](http://search.maven.org/). The best tool for finding packages is actually the [Gradle Please](http://gradleplease.appspot.com/) utility that takes care of helping you locate the correct package and version to add to your gradle file for any library:
 
-<a href="http://gradleplease.appspot.com"><img src="http://i.imgur.com/MT7TbPg.png" title="Gradle Please Utility" /></a>
+<a href="http://gradleplease.appspot.com"><img src="hhttp://imgur.com/OKJ58ld.png" title="Gradle Please Utility" /></a>
 
 
 ## Using with Eclipse
