@@ -16,7 +16,7 @@ To generate this initial set of files (Android Studio will automatically do so w
 
 ```bash
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.12'
+    gradleVersion = '2.2.1'
 }
 ```
 
