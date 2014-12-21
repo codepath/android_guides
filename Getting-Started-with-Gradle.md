@@ -4,7 +4,132 @@ At the moment, Android Studio v1.0.0 requires Gradle 2.2.1 or higher.  Android S
 
 Android Studio should handle most of the setup work, but if you are interested in how things work, read the section below.
 
-### Using with Eclipse
+### What is Gradle wrapper
+
+When you setup a project in Android Studio, it automatically generates several files for you that helps to allow people to build your code without needing to install Gradle ahead of time.
+
+By checking in the gradlew and gradlew.bat files into your source code repository, other people on Unix and Windows platforms do not need to go through the process of manually downloading Gradle or installing Android Studio.
+
+The gradle-wrapper.properties file determines what version of Gradle to use:
+
+```
+#Wed Apr 10 15:27:10 PDT 2013
+distributionBase=GRADLE_USER_HOME
+distributionPath=wrapper/dists
+zipStoreBase=GRADLE_USER_HOME
+zipStorePath=wrapper/dists
+distributionUrl=http\://services.gradle.org/distributions/gradle-2.21-all.zip
+```
+
+Gradle will use this configuration to see if the version has already been installed.  If not, it will be downloaded and stored in a separate directory.  (For Unix machines, the various Gradle downloads will live in ~/.gradle/wrapper.)
+
+In addition, you will need to setup the Android Gradle plugin by setting your build.gradle to have a dependency:
+
+```bash
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.0.0'
+    }
+}
+```
+
+Google maintains this Android plugin and you can find the latest updates at http://tools.android.com/tech-docs/new-build-system.  Both Gradle and the Android Studio plugin are constantly evolving, so you check the site to see what versions of Gradle are supported for which plugin.
+
+Also, keep in mind that the Android Gradle plugin finds your SDK by what is defined in the local.properties file.  You should already find this local.properties file in your project directory:
+
+```
+sdk.dir=/Applications/Android Studio.app/sdk
+```
+
+If you don't want to set local.properties, you can also define the ANDROID_HOME environment variable which points to your Android SDK.
+
+```bash
+// Unix
+export ANDROID_HOME=~/android-sdks
+
+// Windows
+set ANDROID_HOME=C:\android-sdks
+```
+
+## Testing Gradle
+
+Finally, you can check your working installation by running:
+
+```
+./gradlew -v
+```
+
+If you are using Windows, you will be using gradlew.bat instead.
+
+```
+./gradlew.bat -v
+```
+
+## Using Gradle
+
+To build the APK, run this command in the root directory of your project:
+
+```
+./gradlew assemble
+```
+
+If a build occurs and you see the output:
+
+```
+BUILD SUCCESSFUL
+
+Total time: 5.738 secs
+```
+
+Then Gradle is successfully set up for your project. If you get an error, try googling the error. Usually the issue is that you need to [install the build tools](http://stackoverflow.com/questions/16619773/failed-to-import-new-gradle-project-failed-to-find-build-tools-revision-17-0-0).
+
+If you have integration tests you want to run, make sure you have an open emulator or connected device and run this command in the root directory:
+
+```
+./gradlew build
+```
+
+This will build the apk, then automatically compile and run your integration tests.
+
+If you want to delete old APKs before you re-run either `./gradlew` (build without tests) or `./gradlew build` (build with tests), run:
+
+```
+./gradlew clean
+```
+
+## Declaring Dependencies
+
+To add dependencies to your project, you need to modify the `build.gradle` file and add extra lines configuring the packages you require. For example, for certain Google or Android, dependencies look like:
+
+```bash
+android {
+  ...
+  dependencies {
+      // Google Play Services
+      compile 'com.google.android.gms:play-services:4.0.30'
+
+      // Support Libraries
+      compile 'com.android.support:support-v4:19.0.0'
+      compile 'com.android.support:appcompat-v7:19.0.0'
+      compile 'com.android.support:gridlayout-v7:19.0.0'
+      compile 'com.android.support:support-v7-mediarouter:19.0.0'
+      compile 'com.android.support:support-v13:19.0.0'
+
+      // Note: these libraries require the "Google Repository" and "Android Repository"
+      //       to be installed via the SDK manager.
+  }
+}
+```
+
+You can also add dependencies based on the [Maven Central Repository](http://search.maven.org/). The best tool for finding packages is actually the [Gradle Please](http://gradleplease.appspot.com/) utility that takes care of helping you locate the correct package and version to add to your gradle file for any library:
+
+<a href="http://gradleplease.appspot.com"><img src="http://i.imgur.com/MT7TbPg.png" title="Gradle Please Utility" /></a>
+
+
+## Using with Eclipse
 
 Eclipse does not have the same type of integration, so you will have to run Gradle from the command-line.  You will also need to download **Gradle 2.21** from the [Gradle web site](http://services.gradle.org/distributions/gradle-2.21-bin.zip). 
 
@@ -36,71 +161,9 @@ The files below will be generated.  Similarly, Android Studio will create the sa
     gradle-wrapper.properties
 ```
 
-The gradlew and gradlew.bat files are scripts that will enable you to run Gradle even if you haven't installed it on a machine.  By checking these files into your source code, other people on Unix and Windows platforms do not need to go through the process of manually downloading Gradle.
-
-The gradle-wrapper.properties file determines what version of Gradle to use:
-
-```
-#Wed Apr 10 15:27:10 PDT 2013
-distributionBase=GRADLE_USER_HOME
-distributionPath=wrapper/dists
-zipStoreBase=GRADLE_USER_HOME
-zipStorePath=wrapper/dists
-distributionUrl=http\://services.gradle.org/distributions/gradle-1.12-all.zip
-```
-
-Gradle will use this configuration to see if the version has already been installed.  If not, it will be downloaded and stored in a separate directory.  (For Unix machines, the various Gradle downloads will live in ~/.gradle/wrapper.)
-
-In addition, you will need to setup the Android Gradle plugin by setting your build.gradle to have a dependency:
-
-```bash
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:0.12.+'
-    }
-}
-```
-
-Google maintains this Android plugin and you can find the latest updates at http://tools.android.com/tech-docs/new-build-system.  Both Gradle and the Android Studio plugin are constantly evolving, so you check the site to see what versions of Gradle are supported for which plugin.
-
-Also, keep in mind that the Android Gradle plugin finds your SDK by what is defined in the local.properties file.  You will need to create this local.properties file in your project directory:
-
-```
-sdk.dir=/Applications/Android Studio.app/sdk
-```
-
-If you don't want to set local.properties, you can also define the ANDROID_HOME environment variable which points to your Android SDK.
-
-```bash
-// Unix
-export ANDROID_HOME=~/android-sdks
-
-// Windows
-set ANDROID_HOME=C:\android-sdks
-```
-
 ## Install API 17 and Build Tools
 
 In order for Gradle to work, ensure you have the API 17 SDK installed including the **latest Android SDK Platform-tools and Android SDK Build-tools**. Check this in the Android SDK Manager from within Eclipse. 
-
-## Testing Gradle
-
-Finally, you can check your working installation by running:
-
-```
-bash ./gradlew -v
-```
-
-If you are using Windows, you will be using gradlew.bat instead.
-
-```
-bash ./gradlew -v
-```
-
-##  Gradle Project Setup
 
 To use Gradle in your Android application, you have to create a `build.gradle` file in your application root directory:
 
@@ -111,7 +174,7 @@ buildscript {
   }
 
   dependencies {
-    classpath 'com.android.tools.build:gradle:0.12+'
+    classpath 'com.android.tools.build:gradle:1.0.0'
   }
 }
 
@@ -146,69 +209,10 @@ android {
 }
 ```
 
-Note that with Gradle 1.6 as downloaded above, the **SDK version must be specified as 17**. Changing to 18 at this time may break the Gradle build. 
+Note that with Gradle 2.2.1 as downloaded above, the **SDK version must be specified as 17**. Changing to 18 at this time may break the Gradle build. 
 
 Within the `buildscript` block, the Gradle `classpath` definition should also be set to `com.android.tools.build:gradle:0.4+`. This version works with Gradle 1.6. Higher values require a later Gradle version.
 
-## Using Gradle
-
-To build the APK, run this command in the root directory of your project:
-
-```
-gradlew assemble
-```
-
-If a build occurs and you see the output:
-
-```
-BUILD SUCCESSFUL
-
-Total time: 5.738 secs
-```
-
-Then Gradle is successfully set up for your project. If you get an error, try googling the error. Usually the issue is that you need to [install the build tools](http://stackoverflow.com/questions/16619773/failed-to-import-new-gradle-project-failed-to-find-build-tools-revision-17-0-0) or make sure to use Gradle 1.6.
-
-If you have integration tests you want to run, make sure you have an open emulator or connected device and run this command in the root directory:
-
-```
-gradlew build
-```
-
-This will build the apk, then automatically compile and run your integration tests.
-
-If you want to delete old APKs before you re-run either `gradle assemble` (build without tests) or `gradle build` (build with tests), run:
-
-```
-gradlew clean
-```
-
-## Declaring Dependencies
-
-To add dependencies to your project, you need to modify the `build.gradle` file and add extra lines configuring the packages you require. For example, for certain Google or Android, dependencies look like:
-
-```bash
-android {
-  ...
-  dependencies {
-      // Google Play Services
-      compile 'com.google.android.gms:play-services:4.0.30'
-
-      // Support Libraries
-      compile 'com.android.support:support-v4:19.0.0'
-      compile 'com.android.support:appcompat-v7:19.0.0'
-      compile 'com.android.support:gridlayout-v7:19.0.0'
-      compile 'com.android.support:support-v7-mediarouter:19.0.0'
-      compile 'com.android.support:support-v13:19.0.0'
-
-      // Note: these libraries require the "Google Repository" and "Android Repository"
-      //       to be installed via the SDK manager.
-  }
-}
-```
-
-You can also add dependencies based on the [Maven Central Repository](http://search.maven.org/). The best tool for finding packages is actually the [Gradle Please](http://gradleplease.appspot.com/) utility that takes care of helping you locate the correct package and version to add to your gradle file for any library:
-
-<a href="http://gradleplease.appspot.com"><img src="http://i.imgur.com/MT7TbPg.png" title="Gradle Please Utility" /></a>
 
 
 ### Integrating Gradle, ActionBarSherlock, and the Android Support Libraries
