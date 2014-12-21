@@ -112,11 +112,11 @@ android {
       compile 'com.google.android.gms:play-services:4.0.30'
 
       // Support Libraries
-      compile 'com.android.support:support-v4:19.0.0'
-      compile 'com.android.support:appcompat-v7:19.0.0'
-      compile 'com.android.support:gridlayout-v7:19.0.0'
-      compile 'com.android.support:support-v7-mediarouter:19.0.0'
-      compile 'com.android.support:support-v13:19.0.0'
+      compile 'com.android.support:support-v4:21.0.+'
+      compile 'com.android.support:appcompat-v7:21.0.+'
+      compile 'com.android.support:gridlayout-v7:21.0.+'
+      compile 'com.android.support:support-v7-mediarouter:21.0.0+'
+      compile 'com.android.support:support-v13:21.0.0+'
 
       // Note: these libraries require the "Google Repository" and "Android Repository"
       //       to be installed via the SDK manager.
