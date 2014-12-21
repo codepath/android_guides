@@ -6,7 +6,7 @@ Android Studio should handle most of the setup work, but if you are interested i
 
 ### Using with Eclipse
 
-Eclipse does not have the same type of integration, so you will have to run Gradle from the command-line.  You will also need to download **Gradle 1.12** from the [Gradle web site](http://services.gradle.org/distributions/gradle-1.12-bin.zip). 
+Eclipse does not have the same type of integration, so you will have to run Gradle from the command-line.  You will also need to download **Gradle 2.21** from the [Gradle web site](http://services.gradle.org/distributions/gradle-2.21-bin.zip). 
 
 ### How to setup the Gradle wrapper
 
