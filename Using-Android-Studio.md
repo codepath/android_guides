@@ -48,3 +48,7 @@ each test run:
 You can then click on Code->Generate to SerialVersionUID:
 
 ![image](https://cloud.githubusercontent.com/assets/326857/2773934/76540c56-caaa-11e3-928a-d9698c9c79d4.png)
+
+* If you are using Genymotion as the emulator, you may have issues trying to use other Android SDK tools such as the Hierarchy Viewer unless you go to Genymotion ADB settings and set the path to your SDK directory (i.e. for OSX, /Applications/Android Studio.app/sdk)
+
+![image](http://i.imgur.com/iytPw8C.png)
