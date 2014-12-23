@@ -181,6 +181,58 @@ List<TodoItem> importantItems =
 
 See [SQLiteUtils implementation](https://github.com/pardom/ActiveAndroid/blob/master/src/com/activeandroid/util/SQLiteUtils.java#L105) for more details.
 
+#### Migrations
+
+If you need to add a field to your an existing model, you'll need to write a migration to add the column to the table that represents your model. Here's how:
+
+1. Add a new field to your existing model:
+  ```java
+  import com.activeandroid.Model;
+  import com.activeandroid.annotation.Table;
+
+  @Table(name = "Items")
+  public class Item extends Model {
+      @Column(name = "remote_id", unique = true, onUniqueConflict = Column.ConflictAction.REPLACE)
+      public long remoteId;
+    
+      @Column(name = "Name")
+      public String name;
+
+      @Column(name = "Priority") //new column
+      public String priority;
+    
+      public Item(){
+         super();
+      }
+    
+      public Item(int remoteId, String name, String priority){
+          super();
+          this.remoteId = remoteId;
+          this.name = name;
+          this.priority = priority;
+      }
+  }
+  ```
+
+2. Change the database version the the AndroidManifest.xml's metadata. Increment by 1 from the last version:
+
+  ```xml
+  <meta-data
+          android:name="AA_DB_NAME"
+          android:value="Application.db" />
+  <meta-data
+          android:name="AA_DB_VERSION"
+          android:value="2" />
+  ```
+
+3. Write your migration script. Name your script [newDatabaseVersion].sql, and place it in the directory [YourApp’sName]/app/src/main/assets/migrations. In my specific example, I’ll create the file [MyAppName]/app/src/main/assets/migrations/2.sql. (You might have to create the migrations directory yourself). You should write the SQLite script to add a column here:
+
+  ```sql
+  ALTER TABLE Items ADD COLUMN Priority TEXT;
+  ```
+
+Note that in order trigger the migration script, you’ll have to save an instance of your model somewhere in your code. 
+
 #### Populating ListView with CursorAdapter
 
 Review this [[Custom CursorAdapter and ListViews|Populating a ListView with a CursorAdapter]] guide in order to load content from a `Cursor` into a `ListView`. In summary, in order to populate a `ListView` directly from the content within the ActiveAndroid SQLite database, we can define this method on the model to retrieve a `Cursor` for the result set:
