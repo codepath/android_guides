@@ -10,7 +10,7 @@ For example, a "Tweet" model would be mapped to a "tweets" table in the database
 
 ### Installation
 
-You can download a [recent ActiveAndroid JAR](https://www.dropbox.com/s/cee2ldq6chuzplp/ActiveAndroid-3.1-08c6335cd.jar?dl=1) snapshot and drag this into the "libs" folder OR generate the latest JAR yourself based on the source as described below:
+You can download the [latest stable ActiveAndroid JAR](https://github.com/downloads/pardom/ActiveAndroid/activeandroid-3.0.jar) snapshot and drag this into the "libs" folder OR generate the latest JAR yourself based on the source as described below:
 
 1. Download the latest build of [ActiveAndroid](https://github.com/pardom/ActiveAndroid/archive/master.zip).
 2. Unzip the `master.zip` file.
@@ -113,7 +113,7 @@ public class Category extends Model {
 }
 ```
 
-Note that **ActiveAndroid creates a local id (mId)** in addition to our manually managed `remoteId` (unique) which is the id on the server (for networked applications). 
+The "name" part of the annotations refers to the name the Table or Columns will be given, so make sure to use the SQLite naming conventions for those. Also note that **ActiveAndroid creates a local id (Id)** in addition to our manually managed `remoteId` (unique) which is the id on the server (for networked applications). To access that primary key Id, you can call `getId()` on an instance of your model.
 
 #### CRUD Operations
 
