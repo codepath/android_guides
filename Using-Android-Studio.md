@@ -52,3 +52,7 @@ You can then click on Code->Generate to SerialVersionUID:
 * If you are using Genymotion as the emulator, you may have issues trying to use other Android SDK tools such as the Hierarchy Viewer unless you go to Genymotion ADB settings and set the path to your SDK directory (i.e. for OSX, /Applications/Android Studio.app/sdk)
 
 ![image](http://imgur.com/PhSYmVo.png)
+
+* By default, Android Studio does not handle auto-imports.  If you want to enable it, make sure to exclude android.R auto imports since it can often cause conflicts with your own resource imports.
+
+![image](http://i.imgur.com/nXizh88.gif)
