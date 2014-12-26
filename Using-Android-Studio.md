@@ -39,6 +39,10 @@ each test run:
 
   ![image](https://f.cloud.github.com/assets/326857/1445221/6f620f78-421b-11e3-9708-df6185495289.png)
 
+* By default, Android Studio does not perform auto-imports.  If you want to enable it, make sure to exclude android.R auto imports since it can often cause conflicts with your own resource imports.
+
+![image|600](http://i.imgur.com/nXizh88.gif)
+
 * If you're adding libraries that also define R.java resource files (such as a [PullToRefresh library](http://guides.codepath.com/android/Implementing-Pull-to-Refresh) or Google Play Services), you cannot add them as .jar files.  They must be included as dependencies.  If you try to include them as .jar files, you may encounter R definitions not found during execution time.
 
 * Install the GenerateSerialVersionUID to allow you to use the same feature in Eclipse to auto-generate a unique ID for a Serializable class.  
@@ -52,7 +56,3 @@ You can then click on Code->Generate to SerialVersionUID:
 * If you are using Genymotion as the emulator, you may have issues trying to use other Android SDK tools such as the Hierarchy Viewer unless you go to Genymotion ADB settings and set the path to your SDK directory (i.e. for OSX, /Applications/Android Studio.app/sdk)
 
 ![image](http://imgur.com/PhSYmVo.png)
-
-* By default, Android Studio does not handle auto-imports.  If you want to enable it, make sure to exclude android.R auto imports since it can often cause conflicts with your own resource imports.
-
-![image](http://i.imgur.com/nXizh88.gif)
