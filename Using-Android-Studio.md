@@ -1,8 +1,12 @@
-[Android Studio](http://developer.android.com/sdk/installing/studio.html) is now the officially supported IDE by Google for Android development.  It currently has an official v1.0 release but continues to be updated frequently (see [recent tools page](http://tools.android.com/recent) for more details).  This program is based on the [JetBrains](http://jetbrains.com) family of IDE's, so if you've used IntelliJ, PyCharms, or RubyMine, you'll find the user experience very familiar.  Fortunately, this IDE is essentially a form of the IntelliJ Community Edition and made free for Android developers.
+[Android Studio](http://developer.android.com/sdk/installing/studio.html) is now the officially supported IDE by Google for Android development.  This program is based on the [JetBrains](http://jetbrains.com) family of IDE's, so if you've used IntelliJ, PyCharms, or RubyMine, you'll find the user experience very familiar.  Fortunately, this IDE is essentially a form of the IntelliJ Community Edition and made free for Android developers.
 
 ## Migrating from Eclipse
 
-Android Studio now has the ability to import your Eclipse projects directly.  When you do the import, your Java and XML resource files are relocated to src/main/java and src/main/res respectively.  Gradle looks explicitly in the src/main directory and can compile successfully but will fail to include your .class files if they are not located in these particular directories.
+Android Studio uses a new build system called Gradle.  The recommended approach is to directly import your Eclipse projects.  Android Studio v1.0+ have an option "Import Non-Android Studio Project" that you can select.  Note that you will need to refer to the Eclipse project root directory, which should have immediate subdirectories src/ and res/.  (If Android Studio does not find these directories in the project directory specified, it does not try to perform the migration to Gradle.)
+
+![http://i.imgur.com/gnr8dhW.png](http://i.imgur.com/gnr8dhW.png)
+
+When you do the import, your Java and XML resource files are relocated to src/main/java and src/main/res respectively.  Gradle looks explicitly in the src/main directory and can compile successfully but will fail to include your .class files if they are not located in these particular directories.
 
 The plugin will also generate a build.gradle.  An example of what the file format is shown in the [[Gradle cliffnotes|Getting-Started-with-Gradle]].
 
