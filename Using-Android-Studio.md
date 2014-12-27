@@ -2,7 +2,7 @@
 
 ## Migrating from Eclipse
 
-Android Studio uses a new build system called Gradle.  The recommended approach is to directly import your Eclipse projects.  In Android Studio v1.0, there is an option to "Import Non-Android Studio Project".  Note that you will need to refer to the Eclipse project root directory, which should have immediate subdirectories src/ and res/.  (If Android Studio does not find these directories in the project directory specified, it does not try to perform the migration to Gradle.)
+Android Studio uses a new build system called [[Gradle|Getting-Started-with-Gradle]].  The recommended approach is to directly import your Eclipse projects.  In Android Studio v1.0, there is an option to "Import Non-Android Studio Project".  Note that you will need to refer to the Eclipse project root directory, which should have immediate subdirectories src/ and res/.  (If Android Studio does not find these directories in the project directory specified, it does not try to perform the migration to Gradle.)
 
 ![http://i.imgur.com/gnr8dhW.png](http://i.imgur.com/gnr8dhW.png)
 
