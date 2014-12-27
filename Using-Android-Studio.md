@@ -41,7 +41,7 @@ each test run:
 
 * By default, Android Studio does not perform auto-imports.  If you want to enable it, go to Preferences->Editor->Auto Import, click the checkbox "Add unambiguous imports on the fly" but make sure to exclude android.R auto imports since it can often cause conflicts with your own resource imports.  You may also wish to Optimize Imports on the Fly, but you can also type Command-Option-O to do it manually:
 
-  ![http://i.imgur.com/vgE1D5x.gif](http://i.imgur.com/vgE1D5x.gif)
+  ![http://i.imgur.com/UoFj1XY.gif](http://i.imgur.com/UoFj1XY.gif)
 
 * If you're adding libraries that also define R.java resource files (such as a [PullToRefresh library](http://guides.codepath.com/android/Implementing-Pull-to-Refresh) or Google Play Services), you cannot add them as .jar files.  They must be included as dependencies.  If you try to include them as .jar files, you may encounter R definitions not found during execution time.
 
