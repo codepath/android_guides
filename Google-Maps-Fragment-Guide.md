@@ -6,7 +6,7 @@ In this guide, we will walk you through the step by step process of getting an e
 
 ### Download Google Play Services
 
-First, let's download and setup the Google Play Services SDK. Open **Android Studio ⇒ Windows ⇒ Android SDK** Manager and check whether you have already downloaded "Google Play services" or not under Extras section. If not, select "Google Play services" and install the package.
+First, let's download and setup the Google Play Services SDK. Open **Android Studio ⇒ Tools ⇒ Android ⇒ Android SDK** Manager and check whether you have already downloaded "Google Play services" or not under Extras section. If not, select "Google Play services" and install the package.
 
 ![Play Services](http://i.imgur.com/3ZJsWEw.png)
 
