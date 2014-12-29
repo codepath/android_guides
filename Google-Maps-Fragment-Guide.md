@@ -93,12 +93,13 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 4. Install the Genymotion Emulator
   * Windows: Run the MSI installer
   * Mac: Open the dmg and drag both apps to Applications directory
-5. Install the Eclipse Plugin (See [this guide for Android Studio](http://google-android-studio.blogspot.com/2013/11/plugins-in-android-studio-example.html))
-   * Go to the "Help/Install New Software..." menu
-   * Add a new software site: Genymobile - http://plugins.genymotion.com/eclipse
-   * Check all genymobile entries
-   * Accept licenses and install
-   * Restart eclipse
+5. Install the Genymotion plugin for Android Studio.  Go to Preferences->Plugins, and click Browse repositories. Search for Genymotion and you should find one provided by http://www.genymotion.com.
+
+![http://i.imgur.com/AIY7gOS.gif](http://i.imgur.com/AIY7gOS.gif)
+
+6. Go to the Genymotion ADB settings and set the path to your SDK directory (i.e. for OSX, the directory is ~/Library/Android/sdk.  )
+
+![image](http://i.imgur.com/iGqP85B.png)
 
 #### Configuration
 
