@@ -111,8 +111,8 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 1. Run the Genymotion application
 2. Sign in and add your first virtual device (Nexus 4 - 4.3 - API 18)
    * Do **not start your emulator** yet!
-3. From **within eclipse**, click the genymobile icon ![Genymobile](https://cloud.genymotion.com/static/images/doc/genymotion-plugin-eclipse-button.png) and click "Start" on your virtual device.
-  * Make sure to start your emulator **through the eclipse plugin**
+3. From **within Android Studio**, click the genymobile icon ![Genymobile](https://cloud.genymotion.com/static/images/doc/genymotion-plugin-eclipse-button.png) and click "Start" on your virtual device.
+  * You can start the emulator through the Android Studio plugin, or can launch the Genymotion application and start it through the menu.  However, do not try to start the emulator through VirtualBox since it will not work.
 4. Wait for device to boot up into a useable state
 
 #### Setup Google Play Services
