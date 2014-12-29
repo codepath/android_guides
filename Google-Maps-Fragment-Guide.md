@@ -10,21 +10,6 @@ First, let's download and setup the Google Play Services SDK. Open **Android Stu
 
 ![Play Services](http://i.imgur.com/vvmOHCj.png)
 
-### Import Google Play Services
-
-**Note: Skip this step when using Android Studio! This is for Eclipse only!**
-
-After downloading the play services we need to import the project to Eclipse which will be used as a library for our maps project.
-
-1. In Eclipse goto **File ⇒ Import ⇒ Android ⇒ Existing Android Code Into Workspace**
-
-2. Click on Browse and select "Google Play Services" project from your android sdk folder. You can locate the play services library project from
-`<your-android-sdk-path>\extras\google\google_play_services\libproject\google-play-services_lib`
-
-3. Be sure to check "Copy projects into workspace" option as shown in the below image.
-
-![Google Play Load](http://i.imgur.com/EHefxss.png)
-
 ### Retrieve your SHA-1 Fingerprint
 
 Open your terminal and execute the following command to generate SHA-1 fingerprint necessary to get your API key from Google.
