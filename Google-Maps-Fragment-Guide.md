@@ -100,6 +100,12 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
   * You can start the emulator through the Android Studio plugin, or can launch the Genymotion application and start it through the menu.  However, do not try to start the emulator through VirtualBox since it will not work.
 4. Wait for device to boot up into a useable state
 
+**Note:** On Ubuntu/Linux, make sure to [3D acceleration mode](http://imgur.com/Kl9cOmb) by launching VirtualBox and going to `Settings -> Display` to fix. VirtualBox appears to prone to memory leaks, so you may find yourself killing the process from time to time. To avoid large CPU consumption by the compiz window manager and swapping in general, try increasing the video memory allocation and Base Memory (found in `Settings -> System`).
+
+**Note:** Are you getting an error when starting the emulator? `Error Failed to load VMMR0.r0`? Follow the [advice here](https://forums.virtualbox.org/viewtopic.php?f=8&t=40525#p186381). In short, go to [virtual box page](https://www.virtualbox.org/wiki/Downloads) and download and install VirtualBox 4.3.6 Oracle VM VirtualBox Extension Pack.
+
+**Note:** If you get `Failed to load OVI` error when re-adding the emulator, you need to use a new name for the same device. For example, "Nexus 4 - 4.3 - API 18" might be called "Nexus 4 - 4.3 - API 18 New".
+
 #### Setup Google Play Services
 
 1. Download the latest [Google Play Services APK](http://goo.im/gapps/gapps-jb-20130813-signed.zip) for 4.3 from [Rootz Wiki](http://wiki.rootzwiki.com/Google_Apps#Universal_Packages_2)
@@ -107,12 +113,6 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
     * Seeing a **crash dialog of Google services** is to be expected
 3. **Close and restart the emulator** and Google Play Store should now be installed
 4. After restart, open the "Play Store" app on your emulator and **sign in** with a google account
-
-**Note:** On Ubuntu 12.04, make sure to [3D acceleration mode](http://imgur.com/Kl9cOmb) by launching VirtualBox and going to `Settings -> Display` to fix. VirtualBox appears to prone to memory leaks, so you may find yourself killing the process from time to time. To avoid large CPU consumption by the compiz window manager and swapping in general, try increasing the video memory allocation and Base Memory (found in `Settings -> System`).
-
-**Note:** Are you getting an error when starting the emulator? `Error Failed to load VMMR0.r0`? Follow the [advice here](https://forums.virtualbox.org/viewtopic.php?f=8&t=40525#p186381). In short, go to [virtual box page](https://www.virtualbox.org/wiki/Downloads) and download and install VirtualBox 4.3.6 Oracle VM VirtualBox Extension Pack.
-
-**Note:** If you get `Failed to load OVI` error when re-adding the emulator, you need to use a new name for the same device. For example, "Nexus 4 - 4.3 - API 18" might be called "Nexus 4 - 4.3 - API 18 New".
 
 ### Enable GPS on Emulator
 
