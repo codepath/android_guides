@@ -49,6 +49,8 @@ each test run:
 
 * If you're adding libraries that also define R.java resource files (such as a [PullToRefresh library](http://guides.codepath.com/android/Implementing-Pull-to-Refresh) or Google Play Services), you cannot add them as .jar files.  They must be included as dependencies.  If you try to include them as .jar files, you may encounter R definitions not found during execution time.
 
+* Get familiar with the Code->Generate, Code->Reformat, and Code->Optimize Imports options.  The first one will allow you to help generate getter and setter methods on your classes, saving you time from having to write boilerplate code.  The other two options help to tidy up your code.
+
 * Install the GenerateSerialVersionUID to allow you to use the same feature in Eclipse to auto-generate a unique ID for a Serializable class.  
 
 ![image](https://cloud.githubusercontent.com/assets/326857/2773890/6abf6e7c-caa9-11e3-9077-b8c25fa0df25.png)
