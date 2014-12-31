@@ -35,7 +35,7 @@ Change the `android:label` or `android:icon` to modify the ActionBar icon or tit
 
 ```java
 ActionBar actionBar = getActionBar();
-String title = actionBar.getTitle();
+String title = actionBar.getTitle().toString();
 actionBar.hide();
 ```
 
