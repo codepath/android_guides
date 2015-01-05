@@ -25,6 +25,8 @@ dependencies {
 
 It turns out that having both is redundant and will cause errors.  It is necessary in this case to remove one or the other, depending on your need to use other Google API libraries.
 
+* If you decide to rename any of your ID tags in your XML files, you may get "No resource found that matches given name."    Cleaning the project may not help.  You may find it easier to delete the app/build/ directory so that Android Studio will regenerate all the resource files.
+
 ## Eclipse ADT Issues
 
 For common issues experienced with Eclipse, check the [[Troubleshooting Eclipse Issues]] page instead for a detailed list of common problems.
