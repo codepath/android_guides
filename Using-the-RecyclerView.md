@@ -77,7 +77,7 @@ public class MainActivity extends Activity {
 }
 ```
 
-Setup item decorations with [DivierItemDecoration](https://gist.githubusercontent.com/alexfu/0f464fc3742f134ccd1e/raw/abe729359e5b3691f2fe56445644baf0e40b35ba/DividerItemDecoration.java):
+Setup item decorations with [DividerItemDecoration](https://gist.githubusercontent.com/alexfu/0f464fc3742f134ccd1e/raw/abe729359e5b3691f2fe56445644baf0e40b35ba/DividerItemDecoration.java):
 
 ```java
 RecyclerView.ItemDecoration itemDecoration =
