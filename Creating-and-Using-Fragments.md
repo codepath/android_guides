@@ -136,14 +136,16 @@ If the fragment should always be in the activity, use XML to statically add but 
 
 Fragment has many methods which can be overridden to plug into the lifecycle (similar to an Activity):
 
-- `onAttach()` is called when a fragment is connected to an activity
+- `onAttach()` is called when a fragment is connected to an activity.
 - `onCreate()` is called to do initial creation of the fragment.
-- `onCreateView()` is called by Android once the Fragment should inflate a view
+- `onCreateView()` is called by Android once the Fragment should inflate a view.
 - `onActivityCreated()` is called when host activity has completed its `onCreate()` method.
-- `onDestroyView()` is called when fragment is being destroyed
-- `onStart()` is called once the fragment gets visible
+- `onStart()` is called once the fragment gets visible.
 - `onResume()` - Allocate “expensive” resources such as registering for location, sensor updates, etc.
 - `onPause()` - Release “expensive” resources. Commit any changes.
+- `onDestroyView()` is called when fragment's view is being destroyed, but the fragment is still kept around.
+- `onDestroy()` is called when fragment is no longer in use.
+- `onDetach()` is called when fragment is no longer connected to the activity.
 
 The lifecycle execution order is mapped out below:
 
