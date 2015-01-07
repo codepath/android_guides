@@ -1,8 +1,10 @@
 This page will compile common issues experienced with Android Studio 1.0 or above as they are experienced and recorded. 
 
-**Needs Attention**
-
 ## Android Studio Issues
+
+* If you want to do more in-depth debugging in your code, you can setup breakpoints in your code by clicking on the left side pane and then clicking on Run->Debug.    You can also click on the bug icon if you've enabled the Toolbar (View->Enable Toolbar):
+
+![http://i.imgur.com/zGh8wZ0.png](http://i.imgur.com/zGh8wZ0.png)
 
 * If you decide to rename any of your ID tags in your XML files, you may get "No resource found that matches given name."   You will need to do a Clean Project so that the entire resource files can be generated and the build/ directories are removed.  
 
