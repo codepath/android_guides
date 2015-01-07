@@ -94,7 +94,8 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 #### Configuration
 
 1. Run the Genymotion application
-2. Sign in and add your first virtual device (Nexus 4 - 4.3 - API 18)
+2. Sign in and add your first virtual device (Nexus 4 - 4.4.4 - API 19).  
+   * You must use an image running 4.4.4.  Older versions may not work.
    * Do **not start your emulator** yet!
 3. From **within Android Studio**, click the genymobile icon ![Genymobile](https://cloud.genymotion.com/static/images/doc/genymotion-plugin-eclipse-button.png) and click "Start" on your virtual device.
   * You can start the emulator through the Android Studio plugin, or can launch the Genymotion application separately.
@@ -104,13 +105,12 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 
 **Note:** Are you getting an error when starting the emulator? `Error Failed to load VMMR0.r0`? Follow the [advice here](https://forums.virtualbox.org/viewtopic.php?f=8&t=40525#p186381). In short, go to [virtual box page](https://www.virtualbox.org/wiki/Downloads) and download and install VirtualBox 4.3.6 Oracle VM VirtualBox Extension Pack.
 
-**Note:** If you get `Failed to load OVI` error when re-adding the emulator, you need to use a new name for the same device. For example, "Nexus 4 - 4.3 - API 18" might be called "Nexus 4 - 4.3 - API 18 New".
+**Note:** If you get `Failed to load OVI` error when re-adding the emulator, you need to use a new name for the same device. For example, "Nexus 4 - 4.4.4 - API 19" might be called "Nexus 4 - 4.4.4 - API 19 New".
 
 #### Setup Google Play Services
 
-1. Download the latest [Google Play Services APK](http://goo.im/gapps/gapps-jb-20130813-signed.zip) for 4.3 from [Rootz Wiki](http://wiki.rootzwiki.com/Google_Apps#Universal_Packages_2)
+1. Download the latest [Google Play Services APK](https://www.mediafire.com/?qbbt4lhyu9q10ix) for 4.4.4 from [Rootz Wiki](https://www.mediafire.com/?qbbt4lhyu9q10ix)
 2. Drag and drop the zip file onto the running Genymotion emulator device
-    * Seeing a **crash dialog of Google services** is to be expected
 3. **Close and restart the emulator** and Google Play Store should now be installed
 4. After restart, open the "Play Store" app on your emulator and **sign in** with a google account
 
