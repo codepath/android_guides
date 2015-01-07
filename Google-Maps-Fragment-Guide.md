@@ -185,8 +185,8 @@ Use this checklist for troubleshooting below:
  * Did you properly move Genymotion into the Applications folder?
  * Launch VirtualBox, then verify the emulator is listed and ensure it is in a **powered off** state
  * Open Genymotion app and verify the emulator is listed there and no errors are shown
- * Restart Eclipse and try to launch the emulator again through eclipse plugin
- * Restart your computer and try to launch the emulator again through eclipse plugin
+ * Restart Android Studio and try to launch the emulator again through Android Studio plugin
+ * Restart your computer and try to launch the emulator again through Android Studio plugin
 
 **Trouble seeing the map in the demo app?**
 
