@@ -52,7 +52,7 @@ Details of setting up custom push notifications can be [found in this guide](htt
 
 ### Source Code
 
-We have a full demo of Parse Push sending and receiving which [can be found on Github](https://github.com/codepath/ParsePushNotificationExample/tree/master/src/com/test). Check out [MyCustomReceiver](https://github.com/codepath/ParsePushNotificationExample/blob/master/src/com/test/MyCustomReceiver.java) and [MainActivity](https://github.com/codepath/ParsePushNotificationExample/blob/master/src/com/test/MainActivity.java). 
+We have a full demo of Parse Push sending and receiving which [can be found on Github](https://github.com/codepath/ParsePushNotificationExample/tree/master/app/src/main/java/com/test). Check out [MyCustomReceiver](https://github.com/codepath/ParsePushNotificationExample/blob/master/app/src/com/test/MyCustomReceiver.java) and [MainActivity](https://github.com/codepath/ParsePushNotificationExample/blob/master/app/src/com/test/MainActivity.java). 
 
 ### Gotchas
 
