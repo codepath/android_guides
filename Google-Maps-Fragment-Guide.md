@@ -131,10 +131,8 @@ With GPS location enabled, let's now setup our map demo app.
 Once we have our Genymotion emulator properly setup, let's import the [maps demo application](https://github.com/codepath/android-google-maps-demo) so we can use this to verify if maps are showing up correctly. 
 
 1. Download the [Maps Demo](https://github.com/codepath/android-google-maps-demo/archive/master.zip) application and extract the zip file.
-2. Run "File...Import...Existing Android Code Into Workspace", select the project and hit "Finish"
+2. Run "File...Import Project...", select the root build.gradle and hit "Finish"
 3. Expand MapDemo application and open up the "AndroidManifest.xml"
-
-**Note:** For Android Studio users, download this [alternate maps demo](https://github.com/codepath/android-google-maps-demo/archive/studio.zip) and import into Studio as an existing project. Follow steps below.
 
 Fill in your API Key into the meta data for `com.google.android.maps.v2.API_KEY` within the **application node** in the `AndroidManifest.xml`:
 
