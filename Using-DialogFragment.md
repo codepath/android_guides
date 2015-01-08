@@ -72,9 +72,10 @@ public class EditNameDialog extends DialogFragment {
 	}
 }
 ```
-and showing the dialog in an Activity:
+and showing the dialog in an Activity (extending `FragmentActivity` or `ActionBarActivity`):
 
 ```java
+// Note: `ActionBarActivity` works here as well
 public class FragmentDialogDemo extends FragmentActivity {
   @Override
   public void onCreate(Bundle savedInstanceState) {
