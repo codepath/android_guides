@@ -135,9 +135,10 @@ class MyAlertDialogFragment extends DialogFragment {
 }
 ```
 
-and to display the alert dialog:
+and to display the alert dialog in an activity (extending `FragmentActivity` or `ActionBarActivity`):
 
 ```java
+// Note: `ActionBarActivity` works here as well
 public class FragmentDialogDemo extends FragmentActivity {
   @Override
   public void onCreate(Bundle savedInstanceState) {
