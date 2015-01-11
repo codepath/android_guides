@@ -43,7 +43,7 @@ Digitally signing and exporting is easier than it sounds, using the wizard built
 
 To make use of it, click Generate Signed APK under Build menu.
 
-![](http://imgur.com/mf91VDf)
+![](http://i.imgur.com/mf91VDf.png)
 
 Select the module that has the app code, if prompted to do so.
 
@@ -55,15 +55,15 @@ Provide an Alias for the key in the key store and enter its validity in number o
 
 Fill in at least one field of the certificate's organizational details.
 
-![](http://imgur.com/rH4kjv1)
+![](http://i.imgur.com/rH4kjv1.png)
 
 Pick desired key from key store or create a new one.
 
-![](http://imgur.com/h2wGaKW)
+![](http://i.imgur.com/h2wGaKW.png)
 
 Finally, pick the folder in which the apk file will be saved. Make sure the Build Type is set to release.
 
-![](http://imgur.com/uWvSJ9x)
+![](http://i.imgur.com/uWvSJ9x.png)
 
 **Note:** Same key store is needed to sign updates for the same app.
 **Note:** For different apps a new keystore could be generated every time, but the recommended approach is to generate one key store per developer/organization and then sign all apps with the same key store.
