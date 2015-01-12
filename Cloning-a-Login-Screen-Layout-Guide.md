@@ -108,11 +108,8 @@ Now, let's drag in the TextViews for the screen. (There's five of these). First,
         Using these services allows us to show you how you\\'re connected to the people around you. 
         It also makes it super easy to create a Highlight profile.
     </string>
-    <string name="feedback_label">
-    <![CDATA[
-        Please <a href="http://highlight.com">let us know</a> if you have feedback on this or if 
-        you would like to log in with another identity service. Thanks!   
-    ]]>
+    <string name="feedback_label">Please <a href="http://highlight.com">let us know</a> if you have feedback 
+        on this or if you would like to log in with another identity service. Thanks!
     </string>
     <string name="permission_label">We won\\'t post things without your permission.</string>
 </resources>
