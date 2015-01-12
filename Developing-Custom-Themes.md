@@ -202,7 +202,7 @@ When defining paddings or text sizes, the proper pattern is to store the explici
 
 ## 5. Custom Styles and Drawables 
 
-A more sophisticated method to setting the properties of your views in the layout is give a view a style, which is a group of attributes, instead of defining the values of individual attributes. For example, you could set the styles of all of your title TextViews to have the style textTitle.  This style could have custom text color, font, and margin properties. In addition to styles, you will be using drawables to customize your views. A drawable resource is a general concept for a graphic that can be drawn to the screen. For more information, refer the cliffnotes on [[drawables|Drawables]].
+A more sophisticated method for setting the properties of your views in the layout is to give a view a style, which is a group of attributes, instead of defining the values of individual attributes. For example, you could set the styles of all of your title TextViews to have the style textTitle.  This style could have custom text color, font, and margin properties. In addition to styles, you will be using drawables to customize your views. A drawable resource is a general concept for a graphic that can be drawn to the screen. For more information, refer the cliffnotes on [[drawables|Drawables]].
 
 Add a folder called `drawable` under `res` folder.
 
