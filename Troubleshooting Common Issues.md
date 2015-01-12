@@ -6,7 +6,7 @@ If you want to do more in-depth debugging in your code, you can setup breakpoint
 
 ## Android Studio Issues
 
-* If you decide to rename any of your ID tags in your XML files, you may get "No resource found that matches given name."   You will need to do a Clean Project so that the entire resource files can be generated and the build/ directories are removed.  
+* If you decide to rename any of your ID tags in your XML files, you may get "No resource found that matches given name."   You will need to do a Rebuild Project so that the entire resource files can be regenerated and the build/ directories are removed.  Note: Clean Project may not work.
 
 * One of the issues in the new Gradle build system is that you can often get "Multiple dex files define" issues.  If one dependency library already includes an identical set of libraries, then you may have to make changes to your Gradle configurations to avoid this conflict.  For instance, including the Butterknife library with the Parceler library causes multiple declarations of javax.annotation.processing.Processor.  In this case, you have to exclude this conflict:
 
