@@ -71,10 +71,10 @@ Understanding the concepts above is a good thing because it allows you search fo
 * **Learn how to search** -- I cannot stress this enough. Seriously, just Google it. If you are stuck or in doubt, search for your question. And most of all: Search before you ask.
 * **Learn how to debug your code** There is a surprisingly high number of learners who do not debug their code at all and can't really [understand their code's log](http://stackoverflow.com/questions/6065258/how-to-interpret-logcat). If you are using Eclipse,  [check this out] (http://stackoverflow.com/questions/8551818/how-to-debug-android-application-line-by-line-using-eclipse)
 
-Speaking of Eclipse, the IDE most people still use to program for Android, whether you want to use it or not is up to you. Bear in mind the following though:
+Speaking of Eclipse, an older IDE many people still use to program for Android, whether you want to use it or not is up to you. Eclipse is **no longer in active development**. Bear in mind the following though:
 
-  * The alternative IDE most people talk about, Android Studio (which is based on IntelliJ), is still in an **early access** preview. The official Android page has the [following warning about it](http://developer.android.com/sdk/installing/studio.html): "Android Studio is currently available as an early access preview. Several features are either incomplete or not yet implemented and you may encounter bugs."
-  * Most tutorials and documentation for beginners are still based on the use of Eclipse. All the resources I talk about here which are connected to an IDE, refer to Eclipse.
+  * The IDE most people talk about, [Android Studio](http://developer.android.com/sdk/index.html) (which is based on IntelliJ), is now in a stable 1.0 release. The official Android page recommends new developer use this over eclipse.
+  * Most tutorials and documentation for beginners are still based on the use of Eclipse. All the resources I talk about here which are connected to an IDE, refer to Eclipse. However, this is changing as Android Studio is now the standard recommended by Google.
 
 In terms of design resources check out:
 
