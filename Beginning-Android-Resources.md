@@ -88,7 +88,7 @@ In terms of design resources check out:
   
 ## Beginning Android Resources
 
-With the basics in mind, it is time to start coding your first Android app. To begin, download and install the [Android Developer Tools] (http://developer.android.com/sdk/index.html). The Android SDK is actually a bundle of helpful tools consisting of Android libraries, emulator, debugger and documentation. It gives you a framework of Java classes and methods that all Android devices are able to use. The whole SDK is neatly packaged inside Eclipse or Android Studio, allowing you to only worry about your code and how devices implement it.
+With the basics in mind, it is time to start coding your first Android app. To begin, download and install the [Android Developer Tools] (http://developer.android.com/sdk/index.html). The Android SDK is actually a bundle of helpful tools consisting of Android libraries, emulator, debugger and documentation. It gives you a framework of Java classes and methods that all Android devices are able to use. The whole SDK is neatly packaged inside Android Studio or Eclipse, allowing you to only worry about your code and how devices implement it.
 
 Android apps are a bit different from ordinary Java applications, because they’re build around Activities and Fragments, which both have lifecycles that determine the state of the app. When learning Android it’s not about learning how to code, it’s more about understanding the way Android works. That means that you’ll spend the majority of the time learning about Activity lifecycles, Fragments, ListViews, Bundles and other important Android concepts.
 
