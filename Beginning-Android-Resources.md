@@ -73,10 +73,10 @@ Understanding the concepts above is a good thing because it allows you search fo
 
 Speaking of Eclipse, an older IDE many people still use to program for Android, whether you want to use it or not is up to you. Eclipse is **no longer in active development**. Bear in mind the following though:
 
-  * The IDE most people talk about, [Android Studio](http://developer.android.com/sdk/index.html) (which is based on IntelliJ), is now in a stable 1.0 release. The official Android page recommends new developer use this over eclipse.
+  * The IDE most people talk about, [Android Studio](http://developer.android.com/sdk/index.html) (which is based on IntelliJ), is now in a stable 1.0 release. The official Android page recommends new developers use this over eclipse.
   * Most tutorials and documentation for beginners are still based on the use of Eclipse. All the resources I talk about here which are connected to an IDE, refer to Eclipse. However, this is changing as Android Studio is now the standard recommended by Google.
 
-In terms of design resources check out:
+In terms of designing a good looking app, here are some links that will help you start looking at ideas and acquiring design assets like icons:
 
  * [Android App Patterns](http://www.android-app-patterns.com/) - Repository of Android interfaces for dozens of categories. **Great way to explore the Android design standards**
  * [IconFinder](https://www.iconfinder.com/) - Excellent source of free to use graphics
@@ -88,19 +88,19 @@ In terms of design resources check out:
   
 ## Beginning Android Resources
 
-With the basics in mind, it is time to start coding your first Android app. To begin, download and install the [Android Developer Tools] (http://developer.android.com/sdk/index.html). The Android SDK is actually a bundle of helpful tools consisting of Android libraries, emulator, debugger and documentation. It gives you a framework of Java classes and methods that all Android devices are able to use. The whole SDK is neatly packaged inside Android Studio or Eclipse, allowing you to only worry about your code and how devices implement it.
+With the basics in mind, it is time to start coding your first Android app. To begin, download and install the [Android Developer Tools] (http://developer.android.com/sdk/index.html). The Android SDK is actually a bundle of helpful tools consisting of Android libraries, an emulator, a debugger, and documentation. It also gives you a framework of Java classes and methods that all Android devices are able to use, the core Android library. You'll have to update this library as new versions come out, but more on that later. The whole SDK is neatly packaged inside Android Studio or Eclipse, allowing you to only worry about your code and how devices implement it.
 
-Android apps are a bit different from ordinary Java applications, because they’re build around Activities and Fragments, which both have lifecycles that determine the state of the app. When learning Android it’s not about learning how to code, it’s more about understanding the way Android works. That means that you’ll spend the majority of the time learning about Activity lifecycles, Fragments, ListViews, Bundles and other important Android concepts.
+When learning Android it’s not about learning how to code, it’s more about understanding the way Android works. That means that you’ll spend the majority of the time learning about Activity lifecycles, Fragments, ListViews, Intents, and other important Android specific concepts as opposed to complex algorithmic structures. 
 
 Consider starting with the following tutorials and resources:
 
 * [The Android official training guides](http://developer.android.com/training/index.html) are a good place to start. The [Building Your First App](http://developer.android.com/training/basics/firstapp/index.html) lesson is very easy to follow  and already gives you a good understanding of some key concepts of the Android SDK.
 
-* [The Android Development Tutorial](http://www.youtube.com/watch?v=Z149x12sXsw) by Derek Banas is great for those of you who prefer video lessons. It has 25 video lessons in total ranging from 10 to 30 minutes each. I used the first lessons to get a feel of the development process, specially to understand layouts.
+* [The Android Development Tutorial](http://www.youtube.com/watch?v=Z149x12sXsw) by Derek Banas is great for those who prefer video lessons. It has 25 video lessons in total ranging from 10 to 30 minutes each. Note that he teaches in Eclipse instead of Android Studio.
 
-* [CodePath Android Guides](https://guides.codepath.com) gives you even more explained code recipes and examples on how to build most common things in an Android app. I wish this was published when I started learning. It would have certainly helped.
+* [CodePath Android Cliffnotes](https://guides.codepath.com) are what you are reading right now! Keep reading and hopefully you'll walk away feeling like you know more about Android than when you started.
 
-* [Vogella Android Tutorials](http://www.vogella.com/tutorials/Android/article.html) - Awesome free tutorials for most common Android topics. Great as a supplementary resource on top of these [Android Cliffnotes](http://guides.codepath.com/android).
+* [Vogella Android Tutorials](http://www.vogella.com/tutorials/Android/article.html) - These are awesome free tutorials for most common Android topics. Great as a supplementary resource on top of the [Android Cliffnotes](http://guides.codepath.com/android).
 
 * [Developing Android Apps by Google](https://www.udacity.com/course/ud853) - Udacity course created by Google that teaches the core concepts involved in developing Android apps through videos and course work. 
 
@@ -108,19 +108,17 @@ Consider starting with the following tutorials and resources:
 
 * [CodeLearn Android Tutorial](http://www.codelearn.org/android-tutorial) - Interesting interactive tutorial for learning Android step-by-step. Definitely worth a look as you build a twitter client step-by-step.
   
-* [Common tasks](http://developer.android.com/guide/faq/commontasks.html) are a useful list of typical things you can do in your app and how to develop them.
+* [Common tasks](http://developer.android.com/guide/faq/commontasks.html) is a useful list from Google of typical things you can do in your app with links to explanations on how to do them. 
   
-* [Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm&hl=en) is a great app available on the Google Play Store. You probably have heard of it. This app won't teach you anything about how to develop Android apps but it will show you what an Android app can do with your phone. I learned a lot from it. Whenever I realised I wanted to do something specific, I knew I could do it because I had done it before on Tasker.
+* [Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm&hl=en) is a great app available on the Google Play Store. This app won't teach you anything about how to develop Android apps but it will show you the many possibilities available to you in terms of what you can control on your device with an Android App. This app has A LOT of functionalities.
 
 * [Building Mobile Applications Course](http://cs76.tv/2012/spring/#about,lectures) - Courseware including videos and slides with high-level overview of Android development.
   
 * [DevAppsDirect](https://play.google.com/store/apps/details?id=com.inappsquared.devappsdirect&hl=en) is another great app you can get from the Play Store. While it also won't teach you how to develop an app, it will show you what is available out there. The app maintains a list of open source libraries you can use in your project for a variety of purposes. Knowing what you can reuse will save you a lot of time in the future.
 
-* [Android Programming: Pushing the Limits](http://www.amazon.com/Android-Programming-Pushing-Erik-Hellman/dp/1118717376) is a solid book to check out.
+* [Android Programming: Pushing the Limits](http://www.amazon.com/Android-Programming-Pushing-Erik-Hellman/dp/1118717376) is a fairly good book to check out.
 
-* [The Busy Coder's Guide to Android Development](http://commonsware.com/Android/) is comprehensive with its over 2,400 pages but starts with the basics, explaining the concepts. It also has those "do-it-yourself" tutorials to help you retain what you are learning. The book is a bit expensive but it comes with a one-year subscription to keep it updated during the period.
-
-All code examples are free and [can be found here](https://github.com/commonsguy/cw-omnibus/). Even if you don't buy the book, consider browsing through some of the examples there to learn how other programmers do things. Finally, Mark Murphy, the author of the book, is helpful whether you contact him by e-mail or on the [StackOverflow website](http://stackoverflow.com/). Check out [his profile](http://stackoverflow.com/users/115145/commonsware). He is in the all time top-10 ranking list there.
+* [The Busy Coder's Guide to Android Development](http://commonsware.com/Android/) is comprehensive with its over 2,400 pages but starts with the basics. It also has "do-it-yourself" tutorials to help you retain what you are learning. The book is a bit expensive but it comes with a one-year subscription to keep it updated during the period, as the author is constantly adding to the text. All code examples are free and [can be found here](https://github.com/commonsguy/cw-omnibus/). Even if you don't buy the book, consider browsing through some of the examples there to learn how other programmers do things. Finally, Mark Murphy, the author of the book, is helpful whether you contact him by e-mail or on the [StackOverflow website](http://stackoverflow.com/). Check out [his profile](http://stackoverflow.com/users/115145/commonsware). He is in the top-10 of all time ranked list there.
 
 ## Key Concepts
 
