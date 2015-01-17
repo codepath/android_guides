@@ -129,7 +129,7 @@ The most common of these is caused by orientation changes. Whenever there is an 
 
 Here are two good posts discussing this further: <http://stackoverflow.com/a/582585/362298> and <http://stackoverflow.com/questions/1111980/how-to-handle-screen-orientation-change-when-progress-dialog-and-background-thre>
 
-To force yourself to catch problems sooner than later, consider the following tip from a previous [post here on Reddit](http://www.reddit.com/r/androiddev/comments/19143c/is_your_app_stateful_test_your_might/). You can enable a developer setting to not keep activities, so that they always get destroyed and recreated. 
+To force yourself to catch problems sooner than later, consider the following tip from a previous [post here on Reddit](http://www.reddit.com/r/androiddev/comments/19143c/is_your_app_stateful_test_your_might/). You can enable a developer setting to not keep activities, so that they are always destroyed and recreated. 
   
 And more specifically, here are two examples of dealing with this problem when using a FragmentPagerAdapter, a common use case:  
 
@@ -140,7 +140,7 @@ In a more abstract sense but still related to the topic, [an old post on avoidin
 
 ### Parcelable
 
-You can pass objects from one activity to another in a Bundle if your class implements the [Parcelable interface](http://developer.android.com/reference/android/os/Parcelable.html). Parcelables were designed specifically for performance and should almost always be used instead of Serializable. Here is a [good page explaining how to use it](http://shri.blog.kraya.co.uk/2010/04/26/android-parcel-data-to-pass-between-activities-using-parcelable-classes/). 
+You can pass Java objects from one activity to another in a Bundle if your class implements the [Parcelable interface](http://developer.android.com/reference/android/os/Parcelable.html). Parcelables were designed specifically for performance and should almost always be used instead of Serializable. Here is a [good page explaining how to use it](http://shri.blog.kraya.co.uk/2010/04/26/android-parcel-data-to-pass-between-activities-using-parcelable-classes/). 
   
   You can also have inheritance while using it without adding too much of an overhead to the children [like this post](http://stackoverflow.com/questions/20018095/parcelable-inheritance-issue-with-getcreator-of-heir-class/20018463#20018463)
   
@@ -148,9 +148,9 @@ One thing you MUST always keep in mind is the order with which you write to the 
 
 ### Threading
 
-Android is full of features to help you deal with threads. This is a very important aspect of Android development because your app has to give snappy responses. So all your heavy work such as database operations and network access need to be done in a separate thread.
+Android is full of features to help you deal with threads. This is a very important aspect of Android development because your app has to give snappy responses to user interaction. All your heavy work, such as database operations and network access, needs to be done in a separate thread so that the app does not appear frozen.
  
-For this reason it is important to know when to use a `Service`, a `Thread`, an `IntentService` or an `AsyncTask`. Learn about to them, check examples, and make sure you use them whenever appropriate. Perhaps the best place to start is this post summarizing your options: http://techtej.blogspot.com.es/2011/03/android-thread-constructspart-4.html You will realize that knowing about callbacks and listeners will be useful here too.
+For this reason it is important to know when to use a `Service`, a `Thread`, an `IntentService` or an `AsyncTask`. Learn about them, check examples, and make sure you use them whenever appropriate. Perhaps the best place to start is this post summarizing your options: http://techtej.blogspot.com.es/2011/03/android-thread-constructspart-4.html
 
 ### Broadcast Receivers
 
