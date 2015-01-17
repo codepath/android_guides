@@ -119,7 +119,7 @@ Consider starting with the following tutorials and resources:
 * [Android Programming: Pushing the Limits](http://www.amazon.com/Android-Programming-Pushing-Erik-Hellman/dp/1118717376) is a fairly good book to check out.
 
 * [The Busy Coder's Guide to Android Development](http://commonsware.com/Android/) is comprehensive with its over 2,400 pages but starts with the basics. It also has "do-it-yourself" tutorials to help you retain what you are learning. The book is a bit expensive but it comes with a one-year subscription to keep it updated during the period, as the author is constantly adding to the text. 
-All code examples are free and [can be found here](https://github.com/commonsguy/cw-omnibus/). Even if you don't buy the book, consider browsing through some of the examples there to learn how other programmers do things. Finally, Mark Murphy, the author of the book, is helpful whether you contact him by e-mail or on the [StackOverflow website](http://stackoverflow.com/). Check out [his profile](http://stackoverflow.com/users/115145/commonsware). He is in the top-10 of all time ranked list there.
+    All code examples are free and [can be found here](https://github.com/commonsguy/cw-omnibus/). Even if you don't buy the book, consider browsing through some of the examples there to learn how other programmers do things. Finally, Mark Murphy, the author of the book, is helpful whether you contact him by e-mail or on the [StackOverflow website](http://stackoverflow.com/). Check out [his profile](http://stackoverflow.com/users/115145/commonsware). He is in the top-10 of all time ranked list there.
 
 ## Key Concepts
 
