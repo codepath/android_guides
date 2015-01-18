@@ -7,7 +7,7 @@ Apps often need to provide the user with a consistent experience for executing a
 In modern Android apps, there are a few mechanisms for displaying secondary content or actions related to an Activity:
 
 * [Contextual Action Modes](http://developer.android.com/guide/topics/ui/menus.html#CAB) - An "action mode" which is enabled when a user selects an item. Upon the item selection, the actionbar switches to a contextual mode that presents relevant actions.
-* [PopupMenu](http://developer.android.com/guide/topics/ui/menus.html#PopupMenu) - A modal menu that is anchored to a particular view within an activity and the menu appears below that view when displayed. Used to provide an overflow menu that allows for secondary actions on an item.
+* [PopupMenu](http://developer.android.com/guide/topics/ui/menus.html#PopupMenu) - A modal menu that is anchored to a particular view within an activity. The menu appears below that view when it is selected. Used to provide an overflow menu that allows for secondary actions on an item.
 * [PopupWindow](http://mrbool.com/how-to-implement-popup-window-in-android/28285) - A simple dialog box that gains focus when appearing on screen. Used to display additional information on screen and is simpler but less flexible than a DialogFragment.
 * [[DialogFragment|Using DialogFragment]] - A fully customizable dialog overlay that appears ontop of the activity and can contain arbitrary content as defined within the fragment. This is the most flexible but also the heaviest approach to displaying overlay content.
 
