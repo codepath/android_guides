@@ -231,3 +231,7 @@ public class MainActivity extends ActionBarActivity {
     }
 }
 ```
+
+Sliding tabs with images:
+
+![Slide 2](http://i.imgur.com/dYvY5NKl.jpg)
