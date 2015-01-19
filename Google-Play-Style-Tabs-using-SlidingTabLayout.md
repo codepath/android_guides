@@ -81,41 +81,9 @@ public class PageFragment extends Fragment {
 }
 ```
 
-### Setup Sliding Tabs
-
-Next, we need to attach our `ViewPager` to the 
-Setting up the sliding tabs is a two step process:
-
-* In the `onCreate()` method of your activity, find the `ViewPager` and set its adapter.
-* Set the `ViewPager` on the `SlidingTabLayout`.
-
-```java
-public class MainActivity extends FragmentActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        // Get the ViewPager and set it's PagerAdapter so that it can display items
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-        viewPager.setAdapter(new SampleFragmentPagerAdapter(getSupportFragmentManager()));
-
-        // Give the SlidingTabLayout the ViewPager
-        SlidingTabLayout slidingTabLayout = (SlidingTabLayout) findViewById(R.id.sliding_tabs);
-        // Center the tabs in the layout
-        slidingTabLayout.setDistributeEvenly(true);
-        slidingTabLayout.setViewPager(viewPager);
-    }
-
-}
-```
-
-Please note that your `SlidingTabLayout.java` may not have `setDistributeEvenly()` method is you are using the old version. To solve that update your view files to the latest version as mentioned above. 
-
 ### Implement FragmentPagerAdapter
 
-The last thing to do is to implement the adapter for your `ViewPager`. The most important method to implement here is `getPageTitle()` which is used to get the title for each tab.
+The next thing to do is to implement the adapter for your `ViewPager`. The most important methods to implement here are `getPageTitle(int position)` which is used to get the title for each tab and `getItem(int position)` which determines the fragment for each tab.
 
 ```java
 public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
@@ -143,6 +111,37 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
     }
 }
 ```
+
+### Setup Sliding Tabs
+
+Finally, we need to attach our `ViewPager` to the `SampleFragmentPagerAdapter` and then configure the sliding tabs with a two step process:
+
+* In the `onCreate()` method of your activity, find the `ViewPager` and connect the adapter.
+* Set the `ViewPager` on the `SlidingTabLayout` to connect the pager with the tabs.
+
+```java
+public class MainActivity extends FragmentActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        // Get the ViewPager and set it's PagerAdapter so that it can display items
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager.setAdapter(new SampleFragmentPagerAdapter(getSupportFragmentManager()));
+
+        // Give the SlidingTabLayout the ViewPager
+        SlidingTabLayout slidingTabLayout = (SlidingTabLayout) findViewById(R.id.sliding_tabs);
+        // Center the tabs in the layout
+        slidingTabLayout.setDistributeEvenly(true);
+        slidingTabLayout.setViewPager(viewPager);
+    }
+
+}
+```
+
+Please note that your `SlidingTabLayout.java` may not have `setDistributeEvenly()` method is you are using the old version. To solve that update your view files to the latest version as mentioned above. 
 
 Heres the output:
 
