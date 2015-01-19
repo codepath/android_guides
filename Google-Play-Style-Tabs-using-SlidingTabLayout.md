@@ -243,6 +243,27 @@ Sliding tabs with images:
 
 ![Slide 2](http://i.imgur.com/dYvY5NKl.jpg)
 
+### Add Icons+Text to SlidingTabLayout
+Since we are using `SpannableString` to add icons to `SlidingTabLayout`, it becomes easy to have text next to the icons by manipulating the `SpannableString` object.
+
+```java
+@Override
+public CharSequence getPageTitle(int position) {
+    // Generate title based on item position
+    Drawable image = context.getResources().getDrawable(imageResId[position]);
+    image.setBounds(0, 0, image.getIntrinsicWidth(), image.getIntrinsicHeight());
+    // Replace blank spaces with image icon
+    SpannableString sb = new SpannableString("   " + tabTitles[position]);
+    ImageSpan imageSpan = new ImageSpan(image, ImageSpan.ALIGN_BOTTOM);
+    sb.setSpan(imageSpan, 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+    return sb;
+}
+```
+
+Note the additional spaces that are added before the tab title while instantiating `SpannableString` class. The blank spaces are used to place the image icon so that the actual title is displayed completely.
+
+![Slide 3](http://i.imgur.com/A8xEpKsl.jpg)
+
 ## References
 
 * [SlidingTabsBasic](http://developer.android.com/samples/SlidingTabsBasic/index.html) - Official google sample
