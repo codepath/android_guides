@@ -1,19 +1,15 @@
 Prior to Android "L" preview, the easiest way to setup tabs with Fragments was to use ActionBar Tabs as described in [ActionBar Tabs with Fragments](http://guides.codepath.com/android/ActionBar-Tabs-with-Fragments) guide. However, all methods related to navigation modes in the ActionBar class (such as setNavigationMode(), addTab(), selectTab() etc.) are now deprecated.
 
+As a result, tabs are now best implemented by leveraging the [[ViewPager|ViewPager-with-FragmentPagerAdapter]] with a custom "tab indicator" on top.
+
 ### SlidingTabs Layout
-As a direct replacement, there are two examples on how you can implement this on the official samples page:
 
-* [SlidingTabsBasic](http://developer.android.com/samples/SlidingTabsBasic/index.html)
-* [SlidingTabsColors](http://developer.android.com/samples/SlidingTabsColors/index.html)
-
-To implement Google Play style sliding tabs, you first need to include the following two java source files to your application. Please make sure to copy the files directly from the Google IO links specified below. The [official samples page](http://developer.android.com/samples/SlidingTabsBasic/index.html) does not seem to have the latest source code as of this writing.
+To implement Google Play style sliding tabs, you first need to copy the following two java source files into your application. Please make sure to copy the files directly from the Google IO links specified below. 
   
 * [SlidingTabLayout.java](https://github.com/google/iosched/blob/0a90bf8e6b90e9226f8c15b34eb7b1e4bf6d632e/android/src/main/java/com/google/samples/apps/iosched/ui/widget/SlidingTabLayout.java)
 * [SlidingTabStrip.java](https://github.com/google/iosched/blob/0a90bf8e6b90e9226f8c15b34eb7b1e4bf6d632e/android/src/main/java/com/google/samples/apps/iosched/ui/widget/SlidingTabStrip.java)
 
-You may choose to move them to a suitable package in your project.
-
-Once you have included `SlidingTabLayout.java` and `SlidingTabStrip.java` files within your app, you can use the `SlidingTabLayout` in your layout file. Your layout file will have tabs on the top and a `ViewPager` on the bottom as shown in the code snippet below.
+You may choose to move them to a suitable package in your project. Once you have included `SlidingTabLayout.java` and `SlidingTabStrip.java` files within your app, you can use the `SlidingTabLayout` in your layout file to display tabs. Your layout file will have tabs on the top and a `ViewPager` on the bottom as shown in the code snippet below:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -39,9 +35,9 @@ Once you have included `SlidingTabLayout.java` and `SlidingTabStrip.java` files 
 
 ### Create Fragment
 
-Next, create the `Fragment` to be shown on click of the tabs. You may have one or more fragments in your application depending on your requirements.
+Now that we have the `ViewPager` and our tabs in our layout, we should start defining the content of each of the tabs. Since each tab is just a fragment being displayed, we need to create and define the `Fragment` to be shown. You may have one or more fragments in your application depending on your requirements.
 
-In `res/layout/fragment_page.xml`:
+In `res/layout/fragment_page.xml` define the XML layout for the fragment:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -51,9 +47,10 @@ In `res/layout/fragment_page.xml`:
     android:gravity="center" />
 ```
 
-In `PageFragment.java`:
+In `PageFragment.java` define the inflation logic for the fragment:
 
 ```java
+// In this case, the fragment displays simple text based on the page
 public class PageFragment extends Fragment {
     public static final String ARG_PAGE = "ARG_PAGE";
 
@@ -86,6 +83,7 @@ public class PageFragment extends Fragment {
 
 ### Setup Sliding Tabs
 
+Next, we need to attach our `ViewPager` to the 
 Setting up the sliding tabs is a two step process:
 
 * In the `onCreate()` method of your activity, find the `ViewPager` and set its adapter.
@@ -244,3 +242,8 @@ public class MainActivity extends ActionBarActivity {
 Sliding tabs with images:
 
 ![Slide 2](http://i.imgur.com/dYvY5NKl.jpg)
+
+## References
+
+* [SlidingTabsBasic](http://developer.android.com/samples/SlidingTabsBasic/index.html) - Official google sample
+* [SlidingTabsColors](http://developer.android.com/samples/SlidingTabsColors/index.html) - Google sample with colors
