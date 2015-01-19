@@ -122,6 +122,7 @@ This "standard pack" listed below are libraries that are quite popular, widely a
 Check out the following resources for finding libraries:
 
  * [Android Elementals](https://github.com/cesards/AndroidElementals)
+ * [Wasabeef UI Libraries](https://github.com/wasabeef/awesome-android-ui)
  * [Android-Libs.com](http://android-libs.com)
  * <http://androidlibs.org/>
  * <http://appdevwiki.com/wiki/show/HomePage>
