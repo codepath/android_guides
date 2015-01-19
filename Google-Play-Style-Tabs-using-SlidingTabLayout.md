@@ -38,7 +38,7 @@ Once you have included `SlidingTabLayout.java` and `SlidingTabStrip.java` files 
 ```
 
 ### Create Fragment
-Next, create the `Fragment` to be shown on click of the tabs. You may have have one or more fragments in your applications depending on your requirements.
+Next, create the `Fragment` to be shown on click of the tabs. You may have one or more fragments in your applications depending on your requirements.
 
 fragment_page.xml
 ```xml
