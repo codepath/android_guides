@@ -261,7 +261,7 @@ public CharSequence getPageTitle(int position) {
 }
 ```
 
-Note the additional spaces that are added before the tab title while instantiating `SpannableString` class. The blank spaces are used to place the image icon so that the actual title is displayed completely.
+Note the additional spaces that are added before the tab title while instantiating `SpannableString` class. The blank spaces are used to place the image icon so that the actual title is displayed completely. Depending on where you want to position your icon, you can specify the range start…end of the span in `setSpan()` method.
 
 ![Slide 3](http://i.imgur.com/A8xEpKsl.jpg)
 
