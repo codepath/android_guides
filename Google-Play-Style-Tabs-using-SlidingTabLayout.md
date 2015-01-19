@@ -140,7 +140,7 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
 }
 ```
 
-Heres the final output:
+Heres the output:
 
 ![Screen 1](http://i.imgur.com/rhRXjLIl.png)
 
