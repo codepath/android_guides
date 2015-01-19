@@ -1,15 +1,14 @@
 Prior to Android "L" preview, the easiest way to setup tabs with Fragments was to use ActionBar Tabs as described in [ActionBar Tabs with Fragments](http://guides.codepath.com/android/ActionBar-Tabs-with-Fragments) guide. However, all methods related to navigation modes in the ActionBar class (such as setNavigationMode(), addTab(), selectTab() etc.) are now deprecated.
 
 As a direct replacement, there are two examples on how you can implement this on the official samples page:
-[SlidingTabsBasic](http://developer.android.com/samples/SlidingTabsBasic/index.html)
 
-[SlidingTabsColors](http://developer.android.com/samples/SlidingTabsColors/index.html)
+* [SlidingTabsBasic](http://developer.android.com/samples/SlidingTabsBasic/index.html)
+* [SlidingTabsColors](http://developer.android.com/samples/SlidingTabsColors/index.html)
 
 To implement Google Play style sliding tabs, you first need to include the following two java source files to your application. Please make sure to copy the files directly from the Google IO links specified below. The [official samples page](http://developer.android.com/samples/SlidingTabsBasic/index.html) does not seem to have the latest source code as of this writing.
   
-[SlidingTabLayout.java](https://github.com/google/iosched/blob/0a90bf8e6b90e9226f8c15b34eb7b1e4bf6d632e/android/src/main/java/com/google/samples/apps/iosched/ui/widget/SlidingTabLayout.java)
-
-[SlidingTabStrip.java](https://github.com/google/iosched/blob/0a90bf8e6b90e9226f8c15b34eb7b1e4bf6d632e/android/src/main/java/com/google/samples/apps/iosched/ui/widget/SlidingTabStrip.java)
+* [SlidingTabLayout.java](https://github.com/google/iosched/blob/0a90bf8e6b90e9226f8c15b34eb7b1e4bf6d632e/android/src/main/java/com/google/samples/apps/iosched/ui/widget/SlidingTabLayout.java)
+* [SlidingTabStrip.java](https://github.com/google/iosched/blob/0a90bf8e6b90e9226f8c15b34eb7b1e4bf6d632e/android/src/main/java/com/google/samples/apps/iosched/ui/widget/SlidingTabStrip.java)
 
 You may choose to move them to a suitable package in your project.
 
