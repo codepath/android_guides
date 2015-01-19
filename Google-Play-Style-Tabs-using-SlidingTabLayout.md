@@ -143,3 +143,16 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
 Heres the final output:
 
 ![Screen 1](http://i.imgur.com/rhRXjLIl.png)
+
+### Customize Tab Indicator Color
+You can use `setCustomTabColorizer()` to change the color of the tab indicator.
+
+```java
+// Customize tab color
+slidingTabLayout.setCustomTabColorizer(new SlidingTabLayout.TabColorizer() {
+    @Override
+    public int getIndicatorColor(int position) {
+        return Color.BLUE;
+    }
+});
+```
