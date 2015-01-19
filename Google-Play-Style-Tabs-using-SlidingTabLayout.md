@@ -231,7 +231,7 @@ public class MainActivity extends ActionBarActivity {
         slidingTabLayout.setCustomTabColorizer(new SlidingTabLayout.TabColorizer() {
             @Override
             public int getIndicatorColor(int position) {
-                return Color.BLUE;
+                return Color.RED;
             }
         });
         slidingTabLayout.setViewPager(viewPager);
