@@ -156,3 +156,77 @@ slidingTabLayout.setCustomTabColorizer(new SlidingTabLayout.TabColorizer() {
     }
 });
 ```
+
+### Add Icons to SlidingTabLayout
+The key to add icons to your sliding tabs is to return a `SpannableString`, containing your icon in an `ImageSpan`, from your PagerAdapter's `getPageTitle(position)` method as shown in the code snippet below:
+
+```xml
+private int[] imageResId = {
+        R.drawable.ic_one,
+        R.drawable.ic_two,
+        R.drawable.ic_three
+};
+
+...
+
+@Override
+public CharSequence getPageTitle(int position) {
+    // Generate title based on item position
+    //return tabTitles[position];
+    Drawable image = context.getResources().getDrawable(imageResId[position]);
+    image.setBounds(0, 0, image.getIntrinsicWidth(), image.getIntrinsicHeight());
+    SpannableString sb = new SpannableString(" ");
+    ImageSpan imageSpan = new ImageSpan(image, ImageSpan.ALIGN_BOTTOM);
+    sb.setSpan(imageSpan, 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+    return sb;
+}
+```
+
+You'll also have to use a custom tab view since the default tab created by SlidingTabLayout makes a call to `textView.setAllCaps(true)` which effectively disables all ImageSpans.
+
+res/layout/custom_tab.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="12sp"
+    android:textStyle="bold"
+    android:background="?android:selectableItemBackground"
+    android:padding="16dp"
+    android:gravity="center"
+    />
+```
+
+To set your icon at the center of the tab, add `android:gravity="center"` attribute to your view.
+
+Next, set the custom tab in the `onCreate()` of your `MainActivity.java` file by calling `setCustomTabView()` method on your `slidingTabLayout`. Make sure to call `setCustomTabView()` before `setViewPager()`.
+
+```java
+public class MainActivity extends ActionBarActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        // Get the ViewPager and set it's PagerAdapter so that it can display items
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager.setAdapter(new SampleFragmentPagerAdapter(getSupportFragmentManager(), MainActivity.this));
+
+        // Give the SlidingTabLayout the ViewPager
+        SlidingTabLayout slidingTabLayout = (SlidingTabLayout) findViewById(R.id.sliding_tabs);
+        slidingTabLayout.setCustomTabView(R.layout.custom_tab, 0);
+        // Center the tabs in the layout
+        slidingTabLayout.setDistributeEvenly(true);
+        // Customize tab color
+        slidingTabLayout.setCustomTabColorizer(new SlidingTabLayout.TabColorizer() {
+            @Override
+            public int getIndicatorColor(int position) {
+                return Color.BLUE;
+            }
+        });
+        slidingTabLayout.setViewPager(viewPager);
+    }
+}
+```
