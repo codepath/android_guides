@@ -108,6 +108,8 @@ public class MainActivity extends FragmentActivity {
 }
 ```
 
+Please note that your `SlidingTabLayout.java` may not have `setDistributeEvenly()` method is you are using the old version. To solve that update your view files to the latest version as mentioned above. 
+
 ### Implement FragmentPagerAdapter
 The last thing to do is to implement the adapter for your `ViewPager`. The most important method to implement here is `getPageTitle()` which is used to get the title for each tab.
 
