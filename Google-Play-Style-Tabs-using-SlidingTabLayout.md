@@ -137,3 +137,4 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
 }
 ```
 
+![Screen 1](http://i.imgur.com/rhRXjLIl.png)
