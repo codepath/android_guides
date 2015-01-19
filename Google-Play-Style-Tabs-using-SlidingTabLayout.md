@@ -83,7 +83,7 @@ public class PageFragment extends Fragment {
 
 ### Setup Sliding Tabs
 Setting up the sliding tabs is a two step process:
-* In the `onCreate` method of your activity, find the `ViewPager` and set its adapter.
+* In the `onCreate()` method of your activity, find the `ViewPager` and set its adapter.
 * Set the `ViewPager` on the `SlidingTabLayout`.
 
 ```java
@@ -109,7 +109,7 @@ public class MainActivity extends FragmentActivity {
 ```
 
 ### Implement FragmentPagerAdapter
-The last thing to do is to implement the adapter for your `ViewPager`. The most important method to implement here is `getPageTitle` which is used to get the title for each tab.
+The last thing to do is to implement the adapter for your `ViewPager`. The most important method to implement here is `getPageTitle()` which is used to get the title for each tab.
 
 ```java
 public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
