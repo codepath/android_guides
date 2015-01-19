@@ -157,7 +157,7 @@ You can use `setCustomTabColorizer()` to change the color of the tab indicator:
 slidingTabLayout.setCustomTabColorizer(new SlidingTabLayout.TabColorizer() {
     @Override
     public int getIndicatorColor(int position) {
-        return Color.BLUE;
+        return Color.RED;
     }
 });
 ```
