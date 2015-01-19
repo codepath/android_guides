@@ -216,6 +216,7 @@ public class MainActivity extends ActionBarActivity {
 
         // Give the SlidingTabLayout the ViewPager
         SlidingTabLayout slidingTabLayout = (SlidingTabLayout) findViewById(R.id.sliding_tabs);
+        // Set custom tab layout
         slidingTabLayout.setCustomTabView(R.layout.custom_tab, 0);
         // Center the tabs in the layout
         slidingTabLayout.setDistributeEvenly(true);
