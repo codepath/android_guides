@@ -117,7 +117,7 @@ public class TodoItemDatabase extends SQLiteOpenHelper {
         values.put(KEY_BODY, item.getBody()); 
         values.put(KEY_PRIORITY, item.getPriority()); 
         // Insert Row
-        db.insert(TABLE_TODO, null, values);
+        db.insertOrThrow(TABLE_TODO, null, values);
         db.close(); // Closing database connection
     }
 }
@@ -333,7 +333,7 @@ public class TodoItemDatabase extends SQLiteOpenHelper {
         values.put(KEY_BODY, item.getBody()); 
         values.put(KEY_PRIORITY, item.getPriority()); 
         // Insert Row
-        db.insert(TABLE_TODO, null, values);
+        db.insertOrThrow(TABLE_TODO, null, values);
         db.close(); // Closing database connection
     }
     
