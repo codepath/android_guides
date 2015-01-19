@@ -38,9 +38,11 @@ Once you have included `SlidingTabLayout.java` and `SlidingTabStrip.java` files 
 ```
 
 ### Create Fragment
+
 Next, create the `Fragment` to be shown on click of the tabs. You may have one or more fragments in your application depending on your requirements.
 
-fragment_page.xml
+In `res/layout/fragment_page.xml`:
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -49,7 +51,8 @@ fragment_page.xml
     android:gravity="center" />
 ```
 
-PageFragment.java
+In `PageFragment.java`:
+
 ```java
 public class PageFragment extends Fragment {
     public static final String ARG_PAGE = "ARG_PAGE";
@@ -82,7 +85,9 @@ public class PageFragment extends Fragment {
 ```
 
 ### Setup Sliding Tabs
+
 Setting up the sliding tabs is a two step process:
+
 * In the `onCreate()` method of your activity, find the `ViewPager` and set its adapter.
 * Set the `ViewPager` on the `SlidingTabLayout`.
 
@@ -111,6 +116,7 @@ public class MainActivity extends FragmentActivity {
 Please note that your `SlidingTabLayout.java` may not have `setDistributeEvenly()` method is you are using the old version. To solve that update your view files to the latest version as mentioned above. 
 
 ### Implement FragmentPagerAdapter
+
 The last thing to do is to implement the adapter for your `ViewPager`. The most important method to implement here is `getPageTitle()` which is used to get the title for each tab.
 
 ```java
@@ -145,7 +151,8 @@ Heres the output:
 ![Screen 1](http://i.imgur.com/rhRXjLIl.png)
 
 ### Customize Tab Indicator Color
-You can use `setCustomTabColorizer()` to change the color of the tab indicator.
+
+You can use `setCustomTabColorizer()` to change the color of the tab indicator:
 
 ```java
 // Customize tab color
@@ -158,21 +165,22 @@ slidingTabLayout.setCustomTabColorizer(new SlidingTabLayout.TabColorizer() {
 ```
 
 ### Add Icons to SlidingTabLayout
+
 The key to add icons to your sliding tabs is to return a `SpannableString`, containing your icon in an `ImageSpan`, from your PagerAdapter's `getPageTitle(position)` method as shown in the code snippet below:
 
-```xml
+```java
 private int[] imageResId = {
         R.drawable.ic_one,
         R.drawable.ic_two,
         R.drawable.ic_three
 };
 
-...
+// ...
 
 @Override
 public CharSequence getPageTitle(int position) {
     // Generate title based on item position
-    //return tabTitles[position];
+    // return tabTitles[position];
     Drawable image = context.getResources().getDrawable(imageResId[position]);
     image.setBounds(0, 0, image.getIntrinsicWidth(), image.getIntrinsicHeight());
     SpannableString sb = new SpannableString(" ");
@@ -195,7 +203,7 @@ res/layout/custom_tab.xml
     android:background="?android:selectableItemBackground"
     android:padding="16dp"
     android:gravity="center"
-    />
+/>
 ```
 
 To set your icon at the center of the tab, add `android:gravity="center"` attribute to your view.
@@ -212,7 +220,8 @@ public class MainActivity extends ActionBarActivity {
 
         // Get the ViewPager and set it's PagerAdapter so that it can display items
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-        viewPager.setAdapter(new SampleFragmentPagerAdapter(getSupportFragmentManager(), MainActivity.this));
+        viewPager.setAdapter(new SampleFragmentPagerAdapter(getSupportFragmentManager(),
+           MainActivity.this));
 
         // Give the SlidingTabLayout the ViewPager
         SlidingTabLayout slidingTabLayout = (SlidingTabLayout) findViewById(R.id.sliding_tabs);
