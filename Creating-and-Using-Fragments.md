@@ -8,7 +8,7 @@ Fragments can be dynamically (Java) or statically (XML) added to an activity lay
 
 ### Defining a Fragment
 
-Creating a fragment, like an activity, has an XML layout file and a Java class that represents the [Fragment ](http://developer.android.com/reference/android/app/Fragment.html) controller.
+A fragment, like an activity, has an XML layout file and a Java class that represents the [Fragment ](http://developer.android.com/reference/android/app/Fragment.html) controller.
 
 The XML layout file is just like any other layout file, and can be named `fragment_foo.xml`. Think of them as a partial (re-usable) activity:
 
