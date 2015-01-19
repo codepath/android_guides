@@ -244,6 +244,7 @@ Sliding tabs with images:
 ![Slide 2](http://i.imgur.com/dYvY5NKl.jpg)
 
 ### Add Icons+Text to SlidingTabLayout
+
 Since we are using `SpannableString` to add icons to `SlidingTabLayout`, it becomes easy to have text next to the icons by manipulating the `SpannableString` object.
 
 ```java
