@@ -150,7 +150,7 @@ dependencies {
 We can load a remote image into any `ImageView` with:
 
 ```java
-String imageUri = "http://i.imgur.com/O9M7vS5s.jpg";
+String imageUri = "http://i.imgur.com/tGbaZCY.jpg";
 ImageView ivBasicImage = (ImageView) findViewById(R.id.ivBasicImage);
 Picasso.with(context).load(imageUri).into(ivBasicImage);
 ```
@@ -178,7 +178,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		ivBasicImage = (ImageView) findViewById(R.id.ivBasicImage);
-		String url = "http://i.imgur.com/O9M7vS5l.jpg";
+		String url = "http://i.imgur.com/tGbaZCY.jpg";
 		// Download image from URL and display within ImageView
 		new ImageDownloadTask().execute(url);
 	}
