@@ -137,7 +137,17 @@ Note that as shown above you should also **handle failure cases** with [JsonHttp
 
 ### Displaying Remote Images (The "Easy" Way)
 
-Using a third party library from Square called [Picasso](http://square.github.io/picasso/) which serves a similar purpose. After [downloading the Picasso jar](http://repo1.maven.org/maven2/com/squareup/picasso/picasso/2.3.2/picasso-2.3.2.jar), we can load a remote image  into any ImageView with:
+Using a third party library from Square called [Picasso](http://square.github.io/picasso/) which serves a similar purpose. 
+
+After [downloading the Picasso jar](http://repo1.maven.org/maven2/com/squareup/picasso/picasso/2.3.2/picasso-2.3.2.jar), or adding Picasso to our `app/build.gradle` file:
+
+```gradle
+dependencies {
+    compile 'com.squareup.picasso:picasso:2.4.0'
+}
+```
+
+We can load a remote image into any `ImageView` with:
 
 ```java
 String imageUri = "http://2.gravatar.com/avatar/858dfac47ab8176458c005414d3f0c36";
