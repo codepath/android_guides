@@ -31,9 +31,11 @@ RottenTomatoes has an [extensive API](http://developer.rottentomatoes.com/docs/r
 
 First, we need to ensure we have an API Key which is the mechanism used to authorize our API requests. We cannot make any API calls without first [registering for an account](http://developer.rottentomatoes.com/member/register) (or [signing in](https://secure.mashery.com/login/developer.rottentomatoes.com/)) and then setting up an API key.
 
+**Hint:** If you don't have a key, feel free to use the key **`9htuhtcb4ymusd73d4z6jxcj`** as you follow the demo below.
+
 ### Explore the API Endpoints
 
-In particular, this app will use the [Box Office Movies](http://developer.rottentomatoes.com/docs/read/json/v10/Box_Office_Movies) endpoint to retrieve a list of movies currently playing in theaters. The url to retrieve this data is `http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=9htuhtcb4ymusd73d4z6jxcj`. The [response](http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=9htuhtcb4ymusd73d4z6jxcj) is as follows:
+In particular, this app will use the [Box Office Movies](http://developer.rottentomatoes.com/docs/read/json/v10/Box_Office_Movies) endpoint to retrieve a list of movies currently playing in theaters. The url to retrieve this data is `http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=<api-key-here>`. The [response](http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=9htuhtcb4ymusd73d4z6jxcj) is as follows:
 
 ```json
 {
