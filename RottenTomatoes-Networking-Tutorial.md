@@ -33,7 +33,7 @@ First, we need to ensure we have an API Key which is the mechanism used to autho
 
 ### Explore the API Endpoints
 
-In particular, this app will use the [Box Office Movies](http://developer.rottentomatoes.com/docs/read/json/v10/Box_Office_Movies) endpoint to retrieve a list of movies currently playing in theaters. The url to retrieve this data is `http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=<key>`. The response is as follows:
+In particular, this app will use the [Box Office Movies](http://developer.rottentomatoes.com/docs/read/json/v10/Box_Office_Movies) endpoint to retrieve a list of movies currently playing in theaters. The url to retrieve this data is `http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=<key>`. The [response](http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=9htuhtcb4ymusd73d4z6jxcj) is as follows:
 
 ```json
 {
