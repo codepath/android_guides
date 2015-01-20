@@ -61,14 +61,14 @@ Next, we need to create an XML layout that represents the view template for each
  android:layout_height="match_parent" >
     <TextView
       android:id="@+id/tvName"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:text="Name" />
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Name" />
    <TextView
-       android:id="@+id/tvHome"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="HomeTown" />
+      android:id="@+id/tvHome"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="HomeTown" />
 </LinearLayout>
 ```
 
