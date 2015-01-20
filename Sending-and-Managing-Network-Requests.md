@@ -57,7 +57,15 @@ See [this official connectivity guide](http://developer.android.com/training/mon
 
 ### Sending an HTTP Request
 
-Using [android-async-http](http://loopj.com/android-async-http/), sending an HTTP request becomes quite straightforward. We just create an async http client, and then execute a request specifying an anonymous class as a callback:
+Using [android-async-http](http://loopj.com/android-async-http/), sending an HTTP request becomes quite straightforward. First, we add the library to gradle:
+
+```gradle
+dependencies {
+  compile 'com.loopj.android:android-async-http:1.4.5'
+}
+```
+
+Now, we just create an `AsyncHttpClient`, and then execute a request specifying an anonymous class as a callback:
 
 ```java
 import com.loopj.android.http.*;
