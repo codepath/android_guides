@@ -357,7 +357,7 @@ public class BoxOfficeMoviesAdapter extends ArrayAdapter<BoxOfficeMovie> {
 	
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-                // TODO: Complete the definition of the view for each movie
+		// TODO: Complete the definition of the view for each movie
 		return null;
 	}
 }
