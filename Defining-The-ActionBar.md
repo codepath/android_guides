@@ -34,7 +34,7 @@ The ActionBar icon and title displayed at the top of the screen is governed by t
 Change the `android:label` or `android:icon` to modify the ActionBar icon or title for a given activity or for the application as a whole. In any Java activity, you can also call `getActionBar()` to retrieve a reference to the [ActionBar](http://developer.android.com/reference/android/app/ActionBar.html) and modify or access any properties of the ActionBar at runtime:
 
 ```java
-ActionBar actionBar = getActionBar();
+ActionBar actionBar = getSupportActionBar(); // or getActionBar();
 String title = actionBar.getTitle().toString();
 actionBar.hide();
 ```
@@ -48,11 +48,11 @@ When you want to add primary actions to the ActionBar, you add the items to the 
 An activity populates the action bar in its `onCreateOptionsMenu()` method:
 
 ```java
-public class MainActivity extends Activity {
+public class MainActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 }
@@ -61,17 +61,18 @@ public class MainActivity extends Activity {
 Entries in the action bar are typically called actions. Use this method to inflate a menu resource that defines all the action items within a `res/menu` xml file, for example:
 
 ```xml
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/miCompose"
         android:icon="@drawable/ic_compose"
-        android:showAsAction="ifRoom"
+        app:showAsAction="ifRoom"
         android:title="Compose">
     </item>
     <item
         android:id="@+id/miProfile"
         android:icon="@drawable/ic_profile"
-        android:showAsAction="ifRoom|withText"
+        app:showAsAction="ifRoom|withText"
         android:title="Profile">
     </item>
 </menu>
@@ -86,12 +87,13 @@ Notice that to request that an item appear directly in the action bar as an acti
 There are two ways to handle the click for an ActionBar item. The first approach is you can use the `android:onClick` handler in the menu XML, similar to handling button clicks:
 
 ```xml
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/item1"
         android:icon="@drawable/ic_compose"
         android:onClick="onComposeAction"
-        android:showAsAction="ifRoom"
+        app:showAsAction="ifRoom"
         android:title="Compose">
     </item>
 </menu>
@@ -100,7 +102,7 @@ There are two ways to handle the click for an ActionBar item. The first approach
 and then define the method `onComposeAction` in the parent activity before attempting to run the application or an exception will be thrown for the missing method:
 
 ```java
-public class MainActivity extends Activity {
+public class MainActivity extends ActionBarActivity {
   public void onComposeAction(MenuItem mi) {
      // handle click here
   }
