@@ -6,63 +6,81 @@ Older Android devices have a hardware Option button which use to open a menu but
 
 This is typically used for displaying the title of the application and providing a primary navigation for the app. The ActionBar can contain primary action buttons as well as tabs to control navigation within any app.
 
-**Note** that we will be using ActionBarSherlock for these examples since the library provides maximum compatibility with pre-3.0 Android versions. The APIs and usage are the same with the standard ActionBar just with "Sherlock" prepended to the front of each class name.
+**Note** that we will be using the support library and `ActionBarActivity` for these examples since the library provides maximum compatibility with pre-3.0 Android versions. The APIs and usage are the same with the standard ActionBar just with small changes to the imported classes and class names.
 
 ## Usage
 
-In the [[Defining ActionBar|Defining-The-ActionBar#actionbar-basics]] cliffnotes we looked at the basics of adding items to the ActionBar and handling clicks. In this section, we take a look at how to use `ActionBarSherlock` to support all Android versions and also at several powerful and extensible ActionBar features:
+In the [[Defining ActionBar|Defining-The-ActionBar#actionbar-basics]] cliffnotes we looked at the basics of adding items to the ActionBar and handling clicks. In this section, we take a look at how to use `ActionBarActivity` to support all Android versions and also at several powerful and extensible ActionBar features:
 
  * Using the split action bar to have a top and bottom menu
  * Adding an Action View (action_layout) and SearchView
  * Using ActionProvider and ShareActionProvider to enable richer functions
  * Configuring Home Icon to navigate "Up"
 
-### Setting up ActionBarSherlock
+### Setting up ActionBarActivity
 
-In order to ensure that the ActionBar works on all Android versions, we are going to use [ActionBarSherlock](<http://actionbarsherlock.com/usage.html>) to setup our ActionBar.
+In order to ensure that the ActionBar works on all Android versions, we are going to use [ActionBarActivity](https://developer.android.com/reference/android/support/v7/app/ActionBarActivity.html) to setup our support ActionBar.
 
-First, [download](http://actionbarsherlock.com/download.html) the library and then set it up according to the [usage guide](http://actionbarsherlock.com/usage.html). 
+First, add the following line to your `app/build.gradle` file:
 
-Once it's setup, you should make sure any applicable activities are now extending from `SherlockFragmentActivity` in order to enable
-the ActionBarSherlock compatibility fragments and action bar:
+```gradle
+apply plugin: 'com.android.application'
+
+//...
+
+dependencies {
+    // ...
+    compile 'com.android.support:appcompat-v7:21.0.3' // <---
+}
+```
+
+Once it's added, be sure to sync your project with the gradle file (`Tools => Android => Sync Project with Gradle Files`) and make sure any applicable activities are now extending from `ActionBarActivity` in order to enable
+the compatibility fragments and action bar:
 
 ```java
-public class MainActivity extends SherlockFragmentActivity {
+public class MainActivity extends ActionBarActivity {
    // ...
 }
 ```
 
-*NOTE:*  if you receive any `cannot override final method` errors, please refer to this [article](http://www.grokkingandroid.com/adding-actionbarsherlock-to-your-project/) on how to fix the problem.  You will have to modify the imported `View` classes.
-
-and change the theme to a sherlock compatible theme in the manifest:
+and change the parent theme to a support compatible theme in `values/styles.xml` such as `Theme.AppCompat.Light.DarkActionBar`:
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<manifest …>
-    <application
-        android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@style/Theme.Sherlock.Light.DarkActionBar" >
-        <!-- … -->
-    </application>
-</manifest>
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+</resources>
 ```
 
-Now ActionBarSherlock is configured and ready to be used.
+Now the support ActionBar is configured and ready to be used. However, one should note that the `res/menu` xml files now need to use an `app:` prefix for `showAsAction` as shown below:
+
+```xml
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_refresh" 
+        android:title="@string/action_refresh"
+        android:icon="@drawable/ic_action_refresh"
+        app:showAsAction="ifRoom" />
+</menu>
+```
+
+Note the use of `app:showAsAction` instead of `android:showAsAction` in the case of adding support action bar items.
 
 ### Populating Action Buttons
 
 The action bar provides users access to the most important action items relating to the app's current context. Those that appear directly in the action bar with an icon and/or text are known as action buttons. 
 
-For ActionBarSherlock, just change `onCreateOptionsMenu` to use the support inflater:
+For the support ActionBar, just change `onCreateOptionsMenu` to use the compatibility inflater:
 
 ```java
 @Override
 public boolean onCreateOptionsMenu(Menu menu) {
-	MenuInflater inflater = getSupportMenuInflater();
-	inflater.inflate(R.menu.main, menu);
-	return super.onCreateOptionsMenu(menu);
+    // Inflate the menu; this adds items to the action bar if it is present.
+    getMenuInflater().inflate(R.menu.menu_main, menu);
+    return true;
 }
 ```
 
@@ -91,20 +109,20 @@ You can control the order of items within the ActionBar using `orderinCategory` 
 <item
    android:id="@+id/menu_ordinary"
    android:orderInCategory="200"
-   android:showAsAction="ifRoom"
+   app:showAsAction="ifRoom"
    android:title="Ordinary" />
 
 <item
    android:id="@+id/menu_important"
    android:orderInCategory="20"
-   android:showAsAction="ifRoom"
+   app:showAsAction="ifRoom"
    android:title="Important" />
 ```
 
 Using split action bar also allows navigation tabs to collapse into the main action bar if you remove the icon and title leaving only tabs at the top and all the actions on the bottom with:
 
 ```java
-public class MainActivity extends SherlockFragmentActivity {
+public class MainActivity extends ActionBarActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -117,6 +135,7 @@ public class MainActivity extends SherlockFragmentActivity {
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		actionBar.setDisplayShowHomeEnabled(false);
 		actionBar.setDisplayShowTitleEnabled(false);
+        }
 }
 ```
 
@@ -129,7 +148,6 @@ In certain cases, you might want to change the styling of the ActionBar title. F
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
     android:orientation="vertical" >
     <TextView
         android:layout_width="wrap_content"
@@ -138,7 +156,7 @@ In certain cases, you might want to change the styling of the ActionBar title. F
         android:text="@string/app_title"
         android:textColor="#ffffff"
         android:id="@+id/mytext"
-        android:textSize="25dp" />
+        android:textSize="18dp" />
 </LinearLayout>
 ```
 
@@ -153,14 +171,10 @@ getSupportActionBar().setCustomView(R.layout.actionbar_title);
 At this point, we now have replaced the default ActionBar with our preferred layout and have complete control over it's appearance. If you want to **include the app icon with the custom layout** you need to append `DISPLAY_SHOW_HOME` as well:
 
 ```java
-getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM | ActionBar.DISPLAY_SHOW_HOME); 
+getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM | ActionBar.DISPLAY_SHOW_HOME); 
 ```
 
-Note that this can also help ensure that the tabs appear below the title when using `ActionBarSherlock` caused by [a bug with the ActionBar](https://github.com/JakeWharton/ActionBarSherlock/issues/327). Also, please note the comments mentioned in the `setCustomView` method in the Android documentation:
-
-> Custom navigation views appear between the application icon and any action buttons and may use any space available there.
-
-In other words, you can **still define an `onCreateOptionsMenu` method** in your Activity to define the action buttons.  This custom view will then share space with the action buttons, which normally are placed to the right side of the Action Bar.
+Note you can **still define an `onCreateOptionsMenu` method** in your Activity to define the action buttons.  This custom view will then share space with the action buttons, which normally are placed to the right side of the Action Bar.
 
 ### Custom ActionBar Styles
 
@@ -168,16 +182,28 @@ In addition, to the ability to change the ActionBar layout, we can also tweak th
 
 ```xml
 <resources>
-    <style name="MyCustomTheme" parent="@android:style/Theme.Holo.Light">
+    <style name="MyCustomTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:actionBarStyle">@style/MyActionBar</item>
+        <item name="android:actionBarTabTextStyle">@style/MyActionBarTabText</item>
+        <!-- Support library compatibility -->
+        <item name="actionBarStyle">@style/MyActionBar</item>
+        <item name="actionBarTabTextStyle">@style/MyActionBarTabText</item>
     </style>
 
-    <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+    <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="android:background">#ECD078</item>
         <item name="android:titleTextStyle">@style/MyActionBar.TitleTextStyle</item>
+
+        <!-- Support library compatibility -->
+        <item name="background">#ECD078</item>
+        <item name="titleTextStyle">@style/MyActionBar.TitleTextStyle</item>
     </style>
 
-    <style name="MyActionBar.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+    <style name="MyActionBar.TitleTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">#53777A</item>
+    </style>
+
+    <style name="MyActionBarTabText" parent="@style/Widget.AppCompat.ActionBar.TabText">
         <item name="android:textColor">#53777A</item>
     </style>
 </resources>
@@ -196,7 +222,7 @@ Now tweak the theme for the application or activity within the `AndroidManifest.
 </manifest>
 ```
 
-Now your properties and styles will take affect within the ActionBar. If you want to style the tabs for the ActionBar, see our [[Tabs Styling Cliffnotes|ActionBar-Tabs-with-Fragments#styling-tabs]]. Check out this [styling the ActionBar](http://developer.android.com/guide/topics/ui/actionbar.html#Style) section for more details. For an easier way to skin the ActionBar, check out the [ActionBar Style Generator](http://jgilfelt.github.com/android-actionbarstylegenerator) tool for easy style tweaking. 
+Now your properties and styles will take affect within the ActionBar. If you want to style the tabs for the ActionBar, see our [[Tabs Styling Cliffnotes|ActionBar-Tabs-with-Fragments#styling-tabs]]. Check out this [styling the ActionBar](http://developer.android.com/guide/topics/ui/actionbar.html#Style) section for more details. For an easier way to skin the ActionBar, check out the [ActionBar Style Generator](http://jgilfelt.github.com/android-actionbarstylegenerator) tool for easy style tweaking.
 
 ### Adding ActionView Items
 
@@ -218,15 +244,15 @@ view that is constructed via a layout XML file which is embedded into the Action
 </LinearLayout>
 ```
 
-Next, we can attach that layout to any item by specifying the `android:action_layout` property:
+Next, we can attach that layout to any item by specifying the `app:action_layout` property:
 
 ```xml
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
     <item
         android:id="@+id/s"
         android:orderInCategory="40"
-        android:showAsAction="ifRoom"
-        android:actionLayout="@layout/action_view_button" />
+        app:showAsAction="ifRoom"
+        app:actionLayout="@layout/action_view_button" />
 </menu>
 ```
 
@@ -235,15 +261,15 @@ and now the views specified in the layout are embedded in the ActionBar. We can 
 ```java
 @Override
 public boolean onPrepareOptionsMenu(Menu menu) {
-	MenuItem actionViewItem = menu.findItem(R.id.menu_second);
-	View v = actionViewItem.getActionView();
+	MenuItem actionViewItem = menu.findItem(R.id.menuitem_second);
+	View v = MenuItemCompat.getActionView(actionViewItem);
 	Button b = (Button) v.findViewById(R.id.button1);
 	// Handle button click here
 	return super.onPrepareOptionsMenu(menu);
 }
 ```
 
-Using ActionView can help you add any custom views you'd like to your ActionBar.
+Using `ActionView` can help you add any custom views you'd like to your ActionBar.
 
 ### Adding SearchView to ActionBar
 
@@ -256,8 +282,8 @@ One common example of an ActionView is the built-in `SearchView` which provides 
           android:orderInCategory="5"
           android:title="Search"
           android:icon="@drawable/ic_action_search"
-          android:showAsAction="ifRoom|collapseActionView"
-          android:actionViewClass="android.widget.SearchView" />
+          app:showAsAction="ifRoom|collapseActionView"
+          app:actionViewClass="android.support.v7.widget.SearchView" />
 </menu>
 ```
 
@@ -269,7 +295,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
     MenuInflater inflater = getSupportMenuInflater();
     inflater.inflate(R.menu.main, menu);
     MenuItem searchItem = menu.findItem(R.id.action_search);
-    searchView = (SearchView) searchItem.getActionView();
+    searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
     searchView.setOnQueryTextListener(new OnQueryTextListener() {
        @Override
        public boolean onQueryTextSubmit(String query) {
@@ -286,7 +312,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
 }
 ```
 
-Note that if we want **gingerbread compatibility**, we need to use the `android.support.v7.widget.SearchView` version of SearchView, and `MenuItemCompat.getActionView(searchItem)` to find the view. See [this writeup](http://antonioleiva.com/actionbarcompat-action-views/) for details. For more advanced searching functionality, check out the [Creating a Search Interface](http://developer.android.com/guide/topics/search/search-dialog.html) guide.
+See [this writeup](http://antonioleiva.com/actionbarcompat-action-views/) for details on the compatibility action views outlined above. For more advanced searching functionality, check out the [Creating a Search Interface](http://developer.android.com/guide/topics/search/search-dialog.html) guide.
 
 ### Using ActionProvider and ShareActionProvider
 
@@ -333,14 +359,14 @@ And now when the home icon is pressed on the child, the parent activity will alw
 
 ## Libraries
 
-* [ActionBarSherlock](<http://actionbarsherlock.com/usage.html>) - An essential extension to ActionBar which supports almost all Android versions.
+* [ActionBarActivity](https://developer.android.com/reference/android/support/v7/app/ActionBarActivity.html) - The support library for ActionBar which provides backwards compatibility to nearly all Android versions.
 * [StyleGenerator](http://jgilfelt.github.com/android-actionbarstylegenerator) - Use this nifty web tool to generate an ActionBar theme easily.
 
 ## References
 
+ * <http://antonioleiva.com/actionbarcompat-how-to-use/>
  * <http://developer.android.com/guide/topics/ui/actionbar.html>
  * <http://developer.android.com/design/patterns/actionbar.html>
- * <http://actionbarsherlock.com/usage.html>
  * <http://developer.android.com/reference/android/app/ActionBar.html>
  * <http://www.vogella.com/articles/AndroidActionBar/article.html>
  * <http://jgilfelt.github.io/android-actionbarstylegenerator/>
