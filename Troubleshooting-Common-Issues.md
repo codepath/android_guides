@@ -1,5 +1,7 @@
 This page will compile common issues experienced with Android Studio 1.0 or above as they are experienced and recorded. 
 
+## Debugging
+
 If you want to do more in-depth debugging in your code, you can setup breakpoints in your code by clicking on the left side pane and then clicking on Run->Debug.    You can also click on the bug icon if you've enabled the Toolbar (View->Enable Toolbar):
 
 ![http://i.imgur.com/zGh8wZ0.png](http://i.imgur.com/zGh8wZ0.png)
@@ -7,6 +9,10 @@ If you want to do more in-depth debugging in your code, you can setup breakpoint
 ## Android Studio Issues
 
 * If you decide to rename any of your ID tags in your XML files, you may get "No resource found that matches given name."   You will need to do a Rebuild Project so that the entire resource files can be regenerated and the build/ directories are removed.  Note: Clean Project may not work.
+
+* If you see org.gradle.tooling.GradleConnectionException errors, you may need to install a newer version of JDK (there have been reports of 1.7.0_71 having this issue)
+
+![http://i.imgur.com/1kWwmuh.png](http://i.imgur.com/1kWwmuh.png)
 
 * One of the issues in the new Gradle build system is that you can often get "Multiple dex files define" issues.  If one dependency library already includes an identical set of libraries, then you may have to make changes to your Gradle configurations to avoid this conflict.  For instance, including the Butterknife library with the Parceler library causes multiple declarations of javax.annotation.processing.Processor.  In this case, you have to exclude this conflict:
 
