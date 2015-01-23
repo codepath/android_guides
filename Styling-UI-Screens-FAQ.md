@@ -28,7 +28,7 @@ Use padding around a layout to add extra content spacing. Remember that you can 
 
 #### How do I set the opacity of a layout or view?
 
-The opacity of any view can be set in the XML Layout in two ways. First, the `android:background` property of any view supports alpha channels when specifying a color hex in the format of "#AARRGGBB" for example "#80a4113b" would set the alpha channel to 50% for the color "#a4113b". For other alpha values check out [this values list](http://stackoverflow.com/a/11019879):
+The opacity (transparency) of any view can be set in the XML Layout in two ways. First, the `android:background` property of any view supports alpha channels when specifying a color hex in the format of "#AARRGGBB" for example "#80a4113b" would set the alpha channel to 50% for the color "#a4113b". For other alpha values check out [this values list](http://stackoverflow.com/a/11019879):
 
 ```xml
 <RelativeLayout
@@ -40,13 +40,21 @@ The opacity of any view can be set in the XML Layout in two ways. First, the `an
 
 Alternatively, you can use the [android:alpha](http://developer.android.com/reference/android/view/View.html#attr_android:alpha) property which must be a floating point from 0 to 1. Note though that `alpha` sets **both the view and all of it's children** to this opacity which is often not desired.
 
+#### How do I align the position of my view or its inner contents?
+
+To align the **position of your view itself** in the layout, you need to use a different method based on the parent layout type. If the view is contained within a `RelativeLayout`, use the [`android:centerInParent`](http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_centerInParent) property to center the view both horizontally and vertically or `android:layout_centerHorizontal` to set just one or the other. If your view is contained within a `LinearLayout`, then you can use the [`android:layoutGravity`](http://developer.android.com/reference/android/widget/LinearLayout.LayoutParams.html#attr_android:layout_gravity) to determine the alignment of the view.
+
+To align the contents within a view, you can use the [`android:gravity` property](http://guides.codepath.com/android/Defining-Views-and-their-Attributes#view-gravity). 
+
 ### Images
 
 #### How do I load images into an Android app for display?
 
-First, you need to make sure the image filename only contains **lowercase letters, numbers and underscores** (i.e my_image_file.png). After renaming the image to a valid resource name, **copy the image into the drawable-mdpi folder** as [[shown here|Cloning-a-Login-Screen-Layout-Guide#cutting-assets]]. 
+If you simply want the image to be loaded in the easiest way possible then **just copy and paste** the image from your finder into the Android Studio `res/drawable` folder and select `xxhdpi` as the resolution.
 
-Unless you want the image to be a small standard size, **do not** use the icon generator when creating the images. Instead to generate images that work at all densities, [download and run this JAR](https://github.com/asystat/Final-Android-Resizer/blob/master/Executable%20Jar/Final%20Android%20Resizer.jar?raw=true) which allows us to select our resources directory, choose an extra high density image and the tool will automatically generate the corresponding lower density image sizes.
+Note that you need to make sure the image filename only contains **lowercase letters, numbers and underscores** (i.e my_image_file.png). After renaming the image to a valid resource name, **copy the image into the drawable-mdpi folder** as [[shown here|Cloning-a-Login-Screen-Layout-Guide#cutting-assets]]. Unless you want the image to be a small standard icon size, **do not** use the icon generator (i.e `New Image Asset`) when creating the images. 
+
+Instead to generate images that work at all densities, [download and run this JAR](https://github.com/asystat/Final-Android-Resizer/blob/master/Executable%20Jar/Final%20Android%20Resizer.jar?raw=true) which allows us to select our resources directory, choose an extra high density image and the tool will automatically generate the corresponding lower density image sizes.
 
 #### How do I control the way images are displayed or scaled within an ImageView?
 
@@ -73,6 +81,10 @@ Also, there are cases where a button has an image background that needs to stret
 #### How do I add a background image to a view?
 
 Simply drag the image to the `res/drawable-mdpi` folder and then apply the image to any view by setting `android:background="@drawable/my_image_name"`. See [this stackoverflow post](http://stackoverflow.com/a/8177819) for more details. If you need more control of how the image is scaled, see [this post](http://stackoverflow.com/a/16139059) using a FrameLayout.
+
+#### My image isn't loading and I am seeing a memory error instead in the logs
+
+This probably means that the drawable image being used is a large resolution. The easiest fix is to simply re-copy the image as `xxhdpi` density when you copy and paste the image into Android Studio. Note that when adding an image you are prompted to select the density. If you select `xxhdpi` the image will likely be able to be loaded. In the event, you still see the same error, simply **resize the image to a maximum of 1776 x 1080px**.
 
 #### How would I create a toggle button that alternates between two images?
 
