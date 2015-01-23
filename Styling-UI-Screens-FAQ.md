@@ -252,7 +252,7 @@ You can hide the ActionBar by modifying the "theme" of an Activity in the `Andro
 ```xml
 <activity android:name=".Activity"
     android:label="@string/app_name"
-    android:theme="@android:style/Theme.Holo.Light.NoActionBar">
+    android:theme="@android:style/Theme.AppCompat.Light.NoActionBar">
     <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
@@ -260,4 +260,4 @@ You can hide the ActionBar by modifying the "theme" of an Activity in the `Andro
 </activity>
 ```
 
-You can also hide the ActionBar programmatically at runtime in Java with `getActionBar().hide()` within the `onCreate` method after `setContentView` in an Activity.
+You can also hide the ActionBar programmatically at runtime in Java with `getSupportActionBar().hide()` within the `onCreate` method after `setContentView` in an Activity.
