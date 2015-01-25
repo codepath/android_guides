@@ -24,7 +24,7 @@ mv dist/ActiveAndroid.jar <your_project_home>/libs/
 
 In Android Studio, you can setup ActiveAndroid via Gradle:
 
-```build.gradle
+```gradle
 repositories {
     mavenCentral()
     maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
