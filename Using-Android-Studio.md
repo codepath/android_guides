@@ -16,7 +16,7 @@ When you make changes to the build.gradle, the changes should now be reflected i
 
 Android Studio should update the build.gradle file if you try to add dependencies. Any .jar files in the libs/ directory are already incorporated at compile time.  You can verify this fact by opening the Gradle file for the specific module you're using:
 
-```
+```gradle
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
@@ -25,7 +25,32 @@ Also, you should be able to do the same with Maven dependencies.  go to Project 
 
 Regardless, you should keep track of what gets changed in the build.gradle since that is ultimately the file Android Studio uses to handle dependency management.
 
-## Use Gradle wrapper
+### Library Projects in Android Studio
+
+In Android Studio, you can re-create the effects of "library projects" in eclipse where you can "include" one Eclipse project as a library dependency in another project. In Android Studio, this is done with Gradle. First in the **library project**, change the `build.gradle`:
+
+```gradle
+apply plugin: 'com.android.library'
+```
+
+See [example gradle file](https://github.com/androidsx/hello-android-studio/blob/master/MyLibrary/build.gradle). Next, **in the application** to load the library, change the `build.gradle` file:
+
+```gradle
+dependencies {
+    compile project(':MyLibrary')
+}
+```
+
+and in the `iml` file:
+
+<orderEntry type="library" name="android-support-v4" level="application" />
+<orderEntry type="library" name="MyLibrary.aar" level="project" />
+
+See the sample [build.gradle](https://github.com/androidsx/hello-android-studio/blob/master/HelloWorld/build.gradle) and [iml](https://github.com/androidsx/hello-android-studio/blob/master/HelloWorld/HelloWorld.iml#L70-L71) files for reference.
+
+That should be it, after syncing Gradle the library should be accessible.
+
+### Use Gradle wrapper
 
 [Gradle wrapper](http://developer.android.com/sdk/installing/studio-build.html#gradleWrapper) allows you to seamlessly work with multiple projects that require different versions of Gradle. 
 
@@ -62,3 +87,7 @@ You can then click on Code->Generate to SerialVersionUID:
 * If you are using Genymotion as the emulator, you may have issues trying to use other Android SDK tools such as the Hierarchy Viewer unless you go to Genymotion ADB settings and set the path to your SDK directory (i.e. for OSX, ~/Library/Android/sdk)
 
 ![image](http://i.imgur.com/iGqP85B.png)
+
+## References
+
+* <http://www.androidsx.com/how-to-link-an-android-library-project-with-gradle-in-android-studio/>
