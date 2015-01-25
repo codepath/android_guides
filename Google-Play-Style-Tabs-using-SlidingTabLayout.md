@@ -56,7 +56,7 @@ public class PageFragment extends Fragment {
 
     private int mPage;
 
-    public static PageFragment create(int page) {
+    public static PageFragment newInstance(int page) {
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, page);
         PageFragment fragment = new PageFragment();
@@ -101,7 +101,7 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return PageFragment.create(position + 1);
+        return PageFragment.newInstance(position + 1);
     }
 
     @Override
