@@ -37,7 +37,7 @@ You may choose to move them to a suitable package in your project. Once you have
 
 Now that we have the `ViewPager` and our tabs in our layout, we should start defining the content of each of the tabs. Since each tab is just a fragment being displayed, we need to create and define the `Fragment` to be shown. You may have one or more fragments in your application depending on your requirements.
 
-In `res/layout/fragment_page.xml` define the XML layout for the fragment:
+In `res/layout/fragment_page.xml` define the XML layout for the fragment which will be displayed on screen when a particular tab is selected:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -47,7 +47,7 @@ In `res/layout/fragment_page.xml` define the XML layout for the fragment:
     android:gravity="center" />
 ```
 
-In `PageFragment.java` define the inflation logic for the fragment:
+In `PageFragment.java` define the inflation logic for the fragment of tab content:
 
 ```java
 // In this case, the fragment displays simple text based on the page
@@ -83,7 +83,7 @@ public class PageFragment extends Fragment {
 
 ### Implement FragmentPagerAdapter
 
-The next thing to do is to implement the adapter for your `ViewPager`. The most important methods to implement here are `getPageTitle(int position)` which is used to get the title for each tab and `getItem(int position)` which determines the fragment for each tab.
+The next thing to do is to implement the adapter for your `ViewPager` which controls the order of the tabs, the titles and their associated content. The most important methods to implement here are `getPageTitle(int position)` which is used to get the title for each tab and `getItem(int position)` which determines the fragment for each tab.
 
 ```java
 public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
