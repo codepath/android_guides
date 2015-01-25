@@ -164,6 +164,14 @@ slidingTabLayout.setCustomTabColorizer(new SlidingTabLayout.TabColorizer() {
 });
 ```
 
+If you have a custom color defined in `colors.xml`, your getIndicator() function needs to lookup the RGB value to use:
+
+```
+  @Override
+  public int getIndicatorColor(int position) {
+         return getResources().getColor(R.color.red);
+  }
+```
 ### Add Icons to SlidingTabLayout
 
 The key to add icons to your sliding tabs is to return a `SpannableString`, containing your icon in an `ImageSpan`, from your PagerAdapter's `getPageTitle(position)` method as shown in the code snippet below:
