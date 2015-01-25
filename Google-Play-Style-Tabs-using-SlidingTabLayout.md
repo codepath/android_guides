@@ -166,7 +166,7 @@ slidingTabLayout.setCustomTabColorizer(new SlidingTabLayout.TabColorizer() {
 
 If you have a custom color defined in `colors.xml`, your getIndicatorColor() function needs to lookup the RGB value to use:
 
-```
+```java
   @Override
   public int getIndicatorColor(int position) {
          return getResources().getColor(R.color.red);
