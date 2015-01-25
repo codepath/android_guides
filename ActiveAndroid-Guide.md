@@ -22,7 +22,7 @@ You can download the [latest ActiveAndroid 3.1 JAR](https://www.dropbox.com/s/ce
 mv dist/ActiveAndroid.jar <your_project_home>/libs/
 ```
 
-In Android Studio, you can setup ActiveAndroid via Gradle:
+In Android Studio, you can setup ActiveAndroid via Gradle in `app/build.gradle`:
 
 ```gradle
 repositories {
