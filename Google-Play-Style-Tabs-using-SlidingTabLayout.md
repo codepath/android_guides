@@ -174,7 +174,7 @@ If you have a custom color defined in `colors.xml`, your getIndicatorColor() fun
 ```
 ### Add Icons to SlidingTabLayout
 
-The key to add icons to your sliding tabs is to return a `SpannableString`, containing your icon in an `ImageSpan`, from your PagerAdapter's `getPageTitle(position)` method as shown in the code snippet below:
+Currently, the SlidingTabLayout class does not provide a clean abstraction model that allows for icons in your tab.  There are many posted workarounds, one of which is to return a `SpannableString`, containing your icon in an `ImageSpan`, from your PagerAdapter's `getPageTitle(position)` method as shown in the code snippet below:
 
 ```java
 private int[] imageResId = {
