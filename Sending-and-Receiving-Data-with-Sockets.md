@@ -1,10 +1,10 @@
 # Overview
 
-Network sockets are the endpoints of internet connection between devices. Basically we need two types of sockets to handle the connection - client and server. The main difference between them is that server socket is listening for incoming connection demands. In this snippet I will try to show you a simple connection between Android client device and Java server app over the local network area.
+Network sockets are the endpoints of internet connections between devices. Basically we need two types of sockets to handle the connection - client and server. The main difference between them is that a server socket is listening for incoming connection requests. In this snippet I will try to show you a simple connection between an Android client device and a Java server app over a local network.
 
 ## Android client
 
-The first I wanna do is to list things I am going to use. It will be AsyncTask to make connection as a background task, Callback Interface for managing the incoming messages, Handler for updating GUI and TCPClient class representing the client.
+We will be using AsyncTask to make connection as a background task, Callback Interface for managing the incoming messages, Handler for updating GUI and TCPClient class representing the client.
 I will explain this on the Network Remote example - easy client-server app for shutting down the computer.
 
 ### AsyncTask
