@@ -10,7 +10,7 @@ For example, a "Tweet" model would be mapped to a "tweets" table in the database
 
 ### Installation
 
-You can download the [latest stable ActiveAndroid JAR](https://github.com/downloads/pardom/ActiveAndroid/activeandroid-3.0.jar) snapshot and drag this into the "libs" folder OR generate the latest JAR yourself based on the source as described below:
+You can download the [latest ActiveAndroid 3.1 JAR](https://www.dropbox.com/s/cee2ldq6chuzplp/ActiveAndroid-3.1-08c6335cd.jar?dl=0) snapshot and drag this into the "libs" folder OR generate the latest JAR yourself based on the source as described below:
 
 1. Download the latest build of [ActiveAndroid](https://github.com/pardom/ActiveAndroid/archive/master.zip).
 2. Unzip the `master.zip` file.
@@ -20,6 +20,17 @@ You can download the [latest stable ActiveAndroid JAR](https://github.com/downlo
 
 ```bash
 mv dist/ActiveAndroid.jar <your_project_home>/libs/
+```
+
+In Android Studio, you can setup ActiveAndroid via Gradle:
+
+```build.gradle
+repositories {
+    mavenCentral()
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+}
+
+compile 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
 ```
 
 ### Configuration
