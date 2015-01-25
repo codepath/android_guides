@@ -41,10 +41,12 @@ dependencies {
 }
 ```
 
-and in the `iml` file:
+and in the `iml` file near the bottom in the last `<component>`:
 
+```xml
 <orderEntry type="library" name="android-support-v4" level="application" />
 <orderEntry type="library" name="MyLibrary.aar" level="project" />
+```
 
 See the sample [build.gradle](https://github.com/androidsx/hello-android-studio/blob/master/HelloWorld/build.gradle) and [iml](https://github.com/androidsx/hello-android-studio/blob/master/HelloWorld/HelloWorld.iml#L70-L71) files for reference.
 
