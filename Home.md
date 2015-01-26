@@ -34,6 +34,7 @@ If you are an experienced engineer (2+ years of professional experience in softw
 
 * [[Beginning Android Resources]] (Detailed Post With Many Links)
 * [Setting up Android Studio](http://goo.gl/X2SVFR) (Installation Slides)
+* [[Installing a Faster Emulator|Genymotion-2.0-Emulators-with-Google-App-support]] (Genymotion Guide)
 * [Architecture of Mobile Apps](http://goo.gl/AAsGLx) (Concept Slides)
 * [[Mobile Screen Archetypes]] (Common mobile app screen categories)
 * [[Troubleshooting Common Issues]] (Running into problems?)
@@ -169,7 +170,7 @@ Exploring sensors and components available via the Android SDK:
 * [[Accessing the Camera and Stored Media]] (Camera, Photo Roll)
 * [[Listening to Sensors and Location]] (Light, Accelerometer, Location)
 * [[Video and Audio Playback and Recording]] (MediaPlayer, VideoView)
-* [[Google Maps Setup Guide|Google Maps Fragment Guide]] (and [[Setup Genymotion|Google-Maps-Fragment-Guide#setup-emulator]])
+* [[Google Maps Setup Guide|Google Maps Fragment Guide]] (and [[Setup Genymotion|Google-Maps-Fragment-Guide#installing-genymotion]])
 * [[Google Maps API v2 Usage]] (Markers, InfoWindow)
 
 ## Services
