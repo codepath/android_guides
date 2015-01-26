@@ -57,5 +57,3 @@ Next, if you **don't have the emulator started yet**, be sure to boot the genymo
 Now we need to enable the GPS location on the emulator by **manually selecting a location** on the map:
 
 ![Emulator](http://i.imgur.com/oAdAKA0.png)
-
-With GPS location enabled, let's now setup our map demo app.
