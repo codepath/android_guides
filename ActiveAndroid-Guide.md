@@ -12,7 +12,7 @@ For example, a "Tweet" model would be mapped to a "tweets" table in the database
 
 In Android Studio, you can setup ActiveAndroid via Gradle in `app/build.gradle`:
 
-```
+```gradle
 repositories {
     mavenCentral()
     maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
