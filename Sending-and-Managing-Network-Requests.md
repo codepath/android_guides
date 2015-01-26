@@ -149,7 +149,7 @@ Using a third party library from Square called [Picasso](http://square.github.io
 
 After [downloading the Picasso jar](http://repo1.maven.org/maven2/com/squareup/picasso/picasso/2.3.2/picasso-2.3.2.jar), or adding Picasso to our `app/build.gradle` file:
 
-```
+```gradle
 dependencies {
     compile 'com.squareup.picasso:picasso:2.4.0'
 }
