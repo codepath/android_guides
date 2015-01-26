@@ -64,6 +64,8 @@ BE:03:E1:44:39:7B:E8:17:02:9F:7F:B7:98:82:EA:DF:84:D0:FB:6A;com.example.mapdemo
 
 **Note:** As of March 6th, 2014, we can download the [Google APIs x86](http://software.intel.com/en-us/blogs/2014/03/06/now-available-android-sdk-x86-system-image-with-google-apis) image to test maps. If you want to set the GPS coordinates of the emulator and you're using Android Studio, go to `Tools->Android->Android Device Monitor->Emulator Control`, then type one in Location Controls and hit "Send". Otherwise, for using the Genymotion emulator, see below. Note that **Genymotion is much harder to setup**, but is a much faster and more powerful Android emulator that more closely mirrors a device.
 
+### Installing Genymotion
+
 The first step to getting Google Maps working on your emulator is to download a third-party emulator called [Genymotion](http://www.genymotion.com/). The reason for this is that the official emulator does a terrible job of supporting the Google Play Services. While it is possible to get the Intel HAXM fast emulator working with the Play Services SDK, at the moment it's far more trouble then it's worth. 
 
 [Genymotion](http://www.genymotion.com/) is an incredibly fast, memory-efficient VM that runs the Android OS in a more accurate manner than even the official emulator. Many Android developers do all their device testing using this emulator especially when Google Play services is concerned.
