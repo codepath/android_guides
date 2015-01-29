@@ -152,7 +152,7 @@ Sending an HTTP Request involves the following conceptual steps:
 3. Download and decode based on data type
 4. Wrap in AsyncTask and execute in background thread
 
-This would translate to the following networking code to send a simple request:
+This would translate to the following networking code to send a simple request (with try-catch structured exceptions not shown here for brevity):
 
 ```java
 // 1. Declare a URL Connection
