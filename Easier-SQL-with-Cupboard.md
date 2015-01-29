@@ -1,5 +1,3 @@
-Cupboard guide for CodePath
-
 ## Overview
 
 Cupboard is a way to manage persistence in a sqlite instance for your app. It was written by [Hugo Visser] (https://twitter.com/botteaap). His talk on the library can be found [here](https://skillsmatter.com/skillscasts/4806-simple-persistence-with-cupboard). It's a small library, simple to use, and it was designed specifically for Android unlike ORMlite.
