@@ -150,6 +150,7 @@ Exploring the strategies for data persistence:
 * [[Loading Contacts with Content Providers]] (CursorLoader, LoaderManager)
 * [[Interacting with the Calendar]] (CalendarProvider)
 * [[Creating Content Providers]] (**Needs Attention**)
+* [[Easier SQLite with Cupboard]]
 
 ## Fragments
 
