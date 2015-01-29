@@ -55,9 +55,9 @@ public Boolean isOnline() {
 
 See [this official connectivity guide](http://developer.android.com/training/monitoring-device-state/connectivity-monitoring.html) for more details.
 
-### Sending an HTTP Request
+### Sending an HTTP Request (Third Party)
 
-Using [android-async-http](http://loopj.com/android-async-http/), sending an HTTP request becomes quite straightforward. First, we add the library to gradle:
+Using a third-party library such as [android-async-http](http://loopj.com/android-async-http/), sending an HTTP request is quite straightforward. First, we add the library to gradle:
 
 ```gradle
 dependencies {
@@ -143,11 +143,64 @@ client.getHomeTimeline(1, new JsonHttpResponseHandler() {
 
 Note that as shown above you should also **handle failure cases** with [JsonHttpResponseHandler](http://loopj.com/android-async-http/doc/com/loopj/android/http/JsonHttpResponseHandler.html#onFailure\(java.lang.Throwable, org.json.JSONObject\)) using the `onFailure` method so your application is robust to "losing internet" and user doesn't become confused with unexpected results.
 
+### Sending an HTTP Request (The "Hard" Way)
+
+Sending an HTTP Request involves the following conceptual steps:
+
+1. Declare a URL Connection
+2. Open InputStream to connection
+3. Download and decode based on data type
+4. Wrap in AsyncTask and execute in background thread
+
+This would translate to the following networking code to send a simple request:
+
+```java
+// 1. Declare a URL Connection
+URL url = new URL("http://www.google.com");
+URLConnection conn = url.openConnection();
+// 2. Open InputStream to connection
+conn.connect();
+InputStream in = conn.getInputStream();
+// 3. Download and decode the string response using builder
+StringBuilder stringBuilder = new StringBuilder();
+BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+String line;
+while ((line = reader.readLine()) != null) {
+    stringBuilder.append(line);
+}
+```
+
+The fourth step requires this networking request to be executed in a background task using [[AsyncTasks|Creating-and-Executing-Async-Tasks]] such as shown below:
+
+```java
+// The types specified here are the input data type, the progress type, and the result type
+// Subclass AsyncTask to execute the network request
+// String == URL, Void == Progress Tracking, String == Response Received
+private class NetworkAsyncTask extends AsyncTask<String, Void, Bitmap> {
+     protected String doInBackground(String... strings) {
+         // Some long-running task like downloading an image.
+         // ... code shown above to send request and retrieve string builder
+         return stringBuilder.toString();
+     }
+
+     protected void onPostExecute(Bitmap result) {
+         // This method is executed in the UIThread
+         // with access to the result of the long running task
+         // DO SOMETHING WITH STRING RESPONSE
+     }
+}
+
+private void downloadResponseFromNetwork() {
+    // 4. Wrap in AsyncTask and execute in background thread
+    new NetworkAsyncTask().execute("http://google.com");
+}
+```
+
 ### Displaying Remote Images (The "Easy" Way)
 
-Using a third party library from Square called [Picasso](http://square.github.io/picasso/) which serves a similar purpose. 
+Displaying images is easiest using a third party library such as [Picasso](http://square.github.io/picasso/) from Square which will download and cache remote images and abstract the complexity behind an easy to use DSL.
 
-After [downloading the Picasso jar](http://repo1.maven.org/maven2/com/squareup/picasso/picasso/2.3.2/picasso-2.3.2.jar), or adding Picasso to our `app/build.gradle` file:
+After [downloading the Picasso jar](http://repo1.maven.org/maven2/com/squareup/picasso/picasso/2.4.0/picasso-2.4.0.jar), or adding Picasso to our `app/build.gradle` file:
 
 ```gradle
 dependencies {
@@ -155,7 +208,7 @@ dependencies {
 }
 ```
 
-We can load a remote image into any `ImageView` with:
+We can then load a remote image into any `ImageView` with:
 
 ```java
 String imageUri = "http://i.imgur.com/tGbaZCY.jpg";
@@ -163,13 +216,14 @@ ImageView ivBasicImage = (ImageView) findViewById(R.id.ivBasicImage);
 Picasso.with(context).load(imageUri).into(ivBasicImage);
 ```
 
-For more details check out the [Picasso](http://square.github.io/picasso/) documentation. An alternative to Picasso is another popular library called [android-universal-image-loader](https://github.com/nostra13/Android-Universal-Image-Loader) which after [proper setup](https://github.com/nostra13/Android-Universal-Image-Loader#quick-setup), allows us to download an image like this:
+We can do more sophisticated work with Picasso configuring placeholders, adjusting size of the image, scale type with:
 
 ```java
-ImageLoader.getInstance().displayImage(imageUri, ivBasicImage);
+Picasso.with(context).load(imageUri).fit().centerCrop()
+    .placeholder(R.drawable.user_placeholder).into(imageView);
 ```
 
-With either of these libraries we can easily load images from the network.
+For more details check out the [Picasso](http://square.github.io/picasso/) documentation. 
 
 ### Displaying Remote Images (The "Hard" Way)
 
