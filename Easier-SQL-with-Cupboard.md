@@ -243,7 +243,7 @@ If you need to add a field to your an existing model or need to add a new model 
     ...
   ```
 
-3. Write your migration script. You'll have to keep in mind all possibilities for migrations, e.g. are they migrating from version 1 to 3, 2 to 3, etc. It mi
+3. Write your migration script. You'll have to keep in mind all possibilities for migrations, e.g. are they migrating from version 1 to 3, 2 to 3, etc.
 
   ```java
   public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
