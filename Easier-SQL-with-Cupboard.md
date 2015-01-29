@@ -125,10 +125,10 @@ Then, as seen above in setting up the database, you must register the class in y
 ##### Alternative names for columns and ignoring columns
 There exists two annotations available to you by default to help with how cupboard writes field names to columns in your database. 
 
-The first is `@Column()` and the second is '@Ignore()'
+The first is `@Column()` and the second is `@Ignore()`
 
 The column annotation allows you to choose an alternative name for a column, while the ignore annotation tells cupboard to ignore a field while creating the table. 
-As an example, say I wanted to have the `cuteValue` field be underscore dilineated and for there to be a nonpersisted boolean `isAwake`. My Model code would now look like this:
+As an example, say I wanted to have the `cuteValue` field be underscore delineated and for there to be a non-persisted boolean `isAwake`. My Model code would now look like this:
 
 ```java
 public class Bunny {
