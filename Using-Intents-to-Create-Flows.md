@@ -91,7 +91,6 @@ This will launch the subactivity, and when the subactivity is complete then it c
 
 ```java
 // ActivityNamePrompt.java -- launched for a result
-@Override
 public void onSubmit(View v) {
   EditText etName = (EditText) findViewById(R.id.name);
   // Prepare data intent 
