@@ -26,12 +26,13 @@ These guides were originally created and adapted by [Nathan Esquenazi](http://gi
 as a part of our [CodePath](http://codepath.com) training and bootcamps. We have also had contributions from many
 community members including:
 
- * [Vishal Kapoor](https://github.com/kapoor) (CodePath Alumni)
- * [Nidhi Shah](https://github.com/nidhi1608) (CodePath Alumni)
- * [Vibhor Bharadwaj](https://github.com/vibhorB) (CodePath Alumni)
+ * [Nidhi Shah](https://github.com/nidhi1608) (CodePath Alumni and Staff)
+ * [Roger Hu](https://github.com/rogerhu) (CodePath Alumni and Instructor)
+ * [Michael Alan Huff](https://github.com/koalahamlet) (CodePath Alumni and Mentor)
+ * [Vibhor Bharadwaj](https://github.com/vibhorB) (CodePath Alumni and Mentor)
  * [Ari Lacenski](https://github.com/tensory) (CodePath Alumni)
  * [Chunyan Song](https://github.com/chunyan) (CodePath Alumni)
- * [Roger Hu](https://github.com/rogerhu) (CodePath Alumni)
+ * [Vishal Kapoor](https://github.com/kapoor) (CodePath Alumni)
  * [Trevor Elkins](https://github.com/trevor-e)
  * [Adrian Romero](https://github.com/romeroadrian)
  * [Aaron Fleshner](https://github.com/adfleshner)
