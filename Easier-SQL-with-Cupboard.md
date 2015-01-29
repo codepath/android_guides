@@ -243,11 +243,15 @@ If you need to add a field to your an existing model or need to add a new model 
     ...
   ```
 
-3. Write your migration script. Name your script [newDatabaseVersion].sql, and place it in the directory [YourApp’sName]/app/src/main/assets/migrations. In my specific example, I’ll create the file [MyAppName]/app/src/main/assets/migrations/2.sql. (You might have to create the migrations directory yourself). You should write the SQLite script to add a column here:
+3. Write your migration script. You'll have to keep in mind all possibilities for migrations, e.g. are they migrating from version 1 to 3, 2 to 3, etc. It mi
 
   ```java
   public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // This line adds new columns and tables from changes you've made in new or existing
+        // registered models. 
         cupboard().withDatabase(db).upgradeTables();
+
+        // After this, you can populate the new Columns or tables with default values if you choose
         if (newVersion == 2) {
             ContentValues cv = new ContentValues();
             cv.put("furColor", "black");
