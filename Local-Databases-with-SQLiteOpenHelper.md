@@ -2,6 +2,8 @@
 
 For maximum control over local data, developers can use SQLite directly by leveraging [SQLiteOpenHelper](http://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper.html) for executing SQL requests and managing a local database. 
 
+If you want to use SQLite directly but reduce the verbosity of working with the database, check out our [[Easier SQL with Cupboard]] guide for a middle ground between SQLite and a [[full-fledged ORM|ActiveAndroid-Guide]].
+
 ### Defining the Database Handler
 
 We need to write our own class to handle database operations such as creation, upgrading, reading and writing. Database operations are defined using the [SQLiteOpenHelper](http://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper.html):
