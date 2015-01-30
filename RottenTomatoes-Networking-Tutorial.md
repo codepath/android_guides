@@ -97,7 +97,7 @@ _Android Studio_ users:
 
 You can also drop these jars into the "libs" folder too and add each file by right-clicking on the .jar file and choosing the Add as Library option, or you can simply edit the build.gradle file and add them as dependencies that can be downloaded via a remote repository:
 
-```
+```gradle
 repositories {
     mavenCentral()
 }
