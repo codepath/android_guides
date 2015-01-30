@@ -41,7 +41,7 @@ You can also verify internet access with this method:
 ```java
 public Boolean isOnline() {
     try {
-        Process p1 = java.lang.Runtime.getRuntime().exec("ping -c 1 www.google.com");
+        Process p1 = java.lang.Runtime.getRuntime().exec("ping -n 1 www.google.com");
         int returnVal = p1.waitFor();
         boolean reachable = (returnVal==0);
         return reachable;
