@@ -85,13 +85,13 @@ As you can see the API returns a **dictionary with a single "movies" key** which
 
 ### Install Library Dependencies
 
-Before we continue, we need to setup the [android-async-http-client](http://central.maven.org/maven2/com/loopj/android/android-async-http/1.4.3/android-async-http-1.4.3.jar) for sending asynchronous network requests. _Note: There are known issues with AndroidAsyncHttpClient version 1.4.4, so at the moment it is best to stick with 1.4.3._
+Before we continue, we need to setup the [android-async-http-client](http://loopj.com/android-async-http/) for sending asynchronous network requests. 
 
-Let's also install a library for remote image loading called [Picasso](http://repo1.maven.org/maven2/com/squareup/picasso/picasso/2.1.1/picasso-2.1.1.jar) so we can easily display movie posters. 
+Let's also install a library for remote image loading called [Picasso](http://square.github.io/picasso/) so we can easily display movie posters. 
 
 _Eclipse_ users:
 
-Drop those jars into the "libs" folder of our Android app before continuing
+Drop the library jars into the "libs" folder of our Android app before continuing
 
 _Android Studio_ users:
 
@@ -102,10 +102,13 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    compile 'com.squareup.picasso:picasso:2.2.0'
-    compile 'com.loopj.android:android-async-http:1.4.3'
+    // ...
+    compile 'com.squareup.picasso:picasso:2.4.0'
+    compile 'com.loopj.android:android-async-http:1.4.6'
 }
 ```
+
+Then you need to sync with gradle and make sure there are no errors.
 
 ### Download Assets
 
@@ -115,7 +118,7 @@ Make sure to download the two placeholder movie posters:
 src="http://i.imgur.com/o8Y6d6u.png/small_movie_poster.png" /></a>
 <a href="http://i.imgur.com/Z2MYNbj.png/large_movie_poster.png"><img src="http://i.imgur.com/Z2MYNbj.png/large_movie_poster.png" /></a>
 
-Drag both [small_movie_poster.png](http://i.imgur.com/o8Y6d6u.png/small_movie_poster.png) and [large_movie_poster.png](http://i.imgur.com/Z2MYNbj.png/large_movie_poster.png) into `res/drawable-hdpi` for use later.
+Copy and paste both [small_movie_poster.png](http://i.imgur.com/o8Y6d6u.png/small_movie_poster.png) and [large_movie_poster.png](http://i.imgur.com/Z2MYNbj.png/large_movie_poster.png) into `res/drawable` for use later.
 
 ### Setup Internet Permission
 
@@ -320,25 +323,25 @@ public class BoxOfficeMovie {
     // Decodes array of box office movie json results into business model objects
     // BoxOfficeMovie.fromJson(jsonArrayOfMovies)
     public static ArrayList<BoxOfficeMovie> fromJson(JSONArray jsonArray) {
-        ArrayList<BoxOfficeMovie> businesses = new ArrayList<BoxOfficeMovie>(jsonArray.length());
+        ArrayList<BoxOfficeMovie> movies = new ArrayList<BoxOfficeMovie>(jsonArray.length());
         // Process each result in json array, decode and convert to business
         // object
         for (int i = 0; i < jsonArray.length(); i++) {
-            JSONObject businessJson = null;
+            JSONObject moviesJson = null;
             try {
-                businessJson = jsonArray.getJSONObject(i);
+                moviesJson = jsonArray.getJSONObject(i);
             } catch (Exception e) {
                 e.printStackTrace();
                 continue;
             }
 
-            BoxOfficeMovie business = BoxOfficeMovie.fromJson(businessJson);
-            if (business != null) {
-                businesses.add(business);
+            BoxOfficeMovie movie = BoxOfficeMovie.fromJson(moviesJson);
+            if (movie != null) {
+                movie.add(business);
             }
         }
 
-        return businesses;
+        return movies;
     }
     
     // ...
@@ -480,7 +483,7 @@ public class BoxOfficeActivity extends Activity {
 }
 ```
 
-Now let's make a call to the box office API from the activity using our client:
+Now let's make the call to the box office API from the activity using our client:
 
 ```java
 public class BoxOfficeActivity extends Activity {
@@ -498,7 +501,7 @@ public class BoxOfficeActivity extends Activity {
         client = new RottenTomatoesClient();
         client.getBoxOfficeMovies(new JsonHttpResponseHandler() {
             @Override
-            public void onSuccess(int code, JSONObject body) {
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 JSONArray items = null;
                 try {
                     // Get the movies json array
@@ -507,7 +510,7 @@ public class BoxOfficeActivity extends Activity {
                     ArrayList<BoxOfficeMovie> movies = BoxOfficeMovie.fromJson(items);
                     // Load model objects into the adapter
                     for (BoxOfficeMovie movie : movies) {
-                       adapterMovies.add(movie);
+                       adapterMovies.add(movie); // add movie through the adapter
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
