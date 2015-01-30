@@ -1,4 +1,5 @@
-##Necessary steps
+## Necessary steps
+
 1. Remove Log method calls
 2. Digitally sign and export the app
 3. Sign up for a Publisher Account on Google Play
@@ -6,6 +7,7 @@
 
 
 ### Disable Log calls
+
 To avoid deleting all the log calls manually, Android Studio provides tools to do so easily. 
 By configuring [Proguard](http://developer.android.com/tools/help/proguard.html), statements to strip calls to any of the Log methods can be added.
 
@@ -22,6 +24,7 @@ buildTypes {
 ```
 
 Next, add the following lines to the `proguard-rules.pro` file:
+
 ```java
 -assumenosideeffects class android.util.Log {
     public static boolean isLoggable(java.lang.String, int);
@@ -70,6 +73,7 @@ Finally, pick the folder in which the apk file will be saved. Make sure the Buil
 **Note:** Remember your password and the keystore location.
 
 ### Become a Publisher
+
 [Here](http://developer.android.com/distribute/googleplay/start.html) you can find a useful checklist of all the steps required to sign up for a publisher account.
 
 At the same page you can also find instructions on **Setting Up a Google Wallet Merchant Account**, if there's the case of selling apps, providing in app purchases or subscriptions. 
@@ -81,11 +85,13 @@ At the same page you can also find instructions on **Setting Up a Google Wallet 
 5. Confirm verification by e-mail.
 
 ### Developer console
+
 This is the place to manage the (un)published apps. There is the possibility to get everything ready in a draft status before actually publishing the application.
 
 [This](http://developer.android.com/distribute/tools/launch-checklist.html) is another very important checklist to help understand the publishing process and determine which steps were left out.
 
 ##References
+
 * <http://developer.android.com/tools/publishing/publishing_overview.html>
 * <http://developer.android.com/distribute/googleplay/start.html>
 * <http://developer.android.com/distribute/tools/launch-checklist.html>
