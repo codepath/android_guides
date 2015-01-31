@@ -512,6 +512,7 @@ public class BoxOfficeActivity extends Activity {
                     for (BoxOfficeMovie movie : movies) {
                        adapterMovies.add(movie); // add movie through the adapter
                     }
+                    adapterMovies.notifyDataSetChanged();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
