@@ -201,6 +201,24 @@ And the result is:
 
 ![Icons](http://i.stack.imgur.com/c7sm4.png)
 
+## Customization
+
+To not just look like another Play Store styled app, go and adjust these values to match your brand:
+
+ * `pstsIndicatorColor` Color of the sliding indicator
+ * `pstsUnderlineColor` Color of the full-width line on the bottom of the view
+ * `pstsDividerColor` Color of the dividers between tabs
+ * `pstsIndicatorHeight`Height of the sliding indicator
+ * `pstsUnderlineHeight` Height of the full-width line on the bottom of the view
+ * `pstsDividerPadding` Top and bottom padding of the dividers
+ * `pstsTabPaddingLeftRight` Left and right padding of each tab
+ * `pstsScrollOffset` Scroll offset of the selected tab
+ * `pstsTabBackground` Background drawable of each tab, should be a StateListDrawable
+ * `pstsShouldExpand` If set to true, each tab is given the same weight, default false
+ * `pstsTextAllCaps` If true, all tab titles will be upper case, default true
+
+All attributes have their respective getters and setters to change them at runtime.
+
 ## References
 
 * [PagerSlidingTabStrip](https://github.com/astuetz/PagerSlidingTabStrip)
