@@ -222,3 +222,4 @@ All attributes have their respective getters and setters to change them at runti
 ## References
 
 * [PagerSlidingTabStrip](https://github.com/astuetz/PagerSlidingTabStrip)
+* [StackOverflow for Styling Icons](http://stackoverflow.com/questions/24838668/icon-selector-not-working-with-pagerslidingtabstrips)
