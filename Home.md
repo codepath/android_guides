@@ -157,12 +157,13 @@ Exploring the strategies for data persistence:
 Understanding how to build powerful and flexible views using Fragments:
 
 * [[Creating and Using Fragments]]
-* [[ActionBar Tabs with Fragments]]
-* [[Google Play Style Tabs using SlidingTabLayout]]
-* [[Fragment Navigation Drawer]]
-* [[DialogFragment Overview|Using DialogFragment]]
-* [[Flexible User Interfaces]] (with Fragments)
+* [[Displaying a DialogFragment|Using DialogFragment]]
+* [[Sliding Tabs with PagerSlidingTabStrip]]
 * [[ViewPager with FragmentPagerAdapter]]
+* [[Fragment Navigation Drawer]]
+* [[Flexible User Interfaces]] (with Fragments)
+* [[Google Play Style Tabs using SlidingTabLayout]]
+* [[ActionBar Tabs with Fragments]] (Deprecated)
 
 ## Sensors and Device SDKs
 
