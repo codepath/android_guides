@@ -140,7 +140,7 @@ public class MainActivity extends FragmentActivity {
 
         // Give the PagerSlidingTabStrip the ViewPager
         PagerSlidingTabStrip tabsStrip = (PagerSlidingTabStrip) findViewById(R.id.tabs);
-        // Center the tabs in the layout
+        // Attach the view pager to the tab strip
         tabsStrip.setViewPager(pager);
     }
 
