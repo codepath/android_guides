@@ -189,7 +189,7 @@ vpPager.setOnPageChangeListener(new OnPageChangeListener() {
 
 ## Tabbed Interface with Pager
 
-We can use the ViewPager to display a tabbed indicator in order to create tabs to display our fragments. While there are several ways to achieve this the recommended method is to use the third-party [PagerSlidingTabStrip|Sliding-Tabs-with-PagerSlidingTabStrip]] library. 
+We can use the ViewPager to display a tabbed indicator in order to create tabs to display our fragments. While there are several ways to achieve this the recommended method is to use the third-party [[PagerSlidingTabStrip|Sliding-Tabs-with-PagerSlidingTabStrip]] library. 
 
 ![Tabs](http://i.imgur.com/a2wpJ80.png)
 
