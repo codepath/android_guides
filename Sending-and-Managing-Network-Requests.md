@@ -233,7 +233,24 @@ For more details check out the [Picasso](http://square.github.io/picasso/) docum
 
 ### Displaying Remote Images (The "Hard" Way)
 
-Suppose we wanted to load an image using only the built-in Android network constructs. Here's the code to construct an `AsyncTask` to download a remote image and display the image in an ImageView using just the official Google Android SDK. See the [[Creating and Executing Async Tasks]] for more information about executing asynchronous background tasks. 
+Suppose we wanted to load an image using only the built-in Android network constructs. In order to download an image from the network, convert the bytes into a bitmap and then insert the bitmap into an imageview, you would use the following pseudo-code:
+
+```java
+// 1. Declare a URL Connection
+URL url = new URL("http://www.images.com/path/to/image.jpg");
+URLConnection conn = url.openConnection();
+// 2. Open InputStream to connection
+conn.connect();
+InputStream in = conn.getInputStream();
+// 3. Download and decode the bitmap using BitmapFactory
+Bitmap bitmap = BitmapFactory.decodeStream(in);
+in.close();
+// 4. Insert into an ImageView
+ImageView imageView = (ImageView) v.findViewById(R.id.imageView);
+imageView.setImageBitmap(bitmap)
+```
+
+Here's the complete code needed to construct an `AsyncTask` that downloads a remote image and displays the image in an `ImageView` using just the official Google Android SDK. See the [[Creating and Executing Async Tasks]] for more information about executing asynchronous background tasks: 
 
 ```java
 package com.example.simplenetworking;
@@ -262,6 +279,13 @@ public class MainActivity extends Activity {
 			Bitmap bitmap = decodeBitmap(in);
 			// Return bitmap result
 			return bitmap;
+		}
+
+		// Fires after the task is completed, displaying the bitmap into the ImageView
+		@Override
+		protected void onPostExecute(Bitmap result) {
+			// Set bitmap image for the result
+			ivBasicImage.setImageBitmap(result);
 		}
                
 		// Returns the URL object based on the address given
@@ -303,13 +327,6 @@ public class MainActivity extends Activity {
 				bitmap = null;
 			}
 			return bitmap;
-		}
-                
-		// Fires after the task is completed, displaying the bitmap into the ImageView
-		@Override
-		protected void onPostExecute(Bitmap result) {
-			// Set bitmap image for the result
-			ivBasicImage.setImageBitmap(result);
 		}
 	}
 }
