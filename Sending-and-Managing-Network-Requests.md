@@ -76,12 +76,12 @@ params.put("key", "value");
 params.put("more", "data");
 client.get("http://www.google.com", params, new TextHttpResponseHandler() {
         @Override
-        public void onSuccess(String responseBody) {
+        public void onSuccess(int statusCode, Header[] headers, String res) {
             // called when response HTTP status is "200 OK"
         }
 
         @Override
-        public void onFailure(String responseBody, Throwable e) {
+        public void onFailure(int statusCode, Header[] headers, String res, Throwable t) {
             // called when response HTTP status is "4XX" (eg. 401, 403, 404)
         }	
     }
