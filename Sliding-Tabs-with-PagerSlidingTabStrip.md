@@ -163,12 +163,16 @@ You can change the style of the tabs by adding any of the following properties t
     app:pstsShouldExpand="true"
     android:layout_width="match_parent"
     android:layout_height="48dp"
-    app:pstsDividerColor="#00000000"
-    app:pstsIndicatorColor="#FF33B5E6"
-    app:pstsTabPaddingLeftRight="14dip"
-    app:pstsUnderlineColor="#FF33B5E6">
+    app:pstsDividerColor="@color/green"
+    app:pstsIndicatorColor="@color/red"
+    app:pstsUnderlineColor="@color/blue"
+    app:pstsTabPaddingLeftRight="14dp">
 </com.astuetz.PagerSlidingTabStrip>
 ```
+
+and the result of this is:
+
+![Tabs Styled](http://i.imgur.com/UBogTEW.png)
 
 ### Add Icons to SlidingTabLayout
 
@@ -177,7 +181,7 @@ We can add icons instead of text to each our tabs by implementing the `IconTabPr
 ```java
 public class SampleFragmentPagerAdapter extends FragmentPagerAdapter implements IconTabProvider {
     final int PAGE_COUNT = 3;
-    private String tabIcons[] = {R.drawable.ic_tab_one, R.drawable.ic_tab_two, R.drawable.ic_tab_three}
+    private int tabIcons[] = {R.drawable.ic_tab_one, R.drawable.ic_tab_two, R.drawable.ic_tab_three}
 
     public SampleFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
