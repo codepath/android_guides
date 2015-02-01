@@ -247,7 +247,7 @@ Bitmap bitmap = BitmapFactory.decodeStream(in);
 in.close();
 // 4. Insert into an ImageView
 ImageView imageView = (ImageView) v.findViewById(R.id.imageView);
-imageView.setImageBitmap(bitmap)
+imageView.setImageBitmap(bitmap);
 ```
 
 Here's the complete code needed to construct an `AsyncTask` that downloads a remote image and displays the image in an `ImageView` using just the official Google Android SDK. See the [[Creating and Executing Async Tasks]] for more information about executing asynchronous background tasks: 
