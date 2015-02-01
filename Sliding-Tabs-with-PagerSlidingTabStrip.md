@@ -34,8 +34,7 @@ Once you have included the library and synced with Gradle, we can use the `Slidi
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
-        android:layout_height="0px"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:background="@android:color/white" />
 
 </LinearLayout>
