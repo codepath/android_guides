@@ -51,13 +51,20 @@ In `res/layout/fragment_page.xml` define the XML layout for the fragment which w
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- This is the fragment  to be displayed for a section associated with a tab -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="vertical" android:layout_width="match_parent"
+android:layout_height="match_parent">
+<TextView
+    android:id="@+id/tvTitle"
+    android:text="Fragment #X"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center" />
+</LinearLayout>
 ```
 
-In `PageFragment.java` define the inflation logic for the fragment of tab content:
+In `PageFragment.java` define the inflation logic for the fragment section of tab content:
 
 ```java
 // In this case, the fragment displays simple text based on the page
@@ -80,15 +87,19 @@ public class PageFragment extends Fragment {
         mPage = getArguments().getInt(ARG_PAGE);
     }
 
+    // Inflate the fragment layout we defined above for this fragment
+    // Set the associated text for the title
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_page, container, false);
-        TextView textView = (TextView) view;
-        textView.setText("Fragment #" + mPage);
+        TextView tvTitle = (TextView) view.findViewById(R.id.tvTitle);
+        tvTitle.setText("Fragment #" + mPage);
         return view;
     }
 }
 ```
+
+You would need to do redo this process for **each section** you want to have a tab for in your activity.
 
 ### Implement FragmentPagerAdapter
 
