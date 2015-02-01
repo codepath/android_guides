@@ -27,6 +27,7 @@ Once you have included the library and synced with Gradle, we can use the `Slidi
     <com.astuetz.PagerSlidingTabStrip
         android:id="@+id/tabs"
         app:pstsShouldExpand="true"
+        app:pstsTextAllCaps="true"
         android:layout_width="match_parent"
         android:layout_height="48dp">
     </com.astuetz.PagerSlidingTabStrip>
