@@ -263,11 +263,17 @@ public class MainActivity extends Activity {
         ivBasicImage = (ImageView) findViewById(R.id.ivBasicImage);
         String url = "http://i.imgur.com/tGbaZCY.jpg";
         // Download image from URL and display within ImageView
-        new ImageDownloadTask().execute(url);
+        new ImageDownloadTask(ivBasicImage).execute(url);
     }
 
     // Defines the background task to download and then load the image within the ImageView
     private class ImageDownloadTask extends AsyncTask<String, Void, Bitmap> {
+        ImageView imageView;
+
+        public ImageDownloadTask(ImageView imageView) {
+            this.imageView = imageView;
+        }
+
         protected Bitmap doInBackground(String... addresses) {
             Bitmap bitmap = null;
             try {
@@ -290,7 +296,7 @@ public class MainActivity extends Activity {
         @Override
         protected void onPostExecute(Bitmap result) {
             // Set bitmap image for the result
-            ivBasicImage.setImageBitmap(result);
+            imageView.setImageBitmap(result);
         }
     }
 }
