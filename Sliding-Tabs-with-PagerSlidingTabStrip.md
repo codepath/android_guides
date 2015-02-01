@@ -237,3 +237,4 @@ And the result is:
 
 * [PagerSlidingTabStrip](https://github.com/astuetz/PagerSlidingTabStrip)
 * [StackOverflow for Styling Icons](http://stackoverflow.com/questions/24838668/icon-selector-not-working-with-pagerslidingtabstrips)
+* [ViewPager Indicator](http://viewpagerindicator.com/)
