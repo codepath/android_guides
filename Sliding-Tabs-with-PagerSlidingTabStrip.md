@@ -4,7 +4,7 @@ As a result, tabs are now best implemented by leveraging the [[ViewPager|ViewPag
 
 ![Tabs](http://i.imgur.com/a2wpJ80.png)
 
-**Note:** Want to avoid using a third-party library for tabs? Check out how to build sliding tabs using [[Google's SlidingTabLayout approach|Google Play Style Tabs using SlidingTabLayout]]
+**Note:** Want to avoid using a third-party library for tabs? Check out how to build sliding tabs using [[Google's SlidingTabLayout approach|Google Play Style Tabs using SlidingTabLayout]].
 
 ### Install PagerSlidingTabStrip
 
