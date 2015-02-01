@@ -246,7 +246,7 @@ InputStream in = conn.getInputStream();
 Bitmap bitmap = BitmapFactory.decodeStream(in);
 in.close();
 // 4. Insert into an ImageView
-ImageView imageView = (ImageView) v.findViewById(R.id.imageView);
+ImageView imageView = (ImageView) findViewById(R.id.imageView);
 imageView.setImageBitmap(bitmap);
 ```
 
