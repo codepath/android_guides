@@ -297,7 +297,7 @@ We can do that with by tuning a few properties of our pager. First, here's how t
 
 Next, we need to tune these properties of the pager in the containing fragment or activity:
 
-```
+```java
 ViewPager vpPager = (ViewPager) view.findViewById(R.id.vpPager);
 vpPager.setClipToPadding(false);
 vpPager.setPageMargin(12);
@@ -306,7 +306,7 @@ vpPager.setPageMargin(12);
 
 Finally we need to adjust the width inside the adapter:
 
-```
+```java
 class MyPageAdapter : FragmentStatePagerAdapter {
     public override float GetPageWidth (int position) {
         return 0.93f;
