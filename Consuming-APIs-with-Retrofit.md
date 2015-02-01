@@ -15,7 +15,7 @@ First, we need to add the libraries to our project. Without Gradle, this means:
 
 With Gradle, add the following to your `app/build.gradle` file:
 
-```
+```gradle
 dependencies {
   compile 'com.squareup.okhttp:okhttp:2.0.0'
   compile 'com.squareup.retrofit:retrofit:1.7.0'

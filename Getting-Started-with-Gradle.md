@@ -25,7 +25,7 @@ Gradle will use this configuration to see if the version has already been instal
 
 In addition, you will need to setup the Android Gradle plugin by setting your build.gradle to have a dependency:
 
-```bash
+```gradle
 buildscript {
     repositories {
         mavenCentral()
@@ -104,7 +104,7 @@ If you want to delete old APKs before you re-run either `./gradlew` (build witho
 
 To add dependencies to your project, you need to modify the `build.gradle` file and add extra lines configuring the packages you require. For example, for certain Google or Android, dependencies look like:
 
-```bash
+```gradle
 android {
   ...
   dependencies {
@@ -128,14 +128,13 @@ You can also add dependencies based on the [Maven Central Repository](http://sea
 
 <a href="http://gradleplease.appspot.com#picasso"><img src="http://i.imgur.com/PmeUfhE.png" title="Gradle Please Utility" /></a>
 
-
 ### How to setup the Gradle wrapper
 
 If you are planning to setup your own project without Android Studio (i.e. via Ecipse), the current recommendation is to setup the Gradle wrapper (http://www.gradle.org/docs/current/userguide/gradle_wrapper.html).  The reason is that other people trying to use your project do not need to install Gradle themselves once you've generated the files needed to bootstrap the process.  
 
 To generate this initial set of files (Android Studio will automatically handle this work for you), you need to add these lines to your build.gradle file: 
 
-```bash
+```gradle
 task wrapper(type: Wrapper) {
     gradleVersion = '2.2.1'
 }
