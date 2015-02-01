@@ -163,7 +163,7 @@ This would translate to the following networking code to send a simple request (
 ```java
 // 1. Declare a URL Connection
 URL url = new URL("http://www.google.com");
-URLConnection conn = url.openConnection();
+HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 // 2. Open InputStream to connection
 conn.connect();
 InputStream in = conn.getInputStream();
@@ -238,7 +238,7 @@ Suppose we wanted to load an image using only the built-in Android network const
 ```java
 // 1. Declare a URL Connection
 URL url = new URL("http://www.images.com/path/to/image.jpg");
-URLConnection conn = url.openConnection();
+HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 // 2. Open InputStream to connection
 conn.connect();
 InputStream in = conn.getInputStream();
@@ -303,9 +303,9 @@ public class MainActivity extends Activity {
 		private InputStream getInputStream(URL url) {
 			InputStream in;
 			// Open connection
-			URLConnection conn;
+			HttpURLConnection conn;
 			try {
-				conn = url.openConnection();
+				conn = (HttpURLConnection) url.openConnection();
 				conn.connect();
 				in = conn.getInputStream();
 			} catch (IOException e) {
