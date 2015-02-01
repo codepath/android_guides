@@ -27,7 +27,6 @@ Another error if you attempt to include a library that is a subset of another li
 
 ```gradle
 dependencies {
-
     compile 'com.google.android.gms:play-services:6.5.+'
     compile 'com.google.android.gms:play-services-maps:6.5.+'
 }
