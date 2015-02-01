@@ -8,7 +8,7 @@ As a result, tabs are now best implemented by leveraging the [[ViewPager|ViewPag
 
 First, we need to add `PagerSlidingTabStrip` to our application by adding the following to our `app/build.gradle` file:
 
-```groovy
+```gradle
 dependencies {
     compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
 }
