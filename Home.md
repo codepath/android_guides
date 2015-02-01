@@ -162,7 +162,6 @@ Understanding how to build powerful and flexible views using Fragments:
 * [[ViewPager with FragmentPagerAdapter]]
 * [[Fragment Navigation Drawer]]
 * [[Flexible User Interfaces]] (with Fragments)
-* [[Google Play Style Tabs using SlidingTabLayout]]
 * [[ActionBar Tabs with Fragments]] (Deprecated)
 
 ## Sensors and Device SDKs
