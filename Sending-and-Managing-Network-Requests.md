@@ -61,7 +61,7 @@ Using a third-party library such as [android-async-http](http://loopj.com/androi
 
 ```gradle
 dependencies {
-  compile 'com.loopj.android:android-async-http:1.4.5'
+  compile 'com.loopj.android:android-async-http:1.4.6'
 }
 ```
 
@@ -74,16 +74,15 @@ AsyncHttpClient client = new AsyncHttpClient();
 RequestParams params = new RequestParams();
 params.put("key", "value");
 params.put("more", "data");
-client.get("http://www.google.com", params, new
-    AsyncHttpResponseHandler() {
+client.get("http://www.google.com", params, new TextHttpResponseHandler() {
         @Override
-        public void onSuccess(String response) {
-            System.out.println(response);
+        public void onSuccess(String responseBody) {
+            // called when response HTTP status is "200 OK"
         }
 
         @Override
-        public void onFailure(Throwable e, String s) {
-            Log.d("ERROR", e.toString());
+        public void onFailure(String responseBody, Throwable e) {
+            // called when response HTTP status is "4XX" (eg. 401, 403, 404)
         }	
     }
 );
@@ -103,7 +102,7 @@ params.put("q", "android");
 params.put("rsz", "8");
 client.get(url, params, new JsonHttpResponseHandler() {    	    
     @Override
-    public void onSuccess(JSONObject response) {
+    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
        // Handle resulting parsed JSON response here
     }
 });
@@ -128,13 +127,13 @@ RequestParams params = new RequestParams();
 params.put("key", "value");
 params.put("more", "data");
 client.getHomeTimeline(1, new JsonHttpResponseHandler() {
-  public void onSuccess(JSONArray json) {
-    // Response is automatically parsed into a JSONArray
-    // json.getJSONObject(0).getLong("id");
-    // Here we want to process the json data into Java models.
-  }
+    public void onSuccess(int statusCode, Header[] headers, JSONObject json) {
+        // Response is automatically parsed into a JSONArray
+        // json.getJSONObject(0).getLong("id");
+        // Here we want to process the json data into Java models.
+    }
 
-  public void onFailure(Throwable e, JSONObject error) {
+  public void onFailure(int statusCode, Header[] headers, Throwable t, JSONObject e)  {
     // Handle the failure and alert the user to retry
     Log.e("ERROR", e.toString());
   }
