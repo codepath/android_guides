@@ -16,7 +16,7 @@ If you want to do more in-depth debugging in your code, you can setup breakpoint
 
 * One of the issues in the new Gradle build system is that you can often get "Multiple dex files define" issues.  If one dependency library already includes an identical set of libraries, then you may have to make changes to your Gradle configurations to avoid this conflict.  For instance, including the Butterknife library with the Parceler library causes multiple declarations of javax.annotation.processing.Processor.  In this case, you have to exclude this conflict:
 
-```
+```gradle
    packagingOptions {
 
         exclude 'META-INF/services/javax.annotation.processing.Processor'  // butterknife
@@ -25,7 +25,7 @@ If you want to do more in-depth debugging in your code, you can setup breakpoint
 
 Another error if you attempt to include a library that is a subset of another library.  For instance, suppose we included the Google play-services library but thought we also needed to include it with the play-services-map library.:
 
-```
+```gradle
 dependencies {
 
     compile 'com.google.android.gms:play-services:6.5.+'
