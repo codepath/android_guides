@@ -2,7 +2,7 @@
 
 Network requests are used to retrieve or modify API data or media from a server. This is a very common task in Android development especially for dynamic data-driven clients.
 
-The underlying Java class used for network connections is [URLConnection](http://developer.android.com/reference/java/net/HttpURLConnection.html) or [DefaultHTTPClient](http://developer.android.com/reference/org/apache/http/impl/client/DefaultHttpClient.html). Both of these are lower-level and require completely manual management of parsing the data from the input stream and executing the request asynchronously.
+The underlying Java class used for network connections is [HTTPURLConnection](http://developer.android.com/reference/java/net/HttpURLConnection.html) or [DefaultHTTPClient](http://developer.android.com/reference/org/apache/http/impl/client/DefaultHttpClient.html). Both of these are lower-level and require completely manual management of parsing the data from the input stream and executing the request asynchronously.
 
 For most common cases, we are better off using a popular third-party library called [android-async-http](http://loopj.com/android-async-http/) which will handle the entire process of sending and parsing network requests for us in a more robust and easy-to-use way.
 
@@ -163,7 +163,7 @@ This would translate to the following networking code to send a simple request (
 ```java
 // 1. Declare a URL Connection
 URL url = new URL("http://www.google.com");
-HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 // 2. Open InputStream to connection
 conn.connect();
 InputStream in = conn.getInputStream();
@@ -238,7 +238,7 @@ Suppose we wanted to load an image using only the built-in Android network const
 ```java
 // 1. Declare a URL Connection
 URL url = new URL("http://www.images.com/path/to/image.jpg");
-HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 // 2. Open InputStream to connection
 conn.connect();
 InputStream in = conn.getInputStream();
