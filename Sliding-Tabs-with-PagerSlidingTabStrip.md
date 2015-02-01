@@ -172,7 +172,7 @@ You can change the style of the tabs by adding any of the following properties t
 
 and the result of this is:
 
-![Tabs Styled](http://i.imgur.com/UBogTEW.png)
+![Tabs Styled](http://i.imgur.com/QeftdvU.png)
 
 ### Add Icons to SlidingTabLayout
 
