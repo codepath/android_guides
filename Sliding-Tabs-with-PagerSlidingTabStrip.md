@@ -41,6 +41,8 @@ Once you have included the library and synced with Gradle, we can use the `Slidi
 </LinearLayout>
 ```
 
+Make sure to **add the `xmlns:app` namespace** as shown above to your root layout.
+
 ### Create Fragment
 
 Now that we have the `ViewPager` and our tabs in our layout, we should start defining the content of each of the tabs. Since each tab is just a fragment being displayed, we need to create and define the `Fragment` to be shown. You may have one or more fragments in your application depending on your requirements.
