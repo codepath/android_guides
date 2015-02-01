@@ -193,6 +193,8 @@ We can use the ViewPager to display a tabbed indicator in order to create tabs t
 
 ![Tabs](http://i.imgur.com/a2wpJ80.png)
 
+In this way, we can use the same pager system above and achieve tabbed navigation.
+
 ## Dynamic ViewPager Fragments
 
 In certain cases, we may require a dynamic `ViewPager` with pages being added or removed on the fly. If your ViewPager is more dynamic with many pages and fragments, we will want to use the the alternate [FragmentStatePagerAdapter](http://developer.android.com/reference/android/support/v4/app/FragmentStatePagerAdapter.html) instead. Below shows us how to use this and also intelligently cache the fragments for easy lookup.
