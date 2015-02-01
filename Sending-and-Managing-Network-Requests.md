@@ -103,6 +103,13 @@ params.put("rsz", "8");
 client.get(url, params, new JsonHttpResponseHandler() {    	    
     @Override
     public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+       // Root JSON in response is an dictionary i.e { "data : [ ... ] }
+       // Handle resulting parsed JSON response here
+    }
+
+    @Override
+    public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+       // Root JSON in response is an array i.e [ { ... }, { ... } ] 
        // Handle resulting parsed JSON response here
     }
 });
