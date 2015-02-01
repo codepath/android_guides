@@ -14,7 +14,7 @@ dependencies {
 }
 ```
 
-Once you have included the library and synced with Gradle, we can use the `SlidingTabLayout` in our layout file to display tabs. Your layout file will have tabs on the top and a `ViewPager` on the bottom as shown in the code snippet below:
+Once you have included the library and synced with Gradle, we can use the `PagerSlidingTabStrip` in our layout file to display tabs. Your layout file will have tabs on the top and a `ViewPager` on the bottom as shown in the code snippet below:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -197,7 +197,7 @@ In addition to the above, there are several other attributes that can be set:
 
 All attributes have their respective getters and setters so they can be changed at runtime.
 
-### Add Icons to SlidingTabLayout
+### Add Icons to PagerSlidingTabStrip
 
 We can add icons instead of text to each our tabs by implementing the `IconTabProvider` interface within our pager adapter:
 
