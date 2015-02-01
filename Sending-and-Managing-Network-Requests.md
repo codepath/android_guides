@@ -237,7 +237,7 @@ Suppose we wanted to load an image using only the built-in Android network const
 
 ```java
 // 1. Declare a URL Connection
-URL url = new URL("http://www.images.com/path/to/image.jpg");
+URL url = new URL("http://i.imgur.com/tGbaZCY.jpg");
 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 // 2. Open InputStream to connection
 conn.connect();
@@ -253,82 +253,46 @@ imageView.setImageBitmap(bitmap);
 Here's the complete code needed to construct an `AsyncTask` that downloads a remote image and displays the image in an `ImageView` using just the official Google Android SDK. See the [[Creating and Executing Async Tasks]] for more information about executing asynchronous background tasks: 
 
 ```java
-package com.example.simplenetworking;
-
 public class MainActivity extends Activity {
-	ImageView ivBasicImage;
+    private ImageView ivBasicImage;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-		ivBasicImage = (ImageView) findViewById(R.id.ivBasicImage);
-		String url = "http://i.imgur.com/tGbaZCY.jpg";
-		// Download image from URL and display within ImageView
-		new ImageDownloadTask().execute(url);
-	}
-        
-	// Defines the background task to download and then load the image within the ImageView
-	private class ImageDownloadTask extends AsyncTask<String, Void, Bitmap> {
-		protected Bitmap doInBackground(String... addresses) {
-			// Convert string to URL
-			URL url = getUrlFromString(addresses[0]);
-			// Get input stream
-			InputStream in = getInputStream(url);
-			// Decode bitmap
-			Bitmap bitmap = decodeBitmap(in);
-			// Return bitmap result
-			return bitmap;
-		}
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ivBasicImage = (ImageView) findViewById(R.id.ivBasicImage);
+        String url = "http://i.imgur.com/tGbaZCY.jpg";
+        // Download image from URL and display within ImageView
+        new ImageDownloadTask().execute(url);
+    }
 
-		// Fires after the task is completed, displaying the bitmap into the ImageView
-		@Override
-		protected void onPostExecute(Bitmap result) {
-			// Set bitmap image for the result
-			ivBasicImage.setImageBitmap(result);
-		}
-               
-		// Returns the URL object based on the address given
-		private URL getUrlFromString(String address) {
-			URL url;
-			try {
-				url = new URL(address);
-			} catch (MalformedURLException e1) {
-				url = null;
-			}
-			return url;
-		}
+    // Defines the background task to download and then load the image within the ImageView
+    private class ImageDownloadTask extends AsyncTask<String, Void, Bitmap> {
+        protected Bitmap doInBackground(String... addresses) {
+            Bitmap bitmap = null;
+            try {
+                // 1. Declare a URL Connection
+                URL url = new URL(addresses[0]);
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                // 2. Open InputStream to connection
+                conn.connect();
+                InputStream in = conn.getInputStream();
+                // 3. Download and decode the bitmap using BitmapFactory
+                bitmap = BitmapFactory.decodeStream(in);
+                in.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return bitmap;
+        }
 
-		// Returns an input stream by connecting to the given URL
-		private InputStream getInputStream(URL url) {
-			InputStream in;
-			// Open connection
-			HttpURLConnection conn;
-			try {
-				conn = (HttpURLConnection) url.openConnection();
-				conn.connect();
-				in = conn.getInputStream();
-			} catch (IOException e) {
-				in = null;
-			}
-			return in;
-		}
-                
-		// Convert the input stream into a Bitmap object using BitmapFactory
-		private Bitmap decodeBitmap(InputStream in) {
-			Bitmap bitmap;
-			try {
-				// Turn response into Bitmap
-				bitmap = BitmapFactory.decodeStream(in);
-				// Close the input stream
-				in.close();
-			} catch (IOException e) {
-				in = null;
-				bitmap = null;
-			}
-			return bitmap;
-		}
-	}
+        // Fires after the task is completed, displaying the bitmap into the ImageView
+        @Override
+        protected void onPostExecute(Bitmap result) {
+            // Set bitmap image for the result
+            ivBasicImage.setImageBitmap(result);
+        }
+    }
 }
 ```
 
