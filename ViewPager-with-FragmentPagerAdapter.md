@@ -187,6 +187,12 @@ vpPager.setOnPageChangeListener(new OnPageChangeListener() {
 });
 ```
 
+## Tabbed Interface with Pager
+
+We can use the ViewPager to display a tabbed indicator in order to create tabs to display our fragments. While there are several ways to achieve this the recommended method is to use the third-party [PagerSlidingTabStrip|Sliding-Tabs-with-PagerSlidingTabStrip]] library. 
+
+![Tabs](http://i.imgur.com/a2wpJ80.png)
+
 ## Dynamic ViewPager Fragments
 
 In certain cases, we may require a dynamic `ViewPager` with pages being added or removed on the fly. If your ViewPager is more dynamic with many pages and fragments, we will want to use the the alternate [FragmentStatePagerAdapter](http://developer.android.com/reference/android/support/v4/app/FragmentStatePagerAdapter.html) instead. Below shows us how to use this and also intelligently cache the fragments for easy lookup.
@@ -257,6 +263,7 @@ adapterViewPager.getRegisteredFragment(vpPager.getCurrentItem());
 This pattern should save your app quite a deal of memory and allow for much easier management of fragments within your pager for the right situation.
 
 ## Set Off Screen Page Limit
+
 Alternatively, you can use the method setOffscreenPageLimit(int limit) provided by ViewPager to tell the system how many pages' instances you want the system to keep in memory on either side of your current page. As a result, more memory will be consumed. So be careful when tweaking this setting if your pages have complex layouts. 
 For example, to let the system keep 3 pages' instances on both sides of the current page:
 ```java
