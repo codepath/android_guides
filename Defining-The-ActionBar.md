@@ -11,7 +11,7 @@ Important to note that prior to 3.0, there was no ActionBar although there is a 
 
 ## ActionBar Basics
 
-Every application unless otherwise specified has an ActionBar by default. The ActionBar by default just has the application icon and an activity title. 
+Every application unless otherwise specified has an ActionBar by default. The ActionBar by default just has the application icon and an activity title.
 
 ![ActionBar](http://i.imgur.com/DighSEo.png)
 
@@ -129,6 +129,8 @@ public boolean onOptionsItemSelected(MenuItem item) {
 ```
 
 and then you can handle all the action buttons in this single method.
+
+## ToolBar Basics
 
 ## References
 
