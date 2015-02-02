@@ -131,6 +131,67 @@ public boolean onOptionsItemSelected(MenuItem item) {
 and then you can handle all the action buttons in this single method.
 
 ## ToolBar Basics
+ToolBar was introduced in Android Lollipop, API 21 release and is a complete replacement to ActionBar. It's a ViewGroup so you can place it anywhere in your layout. ToolBar also provides greater control to customize its appearance for the same reason.
+
+ToolBar works well with apps targeted to API 21 and above. However, Android has updated the AppCompat support libraries so the ToolBar can be used on lower Android OS devices as well. In AppCompat, ToolBar is implemented in the `android.support.v7.widget.Toolbar` class.
+
+There are two ways to use Toolbar:
+* Use a Toolbar as an Action Bar when you want to use the existing Action Bar facilities (such as menu inflation and selection, ActionBarDrawerToggle, and so on) but want to have more control over its appearance.
+* Use a standalone Toolbar when you want to use the pattern in your app for situations that an Action Bar would not support; for example, showing multiple toolbars on the screen, spanning only part of the width, and so on.
+
+### Using ToolBar as ActionBar
+To use Toolbar as an ActionBar, first disable the decor-provided ActionBar. The easiest way is to have your theme extend from `Theme.AppCompat.NoActionBar` (or its light variant) in `styles.xml` file.
+
+```xml
+<resources>
+  <!-- Base application theme. -->
+  <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+  </style>
+</resources>
+```
+
+Secondly, add the App Compact V7 support support library to your application `build.gradle` file.
+
+```xml
+dependencies {
+compile fileTree(dir: 'libs', include: ['*.jar'])
+compile "com.android.support:appcompat-v7:21.0.+"
+}
+```
+
+Now you need to add Toolbar to your Activity layout.
+
+```xml
+<android.support.v7.widget.Toolbar
+  android:id="@+id/toolbar"
+  android:minHeight="?attr/actionBarSize"  
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:background="?attr/colorPrimary">
+</android.support.v7.widget.Toolbar>
+```
+As Toolbar is just a ViewGroup, you can style and position it however you want.
+
+Then in your Activity or Fragment, set the Toolbar to act as your ActionBar by using `setSupportActionBar(Toolbar)`` method.
+
+```java
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
+
+public class MyActivity extends ActionBarActivity{
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_my);
+
+    // Set a ToolBar to replace the ActionBar.
+    Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+    setSupportActionBar(toolbar);
+  }
+}
+```
+From this point on, all menu items are displayed in your Toolbar, populated via the standard options menu callbacks.
 
 ## References
 
@@ -139,3 +200,4 @@ and then you can handle all the action buttons in this single method.
  * <http://developer.android.com/reference/android/app/ActionBar.html>
  * <http://www.vogella.com/articles/AndroidActionBar/article.html>
  * <http://jgilfelt.github.io/android-actionbarstylegenerator>
+ * <http://android-developers.blogspot.com/2014/10/appcompat-v21-material-design-for-pre.html>
