@@ -2,7 +2,7 @@ This page will compile common issues experienced with Android Studio 1.0 or abov
 
 ## Debugging
 
-If you want to do more in-depth debugging in your code, you can setup breakpoints in your code by clicking on the left side pane and then clicking on Run->Debug.    You can also click on the bug icon if you've enabled the Toolbar (View->Enable Toolbar):
+If you want to do more in-depth debugging in your code, you can setup breakpoints in your code by clicking on the left side pane and then clicking on `Run`->`Debug`.    You can also click on the bug icon if you've enabled the Toolbar (`View`->`Enable Toolbar`):
 
 ![http://i.imgur.com/zGh8wZ0.png](http://i.imgur.com/zGh8wZ0.png)
 
@@ -19,6 +19,10 @@ If you are having issues trying to connect to the emulator or see any type of "C
 ![http://i.imgur.com/srLBOMJ.gif](http://i.imgur.com/srLBOMJ.gif)
 
 ## Android Studio Issues
+
+* If you're opening another Android Studio project and the project fails to compile, you may see "failed to find Build Tools revision x.x.x" at the bottom of the screen.  Since this package is constantly being changed, it should be no surprise that other people who have installed Android Studio may have different versions. You can either click the link below to install this specific Build Tools version, or you can modify the build.gradle file to match the version you currently have installed.
+
+![http://i.imgur.com/IsAWMrl.png](http://i.imgur.com/IsAWMrl.png)
 
 * If you decide to rename any of your ID tags in your XML files, you may get "No resource found that matches given name."   You will need to do a Rebuild Project so that the entire resource files can be regenerated and the build/ directories are removed.  Note: Clean Project may not work.
 
