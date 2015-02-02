@@ -110,6 +110,7 @@ This "standard pack" listed below are libraries that are quite popular, widely a
  * [greenDAO](https://github.com/greenrobot/greenDAO)
  * [SugarORM](http://satyan.github.io/sugar/)
  * [ORMLite](http://ormlite.com/sqlite_java_android_orm.shtml)
+ * [Realm](https://github.com/realm/realm-java)
 
 ### Compatibility
 
