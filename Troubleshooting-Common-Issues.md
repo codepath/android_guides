@@ -6,6 +6,12 @@ If you want to do more in-depth debugging in your code, you can setup breakpoint
 
 ![http://i.imgur.com/zGh8wZ0.png](http://i.imgur.com/zGh8wZ0.png)
 
+## LogCat
+
+Android Studio contains a panel to receive logging messages from the emulator, known as [LogCat](http://developer.android.com/tools/help/logcat.html). If you are not seeing any log messages, click on the Restart icon ![http://i.imgur.com/YXEhSsI.png](http://i.imgur.com/YXEhSsI.png).  
+
+![http://i.imgur.com/xP3dQcG.png](http://i.imgur.com/xP3dQcG.png)
+
 ## Android Studio Issues
 
 * If you decide to rename any of your ID tags in your XML files, you may get "No resource found that matches given name."   You will need to do a Rebuild Project so that the entire resource files can be regenerated and the build/ directories are removed.  Note: Clean Project may not work.
