@@ -12,11 +12,17 @@ Android Studio contains a panel to receive logging messages from the emulator, k
 
 ![http://i.imgur.com/xP3dQcG.png](http://i.imgur.com/xP3dQcG.png)
 
+## Resetting adb
+
+If you are having issues trying to connect to the emulator or see any type of "Connection refused" errors, you may need to reset the Android Debug Bridge.  You can go to `Tools`->`Android`->`Android Device Monitor`.  Click on the mobile device icon and click on the arrow facing down to find the `Reset adb` option.
+
+![http://i.imgur.com/srLBOMJ.gif](http://i.imgur.com/srLBOMJ.gif)
+
 ## Android Studio Issues
 
 * If you decide to rename any of your ID tags in your XML files, you may get "No resource found that matches given name."   You will need to do a Rebuild Project so that the entire resource files can be regenerated and the build/ directories are removed.  Note: Clean Project may not work.
 
-* If you see org.gradle.tooling.GradleConnectionException errors, you may need to install a newer version of JDK (there have been reports of 1.7.0_71 having this issue)
+* If you see org.gradle.tooling.GradleConnectionException errors, you may need to install a newer version of JDK (there have been reports of 1.7.0_71 having this issue).  First try to restart the adb server first.
 
 ![http://i.imgur.com/1kWwmuh.png](http://i.imgur.com/1kWwmuh.png)
 
