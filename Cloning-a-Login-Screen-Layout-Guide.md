@@ -14,19 +14,21 @@ First, I will make the downloadable assets available. Keep in mind these were st
  * [Facebook Connect](http://i.imgur.com/TJxrci5.png/facebook_connect.png)
  * [LinkedIn Connect](http://i.imgur.com/dhYw2xF.png/linkedin_connect.png)
 
-Download those and **drag the button images into the drawable-xhdpi folder** from the file system: 
+Download those and import the images one by one into the drawable folder as shown below:
 
-<img width="500" src="http://i.imgur.com/ORFbSDO.gif" />
+<img width="500" src="http://i.imgur.com/OiIeLdKl.gif" />
 
-Note that in production applications you would multiple sizes of these images for [different image densities](http://developer.android.com/guide/practices/screens_support.html#DesigningResources). We are going to ignore that and provide only extra-high density for this demo (they will be resampled for other densities).
+Note that in production applications you would multiple sizes of these images for [different image densities](http://developer.android.com/guide/practices/screens_support.html#DesigningResources).
 
 ### Create Project
 
 Generate a new Android project that uses the highlight icon as the launcher icon:
 
-<img width="500" src="http://i.imgur.com/fGBDHSi.gif" />
+<img width="500" src="http://i.imgur.com/aoNyTYcl.gif" />
 
-Generate the project with **minimum SDK of 13** and no additional changes.
+<img width="500" src="http://i.imgur.com/ZKjFv99l.gif" />
+
+Generate the project with **minimum SDK of 15** and no additional changes.
 
 ### Start Basic Layout
 
@@ -104,11 +106,11 @@ Now, let's drag in the TextViews for the screen. (There's five of these). First,
 <resources>
     <string name="highlight_preamble">To use Highlight, please sign in with one of the services below:</string>
     <string name="why_not_email_title">Why not email?</string>
-    <string name="why_not_email_body">Highlight is based on real identity and mutual friends. 
-        Using these services allows us to show you how you\\'re connected to the people around you. 
+    <string name="why_not_email_body">Highlight is based on real identity and mutual friends.
+        Using these services allows us to show you how you\\'re connected to the people around you.
         It also makes it super easy to create a Highlight profile.
     </string>
-    <string name="feedback_label">Please <a href="http://highlight.com">let us know</a> if you have feedback 
+    <string name="feedback_label">Please <a href="http://highlight.com">let us know</a> if you have feedback
         on this or if you would like to log in with another identity service. Thanks!
     </string>
     <string name="permission_label">We won\\'t post things without your permission.</string>
@@ -125,7 +127,7 @@ Let's add basic styling:
 
  * TextView should be set to "14sp" and `textColor` of "#7e7e7e"
  * "To use Highlight" view should be set to `textColor` of "#575757"
- * "Why not email?" view `textStyle` should be set to bold 
+ * "Why not email?" view `textStyle` should be set to bold
  * "We won't post things" should be set to `textColor` of "#bbbbbb" and `textSize` of 12sp, and use `layout_centerHorizontal` to center the text.
  * Estimate margin between elements based on mockup
 
@@ -314,7 +316,7 @@ In comparison to the original mockup:
 
 <img width="400" src="http://www.android-app-patterns.com/img/sets/login-screens/155_2_login-screens.png" />
 
-While this is by no means a perfect clone, this guide shows the process of taking a mockup and rebuilding that step by step into a useable activity view. 
+While this is by no means a perfect clone, this guide shows the process of taking a mockup and rebuilding that step by step into a useable activity view.
 
 #### Addendum
 
