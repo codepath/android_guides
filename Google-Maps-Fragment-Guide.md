@@ -139,7 +139,7 @@ Use this checklist for troubleshooting below:
  * Did you download the latest [Google Play Services APK](http://goo.im/gapps/gapps-jb-20130813-signed.zip) and install that onto your emulator? See the [[google play genymotion section|Google-Maps-Fragment-Guide#setup-google-play-services]].
  * Did you try running "Play Store" on your emulator and sign in with a Google account?
  * Uninstall the "Map Demo" from the emulator first, then re-install
- * Restart Eclipse and try to launch the app again 
+ * Restart Android Studio and try to launch the app again 
  * Restart your computer and try to launch the app again
 
 Hopefully with these troubleshooting steps you have gotten things working!
