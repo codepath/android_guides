@@ -8,7 +8,7 @@ If you want to do more in-depth debugging in your code, you can setup breakpoint
 
 ## LogCat
 
-Android Studio contains a panel to receive logging messages from the emulator, known as [LogCat](http://developer.android.com/tools/help/logcat.html). If you are not seeing any log messages, click on the Restart icon ![http://i.imgur.com/YXEhSsI.png](http://i.imgur.com/YXEhSsI.png).  
+Android Studio contains a panel to receive logging messages from the emulator, known as [LogCat](http://developer.android.com/tools/help/logcat.html). If you are not seeing any log messages, click on the Restart icon ![http://imgur.com/kQKr1zv.png](http://imgur.com/kQKr1zv.png).  
 
 ![http://i.imgur.com/xP3dQcG.png](http://i.imgur.com/xP3dQcG.png)
 
