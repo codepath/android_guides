@@ -136,8 +136,8 @@ ToolBar was introduced in Android Lollipop, API 21 release and is a complete rep
 ToolBar works well with apps targeted to API 21 and above. However, Android has updated the AppCompat support libraries so the ToolBar can be used on lower Android OS devices as well. In AppCompat, ToolBar is implemented in the `android.support.v7.widget.Toolbar` class.
 
 There are two ways to use Toolbar:
-* Use a Toolbar as an Action Bar when you want to use the existing Action Bar facilities (such as menu inflation and selection, ActionBarDrawerToggle, and so on) but want to have more control over its appearance.
-* Use a standalone Toolbar when you want to use the pattern in your app for situations that an Action Bar would not support; for example, showing multiple toolbars on the screen, spanning only part of the width, and so on.
+ * Use a Toolbar as an Action Bar when you want to use the existing Action Bar facilities (such as menu inflation and selection, ActionBarDrawerToggle, and so on) but want to have more control over its appearance.
+ * Use a standalone Toolbar when you want to use the pattern in your app for situations that an Action Bar would not support; for example, showing multiple toolbars on the screen, spanning only part of the width, and so on.
 
 ### Using ToolBar as ActionBar
 To use Toolbar as an ActionBar, first disable the decor-provided ActionBar. The easiest way is to have your theme extend from `Theme.AppCompat.NoActionBar` (or its light variant) in `styles.xml` file.
