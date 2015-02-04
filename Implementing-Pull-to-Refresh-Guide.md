@@ -39,7 +39,7 @@ We can use this by first wrapping the scrollable view with a `SwipeRefreshLayout
       android:layout_alignParentTop="true" >
   </ListView>
 
-</android.support.v4.widget.SwipeRefreshLayout>
+</SwipeRefreshLayout>
 ```
 
 ### Step 2: Setup SwipeRefreshLayout
