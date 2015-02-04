@@ -25,7 +25,7 @@ You must download and use a [recent jar](https://dl-ssl.google.com/android/repos
 We can use this by first wrapping the scrollable view with a `SwipeRefreshLayout` in the XML layout:
 
 ```xml
-<SwipeRefreshLayout
+<android.support.v4.widget.SwipeRefreshLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/swipeContainer"
     android:layout_width="match_parent"
@@ -39,7 +39,7 @@ We can use this by first wrapping the scrollable view with a `SwipeRefreshLayout
       android:layout_alignParentTop="true" >
   </ListView>
 
-</SwipeRefreshLayout>
+</android.support.v4.widget.SwipeRefreshLayout>
 ```
 
 ### Step 2: Setup SwipeRefreshLayout
