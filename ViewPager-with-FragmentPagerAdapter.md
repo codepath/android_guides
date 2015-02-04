@@ -158,6 +158,22 @@ public class MainActivity extends FragmentActivity {
 
 And now we have a basic functioning `ViewPager` with any number of fragments as pages which can be swiped between. 
 
+### Selecting or Getting Page
+
+We can access the selected page within the `ViewPager` at any time with the [getCurrentItem](http://developer.android.com/reference/android/support/v4/view/ViewPager.html#getCurrentItem\(\)) method which returns the current page:
+
+```java
+vpPager.getCurrentItem(); // --> 2
+```
+
+The current page can also be changed programmatically with the 
+
+```java
+vpPager.setCurrentItem(2)
+```
+
+With this getter and setter, we can easily access or modify the selected page at runtime.
+
 ### Setup OnPageChangeListener
 
 If the Activity needs to be able listen for changes to the page selected or other events surrounding the `ViewPager`, then we just need to hook into the [ViewPager.OnPageChangeListener](http://developer.android.com/reference/android/support/v4/view/ViewPager.OnPageChangeListener.html) on the `ViewPager` to handle the events:
