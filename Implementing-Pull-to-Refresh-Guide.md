@@ -89,6 +89,8 @@ public class TimelineActivity extends Activity {
 }
 ```
 
+**Note** that upon successful reload, we must also signal that the refresh has completed by calling `setRefreshing(false)`.
+
 ## References
 
 * <http://antonioleiva.com/swiperefreshlayout/>
