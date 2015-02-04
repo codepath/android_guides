@@ -134,6 +134,8 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
 }
 ```
 
+Read the [[ViewPager and FragmentPagerAdapter|ViewPager-with-FragmentPagerAdapter]] for additional details.
+
 ### Setup Sliding Tabs
 
 Finally, we need to attach our `ViewPager` to the `SampleFragmentPagerAdapter` and then configure the sliding tabs with a two step process:
@@ -165,6 +167,8 @@ public class MainActivity extends FragmentActivity {
 Heres the output:
 
 ![Screen 1](http://i.imgur.com/rhRXjLIl.png)
+
+Read the [[ViewPager and FragmentPagerAdapter|ViewPager-with-FragmentPagerAdapter]] for additional details such as how to access and modify the current selected tab.
 
 ### Customize Tab Styles
 
