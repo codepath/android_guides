@@ -235,7 +235,7 @@ See [this stackoverflow post](http://stackoverflow.com/a/3565624/313399) for mor
 
 #### How do I change the background color of the ActionBar?
 
-Customize the theme of the ActionBar in the `styles.xml` as explained in the [[Advanced Actionbar|Extended-ActionBar-Guide#custom-actionbar-styles]] to adjust the color of the ActionBar. Also, check out [this stackoverflow post](http://stackoverflow.com/a/9249702) for more details. 
+Customize the theme of the ActionBar in the `styles.xml` as explained in the [[Advanced ActionBar|Extended-ActionBar-Guide#custom-actionbar-styles]] to adjust the color of the ActionBar. Also, check out [this stackoverflow post](http://stackoverflow.com/a/9249702) for more details. 
 
 #### How do I style the title in the ActionBar?
 
