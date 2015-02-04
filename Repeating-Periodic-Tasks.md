@@ -20,8 +20,6 @@ Using a handler to execute a periodic runnable task is demonstrated below:
 ```java
 // Create the Handler object 
 Handler handler = new Handler();
-// Execute a runnable task as soon as possible
-handler.post(runnableCode);
 // Define the task to be run here
 private Runnable runnableCode = new Runnable() {
     @Override
@@ -32,6 +30,8 @@ private Runnable runnableCode = new Runnable() {
       handler.postDelayed(runnableCode, 2000);
     }
 };
+// Execute a runnable task as soon as possible
+handler.post(runnableCode);
 ```
 
 Remove the scheduled execution of a runnable with:
