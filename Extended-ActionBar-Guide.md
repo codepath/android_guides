@@ -282,7 +282,7 @@ One common example of an ActionView is the built-in `SearchView` which provides 
    <item android:id="@+id/action_search"
           android:orderInCategory="5"
           android:title="Search"
-          android:icon="@drawable/ic_action_search"
+          android:icon="@android:drawable/ic_menu_search"
           app:showAsAction="ifRoom|collapseActionView"
           app:actionViewClass="android.support.v7.widget.SearchView" />
 </menu>
