@@ -1,6 +1,6 @@
 ## Overview
 
-Automated Testing is an important topic that helps us ensure quality when building Android apps. There are many different testing tools and frameworks we can use while developing Android apps. This guide will take a look at the most popular approaches available.
+Automated Testing is an importan topic that helps us ensure quality when building Android apps. There are many different testing tools and frameworks we can use while developing Android apps. This guide will take a look at the most popular approaches available.
 
 ## Usage
 
