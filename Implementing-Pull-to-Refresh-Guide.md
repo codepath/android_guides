@@ -6,14 +6,26 @@ In Android, the common "pull to refresh" UX concept is not built in to a ListVie
 
 [SwipeRefreshLayout](https://developer.android.com/reference/android/support/v4/widget/SwipeRefreshLayout.html) is a ViewGroup that can hold only one scrollable view as a child. This can be either a `ScrollView` or an `AdapterView` such as a `ListView`. 
 
-**Note:** This layout only exists within more recent versions of support-v4 as [explained in this post](http://stackoverflow.com/a/23325011/313399). You must download and use a [recent jar](https://dl-ssl.google.com/android/repository/support_r20.zip) of the support library for this to work.
+**Note:** This layout only exists within more recent versions of support-v4 as [explained in this post](http://stackoverflow.com/a/23325011/313399). Edit your `app/build.gradle` file to include a support library later than v19 SDK:
+
+```gradle
+apply plugin: 'com.android.application'
+
+//...
+
+dependencies {
+    // ...
+       compile 'com.android.support:support-v4:21.0.3'
+}
+```
+You must download and use a [recent jar](https://dl-ssl.google.com/android/repository/support_r20.zip) of the support library for this to work.
 
 ### Step 1: Wrap ListView
 
 We can use this by first wrapping the scrollable view with a `SwipeRefreshLayout` in the XML layout:
 
 ```xml
-<android.support.v4.widget.SwipeRefreshLayout
+<SwipeRefreshLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/swipeContainer"
     android:layout_width="match_parent"
