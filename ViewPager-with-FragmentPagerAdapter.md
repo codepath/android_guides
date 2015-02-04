@@ -158,7 +158,7 @@ public class MainActivity extends FragmentActivity {
 
 And now we have a basic functioning `ViewPager` with any number of fragments as pages which can be swiped between. 
 
-### Selecting or Getting Page
+### Selecting or Getting the Page
 
 We can access the selected page within the `ViewPager` at any time with the [getCurrentItem](http://developer.android.com/reference/android/support/v4/view/ViewPager.html#getCurrentItem\(\)) method which returns the current page:
 
