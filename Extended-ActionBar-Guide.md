@@ -202,7 +202,8 @@ In addition, to the ability to change the ActionBar layout, we can also tweak th
         <item name="titleTextStyle">@style/MyActionBar.TitleTextStyle</item>
     </style>
 
-    <style name="MyActionBar.TitleTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+    <style name="MyActionBar.TitleTextStyle" 
+        parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textColor">#53777A</item>
     </style>
 
