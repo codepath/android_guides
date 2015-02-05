@@ -22,7 +22,7 @@ There are four relevant animation types for us to understand:
 
 Property animations were a more recent Android feature [introduced in 3.0](http://android-developers.blogspot.com/2011/05/introducing-viewpropertyanimator.html). To use animations in a way that is **compatible with pre-3.0 Android versions**, we must use the [NineOldAndroids](http://nineoldandroids.com/) for all our property animations. 
 
-The first thing we should do is [download NineOldAndroids](https://github.com/JakeWharton/NineOldAndroids) and install this as a [library project](http://imgur.com/a/N8baF) in Eclipse for use with your apps. If you are an Android Studio user, add the following dependency to your `build.gradle` file.
+If you are an Android Studio user, add the following dependency to your `build.gradle` file.
 ```xml
 compile 'com.nineoldandroids:library:2.4.0+'
 ```
