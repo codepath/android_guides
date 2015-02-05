@@ -15,6 +15,9 @@ Any View (Button, TextView, etc) has many event listeners that can be attached u
  * `setOnLongClickListener` - Callback for pressing and holding a view
  * `setOnTouchListener` - Callback for touching down or up on a view
 
+
+**Using Java**
+
 In Java Code, attaching to any event works roughly the same way. Let's take the `OnClickListener` as an example. First, you need a reference to the view and then you need to use the `set` method associated with that listener and pass in a class implementing a [particular interface](http://developer.android.com/reference/android/view/View.OnClickListener.html). For example:
 
 ```java
@@ -27,7 +30,11 @@ btnExample.setOnClickListener(new View.OnClickListener() {
 });
 ```
 
-This pattern works for any of the view-based event listeners. In addition `onClick` has a unique shortcut that allows the method to specified within the layout XML. So rather than attaching the event manually in the Java, the method can be attached in the view. For example:
+This pattern works for any of the view-based event listeners.
+
+**Using XML**
+
+In addition `onClick` has a unique shortcut that allows the method to specified within the layout XML. So rather than attaching the event manually in the Java, the method can be attached in the view. For example:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
