@@ -68,7 +68,7 @@ An example of a RelativeLayout:
 </RelativeLayout>
 ```
 
-You can see more about this layout by inspecting the [RelativeLayout.LayoutParams](http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html) docs and the official [RelativeLayout guide](http://developer.android.com/guide/topics/ui/layout/relative.html)
+You can see more about this layout by inspecting the [RelativeLayout.LayoutParams](http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html) docs and the official [RelativeLayout guide](http://developer.android.com/guide/topics/ui/layout/relative.html).
 
 ## FrameLayout
 
