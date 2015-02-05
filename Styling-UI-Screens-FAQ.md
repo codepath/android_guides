@@ -239,7 +239,19 @@ See [this stackoverflow post](http://stackoverflow.com/a/3565624/313399) for mor
 
 #### How do I change the background color of the ActionBar?
 
-Customize the theme of the ActionBar in the `styles.xml` as explained in the [[Advanced ActionBar|Extended-ActionBar-Guide#custom-actionbar-styles]] to adjust the color of the ActionBar. Also, check out [this stackoverflow post](http://stackoverflow.com/a/9249702) for more details. 
+Customize the theme of the ActionBar in your app using the `res/values/styles.xml` as detailed in the [[Advanced ActionBar|Extended-ActionBar-Guide#custom-actionbar-styles]] to adjust the color of the ActionBar. 
+
+#### How do I add the icon to my ActionBar in API 21 or above?
+
+In the new Android 5.0 material design guidelines, the style guidelines have changed to **discourage the use of the icon** in the ActionBar. Although the icon can be added back with:
+
+```java
+getSupportActionBar().setDisplayShowHomeEnabled(true);
+getSupportActionBar().setLogo(R.drawable.ic_launcher);
+getSupportActionBar().setDisplayUseLogoEnabled(true);
+```
+
+You can read more about this on the [material design guidelines](https://developer.android.com/reference/android/support/v7/widget/Toolbar.html) which state: "The use of application icon plus title as a standard layout is discouraged on API 21 devices and newer." 
 
 #### How do I style the title in the ActionBar?
 
