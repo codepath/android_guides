@@ -54,7 +54,7 @@ If you simply want the image to be loaded in the easiest way possible then **jus
 
 Note that you need to make sure the image filename only contains **lowercase letters, numbers and underscores** (i.e my_image_file.png). After renaming the image to a valid resource name, **copy the image into the drawable-mdpi folder** as [[shown here|Cloning-a-Login-Screen-Layout-Guide#cutting-assets]]. Unless you want the image to be a small standard icon size, **do not** use the icon generator (i.e `New Image Asset`) when creating the images. 
 
-Instead to generate images that work at all densities, [download and run this JAR](https://github.com/asystat/Final-Android-Resizer/blob/master/Executable%20Jar/Final%20Android%20Resizer.jar?raw=true) which allows us to select our resources directory, choose an extra high density image and the tool will automatically generate the corresponding lower density image sizes.
+Instead to generate images that work at all densities, check out [this image guide](http://guides.codepath.com/android/Working-with-the-ImageView#usage_supporting-multiple-densities) which allows us to select our resources directory, choose an extra high density image and the tool will automatically generate the corresponding lower density image sizes.
 
 #### How do I control the way images are displayed or scaled within an ImageView?
 
@@ -104,6 +104,10 @@ You can remove the border by either setting `android:background` to "@null" or s
 Using this code the border on the imagebutton will be removed.
 
 ### Views
+
+#### How do I setup click handlers for my views or buttons?
+
+Any view can have a click handler setup by [following this event handler guide](http://guides.codepath.com/android/Basic-Event-Listeners) which triggers an action when the click occurs. 
 
 #### How do I support text with rich formatting (bold words, links) in a TextView?
 
