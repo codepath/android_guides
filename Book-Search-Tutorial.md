@@ -333,7 +333,7 @@ public class BookAdapter extends ArrayAdapter<Book> {
 }
 ```
 
-Now, we need to define a layout to use for visualizing a particular book. Let's create a layout file called `item_book.xml` with a `RelativeLayout` root layout for defining the movie row layout:
+Now, we need to define a layout to use for visualizing a particular book. Let's create a layout file called `item_book.xml` with a `RelativeLayout` root layout for defining the book row layout:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -463,7 +463,7 @@ public class BookListActivity extends ActionBarActivity {
             final ArrayList<Book> books = Book.fromJson(docs);
             // Load model objects into the adapter
             for (Book book : books) {
-              bookAdapter.add(book); // add movie through the adapter
+              bookAdapter.add(book); // add book through the adapter
             }
             bookAdapter.notifyDataSetChanged();
           }
