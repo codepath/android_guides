@@ -3,11 +3,11 @@ In this tutorial, we'll make an app that searches the [OpenLibrary API](https://
 ## The APP
 The app is composed of two screens. The first screen displays a list of books, in which, each book is described by its title, author and cover photo. After a user selects a book from the list, a second screen appears displaying additonal details about the book, including the publisher and no. of pages.
 
-** Book List **
+**Book List**
 
 ![Imgur](http://i.imgur.com/sSINs2zl.png)
 
-** Book Details **
+**Book Details**
 
 ![Imgur](http://i.imgur.com/y9a4AtQl.png)
 
