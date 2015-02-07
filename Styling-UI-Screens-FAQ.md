@@ -235,6 +235,21 @@ and then applied to a button with:
 
 See [this stackoverflow post](http://stackoverflow.com/a/3565624/313399) for more details.
 
+#### How do I hide a view at runtime or make the view collapse within the layout?
+
+Any view can be hidden by calling the `setVisibility` property and setting the `Visibility` flag:
+
+```java
+// This view is invisible, but it still takes up space for layout purposes.
+view.setVisibility(View.INVISIBLE);
+// This view is invisible, and it doesn't take any space for layout purposes.
+view.setVisibility(View.GONE);
+// This view is visible and takes up space within the layout
+view.setVisibility(View.VISIBLE);
+```
+
+You can use `View.INVISIBLE` to hide the element or `View.GONE` to collapse the element entirely.
+
 ### ActionBar
 
 #### How do I change the background color of the ActionBar?
