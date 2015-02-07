@@ -19,6 +19,7 @@ The app is composed of two screens. The first screen displays a list of books, i
 5. How to use ProgressBar?
 6. How to use explicit and implicit intents?
 7. How to communicate data between apps using intents?
+8. How to share remote images?
 
 ## Steps to build app
 ### Create New Project
