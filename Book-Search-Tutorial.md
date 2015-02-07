@@ -689,6 +689,7 @@ public class BookListActivity extends ActionBarActivity {
 
 ### Adding a Detail View
 Let's add a detail view which would display more details about a book when the book was selected within the list. In order to achieve that we would need to:
+
 1. Generate an activity for the details view
 2. Define the detail Layout XML with views
 3. Setup an item click listener for the list of books
