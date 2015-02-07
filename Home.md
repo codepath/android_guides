@@ -119,7 +119,7 @@ Exploring how to allow user interaction and navigation within an app:
 * [[Navigation and Task Stacks]] (Controlling the behavior of the task stack)
 * [[Sharing Content with Intents]] (and ShareActionProvider)
 * [[Using Parcelable]] (Pass data fast between activities)
-* [[Book Search Tutorial]]
+* [[Book Search Tutorial]] (Toolbar with SearchView and sharing content)
 
 ## Networking and Models
 
