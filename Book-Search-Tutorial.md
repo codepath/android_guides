@@ -37,7 +37,7 @@ We'll be using the following icon for our app.
 
 <a href="http://imgur.com/3odnsIE"><img src="http://i.imgur.com/3odnsIEl.png" title="source: imgur.com" /></a>
 
-We'll use the following placeholder image when the cover image is not available.
+We'll use the following image when the cover image is not available.
 
 <a href="http://imgur.com/DTkTKtI"><img src="http://i.imgur.com/DTkTKtIl.png" title="source: imgur.com" /></a>
 
@@ -56,18 +56,18 @@ Once you add this, network requests can be executed.
 ### Setup BookListActivity Layout
 In the `res/layout/activity_book_list.xml`, lets drop out a ListView with the id `lvBooks`:
 ```xml
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  tools:context=".BookSearchActivity">
+  android:orientation="vertical"
+  tools:context=".BookListActivity">
 
   <ListView
     android:id="@+id/lvBooks"
     android:layout_width="match_parent"
     android:layout_height="match_parent" />
-
-  </RelativeLayout>
+</LinearLayout>
 ```
 ![Imgur](http://i.imgur.com/4e1PlU4l.png)
 
@@ -240,7 +240,7 @@ public class Book {
 }
 ```
 
-Note that by default [Covers API](https://openlibrary.org/dev/docs/api/covers) returns a blank image if the cover cannot be found. If you append ?default=false to the end of the URL, then it returns a 404 instead. This is important because we want to display a placeholder image in case the cover cannot be found.
+Note that by default [Covers API](https://openlibrary.org/dev/docs/api/covers) returns a blank image if the cover cannot be found. If you append ?default=false to the end of the URL, then it returns a 404 instead. This is important because we want to display an error drawable in case the cover cannot be found.
 
 Next, let's add a factory method for deserializing the JSON response in order to construct an instance of the `Book` class:
 
@@ -406,7 +406,7 @@ public class BookAdapter extends ArrayAdapter<Book> {
     // Populate the data into the template view using the data object
     viewHolder.tvTitle.setText(book.getTitle());
     viewHolder.tvAuthor.setText(book.getAuthor());
-    Picasso.with(getContext()).load(Uri.parse(book.getCoverUrl())).placeholder(R.drawable.ic_nocover).into(viewHolder.ivCover);
+    Picasso.with(getContext()).load(Uri.parse(book.getCoverUrl())).error(R.drawable.ic_nocover).into(viewHolder.ivCover);
     // Return the completed view to render on screen
     return convertView;
   }
@@ -461,6 +461,8 @@ public class BookListActivity extends ActionBarActivity {
             docs = response.getJSONArray("docs");
             // Parse json array into array of model objects
             final ArrayList<Book> books = Book.fromJson(docs);
+            // Remove all books from the adapter
+            bookAdapter.clear();
             // Load model objects into the adapter
             for (Book book : books) {
               bookAdapter.add(book); // add book through the adapter
@@ -481,4 +483,522 @@ After running the app, we should see the following output:
 
 ![Imgur](http://i.imgur.com/NJmF42Yl.png)
 
-Note that the search query is hardcoded in `fetchBooks()` method. We will fix this shortly. In the next step, we will replace the ActionBar with a ToolBar, add SearchView to ToolBar and pass the query entered in the SearchView to retrieve the books from OpenLibrary search API.
+Note that the search query is hardcoded in `fetchBooks()` method. We'll fix this shortly. In the next step, we'll replace the ActionBar with a ToolBar, add SearchView to ToolBar and pass the query entered in the SearchView to retrieve the books from OpenLibrary search API.
+
+### Replace ActionBar with ToolBar
+We can continue using the ActionBar which is included in all activities by default, but I wanted to introduce a new concept here called Toolbar which was introduced in Android Lollipop, API 21 release. To learn more about ToolBar, checkout the cliffnotes on [ToolBar Basics](http://guides.codepath.com/android/Defining-The-ActionBar#toolbar-basics).
+
+To use ToolBar as an ActionBar, disable the default ActionBar. We'll do this by deriving our app theme from `Theme.AppCompat.Light.NoActionBar` in `styles.xml` file.
+
+```xml
+<resources>
+  <!-- Base application theme. -->
+  <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+  </style>
+</resources>
+```
+Next, we must add a ToolBar to `activity_book_list.xml` file. Unlike an ActionBar, a ToolBar can be placed at any arbitrary level of nesting within a view hierarchy. Make sure to add it above your ListView.
+
+```xml
+<android.support.v7.widget.Toolbar
+  android:id="@+id/toolbar"
+  android:layout_height="wrap_content"
+  android:layout_width="match_parent"
+  android:minHeight="?attr/actionBarSize"
+  android:background="?attr/colorPrimary" />
+```
+
+Now that we have added a ToolBar to out layout file, we can programmatically set it as an ActionBar in `BookListActivity.java`
+
+```java
+public class BookListActivity extends ActionBarActivity {
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_book_list);
+    // Get the support ToolBar
+    final Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+    setSupportActionBar(toolbar);
+    ...
+  }  
+}
+```
+
+If you run your app now, you should see the following output:
+
+![Imgur](http://i.imgur.com/srbPUJ9l.png)
+
+
+### Add SearchView to ActionBar
+We can use a SearchView to search for a book by its author or title. Using the SearchView widget as an item in the ActionBar is the preferred way to provide search in Android. To add SearchView to your ActionBar, add the SearchView action item in `menu_book_list.xml` file.
+
+```xml
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  tools:context=".BookListActivity">
+  <item
+    android:id="@+id/action_search"
+    android:title="Search"
+    android:icon="@android:drawable/ic_menu_search"
+    app:showAsAction="always"
+    app:actionViewClass="android.support.v7.widget.SearchView" />
+</menu>
+```
+
+If you run your app now, the SearchView appears in the app's action bar, but it isn't functional.
+
+![Imgur](http://i.imgur.com/TtRNzjml.png)
+
+Now we need to hook up a listener for when a search is performed in `BookListActivity.java`. Also note that we modified `fetchBooks()` method to accept the search query and removed the call to fetch books from `onCreate()`.
+
+```java
+public class BookListActivity extends ActionBarActivity {
+  ...
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    ...
+    // Fetch the data remotely
+    // fetchBooks();
+  }
+
+  // Executes an API call to the OpenLibrary search endpoint, parses the results
+  // Converts them into an array of book objects and adds them to the adapter
+  private void fetchBooks(String query) {
+    client = new BookClient();
+    client.getBooks(query, new JsonHttpResponseHandler() {
+      ...
+    });
+  }
+
+  @Override
+  public boolean onCreateOptionsMenu(Menu menu) {
+    // Inflate the menu; this adds items to the action bar if it is present.
+    getMenuInflater().inflate(R.menu.menu_book_list, menu);
+    final MenuItem searchItem = menu.findItem(R.id.action_search);
+    final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+    searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+      @Override
+      public boolean onQueryTextSubmit(String query) {
+        // Fetch the data remotely
+        fetchBooks(query);
+        // Reset SearchView
+        searchView.clearFocus();
+        searchView.setQuery("", false);
+        searchView.setIconified(true);
+        // Set activity title to search query
+        BookListActivity.this.setTitle(query);
+        return true;
+      }
+
+      @Override
+      public boolean onQueryTextChange(String s) {
+        return false;
+      }
+    });
+    return true;
+  }
+}
+```
+
+You should now be able to search for books from the SearchView in your ActionBar.
+![Imgur](http://i.imgur.com/sSINs2zl.png)
+
+### Show Progress Bar
+A ProgressBar should be used when we want the user to wait till a task completes. It's a good practice to always show a ProgressBar before making a network call.
+
+To display a result-based ProgressBar, add a ProgressBar to `activity_book_list.xml` file.
+
+```xml
+<LinearLayout
+...>
+
+  <android.support.v7.widget.Toolbar
+  ... />
+
+  <ProgressBar
+  android:id="@+id/progress"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  style="?android:attr/progressBarStyleHorizontal"
+  android:max="100"
+  android:indeterminate="true"
+  android:visibility="gone" />
+
+  <ListView
+  ... />
+
+</LinearLayout>
+```
+
+In `BookListActivity.java`, show ProgressBar before calling the search API and hide it when you receive the results back from the server.
+
+```java
+public class BookListActivity extends ActionBarActivity {
+  ...
+  private ProgressBar progress;
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    ...
+    progress = (ProgressBar) findViewById(R.id.progress);
+  }
+
+  // Executes an API call to the OpenLibrary search endpoint, parses the results
+  // Converts them into an array of book objects and adds them to the adapter
+  private void fetchBooks(String query) {
+    // Show progress bar before making network request
+    progress.setVisibility(ProgressBar.VISIBLE);
+    ...
+
+    client.getBooks(query, new JsonHttpResponseHandler() {
+      @Override
+      public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+        try {
+          // hide progress bar
+          progress.setVisibility(ProgressBar.GONE);
+          ...
+        } catch (JSONException e) {
+          // Invalid JSON format, show appropriate error.
+          e.printStackTrace();
+        }
+      }
+
+      @Override
+      public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+        progress.setVisibility(ProgressBar.GONE);
+      }
+    });
+  }
+}
+```
+
+### Adding a Detail View
+Let's add a detail view which would display more details about a book when the book was selected within the list. In order to achieve that we would need to:
+1. Generate an activity for the details view
+2. Define the detail Layout XML with views
+3. Setup an item click listener for the list of books
+4. Fire an intent when a user selects a book from the list
+5. Pass the book through the intent and populate the detail view
+
+First, let's generate an activity to display book details and name it `BookDetailActivity.java`. Edit the layout file `activity_book_detail.xml` to include book details and a cover photo.
+
+```xml
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  tools:context=".BookListActivity">
+
+  <android.support.v7.widget.Toolbar
+    android:id="@+id/toolbar"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:minHeight="?attr/actionBarSize"
+    android:background="?attr/colorPrimary" />
+
+  <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+      android:gravity="center_horizontal"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+
+      <ImageView
+        android:id="@+id/ivBookCover"
+        android:layout_marginTop="8dp"
+        android:layout_width="280dp"
+        android:layout_height="280dp" />
+
+      <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:layout_marginTop="8dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
+
+      <TextView
+        android:id="@+id/tvAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:layout_marginTop="8dp" />
+
+      <View
+        android:background="@android:color/darker_gray"
+        android:layout_width="280dp"
+        android:layout_height="1px"
+        android:layout_marginTop="8dp" />
+
+      <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:text="Published By"
+      android:textSize="14sp" />
+
+      <TextView
+      android:id="@+id/tvPublisher"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textSize="14sp" />
+
+      <TextView
+      android:id="@+id/tvPageCount"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:textSize="14sp" />
+    </LinearLayout>
+  </ScrollView>
+</LinearLayout>
+```
+
+Next, we want to be able to pass the book object from the list to this detail view, so let's make our `Book` class serializable:
+
+```java
+public class Book implements Serializable {
+  ...
+}
+```
+
+Let's now add an item click handler to our `BookListActivity.java` which will launch the detail view with an intent:
+
+```java
+public class BookListActivity extends ActionBarActivity {
+  public static final String BOOK_DETAIL_KEY = "book";
+  ...
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    ...
+    setupBookSelectedListener();
+  }
+
+  public void setupBookSelectedListener() {
+    lvBooks.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+      @Override
+      public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        // Launch the detail view passing book as an extra
+        Intent intent = new Intent(BookListActivity.this, BookDetailActivity.class);
+        intent.putExtra(BOOK_DETAIL_KEY, bookAdapter.getItem(position));
+        startActivity(intent);
+      }
+    });
+  }
+
+  ...
+}
+```
+
+In addition to title, author and cover photo, let's also display the no. of pages in a book and its publisher. To fetch this data, we need to call the OpenLibrary [Books API](https://openlibrary.org/dev/docs/api/books). Add a method to `BookClient.java` to fetch extra details of a book.
+
+```java
+public class BookClient {
+  ...
+
+  // Method for accessing books API to get publisher and no. of pages in a book.
+  public void getExtraBookDetails(String openLibraryId, JsonHttpResponseHandler handler) {
+    String url = getApiUrl("books/");
+    client.get(url + openLibraryId + ".json", handler);
+  }
+}
+```
+
+Now, let's populate the data from the book into the details view with `BookDetailActivity.java`:
+
+```java
+public class BookDetailActivity extends ActionBarActivity {
+  private ImageView ivBookCover;
+  private TextView tvTitle;
+  private TextView tvAuthor;
+  private TextView tvPublisher;
+  private TextView tvPageCount;
+  private BookClient client;
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_book_detail);
+    final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+    setSupportActionBar(toolbar);
+    // Fetch views
+    ivBookCover = (ImageView) findViewById(R.id.ivBookCover);
+    tvTitle = (TextView) findViewById(R.id.tvTitle);
+    tvAuthor = (TextView) findViewById(R.id.tvAuthor);
+    tvPublisher = (TextView) findViewById(R.id.tvPublisher);
+    tvPageCount = (TextView) findViewById(R.id.tvPageCount);
+    // Use the book to populate the data into our views
+    Book book = (Book) getIntent().getSerializableExtra(BookListActivity.BOOK_DETAIL_KEY);
+    loadBook(book);
+  }
+
+  // Populate data for the book
+  private void loadBook(Book book) {
+    //change activity title
+    this.setTitle(book.getTitle());
+    // Populate data
+    Picasso.with(this).load(Uri.parse(book.getLargeCoverUrl())).error(R.drawable.ic_nocover).into(ivBookCover);
+    tvTitle.setText(book.getTitle());
+    tvAuthor.setText(book.getAuthor());
+    // fetch extra book data from books API
+    client = new BookClient();
+    client.getExtraBookDetails(book.getOpenLibraryId(), new JsonHttpResponseHandler() {
+      @Override
+      public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+        try {
+          if (response.has("publishers")) {
+            // display comma separated list of publishers
+            final JSONArray publisher = response.getJSONArray("publishers");
+            final int numPublishers = publisher.length();
+            final String[] publishers = new String[numPublishers];
+            for (int i = 0; i < numPublishers; ++i) {
+              publishers[i] = publisher.getString(i);
+            }
+            tvPublisher.setText(TextUtils.join(", ", publishers));
+          }
+          if (response.has("number_of_pages")) {
+            tvPageCount.setText(Integer.toString(response.getInt("number_of_pages")) + " pages");
+          }
+        } catch (JSONException e) {
+          e.printStackTrace();
+        }
+      }
+      });
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+      // Inflate the menu; this adds items to the action bar if it is present.
+      getMenuInflater().inflate(R.menu.menu_book_detail, menu);
+      return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+      // Handle action bar item clicks here. The action bar will
+      // automatically handle clicks on the Home/Up button, so long
+      // as you specify a parent activity in AndroidManifest.xml.
+      int id = item.getItemId();
+
+      //noinspection SimplifiableIfStatement
+      if (id == R.id.action_settings) {
+        return true;
+      }
+
+      return super.onOptionsItemSelected(item);
+    }
+}
+```
+
+If you run your app now, your detail screen should look similar to this:
+
+![Imgur](http://i.imgur.com/SJSEsVml.png)
+
+
+### Add Share Intent
+Let's use an implicit intent `ACTION_SEND` to share a book with your friends. We'll share book title and cover photo.
+
+Start by adding a menu item in `menu_book_detail.xml`.
+
+```xml
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  tools:context=".BookListActivity">
+  <item
+    android:id="@+id/action_share"
+    app:showAsAction="ifRoom"
+    android:icon="@android:drawable/ic_menu_share"
+    android:title="Share" />
+</menu>  
+```
+
+Trigger a share intent and bring up the share menu on click of share menu item. Also note how remote images are shared using shared intent.
+
+```java
+public class BookDetailActivity extends ActionBarActivity {
+  ...
+
+  @Override
+  public boolean onOptionsItemSelected(MenuItem item) {
+    // Handle action bar item clicks here. The action bar will
+    // automatically handle clicks on the Home/Up button, so long
+    // as you specify a parent activity in AndroidManifest.xml.
+    int id = item.getItemId();
+
+    if (id == R.id.action_share) {
+      setShareIntent();
+      return true;
+    }
+    return super.onOptionsItemSelected(item);
+  }
+
+  private void setShareIntent() {
+    ImageView ivImage = (ImageView) findViewById(R.id.ivBookCover);
+    final TextView tvTitle = (TextView)findViewById(R.id.tvTitle);
+    // Get access to the URI for the bitmap
+    Uri bmpUri = getLocalBitmapUri(ivImage);
+    // Construct a ShareIntent with link to image
+    Intent shareIntent = new Intent();
+    // Construct a ShareIntent with link to image
+    shareIntent.setAction(Intent.ACTION_SEND);
+    shareIntent.setType("*/*");
+    shareIntent.putExtra(Intent.EXTRA_TEXT, (String)tvTitle.getText());
+    shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
+    // Launch share menu
+    startActivity(Intent.createChooser(shareIntent, "Share Image"));
+  }
+
+  // Returns the URI path to the Bitmap displayed in cover imageview
+  public Uri getLocalBitmapUri(ImageView imageView) {
+    // Extract Bitmap from ImageView drawable
+    Drawable drawable = imageView.getDrawable();
+    Bitmap bmp = null;
+    if (drawable instanceof BitmapDrawable){
+      bmp = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
+    } else {
+      return null;
+    }
+    // Store image to default external storage directory
+    Uri bmpUri = null;
+    try {
+      File file =  new File(Environment.getExternalStoragePublicDirectory(
+      Environment.DIRECTORY_DOWNLOADS), "share_image_" + System.currentTimeMillis() + ".png");
+      file.getParentFile().mkdirs();
+      FileOutputStream out = new FileOutputStream(file);
+      bmp.compress(Bitmap.CompressFormat.PNG, 90, out);
+      out.close();
+      bmpUri = Uri.fromFile(file);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    return bmpUri;
+  }
+}
+```
+
+Here, `getLocalBitmapUri()` extracts the bitmap from the ImageView and loads it into a file in the default extranl storage directory. To do this, the app will need certain permissions.
+
+Make sure to add the appropriate permissions to your `AndroidManifest.xml`:
+
+```xml
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+```
+
+Here's the final detail view with share icon:
+
+![Imgur](http://i.imgur.com/y9a4AtQl.png)
+
+Tap the share icon and the share menu appears:
+
+![Imgur](http://i.imgur.com/w0ZQQyKl.png)
