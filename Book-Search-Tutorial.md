@@ -1,12 +1,24 @@
 In this tutorial, we'll make an app that searches the [OpenLibrary API](https://openlibrary.org/developers/api) to search books and display cover images. It also allows you to recommend books to friends.
 
+## The APP
+The app is composed of two screens. The first screen displays a list of books, in which, each book is described by its title, author and cover photo. After a user selects a book from the list, a second screen appears displaying additonal details about the book, including the publisher and no. of pages.
+
+** Book List **
+
+![Imgur](http://i.imgur.com/sSINs2zl.png)
+
+** Book Details **
+
+![Imgur](http://i.imgur.com/y9a4AtQl.png)
+
 ## Objectives
 1. How to access a typical RESTful API?
 2. How to parse JSON results and understand JSON format?
 3. How to replace ActionBar with ToolBar?
 4. How to add SearchView to ToolBar to search books?
-5. How to use explicit and implicit intents?
-6. How to communicate data between apps using intents?
+5. How to use ProgressBar?
+6. How to use explicit and implicit intents?
+7. How to communicate data between apps using intents?
 
 ## Steps to build app
 ### Create New Project
