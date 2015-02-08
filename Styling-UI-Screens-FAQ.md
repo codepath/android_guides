@@ -250,6 +250,10 @@ view.setVisibility(View.VISIBLE);
 
 You can use `View.INVISIBLE` to hide the element or `View.GONE` to collapse the element entirely.
 
+#### How would I dynamically color text or a view based on the color palette of an image?
+
+We can use the new [Palette system](http://guides.codepath.com/android/Dynamic-Color-using-Palettes) to easily color any text or backgrounds based on the color scheme of an image at runtime.
+
 ### ActionBar
 
 #### How do I change the background color of the ActionBar?
