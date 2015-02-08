@@ -85,6 +85,7 @@ This "standard pack" listed below are libraries that are quite popular, widely a
  * [Rebound](http://facebook.github.io/rebound/) - Easy spring dynamics
  * [AndroidImageSlider](https://github.com/daimajia/AndroidImageSlider) - Animated image transitions
  * [Paralloid](https://github.com/chrisjenx/Paralloid) - Parallax sliding effect made easy
+ * [FloatingActionButton](https://github.com/makovkastar/FloatingActionButton) - Material design floating buttons made easy
 
 ### Drawing
 
