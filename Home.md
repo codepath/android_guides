@@ -81,6 +81,7 @@ Exploring the gritty details of views, layout, styling and common UI patterns:
 * [[Styling UI Screens FAQ]] (Answers to common questions around building screens)
 * [[Cloning a Login Screen Layout Guide]] (Creating attractive UIs, Q&A)
 * [[Developing Custom Themes]] (Integrating drawables, styles and themes)
+* [[Dynamic Color using Palettes]] (Adaptive colors)
 
 ### AdapterViews
 
