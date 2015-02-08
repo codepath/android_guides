@@ -4,6 +4,7 @@ One of the best ways to learn about Android is to checkout Android code in the w
 
 * [Beginner Android Samples](https://github.com/codepath/intro_android_demo)
 * [Custom ArrayAdapter Demo](https://github.com/codepath/android-custom-array-adapter-demo)
+* [Book Library Search Demo](https://github.com/codepath/android-booksearch-demo)
 * [Rotten Tomatoes Demo](https://github.com/codepath/android-rottentomatoes-demo)
 * [Drawables and Styles Demo](https://github.com/codepath/android-drawable-styles-demo)
 * [Animations and Gestures Demo](https://github.com/codepath/android-animation-gestures-demo)
