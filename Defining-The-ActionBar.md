@@ -150,16 +150,16 @@ To use Toolbar as an ActionBar, first disable the decor-provided ActionBar. The 
 </resources>
 ```
 
-Secondly, add the App Compact V7 support support library to your application `build.gradle` file.
+Secondly, add the AppCompat-v7 support library to your application `build.gradle` file:
 
-```xml
+```gradle
 dependencies {
-compile fileTree(dir: 'libs', include: ['*.jar'])
-compile "com.android.support:appcompat-v7:21.0.+"
+  compile fileTree(dir: 'libs', include: ['*.jar'])
+  compile "com.android.support:appcompat-v7:21.0.+"
 }
 ```
 
-Now you need to add Toolbar to your Activity layout.
+Now you need to add Toolbar to your Activity layout:
 
 ```xml
 <android.support.v7.widget.Toolbar
@@ -170,9 +170,7 @@ Now you need to add Toolbar to your Activity layout.
   android:background="?attr/colorPrimary">
 </android.support.v7.widget.Toolbar>
 ```
-As Toolbar is just a ViewGroup, you can style and position it however you want.
-
-Then in your Activity or Fragment, set the Toolbar to act as your ActionBar by using `setSupportActionBar(Toolbar)`` method.
+As Toolbar is just a `ViewGroup` can be styled and positioned like any other view. Then in your Activity or Fragment, set the Toolbar to act as your ActionBar by using the `setSupportActionBar(Toolbar)` method:
 
 ```java
 import android.support.v7.app.ActionBarActivity;
@@ -191,6 +189,7 @@ public class MyActivity extends ActionBarActivity{
   }
 }
 ```
+
 From this point on, all menu items are displayed in your Toolbar, populated via the standard options menu callbacks.
 
 ## References
