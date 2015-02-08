@@ -222,11 +222,13 @@ ImageView ivBasicImage = (ImageView) findViewById(R.id.ivBasicImage);
 Picasso.with(context).load(imageUri).into(ivBasicImage);
 ```
 
-We can do more sophisticated work with Picasso configuring placeholders, adjusting size of the image, scale type with:
+We can do more sophisticated work with Picasso configuring placeholders, error handling, adjusting size of the image, and scale type with:
 
 ```java
 Picasso.with(context).load(imageUri).fit().centerCrop()
-    .placeholder(R.drawable.user_placeholder).into(imageView);
+    .placeholder(R.drawable.user_placeholder)
+    .error(R.drawable.user_placeholder_error)
+    .into(imageView);
 ```
 
 For more details check out the [Picasso](http://square.github.io/picasso/) documentation. 
