@@ -198,7 +198,6 @@ In addition, to the ability to change the ActionBar layout, we can also tweak th
         <item name="android:titleTextStyle">@style/MyActionBar.TitleTextStyle</item>
 
         <!-- Support library compatibility -->
-        <item name="background">#ECD078</item>
         <item name="titleTextStyle">@style/MyActionBar.TitleTextStyle</item>
     </style>
 
