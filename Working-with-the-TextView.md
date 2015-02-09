@@ -144,7 +144,9 @@ TextView has [native support](http://developer.android.com/reference/android/wid
 />
 ```
 
-**Note:** If you encounter issues with links not being clickable as expected, check out [this stackoverflow post](http://stackoverflow.com/a/2746708) for a workaround. If the **item in the list isn't clickable**, see [this stackoverflow post](http://stackoverflow.com/questions/26980204/listview-with-textview-autolink-not-receiving-onitemclicklistener) or [this issue](https://code.google.com/p/android/issues/detail?id=3414) for solutions.
+If you encounter issues with links not being clickable as expected, check out [this stackoverflow post](http://stackoverflow.com/a/2746708) for a workaround. 
+
+If the **item in the list isn't clickable**, see [this stackoverflow post](http://stackoverflow.com/questions/26980204/listview-with-textview-autolink-not-receiving-onitemclicklistener) or [this issue](https://code.google.com/p/android/issues/detail?id=3414) for solutions.
 
 ## Using Custom Fonts
 
