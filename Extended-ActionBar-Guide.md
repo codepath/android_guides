@@ -185,34 +185,42 @@ In addition, to the ability to change the ActionBar layout, we can also tweak th
 
 ```xml
 <resources>
-    <style name="MyCustomTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
+    <!-- Define your colors in `res/values/colors.xml` -->
+    <color name="simple_yellow">#ECD078</color>
+    <color name="primary_blue">#53777A</color>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:actionBarStyle">@style/MyActionBar</item>
         <item name="android:actionBarTabTextStyle">@style/MyActionBarTabText</item>
+
         <!-- Support library compatibility -->
         <item name="actionBarStyle">@style/MyActionBar</item>
         <item name="actionBarTabTextStyle">@style/MyActionBarTabText</item>
     </style>
 
     <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">#ECD078</item>
+        <item name="android:background">@color/simple_yellow</item>
         <item name="android:titleTextStyle">@style/MyActionBar.TitleTextStyle</item>
 
         <!-- Support library compatibility -->
+        <item name="background">@color/simple_yellow</item>
         <item name="titleTextStyle">@style/MyActionBar.TitleTextStyle</item>
     </style>
 
-    <style name="MyActionBar.TitleTextStyle" 
+    <style name="MyActionBar.TitleTextStyle"
         parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
-        <item name="android:textColor">#53777A</item>
+        <item name="android:textColor">@color/primary_blue</item>
     </style>
 
     <style name="MyActionBarTabText" parent="@style/Widget.AppCompat.ActionBar.TabText">
-        <item name="android:textColor">#53777A</item>
+        <item name="android:textColor">@color/primary_blue</item>
     </style>
+
 </resources>
 ```
 
-Now tweak the theme for the application or activity within the `AndroidManifest.xml`:
+Now verify the theme for the application or activity within the `AndroidManifest.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -221,7 +229,7 @@ Now tweak the theme for the application or activity within the `AndroidManifest.
     ...>
     <application
         ...
-        android:theme="@style/MyCustomTheme" >
+        android:theme="@style/AppTheme" >
 </manifest>
 ```
 
