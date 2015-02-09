@@ -76,9 +76,10 @@ public class TimelineActivity extends Activity {
     public void fetchTimelineAsync(int page) {
         client.getHomeTimeline(0, new JsonHttpResponseHandler() {
             public void onSuccess(JSONArray json) {
-                // ...the data has come back, finish populating listview...
                 // Remember to CLEAR OUT old items before appending in the new ones
                 adapter.clear();
+                // ...the data has come back, add new items to your adapter...
+                adapter.addAll(...);
                 // Now we call setRefreshing(false) to signal refresh has finished
                 swipeContainer.setRefreshing(false);
             }
