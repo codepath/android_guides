@@ -30,7 +30,7 @@ If you are having issues trying to connect to the emulator or see any type of "C
 
 ![http://i.imgur.com/1kWwmuh.png](http://i.imgur.com/1kWwmuh.png)
 
-**com.android.dex.DexException: Multiple dex files define**
+### Getting "com.android.dex.DexException: Multiple dex files define" 
 
 * One of the issues in the new Gradle build system is that you can often get "Multiple dex files define" issues.  If one dependency library already includes an identical set of libraries, then you may have to make changes to your Gradle configurations to avoid this conflict.  For instance, including the Butterknife library with the Parceler library causes multiple declarations of javax.annotation.processing.Processor.  In this case, you have to exclude this conflict:
 
