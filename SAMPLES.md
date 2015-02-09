@@ -4,6 +4,7 @@
 * [Custom ArrayAdapter Demo](https://github.com/codepath/android-custom-array-adapter-demo)
 * [Rotten Tomatoes Demo](https://github.com/codepath/android-rottentomatoes-demo)
 * [Book Library Search Demo](https://github.com/codepath/android-booksearch-demo)
+* [Styled ActionBar Demo](https://github.com/codepath/android-actionbar-style-demo)
 * [Drawables and Styles Demo](https://github.com/codepath/android-drawable-styles-demo)
 * [Animations and Gestures Demo](https://github.com/codepath/android-animation-gestures-demo)
 * [Custom Views Demo](https://github.com/codepath/android-custom-view-demos)
