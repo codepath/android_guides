@@ -24,7 +24,7 @@ If you are having issues trying to connect to the emulator or see any type of "C
 
 If you decide to rename any of your ID tags in your XML files, you may get "No resource found that matches given name." You will need to do a `Rebuild Project` so that the entire resource files can be regenerated and the build/ directories are fully removed.  Note: `Clean Project` may not work.
 
-### Getting "org.gradle.tooling.GradleConnectionException" errors
+### Getting "tooling.GradleConnectionException" errors
 
 If you see `org.gradle.tooling.GradleConnectionException` errors, you may need to install a newer version of JDK (there have been reports of 1.7.0_71 having this issue).  First try to restart the adb server first.
 
