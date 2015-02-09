@@ -78,6 +78,7 @@ public class TimelineActivity extends Activity {
             public void onSuccess(JSONArray json) {
                 // ...the data has come back, finish populating listview...
                 // Now we call setRefreshing(false) to signal refresh has finished
+                // Remember to CLEAR OUT old items before appending in the new ones
                 swipeContainer.setRefreshing(false);
             }
 
@@ -89,7 +90,7 @@ public class TimelineActivity extends Activity {
 }
 ```
 
-**Note** that upon successful reload, we must also signal that the refresh has completed by calling `setRefreshing(false)`.
+**Note** that upon successful reload, we must also signal that the refresh has completed by calling `setRefreshing(false)`. Also note that you should **clear out old items** before appending the new ones during a refresh.
 
 ## References
 
