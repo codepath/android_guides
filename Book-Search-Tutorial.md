@@ -919,6 +919,7 @@ If you run your app now, your detail screen should look similar to this:
 
 
 ### Add Share Intent
+
 Let's use an implicit intent `ACTION_SEND` to share a book with your friends. We'll share book title and cover photo.
 
 Start by adding a menu item in `menu_book_detail.xml`.
