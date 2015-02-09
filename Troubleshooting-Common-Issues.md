@@ -26,9 +26,11 @@ If you are having issues trying to connect to the emulator or see any type of "C
 
 * If you decide to rename any of your ID tags in your XML files, you may get "No resource found that matches given name."   You will need to do a Rebuild Project so that the entire resource files can be regenerated and the build/ directories are removed.  Note: Clean Project may not work.
 
-* If you see org.gradle.tooling.GradleConnectionException errors, you may need to install a newer version of JDK (there have been reports of 1.7.0_71 having this issue).  First try to restart the adb server first.
+* If you see `org.gradle.tooling.GradleConnectionException` errors, you may need to install a newer version of JDK (there have been reports of 1.7.0_71 having this issue).  First try to restart the adb server first.
 
 ![http://i.imgur.com/1kWwmuh.png](http://i.imgur.com/1kWwmuh.png)
+
+**com.android.dex.DexException: Multiple dex files define**
 
 * One of the issues in the new Gradle build system is that you can often get "Multiple dex files define" issues.  If one dependency library already includes an identical set of libraries, then you may have to make changes to your Gradle configurations to avoid this conflict.  For instance, including the Butterknife library with the Parceler library causes multiple declarations of javax.annotation.processing.Processor.  In this case, you have to exclude this conflict:
 
@@ -49,6 +51,8 @@ dependencies {
 ```
 
 It turns out that having both is redundant and will cause errors.  It is necessary in this case to remove one or the other, depending on your need to use other Google API libraries.
+
+You can run into similar issues if a library is simply included twice. In that case, review the `libs` folder for JARS and the gradle file at `app/build.gradle` and see if you can identify the library dependency that has been loaded into your application twice.
 
 ## Eclipse ADT Issues
 
