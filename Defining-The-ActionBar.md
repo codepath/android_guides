@@ -159,16 +159,25 @@ dependencies {
 }
 ```
 
-Now you need to add Toolbar to your Activity layout:
+Now you need to add Toolbar to your Activity layout file. One of the biggest advantages of using the Toolbar widget is that you can place the view anywhere in your layout. Below it's placed at the top of the LinearLayout, like the standard ActionBar, but it can be contained in any other type of layout as well.
 
 ```xml
-<android.support.v7.widget.Toolbar
-  android:id="@+id/toolbar"
-  android:minHeight="?attr/actionBarSize"  
-  android:layout_width="match_parent"
-  android:layout_height="wrap_content"
-  android:background="?attr/colorPrimary">
-</android.support.v7.widget.Toolbar>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+      android:id="@+id/toolbar"
+      android:minHeight="?attr/actionBarSize"  
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="?attr/colorPrimary">
+    </android.support.v7.widget.Toolbar>
+
+    ...
+
+</LinearLayout>
 ```
 As Toolbar is just a `ViewGroup`, it can be styled and positioned like any other view. Then in your Activity or Fragment, set the Toolbar to act as your ActionBar by using the `setSupportActionBar(Toolbar)` method:
 
