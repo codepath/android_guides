@@ -97,6 +97,7 @@ public void onSubmit(View v) {
   Intent data = new Intent();
   // Pass relevant data back as a result
   data.putExtra("name", etName.getText().toString());
+  data.putExtra("code", 200); // ints work too
   // Activity finished ok, return the data
   setResult(RESULT_OK, data); // set result code and bundle data for response
   finish(); // closes the activity, pass data to parent
@@ -113,6 +114,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
   if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
      // Extract name value from result extras
      String name = data.getExtras().getString("name");
+     int code = data.getExtras().getInt("code", 0);
      // Toast the name to display temporarily on screen
      Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
   }
