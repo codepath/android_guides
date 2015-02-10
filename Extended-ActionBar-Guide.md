@@ -181,7 +181,7 @@ Note you can **still define an `onCreateOptionsMenu` method** in your Activity t
 
 ### Custom ActionBar Styles
 
-In addition, to the ability to change the ActionBar layout, we can also tweak the ActionBar styles and properties by customizing our own theme. For example, we could add the following to `res/values/styles.xml`:
+In addition, to the ability to change the ActionBar layout, we can also tweak the ActionBar styles and properties by customizing our own ActionBar theme. For example, we could add the following to `res/values/styles.xml`:
 
 ```xml
 <resources>
@@ -233,7 +233,7 @@ Now verify the theme for the application or activity within the `AndroidManifest
 </manifest>
 ```
 
-Now your properties and styles will take affect within the ActionBar. If you want to style the tabs for the ActionBar, see our [[Tabs Styling Cliffnotes|ActionBar-Tabs-with-Fragments#styling-tabs]]. Check out this [styling the ActionBar](http://developer.android.com/guide/topics/ui/actionbar.html#Style) section for more details. For an easier way to skin the ActionBar, check out the [ActionBar Style Generator](http://jgilfelt.github.com/android-actionbarstylegenerator) tool for easy style tweaking.
+Now your properties and styles will take affect within the ActionBar. See the [actionbar styling demo code](https://github.com/codepath/android-actionbar-style-demo) for a working example. If you want to style the tabs for the ActionBar, see our [[Tabs Styling Cliffnotes|ActionBar-Tabs-with-Fragments#styling-tabs]]. Check out this [styling the ActionBar](http://developer.android.com/guide/topics/ui/actionbar.html#Style) section for more details. For an easier way to skin the ActionBar, check out the [ActionBar Style Generator](http://jgilfelt.github.com/android-actionbarstylegenerator) tool for easy styling.
 
 ### Adding ActionView Items
 
