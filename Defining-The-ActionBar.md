@@ -170,7 +170,7 @@ Now you need to add Toolbar to your Activity layout:
   android:background="?attr/colorPrimary">
 </android.support.v7.widget.Toolbar>
 ```
-As Toolbar is just a `ViewGroup` can be styled and positioned like any other view. Then in your Activity or Fragment, set the Toolbar to act as your ActionBar by using the `setSupportActionBar(Toolbar)` method:
+As Toolbar is just a `ViewGroup`, it can be styled and positioned like any other view. Then in your Activity or Fragment, set the Toolbar to act as your ActionBar by using the `setSupportActionBar(Toolbar)` method:
 
 ```java
 import android.support.v7.app.ActionBarActivity;
