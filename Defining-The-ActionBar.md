@@ -41,6 +41,18 @@ actionBar.hide();
 
 You can also change many other properties of the ActionBar not covered here. See the [[Extended ActionBar Guide|Extended-ActionBar-Guide]] for more details.
 
+### Displaying ActionBar Icon
+
+In the new Android 5.0 material design guidelines, the style guidelines have changed to **discourage the use of the icon** in the ActionBar. Although the icon can be added back with:
+
+```java
+getSupportActionBar().setDisplayShowHomeEnabled(true);
+getSupportActionBar().setLogo(R.drawable.ic_launcher);
+getSupportActionBar().setDisplayUseLogoEnabled(true);
+```
+
+You can read more about this on the [material design guidelines](https://developer.android.com/reference/android/support/v7/widget/Toolbar.html) which state: "The use of application icon plus title as a standard layout is discouraged on API 21 devices and newer." 
+
 ### Adding Action Items
 
 When you want to add primary actions to the ActionBar, you add the items to the activity context menu and if properly specified, they will automatically appear at the top.
