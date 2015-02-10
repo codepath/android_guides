@@ -154,7 +154,7 @@ tvUser.setText(u.getFirstName() + " " + u.getLastName());
 
 ### Implicit Intents
 
-Implicit Intents are requests to perform an action based on a desired action and target data. For example, if I want to make a phone call for the user, that can be done with this intent:
+Implicit Intents are requests to perform an action based on a desired action and target data. This is in contrast to an explicit intent that targets a specific activity. For example, if I want to make a phone call for the user, that can be done with this intent:
 
 ```java
 Intent callIntent = new Intent(Intent.ACTION_CALL);
@@ -170,7 +170,7 @@ Intent browserIntent = new Intent(Intent.ACTION_VIEW,
 startActivity(browserIntent);
 ```
 
-You can see a list of [[Common Implicit Intents|Common-Implicit-Intents]] on another page of this wiki.
+You can see a list of other [[common implicit intents|Common-Implicit-Intents]].
 
 ## References
 
