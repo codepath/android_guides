@@ -128,60 +128,23 @@ Using split action bar also allows navigation tabs to collapse into the main act
 public class MainActivity extends ActionBarActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-		setupTabs();
+	    super.onCreate(savedInstanceState);
+	    setContentView(R.layout.activity_main);
+	    setupTabs();
 	}
 
 	private void setupTabs() {
-		ActionBar actionBar = getSupportActionBar();
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-		actionBar.setDisplayShowHomeEnabled(false);
-		actionBar.setDisplayShowTitleEnabled(false);
-        }
+	    ActionBar actionBar = getSupportActionBar();
+	    actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+	    actionBar.setDisplayShowHomeEnabled(false);
+	    actionBar.setDisplayShowTitleEnabled(false);
+	}
 }
 ```
 
-### Custom ActionBar Layout
-
-In certain cases, you might want to change the styling of the ActionBar title. For example, you may want to remove the icon, change the size of the title, tweak the color, or center the text. In order to achieve this, you need to replace the title with your own custom XML view. First, define your custom ActionBar XML in `res/layout/actionbar_title.xml`:
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/app_title"
-        android:textColor="#ffffff"
-        android:id="@+id/mytext"
-        android:textSize="18dp" />
-</LinearLayout>
-```
-
-Now we've defined the XML layout desired and we need to load this custom XML file and replace the ActionBar title with our customized XML inside the Activity by calling [setCustomView](http://developer.android.com/reference/android/app/ActionBar.html#setCustomView\(int\)):
-
-```java
-// in onCreate
-getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM); 
-getSupportActionBar().setCustomView(R.layout.actionbar_title);
-```
-
-At this point, we now have replaced the default ActionBar with our preferred layout and have complete control over it's appearance. If you want to **include the app icon with the custom layout** you need to append `DISPLAY_SHOW_HOME` as well:
-
-```java
-getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM | ActionBar.DISPLAY_SHOW_HOME); 
-```
-
-Note you can **still define an `onCreateOptionsMenu` method** in your Activity to define the action buttons.  This custom view will then share space with the action buttons, which normally are placed to the right side of the Action Bar.
-
 ### Custom ActionBar Styles
 
-In addition, to the ability to change the ActionBar layout, we can also tweak the ActionBar styles and properties by customizing our own ActionBar theme. For example, we could add the following to `res/values/styles.xml`:
+We can tweak the ActionBar styles and properties by customizing our own ActionBar theme styles. For example, we could add the following to `res/values/styles.xml`:
 
 ```xml
 <resources>
@@ -233,7 +196,46 @@ Now verify the theme for the application or activity within the `AndroidManifest
 </manifest>
 ```
 
-Now your properties and styles will take affect within the ActionBar. See the [actionbar styling demo code](https://github.com/codepath/android-actionbar-style-demo) for a working example. If you want to style the tabs for the ActionBar, see our [[Tabs Styling Cliffnotes|ActionBar-Tabs-with-Fragments#styling-tabs]]. Check out this [styling the ActionBar](http://developer.android.com/guide/topics/ui/actionbar.html#Style) section for more details. For an easier way to skin the ActionBar, check out the [ActionBar Style Generator](http://jgilfelt.github.com/android-actionbarstylegenerator) tool for easy styling.
+Now your properties and styles will take affect within the ActionBar. See the [actionbar styling demo code](https://github.com/codepath/android-actionbar-style-demo) for a working example. If you want to style the tabs for the ActionBar, see our [[Tabs Styling Cliffnotes|ActionBar-Tabs-with-Fragments#styling-tabs]]. 
+
+Check out this [styling the ActionBar](http://developer.android.com/guide/topics/ui/actionbar.html#Style) section for more details. For an easier way to skin the ActionBar, check out the [ActionBar Style Generator](http://jgilfelt.github.com/android-actionbarstylegenerator) tool for easy styling.
+
+### Custom ActionBar Layout
+
+In certain cases, you might want to change the styling of the ActionBar title more significantly. For example, you may want to tweak the icon, change the size of the title, tweak the color, or center the text. In order to achieve this, you can replace the default title with your own custom XML view. First, define your custom ActionBar XML in `res/layout/actionbar_title.xml`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/app_title"
+        android:textColor="#ffffff"
+        android:id="@+id/mytext"
+        android:textSize="18dp" />
+</LinearLayout>
+```
+
+Now we've defined the XML layout desired and we need to load this custom XML file and replace the ActionBar title with our customized XML inside the Activity by calling [setCustomView](http://developer.android.com/reference/android/app/ActionBar.html#setCustomView\(int\)):
+
+```java
+// in onCreate
+getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM); 
+getSupportActionBar().setCustomView(R.layout.actionbar_title);
+```
+
+At this point, we now have replaced the default ActionBar with our preferred layout and have complete control over it's appearance. If you want to **include the app icon with the custom layout** you need to append `DISPLAY_SHOW_HOME` as well:
+
+```java
+getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM | ActionBar.DISPLAY_SHOW_HOME); 
+```
+
+Note you can **still define an `onCreateOptionsMenu` method** in your Activity to define the action buttons.  This custom view will then share space with the action buttons, which normally are placed to the right side of the Action Bar.
 
 ### Adding ActionView Items
 
