@@ -99,6 +99,12 @@ public class MainActivity extends Activity {
 }
 ```
 
+There are support versions of these as well:
+```java
+supportRequestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+setSupportProgressBarIndeterminateVisibility(boolVal);
+```
+
 Note that for this to work, you must call `requestWindowFeature` as shown above before `setContentView` in `onCreate`. You can also use a **result-based progress** bar displayed in the ActionBar as well:
 
 ```java
