@@ -6,7 +6,7 @@ When importing existing Android Studio projects, you should make sure to select 
 
 ![](http://i.imgur.com/joPKoTk.gif)
 
-If you are interested in why the Gradle wrapper is needed, read the section below.
+If you are interested in what is the Gradle wrapper and why it's helpful to have, read the section below.
 
 ### Intro to the Gradle wrapper
 
