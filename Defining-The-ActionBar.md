@@ -162,7 +162,7 @@ To use Toolbar as an ActionBar, first disable the decor-provided ActionBar. The 
 </resources>
 ```
 
-Secondly, add the AppCompat-v7 support library to your application `build.gradle` file:
+Secondly, add the AppCompat-v7 support library to your application `build.gradle` (Module:app) file:
 
 ```gradle
 dependencies {
