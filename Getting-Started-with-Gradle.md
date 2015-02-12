@@ -1,5 +1,3 @@
-### For Android Studio
-
 ### Importing existing Android Studio projects
 
 When importing existing Android Studio projects, you should make sure to select the `build.gradle` in the top-level directory.  If you choose this option, you should see the `Use default gradle wrapper` option exposed and will be able to import the project properly.  If you select on a folder or even the `app/build.gradle` file, you are likely to import a blank project and will need to redo the import.
