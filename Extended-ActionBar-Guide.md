@@ -308,7 +308,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
     MenuInflater inflater = getMenuInflater();
     inflater.inflate(R.menu.main, menu);
     MenuItem searchItem = menu.findItem(R.id.action_search);
-    searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+    SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
     searchView.setOnQueryTextListener(new OnQueryTextListener() {
        @Override
        public boolean onQueryTextSubmit(String query) {
