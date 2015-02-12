@@ -305,7 +305,7 @@ Notice that the showAsAction attribute also includes the "collapseActionView" va
 ```java
 @Override
 public boolean onCreateOptionsMenu(Menu menu) {
-    MenuInflater inflater = getSupportMenuInflater();
+    MenuInflater inflater = getMenuInflater();
     inflater.inflate(R.menu.main, menu);
     MenuItem searchItem = menu.findItem(R.id.action_search);
     searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
