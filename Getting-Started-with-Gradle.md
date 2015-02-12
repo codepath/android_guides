@@ -1,8 +1,10 @@
 ### For Android Studio
 
-At the moment, Android Studio v1.0.0 requires Gradle 2.2.1 or higher.  Android Studio also requires using the Android Gradle plugin 1.0.0.
+When importing existing Android Studio projects, you should make sure to select the `build.gradle` in the top-level directory.  If you choose this option, you should see the `Use default gradle wrapper` option exposed and will be able to import the project properly.  If you select on a folder or even the `app/build.gradle` file, you are likely to import a blank project and will need to redo the import.
 
-Android Studio should handle most of the setup work, but if you are interested in how things work, read the section below.
+![](http://i.imgur.com/joPKoTk.gif)
+
+If you are interested in why the Gradle wrapper is needed, read the section below.
 
 ### Intro to the Gradle wrapper
 
