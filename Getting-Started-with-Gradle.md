@@ -1,3 +1,9 @@
+### Intro to Gradle
+
+Gradle is a new dependency management system for Java.   You can find the configurations specified in `build.gradle` files.
+
+Android Studio provides an [Android Gradle plugin](https://developer.android.com/tools/building/plugin-for-gradle.html) that allow you to provide different versions of your app (i.e. paid and unpaid, custom builds for different Android devices) while still leveraging the same code base.   It also enables signing your APK and code obfuscation support too, as well as [many other features](https://developer.android.com/tools/building/plugin-for-gradle.html).
+
 ### Importing existing Android Studio projects
 
 When importing existing Android Studio projects, you should make sure to select the `build.gradle` in the top-level directory.  If you choose this option, you should see the `Use default gradle wrapper` option exposed and will be able to import the project properly.  If you select on a folder or even the `app/build.gradle` file, you are likely to import a blank project and will need to redo the import.
