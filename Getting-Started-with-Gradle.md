@@ -1,6 +1,6 @@
 ### Intro to Gradle
 
-Gradle is a powerful new dependency management system for Java.   It provides the ability to provide more custom build logic than predecessors such as [Maven](http://www.maven.org) or Ant.
+Gradle is a powerful new dependency management system for Java.   It provides the ability to provide more custom build logic than predecessors such as [Maven](http://maven.apache.org) or Ant(http://ant.apache.org).
 
 Android Studio provides an [Android Gradle plugin](https://developer.android.com/tools/building/plugin-for-gradle.html) that handles most of the integration with Gradle.   This plugin allows you to build different versions of your app (i.e. paid and unpaid, custom builds for different Android devices) while still leveraging the same code base.   It also enables signing your APK and code obfuscation support too, as well as [many other features](https://developer.android.com/tools/building/plugin-for-gradle.html).
 
