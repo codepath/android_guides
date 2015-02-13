@@ -81,7 +81,7 @@ Next, let's setup a basic navigation drawer based on the following layout file w
 </my.custom.package.path.FragmentNavigationDrawer>
 ```
 
-Make sure that you replace `my.custom.package.path` with the *&actual package namespace** in your app. Now, let's setup the drawer in our activity:
+Make sure that you replace `my.custom.package.path` with the **actual package namespace** in your app. Now, let's setup the drawer in our activity:
 
 ```java
 public class MainActivity extends ActionBarActivity {
