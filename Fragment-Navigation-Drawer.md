@@ -8,7 +8,7 @@ This guide instead explains how to setup a basic drawer filled with navigation i
 
 ### Download Assets
 
-Next, be sure to [download the drawer image assets](http://developer.android.com/downloads/design/Android_Navigation_Drawer_Icon_20130516.zip) necessary and add the images into each of your drawable folders.
+Next, be sure to [download the drawer image assets](http://developer.android.com/downloads/design/Android_Navigation_Drawer_Icon_20130516.zip) necessary and **add the pngs** into your drawable folder. Do not copy over the entire folder, just copy and paste the 2 pngs into the drawable folder (or each drawable density).
 
 ### Setup Drawer Layout Files
 
@@ -29,7 +29,7 @@ You also need to setup a view that will represent the individual drawer item in 
     android:textColor="#111" />
 ```
 
-Then in your `res/values/strings.xml` add the following:
+Make sure that the **root view is the TextView** without a layout container. In your `res/values/strings.xml` add the following:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -43,20 +43,20 @@ Then in your `res/values/strings.xml` add the following:
 
 First, let's define a `FragmentNavigationDrawer.java` class within our application which makes working with the navigation drawer within an activity much simpler. Choose the source below based on your version of the support library.
 
-**Support Version 7:** Define the `FragmentNavigationDrawer` class by copying the text from the [source code from here](https://gist.github.com/nesquena/8bec293b16b20a0e6f8b). 
+**Support Version 7:** Define the `FragmentNavigationDrawer` class by copying the text from the [source code from here](https://gist.github.com/nesquena/8bec293b16b20a0e6f8b). Make sure that your activity extends from `ActionBarActivity`.
 
-For **support v4** apps use [this code instead](https://gist.github.com/nesquena/4e9f618b71c30842e89c).
+**Note:** For support v4 apps use [this code instead](https://gist.github.com/nesquena/4e9f618b71c30842e89c). Only use this if you do not have support v7 setup.
 
 ### Define Fragments
 
-Next, you need to define your fragments that will be displayed within the drawer. These can be any support fragments you define within your application.
+Next, you need to define your fragments that will be displayed within the drawer. These can be any support fragments you define within your application. Make sure that all the fragments extend from **android.support.v4.app.Fragment**.
 
 ### Setup Drawer in Activity
 
 Next, let's setup a basic navigation drawer based on the following layout file which has the entire drawer setup in `res/layout/activity_main.xml`:
 
 ```xml
-<com.codepath.examples.navdrawerdemo.FragmentNavigationDrawer
+<my.custom.package.path.FragmentNavigationDrawer
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
@@ -78,10 +78,10 @@ Next, let's setup a basic navigation drawer based on the following layout file w
         android:dividerHeight="0dp"
         android:background="@android:color/background_light"
      />
-</com.codepath.examples.navdrawerdemo.FragmentNavigationDrawer>
+</my.custom.package.path.FragmentNavigationDrawer>
 ```
 
-Now, let's setup the drawer in our activity:
+Make sure that you replace `my.custom.package.path` with the *&actual package namespace** in your app. Now, let's setup the drawer in our activity:
 
 ```java
 public class MainActivity extends ActionBarActivity {
@@ -163,14 +163,15 @@ In order to add icons adjacent to the title in navigation drawer, you can use a 
 
 ### Download Nav Drawer Item icons
 
-Download the following icons and add them to your drawable folders by right clicking the `res` folder > New > Other > Android > Android Icon Set. The follow the instructions on the wizard. This will automatically include correctly sized icons in each of your drawables folders.
+Download the following icons and add them to your drawable folders by copying and pasting them into the drawable folder or using the `New Image Asset` dialog to create versions for each density. 
+
 * [ic_one](http://i.imgur.com/PfXVA78.png)
 * [ic_two](http://i.imgur.com/xzIdYlo.png)
 * [ic_three](http://i.imgur.com/k5o1mCJ.png)
 
 ### Update Drawer Layout File
 
-Update `res/layout/drawer_nav_item.xml` to accommodate the drawer item icon.
+Update `res/layout/drawer_nav_item.xml` to accommodate the drawer item icon inside of a layout.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -200,9 +201,11 @@ Update `res/layout/drawer_nav_item.xml` to accommodate the drawer item icon.
 </RelativeLayout>
 ```
 
-### Add Model
+In order for this to work we now need to create a **custom adapter for our list** to display this custom drawer item.
 
-Create a model class for your drawer icon. Name it `NavDrawerItem.java`.
+### Add Model for Drawer Item
+
+Let's create a model class for our custom drawer icon. Name it `NavDrawerItem.java`.
 
 ```java
 public class NavDrawerItem {    
@@ -267,7 +270,7 @@ public class NavDrawerListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            LayoutInflater mInflater = LayoutInflater.from(getContext());
+            LayoutInflater mInflater = LayoutInflater.from(context);
             convertView = mInflater.inflate(R.layout.drawer_nav_item, null);
         }
           
