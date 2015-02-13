@@ -10,10 +10,6 @@ This guide instead explains how to setup a basic drawer filled with navigation i
 
 Next, be sure to [download the drawer image assets](http://developer.android.com/downloads/design/Android_Navigation_Drawer_Icon_20130516.zip) necessary and add the images into each of your drawable folders.
 
-### Android Support v4 JAR file
-
-Verify that you have the latest support-v4.jar file. These JAR files do get updated between API versions. If you get NoClassDefErrors even though you've added the file, you may be missing the DrawerLayout class and other dependencies that were incorporated in API version 13. For best results, included the [latest support-v4.jar](https://yuku-android-util.googlecode.com/git/ActionBarSherlock4/libs/android-support-v4.jar) from the most recent API version.
-
 ### Setup Drawer Layout Files
 
 You also need to setup a view that will represent the individual drawer item in a layout file such as `res/layout/drawer_nav_item.xml`:
@@ -47,9 +43,9 @@ Then in your `res/values/strings.xml` add the following:
 
 First, let's define a `FragmentNavigationDrawer.java` class within our application which makes working with the navigation drawer within an activity much simpler. Choose the source below based on your version of the support library.
 
-**Support Version 4:** Define the `FragmentNavigationDrawer` class by copying the [source code from here](https://gist.github.com/nesquena/4e9f618b71c30842e89c). 
-
 **Support Version 7:** Define the `FragmentNavigationDrawer` class by copying the text from the [source code from here](https://gist.github.com/nesquena/8bec293b16b20a0e6f8b). 
+
+For **support v4** apps use [this code instead](https://gist.github.com/nesquena/4e9f618b71c30842e89c).
 
 ### Define Fragments
 
@@ -88,7 +84,7 @@ Next, let's setup a basic navigation drawer based on the following layout file w
 Now, let's setup the drawer in our activity:
 
 ```java
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends ActionBarActivity {
 	private FragmentNavigationDrawer dlDrawer;
 
 	@Override
