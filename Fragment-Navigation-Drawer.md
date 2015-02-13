@@ -316,8 +316,8 @@ private int drawerContainerRes;
  		// set a custom shadow that overlays the main content when the drawer
  		setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
  		// Setup action buttons
- 		getActionBar().setDisplayHomeAsUpEnabled(true);
- 		getActionBar().setHomeButtonEnabled(true);
+ 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+ 		getSupportActionBar().setHomeButtonEnabled(true);
  	}
 
  	// addNavItem("First", R.drawable.ic_one, "First Fragment", FirstFragment.class)
