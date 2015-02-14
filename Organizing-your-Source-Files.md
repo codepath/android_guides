@@ -1,6 +1,6 @@
 ## Overview
 
-Android applications should always be [neatly organized with a clear folder structure](http://blog.smartlogic.io/blog/2013/07/09/organizing-your-android-development-code-structure) that makes your code easy to read. The way to do this is to logically group related things together into sub-packages within your application. Make sure every app has the following subpackages:
+Android applications should always be [neatly organized with a clear folder structure](http://blog.smartlogic.io/2013/07/09/organizing-your-android-development-code-structure) that makes your code easy to read. The way to do this is to logically group related things together into sub-packages within your application. Make sure every app has the following subpackages:
 
 * `com.example.myapp.activities` - Contains all activities
 * `com.example.myapp.adapters` - Contains all custom adapters
@@ -13,4 +13,4 @@ Keeping these folders in each app means that code is logically organized and sca
 
 ## References
 
-* <http://content.smartlogic.io/blog/2013/07/09/organizing-your-android-development-code-structure>
+* <http://blog.smartlogic.io/2013/07/09/organizing-your-android-development-code-structure>
