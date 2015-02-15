@@ -1,4 +1,4 @@
-If you are having trouble with Eclipse or the Emulator, check here for common problems and solutions for [Android development problems](http://www.vogella.com/articles/AndroidDevelopmentProblems/article.html). A few of the most common ones encountered are outlined below.
+If you are having trouble with Eclipse or the Emulator, check here for common problems and solutions for [Android development problems](http://www.vogella.com/articles/AndroidDevelopmentProblems/article.html). A few of the most common ones encountered are listed below.
 
 ## Setting Up Eclipse
 
