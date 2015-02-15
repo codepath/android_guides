@@ -87,6 +87,12 @@ This handy utility allows us to select a resources directory, choose an extra hi
 
 See the [screens support](http://developer.android.com/guide/practices/screens_support.html) reference for a more detailed look at supporting a wide range of devices. Also check out the [iconography](http://developer.android.com/design/style/iconography.html) guide for more details.
 
+### Mipmaps and Drawables
+
+Starting with Android 4.3, there is now an option to use the `res/mipmap` folder to store "mipmap" images. Mipmaps are most **commonly used for application icons** such as the launcher icon. To learn more about the benefits of mipmaps be sure to check out the [mipmapping for drawables post](https://programmium.wordpress.com/2014/03/20/mipmapping-for-drawables-in-android-4-3/). 
+
+Mipmap image resources can then be accessed using the `@mipmap/ic_launcher` notation in place of `@drawable`. Placing icons in mipmap folders (rather than drawable) is considered a best practice because they can often be used at resolutions different from the device’s current density. For example, an `xxxhdpi` app icon might be used on the launcher for an `xxhdpi` device. Review this [post about preparing for the Nexus 6](http://android-developers.blogspot.com/2014/10/getting-your-apps-ready-for-nexus-6-and.html) which explains in more detail.
+
 ### Working with Bitmaps
 
 We can change the bitmap displayed in an ImageView to a drawable resource with:
