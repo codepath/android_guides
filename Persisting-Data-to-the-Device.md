@@ -9,7 +9,9 @@ The Android framework offers several options and strategies for persistence:
 
 ### Shared Preferences
 
-Settings can be persisted for your application by using [SharedPreferences](http://developer.android.com/reference/android/content/SharedPreferences.html) to persist key-value pairs:
+Settings can be persisted for your application by using [SharedPreferences](http://developer.android.com/reference/android/content/SharedPreferences.html) to persist key-value pairs.  
+
+To retrieve an existing `username` key from your Shared Preferences, you can type:
 
 ```java
 SharedPreferences pref =   
