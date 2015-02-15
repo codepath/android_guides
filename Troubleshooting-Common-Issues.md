@@ -18,6 +18,12 @@ If you are having issues trying to connect to the emulator or see any type of "C
 
 ![http://i.imgur.com/srLBOMJ.gif](http://i.imgur.com/srLBOMJ.gif)
 
+## Virtual Device Manager
+
+### Unable to delete emulator getting "AVD is currently running in the Emulator"
+
+Open the `Tools => Android => AVD Manager` and select virtual device that you want to delete. Click on the down arrow at the end and select the `[Show on Disk]` option which will open the emulator directory. Inside the `[Your Device].avd` folder, locate any `*.lock` files and delete them. You can now delete the emulator. See [this stackoverflow post](http://stackoverflow.com/questions/27005819/cant-delete-avd-from-avd-manager-in-android-studio) for more details. 
+
 ## Android Studio Issues
 
 ### Getting "No resource found that matches given name."
