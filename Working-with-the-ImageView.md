@@ -73,8 +73,9 @@ To create alternative bitmap drawables for different densities, you should follo
 | hdpi     | 240  | Galaxy S II	    | 1.5x   | 1px = 1.5dp  |
 | xhdpi    | 320  | Nexus 4         | 2.0x   | 1px = 2dp    |
 | xxhdpi   | 480  | Nexus 5         | 3.0x   | 1px = 3dp    |
+| xxxhdpi  | 640  | Nexus 6         | 4.0x   | 1px = 4dp    |
 
-This means that if you generate a 100x100 for mdpi (1x baseline), then you should generate the same resource in 150x150 for hdpi (1.5x), 200x200 image for xhdpi devices (2.0x), 300x300 image for xxhdpi (3.0x) and a 75x75 image for ldpi devices (0.75x). 
+This means that if you generate a 100x100 for mdpi (1x baseline), then you should generate the same resource in 150x150 for hdpi (1.5x), 200x200 image for xhdpi devices (2.0x), 300x300 image for xxhdpi (3.0x) and a 75x75 image for ldpi devices (0.75x). See [these density guidelines](http://iconhandbook.co.uk/reference/chart/android/) for additional details. 
 
 ![Densities](http://developer.android.com/images/screens_support/screens-densities.png)
 
