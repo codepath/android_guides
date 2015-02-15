@@ -4,6 +4,8 @@ AsyncTask is a mechanism for executing operations in a background thread without
 
 This is typically used for long running tasks that cannot be done on UIThread, such as downloading network data from an API or indexing data from elsewhere on the device.
 
+See [Displaying Remote Images the Hard Way](http://guides.codepath.com/android/Sending-and-Managing-Network-Requests#displaying-remote-images-the-hard-way) for an example of how AsyncTask can be used for retrieving a remote image.
+
 ### Defining an AsyncTask
 
 Creating an AsyncTask is as simple as defining a class that extends from `AsyncTask` such as: 
