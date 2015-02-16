@@ -141,7 +141,7 @@ public class TodoItemDatabase extends SQLiteOpenHelper {
         Cursor cursor = db.query(TABLE_TODO,  // TABLE
         		new String[] { KEY_ID, KEY_BODY, KEY_PRIORITY }, // SELECT 
         		KEY_ID + "= ?", new String[] { String.valueOf(id) },  // WHERE, ARGS
-        		null, null, null, null); // GROUP BY, HAVING, ORDER BY
+        		null, null, null, null); // GROUP BY, HAVING, ORDER BY, LIMIT
         if (cursor != null)
             cursor.moveToFirst();
         // Load result into model object
