@@ -11,15 +11,16 @@ The app is composed of two screens. The first screen displays a list of books, i
 
 ![Imgur](http://i.imgur.com/y9a4AtQl.png)
 
+The full source code for this app can be [downloaded here](https://github.com/codepath/android-booksearch-demo) for review as well.
+
 ## Objectives
 1. How to access a typical RESTful API?
 2. How to parse JSON results and understand JSON format?
-3. How to replace ActionBar with ToolBar?
-4. How to add SearchView to ToolBar to search books?
-5. How to use ProgressBar?
-6. How to use explicit and implicit intents?
-7. How to communicate data between apps using intents?
-8. How to share remote images?
+3. How to add SearchView to ActionBar to search books?
+4. How to use ProgressBar?
+5. How to use explicit and implicit intents?
+6. How to communicate data between apps using intents?
+7. How to share remote images?
 
 ## Steps to build app
 ### Create New Project
@@ -269,7 +270,7 @@ public class Book {
       // Check if a cover edition is available
       if (jsonObject.has("cover_edition_key"))  {
         book.openLibraryId = jsonObject.getString("cover_edition_key");
-      } else {
+      } else if(jsonObject.has("edition_key")) {
         final JSONArray ids = jsonObject.getJSONArray("edition_key");
         book.openLibraryId = ids.getString(0);
       }
@@ -496,51 +497,7 @@ After running the app, we should see the following output:
 
 ![Imgur](http://i.imgur.com/NJmF42Yl.png)
 
-Note that the search query is hardcoded in `fetchBooks()` method. We'll fix this shortly. In the next step, we'll replace the ActionBar with a ToolBar, add SearchView to ToolBar and pass the query entered in the SearchView to retrieve the books from OpenLibrary search API.
-
-### Replace ActionBar with ToolBar
-We can continue using the ActionBar which is included in all activities by default, but I wanted to introduce a new concept here called Toolbar which was introduced in Android Lollipop, API 21 release. To learn more about ToolBar, checkout the cliffnotes on [ToolBar Basics](http://guides.codepath.com/android/Defining-The-ActionBar#toolbar-basics).
-
-To use ToolBar as an ActionBar, disable the default ActionBar. We'll do this by deriving our app theme from `Theme.AppCompat.Light.NoActionBar` in `styles.xml` file.
-
-```xml
-<resources>
-  <!-- Base application theme. -->
-  <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-  </style>
-</resources>
-```
-Next, we must add a ToolBar to `activity_book_list.xml` file. Unlike an ActionBar, a ToolBar can be placed at any arbitrary level of nesting within a view hierarchy. Make sure to add it above your ListView.
-
-```xml
-<android.support.v7.widget.Toolbar
-  android:id="@+id/toolbar"
-  android:layout_height="wrap_content"
-  android:layout_width="match_parent"
-  android:minHeight="?attr/actionBarSize"
-  android:background="?attr/colorPrimary" />
-```
-
-Now that we have added a ToolBar to out layout file, we can programmatically set it as an ActionBar in `BookListActivity.java`
-
-```java
-public class BookListActivity extends ActionBarActivity {
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_book_list);
-    // Get the support ToolBar
-    final Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
-    setSupportActionBar(toolbar);
-    ...
-  }  
-}
-```
-
-If you run your app now, you should see the following output:
-
-![Imgur](http://i.imgur.com/srbPUJ9l.png)
-
+Note that the search query is hardcoded in `fetchBooks()` method. We'll fix this shortly. In the next step, we'll add SearchView to ActionBar and pass the query entered in the SearchView to retrieve the books from OpenLibrary search API.
 
 ### Add SearchView to ActionBar
 We can use a SearchView to search for a book by its author or title. Using the SearchView widget as an item in the ActionBar is the preferred way to provide search in Android. To add SearchView to your ActionBar, add the SearchView action item in `menu_book_list.xml` file.
@@ -600,6 +557,7 @@ public class BookListActivity extends ActionBarActivity {
         searchView.clearFocus();
         searchView.setQuery("", false);
         searchView.setIconified(true);
+        searchItem.collapseActionView();
         // Set activity title to search query
         BookListActivity.this.setTitle(query);
         return true;
@@ -626,9 +584,6 @@ To display a result-based ProgressBar, add a ProgressBar to `activity_book_list.
 ```xml
 <LinearLayout
 ...>
-
-  <android.support.v7.widget.Toolbar
-  ... />
 
   <ProgressBar
   android:id="@+id/progress"
@@ -705,13 +660,6 @@ First, let's generate an activity to display book details and name it `BookDetai
   android:layout_height="match_parent"
   android:orientation="vertical"
   tools:context=".BookListActivity">
-
-  <android.support.v7.widget.Toolbar
-    android:id="@+id/toolbar"
-    android:layout_height="wrap_content"
-    android:layout_width="match_parent"
-    android:minHeight="?attr/actionBarSize"
-    android:background="?attr/colorPrimary" />
 
   <ScrollView
     android:layout_width="match_parent"
@@ -841,8 +789,6 @@ public class BookDetailActivity extends ActionBarActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_book_detail);
-    final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-    setSupportActionBar(toolbar);
     // Fetch views
     ivBookCover = (ImageView) findViewById(R.id.ivBookCover);
     tvTitle = (TextView) findViewById(R.id.tvTitle);
