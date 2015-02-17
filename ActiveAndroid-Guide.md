@@ -18,7 +18,11 @@ repositories {
     maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
 }
 
-compile 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:21.0.3'
+    compile 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
+}
 ```
 
 ### Configuration
