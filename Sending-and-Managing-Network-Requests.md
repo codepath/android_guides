@@ -278,18 +278,21 @@ public class MainActivity extends Activity {
 
         protected Bitmap doInBackground(String... addresses) {
             Bitmap bitmap = null;
+            InputStream in;
             try {
                 // 1. Declare a URL Connection
                 URL url = new URL(addresses[0]);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 // 2. Open InputStream to connection
                 conn.connect();
-                InputStream in = conn.getInputStream();
+                in = conn.getInputStream();
                 // 3. Download and decode the bitmap using BitmapFactory
                 bitmap = BitmapFactory.decodeStream(in);
-                in.close();
             } catch (IOException e) {
                 e.printStackTrace();
+            } finally {
+              if(in != null)
+                 in.close();
             }
             return bitmap;
         }
