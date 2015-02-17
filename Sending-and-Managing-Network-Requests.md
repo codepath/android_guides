@@ -189,7 +189,7 @@ private class NetworkAsyncTask extends AsyncTask<String, Void, Bitmap> {
          return stringBuilder.toString();
      }
 
-     protected void onPostExecute(Bitmap result) {
+     protected void onPostExecute(String result) {
          // This method is executed in the UIThread
          // with access to the result of the long running task
          // DO SOMETHING WITH STRING RESPONSE
