@@ -192,6 +192,7 @@ If you need to add a field to your an existing model, you'll need to write a mig
 1. Add a new field to your existing model:
   ```java
   import com.activeandroid.Model;
+  import com.activeandroid.annotation.Column;
   import com.activeandroid.annotation.Table;
 
   @Table(name = "Items")
