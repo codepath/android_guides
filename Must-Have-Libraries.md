@@ -43,6 +43,7 @@ This "standard pack" listed below are libraries that are quite popular, widely a
  * [Android Async HTTP](http://loopj.com/android-async-http/) - Asynchronous networking client for loading remote content such as JSON.
  * [Retrofit](http://square.github.io/retrofit/) - A type-safe REST client for Android and Java which intelligently maps an API into a client interface using annotations. 
  * [Volley](http://developer.android.com/training/volley/index.html) - Google's HTTP library that makes networking for Android apps easier and most importantly, faster.
+ * [IceNet] (https://github.com/anton46/IceNet) -  Android networking wrapper consisting of a combination of Volley, OkHttp and Gson
 
 ### ListView
 
@@ -86,6 +87,7 @@ This "standard pack" listed below are libraries that are quite popular, widely a
  * [AndroidImageSlider](https://github.com/daimajia/AndroidImageSlider) - Animated image transitions
  * [Paralloid](https://github.com/chrisjenx/Paralloid) - Parallax sliding effect made easy
  * [FloatingActionButton](https://github.com/makovkastar/FloatingActionButton) - Material design floating buttons made easy
+ * [Foursquare-CollectionPicker](https://github.com/anton46/Foursquare-CollectionPicker) - Item Picker which looks like Foursquare Tastes picker
 
 ### Drawing
 
