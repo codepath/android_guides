@@ -2,29 +2,33 @@
 
 ## Registration
 
-First, we need to [sign up for a Parse account](https://www.parse.com/#signup) unless we are already registered. Next, we need to [setup our data](https://www.parse.com/apps/quickstart#parse_data/mobile/android/native) for our Android app. 
+First, we need to [sign up for a Parse account](https://www.parse.com/#signup) unless we are already registered. 
 
 ## Setup
 
-First, make sure you have an app prepared that you would like to integrate with Parse. Follow the steps on the [existing app page](https://www.parse.com/apps/quickstart#parse_data/mobile/android/native/existing) starting with downloading the Parse SDK and unzipping the file. Next, follow the steps on the site to add the SDK to your app.
+Make sure you have an app prepared that you would like to integrate with Parse. Follow the steps on the [existing app page](https://www.parse.com/apps/quickstart#parse_data/mobile/android/native/existing) starting with [downloading the Parse SDK](https://parse.com/downloads/android/Parse/latest) and unzipping the JARs inside. Next, follow the steps on the site to add the SDK to your app.
 
-<img src="http://i.imgur.com/VZ1clc9.png" alt="screen_1" width="400" />
+<a target="_blank" href="https://www.parse.com/apps/quickstart#parse_data/mobile/android/native/existing"><img src="http://i.imgur.com/ldLJfil.png" alt="screen_1" width="500" /></a>
 
-Drag the `Parse-X.X.X.jar` and `Parse-1.4.0.jar.properties` files into the "libs" folder of your Android app. 
+Drag the `Parse-X.X.X.jar` and `Parse-X.X.X.jar.properties` files into the "libs" folder of your Android app. See [this for how to reveal the libs folder](http://stackoverflow.com/a/28020621/313399) in Android Studio.
 
-<img src="http://i.imgur.com/lqxdlxT.png" alt="screen_2" width="300" />
+<img src="http://i.imgur.com/EO6vp5S.png" alt="screen_2" width="400" />
 
 Next, we need to create an `Application` class and initialize Parse. Be sure to replace the initialization line below with **your correct Parse keys**:
 
 ```java
 public class ParseApplication extends Application {
+    public static final String YOUR_APPLICATION_ID = "AERqqIXGvzH7Nmg45xa5T8zWRRjqT8UmbFQeeI";
+    public static final String YOUR_CLIENT_KEY = "8bXPznF5eSLWq0sY9gTUrEF5BJlia7ltmLQFRh";
+
     @Override
     public void onCreate() {
         super.onCreate();
 
-	// Add your initialization code here
-	Parse.initialize(this, "7zBztvyG4hYQ9XzRcL3SMBYWAj0GUL", "iZWhgJRu6yK67m3NCV3qedijWL");
-  
+        // Add your initialization code here
+        Parse.enableLocalDatastore(this);
+        Parse.initialize(this, YOUR_APPLICATION_ID, YOUR_CLIENT_KEY);
+
         // ...
   }		
 }
@@ -59,6 +63,8 @@ We also need to add a few important network permissions to the `AndroidManifest.
   
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+   ...
 </manifest>
 ```
 
@@ -66,12 +72,15 @@ Now, let's test the SDK. We should be able to create a new object to verify that
 
 ```java
 public class ParseApplication extends Application {
+    public static final String YOUR_APPLICATION_ID = "AERqqIXGvzH7Nmg45xa5T8zWRRjqT8UmbFQeeI";
+    public static final String YOUR_CLIENT_KEY = "8bXPznF5eSLWq0sY9gTUrEF5BJlia7ltmLQFRh";
+
     @Override
     public void onCreate() {
         super.onCreate();
 
       	// Add your initialization code here
-      	Parse.initialize(this, "7zBztvyG4hXghgfqYxfSMBYWAj0GUL", "iZWhgJRu6yK67muLcNCV3qedijWL");
+      	Parse.initialize(this, YOUR_APPLICATION_ID, YOUR_CLIENT_KEY);
     
         // Test creation of object
       	ParseObject testObject = new ParseObject("TestObject");
@@ -80,39 +89,14 @@ public class ParseApplication extends Application {
     }		
 }
 ```
-Run your app and a new object of class TestObject will be sent to the Parse Cloud and saved. Click on the "Test" button back on the Parse website to verify data was transmitted.
+
+Run your app and a new object of class TestObject will be sent to the Parse Cloud and saved. Click on the "Test" button back on the [Parse quickstart guide](https://www.parse.com/apps/quickstart#parse_data/mobile/android/native/existing) to confirm data was successfully transmitted.
 
 <img src="http://i.imgur.com/YloGilR.png" alt="screen_3" width="500" />
 
-If you see "Congrats! You saved your first object", then Parse is setup successfully. If not, review the steps above to get Parse setup. If needed, you might also want to [setup push notifications](https://www.parse.com/apps/quickstart#parse_push/android/existing) through Parse as well at this time.
+If you see "Congrats! You saved your first object", then Parse is setup successfully. If not, review the steps above to get Parse setup. 
 
-<img src="http://i.imgur.com/26nYxJX.png" alt="screen_4" width="350" />
-
-## Creating Data Classes
-
-Suppose we had a simple todo application with user accounts and items persisted to Parse. The next step is to create our models using the [dashboard](https://www.parse.com/apps) to manage your new app. Visit the "Data Browser" for the correct application and let's create our `User` and `TodoItem` objects for our app.
-
-First, **remove the test code that we added previously** and drop the "TestObject" listed in the browser to clear testing data.
-
-<img src="http://i.imgur.com/ZFds0Fn.png" alt="screen_5" width="400" />
-
-Next, select "New Class" and pick "User" to create the user object used to manage session authetication:
-
-<img src="http://i.imgur.com/7hQZz3y.png" alt="screen_6" width="300" />
-
-Let's also add our "Custom" class which can represent any custom data. In this case, we will create a `TodoItem` class:
-
-<img src="http://i.imgur.com/MIZkV8L.png" alt="screen_7" width="300" />
-
-Now, we need to add our custom columns to our class. In this case, let's add a "body" field to our `TodoItem` by selecting "+Col" and then selecting the type as a String and column name as "body":
-
-<img src="http://i.imgur.com/qYel2NP.png" alt="screen_8" width="300" />
-
-Once you've finished adding your columns to the class, you can create as many additional classes as necessary and configure their respective columns. Let's add a row of data to the class directly through the data browser:
-
-<img src="http://i.imgur.com/QFMEnb7.png" alt="screen_9" width="600" />
-
-We are now ready to access these classes within our application.
+If needed in your application, you might also want to [setup push notifications](https://www.parse.com/apps/quickstart#parse_push/android/existing) through Parse as well at this time.
 
 ## Working with Users
 
@@ -562,6 +546,32 @@ query.getInBackground("aFuEsvjoHt", new GetCallback<TodoItem>() {
   }
 });
 ```
+
+## Creating Data Classes
+
+Suppose we had a simple todo application with user accounts and items persisted to Parse. The next step is to create our models using the [dashboard](https://www.parse.com/apps) to manage your new app. Visit the "Data Browser" for the correct application and let's create our `User` and `TodoItem` objects for our app.
+
+First, **remove the test code that we added previously** and drop the "TestObject" listed in the browser to clear testing data.
+
+<img src="http://i.imgur.com/ZFds0Fn.png" alt="screen_5" width="400" />
+
+Next, select "New Class" and pick "User" to create the user object used to manage session authetication:
+
+<img src="http://i.imgur.com/7hQZz3y.png" alt="screen_6" width="300" />
+
+Let's also add our "Custom" class which can represent any custom data. In this case, we will create a `TodoItem` class:
+
+<img src="http://i.imgur.com/MIZkV8L.png" alt="screen_7" width="300" />
+
+Now, we need to add our custom columns to our class. In this case, let's add a "body" field to our `TodoItem` by selecting "+Col" and then selecting the type as a String and column name as "body":
+
+<img src="http://i.imgur.com/qYel2NP.png" alt="screen_8" width="300" />
+
+Once you've finished adding your columns to the class, you can create as many additional classes as necessary and configure their respective columns. Let's add a row of data to the class directly through the data browser:
+
+<img src="http://i.imgur.com/QFMEnb7.png" alt="screen_9" width="600" />
+
+We are now ready to access these classes within our application.
 
 ### Further Details
 
