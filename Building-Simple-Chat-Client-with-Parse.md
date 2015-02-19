@@ -199,7 +199,7 @@ At this point, run your application and try to send a text to parse. If the save
 
 ## 7. Add ListView to Chat Layout
 
-* Now that we have verified that messages are successfully being saved to your parse database, lets go ahead and build the UI to retrieve these messages. Open your layout file `activity_chat.xml`and add a `ListView` to display the text messages from parse.
+Now that we have verified that messages are successfully being saved to your parse database, lets go ahead and build the UI to retrieve these messages. Open your layout file `activity_chat.xml`and add a `ListView` to display the text messages from parse.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -228,30 +228,31 @@ At this point, run your application and try to send a text to parse. If the save
       android:paddingRight="0dp"
       android:layout_height="wrap_content" >
       <EditText
-        android:id="@+id/etMessage"
-        android:layout_toLeftOf="@+id/btSend"
-        android:layout_alignBottom="@+id/btSend"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="top"
-        android:hint="@string/message_hint"
-        android:inputType="textShortMessage"
-        android:imeOptions="actionSend"/>
-      <Button
-        android:id="@+id/btSend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical|right"
-        android:paddingRight="10dp"
-        android:layout_alignParentRight="true"
-        android:text="@string/send"
-        android:textSize="18sp" >
-    </Button>
+          android:id="@+id/etMessage"
+          android:layout_toLeftOf="@+id/btSend"
+          android:layout_alignBottom="@+id/btSend"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:gravity="top"
+          android:hint="@string/message_hint"
+          android:inputType="textShortMessage"
+          android:imeOptions="actionSend"
+        />
+        <Button
+          android:id="@+id/btSend"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:gravity="center_vertical|right"
+          android:paddingRight="10dp"
+          android:layout_alignParentRight="true"
+          android:text="@string/send"
+          android:textSize="18sp" >
+        </Button>
     </RelativeLayout>
 </RelativeLayout>
 ```
 
-* We will be showing the logged in user's gravatar and messages on the right and the other gravatars and messages on the left. You can read more about creating gravatars [here](https://en.gravatar.com/site/implement/images/). We need to create another layout file to represent each chat message row in the list view. Put this into `res/layout/chat_item.xml`.
+We will be showing the logged in user's gravatar and messages on the right and the other gravatars and messages on the left. You can read more about creating gravatars [here](https://en.gravatar.com/site/implement/images/). We need to create another layout file to represent each chat message row in the list view. Put this into `res/layout/chat_item.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -284,7 +285,7 @@ At this point, run your application and try to send a text to parse. If the save
 </LinearLayout>
 ```
 
-* Add the following values to `res-->values-->strings.xml` file.
+Add the following values to `res-->values-->strings.xml` file:
 
 ```xml
 <string name="profile_me">My Profile Pic</string>
@@ -467,16 +468,18 @@ private static final int MAX_CHAT_MESSAGES_TO_SHOW = 50;
 private void receiveMessage() {
                 // Construct query to execute
 		ParseQuery<Message> query = ParseQuery.getQuery(Message.class);
+                // Configure limit and sort order
 		query.setLimit(MAX_CHAT_MESSAGES_TO_SHOW);
 		query.orderByAscending("createdAt");
-                // Execute query for messages asynchronously
+		// Execute query to fetch all messages from Parse asynchronously
+                // This is equivalent to a SELECT query with SQL
 		query.findInBackground(new FindCallback<Message>() {
 			public void done(List<Message> messages, ParseException e) {
 				if (e == null) {					
 					mMessages.clear();
 					mMessages.addAll(messages);
-					mAdapter.notifyDataSetChanged();
-					lvChat.invalidate();
+					mAdapter.notifyDataSetChanged(); // update adapter
+					lvChat.invalidate(); // redraw listview
 				} else {
 					Log.d("message", "Error: " + e.getMessage());
 				}
