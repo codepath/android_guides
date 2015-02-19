@@ -6,11 +6,11 @@ First, we need to [sign up for a Parse account](https://www.parse.com/#signup) u
 
 ## Setup
 
-Make sure you have an app prepared that you would like to integrate with Parse. Follow the steps on the [existing app page](https://www.parse.com/apps/quickstart#parse_data/mobile/android/native/existing) starting with [downloading the Parse SDK](https://parse.com/downloads/android/Parse/latest) and unzipping the JARs inside. Next, follow the steps on the site to add the SDK to your app.
+Make sure you have an app prepared that you would like to integrate with Parse. Follow the steps on the [existing app page](https://www.parse.com/apps/quickstart#parse_data/mobile/android/native/existing) starting with [downloading the Parse SDK](https://parse.com/downloads/android/Parse/latest).  Make sure to edit the `app/build.gradle` file to make any changes (not the top-level `build.gradle` file).  You must also unzip the Parse SDK .ZIP file too.
 
 <a target="_blank" href="https://www.parse.com/apps/quickstart#parse_data/mobile/android/native/existing"><img src="http://i.imgur.com/ldLJfil.png" alt="screen_1" width="500" /></a>
 
-Unzip the Parse SDK .zip file and drag the `Parse-X.X.X.jar` into the "libs" folder of your Android app. See [this for how to reveal the libs folder](http://stackoverflow.com/a/28020621/313399) in Android Studio.
+Inside the Parse SDK .zip file should be a  `Parse-X.X.X.jar` file.  Drag this JAR file into the "libs" folder of your Android app. See these [instructions for how to reveal the libs folder](http://stackoverflow.com/a/28020621/313399) in Android Studio.
 
 <img src="http://i.imgur.com/EO6vp5S.png" alt="screen_2" width="400" />
 
