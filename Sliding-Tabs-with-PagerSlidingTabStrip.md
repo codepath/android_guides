@@ -203,7 +203,7 @@ In addition to the above, there are several other attributes that can be set:
 
 All attributes have their respective getters and setters so they can be changed at runtime. In addition, [certain setters](https://github.com/astuetz/PagerSlidingTabStrip/blob/master/library/src/com/astuetz/PagerSlidingTabStrip.java#L485) are missing from the XML but can be set at runtime anywhere with access to the tabstrip instance:
 
-```
+```java
 // PagerSlidingTabStrip#setTextSize(int textSizePx)
 tabStrip.setTextSize(18);
 ```
