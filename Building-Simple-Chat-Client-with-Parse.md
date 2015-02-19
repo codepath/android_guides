@@ -136,7 +136,7 @@ public class ChatActivity extends Activity {
 	    @Override
 	    public void done(ParseUser user, ParseException e) {
                 if (e != null) {
-                    Log.d(TAG, "Anonymous login failed.");
+                    Log.d(TAG, "Anonymous login failed: " + e.toString());
                 } else {
                     startWithCurrentUser();
                 }
