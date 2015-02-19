@@ -489,7 +489,7 @@ Now, we should be able to see the messages in the list after posting but we won'
 
 ## 12. Refreshing Messages
 
-Finally, let's periodically refresh the ListView with latest messages using a handler. The handler will call a runnable to fetch new messages every 100ms. This is a primitive "polling" rather than "push" technique for loading new messages but will work for the purposes of this simple project.
+Finally, let's periodically refresh the ListView with latest messages [using a handler](http://guides.codepath.com/android/Repeating-Periodic-Tasks#handler). The handler will call a runnable to fetch new messages every 100ms. This is a primitive "polling" rather than "push" technique for loading new messages but will work for the purposes of this simple project.
 
 ```java
 ...
@@ -525,6 +525,8 @@ private void refreshMessages() {
     receiveMessage();		
 }
 ```
+
+See the [repeating periodic tasks](http://guides.codepath.com/android/Repeating-Periodic-Tasks#handler) guide to learn more about the handler.
 
 ## 13. SimpleChatManifest.xml
 
