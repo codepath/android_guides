@@ -214,9 +214,9 @@ In this way, we can use the same pager system above and achieve tabbed navigatio
 
 ## Dynamic ViewPager Fragments
 
-In certain cases, we may require a dynamic `ViewPager` with pages being added or removed on the fly. If your ViewPager is more dynamic with many pages and fragments, we will want to use the the alternate [FragmentStatePagerAdapter](http://developer.android.com/reference/android/support/v4/app/FragmentStatePagerAdapter.html) instead. Below shows us how to use this and also intelligently cache the fragments for easy lookup.
+In certain cases, we may require a dynamic `ViewPager` where we want to get access to the fragment instances or with pages being added or removed at runtime. If your ViewPager is more dynamic with many pages and fragments, we will want to use an implementation of the alternate [FragmentStatePagerAdapter](http://developer.android.com/reference/android/support/v4/app/FragmentStatePagerAdapter.html) instead. Below shows us how to use this and also intelligently cache the fragments for easy lookup.
 
-First, copy in the [SmartFragmentStatePagerAdapter.java](https://gist.github.com/nesquena/c715c9b22fb873b1d259) which provides the intelligent caching of registered fragments for our `ViewPager`. This solves the common problem of needing to **access the current item within the ViewPager**.
+First, copy in the [SmartFragmentStatePagerAdapter.java](https://gist.github.com/nesquena/c715c9b22fb873b1d259) which provides the intelligent caching of registered fragments within our `ViewPager`. This solves the common problem of needing to **access the current item within the ViewPager**.
 
 Now, we want to extend from `SmartFragmentStatePagerAdapter` copied above when declaring our adapter so we can take advantage of the better memory management of the state pager:
 
