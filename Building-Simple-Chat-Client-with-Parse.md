@@ -2,7 +2,7 @@ The following tutorial explains how to build a very simple chat application in A
 
 ## 1. Parse Registration
 
-Follow the [[registration|Building-Data-driven-Apps-with-Parse#registration]] guide to sign up for a parse account unless you are already registered. 
+First, we need to [sign up for a Parse account](https://www.parse.com/#signup) unless we are already registered. Next, we need to [setup our data](https://www.parse.com/apps/quickstart#parse_data/mobile/android/native) for our Android app. 
 
 ## 2. Setup Parse
 
@@ -12,41 +12,53 @@ Let's setup Parse into a brand new Android app following the steps below.
   * Name the first activity `ChatActivity`.
 * Next, create an app in Parse and call it `SimpleChat`. Make note of the `Application ID` and `Client Key` values after you have done so.
 * Follow the the steps mentioned under the [[setup|Building-Data-driven-Apps-with-Parse#setup]] guide to create and setup your project.
-  * Drag the [Parse jars](https://parse.com/downloads/android/Parse/latest) into your `libs` folder 
-  * Create a class called `ChatApplication` which extends from `android.app.Application`
+  * Download the latest [Parse jar files](https://parse.com/downloads/android/Parse/latest) in a zip file so we can add them to our project
+  * Unzip the jars and copy them each into your `app/libs` folder (see [this to find libs folder](http://stackoverflow.com/a/28020621/313399))
+  * Add the following to your `app/build.gradle`:
+    
+    ```gradle
+    dependencies {
+      compile 'com.parse.bolts:bolts-android:1.+'
+      compile fileTree(dir: 'libs', include: 'Parse-*.jar')
+    }
+    ```
+  * Make sure you have added these lines before the `<application>` tag in your `AndroidManifest.xml`.
+
+    ```xml
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    ```
+
+* Create a class called `ChatApplication` which extends from `android.app.Application`
   * In the application, initialize parse with your application id and client key
-* Your application class should look like this after you have performed the above steps:
+  * Your application class should look like this after you have performed the above steps:
 
-```java
-public class ChatApplication extends Application {
-	public static final String YOUR_APPLICATION_ID = "AERqqIXGvzH7Nmg45xa5T8zWRRjqT8UmbFQeeI";
-	public static final String YOUR_CLIENT_KEY = "8bXPznF5eSLWq0sY9gTUrEF5BJlia7ltmLQFRh";
-	@Override
-	public void onCreate() {
-		super.onCreate();
-		Parse.initialize(this, YOUR_APPLICATION_ID, YOUR_CLIENT_KEY);
-	}
-}
-```
-* Make sure you have added these lines before the `<application>` tag in your `AndroidManifest.xml`.
+    ```java
+    public class ChatApplication extends Application {
+        public static final String YOUR_APPLICATION_ID = "AERqqIXGvzH7Nmg45xa5T8zWRRjqT8UmbFQeeI";
+        public static final String YOUR_CLIENT_KEY = "8bXPznF5eSLWq0sY9gTUrEF5BJlia7ltmLQFRh";
+        @Override
+        public void onCreate() {
+            super.onCreate();
+            Parse.enableLocalDatastore(this);
+            Parse.initialize(this, YOUR_APPLICATION_ID, YOUR_CLIENT_KEY);
+        }
+    }
+    ```
 
-```xml
-<uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-```
-* Also add the fully qualified name of your `Application` subclass to the `<application>` tag in your `AndroidManifest.xml`.
+* Add the qualified `android:name` of your `Application` subclass to the `<application>` tag in your `AndroidManifest.xml`.
 
-```xml
-<application
-  android:name=".ChatApplication"
-  android:icon="@drawable/ic_launcher"
-  android:label="@string/app_name"
-  ...>
-  <activity 
-     ... 
-  />
-/>
-```
+    ```xml
+    <application
+      android:name=".ChatApplication"
+      android:icon="@drawable/ic_launcher"
+      android:label="@string/app_name"
+      ...>
+          <activity 
+             ... 
+          />
+    />
+    ```
 
 ## 3. Design Messages Layout
 
