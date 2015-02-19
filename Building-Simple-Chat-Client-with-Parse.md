@@ -322,7 +322,16 @@ With our model defined with Parse and properly registered, we can now use this m
 
 ## 9. Create Custom List Adapter
 
-Create a class named `ChatListAdapter.java` with below code. This is a custom list adapter class which provides data to list view. In other words it renders the layout_row.xml in list by pre-filling appropriate information. Also, download [Picasso image](https://www.dropbox.com/s/25py1bmjr45936v/picasso-2.3.4.jar?dl=1) library and drag it to the libs folder of your project.
+Create a class named `ChatListAdapter.java` with below code. This is a custom list adapter class which provides data to list view. In other words it renders the layout_row.xml in list by pre-filling appropriate information. We'll be using the open source `Picasso`library to load profile images. Add dependency for this library to the app/build.gradle file.
+
+```groovy
+...
+dependencies {
+    compile fileTree(dir: 'libs', include: '*.jar')
+    compile 'com.android.support:appcompat-v7:21.0.0+'
+    compile 'com.squareup.picasso:picasso:2.5.0'
+}
+```
 
 ```java
 public class ChatListAdapter extends ArrayAdapter<Message> {	
