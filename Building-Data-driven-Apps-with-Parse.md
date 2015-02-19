@@ -10,7 +10,7 @@ Make sure you have an app prepared that you would like to integrate with Parse. 
 
 <a target="_blank" href="https://www.parse.com/apps/quickstart#parse_data/mobile/android/native/existing"><img src="http://i.imgur.com/ldLJfil.png" alt="screen_1" width="500" /></a>
 
-Inside the Parse SDK .zip file should be a  `Parse-X.X.X.jar` file.  Drag this JAR file into the "libs" folder of your Android app. See these [instructions for how to reveal the libs folder](http://stackoverflow.com/a/28020621/313399) in Android Studio.
+Inside the Parse SDK .zip file should be a  `Parse-X.X.X.jar` file.  Drag this JAR file (not the .ZIP file) into the "libs" folder of your Android app. See these [instructions for how to reveal the libs folder](http://stackoverflow.com/a/28020621/313399) in Android Studio.
 
 <img src="http://i.imgur.com/EO6vp5S.png" alt="screen_2" width="400" />
 
