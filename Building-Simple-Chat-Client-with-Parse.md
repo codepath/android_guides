@@ -2,7 +2,7 @@ The following tutorial explains how to build a very simple chat application in A
 
 ## 1. Parse Registration
 
-First, we need to [sign up for a Parse account](https://www.parse.com/#signup) unless we are already registered. Next, we need to [setup our data](https://www.parse.com/apps/quickstart#parse_data/mobile/android/native) for our Android app. 
+First, we need to [sign up for a Parse account](https://www.parse.com/#signup) unless we are already registered. 
 
 ## 2. Setup Parse
 
