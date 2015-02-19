@@ -95,6 +95,8 @@ Let's create an XML layout which allows us to post messages by typing into a tex
 </RelativeLayout>
 ```
 
+The imeOptions attribute is used to control the icon in the [Soft Keyboard](https://guides.codepath.com/android/Working-with-the-Soft-Keyboard).  The gravity attribute will center the button vertically AND right horizontally.
+
 * Add the following values to `res-->values-->strings.xml` file.
 
 ```xml
