@@ -126,15 +126,15 @@ public class MainActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-    // Set a ToolBar to replace the ActionBar.
-    Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-    setSupportActionBar(toolbar);
+		// Set a ToolBar to replace the ActionBar.
+		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+		setSupportActionBar(toolbar);
 
 		// Find our drawer view
 		dlDrawer = (FragmentNavigationDrawer) findViewById(R.id.drawer_layout);
 		// Setup drawer view
-    dlDrawer.setupDrawerConfiguration((ListView) findViewById(R.id.lvDrawer), toolbar,
-            R.layout.drawer_nav_item, R.id.flContent);
+		dlDrawer.setupDrawerConfiguration((ListView) findViewById(R.id.lvDrawer), toolbar,
+                        R.layout.drawer_nav_item, R.id.flContent);
 		// Add nav items
 		dlDrawer.addNavItem("First", "First Fragment", FirstFragment.class);
 		dlDrawer.addNavItem("Second", "Second Fragment", SecondFragment.class);
@@ -464,9 +464,9 @@ For a more in-depth look at a navigation drawer with icons and sections, check o
 
 ## Alternative to Fragments
 
-Although many navigation drawer examples show how fragments can be used with the navigation drawer, you can also use a RelativeLayout/LinearLayout if you wish to use the drawer as an overlay to your currently displayed Activity.  
+Although many navigation drawer examples show how fragments can be used with the navigation drawer, you can also use a `RelativeLayout`/`LinearLayout`` if you wish to use the drawer as an overlay to your currently displayed Activity.  
 
-Instead of &lt;FrameLayout&gt; you can substitute that for a &lt;LinearLayout&gt;
+Instead of `<FrameLayout>` you can substitute that for a `<LinearLayout>`
 
 ```java
 <android.support.v4.widget.DrawerLayout
