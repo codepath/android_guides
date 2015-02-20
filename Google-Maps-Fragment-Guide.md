@@ -75,8 +75,8 @@ See the instructions to [[setup genymotion|Genymotion 2.0 Emulators-with-Google-
 Once we have our Genymotion emulator properly setup, let's import the [maps demo application](https://github.com/codepath/android-google-maps-demo) so we can use this to verify if maps are showing up correctly. 
 
 1. Download the [Maps Demo](https://github.com/codepath/android-google-maps-demo/archive/master.zip) application and extract the zip file.
-2. Run "File...Import Project...", select the root build.gradle and hit "Finish"
-3. Expand MapDemo application and open up the "AndroidManifest.xml"
+2. Run "File...Import Project...", select the root `build.gradle` and hit "Finish". Refer to this [[importing projects guide|Getting-Started-with-Gradle#importing-existing-android-studio-projects]] to load the project properly.
+3. Expand `MapDemo` application and open up the "AndroidManifest.xml"
 
 Fill in your API Key into the meta data for `com.google.android.maps.v2.API_KEY` within the **application node** in the `AndroidManifest.xml`:
 
@@ -97,13 +97,9 @@ Fill in your API Key into the meta data for `com.google.android.maps.v2.API_KEY`
 
 #### Include the Google Play Services Library
 
-**Android Studio users:** You need to install the "Google Repository" through the Android Studio SDK Manager. Gradle will pull the Google Play Services library from there.
+In Android Studio, you need to install the "Google Repository" through the Android Studio SDK Manager. Gradle will pull the Google Play Services library from there.
 
 ![Google Repository](http://i.imgur.com/azsdjaz.png)
-
-**Eclipse users:** You need to **include Google Play Services project** as a library to use in our demo app. So right click on project and select "Properties". In the Properties window on left side select "Android". On the right you can see a Add button under library section. Click it and select google play services project which we imported previously.
-
-![Library](http://i.imgur.com/9dsbUBP.png)
 
 Now we want to run the map demo, and if everything went well we should see:
 
