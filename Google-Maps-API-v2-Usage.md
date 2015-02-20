@@ -313,7 +313,7 @@ class CustomWindowAdapter implements InfoWindowAdapter{
 		mInflater = i;
 	}
 
-        // This defines the contents within the info window based on the marker
+	// This defines the contents within the info window based on the marker
 	@Override
 	public View getInfoContents(Marker marker) {
 	    // Getting view from the layout file
@@ -328,7 +328,8 @@ class CustomWindowAdapter implements InfoWindowAdapter{
 	    return v;
 	}
         
-        // This changes the frame of the info window; returning null uses the default frame.
+	// This changes the frame of the info window; returning null uses the default frame.
+        // This is just the border and arrow surrounding the contents specified above
 	@Override
 	public View getInfoWindow(Marker marker) {
 		return null;
@@ -336,8 +337,7 @@ class CustomWindowAdapter implements InfoWindowAdapter{
 }
 ```
 
-
-You would use this by setting your `InfoWindowAdapter` to this new class after you have initialized your map. In the case of my example I am running this after I have run `setUpMapIfNeeded()` in my `onCreate()`.
+You would use this by setting your `InfoWindowAdapter` to this new class after you have initialized your map. In the case of our example running this after calling `setUpMapIfNeeded()` in `onCreate()`.
 
 ```java
 map.setInfoWindowAdapter(new CustomWindowAdapter(getLayoutInflater()));
