@@ -152,9 +152,7 @@ public class SampleActivity extends FragmentActivity {
 }
 ```
 
-Now we have completed the process of loading the contacts into our list using a `CursorLoader` querying the `ContactProvider` and loading the resulting `Cursor` into the `CursorAdapter`. We should now see the list of phone contacts!
-
-![Screen](http://i.imgur.com/4AHa6KN.png) 
+Now we have completed the process of loading the contacts into our list using a `CursorLoader` querying the `ContactProvider` and loading the resulting `Cursor` into the `CursorAdapter`. We should now see the list of the names of our contacts.
 
 ## Loading Data From CursorLoader into Java Objects
 
