@@ -55,12 +55,12 @@ Create a new layout file `res/layout/toolbar.xml` with the following code:
 
 ```xml
 <android.support.v7.widget.Toolbar
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:id="@+id/toolbar"
-  android:layout_height="wrap_content"
-  android:layout_width="match_parent"
-  android:minHeight="?attr/actionBarSize"
-  android:background="?attr/colorPrimaryDark">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toolbar"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:minHeight="?attr/actionBarSize"
+    android:background="?attr/colorPrimaryDark">
 </android.support.v7.widget.Toolbar>
 ```
 
@@ -68,9 +68,9 @@ To use the `ToolBar` as an `ActionBar`, you need to disable the default `ActionB
 
 ```xml
 <resources>
-  <!-- Base application theme. -->
-  <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-  </style>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    </style>
 </resources>
 ```
 
