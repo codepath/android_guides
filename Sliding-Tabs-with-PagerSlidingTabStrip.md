@@ -181,6 +181,7 @@ You can change the style of the tabs by adding any of the following properties t
     android:layout_width="match_parent"
     android:layout_height="48dp"
     android:textSize="14sp"
+    android:textColor="#000000"
     app:pstsDividerColor="@color/green"
     app:pstsIndicatorColor="@color/red"
     app:pstsUnderlineColor="@color/blue"
@@ -202,13 +203,9 @@ In addition to the above, there are several other attributes that can be set:
  * `pstsShouldExpand` If set to true, each tab is given the same weight, default false
  * `pstsTextAllCaps` If true, all tab titles will be upper case, default true
  * `textSize` If set, it will use this value for the tab text style (default = 12sp).
+ * `textColor` If set, it will use the color specified here.
  
-All attributes have their respective getters and setters so they can be changed at runtime. In addition, [certain setters](https://github.com/astuetz/PagerSlidingTabStrip/blob/master/library/src/com/astuetz/PagerSlidingTabStrip.java#L485) may be missing from the XML but can be set at runtime anywhere with access to the tabstrip instance:
-
-```java
-// PagerSlidingTabStrip#setTextSize(int textSizePx)
-tabStrip.setTextSize(18);
-```
+All attributes have their respective getters and setters so they can be changed at runtime. 
 
 ### Add Icons to PagerSlidingTabStrip
 
