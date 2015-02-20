@@ -180,6 +180,7 @@ You can change the style of the tabs by adding any of the following properties t
     app:pstsShouldExpand="true"
     android:layout_width="match_parent"
     android:layout_height="48dp"
+    android:textSize="14sp"
     app:pstsDividerColor="@color/green"
     app:pstsIndicatorColor="@color/red"
     app:pstsUnderlineColor="@color/blue"
@@ -200,8 +201,9 @@ In addition to the above, there are several other attributes that can be set:
  * `pstsTabBackground` Background drawable of each tab, should be a StateListDrawable
  * `pstsShouldExpand` If set to true, each tab is given the same weight, default false
  * `pstsTextAllCaps` If true, all tab titles will be upper case, default true
-
-All attributes have their respective getters and setters so they can be changed at runtime. In addition, [certain setters](https://github.com/astuetz/PagerSlidingTabStrip/blob/master/library/src/com/astuetz/PagerSlidingTabStrip.java#L485) are missing from the XML but can be set at runtime anywhere with access to the tabstrip instance:
+ * `textSize` If set, it will use this value for the tab text style (default = 12sp).
+ 
+All attributes have their respective getters and setters so they can be changed at runtime. In addition, [certain setters](https://github.com/astuetz/PagerSlidingTabStrip/blob/master/library/src/com/astuetz/PagerSlidingTabStrip.java#L485) may be missing from the XML but can be set at runtime anywhere with access to the tabstrip instance:
 
 ```java
 // PagerSlidingTabStrip#setTextSize(int textSizePx)
