@@ -113,7 +113,7 @@ public class SampleActivity extends FragmentActivity {
     		return cursorLoader;
     	}
 
-    	// When the system finishes retrieving the Cursor, 
+    	// When the system finishes retrieving the Cursor through the CursorLoader, 
         // a call to the onLoadFinished() method takes place. 
     	@Override
     	public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
@@ -122,7 +122,8 @@ public class SampleActivity extends FragmentActivity {
     	}
 
     	// This method is triggered when the loader is being reset 
-        // and the loader data is no longer available.
+        // and the loader data is no longer available. Called if the data 
+        // in the provider changes and the Cursor becomes stale.
     	@Override
     	public void onLoaderReset(Loader<Cursor> loader) {
     		// Clear the Cursor we were using with another call to the swapCursor()
