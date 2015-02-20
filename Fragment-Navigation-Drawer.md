@@ -345,42 +345,44 @@ Now you should create an instance of `NavDrawerListAdapter`, add list items to i
 
 ```java
 ...
-  private ActionBarDrawerToggle drawerToggle;
-  private ListView lvDrawer;
-  private Toolbar toolbar;
-  private NavDrawerListAdapter drawerAdapter;
-  private ArrayList<NavDrawerItem> navDrawerItems;
-  private ArrayList<FragmentNavItem> drawerNavItems;
-  private int drawerContainerRes;
 
-  public void setupDrawerConfiguration(ListView drawerListView, Toolbar drawerToolbar, int drawerItemRes, int         drawerContainerRes) {
-    // Setup navigation items array
-    drawerNavItems = new ArrayList<FragmentNavigationDrawer.FragmentNavItem>();
-    navDrawerItems = new ArrayList<NavDrawerItem>();
-    this.drawerContainerRes = drawerContainerRes;
-    // Setup drawer list view
-    lvDrawer = drawerListView;
-    toolbar = drawerToolbar;
-    // Setup item listener
-    lvDrawer.setOnItemClickListener(new FragmentDrawerItemListener());
-    // ActionBarDrawerToggle ties together the the proper interactions
-    // between the sliding drawer and the action bar app icon
-    drawerToggle = setupDrawerToggle();
-    setDrawerListener(drawerToggle);
-    // Setup action buttons
-    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    getSupportActionBar().setHomeButtonEnabled(true);
-  }
+    private ActionBarDrawerToggle drawerToggle;
+    private ListView lvDrawer;
+    private Toolbar toolbar;
+    private NavDrawerListAdapter drawerAdapter;
+    private ArrayList<NavDrawerItem> navDrawerItems;
+    private ArrayList<FragmentNavItem> drawerNavItems;
+    private int drawerContainerRes;
 
- 	// addNavItem("First", R.drawable.ic_one, "First Fragment", FirstFragment.class)
- 	public void addNavItem(String navTitle, int icon, String windowTitle, Class<? extends Fragment> fragmentClass) {
- 		// adding nav drawer items to array
- 		navDrawerItems.add(new NavDrawerItem(navTitle, icon));
- 		// Set the adapter for the list view
- 		drawerAdapter = new NavDrawerListAdapter(getActivity(), navDrawerItems);
- 		lvDrawer.setAdapter(drawerAdapter);
- 		drawerNavItems.add(new FragmentNavItem(windowTitle, fragmentClass));
- 	}
+    public void setupDrawerConfiguration(ListView drawerListView, Toolbar drawerToolbar, 
+        int drawerItemRes, int drawerContainerResId) {
+        // Setup navigation items array
+        drawerNavItems = new ArrayList<FragmentNavigationDrawer.FragmentNavItem>();
+        navDrawerItems = new ArrayList<NavDrawerItem>();
+        drawerContainerRes = drawerContainerResId;
+        // Setup drawer list view
+        lvDrawer = drawerListView;
+        toolbar = drawerToolbar;
+        // Setup item listener
+        lvDrawer.setOnItemClickListener(new FragmentDrawerItemListener());
+        // ActionBarDrawerToggle ties together the the proper interactions
+        // between the sliding drawer and the action bar app icon
+        drawerToggle = setupDrawerToggle();
+        setDrawerListener(drawerToggle);
+        // Setup action buttons
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+    }
+
+    // addNavItem("First", R.drawable.ic_one, "First Fragment", FirstFragment.class)
+    public void addNavItem(String navTitle, int icon, String windowTitle, Class<? extends Fragment> fragmentClass) {
+        // adding nav drawer items to array
+        navDrawerItems.add(new NavDrawerItem(navTitle, icon));
+        // Set the adapter for the list view
+        drawerAdapter = new NavDrawerListAdapter(getActivity(), navDrawerItems);
+        lvDrawer.setAdapter(drawerAdapter);
+        drawerNavItems.add(new FragmentNavItem(windowTitle, fragmentClass));
+    }
 
     ...
 
@@ -468,7 +470,7 @@ Although many navigation drawer examples show how fragments can be used with the
 
 Instead of `<FrameLayout>` you can substitute that for a `<LinearLayout>`
 
-```java
+```xml
 <android.support.v4.widget.DrawerLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
