@@ -104,23 +104,26 @@ First, we need to create a new xml file in `res/layout/message_item.xml` which w
 
 #### Implement OnMapLongClickListener Event 
 
-If we want to setup a long click listener, we need to implement the `OnMapLongClickListener` and setup the listener for the map:
+If we want to setup a long click listener, we need to implement the `OnMapLongClickListener` in our Activity and setup the listener for the map:
 
 ```java
 public class MapDemoActivity extends FragmentActivity implements
-  GooglePlayServicesClient.ConnectionCallbacks,
-  GooglePlayServicesClient.OnConnectionFailedListener,
+  GoogleApiClient.ConnectionCallbacks,
+  GoogleApiClient.OnConnectionFailedListener,
+  LocationListener,
   OnMapLongClickListener {
 
     ...
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        // ...
-        // Attach long click listener to the map
-        map.setOnMapLongClickListener(this);
+    protected void loadMap(GoogleMap googleMap) {
+        map = googleMap;
+        if (map != null) {
+            // Attach long click listener to the map here
+            map.setOnMapLongClickListener(this);
+            // ...
+        }
     }
-
+    
     ...
 
     // Fires when a long press happens on the map
@@ -132,7 +135,7 @@ public class MapDemoActivity extends FragmentActivity implements
 }
 ```
 
-Now, when we run this, we should see a toast when the user long clicks on the map. 
+Make sure to have your activity implement from the `OnMapLongClickListener` for this to work properly. Now, when we run this, we should see a toast when the user long clicks on the map. 
 
 #### Define the Alert Dialog
 
