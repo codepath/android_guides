@@ -42,9 +42,11 @@ Alternatively, you can use the [android:alpha](http://developer.android.com/refe
 
 #### How do I align the position of my view or its inner contents?
 
-To align the **position of your view itself** in the layout, you need to use a different method based on the parent layout type. If the view is contained within a `RelativeLayout`, use the [`android:centerInParent`](http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_centerInParent) property to center the view both horizontally and vertically or `android:layout_centerHorizontal` to set just one or the other. If your view is contained within a `LinearLayout`, then you can use the [`android:layoutGravity`](http://developer.android.com/reference/android/widget/LinearLayout.LayoutParams.html#attr_android:layout_gravity) to determine the alignment of the view.
+To align the **position of your view itself** in the layout, you need to use a different method based on the parent layout type. If the view is contained within a `RelativeLayout`, use the [`android:centerInParent`](http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_centerInParent) property to center the view both horizontally and vertically or `android:layout_centerHorizontal` to set just one or the other. 
 
-To align the contents within a view, you can use the [`android:gravity` property](http://guides.codepath.com/android/Defining-Views-and-their-Attributes#view-gravity). 
+If your view is contained within a `LinearLayout`, then you can use the [`android:layoutGravity`](http://developer.android.com/reference/android/widget/LinearLayout.LayoutParams.html#attr_android:layout_gravity) to determine the alignment of the view.
+
+To align the contents within a view, you can use the [`android:gravity` property](http://guides.codepath.com/android/Defining-Views-and-their-Attributes#view-gravity). This property can also be used to set the alignment of text in a `TextView` to the `left`, `right`, or `center`. Note that `android:textAlignment` is **essentially useless** replaced by gravity.
 
 ### Images
 
@@ -54,7 +56,7 @@ If you simply want the image to be loaded in the easiest way possible then **jus
 
 Note that you need to make sure the image filename only contains **lowercase letters, numbers and underscores** (i.e my_image_file.png). After renaming the image to a valid resource name, **copy the image into the drawable-mdpi folder** as [[shown here|Cloning-a-Login-Screen-Layout-Guide#cutting-assets]]. Unless you want the image to be a small standard icon size, **do not** use the icon generator (i.e `New Image Asset`) when creating the images. 
 
-Instead to generate images that work at all densities, check out [this image guide](http://guides.codepath.com/android/Working-with-the-ImageView#supporting-multiple-densities) which allows us to select our resources directory, choose an extra high density image and the tool will automatically generate the corresponding lower density image sizes.
+Instead to generate resized images that work at all densities, check out [this image guide](http://guides.codepath.com/android/Working-with-the-ImageView#supporting-multiple-densities) which allows us to select our resources directory, choose an extra high density image and the tool will automatically generate the corresponding lower density image sizes.
 
 #### How do I control the way images are displayed or scaled within an ImageView?
 
@@ -74,7 +76,9 @@ There are many different `android:scaleType` values which you can read about in 
 
 #### How would I create images that look good at any resolution?
 
-You have probably noticed that there are multiple drawable folders (i.e drawable-hdpi, drawable-xhdpi) which allow us to provide [multiple resolutions for different density screens](http://developer.android.com/training/basics/supporting-devices/screens.html#create-bitmaps). An easy guide for which sizes to create can be found in [[this ImageView guide|Working-with-the-ImageView#supporting-multiple-densities]].
+You have probably noticed that there are multiple drawable folders (i.e drawable-hdpi, drawable-xhdpi) which allow us to provide multiple resolutions for different density screens. An easy guide for which sizes to create can be found in [[this ImageView guide|Working-with-the-ImageView#supporting-multiple-densities]].
+
+To resize images easily, check out the [Final Android Resizer](https://github.com/asystat/Final-Android-Resizer) by [downloading and running this JAR](https://github.com/asystat/Final-Android-Resizer/blob/master/Executable%20Jar/Final%20Android%20Resizer.jar?raw=true). 
 
 Also, there are cases where a button has an image background that needs to stretch to support different text content. In this case you might need to [draw a 9-patch](http://developer.android.com/tools/help/draw9patch.html) stretchable button. Check out the [Button Custom Background Official Guide](http://developer.android.com/guide/topics/ui/controls/button.html#CustomBackground) for specific details. You can also check out [these nice looking 9-patch buttons](http://www.dibbus.com/2011/03/9patch-images-in-android/) for use too.
 
@@ -108,6 +112,22 @@ Using this code the border on the imagebutton will be removed.
 #### How do I setup click handlers for my views or buttons?
 
 Any view can have a click handler setup by [following this event handler guide](http://guides.codepath.com/android/Basic-Event-Listeners) which triggers an action when the click occurs. 
+
+#### How can I add an image on the left of the text in my button?
+
+First create your [image icons with this generator](http://romannurik.github.io/AndroidAssetStudio/icons-launcher.html) or in Android Studio with `New => Image Asset` and then you can add the image to the left or right with `drawableLeft` or `drawableRight`:
+
+```xml
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:drawableLeft="@drawable/icon"
+    android:drawablePadding="-20sp"
+    android:text="blah blah blah" />
+```
+
+Note the use of padding to remove the extra spacing added to the text when the drawable is inserted. See the [[textview guide|Working-with-the-TextView#displaying-images-within-a-textview]] for more details.
 
 #### How do I support text with rich formatting (bold words, links) in a TextView?
 
@@ -282,7 +302,7 @@ Easiest way is to use the [ActionBar Style Generator](http://jgilfelt.github.io/
 
 #### How would I hide the top ActionBar?
 
-You can hide the ActionBar by modifying the "theme" of an Activity in the `AndroidManifest.xml` such as:
+You can hide the top bar in any Activity by modifying the "theme" of an Activity in the `AndroidManifest.xml` such as:
 
 ```xml
 <activity android:name=".Activity"
