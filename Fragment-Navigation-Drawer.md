@@ -390,7 +390,7 @@ Now you should create an instance of `NavDrawerListAdapter`, add list items to i
 
 To change the color of the selected item in your navigation drawer, you need to define layout drawable to  state the list item state when normal and pressed. It needs overall three xml files. One is for normal state, second is for pressed state and third one to combine both the layouts.
 
-![NavIconDrawable|250](http://i.imgur.com/VDUQnKXl.png)
+![NavIconDrawable|250](http://i.imgur.com/lMDh4x2l.png)
 
 Create a xml file under res > drawable folder named `list_item_bg_normal.xml` and paste the following code. (If you don’t see drawable folder, create a new folder and name it as drawable)
 
@@ -515,3 +515,5 @@ inflater.inflate(R.layout.activity_main, container);
 
 * <http://www.michenux.net/android-navigation-drawer-748.html>
 * <http://www.androidhive.info/2013/11/android-sliding-menu-using-navigation-drawer/>
+* <http://android-developers.blogspot.com/2014/10/appcompat-v21-material-design-for-pre.html>
+* <http://stackoverflow.com/questions/26440879/how-do-i-use-drawerlayout-to-display-over-the-actionbar-toolbar-and-under-the-st>
