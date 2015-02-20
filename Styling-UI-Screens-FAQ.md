@@ -94,19 +94,6 @@ This probably means that the drawable image being used is a large resolution. Th
 
 For this, we'd use a custom [ToggleButton as described here](http://mirhoseini.info/how-to-create-a-toggle-button-with-custom-image-and-no-text-in-android/) which has a different image applied for the checked and unchecked states.
 
-#### How do I remove the grey border from an ImageButton?
-
-You can remove the border by either setting `android:background` to "@null" or setting `style` to "android:attr/borderlessButtonStyle":
-
-```xml
-<ImageButton
-     ...
-     style="?android:attr/borderlessButtonStyle"
-     android:src="@drawable/image_button_graphic" />
-```
-
-Using this code the border on the imagebutton will be removed.
-
 ### Views
 
 #### How do I setup click handlers for my views or buttons?
@@ -182,6 +169,20 @@ The `stroke` is the border properties and `solid` is the background color of the
 ```
 
 See [this stackoverflow post about setting borders](http://stackoverflow.com/a/3264140) for more details.  If you want to have a border on just one edge of a view, this is unfortunately more difficult to do but can be achieved with layer lists as [described in this post about borders on one edge](http://stackoverflow.com/a/4313329).
+
+#### How do I remove the grey border from a Button or ImageButton?
+
+You can remove the border from a `Button` or `ImageButton` by either setting `android:background` to "@null" or setting `style` to "android:attr/borderlessButtonStyle":
+
+```xml
+<Button
+     ...
+     style="?android:attr/borderlessButtonStyle"
+     ...
+/>
+```
+
+Using this code the border on the button will be removed.
 
 #### How do I customize the style of a button?
 
