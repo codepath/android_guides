@@ -4,19 +4,30 @@ This guide will instruct you on how use the Google Maps API v2 library to create
 
 ### Setup Map If Necessary
 
-Assuming you have added the GoogleMap v2 mapfragment to your layout, you should first run this method `onCreate()`. In my case, I am using the SupportMapFragment, either will work.
+Assuming you have added the GoogleMap v2 MapFragment to your layout, you should first run this method `onCreate()`. In my case, I am using the SupportMapFragment, either will work.
 
 ```java
-private void setUpMapIfNeeded() {
+protected void setUpMapIfNeeded() {
     // Do a null check to confirm that we have not already instantiated the map.
     if (mapFragment == null) {
-        mapFragment = ((SupportMapFragment) getFragmentManager().findFragmentById(R.id.map));
+        mapFragment = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map));
         // Check if we were successful in obtaining the map.
         if (mapFragment != null) {
-           // The Map is verified. It is now safe to manipulate the map.
-           map = mapFragment.getMap();
+           mapFragment.getMapAsync(new OnMapReadyCallback() {
+                @Override
+                public void onMapReady(GoogleMap map) {
+                    loadMap(map);
+                }
+           });
         }
     }		   
+}
+
+// The Map is verified. It is now safe to manipulate the map.
+protected void loadMap(GoogleMap googleMap) {
+    if (map != null) {
+       // ... use map here
+    }
 }
 ```
 
