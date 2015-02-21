@@ -2,7 +2,7 @@
 
 An ActionBar is located at the top of an activity and it can display any number of status or navigation related elements such as title, icon, buttons, or arbitrary action-related views.
 
-Older Android devices have a hardware Option button which use to open a menu but the ActionBar replaces that concept in modern Android apps.
+Older Android devices have a hardware Option button to open the menu. The ActionBar replaces that concept in modern Android apps.
 
 This is typically used for displaying the title of the application and providing a primary navigation for the app. The ActionBar can contain primary action buttons as well as tabs to control navigation within any app.
 
