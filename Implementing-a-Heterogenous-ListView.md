@@ -138,7 +138,10 @@ Here we've attached the array into an adapter and then populated the ListView as
 
 <img src="http://i.imgur.com/9cfECVP.png" width="450" />
 
+This is a simple example for demonstration purposes. See [this article](https://edisonthk.wordpress.com/2014/06/12/constraints-of-multiple-layouts-listview-for-android/) for a more detailed overview.
+
 ## References
 
+ * <https://edisonthk.wordpress.com/2014/06/12/constraints-of-multiple-layouts-listview-for-android/>
  * <http://sparetimedev.blogspot.com/2012/10/recycling-of-views-with-heterogeneous.html>
  * <http://porcupineprogrammer.blogspot.com/2012/09/android-heterogeneous-adapters-gotcha.html>
