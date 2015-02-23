@@ -230,11 +230,14 @@ public class DemoPickerActivity extends Activity {
         numberPicker.setMinValue(0); 
         numberPicker.setMaxValue(100);    
         numberPicker.setWrapSelectorWheel(true);
+        numberPicker.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
     }
 }
 ```
 
-Note we set the range with `setMinValue` and `setMaxValue` and made the selector wrap with [setWrapSelectorWheel](http://developer.android.com/reference/android/widget/NumberPicker.html#setWrapSelectorWheel\(boolean\)). If you want to listen as the value changes, we can use the `OnValueChangeListener` listener:
+Note we set the range with `setMinValue` and `setMaxValue` and made the selector wrap with [setWrapSelectorWheel](http://developer.android.com/reference/android/widget/NumberPicker.html#setWrapSelectorWheel\(boolean\)).
+If you don't want the soft keyboard to popup and take focus on number picker click, you can set DescendantFocusability to be [NumberPicker.FOCUS_BLOCK_DESCENDANTS] (http://developer.android.com/reference/android/view/ViewGroup.html#setDescendantFocusability\(int\))
+If you want to listen as the value changes, we can use the `OnValueChangeListener` listener:
 
 ```java
 // within onCreate
