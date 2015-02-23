@@ -26,6 +26,8 @@ pb.setVisibility(ProgressBar.VISIBLE);
 pb.setVisibility(ProgressBar.INVISIBLE);
 ```
 
+Typically you want to try to put the `ProgressBar` in the place where data is going to show (i.e. as a placeholder for an image).  For a ListView, you put the ProgressBar in the footer.
+
 ### Result-based
 
 ProgressBar can be used to report the progress of a long-running AsyncTask. In this case:
