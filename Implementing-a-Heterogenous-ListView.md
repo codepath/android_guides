@@ -41,7 +41,8 @@ public class ColorArrayAdapter extends ArrayAdapter<SimpleColor> {
        // Each type represents a set of views that can be converted
     }
     
-    // Get the type of View that will be created by getView(int, View, ViewGroup) for the specified item.
+    // Get the type of View that will be created by getView(int, View, ViewGroup) 
+    // for the specified item.
     @Override
     public int getItemViewType(int position) {
        // Return an integer here representing the type of View.
@@ -52,6 +53,7 @@ public class ColorArrayAdapter extends ArrayAdapter<SimpleColor> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
        // View should be created based on the type returned from `getItemViewType(int position)`
+       // convertView is guaranteed to be the "correct" recycled type
     }
 }
 ```
@@ -112,7 +114,7 @@ public class ColorArrayAdapter extends ArrayAdapter<SimpleColor> {
 }
 ```
 
-Now we can attach this together within an activity and populate a ListView with:
+Note that **once `getItemViewType` is defined**, the `convertView` object is guaranteed to be the "correct" type to ensure that recycling views is relatively straightforward. Now we can attach this together within an activity and populate a ListView with:
 
 ```java
 public class HeterogenousListActivity extends Activity {
