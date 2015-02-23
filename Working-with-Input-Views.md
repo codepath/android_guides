@@ -19,6 +19,15 @@ Adding an input control to your UI is as simple as adding an XML element to your
 
 If you are using an EditText, you should always specify the [hint](http://guides.codepath.com/android/Working-with-the-EditText#displaying-placeholder-hints) and [input type](http://guides.codepath.com/android/Working-with-the-EditText#customizing-the-input-type).  
 
+### Date and Time Pickers
+
+Often within an app you will need the user to select a time or date for an event or other object. There are [native date and time pickers](http://developer.android.com/guide/topics/ui/controls/pickers.html) but they do not make for a polished user experience. Better options for date and time picking are below:
+
+ * [DateTimePicker](https://github.com/flavienlaurent/datetimepicker) - Contains the beautiful DatePicker and TimePicker that can be seen in the new Google Agenda app.
+ * [BetterPickers](https://github.com/derekbrameyer/android-betterpickers) - DialogFragments modeled after the AOSP Clock and Calendar apps to improve UX for picking time, date, numbers, and other things.
+
+Using one of these should make selecting dates and times much easier. See [this list of picker libraries](https://android-arsenal.com/tag/27) for alternatives. 
+
 ### Checkboxes
 
 Checkboxes allow the user to select one or more options from a set. Typically, you should present each checkbox option in a vertical list. Add them to the view:
