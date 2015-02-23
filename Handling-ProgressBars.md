@@ -26,7 +26,7 @@ pb.setVisibility(ProgressBar.VISIBLE);
 pb.setVisibility(ProgressBar.INVISIBLE);
 ```
 
-Typically you want to try to put the `ProgressBar` in the place where data is going to show (i.e. as a placeholder for an image).  For a ListView, you put the ProgressBar in the header or footer, which lets you put an arbitrary layout outside of the adapter.
+Typically you want to try to put the `ProgressBar` in the place where data is going to show (i.e. as a placeholder for an image).  For a ListView, you put the ProgressBar in the header or [footer](http://stackoverflow.com/a/4265324/313399), which lets you put an arbitrary layout outside of the adapter.
 
 ### Result-based
 
