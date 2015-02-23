@@ -142,6 +142,10 @@ Here we've attached the array into an adapter and then populated the ListView as
 
 This is a simple example for demonstration purposes. See [this article](https://edisonthk.wordpress.com/2014/06/12/constraints-of-multiple-layouts-listview-for-android/) for a more detailed overview.
 
+### ViewHolder for Performance
+
+As with any list within a production application, we will want to apply the [[ViewHolder Pattern|Using-an-ArrayAdapter-with-ListView#improving-performance-with-the-viewholder-pattern]] for smooth scrolling by caching the subview lookups. In this case, you'll need multiple ViewHolder classes (one per type) as [outlined in this stackoverflow post](http://stackoverflow.com/a/3515221/313399).
+
 ## References
 
  * <https://edisonthk.wordpress.com/2014/06/12/constraints-of-multiple-layouts-listview-for-android/>
