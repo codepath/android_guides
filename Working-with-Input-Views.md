@@ -15,6 +15,10 @@ Adding an input control to your UI is as simple as adding an XML element to your
 
 ![Imgur](http://i.imgur.com/OWGeaH9.png)
 
+### Text Fields
+
+If you are using an EditText, you should always specify the [hint](http://guides.codepath.com/android/Working-with-the-EditText#displaying-placeholder-hints) and [input type](http://guides.codepath.com/android/Working-with-the-EditText#customizing-the-input-type).  
+
 ### Checkboxes
 
 Checkboxes allow the user to select one or more options from a set. Typically, you should present each checkbox option in a vertical list. Add them to the view:
