@@ -251,4 +251,3 @@ You can also call `getValue` to retrieve the numeric value any time. See the [Nu
 ## References
 
  * <http://developer.android.com/guide/topics/ui/controls.html>
- * <https://github.com/derekbrameyer/android-betterpickers>
