@@ -145,3 +145,4 @@ This is a simple example for demonstration purposes. See [this article](https://
  * <https://edisonthk.wordpress.com/2014/06/12/constraints-of-multiple-layouts-listview-for-android/>
  * <http://sparetimedev.blogspot.com/2012/10/recycling-of-views-with-heterogeneous.html>
  * <http://porcupineprogrammer.blogspot.com/2012/09/android-heterogeneous-adapters-gotcha.html>
+ * <http://stackoverflow.com/questions/3514548/creating-viewholders-for-listviews-with-different-item-layouts>
