@@ -88,6 +88,7 @@ This "standard pack" listed below are libraries that are quite popular, widely a
  * [Paralloid](https://github.com/chrisjenx/Paralloid) - Parallax sliding effect made easy
  * [FloatingActionButton](https://github.com/makovkastar/FloatingActionButton) - Material design floating buttons made easy
  * [Foursquare-CollectionPicker](https://github.com/anton46/Foursquare-CollectionPicker) - Item Picker which looks like Foursquare Tastes picker
+ * [NexusDialog](https://github.com/dkharrat/NexusDialog) - Create form-based activities easily
 
 ### Drawing
 
@@ -114,6 +115,7 @@ This "standard pack" listed below are libraries that are quite popular, widely a
  * [SugarORM](http://satyan.github.io/sugar/)
  * [ORMLite](http://ormlite.com/sqlite_java_android_orm.shtml)
  * [Realm](https://github.com/realm/realm-java)
+ * [NexusData](https://github.com/dkharrat/NexusData)
 
 ### Compatibility
 
