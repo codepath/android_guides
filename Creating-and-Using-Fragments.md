@@ -480,6 +480,80 @@ protected void displayFragmentA() {
 
 Using this approach, all three fragments will remain in the container once added initially and then we are simply revealing the desired fragment and hiding the others within the container. Check out [this stackoverflow](http://stackoverflow.com/a/13185025/313399) for a discussion on deciding when to replace vs hide and show.
 
+### Nesting Fragments within Fragments
+
+Inevitably in certain cases you will want to **embed a fragment within another fragment**. Since [Android 4.2](http://developer.android.com/about/versions/android-4.2.html#NestedFragments), you have the ability to embed a fragment within another fragment. This nested fragment is known as a **child fragment**.
+A common situation where you might want to nest fragments is when you are using a sliding drawer for top-level navigation and one of the fragments needs to display tabs. 
+
+Note that one limitation is that nested (or child) fragments **must be dynamically added at runtime** to their parent fragment and cannot be statically added using the `<fragment>` tag. To nest a fragment in another fragment, first we need a `<FrameLayout>` or alternatively a [[ViewPager|ViewPager-with-FragmentPagerAdapter]] to contain the dynamic child fragment in the `res/layout/fragment_parent.xml` layout:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent" android:layout_height="fill_parent"
+    android:orientation="vertical" >
+<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I am the parent fragment" />
+<FrameLayout
+        android:id="@+id/child_fragment_container"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>
+```
+
+Notice that there's a `FrameLayout` with the id of `@+id/child_fragment_container` in which the child fragment will be inserted. Inflation of the `ParentFragment` is within the `onCreateView` method is unchanged as outlined in earlier sections. In addition, we would also define a `ChildFragment` that would have its own distinct layout file:
+
+```java
+// Top-level fragment that will contain the child
+public class ParentFragment extends Fragment {
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+        Bundle savedInstanceState) {
+      View view = (View) inflater.inflate(R.layout.fragment_parent, container, false);
+      return view;
+   }
+}
+
+// Child fragment that will be dynamically embedded in the parent
+public class ChildFragment extends Fragment {
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+        Bundle savedInstanceState) {
+       // Need to define the child fragment layout
+       View view = (View) inflater.inflate(R.layout.fragment_child, container, false);
+       return view;
+   }
+}
+```
+
+Now we can add the child fragment to the parent at runtime using the `getChildFragmentManager` method:
+
+```java
+// Top-level fragment that will contain the child
+public class ParentFragment extends Fragment {
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+        Bundle savedInstanceState) {
+      View view = (View) inflater.inflate(R.layout.fragment_parent, container, false);
+      insertNestedFragment();
+      return view;
+   }
+  
+   // Embeds the child fragment dynamically
+   private void insertNestedFragment() {
+      Fragment childFragment = new ChildFragment();
+      FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+      transaction.replace(R.id.child_fragment_container, childFragment).commit();
+   }
+}
+```
+
+Note that **you must always use `getChildFragmentManager`** when interacting with nested fragments instead of using `getSupportFragmentManager`. Read [this stackoverflow post](http://stackoverflow.com/a/14775322) for an explanation of the different between the two.
+
+In the child fragment, we can use `getParentFragment()` to get the reference to parent similar to getActivity that gives reference of parent Activity. See [the docs](http://developer.android.com/reference/android/app/Fragment.html#getParentFragment\(\)) for more information. 
+
 ## References
 
  * <http://developer.android.com/reference/android/app/Fragment.html>
