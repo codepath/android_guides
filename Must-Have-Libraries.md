@@ -88,7 +88,7 @@ This "standard pack" listed below are libraries that are quite popular, widely a
  * [Paralloid](https://github.com/chrisjenx/Paralloid) - Parallax sliding effect made easy
  * [FloatingActionButton](https://github.com/makovkastar/FloatingActionButton) - Material design floating buttons made easy
  * [Foursquare-CollectionPicker](https://github.com/anton46/Foursquare-CollectionPicker) - Item Picker which looks like Foursquare Tastes picker
- * [NexusDialog](https://github.com/dkharrat/NexusDialog) - Create form-based activities easily
+ * [NexusDialog](https://github.com/dkharrat/NexusDialog) - Create form dialogs easily
 
 ### Drawing
 
