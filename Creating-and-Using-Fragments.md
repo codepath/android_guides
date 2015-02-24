@@ -560,3 +560,4 @@ In the child fragment, we can use `getParentFragment()` to get the reference to 
  * <http://developer.android.com/training/basics/fragments/creating.html>
  * <http://developer.android.com/guide/components/fragments.html>
  * <http://www.vogella.com/articles/AndroidFragments/article.html>
+ * <http://xperiment-andro.blogspot.com/2013/02/nested-fragments.html>
