@@ -78,6 +78,8 @@ To use the `ToolBar` as an `ActionBar`, you need to disable the default `ActionB
 
 Next, let's setup a basic navigation drawer based on the following layout file which has the entire drawer setup in `res/layout/activity_main.xml`. Note that the `ToolBar` is added as the first child of the main content view by adding the include tag.
 
+When `android:fitsSystemWindows` attribute is set to true for a view, the view would be laid out as if the `StatusBar` and the `ActionBar` were present i.e. the UI on top gets padding enough to not be obscured by the navigation bar. We want our main content view to have the navigation bar and hence `android:fitsSystemWindows` is set to true for the `FrameLayout`. To achieve the effect of having the navigation drawer appear from under the `StatusBar`, we need to set `android:fitsSystemWindows` to false.
+
 ```xml
 <my.custom.package.path.FragmentNavigationDrawer
     xmlns:android="http://schemas.android.com/apk/res/android"
