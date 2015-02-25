@@ -56,7 +56,7 @@ items.add("Item 4");
 
 and then construct a super simple `ArrayAdapter` and populate the TwoWayView with:
 
-Take into account that the `layout_with` param is defined as `match_parent` in `simple_list_item_1`, so if you use it, the list will show just the first element. So, please create a new layout like this:
+Take into account that the `layout_width` param is defined as `match_parent` in `simple_list_item_1`, so if you use it, the list will show just the first element. So, please create a new layout like this:
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
