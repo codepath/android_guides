@@ -292,7 +292,7 @@ public class NavDrawerItem {
 
 ### Create Custom Adapter
 
-Next, create a custom adapter class `NavDrawerListAdapter.java` for `ListView` which provides a custom layout for individual list item in the `ListView`.
+Next, create a custom adapter class `NavDrawerListAdapter.java`, which provides a custom layout for individual list item in the `ListView`.
 
 ```java
 public class NavDrawerListAdapter extends BaseAdapter {
