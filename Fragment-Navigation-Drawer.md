@@ -88,20 +88,24 @@ When `android:fitsSystemWindows` attribute is set to true for a view, the view w
     android:layout_height="match_parent"
     android:fitsSystemWindows="false">
 
-    <!-- The main content view -->
-    <FrameLayout
-      android:id="@+id/flContent"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:fitsSystemWindows="true">
-
-      <!-- The ActionBar -->
-      <include
-        layout="@layout/toolbar"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-      </include>
-    </FrameLayout>
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
+        <!-- The ActionBar -->
+        <include
+            layout="@layout/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- The main content view -->
+        <FrameLayout
+            android:id="@+id/flContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 
     <!-- The navigation drawer -->
     <ListView
