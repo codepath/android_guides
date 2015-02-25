@@ -503,7 +503,7 @@ Note that one limitation is that nested (or child) fragments **must be dynamical
 </LinearLayout>
 ```
 
-Notice that there's a `FrameLayout` with the id of `@+id/child_fragment_container` in which the child fragment will be inserted. Inflation of the `ParentFragment` is within the `onCreateView` method is unchanged as outlined in earlier sections. In addition, we would also define a `ChildFragment` that would have its own distinct layout file:
+Notice that there's a `FrameLayout` with the id of `@+id/child_fragment_container` in which the child fragment will be inserted. Inflation of the `ParentFragment` view is within the `onCreateView` method, just as was outlined in earlier sections. In addition, we would also define a `ChildFragment` that would have its own distinct layout file:
 
 ```java
 // Top-level fragment that will contain the child
