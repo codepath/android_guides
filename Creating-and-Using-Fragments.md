@@ -550,9 +550,9 @@ public class ParentFragment extends Fragment {
 }
 ```
 
-Note that **you must always use `getChildFragmentManager`** when interacting with nested fragments instead of using `getSupportFragmentManager`. Read [this stackoverflow post](http://stackoverflow.com/a/14775322) for an explanation of the different between the two.
+Note that **you must always use `getChildFragmentManager`** when interacting with nested fragments instead of using `getSupportFragmentManager`. Read [this stackoverflow post](http://stackoverflow.com/a/14775322) for an explanation of the difference between the two.
 
-In the child fragment, we can use `getParentFragment()` to get the reference to parent similar to getActivity that gives reference of parent Activity. See [the docs](http://developer.android.com/reference/android/app/Fragment.html#getParentFragment\(\)) for more information. 
+In the child fragment, we can use `getParentFragment()` to get the reference to the parent fragment, similar to a fragment's `getActivity()` method that gives reference to the parent Activity. See [the docs](http://developer.android.com/reference/android/app/Fragment.html#getParentFragment\(\)) for more information. 
 
 ## References
 
