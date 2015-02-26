@@ -213,7 +213,7 @@ res/values-v19/styles.xml:
 </resources>
 ```
 
-Now if you run your application, you should see the navigation drawer and be able to select between your fragments.
+Now if you run your app, you should see the navigation drawer and be able to select between your fragments.
 
 ## Add Icons
 
