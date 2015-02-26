@@ -6,6 +6,8 @@ This document shows you how to get started with WebView and how to do some addit
 
 ## Usage
 
+### Load External Pages
+
 To get Internet access, request the INTERNET permission in your manifest file. For example:
 
 ```xml
@@ -38,7 +40,7 @@ public class MainActivity extends Activity {
       setContentView(R.layout.activity_main);
       myWebView = (WebView) findViewById(R.id.webview);
       // Configure related browser settings
-      myWebView.getSettings().setLoadsImagesAutomatically(true);
+     myWebView.getSettings().setLoadsImagesAutomatically(true);
       myWebView.getSettings().setJavaScriptEnabled(true);
       myWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
       // Configure the client to use when opening URLs
@@ -59,6 +61,33 @@ public class MainActivity extends Activity {
 ```
 
 You can attach javascript functions and use them within the mobile webpages as described [here in the official docs](http://developer.android.com/guide/webapps/webview.html#UsingJavaScript).
+
+### Loading Local Pages
+
+In case you want to store a copy of a webpage locally to be loaded into a `WebView`, you can put it in the android `assets` folder. If you do not find one under your `main/` directory, then you can create one. Place the html, css, js, etc in this folder. 
+
+For example, say I wanted to load a page entitled `index.html`. I would create my file under `{ProjectName}/app/src/main/assets/index.html`
+
+then, in your activity or fragment you can use the code
+
+```java
+public class MainActivity extends Activity {
+   private WebView myWebView;
+
+   @Override		
+   protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+      myWebView = (WebView) findViewById(R.id.webview);
+      myWebView.getSettings().setJavaScriptEnabled(true);
+      myWebView.setWebViewClient(new WebViewClient());
+      String path = Uri.parse("file:///android_asset/index.html").toString();
+      myWebView.loadUrl(path);
+   }
+
+}
+```
+
 
 ## References
 
