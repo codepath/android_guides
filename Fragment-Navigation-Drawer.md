@@ -47,9 +47,9 @@ Define the `FragmentNavigationDrawer` class by copying the text from the [source
 
 Next, you need to define your fragments that will be displayed within the drawer. These can be any support fragments you define within your application. Make sure that all the fragments extend from **android.support.v4.app.Fragment**.
 
-### Setup ToolBar
+### Setup Toolbar
 
-In order to slide our navigation drawer over the ActionBar, we need to use the new [ToolBar](http://guides.codepath.com/android/Defining-The-ActionBar#toolbar-basics) widget as defined in the AppCompat v21 library. The `ToolBar` can be embedded into your view hierarchy which makes sure that the drawer slides over the `ActionBar`.
+In order to slide our navigation drawer over the ActionBar, we need to use the new [Toolbar](http://guides.codepath.com/android/Defining-The-ActionBar#toolbar-basics) widget as defined in the AppCompat v21 library. The `Toolbar` can be embedded into your view hierarchy which makes sure that the drawer slides over the `ActionBar`.
 
 Create a new layout file `res/layout/toolbar.xml` with the following code:
 
@@ -64,7 +64,7 @@ Create a new layout file `res/layout/toolbar.xml` with the following code:
 </android.support.v7.widget.Toolbar>
 ```
 
-To use the `ToolBar` as an `ActionBar`, you need to disable the default `ActionBar`. This can be done by setting the app theme in `styles.xml` file.
+To use the `Toolbar` as an `ActionBar`, you need to disable the default `ActionBar`. This can be done by setting the app theme in `styles.xml` file.
 
 ```xml
 <resources>
@@ -76,7 +76,7 @@ To use the `ToolBar` as an `ActionBar`, you need to disable the default `ActionB
 
 ### Setup Drawer in Activity
 
-Next, let's setup a basic navigation drawer based on the following layout file which has the entire drawer setup in `res/layout/activity_main.xml`. Note that the `ToolBar` is added as the first child of the main content view by adding the include tag.
+Next, let's setup a basic navigation drawer based on the following layout file which has the entire drawer setup in `res/layout/activity_main.xml`. Note that the `Toolbar` is added as the first child of the main content view by adding the include tag.
 
 When `android:fitsSystemWindows` attribute is set to true for a view, the view would be laid out as if the `StatusBar` and the `ActionBar` were present i.e. the UI on top gets padding enough to not be obscured by the navigation bar. We want our main content view to have the navigation bar and hence `android:fitsSystemWindows` is set to true for the `LinearLayout`.
 
@@ -131,7 +131,7 @@ public class MainActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		// Set a ToolBar to replace the ActionBar.
+		// Set a Toolbar to replace the ActionBar.
 		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
 
