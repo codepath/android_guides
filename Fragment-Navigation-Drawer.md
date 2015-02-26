@@ -201,6 +201,7 @@ public class MainActivity extends ActionBarActivity {
 To have the status bar translucent and have our drawer slide below it, we need to set `android:windowTranslucentStatus` to true. Because this style is not available for pre Kitkat devices, we'll add  `res/values-v19/styles.xml` file for API version 19 and onwards.  **Note**: If you modify your `res/values/styles.xml` directly with this `android:windowTranslucentStatus` line, you are likely to need to build only for SDK versions 19 or higher, which will obviously limit you from supporting many older devices.
 
 res/values-v19/styles.xml:
+
 ```
 <resources>
   <!-- Base application theme. -->
