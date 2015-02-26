@@ -202,7 +202,7 @@ To have the status bar translucent and have our drawer slide below it, we need t
 
 res/values-v19/styles.xml:
 
-```
+```xml
 <resources>
   <!-- Base application theme. -->
   <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -210,7 +210,6 @@ res/values-v19/styles.xml:
     <item name="android:windowTranslucentStatus">true</item>
   </style>
 </resources>
-
 ```
 
 Now if you run your application, you should see the navigation drawer and be able to select between your fragments.
