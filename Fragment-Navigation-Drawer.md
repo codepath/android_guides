@@ -39,7 +39,7 @@ Make sure that the **root view is the TextView** without a layout container. In 
 
 ### Copy In FragmentNavigationDrawer
 
-First, let's define a `FragmentNavigationDrawer.java` class within our application which makes working with the navigation drawer within an activity much simpler. Choose the source below based on your version of the support library.
+First, let's define a `FragmentNavigationDrawer.java` class within our app which makes working with the navigation drawer within an activity much simpler. Choose the source below based on your version of the support library.
 
 Define the `FragmentNavigationDrawer` class by copying the text from the [source code from here](https://gist.github.com/nidhi1608/104b31cb0ebc1f7b3f69). Make sure that your activity extends from `ActionBarActivity`.
 
