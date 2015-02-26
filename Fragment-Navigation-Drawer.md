@@ -203,7 +203,7 @@ To have the status bar translucent and have our drawer slide below it, we need t
 
 In `res/values-v19/styles.xml` we can add the following:
 
-```
+```xml
 <resources>
   <!-- Base application theme. -->
   <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
