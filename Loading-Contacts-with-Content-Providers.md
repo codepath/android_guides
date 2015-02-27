@@ -97,7 +97,7 @@ public class SampleActivity extends FragmentActivity {
     		String[] projectionFields =  new String[] { ContactsContract.Contacts._ID, 
     	               ContactsContract.Contacts.DISPLAY_NAME };
     		// Construct the loader
-    		CursorLoader cursorLoader = new CursorLoader(SampleActivity.this,
+    		CursorLoader cursorLoader = new CursorLoader(this,
     				ContactsContract.Contacts.CONTENT_URI, // URI
     				projectionFields,  // projection fields
     				null, // the selection criteria
