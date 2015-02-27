@@ -248,6 +248,7 @@ public class ContactFetcher {
 				null // the sort order (default)
 		);
                 // This should probably be run from an AsyncTask
+                // loadInBackground() is actually a synchronous call to query the Content Provider
 		Cursor c = cursorLoader.loadInBackground();
 		if (c.moveToFirst()) {
 			do {
