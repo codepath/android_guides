@@ -26,7 +26,7 @@ Intent shareIntent = new Intent(Intent.ACTION_SEND);
 shareIntent.setType("image/jpg");
 Uri uri = Uri.fromFile(new File(getFilesDir(), "foo.jpg"));
 shareIntent.putExtra(Intent.EXTRA_STREAM, uri.toString());
-startActivity(Intent.createChooser(sharingIntent, "Share image using"));
+startActivity(Intent.createChooser(shareIntent, "Share image using"));
 ```
 
 ### Sharing Remote Images
