@@ -579,7 +579,7 @@ You should now be able to search for books from the SearchView in your ActionBar
 ### Show Progress Bar
 A ProgressBar should be used when we want the user to wait till a task completes. It's a good practice to always show a ProgressBar before making a network call.
 
-To display a result-based ProgressBar, add a ProgressBar to `activity_book_list.xml` file.
+To display an indeterminate ProgressBar, add a ProgressBar to `activity_book_list.xml` file.
 
 ```xml
 <LinearLayout
