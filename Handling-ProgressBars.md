@@ -77,6 +77,8 @@ and using this pattern any background tasks can be reflected by an on-screen pro
 
 ### ActionBar Progress Bar
 
+**Note:** with API 21 and the latest support v7 library, the [actionbar progress bar has been deprecated](http://stackoverflow.com/a/27090154/313399) in favor of using the Toolbar.
+
 The ActionBar has built-in progress bar UIs for both indeterminate and result-based progress bars. To show an **indeterminate progress** bar on the ActionBar simply requires `setProgressBarIndeterminateVisibility`:
 
 ```java
@@ -138,7 +140,9 @@ public class MainActivity extends Activity {
 }
 ```
 
-Note that for this to work, you must call `requestWindowFeature` as shown above before `setContentView` in `onCreate`.
+Note that for this to work, you must call `requestWindowFeature` as shown above before `setContentView` in `onCreate`. 
+
+**Note:** with API 21 and the latest support v7 library, the [actionbar progress bar has been deprecated](http://stackoverflow.com/a/27090154/313399) in favor of using the Toolbar.
 
 ## References
 
