@@ -20,6 +20,6 @@ The course was broken up into three lectures with all the content for each sessi
   * [EventQueue Graphic](https://drive.google.com/open?id=0B_tq9HHgpVcWM1lQLV96blkxd00&authuser=0)
   * [MVC Graphic](https://drive.google.com/open?id=0B_tq9HHgpVcWTVZBdWVPVzZkRGs&authuser=0)
 
-Ana Redmond's content can be [accessed in full here](https://drive.google.com/drive/u/0/#folders/0B_tq9HHgpVcWfnNqUmY2OTl1SXE4djU0QkZHbGduU0ZkOWhybEFqV0kxWVhrY3NFWVNmR0U).
+Ana Redmond's content can be [accessed in full here](https://drive.google.com/folderview?id=0B5u8j07GbVMlZk5PMUROT2N6Z00&usp=sharing).
 
 ## References
