@@ -9,7 +9,7 @@ This course was developed by [Ana Redmond](https://www.linkedin.com/in/anaredmon
 The course was broken up into three lectures with all the content for each session provided below:
 
 * [Setup](https://drive.google.com/open?id=0B_tq9HHgpVcWUDBDbVJXYXhCQ1k&authuser=0)
-* [Lecture 1](https://drive.google.com/open?id=0B_tq9HHgpVcWMWtVMUMwZHUxZjg&authuser=0)
+* [Lecture 1](https://drive.google.com/open?id=0B_tq9HHgpVcWaDBZdVRuLXFHdDQ&authuser=0)
   * [Architecture Graphic](https://drive.google.com/open?id=0B_tq9HHgpVcWUG9Kc0JKOG9GWnM&authuser=0)
   * [Slides](https://drive.google.com/open?id=0B_tq9HHgpVcWNk95bktRUjlLb2M&authuser=0)
 * [Lecture 2](https://drive.google.com/open?id=0B_tq9HHgpVcWOUx5ODEyNVlSdjg&authuser=0)
