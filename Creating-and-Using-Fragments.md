@@ -449,7 +449,7 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 
 protected void displayFragmentA() {
-    FragmentTransaction ft = getSupportFragmentManager();
+    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
     // removes the existing fragment calling onDestroy
     ft.replace(R.id.flContainer, fragmentA); 
     ft.commit();
