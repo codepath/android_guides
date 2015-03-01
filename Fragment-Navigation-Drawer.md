@@ -473,7 +473,7 @@ For a more in-depth look at a navigation drawer with icons and sections, check o
 
 ## Alternative to Fragments
 
-Although many navigation drawer examples show how fragments can be used with the navigation drawer, you can also use a `RelativeLayout`/`LinearLayout`` if you wish to use the drawer as an overlay to your currently displayed Activity.  
+Although many navigation drawer examples show how fragments can be used with the navigation drawer, you can also use a `RelativeLayout`/`LinearLayout` if you wish to use the drawer as an overlay to your currently displayed Activity.  
 
 Instead of `<FrameLayout>` you can substitute that for a `<LinearLayout>`
 
