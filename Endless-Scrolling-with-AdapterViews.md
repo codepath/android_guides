@@ -107,7 +107,7 @@ Now as you scroll, items will be automatically filling in because the `onLoadMor
 
 If you are running into problems, please carefully consider the following suggestions:
 
-* Make sure to setup the `setOnScrollListener` listener in the `onCreate` method of the `Activity` and not later on otherwise you may encounter unexpected issues. 
+* Make sure to setup the `setOnScrollListener` listener in the `onCreate` method of the `Activity` or `onCreateView` in a Fragment and not much later otherwise you may encounter unexpected issues. 
 
 * In order for the pagination system to continue working reliably, you should make sure to **clear the adapter** of items (or notify adapter after clearing the array) before appending new items to the list.
 
