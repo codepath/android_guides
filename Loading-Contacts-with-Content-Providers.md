@@ -41,7 +41,8 @@ public class SampleActivity extends FragmentActivity {
     // Create simple cursor adapter to connect the cursor dataset we load with a ListView
     private void setupCursorAdapter() {
         // Column data from cursor to bind views from	
-      	String[] uiBindFrom = { ContactsContract.Contacts.DISPLAY_NAME, ContactsContract.Contacts.PHOTO_URI };
+      	String[] uiBindFrom = { ContactsContract.Contacts.DISPLAY_NAME,
+            ContactsContract.Contacts.PHOTO_URI };
       	// View IDs which will have the respective column data inserted
         int[] uiBindTo = { R.id.tvName, R.id.ivImage };
         // Create the simple cursor adapter to use for our list
@@ -94,7 +95,8 @@ public class SampleActivity extends FragmentActivity {
     	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
     		// Define the columns to retrieve
     		String[] projectionFields =  new String[] { ContactsContract.Contacts._ID, 
-    	               ContactsContract.Contacts.DISPLAY_NAME, ContactsContract.Contacts.PHOTO_URI };
+    	               ContactsContract.Contacts.DISPLAY_NAME, 
+                       ContactsContract.Contacts.PHOTO_URI };
     		// Construct the loader
     		CursorLoader cursorLoader = new CursorLoader(SampleActivity.this,
     				ContactsContract.Contacts.CONTENT_URI, // URI
