@@ -79,6 +79,7 @@ Speaking of Eclipse, an older IDE many people still use to program for Android, 
 In terms of designing a good looking app, here are some links that will help you start looking at ideas and acquiring design assets like icons:
 
  * [Android App Patterns](http://www.android-app-patterns.com/) - Repository of Android interfaces for dozens of categories. **Great way to explore the Android design standards**
+ * [MaterialDesignIcons](http://materialdesignicons.com/) - Good icons for material designed apps
  * [IconFinder](https://www.iconfinder.com/) - Excellent source of free to use graphics
  * [iconmonstr](http://iconmonstr.com/) - Great source of icons with customized shapes and colors
  * [NounProject](http://thenounproject.com/) - Another source of free icons and graphics
