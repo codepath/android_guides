@@ -381,7 +381,7 @@ Now you should create an instance of `NavDrawerListAdapter`, add list items to i
         getSupportActionBar().setHomeButtonEnabled(true);
     }
 
-    // addNavItem("First", R.drawable.ic_one, "First Fragment", FirstFragment.class)
+    // addNavItem("First", R.mipmap.ic_one, "First Fragment", FirstFragment.class)
     public void addNavItem(String navTitle, int icon, String windowTitle, Class<? extends Fragment> fragmentClass) {
         // adding nav drawer items to array
         navDrawerItems.add(new NavDrawerItem(navTitle, icon));
