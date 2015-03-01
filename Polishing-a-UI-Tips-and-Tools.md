@@ -42,6 +42,6 @@ Additional reading:
   * Review the [[complete drawables|Drawables]] cliffnotes 
   * Review the [[styles and themes|Styles-and-Themes]] cliffnotes
   * Review our [[styling the ActionBar guide|Extended-ActionBar-Guide#custom-actionbar-styles]]
-  * Review our [[styling tabs guide|ActionBar-Tabs-with-Fragments#styling-tabs]]
+  * Review our [[styling tabs guide|Sliding-Tabs-with-PagerSlidingTabStrip#customize-tab-styles]] 
 
 The original gist source for the page can be found [here](https://gist.github.com/nesquena/6c567083aec13d868017).
