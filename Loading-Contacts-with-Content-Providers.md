@@ -38,7 +38,7 @@ public class SampleActivity extends FragmentActivity {
        setupCursorAdapter();
     }
     
-    // Create simple cursor adapter to connect the cursor dataset we load with a listview
+    // Create simple cursor adapter to connect the cursor dataset we load with a ListView
     private void setupCursorAdapter() {
         // Column data from cursor to bind views from	
       	String[] uiBindFrom = { ContactsContract.Contacts.DISPLAY_NAME };
@@ -46,11 +46,10 @@ public class SampleActivity extends FragmentActivity {
         int[] uiBindTo = { R.id.tvName };
         // Create the simple cursor adapter to use for our list
         // specifying the template to inflate (item_contact),
-        // Fields to bind from and to and mark the adapter as observing for changes
       	adapter = new SimpleCursorAdapter(
                   this, R.layout.item_contact,
                   null, uiBindFrom, uiBindTo,
-                  CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
+                  0;
     }
 }
 ```
