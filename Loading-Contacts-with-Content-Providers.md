@@ -49,7 +49,7 @@ public class SampleActivity extends FragmentActivity {
       	adapter = new SimpleCursorAdapter(
                   this, R.layout.item_contact,
                   null, uiBindFrom, uiBindTo,
-                  0;
+                  0);
     }
 }
 ```
