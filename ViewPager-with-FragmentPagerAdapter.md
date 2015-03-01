@@ -203,6 +203,7 @@ vpPager.setOnPageChangeListener(new OnPageChangeListener() {
 	}
 });
 ```
+**Note:** if you're using the PagerSlidingTabStrip library (see below), call `setOnPageChangeListener` on your PagerSlidingTabStrip object instead of on your ViewPager. You must do this because the ViewPager only supports notifying one listener.
 
 ## Tabbed Interface with Pager
 
