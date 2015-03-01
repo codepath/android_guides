@@ -56,7 +56,8 @@ protected void onCreate(Bundle savedInstanceState) {
 protected void onResume() {
 	super.onResume();
 	if (mLight != null) {
-	  mSensorManager.registerListener(mLightSensorListener, mLight, SensorManager.SENSOR_DELAY_NORMAL);
+	  mSensorManager.registerListener(mLightSensorListener, mLight, 
+             SensorManager.SENSOR_DELAY_NORMAL);
 	}
 }
 
