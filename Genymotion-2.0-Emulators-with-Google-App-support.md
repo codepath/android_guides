@@ -42,7 +42,7 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 
 **Note:** If you get `Failed to load OVI` error when re-adding the emulator, you need to use a new name for the same device. For example, "Nexus 4 - 4.4.4 - API 19" might be called "Nexus 4 - 4.4.4 - API 19 New".
 
-#### Setup Google Play Services
+### Setup Google Play Services
 
 1. Download the latest [Google Play Services APK](https://www.mediafire.com/?qbbt4lhyu9q10ix) for 4.4.4 from [Mediafire](https://www.mediafire.com/?qbbt4lhyu9q10ix)
 2. Drag and drop the zip file onto the running Genymotion emulator device
