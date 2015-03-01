@@ -150,6 +150,7 @@ Now we have completed the process of loading the contacts into our list using a 
 
 ## References
 
+ * <http://www.androiddesignpatterns.com/2012/07/loaders-and-loadermanager-background.html> 
  * <http://code.tutsplus.com/tutorials/android-sdk_loading-data_cursorloader--mobile-5673>
  * <http://www.app-solut.com/blog/2011/03/working-with-the-contactscontract-to-query-contacts-in-android/>
  * <https://developer.android.com/training/load-data-background/setup-loader.html>
