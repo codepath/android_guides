@@ -86,7 +86,7 @@ Read our [[Google Cloud Messaging]] cliffnotes for specific implementation detai
 
  * [Google I/O 2012 Intro Talk](https://www.youtube.com/watch?v=YoaP6hcDctM)
  * [Google GCM Overview](http://developer.android.com/google/gcm/gs.html)
- * [Implementing GCM Server](http://developer.android.com/google/gcm/server.html)
+    * [Implementing GCM Server](http://developer.android.com/google/gcm/server.html)
  * [AndroidHive GCM Tutorial](http://www.androidhive.info/2012/10/android-push-notifications-using-google-cloud-messaging-gcm-php-and-mysql/)
  * <https://developers.google.com/cloud/samples/mbs/android/enable_push>
  * <http://javapapers.com/android/google-cloud-messaging-gcm-for-android-and-push-notifications/>
