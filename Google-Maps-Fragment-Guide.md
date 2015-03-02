@@ -68,7 +68,7 @@ The first step to getting Google Maps working on your emulator is to download a 
 
 ### Installing Genymotion
 
-See the instructions to [[setup genymotion|Genymotion 2.0 Emulators-with-Google-Play-support]].  It includes directions for setting Google Play Services and GPS too.  You will need to setup both in order to setup the map demo in the next section.
+See the instructions to [[setup Genymotion|Genymotion 2.0 Emulators-with-Google-Play-support]].  It includes directions for setting Google Play Services and GPS too.  You will need to setup both in order to setup the map demo in the next section.
 
 ### Import Maps Demo
 
