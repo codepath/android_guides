@@ -84,7 +84,7 @@ In order to use GCM, we need to go through the following steps:
 
 Read our [[Google Cloud Messaging]] cliffnotes for specific implementation details. Check out these external links below for reference:
 
- * [Google I/O 2012 Talk](https://www.youtube.com/watch?v=YoaP6hcDctM)
+ * [Google I/O 2012 Intro Talk](https://www.youtube.com/watch?v=YoaP6hcDctM)
  * [Google GCM Overview](http://developer.android.com/google/gcm/gs.html)
  * [Implementing GCM Server](http://developer.android.com/google/gcm/server.html)
  * [AndroidHive GCM Tutorial](http://www.androidhive.info/2012/10/android-push-notifications-using-google-cloud-messaging-gcm-php-and-mysql/)
