@@ -38,7 +38,7 @@ If you are using [advanced targeting](https://parse.com/docs/push_guide#sending-
 
 #### Push Broadcast Receiver
 
-Receiving push notifications sent with Parse can be done using the [BroadcastReceiver](http://developer.android.com/reference/android/content/BroadcastReceiver.html) to manage the incoming push events. Any activity can register to handle these broadcast events. If you want to implement the push notification receiver, then check out [this excellent tutorial](http://ahirazitai.blogspot.in/2013/05/push-notification.html). Full source code for that tutorial can be [found on github](https://github.com/ahiraz/pushNotificationDemo). 
+Receiving push notifications sent with Parse can be done using the [BroadcastReceiver](http://developer.android.com/reference/android/content/BroadcastReceiver.html) to manage the incoming push events. Any activity can register to handle these broadcast events. If you want to implement the push notification receiver, then check out [this Stack Overflow article](http://stackoverflow.com/questions/26574363/how-to-add-parsepushbroadcastreceiver-getactivity-to-an-application). Full source code for another [tutorial](http://ahirazitai.blogspot.in/2013/05/push-notification.html) can be [found on github](https://github.com/ahiraz/pushNotificationDemo). 
 
 ### Communicating with an Activity
 
