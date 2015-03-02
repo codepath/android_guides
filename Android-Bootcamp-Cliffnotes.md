@@ -86,7 +86,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Getting Started with Gradle]]
 
 ### Recommended
-* [[Genymotion 2.0 Emulators with Google App support]]
+* [[Genymotion 2.0 Emulators with Google Play support]]
 * [[Extended ActionBar Guide]]
 * [[Menus and Popups]]
 * [[Using DialogFragment]]
