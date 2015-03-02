@@ -46,6 +46,8 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 
 1. Download the latest [Google Play Services APK](https://www.mediafire.com/?qbbt4lhyu9q10ix) for 4.4.4 from [Mediafire](https://www.mediafire.com/?qbbt4lhyu9q10ix)
 2. Drag and drop the zip file onto the running Genymotion emulator device
+
+![Installing Google Apps APK](http://i.imgur.com/PvGjlyo.png)
 3. **Close and restart the emulator** and Google Play Store should now be installed
 4. After restart, open the "Play Store" app on your emulator and **sign in** with a google account
 
