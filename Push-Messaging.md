@@ -26,7 +26,7 @@ push.sendInBackground();
 
 Full source code can be [found on Github](https://github.com/ParsePlatform/PushTutorial). For full details and options, check out the [official parse Push guide](https://parse.com/docs/push_guide#sending/Android).  
 
-**Running into issues?** Check out the [push troubleshooting guide](https://parse.com/docs/push_guide#troubleshooting/Android). Also compare your app with this [sample reference app](https://github.com/codepath/ParsePushNotificationExample/tree/master/src/com/test).
+**Running into issues?** Check out the [push troubleshooting guide](https://parse.com/docs/push_guide#troubleshooting/Android). Also compare your app with this [sample reference app](https://github.com/codepath/ParsePushNotificationExample/tree/master/app/src/com/test).
 
 ### Receiving Push Notifications
 
