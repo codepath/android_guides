@@ -128,15 +128,25 @@ Use this checklist for troubleshooting below:
 
 **Trouble seeing the map in the demo app?**
 
- * Does the Android Key on the Google API Console **match the package namespace of the maps demo app** i.e `<YOURSHA1KEY>;com.example.mapdemo`?
- * Did you enter the correct API Key into the `AndroidManifest.xml` as explained in the map demo setup?
- * Did you enable the "Google Maps Android API v2" toggle switch on the Google API Console under "APIs & Auth" tab?
- * Did you enable GPS location for the emulator and set a location by going to the map?
- * Did you download the latest [Google Play Services APK](http://goo.im/gapps/gapps-jb-20130813-signed.zip) and install that onto your emulator? See the [[google play genymotion section|Google-Maps-Fragment-Guide#setup-google-play-services]].
- * Did you try running "Play Store" on your emulator and sign in with a Google account?
- * Uninstall the "Map Demo" from the emulator first, then re-install
- * Restart Android Studio and try to launch the app again 
- * Restart your computer and try to launch the app again
+ You are likely to see an error message such as the following in your LogCat:
+
+ ![](http://i.imgur.com/V6EzQGV.png)
+
+ If so, make sure to check the following:
+
+   * Does the Android Key on the Google API Console **match the package namespace of the maps demo app** i.e `<YOURSHA1KEY>;com.example.mapdemo`?  The error messages should include the Key and package namespace you should be using.
+
+   * Did you enter the correct API Key into the `AndroidManifest.xml` as explained in the map demo setup?
+   * Did you enable the "Google Maps Android API v2" toggle switch on the Google API Console under "APIs & Auth" tab?
+
+Other things to check:
+
+   * Did you enable GPS location for the emulator and set a location by going to the map?
+   * Did you download the latest [Google Play Services APK](http://goo.im/gapps/gapps-jb-20130813-signed.zip) and install that onto your emulator? See the [[google play genymotion section|Google-Maps-Fragment-Guide#setup-google-play-services]].
+   * Did you try running "Play Store" on your emulator and sign in with a Google account?
+   * Uninstall the "Map Demo" from the emulator first, then re-install
+   * Restart Android Studio and try to launch the app again 
+   * Restart your computer and try to launch the app again
 
 Hopefully with these troubleshooting steps you have gotten things working!
 
