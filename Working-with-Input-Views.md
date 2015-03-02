@@ -132,11 +132,11 @@ Spinners provide a quick way to select one value from a set of options. Create a
 
 ```xml
 <Spinner
-         android:id="@+id/mySpinner"
-         android:layout_width="wrap_content"
-	 android:entries="@array/planets_arrays"
-         android:prompt="@string/planets_prompt"
-         android:layout_height="wrap_content" />
+    android:id="@+id/mySpinner"
+    android:layout_width="wrap_content"
+    android:entries="@array/planets_arrays"
+    android:prompt="@string/planets_prompt"
+    android:layout_height="wrap_content" />
 ```
 
 and then specify the string array of options in `res/values/planets_array.xml`:
