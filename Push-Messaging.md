@@ -66,7 +66,7 @@ This way is pretty straightforward to bringing up an activity when a push is rec
 
 #### Custom Push Broadcast Receiver
 
-Receiving push notifications sent with Parse can also be done using the [BroadcastReceiver](http://developer.android.com/reference/android/content/BroadcastReceiver.html) and implementing the `processPush` method to manage incoming push events. Any activity can register to handle these broadcast events. If you want to implement the push notification receiver, then check out [this tutorial](http://ahirazitai.blogspot.in/2013/05/push-notification.html). Full source code for this tutorial can be [found on github](https://github.com/ahiraz/pushNotificationDemo). 
+Receiving push notifications sent with Parse can also be done using the [BroadcastReceiver](http://developer.android.com/reference/android/content/BroadcastReceiver.html) and implementing the `onReceiver` method to manage incoming push events. Any activity can register to handle these broadcast events. If you want to implement the push notification receiver, then check out [this tutorial](http://ahirazitai.blogspot.in/2013/05/push-notification.html). Full source code for this tutorial can be [found on github](https://github.com/ahiraz/pushNotificationDemo/blob/master/src/com/iakremera/pushnotificationdemo/MyCustomReceiver.java). 
 
 ### Communicating with an Activity
 
