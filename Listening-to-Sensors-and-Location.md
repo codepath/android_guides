@@ -162,3 +162,4 @@ For using maps check out the [[Cliffnotes for Maps|Google Maps Fragment Guide]] 
 * <http://www.vogella.com/articles/AndroidLocationAPI/article.html>
 * <http://www.vogella.com/articles/AndroidGoogleMaps/article.html>
 * <https://developer.android.com/training/location/receive-location-updates.html>
+* <https://www.youtube.com/watch?v=Rd_UrSB1MAY>
