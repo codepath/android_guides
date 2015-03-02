@@ -100,36 +100,43 @@ The [Location API](http://www.vogella.com/articles/AndroidLocationAPI/article.ht
  * Register for sensor connection events
 
 ```java
-LocationClient mLocationClient;
+private GoogleApiClient mGoogleApiClient;
 
 public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     // Create the location client to start receiving updates
-    mLocationClient = new LocationClient(this, this, this);
+    mGoogleApiClient = new GoogleApiClient.Builder(this)
+                          .addApi(LocationServices.API)
+                          .addConnectionCallbacks(this)
+                          .addOnConnectionFailedListener(this).build();
 }
 
 protected void onStart() {
     super.onStart();
     // Connect the client.
-    mLocationClient.connect();
+    mGoogleApiClient.connect();
 }
 
 protected void onStop() {
     // Disconnecting the client invalidates it.
-    mLocationClient.disconnect();
+    mGoogleApiClient.disconnect();
     super.onStop();
 }
 
 public void onConnected(Bundle dataBundle) {
-    Location mCurrentLocation = mLocationClient.getLastLocation();
+    Location mCurrentLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
     Log.d("DEBUG", "current location: " + mCurrentLocation.toString());
     LatLng latLng = new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude());
 }
 
-public void onDisconnected() {
-    // Display the connection status
-    Toast.makeText(this, "Disconnected. Please re-connect.", Toast.LENGTH_SHORT).show();
+@Override
+public void onConnectionSuspended(int i) {
+    if (i == CAUSE_SERVICE_DISCONNECTED) {
+      Toast.makeText(this, "Disconnected. Please re-connect.", Toast.LENGTH_SHORT).show();
+    } else if (i == CAUSE_NETWORK_LOST) {
+      Toast.makeText(this, "Network lost. Please re-connect.", Toast.LENGTH_SHORT).show();
+    }
 }
 ```
 
