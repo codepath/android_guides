@@ -48,8 +48,10 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 2. Drag and drop the zip file onto the running Genymotion emulator device
 
 ![Installing Google Apps APK](http://i.imgur.com/PvGjlyo.png)
-3. **Close and restart the emulator** and Google Play Store should now be installed
-4. After restart, open the "Play Store" app on your emulator and **sign in** with a google account
+3. You must **close and restart the emulator** so that Google Play Store can be installed.
+4. After restart, open the "Play Store" app on your emulator and **sign in** with a google account.
+5. Make sure to update to the latest version of Google Play Services.
+
 
 ### Enable GPS on Emulator
 
