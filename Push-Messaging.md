@@ -34,8 +34,7 @@ Check out the [Receiving Push Guide](https://parse.com/docs/push_guide#receiving
 
 #### Push Invoking Activity
 
-Normally, Parse will launch the default activity that is designated as the launcher in your `AndroidManifest.xml file`, but you can have Parse trigger a different activity to launch.  
-You can change the behavior by implementing the `getActivity()` method and returning the Activity you prefer to launch instead.  See [this Stack Overflow article](http://stackoverflow.com/questions/26574363/how-to-add-parsepushbroadcastreceiver-getactivity-to-an-application) for more details.
+Normally, Parse will launch the default activity that is designated as the launcher in your `AndroidManifest.xml file`, but you can have Parse trigger a different activity to launch.  You can change the behavior by implementing the `getActivity()` method and returning the Activity you prefer to launch instead.  See [this Stack Overflow article](http://stackoverflow.com/questions/26574363/how-to-add-parsepushbroadcastreceiver-getactivity-to-an-application) for more details.
 
 This way is pretty straightforward to bringing up an activity when a push is received but you can use a more custom approach if you need more flexibility with how a notification is handled.
 
