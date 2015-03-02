@@ -92,7 +92,7 @@ See [this sensors in the background](http://code.tutsplus.com/tutorials/android-
 
 Location requires the use of the Google Play SDK. You must include `com.google.android.gms:play-services` in your `app/build.gradle` file.  You can use [this site](http://gradleplease.appspot.com/) to find the latest version to use, or you can refer to the [official SDK setup instructions](http://developer.android.com/google/play-services/setup.html).
 
-In addition, if you are using Genymotion emulator, you must [install a Google Play Services APK file] too. (https://github.com/codepath/android_guides/wiki/Genymotion-2.0-Emulators-with-Google-Play-support#setup-google-play-services) too.
+In addition, if you are using Genymotion emulator, you must [install a Google Play Services APK file(https://github.com/codepath/android_guides/wiki/Genymotion-2.0-Emulators-with-Google-Play-support#setup-google-play-services) too.
 
 The [Location API](http://www.vogella.com/articles/AndroidLocationAPI/article.html) is a higher-level API that wraps the underlying location sensor. You can accomplish tasks like:
 
