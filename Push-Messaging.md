@@ -34,11 +34,14 @@ Check out the [Receiving Push Guide](https://parse.com/docs/push_guide#receiving
 
 #### Push Invoking Activity
 
-If you are using [advanced targeting](https://parse.com/docs/push_guide#sending-queries/Android), you can have Parse trigger a particular activity to launch. This is pretty straightforward approach to bringing up an activity when a push is received but you can use a more custom approach if you need more flexibility with how a notification is handled.
+Normally, Parse will launch the default activity that is designated as the launcher in your `AndroidManifest.xml file`, but you can have Parse trigger a different activity to launch.  
+You can change the behavior by implementing the `getActivity()` method and returning the Activity you prefer to launch instead.  See [this Stack Overflow article](http://stackoverflow.com/questions/26574363/how-to-add-parsepushbroadcastreceiver-getactivity-to-an-application) for more details.
+
+This way is pretty straightforward to bringing up an activity when a push is received but you can use a more custom approach if you need more flexibility with how a notification is handled.
 
 #### Push Broadcast Receiver
 
-Receiving push notifications sent with Parse can be done using the [BroadcastReceiver](http://developer.android.com/reference/android/content/BroadcastReceiver.html) to manage the incoming push events. Any activity can register to handle these broadcast events. If you want to implement the push notification receiver, then check out [this Stack Overflow article](http://stackoverflow.com/questions/26574363/how-to-add-parsepushbroadcastreceiver-getactivity-to-an-application). Full source code for another [tutorial](http://ahirazitai.blogspot.in/2013/05/push-notification.html) can be [found on github](https://github.com/ahiraz/pushNotificationDemo). 
+Receiving push notifications sent with Parse can be done using the [BroadcastReceiver](http://developer.android.com/reference/android/content/BroadcastReceiver.html) to manage the incoming push events. Any activity can register to handle these broadcast events. If you want to implement the push notification receiver, then check out [this tutorial](http://ahirazitai.blogspot.in/2013/05/push-notification.html). Full source code for this tutorial can be [found on github](https://github.com/ahiraz/pushNotificationDemo). 
 
 ### Communicating with an Activity
 
