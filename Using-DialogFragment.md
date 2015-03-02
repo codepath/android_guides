@@ -35,7 +35,7 @@ Let's start by providing the code for creating a completely custom dialog based 
 </LinearLayout>
 ```
 
-and defining the fragment itself:
+and defining the fragment itself extending from the **support version of dialog fragment**:
 
 ```java
 import android.support.v4.app.DialogFragment;
@@ -72,11 +72,11 @@ public class EditNameDialog extends DialogFragment {
 	}
 }
 ```
-and showing the dialog in an Activity (extending `FragmentActivity` or `ActionBarActivity`):
+and showing the dialog in an Activity (extending FragmentActivity or ActionBarActivity):
 
 ```java
-// Note: `ActionBarActivity` works here as well
-public class FragmentDialogDemo extends FragmentActivity {
+// Note: `FragmentActivity` works here as well
+public class FragmentDialogDemo extends ActionBarActivity {
   @Override
   public void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
@@ -91,6 +91,8 @@ public class FragmentDialogDemo extends FragmentActivity {
   }
 }
 ```
+
+For this to work properly make sure that all the fragment related items (`FragmentDialog`) are from the `android.support.v4.app` namespace.
 
 ### Build Dialog
 
