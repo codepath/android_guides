@@ -264,7 +264,8 @@ Next, we can attach that layout to any item by specifying the `app:action_layout
     <item
         android:id="@+id/action_button_demo"
         app:showAsAction="ifRoom"
-        app:actionLayout="@layout/action_view_button" />
+        app:actionLayout="@layout/action_view_button" 
+        android:title="Loading..." />
 </menu>
 ```
 
