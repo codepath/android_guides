@@ -75,6 +75,74 @@ public class DelayTask extends AsyncTask<Void, Integer, String> {
 
 and using this pattern any background tasks can be reflected by an on-screen progress report.
 
+## Progress within ActionBar
+
+We can add a `ProgressBar` into our `ActionBar` or `Toolbar` [[using a custom ActionView|Extended-ActionBar-Guide#adding-actionview-items]]. First, let's define the progress action-view with a layout file in `res/layout/action_view_progress.xml` with a progress-bar:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ProgressBar xmlns:android="http://schemas.android.com/apk/res/android"
+    style="?android:attr/progressBarStyleLarge"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/pbProgressAction" />
+```
+
+Next, we can add the `ActionView` to our `ActionBar` in the `res/menu/activity_main.xml` as an `item`:
+
+```xml
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
+    <item
+        android:id="@+id/miActionProgress"
+        android:title="Loading..."
+        android:visible="false"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom"
+        app:actionLayout="@layout/action_view_progress" />
+</menu>
+```
+
+Note the use of `android:orderInCategory` to append the item at the end (other items should be less than 100), `android:visible` which hides the menu item and also `app:actionLayout` which specifies the layout for the action-view. Next, we can use the `onPrepareOptionsMenu` method to get a reference to the menu item and the associated view within the activity:
+
+```java
+public class MainActivity extends ActionBarActivity {
+    // Instance of the progress action-view
+    MenuItem miActionProgressItem;
+  
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        // Store instance of the menu item containing progress
+        miActionProgressItem = menu.findItem(R.id.miActionProgress);
+        // Extract the action-view from the menu item
+        ProgressBar v =  (ProgressBar) MenuItemCompat.getActionView(miActionProgressItem);
+        // Return to finish
+        return super.onPrepareOptionsMenu(menu);
+    }
+}
+```
+
+Finally, we can toggle the visibility of the `miActionProgressItem` item to show and hide the progress-bar in the action-bar:
+
+```java
+public class MainActivity extends ActionBarActivity {
+    public void showProgressBar() {
+        // Show progress item
+        miActionProgressItem.setVisible(true);
+    }
+
+    public void hideProgressBar() {
+        // Hide progress item
+        miActionProgressItem.setVisible(false);
+    }
+}
+```
+
+and the result:
+
+![Progress Action](http://i.imgur.com/DL6O3kT.gif)
+
 ## Progress Within ListView Footer
 
 Often the user is waiting for a list of items to be populated into a `ListView`. In these cases, we can display the progress bar at the bottom of the `ListView` using a footer. First, let's define the footer xml layout in `res/layout/footer_progress.xml`:
