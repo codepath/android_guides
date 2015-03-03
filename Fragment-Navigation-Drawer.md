@@ -2,6 +2,10 @@ In [[Common Navigation Paradigms]] cliffnotes, we discuss the various navigation
 
 With the release of Android 5.0 Lollipop, the new material design style navigation drawer spans the full height of the screen and is displayed over the `ActionBar` and overlaps the translucent `StatusBar`. Read the [material design style navigation drawer](http://www.google.com/design/spec/patterns/navigation-drawer.html) document for specs on styling your navigation drawer.
 
+![Imgur](http://i.imgur.com/Ag3t4KC.gif)
+
+Screenshots:
+
 ![Navigation Drawer](http://i.imgur.com/8nCjuWrl.jpg)
 
 ## Usage
@@ -361,7 +365,7 @@ Now you should create an instance of `NavDrawerListAdapter`, add list items to i
     private ArrayList<FragmentNavItem> drawerNavItems;
     private int drawerContainerRes;
 
-    public void setupDrawerConfiguration(ListView drawerListView, Toolbar drawerToolbar, 
+    public void setupDrawerConfiguration(ListView drawerListView, Toolbar drawerToolbar,
         int drawerItemRes, int drawerContainerResId) {
         // Setup navigation items array
         drawerNavItems = new ArrayList<FragmentNavigationDrawer.FragmentNavItem>();
