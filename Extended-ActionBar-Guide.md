@@ -262,8 +262,7 @@ Next, we can attach that layout to any item by specifying the `app:action_layout
 ```xml
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
     <item
-        android:id="@+id/s"
-        android:orderInCategory="40"
+        android:id="@+id/action_button_demo"
         app:showAsAction="ifRoom"
         app:actionLayout="@layout/action_view_button" />
 </menu>
