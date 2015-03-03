@@ -250,7 +250,7 @@ view that is constructed via a layout XML file which is embedded into the Action
     android:layout_height="match_parent"
     android:orientation="horizontal" >
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/btnCustomAction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Button" />
@@ -262,7 +262,7 @@ Next, we can attach that layout to any item by specifying the `app:action_layout
 ```xml
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
     <item
-        android:id="@+id/action_button_demo"
+        android:id="@+id/miActionButton"
         app:showAsAction="ifRoom"
         app:actionLayout="@layout/action_view_button" 
         android:title="Loading..." />
@@ -274,9 +274,11 @@ and now the views specified in the layout are embedded in the ActionBar. We can 
 ```java
 @Override
 public boolean onPrepareOptionsMenu(Menu menu) {
-	MenuItem actionViewItem = menu.findItem(R.id.menuitem_second);
+	MenuItem actionViewItem = menu.findItem(R.id.miActionButton);
+        // Retrieve the action-view from menu
 	View v = MenuItemCompat.getActionView(actionViewItem);
-	Button b = (Button) v.findViewById(R.id.button1);
+        // Find the button within action-view
+	Button b = (Button) v.findViewById(R.id.btnCustomAction);
 	// Handle button click here
 	return super.onPrepareOptionsMenu(menu);
 }
