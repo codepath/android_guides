@@ -30,6 +30,9 @@ See the [full list of sensors](http://developer.android.com/guide/topics/sensors
 You can register for sensor events:
 
 ```java
+private SensorManager mSensorManager;
+private Sensor mLight;
+
 private SensorEventListener mLightSensorListener = new SensorEventListener() {
 	@Override
 	public void onSensorChanged(SensorEvent event) {
