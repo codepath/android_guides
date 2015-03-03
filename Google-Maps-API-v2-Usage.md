@@ -25,7 +25,7 @@ protected void setUpMapIfNeeded() {
 
 // The Map is verified. It is now safe to manipulate the map.
 protected void loadMap(GoogleMap googleMap) {
-    if (map != null) {
+    if (googleMap != null) {
        // ... use map here
     }
 }
