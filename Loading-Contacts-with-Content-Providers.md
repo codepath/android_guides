@@ -135,7 +135,7 @@ Now when a result comes back to the callback defined, the adapter will be bound 
 public class SampleActivity extends FragmentActivity {
     // ... existing code
     // Defines the id of the loader for later reference
-    public static final int CONTACT_LOADER_ID = 78;
+    public static final int CONTACT_LOADER_ID = 78; // From docs: A unique identifier for this loader. Can be whatever you want.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
