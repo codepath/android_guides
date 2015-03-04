@@ -21,14 +21,12 @@ The ImageView handles all the loading and scaling of the image for you. Note the
 
 ### Sizing ImageView Controls
 
-By default, contents of an ImageView control are of a certain size -- usually the size of the image dimensions. They are also bounded by their layout_width and layout_height attributes. You can also specify minimum and maximum height and width attributes with the following:
+By default, contents of an ImageView control are of a certain size -- usually the size of the image dimensions. They can also bounded by their layout_width and layout_height attributes: 
 
 ```xml
 <ImageView
-    android:minHeight="50dp"
-    android:minWidth="50dp"
-    android:maxHeight="150dp"
-    android:maxWidth="150dp"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
     android:scaleType="fitXY"
     android:adjustViewBounds="true"
     ...
@@ -36,6 +34,15 @@ By default, contents of an ImageView control are of a certain size -- usually th
 ```
 
 In the above we are also  specifying that the ImageView preserve its aspect ratio using the [adjustViewBounds](http://developer.android.com/reference/android/widget/ImageView.html#attr_android:adjustViewBounds) attribute. The `scaleType` above has been set to `fitXY` which scales both the height and the width up or down until it fits within the maximum dimensions specified. By combining these properties together we can control the rough size of the image and still adjust the image according to the proper aspect ratio.
+
+We can also size an `ImageView` at runtime within our Java source code by modifying the `width` or `height` inside `getLayoutParams()` for the view: 
+
+```java
+imageView.getLayoutParams().height = 100; // OR
+imageView.getLayoutParams().width = 100;
+```
+
+In certain cases, the image needs to be scaled to fit the parent view's width and the height should be adjusted proportionally. We can achieve this using an extended [ResizableImageView](http://stackoverflow.com/a/12283909/313399) class as described in the post.
 
 ### Scale Types
 
