@@ -9,9 +9,10 @@ This course was developed by [Ana Redmond](https://www.linkedin.com/in/anaredmon
 The course was broken up into three lectures with all the content for each session provided below:
 
 * [Setup](https://drive.google.com/open?id=0B_tq9HHgpVcWUDBDbVJXYXhCQ1k&authuser=0)
-* [Lecture 1](https://drive.google.com/open?id=0B_tq9HHgpVcWaDBZdVRuLXFHdDQ&authuser=0)
+* [Lecture 1](https://docs.google.com/document/d/1N79okO44pwKybUd08XcHe2MVAcmQ4R9mVKXeCdWjfcA/edit?usp=sharing)  
+  * [Lecture Notes](https://drive.google.com/folderview?id=0B5u8j07GbVMlZk5PMUROT2N6Z00&usp=sharing)
   * [Architecture Graphic](https://drive.google.com/open?id=0B_tq9HHgpVcWUG9Kc0JKOG9GWnM&authuser=0)
-  * [Slides](https://drive.google.com/open?id=0B_tq9HHgpVcWNk95bktRUjlLb2M&authuser=0)
+  * [Java Review Slides](https://drive.google.com/open?id=0B_tq9HHgpVcWNk95bktRUjlLb2M&authuser=0)
 * [Lecture 2](https://drive.google.com/open?id=0B_tq9HHgpVcWOUx5ODEyNVlSdjg&authuser=0)
   * [XML Introduction](https://drive.google.com/open?id=0B_tq9HHgpVcWaW02dGI4NThQNVE&authuser=0)
   * [Layout Managers Graphic](https://drive.google.com/open?id=0B_tq9HHgpVcWMWtVMUMwZHUxZjg&authuser=0)
