@@ -107,6 +107,9 @@ The [Location API](http://www.vogella.com/articles/AndroidLocationAPI/article.ht
 ```java
 private GoogleApiClient mGoogleApiClient;
 
+private long UPDATE_INTERVAL = 60000;  /* 60 secs */
+private long FASTEST_INTERVAL = 5000; /* 5 secs */
+
 public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
@@ -146,8 +149,6 @@ public void onConnectionSuspended(int i) {
 }
 
  protected void startLocationUpdates() {
-        long UPDATE_INTERVAL = 60000;  /* 60 secs */
-        long FASTEST_INTERVAL = 5000; /* 5 secs */
         mLocationRequest = new LocationRequest();
         mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
         mLocationRequest.setInterval(UPDATE_INTERVAL);
