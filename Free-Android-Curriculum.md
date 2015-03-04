@@ -20,6 +20,10 @@ The course was broken up into eight lectures with all the content for each sessi
   * [EventQueue Graphic](https://drive.google.com/open?id=0B_tq9HHgpVcWM1lQLV96blkxd00&authuser=0)
   * [MVC Graphic](https://drive.google.com/open?id=0B_tq9HHgpVcWTVZBdWVPVzZkRGs&authuser=0)
 * [Lecture 4](https://drive.google.com/open?id=1dO7brxGUKMDpgIT77UUL9Fb3VX9CbDoHzD7vPApFbXA&authuser=0)
+* [Lecture 5](https://drive.google.com/open?id=1S0-6w_QH6MO27n8eKH5eDE39cMEl07GYeSqBcQLSP6Q&authuser=0)
+* [Lecture 6](https://drive.google.com/open?id=1RM0_xIJsXFoBlPrUCotTiE0M-6ab_h38MA7QnHaPHiw&authuser=0)
+* [Lecture 7](https://drive.google.com/open?id=1maafD3BSrcC-W0UvTlcM3nWRdcgOosSN-meMAu8iQe0&authuser=0)
+* [Lecture 8](https://drive.google.com/open?id=1UThmjIiZxV6u66qoDja5nfcjkL5fnZim4uqgdBGXxSs&authuser=0)
 
 Ana Redmond's content can be [accessed in full here](https://drive.google.com/folderview?
 id=0B5u8j07GbVMlZk5PMUROT2N6Z00&usp=sharing).
