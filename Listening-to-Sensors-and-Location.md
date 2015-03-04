@@ -133,6 +133,7 @@ public void onConnected(Bundle dataBundle) {
     Location mCurrentLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
     Log.d("DEBUG", "current location: " + mCurrentLocation.toString());
     LatLng latLng = new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude());
+    startLocationUpdates();
 }
 
 @Override
@@ -143,6 +144,17 @@ public void onConnectionSuspended(int i) {
       Toast.makeText(this, "Network lost. Please re-connect.", Toast.LENGTH_SHORT).show();
     }
 }
+
+ protected void startLocationUpdates() {
+        long UPDATE_INTERVAL = 60000;  /* 60 secs */
+	long FASTEST_INTERVAL = 5000; /* 5 secs */
+        mLocationRequest = new LocationRequest();
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
+        mLocationRequest.setInterval(UPDATE_INTERVAL);
+        mLocationRequest.setFastestInterval(FASTEST_INTERVAL);
+        LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient,
+                mLocationRequest, this);
+    }
 ```
 
 and register for location updates with `onLocationChanged`:
@@ -157,7 +169,7 @@ public void onLocationChanged(Location location) {
 }
 ```
 
-For using maps check out the [[Cliffnotes for Maps|Google Maps Fragment Guide]] or the [Android Maps Tutorial](http://www.vogella.com/articles/AndroidGoogleMaps/article.html).
+For using maps check out the [[Cliffnotes for Maps|Google Maps Fragment Guide]] or the [Android Maps Tutorial](http://www.vogella.com/articles/AndroidGoogleMaps/article.html).  See a [working source code example](https://github.com/codepath/android-google-maps-demo).
 
 ## References
 
