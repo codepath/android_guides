@@ -137,7 +137,7 @@ Use this checklist for troubleshooting below:
    * Does the Android Key on the Google API Console **match the package namespace of the maps demo app** i.e `<YOURSHA1KEY>;com.example.mapdemo`?  The error messages should include the Key and package namespace you should be using.
 
    * Did you enter the correct API Key into the `AndroidManifest.xml` as explained in the map demo setup?
-   * Did you enable the "Google Maps Android API v2" toggle switch on the Google API Console under "APIs & Auth" tab?
+   * Did you enable the "Google Maps Android API v2" toggle switch on the Google API Console under "APIs & Auth" tab => APIs?
 
 Other things to check:
 
