@@ -29,7 +29,7 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 #### Configuration
 
 1. Run the Genymotion application
-2. Sign in and add your first virtual device (i.e. Nexus 4 - 4.4.4 - API 19).  
+2. Sign in and add your first virtual device (i.e. Nexus 4 - 4.4.4 - API 19, Nexus 4 - 5.0.0. - API 21).  
    * You must use an image running 4.3, 4.4.4, or 5.0.0.  Other versions may not work.
    * Do **not start your emulator** yet!
 3. From **within Android Studio**, click the genymobile icon ![Genymobile](https://cloud.genymotion.com/static/images/doc/genymotion-plugin-eclipse-button.png) and click "Start" on your virtual device.
