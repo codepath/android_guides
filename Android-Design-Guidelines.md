@@ -12,6 +12,18 @@ The official Android docs has an [excellent set of design resources](http://deve
 
 Check out [these design principles](http://developer.android.com/design/get-started/principles.html) which were developed by and for the Android User Experience Team to keep users' best interests in mind. Consider them as you apply your own creativity and design thinking. Deviate with purpose.
 
+#### Material Design
+
+With the release of Android 5.0, there are updated guidelines for modern Android UI design. These guidelines are called "material design". This new framework encompasses several changes to the interface of Android apps and Google strongly encourages the adoption of these new principles. Check the following resources below for details:
+
+ * [Material Design Docs](https://developer.android.com/design/material/index.html) - Overview of material design
+ * [Material Design for Developers](https://developer.android.com/training/material/index.html) - Developer guides for material 
+ * [Material Design Examples](http://www.materialup.com/) - Blog posting beautiful material designs
+ * [Material Palette](http://www.materialpalette.com/) - Easy material color selection
+ * [Material Design Guidelines](http://www.google.com/design/spec/material-design/introduction.html) - Principles that guide material design
+
+Using these materials, you can understand and begin adhering to these guidelines for your own applications.
+
 #### Pure Android
 
 As you plan your app for Android, keep in mind that different platforms play by different rules and conventions. Design decisions that make perfect sense on one platform will look and feel misplaced in the context of a different platform. If you have built web and/or mobile apps in the past, review [this Pure Android Guide](http://developer.android.com/design/patterns/pure-android.html) for look at how to avoid making Android design faux pas.
@@ -27,6 +39,8 @@ Check out the [color scheme guide](http://www.google.com/design/spec/style/color
   * [ColourLovers](http://www.colourlovers.com/palettes/new/past-month/meta?page=1) for color scheme 
   * [adobe kuler](https://kuler.adobe.com) color wheel for color selection
   * [Colors library](https://github.com/MatthewYork/Colours) - Android library with pre-defined colors
+
+For material design, check out the [Material Palette](http://www.materialpalette.com/) for color selection.
 
 #### Typography
 
