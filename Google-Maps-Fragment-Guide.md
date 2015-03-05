@@ -128,7 +128,7 @@ Use this checklist for troubleshooting below:
 
 **Seeing `INSTALL_FAILED_MISSING_SHARED_LIBRARY` when trying to run my app?**
 
-Did you download the latest Google Play Services APK?  See the [[google play genymotion section|Google-Maps-Fragment-Guide#setup-google-play-services]]. Make sure to follow the instructions to reboot, sign-in with your Google Account, and upgrade to the latest Play Services.
+Did you download the latest Google Play Services APK?  See the [[google play genymotion section|Genymotion-2.0-Emulators-with-Google-Play-support#setup-google-play-services]]. Make sure to follow the instructions to reboot, sign-in with your Google Account, and upgrade to the latest Play Services.
 
 **Trouble seeing the map in the demo app?**
 
