@@ -56,8 +56,11 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
    ![Installing Google Apps APK](http://i.imgur.com/PvGjlyo.png)
 
 3. You must **close and restart the emulator** so that Google Play Store can be installed.
+
 4. After restart, open the "Play Store" app on your emulator and **sign in** with a google account.
+
 5. **Android 5.0.0 only:** If you are using Android 5.0.0, you will be prompted to update to the latest version of Google+ app.  In addition, make sure to upgrade to at least Genymotion 2.4.0 (there appear to be issues with Genymotion 2.3.1).
+
 6. Make sure to update to the latest version of Google Play Services.
 
 
