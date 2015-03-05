@@ -299,16 +299,16 @@ If you want to use your own layout instead of the default options, you can do so
         android:id="@+id/tv_info_window_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#000000"
+        android:textColor="#ff669900"
         android:textStyle="bold"
         android:singleLine="true" />
 
-         <TextView
-            android:id="@+id/tv_info_window_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:text="Hours" />
+    <TextView
+        android:id="@+id/tv_info_window_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ff0099cc"
+        android:text="Hours" />
 
 </LinearLayout>
 ```
