@@ -4,7 +4,7 @@ This guide will instruct you on how use the Google Maps API v2 library to create
 
 ### Setup Map If Necessary
 
-Assuming you have added the GoogleMap v2 MapFragment to your layout, you should first run this method `onCreate()`. In my case, I am using the SupportMapFragment, either will work.
+Assuming you have added the `GoogleMap` v2 `MapFragment` to your layout, you should first run this method `onCreate()`. In my case, I am using the SupportMapFragment, either will work.
 
 ```java
 protected void setUpMapIfNeeded() {
@@ -215,7 +215,7 @@ When we run the app now, the long click on the map should trigger a dialog which
 
 ### Falling Pin Animation
 
-To implement falling pin animation, add marker to the desired position in map and then call this function with that marker.
+To implement the falling pin animation, add a marker to the desired position in map and then call this function with that marker. This function uses a `Handler` to animate the marker over time by [setting the anchor](https://developer.android.com/reference/com/google/android/gms/maps/model/Marker.html#setAnchor\(float, float\)). 
 
 ```java
     private void dropPinEffect(final Marker marker) {
@@ -251,7 +251,9 @@ To implement falling pin animation, add marker to the desired position in map an
     }
 ```
 
-In `private void showAlertDialogForPoint` add the call to `dropPinEffect(marker);` at the end to animate the placement of the marker:
+Review the [repeating periodic tasks guide](http://guides.codepath.com/android/Repeating-Periodic-Tasks#handler) for a better understanding of the `Handler` pattern used above to animate the marker over time.
+
+Next, in `private void showAlertDialogForPoint` add the call to `dropPinEffect(marker);` at the end to animate the placement of the marker:
 
 ```java
     // Display the alert that adds the marker
