@@ -409,7 +409,7 @@ public class Comment extends ParseObject {
 }
 
 // Create the post
-Post cat = new Post("Welcome Spring!");
+Post post = new Post("Welcome Spring!");
 // Get the user
 ParseUser currentUser = ParseUser.getCurrentUser();
 // Create the comment
