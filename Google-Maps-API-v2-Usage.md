@@ -348,7 +348,7 @@ class CustomWindowAdapter implements InfoWindowAdapter{
 }
 ```
 
-You would use this by setting your `InfoWindowAdapter` to this new class after you have initialized your map. In the case of our example running this after calling `setUpMapIfNeeded()` in `onCreate()`.
+You would use this by setting your `InfoWindowAdapter` to this new class after you have initialized your map. In the case of our example running this after calling `loadMap()` in `onCreate()`.
 
 ```java
 map.setInfoWindowAdapter(new CustomWindowAdapter(getLayoutInflater()));
