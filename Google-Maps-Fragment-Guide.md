@@ -126,6 +126,10 @@ Use this checklist for troubleshooting below:
  * Restart Android Studio and try to launch the emulator again through Android Studio plugin
  * Restart your computer and try to launch the emulator again through Android Studio plugin
 
+**Seeing `INSTALL_FAILED_MISSING_SHARED_LIBRARY` when trying to run my app?**
+
+Did you download the latest Google Play Services APK?  See the [[google play genymotion section|Google-Maps-Fragment-Guide#setup-google-play-services]]. Make sure to follow the instructions to reboot, sign-in with your Google Account, and upgrade to the latest Play Services.
+
 **Trouble seeing the map in the demo app?**
 
  You are likely to see an error message such as the following in your LogCat:
@@ -142,7 +146,6 @@ Use this checklist for troubleshooting below:
 Other things to check:
 
    * Did you enable GPS location for the emulator and set a location by going to the map?
-   * Did you download the latest [Google Play Services APK](http://goo.im/gapps/gapps-jb-20130813-signed.zip) and install that onto your emulator? See the [[google play genymotion section|Google-Maps-Fragment-Guide#setup-google-play-services]].
    * Did you try running "Play Store" on your emulator and sign in with a Google account?
    * Uninstall the "Map Demo" from the emulator first, then re-install
    * Restart Android Studio and try to launch the app again 
