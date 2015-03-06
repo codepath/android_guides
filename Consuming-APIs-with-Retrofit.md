@@ -36,7 +36,7 @@ Paste the generated classes into your project under a `models` sub-package.
 To send out network requests to an API, we need to construct a [RestAdapter](http://square.github.io/retrofit/javadoc/retrofit/RestAdapter.html) by specifying the base url for the service:
 
 ```java
-public static final int BASE_URL = "http://api.myservice.com";
+public static final String BASE_URL = "http://api.myservice.com";
 RestAdapter restAdapter = new RestAdapter.Builder()
     .setEndpoint(BASE_URL)
     .build();
