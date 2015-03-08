@@ -111,6 +111,7 @@ See the [android docs on wireframing](http://developer.android.com/training/desi
 
 ## References
 
+* [From Holo to Material](https://www.google.com/events/io/io14videos/1663fe6a-34b4-e311-b30e-00155d5066d7) - Google I/O 2014 Talk
 * <http://developer.android.com/design/style/devices-displays.html>
 * <http://developer.android.com/design/patterns/pure-android.html>
 * <http://developer.android.com/design/patterns/actionbar.html>
