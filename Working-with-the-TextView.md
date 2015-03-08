@@ -51,6 +51,32 @@ The `android:textStyle` attribute can be used to put emphasis on the text. The p
 />
 ```
 
+### Text Truncation
+
+There are a few ways to truncate text within a `TextView`. First, to restrict the total number of lines of text we can use `android:maxLines` and `android:minLines`:
+
+```xml
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minLines="1"
+    android:maxLines="3"
+/>
+```
+
+In addition, we can use `android:ellipsize` to begin truncating text 
+
+```xml
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:ellipsize="end"
+    android:singleLine="true"
+/>
+```
+
+Following values are available for `ellipsize`: `start` for `...bccc`, `end` for `aaab...`, `middle` for `aa...cc`, and `marquee` for `aaabbbccc` sliding from left to right. There is a known issue with **ellipsize and multi-line text**, see [this MultiplelineEllipsizeTextView library](https://github.com/IPL/MultiplelineEllipsizeTextView) for an alternative.
+
 ### Text Shadow
 
 You can use three different attributes to customize the appearance of your text shadow:
