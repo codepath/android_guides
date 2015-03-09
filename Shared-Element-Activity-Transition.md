@@ -14,14 +14,14 @@ The nature of this transition forces the human eye to focus on the content and i
 
 ![Imgur](http://i.imgur.com/IuYcb05.gif)
 
-
 ### Getting Started
 
-The shared element transitions require Android 5.0 (API level 21) and above.
+Noe that the shared element transitions require Android 5.0 (API level 21) and above and will be ignored for any lower API versions.
 
 ### 1. Enable Window Content Transitions
 
-Enable Window Content Transitions in your `styles.xml` file.
+Enable Window Content Transitions in your `styles.xml` file:
+
  ```xml
  <!-- Base application theme. -->
  <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -35,8 +35,8 @@ Enable Window Content Transitions in your `styles.xml` file.
 
 Assign a common transition name to the shared elements in both layouts. Use the   `android:transitionName` attribute.
 
-For e.g.
-In `MainActivity.xml`:
+For e.g. in `MainActivity.xml`:
+
 ```xml
 <android.support.v7.widget.CardView
   ...
@@ -51,8 +51,9 @@ In `MainActivity.xml`:
 ```
 
 In `DetailActivity.xml`:
+
 ```xml
-<FrameLayout
+<LinearLayout
   ...
       <ImageView
           android:id="@+id/ivProfile"
@@ -61,7 +62,7 @@ In `DetailActivity.xml`:
           android:layout_width="match_parent"
           android:layout_height="380dp" />
       ...
-</FrameLayout>
+</LinearLayout>
 ```
 
 Note that it doesn't matter if the `android:id` is different or where in the layout hierarchy the source and target views exist.
@@ -70,12 +71,12 @@ Note that it doesn't matter if the `android:id` is different or where in the lay
 
 Start the target activity by specifying a bundle of those shared elements and views from the source.
 
-```xml
-final Intent intent = new Intent(this, DetailsActivity.class);
+```java
+Intent intent = new Intent(this, DetailsActivity.class);
 // Pass data object in the bundle and populate details activity.
 intent.putExtra(DetailsActivity.EXTRA_CONTACT, contact);
-final Pair<View, String> p1 = Pair.create((View)ivProfile, "profile");
-ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, p1);
+ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this,
+   (View)ivProfile, "profile");
 startActivity(intent, options.toBundle());
 ```
 
@@ -100,12 +101,12 @@ public boolean onOptionsItemSelected(MenuItem item) {
 
 Sometimes, you might want to animate multiple elements from the source view hierarchy. This can be achieved by using distinct transition names in the source and target layout xml files.
 
- ```xml
-final Intent intent = new Intent(context, DetailsActivity.class);
+ ```java
+Intent intent = new Intent(context, DetailsActivity.class);
 intent.putExtra(DetailsActivity.EXTRA_CONTACT, contact);
-final Pair<View, String> p1 = Pair.create((View)ivProfile, "profile");
-final Pair<View, String> p2 = Pair.create(vPalette, "palette");
-final Pair<View, String> p3 = Pair.create((View)tvName, "text");
+Pair<View, String> p1 = Pair.create((View)ivProfile, "profile");
+Pair<View, String> p2 = Pair.create(vPalette, "palette");
+Pair<View, String> p3 = Pair.create((View)tvName, "text");
 ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, p1, p2, p3);
 startActivity(intent, options.toBundle());
 ```
