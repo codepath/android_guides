@@ -2,7 +2,7 @@
 
 Android 5.0 introduces a new widget called `CardView` which essentially can be thought of as a `FrameLayout` with rounded corners and shadow based on its elevation.
 
-![CardView](https://developer.android.com/design/material/images/card_travel.png)
+<img src="https://developer.android.com/design/material/images/card_travel.png" width="200" />
 
 `CardView` should be used when displaying heterogenous content. Prefer using a list or a grid of tiles (non-cards) for homogenous content as the boundaries in a card can distract the user from quickly scanning a list.
 
