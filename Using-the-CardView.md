@@ -48,7 +48,7 @@ Now replace the `FrameLayout` with `CardView`.
 </android.support.v7.widget.CardView>
 ```
 
-Thats it! Using the support library ensures backward compatibility as well; although the visual treatment for cards are slightly different when running on versions prior to Android L. See [Support on Older Platforms](#Support-on-Older-Platforms) section for more details.
+Thats it! Using the support library ensures backward compatibility as well; although the visual treatment for cards are slightly different when running on versions prior to Android L. See [Support on Older Platforms](#user-content-Support-on-Older-Platforms) section for more details.
 
 ### Customizing CardView
 
