@@ -172,7 +172,9 @@ TextView has [native support](http://developer.android.com/reference/android/wid
 
 ### Issues with ListView
 
-If the item within the list isn't clickable even though `setOnItemClickListener`, check out [this solution](http://www.michaelevans.org/blog/2013/03/29/clickable-links-in-android-listviews/) which extends `TextView` in order to modify the `onTouchEvent` to correctly propagate the click. In addition, review [this stackoverflow post](http://stackoverflow.com/questions/26980204/listview-with-textview-autolink-not-receiving-onitemclicklistener) or [this android issue](https://code.google.com/p/android/issues/detail?id=3414) for additional context.
+One known issue when using `android:autoLink` or the `Linkify` class is that it may break the ability to respond to events on the ListView through `setOnItemClickListener.  Check out [this solution](http://www.michaelevans.org/blog/2013/03/29/clickable-links-in-android-listviews/) which extends `TextView` in order to modify the `onTouchEvent` to correctly propagate the click.   You basically need to create a `LinkifiedTextView` and use this special View in place of any of your TextView's that need auto-linkdetection.
+
+In addition, review [this stackoverflow post](http://stackoverflow.com/questions/26980204/listview-with-textview-autolink-not-receiving-onitemclicklistener) or [this android issue](https://code.google.com/p/android/issues/detail?id=3414) for additional context.
 
 ## Using Custom Fonts
 
