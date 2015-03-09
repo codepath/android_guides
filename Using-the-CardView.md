@@ -84,7 +84,7 @@ android:foreground="?android:attr/selectableItemBackground"
 
 Using the android:foreground="?android:attr/selectableItemBackground" property on a `CardView` enables the ripple effect to originate from the touch origin.
 
-### Support on Older Platforms
+### <a name="Support-on-Older-Platforms"></a>Support on Older Platforms
 
 On platforms before Android L, `CardView` adds padding to support corner radius, since rounded corner clipping can be an expensive operation. Similarly, for shadows, before L, CardView adds content padding and draws shadows to that area. This content padding is based on the elevation, and as per the docs:
 
