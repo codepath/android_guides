@@ -83,6 +83,7 @@ Exploring the gritty details of views, layout, styling and common UI patterns:
 * [[Cloning a Login Screen Layout Guide]] (Creating attractive UIs, Q&A)
 * [[Developing Custom Themes]] (Integrating drawables, styles and themes)
 * [[Dynamic Color using Palettes]] (Adaptive colors)
+* [[Shared Element Activity Transition]] (New, Android 5.0)
 
 ### AdapterViews
 
