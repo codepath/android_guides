@@ -82,7 +82,7 @@ android:clickable="true"
 android:foreground="?android:attr/selectableItemBackground"
 ```
 
-Using the `android:foreground="?android:attr/selectableItemBackground"`` property on a `CardView` enables the ripple effect to originate from the touch origin.
+Using the android:foreground="?android:attr/selectableItemBackground" property on a `CardView` enables the ripple effect to originate from the touch origin.
 
 ### Support on Older Platforms
 
