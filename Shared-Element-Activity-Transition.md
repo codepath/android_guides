@@ -22,14 +22,14 @@ Noe that the shared element transitions require Android 5.0 (API level 21) and a
 
 Enable Window Content Transitions in your `styles.xml` file:
 
- ```xml
- <!-- Base application theme. -->
- <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-     <!-- Customize your theme here. -->
-     <item name="android:windowContentTransitions">true</item>
-     ...
- </style>
- ```
+```xml
+<!-- Base application theme. -->
+<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <!-- Customize your theme here. -->
+    <item name="android:windowContentTransitions">true</item>
+    ...
+</style>
+```
 
 ### 2. Assign a Common Transition Name
 
@@ -116,7 +116,48 @@ Be careful to not overdo transitions between shared elements. While it can make 
 
 ### 5. Customizing Shared Elements Transition
 
-In Android L, shared elements transition defaults to a combination of ChangeBounds, ChangeTransform, ChangeImageTransform, and ChangeClipBounds. This works well for most typical cases. However, you may customize this behavior or even define your own custom transition. See this official guide on [Defining Custom Animations](https://developer.android.com/training/material/animations.html).
+In Android L, shared elements transition defaults to a combination of ChangeBounds, ChangeTransform, ChangeImageTransform, and ChangeClipBounds. This works well for most typical cases. However, you may customize this behavior or even define your own custom transition. 
+
+```xml
+<!-- Base application theme. -->
+<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <!-- enable window content transitions -->
+    <item name="android:windowContentTransitions">true</item>
+
+    <!-- specify enter and exit transitions -->
+    <!-- options are: explode, slide, fade -->
+    <item name="android:windowEnterTransition">@transition/explode</item>
+    <item name="android:windowExitTransition">@transition/explode</item>
+
+    <!-- specify shared element transitions -->
+    <item name="android:windowSharedElementEnterTransition">
+      @transition/change_image_transform</item>
+    <item name="android:windowSharedElementExitTransition">
+      @transition/change_image_transform</item>
+</style>
+```
+
+The `change_image_transform` transition in this example is defined as follows:
+
+```xml
+<!-- res/transition/change_image_transform.xml -->
+<transitionSet xmlns:android="http://schemas.android.com/apk/res/android">
+  <changeImageTransform/>
+</transitionSet>
+```
+
+To enable window content transitions at runtime instead, call the `Window.requestFeature()` method:
+
+```java
+// inside your activity (if you did not enable transitions in your theme)
+getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+// set an enter transition
+getWindow().setEnterTransition(new Explode());
+// set an exit transition
+getWindow().setExitTransition(new Explode());
+```
+
+See this official guide on [Defining Custom Animations](https://developer.android.com/training/material/animations.html#Transitions) for more details.
 
 ## References
 
