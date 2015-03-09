@@ -220,7 +220,7 @@ An example of a 9-patch image is embedded below (left is the 9patch graphic, rig
 <img src="http://i.imgur.com/btT0ybk.png" height="60" /> &nbsp;
 <img src="http://i.imgur.com/oSFvjxF.png" height="60" />
 
-See this [simple guide](http://radleymarx.com/blog/simple-guide-to-9-patch/) for more information. You can also refer to the [official nine-patch docs](http://developer.android.com/guide/topics/graphics/2d-graphics.html#nine-patch). A NinePatch is defined and saved in the `drawable` folder and setting the background works the same as with any image:
+A NinePatch is defined and saved in the `drawable` folder and setting the background works the same as with any image:
 
 ```xml
 <Button android:layout_width="wrap_content"
@@ -228,13 +228,15 @@ See this [simple guide](http://radleymarx.com/blog/simple-guide-to-9-patch/) for
         android:text="Submit"
         android:background="@drawable/button_background"/>
 ```
-Android Studio comes with the ability to edit 9-patch files directly.  Your PNG file simply needs to be saved with the 9.png extension in the `drawable` folder, and the 9-patch editor will display instead of the normal image editor:
+Android Studio comes with the ability to edit 9-patch files directly.  Your PNG file simply needs to be saved with the 9.png extension in the `drawable` folder, and the 9-patch editor will display instead of the normal image editor.  You can use the mouse to select the regions to be stretched (use Shift-click to erase the region), and the preview pane on the right displays how images will be rendered depending on the text inside.
 
-<img src="http://i.imgur.com/z0srWJV.png"/>
+<img src="http://imgur.com/LyOLk8y.png"/>
 
-Normally, only the left and top lines need to be defined for the stretchable regions.  The above example shows what happens if you want to avoid stretching the arrow.  You would define the stretchable regions as the top and left lines, and define the right and bottom lines where text can be filled.   Without the bottom line for instance, your text will not fill up the entire width of the stretched region and may not be centered properly.
+The left and top lines need to be defined for the stretchable regions.  To avoid stretching the arrow of this popup icon in the above example, we define regions outside this area.  The right and bottom lines define where text can be filled.   Without the bottom line for instance, your text will not fill up the entire width of the stretched region and may not be centered properly.
 
 You can also use the [draw9patch](http://developer.android.com/tools/help/draw9patch.html) tool to create special nine-patch images or you can use [the online 9-patch utility](http://android-ui-utils.googlecode.com/hg/asset-studio/dist/nine-patches.html). You can check out [great ready-made examples of pretty 9-patch buttons](http://www.dibbus.com/2011/03/9patch-images-in-android/) for examples.  
+
+See this [simple guide](http://radleymarx.com/blog/simple-guide-to-9-patch/) for more information. You can also refer to the [official nine-patch docs](http://developer.android.com/guide/topics/graphics/2d-graphics.html#nine-patch). 
 
 ## Customizing a Button
 
