@@ -75,8 +75,8 @@ Start the target activity by specifying a bundle of those shared elements and vi
 Intent intent = new Intent(this, DetailsActivity.class);
 // Pass data object in the bundle and populate details activity.
 intent.putExtra(DetailsActivity.EXTRA_CONTACT, contact);
-ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this,
-   (View)ivProfile, "profile");
+ActivityOptionsCompat options = ActivityOptionsCompat.
+  makeSceneTransitionAnimation(this, (View)ivProfile, "profile");
 startActivity(intent, options.toBundle());
 ```
 
