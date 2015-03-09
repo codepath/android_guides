@@ -111,7 +111,7 @@ ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimati
 startActivity(intent, options.toBundle());
 ```
 
-Be careful to not overdo transitions between shared elements. It makes sense to have one cohesive unit animate from one screen to another (which may or may not contain multiple shared elements); having too many shared elements will result in a very distracting animation and make the experience more jarring.
+Be careful to not overdo transitions between shared elements. While it can make sense to have one cohesive unit animate from one screen to another (which may or may not contain multiple shared elements), having too many shared elements will result in a distracting animation which makes the experience more jarring.
 
 ### 5. Customizing Shared Elements Transition
 
