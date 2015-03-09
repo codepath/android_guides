@@ -77,14 +77,18 @@ Note that the `card_view:cardElevation` is used to determine the size and softne
 
 ### Adding Ripple Effect
 
-By default, a `CardView` is not tappable and it doesn't show any touch feedback. Touch feedback animations provide users with visual feedback when a `CardView` is touched. To enable this behavior,add the following attributes to your `CardView`.
+By default, a `CardView` is not tappable and it doesn't show any touch feedback. Touch feedback animations provide users with visual feedback when a `CardView` is touched. To enable this behavior, add the following attributes to your `CardView`.
 
 ```xml
-android:clickable="true"
-android:foreground="?android:attr/selectableItemBackground"
+<android.support.v7.widget.CardView
+  ...
+  android:clickable="true"
+  android:foreground="?android:attr/selectableItemBackground">
+  ...
+</android.support.v7.widget.CardView>
 ```
 
-Using the android:foreground="?android:attr/selectableItemBackground" property on a `CardView` enables the ripple effect to originate from the touch origin.
+Using the `android:foreground="?android:attr/selectableItemBackground"` property on a `CardView` enables the ripple effect to originate from the touch origin.
 
 ### <a name="Support-on-Older-Platforms"></a>Support on Older Platforms
 
