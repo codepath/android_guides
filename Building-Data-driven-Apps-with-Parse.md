@@ -351,7 +351,7 @@ startActivity(i);
 and then refetch the object using the object ID within the child Activity:
 
 ```java
-int todoId = getIntent().getStringExtra("todo_id");
+String todoId = getIntent().getStringExtra("todo_id");
 ParseQuery<TodoItem> query = ParseQuery.getQuery(TodoItem.class);
 // First try to find from the cache and only then go to network
 query.setCachePolicy(ParseQuery.CachePolicy.CACHE_ELSE_NETWORK); // or CACHE_ONLY
