@@ -42,6 +42,7 @@ If you are an experienced engineer (2+ years of professional experience in softw
 * [[Todo App Guide|Basic Todo App Tutorial]] (Todo App steps in guide format)
 * [[Sample Android Apps]] (Code repositories)
 * [[Free Android Curriculum]] (Additional resources)
+* [[Test]]
 
 **Using Eclipse?** See below.
 
