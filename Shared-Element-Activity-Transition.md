@@ -99,7 +99,7 @@ public boolean onOptionsItemSelected(MenuItem item) {
 Sometimes, you might want to animate multiple elements from the source view hierarchy. This can be achieved by using distinct transition names in the source and target layout xml files.
 
  ```xml
- final Intent intent = new Intent(context, DetailsActivity.class);
+final Intent intent = new Intent(context, DetailsActivity.class);
 intent.putExtra(DetailsActivity.EXTRA_CONTACT, contact);
 final Pair<View, String> p1 = Pair.create((View)ivProfile, "profile");
 final Pair<View, String> p2 = Pair.create(vPalette, "palette");
