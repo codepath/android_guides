@@ -116,7 +116,7 @@ Be careful to not overdo transitions between shared elements. While it can make 
 
 ### 5. Customizing Shared Elements Transition
 
-In Android L, shared elements transition defaults to a combination of ChangeBounds, ChangeTransform, ChangeImageTransform, and ChangeClipBounds. This works well for most typical cases. However, you may customize this behavior or even define your own custom transition. 
+In Android L, shared elements transition defaults to a combination of [ChangeBounds](https://developer.android.com/reference/android/transition/ChangeBounds.html), [ChangeTransform](https://developer.android.com/reference/android/transition/ChangeTransform.html), [ChangeImageTransform](https://developer.android.com/reference/android/transition/ChangeImageTransform.html), and [ChangeClipBounds](https://developer.android.com/reference/android/transition/ChangeClipBounds.html). This works well for most typical cases. However, you may customize this behavior or even define your own custom transition. 
 
 ```xml
 <!-- Base application theme. -->
