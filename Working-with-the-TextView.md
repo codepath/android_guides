@@ -170,9 +170,9 @@ TextView has [native support](http://developer.android.com/reference/android/wid
 />
 ```
 
-If you encounter issues with links not being clickable as expected, check out [this stackoverflow post](http://stackoverflow.com/a/2746708) for a first workaround. 
+### Issues with ListView
 
-If the **item in the list isn't clickable**, check out [this solution](http://www.michaelevans.org/blog/2013/03/29/clickable-links-in-android-listviews/) which extends `TextView` in order to handle the `onTouchEvent` correctly. In addition, review [this stackoverflow post](http://stackoverflow.com/questions/26980204/listview-with-textview-autolink-not-receiving-onitemclicklistener) or [this issue](https://code.google.com/p/android/issues/detail?id=3414) for additional solutions.
+If the item within the list isn't clickable even though `setOnItemClickListener`, check out [this solution](http://www.michaelevans.org/blog/2013/03/29/clickable-links-in-android-listviews/) which extends `TextView` in order to modify the `onTouchEvent` to correctly propagate the click. In addition, review [this stackoverflow post](http://stackoverflow.com/questions/26980204/listview-with-textview-autolink-not-receiving-onitemclicklistener) or [this android issue](https://code.google.com/p/android/issues/detail?id=3414) for additional context.
 
 ## Using Custom Fonts
 
