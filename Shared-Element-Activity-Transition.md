@@ -17,6 +17,8 @@ The nature of this transition forces the human eye to focus on the content and i
 
 ### Getting Started
 
+The shared element transitions require Android 5.0 (API level 21) and above.
+
 ### 1. Enable Window Content Transitions
 
 Enable Window Content Transitions in your `styles.xml` file.
@@ -104,8 +106,8 @@ intent.putExtra(DetailsActivity.EXTRA_CONTACT, contact);
 final Pair<View, String> p1 = Pair.create((View)ivProfile, "profile");
 final Pair<View, String> p2 = Pair.create(vPalette, "palette");
 final Pair<View, String> p3 = Pair.create((View)tvName, "text");
-ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context, p1, p2, p3);
-context.startActivity(intent, options.toBundle());
+ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, p1, p2, p3);
+startActivity(intent, options.toBundle());
 ```
 
 Be careful to not overdo transitions between shared elements. It makes sense to have one cohesive unit animate from one screen to another (which may or may not contain multiple shared elements); having too many shared elements will result in a very distracting animation and make the experience more jarring.
