@@ -213,7 +213,7 @@ A [NinePatch](http://developer.android.com/guide/topics/graphics/2d-graphics.htm
 
 <img src="http://i.imgur.com/JHVsslP.png" width="450" alt="9patch" />
 
-NinePatch are images that have a "9" in the name such as `button_background.9.png` which signifies that this is a stretchable image.  The file is no different from a normal PNG file except that you will add thin black lines to indicate the vertical and horizontal "stretchable" and "fill" areas for the image. Android only knows that it's a 9-patch file by the filename extension!
+NinePatch are images that have a `9.png` file extension signifies that this is a stretchable PNG image.  The file is no different from a normal PNG file except that you will add thin black lines to indicate the vertical and horizontal "stretchable" and "fill" areas for the image. Android will not show these guide lines, which are used to determine how the image should be rendered.
 
 An example of a 9-patch image is embedded below (left is the 9patch graphic, right is an example of use in an app):
 
