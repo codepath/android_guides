@@ -68,21 +68,21 @@ Note that it doesn't matter if the `android:id` is different or where in the lay
 
 Start the target activity by specifying a bundle of those shared elements and views from the source.
 
- ```xml
- final Intent intent = new Intent(context, DetailsActivity.class);
- // Pass data object in the bundle and populate details activity.
+```xml
+final Intent intent = new Intent(context, DetailsActivity.class);
+// Pass data object in the bundle and populate details activity.
 intent.putExtra(DetailsActivity.EXTRA_CONTACT, contact);
 final Pair<View, String> p1 = Pair.create((View)ivProfile, "profile");
 ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context, p1);
 context.startActivity(intent, options.toBundle());
 ```
 
- Thats it! Specifying the source view along with the transition name ensures that even if you have multiple views with the same transition name in the source hierarchy, it will essentially be able to pick the right view to start the animation from.
+Thats it! Specifying the source view along with the transition name ensures that even if you have multiple views with the same transition name in the source hierarchy, it will essentially be able to pick the right view to start the animation from.
 
- To reverse the scene transition animation when you finish the second activity, call the `Activity.supportFinishAfterTransition()` method instead of `Activity.finish()`. Also, you will need to override the behavior of the home button in the `ToolBar/ ActionBar` for such cases:
+To reverse the scene transition animation when you finish the second activity, call the `Activity.supportFinishAfterTransition()` method instead of `Activity.finish()`. Also, you will need to override the behavior of the home button in the `ToolBar/ ActionBar` for such cases:
 
- ```java
- @Override
+```java
+@Override
 public boolean onOptionsItemSelected(MenuItem item) {
     switch (item.getItemId()) {
         // Respond to the action bar's Up/Home button
