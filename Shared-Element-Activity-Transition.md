@@ -71,12 +71,12 @@ Note that it doesn't matter if the `android:id` is different or where in the lay
 Start the target activity by specifying a bundle of those shared elements and views from the source.
 
 ```xml
-final Intent intent = new Intent(context, DetailsActivity.class);
+final Intent intent = new Intent(this, DetailsActivity.class);
 // Pass data object in the bundle and populate details activity.
 intent.putExtra(DetailsActivity.EXTRA_CONTACT, contact);
 final Pair<View, String> p1 = Pair.create((View)ivProfile, "profile");
-ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context, p1);
-context.startActivity(intent, options.toBundle());
+ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, p1);
+startActivity(intent, options.toBundle());
 ```
 
 Thats it! Specifying the source view along with the transition name ensures that even if you have multiple views with the same transition name in the source hierarchy, it will essentially be able to pick the right view to start the animation from.
