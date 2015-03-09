@@ -1,6 +1,8 @@
 ## Overview
 
-Android L introduces a new widget called `CardView` which essentially can be thought of as a `FrameLayout` with rounded corners and shadow based on its elevation.
+Android 5.0 introduces a new widget called `CardView` which essentially can be thought of as a `FrameLayout` with rounded corners and shadow based on its elevation. Note that a CardView wraps a layout and will often be the container used in a layout for each item within a `ListView` or [[RecyclerView|Using-the-RecyclerView]].
+
+<img src="https://developer.android.com/design/material/images/card_travel.png" width="200" />
 
 `CardView` should be used when displaying heterogenous content. Prefer using a list or a grid of tiles (non-cards) for homogenous content as the boundaries in a card can distract the user from quickly scanning a list.
 
@@ -24,7 +26,7 @@ Lets assume your layout looks something like this:
 
 To create a card using this layout, first you need to import the support library in your `build.gradle` file.
 
-```groovy
+```gradle
 dependencies {
     ...
     compile 'com.android.support:cardview-v7:21.0.2'
@@ -75,14 +77,18 @@ Note that the `card_view:cardElevation` is used to determine the size and softne
 
 ### Adding Ripple Effect
 
-By default, a `CardView` is not tappable and it doesn't show any touch feedback. Touch feedback animations provide users with visual feedback when a `CardView` is touched. To enable this behavior,add the following attributes to your `CardView`.
+By default, a `CardView` is not tappable and it doesn't show any touch feedback. Touch feedback animations provide users with visual feedback when a `CardView` is touched. To enable this behavior, add the following attributes to your `CardView`.
 
 ```xml
-android:clickable="true"
-android:foreground="?android:attr/selectableItemBackground"
+<android.support.v7.widget.CardView
+  ...
+  android:clickable="true"
+  android:foreground="?android:attr/selectableItemBackground">
+  ...
+</android.support.v7.widget.CardView>
 ```
 
-Using the android:foreground="?android:attr/selectableItemBackground" property on a `CardView` enables the ripple effect to originate from the touch origin.
+Using the `android:foreground="?android:attr/selectableItemBackground"` property on a `CardView` enables the ripple effect to originate from the touch origin.
 
 ### <a name="Support-on-Older-Platforms"></a>Support on Older Platforms
 

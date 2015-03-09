@@ -163,7 +163,28 @@ public class Item extends Model {
 }
 ```
 
-That's ActiveAndroid in a nutshell. 
+Refer to [querying the database](https://github.com/pardom/ActiveAndroid/wiki/Querying-the-database) for more examples. That's ActiveAndroid in a nutshell. 
+
+#### Populating ListView with ArrayAdapter
+
+We can plug `ActiveAndroid` stored data into a standard `ArrayAdapter` the same as any other array of data by simply adding the results of the query to the adapter:
+
+```java
+// Construct ArrayList for model type
+ArrayList<TodoItem> items = new ArrayList<TodoItem>();
+// Construct adapter plugging in the array source
+MyCustomArrayAdapter adapterTodoItems = 
+    new MyCustomArrayAdapter(this, items);
+// Query ActiveAndroid for list of data
+List<TodoItem> queryResults = new Select().from(TodoItem.class)
+    .orderBy("Name ASC").limit(100).execute();
+// Load the result into the adapter using `addAll`
+adapterTodoItems.addAll(queryResults);
+```
+
+Refer to [querying the database](https://github.com/pardom/ActiveAndroid/wiki/Querying-the-database) for more examples. For more advanced cases, check out the [From.java source](https://github.com/pardom/ActiveAndroid/blob/master/src/com/activeandroid/query/From.java) directly.
+
+### Advanced Usage
 
 #### Executing Custom SQL
 
@@ -183,60 +204,7 @@ List<TodoItem> importantItems =
      new String[] { "high" });
 ```
 
-See [SQLiteUtils implementation](https://github.com/pardom/ActiveAndroid/blob/master/src/com/activeandroid/util/SQLiteUtils.java#L105) for more details.
-
-#### Migrations
-
-If you need to add a field to your an existing model, you'll need to write a migration to add the column to the table that represents your model. Here's how:
-
-1. Add a new field to your existing model:
-  ```java
-  import com.activeandroid.Model;
-  import com.activeandroid.annotation.Column;
-  import com.activeandroid.annotation.Table;
-
-  @Table(name = "Items")
-  public class Item extends Model {
-      @Column(name = "remote_id", unique = true, onUniqueConflict = Column.ConflictAction.REPLACE)
-      public long remoteId;
-    
-      @Column(name = "Name")
-      public String name;
-
-      @Column(name = "Priority") //new column
-      public String priority;
-    
-      public Item(){
-         super();
-      }
-    
-      public Item(int remoteId, String name, String priority){
-          super();
-          this.remoteId = remoteId;
-          this.name = name;
-          this.priority = priority;
-      }
-  }
-  ```
-
-2. Change the database version the the AndroidManifest.xml's metadata. Increment by 1 from the last version:
-
-  ```xml
-  <meta-data
-          android:name="AA_DB_NAME"
-          android:value="Application.db" />
-  <meta-data
-          android:name="AA_DB_VERSION"
-          android:value="2" />
-  ```
-
-3. Write your migration script. Name your script [newDatabaseVersion].sql, and place it in the directory [YourApp’sName]/app/src/main/assets/migrations. In my specific example, I’ll create the file [MyAppName]/app/src/main/assets/migrations/2.sql. (You might have to create the migrations directory yourself). You should write the SQLite script to add a column here:
-
-  ```sql
-  ALTER TABLE Items ADD COLUMN Priority TEXT;
-  ```
-
-Note that in order trigger the migration script, you’ll have to save an instance of your model somewhere in your code. 
+See [SQLiteUtils implementation](https://github.com/pardom/ActiveAndroid/blob/master/src/com/activeandroid/util/SQLiteUtils.java#L105) for more details. 
 
 #### Populating ListView with CursorAdapter
 
@@ -324,6 +292,59 @@ You must also register the content provider in your AndroidManifest.xml:
 ```
 
 See the full source code on the official [ActiveAndroid ContentProviders guide](https://github.com/pardom/ActiveAndroid/wiki/Using-the-content-provider).
+
+#### Migrations
+
+If you need to add a field to your an existing model, you'll need to write a migration to add the column to the table that represents your model. Here's how:
+
+1. Add a new field to your existing model:
+  ```java
+  import com.activeandroid.Model;
+  import com.activeandroid.annotation.Column;
+  import com.activeandroid.annotation.Table;
+
+  @Table(name = "Items")
+  public class Item extends Model {
+      @Column(name = "remote_id", unique = true, onUniqueConflict = Column.ConflictAction.REPLACE)
+      public long remoteId;
+    
+      @Column(name = "Name")
+      public String name;
+
+      @Column(name = "Priority") //new column
+      public String priority;
+    
+      public Item(){
+         super();
+      }
+    
+      public Item(int remoteId, String name, String priority){
+          super();
+          this.remoteId = remoteId;
+          this.name = name;
+          this.priority = priority;
+      }
+  }
+  ```
+
+2. Change the database version the the AndroidManifest.xml's metadata. Increment by 1 from the last version:
+
+  ```xml
+  <meta-data
+          android:name="AA_DB_NAME"
+          android:value="Application.db" />
+  <meta-data
+          android:name="AA_DB_VERSION"
+          android:value="2" />
+  ```
+
+3. Write your migration script. Name your script [newDatabaseVersion].sql, and place it in the directory [YourApp’sName]/app/src/main/assets/migrations. In my specific example, I’ll create the file [MyAppName]/app/src/main/assets/migrations/2.sql. (You might have to create the migrations directory yourself). You should write the SQLite script to add a column here:
+
+  ```sql
+  ALTER TABLE Items ADD COLUMN Priority TEXT;
+  ```
+
+Note that in order trigger the migration script, you’ll have to save an instance of your model somewhere in your code.
 
 #### Official Reference Guides
 
