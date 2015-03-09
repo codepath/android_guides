@@ -92,6 +92,7 @@ Exploring the gritty details of views, layout, styling and common UI patterns:
 * [[Implementing a Horizontal ListView Guide]] (Scrolls horizontally)
 * [[Implementing a Heterogenous ListView]] (with different item types)
 * [[Using the RecyclerView]] (New, Android 5.0)
+* [[Using the CardView]] (New, Android 5.0)
 
 ### Custom Views
 
