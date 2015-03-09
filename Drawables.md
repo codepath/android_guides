@@ -228,7 +228,7 @@ A NinePatch is defined and saved in the `drawable` folder and setting the backgr
         android:text="Submit"
         android:background="@drawable/button_background"/>
 ```
-Android Studio comes with the ability to edit 9-patch files directly.  Your PNG file simply needs to be saved with the 9.png extension in the `drawable` folder, and the 9-patch editor will display instead of the normal image editor.  You can use the mouse to select the regions to be stretched (use Shift-click to erase the region), and the preview pane on the right displays how images will be rendered depending on the text inside.
+Android Studio comes with the ability to edit 9-patch files directly.  Your PNG file simply needs to be saved with the 9.png extension in the `drawable` folder, and the 9-patch editor will display instead of the normal image editor.  You can use the mouse to select the regions to be stretched (use Shift and click while dragging the mouse to erase the region), and the preview pane on the right displays how images will be rendered depending on the text inside.
 
 <img src="http://imgur.com/LyOLk8y.png"/>
 
