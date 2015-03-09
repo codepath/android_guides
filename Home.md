@@ -82,8 +82,8 @@ Exploring the gritty details of views, layout, styling and common UI patterns:
 * [[Styling UI Screens FAQ]] (Answers to common questions around building screens)
 * [[Cloning a Login Screen Layout Guide]] (Creating attractive UIs, Q&A)
 * [[Developing Custom Themes]] (Integrating drawables, styles and themes)
-* [[Dynamic Color using Palettes]] (Adaptive colors)
-* [[Shared Element Activity Transition]] (New, Android 5.0)
+* [[Dynamic Color using Palettes]] (Adaptive colors, Android 5.0)
+* [[Shared Element Activity Transition]] (Android 5.0)
 
 ### AdapterViews
 
@@ -92,8 +92,8 @@ Exploring the gritty details of views, layout, styling and common UI patterns:
 * [[Implementing Pull to Refresh Guide]]
 * [[Implementing a Horizontal ListView Guide]] (Scrolls horizontally)
 * [[Implementing a Heterogenous ListView]] (with different item types)
-* [[Using the RecyclerView]] (New, Android 5.0)
-* [[Using the CardView]] (New, Android 5.0)
+* [[Using the RecyclerView]] (Android 5.0)
+* [[Using the CardView]] (Android 5.0)
 
 ### Custom Views
 
