@@ -1,10 +1,8 @@
 ## Overview
 
-Android 5.0 introduces a new widget called `CardView` which essentially can be thought of as a `FrameLayout` with rounded corners and shadow based on its elevation.
+Android 5.0 introduces a new widget called `CardView` which essentially can be thought of as a `FrameLayout` with rounded corners and shadow based on its elevation. Note that a CardView wraps a single item layout but will often be the container in the layout for each item within a `ListView` or [[RecyclerView|Using-the-RecyclerView]].
 
 <img src="https://developer.android.com/design/material/images/card_travel.png" width="200" />
-
-Note that a CardView wraps a single item layout but will often be the container in the layout for each item within a `ListView` or [[RecyclerView|Using-the-RecyclerView]].
 
 `CardView` should be used when displaying heterogenous content. Prefer using a list or a grid of tiles (non-cards) for homogenous content as the boundaries in a card can distract the user from quickly scanning a list.
 
