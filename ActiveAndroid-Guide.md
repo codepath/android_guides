@@ -184,6 +184,8 @@ adapterTodoItems.addAll(queryResults);
 
 Refer to [querying the database](https://github.com/pardom/ActiveAndroid/wiki/Querying-the-database) for more examples. For more advanced cases, check out the [From.java source](https://github.com/pardom/ActiveAndroid/blob/master/src/com/activeandroid/query/From.java) directly.
 
+### Advanced Usage
+
 #### Executing Custom SQL
 
 To run custom SQL with no need for a result, use the `SQLiteUtils.execSql` method:
