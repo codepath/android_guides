@@ -213,7 +213,7 @@ A [NinePatch](http://developer.android.com/guide/topics/graphics/2d-graphics.htm
 
 <img src="http://i.imgur.com/JHVsslP.png" width="450" alt="9patch" />
 
-NinePatch are images that have a `9.png` file extension signifies that this is a stretchable PNG image.  The file is no different from a normal PNG file except that you will add thin black lines to indicate the vertical and horizontal "stretchable" and "fill" areas for the image. Android will not show these guide lines, which are used to determine how the image should be rendered.
+NinePatch are images that have a `.9.png` file extension signifies that this is a stretchable PNG image.  The file is no different from a normal PNG file except that you will add thin black lines to indicate the vertical and horizontal "stretchable" and "fill" areas for the image. Android will not show these guide lines, which are used to determine how the image should be rendered.
 
 An example of a 9-patch image is embedded below (left is the 9patch graphic, right is an example of use in an app):
 
@@ -228,7 +228,7 @@ A NinePatch is defined and saved in the `drawable` folder and setting the backgr
         android:text="Submit"
         android:background="@drawable/button_background"/>
 ```
-Android Studio comes with the ability to edit 9-patch files directly.  Your PNG file simply needs to be saved with the 9.png extension in the `drawable` folder, and the 9-patch editor will display instead of the normal image editor.  You can use the mouse to select the regions to be stretched (use Shift and click while dragging the mouse to erase the region), and the preview pane on the right displays how images will be rendered depending on the text inside.
+Android Studio comes with the ability to edit 9-patch files directly.  Your PNG file simply needs to be saved with the `.9.png` extension in the `drawable` folder, and the 9-patch editor will display instead of the normal image editor.  You can use the mouse to select the regions to be stretched (use Shift and click while dragging the mouse to erase the region), and the preview pane on the right displays how images will be rendered depending on the text inside.
 
 <img src="http://imgur.com/LyOLk8y.png"/>
 
