@@ -107,7 +107,7 @@ Using solid color shapes and gradients we can customize the appearance of button
 
 ### State List
 
-A [StateListDrawable](http://developer.android.com/guide/topics/resources/drawable-resource.html#StateList) is a drawable object defined in XML that uses a several different images to represent the same graphic, depending on the state of the object. For example, a Button widget can exist in one of several different states (pressed, focused, or neither) and, using a state list drawable, you can provide a different background image for each state. The state list supports different view states such as `android:state_pressed`, `android:state_focused`, `android:state_enabled`, `android:state_selected`, among many others.  The illustration below demonstrates all the major states that can be represented:
+A [StateListDrawable](http://developer.android.com/guide/topics/resources/drawable-resource.html#StateList) is a drawable object defined in XML that uses a several different images to represent the same graphic, depending on the state of the object. For example, a Button widget can exist in one of several different states (pressed, focused, or neither) and, using a state list drawable, you can provide a different background image for each state. The state list supports different view states such as `android:state_pressed`, `android:state_focused`, `android:state_enabled`, `android:state_selected`, among many others.  The illustration below shows all the major states that can be represented:
 
 <img src="http://developer.android.com/design/media/touch_feedback_states.png">
 
@@ -213,12 +213,14 @@ A [NinePatch](http://developer.android.com/guide/topics/graphics/2d-graphics.htm
 
 <img src="http://i.imgur.com/JHVsslP.png" width="450" alt="9patch" />
 
-NinePatch are images that have a "9" in the name such as `button_background.9.png` which signifies that this is a stretchable image. As shown above, the thin black lines indicate the vertical and horizontal "stretchable" and "fill" areas for the image. An example of a 9-patch image is embedded below (left is the 9patch graphic, right is an example of use in an app):
+NinePatch are images that have a "9" in the name such as `button_background.9.png` which signifies that this is a stretchable image.  The file is no different from a normal PNG file except that you will add thin black lines to indicate the vertical and horizontal "stretchable" and "fill" areas for the image. Android only knows that it's a 9-patch file by the filename extension!
+
+An example of a 9-patch image is embedded below (left is the 9patch graphic, right is an example of use in an app):
 
 <img src="http://i.imgur.com/btT0ybk.png" height="60" /> &nbsp;
 <img src="http://i.imgur.com/oSFvjxF.png" height="60" />
 
-See this [simple guide](http://radleymarx.com/blog/simple-guide-to-9-patch/) for more information. You can also refer to the [official nine-patch docs](http://developer.android.com/guide/topics/graphics/2d-graphics.html#nine-patch). A NinePatch is defined and saved in the `drawable` folder and setting the background works the same as with any image:
+A NinePatch is defined and saved in the `drawable` folder and setting the background works the same as with any image:
 
 ```xml
 <Button android:layout_width="wrap_content"
@@ -226,8 +228,15 @@ See this [simple guide](http://radleymarx.com/blog/simple-guide-to-9-patch/) for
         android:text="Submit"
         android:background="@drawable/button_background"/>
 ```
+Android Studio comes with the ability to edit 9-patch files directly.  Your PNG file simply needs to be saved with the 9.png extension in the `drawable` folder, and the 9-patch editor will display instead of the normal image editor.  You can use the mouse to select the regions to be stretched (use Shift and click while dragging the mouse to erase the region), and the preview pane on the right displays how images will be rendered depending on the text inside.
 
-The [draw9patch](http://developer.android.com/tools/help/draw9patch.html) tool is used to create special nine-patch images or you can use [the online 9-patch utility](http://android-ui-utils.googlecode.com/hg/asset-studio/dist/nine-patches.html). You can check out [great ready-made examples of pretty 9-patch buttons](http://www.dibbus.com/2011/03/9patch-images-in-android/) for examples.
+<img src="http://imgur.com/LyOLk8y.png"/>
+
+The left and top lines need to be defined for the stretchable regions.  To avoid stretching the arrow of this popup icon in the above example, we define regions outside this area.  The right and bottom lines define where text can be filled.   Without the bottom line for instance, your text will not fill up the entire width of the stretched region and may not be centered properly.
+
+You can also use the [draw9patch](http://developer.android.com/tools/help/draw9patch.html) tool to create special nine-patch images or you can use [the online 9-patch utility](http://android-ui-utils.googlecode.com/hg/asset-studio/dist/nine-patches.html). You can check out [great ready-made examples of pretty 9-patch buttons](http://www.dibbus.com/2011/03/9patch-images-in-android/) for examples.  
+
+See this [simple guide](http://radleymarx.com/blog/simple-guide-to-9-patch/) for more information. You can also refer to the [official nine-patch docs](http://developer.android.com/guide/topics/graphics/2d-graphics.html#nine-patch). 
 
 ## Customizing a Button
 
