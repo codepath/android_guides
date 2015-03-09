@@ -107,7 +107,8 @@ intent.putExtra(DetailsActivity.EXTRA_CONTACT, contact);
 Pair<View, String> p1 = Pair.create((View)ivProfile, "profile");
 Pair<View, String> p2 = Pair.create(vPalette, "palette");
 Pair<View, String> p3 = Pair.create((View)tvName, "text");
-ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, p1, p2, p3);
+ActivityOptionsCompat options = ActivityOptionsCompat.
+    makeSceneTransitionAnimation(this, p1, p2, p3);
 startActivity(intent, options.toBundle());
 ```
 
