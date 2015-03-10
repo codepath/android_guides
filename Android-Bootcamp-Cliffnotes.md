@@ -63,7 +63,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 
 * [[Customizing UI Quickstart|Polishing a UI Tips and Tools]] Outline
 * [[Styling UI Screens FAQ]]
-* [[Customize Appearance With Drawables|Drawables]]
+* [[Drawables|Drawables]]
 * [[Styles and Themes]]
 * [[Cloning a Login Screen Layout Guide]]
 * [[Android Design Guidelines]]
