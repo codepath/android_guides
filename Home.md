@@ -106,6 +106,7 @@ Exploring the gritty details of views, layout, styling and common UI patterns:
 Exploring how to allow user interaction and navigation within an app:
 
 * [[View Event Listeners|Basic Event Listeners]] (Clicks, Key Presses, Updates)
+* [[Creating Custom Listeners]] (Defining, setting and triggering events)
 * [[Displaying Toasts]] (Quick notices and includes custom views)
 * [[Exploring the ActionBar|Defining the ActionBar]] (Includes adding ActionItems)
 * [[Extended ActionBar Guide]] (Split-bar, Custom ActionBar, etc)
