@@ -232,7 +232,7 @@ Android Studio comes with the ability to edit 9-patch files directly.  Your PNG 
 
 <img src="http://imgur.com/LyOLk8y.png"/>
 
-The left and top lines need to be defined for the stretchable regions.  To avoid stretching the arrow of this popup icon in the above example, we define regions outside this area.  The right and bottom lines define where text can be filled.   Without the bottom line for instance, your text will not fill up the entire width of the stretched region and may not be centered properly.
+The left and top lines need to be defined for the stretchable regions.  To avoid stretching the arrow of this speech bubble in the above example, we define regions outside this area.  The right and bottom lines define where text can be filled.   Without the bottom line for instance, your text will not fill up the entire width of the stretched region and may not be centered properly.
 
 You can also use the [draw9patch](http://developer.android.com/tools/help/draw9patch.html) tool to create special nine-patch images or you can use [the online 9-patch utility](http://android-ui-utils.googlecode.com/hg/asset-studio/dist/nine-patches.html). You can check out [great ready-made examples of pretty 9-patch buttons](http://www.dibbus.com/2011/03/9patch-images-in-android/) for examples.  
 
