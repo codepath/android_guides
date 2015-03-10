@@ -162,3 +162,4 @@ The "listener pattern" is a very powerful Java pattern that can be used to emit 
 ## References 
 
 * <https://gist.github.com/nesquena/8265f057fef203a2c67e>
+* <http://www.vogella.com/tutorials/DesignPatternObserver/article.html>
