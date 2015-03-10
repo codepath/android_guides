@@ -43,7 +43,8 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Handling ProgressBars]]
 * [[Implementing a Heterogenous ListView]]
 * [[Creating and Using Fragments]]
-* [[Fragment ActionBar Tabs|ActionBar Tabs with Fragments]]
+* [[ViewPager with FragmentPagerAdapter]]
+* [[Sliding Tabs with PagerSlidingTabStrip]]
 * [[Working with the ScrollView]]
 * [[Implementing Pull to Refresh Guide]]
 
