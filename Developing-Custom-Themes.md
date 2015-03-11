@@ -153,7 +153,13 @@ If you run your application now, you should see the following output.
 
 ## 3. Custom Attributes
 
-Here we need to declare the styleable attributes so we can use them in XML markup. These are the custom attributes you would like your theme to define. 
+There may be cases where we want to define custom attributes not exposed in the original theme (i.e. defining a background for this activity that can be easily changed across themes).  Similar to the interface pattern, each theme needs to implement these attributes.  In this way, we can easily switch themes at runtime.
+
+An `<attr>` element has two XML attributes `name` and `format`. `name` lets you title the attribute and this is how you refer to each in code, e.g., `R.attr.my_attribute`. The format attribute can have different values depending on the 'type' of attribute you want. 
+
+In this case, it is a "reference" to another attribute i.e. it references another resource id (e.g, `@color/my_color`, `@layout/my_layout`). Other examples of possible formats are `pixels`, `color`, `boolean`, `dimension`, `integer`, and `float`, `string`, `fraction`, `enum` and `flag`.
+
+These attributes can be defined in each theme later and then applied to views on the page by adding a `style` property indicating the attribute to apply.
 
 Create a file called `attrs.xml` inside `/res/values/` and add the following
 
@@ -172,11 +178,6 @@ Create a file called `attrs.xml` inside `/res/values/` and add the following
 </resources>
 ```
 
-An `<attr>` element has two xml attributes `name` and `format`. `name` lets you title the attribute and this is how you refer to each in code, e.g., `R.attr.my_attribute`. The format attribute can have different values depending on the 'type' of attribute you want. 
-
-In this case, it is a "reference" to another attribute i.e. it references another resource id (e.g, `@color/my_color`, `@layout/my_layout`). Other examples of possible formats are `pixels`, `color`, `boolean`, `dimension`, `integer`, and `float`, `string`, `fraction`, `enum` and `flag`.
-
-These attributes can be defined in each theme later and then applied to views on the page by adding a `style` property indicating the attribute to apply.
 
 ## 4. Dimensions
 
