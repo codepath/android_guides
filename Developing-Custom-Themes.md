@@ -153,8 +153,6 @@ If you run your application now, you should see the following output.
 
 ## 3. Custom Attributes
 
-As you may know, Android provides the ability to add custom views to your layouts. This lets you alter the behavior of existing components or create your very own specialized components. Typically you would also want to define your own attributes for these views representing each valid key for your theme. This can be done in the `res/values/attrs.xml` file. 
-
 Here we need to declare the styleable attributes so we can use them in XML markup. These are the custom attributes you would like your theme to define. 
 
 Create a file called `attrs.xml` inside `/res/values/` and add the following
