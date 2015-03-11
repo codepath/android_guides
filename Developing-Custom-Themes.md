@@ -17,7 +17,7 @@ We will be defining multiple themes in our app and use a spinner view to switch 
 
 Create a simple layout for our app. Later on we'll be applying all our styles and themes to this layout file.
 
-Next, let's add the strings for our input views and a string-array which lists out our themes. Feel free to replace `YOUR-CUSTOM-THEME` with a theme name of your choice below. Add the following to `res/values/strings.xml`:
+Next, let's add the strings for our input views.  Add the following to `res/values/strings.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -34,15 +34,17 @@ Next, let's add the strings for our input views and a string-array which lists o
     <string name="settings_text_state_on">On</string>
     <string name="settings_text_state_off">Off</string>
     <string name="settings_text_clear_data">Clear Data</string>
-
-    <string-array name="theme_array">
-        <item>Holo-Light</item>
-        <item>YOUR-CUSTOM-THEME</item>
-    </string-array>
-
 </resources>
 ```
 
+Let's also add to `res/values/strings.xml` the list of all the themes we will be allowed to choose from the spinner.  Feel free to replace `YOUR-CUSTOM-THEME-NAME` with a theme name of your choice below. 
+```
+    <string-array name="theme_array">
+        <item>Holo-Light</item>
+        <item>YOUR-CUSTOM-THEME-NAME</item>
+    </string-array>
+
+```
 Next, let's create an activity layout where the themes will be selected and applied. Open `res/layout/activity_theme.xml` file and go to the xml tab. Then paste the code below.
 
 ```xml
