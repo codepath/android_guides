@@ -38,7 +38,7 @@ Next, let's add the strings for our input views.  Add the following to `res/valu
 ```
 
 Let's also add to `res/values/strings.xml` the list of all the themes we will be allowed to choose from the spinner.  Feel free to replace `YOUR-CUSTOM-THEME-NAME` with a theme name of your choice below. 
-```
+```xml
     <string-array name="theme_array">
         <item>Holo-Light</item>
         <item>YOUR-CUSTOM-THEME-NAME</item>
