@@ -287,7 +287,7 @@ and then the activity can communicate directly with the fragment by invoking thi
 
 #### Fragment Listener
 
-If a fragment needs to communicate events to the activity, the fragment should define an interface as an inner type and require that the activity must implement this interface:
+If a fragment needs to communicate events to the activity, the fragment should [[define an interface|Creating-Custom-Listeners]] as an inner type and require that the activity must implement this interface:
 
 ```java
 import android.support.v4.app.Fragment;
@@ -349,7 +349,7 @@ public class RssfeedActivity extends FragmentActivity implements
 }
 ```
 
-in order to keep the fragment as re-usable as possible.
+in order to keep the fragment as re-usable as possible. For more details about this pattern, check out our detailed [[Creating Custom Listeners]] guide.
 
 ### ActionBar Menu Items and Fragments
 
