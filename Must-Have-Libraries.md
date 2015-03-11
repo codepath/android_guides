@@ -21,7 +21,7 @@ This "standard pack" listed below are libraries that are quite popular, widely a
  * [ButterKnife](http://jakewharton.github.io/butterknife/) - Using Java annotations, makes Android development better by simplifying common tasks. [Download](http://jakewharton.github.io/butterknife/#download) and install as a jar. Make sure to [setup eclipse integration](http://jakewharton.github.io/butterknife/ide-eclipse.html) for this to work.
  * [Dagger](http://square.github.io/dagger/) - A fast dependency injector for Android and Java.
  * [Parceler](https://github.com/johncarl81/parceler) - Android Parcelable made easy through code generation.
- * [AutoParcel(https://github.com/frankiesardo/auto-parcel) - Port of Google AutoValue for Android with Parcelable generation goodies.
+ * [AutoParcel](https://github.com/frankiesardo/auto-parcel) - Port of Google AutoValue for Android with Parcelable generation goodies.
  * [IcePick](https://github.com/frankiesardo/icepick) - Android Instance State made easy
  * [Hugo](https://github.com/JakeWharton/hugo) - Easier logging within your app
  * [AndroidAnnotations](https://github.com/excilys/androidannotations) - Framework that speeds up Android development. It takes care of the plumbing, and lets you concentrate on what's really important. By simplifying your code, it facilitates its maintenance
