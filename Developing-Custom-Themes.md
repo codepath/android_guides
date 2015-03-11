@@ -153,7 +153,7 @@ If you run your application now, you should see the following output.
 
 ## 3. Custom Attributes
 
-There may be cases where we want to define attributes not exposed in the original theme (i.e. defining a background for this activity that can be easily changed for different themes).  Similar to the interface pattern, we define these custom attributes and have each theme needs to implement them.  In this way, we can easily switch themes at runtime.
+There may be cases where we want to define attributes not exposed in the original theme (i.e. defining a background for this activity that can be easily changed for different themes).  Similar to the interface pattern, we define these custom attributes and have each theme implement them.  In this way, we can easily switch themes at runtime.
 
 An `<attr>` element has two XML attributes `name` and `format`. `name` lets you title the attribute and this is how you refer to each in code, e.g., `R.attr.my_attribute`. The format attribute can have different values depending on the 'type' of attribute you want. 
 
