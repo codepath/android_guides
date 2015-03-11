@@ -1,4 +1,4 @@
-The following tutorial explain how to build a application that can switch between multiple distinct themes. At the end of this exercise, you will have better understanding of some of the core features of Android like - `drawables`, `styles` and `themes`. For more general overview of these concepts, check out [[Styles and Themes|Styles-and-Themes]] cliffnotes.
+The following tutorial explain how to build an application that can switch between multiple distinct themes. At the end of this exercise, you will have better understanding of some of the core features of Android like - `drawables`, `styles` and `themes`. For more general overview of these concepts, check out [[Styles and Themes|Styles-and-Themes]] cliffnotes.
 
 A `style` in Android is a collection of attribute/value pairs applied to a view. A `style` is a `xml` resource and it separates the design attributes from `XML` layout. Styles in Android is similar in concept to CSS on web because it separates design from the content. A `Theme` is a `Style` that applies to the entire application or a certain `Activity`.
 
