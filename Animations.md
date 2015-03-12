@@ -39,6 +39,10 @@ ObjectAnimator fadeAnim = ObjectAnimator.ofFloat(tvLabel, "alpha", 0.2f);
 fadeAnim.start();
 ```
 
+This will execute the animation to fade out the button: 
+
+![Simple Fadeout](http://i.imgur.com/dsyRMsl.gif)
+
 #### Setting Duration or Repeat on Property Animation 
 
 This code above will fade the specified view to 20% opacity. We can add additional behavior such as duration or repeating the animation with:
