@@ -1,19 +1,17 @@
 ## Overview
 
-Android supports powerful animations for both views and transitions between activities. There are three animation systems that work differently for different cases but the most important are Property animations. 
+Android supports powerful animations for both views and transitions between activities. There are three animation systems that work differently for different cases but the most important are Property animations. Property animations allow us to animate any property of any object from one value to another over a specified duration. 
 
-Property animations allow us to animate any property of any object from one value to another over a specified duration. These can be applied to anything within the Android application. 
-
-This is typically used for any dynamic movement for views including position changes, rotations, expansion or coloration changes. In some cases animation is used for adding visual flair and polish to an application while in others, it could be essential to the operation of the app.
+These can be applied to anything within the Android application. This is typically used for any dynamic movement for views including position changes, rotations, expansion or coloration changes. 
 
 Animations like many resources for Android can be defined both through XML resources as well as 
 dynamically within the Java code.
 
-### Overview
+### Animation Types
 
 There are four relevant animation types for us to understand:
 
- * [Property Animation](http://developer.android.com/guide/topics/graphics/prop-animation.html) - This is the animation of any property between two values. Frequently used to animate views on screen such as rotating an image or fading out a button.
+ * [Property Animations](http://developer.android.com/guide/topics/graphics/prop-animation.html) - This is the animation of any property between two values. Frequently used to animate views on screen such as rotating an image or fading out a button.
  * [Activity Transitions](http://ahdidou.com/blog/customize-android-activities-transition/#.Uli6O2Q6VZ8) - Animates the transition as an Activity enters the screen when an Intent is executed.
  * [Fragment Transitions](http://android-er.blogspot.com/2013/04/implement-animation-in.html) - Animates the transition as a fragment enters or exits the screen when a transaction occurs.
  * [Layout Animation](http://developer.android.com/guide/topics/graphics/prop-animation.html#layout) - This allows us to enable animations on any layout container or other ViewGroup such as a ListView. With layout animations enabled, all changes to views inside the container will be animated.
@@ -52,6 +50,32 @@ scaleAnim.setRepeatCount(ValueAnimator.INFINITE);
 scaleAnim.setRepeatMode(ValueAnimator.REVERSE);
 scaleAnim.start();
 ```
+
+#### Setting Interpolation
+
+Whenever we define a property animation, we should also consider the rate of change of that animation. In other words, we don't just want to consider the value to change a property to but also the trajectory of the movement. This is done by specifying a [TimeInterpolator](http://developer.android.com/reference/android/animation/TimeInterpolator.html) on your `ObjectAnimator`:
+
+```java
+ObjectAnimator moveAnim = ObjectAnimator.ofFloat(v, "Y", 1000);
+moveAnim.setDuration(2000);
+moveAnim.setInterpolator(new BounceInterpolator());
+moveAnim.start();
+```
+
+The result of this is a different rate of motion:
+
+![Bounce](http://i.imgur.com/Wu96uOS.gif)
+
+Common pre-defined interpolators are listed below:
+
+| Name                   | Description |
+| ---------------------  | ---------------------------------------------------------  |
+| AccelerateInterpolator | Rate of change starts out slowly and and then accelerates  |
+| BounceInterpolator     | Change bounces right at the end                            |
+| DecelerateInterpolator | Rate of change starts out quickly and and then decelerates |
+| LinearInterpolator     | Rate of change is constant throughout                      |
+
+There are several other [time interpolators](http://developer.android.com/reference/android/animation/TimeInterpolator.html) which can be reviewed.
 
 #### Listening to the Animation Lifecycle
 
@@ -112,7 +136,14 @@ See the [Property Animation](http://developer.android.com/guide/topics/graphics/
 
 ### Using ViewPropertyAnimator in Java
 
-We can also do property animations in a simple and compatible way. All we have to do is import the `animate` method and then we can compose and execute property animations on views. For example, suppose we want to fade out a button on screen. All we need to do is pass the button view into the `animate` method and then invoke the `alpha` property:
+We can also do property animations in an even simpler way using the `ViewPropertyAnimator` system which is built on top of the `ObjectAnimator`. Without NineOldAndroids and therefore incompatible with Android versions of 3.0 or below we can run concurrent animations with:
+
+```java
+Button btnExample = (Button) findViewById(R.id.btnExample);
+btnExample.animate().alpha(0.2f).xBy(-100).yBy(100);
+```
+
+In order to make these compatible with all Android versions, we have to import the `animate` method from [NineOldAndroids](https://github.com/JakeWharton/NineOldAndroids) and then we can compose and execute property animations on views. For example, suppose we want to fade out a button on screen. All we need to do is pass the button view into the `animate` method and then invoke the `alpha` property:
 
 ```java
 Button btnExample = (Button) findViewById(R.id.btnExample);
