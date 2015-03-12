@@ -11,8 +11,8 @@ dynamically within the Java code.
 
 There are actually two distinct animation frameworks for Android:
 
-    * [Property Animations](http://developer.android.com/guide/topics/graphics/prop-animation.html) - The most powerful and flexible animation system introduced in Android 3.0.
-    * [View Animations](http://developer.android.com/guide/topics/graphics/view-animation.html) - Slower and less flexible; deprecated since property animations were introduced
+ - [Property Animations](http://developer.android.com/guide/topics/graphics/prop-animation.html) - The most powerful and flexible animation system introduced in Android 3.0.
+ - [View Animations](http://developer.android.com/guide/topics/graphics/view-animation.html) - Slower and less flexible; deprecated since property animations were introduced
 
 Powered by these animation frameworks, there are five relevant types of animations:
 
