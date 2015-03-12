@@ -9,12 +9,18 @@ dynamically within the Java code.
 
 ### Animation Types
 
-There are four relevant animation types for us to understand:
+There are actually two distinct animation frameworks for Android:
+
+    * [Property Animations](http://developer.android.com/guide/topics/graphics/prop-animation.html) - The most powerful and flexible animation system introduced in Android 3.0.
+    * [View Animations](http://developer.android.com/guide/topics/graphics/view-animation.html) - Slower and less flexible; deprecated since property animations were introduced
+
+Powered by these animation frameworks, there are five relevant types of animations:
 
  * [Property Animations](http://developer.android.com/guide/topics/graphics/prop-animation.html) - This is the animation of any property between two values. Frequently used to animate views on screen such as rotating an image or fading out a button.
  * [Activity Transitions](http://ahdidou.com/blog/customize-android-activities-transition/#.Uli6O2Q6VZ8) - Animates the transition as an Activity enters the screen when an Intent is executed.
  * [Fragment Transitions](http://android-er.blogspot.com/2013/04/implement-animation-in.html) - Animates the transition as a fragment enters or exits the screen when a transaction occurs.
  * [Layout Animation](http://developer.android.com/guide/topics/graphics/prop-animation.html#layout) - This allows us to enable animations on any layout container or other ViewGroup such as a ListView. With layout animations enabled, all changes to views inside the container will be animated.
+ * [Drawable Animations](http://developer.android.com/guide/topics/graphics/drawable-animation.html) - Used to animate by displaying drawables in quick succession
 
 ## Property Animations
 
@@ -552,10 +558,6 @@ The [android:animateLayoutChanges](http://developer.android.com/reference/androi
 
 ## Things To Note
 
-* There are actually three types of animation systems on Android:
-    * [Property Animations](http://developer.android.com/guide/topics/graphics/prop-animation.html) - The most powerful and flexible animation system introduced in Android 3.0.
-    * [View Animations](http://developer.android.com/guide/topics/graphics/view-animation.html) - Slower and less flexible; deprecated since property animations were introduced
-    * [Drawable Animations](http://developer.android.com/guide/topics/graphics/drawable-animation.html) - Used to animate by displaying drawables in quick succession
 * Property animations typically take place on properties of objects by using the `ObjectAnimator`
   which is an extension of the `ValueAnimator` which is the core timing engine for animations.
 * `AnimatorSet` is the mechanism for logically grouping animations together that run in relation
