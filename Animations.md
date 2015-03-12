@@ -112,7 +112,7 @@ We can play multiple `ObjectAnimator` objects together concurrently with the [An
 AnimatorSet set = new AnimatorSet();
 set.playTogether(
     ObjectAnimator.ofFloat(tvLabel, "scaleX", 1.0f, 2.0f)
-	.setDuration(2000),
+        .setDuration(2000),
     ObjectAnimator.ofFloat(tvLabel, "scaleY", 1.0f, 2.0f)
         .setDuration(2000),
     ObjectAnimator.ofObject(tvLabel, "backgroundColor", new ArgbEvaluator(),
