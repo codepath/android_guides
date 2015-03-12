@@ -26,11 +26,13 @@ Powered by these animation frameworks, there are five relevant types of animatio
 
 Property animations were a more recent Android feature [introduced in 3.0](http://android-developers.blogspot.com/2011/05/introducing-viewpropertyanimator.html). To use animations in a way that is **compatible with pre-3.0 Android versions**, we must use the [NineOldAndroids](http://nineoldandroids.com/) for all our property animations. 
 
-If you are an Android Studio user, add the following dependency to your `build.gradle` file.
-```xml
+If you are an Android Studio user, add the following dependency to your `app/build.gradle` file.
+
+```gradle
 compile 'com.nineoldandroids:library:2.4.0+'
 ```
-For any activity that uses NineOldAndroids, include a static import to the ViewPropertyAnimator, as below.
+
+For any activity that uses NineOldAndroids, be sure to include a static import to the ViewPropertyAnimator, as below.
 
 ```java
 import static com.nineoldandroids.view.ViewPropertyAnimator.animate;
