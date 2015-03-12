@@ -399,7 +399,7 @@ Now we can open `res/values/styles.xml` file. This is where you'll define all yo
 
 Above in the `styles.xml` is where we define the "implementation" of the style attributes we defined earlier. The attributes view properties change depending on the theme being created but the names of the attributes are the same across themes.
 
-**Note:** The style `white_background_wh` uses this built-in [nine patch dialog 9-patch image](https://raw.githubusercontent.com/derekbrameyer/android-betterpickers/master/library/res/drawable-hdpi/dialog_full_holo_light.9.png) called `dialog_full_holo_light.9.png` to achieve the border shadow for the layout. Alternatively, you can create simpler box shadows using [[layer-lists|Drawables#creating-a-layer-list]].
+**Note:** The style `white_background_wh` uses this built-in [nine patch dialog 9-patch image](http://i.imgur.com/4ukg5Eo.png) called `dialog_full_holo_light.9.png` to achieve the border shadow for the layout. Alternatively, you can create simpler box shadows using [[layer-lists|Drawables#creating-a-layer-list]].
 
 ## 6. Create `themes.xml` file
 
