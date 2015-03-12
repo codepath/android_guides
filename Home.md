@@ -84,6 +84,7 @@ Exploring the gritty details of views, layout, styling and common UI patterns:
 * [[Developing Custom Themes]] (Integrating drawables, styles and themes)
 * [[Dynamic Color using Palettes]] (Adaptive colors, Android 5.0)
 * [[Shared Element Activity Transition]] (Android 5.0)
+* [[Circular Reveal Animation]] (Android 5.0)
 
 ### AdapterViews
 
