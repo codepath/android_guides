@@ -604,14 +604,14 @@ Now in the `ThemeActivity.java` to enable custom themes being applied:
 public class ThemeActivity extends Activity {
 	private Spinner spThemes;
         
-        // Here we set the theme for the activity
-        // Note `Utils.onActivityCreateSetTheme` must be called before `setContentView`
+	// Here we set the theme for the activity
+	// Note `Utils.onActivityCreateSetTheme` must be called before `setContentView`
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-                // MUST BE SET BEFORE setContentView
+		// MUST BE SET BEFORE setContentView
 		Utils.onActivityCreateSetTheme(this);
-                // AFTER SETTING THEME
+		// AFTER SETTING THEME
 		setContentView(R.layout.activity_theme);
 		setupSpinnerItemSelection();
 	}
