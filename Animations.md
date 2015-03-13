@@ -26,12 +26,13 @@ Powered by these animation frameworks, there are five relevant types of animatio
 
 Property animations were a more recent Android feature [introduced in 3.0](http://android-developers.blogspot.com/2011/05/introducing-viewpropertyanimator.html). Common properties commonly animated on views include:
 
-| Property                | Description    | 
-|----------               | ------------   |
-| `alpha`                 | Fade in or out |
-| `rotation`, `rotationX` | Spinning       |
-| `scaleX`, `scaleY`      | Grow or shrink |
-| `x`, `y`, `z`           | Position       |
+| Property                       | Description          | 
+|--------------------            | ------------         |
+| `alpha`                        | Fade in or out       |
+| `rotation`, `rotationX`        | Spinning             |
+| `scaleX`, `scaleY`             | Grow or shrink       |
+| `x`, `y`, `z`                  | Position             |
+| `translationX`, `translationY` | Offset from Position |
 
 To use animations in a way that is **compatible with pre-3.0 Android versions**, we must use the [NineOldAndroids](http://nineoldandroids.com/) for all our property animations. 
 
