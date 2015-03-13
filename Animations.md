@@ -51,6 +51,15 @@ This will execute the animation to fade out the button:
 
 ![Simple Fadeout](http://i.imgur.com/dsyRMsl.gif)
 
+We can also use the [properties system in 4.0](http://android-developers.blogspot.com/2011/11/android-40-graphics-and-animations.html) to execute property animations on common properties using:
+
+```java
+ObjectAnimator fadeAltAnim = ObjectAnimator.ofFloat(image, View.ALPHA, 0, 1);
+fadeAltAnim.start();
+```
+
+This is considerably faster because this property check doesn't require as much slow runtime reflection. Properties supported include `ALPHA`, `ROTATION`, `SCALE_X`, `SCALE_Y`, `TRANSLATION_X`, `TRANSLATION_Y`, `X`, `Y` in order to improve performance on these animations. 
+
 #### Setting Duration or Repeat on Property Animation 
 
 This code above will fade the specified view to 20% opacity. We can add additional behavior such as duration or repeating the animation with:
