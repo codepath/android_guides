@@ -24,7 +24,9 @@ Powered by these animation frameworks, there are five relevant types of animatio
 
 ## Property Animations
 
-Property animations were a more recent Android feature [introduced in 3.0](http://android-developers.blogspot.com/2011/05/introducing-viewpropertyanimator.html). Common properties commonly animated on views include:
+Property animations were a more recent Android feature [introduced in 3.0](http://android-developers.blogspot.com/2011/05/introducing-viewpropertyanimator.html). The primary motivations for the introduction of the property animations system are outlined clearly in this [post from 2011 introducing property animations](http://android-developers.blogspot.com/2011/02/animation-in-honeycomb.html). 
+
+Common properties commonly animated on views include:
 
 | Property                       | Description          | 
 |---------------------------------------| ------------         |
@@ -294,6 +296,8 @@ See more details in the [Property Animation](http://developer.android.com/guide/
 ## View Animations
 
 View animations is a slower and less flexible system for animation that predates the property animation system that was introduced later. **Property animations are generally preferred** but let's take a look at the older system and how to apply animations using the original XML syntax.
+
+The primary motivations for the introduction of the property animations system are outlined clearly in this [post from 2011 introducing property animations](http://android-developers.blogspot.com/2011/02/animation-in-honeycomb.html).
 
 ### Using XML
 
