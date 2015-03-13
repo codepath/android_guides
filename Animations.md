@@ -28,13 +28,13 @@ Property animations were a more recent Android feature [introduced in 3.0](http:
 
 Common properties commonly animated on views include:
 
-| Property                       | Description          | 
-|---------------------------------------| ------------         |
-| `alpha`                               | Fade in or out       |
-| `rotation`, `rotationX`, `rotationY`  | Spinning             |
-| `scaleX`, `scaleY`                    | Grow or shrink       |
-| `x`, `y`, `z`                         | Position             |
-| `translationX`, `translationY`        | Offset from Position |
+| Property                                        | Description          | 
+|-------------------------------------------------| ------------         |
+| `alpha`                                         | Fade in or out       |
+| `rotation`, `rotationX`, `rotationY`            | Spinning             |
+| `scaleX`, `scaleY`                              | Grow or shrink       |
+| `x`, `y`, `z`                                   | Position             |
+| `translationX`, `translationY`, `translationZ`  | Offset from Position |
 
 To use animations in a way that is **compatible with pre-3.0 Android versions**, we must use the [NineOldAndroids](http://nineoldandroids.com/) for all our property animations. 
 
@@ -70,7 +70,7 @@ ObjectAnimator fadeAltAnim = ObjectAnimator.ofFloat(image, View.ALPHA, 0, 1);
 fadeAltAnim.start();
 ```
 
-This is considerably faster because this property check doesn't require as much slow runtime reflection. Properties supported include `ALPHA`, `ROTATION`, `ROTATION_X`, `ROTATION_Y`, `SCALE_X`, `SCALE_Y`, `TRANSLATION_X`, `TRANSLATION_Y`, `X`, `Y`, `Z` in order to improve performance on these animations. 
+This is considerably faster because this property check doesn't require as much slow runtime reflection. Properties supported include `ALPHA`, `ROTATION`, `ROTATION_X`, `ROTATION_Y`, `SCALE_X`, `SCALE_Y`, `TRANSLATION_X`, `TRANSLATION_Y`, `TRANSLATION_Z`, `X`, `Y`, `Z` in order to improve performance on these animations. 
 
 #### Setting Duration or Repeat on Property Animation 
 
