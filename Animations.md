@@ -607,3 +607,4 @@ The [android:animateLayoutChanges](http://developer.android.com/reference/androi
  * <http://learnandroideasily.blogspot.in/2013/07/imageview-animation-in-android.html>
  * <http://java.dzone.com/articles/using-view-animations-android>
  * <http://mobile.dzone.com/articles/android-ui-action-layout>
+ * <http://www.google.com/design/spec/animation/authentic-motion.html>
