@@ -132,8 +132,6 @@ You can also follow this issue on the [Android issue tracker](https://code.googl
 
 If none of the previous preference types work for your needs, you can create a custom preference extending from [`DialogPreference`](http://developer.android.com/reference/android/preference/DialogPreference.html), [`TwoStatePreference`](http://developer.android.com/reference/android/preference/TwoStatePreference.html), or [`Preference`](http://developer.android.com/reference/android/preference/Preference.html) itself.
 
-... in progress ...
-
 For a detailed guide on implementing a custom preference, refer to the [Android Developer: Settings](http://developer.android.com/guide/topics/ui/settings.html#Custom) API guide.
 
 ## References
