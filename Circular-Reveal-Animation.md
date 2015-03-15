@@ -64,7 +64,7 @@ void exitReveal() {
 }
 ```
 
-You want to call enterReveal after the enter transition of the activity has been completed.
+You want to call `enterReveal()` after the enter transition of the activity has been completed.
 
 ```
 getWindow().getEnterTransition().addListener(new Transition.TransitionListener() {
@@ -87,7 +87,7 @@ getWindow().getEnterTransition().addListener(new Transition.TransitionListener()
         });
 ```
 
-And you want to finish the activity after exitReveal
+While exiting the activity after the reveal transition, you want to finish the activity after completing the exit reveal animation.
 
 ```
 anim.addListener(new AnimatorListenerAdapter() {
@@ -95,10 +95,33 @@ anim.addListener(new AnimatorListenerAdapter() {
         public void onAnimationEnd(Animator animation) {
             super.onAnimationEnd(animation);
             myView.setVisibility(View.INVISIBLE);
+            
+            // Finish the activity after the exit transition completes.
             supportFinishAfterTransition();
         }
     });
 ```
+
+To enable exit reveal transition on press of `ActionBar` up button or back button, call `exitReveal()` from `onOptionsItemSelected()` and `onBackPressed()` respectively.
+
+```java
+@Override
+public boolean onOptionsItemSelected(MenuItem item) {
+    switch (item.getItemId()) {
+        // Respond to the action bar's Up/Home button
+        case android.R.id.home:
+            exitReveal();
+            return true;
+    }
+    return super.onOptionsItemSelected(item);
+}
+
+...
+
+@Override
+public void onBackPressed() {
+    exitReveal();
+}
 
 ### Common Gotcha
 
