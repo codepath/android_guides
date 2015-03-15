@@ -297,7 +297,7 @@ See more details in the [Property Animation](http://developer.android.com/guide/
 
 View animations is a slower and less flexible system for animation that predates the property animation system that was introduced later. **Property animations are generally preferred** but let's take a look at the older system and how to apply animations using the original XML syntax.
 
-The primary motivations for the introduction of the property animations system are outlined clearly in this [post from 2011 introducing property animations](http://android-developers.blogspot.com/2011/02/animation-in-honeycomb.html).   Some of the major differences includes:
+The primary motivations for the introduction of the property animations system are outlined clearly in this [post from 2011 introducing property animations](http://android-developers.blogspot.com/2011/02/animation-in-honeycomb.html).   Some of the major differences include:
 
   * The old view animation system only supported move, fade, scale, and rotate, whereas the new one provides a more extensible framework (i.e. animating background color or [marker map locations](http://blog.neteril.org/blog/2013/05/26/exploring-android-property-animations/)).  
 
