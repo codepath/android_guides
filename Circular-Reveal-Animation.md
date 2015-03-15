@@ -35,7 +35,6 @@ void enterReveal() {
 To hide a previously visible view using this effect:
 
 ```java
-@Override
 void exitReveal() {
     // previously visible view
     View myView = findViewById(R.id.my_view);
@@ -63,6 +62,42 @@ void exitReveal() {
     // start the animation
     anim.start();
 }
+```
+
+You want to call enterReveal after the enter transition of the activity has been completed.
+
+```
+getWindow().getEnterTransition().addListener(new Transition.TransitionListener() {
+            @Override
+            public void onTransitionStart(Transition transition) {}
+
+            @Override
+            public void onTransitionEnd(Transition transition) {
+                enterReveal();
+            }
+
+            @Override
+            public void onTransitionCancel(Transition transition) {}
+
+            @Override
+            public void onTransitionPause(Transition transition) {}
+
+            @Override
+            public void onTransitionResume(Transition transition) {}
+        });
+```
+
+And you want to finish the activity after exitReveal
+
+```
+anim.addListener(new AnimatorListenerAdapter() {
+        @Override
+        public void onAnimationEnd(Animator animation) {
+            super.onAnimationEnd(animation);
+            myView.setVisibility(View.INVISIBLE);
+            supportFinishAfterTransition();
+        }
+    });
 ```
 
 ### Common Gotcha
