@@ -116,8 +116,6 @@ public boolean onOptionsItemSelected(MenuItem item) {
     return super.onOptionsItemSelected(item);
 }
 
-...
-
 @Override
 public void onBackPressed() {
     exitReveal();
