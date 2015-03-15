@@ -299,7 +299,7 @@ View animations is a slower and less flexible system for animation that predates
 
 The primary motivations for the introduction of the property animations system are outlined clearly in this [post from 2011 introducing property animations](http://android-developers.blogspot.com/2011/02/animation-in-honeycomb.html).   Some of the major differences include:
 
-  * The old view animation system only supported move, fade, scale, and rotate, whereas the new one provides a more extensible framework (i.e. animating background color or [marker map locations](http://blog.neteril.org/blog/2013/05/26/exploring-android-property-animations/)).  
+  * The old view animation system only supported move, fade, scale, and rotate, whereas the new one provides a more extensible framework (i.e. animating background color, gradients, or even [marker map locations](http://blog.neteril.org/blog/2013/05/26/exploring-android-property-animations/)).  
 
   * The old system only supported View objects (i.e. Button, TextView, ListView, etc.) but the new Property animations can support any objects such as drawables.
 
