@@ -11,12 +11,7 @@ The `ViewAnimationUtils.createCircularReveal()` method enables you to animate a 
 To reveal a previously invisible view using this effect:
 
 ```java
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-
-    ...
-
+void enterReveal() {
     // previously invisible view
     View myView = findViewById(R.id.my_view);
 
@@ -41,11 +36,7 @@ To hide a previously visible view using this effect:
 
 ```java
 @Override
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-
-    ...
-
+void exitReveal() {
     // previously visible view
     View myView = findViewById(R.id.my_view);
 
