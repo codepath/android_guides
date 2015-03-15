@@ -122,6 +122,7 @@ public boolean onOptionsItemSelected(MenuItem item) {
 public void onBackPressed() {
     exitReveal();
 }
+```
 
 ### Common Gotcha
 
