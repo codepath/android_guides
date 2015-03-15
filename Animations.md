@@ -59,7 +59,7 @@ ObjectAnimator fadeAnim = ObjectAnimator.ofFloat(tvLabel, "alpha", 0.2f);
 fadeAnim.start();
 ```
 
-This code will execute the animation to fade out the button.   Notice that the "alpha" is designated as a string type.  The ObjectAnimator relies on [reflection](https://github.com/android/platform_frameworks_base/blob/master/core/java/android/animation/PropertyValuesHolder.java#l764-l774) and uses the button's getAlpha() and setAlpha() methods to perform the animation.
+This code will execute the animation to fade out the button.   Notice that the "alpha" is designated as a string type.  The ObjectAnimator relies on [reflection](https://github.com/android/platform_frameworks_base/blob/master/core/java/android/animation/PropertyValuesHolder.java#L658-719) and uses the button's getAlpha() and setAlpha() methods to perform the animation.
 
 ![Simple Fadeout](http://i.imgur.com/dsyRMsl.gif)
 
