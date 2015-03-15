@@ -381,7 +381,7 @@ The first parameter is the "enter" animation for the launched activity and the s
 </set> 
 ```
 
-This would move the X position of the new window from off the screen sliding in from the right. We might then define `left_out` in `res/anim/left_out.xml` with:
+This would move the X position of the new window from off the screen sliding in from the right ([`100%p`](http://developer.android.com/guide/topics/resources/animation-resource.html) means the Activity should start at a position equal to the full width of the window). We might then define `left_out` in `res/anim/left_out.xml` with:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
