@@ -1,6 +1,35 @@
 ## Overview
 
-Material Design encourages dynamic use of color, especially when you have rich images to work with. The new Palette support library lets you extract a small set of colors from an image to style your UI controls to match; creating an immersive experience. The extracted palette will include vibrant and muted tones as well as foreground text colors for optimal legibility. For example:
+Material Design encourages dynamic use of color, especially when you have rich images to work with. The new Palette support library lets you extract a small set of colors from an image to style your UI controls to match; creating an immersive experience. The extracted palette will include vibrant and muted tones as well as foreground text colors for optimal legibility.
+
+Make sure to add the Palette dependency to your `build.gradle` file if your targeted version of Android is lower than 21.
+
+```gradle
+compile 'com.android.support:palette-v7:21.0.+'
+```
+
+There are two ways to create a Palette and extract the colors from an image:
+
+* Synchronous
+* Asynchronous
+
+### Synchronous Methods
+
+These should be used when you have access to the underlying image loading thread. 
+
+```java
+public Palette generate(Bitmap image)
+```
+
+Pass only the image you want to extract the colors from as a parameter. This uses a default number of 15 colors, which should be enough to generate colors that correspond to the special set.
+
+```java
+public Palette generate(Bitmap image, int numberOfColors)
+```
+
+Pass the image and specify the number of colors you want to generate from the image. This allows you to specify the maximum palette size of 24.
+
+### Asynchronous Methods
 
 ```java
 // This is the quick and easy integration path. Internally uses an AsyncTask so 
@@ -17,6 +46,20 @@ Palette.generateAsync(bitmap, new Palette.PaletteAsyncListener() {
     }
 });
 ```
+
+This method takes in the image to extract the colors from, and a listener for a callback when the asynchronous task finishes. This also uses a default of 15 colors.
+
+```java
+// Allows you to specify the maximum palette size, in this case 24.
+Palette.generateAsync(bitmap, 24, new Palette.PaletteAsyncListener() {
+    @Override
+    public void onGenerated(Palette palette) {
+       // Here's your generated palette
+    }
+});
+```
+
+Like the synchronous second method, this allows you to specify the number of colors generated from the image.
 
 ### Palette Properties
 
@@ -46,4 +89,5 @@ The different text colors roughly match up to the material design standard style
 ## References
 
 * <https://chris.banes.me/2014/10/20/palette-v21/>
+* <http://www.willowtreeapps.com/blog/palette-the-new-api-for-android/>
 * <http://android-developers.blogspot.com/2014/10/implementing-material-design-in-your.html>
