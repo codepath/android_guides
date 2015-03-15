@@ -305,6 +305,9 @@ The primary motivations for the introduction of the property animations system a
 
   * The old system would not actually update the location after a move animation, requiring manual code to update to the new position. This issue has been fixed in the new system.
 
+See this [Google I/O talk](https://www.youtube.com/watch?v=sTx-5CGDvM8&t=2126) discussing some of the limitations in the older view animation system.
+
+There have been misconceptions that Android did not use dedicated hardware ([GPU's](http://en.wikipedia.org/wiki/Graphics_processing_unit)) to perform animations in the old view system.  This point has been [debunked by one of Google's engineers](https://plus.google.com/105051985738280261832/posts/2FXDCz8x93s).  When the new Property animations systems was announced along with Android v3.0, [support for hardware acceleration](http://android-developers.blogspot.com/2011/03/android-30-hardware-acceleration.html) for common views and widgets was also added, making the overall experience seem smoother.
 
 ### Using XML
 
