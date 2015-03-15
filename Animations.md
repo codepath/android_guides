@@ -397,7 +397,34 @@ This would move the X position of the new window from off the screen sliding in 
 </set> 
 ```
 
-This causes the parent activity to slide off screen to left. When these animations run together, it creates the effect that the new activity is pushing the old one off the screen while sliding in. You can also control the "back" animation transition as well using `overridePendingTransition` with:  
+This causes the parent activity to slide off screen to left. When these animations run together, it creates the effect that the new activity is pushing the old one off the screen while sliding in. In order to control the "back" animation transition as well, we need to create a `left_in.xml` and `right_out.xml` that reverse the values of `left_out.xml` and `right_in.xml`:
+
+left_in.xml:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>  
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+     android:interpolator="@android:anim/linear_interpolator">  
+  <translate 
+      android:fromXDelta="-100%p" 
+      android:toXDelta="0" 
+      android:duration="500"/>
+</set> 
+```
+
+right_out.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>  
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+     android:interpolator="@android:anim/linear_interpolator">  
+  <translate 
+      android:fromXDelta="0" 
+      android:toXDelta="100%p" 
+      android:duration="500"/>
+</set> 
+```
+
+We then use `overridePendingTransition` with these two XML-based animations:
 
 ```java
 public class SecondActivity extends Activity {
