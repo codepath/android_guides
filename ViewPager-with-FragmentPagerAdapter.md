@@ -330,7 +330,8 @@ Finally we need to adjust the width inside the adapter:
 
 ```java
 class MyPageAdapter : FragmentStatePagerAdapter {
-    public override float GetPageWidth (int position) {
+    @Override
+    public float getPageWidth (int position) {
         return 0.93f;
     }	
     
