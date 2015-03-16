@@ -36,7 +36,7 @@ Each `onTouch` event has access to the [MotionEvent](http://developer.android.co
 
 ### Handling Multi Touch Events
 
-Note that `getAction()` normally includes both the action as well as the pointer index.  In single-touch events, there is only one pointer (set to 0), so no [bitmap mask](http://developer.android.com/reference/android/view/MotionEvent.html#ACTION_MASK) is needed.  In multiple touch events (i.e pinch open or pinch close), however, there are multiple fingers involved and therefore multiple pointer indexes included with the touch event.  As a result, there are other methods that should be used:
+Note that `getAction()` normally includes information about both the action as well as the pointer index.  In single-touch events, there is only one pointer (set to 0), so no [bitmap mask](http://developer.android.com/reference/android/view/MotionEvent.html#ACTION_MASK) is needed.  In multiple touch events (i.e pinch open or pinch close), however, there are multiple fingers involved and therefore multiple pointer indexes included with the touch event.  As a result, there are other methods that should be used:
 
  * `getActionMasked()` - extract the action event without the pointer index
  * `getActionIndex()` - extract the pointer index used
