@@ -40,9 +40,8 @@ Note that `getAction()` normally includes both the action as well as the pointer
 
  * `getActionMasked()` - extract the action event without the pointer index
  * `getActionIndex()` - extract the pointer index used
- * `getPointerCount()` - determines how many pointers are active in this touch event
 
-The events associated with other pointers usually start with `MotionEvent.ACTION_POINTER_xxxx` such as  `MotionEvent.ACTION_POINTER_DOWN` and `MotionEvent.ACTION_POINTER_UP`.  
+The events associated with other pointers usually start with `MotionEvent.ACTION_POINTER_xxxx` such as  `MotionEvent.ACTION_POINTER_DOWN` and `MotionEvent.ACTION_POINTER_UP`.  The `getPointerCount()` on the MotionEvent can be used to determine how many pointers are active in this touch sequence.
 
 See the [official Android documentation](http://developer.android.com/training/gestures/multi.html) and this [blog post](http://android-developers.blogspot.com/2010/06/making-sense-of-multitouch.html) for more details about how multi-touch events work.
 
