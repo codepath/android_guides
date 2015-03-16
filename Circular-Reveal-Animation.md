@@ -2,7 +2,7 @@
 
 Reveal is a new animation introduced in Android L that animates the view's clipping boundaries. Reveal animations provide users visual continuity when you show or hide a group of UI elements. This animation is often times used in conjunction with a floating action button.
 
-![reveal](http://i.imgur.com/8jzWpX1.gif)
+    ![reveal](http://i.imgur.com/8jzWpX1.gif)
 
 ### Setting Up
 
