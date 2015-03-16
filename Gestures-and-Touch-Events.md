@@ -30,16 +30,19 @@ myView.setOnTouchListener(new OnTouchListener() {
 
 Each `onTouch` event has access to the [MotionEvent](http://developer.android.com/reference/android/view/MotionEvent.html) which describe movements in terms of an **action code** and a **set of axis values**. The action code specifies the state change that occurred such as a pointer going down or up. The axis values describe the position and other movement properties:
 
- * `getAction()` - Returns an integer constant such as `MotionEvent.ACTION_DOWN` 
+ * `getAction()` - Returns an integer constant such as `MotionEvent.ACTION_DOWN` and `MotionEvent.ACTION_UP`
  * `getX()` - Returns the x coordinate of the touch event
  * `getY()` - Returns the y coordinate of the touch event
 
 ## Handling Multi Touch Events
 
-Note that `getAction()` normally includes both the action as well as the pointer index.  In single-touch events, the pointer index is 0, so no [bitmap mask](http://developer.android.com/reference/android/view/MotionEvent.html#ACTION_MASK) is needed.  In multi-touch events, however, the pointer index is non-zero and `getActionMasked()` must be used to extract the action event.
+Note that `getAction()` normally includes both the action as well as the pointer index.  In single-touch events, there is only one pointer (set to 0), so no [bitmap mask](http://developer.android.com/reference/android/view/MotionEvent.html#ACTION_MASK) is needed.  In multiple touch events (i.e pinch), however, there are multiple fingers involved so there are other methods that should be used:
 
-There are events that are only associated with the primary touch event (i.e.
-`MotionEvent.ACTION_DOWN` and `MotionEvent.ACTION_UP`, and there are also events associated with other pointers (i.e. `MotionEvent.ACTION_POINTER_DOWN`, `MotionEvent.ACTION_POINTER_UP`).  The MotionEvent also includes a `getPointerCount()` to determine how many pointers are active in this touch event.
+ * `getActionMasked()` - extract the action event without the pointer index
+ * `getActionIndex()` - extract the pointer index used
+ * `getPointerCounter() - determines how many pointers are active in this touch event
+
+The events associated with other pointers usually start with `MotionEvent.ACTION_POINTER_` such as  `MotionEvent.ACTION_POINTER_DOWN` and `MotionEvent.ACTION_POINTER_UP`.  
 
 See the [official Android documentation](http://developer.android.com/training/gestures/multi.html) and this [blog post](http://android-developers.blogspot.com/2010/06/making-sense-of-multitouch.html) for more details about how multi-touch events work.
 
