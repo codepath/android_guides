@@ -8,6 +8,8 @@ Gesture recognition and handling touch events is an important part of developing
  * Dragging and dropping
 
 You can see a visual guide of common gestures on the [gestures design patterns](http://developer.android.com/design/patterns/gestures.html) guide.
+ 
+Take a look also at the new Material Design information about [gestures](http://www.google.com/design/spec/patterns/gestures.html#gestures-touch-mechanics).
 
 ## Usage
 
