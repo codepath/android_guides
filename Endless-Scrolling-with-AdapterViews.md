@@ -5,7 +5,7 @@ A common application feature is to have an `AdapterView` (such as a `ListView` o
 Every `AdapterView` has support for binding to the `OnScrollListener` events which are triggered whenever a user scrolls through the collection. Using this system, we can define a basic `EndlessScrollListener` which supports most use cases by creating our own class that extends `OnScrollListener`:
 
 ```java
-public abstract class EndlessScrollListener extends OnScrollListener {
+public abstract class EndlessScrollListener implements OnScrollListener {
 	// The minimum amount of items to have below your current scroll position
 	// before loading more.
 	private int visibleThreshold = 5;
