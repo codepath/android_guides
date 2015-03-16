@@ -170,6 +170,38 @@ Heres the output:
 
 Read the [[ViewPager and FragmentPagerAdapter|ViewPager-with-FragmentPagerAdapter]] for additional details such as how to access and modify the current selected tab.
 
+### Setup OnPageChangeListener
+
+If the Activity needs to be able listen for changes to the page selected or other events surrounding the `ViewPager`, then we just need to hook into the [ViewPager.OnPageChangeListener](http://developer.android.com/reference/android/support/v4/view/ViewPager.OnPageChangeListener.html) on the `PagerSlidingTabStrip` to handle the events:
+
+```java
+// Attach the page change listener to tab strip and **not** the view pager inside the activity
+tabsStrip.setOnPageChangeListener(new OnPageChangeListener() {
+	
+	// This method will be invoked when a new page becomes selected.
+	@Override
+	public void onPageSelected(int position) {
+		Toast.makeText(HomeActivity.this, 
+                    "Selected page position: " + position, Toast.LENGTH_SHORT).show();
+	}
+	
+	// This method will be invoked when the current page is scrolled
+	@Override
+	public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+		// Code goes here
+	}
+	
+	// Called when the scroll state changes: 
+	// SCROLL_STATE_IDLE, SCROLL_STATE_DRAGGING, SCROLL_STATE_SETTLING
+	@Override
+	public void onPageScrollStateChanged(int state) {
+		// Code goes here
+	}
+});
+```
+
+Now we can programmatically handle page changes as they are applied.
+
 ### Customize Tab Styles
 
 You can change the style of the tabs by adding any of the following properties to the tab strip in the layout XML:
