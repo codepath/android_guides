@@ -30,7 +30,7 @@ If you never programmed at all before or if you are interested in starting with 
 * [The Java help subreddit](http://www.reddit.com/r/javahelp)
 * [The official Oracle Java tutorials](http://docs.oracle.com/javase/tutorial/getStarted/index.html)
 * [TutsPlus Java Overview](http://mobile.tutsplus.com/tutorials/android/java-tutorial/)
-* [Learn Java Online](http://www.learnjavaonline.org/) - Interactive Java Tutorial
+* [Learn Java Online](http://www.javastring.org/) - Interactive Java Tutorial
 * [Free Java Book](http://java2s.com/Book/Java/CatalogJava.htm) - Solid online book
 * [Udemy Free Java Course](https://www.udemy.com/java-tutorial/) - Free videos to learn Java
 * [CodingBat Java Exercises](http://codingbat.com/) - Exercises to practice Java
