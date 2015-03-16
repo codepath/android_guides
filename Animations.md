@@ -28,13 +28,13 @@ Property animations were a more recent Android feature [introduced in 3.0](http:
 
 Common properties commonly animated on views include:
 
-| Property                                        | Description          | 
-|-------------------------------------------------| ------------         |
-| `alpha`                                         | Fade in or out       |
-| `rotation`, `rotationX`, `rotationY`            | Spinning             |
-| `scaleX`, `scaleY`                              | Grow or shrink       |
-| `x`, `y`, `z`                                   | Position             |
-| `translationX`, `translationY`, `translationZ`  | Offset from Position |
+| Property                                                         | Description          | 
+|--------------------------------------------------------------    | ------------         |
+| `alpha`                                                          | Fade in or out       |
+| `rotation`, `rotationX`, `rotationY`                             | Spinning             |
+| `scaleX`, `scaleY`                                               | Grow or shrink       |
+| `x`, `y`, `z`                                                    | Position             |
+| `translationX`, `translationY`, **`translationZ` (API 21+ only)**| Offset from Position |
 
 To use animations in a way that is **compatible with pre-3.0 Android versions**, we must use the [NineOldAndroids](http://nineoldandroids.com/) for all our property animations. 
 
