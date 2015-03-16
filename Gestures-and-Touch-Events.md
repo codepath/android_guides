@@ -30,7 +30,7 @@ myView.setOnTouchListener(new OnTouchListener() {
 
 Each `onTouch` event has access to the [MotionEvent](http://developer.android.com/reference/android/view/MotionEvent.html) which describe movements in terms of an **action code** and a **set of axis values**. The action code specifies the state change that occurred such as a pointer going down or up. The axis values describe the position and other movement properties:
 
- * `getAction()` - Returns an integer constant such as `MotionEvent.ACTION_DOWN`, `MotionEvent.ACTION_MOVE, and `MotionEvent.ACTION_UP`
+ * `getAction()` - Returns an integer constant such as `MotionEvent.ACTION_DOWN`, `MotionEvent.ACTION_MOVE`, and `MotionEvent.ACTION_UP`
  * `getX()` - Returns the x coordinate of the touch event
  * `getY()` - Returns the y coordinate of the touch event
 
