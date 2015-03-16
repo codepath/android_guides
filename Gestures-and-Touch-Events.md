@@ -40,7 +40,7 @@ Note that `getAction()` normally includes both the action as well as the pointer
 
  * `getActionMasked()` - extract the action event without the pointer index
  * `getActionIndex()` - extract the pointer index used
- * `getPointerCounter()` - determines how many pointers are active in this touch event
+ * `getPointerCount()` - determines how many pointers are active in this touch event
 
 The events associated with other pointers usually start with `MotionEvent.ACTION_POINTER_` such as  `MotionEvent.ACTION_POINTER_DOWN` and `MotionEvent.ACTION_POINTER_UP`.  
 
