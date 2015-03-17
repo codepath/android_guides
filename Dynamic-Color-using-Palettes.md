@@ -38,7 +38,7 @@ Palette.generateAsync(bitmap, new Palette.PaletteAsyncListener() {
     @Override
     public void onGenerated(Palette palette) {
          Palette.Swatch vibrant = palette.getVibrantSwatch();
-          if (swatch != null) {
+          if (vibrant != null) {
               // If we have a vibrant color, update the title TextView
               titleView.setBackgroundColor(vibrant.getRgb());
               titleView.setTextColor(vibrant.getTitleTextColor());
