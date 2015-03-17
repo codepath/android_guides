@@ -152,7 +152,7 @@ This results in the following:
 
 ![Animation 3](http://i.imgur.com/Q2uORr7.gif)
 
-We can also animate sets of other animation sets:
+We can also animate sets of other animator sets:
 
 ```java
 // Define first set of animations
@@ -169,6 +169,24 @@ set2.playTogether(anim3, anim4);
 AnimatorSet set3 = new AnimatorSet();
 set3.playSequentially(set1, set2);
 ```
+
+Here's one more example of a choreographed set of animations:
+
+```java
+// Create two animations to play together
+ObjectAnimator bounceAnim = ...;
+ObjectAnimator squashAnim = ...;
+// Construct set 1 playing together
+AnimatorSet bouncer = new AnimatorSet();
+bouncer.play(bounceAnim).with(squashAnim);
+// Create second animation to play after
+ObjectAnimator fadeAnim = ObjectAnimator.ofFloat(view1, "alpha", 1f, 0f);
+fadeAnim.setDuration(250);
+// Play bouncer before fade
+AnimatorSet animatorSet = new AnimatorSet();
+animatorSet.play(bouncer).before(fadeAnim);
+animatorSet.start();
+``` 
 
 See the [Property Animation](http://developer.android.com/guide/topics/graphics/prop-animation.html) official docs for more detailed information in addition to the [NineOldAndroids](http://nineoldandroids.com/) website.
 
@@ -283,24 +301,6 @@ anim.start();
 This results in the following:
 
 ![Complex Animation](http://i.imgur.com/0AB0E2Q.gif) 
-
-You can use `AnimatorSet` to choreograph compound animations using sets of sets:
-
-```java
-// Create two animations to play together
-ObjectAnimator bounceAnim = ...;
-ObjectAnimator squashAnim = ...;
-// Construct set 1 playing together
-AnimatorSet bouncer = new AnimatorSet();
-bouncer.play(bounceAnim).with(squashAnim);
-// Create second animation to play after
-ObjectAnimator fadeAnim = ObjectAnimator.ofFloat(view1, "alpha", 1f, 0f);
-fadeAnim.setDuration(250);
-// Play bouncer before fade
-AnimatorSet animatorSet = new AnimatorSet();
-animatorSet.play(bouncer).before(fadeAnim);
-animatorSet.start();
-``` 
 
 See more details in the [Property Animation](http://developer.android.com/guide/topics/graphics/prop-animation.html) topic guide and the [Animation Resource](http://developer.android.com/guide/topics/resources/animation-resource.html#Property) guide.
 
