@@ -646,9 +646,22 @@ In Android 5.0, several new animation features were introduced including:
 
 Note that these animations are **lollipop only** and do not work on devices with an Android version less than API 21. Since less than 10% of devices have lollipop enabled, use of these animations is often not worth the effort.
 
+## Particle Effects
+
+Particle systems are often used in games for a wide range of purposes: Explosions, fire, smoke, etc. This effects can also be used on normal apps to add an element of "juiciness" or Playful Design. Here's an example of particle motion:
+
+![Particles](http://www.plattysoft.com/wp-content/uploads/2014/05/leonids_confeti.gif)
+
+Precisely because its main use is games, all engines have support for particle systems, but there is no such thing built-in for standard Android UI.
+
+This means that if you are building an Android app and you want a particle system, you'd have to include a graphics engine and use custom OpenGL drawing or you have to implement it yourself.
+
+Thankfully, [Leonids](https://github.com/plattysoft/Leonids) is made to fill this gap, bringing particle systems to developers that use the standard Android UI. Check out [this tutorial](http://www.plattysoft.com/2014/05/30/leonids-particle-system-lib/) for further details.
+
 ## Libraries
 
 * [NineOldAndroids](http://nineoldandroids.com/) - Compatibility library supporting property animations all the way back to Android 1.0.
+* [Leonids](https://github.com/plattysoft/Leonids) - Simple particle effects for Android
 
 ## References
 
