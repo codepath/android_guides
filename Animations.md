@@ -7,6 +7,17 @@ These can be applied to anything within the Android application. This is typical
 Animations like many resources for Android can be defined both through XML resources as well as 
 dynamically within the Java code.
 
+### Authentic Motion
+
+With the release of Android 5.0, Google has released detailed [animation design guidelines](http://www.google.com/design/spec/animation) which documents important principles to consider when integrating animations and motion into your application. There are four core principles outlined:
+
+ * [Authentic motion](http://www.google.com/design/spec/animation/authentic-motion.html) - Motion in the world of material design is not only beautiful, it builds meaning about the spatial relationships, functionality, and intention of the system.
+ * [Responsive interaction](http://www.google.com/design/spec/animation/responsive-interaction.html) - When a user interacts with an app and beautiful yet perfectly logical things happen, the user feels satisfied—even delighted.
+ * [Meaningful transitions](http://www.google.com/design/spec/animation/meaningful-transitions.html) - Carefully choreographed motion design can effectively guide the user’s attention and focus through multiple steps of a process or procedure and avoid confusion. 
+ * [Delightful details](http://www.google.com/design/spec/animation/delightful-details.html) - Animation can exist within all components of an app and at all scales, from finely detailed icons to key transitions and actions. All elements work together to construct a seamless experience and a beautiful, functional app.
+
+Review these principles for a detailed look at how to think about animations in a way that aligns with a material app.
+
 ### Animation Types
 
 There are actually two distinct animation frameworks for Android:
