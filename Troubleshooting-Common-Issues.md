@@ -26,6 +26,19 @@ Open the `Tools => Android => AVD Manager` and select virtual device that you wa
 
 ## Android Studio Issues
 
+### Android Studio is Crashing or Freezing Up
+
+If Android Studio starts freezing up or crashing even after rebooting the IDE or your computer, your Studio has likely become corrupted. The best way to resolve this is to clear all the caches by removing all the following folders:
+
+```
+~/Library/Application Support/AndroidStudio
+~/Library/Caches/AndroidStudio
+~/Library/Logs/AndroidStudio
+~/Library/Preferences/AndroidStudio
+```
+
+and then uninstall Android Studio and re-install the latest stable version. This should allow you to boot Android Studio again without errors.
+
 ### Getting "No resource found that matches given name."
 
 If you decide to rename any of your ID tags in your XML files, you may get "No resource found that matches given name." You will need to do a `Rebuild Project` so that the entire resource files can be regenerated and the build/ directories are fully removed.  Note: `Clean Project` may not work.
