@@ -55,12 +55,6 @@ If you are an Android Studio user, add the following dependency to your `app/bui
 compile 'com.nineoldandroids:library:2.4.0+'
 ```
 
-For any activity that uses NineOldAndroids, be sure to include a static import to the ViewPropertyAnimator, as below.
-
-```java
-import static com.nineoldandroids.view.ViewPropertyAnimator.animate;
-```
-
 ### Using ObjectAnimator in Java
 
 Once we have setup NineOldAndroids, we can use the [ObjectAnimator](http://developer.android.com/reference/android/animation/ObjectAnimator.html) method to execute simple animations for a particular property on a specified object:
@@ -187,7 +181,13 @@ Button btnExample = (Button) findViewById(R.id.btnExample);
 btnExample.animate().alpha(0.2f).xBy(-100).yBy(100);
 ```
 
-In order to make these compatible with all Android versions, we have to import the `animate` method from [NineOldAndroids](https://github.com/JakeWharton/NineOldAndroids) and then we can compose and execute property animations on views. For example, suppose we want to fade out a button on screen. All we need to do is pass the button view into the `animate` method and then invoke the `alpha` property:
+For any activity that uses [NineOldAndroids](https://github.com/JakeWharton/NineOldAndroids), be sure to include a static import to the ViewPropertyAnimator, as shown below:
+
+```java
+import static com.nineoldandroids.view.ViewPropertyAnimator.animate;
+```
+
+Now we can execute property animations on our views. For example, suppose we want to fade out a button on screen. All we need to do is pass the button view into the `animate` method and then invoke the `alpha` property:
 
 ```java
 Button btnExample = (Button) findViewById(R.id.btnExample);
