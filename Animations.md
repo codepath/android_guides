@@ -652,11 +652,7 @@ Use the third-party [Leonids](https://github.com/plattysoft/Leonids) library for
 
 ![Particles](http://www.plattysoft.com/wp-content/uploads/2014/05/leonids_confeti.gif)
 
-Precisely because its main use is games, all engines have support for particle systems, but there is no such thing built-in for standard Android UI.
-
-This means that if you are building an Android app and you want a particle system, you'd have to include a graphics engine and use custom OpenGL drawing or you have to implement it yourself.
-
-Thankfully, [Leonids](https://github.com/plattysoft/Leonids) is made to fill this gap, bringing particle systems to developers that use the standard Android UI. Check out [this tutorial](http://www.plattysoft.com/2014/05/30/leonids-particle-system-lib/) for further details.
+Precisely because its main use is games, all engines have support for particle systems, but there is no such thing built-in for standard Android UI. Instead we can use Leonids by [reviewing this tutorial](http://www.plattysoft.com/2014/05/30/leonids-particle-system-lib/) for further details.
 
 ## Libraries
 
