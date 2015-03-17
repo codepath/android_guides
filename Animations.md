@@ -168,6 +168,7 @@ set2.playTogether(anim3, anim4);
 // Play the animation sets one after another
 AnimatorSet set3 = new AnimatorSet();
 set3.playSequentially(set1, set2);
+set3.start();
 ```
 
 Here's one more example of a choreographed set of animations:
