@@ -431,8 +431,8 @@ public class SecondActivity extends Activity {
     // onBackPressed is what is called when back is hit, call `overridePendingTransition`
     @Override
     public void onBackPressed() {
-	finish();
-	overridePendingTransition(R.anim.left_in, R.anim.right_out);
+        finish();
+        overridePendingTransition(R.anim.left_in, R.anim.right_out);
     }
 }
 ```
