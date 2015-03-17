@@ -39,6 +39,49 @@ If Android Studio starts freezing up or crashing even after rebooting the IDE or
 
 and then uninstall Android Studio and re-install the latest stable version. This should allow you to boot Android Studio again without errors.
 
+### Seeing `java.lang.OutOfMemoryError : GC overhead limit` when compiling
+
+You are most likely exhausting the heap size especially during compilation.  Try to add inside this setting in your `app/build.gradle`:
+
+```
+android {
+   .
+   .
+   .
+   dexOptions {
+     javaMaxHeapSize "4g"
+   }
+}
+
+```
+
+You can also reduce the build time too by setting `incremental` to be true:
+
+```
+android {
+   dexOptions { 
+      incremental true
+      javaMaxHeapSize "4g"
+   }
+}
+```
+
+See this [Google discussion](https://groups.google.com/forum/#!topic/adt-dev/r4p-sBLl7DQ) article for more context.
+
+Still not working?  Try to increase the heap size of Android Studio.  
+
+1. Quit Android Studio.
+2. Create or edit a [`studio.vmoptions` file](http://tools.android.com/tech-docs/configuration). 
+    * On Mac, this file should be in `~/Library/Preferences/AndroidStudio/studio.vmoptions`.
+    * On Windows, it should be in `%USERPROFILE%\.AndroidStudio\studio[64].exe.vmoptions`. 
+
+    Increase the maximum memory to 2 Gb and max heap size of 1 Gb.
+    ```
+     -Xmx2048m
+     -XX:MaxPermSize=1024m`
+   ```
+3. Start Android Studio.
+
 ### Getting "No resource found that matches given name."
 
 If you decide to rename any of your ID tags in your XML files, you may get "No resource found that matches given name." You will need to do a `Rebuild Project` so that the entire resource files can be regenerated and the build/ directories are fully removed.  Note: `Clean Project` may not work.
