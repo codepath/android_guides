@@ -197,7 +197,7 @@ Digging into how to run background services or leverage Android system services:
 Focused on issues like deployment, testing, dependency management, etc:
 
 * [[Getting Started with Gradle]]
-* [[Using Android Studio]] (**Needs Attention**)
+* [[Using Android Studio]]
 * [[Building Gradle Projects with Jenkins CI]]
 * [[Android Unit and Integration Testing]] (with Roboelectric and Robotium)
 * [[Robolectric Installation for Unit Testing]]
