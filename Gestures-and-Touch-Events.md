@@ -41,8 +41,6 @@ Note that `getAction()` normally includes information about both the action as w
 
 The events associated with other pointers usually start with `MotionEvent.ACTION_POINTER_xxxx` such as  `MotionEvent.ACTION_POINTER_DOWN` and `MotionEvent.ACTION_POINTER_UP`.  The `getPointerCount()` on the MotionEvent can be used to determine how many pointers are active in this touch sequence.
 
-See the [official Android documentation](http://developer.android.com/training/gestures/multi.html) and this [blog post](http://android-developers.blogspot.com/2010/06/making-sense-of-multitouch.html) for more details about how multi-touch events work.
-
 ## Gesture Detectors
 
 Within an `onTouch` event, we can then use a [GestureDetector](http://developer.android.com/reference/android/view/GestureDetector.html) to understand gestures based on a series of motion events. Gestures are often used for user interactions within an app. Let's take a look at how to implement common gestures.
@@ -331,7 +329,8 @@ Now we just have to implement the expected behavior for the shaking event in the
 
 ### MultiTouch Events
 
-Additional multi-touch events such as "rotation" of fingers, finger movement events, etc you can check out the [multitouch-gesture-detectors](https://github.com/Almeros/android-gesture-detectors) third-party library. Read the [documentation](http://code.almeros.com/android-multitouch-gesture-detectors#.UmTf0JQ6VZ8) for more details about how to handle multi-touch gestures. Also, for a more generic approach, read the official [multitouch guide](http://developer.android.com/training/gestures/multi.html).
+Additional multi-touch events such as "rotation" of fingers, finger movement events, etc you can check out the [multitouch-gesture-detectors](https://github.com/Almeros/android-gesture-detectors) third-party library. Read the [documentation](http://code.almeros.com/android-multitouch-gesture-detectors#.UmTf0JQ6VZ8) for more details about how to handle multi-touch gestures. Also, for a more generic approach, read the official [multitouch guide](http://developer.android.com/training/gestures/multi.html).  See this [blog post](http://android-developers.blogspot.com/2010/06/making-sense-of-multitouch.html) for more details about how multi-touch events work.
+
 
 ## Libraries
 
