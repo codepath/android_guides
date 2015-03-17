@@ -7,7 +7,7 @@ These can be applied to anything within the Android application. This is typical
 Animations like many resources for Android can be defined both through XML resources as well as 
 dynamically within the Java code.
 
-### Authentic Motion
+### Material Animation Principles
 
 With the release of Android 5.0, Google has released detailed [animation design guidelines](http://www.google.com/design/spec/animation) which documents important principles to consider when integrating animations and motion into your application. There are four core principles outlined:
 
