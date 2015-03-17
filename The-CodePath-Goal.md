@@ -26,4 +26,4 @@ Another way to help out is to [answer questions on our Google Group](https://gro
 
 If you want to learn Android, [join our free bootcamps](http://codepath.com/androidbootcamp). If you already know Android and like what we are doing, **please email us** at **help (at) codepath.com** and we'd love to talk with you!
 
-Also, if you have any feedback or just want to chat with us, please reach out to **contact (at) codepath (dot) com**. In addition, we are a fledgling (bootstrapped startup) so if you like this guide and what we are trying to do, please consider [donating to the cause](https://www.gittip.com/nesquena/)! 
+Also, if you have any feedback or just want to chat with us, please reach out to **contact (at) codepath (dot) com**. In addition, we are a fledgling bootstrapped startup so if you like this guide and what we are trying to do, please consider [donating to the cause](https://www.gittip.com/nesquena/)! 
