@@ -11,7 +11,7 @@ The floating action button represents **the primary action** within an applicati
 
 ## Usage
 
-There are many popular libraries for making the implementation of floating actions quick and easy. The two most popular ones are [makovkastar/FloatingActionButton](https://github.com/makovkastar/FloatingActionButton) and [futuresimple/android-floating-action-button](https://github.com/futuresimple/android-floating-action-button).
+There are many libraries intended to make building floating action buttons quick and easy. The two most popular ones are [makovkastar/FloatingActionButton](https://github.com/makovkastar/FloatingActionButton) and [futuresimple/android-floating-action-button](https://github.com/futuresimple/android-floating-action-button).
 
 ### With FloatingActionButton
 
