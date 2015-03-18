@@ -1,13 +1,13 @@
 ## Overview
 
-[Floating action buttons](http://www.google.com/design/spec/patterns/promoted-actions.html#promoted-actions-floating-action-button) (or **FAB**) are: “A special case of promoted actions. They are distinguished by a circled icon floating above the UI and have special motion behaviors, related to morphing, launching, and its transferring anchor point.” 
+[Floating action buttons](http://www.google.com/design/spec/components/buttons.html#buttons-floating-action-button) (or **FAB**) are: “A special case of promoted actions. They are distinguished by a circled icon floating above the UI and have special motion behaviors, related to morphing, launching, and its transferring anchor point.” 
 
 For example, if we are using an email app and we are listing the inbox folder, the promoted action might be composing a new message.
 
 <img src="https://github.com/makovkastar/FloatingActionButton/raw/master/art/demo.gif" width="185" alt="FAB1" />&nbsp;
 <img src="http://i.imgur.com/SBbLXo2.png" width="200" alt="FAB2" />
 
-The floating action button represents **the primary action** within an application. More info and use cases of the FAB button can be found in Google’s official [design specs found here](http://www.google.com/design/spec/patterns/promoted-actions.html#promoted-actions-floating-action-button).
+The floating action button represents **the primary action** within an application. More info and use cases of the FAB button can be found in Google’s official [design specs found here](http://www.google.com/design/spec/components/buttons.html#buttons-floating-action-button).
 
 ## Usage
 
