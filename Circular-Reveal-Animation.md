@@ -64,27 +64,83 @@ void exitReveal() {
 }
 ```
 
+### View Transition
+
 You want to call `enterReveal()` after the enter transition of the activity has been completed.
 
 ```
-getWindow().getEnterTransition().addListener(new Transition.TransitionListener() {
-            @Override
-            public void onTransitionStart(Transition transition) {}
+private Transition.TransitionListener mEnterTransitionListener;
 
-            @Override
-            public void onTransitionEnd(Transition transition) {
-                enterReveal();
-            }
+@Override
+protected void onCreate(Bundle savedInstanceState) {
 
-            @Override
-            public void onTransitionCancel(Transition transition) {}
+  ...
 
-            @Override
-            public void onTransitionPause(Transition transition) {}
+  mEnterTransitionListener = new Transition.TransitionListener() {
+      @Override
+      public void onTransitionStart(Transition transition) {
 
-            @Override
-            public void onTransitionResume(Transition transition) {}
-        });
+      }
+
+      @Override
+      public void onTransitionEnd(Transition transition) {
+          enterReveal();
+      }
+
+      @Override
+      public void onTransitionCancel(Transition transition) {
+
+      }
+
+      @Override
+      public void onTransitionPause(Transition transition) {
+
+      }
+
+      @Override
+      public void onTransitionResume(Transition transition) {
+
+      }
+  };
+  getWindow().getEnterTransition().addListener(mEnterTransitionListener);
+}
+```
+
+Update `enterReveal()` method to remove this listener from the set listening to this animation. This is done to disable reveal animation when the activity ends.
+
+```java
+private void enterReveal() {
+    // get the center for the clipping circle
+    int cx = fab.getMeasuredWidth() / 2;
+    int cy = fab.getMeasuredHeight() / 2;
+
+    // get the final radius for the clipping circle
+    int finalRadius = Math.max(fab.getWidth(), fab.getHeight()) / 2;
+    Animator anim = ViewAnimationUtils.createCircularReveal(fab, cx, cy, 0, finalRadius);
+    fab.setVisibility(View.VISIBLE);
+    anim.addListener(new Animator.AnimatorListener() {
+        @Override
+        public void onAnimationStart(Animator animation) {
+
+        }
+
+        @Override
+        public void onAnimationEnd(Animator animation) {
+            getWindow().getEnterTransition().removeListener(mEnterTransitionListener);
+        }
+
+        @Override
+        public void onAnimationCancel(Animator animation) {
+
+        }
+
+        @Override
+        public void onAnimationRepeat(Animator animation) {
+
+        }
+    });
+    anim.start();
+}
 ```
 
 While exiting the activity after the reveal transition, you want to finish the activity after completing the exit reveal animation.
@@ -95,7 +151,7 @@ anim.addListener(new AnimatorListenerAdapter() {
         public void onAnimationEnd(Animator animation) {
             super.onAnimationEnd(animation);
             myView.setVisibility(View.INVISIBLE);
-            
+
             // Finish the activity after the exit transition completes.
             supportFinishAfterTransition();
         }
