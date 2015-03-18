@@ -4,6 +4,8 @@ A drawable resource is a general concept for a graphic that can be drawn to the 
 
 This is typically used for customizing the view graphics that are displayed within a particular view or context. Drawables tend to be defined in XML and can then be applied to a view via XML or Java.
 
+For a list of the default drawables for every version of Android, see the [androiddrawables site](http://androiddrawables.com/) as an excellent reference.
+
 ## Usage
 
 Drawables can be an initially overwhelming topic because there are many drawable types used in different situations such as drawing shapes, setting state behaviors for buttons, creating stretchable button backgrounds and creating compound drawable layers.
@@ -528,3 +530,4 @@ Note that the shape is accessed as a `GradientDrawable` here even though the sha
  * <http://www.androidhive.info/2012/02/android-custom-listview-with-image-and-text/>
  * <http://cyrilmottier.com/2011/08/08/listview-tips-tricks-3-create-fancy-listviews/>
  * <http://bnotions.com/efficient-use-of-drawables-to-develop-a-dynamic-ui-on-android/>
+ * <http://androiddrawables.com/>
