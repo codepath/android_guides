@@ -80,3 +80,4 @@ If you want the ripple to extend past the boundary of the view, then you can ins
 * <https://developer.android.com/training/material/animations.html>
 * <https://developer.android.com/reference/android/graphics/drawable/RippleDrawable.html>
 * <http://appsdevelopment-for-mobiles.blogspot.com/2014/11/android-l-ripple-touch-effect.html>
+* <https://www.youtube.com/watch?v=97SWYiRtF0Y&t=482>
