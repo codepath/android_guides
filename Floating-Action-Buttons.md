@@ -74,11 +74,12 @@ We can adjust the FAB button type to "normal" or "mini":
 Show/hide the button explicitly:
 
 ```java
+// SHOW OR HIDE with animation
 fab.show();
 fab.hide();
-
-fab.show(false); // Show without an animation
-fab.hide(false); // Hide without an animation
+// OR without animations
+fab.show(false);
+fab.hide(false);
 ```
 
 #### Listening to Scroll Events
@@ -112,7 +113,7 @@ fab.attachToListView(list, new ScrollDirectionListener() {
 
 ### Manual Implementations
 
-Instead of using a library we can also develop the floating action buttons manually. For manual implementations of the floating action button, see this [big nerd ranch guide](http://www.bignerdranch.com/blog/floating-action-buttons-in-android-l/) and the [survivingwithandroid walkthrough](http://www.survivingwithandroid.com/2014/09/android-floating-action-button.html)
+Instead of using a library we can also develop the floating action buttons manually. For manual implementations of the floating action button, see this [big nerd ranch guide](http://www.bignerdranch.com/blog/floating-action-buttons-in-android-l/) and the [survivingwithandroid walkthrough](http://www.survivingwithandroid.com/2014/09/android-floating-action-button.html).
 
 ## References
 
