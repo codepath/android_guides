@@ -1,6 +1,6 @@
 ## Overview
 
-**Needs Attention**
+RecyclerView is considered [ListView v2](https://www.youtube.com/watch?v=3TtVsy98ces&t=232), which provides the extensibility for implementing horizontal and vertical layouts.  Furthermore, it provides built-in animations for ListView, which was currently extremely difficult to do.  It also begins to enforce the [ViewHolder pattern](http://guides.codepath.com/android/Using-an-ArrayAdapter-with-ListView#improving-performance-with-the-viewholder-pattern) too, which was already a recommended practice.
 
 See [this detailed overview](http://www.grokkingandroid.com/first-glance-androids-recyclerview/).
 
