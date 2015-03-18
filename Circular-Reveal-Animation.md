@@ -68,7 +68,7 @@ void exitReveal() {
 
 You want to call `enterReveal()` after the enter transition of the activity has been completed.
 
-```
+```java
 private Transition.TransitionListener mEnterTransitionListener;
 
 @Override
