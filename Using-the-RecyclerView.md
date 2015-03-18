@@ -125,3 +125,4 @@ See [this detailed stackoverflow post](http://stackoverflow.com/a/24933117) whic
 
 * <http://www.grokkingandroid.com/first-glance-androids-recyclerview/>
 * <http://www.grokkingandroid.com/statelistdrawables-for-recyclerview-selection/>
+* <http://www.bignerdranch.com/blog/recyclerview-part-1-fundamentals-for-listview-experts/>
