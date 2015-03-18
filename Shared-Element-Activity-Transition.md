@@ -126,8 +126,8 @@ In Android L, shared elements transition defaults to a combination of [ChangeBou
 
     <!-- specify enter and exit transitions -->
     <!-- options are: explode, slide, fade -->
-    <item name="android:windowEnterTransition">@transition/explode</item>
-    <item name="android:windowExitTransition">@transition/explode</item>
+    <item name="android:windowEnterTransition">@transition/change_image_transform</item>
+    <item name="android:windowExitTransition">@transition/change_image_transform</item>
 
     <!-- specify shared element transitions -->
     <item name="android:windowSharedElementEnterTransition">
