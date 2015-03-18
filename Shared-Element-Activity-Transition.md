@@ -163,3 +163,4 @@ See this official guide on [Defining Custom Animations](https://developer.androi
 
 * <https://developer.android.com/training/material/animations.html>
 * <http://java.dzone.com/articles/material-design-activity>
+* <https://www.youtube.com/watch?v=97SWYiRtF0Y&t=1403>
