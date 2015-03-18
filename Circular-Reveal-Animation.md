@@ -148,7 +148,7 @@ private void enterReveal() {
 
 While exiting the activity after the reveal transition, you want to finish the activity after completing the exit reveal animation.
 
-```
+```java
 anim.addListener(new AnimatorListenerAdapter() {
         @Override
         public void onAnimationEnd(Animator animation) {
