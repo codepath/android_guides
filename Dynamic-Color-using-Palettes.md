@@ -91,3 +91,4 @@ The different text colors roughly match up to the material design standard style
 * <https://chris.banes.me/2014/10/20/palette-v21/>
 * <http://www.willowtreeapps.com/blog/palette-the-new-api-for-android/>
 * <http://android-developers.blogspot.com/2014/10/implementing-material-design-in-your.html>
+* <https://www.youtube.com/watch?v=97SWYiRtF0Y&t=1903>
