@@ -24,7 +24,7 @@ The RecyclerView now provides support for an ItemAnimator listener pattern, whic
 
 Add the following to your `app/build.gradle`:
 
-```
+```gradle
 dependencies {
     ...
     compile 'com.android.support:recyclerview-v7:21.+'
