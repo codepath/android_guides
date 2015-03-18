@@ -18,6 +18,21 @@ The interface for the adapter now aligns more closely with the `ViewHolder` patt
 
 The RecyclerView now provides support for an ItemAnimator listener pattern, which provides methods such as `notifyItemInserted()` and `notifyItemRemoved()`.
 
+## Usage
+
+### Installation
+
+Add the following to your `app/build.gradle`:
+
+```
+dependencies {
+    ...
+    compile 'com.android.support:recyclerview-v7:21.+'
+}
+```
+
+Now we are ready to implement the `RecyclerView` starting with the adapter.
+
 ### Creating the RecyclerView Adapter
 
 ```java
@@ -35,9 +50,9 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleItemViewHo
 
 		@Override
 		public SimpleItemViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-	        View itemView = LayoutInflater.from(viewGroup.getContext()).
+	            View itemView = LayoutInflater.from(viewGroup.getContext()).
 	                inflate(android.R.layout.simple_list_item_1, viewGroup, false);
-	        return new SimpleItemViewHolder(itemView);
+	            return new SimpleItemViewHolder(itemView);
 		}
 		
 
@@ -60,6 +75,8 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleItemViewHo
 
 ### Constructing the RecyclerView
 
+In layout XML file:
+
 ```xml
 <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -68,6 +85,8 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleItemViewHo
         tools:context=".MainActivity"
         tools:listitem="@layout/item_demo_01" />
 ```
+
+In the Java source file:
 
 ```java
 public class MainActivity extends Activity {
