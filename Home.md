@@ -117,7 +117,7 @@ Exploring how to allow user interaction and navigation within an app:
 * [[Dialogs with DialogFragment|Using DialogFragment]] (Displaying a content overlay)
 * [[Implementing a Rate Me Feature]] (For getting Play Store ratings)
 * [[Repeating Periodic Tasks]] (Handler, ScheduledThreadPoolExecutor)
-* [[Floating Action Buttons]] (Android 5.0)
+* [[Floating Action Buttons]] (Android 5.0, Promoted Action)
 
 ## Navigation
 
