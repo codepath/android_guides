@@ -13,7 +13,7 @@ To reveal a previously invisible view using this effect:
 ```java
 void enterReveal() {
     // previously invisible view
-    View myView = findViewById(R.id.my_view);
+    final View myView = findViewById(R.id.my_view);
 
     // get the center for the clipping circle
     int cx = myView.getMeasuredWidth() / 2;
@@ -37,7 +37,7 @@ To hide a previously visible view using this effect:
 ```java
 void exitReveal() {
     // previously visible view
-    View myView = findViewById(R.id.my_view);
+    final View myView = findViewById(R.id.my_view);
 
     // get the center for the clipping circle
     int cx = myView.getMeasuredWidth() / 2;
@@ -110,14 +110,17 @@ Update `enterReveal()` method to remove this listener from the set listening to 
 
 ```java
 private void enterReveal() {
+    // previously invisible view
+    final View myView = findViewById(R.id.my_view);
+
     // get the center for the clipping circle
-    int cx = fab.getMeasuredWidth() / 2;
-    int cy = fab.getMeasuredHeight() / 2;
+    int cx = myView.getMeasuredWidth() / 2;
+    int cy = myView.getMeasuredHeight() / 2;
 
     // get the final radius for the clipping circle
-    int finalRadius = Math.max(fab.getWidth(), fab.getHeight()) / 2;
-    Animator anim = ViewAnimationUtils.createCircularReveal(fab, cx, cy, 0, finalRadius);
-    fab.setVisibility(View.VISIBLE);
+    int finalRadius = Math.max(myView.getWidth(), myView.getHeight()) / 2;
+    Animator anim = ViewAnimationUtils.createCircularReveal(myView, cx, cy, 0, finalRadius);
+    myView.setVisibility(View.VISIBLE);
     anim.addListener(new Animator.AnimatorListener() {
         @Override
         public void onAnimationStart(Animator animation) {
