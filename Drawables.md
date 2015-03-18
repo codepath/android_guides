@@ -531,3 +531,4 @@ Note that the shape is accessed as a `GradientDrawable` here even though the sha
  * <http://cyrilmottier.com/2011/08/08/listview-tips-tricks-3-create-fancy-listviews/>
  * <http://bnotions.com/efficient-use-of-drawables-to-develop-a-dynamic-ui-on-android/>
  * <http://androiddrawables.com/>
+ * <http://nick.perfectedz.com/android-layerlist-tip/> 
