@@ -1,6 +1,10 @@
 ## Overview
 
-RecyclerView is considered [the successor to ListView](https://www.youtube.com/watch?v=3TtVsy98ces&t=232).  One of the reasons is that RecyclerView has a more extensible framework, especially since it provides the ability to implement both horizontal and vertical layouts.  Furthermore, it provides animation support for ListView items whenever they are added or removed, which had been extremely difficult to do in the current implementation.  RecyclerView also begins to enforce the [ViewHolder pattern](http://guides.codepath.com/android/Using-an-ArrayAdapter-with-ListView#improving-performance-with-the-viewholder-pattern) too, which was already a recommended practice but now deeply integrated with this new framework.
+RecyclerView is considered [the successor to ListView](https://www.youtube.com/watch?v=3TtVsy98ces&t=232).  One of the reasons is that RecyclerView has a more extensible framework, especially since it provides the ability to implement both horizontal and vertical layouts.  
+
+Furthermore, it provides animation support for ListView items whenever they are added or removed, which had been extremely difficult to do in the current implementation.  RecyclerView also begins to enforce the [ViewHolder pattern](http://guides.codepath.com/android/Using-an-ArrayAdapter-with-ListView#improving-performance-with-the-viewholder-pattern) too, which was already a recommended practice but now deeply integrated with this new framework.
+
+For more details, see [this detailed overview](http://www.grokkingandroid.com/first-glance-androids-recyclerview/).
 
 ### Layout Managers
 
@@ -13,8 +17,6 @@ The interface for the adapter now aligns more closely with the `ViewHolder` patt
 ### Animations
 
 The RecyclerView now provides support for an ItemAnimator listener pattern, which provides methods such as `notifyItemInserted()` and `notifyItemRemoved()`.
-
-For more details, see [this detailed overview](http://www.grokkingandroid.com/first-glance-androids-recyclerview/).
 
 ### Creating the RecyclerView Adapter
 
