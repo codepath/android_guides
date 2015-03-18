@@ -1,6 +1,8 @@
 ## Overview
 
-RecyclerView is considered [the successor to ListView](https://www.youtube.com/watch?v=3TtVsy98ces&t=232).  One of the reasons is that RecyclerView has a more extensible framework, especially since it provides the ability to implement both horizontal and vertical layouts.  
+RecyclerView is considered [the successor to ListView](https://www.youtube.com/watch?v=3TtVsy98ces&t=232). One of the reasons is that RecyclerView has a more extensible framework, especially since it provides the ability to implement both horizontal and vertical layouts.  
+
+<img src="https://developer.android.com/training/material/images/RecyclerView.png" width="500" alt="RecyclerView" />
 
 Furthermore, it provides animation support for ListView items whenever they are added or removed, which had been extremely difficult to do in the current implementation.  RecyclerView also begins to enforce the [ViewHolder pattern](http://guides.codepath.com/android/Using-an-ArrayAdapter-with-ListView#improving-performance-with-the-viewholder-pattern) too, which was already a recommended practice but now deeply integrated with this new framework.
 
@@ -8,15 +10,15 @@ For more details, see [this detailed overview](http://www.grokkingandroid.com/fi
 
 ### Layout Managers
 
-A RecyclerView needs to have a layout manager and an adapter to be instantiated.  There are currently several built-in layout managers including `LinearLayoutManager`, `GridLayoutManager`, and `StaggeredGridLayoutManager`.  
+A RecyclerView needs to have a layout manager and an adapter to be instantiated. A layout manager positions item views inside a RecyclerView and determines when to reuse item views that are no longer visible to the user. 
 
-### Adapters 
+[RecyclerView](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html) provides these built-in layout managers:
 
-The interface for the adapter now aligns more closely with the `ViewHolder` pattern, which has a method to inflate new views and another to simply populate the information from a previously reused item.
+ * `LinearLayoutManager` shows items in a vertical or horizontal scrolling list.
+ * `GridLayoutManager` shows items in a grid.
+ * `StaggeredGridLayoutManager` shows items in a staggered grid.
 
-### Animations
-
-The RecyclerView now provides support for an ItemAnimator listener pattern, which provides methods such as `notifyItemInserted()` and `notifyItemRemoved()`.
+To create a custom layout manager, extend the [RecyclerView.LayoutManager](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.LayoutManager.html) class.
 
 ## Usage
 
@@ -27,55 +29,15 @@ Add the following to your `app/build.gradle`:
 ```gradle
 dependencies {
     ...
-    compile 'com.android.support:recyclerview-v7:21.+'
+    compile 'com.android.support:recyclerview-v7:21.0.+'
 }
 ```
 
-Now we are ready to implement the `RecyclerView` starting with the adapter.
-
-### Creating the RecyclerView Adapter
-
-```java
-public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleItemViewHolder> {
-		private List<String> items;
-		
-		public SimpleRecyclerAdapter(List<String> items) {
-			this.items = items;
-		}
-
-		@Override
-		public int getItemCount() {
-			return this.items.size();
-		}
-
-		@Override
-		public SimpleItemViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-	            View itemView = LayoutInflater.from(viewGroup.getContext()).
-	                inflate(android.R.layout.simple_list_item_1, viewGroup, false);
-	            return new SimpleItemViewHolder(itemView);
-		}
-		
-
-		@Override
-		public void onBindViewHolder(SimpleItemViewHolder viewHolder, int position) {
-			String item = items.get(position);
-			viewHolder.label.setText(item);
-		}
-
-		public final static class SimpleItemViewHolder extends RecyclerView.ViewHolder {
-			TextView label;
-
-			public SimpleItemViewHolder(View itemView) {
-				super(itemView);
-				label = (TextView) itemView.findViewById(android.R.id.text1);
-			}
-		}
-}
-```
+Now we are ready to implement the `RecyclerView` starting with XML layout and then the adapter.
 
 ### Constructing the RecyclerView
 
-In layout XML file:
+First, let's add a `RecyclerView` to the layout:
 
 ```xml
 <android.support.v7.widget.RecyclerView
@@ -85,6 +47,59 @@ In layout XML file:
         tools:context=".MainActivity"
         tools:listitem="@layout/item_demo_01" />
 ```
+
+### Creating the RecyclerView Adapter
+
+Next, let's define the adapter for our `RecyclerView` which will bind to the data source and populate the `RecyclerView` with item rows.
+
+The interface for the adapter now aligns more closely with the `ViewHolder` pattern, which has a method to inflate new views and another to simply populate the information from a previously reused item.
+
+```java
+public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleItemViewHolder> {
+		private List<String> items;
+
+		// Provide a reference to the views for each data item
+		// Provide access to all the views for a data item in a view holder
+		public final static class SimpleItemViewHolder extends RecyclerView.ViewHolder {
+			TextView label;
+
+			public SimpleItemViewHolder(View itemView) {
+				super(itemView);
+				label = (TextView) itemView.findViewById(android.R.id.text1);
+			}
+		}
+		
+		// Provide a suitable constructor (depends on the kind of dataset)
+		public SimpleRecyclerAdapter(List<String> items) {
+			this.items = items;
+		}
+              
+		// Return the size of your dataset (invoked by the layout manager)
+		@Override
+		public int getItemCount() {
+			return this.items.size();
+		}
+               
+                // Create new items (invoked by the layout manager)
+                // Usually involves inflating a layout from XML and returning the holder
+		@Override
+		public SimpleItemViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+	            View itemView = LayoutInflater.from(viewGroup.getContext()).
+	                inflate(android.R.layout.simple_list_item_1, viewGroup, false);
+	            return new SimpleItemViewHolder(itemView);
+		}
+		
+		// Replace the contents of a view (invoked by the layout manager)
+                // Involves populating data into the item through holder
+		@Override
+		public void onBindViewHolder(SimpleItemViewHolder viewHolder, int position) {
+			String item = items.get(position);
+			viewHolder.label.setText(item);
+		}
+}
+```
+
+### Constructing the RecyclerView
 
 In the Java source file:
 
@@ -97,10 +112,12 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-		// Setup item layout
+		// Setup layout manager for items
 		LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+                // Control orientation of the items
 		layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 		layoutManager.scrollToPosition(0);
+                // Attach layout manager
 		recyclerView.setLayoutManager(layoutManager);
 		// Bind adapter to recycler
 		ArrayList<String> items = new ArrayList<String>();
@@ -118,7 +135,9 @@ RecyclerView.ItemDecoration itemDecoration =
 recyclerView.addItemDecoration(itemDecoration);
 ```
 
-Setup animator:
+### Item Animations
+
+The RecyclerView now provides support for an ItemAnimator listener pattern, which provides methods such as `notifyItemInserted()` and `notifyItemRemoved()`:
 
 ```java
 // this is the default; 
@@ -126,7 +145,7 @@ Setup animator:
 recyclerView.setItemAnimator(new DefaultItemAnimator());
 ```
 
-Touch detection:
+### Item Touch Detection
 
 ```java
 recyclerView.addOnItemTouchListener(new OnItemTouchListener() {
@@ -143,7 +162,7 @@ recyclerView.addOnItemTouchListener(new OnItemTouchListener() {
 });
 ```
 
-Faster with Fixed Size:
+### Better Performance with Fixed Size
 
 ```java
 // allows for optimizations if all item views are of the same size:
