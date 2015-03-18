@@ -1,8 +1,20 @@
 ## Overview
 
-RecyclerView is considered [the next iteration of ListView](https://www.youtube.com/watch?v=3TtVsy98ces&t=232), especially since RecyclerView now provides the extensibility for implementing horizontal and vertical layouts.  Furthermore, it provides built-in animations for ListView items, which was currently extremely difficult to do.  It also begins to enforce the [ViewHolder pattern](http://guides.codepath.com/android/Using-an-ArrayAdapter-with-ListView#improving-performance-with-the-viewholder-pattern) too, which was already a recommended practice.
+RecyclerView is considered [the successor to ListView](https://www.youtube.com/watch?v=3TtVsy98ces&t=232).  One of the reasons is that RecyclerView now provides a more extensible framework, especially since it provides the ability to implement both horizontal and vertical layouts.  Furthermore, it provides animation support for ListView items whenever they are added or removed, which had been extremely difficult to do in the current implementation.  RecyclerView also begins to enforce the [ViewHolder pattern](http://guides.codepath.com/android/Using-an-ArrayAdapter-with-ListView#improving-performance-with-the-viewholder-pattern) too, which was already a recommended practice but now deeply integrated with this new framework.
 
-See [this detailed overview](http://www.grokkingandroid.com/first-glance-androids-recyclerview/).
+### Layout Managers
+
+A RecyclerView needs to have a layout manager and an adapter to be instantiated.  There are currently several built-in layout managers including `LinearLayoutManager`, `GridLayoutManager`, and `StaggeredGridLayoutManager`.  
+
+### Adapters 
+
+The interface for the adapter now aligns more closely with the `ViewHolder` pattern, which has a method to inflate new views and another to simply populate the information from a previously reused item.
+
+### Animations
+
+The RecyclerView now provides support for an ItemAnimator listener pattern, which provides methods such as `notifyItemInserted()` and `notifyItemRemoved()`.
+
+For more details, see [this detailed overview](http://www.grokkingandroid.com/first-glance-androids-recyclerview/).
 
 ### Creating the RecyclerView Adapter
 
@@ -126,3 +138,4 @@ See [this detailed stackoverflow post](http://stackoverflow.com/a/24933117) whic
 * <http://www.grokkingandroid.com/first-glance-androids-recyclerview/>
 * <http://www.grokkingandroid.com/statelistdrawables-for-recyclerview-selection/>
 * <http://www.bignerdranch.com/blog/recyclerview-part-1-fundamentals-for-listview-experts/>
+* <https://developer.android.com/training/material/lists-cards.html>
