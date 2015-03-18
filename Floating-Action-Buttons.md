@@ -51,7 +51,11 @@ Next, let's add the `com.melnykov.fab.FloatingActionButton` to our layout XML:
 </FrameLayout>
 ```
 
-Note the addition of the `xmlns:fab` to the attributes of the root layout. The button should be placed in the bottom right corner of the screen. Next, we can optionally associate the FAB with a `ListView` or `RecyclerView` so the button will hide as the list is scrolled down and revealed as the list is scrolled up:
+Note the addition of the `xmlns:fab` to the attributes of the root layout. The button should be placed in the bottom right corner of the screen. 
+
+#### Attaching to List
+
+Next, we can optionally associate the FAB with a `ListView` or `RecyclerView` so the button will hide as the list is scrolled down and revealed as the list is scrolled up:
 
 ```java
 ListView listView = (ListView) findViewById(android.R.id.list);
