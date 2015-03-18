@@ -16,7 +16,7 @@ The nature of this transition forces the human eye to focus on the content and i
 
 ### Getting Started
 
-Noe that the shared element transitions require Android 5.0 (API level 21) and above and will be ignored for any lower API versions. Be sure to [check the version at runtime](https://developer.android.com/training/material/compatibility.html#CheckVersion) before using API 21 specific features.
+Note that the shared element transitions require Android 5.0 (API level 21) and above and will be ignored for any lower API versions. Be sure to [check the version at runtime](https://developer.android.com/training/material/compatibility.html#CheckVersion) before using API 21 specific features.
 
 ### 1. Enable Window Content Transitions
 
