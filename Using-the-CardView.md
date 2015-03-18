@@ -4,7 +4,7 @@ Android 5.0 introduces a new widget called `CardView` which essentially can be t
 
 <img src="https://developer.android.com/design/material/images/card_travel.png" width="200" />
 
-`CardView` should be used when displaying heterogenous content. Prefer using a list or a grid of tiles (non-cards) for homogenous content as the boundaries in a card can distract the user from quickly scanning a list.
+`CardView` should be used when displaying heterogenous content.  Using a list or a grid of tiles (non-cards) for homogenous content is preferred since the boundaries in a card can distract the user from quickly scanning a list.
 
 ### Using CardView
 
