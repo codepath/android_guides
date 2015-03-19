@@ -53,19 +53,25 @@ Next, let's add the `com.melnykov.fab.FloatingActionButton` to our layout XML:
 </FrameLayout>
 ```
 
-Note the addition of the `xmlns:fab` to the attributes of the root layout. The button should be placed in the bottom right corner of the screen. 
+Note the addition of the `xmlns:fab` to the attributes of the root layout. The button should be placed in the bottom right corner of the screen. The recommended margin for the bottom is **16dp for phones and 24dp for tablets**.
 
-#### Attaching to List
+#### Attaching to Lists
 
-Next, we can optionally associate the FAB with a `ListView` or `RecyclerView` so the button will hide as the list is scrolled down and revealed as the list is scrolled up:
+Next, we can optionally associate the FAB with a `ListView`, `ScrollView` or `RecyclerView` so the button will hide as the list is scrolled down and revealed as the list is scrolled up:
 
 ```java
 ListView listView = (ListView) findViewById(android.R.id.list);
 FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-fab.attachToListView(listView);
+fab.attachToListView(listView); // or attachToRecyclerView
 ```
 
+We can attach to a `RecyclerView` with `fab.attachToRecyclerView(recyclerView)` or a `ScrollView` with `fab.attachToScrollView(scrollView)`
+
 #### Adjust Button Type
+
+Floating action buttons come in two sizes: the default, which should be used in most cases, and the mini, which should only be used to create visual continuity with other elements on the screen. 
+
+<img src="http://i.imgur.com/SP6RG9d.png" alt="Mini" width="200" />
 
 We can adjust the FAB button type to "normal" or "mini":
 
