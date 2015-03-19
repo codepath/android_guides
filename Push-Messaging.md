@@ -11,11 +11,13 @@ First approach is to use the [Parse Push](https://parse.com/tutorials/android-pu
 
 ### Setup
 
-Check out [this official tutorial](https://parse.com/tutorials/android-push-notifications) for a step-by-step guide to setting up push notifications with Parse. You can also review this [Parse Setup Guide](https://parse.com/docs/push_guide#setup/Android) for full instructions.
+Check out [this official tutorial](https://parse.com/tutorials/android-push-notifications) for a step-by-step guide to setting up push notifications with Parse. You can also review this [Parse Setup Guide](https://parse.com/docs/push_guide#setup/Android) for full instructions.  
 
 ### Sending Push Notifications
 
-Check out [this official tutorial](https://parse.com/tutorials/android-push-notifications) for a step-by-step guide to sending simple push notifications. 
+Check out [this official tutorial](https://parse.com/tutorials/android-push-notifications) for a step-by-step guide to sending simple push notifications.   Make sure to go to the `Settings` -> `Push` section and toggle on `Client push enabled`.  Otherwise, you may notice test push notifications work but sending between Android devices doesn't work.
+
+<img src="http://i.imgur.com/2zrp2KB.png"/>
 
 ```java
 ParsePush push = new ParsePush();
