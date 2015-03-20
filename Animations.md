@@ -615,6 +615,7 @@ public class MainActivity extends Activity {
             GifAnimationDrawable anim = new GifAnimationDrawable(getResources().openRawResource(rawId));
             ivImage.setImageDrawable(anim);
             ((GifAnimationDrawable) ivImage.getDrawable()).setVisible(true, true);
+            anim.start(); // starts the animation
         } catch (NotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
