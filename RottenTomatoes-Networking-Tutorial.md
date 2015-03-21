@@ -320,11 +320,11 @@ Let's also add a convenience static method for parsing an array of JSON movie di
 public class BoxOfficeMovie {
     // ...
     
-    // Decodes array of box office movie json results into business model objects
+    // Decodes array of box office movie json results into movie model objects
     // BoxOfficeMovie.fromJson(jsonArrayOfMovies)
     public static ArrayList<BoxOfficeMovie> fromJson(JSONArray jsonArray) {
         ArrayList<BoxOfficeMovie> movies = new ArrayList<BoxOfficeMovie>(jsonArray.length());
-        // Process each result in json array, decode and convert to business
+        // Process each result in json array, decode and convert to movie
         // object
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject moviesJson = null;
@@ -337,7 +337,7 @@ public class BoxOfficeMovie {
 
             BoxOfficeMovie movie = BoxOfficeMovie.fromJson(moviesJson);
             if (movie != null) {
-                movie.add(business);
+                movies.add(movie);
             }
         }
 
@@ -501,11 +501,11 @@ public class BoxOfficeActivity extends Activity {
         client = new RottenTomatoesClient();
         client.getBoxOfficeMovies(new JsonHttpResponseHandler() {
             @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+            public void onSuccess(int statusCode, Header[] headers, JSONObject responseBody) {
                 JSONArray items = null;
                 try {
                     // Get the movies json array
-                    items = body.getJSONArray("movies");
+                    items = responseBody.getJSONArray("movies");
                     // Parse json array into array of model objects
                     ArrayList<BoxOfficeMovie> movies = BoxOfficeMovie.fromJson(items);
                     // Load model objects into the adapter
