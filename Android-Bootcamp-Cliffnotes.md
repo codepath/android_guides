@@ -77,7 +77,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 
 ### Week 8 - Next Steps
 
-* [[Must-have Libraries]] Guide
+* [[Must-have Libraries]]
 * [[Basic Painting with Views]]
 * [[Flexible User Interfaces]]
 * [[Starting Background Services]]
