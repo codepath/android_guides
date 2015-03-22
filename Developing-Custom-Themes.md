@@ -9,7 +9,7 @@ We will be defining multiple themes in our app and use a spinner view to switch 
 ## 1. Create a New Android Application Project
 
 * Open Android Studio and go to `File` -> `New Project`. 
-* Enter App name: `ThemeSwitcher` (minSDK 14)
+* Enter App name: `ThemeSwitcher` (minSDK 16)
 * Name the first activity "ThemeActivity"
 * Keep other default selections, go Next till you reach Finish.
 
