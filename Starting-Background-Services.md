@@ -362,3 +362,4 @@ This guide has shown you the basics of using an IntentService and communicating 
 ## References
 
 * <http://corner.squareup.com/2013/12/android-main-thread-2.html>
+* <http://codetheory.in/android-pending-intents/>
