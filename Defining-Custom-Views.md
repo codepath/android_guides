@@ -40,6 +40,7 @@ Next, let's add this view to our activity layout along with a caption and a butt
 
 ```xml
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
@@ -52,6 +53,8 @@ Next, let's add this view to our activity layout along with a caption and a butt
         android:layout_alignParentLeft="true" />
 </RelativeLayout>
 ```
+
+Note how we define a custom namespace `app`.  This namespace allows you to allow Android to auto-resolve the namespace, avoiding the necessity for specifying the package name in this file.  See this [blog post](http://slodge.blogspot.com/2013/04/auto-resource-namespace-resolution-for.html) for more information.
 
 ### Define Custom Attributes
 
@@ -79,13 +82,13 @@ In order to be able to define `shapeColor` and `displayShapeName`, we need to de
 
 Notice we define the `attr` node along with the `name` and `format` for each custom attribute we'd like to be able to define. The `format` is the expected type of value for that property and valid options include string, color, dimension, boolean, integer, float, enum, and [several others](http://chaosinmotion.com/blog/?p=179).
 
-Once you define the custom attributes, you can use them in layout XML files just like built-in attributes. The only difference is that your custom attributes belong to a different namespace. You can define the namespace within the root view of the layout and configure the properties for the view:
+Once you define the custom attributes, you can use them in layout XML files just like built-in attributes. The only difference is that your custom attributes belong to a different namespace. You can define the namespace within the root view of the layout and configure the properties for the view.  Normally you would need to specify a namespace such as `http://schemas.android.com/apk/res/com.codepath.example.customviewdemo` but the namespace `http://schemas.android.com/apk/res-auto` will auto-resolve the package name for you.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res/com.codepath.example.customviewdemo"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
     <com.codepath.example.customviewdemo.ShapeSelectorView
