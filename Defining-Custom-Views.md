@@ -162,7 +162,7 @@ public class ShapeSelectorView extends View {
 }
 ```
 
-Notice that when the view properties are changed and might require a redraw, be sure to call `invalidate` and `requestLayout` to update the appearance.
+Notice that when the view properties are changed and might require a redraw, be sure to call `invalidate()` and `requestLayout()` to update the appearance.
 
 ### Drawing a Shape
 
