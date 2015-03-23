@@ -290,7 +290,7 @@ public class MyAlarmReceiver extends BroadcastReceiver {
 }
 ```
 
-Now we have our `IntentService` task defined and our receiver that will be setup to periodically execute in order to trigger the service. Next, let's register both our `IntentService` and `MyAlarmReceiver` in the `AndroidManifest.xml`:
+Now we have our `IntentService` task defined and our receiver that will be setup to periodically execute in order to trigger the service. Next, let's register both our `IntentService` and `MyAlarmReceiver` in the `AndroidManifest.xml`.  
 
 ```xml
 <receiver
@@ -302,6 +302,7 @@ Now we have our `IntentService` task defined and our receiver that will be setup
     android:name=".MyTestService"
     android:exported="false" />
 ```
+(Note that we need to define `android:process=":remote"` so that the BroadcastReceiver will run in a separate process so that it will continue to stay alive if the app has closed.  See this [Stack Overflow post](http://stackoverflow.com/questions/4311069/should-i-use-android-process-remote-in-my-receiver) for more details.)
 
 Finally, we need to actually start the periodic alarm that will trigger the receiver. Let's do this in our Activity:
 
