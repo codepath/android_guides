@@ -179,7 +179,7 @@ Calling `res.send` will trigger the `onReceiveResult` callback to be called with
 
 ### Communicating with a BroadcastReceiver
 
-Using a `ResultReceiver` from above to communicate is not always the right approach. There are several issues with the `ResultReceiver` approach including the fact that if the app is quit, then the receiver will not work when the app is relaunched. The receiver also requires each and every activity that wants to receive messages to have a reference to the receiver object passed into the service.
+Using a `ResultReceiver` from above to communicate is not always the right approach. There are several issues with the `ResultReceiver` approach including the fact that if the app quits, then the receiver will not work when the app is relaunched. The receiver also requires each and every activity that wants to receive messages to have a reference to the receiver object passed into the service.
 
 Instead, in many cases we might want one application to be able to pick up IntentService messages even after it has been fully relaunched or we want multiple applications to be able to receive the messages from the service. In these cases, we should use a `BroadcastReceiver` instead. For this example we are using the [LocalBroadcastManager](http://developer.android.com/reference/android/support/v4/content/LocalBroadcastManager.html) which only allows our app to communicate internally between Service and Activity. Let's see how to publish local broadcast messages within the service:
 
