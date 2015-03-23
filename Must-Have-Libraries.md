@@ -103,7 +103,7 @@ This "standard pack" listed below are libraries that are quite popular, widely a
  * [AndroidGraphView](http://android-graphview.org/) - library to create flexible and nice-looking diagrams.
  * [AndroidPlot](http://androidplot.com/docs/quickstart/) - plotting library for Android
  * [WilliamChart](https://github.com/diogobernardino/WilliamChart) - Flexible charting library with useful motion capabilities.
- * [HelloCharts](https://github.com/lecho/hellocharts-android] - Charts/graphs library for Android with support for scaling, scrolling and animations.
+ * [HelloCharts](https://github.com/lecho/hellocharts-android) - Charts/graphs library for Android with support for scaling, scrolling and animations.
 
 ### Scanning
 
