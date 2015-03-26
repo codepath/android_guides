@@ -188,7 +188,7 @@ See [this detailed stackoverflow post](http://stackoverflow.com/a/24933117) whic
 
 ### Heterogenous Views
 
-See [this StackOverflow post](http://stackoverflow.com/questions/26245139/how-to-create-recyclerview-with-multiple-view-type)
+See [this StackOverflow post](http://stackoverflow.com/questions/26245139/how-to-create-recyclerview-with-multiple-view-type).
 
 ## References
 
