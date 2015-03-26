@@ -186,6 +186,10 @@ recyclerView.setHasFixedSize(true);
 
 See [this detailed stackoverflow post](http://stackoverflow.com/a/24933117) which describes how to setup item-level click handlers when using `RecyclerView`. Note that there is no `onItemClickListener` equivalent. 
 
+### Heterogenous Views
+
+See [this StackOverflow post](http://stackoverflow.com/questions/26245139/how-to-create-recyclerview-with-multiple-view-type)
+
 ## References
 
 * <http://www.grokkingandroid.com/first-glance-androids-recyclerview/>
