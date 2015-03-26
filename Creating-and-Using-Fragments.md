@@ -463,7 +463,7 @@ to this approach instead leveraging `add`, `show`, and `hide` in the `FragmentTr
 
 // Replace the switch method
 protected void displayFragmentA() {
-    FragmentTransaction ft = getSupportFragmentManager();
+    FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
     if (fragmentA.isAdded()) { // if the fragment is already in container
         ft.show(fragmentA);
     } else { // fragment needs to be added to frame container
