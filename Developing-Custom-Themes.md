@@ -621,7 +621,7 @@ public class ThemeActivity extends ActionBarActivity {
 		spThemes.setSelection(ThemeApplication.currentPosition);
 		ThemeApplication.currentPosition = spThemes.getSelectedItemPosition();
 
-		spThemes.setOnItemSelectedListener(new OnItemSelectedListener() {
+		spThemes.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view,
