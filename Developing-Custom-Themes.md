@@ -40,7 +40,7 @@ Next, let's add the strings for our input views.  Add the following to `res/valu
 Let's also add to `res/values/strings.xml` the list of all the themes we will be allowed to choose from the spinner.  Feel free to replace `YOUR-CUSTOM-THEME-NAME` with a theme name of your choice below. 
 ```xml
     <string-array name="theme_array">
-        <item>Holo-Light</item>
+        <item>Material-Light</item>
         <item>YOUR-CUSTOM-THEME-NAME</item>
     </string-array>
 
@@ -333,7 +333,7 @@ Now we can open `res/values/styles.xml` file. This is where you'll define all yo
     </style>
 
     <!-- =============================================================== -->
-    <!-- Holo-Light styles -->
+    <!-- Material-Light styles -->
     <!-- =============================================================== -->
 
     <style name="page_background_wh">
@@ -416,7 +416,7 @@ Add the following to `res/values/themes.xml`:
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <style name="Theme.Holo_Light" parent="Theme.AppCompat.Light">
+    <style name="Theme.Material_Light" parent="Theme.AppCompat.Light">
         <item name="pageBackground">@style/page_background_wh</item>
         <item name="textSubheader">@style/text_subheader_wh</item>
         <item name="textLarge">@style/text_large_wh</item>
@@ -576,7 +576,7 @@ public class ThemeApplication extends Application {
 public class Utils {
 	private static int sTheme;
 
-	public final static int THEME_HOLO_LIGHT = 0;
+	public final static int THEME_MATERIAL_LIGHT = 0;
 	public final static int THEME_YOUR_CUSTOM_THEME = 1;
 
 	public static void changeToTheme(Activity activity, int theme) {
@@ -590,8 +590,8 @@ public class Utils {
 	public static void onActivityCreateSetTheme(Activity activity) {
 		switch (sTheme) {
 		default:
-		case THEME_HOLO_LIGHT:
-			activity.setTheme(R.style.Theme_Holo_Light);
+		case THEME_MATERIAL_LIGHT:
+			activity.setTheme(R.style.Theme_Material_Light);
 			break;
 		case THEME_YOUR_CUSTOM_THEME:
 			activity.setTheme(R.style.Theme_YOUR_CUSTOM_THEME);
@@ -646,4 +646,4 @@ public class ThemeActivity extends ActionBarActivity {
 ```
 
 
-If you run your app at this point, you should have applied the styles for 'Holo-Light' theme. It is now up to the reader to **define the styles and drawables for your own custom theme**.
+If you run your app at this point, you should have applied the styles for 'Material-Light' theme. It is now up to the reader to **define the styles and drawables for your own custom theme**.
