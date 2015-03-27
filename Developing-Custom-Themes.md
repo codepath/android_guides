@@ -315,7 +315,7 @@ Now we can open `res/values/styles.xml` file. This is where you'll define all yo
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
-    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light">
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
@@ -385,8 +385,11 @@ Now we can open `res/values/styles.xml` file. This is where you'll define all yo
         <item name="android:background">#00000000</item>
     </style>
     
-    <style name="action_bar_wh" parent="android:Widget.Holo.ActionBar">
-        <item name="android:background">#AFAFAF</item>
+    <color name="wh_actionbar_bg">#AFAFAF</color> 
+
+    <style name="action_bar_wh" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">wh_actionbar_bg</item>
+        <item name="background">wh_actionbar_bg</item>
     </style>
     
     <!-- =============================================================== -->
@@ -413,7 +416,7 @@ Add the following to `res/values/themes.xml`:
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <style name="Theme.Holo_Light" parent="android:Theme.Holo.Light">
+    <style name="Theme.Holo_Light" parent="Theme.AppCompat.Light">
         <item name="pageBackground">@style/page_background_wh</item>
         <item name="textSubheader">@style/text_subheader_wh</item>
         <item name="textLarge">@style/text_large_wh</item>
@@ -424,7 +427,7 @@ Add the following to `res/values/themes.xml`:
         <item name="android:actionBarStyle">@style/action_bar_wh</item>
     </style>
 
-    <style name="Theme.YOUR_CUSTOM_THEME" parent="android:Theme.Holo">
+    <style name="Theme.YOUR_CUSTOM_THEME" parent="Theme.AppCompat.Light">
     	<!-- Define styles for YOUR_CUSTOM_THEME here. -->
     </style>
 
