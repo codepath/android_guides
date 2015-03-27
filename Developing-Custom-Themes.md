@@ -385,11 +385,11 @@ Now we can open `res/values/styles.xml` file. This is where you'll define all yo
         <item name="android:background">#00000000</item>
     </style>
     
-    <color name="wh_actionbar_bg">#AFAFAF</color> 
+    <color name="actionbar_bg_wh">#AFAFAF</color> 
 
     <style name="action_bar_wh" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
-        <item name="android:background">wh_actionbar_bg</item>
-        <item name="background">wh_actionbar_bg</item>
+        <item name="android:background">@color/actionbar_bg_wh</item>
+        <item name="background">>@color/actionbar_bg_wh</item>
     </style>
     
     <!-- =============================================================== -->
