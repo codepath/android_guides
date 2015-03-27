@@ -425,7 +425,7 @@ Add the following to `res/values/themes.xml`:
         <item name="whiteBackground">@style/white_background_wh</item>
         <item name="button">@style/button_wh</item>
         <item name="spinner">@style/spinner_wh</item>
-        <item name="android:actionBarStyle">@style/action_bar_wh</item>
+        <item name="actionBarStyle">@style/action_bar_wh</item>
     </style>
 
     <style name="Theme.YOUR_CUSTOM_THEME" parent="Theme.AppCompat.Light">
