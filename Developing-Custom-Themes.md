@@ -390,7 +390,7 @@ Now we can open `res/values/styles.xml` file. This is where you'll define all yo
 
     <style name="action_bar_wh" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@color/actionbar_bg_wh</item>
-        <item name="background">>@color/actionbar_bg_wh</item>
+        <item name="background">@color/actionbar_bg_wh</item>
     </style>
     
     <!-- =============================================================== -->
