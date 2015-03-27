@@ -405,6 +405,8 @@ Above in the `styles.xml` is where we define the "implementation" of the style a
 
 **Note:** The style `white_background_wh` uses this built-in [nine patch dialog 9-patch image](https://raw.githubusercontent.com/derekbrameyer/android-betterpickers/master/library/src/main/res/drawable-hdpi/dialog_full_holo_light.9.png) called `dialog_full_holo_light.9.png` to achieve the border shadow for the layout. Alternatively, you can create simpler box shadows using [[layer-lists|Drawables#creating-a-layer-list]].
 
+**Note:** Check out more details on [[styling the ActionBar|Extended-ActionBar-Guide#custom-actionbar-styles]] in order to further customize the ActionBar appearance.
+
 ## 6. Create `themes.xml` file
 
 To define the theme attributes we use a `themes.xml` file. In our theme definition, we set some custom styles using the `item` element. Note how the default OS attribute `android:actionBarStyle` has been overridden to style the action bar along with the custom attributes. For more information on styling action bar, check out [[styling the action bar|Extended-ActionBar-Guide#custom-actionbar-styles]] cliffnotes. 
