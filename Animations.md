@@ -383,7 +383,7 @@ startActivity(i);
 overridePendingTransition(R.anim.right_in, R.anim.left_out);
 ```
 
-The first parameter is the "enter" animation for the launched activity and the second is the "exit" animation for the current activity. These animations can be any XML view animation files. For example, `right_in` might be defined in `res/anim/right_in.xml` as:
+The first parameter is the "enter" animation for the launched activity and the second is the "exit" animation for the current activity. These animations can be any XML view animation files such as the animations in our [XML Pack](https://gist.github.com/nesquena/2dab264ed3bcec9e520a). For example, `right_in` might be defined in `res/anim/right_in.xml` as:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
