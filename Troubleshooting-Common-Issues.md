@@ -43,7 +43,7 @@ and then uninstall Android Studio and re-install the latest stable version. This
 
 You are most likely exhausting the heap size especially during compilation.  Try to add inside this setting in your `app/build.gradle`:
 
-```
+```gradle
 android {
    .
    .
@@ -57,7 +57,7 @@ android {
 
 You can also reduce the build time too by setting `incremental` to be true:
 
-```
+```gradle
 android {
    dexOptions { 
       incremental true
