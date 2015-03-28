@@ -122,7 +122,7 @@ dependencies {
 }
 ```
 
-It turns out that having both is redundant and will cause errors.  It is necessary in this case to remove one or the other, depending on your need to use other Google API libraries.
+It turns out that having both is redundant and will cause errors.  It is necessary in this case to remove one or the other, depending on your need to use other Google API libraries. See this overview of the [multidex issue on the Android docs](https://developer.android.com/tools/building/multidex.html).
 
 ## Eclipse ADT Issues
 
