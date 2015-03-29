@@ -42,8 +42,8 @@ Normally, Parse will open the default activity that is designated as the main la
 public class YourBroadcastReceiver extends ParsePushBroadcastReceiver {
 
   ....
-  protected Activity getActivity(Context context, Intent intent) {
-    return yourActivity; // the activity that shows up 
+  protected Class<? extends android.app.Activity> getActivity(Context context, Intent intent) {
+    return YourActivity.class; // the activity that shows up 
   }
   ....
 
