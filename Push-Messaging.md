@@ -41,10 +41,12 @@ Check out the [Receiving Push Guide](https://parse.com/docs/push_guide#receiving
 Normally, Parse will open the default activity that is designated as the main launcher in your `AndroidManifest.xml` file, but you can have Parse trigger a different activity to launch.  You can change the behavior by subclassing `ParshPushBroadcastReceiver` and overriding the `getActivity()` method to returning the Activity you prefer to launch instead:
 
 ```java
+import android.app.Activity;
+
 public class YourBroadcastReceiver extends ParsePushBroadcastReceiver {
 
   ....
-  protected Class<? extends android.app.Activity> getActivity(Context context, Intent intent) {
+  protected Class<? extends Activity> getActivity(Context context, Intent intent) {
     return YourActivity.class; // the activity that shows up 
   }
   ....
