@@ -15,7 +15,9 @@ Check out [this official tutorial](https://parse.com/tutorials/android-push-noti
 
 ### Sending Push Notifications
 
-Check out [this official tutorial](https://parse.com/tutorials/android-push-notifications) for a step-by-step guide to sending simple push notifications.   Make sure to go to the `Settings` -> `Push` section and toggle on `Client push enabled`.  Otherwise, you may notice test push notifications work but sending between Android devices doesn't work.
+Check out [this official tutorial](https://parse.com/tutorials/android-push-notifications) for a step-by-step guide to sending simple push notifications.   
+
+Make sure to go to the `Settings` -> `Push` section and toggle on `Client push enabled`.  Otherwise, you may notice test push notifications work but sending between Android devices doesn't work.
 
 <img src="http://i.imgur.com/2zrp2KB.png"/>
 
