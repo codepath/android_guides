@@ -42,7 +42,7 @@ The Developer Console for Google Play provides API support for you to be able to
    apply plugin: 'play'
    ```
 
-7. Configure the plugin:
+7. Configure the plugin with the Google Service Account and p12 file saved in steps #5 and #6.
 
    ```gradle
 
@@ -54,12 +54,13 @@ The Developer Console for Google Play provides API support for you to be able to
    ```
 
 8. The plugin creates the following tasks for you:
-|----------------------       |----------------------------------------------------------------------|
-|publishApkRelease            | Uploads the APK and the summary of recent changes.                   |
-|publishListingRelease        | Uploads the descriptions and images for the Play Store listing.      |
-|publishRelease               | Uploads everything.                                                  |
-|bootstrapReleasePlayResources| Fetch all existing data from the Play Store to bootstrap the required|                                |                               files and folders.                                                   |
-|-----------------------------|----------------------------------------------------------------------|
+  | Command                     | Description                                                          |
+  |-----------------------------|:--------------------------------------------------------------------:|
+  |publishApkRelease            | Uploads the APK and the summary of recent changes.                   |
+  |publishListingRelease        | Uploads the descriptions and images for the Play Store listing.      |
+  |publishRelease               | Uploads everything.                                                  |
+  |bootstrapReleasePlayResources| Fetch all existing data from the Play Store to bootstrap the required|                               
+  |                             | files and folders.                                                   |
 
 You can now type the following gradle commands such as the follwoing:
 
