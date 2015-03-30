@@ -90,6 +90,10 @@ This is the place to manage the (un)published apps. There is the possibility to 
 
 [This](http://developer.android.com/distribute/tools/launch-checklist.html) is another very important checklist to help understand the publishing process and determine which steps were left out.
 
+### Automating Play Store publishing
+
+See [[Automating Publishing to the Play Store]] for an advanced tutorial about streamlining the process for pushing your updates.
+
 ##References
 
 * <http://developer.android.com/tools/publishing/publishing_overview.html>
