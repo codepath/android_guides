@@ -20,11 +20,11 @@ The Developer Console for Google Play provides API support for you to be able to
 
 5. You will be prompted to download the .p12 file.  Save it somewhere.  
 
-6. Note the service account email associated with this new account.  You should see it appear in the Google Developer
+6. Note the service account email associated with this new account.  You should see it appear in the Google Developer Console:
 
    <img src="http://imgur.com/TVm6CLM.png"/>
 
-6. Use a Gradle plugin such as the [Gradle Play Publisher](https://github.com/Triple-T/gradle-play-publisher).  Add the following to the top of your `app/build.gradle` file:
+7. Use a Gradle plugin such as the [Gradle Play Publisher](https://github.com/Triple-T/gradle-play-publisher).  Add the following to the top of your `app/build.gradle` file:
 
    ```gradle
        buildscript {
@@ -42,7 +42,7 @@ The Developer Console for Google Play provides API support for you to be able to
    apply plugin: 'play'
    ```
 
-7. Configure the plugin with the Google Service Account and p12 file saved in steps #5 and #6.
+8. Configure the plugin with the Google Service Account and p12 file saved in steps #5 and #6.
 
    ```gradle
 
@@ -53,7 +53,7 @@ The Developer Console for Google Play provides API support for you to be able to
       }
    ```
 
-8. The plugin creates the following tasks for you:
+9. The plugin creates the following tasks for you:
 
   | Command                     | Description                                                          |
   |:---------------------------:|--------------------------------------------------------------------- |
