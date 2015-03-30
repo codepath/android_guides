@@ -62,7 +62,7 @@ The Developer Console for Google Play provides API support for you to be able to
   |publishRelease               | Uploads everything.                                                  |
   |bootstrapReleasePlayResources| Fetch all existing data from the Play Store to bootstrap the required files and folders |                               
                       
-You can now type the following gradle commands such as the follwoing:
+   You can now type the following gradle commands such as the follwoing:
 
    ```bash
    ./gradlew publishApkRelease
