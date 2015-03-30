@@ -54,6 +54,7 @@ The Developer Console for Google Play provides API support for you to be able to
    ```
 
 8. The plugin creates the following tasks for you:
+
   | Command                     | Description                                                          |
   |-----------------------------|:--------------------------------------------------------------------:|
   |publishApkRelease            | Uploads the APK and the summary of recent changes.                   |
