@@ -63,12 +63,18 @@ The course was broken up into eight lectures. Each lecture provides step-by-step
 Ana Redmond's content can be [accessed in full here](https://drive.google.com/folderview?
 id=0B5u8j07GbVMlZk5PMUROT2N6Z00&usp=sharing).
 
-## Carolyn Dolnick's Recipe
+## Carolyn Dolnick's Plan
+
+Carolyn Dolnick from Lookout embarked on learning Android coming from a data background. The resources she used are listed below:
 
 1. Learn Java Well with [Stanford CS 106A](https://github.com/NatashaTheRobot/Stanford-CS-106A/wiki/Stanford-Introduction-To-Computer-Science-Programming-Methodology-CS106A-Class-Guide)
 2. Learn about Git Version Control via [Udacity Course](https://www.udacity.com/course/ud775)
 3. Learn about Data Structures via [Udemy Course](https://www.udemy.com/introduction-to-data-structures-algorithms-in-java/)
 4. Start with [this Udacity Course by Google](https://www.udacity.com/course/ud853) and reference [our getting started resources](https://guides.codepath.com/android#getting-started). 
-5. Request [free observer access](contact@codepath.com) to our CodePath Android Bootcamp by explaining what you've accomplished and supplying your github handle.
+5. Request [free observer access](contact@codepath.com) to our CodePath Android Bootcamp by explaining what you've accomplished and supplying your github handle. Build weekly apps assigned in the course.
+
+Additional tips to consider for success:
+
+- ...
 
 ## References
