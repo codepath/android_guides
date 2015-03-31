@@ -219,13 +219,18 @@ public class ShapeSelectorView extends View {
     // Defines the extra padding for the shape name text
     int textPadding = 10;
     int contentWidth = shapeWidth;
+    
     // Resolve the width based on our minimum and the measure spec
     int minw = contentWidth + getPaddingLeft() + getPaddingRight();
     int w = resolveSizeAndState(minw, widthMeasureSpec, 0);
+    
     // Ask for a height that would let the view get as big as it can
     int minh = shapeHeight + getPaddingBottom() + getPaddingTop();
-    if (displayShapeName) { minh += textYOffset + textPadding; }
+    if (displayShapeName) { 
+        minh += textYOffset + textPadding;
+    }
     int h = resolveSizeAndState(minh, heightMeasureSpec, 0);
+    
     // Calling this method determines the measured width and height
     // Retrieve with getMeasuredWidth or getMeasuredHeight methods later
     setMeasuredDimension(w, h);
