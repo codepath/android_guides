@@ -45,7 +45,7 @@ Common properties commonly animated on views include:
 | `rotation`, `rotationX`, `rotationY`                             | Spinning             |
 | `scaleX`, `scaleY`                                               | Grow or shrink       |
 | `x`, `y`, `z`                                                    | Position             |
-| `translationX`, `translationY`, **`translationZ` (API 21+)**| Offset from Position |
+| `translationX`, `translationY`, **`translationZ` (API 21+)**     | Offset from Position |
 
 To use animations in a way that is **compatible with pre-3.0 Android versions**, we must use the [NineOldAndroids](http://nineoldandroids.com/) for all our property animations. 
 
