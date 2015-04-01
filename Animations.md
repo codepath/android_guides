@@ -477,8 +477,6 @@ This results in the following:
 
 ![Activity Transition](http://i.imgur.com/lRU3wrn.gif)
 
-In **Android 5.0 and above** the ability for activities to "share elements" was introduced allowing an element in on activity to morph into an element within the child activity. Check out our [[Shared Element Activity Transition]] guide for more details.
-
 You can see several complete examples of activity transitions in the following resources:
 
  * [Card Flip Animation](http://developer.android.com/training/animation/cardflip.html)
@@ -486,7 +484,7 @@ You can see several complete examples of activity transitions in the following r
  * [Sliding In From Left Animation](http://android-er.blogspot.com/2013/04/custom-animation-while-switching.html)
  * [Sliding Drawer Animation](http://blog.blundell-apps.com/animate-an-activity/)
 
-Check out these above to get a deeper understanding of how to create custom and unique transitions.
+Check out these above to get a deeper understanding of how to create custom and unique transitions. In **Android 5.0 and above** the ability for activities to "share elements" was introduced allowing an element in on activity to morph into an element within the child activity. Check out our [[Shared Element Activity Transition]] guide for more details.
 
 ### Fragment Transitions
 
