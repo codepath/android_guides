@@ -480,7 +480,7 @@ This results in the following:
 You can see several complete examples of activity transitions in the following resources:
 
  * [Card Flip Animation](http://developer.android.com/training/animation/cardflip.html)
- * [Flipboard Activity Transition](http://ahdidou.com/blog/customize-android-activities-transition/)
+ * [Vine Activity Transition](http://blog.quent.in/index.php/2013/06/activity-transition-animations-like-the-vine-android-application/)
  * [Sliding In From Left Animation](http://android-er.blogspot.com/2013/04/custom-animation-while-switching.html)
  * [Sliding Drawer Animation](http://blog.blundell-apps.com/animate-an-activity/)
 
