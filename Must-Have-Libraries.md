@@ -24,6 +24,7 @@ This "standard pack" listed below are libraries that are quite popular, widely a
  * [AutoParcel](https://github.com/frankiesardo/auto-parcel) - Port of Google AutoValue for Android with Parcelable generation goodies.
  * [IcePick](https://github.com/frankiesardo/icepick) - Android Instance State made easy
  * [Hugo](https://github.com/JakeWharton/hugo) - Easier logging within your app
+ * [Logger](https://github.com/orhanobut/logger) - Much cleaner and easier logcat trace messages
  * [AndroidAnnotations](https://github.com/excilys/androidannotations) - Framework that speeds up Android development. It takes care of the plumbing, and lets you concentrate on what's really important. By simplifying your code, it facilitates its maintenance
  * [RoboGuice](https://github.com/roboguice/roboguice) - Powerful extensions to Android using dependency injection.
  * [Calligraphy](https://github.com/chrisjenx/Calligraphy) - Custom fonts made easy
@@ -92,6 +93,7 @@ This "standard pack" listed below are libraries that are quite popular, widely a
  * [FloatingActionButton](https://github.com/makovkastar/FloatingActionButton) - Material design floating buttons made easy
  * [Foursquare-CollectionPicker](https://github.com/anton46/Foursquare-CollectionPicker) - Item Picker which looks like Foursquare Tastes picker
  * [NexusDialog](https://github.com/dkharrat/NexusDialog) - Create form dialogs easily
+ * [dialogplus](https://github.com/orhanobut/dialogplus) - Simple, easy dialogs
  * [Iconify](https://github.com/JoanZapata/android-iconify) - Easily embed icons into your app
 
 ### Drawing
@@ -122,6 +124,7 @@ This "standard pack" listed below are libraries that are quite popular, widely a
  * [ORMLite](http://ormlite.com/sqlite_java_android_orm.shtml)
  * [Realm](https://github.com/realm/realm-java)
  * [NexusData](https://github.com/dkharrat/NexusData)
+ * [Hawk](https://github.com/orhanobut/hawk) - Persistent secure key/value store
 
 ### Compatibility
 
