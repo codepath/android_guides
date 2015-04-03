@@ -676,6 +676,7 @@ Precisely because its main use is games, all engines have support for particle s
 ## Libraries
 
 * [AndroidViewAnimations](https://github.com/daimajia/AndroidViewAnimations) - Common property animations made easy.
+* [ListViewAnimations](https://github.com/nhaarman/ListViewAnimations) - List view item animations made simple including insertion and deletion.
 * [NineOldAndroids](http://nineoldandroids.com/) - Compatibility library supporting property animations all the way back to Android 1.0.
 * [Leonids](https://github.com/plattysoft/Leonids) - Simple particle effects for Android.
 
