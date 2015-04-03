@@ -55,6 +55,8 @@ If you are an Android Studio user, add the following dependency to your `app/bui
 compile 'com.nineoldandroids:library:2.4.0+'
 ```
 
+One library that simplifies common animations is called [AndroidViewAnimations](https://github.com/daimajia/AndroidViewAnimations) and makes certain common animations on views much easier to achieve. This library is definitely worth a look.
+
 ### Using ObjectAnimator in Java
 
 Once we have setup NineOldAndroids, we can use the [ObjectAnimator](http://developer.android.com/reference/android/animation/ObjectAnimator.html) method to execute simple animations for a particular property on a specified object:
@@ -673,8 +675,9 @@ Precisely because its main use is games, all engines have support for particle s
 
 ## Libraries
 
+* [AndroidViewAnimations](https://github.com/daimajia/AndroidViewAnimations) - Common property animations made easy.
 * [NineOldAndroids](http://nineoldandroids.com/) - Compatibility library supporting property animations all the way back to Android 1.0.
-* [Leonids](https://github.com/plattysoft/Leonids) - Simple particle effects for Android
+* [Leonids](https://github.com/plattysoft/Leonids) - Simple particle effects for Android.
 
 ## References
 
