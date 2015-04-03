@@ -273,6 +273,19 @@ And the result is:
 
 ![Icons](http://i.stack.imgur.com/c7sm4.png)
 
+### Accessing Tabs at Runtime
+
+The individual tabs in the sliding tab strip can be accessed at runtime with:
+
+```java
+PagerSlidingTabStrip tabStrip = (PagerSlidingTabStrip)findViewById(R.id.tabs);
+LinearLayout view = (LinearLayout) tabStrip.getChildAt(0);
+TextView textView = (TextView) view.getChildAt(2);
+textView.setText("new tab text");
+```
+
+With this we can update the text for the tab to display update indicators or other changes as the app receives data.
+
 ## References
 
 * [PagerSlidingTabStrip](https://github.com/astuetz/PagerSlidingTabStrip)
