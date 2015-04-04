@@ -31,35 +31,27 @@ Pass the image and specify the number of colors you want to generate from the im
 
 ### Asynchronous Methods
 
+There is an asynchronous method that uses an `AsyncTask` to gather the Palette swatch information from the bitmap:
+
 ```java
-// This is the quick and easy integration path. Internally uses an AsyncTask so 
-// this may not be optimal (since you're dipping in and out of threads)
+// This is the quick and easy integration path. 
+// May not be optimal (since you're dipping in and out of threads)
 Palette.generateAsync(bitmap, new Palette.PaletteAsyncListener() {
     @Override
     public void onGenerated(Palette palette) {
+         // Get the "vibrant" color swatch based on the bitmap
          Palette.Swatch vibrant = palette.getVibrantSwatch();
           if (vibrant != null) {
-              // If we have a vibrant color, update the title TextView
-              titleView.setBackgroundColor(vibrant.getRgb());
+              // Set the background color of a layout based on the vibrant color
+              containerView.setBackgroundColor(vibrant.getRgb());
+              // Update the title TextView with the proper text color
               titleView.setTextColor(vibrant.getTitleTextColor());
           }
     }
 });
 ```
 
-This method takes in the image to extract the colors from, and a listener for a callback when the asynchronous task finishes. This also uses a default of 15 colors.
-
-```java
-// Allows you to specify the maximum palette size, in this case 24.
-Palette.generateAsync(bitmap, 24, new Palette.PaletteAsyncListener() {
-    @Override
-    public void onGenerated(Palette palette) {
-       // Here's your generated palette
-    }
-});
-```
-
-Like the synchronous second method, this allows you to specify the number of colors generated from the image.
+This method takes in the image to extract the colors from, and a listener for a callback when the asynchronous task finishes. 
 
 ### Palette Properties
 
@@ -86,9 +78,22 @@ Each Swatch contains the following methods:
 
 The different text colors roughly match up to the material design standard styles of the same name. The title text color will be more translucent as the text is larger and thus requires less color contrast. The body text color will be more opaque as text is smaller and thus requires more contrast from color.
 
+### Adjusting the 
+
+We can also specify the maximum number of colors in the generated palette (`numColors`) for the given bitmap:
+
+```java
+// Allows you to specify the maximum palette size, in this case 24.
+// Increasing the number of colors increasing computation time
+Palette.generateAsync(bitmap, 24, new Palette.PaletteAsyncListener() {
+    // ...
+});
+```
+
+Good values for `numColors` depend on the source image type. For landscapes, a good values are in the range 12-16. For images which are largely made up of people's faces then this value should be increased to 24-32.
+
 ## References
 
 * <https://chris.banes.me/2014/10/20/palette-v21/>
 * <http://www.willowtreeapps.com/blog/palette-the-new-api-for-android/>
 * <http://android-developers.blogspot.com/2014/10/implementing-material-design-in-your.html>
-
