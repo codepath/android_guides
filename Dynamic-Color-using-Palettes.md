@@ -78,7 +78,7 @@ Each Swatch contains the following methods:
 
 The different text colors roughly match up to the material design standard styles of the same name. The title text color will be more translucent as the text is larger and thus requires less color contrast. The body text color will be more opaque as text is smaller and thus requires more contrast from color.
 
-### Adjusting the 
+### Adjusting the Number of Colors
 
 We can also specify the maximum number of colors in the generated palette (`numColors`) for the given bitmap:
 
