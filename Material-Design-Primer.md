@@ -107,27 +107,9 @@ The toolbar operates as a replacement for the original `ActionBar` but is added 
 
 The floating action button should represent **the primary action** within a screen. More info and use cases of the FAB button can be found in Google’s official [design specs found here](http://www.google.com/design/spec/components/buttons.html#buttons-floating-action-button).
 
-## Material Styles
-
-### Dialog Styles
-
-If you want your Dialogs to have a Material look and feel across all Android versions, you’ll want to use a library to achieve modern dialogs such as:
-
- * [material-dialogs](https://github.com/afollestad/material-dialogs)
- * [AlertDialogPro](https://github.com/fengdai/AlertDialogPro/)
- * [MaterialDialog](https://github.com/drakeet/MaterialDialog)
-
-![Material Dialog](https://raw.githubusercontent.com/afollestad/material-dialogs/master/art/screenshots.png)
-
-### Dynamic Color Palettes
-
-Material Design encourages dynamic use of color, especially when you have rich images to work with. The [[new Palette support library|Dynamic-Color-using-Palettes]] lets you extract a small set of colors from an image to style your UI controls to match; creating an immersive experience. 
-
-![Palette](http://i.imgur.com/nwtguAS.png)
-
-The extracted swatches will include vibrant and muted tones as well as foreground text colors for optimal legibility. This allows us to use these dynamically selected colors to apply better color selections to our layouts.
-
 ## Material Animations
+
+Note that material animations are not compatible with Android versions prior to Lollipop API 21. See [this compatibility guide](https://developer.android.com/training/material/compatibility.html#CheckVersion) for more details. 
 
 ### Ripple Animations
 
@@ -152,6 +134,26 @@ See our detailed [[shared element transition guide|Shared-Element-Activity-Trans
 ![reveal](http://i.imgur.com/8jzWpX1.gif)
 
 This animation is often times used in conjunction with a floating action button that will grow onto the screen using this transtion.
+
+## Material Styles
+
+### Dialog Styles
+
+If you want your Dialogs to have a Material look and feel across all Android versions, you’ll want to use a library to achieve modern dialogs such as:
+
+ * [material-dialogs](https://github.com/afollestad/material-dialogs)
+ * [AlertDialogPro](https://github.com/fengdai/AlertDialogPro/)
+ * [MaterialDialog](https://github.com/drakeet/MaterialDialog)
+
+![Material Dialog](https://raw.githubusercontent.com/afollestad/material-dialogs/master/art/screenshots.png)
+
+### Dynamic Color Palettes
+
+Material Design encourages dynamic use of color, especially when you have rich images to work with. The [[new Palette support library|Dynamic-Color-using-Palettes]] lets you extract a small set of colors from an image to style your UI controls to match; creating an immersive experience. 
+
+![Palette](http://i.imgur.com/nwtguAS.png)
+
+The extracted swatches will include vibrant and muted tones as well as foreground text colors for optimal legibility. This allows us to use these dynamically selected colors to apply better color selections to our layouts.
 
 ## References
 
