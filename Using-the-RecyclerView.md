@@ -186,6 +186,8 @@ recyclerView.setHasFixedSize(true);
 
 See [this detailed stackoverflow post](http://stackoverflow.com/a/24933117) which describes how to setup item-level click handlers when using `RecyclerView`. Note that there is no `onItemClickListener` equivalent. 
 
+In certain cases, you'd want to setup click handlers for views within the `RecyclerView` and then define the click implementation within the containing Activity or Fragment. In those cases, you'd [[create an listener|Creating-Custom-Listeners]] within the adapter and then fire the events upwards to an interface implementation in the parent.
+
 ### Heterogenous Views
 
 See [this StackOverflow post](http://stackoverflow.com/questions/26245139/how-to-create-recyclerview-with-multiple-view-type).
