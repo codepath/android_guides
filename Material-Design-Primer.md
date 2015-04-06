@@ -1,5 +1,9 @@
 With the release of Android 5.0, there are updated guidelines for modern Android UI design. These guidelines are called "material design". This page is dedicated to living in the "material world". 
 
+<img src="http://i.imgur.com/bYWINtw.png" width="200" alt="screen 1" />
+<img src="http://i.imgur.com/yMlrtTp.png" width="200" alt="screen 2" />
+<img src="http://i.imgur.com/JZRCVkh.png" width="203" alt="screen 3" />
+
 ## Design Guidelines
 
 This new framework encompasses several changes to the interface of Android apps and Google strongly encourages the adoption of these new principles outlined below:
@@ -167,5 +171,7 @@ The extracted swatches will include vibrant and muted tones as well as foregroun
 
 ## References
 
+* <http://android-developers.blogspot.ca/2014/10/material-design-on-android-checklist.html>
+* <http://www.google.com/design/spec/material-design/introduction.html>
 * <http://code.hootsuite.com/tips-and-tricks-for-android-material-support-library/>
 * <http://code.hootsuite.com/tips-and-tricks-for-android-material-support-library-2-electric-boogaloo/>
