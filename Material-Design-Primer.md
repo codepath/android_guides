@@ -74,7 +74,16 @@ Check out our [[Material Navigation Drawer|Fragment-Navigation-Drawer#usage]] gu
 
 ## Material Styles
 
+### Dialog Styles
 
+If you want your Dialogs to have a Material look and feel across all Android versions, you’ll want to use a library to achieve modern dialogs such as:
+
+ * [material-dialogs](https://github.com/afollestad/material-dialogs)
+ * [AlertDialogPro](https://github.com/fengdai/AlertDialogPro/)
+ * [MaterialDialog](https://github.com/drakeet/MaterialDialog)
+
+![Material Dialog](https://raw.githubusercontent.com/afollestad/material-dialogs/master/art/screenshots.png)
+![Dialog 2](https://raw.githubusercontent.com/afollestad/material-dialogs/master/art/screenshots.png)
 
 ## Material Animations
 
@@ -84,7 +93,7 @@ Ripple provides an instantaneous visual confirmation at the point of contact whe
 
 ![Ripple](http://i.imgur.com/L9ZnabL.gif)
 
-See our detailed [ripple animations guide|Ripple-Animation]] for an overview of how to enable this effect on views and buttons.
+See our detailed [[ripple animations guide|Ripple-Animation]] for an overview of how to enable this effect on views and buttons.
 
 ## References
 
