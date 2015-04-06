@@ -1,6 +1,8 @@
+With the release of Android 5.0, there are updated guidelines for modern Android UI design. These guidelines are called "material design". This page is dedicated to living in the "material world".
+
 ## Design Guidelines
 
-With the release of Android 5.0, there are updated guidelines for modern Android UI design. These guidelines are called "material design". This new framework encompasses several changes to the interface of Android apps and Google strongly encourages the adoption of these new principles outlined below:
+This new framework encompasses several changes to the interface of Android apps and Google strongly encourages the adoption of these new principles outlined below:
 
  * [Material Design Guidelines](http://www.google.com/design/spec/material-design/introduction.html) - Principles that guide material design
  * [Material Design Docs](https://developer.android.com/design/material/index.html) - Overview of material design
