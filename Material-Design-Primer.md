@@ -83,7 +83,6 @@ If you want your Dialogs to have a Material look and feel across all Android ver
  * [MaterialDialog](https://github.com/drakeet/MaterialDialog)
 
 ![Material Dialog](https://raw.githubusercontent.com/afollestad/material-dialogs/master/art/screenshots.png)
-![Dialog 2](https://raw.githubusercontent.com/afollestad/material-dialogs/master/art/screenshots.png)
 
 ## Material Animations
 
