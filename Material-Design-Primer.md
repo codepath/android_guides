@@ -72,8 +72,19 @@ Take a look at the [Material Design Checklist](http://android-developers.blogspo
 
 Check out our [[Material Navigation Drawer|Fragment-Navigation-Drawer#usage]] guide for a step-by-step tutorial for setting up the updated material navigation drawer behavior. Note that to do this properly, you'll need to [[replace your ActionBar with a Toolbar|Defining-The-ActionBar#using-toolbar-as-actionbar]].
 
+## Material Styles
 
 
+
+## Material Animations
+
+### Ripple Animations
+
+Ripple provides an instantaneous visual confirmation at the point of contact when users interact with UI elements. Note that the ripples will only show up on devices running Lollipop, and will fall back to a static highlight on previous versions.
+
+![Ripple](http://i.imgur.com/L9ZnabL.gif)
+
+See our detailed [ripple animations guide|Ripple-Animation]] for an overview of how to enable this effect on views and buttons.
 
 ## References
 
