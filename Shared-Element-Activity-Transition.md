@@ -13,6 +13,7 @@ However, many times, there are elements common to both activities and providing 
 The nature of this transition forces the human eye to focus on the content and its representation in the new activity instead of the actual activity frame sliding or fading which makes the experience a lot more seamless.
 
 ![Imgur](http://i.imgur.com/rUkkfUZ.gif)
+![Shared Element Transition](http://i.imgur.com/1cjqsSA.gif)
 
 ### Getting Started
 
