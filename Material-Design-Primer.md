@@ -66,9 +66,19 @@ getActionBar.hide(); // WRONG
 
 In addition, styling the ActionBar needs to be done updated to use the [[material support styles|Extended-ActionBar-Guide#custom-actionbar-styles]] rather than the traditional ActionBar styles.
 
+### Material Design Icons
+
+With the Lollipop release comes an improved visual design style for icons used throughout modern Android apps. Google has provided a set of [material design icons](http://google.github.io/material-design-icons/) for developers to use within their apps.
+
+<a href="http://google.github.io/material-design-icons/"><img width="500" src="http://i.imgur.com/VY4empy.png" alt="icons"></a>
+
+Be sure to check out the community-source [materialdesignicons](http://materialdesignicons.com/) icon site as well for an even larger selection of material icons.
+
 ### Material Navigation Drawer
 
 Take a look at the [Material Design Checklist](http://android-developers.blogspot.ca/2014/10/material-design-on-android-checklist.html) and you will notice that you need to change your existing drawer layout to  be over the toolbar and under the status bar. There’s a [handy StackOverflow post](http://stackoverflow.com/a/26440880/313399) explaining how to implement this.
+
+<img src="http://i.imgur.com/Ag3t4KC.gif" width="250" alt="drawer" />
 
 Check out our [[Material Navigation Drawer|Fragment-Navigation-Drawer#usage]] guide for a step-by-step tutorial for setting up the updated material navigation drawer behavior. Note that to do this properly, you'll need to [[replace your ActionBar with a Toolbar|Defining-The-ActionBar#using-toolbar-as-actionbar]].
 
