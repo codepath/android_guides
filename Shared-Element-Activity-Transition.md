@@ -4,15 +4,15 @@ Traditionally transitions between different activities or fragments involved ent
 
 Default Activity Transition:
 
-![Imgur](http://i.imgur.com/KW88kGk.gif)
+![Imgur](http://i.imgur.com/N9m3iBq.gif)
 
 However, many times, there are elements common to both activities and providing the ability to transition these shared elements separately emphasizes continuity between transitions and breaks activity boundaries as the user navigates the app.
 
-![SharedElement](http://3.bp.blogspot.com/-DnRuIu0QqgE/VAeEWFgCVdI/AAAAAAAAqak/t5NF8kHVRG8/s1600/heroview.png)
+![SharedElement](http://i.imgur.com/LydorEa.png)
 
 The nature of this transition forces the human eye to focus on the content and its representation in the new activity instead of the actual activity frame sliding or fading which makes the experience a lot more seamless.
 
-![Imgur](http://i.imgur.com/IuYcb05.gif)
+![Imgur](http://i.imgur.com/rUkkfUZ.gif)
 
 ### Getting Started
 
