@@ -329,6 +329,8 @@ public boolean onCreateOptionsMenu(Menu menu) {
 
 See [this writeup](http://antonioleiva.com/actionbarcompat-action-views/) for details on the compatibility action views outlined above. For more advanced searching functionality, check out the [Creating a Search Interface](http://developer.android.com/guide/topics/search/search-dialog.html) guide.
 
+See [this tutorial](http://ramannanda.blogspot.com/2014/10/android-searchview-integration-with.html) for a guide on how to add autocomplete to your searchview in the actionbar.
+
 ### Using ActionProvider and ShareActionProvider
 
 Similar to an action view, an action provider replaces an action button with a customized layout. However, unlike an action view, an action provider takes control of all the action's behaviors and an action provider can display a submenu when pressed.
