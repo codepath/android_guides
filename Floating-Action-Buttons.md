@@ -53,7 +53,9 @@ Next, let's add the `com.melnykov.fab.FloatingActionButton` to our layout XML:
 </FrameLayout>
 ```
 
-Note the addition of the `xmlns:fab` to the attributes of the root layout. The button should be placed in the bottom right corner of the screen. The recommended margin for the bottom is **16dp for phones and 24dp for tablets**.
+Note the addition of the `xmlns:fab` to the attributes of the root layout. The button should be placed in the bottom right corner of the screen. The recommended margin for the bottom is **16dp for phones and 24dp for tablets**.  The image that you use should be **24dp** according to the Google design specs:
+
+<a href="http://www.google.com/design/spec/components/buttons.html#buttons-floating-action-button"><img src="http://material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0Bx4BSt6jniD7UGxlcmdDZFRZYU0/patterns_actions_fab3.png" width="300"></a>
 
 #### Attaching to Lists
 
