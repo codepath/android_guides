@@ -72,7 +72,7 @@ In addition, styling the ActionBar needs to be done updated to use the [[materia
 
 ### Material Design Icons
 
-With the Lollipop release comes an improved visual design style for icons used throughout modern Android apps. Google has provided a set of [material design icons](http://google.github.io/material-design-icons/) for developers to use within their apps.
+With the Lollipop release comes an improved visual design style for icons used throughout modern Android apps. Google has provided a set of [material design icons](https://github.com/google/material-design-icons/) for developers to use within their apps.
 
 <a href="https://github.com/google/material-design-icons/"><img width="500" src="http://i.imgur.com/VY4empy.png" alt="icons"></a>
 
