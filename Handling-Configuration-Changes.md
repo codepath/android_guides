@@ -202,3 +202,4 @@ See the [Handling the Change](http://developer.android.com/guide/topics/resource
 * <http://www.androiddesignpatterns.com/2013/04/retaining-objects-across-config-changes.html>
 * <http://www.intertech.com/Blog/saving-and-retrieving-android-instance-state-part-1/>
 * <http://sunil-android.blogspot.com/2013/03/save-and-restore-instance-state.html>
+* <https://medium.com/@nuuneoi/probably-be-the-best-way-to-save-restore-android-fragments-state-so-far-c01d98711c2>
