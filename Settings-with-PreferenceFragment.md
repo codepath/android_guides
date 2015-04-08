@@ -1,6 +1,8 @@
 ## Overview
 
-In Android apps, there are often settings pages that contain different options the user can tweak. The [PreferenceFragment](http://developer.android.com/reference/android/preference/PreferenceFragment.html) contains a hierarchy of preference objects displayed on screen in a list. These preferences will automatically save to SharedPreferences as the user interacts with them.
+In Android apps, there are often settings pages that contain different options the user can tweak. The [`PreferenceFragment`](http://developer.android.com/reference/android/preference/PreferenceFragment.html) contains a hierarchy of preference objects displayed on screen in a list. These preferences will automatically save to SharedPreferences as the user interacts with them.
+
+`PreferenceFragment` requires a minimum API level of 11. To support older versions, there is the [`PreferenceActivity`](http://developer.android.com/reference/android/preference/PreferenceActivity.html). However, after API level 11, many methods associated with the `PreferenceActivity` became _deprecated_. The suggested way of handling settings is through the `PreferenceFragment`.
 
 ### Defining the XML
 First, define the preference object hierarchy by creating a new xml file in `res/xml`:
@@ -51,7 +53,7 @@ All preferences are saved as key-value pairs in the default `SharedPreferences` 
 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(android.content.Context);
 ```
 
-The root for the XML file must be a `<PreferenceScreen`. Within this screen, you can either list all preferences or group with `<PreferenceCategory>`. The grouped preferences will appear together under the same section heading. The XML above creates the following setting screen:
+The root for the XML file must be a `<PreferenceScreen>`. Within this screen, you can either list all preferences or group with `<PreferenceCategory>`. The grouped preferences will appear together under the same section heading. The XML above creates the following setting screen:
 
 ![Settings Screen](http://i.imgur.com/qkE1W6H.png?1 =200x)
 
