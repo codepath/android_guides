@@ -43,6 +43,7 @@ These are the best services for easy push messaging:
 
 These are the best A/B testing services:
 
+* [Optimizely](http://optimizely.com/mobile)
 * [Apptimize](http://apptimize.com/)
 * [Arise](http://arise.io/)
 * [Splitforce](https://www.splitforce.com)
