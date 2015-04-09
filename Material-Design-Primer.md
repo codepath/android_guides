@@ -72,13 +72,11 @@ In addition, styling the ActionBar needs to be done updated to use the [[materia
 
 ### Material Design Icons
 
-With the Lollipop release comes an improved visual design style for icons used throughout modern Android apps. Google has provided a set of [material design icons](https://github.com/google/material-design-icons/) for developers to use within their apps.  You should [download the repo](https://github.com/google/material-design-icons/archive/master.zip) and grab the relevant files.  
+With the Lollipop release comes an improved visual design style for icons used throughout modern Android apps. Google has provided a set of [material design icons](https://github.com/google/material-design-icons/) for developers to use within their apps.  You should [download the repo](https://github.com/google/material-design-icons/archive/master.zip) and grab the relevant files.  If you are intending to use these icons for the [[Floating Action Buttons]], just make sure to pick one that is **24dp** according to the [Google specs](https://github.com/codepath/android_guides/wiki/Floating-Action-Buttons#dimensions).
 
 <a href="http://google.github.io/material-design-icons/"><img width="500" src="http://i.imgur.com/VY4empy.png" alt="icons"></a>
 
 Be sure to check out the community-source [materialdesignicons](http://materialdesignicons.com/) icon site as well for an even larger selection of material icons.  
-
-If you are intending to use these icons for the [[Floating Action Buttons]], just make sure to pick an icon that is set according to the [Google specs](https://github.com/codepath/android_guides/wiki/Floating-Action-Buttons#dimensions).
 
 ### Material Navigation Drawer
 
