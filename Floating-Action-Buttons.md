@@ -25,7 +25,7 @@ dependencies {
 }
 ```
 
-Next, let's add the `com.melnykov.fab.FloatingActionButton` to our layout XML:
+Next, let's add the `com.melnykov.fab.FloatingActionButton` to our layout XML.  Note the addition of the `xmlns:fab` to the attributes of the root layout:
 
 ```xml
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -53,7 +53,9 @@ Next, let's add the `com.melnykov.fab.FloatingActionButton` to our layout XML:
 </FrameLayout>
 ```
 
-Note the addition of the `xmlns:fab` to the attributes of the root layout. The button should be placed in the bottom right corner of the screen. The recommended margin for the bottom is **16dp for phones and 24dp for tablets**.  
+### Dimensions
+
+The button should be placed in the bottom right corner of the screen. The recommended margin for the bottom is **16dp for phones and 24dp for tablets**.  
 
 The drawable that you use should be **24dp** according to the Google design specs:
 
