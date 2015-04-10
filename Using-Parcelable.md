@@ -255,7 +255,11 @@ The site is also able to handle all of the primitives and Java object I didn't i
 
 ### Creating a Parcelable, The Easier Way (using IntelliJ or Android Studio)
 
-There is a [Parcelable plugin](https://github.com/mcharmas/android-parcelable-intellij-plugin) that can be imported directly into IntelliJ or Android Studio, which enables you to generate the boilerplate code for creating Parcelables.  Here are all the Java types it supports:
+There is a [Parcelable plugin](https://github.com/mcharmas/android-parcelable-intellij-plugin) that can be imported directly into IntelliJ or Android Studio, which enables you to generate the boilerplate code for creating Parcelables.  You can install this plugin by going to `Android Studio` -> `Preferences` -> `Plugins` -> `Browse repositories`:
+
+<a href="http://i.imgur.com/jceThxd.gif" alt="Installing Parcelable"><img src="http://i.imgur.com/jceThxd.gif"></a>
+
+Here are all the Java types it supports:
 
  * Types implementing Parcelable
  * Custom support (avoids `Serializable`/`Parcelable` implementation) for: `Date`, `Bundle`
