@@ -253,9 +253,21 @@ public class MyCustomObject implements Parcelable {
 A very pretty Parcelable object that you can copy and paste back into your project.
 The site is also able to handle all of the primitives and Java object I didn't include in this tutorial. On top of that it also can handle your own custom parcelable objects and objects that extend other objects that you have already created. This is a util that I stumbled upon searching for a easier way to create Parcelable objects that I can use in my projects. Hope you enjoy.
 
-### Creating a Parcelable, The Easier Way (for IntelliJ and Android Studio)
+### Creating a Parcelable, The Easier Way (using IntelliJ or Android Studio)
 
-There is a [Parcelable plugin](https://github.com/mcharmas/android-parcelable-intellij-plugin) that can be imported directly into IntelliJ or Android Studio, which enables you to generate the boilerplate code for creating Parcelables.  It supports all the basic Java data types (int, long, String, boolean, int) but does not support Java sets.  
+There is a [Parcelable plugin](https://github.com/mcharmas/android-parcelable-intellij-plugin) that can be imported directly into IntelliJ or Android Studio, which enables you to generate the boilerplate code for creating Parcelables.  Here are all the Java types it supports:
+
+ * Types implementing Parcelable
+ * Custom support (avoids `Serializable`/`Parcelable` implementation) for: `Date`, `Bundle`
+ * Types implementing Serializable
+ * List of `Parcelable` objects
+ * Enumerations
+ * Primitive types: `long`, `int`, `float`, `double`, `boolean`, `byte`, `String`
+ * Primitive type wrappers (written with `Parcel.writeValue(Object)`): `Integer`, `Long`, `Float`, `Double`, `Boolean`, `Byte`
+ * Primitive type arrays: `boolean[]`, `byte[]`, `char[]`, `double[]`, `float[]`, `int[]`, `long[]`
+ * List type of any object (**Warning: validation is not performed**)
+
+<img src="https://github.com/mcharmas/android-parcelable-intellij-plugin/raw/master/screenshot.png"/>
 
 ## References
 
