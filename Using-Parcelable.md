@@ -253,10 +253,9 @@ public class MyCustomObject implements Parcelable {
 A very pretty Parcelable object that you can copy and paste back into your project.
 The site is also able to handle all of the primitives and Java object I didn't include in this tutorial. On top of that it also can handle your own custom parcelable objects and objects that extend other objects that you have already created. This is a util that I stumbled upon searching for a easier way to create Parcelable objects that I can use in my projects. Hope you enjoy.
 
-### Creating a Parcelable, The Easier Way ( using IntelliJ (and Android Studio))
+### Creating a Parcelable, The Easier Way (for IntelliJ and Android Studio)
 
-- Addition to automatic Parcelable creation.
-For all of you IntelliJ (and Android Studio) users there is a plugin designed by mcharmas called the [android-parcelable-intellij-plugin](https://github.com/mcharmas/android-parcelable-intellij-plugin) that can be imported directly into IntelliJ(Android Studio) and it creates parcelables just like the Parcelabler site but without going to the web. It is not completely finished but the plug-in does work in all of the situations that I have thrown at it. 
+There is a [Parcelable plugin](https://github.com/mcharmas/android-parcelable-intellij-plugin) that can be imported directly into IntelliJ or Android Studio, which enables you to generate the boilerplate code for creating Parcelables.  It supports all the basic Java data types (int, long, String, boolean, int) but does not support Java sets.  
 
 ## References
 
