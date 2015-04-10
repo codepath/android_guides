@@ -71,10 +71,7 @@ Make your `.bash_profile` look like the following, replacing paths as needed:
     export ANDROID_HOME=/Users/ciandroid/android-sdk-macosx
     export PATH=$PATH:$ANDROID_HOME/tools
 
-    # Gradle
-    export GRADLE_HOME=/Users/ciandroid/gradle-1.6
-    export PATH=$PATH:GRADLE_HOME/bin
-
+ 
 Save and quit. Reload `.bash_profile`:
 
     $ source ~./bash_profile
@@ -127,7 +124,7 @@ In your build environment, create a directory for Android project source code, a
     Cloning into 'project'...
 
 ### Try Running Gradle
-`cd` into the project directory on your build machine. Make sure you see your `build.gradle` file, and run `gradle assemble`.
+`cd` into the project directory on your build machine. Make sure you see your `build.gradle` file, and run `./gradlew assemble`.
 
 Hopefully, this is what you'll get:
 
