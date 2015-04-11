@@ -1,4 +1,4 @@
-If you intend to incorporate Android builds into your continuous integration setup, you may want to use [Chef](https://learn.chef.io/) or Puppet to help automate this process.  These configuration management tools help automate the process of managing machine configurations in Amazon, Rackspace, Linode, or any cloud-based service.  
+If you intend to incorporate Android builds into your continuous integration setup, you may want to use [Chef](https://learn.chef.io/) or Puppet to help automate this process.  These configuration management tools help automate the process of managing machine configurations in Amazon, Rackspace, Linode, or any cloud-based hosting service.  
 
 ## Chef recipes
 
