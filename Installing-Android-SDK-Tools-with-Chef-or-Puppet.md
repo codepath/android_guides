@@ -2,7 +2,7 @@ If you intend to incorporate Android builds into your continuous integration set
 
 ## Chef recipes
 
-For Chef, you can download the chef-android-sdk recipe.  It has a few dependencies, including Ark and 7-zip:
+For Chef, you can download the [chef-android-sdk](https://github.com/gildegoma/chef-android-sdk) recipe.  It has a few dependencies, including Ark and 7-zip:
 
 ```
 wget https://github.com/gildegoma/chef-android-sdk/archive/master.zip
