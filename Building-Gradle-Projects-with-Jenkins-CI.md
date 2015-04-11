@@ -48,7 +48,7 @@ Note: if `su` prompts you for a password, it wants your **superuser** password, 
 
 ### Install the Android SDK (Automated Way)
 
-You can use [Jake Wharton's SDK Manager](https://github.com/JakeWharton/sdk-manager-plugin) to manage all missing SDK dependencies.  These definitions should be declared before the regular `android` plugin is applied:
+You can use [Jake Wharton's SDK Manager](https://github.com/JakeWharton/sdk-manager-plugin) to manage all missing SDK dependencies.  These definitions should be declared before the regular `com.android.application` plugin is applied:
 
 ```gradle
 buildscript {
