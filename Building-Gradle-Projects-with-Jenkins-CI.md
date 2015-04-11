@@ -46,7 +46,35 @@ Become the build node user with `su`, and go to your build environment's home di
 
 Note: if `su` prompts you for a password, it wants your **superuser** password, not the account password for the `ciandroid` user.
 
-### Install the Android SDK
+### Install the Android SDK (Automated Way)
+
+You can use [Jake Wharton's SDK Manager](https://github.com/JakeWharton/sdk-manager-plugin) to manage all missing SDK dependencies.  These definitions should be declared before the regular `android` plugin is applied:
+
+```gradle
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath 'com.android.tools.build:gradle:0.12.+'
+    classpath 'com.jakewharton.sdkmanager:gradle-plugin:0.12.+'
+  }
+}
+
+apply plugin: 'android-sdk-manager' // run before com.android.application
+apply plugin: 'com.android.application'
+
+// optionally including an emulator
+sdkManager {
+  emulatorVersion 'android-19'
+  emulatorArchitecture 'armeabi-v7a' // optional, defaults to arm
+}
+```
+
+See [[Installing Android SDK Tools with Chef or Puppet]] if you rely on Chef or Puppet for your machine configuration management.   It will show you the steps to install at least Java and any other dependencies.
+
+### Install the Android SDK (Manual Way)
+
 `cd` to your home directory (`/Users/ciandroid`), or your preferred place for file downloads.
 
 Now download the Android SDK without Eclipse bundled. Go to [Android SDK](http://developer.android.com/sdk/index.html) and copy the URL for the **SDK Tools Only** download that's appropriate for your build machine OS.
@@ -61,7 +89,7 @@ Unzip and place the contents within your home directory. The directory names can
 
  ![Directory structure on the build server](https://dl.dropboxusercontent.com/u/10808663/gradle_jenkins_android/directories_on_build_server.png)
 
-Now it's time to set your build environment's `PATH` variable and other variables that Jenkins will use to locate Android and Gradle.
+Now it's time to set your build environment's `PATH` variable and other variables that Jenkins will use to locate Android.
 
 `cd` to your CI environment's home directory (`ciandroid` home dir) and edit your `.bash_profile` file. If you're not using bash, edit the right config file for your environment.
 
@@ -75,8 +103,9 @@ Make your `.bash_profile` look like the following, replacing paths as needed:
 Save and quit. Reload `.bash_profile`:
 
     $ source ~./bash_profile
+
+### Installing Android SDK Tools (via the GUI)
  
-### Install Android SDK Packages
 For this step, it's especially helpful to have GUI access to the build server. Installing particular Android SDK packages from the command line is tricky. So if you have not already done so, use VNC to connect to your build machine and open a terminal there.
 
 ![Android SDK manager on build machine](https://dl.dropboxusercontent.com/u/10808663/gradle_jenkins_android/android_sdk_manager.png)
@@ -85,27 +114,27 @@ At the prompt, type `android` and hit Enter to launch the Android SDK Manager in
 
 You will want to install the same Android SDK packages on your build machine as you did to get Gradle running locally. Before you begin, take a look at the `build.gradle` file in your project.
 
-Here are the SDK package names you'll definitely need:
+#### Packages to install
 
-#### Tools
-* Android SDK Tools (latest version)
-* Android SDK Platform-tools (latest version)
-* Android SDK Build-tools (latest version)
-* Android SDK Build-tools for the version of Android that you listed in the `build.gradle` file as the `android: buildToolsVersion` target. If your `build.gradle` says 
+Here are the SDK package names you'll definitely wish to select:
 
+  * Android SDK Tools (latest version)
+  * Android SDK Platform-tools (latest version)
+  * Android SDK Build-tools (latest version)
+  * Android SDK Build-tools for the version of Android that you listed in the `build.gradle` file as the `android: buildToolsVersion` target. If your `build.gradle` says 
+```gradle
     android {
         buildToolsVersion '17'
         ...
     }
-    
-then make sure to download that API version in the Android SDK Manager. 
+```then make sure to download that API version in the Android SDK Manager. 
 
-#### Android API
-Download the complete SDK package set for the API levels that you named in the `android: compileSdkVersion` section of your `build.gradle` file.
+  * Android SDK set for the API levels that you named in the `android: compileSdkVersion` section of your `build.gradle` file.
 
-#### Extras
-* Android Support Repository
-* Android Support Library
+You will also want to download the extras:
+  * Android Support Repository
+  * Android Support Library
+
 
 ### Load your Test Project on the Build Server
 Your environment should be ready to go! You can type `gradle` at a prompt to see that it's installed. 
