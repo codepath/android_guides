@@ -60,7 +60,7 @@ The Developer Console for Google Play provides API support for you to be able to
   |publishApkRelease            | Uploads the APK and the summary of recent changes.                   |
   |publishListingRelease        | Uploads the descriptions and images for the Play Store listing.      |
   |publishRelease               | Uploads everything.                                                  |
-  |bootstrapReleasePlayResources| Fetch all existing data from the Play Store to bootstrap the required files and folders |                               
+  |bootstrapReleasePlayResources| Fetch all existing data from the Play Store                          |
                       
    You can now type the following gradle commands such as the follwoing:
 
