@@ -8,7 +8,6 @@ For Chef, you can download the chef-android-sdk recipe.  It has a few dependenci
 wget https://github.com/gildegoma/chef-android-sdk/archive/master.zip
 wget https://github.com/burtlo/ark/archive/master.zip
 wget https://github.com/sneal/7-zip/archive/master.zip
-
 ```
 
 Assuming you install chef-android-sdk, this recipe should install the latest Android SDK tools and setup the environment variables in `/etc/profile.d/android-sdk.sh`.
