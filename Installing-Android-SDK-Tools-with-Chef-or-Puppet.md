@@ -12,7 +12,9 @@ wget https://github.com/sneal/7-zip/archive/master.zip
 
 Assuming you install chef-android-sdk, this recipe should install the latest Android SDK tools and setup the environment variables in `/etc/profile.d/android-sdk.sh`.
 
-If you want to download all the SDK packages and Build Tools, you will need to type:
+## Downloading the SDK 
+
+Once you have setup these Chef recipes, you will need to type:
 
 ```
 source /etc/profile.d/android-sdk.sh
