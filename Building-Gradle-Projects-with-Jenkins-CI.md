@@ -1,6 +1,6 @@
 Once you've begun to use Gradle to build and test projects (see [[Getting Started with Gradle|Getting-Started-with-Gradle]]), you might like to build automatically, run tests on every push to your repo, and push your builds to a deployment system.
  
-This tutorial reflects the author's workplace build environment, with [Jenkins CI](http://jenkins-ci.org/) running on a build server on the local network. You may be able to adapt this guide if you are using [Travis CI](http://docs.travis-ci.com/user/languages/java/) or [CircleCI](https://circleci.com/docs/android/).
+You may be able to adapt this guide if you are using [Travis CI](http://docs.travis-ci.com/user/languages/java/) or [CircleCI](https://circleci.com/docs/android/).
 
 ## Build Your Project Locally
 Use your local machine as a testbed to keep track of your environment configuration: 
