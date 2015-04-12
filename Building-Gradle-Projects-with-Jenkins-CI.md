@@ -48,7 +48,7 @@ Note: if `su` prompts you for a password, it wants your **superuser** password, 
 
 ### Install the Android SDK (Automated Way)
 
-You can use [Jake Wharton's SDK Manager](https://github.com/JakeWharton/sdk-manager-plugin) to manage all missing SDK dependencies.  These definitions should be declared before the regular `com.android.application` plugin is applied:
+You can use [Jake Wharton's SDK Manager](https://github.com/JakeWharton/sdk-manager-plugin) to manage all missing SDK dependencies.  These definitions should be declared before the regular `com.android.application` plugin is applied.  If you have [multiple subprojects](http://gradle.org/docs/current/userguide/multi_project_builds.html) used in your app, make sure every `build.gradle` has this dependency included.
 
 ```gradle
 buildscript {
@@ -71,7 +71,7 @@ sdkManager {
 }
 ```
 
-See [[Installing Android SDK Tools with Chef or Puppet]] if you rely on Chef or Puppet for your machine configuration management.   It will show you the steps to install at least Java and any other dependencies.
+See [[Installing Android SDK Tools with Chef or Puppet]] if you rely on Chef or Puppet for your machine configuration management.   
 
 ### Install the Android SDK (Manual Way)
 
