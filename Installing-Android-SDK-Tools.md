@@ -1,4 +1,29 @@
-### Installing the Android SDK (The Hard Way)
+### Install the Android SDK (Automated Way)
+
+You can use [Jake Wharton's SDK Manager](https://github.com/JakeWharton/sdk-manager-plugin) to manage all missing SDK dependencies.  These definitions should be declared before the regular `com.android.application` plugin is applied.  If you have [multiple subprojects](http://gradle.org/docs/current/userguide/multi_project_builds.html) used in your app, make sure every `build.gradle` has this dependency included.
+
+```gradle
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath 'com.android.tools.build:gradle:0.12.+'
+    classpath 'com.jakewharton.sdkmanager:gradle-plugin:0.12.+'
+  }
+}
+
+apply plugin: 'android-sdk-manager' // run before com.android.application
+apply plugin: 'com.android.application'
+
+// optionally including an emulator
+sdkManager {
+  emulatorVersion 'android-19'
+  emulatorArchitecture 'armeabi-v7a' // optional, defaults to arm
+}
+```
+
+## Installing the Android SDK (The Manual Way)
 
 `cd` to your home directory (`/Users/ciandroid`), or your preferred place for file downloads.
 
@@ -62,7 +87,7 @@ You will also want to download the extras:
   * Android Support Repository
   * Android Support Library
 
-## Installing the Android SDK via Chef
+### Installing the Android SDK (via Chef)
 
 If you intend to incorporate Android builds into your continuous integration setup, you may want to use [Chef](https://learn.chef.io/) or Puppet to help automate this process.  These configuration management tools help automate the process of managing machine configurations in Amazon, Rackspace, Linode, or any cloud-based hosting service.  
 
