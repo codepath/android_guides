@@ -24,54 +24,9 @@ If this is the case, you should set up a node environment just for your Android 
 
 You'll be creating a new user account on the Jenkins server, linking this account to a new virtual node configuration that runs on that user account, and then configuring your Jenkins job to run on the new node. 
 
-## Configure Your Build Machine
-Your machine is ready to be customized for Android and Gradle. You'll be re-creating many features of your local development environment.
+### Install the Android SDK 
 
-You'll need `wget`. Check that you've got it:
-
-`which wget`
-
-If it's not installed, [go get it](http://osxdaily.com/2012/05/22/install-wget-mac-os-x/). (My build machine is a Mac.)
-
-Let's create a build node. I have found it helpful to create two accounts on the build server, my own account `ari` with superuser privileges, and then the `ciandroid` account with normal user privileges. 
-
-SSH to your build server.
-
-    $ ssh ari@ci.mydomain.com:9229
-
-Become the build node user with `su`, and go to your build environment's home directory.
-
-    $ sudo su ciandroid
-    $ cd
-
-Note: if `su` prompts you for a password, it wants your **superuser** password, not the account password for the `ciandroid` user.
-
-### Install the Android SDK (Automated Way)
-
-You can use [Jake Wharton's SDK Manager](https://github.com/JakeWharton/sdk-manager-plugin) to manage all missing SDK dependencies.  These definitions should be declared before the regular `com.android.application` plugin is applied.  If you have [multiple subprojects](http://gradle.org/docs/current/userguide/multi_project_builds.html) used in your app, make sure every `build.gradle` has this dependency included.
-
-```gradle
-buildscript {
-  repositories {
-    mavenCentral()
-  }
-  dependencies {
-    classpath 'com.android.tools.build:gradle:0.12.+'
-    classpath 'com.jakewharton.sdkmanager:gradle-plugin:0.12.+'
-  }
-}
-
-apply plugin: 'android-sdk-manager' // run before com.android.application
-apply plugin: 'com.android.application'
-
-// optionally including an emulator
-sdkManager {
-  emulatorVersion 'android-19'
-  emulatorArchitecture 'armeabi-v7a' // optional, defaults to arm
-}
-```
-
-See [[Installing Android SDK Tools the Manual Way]] if you wish to see how to deal with downloading the Android SDK the hard way.
+Follow the instructions for [[Installing Android SDK Tools]].  The guide for taking care of missing SDK dependencies can be greatly simplified by following the automated approach.
 
 ### Load your Test Project on the Build Server
 Your environment should be ready to go! You can type `gradle` at a prompt to see that it's installed. 
