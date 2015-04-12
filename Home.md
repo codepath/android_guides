@@ -200,6 +200,7 @@ Focused on issues like deployment, testing, dependency management, etc:
 
 * [[Getting Started with Gradle]]
 * [[Using Android Studio]]
+* [[Installing Android SDK Tools]]
 * [[Building Gradle Projects with Jenkins CI]]
 * [[Android Unit and Integration Testing]] (with Roboelectric and Robotium)
 * [[Robolectric Installation for Unit Testing]]
