@@ -23,7 +23,7 @@ sdkManager {
 }
 ```
 
-## Installing the Android SDK (The Manual Way)
+## Installing the Android SDK (Manual Way)
 
 Download the Android SDK without Eclipse bundled. Go to [Android SDK](http://developer.android.com/sdk/index.html) and copy the URL for the **SDK Tools Only** download that's appropriate for your build machine OS.
 
