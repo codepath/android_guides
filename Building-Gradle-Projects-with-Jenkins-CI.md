@@ -71,70 +71,7 @@ sdkManager {
 }
 ```
 
-See [[Installing Android SDK Tools with Chef or Puppet]] if you rely on Chef or Puppet for your machine configuration management.   
-
-### Install the Android SDK (Manual Way)
-
-`cd` to your home directory (`/Users/ciandroid`), or your preferred place for file downloads.
-
-Now download the Android SDK without Eclipse bundled. Go to [Android SDK](http://developer.android.com/sdk/index.html) and copy the URL for the **SDK Tools Only** download that's appropriate for your build machine OS.
-
-![List of Android SDK downloads from developers.android.com](https://dl.dropboxusercontent.com/u/10808663/gradle_jenkins_android/sdk_downloads.png)
-
-On your build machine, `wget` the correct SDK URL:
-
-    $ wget http://dl.google.com/android/android-sdk_r22.6.2-macosx.zip
-
-Unzip and place the contents within your home directory. The directory names can be anything you like, but I like the following setup.  The Android SDK is in `/Users/ciandroid/src/`.
-
- ![Directory structure on the build server](https://dl.dropboxusercontent.com/u/10808663/gradle_jenkins_android/directories_on_build_server.png)
-
-Now it's time to set your build environment's `PATH` variable and other variables that Jenkins will use to locate Android.
-
-`cd` to your CI environment's home directory (`ciandroid` home dir) and edit your `.bash_profile` file. If you're not using bash, edit the right config file for your environment.
-
-Make your `.bash_profile` look like the following, replacing paths as needed:
-
-    # Android 
-    export ANDROID_HOME=/Users/ciandroid/android-sdk-macosx
-    export PATH=$PATH:$ANDROID_HOME/tools
-
- 
-Save and quit. Reload `.bash_profile`:
-
-    $ source ~./bash_profile
-
-### Installing Android SDK Tools (via the GUI)
- 
-For this step, it's especially helpful to have GUI access to the build server. Installing particular Android SDK packages from the command line is tricky. So if you have not already done so, use VNC to connect to your build machine and open a terminal there.
-
-![Android SDK manager on build machine](https://dl.dropboxusercontent.com/u/10808663/gradle_jenkins_android/android_sdk_manager.png)
-
-At the prompt, type `android` and hit Enter to launch the Android SDK Manager in a window. If this doesn't work, your `PATH` variable has not been set up with the Android SDK location.   
-
-You will want to install the same Android SDK packages on your build machine as you did to get Gradle running locally. Before you begin, take a look at the `build.gradle` file in your project.
-
-#### Packages to install
-
-Here are the SDK package names you'll definitely wish to select:
-
-  * Android SDK Tools (latest version)
-  * Android SDK Platform-tools (latest version)
-  * Android SDK Build-tools (latest version)
-  * Android SDK Build-tools for the version of Android that you listed in the `build.gradle` file as the `android: buildToolsVersion` target. If your `build.gradle` says 
-```gradle
-    android {
-        buildToolsVersion '17'
-        ...
-    }
-```then make sure to download that API version in the Android SDK Manager. 
-
-  * Android SDK set for the API levels that you named in the `android: compileSdkVersion` section of your `build.gradle` file.
-
-You will also want to download the extras:
-  * Android Support Repository
-  * Android Support Library
-
+See [[Installing Android SDK Tools the Manual Way]] if you wish to see how to deal with downloading the Android SDK the hard way.
 
 ### Load your Test Project on the Build Server
 Your environment should be ready to go! You can type `gradle` at a prompt to see that it's installed. 
