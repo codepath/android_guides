@@ -102,7 +102,7 @@ There is currently no filter to install the build tools directly.  See this [tic
 
 If you intend to incorporate Android builds into your continuous integration setup, you may want to use [Chef](https://learn.chef.io/) or Puppet to help automate this process.  These configuration management tools help automate the process of managing machine configurations in Amazon, Rackspace, Linode, or any cloud-based hosting service.  
 
-For Chef, you can download the [chef-android-sdk](https://github.com/gildegoma/chef-android-sdk) recipe.  It has a few dependencies, including Ark and 7-zip:
+For Chef, you can download the [chef-android-sdk](https://github.com/gildegoma/chef-android-sdk) recipe.  It has a few dependencies, including Ark and 7-zip.  It will automatically download the latest SDK tools into `/usr/local/android-sdk` including the `android` binary.
 
 ```bash
 wget https://github.com/gildegoma/chef-android-sdk/archive/master.zip
@@ -114,4 +114,5 @@ Assuming you install chef-android-sdk, this recipe should install the latest And
 
 ```bash
 source /etc/profile.d/android-sdk.sh
+./gradlew build
 ```
