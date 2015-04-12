@@ -26,7 +26,7 @@ You'll be creating a new user account on the Jenkins server, linking this accoun
 
 ### Install the Android SDK 
 
-Follow the instructions for [[Installing Android SDK Tools]].  The guide for taking care of missing SDK dependencies can be greatly simplified by following the automated way.  The directions for doing it manually is also included, except that you need to login to your Jenkins build server, sudo as `ciandroid`, and downloading the packages on the server.
+Follow the instructions for [[Installing Android SDK Tools]].  The guide for taking care of missing SDK dependencies can be greatly simplified by following the automated way.  The directions for doing it manually is also included, except that you need to login to your Jenkins build server, sudo as `ciandroid`, and download the packages on the server.
 
 ### Load your Test Project on the Build Server
 Your environment should be ready to go! You can type `gradle` at a prompt to see that it's installed. 
