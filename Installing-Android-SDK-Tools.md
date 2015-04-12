@@ -25,13 +25,11 @@ sdkManager {
 
 ## Installing the Android SDK (The Manual Way)
 
-`cd` to your home directory (`/Users/ciandroid`), or your preferred place for file downloads.
-
-Now download the Android SDK without Eclipse bundled. Go to [Android SDK](http://developer.android.com/sdk/index.html) and copy the URL for the **SDK Tools Only** download that's appropriate for your build machine OS.
+Download the Android SDK without Eclipse bundled. Go to [Android SDK](http://developer.android.com/sdk/index.html) and copy the URL for the **SDK Tools Only** download that's appropriate for your build machine OS.
 
 ![List of Android SDK downloads from developers.android.com](https://dl.dropboxusercontent.com/u/10808663/gradle_jenkins_android/sdk_downloads.png)
 
-On your build machine, `wget` the correct SDK URL:
+Use `wget` with the correct SDK URL:
 
     $ wget http://dl.google.com/android/android-sdk_r22.6.2-macosx.zip
 
@@ -39,11 +37,9 @@ Unzip and place the contents within your home directory. The directory names can
 
  ![Directory structure on the build server](https://dl.dropboxusercontent.com/u/10808663/gradle_jenkins_android/directories_on_build_server.png)
 
-Now it's time to set your build environment's `PATH` variable and other variables that Jenkins will use to locate Android.
+Now it's time to set your build environment's `PATH` variable and other variables that will be use to locate Android.
 
-`cd` to your CI environment's home directory (`ciandroid` home dir) and edit your `.bash_profile` file. If you're not using bash, edit the right config file for your environment.
-
-Make your `.bash_profile` look like the following, replacing paths as needed:
+Edit your `.bash_profile` file. If you're not using bash, edit the right config file for your environment.
 
     # Android 
     export ANDROID_HOME=/Users/ciandroid/android-sdk-macosx
