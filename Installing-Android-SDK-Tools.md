@@ -1,4 +1,4 @@
-## Install the Android SDK (Automated Way)
+## Installing the Android SDK (Automated Way)
 
 You can use [Jake Wharton's SDK Manager](https://github.com/JakeWharton/sdk-manager-plugin) to manage all missing SDK dependencies.  These definitions should be declared before the regular `com.android.application` plugin is applied.  If you have [multiple subprojects](http://gradle.org/docs/current/userguide/multi_project_builds.html) used in your app, make sure every `build.gradle` has this dependency included.
 
@@ -98,11 +98,11 @@ sudo android update sdk --no-ui --filter platform-tools,tools
 
 There is currently no filter to install the build tools directly.  See this [ticket](https://code.google.com/p/android/issues/detail?id=78765) for more information.
 
-### Installing the Android SDK (via Chef)
+## Installing the Android SDK (via Chef)
 
-If you intend to incorporate Android builds into your continuous integration setup, you may want to use [Chef](https://learn.chef.io/) or Puppet to help automate this process.  These configuration management tools help automate the process of managing machine configurations in Amazon, Rackspace, Linode, or any cloud-based hosting service.  
+Finally, if you intend to incorporate Android builds into your continuous integration setup, you may want to use [Chef](https://learn.chef.io/) or Puppet to help automate this process.  These configuration management tools help automate the process of managing machine configurations in Amazon, Rackspace, Linode, or any cloud-based hosting service.  
 
-For Chef, you can download the [chef-android-sdk](https://github.com/gildegoma/chef-android-sdk) recipe.  It has a few dependencies, including Ark and 7-zip.  It will automatically download the latest SDK tools into `/usr/local/android-sdk` including the `android` binary.
+For Chef, you can download the [chef-android-sdk](https://github.com/gildegoma/chef-android-sdk) recipe.  It has a few dependencies, including Ark and 7-zip. This recipe should install the latest Android SDK tools and setup the environment variables in `/etc/profile.d/android-sdk.sh`.  
 
 ```bash
 wget https://github.com/gildegoma/chef-android-sdk/archive/master.zip
@@ -110,8 +110,14 @@ wget https://github.com/burtlo/ark/archive/master.zip
 wget https://github.com/sneal/7-zip/archive/master.zip
 ```
 
-Assuming you install chef-android-sdk, this recipe should install the latest Android SDK tools and setup the environment variables in `/etc/profile.d/android-sdk.sh`.  You will want to insert this statement before executing any `android` command-line:
+Assuming you install chef-android-sdk, this recipe should install the latest Android SDK tools and setup the environment variables in `/etc/profile.d/android-sdk.sh`.  You will want to insert this statement before running any command-line statements described in the previous section.
 
+```bash
+source /etc/profile.d/android-sdk.sh
+sudo android update sdk --no-ui --filter platform-tools,tools
+```
+
+You should also run this shell script before running any Gradle commands:
 ```bash
 source /etc/profile.d/android-sdk.sh
 ./gradlew build
