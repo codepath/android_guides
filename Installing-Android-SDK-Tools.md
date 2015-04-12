@@ -50,10 +50,8 @@ Save and quit. Reload `.bash_profile`:
 
     $ source ~./bash_profile
 
-### Installing Android SDK Tools (via the GUI)
+### Installing via the GUI
  
-For this step, it's especially helpful to have GUI access to the build server. Installing particular Android SDK packages from the command line is tricky. So if you have not already done so, use VNC to connect to your build machine and open a terminal there.
-
 ![Android SDK manager on build machine](https://dl.dropboxusercontent.com/u/10808663/gradle_jenkins_android/android_sdk_manager.png)
 
 At the prompt, type `android` and hit Enter to launch the Android SDK Manager in a window. If this doesn't work, your `PATH` variable has not been set up with the Android SDK location.   
@@ -83,34 +81,37 @@ You will also want to download the extras:
   * Android Support Repository
   * Android Support Library
 
-### Installing the Android SDK (via Chef)
-
-If you intend to incorporate Android builds into your continuous integration setup, you may want to use [Chef](https://learn.chef.io/) or Puppet to help automate this process.  These configuration management tools help automate the process of managing machine configurations in Amazon, Rackspace, Linode, or any cloud-based hosting service.  
-
-For Chef, you can download the [chef-android-sdk](https://github.com/gildegoma/chef-android-sdk) recipe.  It has a few dependencies, including Ark and 7-zip:
-
-```
-wget https://github.com/gildegoma/chef-android-sdk/archive/master.zip
-wget https://github.com/burtlo/ark/archive/master.zip
-wget https://github.com/sneal/7-zip/archive/master.zip
-```
-
-Assuming you install chef-android-sdk, this recipe should install the latest Android SDK tools and setup the environment variables in `/etc/profile.d/android-sdk.sh`.
 
 ## Downloading the SDK from the Command Line
 
-Once you have setup these Chef recipes, you will need to type:
+You can also download the SDK packages using the command line with the `--no-ui` parameter.
 
 ```
-source /etc/profile.d/android-sdk.sh
 android update sdk --no-ui --all
 ```
 
 If you want to be selective about installing, you can use `android list` to view all the packages and apply the `--filter` option for selective installs:
 
 ```
-source /etc/profile.d/android-sdk.sh
 sudo android update sdk --no-ui --filter platform-tools,tools
 ```
 
 There is currently no filter to install the build tools directly.  See this [ticket](https://code.google.com/p/android/issues/detail?id=78765) for more information.
+
+### Installing the Android SDK (via Chef)
+
+If you intend to incorporate Android builds into your continuous integration setup, you may want to use [Chef](https://learn.chef.io/) or Puppet to help automate this process.  These configuration management tools help automate the process of managing machine configurations in Amazon, Rackspace, Linode, or any cloud-based hosting service.  
+
+For Chef, you can download the [chef-android-sdk](https://github.com/gildegoma/chef-android-sdk) recipe.  It has a few dependencies, including Ark and 7-zip:
+
+```bash
+wget https://github.com/gildegoma/chef-android-sdk/archive/master.zip
+wget https://github.com/burtlo/ark/archive/master.zip
+wget https://github.com/sneal/7-zip/archive/master.zip
+```
+
+Assuming you install chef-android-sdk, this recipe should install the latest Android SDK tools and setup the environment variables in `/etc/profile.d/android-sdk.sh`.  You will want to insert this statement before executing any `android` command-line:
+
+```bash
+source /etc/profile.d/android-sdk.sh
+```
