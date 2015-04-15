@@ -29,6 +29,11 @@ public class MyTestService extends IntentService {
   }
 
   @Override
+  public onCreate() {
+     super.onCreate() // if you override onCreate(), make sure to call super().
+  }
+
+  @Override
   protected void onHandleIntent(Intent intent) {
     // This describes what will happen when service is triggered
   }
