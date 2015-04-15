@@ -22,6 +22,17 @@ Keep in mind that the combination of these libraries may not always play nicely 
 
 Note that you cannot use IcePick at the current time to save state of Parceler objects.  See this [GitHub issue](https://github.com/frankiesardo/icepick/issues/36) for more context.  You will need to use Parcelable objects with IcePick.
 
+#### ButterKnife and Parceler
+
+Using the Butterknife library with the Parceler library causes multiple declarations of javax.annotation.processing.Processor.  In this case, you have to exclude this conflict in your `app/build.gradle` file:
+
+```gradle
+   packagingOptions {
+
+        exclude 'META-INF/services/javax.annotation.processing.Processor'  // butterknife
+    }
+```
+
 ### Convenience
 
  * [Dagger](http://square.github.io/dagger/) - A fast dependency injector for Android and Java.  See this [video intro](http://www.infoq.com/presentations/Dagger) from Square.
