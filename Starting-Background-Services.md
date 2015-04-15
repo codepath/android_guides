@@ -362,6 +362,10 @@ Now that the base `Service` actually runs in the same process as the application
 
 In cases where we want to avoid services altogether, you might want to consider `Runnable` as a last resort. In 99% of cases, you will probably use a `Service` or `IntentService` but in that last 1% of cases, check [this article about threads](http://www.techotopia.com/index.php/A_Basic_Overview_of_Android_Threads_and_Thread_handlers) can get you started. In nearly all cases, the `IntentService` is the simplest and most robust option for background processing. Make sure you have a very good reason for implementing your own threading. Otherwise, fall back to the higher-level built in mechanisms provided by the Android framework.
 
+## Networking with IntentService
+
+If you intend to perform networking in the IntentService, keep in mind that you do not necessarily need to be concerned about blocking the main thread.  For example, when using an IntentService with the [Android Async HTTP library](https://github.com/loopj/android-async-http), you need to use the synchronous client instead of the default asynchronous version.  See [this example](https://github.com/loopj/android-async-http/blob/master/sample/src/main/java/com/loopj/android/http/sample/services/ExampleIntentService.java) for more information.  Otherwise, you may get errors about the thread no longer existing since the service will executing all the statements and exit.
+
 ## Concluding Background Services
 
 This guide has shown you the basics of using an IntentService and communicating between a service and an Activity. For a more complete example of an `IntentService` in action, check out [this tutorial on peachpit](http://www.peachpit.com/articles/article.aspx?p=1823692&seqNum=4).
