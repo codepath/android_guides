@@ -31,7 +31,7 @@ public class MyTestService extends IntentService {
   @Override
   public onCreate() {
      super.onCreate() // if you override onCreate(), make sure to call super().
-     // If a Context object is needed, call getApplicationContext() in this section.
+     // If a Context object is needed, call getApplicationContext() here.
   }
 
   @Override
