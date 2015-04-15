@@ -16,12 +16,16 @@ This "standard pack" listed below are libraries that are quite popular, widely a
 | [Crouton](https://github.com/keyboardsurfer/Crouton) | Context-sensitive, configurable alert notices much better than toasts |
 | [Hugo](https://github.com/JakeWharton/hugo) | Easier logging using annotations |
 
+Keep in mind that the combination of these libraries may not always play nicely with each other.  The following section
+
+#### Parceler and IcePick
+
+Note that you cannot use IcePick at the current time to save state of Parceler objects.  See this [GitHub issue](https://github.com/frankiesardo/icepick/issues/36) for more context.  You will need to use Parcelable objects with IcePick.
+
 ### Convenience
 
  * [Dagger](http://square.github.io/dagger/) - A fast dependency injector for Android and Java.  See this [video intro](http://www.infoq.com/presentations/Dagger) from Square.
- * [Parceler](https://github.com/johncarl81/parceler) - Android Parcelable made easy through code generation.
  * [AutoParcel](https://github.com/frankiesardo/auto-parcel) - Port of Google AutoValue for Android with Parcelable generation goodies.
- * [IcePick](https://github.com/frankiesardo/icepick) - Android Instance State made easy
  * [Hugo](https://github.com/JakeWharton/hugo) - Easier logging within your app
  * [Logger](https://github.com/orhanobut/logger) - Much cleaner and easier logcat trace messages
  * [AndroidAnnotations](https://github.com/excilys/androidannotations) - Framework that speeds up Android development. It takes care of the plumbing, and lets you concentrate on what's really important. By simplifying your code, it facilitates its maintenance
