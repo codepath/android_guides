@@ -16,7 +16,7 @@ This "standard pack" listed below are libraries that are quite popular, widely a
 | [Crouton](https://github.com/keyboardsurfer/Crouton) | Context-sensitive, configurable alert notices much better than toasts |
 | [Hugo](https://github.com/JakeWharton/hugo) | Easier logging using annotations |
 
-Keep in mind that the combination of these libraries may not always play nicely with each other.  The following section
+Keep in mind that the combination of these libraries may not always play nicely with each other.  The following section highlights some of these issues.
 
 #### Parceler and IcePick
 
