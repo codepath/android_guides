@@ -104,14 +104,7 @@ One of the issues in the new Gradle build system is that you can often get "Mult
 
 If a library is included twice as a dependency you will encounter this issue. Review the `libs` folder for JARS and the gradle file at `app/build.gradle` and see if you can identify the library dependency that has been loaded into your application twice.
 
-If one dependency library already includes an identical set of libraries, then you may have to make changes to your Gradle configurations to avoid this conflict.  For instance, including the Butterknife library with the Parceler library causes multiple declarations of javax.annotation.processing.Processor.  In this case, you have to exclude this conflict:
-
-```gradle
-   packagingOptions {
-
-        exclude 'META-INF/services/javax.annotation.processing.Processor'  // butterknife
-    }
-```
+If one dependency library already includes an identical set of libraries, then you may have to make changes to your Gradle configurations to avoid this conflict.   This problem usually happens when there are multiple third-party libraries integrated into your code base. See [[Must-Have-Libraries#butterknife-and-parceler]] for more information.
 
 Another error if you attempt to include a library that is a subset of another library.  For instance, suppose we included the Google play-services library but thought we also needed to include it with the play-services-map library.:
 
