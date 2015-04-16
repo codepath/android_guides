@@ -162,6 +162,10 @@ Material design introduces elevation for UI elements. Elevation (controlling the
     android:elevation="8dp" />
 ```
 
+with this as the result:
+
+![Example](http://i.imgur.com/QzaSPbI.png)
+
 You can also set this from code using `getElevation()` or `setElevation()`. To customize the shadows or outlines of elevated views, check out the [official guide on shadows](https://developer.android.com/training/material/shadows-clipping.html#Shadows).
 
 ### Dynamic Color Palettes
@@ -180,7 +184,7 @@ If you want your Dialogs to have a Material look and feel across all Android ver
  * [AlertDialogPro](https://github.com/fengdai/AlertDialogPro/)
  * [MaterialDialog](https://github.com/drakeet/MaterialDialog)
 
-![Material Dialog](https://raw.githubusercontent.com/afollestad/material-dialogs/master/art/screenshots.png)
+![Material Dialog](http://i.imgur.com/U4mr2BB.jpg)
 
 ## References
 
