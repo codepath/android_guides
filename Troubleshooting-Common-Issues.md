@@ -39,6 +39,12 @@ If Android Studio starts freezing up or crashing even after rebooting the IDE or
 
 and then uninstall Android Studio and re-install the latest stable version. This should allow you to boot Android Studio again without errors.
 
+### Seeing `Unable to execute dex: method ID` when compiling
+
+This might also show up as `Too many field references: 131000; max is 65536.` in newer build systems. This error occurs when the total number of references within a single bytecode file exceeds the 65,536 method limit. This usually means you have a substantial amount of code or are loading a large number of libraries.
+
+After crossing that limit, we need to adjust our project to use a multidex configuration. To enable this, please review the [official multidex guide](https://developer.android.com/tools/building/multidex.html#mdex-gradle) to adjust your gradle files.
+
 ### Seeing `java.lang.OutOfMemoryError : GC overhead limit` when compiling
 
 You are most likely exhausting the heap size especially during compilation.  Try to add inside this setting in your `app/build.gradle`:
