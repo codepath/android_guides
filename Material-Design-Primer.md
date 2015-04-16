@@ -153,6 +153,25 @@ This animation is often times used in conjunction with a floating action button 
 
 ## Material Styles
 
+### Elevation and Shadows
+
+Material design introduces elevation for UI elements. Elevation (controlling the Z-axis) determines the shadow cast by each view. You can set the elevation declaratively in your layouts, defined in `dp` for any view:
+
+```xml
+<ImageView …
+    android:elevation="8dp" />
+```
+
+You can also set this from code using `getElevation()` or `setElevation()`. To customize the shadows or outlines of elevated views, check out the [official guide on shadows](https://developer.android.com/training/material/shadows-clipping.html#Shadows).
+
+### Dynamic Color Palettes
+
+Material Design encourages dynamic use of color, especially when you have rich images to work with. The [[new Palette support library|Dynamic-Color-using-Palettes]] lets you extract a small set of colors from an image to style your UI controls to match; creating an immersive experience. 
+
+![Palette](http://i.imgur.com/nwtguAS.png)
+
+The extracted swatches will include vibrant and muted tones as well as foreground text colors for optimal legibility. This allows us to use these dynamically selected colors to apply better color selections to our layouts.
+
 ### Dialog Styles
 
 If you want your Dialogs to have a Material look and feel across all Android versions, you’ll want to use a library to achieve modern dialogs such as:
@@ -162,14 +181,6 @@ If you want your Dialogs to have a Material look and feel across all Android ver
  * [MaterialDialog](https://github.com/drakeet/MaterialDialog)
 
 ![Material Dialog](https://raw.githubusercontent.com/afollestad/material-dialogs/master/art/screenshots.png)
-
-### Dynamic Color Palettes
-
-Material Design encourages dynamic use of color, especially when you have rich images to work with. The [[new Palette support library|Dynamic-Color-using-Palettes]] lets you extract a small set of colors from an image to style your UI controls to match; creating an immersive experience. 
-
-![Palette](http://i.imgur.com/nwtguAS.png)
-
-The extracted swatches will include vibrant and muted tones as well as foreground text colors for optimal legibility. This allows us to use these dynamically selected colors to apply better color selections to our layouts.
 
 ## References
 
