@@ -259,6 +259,28 @@ public class MainActivity extends Activity {
 
 Keep in mind that any application and any activity can "listen" for the messages using this same approach. This is what makes the `BroadcastReceiver` a more powerful approach for communication between services and activities. See the official tutorial for [reporting status from an IntentService](http://developer.android.com/training/run-background-service/report-status.html) for more details.
 
+## Networking with IntentService
+
+If you intend to perform networking within the IntentService, keep in mind that you do not necessarily need to be concerned about blocking the primary thread. The service is already running in the background so you will want to **avoid executing AsyncTasks within a Service**. Instead, for simple operations, you can send networking requests synchronously. For example, when using an IntentService with the [Android Async HTTP library](https://github.com/loopj/android-async-http), you need to use the synchronous client `SyncHttpClient` instead of the default asynchronous version:
+
+```java
+public class NetworkedIntentService extends IntentService {
+   private AsyncHttpClient aClient = new SyncHttpClient();
+
+    @Override
+    protected void onHandleIntent(Intent intent) {
+       // Send synchronous request
+       aClient.get(this, someUrlHere, new AsyncHttpResponseHandler() {
+           // ... onSuccess here
+       }
+    }
+}
+```
+
+
+
+See [this service example](https://github.com/loopj/android-async-http/blob/master/sample/src/main/java/com/loopj/android/http/sample/services/ExampleIntentService.java) for a more complete example. If you try to send asynchronous requests, you will get errors about the thread no longer exists since the service will terminate before the network requests complete.
+
 ## Using with AlarmManager for Periodic Tasks
 
 Suppose we need to set periodically executing background tasks. For example, we want to be able to check for new emails or content from a server every 15 minutes even if our application isn't running. This is useful for apps like email clients, news readers, instant messaging clients, et al. In this case, we don't necessarily need a long running task that runs forever. That would take drain battery life significantly and isn't what we want anyways.
@@ -361,10 +383,6 @@ Now that the base `Service` actually runs in the same process as the application
 ## Custom Threading
 
 In cases where we want to avoid services altogether, you might want to consider `Runnable` as a last resort. In 99% of cases, you will probably use a `Service` or `IntentService` but in that last 1% of cases, check [this article about threads](http://www.techotopia.com/index.php/A_Basic_Overview_of_Android_Threads_and_Thread_handlers) can get you started. In nearly all cases, the `IntentService` is the simplest and most robust option for background processing. Make sure you have a very good reason for implementing your own threading. Otherwise, fall back to the higher-level built in mechanisms provided by the Android framework.
-
-## Networking with IntentService
-
-If you intend to perform networking in the IntentService, keep in mind that you do not necessarily need to be concerned about blocking the main thread.  For example, when using an IntentService with the [Android Async HTTP library](https://github.com/loopj/android-async-http), you need to use the synchronous client instead of the default asynchronous version.  See [this example](https://github.com/loopj/android-async-http/blob/master/sample/src/main/java/com/loopj/android/http/sample/services/ExampleIntentService.java) for more information.  Otherwise, you may get errors about the thread no longer existing since the service will executing all the statements and exit.
 
 ## Concluding Background Services
 
