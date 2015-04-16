@@ -32,6 +32,7 @@ compile 'nl.qbusict:cupboard:(insert latest version)'
 
 to the dependencies section of your app's build.gradle file.
 
+You can locate the latest version easily with the [gradleplease web tool](http://gradleplease.appspot.com/#cupboard). 
 You should now have ahold of the files you need for Cupboard.
 
 
