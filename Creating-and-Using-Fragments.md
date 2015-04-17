@@ -148,7 +148,7 @@ public class SomeFragment extends Fragment {
 	ThingsAdapter adapter;
 	FragmentActivity listener;
         
-        // This event fires 1st, before creation of fragment or any views
+	// This event fires 1st, before creation of fragment or any views
  	// The onAttach method is called when the Fragment instance is associated with an Activity. 
 	// This does not mean the Activity is fully initialized.
 	@Override
@@ -157,7 +157,7 @@ public class SomeFragment extends Fragment {
 		this.listener = (FragmentActivity) activity;
 	}
        
-        // This event fires 2nd, before views are created for the fragment
+	// This event fires 2nd, before views are created for the fragment
 	// The onCreate method is called when the Fragment instance is being created, or re-created.
 	// Use onCreate for any standard setup that does not require the activity to be fully created
 	@Override
@@ -167,7 +167,7 @@ public class SomeFragment extends Fragment {
 		adapter = new ThingsAdapter(getActivity(), things);
 	}
 	
-        // This event fires 3rd, and is the first time views are available in the fragment
+	// This event fires 3rd, and is the first time views are available in the fragment
 	// The onCreateView method is called when Fragment should create its View object hierarchy. 
 	// Use onCreateView to get a handle to views as soon as they are freshly inflated
 	@Override
@@ -178,7 +178,7 @@ public class SomeFragment extends Fragment {
 		return v;
 	}
 	
-        // This fires 4th, and this is the first time the Activity is fully created.
+	// This fires 4th, and this is the first time the Activity is fully created.
 	// Accessing the view hierarchy of the parent activity must be done in the onActivityCreated
 	// At this point, it is safe to search for activity View objects by their ID, for example.
 	@Override
