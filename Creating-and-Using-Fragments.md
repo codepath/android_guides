@@ -55,12 +55,12 @@ public class FooFragment extends Fragment {
 
 There are two ways to add a fragment to an activity: dynamically using **Java** and statically using **XML**. 
 
-Before embedding a "support" fragment in an Activity make sure the Activity is changed to extend from `FragmentActivity` which adds support for the fragment manager to all Android versions. Any activity using fragments should make sure to extend from `FragmentActivity`:
+Before embedding a "support" fragment in an Activity make sure the Activity is changed to extend from `FragmentActivity` or `ActionBarActivity` which adds support for the fragment manager to all Android versions. Any activity using fragments should make sure to extend from `FragmentActivity` or `ActionBarActivity`:
 
 ```java
-import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.ActionBarActivity;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends ActionBarActivity {
     // ...
 }
 ```
@@ -76,12 +76,6 @@ To add the fragment **statically**, simply embed the fragment in the activity's 
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-   <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
-
     <fragment
         android:name="com.example.android.FooFragment"
         android:id="@+id/fooFragment"
@@ -93,9 +87,9 @@ To add the fragment **statically**, simply embed the fragment in the activity's 
 
 #### Dynamically
 
-The second way is by adding the fragment **dynamically** in Java using the `FragmentManager`. The `FragmentManager` class and the [FragmentTransaction class](http://developer.android.com/reference/android/app/FragmentTransaction.html) allow you to add, remove and replace fragments in the layout of your activity.
+The second way is by adding the fragment **dynamically** in Java using the `FragmentManager`. The `FragmentManager` class and the [FragmentTransaction class](http://developer.android.com/reference/android/app/FragmentTransaction.html) allow you to add, remove and replace fragments in the layout of your activity at runtime.
 
-In this case, you need a "placeholder" FrameLayout that can later be replaced with the fragment:
+In this case, you want to add a "placeholder" container (usually a `FrameLayout`) to your activity where the fragment is inserted at runtime:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -103,12 +97,6 @@ In this case, you need a "placeholder" FrameLayout that can later be replaced wi
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-
- <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
 
   <FrameLayout
        android:id="@+id/your_placeholder"
@@ -118,19 +106,19 @@ In this case, you need a "placeholder" FrameLayout that can later be replaced wi
 </LinearLayout>
 ```
 
-and then you can use the [FragmentManager](http://developer.android.com/reference/android/app/FragmentManager.html) to create a [FragmentTransaction](http://developer.android.com/reference/android/app/FragmentTransaction.html) which allows us to replace the FrameLayout with any fragment at runtime:
+and then you can use the [FragmentManager](http://developer.android.com/reference/android/app/FragmentManager.html) to create a [FragmentTransaction](http://developer.android.com/reference/android/app/FragmentTransaction.html) which allows us to add fragments to the `FrameLayout` at runtime:
 
 ```java
 // Begin the transaction
 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-// Replace the container with the new fragment
+// Replace the contents of the container with the new fragment
 ft.replace(R.id.your_placeholder, new FooFragment());
 // or ft.add(R.id.your_placeholder, new FooFragment());
-// Execute the changes specified
+// Complete the changes added above
 ft.commit();
 ```
 
-If the fragment should always be in the activity, use XML to statically add but if it's more complex use the Java-based approach.
+If the fragment should always be within the activity, use XML to statically add the fragment but in more complex cases be sure to use the Java-based approach.
 
 ### Fragment Lifecycle
 
