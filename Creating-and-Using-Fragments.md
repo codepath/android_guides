@@ -190,6 +190,64 @@ public class SomeFragment extends Fragment {
 
 [This chart](http://developer.android.com/images/fragment_lifecycle.png) has the lifecycle displayed visually.
 
+### Looking Up a Fragment Instance
+
+Often when working with fragment, we need to lookup or find a fragment instance within a layout file. There are a few methods for looking up a fragment:
+
+ 1. **ID** - Lookup a fragment by calling `findFragmentById` on the `FragmentManager`
+ 2. **Tag** - Lookup a fragment by calling `findFragmentByTag` on the `FragmentManager`
+ 3. **Pager** - Lookup a fragment by calling `getRegisteredFragment` on a `PagerAdapter`
+
+#### Finding Fragment By ID
+
+If the fragment was statically embedded in the XML within an activity and given an `android:id` such as `fragmentDemo` then we can lookup this fragment by id by calling `findFragmentById` on the `FragmentManager`:
+
+```java
+public class MainActivity extends FragmentActivity {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (savedInstanceState == null) {
+          DemoFragment fragmentDemo = (DemoFragment) 
+              getSupportFragmentManager().findFragmentById(R.id.fragmentDemo);
+        }
+    }
+}
+```
+
+#### Finding Fragment By Tag
+
+If the fragment was dynamically added at runtime within an activity then we can lookup this fragment by tag by calling `findFragmentByTag` on the `FragmentManager`:
+
+```java
+public class MainActivity extends FragmentActivity {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (savedInstanceState == null) {
+          // Let's first dynamically add a fragment into a frame container
+          getSupportFragmentManager().beginTransaction(). 
+              replace(R.id.flContainer, new DemoFragment(), "SOMETAG").
+              commit();
+          // Now later we can lookup the fragment by tag
+          DemoFragment fragmentDemo = (DemoFragment) 
+              getSupportFragmentManager().findFragmentByTag("SOMETAG");
+        }
+    }
+}
+```
+
+#### Finding Fragment Within Pager
+
+If the fragment was dynamically added at runtime within an activity into a `ViewPager` using a [[FragmentPagerAdapter|ViewPager-with-FragmentPagerAdapter#setup-fragmentpageradapter]] then we can lookup the fragment by upgrading to a `SmartFragmentStatePagerAdapter` as [[described in the ViewPager guide|ViewPager-with-FragmentPagerAdapter#setup-smartfragmentstatepageradapter]]. Now with the adapter in place, we can also easily access any fragments within the ViewPager using `getRegisteredFragment`:
+
+```java
+// returns first Fragment item within the pager
+adapterViewPager.getRegisteredFragment(0); 
+```
+
+Note that the `ViewPager` loads the fragment instances lazily similar to the a `ListView` recycling items as they appear on screen. If you attempt to access a fragment that is not on screen, the lookup will return `null`.
+
 ### Communicating with Fragments
 
 Fragments should not directly communicate with each other, only through an activity.  Fragments should be modular and reusable components. Let the activity respond to intents and fragment callbacks in most cases.
@@ -541,6 +599,10 @@ public class ParentFragment extends Fragment {
 Note that **you must always use `getChildFragmentManager`** when interacting with nested fragments instead of using `getSupportFragmentManager`. Read [this stackoverflow post](http://stackoverflow.com/a/14775322) for an explanation of the difference between the two.
 
 In the child fragment, we can use `getParentFragment()` to get the reference to the parent fragment, similar to a fragment's `getActivity()` method that gives reference to the parent Activity. See [the docs](http://developer.android.com/reference/android/app/Fragment.html#getParentFragment\(\)) for more information. 
+
+### Managing Configuration Changes 
+
+When you are working with fragment as with activities, you need to make sure to [[handle configuration changes|Handling-Configuration-Changes#saving-and-restoring-fragment-state]] such as screen rotation or the activity being closed. Be sure to review [[the configuration changes guide|Handling-Configuration-Changes#saving-and-restoring-fragment-state]] for more details on how to save and restore fragment state.
 
 ## References
 
