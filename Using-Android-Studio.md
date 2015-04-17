@@ -25,6 +25,12 @@ Also, you should be able to do the same with Maven dependencies.  go to Project 
 
 Regardless, you should keep track of what gets changed in the build.gradle since that is ultimately the file Android Studio uses to handle dependency management.
 
+### Exporting Libraries in Android Studio
+
+In Eclipse, Android libraries could be exported in the `JAR` format and added as libraries in the `libs` folder. With Android Studio, the option to export an Android library as a jar file **has been removed**. JARs had a number of limitations including the **inability to include resource files** within a library. With Android Studio and Gradle, "Android Archives" (or `AAR` files) are now the new binary format for exporting Android libraries. Android Studio provides support for export your Android library as an [aar file](http://tools.android.com/tech-docs/new-build-system/aar-format). See [this stackoverflow post](http://stackoverflow.com/a/17132055/313399) for more details.
+
+If your library is configured as an Android library (i.e. Uses `apply plugin: 'com.android.library'` statement in its `build.gradle` file), an `.aar` will be created automatically when the project is built. It will show up in the `build/outputs/aar` directory in your module's directory. You can choose the "Android Library" type in File > New Module to create a new Android Library. See [this stackoverflow post](http://stackoverflow.com/a/23326397/313399) for how to import local android archives into a project.
+
 ### Library Projects in Android Studio
 
 In Android Studio, you can re-create the effects of "library projects" in eclipse where you can "include" one Eclipse project as a library dependency in another project. In Android Studio, this is done with Gradle. First in the **library project**, change the `build.gradle`:
@@ -48,9 +54,7 @@ and in the `iml` file near the bottom in the last `<component>`:
 <orderEntry type="library" name="MyLibrary.aar" level="project" />
 ```
 
-See the sample [build.gradle](https://github.com/androidsx/hello-android-studio/blob/master/HelloWorld/build.gradle) and [iml](https://github.com/androidsx/hello-android-studio/blob/master/HelloWorld/HelloWorld.iml#L70-L71) files for reference.
-
-That should be it, after syncing Gradle the library should be accessible.
+See the sample [build.gradle](https://github.com/androidsx/hello-android-studio/blob/master/HelloWorld/build.gradle) and [iml](https://github.com/androidsx/hello-android-studio/blob/master/HelloWorld/HelloWorld.iml#L70-L71) files for reference. That should be it, after syncing Gradle the library should be accessible.
 
 ### Use Gradle wrapper
 
