@@ -18,16 +18,16 @@ ArrayAdapter<String> itemsAdapter =
     new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
 ```
 
-The `ArrayAdapter` requires the type of the item to be converted to a View to be specified and then accepts three arguments: context (activity), XML Resource, and the data array.
+The `ArrayAdapter` requires a declaration of the type of the item to be converted to a `View` (a `String` in this case) and then accepts three arguments: `context` (activity instance), XML item layout, and the array of data. Note that we've chosen [simple_list_item_1](https://github.com/android/platform_frameworks_base/blob/master/core/res/res/layout/simple_list_item_1.xml) which is a simple `TextView` as the layout for each of the items.
 
-Now, we just need to connect the adapter to a ListView:
+Now, we just need to connect this adapter to a `ListView` to be populated:
 
 ```java
 ListView listView = (ListView) findViewById(R.id.lvItems);
 listView.setAdapter(itemsAdapter);
 ```
 
-By default, this will convert each item in the array into a view by calling toString on the item and then inserting the result into a `TextView` that is displayed as the row for that data item. If the app requires a more complex translation between item and View then we need to create a custom `ArrayAdapter` instead. 
+By default, this will now convert each item in the data array into a view by calling `toString` on the item and then assigning the result as the value of a `TextView` ([simple_list_item_1](https://github.com/android/platform_frameworks_base/blob/master/core/res/res/layout/simple_list_item_1.xml)) that is displayed as the row for that data item. If the app requires a more complex translation between item and `View` then we need to create a custom `ArrayAdapter` instead. 
 
 ## Using a Custom ArrayAdapter
 
