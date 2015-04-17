@@ -192,11 +192,13 @@ public class SomeFragment extends Fragment {
 
 ### Looking Up a Fragment Instance
 
-Often when working with fragment, we need to lookup or find a fragment instance within a layout file. There are a few methods for looking up a fragment:
+Often we need to lookup or find a fragment instance within an activity layout file. There are a few methods for looking up an existing fragment instance:
 
  1. **ID** - Lookup a fragment by calling `findFragmentById` on the `FragmentManager`
  2. **Tag** - Lookup a fragment by calling `findFragmentByTag` on the `FragmentManager`
  3. **Pager** - Lookup a fragment by calling `getRegisteredFragment` on a `PagerAdapter`
+
+Each method is outlined in more detail below.
 
 #### Finding Fragment By ID
 
