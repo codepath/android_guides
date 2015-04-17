@@ -196,9 +196,9 @@ Fragments should not directly communicate with each other, only through an activ
 
 There are three ways a fragment and an activity can communicate:
 
-1. Activity can construct a fragment and set arguments
-2. Activity can call methods on a fragment instance
-3. Fragment can fire listener events on an activity via an interface
+1. **Bundle** - Activity can construct a fragment and set arguments
+2. **Methods** - Activity can call methods on a fragment instance
+3. **Listener** - Fragment can fire listener events on an activity via an interface
 
 #### Fragment with Arguments
 
