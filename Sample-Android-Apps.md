@@ -26,6 +26,7 @@ One of the best ways to learn about Android is to checkout Android code in the w
 
 ## Open-Source Apps
 
+* [FOSSDroid](http://fossdroid.com/) - Open-source android apps repository
 * [Github Android App](https://github.com/github/android)
 * [Astrid Android's #1 Task Management Application ](https://github.com/todoroo/astrid)
 * [MobileOrg for the Android platform](https://github.com/matburt/mobileorg-android)
