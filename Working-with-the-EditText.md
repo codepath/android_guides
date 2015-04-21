@@ -54,6 +54,14 @@ Most common input types include:
 | time               | For entering a time                               |
 | textMultiLine      | Allow multiple lines of text in the field         |
 
+You can set multiple inputType attributes if needed (separated by '|')
+
+```xml
+<EditText
+  android:inputType="textCapSentences|textMultiline"
+/>
+```
+
 You can see a list of [all available input types here](http://developer.android.com/reference/android/widget/TextView.html#attr_android:inputType).
 
 ### Further Entry Customization
@@ -64,14 +72,6 @@ We might want to limit the entry to a single-line of text (avoid newlines):
 <EditText
   android:singleLine="true"
   android:lines="1"
-/>
-```
-
-You might also want to use the capitalize attribute to automatically capitalize each sentence, word or character:
-
-```xml
-<EditText
-  android:capitalize="sentences"
 />
 ```
 
