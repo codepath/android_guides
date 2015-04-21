@@ -147,6 +147,9 @@ public class TodoItemDatabase extends SQLiteOpenHelper {
         // Load result into model object
         TodoItem item = new TodoItem(cursor.getString(1), cursor.getInt(2));
         item.setId(cursor.getInt(cursor.getColumnIndexOrThrow(KEY_ID)));
+        // Close the cursor
+        if (cursor != null)
+            cursor.close();
         // return todo item
         return item;
     }
@@ -176,6 +179,9 @@ public class TodoItemDatabase extends SQLiteOpenHelper {
                 todoItems.add(item);
             } while (cursor.moveToNext());
         }
+
+        if (cursor != null)
+            cursor.close();
      
         // return todo list
         return todoItems;
@@ -353,6 +359,8 @@ public class TodoItemDatabase extends SQLiteOpenHelper {
         // Load result into model object
         TodoItem item = new TodoItem(cursor.getString(1), cursor.getInt(2));
         item.setId(cursor.getInt(cursor.getColumnIndexOrThrow(KEY_ID)));
+        if (cursor != null)
+            cursor.close();
         // return todo item
         return item;
     }
@@ -374,6 +382,9 @@ public class TodoItemDatabase extends SQLiteOpenHelper {
                 todoItems.add(item);
             } while (cursor.moveToNext());
         }
+
+        if (cursor != null)
+            cursor.close();
      
         // return todo list
         return todoItems;
