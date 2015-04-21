@@ -8,3 +8,4 @@
 * [Profiling with Traceview](http://developer.android.com/tools/debugging/debugging-tracing.html) (`traceview`)
 * [Profiling Android Apps - Performance Turning](https://www.youtube.com/watch?v=88nwiiVTh5w)
 * [Vogella Android Analysis Tools](http://www.vogella.com/tutorials/AndroidTools/article.html)
+* [Performance Course on Udacity](https://www.udacity.com/course/ud825)
