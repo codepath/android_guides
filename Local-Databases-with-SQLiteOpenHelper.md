@@ -120,7 +120,8 @@ public class TodoItemDatabase extends SQLiteOpenHelper {
         values.put(KEY_PRIORITY, item.getPriority()); 
         // Insert Row and get generated id
         long rowId = db.insertOrThrow(TABLE_TODO, null, values);
-        db.close(); // Closing database connection
+        // Closing database connection
+        db.close();
     }
 }
 ```
