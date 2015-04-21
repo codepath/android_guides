@@ -179,7 +179,7 @@ public class TodoItemDatabase extends SQLiteOpenHelper {
                 todoItems.add(item);
             } while (cursor.moveToNext());
         }
-
+        // Close the cursor
         if (cursor != null)
             cursor.close();
      
@@ -199,6 +199,7 @@ public class TodoItemDatabase extends SQLiteOpenHelper {
         String countQuery = "SELECT  * FROM " + TABLE_TODO;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
+        // Close the cursor
         cursor.close();
         // return count
         return cursor.getCount();
@@ -359,6 +360,7 @@ public class TodoItemDatabase extends SQLiteOpenHelper {
         // Load result into model object
         TodoItem item = new TodoItem(cursor.getString(1), cursor.getInt(2));
         item.setId(cursor.getInt(cursor.getColumnIndexOrThrow(KEY_ID)));
+        // Close the cursor
         if (cursor != null)
             cursor.close();
         // return todo item
@@ -383,6 +385,7 @@ public class TodoItemDatabase extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
         }
 
+        // Close the cursor
         if (cursor != null)
             cursor.close();
      
@@ -394,6 +397,7 @@ public class TodoItemDatabase extends SQLiteOpenHelper {
         String countQuery = "SELECT  * FROM " + TABLE_TODO;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
+        // Close the cursor
         cursor.close();
         // return count
         return cursor.getCount();
