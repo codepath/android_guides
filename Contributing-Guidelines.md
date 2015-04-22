@@ -1,3 +1,22 @@
+## Getting Started
+
+If you want to contribute to these guides, start by cloning the guides repo locally on your computer:
+
+```bash
+git clone git@github.com:codepath/android_guides.git
+git submodule init
+git submodule update
+```
+
+You can see all the docs as markdown files in the `guides` directory. Update your local copy periodically with the latest guides using:
+
+```
+git pull origin master
+git submodule update
+```
+
+With this approach, submitting changes is as simple as **submitting a pull request** which we can review and then sign off on the changes the guides repo. If you want to change the guides more easily, you can [edit the wiki](https://github.com/codepath/android_guides/wiki) directly. The choice is up to your discretion but we recommend for small changes such as correcting typos that you update directly through the wiki.
+
 ## Guidelines
 
 The cliffnotes philosophy is all about cutting down the content keeping the guides **lean and practical**. In particular:
