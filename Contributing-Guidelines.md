@@ -6,6 +6,7 @@ If you want to contribute to these guides, start by cloning the guides repo loca
 git clone git@github.com:codepath/android_guides.git
 git submodule init
 git submodule update
+cd guides
 ```
 
 You can see all the docs as markdown files in the `guides` directory. Update your local copy periodically with the latest guides using:
