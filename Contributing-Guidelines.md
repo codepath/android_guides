@@ -15,7 +15,9 @@ git pull origin master
 git submodule update
 ```
 
-With this approach, submitting changes is as simple as **submitting a pull request** which we can review and then sign off on the changes the guides repo. If you want to change the guides more easily, you can [edit the wiki](https://github.com/codepath/android_guides/wiki) directly. The choice is up to your discretion but we recommend for small changes such as correcting typos that you update directly through the wiki.
+Make your proposed changes locally, then push them to your github account as a repository. Now you can submit a ticket to the [issue tracker](https://github.com/codepath/android_guides/issues) requesting a review of your changes so we can merge them in. Please be sure to include a link to your repo and describe what you've changed.
+
+With this approach, submitting changes is as simple as pushing your guides repository which we can review and then sign off on the changes the guides repo. If you want to change the guides more easily, you can [edit the wiki](https://github.com/codepath/android_guides/wiki) directly. The choice is up to your discretion but we recommend for small changes such as correcting typos that you update directly through the wiki.
 
 ## Guidelines
 
