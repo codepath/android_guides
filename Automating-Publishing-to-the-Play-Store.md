@@ -6,7 +6,7 @@ This guide will show you how you can setup publishing APK's directly through the
 
 1. Inside the Google Play Store for your project, navigate to `Settings` -> `API Access`:
 
-   <img src="http://imgur.com/0n7ihzM.png"/>
+    <img src="http://imgur.com/0n7ihzM.png"/>
    
 2. There should be a `Service Accounts` section where you need to click the `Create Service Account button`.  Click on the link shown on the first step to visit the Google Developers Console.  
 
