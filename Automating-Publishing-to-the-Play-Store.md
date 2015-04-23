@@ -49,8 +49,8 @@ If you want to be push your APKs directly through Gradle, you can install a plug
        }
     }
 
-   apply plugin: 'play'
-   ```
+       apply plugin: 'play'
+       ```
 
 2. Configure the plugin with the Google Service Account and p12 file saved in steps #5 and #6.
 
