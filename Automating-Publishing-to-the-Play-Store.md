@@ -36,8 +36,8 @@ If you want to be push your APKs directly through Gradle, you can install a plug
 
 1. Add the following to the top of your `app/build.gradle` file:
 
-   ```gradle
-       buildscript {
+       ```gradle
+           buildscript {
 
        repositories {
            mavenCentral()
@@ -54,7 +54,7 @@ If you want to be push your APKs directly through Gradle, you can install a plug
 
 2. Configure the plugin with the Google Service Account and p12 file saved in steps #5 and #6.
 
-   ```gradle
+       ```gradle
 
       play {
          track = 'alpha'
