@@ -79,15 +79,17 @@ You can now type the following gradle commands such as the following:
 
 ## Setting Up Jenkins (for automating CI builds)
 
-Make sure you have already gone through the process of [Building Gradle Projects with Jenkins CI](Building-Gradle-Projects-with-Jenkins-CI) and already have a Jenkins job correctly running.  You will only need to install a Jenkins plugin that will allow you to create a build step that will enable the APK generated to be published to the Google Play store directly.
+1. Make sure you have already gone through the process of [Building Gradle Projects with Jenkins CI](Building-Gradle-Projects-with-Jenkins-CI) and already have a Jenkins job correctly running.   You will only need to install a Jenkins plugin that will allow you to create a build step that will enable the APK generated to be published to the Google Play store directly.
 
-1. Inside Jenkins, go to `Manage Jenkins` -> `Manage Plugins`.  Install the [Google Play Android Publisher Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Google+Play+Android+Publisher+Plugin).  
+2. Verify that you've the followed the guide about how to [configure Google API access](#setup-for-google-api-access).
 
-2. Navigate to the `Credentials` section in Jenkins and load the `.p12` key file downloaded during the initial setup process of setting up Google API access.  A [basic walkthrough video](https://www.youtube.com/watch?v=txdPSJF94RM&list=PLhF0STyfNdUk1R3taEmgFR30yzp41yuRK) has also been published.
+3. Inside Jenkins, go to `Manage Jenkins` -> `Manage Plugins`.  Install the [Google Play Android Publisher Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Google+Play+Android+Publisher+Plugin).  
+
+4. Navigate to the `Credentials` section in Jenkins and load the `.p12` key file downloaded during the initial setup process of setting up Google API access.  A [basic walkthrough video](https://www.youtube.com/watch?v=txdPSJF94RM&list=PLhF0STyfNdUk1R3taEmgFR30yzp41yuRK) has also been published.
 
    <img src="http://i.imgur.com/xxs8qlD.png"/>
 
-3. Add a post-build step to your existing Jenkins project.  
+5. Add a post-build step to your existing Jenkins project.  
 
     <a href="http://i.imgur.com/nfc4xDA.png"><img src="http://i.imgur.com/nfc4xDA.png"></a>
 
