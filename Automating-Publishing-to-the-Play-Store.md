@@ -97,7 +97,7 @@ This section mainly shows how to setup the [Google Play Android Publisher plugin
 
     a. Make sure to choose the credential name from the drop-down list.  It should belong to the Google Play account that manages the app.
 
-    b. Enter path and/or an [Ant-style](http://stackoverflow.com/questions/69835/how-do-i-use-nant-ant-naming-patterns) wildcard pattern for the APK.  For instance, the example below expects the APK to be generated inside `**/build/outputs/apk/yourappname*.apk`
+    b. Enter path and/or an [Ant-style](http://stackoverflow.com/questions/69835/how-do-i-use-nant-ant-naming-patterns) wildcard pattern for the APK.  For instance, the example in the screenshot expects the APK to be generated inside `**/build/outputs/apk/yourappname*.apk`.
 
     c. Choose what track to which the APKs should be deployed (Alpha, Beta, Production).
 
