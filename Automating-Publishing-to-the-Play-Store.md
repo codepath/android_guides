@@ -10,7 +10,7 @@ This guide will show you how you can setup publishing APK's directly through the
    
 2. There should be a `Service Accounts` section where you need to click the `Create Service Account button`.  Click on the link shown on the first step to visit the Google Developers Console.  
 
-   <img src="http://imgur.com/6TnR700.png"/>
+      <img src="http://imgur.com/6TnR700.png"/>
 
 3. Click on the `Create New Client ID` button.
 
