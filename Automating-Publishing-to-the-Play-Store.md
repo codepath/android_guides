@@ -1,12 +1,14 @@
-The Developer Console for Google Play provides API support for you to be able to push to the store automatically.   This ability allows you to trigger builds on your continuous integration server (i.e. Jenkins) and have them uploaded the Play store for alpha or beta testing, as well as pushing to production directly.
+The Developer Console for Google Play provides API support for you to be able to push to the store automatically.   This ability allows you to trigger builds on your continuous integration server (i.e. Jenkins) and have them uploaded the Play store for alpha or beta testing, as well as pushing to production directly.   
 
-## Initial Setup
+This guide will show you how you can setup publishing APK's directly through the command-line, or how you configure a continuous integrations server such as Jenkins to do the same.   Regardless of which approach, you will need to setup Google API access.
 
-1. Navigate to `Settings` -> `API Access`:
+## Setup for Google API access
+
+1. Inside the Google Play Store for your project, navigate to `Settings` -> `API Access`:
 
    <img src="http://imgur.com/0n7ihzM.png"/>
 
-2. There should be a `Service Accounts` section where you need to click the `Create Service Account button`.  You will be asked to click on the first step to take you to the Google Developers Console.
+2. There should be a `Service Accounts` section where you need to click the `Create Service Account button`.  Click on the link shown on the first step to visit the Google Developers Console.  
 
    <img src="http://imgur.com/6TnR700.png"/>
 
@@ -24,9 +26,13 @@ The Developer Console for Google Play provides API support for you to be able to
 
    <img src="http://imgur.com/TVm6CLM.png"/>
 
-## Setting Up Gradle Plugin
+7. Once you are done, go back to the Google Play Developer Console and navigate to the `Settings` -> `API Access`.  Make sure the checkboxes for `Edit store listing, pricing & distribution`, `Manage Production APKs`, and `Manage Alpha & Beta APKs` are checked for the Google Service account used.  (If you intend to upload an alpha or beta SDK through a Google service account, apparently these permissions must be checked according to this [discussion](http://echelog.com/logs/browse/jenkins/1409263200).
 
-If you want to be able to automate deploys through Gradle, you can install a plugin such as the [Gradle Play Publisher](https://github.com/Triple-T/gradle-play-publisher).
+   <img src="http://i.imgur.com/QBF0Vmp.png"/>
+
+## Setting Up Gradle Plugin (for command-line APK publishing)
+
+If you want to be push your APKs directly through Gradle, you can install a plugin such as the [Gradle Play Publisher](https://github.com/Triple-T/gradle-play-publisher).
 
 1. Add the following to the top of your `app/build.gradle` file:
 
@@ -70,3 +76,31 @@ You can now type the following gradle commands such as the following:
 ```bash
 ./gradlew publishApkRelease
 ```
+
+## Setting Up Jenkins (for automating CI builds)
+
+Make sure you have already gone through the process of [Building Gradle Projects with Jenkins CI](Building-Gradle-Projects-with-Jenkins-CI) and already have a Jenkins job correctly running.  You will only need to install a Jenkins plugin that will allow you to create a build step that will enable the APK generated to be published to the Google Play store directly.
+
+1. Inside Jenkins, go to `Manage Jenkins` -> `Manage Plugins`.  Install the [Google Play Android Publisher Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Google+Play+Android+Publisher+Plugin).  
+
+2. Navigate to the `Credentials` section in Jenkins and load the `.p12` key file downloaded during the initial setup process of setting up Google API access.  A [basic walkthrough video](https://www.youtube.com/watch?v=txdPSJF94RM&list=PLhF0STyfNdUk1R3taEmgFR30yzp41yuRK) has also been published.
+
+   <img src="http://i.imgur.com/xxs8qlD.png"/>
+
+3. Add a post-build step to your existing Jenkins project.  
+
+    <a href="http://i.imgur.com/nfc4xDA.png"><img src="http://i.imgur.com/nfc4xDA.png"></a>
+
+    a. Make sure to choose the credential name from the drop-down list.  It should belong to the Google Play account that manages the app.
+
+    b. Enter path and/or an [Ant-style](http://stackoverflow.com/questions/69835/how-do-i-use-nant-ant-naming-patterns) wildcard pattern for the APK.  For instance, the example below expects the APK to be generated inside `**/build/outputs/apk/yourappname*.apk`
+
+    c. Choose what track to which the APKs should be deployed (Alpha, Beta, Production).
+
+    d. You can create release notes before you start the build.  If you forget to do this step or your automated process pushes the build, you can edit them later directly on the Google Play Developer Console.
+
+4. Setup a `Build Trigger` in your Jenkins job to allow builds to be [triggered via remote API commands](https://wiki.jenkins-ci.org/display/JENKINS/Remote+access+API).  A URL such as  `http://ci.mycompany.com/view/All/job/AndroidBuild/build?token=TOKEN_NAME` can then be used to trigger this job to execute, which allows you to setup GitHub [webhooks](https://developer.github.com/webhooks/) such as new release branches created to trigger a new APK build.
+
+   <img src="http://i.imgur.com/QfzhhQM.png"/>
+
+   **Note: do not follow this step if you intend for your Jenkins jobs to push directly to Production tracks.**  
