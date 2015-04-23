@@ -95,13 +95,13 @@ This section mainly shows how to setup the [Google Play Android Publisher plugin
 
        <a href="http://i.imgur.com/nfc4xDA.png"><img src="http://i.imgur.com/nfc4xDA.png"></a>
 
-    a. Make sure to choose the credential name from the drop-down list.  It should belong to the Google Play account that manages the app.
+       a. Make sure to choose the credential name from the drop-down list.  It should belong to the Google Play account that manages the app.
 
-    b. Enter path and/or an [Ant-style](http://stackoverflow.com/questions/69835/how-do-i-use-nant-ant-naming-patterns) wildcard pattern for the APK.  For instance, the example in the screenshot expects the APK to be generated inside `**/build/outputs/apk/yourappname*.apk`.
+       b. Enter path and/or an [Ant-style](http://stackoverflow.com/questions/69835/how-do-i-use-nant-ant-naming-patterns) wildcard pattern for the APK.  For instance, the example in the screenshot expects the APK to be generated inside `**/build/outputs/apk/yourappname*.apk`.
 
-    c. Choose what track to which the APKs should be deployed (Alpha, Beta, Production).
+       c. Choose what track to which the APKs should be deployed (Alpha, Beta, Production).
 
-    d. You can create release notes before you start the build.  If you forget to do this step or your automated process pushes the build, you can edit them later directly on the Google Play Developer Console.
+       d. You can create release notes before you start the build.  If you forget to do this step or your automated process pushes the build, you can edit them later directly on the Google Play Developer Console.
 
 ### GitHub / Jenkins integration
 
