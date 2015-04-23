@@ -109,12 +109,12 @@ This section mainly shows how to setup the [Google Play Android Publisher plugin
 
 1. Setup a `Build Trigger` in your Jenkins job to allow builds to be [triggered via remote API commands](https://wiki.jenkins-ci.org/display/JENKINS/Remote+access+API).  You can use the URL shown below the `Authentication token` (i.e. http://ci.mycompany.com/view/All/job/AndroidBuild/build?token=TOKEN_NAME) to trigger this Jenkins job.  
 
-   <img src="http://i.imgur.com/QfzhhQM.png"/>
+       <img src="http://i.imgur.com/QfzhhQM.png"/>
 
 2. Go to your GitHub repository `Settings` page and visit the `Webhooks & Services` section.  Enter the `Payload URL` for your Jenkins build job.   
 
-   <img src="http://i.imgur.com/iONpTHh.png"/>
+       <img src="http://i.imgur.com/iONpTHh.png"/>
 
 3. You can also control which GitHub events should fire these Jenkins build jobs:
 
-   <img src="http://i.imgur.com/JpwMRTn.png/">
+       <img src="http://i.imgur.com/JpwMRTn.png/">
