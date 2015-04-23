@@ -10,25 +10,25 @@ This guide will show you how you can setup publishing APK's directly through the
    
 2. There should be a `Service Accounts` section where you need to click the `Create Service Account button`.  Click on the link shown on the first step to visit the Google Developers Console.  
 
-      <img src="http://imgur.com/6TnR700.png"/>
+       <img src="http://imgur.com/6TnR700.png"/>
 
 3. Click on the `Create New Client ID` button.
 
-   <img src="http://imgur.com/7VPlkHM.png"/>
+       <img src="http://imgur.com/7VPlkHM.png"/>
 
 4. Click to create new `Service Account`.  Make sure to also request the `.p12 Key File` instead of JSON:
 
-   <img src="http://imgur.com/paTHMHK.png"/>
+       <img src="http://imgur.com/paTHMHK.png"/>
 
 5. You will be prompted to download the .p12 file.  Save it somewhere.  
 
 6. Note the service account email associated with this new account.  You should see it appear in the Google Developer Console:
 
-   <img src="http://imgur.com/TVm6CLM.png"/>
+       <img src="http://imgur.com/TVm6CLM.png"/>
 
 7. Once you are done, go back to the Google Play Developer Console and navigate to the `Settings` -> `API Access`.  Make sure the checkboxes for `Edit store listing, pricing & distribution`, `Manage Production APKs`, and `Manage Alpha & Beta APKs` are checked for the Google Service account used.  (If you intend to upload an alpha or beta SDK through a Google service account, apparently these permissions must be checked according to this [discussion](http://echelog.com/logs/browse/jenkins/1409263200).
 
-   <img src="http://i.imgur.com/QBF0Vmp.png"/>
+       <img src="http://i.imgur.com/QBF0Vmp.png"/>
 
 ## Setting Up Gradle Plugin (for command-line APK publishing)
 
