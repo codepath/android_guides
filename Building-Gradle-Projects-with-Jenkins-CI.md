@@ -115,6 +115,8 @@ From here, you can configure Jenkins to build on push, run tests automatically, 
 
 Congratulations on building your Android project! 
 
+If you are interested in automating deployment to the Google Play Store, check out this [guide](Automating-Publishing-to-the-Play-Store#github--jenkins-integration)
+
 ## References
 * http://ingorichter.blogspot.com/2012/02/jenkins-change-workspaces-and-build.html
 * http://www.ericrgon.com/android-with-circle-ci/ - extra tips on building with CircleCI
