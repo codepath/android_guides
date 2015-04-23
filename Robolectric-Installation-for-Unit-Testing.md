@@ -17,14 +17,14 @@ Let's take a look at a step-by-step for setting up Robolectric to test your proj
       } 
       dependencies {
          classpath 'com.android.tools.build:gradle:0.12.+'
-         classpath 'org.robolectric:robolectric-gradle-plugin:0.12.+'
+         classpath 'org.robolectric:robolectric-gradle-plugin:1.0.1'
       }
    }
 
-   apply plugin: 'robolectric'
+   apply plugin: 'org.robolectric'
    ``` 
 
-   Within your dependencies, you need to include the following defines.  The exclude modules
+   Within your dependencies, you need to include the following defines. The exclude modules
    are intended to remove duplicate dependency definitions (template borrowed from 
    https://github.com/robolectric/deckard-gradle/blob/master/README.md).  
 
@@ -33,16 +33,16 @@ Let's take a look at a step-by-step for setting up Robolectric to test your proj
 ```gradle
 dependencies {
   compile fileTree(dir: 'libs', include: ['*.jar'])
-  compile 'com.android.support:support-v4:19.1.0'
+  compile 'com.android.support:support-v4:22.1.0'
 
-  androidTestCompile 'org.hamcrest:hamcrest-integration:1.1'
-  androidTestCompile 'org.hamcrest:hamcrest-core:1.1'
-  androidTestCompile 'org.hamcrest:hamcrest-library:1.1'
+  androidTestCompile 'org.hamcrest:hamcrest-integration:1.3'
+  androidTestCompile 'org.hamcrest:hamcrest-core:1.3'
+  androidTestCompile 'org.hamcrest:hamcrest-library:1.3'
 
   androidTestCompile('junit:junit:4.+') {
       exclude module: 'hamcrest-core'
   }
-  androidTestCompile('org.robolectric:robolectric:2.3') {
+  androidTestCompile('org.robolectric:robolectric:2.4') {
       exclude module: 'classworlds'
       exclude module: 'commons-logging'
       exclude module: 'httpclient'
