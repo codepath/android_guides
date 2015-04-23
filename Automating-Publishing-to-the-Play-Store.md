@@ -99,8 +99,18 @@ Make sure you have already gone through the process of [Building Gradle Projects
 
     d. You can create release notes before you start the build.  If you forget to do this step or your automated process pushes the build, you can edit them later directly on the Google Play Developer Console.
 
-4. Setup a `Build Trigger` in your Jenkins job to allow builds to be [triggered via remote API commands](https://wiki.jenkins-ci.org/display/JENKINS/Remote+access+API).  A URL such as  `http://ci.mycompany.com/view/All/job/AndroidBuild/build?token=TOKEN_NAME` can then be used to trigger this job to execute, which allows you to setup GitHub [webhooks](https://developer.github.com/webhooks/) such as new release branches created to trigger a new APK build.
+### GitHub / Jenkins integration
+
+**Do not follow these steps if you intend for your Jenkins jobs to push directly to Production tracks.** You should always verify your builds before rolling out to production users.
+
+1. Setup a `Build Trigger` in your Jenkins job to allow builds to be [triggered via remote API commands](https://wiki.jenkins-ci.org/display/JENKINS/Remote+access+API).  You can use the URL shown below the `Authentication token` (i.e. http://ci.mycompany.com/view/All/job/AndroidBuild/build?token=TOKEN_NAME) to trigger this Jenkins job.  
 
    <img src="http://i.imgur.com/QfzhhQM.png"/>
 
-   **Note: do not follow this step if you intend for your Jenkins jobs to push directly to Production tracks.**  
+2. Go to your GitHub repository `Settings` page and visit the `Webhooks & Services` section.  Enter the `Payload URL` for your Jenkins build job.   
+
+   <img src="http://i.imgur.com/iONpTHh.png"/>
+
+3. You can also control which GitHub events should fire these Jenkins build jobs:
+
+   <img src="http://i.imgur.com/JpwMRTn.png/">
