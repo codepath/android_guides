@@ -79,7 +79,7 @@ You can now type the following gradle commands such as the following:
 
 ## Setting Up Jenkins (for automating CI builds)
 
-This step mainly shows how to setup the [Google Play Android Publisher plugin](https://wiki.jenkins-ci.org/display/JENKINS/Google+Play+Android+Publisher+Plugin) with Jenkins.  You can most likely adapt the same steps for other services that enable beta distribution, such as [Hockey](http://hockeyapp.net/features/) or [Crashlytics].
+This section mainly shows how to setup the [Google Play Android Publisher plugin](https://wiki.jenkins-ci.org/display/JENKINS/Google+Play+Android+Publisher+Plugin) with Jenkins.  You can most likely adapt the same steps for other services that enable beta distribution, such as [Hockey](http://hockeyapp.net/features/) or [Crashlytics].
 
 1. Make sure you have already gone through the process of [Building Gradle Projects with Jenkins CI](Building-Gradle-Projects-with-Jenkins-CI) and already have a Jenkins job correctly running.   You will only need to install a Jenkins plugin that will allow you to create a build step that will enable the APK generated to be published to the Google Play store directly.
 
