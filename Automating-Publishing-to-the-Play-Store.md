@@ -2,8 +2,10 @@ The Developer Console for Google Play provides API support for you to be able to
 
 ## Initial Setup
 
-1. Navigate to `Settings` -> `API Access`
+1. Navigate to `Settings` -> `API Access`:
+
    <img src="http://imgur.com/0n7ihzM.png"/>
+
 2. There should be a `Service Accounts` section where you need to click the `Create Service Account button`.  You will be asked to click on the first step to take you to the Google Developers Console.
 
    <img src="http://imgur.com/6TnR700.png"/>
