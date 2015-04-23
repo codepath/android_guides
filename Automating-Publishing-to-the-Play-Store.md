@@ -24,7 +24,11 @@ The Developer Console for Google Play provides API support for you to be able to
 
    <img src="http://imgur.com/TVm6CLM.png"/>
 
-7. Use a Gradle plugin such as the [Gradle Play Publisher](https://github.com/Triple-T/gradle-play-publisher).  Add the following to the top of your `app/build.gradle` file:
+## Setting Up Gradle Plugin
+
+If you want to be able to automate deploys through Gradle, you can install a plugin such as the [Gradle Play Publisher](https://github.com/Triple-T/gradle-play-publisher).
+
+1. Add the following to the top of your `app/build.gradle` file:
 
    ```gradle
        buildscript {
@@ -42,7 +46,7 @@ The Developer Console for Google Play provides API support for you to be able to
    apply plugin: 'play'
    ```
 
-8. Configure the plugin with the Google Service Account and p12 file saved in steps #5 and #6.
+2. Configure the plugin with the Google Service Account and p12 file saved in steps #5 and #6.
 
    ```gradle
 
@@ -53,7 +57,7 @@ The Developer Console for Google Play provides API support for you to be able to
       }
    ```
 
-9. The plugin creates the following tasks for you:
+3. The plugin creates the following tasks for you:
 
 | Command                     | Description                                                          |
 |:---------------------------:|--------------------------------------------------------------------- |  |publishApkRelease            | Uploads the APK and the summary of recent changes.                   |
@@ -61,9 +65,8 @@ The Developer Console for Google Play provides API support for you to be able to
 |publishRelease               | Uploads everything.                                                  |
 |bootstrapReleasePlayResources| Fetch data from the Play Store & bootstrap the required files/folders|
 
-You can now type the following gradle commands such as the follwoing:
+You can now type the following gradle commands such as the following:
 
 ```bash
 ./gradlew publishApkRelease
 ```
-
