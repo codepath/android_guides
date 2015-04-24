@@ -87,7 +87,7 @@ This section mainly shows how to setup the [Google Play Android Publisher plugin
 
 3. Inside Jenkins, go to `Manage Jenkins` -> `Manage Plugins`.  Assuming the plugin has not yet been installed, select the `Available` tab and search for the `Google Play Android Publisher Plugin`.    
 
-4. Navigate to the `Credentials` section in Jenkins and load the `.p12` key file downloaded during the initial setup process of setting up Google API access.  A [basic walkthrough video](https://www.youtube.com/watch?v=txdPSJF94RM&list=PLhF0STyfNdUk1R3taEmgFR30yzp41yuRK) has also been published.
+4. Navigate to the `Credentials` section in Jenkins and load the `.p12` key file downloaded during the initial setup process of setting up Google API access.  A [basic walkthrough video](https://www.youtube.com/watch?v=txdPSJF94RM&list=PLhF0STyfNdUk1R3taEmgFR30yzp41yuRK) also demonstrates how to do this step.
 
        <img src="http://i.imgur.com/xxs8qlD.png"/>
 
