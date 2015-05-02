@@ -50,7 +50,7 @@ If you want to setup a part of your layout, such that, for instance, 3 buttons a
     <ImageButton
         android:id="@+id/btnLocEnable"
         android:src="@drawable/ic_location"
-        android:layout_width="@dimen/zero_width"
+        android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -59,7 +59,7 @@ If you want to setup a part of your layout, such that, for instance, 3 buttons a
     <ImageButton
         android:id="@+id/btnUploadPhoto"
         android:src="@drawable/ic_addimage"
-        android:layout_width="@dimen/zero_width"
+        android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
