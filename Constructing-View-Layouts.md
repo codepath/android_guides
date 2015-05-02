@@ -39,6 +39,35 @@ Example of LinearLayout snippet:
 </LinearLayout>
 ```
 
+If you want to setup a part of your layout, such that, for instance, 3 buttons appear in a row, occupying equal space (or if, for instance, you want to give 4/5 space to a map and 1/5 to another component below it), LinearLayout can be used to do the trick 
+```xml
+...
+<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+    <ImageButton
+        android:id="@+id/btnLocEnable"
+        android:src="@drawable/ic_location"
+        android:layout_width="@dimen/zero_width"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:background="@color/twitter_light_blue"
+        />
+    <ImageButton
+        android:id="@+id/btnUploadPhoto"
+        android:src="@drawable/ic_addimage"
+        android:layout_width="@dimen/zero_width"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="@color/twitter_light_blue"/>
+    </LinearLayout>
+...
+```
+
 ## RelativeLayout
 
 In a relative layout every element arranges itself relative to other elements or a parent element. RelativeLayout positions views based on a number of directional attributes:
