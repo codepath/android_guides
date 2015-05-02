@@ -68,6 +68,8 @@ If you want to setup a part of your layout, such that, for instance, 3 buttons a
 ...
 ```
 
+But be careful in using nestedLinearLayout and layout_weight from a layout performance point of view!
+
 ## RelativeLayout
 
 In a relative layout every element arranges itself relative to other elements or a parent element. RelativeLayout positions views based on a number of directional attributes:
