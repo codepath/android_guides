@@ -204,3 +204,33 @@ protected void onDraw(Canvas canvas) {
                 indicatorPosition, halfHeight + goalIndicatorHeight / 2, progressPaint);
 }
 ```
+
+### Custom goal indicator
+
+Next we're going to create some different options for the goal indicator. We can allow users to choose between different shapes to use as the goal indicator. We'll do this by creating a new XML attribute that has a predefined set of values, to make the API as user friendly as possible:
+ 
+<img src="http://i.imgur.com/M3yEzH9.png" width="300">
+
+We'll need to add a new `attr` to our existing declared styleable in `attrs.xml`, this time it will be of type `enum`: 
+
+```xml
+<attr name="indicatorType" format="enum">
+    <enum name="line" value="0"/>
+    <enum name="circle" value="1"/>
+    <enum name="square" value="2"/>
+</attr>
+```
+
+Create an `enum` in `GoalProgressBar` with the same values as we defined in the new styleable: 
+
+```java
+public enum IndicatorType {
+  Line, Circle, Square
+} 
+```
+
+Add a member variable of this new enum, and allow it to be set via a public setter. Use this setter in extracting the attribute from our `typedArray`:
+
+```java
+setIndicatorType(IndicatorType.values()[typedArray.getInt(R.styleable.GoalProgressBar_indicatorType, IndicatorType.Line.ordinal())]);
+```
