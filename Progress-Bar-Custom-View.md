@@ -236,4 +236,33 @@ setIndicatorType(IndicatorType.values()[typedArray.getInt(R.styleable.GoalProgre
 ```
 
 ### Saving instance state
-TODO 
+In order to maintain state across screen rotation, we'll need to handle saving and restoring instance state. To do so we'll override [onSaveInstanceState](http://developer.android.com/reference/android/view/View.html#onSaveInstanceState()) and [onRestoreInstanceState](http://developer.android.com/reference/android/view/View.html#onRestoreInstanceState(android.os.Parcelable)): 
+
+```java
+@Override
+public Parcelable onSaveInstanceState() {
+  Bundle bundle = new Bundle();
+
+  // save our progress
+  bundle.putInt("progress", progress);
+
+  // be sure to save all other instance state that may exist
+  bundle.putParcelable("otherState", super.onSaveInstanceState());
+
+  return bundle;
+}
+
+@Override
+public void onRestoreInstanceState(Parcelable state) {
+  if (state instanceof Bundle) {
+    Bundle bundle = (Bundle) state;
+
+    // restore our progress
+    setProgress(bundle.getInt("progress"));
+
+    // restore all other state
+    state = bundle.getParcelable("otherState");
+  }
+  super.onRestoreInstanceState(state);
+}
+```
