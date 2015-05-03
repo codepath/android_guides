@@ -57,7 +57,14 @@ private void updateGoalReached() {
 
 ### Custom Attributes
 We're going to create custom attributes to allow users to customize different components of our progress bar. To start out, we'll define member variables for each customizable attribute: 
+
 ```java
+// height of the goal indicator 
+private float goalIndicatorHeight;
+
+// thickness of the goal indicator
+private float goalIndicatorThickness;
+
 // bar color when the goal has been reached
 private int goalReachedColor;
 
@@ -69,12 +76,61 @@ private int unfilledSectionColor;
 
 // thickness of the progress bar
 private float barThickness;
+```
 
-// height of the goal indicator 
-private float goalIndicatorHeight;
+In order to be able to set these variables from Java code, create setters for these member variables. When any of these setters are called, be sure to call `postInvalidate();` after updating the field so the view is redrawn. 
 
-// thickness of the goal indicator
-private float goalIndicatorThickness;
+In order to set these variables from XML, we first have to declare a styleable resource in `res/values/attrs.xml`: 
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <declare-styleable name="GoalProgressBar">
+    <attr name="goalIndicatorHeight" format="dimension"/>
+    <attr name="goalIndicatorThickness" format="dimension"/>
+    <attr name="goalReachedColor" format="color"/>
+    <attr name="goalNotReachedColor" format="color"/>
+    <attr name="unfilledSectionColor" format="color"/>
+    <attr name="barThickness" format="dimension"/>
+  </declare-styleable>
+</resources>
+```
+
+The variable names and defined `<attr` names do not have to be the same, but are doing so here for the sake of consistency. 
+
+Next we'll add these new attributes to our existing `GoalProgressBar` in `activity_main.xml`. Before we can start defining custom attributes, we need to add an additional XML namespace on the root element: 
+`xmlns:app="http://schemas.android.com/apk/res-auto"`
+
+Once the new `app` namespace is defined (we can call it anything, it doesn't have to be `app`) we can start adding these attributes to our `GoalProgressBar`: 
+
+```xml
+<com.codepath.customprogressbar.GoalProgressBar
+    android:id="@+id/progressBar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:goalReachedColor="@color/green"
+    app:goalNotReachedColor="@color/dark_gray"
+    app:unfilledSectionColor="@color/gray"
+    app:barThickness="4dp"
+    app:goalIndicatorHeight="16dp"
+    app:goalIndicatorThickness="4dp"/>
+```
+
+Modify `init` to include an [AttributeSet](http://developer.android.com/reference/android/util/AttributeSet.html) as a parameter. It is from this object that we'll extract the attribute values. 
+
+To extract the attributes from the `AttributeSet`, we'll use a [TypedArray](http://developer.android.com/reference/android/content/res/TypedArray.html). A `TypedArray` is basically a container to hold onto defined attributes. This object must be recycled once we're done using it, so we'll interact with it in a `try` block so we can be sure to call `recycle()` on it once we're finished: 
+```java
+TypedArray typedArray = getContext().getTheme().obtainStyledAttributes(attrs, R.styleable.GoalProgressBar, 0, 0);
+try {
+  // extract attributes to member variables from typedArray
+} finally {
+  typedArray.recycle(); 
+}
+``` 
+
+Extract each of our defined attributes from the typed array by providing the `styleable` ID to the `typedArray`. Be sure to set the member variable via it's setter for consistent behavior: 
+```java
+setGoalReachedColor(a.getColor(R.styleable.GoalProgressBar_goalReachedColor, Color.BLUE));
 ```
 
 ### Measuring 
@@ -114,4 +170,3 @@ This will properly handle the sizing of our view, even when we allow a customiza
 
 ### Drawing the view
 // TODO 
-
