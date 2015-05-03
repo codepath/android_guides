@@ -266,3 +266,36 @@ public void onRestoreInstanceState(Parcelable state) {
   super.onRestoreInstanceState(state);
 }
 ```
+
+### Animation
+
+To make our progress bar animate when set, we'll overload `setProgress` to take an additional boolean flag for whether or not to animate filling of the progress bar. 
+
+We'll define a new member `ValueAnimator mBarAnimator;` to animate our progress value. When `setProgress` is called, and the flag for animation is set, we'll initialize and start the animator with the new progress value: 
+
+```java
+barAnimator = ValueAnimator.ofFloat(0, 1);
+
+// animate over the course of 700 milliseconds
+barAnimator.setDuration(700);
+
+// reset progress to zero so it can animate up
+setProgress(0, false);
+
+// use a decelerate interpolator which will slow down towards the end of animation
+barAnimator.setInterpolator(new DecelerateInterpolator());
+
+// call setProgress (without animating) to 
+// update the progress and invalidate the view
+barAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+  @Override
+    public void onAnimationUpdate(ValueAnimator animation) {
+    float interpolation = (float) animation.getAnimatedValue();
+    setProgress((int) (interpolation * progress), false);
+  }
+});
+
+if (!barAnimator.isStarted()) {
+  barAnimator.start();
+}
+```
