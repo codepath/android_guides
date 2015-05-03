@@ -128,13 +128,15 @@ try {
 }
 ``` 
 
-Extract each of our defined attributes from the typed array by providing the `styleable` ID to the `typedArray`. Be sure to set the member variable via it's setter for consistent behavior: 
+Extract each of our defined attributes from the typed array by providing the `styleable` ID to the `typedArray`. Be sure to set each member variable via it's setter for consistent behavior: 
 ```java
 setGoalReachedColor(a.getColor(R.styleable.GoalProgressBar_goalReachedColor, Color.BLUE));
 ```
 
 ### Measuring 
-Next we will override `onMeasure`, so we can tell our parent view what size we'd like the view to be. For the width of the view, we can use whatever width imposed by our parent (provided in `widthMeasureSpec`), but we'll add some custom handling for determining our height. 
+Now that we have the framework in place for setting the required fields, we can implement the measuring logic. To do this we will override `onMeasure`, so we can tell our parent view what size we'd like the view to be. 
+
+For the width of the view, we can use whatever width imposed by our parent (provided in `widthMeasureSpec`), but we'll add some custom handling for determining our height. 
 
 Since the tallest component of our view will be the goal indicator, we'll use it's height to determine the height of the entire view: 
 
@@ -169,4 +171,36 @@ protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 This will properly handle the sizing of our view, even when we allow a customizable sized goal indicator. 
 
 ### Drawing the view
-// TODO 
+Now our view has set it's appropriate height and width, we're ready to draw the content of the view to the screen. We do this by overriding [onDraw](http://developer.android.com/reference/android/view/View.html#onDraw(android.graphics.Canvas)). 
+
+`onDraw` provides a `Canvas` onto which we can use our `Paint` to draw. We'll start with three different components to draw, so we'll have three separate calls to draw onto the `Canvas`. 
+
+We need to draw the section of the progress bar that is 'filled' - so if the maximum is set to 100, and `progress` is set to 70, we'll the filled section will be drawn to 7/10 the width. The color of this section will depend on whether or not `progress` meets/exceeds our `goal`. 
+
+We'll also have to draw the remaining/unfilled section of the progress bar, which in the case of 70% progress would be 3/10 of the width, starting where the filled section left off. 
+
+We also have to draw the 'goal' indicator, which will be at a position defined by the user. 
+
+```java
+@Override
+protected void onDraw(Canvas canvas) {
+  int halfHeight = getHeight() / 2;
+  int progressEndX = (int) (getWidth() * progress / 100f);
+
+  // draw the part of the bar that's filled
+  progressPaint.setStrokeWidth(barThickness);
+  progressPaint.setColor(isGoalReached ? goalReachedColor : goalNotReachedColor);
+  canvas.drawLine(0, halfHeight, progressEndX, halfHeight, progressPaint);
+
+  // draw the unfilled section
+  progressPaint.setColor(unfilledSectionColor);
+  canvas.drawLine(progressEndX, halfHeight, getWidth(), halfHeight, progressPaint);
+
+  // draw the goal indicator
+  float indicatorPosition = getWidth() * goal / 100f;
+  progressPaint.setColor(goalReachedColor);
+  progressPaint.setStrokeWidth(goalIndicatorThickness);
+  canvas.drawLine(indicatorPosition, halfHeight - goalIndicatorHeight / 2,
+                indicatorPosition, halfHeight + goalIndicatorHeight / 2, progressPaint);
+}
+```
