@@ -4,7 +4,7 @@ This guide covers dependency injection using [Dagger 2](http://google.github.io/
 
 When you have an object that needs or depends on another object to do its work, you have a dependency. Dependency injection makes dependencies easier to manage throughout your app by supplying dependent objects as they are needed.
 
-In short, Dagger 2 uses dependency injection to make **constructing objects and their use within an app significantly easier and less messy**.
+In short, Dagger 2 uses dependency injection to make **constructing objects and their subsequent use within an app significantly easier and less messy** than before.
 
 ### Dagger Vocabulary
 
