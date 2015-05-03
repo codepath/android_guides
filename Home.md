@@ -198,6 +198,7 @@ Digging into how to run background services or leverage Android system services:
 
 Focused on issues like deployment, testing, dependency management, etc:
 
+* [[Dependency Injection with Dagger]]
 * [[Getting Started with Gradle]]
 * [[Using Android Studio]]
 * [[Installing Android SDK Tools]]
