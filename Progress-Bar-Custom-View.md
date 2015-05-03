@@ -4,6 +4,7 @@
 ### Objective
 We're going to create our own implementation of a determinate progress bar. The progress bar will have an indicator that represents a goal. We will define custom attributes, handle measuring and drawing, and animations. 
 
+![](http://i.imgur.com/rMW3K4A.gif)
 
 ### Prepare app skeleton
 Clone [this repository](https://github.com/codepath/android-custom-progress-bar), and import the project in Android Studio. Build and run the app to see the following screen: 
