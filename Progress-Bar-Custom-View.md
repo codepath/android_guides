@@ -271,7 +271,7 @@ public void onRestoreInstanceState(Parcelable state) {
 
 To make our progress bar animate when set, we'll overload `setProgress` to take an additional boolean flag for whether or not to animate filling of the progress bar. 
 
-We'll define a new member `ValueAnimator mBarAnimator;` to animate our progress value. When `setProgress` is called, and the flag for animation is set, we'll initialize and start the animator with the new progress value: 
+We'll define a new member `ValueAnimator barAnimator;` to animate our progress value. When `setProgress` is called, and the flag for animation is set, we'll initialize and start the animator with the new progress value: 
 
 ```java
 barAnimator = ValueAnimator.ofFloat(0, 1);
