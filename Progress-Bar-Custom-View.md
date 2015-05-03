@@ -234,3 +234,6 @@ Add a member variable of this new enum, and allow it to be set via a public sett
 ```java
 setIndicatorType(IndicatorType.values()[typedArray.getInt(R.styleable.GoalProgressBar_indicatorType, IndicatorType.Line.ordinal())]);
 ```
+
+### Saving instance state
+TODO 
