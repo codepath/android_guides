@@ -245,14 +245,24 @@ progressPaint.setColor(goalReachedColor);
 progressPaint.setStrokeWidth(goalIndicatorThickness);
 switch (indicatorType) {
   case Line:
-    canvas.drawLine(indicatorPosition, halfHeight - goalIndicatorHeight / 2,
-    indicatorPosition, halfHeight + goalIndicatorHeight / 2, progressPaint);
+    canvas.drawLine(indicatorPosition, 
+                    halfHeight - goalIndicatorHeight / 2,
+                    indicatorPosition, 
+                    halfHeight + goalIndicatorHeight / 2, 
+                    progressPaint);
     break;
   case Circle:
-    canvas.drawCircle(indicatorPosition, goalIndicatorHeight / 2, goalIndicatorHeight / 2, progressPaint);
+    canvas.drawCircle(indicatorPosition, 
+                      goalIndicatorHeight / 2, 
+                      goalIndicatorHeight / 2, 
+                      progressPaint);
     break;
   case Square:
-    canvas.drawRect(indicatorPosition - (goalIndicatorHeight / 2), 0, indicatorPosition + (goalIndicatorHeight / 2), goalIndicatorHeight, progressPaint);
+    canvas.drawRect(indicatorPosition - (goalIndicatorHeight / 2), 
+                    0, 
+                    indicatorPosition + (goalIndicatorHeight / 2), 
+                    goalIndicatorHeight, 
+                    progressPaint);
     break;
 }
 ```
