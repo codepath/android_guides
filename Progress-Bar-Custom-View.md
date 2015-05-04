@@ -236,6 +236,27 @@ Add a member variable of this new enum, and allow it to be set via a public sett
 setIndicatorType(IndicatorType.values()[typedArray.getInt(R.styleable.GoalProgressBar_indicatorType, IndicatorType.Line.ordinal())]);
 ```
 
+Now we'll need to add logic to `onDraw` to draw the differently styled indicator. Use a `switch` on the `indicatorType` to determine how to draw the goal indicator: 
+
+```java
+// draw the goal indicator
+float indicatorPosition = getIndicatorPosition();
+progressPaint.setColor(goalReachedColor);
+progressPaint.setStrokeWidth(goalIndicatorThickness);
+switch (indicatorType) {
+  case Line:
+    canvas.drawLine(indicatorPosition, halfHeight - goalIndicatorHeight / 2,
+    indicatorPosition, halfHeight + goalIndicatorHeight / 2, progressPaint);
+    break;
+  case Circle:
+    canvas.drawCircle(indicatorPosition, goalIndicatorHeight / 2, goalIndicatorHeight / 2, progressPaint);
+    break;
+  case Square:
+    canvas.drawRect(indicatorPosition - (goalIndicatorHeight / 2), 0, indicatorPosition + (goalIndicatorHeight / 2), goalIndicatorHeight, progressPaint);
+    break;
+}
+```
+
 ### Saving instance state
 In order to maintain state across screen rotation, we'll need to handle saving and restoring instance state. To do so we'll override [onSaveInstanceState](http://developer.android.com/reference/android/view/View.html#onSaveInstanceState()) and [onRestoreInstanceState](http://developer.android.com/reference/android/view/View.html#onRestoreInstanceState(android.os.Parcelable)): 
 
