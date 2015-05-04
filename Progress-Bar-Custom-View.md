@@ -131,7 +131,7 @@ try {
 
 Extract each of our defined attributes from the typed array by providing the `styleable` ID to the `typedArray`. Be sure to set each member variable via it's setter for consistent behavior: 
 ```java
-setGoalReachedColor(a.getColor(R.styleable.GoalProgressBar_goalReachedColor, Color.BLUE));
+setGoalReachedColor(typedArray.getColor(R.styleable.GoalProgressBar_goalReachedColor, Color.BLUE));
 ```
 
 ### Measuring 
