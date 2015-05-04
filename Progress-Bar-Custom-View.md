@@ -56,8 +56,8 @@ private void updateGoalReached() {
 }
 ```
 
-### Custom Attributes
-We're going to create custom attributes to allow users to customize different components of our progress bar. To start out, we'll define member variables for each customizable attribute: 
+### Customizable fields
+We're going to expose customizable fields to allow different components in our progress bar. To start out, we'll define member variables for each customizable attribute: 
 
 ```java
 // height of the goal indicator 
