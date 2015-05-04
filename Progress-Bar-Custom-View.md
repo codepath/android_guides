@@ -279,7 +279,7 @@ public Parcelable onSaveInstanceState() {
   bundle.putInt("progress", progress);
 
   // be sure to save all other instance state that may exist
-  bundle.putParcelable("otherState", super.onSaveInstanceState());
+  bundle.putParcelable("superState", super.onSaveInstanceState());
 
   return bundle;
 }
@@ -293,7 +293,7 @@ public void onRestoreInstanceState(Parcelable state) {
     setProgress(bundle.getInt("progress"));
 
     // restore all other state
-    state = bundle.getParcelable("otherState");
+    state = bundle.getParcelable("superState");
   }
   super.onRestoreInstanceState(state);
 }
