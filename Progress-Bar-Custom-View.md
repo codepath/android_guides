@@ -164,18 +164,15 @@ This will properly handle the sizing of our view, even when we allow a customiza
 ### Drawing the view
 Now our view has set it's appropriate height and width, we're ready to draw the content of the view to the screen. We do this by overriding [onDraw](http://developer.android.com/reference/android/view/View.html#onDraw(android.graphics.Canvas)). 
 
-In order to draw the progress we'll need to use a Paint object. Define a new paint object that is initialized after view creation: 
+In order to draw the progress we'll need to use a Paint object. Define a new paint object that is initialized in `init`: 
 ```java
 private Paint progressPaint;
 
-public GoalProgressBar(Context context, AttributeSet attrs) {
-    super(context, attrs);
-    init();
-}
+...
 
-private void init() {
-    progressPaint = new Paint();
-    progressPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+private void init(AttributeSet attrs) {
+  progressPaint = new Paint();
+  progressPaint.setStyle(Paint.Style.FILL_AND_STROKE);
 }
 ```
 
