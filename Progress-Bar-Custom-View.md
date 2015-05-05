@@ -326,8 +326,8 @@ barAnimator.setInterpolator(new DecelerateInterpolator());
 barAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
   @Override
     public void onAnimationUpdate(ValueAnimator animation) {
-    float interpolation = (float) animation.getAnimatedValue();
-    setProgress((int) (interpolation * progress), false);
+      float interpolation = (float) animation.getAnimatedValue();
+      setProgress((int) (interpolation * progress), false);
   }
 });
 
