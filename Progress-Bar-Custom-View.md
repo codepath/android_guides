@@ -59,7 +59,7 @@ private int goalNotReachedColor;
 private int unfilledSectionColor;
 
 // thickness of the progress bar
-private float barThickness;
+private float barHeight;
 ```
 
 In order to be able to set these variables from Java code, create setters for these member variables. When any of these setters are called, be sure to call `postInvalidate();` after updating the field so the view is redrawn. 
@@ -75,7 +75,7 @@ In order to set these variables from XML, we first have to declare a styleable r
     <attr name="goalReachedColor" format="color"/>
     <attr name="goalNotReachedColor" format="color"/>
     <attr name="unfilledSectionColor" format="color"/>
-    <attr name="barThickness" format="dimension"/>
+    <attr name="barHeight" format="dimension"/>
   </declare-styleable>
 </resources>
 ```
@@ -95,7 +95,7 @@ Once the new `app` namespace is defined (we can call it anything, it doesn't hav
     app:goalReachedColor="@color/green"
     app:goalNotReachedColor="@color/dark_gray"
     app:unfilledSectionColor="@color/gray"
-    app:barThickness="4dp"
+    app:barHeight="4dp"
     app:goalIndicatorHeight="16dp"
     app:goalIndicatorThickness="4dp"/>
 ```
@@ -196,7 +196,7 @@ protected void onDraw(Canvas canvas) {
   int progressEndX = (int) (getWidth() * progress / 100f);
 
   // draw the part of the bar that's filled
-  progressPaint.setStrokeWidth(barThickness);
+  progressPaint.setStrokeWidth(barHeight);
   progressPaint.setColor(isGoalReached ? goalReachedColor : goalNotReachedColor);
   canvas.drawLine(0, halfHeight, progressEndX, halfHeight, progressPaint);
 
