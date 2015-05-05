@@ -10,7 +10,7 @@ This guide is a step-by-step walkthrough of implementing a Horizontal ListView u
 
 ### Introducing TwoWayView
 
-Of all the third-party libraries currently out there for Horizontal ListView, the most complete and useable is called [TwoWayView](https://github.com/lucasr/twoway-view). Even though there is a warning about this not being production ready, this is still probably the best view short of [implementing one yourself](http://www.androiddevelopersolution.com/2012/11/horizontal-listview-in-android-example.html). 
+Of all the third-party libraries currently out there for Horizontal ListView, the most complete and useable is called [TwoWayView](https://github.com/lucasr/twoway-view). Even though there is a warning about this not being production ready, this is still probably the best view short of implementing one yourself. 
 
 ### Installing TwoWayView
 
