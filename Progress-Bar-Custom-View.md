@@ -1,6 +1,3 @@
-### Overview
-
-
 ### Objective
 We're going to create our own implementation of a determinate progress bar. The progress bar will have an indicator that represents a goal. We will define custom attributes, handle measuring and drawing, and animations. 
 
