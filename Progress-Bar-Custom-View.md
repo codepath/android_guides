@@ -100,7 +100,14 @@ Once the new `app` namespace is defined (we can call it anything, it doesn't hav
     app:goalIndicatorThickness="4dp"/>
 ```
 
-Modify `init` to include an [AttributeSet](http://developer.android.com/reference/android/util/AttributeSet.html) as a parameter. It is from this object that we'll extract the attribute values. 
+Create a new method for initialization to be called from the constructor of our `View`: 
+```java
+private void init(AttributeSet attrs) {
+   // extract our custom attributes
+}
+```
+
+We will extract our custom attribute values from the given [AttributeSet](http://developer.android.com/reference/android/util/AttributeSet.html). 
 
 To extract the attributes from the `AttributeSet`, we'll use a [TypedArray](http://developer.android.com/reference/android/content/res/TypedArray.html). A `TypedArray` is basically a container to hold onto defined attributes. This object must be recycled once we're done using it, so we'll interact with it in a `try` block so we can be sure to call `recycle()` on it once we're finished: 
 ```java
