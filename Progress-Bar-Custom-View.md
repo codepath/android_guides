@@ -47,7 +47,7 @@ We're going to expose customizable fields to allow different components in our p
 private float goalIndicatorHeight;
 
 // thickness of the goal indicator
-private float goalIndicatorThickness;
+private float goalIndicatorWidth;
 
 // bar color when the goal has been reached
 private int goalReachedColor;
@@ -71,7 +71,7 @@ In order to set these variables from XML, we first have to declare a styleable r
 <resources>
   <declare-styleable name="GoalProgressBar">
     <attr name="goalIndicatorHeight" format="dimension"/>
-    <attr name="goalIndicatorThickness" format="dimension"/>
+    <attr name="goalIndicatorWidth" format="dimension"/>
     <attr name="goalReachedColor" format="color"/>
     <attr name="goalNotReachedColor" format="color"/>
     <attr name="unfilledSectionColor" format="color"/>
@@ -97,7 +97,7 @@ Once the new `app` namespace is defined (we can call it anything, it doesn't hav
     app:unfilledSectionColor="@color/gray"
     app:barHeight="4dp"
     app:goalIndicatorHeight="16dp"
-    app:goalIndicatorThickness="4dp"/>
+    app:goalIndicatorWidth="4dp"/>
 ```
 
 Create a new method for initialization to be called from the constructor of our `View`: 
@@ -207,7 +207,7 @@ protected void onDraw(Canvas canvas) {
   // draw the goal indicator
   float indicatorPosition = getWidth() * goal / 100f;
   progressPaint.setColor(goalReachedColor);
-  progressPaint.setStrokeWidth(goalIndicatorThickness);
+  progressPaint.setStrokeWidth(goalIndicatorWidth);
   canvas.drawLine(indicatorPosition, halfHeight - goalIndicatorHeight / 2,
                 indicatorPosition, halfHeight + goalIndicatorHeight / 2, progressPaint);
 }
@@ -249,7 +249,7 @@ Now we'll need to add logic to `onDraw` to draw the differently styled indicator
 // draw the goal indicator
 float indicatorPosition = getIndicatorPosition();
 progressPaint.setColor(goalReachedColor);
-progressPaint.setStrokeWidth(goalIndicatorThickness);
+progressPaint.setStrokeWidth(goalIndicatorWidth);
 switch (indicatorType) {
   case Line:
     canvas.drawLine(indicatorPosition, 
