@@ -58,7 +58,7 @@ private int goalNotReachedColor;
 // bar color for the unfilled section (remaining progress)
 private int unfilledSectionColor;
 
-// thickness of the progress bar
+// height of the progress bar
 private float barHeight;
 ```
 
