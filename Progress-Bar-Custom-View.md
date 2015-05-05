@@ -17,23 +17,6 @@ The skeleton app contains a `GoalProgressBar` class which extends Android's [Pro
 ### Initialization
 We won't need to extend android's `ProgressBar` as we will be drawing the progress manually. Change `GoalProgressBar` to extend `View` instead of `ProgressBar`, and remove the `style` and `android:indeterminite` attributes from our custom view's definition in `activity_main.xml`. 
 
-In order to draw the progress we'll need to use a Paint object. Define a new paint object that is initialized after view creation: 
-```java
-private Paint progressPaint;
-
-public GoalProgressBar(Context context, AttributeSet attrs) {
-    super(context, attrs);
-    init();
-}
-
-private void init() {
-    progressPaint = new Paint();
-    progressPaint.setStyle(Paint.Style.FILL_AND_STROKE);
-}
-```
-
-It's important that the `Paint` is only created once, as reinitializing the object each time it is used in drawing would affect performance. 
-
 Our progress bar will have an indicator for a given 'goal'. The goal indicator can appear at any given position on the progress bar, and will have an adjustable size.
 
 Create public setters for an `int progress`, as well as an `int goal`. When either of these methods are called, we'll update a `boolean isGoalReached` method that we'll use to determine which color to draw the progress bar. 
@@ -173,6 +156,23 @@ This will properly handle the sizing of our view, even when we allow a customiza
 
 ### Drawing the view
 Now our view has set it's appropriate height and width, we're ready to draw the content of the view to the screen. We do this by overriding [onDraw](http://developer.android.com/reference/android/view/View.html#onDraw(android.graphics.Canvas)). 
+
+In order to draw the progress we'll need to use a Paint object. Define a new paint object that is initialized after view creation: 
+```java
+private Paint progressPaint;
+
+public GoalProgressBar(Context context, AttributeSet attrs) {
+    super(context, attrs);
+    init();
+}
+
+private void init() {
+    progressPaint = new Paint();
+    progressPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+}
+```
+
+It's important that the `Paint` is only created once, as reinitializing the object each time it is used in drawing would affect performance. 
 
 `onDraw` provides a `Canvas` onto which we can use our `Paint` to draw. We'll start with three different components to draw, so we'll have three separate calls to draw onto the `Canvas`. 
 
