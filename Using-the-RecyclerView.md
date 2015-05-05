@@ -68,7 +68,7 @@ Next, let's define the adapter for our `RecyclerView` which will bind to the dat
 The interface for the adapter now aligns more closely with the `ViewHolder` pattern, which has a method to inflate new views and another to simply populate the information from a previously reused item.
 
 ```java
-public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleItemViewHolder> {
+public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAdapter.SimpleItemViewHolder> {
 		private List<String> items;
 
 		// Provide a reference to the views for each data item
