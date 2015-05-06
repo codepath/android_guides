@@ -1,9 +1,13 @@
 ### Objective
-We're going to create our own implementation of a determinate progress bar. The progress bar will have an indicator that represents a goal. We will define custom attributes, handle measuring and drawing, and animations. 
+
+We're going to create our own implementation of a determinate progress bar by creating a custom view. The progress bar will have an indicator that represents a goal. We will define custom attributes, handle measuring and drawing, and animations. 
 
 ![](http://i.imgur.com/rMW3K4A.gif)
 
+Review the [creating a custom view](http://guides.codepath.com/android/Defining-Custom-Views) cliffnotes for a broader overview of what is required in building custom views.
+
 ### Prepare app skeleton
+
 Clone [this repository](https://github.com/codepath/android-custom-progress-bar), and import the project in Android Studio. Build and run the app to see the following screen: 
 
 <img src="http://i.imgur.com/n6LW1jL.png" width="300">
@@ -12,7 +16,8 @@ The skeleton app contains a `GoalProgressBar` class which extends Android's [Pro
 
 
 ### Initialization
-We won't need to extend android's `ProgressBar` as we will be drawing the progress manually. Change `GoalProgressBar` to extend `View` instead of `ProgressBar`, and remove the `style` and `android:indeterminite` attributes from our custom view's definition in `activity_main.xml`. 
+
+We won't need to extend android's `ProgressBar` as we will be drawing the progress manually. Change `GoalProgressBar` to extend `View` instead of `ProgressBar`, and remove the `style` and `android:indeterminate` attributes from our custom view's definition in `activity_main.xml`. 
 
 Our progress bar will have an indicator for a given 'goal'. The goal indicator can appear at any given position on the progress bar, and will have an adjustable size.
 
@@ -37,6 +42,7 @@ private void updateGoalReached() {
 ```
 
 ### Customizable fields
+
 We're going to expose customizable fields to allow different components in our progress bar. To start out, we'll define member variables for each customizable attribute: 
 
 ```java
@@ -122,6 +128,7 @@ setGoalReachedColor(typedArray.getColor(R.styleable.GoalProgressBar_goalReachedC
 ```
 
 ### Measuring 
+
 Now that we have the framework in place for setting the required fields, we can implement the measuring logic. To do this we will override `onMeasure`, so we can tell our parent view what size we'd like the view to be. 
 
 For the width of the view, we can use whatever width imposed by our parent (provided in `widthMeasureSpec`), but we'll add some custom handling for determining our height. 
@@ -158,7 +165,8 @@ protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
 This will properly handle the sizing of our view, even when we allow a customizable sized goal indicator. 
 
-### Drawing the view
+### Drawing the View
+
 Now our view has set it's appropriate height and width, we're ready to draw the content of the view to the screen. We do this by overriding [onDraw](http://developer.android.com/reference/android/view/View.html#onDraw(android.graphics.Canvas)). 
 
 In order to draw the progress we'll need to use a Paint object. Define a new paint object that is initialized in `init`: 
@@ -207,7 +215,7 @@ protected void onDraw(Canvas canvas) {
 }
 ```
 
-### Custom goal indicator
+### Custom Goal Indicator
 
 Next we're going to create some different options for the goal indicator. We can allow users to choose between different shapes to use as the goal indicator. We'll do this by creating a new XML attribute that has a predefined set of values, to make the API as user friendly as possible:
  
@@ -268,7 +276,8 @@ switch (indicatorType) {
 }
 ```
 
-### Saving instance state
+### Saving Instance State
+
 In order to maintain state across screen rotation, we'll need to handle saving and restoring instance state. To do so we'll override [onSaveInstanceState](http://developer.android.com/reference/android/view/View.html#onSaveInstanceState()) and [onRestoreInstanceState](http://developer.android.com/reference/android/view/View.html#onRestoreInstanceState(android.os.Parcelable)): 
 
 ```java
