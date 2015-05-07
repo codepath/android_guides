@@ -342,4 +342,6 @@ if (!barAnimator.isStarted()) {
 }
 ```
 
-To view the the complete implementation, see [this branch](https://github.com/codepath/android-custom-progress-bar/tree/eric/solution). 
+
+### Full Implementation
+To view the the complete implementation of this custom view, see [this branch](https://github.com/codepath/android-custom-progress-bar/tree/eric/solution). 
