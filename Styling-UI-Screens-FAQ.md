@@ -78,21 +78,19 @@ There are many different `android:scaleType` values which you can read about in 
 
 You have probably noticed that there are multiple drawable folders (i.e drawable-hdpi, drawable-xhdpi) which allow us to provide multiple resolutions for different density screens. An easy guide for which sizes to create can be found in [[this ImageView guide|Working-with-the-ImageView#supporting-multiple-densities]].
 
-To resize images easily, check out the [Final Android Resizer](https://github.com/asystat/Final-Android-Resizer) by [downloading and running this JAR](https://github.com/asystat/Final-Android-Resizer/blob/master/Executable%20Jar/Final%20Android%20Resizer.jar?raw=true). 
+In certain cases a button has an image background that needs to stretch to support different text content inside. In this case you could [draw a 9-patch](http://developer.android.com/tools/help/draw9patch.html) stretchable image. Check out the [Button Custom Background Official Guide](http://developer.android.com/guide/topics/ui/controls/button.html#CustomBackground) for specific details. You can also check out [these nice looking 9-patch buttons](http://www.dibbus.com/2011/03/9patch-images-in-android/).
 
-Also, there are cases where a button has an image background that needs to stretch to support different text content. In this case you might need to [draw a 9-patch](http://developer.android.com/tools/help/draw9patch.html) stretchable button. Check out the [Button Custom Background Official Guide](http://developer.android.com/guide/topics/ui/controls/button.html#CustomBackground) for specific details. You can also check out [these nice looking 9-patch buttons](http://www.dibbus.com/2011/03/9patch-images-in-android/) for use too.
+#### How specifically should I generate images and icons for all density sizes?
+
+**For generating square icons at standard sizes**, use this [handy online resizer tool](http://romannurik.github.io/AndroidAssetStudio/index.html) or the Android Studio `New => Image Asset` generator. Launcher icons are for the app icon displayed on the main screen. "Action Bar icons" can be used for anything displayed on the ActionBar. For any non-icon images, see below.
+
+**For generating arbitrary images** at multiple densities, use the [Final Android Resizer](https://github.com/asystat/Final-Android-Resizer) by [downloading and running this JAR](https://github.com/asystat/Final-Android-Resizer/blob/master/Executable%20Jar/Final%20Android%20Resizer.jar?raw=true). Do **not use the Android Studio Image Asset generator** in this case.
 
 #### How do I add a background image to a view?
 
 Simply drag the image to the `res/drawable-mdpi` folder and then apply the image to any view by setting `android:background="@drawable/my_image_name"`. See [this stackoverflow post](http://stackoverflow.com/a/8177819) for more details. 
 
 Note that the **aspect ratio cannot be changed when a drawable is applied as a background** of a view. If you need more control of how the image is scaled, see [this post](http://stackoverflow.com/a/16139059) using a FrameLayout. In short, if you want to control the scale or stretch type of an image, you must **use an ImageView** that is "match_parent" for both width and height of the parent container.
-
-#### How should I generate images for all density sizes? What is the "Image Asset" generator?
-
-**For generating square icons at standard sizes**, use this [handy online resizer tool](http://romannurik.github.io/AndroidAssetStudio/index.html) or the Android Studio `New => Image Asset` generator. Launcher icons are for the app icon displayed on the main screen. "Action Bar icons" can be used for anything displayed on the ActionBar. For any non-icon images, see below.
-
-**For generating arbitrary images** at multiple densities, use the [Final Android Resizer](https://github.com/asystat/Final-Android-Resizer) by [downloading and running this JAR](https://github.com/asystat/Final-Android-Resizer/blob/master/Executable%20Jar/Final%20Android%20Resizer.jar?raw=true). Do **not use the Android Studio Image Asset generator** in this case.
 
 #### My image isn't loading and I am seeing a memory error instead in the logs
 
