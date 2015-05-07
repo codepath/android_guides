@@ -84,7 +84,15 @@ Also, there are cases where a button has an image background that needs to stret
 
 #### How do I add a background image to a view?
 
-Simply drag the image to the `res/drawable-mdpi` folder and then apply the image to any view by setting `android:background="@drawable/my_image_name"`. See [this stackoverflow post](http://stackoverflow.com/a/8177819) for more details. If you need more control of how the image is scaled, see [this post](http://stackoverflow.com/a/16139059) using a FrameLayout.
+Simply drag the image to the `res/drawable-mdpi` folder and then apply the image to any view by setting `android:background="@drawable/my_image_name"`. See [this stackoverflow post](http://stackoverflow.com/a/8177819) for more details. 
+
+Note that the **aspect ratio cannot be changed when a drawable is applied as a background** of a view. If you need more control of how the image is scaled, see [this post](http://stackoverflow.com/a/16139059) using a FrameLayout. In short, if you want to control the scale or stretch type of an image, you must **use an ImageView** that is "match_parent" for both width and height of the parent container.
+
+#### How should I generate images for all density sizes? What is the "Image Asset" generator?
+
+**For generating square icons at standard sizes**, use this [handy online resizer tool](http://romannurik.github.io/AndroidAssetStudio/index.html) or the Android Studio `New => Image Asset` generator. Launcher icons are for the app icon displayed on the main screen. "Action Bar icons" can be used for anything displayed on the ActionBar. For any non-icon images, see below.
+
+**For generating arbitrary images** at multiple densities, use the [Final Android Resizer](https://github.com/asystat/Final-Android-Resizer) by [downloading and running this JAR](https://github.com/asystat/Final-Android-Resizer/blob/master/Executable%20Jar/Final%20Android%20Resizer.jar?raw=true). Do **not use the Android Studio Image Asset generator** in this case.
 
 #### My image isn't loading and I am seeing a memory error instead in the logs
 
@@ -99,6 +107,12 @@ For this, we'd use a custom [ToggleButton as described here](http://mirhoseini.i
 #### How do I setup click handlers for my views or buttons?
 
 Any view can have a click handler setup by [following this event handler guide](http://guides.codepath.com/android/Basic-Event-Listeners) which triggers an action when the click occurs. 
+
+#### How do I control the capitalization of text in views?
+
+For views that display text, if the view such as a button displays text in all caps and you want to disable that set the `android:textAllCaps="false"` property to change that behavior. This behavior is the default starting with API 21. 
+
+For **EditText** or other views that accept input, use the [android:capitalize](http://developer.android.com/reference/android/widget/TextView.html#attr_android:capitalize) attribute to change the capitalization of text entered by the user.
 
 #### How can I add an image on the left of the text in my button?
 
