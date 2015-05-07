@@ -341,3 +341,5 @@ if (!barAnimator.isStarted()) {
   barAnimator.start();
 }
 ```
+
+To view the the complete implementation, see [this branch](https://github.com/codepath/android-custom-progress-bar/tree/eric/solution). 
