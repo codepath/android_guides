@@ -15,6 +15,7 @@ This "standard pack" listed below are libraries that are quite popular, widely a
 | [IcePick](https://github.com/frankiesardo/icepick) | Android Instance State made easy |
 | [Crouton](https://github.com/keyboardsurfer/Crouton) | Context-sensitive, configurable alert notices much better than toasts |
 | [Hugo](https://github.com/JakeWharton/hugo) | Easier logging using annotations |
+| [LeakCanary](https://github.com/square/leakcanary) | Catch memory leaks in your apps | 
 
 Keep in mind that the combination of these libraries may not always play nicely with each other.  The following section highlights some of these issues.
 
