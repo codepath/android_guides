@@ -159,6 +159,10 @@ Often when collaborating on a project with others, you need to have the maps wor
 
 The simplest fix is described in detail within [this stack overflow post](http://stackoverflow.com/a/9653946/313399) but in short you can get the `debug.keystore` from one of the team members, check that into git and then instruct other team members to replace their `debug.keystore` file with the one from repository. See also [this link](http://groups.google.com/group/android-developers/browse_thread/thread/c9051635ab37f252) and [this guide](http://developer.android.com/guide/publishing/app-signing.html#debugmode). 
 
+### Simulating GPS Locations
+
+This handy [playback-gps](https://github.com/galens/playback-gpx) script allows a developer to simulate traveling a specific route on genymotion. Use this for testing and for presentations if you need to demonstrate how the map works with location in real-time.
+
 ## References
 
 * <http://www.androidhive.info/2013/08/android-working-with-google-maps-v2/>
