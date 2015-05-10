@@ -20,6 +20,13 @@ dependencies {
 ```
 You must download and use a [recent jar](https://dl-ssl.google.com/android/repository/support_r20.zip) of the support library for this to work.
 
+**Alternative:** Install the support library via Android Studio SDK Manager
+
+1. Open the SDK Manager from Android Studio with Tools -> Android -> SDK Manager
+2. The support library is under "Extras"
+
+
+
 ### Step 1: Wrap ListView
 
 We can use this by first wrapping the scrollable view with a `SwipeRefreshLayout` in the XML layout:
