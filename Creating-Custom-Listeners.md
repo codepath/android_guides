@@ -12,7 +12,13 @@ btnExample.setOnClickListener(new View.OnClickListener() {
 });
 ```
 
-This listener is built-in but we can also create our own listeners and attach callbacks to the events they fire from other areas in our code.
+This listener is built-in but we can also create our own listeners and attach callbacks to the events they fire from other areas in our code. This is useful in a variety of cases including:
+
+ * Firing events from list items upwards to an activity from within an adapter
+ * Firing events from [[a fragment upwards to an activity|Creating-and-Using-Fragments#fragment-listener]] when views are being interacted with.
+ * Firing asynchronous events from an abstraction (i.e networking library) to the handler.
+
+In short, a listener is useful **anytime a child object** wants to **emit events** upwards to notify a parent object and allow that object to respond.
 
 ## Custom Listeners
 
