@@ -18,7 +18,7 @@ The first question many developers have is which tools to use in their applicati
 
 Before we move on to using those popular third-party libraries, let's take a quick look at the [official Android Testing framework](http://developer.android.com/tools/testing/testing_android.html). This framework is baked into the Android SDK and is built on top of standard JUnit testing extended with a instrumentation framework and Android-specific testing classes.  
 
-Note: **You must be running at least version 1.1.0 of the Android plug-in for Gradle, since unit testing with Android Studio was only recently supported.**  More information about unit test support can be found [here](http://tools.android.com/tech-docs/unit-testing-support).  
+Note: **You must be running at least version 1.1.0 of the Android plug-in for Gradle, since unit testing with Android Studio was only recently supported.**  More information can be found [here](http://tools.android.com/tech-docs/unit-testing-support).  
 
 ```gradle
 buildscript {
