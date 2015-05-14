@@ -12,19 +12,13 @@ There are three common approaches used for automated Android testing:
  
 The first question many developers have is which tools to use in their applications. As everyone will tell you, this depends on your circumstance. However, I think for many apps the right combination is **using both Robolectric and Robotium**.
 
-### Testing Comparisons
-
-Emulator/instrumentation-based tests (including Robotium) are painfully slow but follow the Android API to the letter (except when they randomly fail, which is more often than you'd like).
-
-Robolectric works well for most common testing needs (and dramatically speeds up testing cycles) but does not work for every case and only supports unit tests. Robotium is great for testing the edges of the API that aren't yet simulated by Robolectric, and for testing actual phone behavior more rigorously through complete integration testing.
-
-The primary takeaway is **use Robolectric unit tests as much as possible** since they are the fastest testing suite. When tests fall outside the unit testing scope or the features of Robolectric then we need to rely on **Robotium for complete integration testing**.
-
 ### Android Testing Framework
 
 #### Introduction
 
-Before we move on to using those popular third-party libraries, let's take a quick look at the [official Android Testing framework](http://developer.android.com/tools/testing/testing_android.html). This framework is baked into the Android SDK and is built on top of standard JUnit testing extended with a instrumentation framework and Android-specific testing classes.  Note: **You must be running at least version 1.1.0 of the Android plug-in for Gradle, since unit testing with Android Studio was only recently supported.**
+Before we move on to using those popular third-party libraries, let's take a quick look at the [official Android Testing framework](http://developer.android.com/tools/testing/testing_android.html). This framework is baked into the Android SDK and is built on top of standard JUnit testing extended with a instrumentation framework and Android-specific testing classes.  
+
+Note: **You must be running at least version 1.1.0 of the Android plug-in for Gradle, since unit testing with Android Studio was only recently supported.**  More information about unit test support can be found [here](http://tools.android.com/tech-docs/unit-testing-support).  
 
 ```gradle
 buildscript {
@@ -37,11 +31,11 @@ buildscript {
 }
 ```
 
-Tests in Android are organized into their own projects. A test project is a directory in which you create a test application that contains unit test source files that run on top of the Android SDK.  In a default Gradle project, the source code for your app is typically located in the `app/src/main/java` folder.  The source code for your local unit tests must be placed under a `app/src/test/java/folder`.
-See the [setup instructions](http://developer.android.com/training/testing/unit-testing/local-unit-tests.html#setup) from the official Android documentations for more information.
+Tests in Android are organized into their own projects. A test project is a directory in which you create a test application that contains unit test source files that run on top of the Android SDK.  In a default Gradle project, the source code for your app is typically located in the `app/src/main/java` folder.  The source code for your local unit tests would then be placed under a `app/src/test/java/folder`.  See the [setup instructions](http://developer.android.com/training/testing/unit-testing/local-unit-tests.html#setup) from the official Android documentations for more information.
 
-The Android testing API provides hooks into the Android component and application life cycle. These hooks are called the instrumentation API and allow your tests to control the life cycle events. The Android instrumentation API allows you to run the test project and the normal Android project in the same process so that the test project can call methods of the Android project directly.
+The Android testing API also provides hooks into the Android component and application life cycle. These hooks are called the instrumentation API and allow your tests to control the life cycle events. The Android instrumentation API allows you to run the test project and the normal Android project in the same process so that the test project can call methods of the Android project directly.  These tests should be placed in `app/src/androidTest/java/folder` instead of `app/src/test/java/folder`.
 
+Note 
 #### Creating a Test Project
 
 Let's try testing a very simple application called [SimpleApp](https://github.com/codepath/android-simple-app). This app is just two activities. The first (`FirstActivity`) has a text field and a button. When you type in the text field and hit the button, a `SecondActivity` appears that displays the text entered.
@@ -538,6 +532,14 @@ assertThat(activity, is(nullValue())
 ```
 
 Check out a full list of core matchers for use with `assertThat` in the [hamcrest docs](http://hamcrest.org/JavaHamcrest/javadoc/1.3/org/hamcrest/CoreMatchers.html).
+
+### Testing Comparisons
+
+Emulator/instrumentation-based tests (including Robotium) are painfully slow but follow the Android API to the letter (except when they randomly fail, which is more often than you'd like).
+
+Robolectric works well for most common testing needs (and dramatically speeds up testing cycles) but does not work for every case and only supports unit tests. Robotium is great for testing the edges of the API that aren't yet simulated by Robolectric, and for testing actual phone behavior more rigorously through complete integration testing.
+
+The primary takeaway is **use Robolectric unit tests as much as possible** since they are the fastest testing suite. When tests fall outside the unit testing scope or the features of Robolectric then we need to rely on **Robotium for complete integration testing**.
 
 #### Related Libraries
 
