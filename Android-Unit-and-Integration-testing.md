@@ -24,7 +24,18 @@ The primary takeaway is **use Robolectric unit tests as much as possible** since
 
 #### Introduction
 
-Before we move on to using those popular third-party libraries, let's take a quick look at the [official Android Testing framework](http://developer.android.com/tools/testing/testing_android.html). This framework is baked into the Android SDK and is built on top of standard JUnit testing extended with a instrumentation framework and Android-specific testing classes. 
+Before we move on to using those popular third-party libraries, let's take a quick look at the [official Android Testing framework](http://developer.android.com/tools/testing/testing_android.html). This framework is baked into the Android SDK and is built on top of standard JUnit testing extended with a instrumentation framework and Android-specific testing classes.  Note: **You must be running at least version 1.1.0 of the Android plug-in for Gradle, since unit testing with Android Studio was only recently supported.**
+
+```gradle
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.2.2'
+    }
+}
+```
 
 Tests in Android are organized into their own projects. A test project is a directory in which you create a test application that contains unit test source files that run ontop of the Android SDK. Often the test project is added as a "tests" folder at the root level of your Android app. 
 
