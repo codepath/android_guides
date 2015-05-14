@@ -37,7 +37,8 @@ buildscript {
 }
 ```
 
-Tests in Android are organized into their own projects. A test project is a directory in which you create a test application that contains unit test source files that run ontop of the Android SDK. Often the test project is added as a "tests" folder at the root level of your Android app. 
+Tests in Android are organized into their own projects. A test project is a directory in which you create a test application that contains unit test source files that run on top of the Android SDK.  In a default Gradle project, the source code for your app is typically located in the `app/src/main/java` folder.  The source code for your local unit tests must be placed under a `app/src/test/java/folder`.
+See the [setup instructions](http://developer.android.com/training/testing/unit-testing/local-unit-tests.html#setup) from the official Android documentations for more information.
 
 The Android testing API provides hooks into the Android component and application life cycle. These hooks are called the instrumentation API and allow your tests to control the life cycle events. The Android instrumentation API allows you to run the test project and the normal Android project in the same process so that the test project can call methods of the Android project directly.
 
