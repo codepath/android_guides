@@ -2,12 +2,12 @@
 
 In mobile application development, mobile apps tend to adhere to a set of standard screen "archetypes" that appear again and again. There are over a dozen screen archetypes but there are six core archetypes that appear in nearly every app:
 
- * Login / Register
- * Stream
- * Detail
- * Creation
- * Profile
- * Settings
+ * [Login / Register](#1-login)
+ * [Stream](#2-stream)
+ * [Detail](#3-detail)
+ * [Creation](#4-creation)
+ * [Profile](#5-profile)
+ * [Settings](#6-settings)
 
 A large part of building mobile apps is about understanding how to build the UI and data back-end to power these common screen types above. Therefore when learning about Android development, you must ensure you have built at least all six of these core types when working on early projects. 
 
