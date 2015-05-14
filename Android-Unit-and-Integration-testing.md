@@ -35,7 +35,6 @@ Tests in Android are organized into their own projects. A test project is a dire
 
 The Android testing API also provides hooks into the Android component and application life cycle. These hooks are called the instrumentation API and allow your tests to control the life cycle events. The Android instrumentation API allows you to run the test project and the normal Android project in the same process so that the test project can call methods of the Android project directly.  These tests should be placed in `app/src/androidTest/java/folder` instead of `app/src/test/java/folder`.
 
-Note 
 #### Creating a Test Project
 
 Let's try testing a very simple application called [SimpleApp](https://github.com/codepath/android-simple-app). This app is just two activities. The first (`FirstActivity`) has a text field and a button. When you type in the text field and hit the button, a `SecondActivity` appears that displays the text entered.
