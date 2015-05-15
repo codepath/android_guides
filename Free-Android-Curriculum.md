@@ -60,8 +60,7 @@ The course was broken up into eight lectures. Each lecture provides step-by-step
   * Async task
   * Surface view
 
-Ana Redmond's content can be [accessed in full here](https://drive.google.com/folderview?
-id=0B5u8j07GbVMlZk5PMUROT2N6Z00&usp=sharing).
+Ana Redmond's content can be [accessed in full here](https://drive.google.com/drive/u/0/#folders/0B5u8j07GbVMlZk5PMUROT2N6Z00).
 
 ## Carolyn Dolnick's Plan
 
