@@ -138,7 +138,7 @@ You can also add dependencies based on the [Maven Central Repository](http://sea
 
 ### How to setup the Gradle wrapper
 
-If you are planning to setup your own project without Android Studio (i.e. via Ecipse), the current recommendation is to setup the Gradle wrapper (http://www.gradle.org/docs/current/userguide/gradle_wrapper.html).  The reason is that other people trying to use your project do not need to install Gradle themselves once you've generated the files needed to bootstrap the process.  
+If you are planning to setup your own project without Android Studio (i.e. via Eclipse), the current recommendation is to setup the Gradle wrapper (http://www.gradle.org/docs/current/userguide/gradle_wrapper.html).  The reason is that other people trying to use your project do not need to install Gradle themselves once you've generated the files needed to bootstrap the process.  
 
 To generate this initial set of files (Android Studio will automatically handle this work for you), you need to add these lines to your build.gradle file: 
 
