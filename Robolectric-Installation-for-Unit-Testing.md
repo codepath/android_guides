@@ -52,15 +52,34 @@ Setting up this file in the top level will help ensure that there is only one pl
 ## Creating tests
 
 1. See [this example](https://github.com/mutexkid/android-studio-robolectric-example/blob/master/app/src/test/java/com/example/joshskeen/myapplication/MyActivityTest.java).  Note that your test needs to be annotated with `RoboelectricGradleTestRunner` instead of `RoboelectricTestRunner`.  You also need to annotate the `BuildConfig.class`, which should be created during a Gradle run.
+  ```java
 
-```java
-
-RunWith(RobolectricGradleTestRunner.class)
-@Config(constants = BuildConfig.class)
-public class MyActivityTest {
-```
-
+     RunWith(RobolectricGradleTestRunner.class)
+     @Config(constants = BuildConfig.class)
+     public class MyActivityTest {
+  ```
 The [Roboelectric guide](http://robolectric.org/writing-a-test/) is also a useful resource.  Each of your tests must contain an `@Test` annotation.
+
+2. If you intend to create mock network responses, you will need to place them inside the `src/test/resources/` directory.  You can reference these files by using `getResourceAsStream()` (note the backslash is needed in the front):
+
+ 
+   ```
+      InputStream stream = MyClass.class.getResourceAsStream("/test_data.json");
+   ```
+
+Note that while running Gradle at the command-line, your tests may pass successfully.  However, in Android Studio you may notice that null gets returned whenever trying to make this call.  It is documented as a [known issue](http://tools.android.com/knownissues#TOC-JUnit-tests-missing-resources-in-classpath-when-run-from-Studio) and will be fixed in the next version of Android Studio.  
+
+One workaround inspired from this [PasteBin](http://pastebin.com/L6CeCtAp) is to add these lines into your `app/build.gradle` file.  What it does it copy all the files from `test/resources` into the build directory so they can be found during your test runs.
+
+```gradle
+
+task copyTestResources(type: Copy) {
+        from "${projectDir}/src/test/resources"
+        into "${buildDir}/intermediates/classes/test/debug"
+    }
+
+assembleDebug.dependsOn(copyTestResources)
+```
 
 ## Running tests
 
