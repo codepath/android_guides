@@ -41,7 +41,7 @@ Setting up this file in the top level will help ensure that there is only one pl
 
 ## Creating resource directory
 
-   Create an test/resources/org.robolectric.Config.properties file.  Note that the directory
+   Create an `test/resources/org.robolectric.Config.properties` file.  Note that the directory
    needs to be resources/ (not to be confused with /res directory used to store your layout files).   
 
    ```
