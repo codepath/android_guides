@@ -83,8 +83,6 @@ assembleDebug.dependsOn(copyTestResources)
 
 ## Running tests
 
-Proceed with the next section about [[Verifying installation|Robolectric-Installation-for-Unit-Testing#verify-installation]].
-
 If you type ./gradlew test from the command line, tests should run correctly.  
 
 ## Debugging Tests
@@ -105,38 +103,3 @@ If you want to be able to debug your tests inside Android Studio, make sure you 
 4. Make sure you run the test as a JUnit test, not as an Android Application Test.  You can control-click on the file and click on Run.  The icons look different (1st icon is Android test, while the 2nd icon is JUnit.)
 
    ![](http://i.imgur.com/RDmmdI2.png)
-
-# Verify Installation
-
-Create a temporary test to verify that the installation was correct. Create a file in the "test" folder in SimpleAppElectricTest. Create "MyActivityTest" in the "com.codepath.example.simpleapp.test" with the following code:
-
-```java
-package com.codepath.example.simpleapp.test;
-
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
-
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.robolectric.RobolectricTestRunner;
-
-import com.codepath.example.simpleapp.FirstActivity;
-import com.codepath.example.simpleapp.R;
-
-@RunWith(RobolectricTestRunner.class)
-public class MyActivityTest {
-
-    @Test
-    public void shouldHaveHappySmiles() throws Exception {
-        String hello = new FirstActivity().getResources().getString(R.string.hello_world);
-        assertThat(hello, equalTo("Hello World!"));
-    }
-
-}
-```
-
-Run the tests by right-clicking on the test project and selecting "Run As..." => "Junit Test"
-
-![Screen 17](http://i.imgur.com/x5Cgs3n.png)
-
-And if that passes green, then Robolectric has been properly installed!
