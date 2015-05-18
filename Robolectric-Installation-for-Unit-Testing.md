@@ -74,7 +74,7 @@ If you want to be able to debug your tests inside Android Studio, make sure you 
 
 1. Make sure your tests are located in `src/test/java`.   
 
-2. If you are using a Mac, go to `Run` -> `Edit Configurations` -> `Defaults` -> `Junit and make sure to set $MODULE_DIR$ as the working directory.  There is a known bug in tests not being located unless you set this configuration first.  See the Roboelectric [getting started guide](http://robolectric.org/getting-started/) for more information. 
+2. If you are using a Mac, go to `Run` -> `Edit Configurations` -> `Defaults` -> `Junit` and make sure to set $MODULE_DIR$ as the working directory.  There is a known bug in tests not being located unless you set this configuration first.  See the Roboelectric [getting started guide](http://robolectric.org/getting-started/) for more information. 
 
   <img src="http://robolectric.org/images/android-studio-configure-defaults-4bf48402.png">
 
