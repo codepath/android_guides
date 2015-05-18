@@ -69,7 +69,7 @@ The [Roboelectric guide](http://robolectric.org/writing-a-test/) is also a usefu
 
 Note that while running Gradle at the command-line, your tests may pass successfully.  However, in Android Studio you may notice that null gets returned whenever trying to make this call.  It is documented as a [known issue](http://tools.android.com/knownissues#TOC-JUnit-tests-missing-resources-in-classpath-when-run-from-Studio) and will be fixed in the next version of Android Studio.  
 
-One workaround inspired from this [PasteBin](http://pastebin.com/L6CeCtAp) is to add these lines into your `app/build.gradle` file.  What it does it copy all the files from `test/resources` into the build directory so they can be found during your test runs.
+One workaround inspired from this [PasteBin](http://pastebin.com/L6CeCtAp) is to add these lines into your `app/build.gradle` file.  What it does it copy all the files from `test/resources` into the build directory so they can be found during your Android Studio test runs.
 
 ```gradle
 
