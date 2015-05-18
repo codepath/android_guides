@@ -60,7 +60,7 @@ RunWith(RobolectricGradleTestRunner.class)
 public class MyActivityTest {
 ```
 
-The [Roboelectric guide](http://robolectric.org/writing-a-test/) is also a useful resource.  Each of your tests must be annotated with a `Test` decorator.
+The [Roboelectric guide](http://robolectric.org/writing-a-test/) is also a useful resource.  Each of your tests must contain an `@Test` annotation.
 
 ## Running tests
 
