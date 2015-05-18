@@ -6,72 +6,61 @@ Let's take a look at a step-by-step for setting up Robolectric to test your proj
 
 # Setting up for Android Studio
 
-## Configure build.gradle
+## Configure top-level build.gradle
 
-   You'll need to setup your build.gradle configuration to include the Robolectric Gradle plugin:
+   Make sure to be running at least version 1.1.0 of the Android plug-in for Gradle, since unit testing with Android Studio was only recently supported.  More information can be found [here] (http://tools.android.com/tech-docs/unit-testing-support).  
 
-   ```
+   ```gradle
    buildscript {
       repositories {
          mavenCentral()
       } 
       dependencies {
-         classpath 'com.android.tools.build:gradle:0.12.+'
-         classpath 'org.robolectric:robolectric-gradle-plugin:1.0.1'
+         classpath 'com.android.tools.build:gradle:1.2.2'
       }
    }
+   ```
 
+Setting up this file in the top level will help ensure that there is only one place where this Android plug-in is defined.  All other projects (i.e. app) will inherit this dependency.
+
+## Configure app/build.gradle
+
+  ```gradle
+  dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    testCompile('org.robolectric:robolectric:3.0-rc2') {
+           exclude group: 'commons-logging', module: 'commons-logging'
+           exclude group: 'org.apache.httpcomponents', module: 'httpclient'
+    }
    apply plugin: 'org.robolectric'
    ``` 
 
    Within your dependencies, you need to include the following defines. The exclude modules
-   are intended to remove duplicate dependency definitions (template borrowed from 
-   https://github.com/robolectric/deckard-gradle/blob/master/README.md).  
-
-   For instance, the support-v4.jar will likely to be specified as a compilation dependency already. Roboelectric also specifies it as a dependency and will trigger a (Lcom/example/android/app/FragmentLayoutSupport; had used a different Landroid/support/v4/app/FragmentActivity; during pre-verification) error if it is not excluded.
-
-```gradle
-dependencies {
-  compile fileTree(dir: 'libs', include: ['*.jar'])
-  compile 'com.android.support:support-v4:22.1.0'
-
-  androidTestCompile 'org.hamcrest:hamcrest-integration:1.3'
-  androidTestCompile 'org.hamcrest:hamcrest-core:1.3'
-  androidTestCompile 'org.hamcrest:hamcrest-library:1.3'
-
-  androidTestCompile('junit:junit:4.+') {
-      exclude module: 'hamcrest-core'
-  }
-  androidTestCompile('org.robolectric:robolectric:2.4') {
-      exclude module: 'classworlds'
-      exclude module: 'commons-logging'
-      exclude module: 'httpclient'
-      exclude module: 'maven-artifact'
-      exclude module: 'maven-artifact-manager'
-      exclude module: 'maven-error-diagnostics'
-      exclude module: 'maven-model'
-      exclude module: 'maven-project'
-      exclude module: 'maven-settings'
-      exclude module: 'plexus-container-default'
-      exclude module: 'plexus-interpolation'
-      exclude module: 'plexus-utils'
-      exclude module: 'support-v4'
-      exclude module: 'wagon-file'
-      exclude module: 'wagon-http-lightweight'
-      exclude module: 'wagon-provider-api'
-  }
-}
-```
+   are intended to remove duplicate dependency definitions (template borrowed from https://github.com/mutexkid/android-studio-robolectric-example).  
 
 ## Creating resource directory
 
-   Create an androidTest/resources/org.robolectric.Config.properties file.  Note that the directory
+   Create an test/resources/org.robolectric.Config.properties file.  Note that the directory
    needs to be resources/ (not to be confused with /res directory used to store your layout files).   
 
    ```
    # Robolectric doesn't know how to support SDK 19 yet.
    emulateSdk=18
    ```
+
+## Creating tests
+
+1. See [this example](https://github.com/mutexkid/android-studio-robolectric-example/blob/master/app/src/test/java/com/example/joshskeen/myapplication/MyActivityTest.java).  Note that your test needs to be annotated with `RoboelectricGradleTestRunner` instead of `RoboelectricTestRunner`.  You also need to annotate the `BuildConfig.class`, which should be created during a Gradle run.
+
+```java
+
+RunWith(RobolectricGradleTestRunner.class)
+@Config(constants = BuildConfig.class)
+public class MyActivityTest {
+```
+
+The [Roboelectric guide](http://robolectric.org/writing-a-test/) is also a useful resource.  Each of your tests must be annotated with a `Test` decorator.
 
 ## Running tests
 
@@ -81,43 +70,19 @@ If you type ./gradlew test from the command line, tests should run correctly.
 
 ## Debugging Tests
 
-If you want to be able to debug your tests inside Android Studio, here is what you need to do.
+If you want to be able to debug your tests inside Android Studio, make sure you are at least using the Android Gradle plug-in v1.1 or above.  In older versions, there were problems being able to run these tests directly from the IDE.
 
-1. Make sure you run the test as a JUnit test, not as an Android Application Test.  You can control-click on the file and click on Run.  The icons look different (1st icon is Android test, while the 2nd icon is JUnit.)
+1. Make sure your tests are located in `src/test/java`.   
+
+2. Select Unit Tests under Build Variants.  If you see this dropdown disabled, it's likely you need to update the Android Gradle plug-in.
+
+  <img src="https://camo.githubusercontent.com/cbf79d740e265cc9da9299c2b5f29fc8a63613e7/68747470733a2f2f7777772e657665726e6f74652e636f6d2f73686172642f733331332f73682f35363063346235662d653730622d343830302d623436662d6263313936383631383333382f38396331653734306537313334333136393631613130333032316461663163622f646565702f302f4d794163746976697479546573742e6a6176612d2d2d616e64726f69642d73747564696f2d726f626f6c6563747269632d6578616d706c652d2d2d2d2d2d636f64652d616e64726f69642d73747564696f2d726f626f6c6563747269632d6578616d706c652d2e706e67"/>
+
+
+3. Make sure you run the test as a JUnit test, not as an Android Application Test.  You can control-click on the file and click on Run.  The icons look different (1st icon is Android test, while the 2nd icon is JUnit.)
 
    ![](http://i.imgur.com/RDmmdI2.png)
 
-2. When you run a JUnit test with Android Studio, you will see the dreaded `Stub!` exception:
-
-   ```
-      java.lang.RuntimeException: Stub!
-          at junit.runner.BaseTestRunner.<init>(BaseTestRunner.java:5)
-          at junit.textui.TestRunner.<init>(TestRunner.java:54)
-          at junit.textui.TestRunner.<init>(TestRunner.java:48)
-          at junit.textui.TestRunner.<init>(TestRunner.java:41)
-   ```
-
-   Each time you modify/update build.gradle (or restart Android Studio), you must edit app/app.iml      
-   and move the orderEntry for the Android SDK to the end. 
-
-   ```
-    	    	<orderEntry type="library" exported="" scope="TEST" name="wagon-provider-api-1.0-beta-6" level="project" />
-    	    	<orderEntry type="library" exported="" scope="TEST" name="xercesMinimal-1.9.6.2" level="project" />
-    	    	<orderEntry type="jdk" jdkName="Android API 19 Platform" jdkType="Android SDK" />			    		<---make sure this is the last orderEntry
-    		</component>
-    	</module>
-   ```
-
-   For Android Studio, dependency ordering is currently not modifiable via any GUI (Google took   
-this feature out in subsequent releases).  Therefore, you must modify the project iml file directly as such and reload the project.  Hopefully this issue can get fixed soon but for now you have to move things around manually.
-
-3. Executing tests as JUnit means they will be generated into a separate directory, so Android Studio won't know how to find the generated class files.  Go to Run -> Edit Configuration -> Defaults -> JUnit:
-
-   1. Start an unit test.  Assuming you did step 1, it will report the missing class.
-   2. Click on the output from the terminal and copy the entire --classpath parameter.
-   3. Edit classpath and add /[projectPath]/build/test-classes/debug (i.e. /Users/rhu/projects/codepath-twitter-client/app/build/test-classes)
-
-   ![image](http://imgur.com/EQdtUck.png)
 
 # Setting up for Eclipse
 
