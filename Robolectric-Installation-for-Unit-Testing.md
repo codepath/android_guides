@@ -97,7 +97,7 @@ If you want to be able to debug your tests inside Android Studio, make sure you 
 
   <img src="http://robolectric.org/images/android-studio-configure-defaults-4bf48402.png">
 
-3. Select Unit Tests under Build Variants.  If you see this dropdown disabled, make sure to verify what Android Gradle plug-in version youare using.
+3. Select `Unit Tests` under `Build Variants`.  If you see this dropdown disabled, make sure to verify what Android Gradle plug-in version youare using.
 
   <img src="https://camo.githubusercontent.com/cbf79d740e265cc9da9299c2b5f29fc8a63613e7/68747470733a2f2f7777772e657665726e6f74652e636f6d2f73686172642f733331332f73682f35363063346235662d653730622d343830302d623436662d6263313936383631383333382f38396331653734306537313334333136393631613130333032316461663163622f646565702f302f4d794163746976697479546573742e6a6176612d2d2d616e64726f69642d73747564696f2d726f626f6c6563747269632d6578616d706c652d2d2d2d2d2d636f64652d616e64726f69642d73747564696f2d726f626f6c6563747269632d6578616d706c652d2e706e67"/>
 
