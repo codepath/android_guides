@@ -51,7 +51,7 @@ Setting up this file in the top level will help ensure that there is only one pl
 
 ## Creating tests
 
-1. See [this example](https://github.com/mutexkid/android-studio-robolectric-example/blob/master/app/src/test/java/com/example/joshskeen/myapplication/MyActivityTest.java).  Note that your test needs to be annotated with `RoboelectricGradleTestRunner` instead of `RoboelectricTestRunner`.  You also need to annotate the `BuildConfig.class`, which should be created during a Gradle run.
+1. See [this example](https://github.com/mutexkid/android-studio-robolectric-example/blob/master/app/src/test/java/com/example/joshskeen/myapplication/MyActivityTest.java).  Note that your test needs to be annotated with `RoboelectricGradleTestRunner`.  You also need to annotate the `BuildConfig.class`, which should be created during a Gradle run.
   ```java
 
      RunWith(RobolectricGradleTestRunner.class)
