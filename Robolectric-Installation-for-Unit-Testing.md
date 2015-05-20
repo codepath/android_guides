@@ -8,7 +8,7 @@ Let's take a look at a step-by-step for setting up Robolectric to test your proj
 
 ## Configure top-level build.gradle
 
-   Make sure to be running at least version 1.1.0 of the Android plug-in for Gradle, since unit testing with Android Studio was only recently supported.  More information can be found [here] (http://tools.android.com/tech-docs/unit-testing-support).  
+Make sure to be running at least version 1.1.0 of the Android plug-in for Gradle, since unit testing with Android Studio was only recently supported.  More information can be found [here] (http://tools.android.com/tech-docs/unit-testing-support).  
 
    ```gradle
    buildscript {
@@ -36,13 +36,11 @@ Setting up this file in the top level will help ensure that there is only one pl
    apply plugin: 'org.robolectric'
    ``` 
 
-   Within your dependencies, you need to include the following defines. The exclude modules
-   are intended to remove duplicate dependency definitions (template borrowed from https://github.com/mutexkid/android-studio-robolectric-example).  
+Within your dependencies, you need to include the following defines. The exclude modules are intended to remove duplicate dependency definitions (template borrowed from https://github.com/mutexkid/android-studio-robolectric-example).  
 
 ## Creating resource directory
 
-   Create an `test/resources/org.robolectric.Config.properties` file.  Note that the directory
-   needs to be resources/ (not to be confused with /res directory used to store your layout files).   
+Create an `test/resources/org.robolectric.Config.properties` file.  Note that the directory needs to be resources/ (not to be confused with /res directory used to store your layout files).   
 
    ```
    # Robolectric doesn't know how to support SDK 19 yet.
