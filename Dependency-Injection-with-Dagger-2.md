@@ -31,7 +31,7 @@ Dagger 2 exposes a number of special annotations:
 
 Let's take a look at the Dagger workflow within an app.
 
-### Dagger Workflow
+### Dagger Workflow Overview
 
 Dagger 2 is composed mainly 3 main parts:
 
@@ -43,26 +43,63 @@ Modules are responsible for creating and configuring the objects in your "depend
   * A `StorageModule` that has your database, sharedPreferences, and key value store.
   * An `ActivityModule` for a specific Activity that provides local data shared by its child `Fragment`s
 
-More details on how to define a module below.
+More details on how to define a module below. TODO: Link
 
 #### 2. Components
 
 Components are used to group together and build Modules into an object we can use to **get dependencies from**, and **perform injection with**.
 
-* Identify the dependent objects and its dependencies.
-* Create a class with the `@Module` annotation, using the `@Provides` annotation for every method that returns a dependency.
-* Request dependencies in your dependent objects using the @Inject annotation.
-* Create an interface using the `@Component` annotation and add the classes with the `@Module` annotation created in the second step.
-* Create an object of the `@Component` interface to instantiate the dependent object with its dependencies.
+A Component must:
+* Define the modules it is composed of as an argument in the `@Component` annotation
+* Define any dependencies on other `Component`s it has.
+* Define functions to inject explicit types with dependencies. TODO: Link to details
+* Expose any internal dependencies to be accessed externally or by other Components. TODO: Link
 
-Let's take a look at how we can use these to manage our object dependencies.
+More details on how to define a module below. TODO: Link
 
-**Stub! Needs Attention**
+#### 3. Injection
+
+Dependencies are used or "injected" through the functions on a `Component`.
+
+There are 2 ways to get a dependency from a component:
+* Directly by calling `component.dependency()`
+* Annotating a field on an object with `@Inject`, then calling `component.inject(object)`. Oftentimes the object is `this`.
+
+More details on injection below. TODO: Link
+
+### Defining a Module
+
+Here is an example module:
+```java
+@Module
+public class DataModule {
+
+  static final String PREFS_DEFAULT = "nowdothis";
+
+  @Provides @PerApp SharedPreferences provideSharedPrefs(Application app) {
+    return app.getSharedPreferences(PREFS_DEFAULT, Context.MODE_PRIVATE);
+  }
+
+  @Provides @PerApp Gson provideGson() {
+    return new Gson();
+  }
+}
+```
+
+
+
+### Defining a Component
+
+### Getting and injecting dependencies with Components
+
+### Defining custom scopes
+
+Defining custom scope(s) is highly recommended as it 
 
 ## References
 
 * [Dagger Github Page](http://google.github.io/dagger/)
 * [Sample project using Dagger 2](https://github.com/vinc3m1/nowdothis)
-* [Vince Mi's Dagger 2 Slides](https://docs.google.com/presentation/d/1bkctcKjbLlpiI0Nj9v0QpCcNIiZBhVsJsJp1dgU5n98/)
+* [Vince Mi's Codepath Meetup Dagger 2 Slides](https://docs.google.com/presentation/d/1bkctcKjbLlpiI0Nj9v0QpCcNIiZBhVsJsJp1dgU5n98/)
 * <http://code.tutsplus.com/tutorials/dependency-injection-with-dagger-2-on-android--cms-23345>
-* [Jake Wharton's Dagger 2 Slides](https://speakerdeck.com/jakewharton/dependency-injection-with-dagger-2-devoxx-2014)
+* [Jake Wharton's Devoxx Dagger 2 Slides](https://speakerdeck.com/jakewharton/dependency-injection-with-dagger-2-devoxx-2014)
