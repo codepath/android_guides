@@ -43,7 +43,7 @@ Modules are responsible for creating and configuring the objects in your "depend
   * A `StorageModule` that has your database, sharedPreferences, and key value store.
   * An `ActivityModule` for a specific Activity that provides local data shared by its child `Fragment`s
 
-More details on how to define a module below. TODO: Link
+More details on how to define a module [below](https://github.com/codepath/android_guides/wiki/Dependency-Injection-with-Dagger-2#defining-a-module).
 
 #### 2. Components
 
