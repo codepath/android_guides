@@ -35,5 +35,5 @@ Let's take a look at how we can use these to manage our object dependencies.
 
 * <http://google.github.io/dagger/>
 * <https://github.com/vinc3m1/nowdothis>
-* [Dagger 2 Slides](https://docs.google.com/presentation/d/1bkctcKjbLlpiI0Nj9v0QpCcNIiZBhVsJsJp1dgU5n98/edit#slide=id.p)
+* [Dagger 2 Slides](https://docs.google.com/presentation/d/1bkctcKjbLlpiI0Nj9v0QpCcNIiZBhVsJsJp1dgU5n98/)
 * <http://code.tutsplus.com/tutorials/dependency-injection-with-dagger-2-on-android--cms-23345>
