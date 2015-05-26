@@ -34,9 +34,10 @@ Let's take a look at the Dagger workflow within an app.
 ### Dagger Workflow Overview
 
 Dagger 2 is composed mainly 3 main parts:
-1. Modules
-2. Components
-3. Injection
+
+1. [Modules](#1-modules)
+2. [Components](#2-components)
+3. [Injection](#3-injection)
 
 #### 1. Modules
 
@@ -49,9 +50,16 @@ Modules are responsible for creating and configuring the objects in your "depend
 Here is an example module:
 ```java
 @Module
-public class DataModule {
+public class AppModule {
 
-  static final String PREFS_DEFAULT = "nowdothis";
+  static final String PREFS_DEFAULT = "myapp";
+
+  final SampleApp app;
+
+  public AppModule(SampleApp app) {
+    this.app = app;
+  }
+
 
   @Provides @PerApp SharedPreferences provideSharedPrefs(Application app) {
     return app.getSharedPreferences(PREFS_DEFAULT, Context.MODE_PRIVATE);
@@ -62,6 +70,8 @@ public class DataModule {
   }
 }
 ```
+
+
 
 #### 2. Components
 
