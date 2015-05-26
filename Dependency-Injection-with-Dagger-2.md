@@ -78,7 +78,7 @@ public class AppModule {
 }
 ```
 
-
+Notice the `@Module` annotation on the clasee and the `@Provides` annotations on the functions. Functions in modules annotated with @Provides are called when the dependency is injected or used by another dependency. If the function is annotated with a **scope**, in this case `@PerApp`, it is only created once for that scope.
 
 #### 2. Components
 
