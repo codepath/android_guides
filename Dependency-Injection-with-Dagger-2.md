@@ -60,6 +60,13 @@ public class AppModule {
     this.app = app;
   }
 
+  @Provides @PerApp SampleApp provideNowDoThisApp() {
+    return app;
+  }
+
+  @Provides @PerApp Application provideApplication(SampleApp app) {
+    return app;
+  }
 
   @Provides @PerApp SharedPreferences provideSharedPrefs(Application app) {
     return app.getSharedPreferences(PREFS_DEFAULT, Context.MODE_PRIVATE);
