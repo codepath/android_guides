@@ -34,6 +34,9 @@ Let's take a look at the Dagger workflow within an app.
 ### Dagger Workflow Overview
 
 Dagger 2 is composed mainly 3 main parts:
+1. Modules
+2. Components
+3. Injection
 
 #### 1. Modules
 
@@ -42,32 +45,6 @@ Modules are responsible for creating and configuring the objects in your "depend
   * A `NetworkModule` that has your http client, http cache, cookie store, image loader, and configures timeouts.
   * A `StorageModule` that has your database, sharedPreferences, and key value store.
   * An `ActivityModule` for a specific Activity that provides local data shared by its child `Fragment`s
-
-More details on how to define a module [below](https://github.com/codepath/android_guides/wiki/Dependency-Injection-with-Dagger-2#defining-a-module).
-
-#### 2. Components
-
-Components are used to group together and build Modules into an object we can use to **get dependencies from**, and **perform injection with**.
-
-A Component must:
-* Define the modules it is composed of as an argument in the `@Component` annotation
-* Define any dependencies on other `Component`s it has.
-* Define functions to inject explicit types with dependencies. TODO: Link to details
-* Expose any internal dependencies to be accessed externally or by other Components. TODO: Link
-
-More details on how to define a module below. TODO: Link
-
-#### 3. Injection
-
-Dependencies are used or "injected" through the functions on a `Component`.
-
-There are 2 ways to get a dependency from a component:
-* Directly by calling `component.dependency()`
-* Annotating a field on an object with `@Inject`, then calling `component.inject(object)`. Oftentimes the object is `this`.
-
-More details on injection below. TODO: Link
-
-### Defining a Module
 
 Here is an example module:
 ```java
@@ -86,11 +63,25 @@ public class DataModule {
 }
 ```
 
+#### 2. Components
+
+Components are used to group together and build Modules into an object we can use to **get dependencies from**, and **perform injection with**.
+
+A Component must:
+* Define the modules it is composed of as an argument in the `@Component` annotation
+* Define any dependencies on other `Component`s it has.
+* Define functions to inject explicit types with dependencies. TODO: Link to details
+* Expose any internal dependencies to be accessed externally or by other Components. TODO: Link
 
 
-### Defining a Component
 
-### Getting and injecting dependencies with Components
+#### 3. Injection
+
+Dependencies are used or "injected" through the functions on a `Component`.
+
+There are 2 ways to get a dependency from a component:
+* Directly by calling `component.dependency()`
+* Annotating a field on an object with `@Inject`, then calling `component.inject(object)`. Oftentimes the object is `this`.
 
 ### Defining custom scopes
 
