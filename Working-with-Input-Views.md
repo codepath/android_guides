@@ -22,7 +22,7 @@ There are many input fields available, use the handy chart below to determine wh
 
 | Type            | Inputs                                |
 | --------------- | ----------------------------------    |
-| Single Action   | [Button](http://developer.android.com/guide/topics/ui/controls/button.html) |
+| Single Action   | [Button](http://developer.android.com/guide/topics/ui/controls/button.html), [ImageButton](https://developer.android.com/reference/android/widget/ImageButton.html) |
 | Free Text       | [[TextView|Working-with-the-TextView]], [AutoCompleteTextView](https://developer.android.com/reference/android/widget/AutoCompleteTextView.html) |
 | Integer         | [[TextView|Working-with-the-TextView]], [[NumberPicker|Working-with-Input-Views#numberpicker]], [SeekBar](http://developer.android.com/reference/android/widget/SeekBar.html) |
 | Boolean         | [[Checkboxes|Working-with-Input-Views#checkboxes]],  [Switch](http://developer.android.com/reference/android/widget/Switch.html) |
