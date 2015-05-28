@@ -2,6 +2,8 @@
 
 In certain situations, we need to implement a ListView where there are **different types of rows** in the same list. In other words, different items in the list need to be represented differently. Examples include a tumblr client where each post might be an image, text or a video. Another example would be Facebook with the many different types of feed items.
 
+<img src="http://i.imgur.com/9cfECVP.png" width="300" />
+
 To implement a heterogenous list of items, most of the work is done **within the adapter**. In particular, there are special methods to be overridden within an adapter such as `getItemViewType`, `getViewTypeCount` specifically for these situations.
 
 ## Implementation
