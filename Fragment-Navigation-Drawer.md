@@ -2,7 +2,7 @@ In [[Common Navigation Paradigms]] cliffnotes, we discuss the various navigation
 
 With the release of Android 5.0 Lollipop, the new material design style navigation drawer spans the full height of the screen and is displayed over the `ActionBar` and overlaps the translucent `StatusBar`. Read the [material design style navigation drawer](http://www.google.com/design/spec/patterns/navigation-drawer.html) document for specs on styling your navigation drawer.
 
-<img src="http://i.imgur.com/Ag3t4KC.gif" width="400" />
+<img src="http://i.imgur.com/Ag3t4KC.gif" width="350" />
 
 Screenshots:
 
