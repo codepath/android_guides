@@ -28,11 +28,11 @@ There are many input fields available, use the handy chart below to determine wh
 | Single Action   | [Button](http://developer.android.com/guide/topics/ui/controls/button.html), [ImageButton](https://developer.android.com/reference/android/widget/ImageButton.html) |
 | Free Text       | [[TextView|Working-with-the-TextView]], [AutoCompleteTextView](https://developer.android.com/reference/android/widget/AutoCompleteTextView.html) |
 | Integer         | [[TextView|Working-with-the-TextView]], [[NumberPicker|Working-with-Input-Views#numberpicker]], [SeekBar](http://developer.android.com/reference/android/widget/SeekBar.html) |
-| Rating          | [RatingBar](http://developer.android.com/reference/android/widget/RatingBar.html) |
 | Boolean         | [[Checkboxes|Working-with-Input-Views#checkboxes]],  [Switch](http://developer.android.com/reference/android/widget/Switch.html) |
 | Single Choice    | [[Spinner|Working-with-Input-Views#spinners]], [[Radio Buttons|Working-with-Input-Views#radio-buttons]], [AutoCompleteTextView](https://developer.android.com/reference/android/widget/AutoCompleteTextView.html) |
 | Multiple Choice | [[Checkboxes|Working-with-Input-Views#checkboxes]] |
 | Dates, Times    | [[DateTimePicker|Working-with-Input-Views#date-and-time-pickers]] |
+| Rating          | [RatingBar](http://developer.android.com/reference/android/widget/RatingBar.html) |
 
 There are many third-party libraries available to improve input selection within apps. See this [list of UI libraries](https://github.com/wasabeef/awesome-android-ui) and our [[Must Have Libraries]] guide for more information.
 
