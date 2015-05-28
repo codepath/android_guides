@@ -8,6 +8,7 @@ Android has support for many different input controls for accepting input from t
  * [Radio Buttons](http://developer.android.com/guide/topics/ui/controls/radiobutton.html)
  * [Spinners](http://developer.android.com/guide/topics/ui/controls/spinner.html)
  * [SeekBar](http://developer.android.com/reference/android/widget/SeekBar.html)
+ * [RatingBar](http://developer.android.com/reference/android/widget/RatingBar.html)
  * [NumberPicker](http://developer.android.com/reference/android/widget/NumberPicker.html)
  * [Switch](http://developer.android.com/reference/android/widget/Switch.html)
  * [Date and Time Pickers](http://developer.android.com/guide/topics/ui/controls/pickers.html)
