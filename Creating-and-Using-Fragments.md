@@ -2,9 +2,9 @@
 
 A fragment is a reusable class implementing a portion of an activity.  A Fragment typically defines a part of a user interface. Fragments must be embedded in activities; they cannot run independently of activities.
 
-A fragment has a separate layout XML file. A Fragment encapsulates functionality so that it is easier to reuse within activities and layouts.
+![Fragments](http://developer.android.com/images/fundamentals/fragments.png)
 
-Fragments can be dynamically (Java) or statically (XML) added to an activity layout.
+A fragment has a separate layout XML file. A Fragment encapsulates functionality so that it is easier to reuse within activities and layouts. Fragments are standalone components that can contain views, events and logic. Within a fragment-oriented architecture, applications become navigation containers that are primarily responsible for navigation to other activities, presenting fragments and passing data.
 
 ### Defining a Fragment
 
