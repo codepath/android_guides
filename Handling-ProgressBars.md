@@ -215,6 +215,14 @@ Now we can call these show and hide methods as needed to show the footer in the 
 
 <img src="http://i.imgur.com/43L4Y0R.gif" width="400" alt="progress in footer" />
 
+## Third-party Libraries
+
+See this [list of third-party progress bars](https://github.com/wasabeef/awesome-android-ui/blob/master/pages/Progress.md) for alternate styles and animations.
+
+![NumberProgress](https://github.com/wasabeef/awesome-android-ui/raw/master/art/NumberProgressBar.gif)
+
+The [NumberProgressBar](https://github.com/daimajia/NumberProgressBar) is featured above for example.
+
 ## References
 
  * <http://developer.android.com/reference/android/widget/ProgressBar.html>
