@@ -31,7 +31,9 @@ You also need to setup a view that will represent the individual drawer item in 
     android:textColor="#111" />
 ```
 
-Make sure that the **root view is the TextView** without a layout container. In your `res/values/strings.xml` add the following:
+Make sure that the **root view is the TextView** without a layout container. 
+
+In your `res/values/strings.xml` add the following:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
