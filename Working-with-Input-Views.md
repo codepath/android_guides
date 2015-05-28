@@ -30,7 +30,7 @@ There are many input fields available, use the handy chart below to determine wh
 | Boolean         | [[Checkboxes|Working-with-Input-Views#checkboxes]],  [Switch](http://developer.android.com/reference/android/widget/Switch.html) |
 | Single Choice    | [[Spinner|Working-with-Input-Views#spinners]], [[Radio Buttons|Working-with-Input-Views#radio-buttons]], [AutoCompleteTextView](https://developer.android.com/reference/android/widget/AutoCompleteTextView.html) |
 | Multiple Choice | [[Checkboxes|Working-with-Input-Views#checkboxes]] |
-| Dates, Times    | [[DateTimePicker|https://github.com/codepath/android_guides/wiki/]] |
+| Dates, Times    | [[DateTimePicker|Working-with-Input-Views#date-and-time-pickers]] |
 
 There are many third-party libraries available to improve input selection within apps. See this [list of UI libraries](https://github.com/wasabeef/awesome-android-ui) and our [[Must Have Libraries]] guide for more information.
 
