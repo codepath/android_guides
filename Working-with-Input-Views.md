@@ -12,9 +12,11 @@ Android has support for many different input controls for accepting input from t
  * [Switch](http://developer.android.com/reference/android/widget/Switch.html)
  * [Date and Time Pickers](http://developer.android.com/guide/topics/ui/controls/pickers.html)
 
-Adding an input control to your UI is as simple as adding an XML element to your XML layout.
+Adding an input control to your UI is as simple as adding the appropriate XML element with required attributes to your layout file:
 
 ![Imgur](http://i.imgur.com/OWGeaH9.png)
+
+The important part of input is deciding which input to use and how to properly configure the input view.
 
 ### Input Reference
 
