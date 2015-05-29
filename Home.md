@@ -6,7 +6,7 @@ Welcome to the open-source [CodePath](http://codepath.com) Android Cliffnotes! O
 
 We have Android guides for everyone whether you are a **beginner, intermediate or expert**. Want to learn how to [[use the ActionBar|Defining the ActionBar]] or the [[ins and outs of fragments|Creating and Using Fragments]]? We got that. Want to learn [[about automated integration testing|Android Unit and Integration Testing]] or how to [[build flexible user interfaces for multiple devices|Flexible User Interfaces]]? We got you covered. We don't waste time with the "theoretical approach" you might get from a book. We cover **exactly the things we use every day** as we are developing apps for contracts.
 
-**Need Help?** Please join this [gitter real-time chat](https://gitter.im/thecodepath/public) or the [google groups](https://groups.google.com/forum/#!forum/codepath-android-guides) for these guides where you can post related questions. You can also [get 1:1 help online](https://www.codementor.io/android-experts) through codementor.
+**Need Help?** Please join this [gitter real-time chat](https://gitter.im/thecodepath/public) or the [google groups](https://groups.google.com/forum/#!forum/codepath-android-guides) for these guides where you can post related questions. You can also [get 1:1 mentorship online](https://www.codementor.io/android-experts) through codementor.
 
 ## Motivation
 
