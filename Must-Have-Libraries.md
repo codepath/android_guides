@@ -81,7 +81,8 @@ Using the Butterknife library with the Parceler library causes multiple declarat
 
 ### Easy Navigation 
 
- * [PagerSlidingTabStrip](https://github.com/astuetz/PagerSlidingTabStrip) - An interactive indicator to navigate between the different pages of a ViewPager. 
+ * [PagerSlidingTabStrip](https://github.com/astuetz/PagerSlidingTabStrip) - An interactive indicator to navigate between the different pages of a ViewPager.
+   * [PagerSlidingTabStrip](https://github.com/jpardogo/PagerSlidingTabStrip) - This fork of the original is actively maintained and has support for a material design look.
  * [ViewPagerIndicator](https://github.com/JakeWharton/Android-ViewPagerIndicator) - Paging indicator widgets compatible with the ViewPager from the Android Support Library and ActionBarSherlock. 
  * [JazzyViewPager](https://github.com/jfeinstein10/JazzyViewPager) - Pager with more animations
  * [ParallaxPager](https://github.com/prolificinteractive/ParallaxPager) - ViewPager with Parallax scrolling effects
