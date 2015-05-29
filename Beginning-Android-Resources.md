@@ -47,9 +47,6 @@ Be sure to check out these particular Java topics as well:
 * [Using Event Listeners](http://docs.oracle.com/javase/tutorial/uiswing/events/intro.html)
 * [Creating your own Callbacks and Listeners](http://stackoverflow.com/a/1477229/362298)
 
-## Online Help
-  - [1:1 Android Help from Proven Experts](https://www.codementor.io/android-experts)
-
 ## Understanding HTTP and APIs
 
 In addition to understanding Java and OOP, most Android development requires the use of data from a server-side database and as such requires you to have a solid conceptual understanding of RESTful APIs, consuming HTTP endpoints and parsing JSON responses. Here are a few resources to get started:
@@ -102,8 +99,6 @@ Consider starting with the following tutorials and resources:
 
 * [The Android Development Tutorial](http://www.youtube.com/watch?v=Z149x12sXsw) by Derek Banas is great for those who prefer video lessons. It has 25 video lessons in total ranging from 10 to 30 minutes each. Note that he teaches in Eclipse instead of Android Studio.
 
-* [Android UI Tutorial: Layouts and Animations](https://www.codementor.io/android/tutorial/android-ui-layouts-animations-mirror)a quick live coding of Android UI creations and shows how to use the different layouts, Views (TextView, ListView, ImageView, GridView, RecyclerView) and Motions (Property Animation, drawable Animation) by live coding. 
-
 * [CodePath Android Cliffnotes](https://guides.codepath.com) are what you are reading right now! Keep reading and hopefully you'll walk away feeling like you know more about Android than when you started.
 
 * [Vogella Android Tutorials](http://www.vogella.com/tutorials/Android/article.html) - These are awesome free tutorials for most common Android topics. Great as a supplementary resource on top of the [Android Cliffnotes](http://guides.codepath.com/android).
@@ -113,6 +108,8 @@ Consider starting with the following tutorials and resources:
 * [Programming Android Applications on Coursera](https://www.coursera.org/course/android) - Coursera online course from the University of Maryland.
 
 * [CodeLearn Android Tutorial](http://www.codelearn.org/android-tutorial) - Interesting interactive tutorial for learning Android step-by-step. Definitely worth a look as you build a twitter client step-by-step.
+
+* [Android UI Tutorial: Layouts and Animations](https://www.codementor.io/android/tutorial/android-ui-layouts-animations-mirror)a quick live coding of Android UI creations and shows how to use the different layouts, Views (TextView, ListView, ImageView, GridView, RecyclerView) and Motions (Property Animation, drawable Animation) by live coding. 
   
 * [Common tasks](http://developer.android.com/guide/faq/commontasks.html) is a useful list from Google of typical things you can do in your app with links to explanations on how to do them. 
   
@@ -126,6 +123,8 @@ Consider starting with the following tutorials and resources:
 
 * [The Busy Coder's Guide to Android Development](http://commonsware.com/Android/) is comprehensive with its over 2,400 pages but starts with the basics. It also has "do-it-yourself" tutorials to help you retain what you are learning. The book is a bit expensive but it comes with a one-year subscription to keep it updated during the period, as the author is constantly adding to the text. 
     All code examples are free and [can be found here](https://github.com/commonsguy/cw-omnibus/). Even if you don't buy the book, consider browsing through some of the examples there to learn how other programmers do things. Finally, Mark Murphy, the author of the book, is helpful whether you contact him by e-mail or on the [StackOverflow website](http://stackoverflow.com/). Check out [his profile](http://stackoverflow.com/users/115145/commonsware).
+
+If you run into issues as you are learning, you can check out [codementor for online help](https://www.codementor.io/android-experts).
 
 ## Key Concepts
 
