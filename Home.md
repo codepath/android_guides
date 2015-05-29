@@ -32,6 +32,7 @@ If you are an experienced engineer (2+ years of professional experience in softw
 
 **Totally new to Android?** Start here.
 
+* [Android-Learning-Resources](https://github.com/CodementorIO/Android-Learning-Resources)
 * [[Beginning Android Resources]] (Detailed Post With Many Links)
 * [Setting up Android Studio](http://goo.gl/X2SVFR) (Installation Slides)
 * [[Installing a Faster Emulator|Genymotion-2.0-Emulators-with-Google-Play-support]] (Genymotion Guide)
@@ -212,3 +213,6 @@ Focused on issues like deployment, testing, dependency management, etc:
 * [[Collaborating on Projects with Git]] (Git, Team)
 * [[Debugging and Profiling Apps]] (**Needs Attention**)
 * [[Dependency Injection with Dagger 2]] (**Needs Attention**)
+
+### Online Help
+* [1:1 Android Help from Proven Experts](https://www.codementor.io/android-experts)
