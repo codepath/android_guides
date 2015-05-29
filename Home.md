@@ -32,7 +32,6 @@ If you are an experienced engineer (2+ years of professional experience in softw
 
 **Totally new to Android?** Start here.
 
-* [Android-Learning-Resources](https://github.com/CodementorIO/Android-Learning-Resources)
 * [[Beginning Android Resources]] (Detailed Post With Many Links)
 * [Setting up Android Studio](http://goo.gl/X2SVFR) (Installation Slides)
 * [[Installing a Faster Emulator|Genymotion-2.0-Emulators-with-Google-Play-support]] (Genymotion Guide)
@@ -43,6 +42,7 @@ If you are an experienced engineer (2+ years of professional experience in softw
 * [[Todo App Guide|Basic Todo App Tutorial]] (Todo App steps in guide format)
 * [[Sample Android Apps]] (Code repositories)
 * [[Free Android Curriculum]] (Additional resources)
+* [Android Learning Resources](https://github.com/CodementorIO/Android-Learning-Resources)
 
 **Using Eclipse?** See below.
 
