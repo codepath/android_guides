@@ -47,6 +47,9 @@ Be sure to check out these particular Java topics as well:
 * [Using Event Listeners](http://docs.oracle.com/javase/tutorial/uiswing/events/intro.html)
 * [Creating your own Callbacks and Listeners](http://stackoverflow.com/a/1477229/362298)
 
+## Online Help
+  - [1:1 Android Help from Proven Experts](https://www.codementor.io/android-experts)
+
 ## Understanding HTTP and APIs
 
 In addition to understanding Java and OOP, most Android development requires the use of data from a server-side database and as such requires you to have a solid conceptual understanding of RESTful APIs, consuming HTTP endpoints and parsing JSON responses. Here are a few resources to get started:
@@ -98,6 +101,8 @@ Consider starting with the following tutorials and resources:
 * [The Android official training guides](http://developer.android.com/training/index.html) are a good place to start. The [Building Your First App](http://developer.android.com/training/basics/firstapp/index.html) lesson is very easy to follow  and already gives you a good understanding of some key concepts of the Android SDK.
 
 * [The Android Development Tutorial](http://www.youtube.com/watch?v=Z149x12sXsw) by Derek Banas is great for those who prefer video lessons. It has 25 video lessons in total ranging from 10 to 30 minutes each. Note that he teaches in Eclipse instead of Android Studio.
+
+* [Android UI Tutorial: Layouts and Animations](https://www.codementor.io/android/tutorial/android-ui-layouts-animations-mirror)a quick live coding of Android UI creations and shows how to use the different layouts, Views (TextView, ListView, ImageView, GridView, RecyclerView) and Motions (Property Animation, drawable Animation) by live coding. 
 
 * [CodePath Android Cliffnotes](https://guides.codepath.com) are what you are reading right now! Keep reading and hopefully you'll walk away feeling like you know more about Android than when you started.
 
