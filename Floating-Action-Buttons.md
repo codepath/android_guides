@@ -16,15 +16,12 @@ Google made available during Google I/O 2015 a support library to create floatin
 ### Google's official support library 
 
 1. Make sure that you have at least Gradle v1.2.3 supported.  There are several issues with using older versions including some support library widgets fail to render correctly (see  https://code.google.com/p/android/issues/detail?id=170841).
-
    ```gradle
       dependencies {
         classpath 'com.android.tools.build:gradle:1.2.3'
       }
    ```
-
 2. There is a new support design library that must be included.   This library also depends on updated versions of the [AppCompat](http://android-developers.blogspot.com/2014/10/appcompat-v21-material-design-for-pre.html) library and support v4 library to be included.
-
    ```gradle
       dependencies {
         compile 'com.android.support:appcompat-v7:22.2.0'
@@ -32,7 +29,6 @@ Google made available during Google I/O 2015 a support library to create floatin
         compile 'com.android.support:design:22.2.0'
       }
    ```
-
    **Note** The [official Google docs](http://developer.android.com/tools/support-library/features.html#design) suggest that the Gradle line is `support-design`, but it   appears to be a typo.  A ticket is filed [here](https://code.google.com/p/android/issues/detail?id=175066).
 
 3. You should now be able to add the `android.support.design.widget.FloatingActionButton`.  The `src` attribute references the icon that should be used for the floating action.  
@@ -44,9 +40,7 @@ Google made available during Google I/O 2015 a support library to create floatin
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
    ```
-
    In addition, assuming you define `xmlns:app="http://schemas.android.com/apk/res-auto` at the top of your layout, you can also define a custom attribute [`fabSize`](http://developer.android.com/reference/android/support/design/widget/FloatingActionButton.html#attr_android.support.design:fabSize) that can reference whether the button should be small or large.  You will need to define inside `attrs.xml` a custom dimension:
-
    ```xml
       <?xml version="1.0" encoding="utf-8"?>
          <resources>
@@ -55,7 +49,6 @@ Google made available during Google I/O 2015 a support library to create floatin
    ```
 
 4. To place the floating action button, you will need to use [CoordinatorLayout](http://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.html).   A CoordinatorLayout is a container layout that also enable interactions between views known as [Behaviors](http://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html).  For instance, to provide a floating action button for a ListView, you will need to nest these views inside a `CoordinatorLayout` and define a `layout_anchor` and `layout_anchorGravity` gravity.  
-
    ```xml
        <android.support.design.widget.CoordinatorLayout
           android:id="@+id/main_content"
