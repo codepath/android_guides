@@ -38,7 +38,7 @@ Google made available during Google I/O 2015 a support library to create floatin
 3. You should now be able to add the `android.support.design.widget.FloatingActionButton`.  The `src` attribute references the icon that should be used for the floating action.  
 
    ```xml
-        <android.support.design.widget.FloatingActionButton
+       <android.support.design.widget.FloatingActionButton
         android:src="@mipmap/ic_launcher"
         app:fabSize="@dimen/mini"
         android:layout_width="wrap_content"
@@ -53,18 +53,45 @@ Google made available during Google I/O 2015 a support library to create floatin
 
 In addition, assuming you define `xmlns:app="http://schemas.android.com/apk/res-auto` at the top of your layout, you can also define a custom attribute [`fabSize`](http://developer.android.com/reference/android/support/design/widget/FloatingActionButton.html#attr_android.support.design:fabSize) that can reference whether the button should be small or large.  You will need to define inside `attrs.xml` a custom dimension:
 
+   ```xml
+      <?xml version="1.0" encoding="utf-8"?>
+         <resources>
+            <item name="mini" type="dimen" format="integer">1</item>
+         </resources>
+   ```
+
+4.To place the floating action button, you will need to use `CoordinatorLayout` (http://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.html).   A `CoordinatorLayout` is a container layout that also enablee interactions between views.  For instance, to provide a floating action button for a ListView, you will need to nest these views inside a `CoordinatorLayout` and define a `layout_anchor` and `layout_anchorGravity` gravity.  
+
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <item name="mini" type="dimen" format="integer">1</item>
-</resources>
+<android.support.design.widget.CoordinatorLayout
+    android:id="@+id/main_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ListView
+        android:id="@+id/lvToDoList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></ListView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="24dp"
+        android:src="@drawable/ic_launcher"
+        app:layout_anchor="@id/lvToDoList"
+        app:layout_anchorGravity="bottom|right|end" />
+
+</android.support.design.widget.CoordinatorLayout>
 ```
 
 ### Dimensions
 
-The button should be placed in the bottom right corner of the screen. The recommended margin for the bottom is **16dp for phones and 24dp for tablets**.  
+The button should be placed in the bottom right corner of the screen. The recommended margin for the bottom is **16dp for phones and 24dp for tablets**.    In the example above, 16dp was used.
 
-The drawable that you use should be **24dp** according to the Google design specs:
+The actual drawable should be **24dp** according to the Google design specs:
 
 <a href="http://www.google.com/design/spec/components/buttons.html#buttons-floating-action-button"><img src="http://material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0Bx4BSt6jniD7UGxlcmdDZFRZYU0/patterns_actions_fab3.png" width="300"></a>
 
