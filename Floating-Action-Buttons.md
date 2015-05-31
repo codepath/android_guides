@@ -7,7 +7,7 @@ For example, if we are using an email app and we are listing the inbox folder, t
 <img src="https://github.com/makovkastar/FloatingActionButton/raw/master/art/demo.gif" width="185" alt="FAB1" />&nbsp;
 <img src="http://i.imgur.com/SBbLXo2.png" width="200" alt="FAB2" />
 
-The floating action button represents **the primary action** within a particular screen. More info and use cases of the FAB button can be found in Google’s official [design specs found here](http://www.google.com/design/spec/components/buttons.html#buttons-floating-action-button).
+The floating action button represents **the primary action** within a particular screen. More info and use cases of the FAB button from Google’s official [design specs can be found here](http://www.google.com/design/spec/components/buttons.html#buttons-floating-action-button).
 
 ## Usage
 
