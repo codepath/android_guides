@@ -68,6 +68,46 @@ The drawable that you use should be **24dp** according to the Google design spec
 
 <a href="http://www.google.com/design/spec/components/buttons.html#buttons-floating-action-button"><img src="http://material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0Bx4BSt6jniD7UGxlcmdDZFRZYU0/patterns_actions_fab3.png" width="300"></a>
 
+### With FloatingActionButton (deprecated)
+
+Using [makovkastar/FloatingActionButton](https://github.com/makovkastar/FloatingActionButton) library makes floating buttons quite simple to setup. See the [library readme](https://github.com/makovkastar/FloatingActionButton/blob/master/README.md) and the [sample code](https://github.com/makovkastar/FloatingActionButton/tree/master/sample/src/main/java/com/melnykov/fab/sample) for reference.
+
+First, add as a dependency to your `app/build.gradle`:
+
+```gradle
+dependencies {
+    compile 'com.melnykov:floatingactionbutton:1.2.0'
+}
+```
+
+Next, let's add the `com.melnykov.fab.FloatingActionButton` to our layout XML.  Note the addition of the `xmlns:fab` to the attributes of the root layout:
+
+```xml
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:fab="http://schemas.android.com/apk/res-auto"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+    <ListView
+            android:id="@android:id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    <com.melnykov.fab.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_action_content_new"
+            fab:fab_type="normal"
+            fab:fab_shadow="true"
+            fab:fab_colorNormal="@color/primary"
+            fab:fab_colorPressed="@color/primary_pressed"
+            fab:fab_colorRipple="@color/ripple" />
+</FrameLayout>
+```
+
 #### Attaching to Lists
 
 Next, we can optionally associate the FAB with a `ListView`, `ScrollView` or `RecyclerView` so the button will hide as the list is scrolled down and revealed as the list is scrolled up:
@@ -135,46 +175,6 @@ fab.attachToListView(list, new ScrollDirectionListener() {
         Log.d("ListViewFragment", "onScroll()");
     }
 });
-```
-
-### With FloatingActionButton (deprecated)
-
-Using [makovkastar/FloatingActionButton](https://github.com/makovkastar/FloatingActionButton) library makes floating buttons quite simple to setup. See the [library readme](https://github.com/makovkastar/FloatingActionButton/blob/master/README.md) and the [sample code](https://github.com/makovkastar/FloatingActionButton/tree/master/sample/src/main/java/com/melnykov/fab/sample) for reference.
-
-First, add as a dependency to your `app/build.gradle`:
-
-```gradle
-dependencies {
-    compile 'com.melnykov:floatingactionbutton:1.2.0'
-}
-```
-
-Next, let's add the `com.melnykov.fab.FloatingActionButton` to our layout XML.  Note the addition of the `xmlns:fab` to the attributes of the root layout:
-
-```xml
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:fab="http://schemas.android.com/apk/res-auto"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
-
-    <ListView
-            android:id="@android:id/list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    <com.melnykov.fab.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:layout_margin="16dp"
-            android:src="@drawable/ic_action_content_new"
-            fab:fab_type="normal"
-            fab:fab_shadow="true"
-            fab:fab_colorNormal="@color/primary"
-            fab:fab_colorPressed="@color/primary_pressed"
-            fab:fab_colorRipple="@color/ripple" />
-</FrameLayout>
 ```
 
 ### Manual Implementations
