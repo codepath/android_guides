@@ -1,6 +1,6 @@
 ## Overview
 
-In certain situations, we need to implement a ListView where there are **different types of rows** in the same list. In other words, different items in the list need to be represented differently. Examples include a tumblr client where each post might be an image, text or a video. Another example would be Facebook with the many different types of feed items.
+In certain situations, we need to implement a ListView where there are **different types of rows** in the same list. In other words, different items in the list need to be represented differently. Examples include a Tumblr client where each post might be an image, text or a video. Another example would be Facebook with the many different types of feed items.
 
 <img src="http://i.imgur.com/9cfECVP.png" width="300" />
 
@@ -8,7 +8,7 @@ To implement a heterogenous list of items, most of the work is done **within the
 
 ## Implementation
 
-Suppose we wanted to implement a heterogenous list of items in an application. Keep in mind that each item will still be backed by a model. The first step is create a model flexible enough to support all the types (i.e `Post`) and embed a mechanism to determine the type. Let's pick a simple example such as list of colors in which each color is represented differently:
+Suppose we wanted to implement a heterogenous list of items in an application. Keep in mind that each item will still be backed by a model. The first step is create a model flexible enough to support all the types (i.e `Post`) and embed a mechanism to determine the type.   Let's pick a simple example such as list of colors in which each color is represented differently:
 
 ```java
 public class SimpleColor {
