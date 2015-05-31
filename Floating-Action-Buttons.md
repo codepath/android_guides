@@ -54,7 +54,7 @@ Google made available during Google I/O 2015 a support library to create floatin
          </resources>
    ```
 
-4. To place the floating action button, you will need to use [CoordinatorLayout](http://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.html).   A `CoordinatorLayout` is a container layout that also enable interactions between views known as [Behaviors](http://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html).  For instance, to provide a floating action button for a ListView, you will need to nest these views inside a `CoordinatorLayout` and define a `layout_anchor` and `layout_anchorGravity` gravity.  
+4. To place the floating action button, you will need to use [CoordinatorLayout](http://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.html).   A CoordinatorLayout is a container layout that also enable interactions between views known as [Behaviors](http://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html).  For instance, to provide a floating action button for a ListView, you will need to nest these views inside a `CoordinatorLayout` and define a `layout_anchor` and `layout_anchorGravity` gravity.  
 
    ```xml
        <android.support.design.widget.CoordinatorLayout
