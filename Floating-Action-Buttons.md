@@ -23,7 +23,7 @@ Google made available during Google I/O 2015 a support library to create floatin
       }
    ```
 
-2. There is a new support design library that must be included.   This library also depends on the [AppCompat](http://android-developers.blogspot.com/2014/10/appcompat-v21-material-design-for-pre.html) library and support v4 library to be included.
+2. There is a new support design library that must be included.   This library also depends on updated versions of the [AppCompat](http://android-developers.blogspot.com/2014/10/appcompat-v21-material-design-for-pre.html) library and support v4 library to be included.
 
    ```gradle
       dependencies {
