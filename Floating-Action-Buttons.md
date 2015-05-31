@@ -60,46 +60,6 @@ In addition, assuming you define `xmlns:app="http://schemas.android.com/apk/res-
 </resources>
 ```
 
-### With FloatingActionButton (deprecated)
-
-Using [makovkastar/FloatingActionButton](https://github.com/makovkastar/FloatingActionButton) library makes floating buttons quite simple to setup. See the [library readme](https://github.com/makovkastar/FloatingActionButton/blob/master/README.md) and the [sample code](https://github.com/makovkastar/FloatingActionButton/tree/master/sample/src/main/java/com/melnykov/fab/sample) for reference.
-
-First, add as a dependency to your `app/build.gradle`:
-
-```gradle
-dependencies {
-    compile 'com.melnykov:floatingactionbutton:1.2.0'
-}
-```
-
-Next, let's add the `com.melnykov.fab.FloatingActionButton` to our layout XML.  Note the addition of the `xmlns:fab` to the attributes of the root layout:
-
-```xml
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:fab="http://schemas.android.com/apk/res-auto"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
-
-    <ListView
-            android:id="@android:id/list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    <com.melnykov.fab.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:layout_margin="16dp"
-            android:src="@drawable/ic_action_content_new"
-            fab:fab_type="normal"
-            fab:fab_shadow="true"
-            fab:fab_colorNormal="@color/primary"
-            fab:fab_colorPressed="@color/primary_pressed"
-            fab:fab_colorRipple="@color/ripple" />
-</FrameLayout>
-```
-
 ### Dimensions
 
 The button should be placed in the bottom right corner of the screen. The recommended margin for the bottom is **16dp for phones and 24dp for tablets**.  
@@ -175,6 +135,46 @@ fab.attachToListView(list, new ScrollDirectionListener() {
         Log.d("ListViewFragment", "onScroll()");
     }
 });
+```
+
+### With FloatingActionButton (deprecated)
+
+Using [makovkastar/FloatingActionButton](https://github.com/makovkastar/FloatingActionButton) library makes floating buttons quite simple to setup. See the [library readme](https://github.com/makovkastar/FloatingActionButton/blob/master/README.md) and the [sample code](https://github.com/makovkastar/FloatingActionButton/tree/master/sample/src/main/java/com/melnykov/fab/sample) for reference.
+
+First, add as a dependency to your `app/build.gradle`:
+
+```gradle
+dependencies {
+    compile 'com.melnykov:floatingactionbutton:1.2.0'
+}
+```
+
+Next, let's add the `com.melnykov.fab.FloatingActionButton` to our layout XML.  Note the addition of the `xmlns:fab` to the attributes of the root layout:
+
+```xml
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:fab="http://schemas.android.com/apk/res-auto"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+    <ListView
+            android:id="@android:id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    <com.melnykov.fab.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_action_content_new"
+            fab:fab_type="normal"
+            fab:fab_shadow="true"
+            fab:fab_colorNormal="@color/primary"
+            fab:fab_colorPressed="@color/primary_pressed"
+            fab:fab_colorRipple="@color/ripple" />
+</FrameLayout>
 ```
 
 ### Manual Implementations
