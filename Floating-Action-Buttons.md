@@ -33,7 +33,7 @@ Google made available during Google I/O 2015 a support library to create floatin
       }
    ```
 
-   **Note** The [official Google docs](http://developer.android.com/tools/support-library/features.html#design) suggest that the Gradle line is `support-design`, but it   appears to be a typo.  A ticket is filed at https://code.google.com/p/android/issues/detail?id=175066.
+   **Note** The [official Google docs](http://developer.android.com/tools/support-library/features.html#design) suggest that the Gradle line is `support-design`, but it   appears to be a typo.  A ticket is filed [here](https://code.google.com/p/android/issues/detail?id=175066).
 
 3. You should now be able to add the `android.support.design.widget.FloatingActionButton`.  The `src` attribute references the icon that should be used for the floating action.  
 
