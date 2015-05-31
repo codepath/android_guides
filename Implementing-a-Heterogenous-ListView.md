@@ -8,7 +8,7 @@ To implement a heterogenous list of items, most of the work is done **within the
 
 ## Implementation
 
-Suppose we wanted to implement a heterogenous list of items in an application. Keep in mind that each item will still be backed by a model. The first step is create a model flexible enough to support all the types (i.e `Post`) and embed a mechanism to determine the type.   Let's pick a simple example such as list of colors in which each color is represented differently:
+Suppose we wanted to implement a heterogenous list of items in an application. Keep in mind that each item in this list should be implemented with a common base model.  The first step therefore is to create a model flexible enough to support all the types (i.e `Post`) and embed a mechanism to determine the type.   Let's pick a simple example such as list of colors in which each color is represented differently:
 
 ```java
 public class SimpleColor {
