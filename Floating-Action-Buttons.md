@@ -34,10 +34,10 @@ Google made available during Google I/O 2015 a support library to create floatin
 3. You should now be able to add the `android.support.design.widget.FloatingActionButton`.  The `src` attribute references the icon that should be used for the floating action.  
    ```xml
        <android.support.design.widget.FloatingActionButton
-        android:src="@mipmap/ic_launcher"
-        app:fabSize="@dimen/mini"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+          android:src="@mipmap/ic_launcher"
+          app:fabSize="@dimen/mini"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content" />
    ```
    In addition, assuming you define `xmlns:app="http://schemas.android.com/apk/res-auto` at the top of your layout, you can also define a custom attribute [`fabSize`](http://developer.android.com/reference/android/support/design/widget/FloatingActionButton.html#attr_android.support.design:fabSize) that can reference whether the button should be small or large.  You will need to define inside `attrs.xml` a custom dimension:
    ```xml
