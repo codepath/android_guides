@@ -136,6 +136,7 @@ Now, let's setup the drawer in our activity:
 public class MainActivity extends ActionBarActivity {
 	private DrawerLayout dlDrawer;
 	private ActionBarDrawerToggle drawerToggle;
+	private Toolbar toolbar;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -143,7 +144,7 @@ public class MainActivity extends ActionBarActivity {
 		setContentView(R.layout.activity_main);
 
 		// Set a Toolbar to replace the ActionBar.
-		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+		toolbar = (Toolbar) findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
 		drawerToggle = setupDrawerToggle();  // setup rotating hamburger
 		// Find our drawer view
