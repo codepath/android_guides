@@ -19,3 +19,7 @@ At the Google I/O 2015 conference, Google announced a new [support design librar
       }
    ```
    **Note** The [official Google docs](http://developer.android.com/tools/support-library/features.html#design) suggest that the Gradle line is `support-design`, but it   appears to be a typo.  A ticket is filed [here](https://code.google.com/p/android/issues/detail?id=175066).
+
+### Official Source Code
+
+The source code for this library can be found [here](https://android.googlesource.com/platform/frameworks/support.git/+/master/design/).
