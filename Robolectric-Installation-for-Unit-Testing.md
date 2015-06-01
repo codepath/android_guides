@@ -49,14 +49,14 @@ Create an `test/resources/org.robolectric.Config.properties` file.  Note that th
 
 ## Creating tests
 
-1. See [this example](https://github.com/mutexkid/android-studio-robolectric-example/blob/master/app/src/test/java/com/example/joshskeen/myapplication/MyActivityTest.java).  Note that your test needs to be annotated with `RoboelectricGradleTestRunner`.  You also need to annotate the `BuildConfig.class`, which should be created during a Gradle run.
+1. See [this example](https://github.com/mutexkid/android-studio-robolectric-example/blob/master/app/src/test/java/com/example/joshskeen/myapplication/MyActivityTest.java).  Note that your test needs to be annotated with `RobolectricGradleTestRunner`.  You also need to annotate the `BuildConfig.class`, which should be created during a Gradle run.
   ```java
 
      RunWith(RobolectricGradleTestRunner.class)
      @Config(constants = BuildConfig.class)
      public class MyActivityTest {
   ```
-The [Roboelectric guide](http://robolectric.org/writing-a-test/) is also a useful resource.  Each of your tests must contain an `@Test` annotation.
+The [Robolectric guide](http://robolectric.org/writing-a-test/) is also a useful resource.  Each of your tests must contain an `@Test` annotation.
 
 2. If you intend to create mock network responses, you will need to place them inside the `src/test/resources/` directory.  You can reference these files by using `getResourceAsStream()` (note the backslash is needed in the front):
 
@@ -89,7 +89,7 @@ If you want to be able to debug your tests inside Android Studio, make sure you 
 
 1. Make sure your tests are located in `src/test/java`.   
 
-2. If you are using a Mac, go to `Run` -> `Edit Configurations` -> `Defaults` -> `Junit` and make sure to set $MODULE_DIR$ as the working directory.  There is a known bug in tests not being located unless you set this configuration first.  See the Roboelectric [getting started guide](http://robolectric.org/getting-started/) for more information. 
+2. If you are using a Mac, go to `Run` -> `Edit Configurations` -> `Defaults` -> `Junit` and make sure to set $MODULE_DIR$ as the working directory.  There is a known bug in tests not being located unless you set this configuration first.  See the Robolectric [getting started guide](http://robolectric.org/getting-started/) for more information. 
 
   <img src="http://robolectric.org/images/android-studio-configure-defaults-4bf48402.png">
 
