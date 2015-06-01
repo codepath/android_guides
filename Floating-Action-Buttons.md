@@ -70,7 +70,7 @@ Google made available during Google I/O 2015 a support library to create floatin
               app:layout_anchor="@id/lvToDoList"
               app:layout_anchorGravity="bottom|right|end" />
 
-          </android.support.design.widget.CoordinatorLayout>
+        </android.support.design.widget.CoordinatorLayout>
     ```
 
 ### Dimensions
