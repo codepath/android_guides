@@ -33,7 +33,7 @@ The support design library has the following key features:
 5. [TextInputLayout](http://developer.android.com/reference/android/support/design/widget/TextInputLayout.html) - Float the hint above any text field as the user is entering information. 
 6. [CoordinatorLayout](http://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.html) - Provides an additional level of control over touch events between child views
 7. [AppBarLayout](http://developer.android.com/reference/android/support/design/widget/AppBarLayout.html) allows your toolbar and other views to react to scroll events. [CollapsingToolbarLayout](http://developer.android.com/reference/android/support/design/widget/CollapsingToolbarLayout.html) extend this to allow the toolbar to collapse as the user scrolls through a view.  
-**Note**: AppBarLayout currently expects to be nested within a CoordinatorLayout according to the official [Google docs](http://developer.android.com/reference/android/support/design/widget/AppBarLayout.html)
+**Note**: AppBarLayout currently expects to be nested within a CoordinatorLayout according to the official [Google docs].(http://developer.android.com/reference/android/support/design/widget/AppBarLayout.html)
 
 ### Sample Code
 
