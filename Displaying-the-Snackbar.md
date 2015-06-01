@@ -4,7 +4,7 @@ Snackbars are shown on the bottom of the screen and contain text with an optiona
 
 <img src="http://i.imgur.com/JSdKnP2.png" width="200" />
 
-Note the snackbar at the bottom with embedded action.
+Note the snackbar at the bottom with embedded action. See [this design guide](http://www.google.com/design/spec/components/snackbars-toasts.html) or more details.
 
 ### Simple Snackbar
 
@@ -34,4 +34,5 @@ That's all!
 ## References
 
 * <http://android-developers.blogspot.com/2015/05/android-design-support-library.html>
-* <
+* <http://developer.android.com/reference/android/support/design/widget/Snackbar.html>
+* <http://www.google.com/design/spec/components/snackbars-toasts.html>
