@@ -8,14 +8,14 @@ At the Google I/O 2015 conference, Google announced a new [support design librar
 
 ### Support Design Library
 
-1. Make sure that you have at least Gradle v1.2.3 supported.  There are several issues with using older versions including some support library widgets fail to render correctly (see  https://code.google.com/p/android/issues/detail?id=170841).  
+Make sure that you have at least Gradle v1.2.3 supported.  There are several issues with using older versions including some support library widgets fail to render correctly (see  https://code.google.com/p/android/issues/detail?id=170841).  
 
    ```gradle
       dependencies {
         classpath 'com.android.tools.build:gradle:1.2.3'
       }
    ```
-2. There is a new support design library that must be included.   This library also depends on updated versions of the [AppCompat](http://android-developers.blogspot.com/2014/10/appcompat-v21-material-design-for-pre.html) library and support v4 library to be included.  Make sure these versions have been updated too.
+There is a new support design library that must be included.   This library also depends on updated versions of the [AppCompat](http://android-developers.blogspot.com/2014/10/appcompat-v21-material-design-for-pre.html) library and support v4 library to be included.  Make sure these versions have been updated too.
 
    ```gradle
         dependencies {
