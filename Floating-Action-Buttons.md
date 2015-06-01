@@ -45,7 +45,7 @@ Google made available during Google I/O 2015 a support library to create floatin
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_gravity="bottom|right"
-              android:layout_margin="24dp"
+              android:layout_margin="16dp"
               android:src="@drawable/ic_launcher"
               app:layout_anchor="@id/lvToDoList"
               app:layout_anchorGravity="bottom|right|end" />
