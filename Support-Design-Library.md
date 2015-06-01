@@ -1,3 +1,5 @@
+## Overview
+
 At the Google I/O 2015 conference, Google announced a new [support design library](http://android-developers.blogspot.com/2015/05/android-design-support-library.html), which helps bring a lot of material design components including a navigation drawer view, floating labels, floating action buttons, snackbars, and a new framework to tie motion and scroll events.
 
 ### Support Design Library
@@ -19,6 +21,17 @@ At the Google I/O 2015 conference, Google announced a new [support design librar
       }
    ```
    **Note** The [official Google docs](http://developer.android.com/tools/support-library/features.html#design) suggest that the Gradle line is `support-design`, but it   appears to be a typo.  A ticket is filed [here](https://code.google.com/p/android/issues/detail?id=175066).
+
+### Features
+
+### Features
+
+The support design library has the following key features:
+
+1. [[FloatingActionButton|Floating-Action-Buttons]] - A round button at the bottom right denoting a primary action on your interface. Promoting key actions within a modern material design app.
+2. [[TabLayout|Google-Play-Style-Tabs-using-TabLayout]] - An easier way to put tabs around a `ViewPager` which acts as sliding tabs between fragments within an app.
+3. NavigationView - An easier way to provide a modern navigation drawer from the left with a header and a series of navigation items. 
+4. SnackBar - Shown on the bottom of the screen and contains text with an optional single action. They automatically time out after the given time length by animating off the screen.
 
 ### Sample Code
 
