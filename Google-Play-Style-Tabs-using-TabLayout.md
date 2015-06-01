@@ -118,7 +118,7 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
 Finally, we need to attach our `ViewPager` to the `SampleFragmentPagerAdapter` and then configure the sliding tabs with a two step process:
 
 * In the `onCreate()` method of your activity, find the `ViewPager` and connect the adapter.
-* Set the `ViewPager` on the `SlidingTabLayout` to connect the pager with the tabs.
+* Set the `ViewPager` on the `TabLayout` to connect the pager with the tabs.
 
 ```java
 public class MainActivity extends FragmentActivity {
@@ -133,7 +133,7 @@ public class MainActivity extends FragmentActivity {
         viewPager.setAdapter(new SampleFragmentPagerAdapter(getSupportFragmentManager(), 
             MainActivity.this));
 
-        // Give the SlidingTabLayout the ViewPager
+        // Give the TabLayout the ViewPager
         TabLayout slidingTabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         slidingTabLayout.setupWithViewPager(viewPager);
     }
@@ -165,9 +165,9 @@ You can then override this style for your TabLayout:
         android:layout_height="wrap_content"></android.support.design.widget.TabLayout>
 ```
 
-### Add Icons to SlidingTabLayout
+### Add Icons to TabLayout
 
-Currently, the SlidingTabLayout class does not provide a clean abstraction model that allows for icons in your tab.  There are many posted workarounds, one of which is to return a `SpannableString`, containing your icon in an `ImageSpan`, from your PagerAdapter's `getPageTitle(position)` method as shown in the code snippet below:
+Currently, the TabLayout class does not provide a clean abstraction model that allows for icons in your tab.  There are many posted workarounds, one of which is to return a `SpannableString`, containing your icon in an `ImageSpan`, from your PagerAdapter's `getPageTitle(position)` method as shown in the code snippet below:
 
 ```java
 private int[] imageResId = {
@@ -191,7 +191,7 @@ public CharSequence getPageTitle(int position) {
 }
 ```
 
-You'll also have to use a custom tab view since the default tab created by SlidingTabLayout makes a call to `textView.setAllCaps(true)` which effectively disables all ImageSpans.
+You'll also have to use a custom tab view since the default tab created by TabLayout makes a call to `textView.setAllCaps(true)` which effectively disables all ImageSpans.
 
 res/layout/custom_tab.xml
 ```xml
@@ -224,7 +224,7 @@ public class MainActivity extends ActionBarActivity {
         viewPager.setAdapter(new SampleFragmentPagerAdapter(getSupportFragmentManager(),
             MainActivity.this));
 
-        // Give the SlidingTabLayout the ViewPager
+        // Give the TabLayout the ViewPager
         TabLayout slidingTabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         // Set custom tab layout
         slidingTabLayout.setCustomTabView(R.layout.custom_tab, 0);
@@ -237,9 +237,9 @@ Sliding tabs with images:
 
 ![Slide 2](http://i.imgur.com/dYvY5NKl.jpg)
 
-### Add Icons+Text to SlidingTabLayout
+### Add Icons+Text to TabLayout
 
-Since we are using `SpannableString` to add icons to `SlidingTabLayout`, it becomes easy to have text next to the icons by manipulating the `SpannableString` object.
+Since we are using `SpannableString` to add icons to `TabLayout`, it becomes easy to have text next to the icons by manipulating the `SpannableString` object.
 
 ```java
 @Override
@@ -261,5 +261,4 @@ Note the additional spaces that are added before the tab title while instantiati
 
 ## References
 
-* [SlidingTabsBasic](http://developer.android.com/samples/SlidingTabsBasic/index.html) - Official google sample
-* [SlidingTabsColors](http://developer.android.com/samples/SlidingTabsColors/index.html) - Google sample with colors
+* https://android.googlesource.com/platform/frameworks/support.git/+/master/design/src/android/support/design/widget/TabLayout.java
