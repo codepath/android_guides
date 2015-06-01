@@ -28,8 +28,10 @@ The support design library has the following key features:
 
 1. [[FloatingActionButton|Floating-Action-Buttons]] - A round button at the bottom right denoting a primary action on your interface. Promoting key actions within a modern material design app.
 2. [[TabLayout|Google-Play-Style-Tabs-using-TabLayout]] - An easier way to put tabs around a `ViewPager` which acts as sliding tabs between fragments within an app.
-3. NavigationView - An easier way to provide a modern navigation drawer from the left with a header and a series of navigation items. 
-4. SnackBar - Shown on the bottom of the screen and contains text with an optional single action. They automatically time out after the given time length by animating off the screen.
+3. [NavigationView](https://developer.android.com/reference/android/support/design/widget/NavigationView.html) - An easier way to provide a modern navigation drawer from the left with a header and a series of navigation items. 
+4. [SnackBar](http://developer.android.com/reference/android/support/design/widget/Snackbar.html) - Shown on the bottom of the screen and contains text with an optional single action. They automatically time out after the given time length by animating off the screen.
+5. [TextInputLayout](http://developer.android.com/reference/android/support/design/widget/TextInputLayout.html) - Float the hint above any text field as the user is entering information. 
+6. [CoordinatorLayout](http://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.html) - Provides an additional level of control over touch events between child views
 
 ### Sample Code
 
