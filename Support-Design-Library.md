@@ -2,6 +2,10 @@
 
 At the Google I/O 2015 conference, Google announced a new [support design library](http://android-developers.blogspot.com/2015/05/android-design-support-library.html), which helps bring a lot of [[material design components|Material-Design-Primer]] including a navigation drawer view, floating labels, floating action buttons, snackbars, and a new framework to tie motion and scroll events.
 
+<img src="http://cdn.androidpolice.com/wp-content/uploads/2014/10/nexus2cee_67-351x625.png" width="200" />
+<a href="https://github.com/chrisbanes/cheesesquare"><img src="http://i.stack.imgur.com/Wb28n.png" width="200" /></a>
+<a href="https://github.com/codepath/android_guides/wiki/Displaying-the-Snackbar"><img src="http://i.imgur.com/JSdKnP2.png" width="200" /></a>
+
 ### Support Design Library
 
 1. Make sure that you have at least Gradle v1.2.3 supported.  There are several issues with using older versions including some support library widgets fail to render correctly (see  https://code.google.com/p/android/issues/detail?id=170841).  
