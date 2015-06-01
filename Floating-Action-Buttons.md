@@ -13,7 +13,7 @@ The floating action button represents **the primary action** within a particular
 
 Google made available during Google I/O 2015 a support library to create floating action buttons library.  In the past, third-party libraries such as [makovkastar/FloatingActionButton](https://github.com/makovkastar/FloatingActionButton) and [futuresimple/android-floating-action-button](https://github.com/futuresimple/android-floating-action-button) had to be used.
 
-### Google's official support library 
+### Support Design Library
 
 1. Make sure that you have at least Gradle v1.2.3 supported.  There are several issues with using older versions including some support library widgets fail to render correctly (see  https://code.google.com/p/android/issues/detail?id=170841).
    ```gradle
@@ -81,7 +81,7 @@ The actual drawable size should be **24dp** according to the Google design specs
 
 <a href="http://www.google.com/design/spec/components/buttons.html#buttons-floating-action-button"><img src="http://material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0Bx4BSt6jniD7UGxlcmdDZFRZYU0/patterns_actions_fab3.png" width="300"></a>
 
-### With FloatingActionButton (deprecated)
+### With FloatingActionButton (Third-Party)
 
 Using [makovkastar/FloatingActionButton](https://github.com/makovkastar/FloatingActionButton) library makes floating buttons quite simple to setup. See the [library readme](https://github.com/makovkastar/FloatingActionButton/blob/master/README.md) and the [sample code](https://github.com/makovkastar/FloatingActionButton/tree/master/sample/src/main/java/com/melnykov/fab/sample) for reference.
 
