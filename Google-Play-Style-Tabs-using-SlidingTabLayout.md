@@ -1,15 +1,14 @@
 Prior to Android "L" preview, the easiest way to setup tabs with Fragments was to use ActionBar Tabs as described in [ActionBar Tabs with Fragments](http://guides.codepath.com/android/ActionBar-Tabs-with-Fragments) guide. However, all methods related to navigation modes in the ActionBar class (such as `setNavigationMode()`, `addTab()`, `selectTab()`, etc.) are now deprecated.
 
-As a result, tabs are now best implemented by leveraging the [[ViewPager|ViewPager-with-FragmentPagerAdapter]] with a custom "tab indicator" on top. In this guide, we will be implementing the custom tab indicator using the Google recommended method. For an easier approach, see the [[Tabs with PagerSlidingTabStrip|Sliding-Tabs-with-PagerSlidingTabStrip]] instead.
+As a result, tabs are now best implemented by leveraging the [[ViewPager|ViewPager-with-FragmentPagerAdapter]] with a custom "tab indicator" on top. In this guide, we will be implementing the custom tab indicator using Google's new [TabLayout](https://developer.android.com/reference/android/support/design/widget/TabLayout.html) included in the support design library release for Android "M".  
 
-### SlidingTabs Layout
+### Support Design Library
 
-To implement Google Play style sliding tabs, you first need to copy the following two java source files into your application. Please make sure to copy the files directly from the Google IO links specified below. 
-  
-* [SlidingTabLayout.java](https://github.com/google/iosched/blob/0a90bf8e6b90e9226f8c15b34eb7b1e4bf6d632e/android/src/main/java/com/google/samples/apps/iosched/ui/widget/SlidingTabLayout.java)
-* [SlidingTabStrip.java](https://github.com/google/iosched/blob/0a90bf8e6b90e9226f8c15b34eb7b1e4bf6d632e/android/src/main/java/com/google/samples/apps/iosched/ui/widget/SlidingTabStrip.java)
+To implement Google Play style sliding tabs, make sure to follow the [[Support Design Library]] setup instructions first.
 
-You may choose to move them to a suitable package in your project. Once you have included `SlidingTabLayout.java` and `SlidingTabStrip.java` files within your app, you can use the `SlidingTabLayout` in your layout file to display tabs. Your layout file will have tabs on the top and a `ViewPager` on the bottom as shown in the code snippet below:
+### Sliding Tabs Layout
+
+Simply add `android.support.design.widget.TabLayout`, which will be used for rendering the different tab options.  The `android.support.v4.view.ViewPager` component will be used to page between the various fragments we will create.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -18,7 +17,7 @@ You may choose to move them to a suitable package in your project. Once you have
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.example.android.slidingtabsexample.SlidingTabLayout
+    <android.support.design.widget.TabLayout
         android:id="@+id/sliding_tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -135,16 +134,12 @@ public class MainActivity extends FragmentActivity {
             MainActivity.this));
 
         // Give the SlidingTabLayout the ViewPager
-        SlidingTabLayout slidingTabLayout = (SlidingTabLayout) findViewById(R.id.sliding_tabs);
-        // Center the tabs in the layout
-        slidingTabLayout.setDistributeEvenly(true);
-        slidingTabLayout.setViewPager(viewPager);
+        TabLayout slidingTabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
+        slidingTabLayout.setupWithViewPager(viewPager);
     }
 
 }
-```
-
-Please note that your `SlidingTabLayout.java` may not have `setDistributeEvenly()` method is you are using the old version. To solve that update your view files to the latest version as mentioned above. 
+``` 
 
 Heres the output:
 
@@ -152,26 +147,24 @@ Heres the output:
 
 ### Customize Tab Indicator Color
 
-You can use `setCustomTabColorizer()` to change the color of the tab indicator:
+Normally, the tab indicator color chosen is the [accent color](http://www.google.com/design/spec/style/color.html#color-color-palette) defined for your Material Design them.  If you intend to override this color, you will need to create a style that overrides this color.
 
-```java
-// Customize tab color
-slidingTabLayout.setCustomTabColorizer(new SlidingTabLayout.TabColorizer() {
-    @Override
-    public int getIndicatorColor(int position) {
-        return Color.RED;
-    }
-});
+```xml
+<style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">#0000FF</item>
+</style>
 ```
 
-If you have a custom color defined in `colors.xml`, your getIndicatorColor() function needs to lookup the RGB value to use:
+You can then override this style for your TabLayout:
 
-```java
-  @Override
-  public int getIndicatorColor(int position) {
-         return getResources().getColor(R.color.red);
-  }
+```xml
+<android.support.design.widget.TabLayout
+        android:id="@+id/tabs"
+        style="@style/MyCustomTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></android.support.design.widget.TabLayout>
 ```
+
 ### Add Icons to SlidingTabLayout
 
 Currently, the SlidingTabLayout class does not provide a clean abstraction model that allows for icons in your tab.  There are many posted workarounds, one of which is to return a `SpannableString`, containing your icon in an `ImageSpan`, from your PagerAdapter's `getPageTitle(position)` method as shown in the code snippet below:
@@ -232,18 +225,9 @@ public class MainActivity extends ActionBarActivity {
             MainActivity.this));
 
         // Give the SlidingTabLayout the ViewPager
-        SlidingTabLayout slidingTabLayout = (SlidingTabLayout) findViewById(R.id.sliding_tabs);
+        TabLayout slidingTabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         // Set custom tab layout
         slidingTabLayout.setCustomTabView(R.layout.custom_tab, 0);
-        // Center the tabs in the layout
-        slidingTabLayout.setDistributeEvenly(true);
-        // Customize tab color
-        slidingTabLayout.setCustomTabColorizer(new SlidingTabLayout.TabColorizer() {
-            @Override
-            public int getIndicatorColor(int position) {
-                return Color.RED;
-            }
-        });
         slidingTabLayout.setViewPager(viewPager);
     }
 }
