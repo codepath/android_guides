@@ -21,17 +21,11 @@ Google made available during Google I/O 2015 a support library to create floatin
    ```xml
        <android.support.design.widget.FloatingActionButton
           android:src="@mipmap/ic_launcher"
-          app:fabSize="@dimen/mini"
+          app:fabSize="normal"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content" />
    ```
-   In addition, assuming you define `xmlns:app="http://schemas.android.com/apk/res-auto` at the top of your layout, you can also define a custom attribute [`fabSize`](http://developer.android.com/reference/android/support/design/widget/FloatingActionButton.html#attr_android.support.design:fabSize) that can reference whether the button should be small or large.  You will need to define inside `attrs.xml` a custom dimension:
-   ```xml
-      <?xml version="1.0" encoding="utf-8"?>
-         <resources>
-            <item name="mini" type="dimen" format="integer">1</item>
-         </resources>
-   ```
+   In addition, assuming `xmlns:app="http://schemas.android.com/apk/res-auto` is declared as namespace the top of your layout, you can also define a custom attribute [`fabSize`](http://developer.android.com/reference/android/support/design/widget/FloatingActionButton.html#attr_android.support.design:fabSize) that can reference whether the button should be `normal` or `mini`. 
 
 3. To place the floating action button, you will need to use [CoordinatorLayout](http://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.html).   A CoordinatorLayout is a container layout that also enable interactions between views known as [Behaviors](http://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html).  For instance, to provide a floating action button for a ListView, you will need to nest these views inside a `CoordinatorLayout` and define a `layout_anchor` and `layout_anchorGravity` gravity.  
    ```xml
