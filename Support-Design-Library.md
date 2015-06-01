@@ -24,8 +24,6 @@ At the Google I/O 2015 conference, Google announced a new [support design librar
 
 ### Features
 
-### Features
-
 The support design library has the following key features:
 
 1. [[FloatingActionButton|Floating-Action-Buttons]] - A round button at the bottom right denoting a primary action on your interface. Promoting key actions within a modern material design app.
