@@ -16,6 +16,7 @@ Google made available during Google I/O 2015 a support library to create floatin
 ### Support Design Library
 
 1. Make sure that you have at least Gradle v1.2.3 supported.  There are several issues with using older versions including some support library widgets fail to render correctly (see  https://code.google.com/p/android/issues/detail?id=170841).
+
    ```gradle
       dependencies {
         classpath 'com.android.tools.build:gradle:1.2.3'
