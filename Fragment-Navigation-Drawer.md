@@ -305,12 +305,12 @@ public class NavDrawerItem {
 
 ### Create Custom Adapter
 
-Next, create a custom adapter class `NavDrawerListAdapter.java`, which provides a custom layout for individual list item in the `ListView`.
+Next, create a custom adapter class `NavDrawerListAdapter.java`, which provides a custom layout for individual list item in the `ListView`. Note we opted to the the `BaseAdapter` here but an `ArrayAdapter<NavDrawerItem>` would have worked equally well.
 
 ```java
 public class NavDrawerListAdapter extends BaseAdapter {
 
-	private Context context;
+    private Context context;
     private ArrayList<NavDrawerItem> navDrawerItems;
 
     public NavDrawerListAdapter(Context context, ArrayList<NavDrawerItem> navDrawerItems){
