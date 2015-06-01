@@ -8,6 +8,8 @@ Note the snackbar at the bottom with embedded action. See [this design guide](ht
 
 ### Simple Snackbar
 
+Make sure to follow the [[Support-Design-Library]] setup instructions first.
+
 Create a snackbar using `make`, setting an optional action and then call `.show()`: 
 
 ```java
