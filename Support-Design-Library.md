@@ -6,7 +6,7 @@ At the Google I/O 2015 conference, Google announced a new [support design librar
 <a href="https://github.com/chrisbanes/cheesesquare"><img src="http://i.stack.imgur.com/Wb28n.png" width="200" /></a>
 <a href="https://github.com/codepath/android_guides/wiki/Displaying-the-Snackbar"><img src="http://i.imgur.com/JSdKnP2.png" width="200" /></a>
 
-### Support Design Library
+### Setup
 
 Make sure that you have at least the Android Gradle plugin v1.2.3 supported.  There are several issues with using older versions including some support library widgets fail to render correctly (see  https://code.google.com/p/android/issues/detail?id=170841).  
 
