@@ -1,6 +1,6 @@
 Prior to Android "L" preview, the easiest way to setup tabs with Fragments was to use ActionBar Tabs as described in [ActionBar Tabs with Fragments](http://guides.codepath.com/android/ActionBar-Tabs-with-Fragments) guide. However, all methods related to navigation modes in the ActionBar class (such as `setNavigationMode()`, `addTab()`, `selectTab()`, etc.) are now deprecated.
 
-As a result, tabs are now best implemented by leveraging the [[ViewPager|ViewPager-with-FragmentPagerAdapter]] with a custom "tab indicator" on top. In this guide, we will be implementing the custom tab indicator using Google's new [TabLayout](https://developer.android.com/reference/android/support/design/widget/TabLayout.html) included in the support design library release for Android "M".  
+As a result, tabs are now best implemented by leveraging the [[ViewPager|ViewPager-with-FragmentPagerAdapter]] with a custom "tab indicator" on top. In this guide, we will be implementing the custom tab indicator using Google's new [TabLayout](https://developer.android.com/reference/android/support/design/widget/TabLayout.html) included in the support design library release for Android "M".
 
 ### Support Design Library
 
@@ -134,8 +134,8 @@ public class MainActivity extends FragmentActivity {
             MainActivity.this));
 
         // Give the TabLayout the ViewPager
-        TabLayout slidingTabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
-        slidingTabLayout.setupWithViewPager(viewPager);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
+        tabLayout.setupWithViewPager(viewPager);
     }
 
 }
@@ -209,7 +209,7 @@ res/layout/custom_tab.xml
 
 To set your icon at the center of the tab, add `android:gravity="center"` attribute to your view.
 
-Next, set the custom tab in the `onCreate()` of your `MainActivity.java` file by calling `setCustomTabView()` method on your `slidingTabLayout`. Make sure to call `setCustomTabView()` before `setViewPager()`.
+Next, set the custom tab in the `onCreate()` of your `MainActivity.java` file by calling `setCustomTabView()` method on your `tabLayout`. Make sure to call `setCustomTabView()` before `setViewPager()`.
 
 ```java
 public class MainActivity extends ActionBarActivity {
@@ -225,10 +225,10 @@ public class MainActivity extends ActionBarActivity {
             MainActivity.this));
 
         // Give the TabLayout the ViewPager
-        TabLayout slidingTabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         // Set custom tab layout
-        slidingTabLayout.setCustomTabView(R.layout.custom_tab, 0);
-        slidingTabLayout.setViewPager(viewPager);
+        tabLayout.setCustomTabView(R.layout.custom_tab, 0);
+        tabLayout.setViewPager(viewPager);
     }
 }
 ```
