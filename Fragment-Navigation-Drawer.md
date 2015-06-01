@@ -526,6 +526,52 @@ LinearLayout container = (LinearLayout) findViewById(R.id.content_frame);
 inflater.inflate(R.layout.activity_main, container);
 ```
 
+## Manual Alternative 
+
+Instead of the above steps, an alternative is using a `DrawerLayout` directly in the layout as outlined here:
+
+```xml
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+ 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+ 
+        <!-- The ActionBar -->
+        <include
+            layout="@layout/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+ 
+        <!-- The main content view -->
+        <FrameLayout
+            android:id="@+id/flContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+ 
+    <!-- The navigation drawer -->
+    <ListView
+      android:id="@+id/lvDrawer"
+      android:layout_width="240dp"
+      android:layout_height="match_parent"
+      android:layout_gravity="start"
+      android:choiceMode="singleChoice"
+      android:paddingTop="24dp"
+      android:divider="@android:color/darker_gray"
+      android:dividerHeight="0dp"
+      android:background="@android:color/background_light" />
+</android.support.v4.widget.DrawerLayout>
+```
+
+This requires manual setup of the drawer [as outlined here](https://developer.android.com/training/implementing-navigation/nav-drawer.html).
+
 ## References
 
 * <http://www.michenux.net/android-navigation-drawer-748.html>
