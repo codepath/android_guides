@@ -46,3 +46,9 @@ If you want to see how to use the various components, check out this [sample cod
 ### Official Source Code
 
 The source code for this library can be found [here](https://android.googlesource.com/platform/frameworks/support.git/+/master/design/).  For instance, if you are curious about what styles can be overridden for the different components, see this [link](https://android.googlesource.com/platform/frameworks/support.git/+/master/design/res/values/styles.xml).
+
+## References
+
+* <https://medium.com/android-bites/first-steps-with-the-design-support-library-8dcf06230ddd>
+* <http://android-developers.blogspot.com/2015/05/android-design-support-library.html>
+* <https://github.com/chrisbanes/cheesesquare>
