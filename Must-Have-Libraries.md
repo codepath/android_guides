@@ -45,6 +45,7 @@ Using the Butterknife library with the Parceler library causes multiple declarat
  * [RoboGuice](https://github.com/roboguice/roboguice) - Powerful extensions to Android using dependency injection.
  * [Calligraphy](https://github.com/chrisjenx/Calligraphy) - Custom fonts made easy
  * [AndroidViewAnimations](https://github.com/daimajia/AndroidViewAnimations) - Common property animations made easy
+ * [SDK Manager Plugin](https://github.com/JakeWharton/sdk-manager-plugin] - Helpful plugin especially for group projects if you're missing an SDK version, haven't downloaded an API version, or your support library is updated.  
 
 ### Extensions 
 
