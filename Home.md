@@ -113,6 +113,7 @@ Exploring how to allow user interaction and navigation within an app:
 * [[View Event Listeners|Basic Event Listeners]] (Clicks, Key Presses, Updates)
 * [[Creating Custom Listeners]] (Defining, setting and triggering events)
 * [[Displaying Toasts]] (Quick notices and includes custom views)
+* [[Displaying the Snackbar]] (Quick notices with actions)
 * [[Exploring the ActionBar|Defining the ActionBar]] (Includes adding ActionItems)
 * [[Extended ActionBar Guide]] (Split-bar, Custom ActionBar, etc)
 * [[Gestures and Touch Events]] (Swipe, Shake, or Dragging Events)
