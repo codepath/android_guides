@@ -20,6 +20,10 @@ At the Google I/O 2015 conference, Google announced a new [support design librar
    ```
    **Note** The [official Google docs](http://developer.android.com/tools/support-library/features.html#design) suggest that the Gradle line is `support-design`, but it   appears to be a typo.  A ticket is filed [here](https://code.google.com/p/android/issues/detail?id=175066).
 
+### Sample Code
+
+If you want to see how to use the various components, check out this [sample code](https://github.com/chrisbanes/cheesesquare).
+
 ### Official Source Code
 
 The source code for this library can be found [here](https://android.googlesource.com/platform/frameworks/support.git/+/master/design/).  For instance, if you are curious about what styles can be overridden for the different components, see this [link](https://android.googlesource.com/platform/frameworks/support.git/+/master/design/res/values/styles.xml).
