@@ -12,26 +12,38 @@ Screenshots:
 
 This guide explains how to setup a basic material design style drawer filled with navigation items that switch different fragments into the content area. In this way, you can define multiple fragments, and then define the list of options which will display in the drawers items list. Each item when clicked will switch the relevant fragment into the activity's container view.
 
-### Setup Drawer Layout Files
+### Download Nav Drawer Item icons
 
-You also need to setup a view that will represent the individual drawer item in a layout file such as `res/layout/drawer_nav_item.xml`:
+Download the following icons and add them to your drawable folders by copying and pasting them into the drawable folder or using the `New Image Asset` dialog to create versions for each density.
+
+* [ic_one](http://i.imgur.com/PfXVA78.png)
+* [ic_two](http://i.imgur.com/xzIdYlo.png)
+* [ic_three](http://i.imgur.com/k5o1mCJ.png)
+
+### Setup Drawer Resources
+
+Create a `menu/drawer_view.xml` file:
 
 ```xml
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@android:id/text1"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@android:drawable/list_selector_background"
-    android:gravity="center_vertical"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:minHeight="?android:attr/listPreferredItemHeightSmall"
-    android:textAppearance="?android:attr/textAppearanceListItemSmall"
-    android:textSize="16sp"
-    android:textColor="#111" />
-```
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-Make sure that the **root view is the TextView** without a layout container. 
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_first_fragment"
+            android:icon="@drawable/ic_one"
+            android:title="First" />
+        <item
+            android:id="@+id/nav_second_fragment"
+            android:icon="@drawable/ic_two"
+            android:title="Second" />
+        <item
+            android:id="@+id/nav_third_fragment"
+            android:icon="@drawable/ic_three"
+            android:title="Third" />
+    </group>
+
+</menu>
+```
 
 In your `res/values/strings.xml` add the following:
 
@@ -42,12 +54,6 @@ In your `res/values/strings.xml` add the following:
     <string name="drawer_close">Close navigation drawer</string>
 </resources>
 ```
-
-### Copy In FragmentNavigationDrawer
-
-First, let's define a `FragmentNavigationDrawer.java` class within our app which makes working with the navigation drawer within an activity much simpler. Choose the source below based on your version of the support library.
-
-Define the `FragmentNavigationDrawer` class by copying the text from the [source code from here](https://gist.github.com/nidhi1608/104b31cb0ebc1f7b3f69). Make sure that your activity extends from `ActionBarActivity`.
 
 ### Define Fragments
 
@@ -87,8 +93,9 @@ Next, let's setup a basic navigation drawer based on the following layout file w
 When `android:fitsSystemWindows` attribute is set to true for a view, the view would be laid out as if the `StatusBar` and the `ActionBar` were present i.e. the UI on top gets padding enough to not be obscured by the navigation bar. We want our main content view to have the navigation bar and hence `android:fitsSystemWindows` is set to true for the `LinearLayout`.
 
 ```xml
-<my.custom.package.path.FragmentNavigationDrawer
+<android.support.v4.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -113,24 +120,22 @@ When `android:fitsSystemWindows` attribute is set to true for a view, the view w
     </LinearLayout>
 
     <!-- The navigation drawer -->
-    <ListView
-      android:id="@+id/lvDrawer"
-      android:layout_width="240dp"
-      android:layout_height="match_parent"
-      android:layout_gravity="start"
-      android:choiceMode="singleChoice"
-      android:paddingTop="24dp"
-      android:divider="@android:color/darker_gray"
-      android:dividerHeight="0dp"
-      android:background="@android:color/background_light" />
-</my.custom.package.path.FragmentNavigationDrawer>
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nvView"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@android:color/background_light"
+        app:menu="@menu/drawer_view" />
+</android.support.v4.widget.DrawerLayout>
 ```
 
-Make sure that you replace `my.custom.package.path` with the **actual package namespace** in your app. Now, let's setup the drawer in our activity:
+Now, let's setup the drawer in our activity:
 
 ```java
 public class MainActivity extends ActionBarActivity {
-	private FragmentNavigationDrawer dlDrawer;
+	private DrawerLayout dlDrawer;
+	private ActionBarDrawerToggle drawerToggle;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -140,31 +145,9 @@ public class MainActivity extends ActionBarActivity {
 		// Set a Toolbar to replace the ActionBar.
 		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
-
+		drawerToggle = setupDrawerToggle();  // setup rotating hamburger
 		// Find our drawer view
-		dlDrawer = (FragmentNavigationDrawer) findViewById(R.id.drawer_layout);
-		// Setup drawer view
-		dlDrawer.setupDrawerConfiguration((ListView) findViewById(R.id.lvDrawer), toolbar,
-                        R.layout.drawer_nav_item, R.id.flContent);
-		// Add nav items
-		dlDrawer.addNavItem("First", "First Fragment", FirstFragment.class);
-		dlDrawer.addNavItem("Second", "Second Fragment", SecondFragment.class);
-		dlDrawer.addNavItem("Third", "Third Fragment", ThirdFragment.class);
-		// Select default
-		if (savedInstanceState == null) {
-			dlDrawer.selectDrawerItem(0);
-		}
-	}
-
-
-	@Override
-	public boolean onPrepareOptionsMenu(Menu menu) {
-		// If the nav drawer is open, hide action items related to the content
-		if (dlDrawer.isDrawerOpen()) {
-			// Uncomment to hide menu items
-			// menu.findItem(R.id.mi_test).setVisible(false);
-		}
-		return super.onPrepareOptionsMenu(menu);
+		dlDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 	}
 
 	@Override
@@ -179,7 +162,7 @@ public class MainActivity extends ActionBarActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// The action bar home/up action should open or close the drawer.
 		// ActionBarDrawerToggle will take care of this.
-		if (dlDrawer.getDrawerToggle().onOptionsItemSelected(item)) {
+		if (drawerToggle.onOptionsItemSelected(item)) {
 			return true;
 		}
 
@@ -190,17 +173,83 @@ public class MainActivity extends ActionBarActivity {
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
 		// Sync the toggle state after onRestoreInstanceState has occurred.
-		dlDrawer.getDrawerToggle().syncState();
+		drawerToggle.syncState();
 	}
 
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
 		// Pass any configuration change to the drawer toggles
-		dlDrawer.getDrawerToggle().onConfigurationChanged(newConfig);
+		drawerToggle.onConfigurationChanged(newConfig);
 	}
 
+	private ActionBarDrawerToggle setupDrawerToggle() {
+		return new ActionBarDrawerToggle(getActivity(), this, toolbar, R.string.drawer_open,  R.string.drawer_close);
+	}
 }
+```
+
+## Responding to navigation element clicks
+
+Setup a handler to respond to click events on the navigation elements and swap out the fragment.
+
+```java
+
+@Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+         // Find our drawer view
+        nvDrawer = (NavigationView) findViewById(R.id.nvView);
+        // Setup drawer view
+        setupDrawerContent(nvDrawer);
+    }
+
+    private void setupDrawerContent(NavigationView navigationView) {
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+                        selectDrawerItem(menuItem);
+                        return true;
+                    }
+                });
+    }
+
+    public void selectDrawerItem(MenuItem menuItem) {
+        // Create a new fragment and specify the planet to show based on
+        // position
+        Fragment fragment = null;
+
+        Class fragmentClass;
+        switch(menuItem.getItemId()) {
+            case R.id.nav_first_fragment:
+                fragmentClass = FirstFragment.class;
+                break;
+            case R.id.nav_second_fragment:
+                fragmentClass = SecondFragment.class;
+                break;
+            case R.id.nav_third_fragment:
+                fragmentClass = ThirdFragment.class;
+                break;
+            default:
+                fragmentClass = FirstFragment.class;
+        }
+
+        try {
+            fragment = (Fragment) fragmentClass.newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // Insert the fragment by replacing any existing fragment
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+
+        // Highlight the selected item, update the title, and close the drawer
+        menuItem.setChecked(true);
+        setTitle(menuItem.getTitle());
+        dlDrawer.closeDrawers();
+    }
 ```
 
 ## Making Status Bar Translucent
@@ -221,185 +270,8 @@ In `res/values-v19/styles.xml` we can add the following:
 
 Now if you run your app, you should see the navigation drawer and be able to select between your fragments.
 
-## Add Icons
 
-In order to add icons adjacent to the title in navigation drawer, you can use a custom `ListView` along with a custom list adapter.
 
-![NavIcons|250](http://i.imgur.com/vECwK8Yl.png)
-
-### Download Nav Drawer Item icons
-
-Download the following icons and add them to your drawable folders by copying and pasting them into the drawable folder or using the `New Image Asset` dialog to create versions for each density.
-
-* [ic_one](http://i.imgur.com/PfXVA78.png)
-* [ic_two](http://i.imgur.com/xzIdYlo.png)
-* [ic_three](http://i.imgur.com/k5o1mCJ.png)
-
-### Update Drawer Layout File
-
-Update `res/layout/drawer_nav_item.xml` to accommodate the drawer item icon inside of a layout.
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="48dp">
-
-    <ImageView
-        android:id="@+id/ivIcon"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:layout_centerVertical="true" />
-
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_toRightOf="@id/ivIcon"
-        android:minHeight="?android:attr/listPreferredItemHeightSmall"
-        android:textAppearance="?android:attr/textAppearanceListItemSmall"
-        android:gravity="center_vertical"
-        android:paddingRight="40dp"/>
-
-</RelativeLayout>
-```
-
-In order for this to work we now need to create a **custom adapter for our list** to display this custom drawer item.
-
-### Add Model for Drawer Item
-
-Let's create a model class for our custom drawer icon. Name it `NavDrawerItem.java`.
-
-```java
-public class NavDrawerItem {
-    private String mTitle;
-    private int mIcon;
-
-    public NavDrawerItem(){}
-
-    public NavDrawerItem(String title, int icon){
-        this.mTitle = title;
-        this.mIcon = icon;
-    }
-
-    public String getTitle(){
-        return this.mTitle;
-    }
-
-    public int getIcon(){
-        return this.mIcon;
-    }
-
-    public void setTitle(String title){
-        this.mTitle = title;
-    }
-
-    public void setIcon(int icon){
-        this.mIcon = icon;
-    }
-}
-```
-
-### Create Custom Adapter
-
-Next, create a custom adapter class `NavDrawerListAdapter.java`, which provides a custom layout for individual list item in the `ListView`. Note we opted to the the `BaseAdapter` here but an `ArrayAdapter<NavDrawerItem>` would have worked equally well.
-
-```java
-public class NavDrawerListAdapter extends BaseAdapter {
-
-    private Context context;
-    private ArrayList<NavDrawerItem> navDrawerItems;
-
-    public NavDrawerListAdapter(Context context, ArrayList<NavDrawerItem> navDrawerItems){
-        this.context = context;
-        this.navDrawerItems = navDrawerItems;
-    }
-
-    @Override
-    public int getCount() {
-        return navDrawerItems.size();
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return navDrawerItems.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        if (convertView == null) {
-            LayoutInflater mInflater = LayoutInflater.from(context);
-            convertView = mInflater.inflate(R.layout.drawer_nav_item, null);
-        }
-
-        ImageView imgIcon = (ImageView) convertView.findViewById(R.id.ivIcon);
-        TextView txtTitle = (TextView) convertView.findViewById(R.id.tvTitle);
-
-        imgIcon.setImageResource(navDrawerItems.get(position).getIcon());
-        txtTitle.setText(navDrawerItems.get(position).getTitle());
-
-        return convertView;
-    }
-
-}
-```
-
-### Update FragmentNavigationDrawer
-
-Now you should create an instance of `NavDrawerListAdapter`, add list items to it and assign this adapter to your Navigation Drawer ListView. Update the following code in `FragmentNavigationDrawer.java`.
-
-```java
-...
-
-    private ActionBarDrawerToggle drawerToggle;
-    private ListView lvDrawer;
-    private Toolbar toolbar;
-    private NavDrawerListAdapter drawerAdapter;
-    private ArrayList<NavDrawerItem> navDrawerItems;
-    private ArrayList<FragmentNavItem> drawerNavItems;
-    private int drawerContainerRes;
-
-    public void setupDrawerConfiguration(ListView drawerListView, Toolbar drawerToolbar,
-        int drawerItemRes, int drawerContainerResId) {
-        // Setup navigation items array
-        drawerNavItems = new ArrayList<FragmentNavigationDrawer.FragmentNavItem>();
-        navDrawerItems = new ArrayList<NavDrawerItem>();
-        drawerContainerRes = drawerContainerResId;
-        // Setup drawer list view
-        lvDrawer = drawerListView;
-        toolbar = drawerToolbar;
-        // Setup item listener
-        lvDrawer.setOnItemClickListener(new FragmentDrawerItemListener());
-        // ActionBarDrawerToggle ties together the the proper interactions
-        // between the sliding drawer and the action bar app icon
-        drawerToggle = setupDrawerToggle();
-        setDrawerListener(drawerToggle);
-        // Setup action buttons
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
-    }
-
-    // addNavItem("First", R.mipmap.ic_one, "First Fragment", FirstFragment.class)
-    public void addNavItem(String navTitle, int icon, String windowTitle, Class<? extends Fragment> fragmentClass) {
-        // adding nav drawer items to array
-        navDrawerItems.add(new NavDrawerItem(navTitle, icon));
-        // Set the adapter for the list view
-        drawerAdapter = new NavDrawerListAdapter(getActivity(), navDrawerItems);
-        lvDrawer.setAdapter(drawerAdapter);
-        drawerNavItems.add(new FragmentNavItem(windowTitle, fragmentClass));
-    }
-
-    ...
-
-```
 
 ## Custom Background for Selected Item
 
@@ -578,3 +450,4 @@ This requires manual setup of the drawer [as outlined here](https://developer.an
 * <http://www.androidhive.info/2013/11/android-sliding-menu-using-navigation-drawer/>
 * <http://android-developers.blogspot.com/2014/10/appcompat-v21-material-design-for-pre.html>
 * <http://stackoverflow.com/questions/26440879/how-do-i-use-drawerlayout-to-display-over-the-actionbar-toolbar-and-under-the-st>
+* <http://antonioleiva.com/navigation-view/>
