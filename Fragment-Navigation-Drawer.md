@@ -526,7 +526,7 @@ LinearLayout container = (LinearLayout) findViewById(R.id.content_frame);
 inflater.inflate(R.layout.activity_main, container);
 ```
 
-## Manual Alternative 
+## Manual Implementation 
 
 Instead of the above steps, an alternative is using a `DrawerLayout` directly in the layout as outlined here:
 
