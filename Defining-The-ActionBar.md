@@ -152,7 +152,17 @@ There are two ways to use Toolbar:
  * Use a standalone Toolbar when you want to use the pattern in your app for situations that an Action Bar would not support; for example, showing multiple toolbars on the screen, spanning only part of the width, and so on.
 
 ### Using ToolBar as ActionBar
-To use Toolbar as an ActionBar, first disable the decor-provided ActionBar. The easiest way is to have your theme extend from `Theme.AppCompat.NoActionBar` (or its light variant) in `styles.xml` file.
+
+To use Toolbar as an ActionBar, first ensure the AppCompat-v7 support library is added to your application `build.gradle` (Module:app) file:
+
+```gradle
+dependencies {
+  compile fileTree(dir: 'libs', include: ['*.jar'])
+  compile "com.android.support:appcompat-v7:21.0.+"
+}
+```
+
+Second, let's disable the theme-provided ActionBar. The easiest way is to have your theme extend from `Theme.AppCompat.NoActionBar` (or its light variant) in `styles.xml` file.
 
 ```xml
 <resources>
@@ -162,16 +172,7 @@ To use Toolbar as an ActionBar, first disable the decor-provided ActionBar. The 
 </resources>
 ```
 
-Secondly, add the AppCompat-v7 support library to your application `build.gradle` (Module:app) file:
-
-```gradle
-dependencies {
-  compile fileTree(dir: 'libs', include: ['*.jar'])
-  compile "com.android.support:appcompat-v7:21.0.+"
-}
-```
-
-Now you need to add Toolbar to your Activity layout file. One of the biggest advantages of using the Toolbar widget is that you can place the view anywhere in your layout. Below it's placed at the top of the LinearLayout, like the standard ActionBar, but it can be contained in any other type of layout as well.
+Now you need to add `Toolbar` to your Activity layout file. One of the biggest advantages of using the Toolbar widget is that you can place the view anywhere in your layout. Below it's placed at the top of the LinearLayout, like the standard ActionBar, but it can be contained in any other type of layout as well.
 
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
