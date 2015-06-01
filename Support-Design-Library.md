@@ -1,6 +1,6 @@
 ## Overview
 
-At the Google I/O 2015 conference, Google announced a new [support design library](http://android-developers.blogspot.com/2015/05/android-design-support-library.html), which helps bring a lot of material design components including a navigation drawer view, floating labels, floating action buttons, snackbars, and a new framework to tie motion and scroll events.
+At the Google I/O 2015 conference, Google announced a new [support design library](http://android-developers.blogspot.com/2015/05/android-design-support-library.html), which helps bring a lot of [[material design components|Material-Design-Primer]] including a navigation drawer view, floating labels, floating action buttons, snackbars, and a new framework to tie motion and scroll events.
 
 ### Support Design Library
 
