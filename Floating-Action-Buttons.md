@@ -23,10 +23,10 @@ Google made available during Google I/O 2015 a support library to create floatin
    ```
 2. There is a new support design library that must be included.   This library also depends on updated versions of the [AppCompat](http://android-developers.blogspot.com/2014/10/appcompat-v21-material-design-for-pre.html) library and support v4 library to be included.
    ```gradle
-      dependencies {
-        compile 'com.android.support:appcompat-v7:22.2.0'
-        compile 'com.android.support:support-v4:22.2.0'
-        compile 'com.android.support:design:22.2.0'
+        dependencies {
+          compile 'com.android.support:appcompat-v7:22.2.0'
+          compile 'com.android.support:support-v4:22.2.0'
+          compile 'com.android.support:design:22.2.0'
       }
    ```
    **Note** The [official Google docs](http://developer.android.com/tools/support-library/features.html#design) suggest that the Gradle line is `support-design`, but it   appears to be a typo.  A ticket is filed [here](https://code.google.com/p/android/issues/detail?id=175066).
