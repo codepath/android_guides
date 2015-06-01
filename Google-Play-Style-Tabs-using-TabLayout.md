@@ -191,46 +191,16 @@ public CharSequence getPageTitle(int position) {
 }
 ```
 
-You'll also have to use a custom tab view since the default tab created by TabLayout makes a call to `textView.setAllCaps(true)` which effectively disables all ImageSpans.
+By default, the tab created by TabLayout sets the `textAllCaps` property to be true, which prevents ImageSpans from being rendered.  You can override this behavior by changing the `tabTextAppearance` property.
 
-res/layout/custom_tab.xml
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textSize="12sp"
-    android:textStyle="bold"
-    android:background="?android:selectableItemBackground"
-    android:padding="16dp"
-    android:gravity="center"
-/>
-```
+  <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabTextAppearance">@style/MyCustomTextAppearnace</item>
+  </style>
 
-To set your icon at the center of the tab, add `android:gravity="center"` attribute to your view.
-
-Next, set the custom tab in the `onCreate()` of your `MainActivity.java` file by calling `setCustomTabView()` method on your `tabLayout`. Make sure to call `setCustomTabView()` before `setViewPager()`.
-
-```java
-public class MainActivity extends ActionBarActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        // Get the ViewPager and set it's PagerAdapter so that it can display items
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-        viewPager.setAdapter(new SampleFragmentPagerAdapter(getSupportFragmentManager(),
-            MainActivity.this));
-
-        // Give the TabLayout the ViewPager
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
-        // Set custom tab layout
-        tabLayout.setCustomTabView(R.layout.custom_tab, 0);
-        tabLayout.setViewPager(viewPager);
-    }
-}
+    <style name="MyCustomTextAppearnace" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+    </style>
 ```
 
 Sliding tabs with images:
