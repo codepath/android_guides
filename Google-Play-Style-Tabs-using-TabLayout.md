@@ -262,3 +262,4 @@ Note the additional spaces that are added before the tab title while instantiati
 ## References
 
 * https://android.googlesource.com/platform/frameworks/support.git/+/master/design/src/android/support/design/widget/TabLayout.java
+* https://android.googlesource.com/platform/frameworks/support.git/+/master/design/res/values/styles.xml
