@@ -30,7 +30,7 @@ push.sendInBackground();
 
 For additional details and options, check out the [official parse Push guide](https://parse.com/docs/android/guide#push-notifications-sending-pushes-to-channels). Full source code can be [found on Github](https://github.com/ParsePlatform/PushTutorial). 
 
-**Running into issues?** Check out the [push troubleshooting guide](https://parse.com/docs/push_guide#troubleshooting/Android). Also compare your app with this [sample reference app](https://github.com/codepath/ParsePushNotificationExample/tree/master/app/src/main/java/com/test).
+**Running into issues?** Check out the [push troubleshooting guide](https://parse.com/docs/android/guide#push-notifications-troubleshooting). Also compare your app with this [sample reference app](https://github.com/codepath/ParsePushNotificationExample/tree/master/app/src/main/java/com/test).
 
 ### Receiving Push Notifications
 
@@ -92,6 +92,7 @@ We have a full demo of Parse Push sending and receiving which [can be found on G
 
 A few quick things to help make implementing push notifications easier:
 
+ * Review the official [parse push troubleshooting guide](https://parse.com/docs/android/guide#push-notifications-troubleshooting).
  * Make sure to register for the broadcasts using the [LocalBroadcastManager](http://developer.android.com/reference/android/support/v4/content/LocalBroadcastManager.html) with the `LocalBroadcastManager.getInstance(this).registerReceiver` method. 
  * If you need to communicate between a receiver and then a second activity that is not currently in the foreground, you may consider **persisting the notification** to disk in SQLite. This way we can easily access that from another Activity once that activity switches to the foreground.
 
