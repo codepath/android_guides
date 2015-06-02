@@ -28,7 +28,7 @@ push.setMessage("this is my message");
 push.sendInBackground();
 ```
 
-Full source code can be [found on Github](https://github.com/ParsePlatform/PushTutorial). For full details and options, check out the [official parse Push guide](https://parse.com/docs/push_guide#sending/Android).  
+For additional details and options, check out the [official parse Push guide](https://parse.com/docs/android/guide#push-notifications-sending-pushes-to-channels). Full source code can be [found on Github](https://github.com/ParsePlatform/PushTutorial). 
 
 **Running into issues?** Check out the [push troubleshooting guide](https://parse.com/docs/push_guide#troubleshooting/Android). Also compare your app with this [sample reference app](https://github.com/codepath/ParsePushNotificationExample/tree/master/app/src/main/java/com/test).
 
