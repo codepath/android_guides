@@ -34,11 +34,11 @@ For additional details and options, check out the [official parse Push guide](ht
 
 ### Receiving Push Notifications
 
-Check out the [Receiving Push Guide](https://parse.com/docs/push_guide#receiving/Android) for a basic overview of receiving Push messages within an Android app. There are two basic ways to receive push notifications.
+Check out the [Receiving Push Guide](https://parse.com/docs/android/guide#push-notifications-receiving-pushes) for a basic overview of receiving Push messages within an Android app. There are two basic ways to receive push notifications.
 
 #### Push Invoking Activity
 
-Normally, Parse will open the default activity that is designated as the main launcher in your `AndroidManifest.xml` file, but you can have Parse trigger a different activity to launch.  You can change the behavior by subclassing `ParshPushBroadcastReceiver` and overriding the `getActivity()` method to returning the Activity you prefer to launch instead:
+Normally, Parse will open the default activity that is designated as the main launcher in your `AndroidManifest.xml` file, but you can have Parse trigger a different activity to launch.  You can change this behavior by subclassing `ParshPushBroadcastReceiver` and overriding the `getActivity()` method to returning the Activity you prefer to launch instead:
 
 ```java
 import android.app.Activity;
