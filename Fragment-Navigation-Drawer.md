@@ -257,6 +257,44 @@ Setup a handler to respond to click events on the navigation elements and swap o
     }
 ```
 
+## Adding a header
+
+<img src="http://3.bp.blogspot.com/-WmBBQQEJIKM/VWikAyy08sI/AAAAAAAABvc/1R36Txk83UI/s400/drawer.png"/>
+
+The NavigationView also accepts a custom attribute that can reference a layout that provides a header of our layout.  For instance, you can create a `layout/nav_header.xml` similar to the following:
+
+```xml
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="192dp"
+    android:background="?attr/colorPrimaryDark"
+    android:padding="16dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    android:orientation="vertical"
+    android:gravity="bottom">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Navigation Header"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+</LinearLayout>
+```
+
+You would then reference this layout in your `NavigationView` with the `app:headerLayout` custom attribute:
+
+```xml
+
+ <!-- The navigation drawer -->
+    <android.support.design.widget.NavigationView
+
+        app:headerLayout="@layout/nav_header.xml">
+
+    </android.support.design.widget.NavigationView>
+```
+
+
 ## Making Status Bar Translucent
 
 To have the status bar translucent and have our drawer slide below it, we need to set `android:windowTranslucentStatus` to true. Because this style is not available for pre Kitkat devices, we'll add  `res/values-v19/styles.xml` file for API version 19 and onwards.  **Note**: If you modify your `res/values/styles.xml` directly with this `android:windowTranslucentStatus` line, you are likely to need to build only for SDK versions 19 or higher, which will obviously limit you from supporting many older devices.
@@ -274,9 +312,6 @@ In `res/values-v19/styles.xml` we can add the following:
 ```
 
 Now if you run your app, you should see the navigation drawer and be able to select between your fragments.
-
-
-
 
 ## Custom Background for Selected Item
 
