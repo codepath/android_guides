@@ -189,7 +189,7 @@ public class MainActivity extends ActionBarActivity {
 	}
 
 	private ActionBarDrawerToggle setupDrawerToggle() {
-		return new ActionBarDrawerToggle(getActivity(), this, toolbar, R.string.drawer_open,  R.string.drawer_close);
+		return new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.drawer_open,  R.string.drawer_close);
 	}
 }
 ```
