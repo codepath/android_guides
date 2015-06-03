@@ -372,6 +372,9 @@ We also need to change the onOptionsItemSelected() method and allow the ActionBa
     }
 ```
 
+One thing to note is that you no longer need to the `ic_menu.png` and the setHomeAsUpIndicator() call to set the menu.  The ActionBarToggle renders a custom [DrawerArrowDrawable](
+https://github.com/android/platform_frameworks_support/blob/master/v7/appcompat/src/android/support/v7/app/DrawerArrowDrawable.java) for you.
+
 ## Custom Background for Selected Item
 
 To change the color of the selected item in your navigation drawer, you need to define layout drawable to  state the list item state when normal and pressed. It needs overall three xml files. One is for normal state, second is for pressed state and third one to combine both the layouts.
