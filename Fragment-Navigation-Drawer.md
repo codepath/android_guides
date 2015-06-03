@@ -161,13 +161,14 @@ public class MainActivity extends ActionBarActivity {
 		toolbar = (Toolbar) findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
 
+		// Find our drawer view
+		dlDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
 		// Set the menu icon instead of the launcher icon.
 		final ActionBar ab = getSupportActionBar();
 		ab.setHomeAsUpIndicator(R.drawable.ic_menu);
 	 	ab.setDisplayHomeAsUpEnabled(true);
 
-		// Find our drawer view
-		dlDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 	}
 
 	@Override
@@ -315,6 +316,60 @@ In `res/values-v19/styles.xml` we can add the following:
 ```
 
 Now if you run your app, you should see the navigation drawer and be able to select between your fragments.
+
+## Animate the Hamburger Icon
+
+In order for the hamburger icon to rotate upwards to indicate the drawer is being opened and closed, we need to use the [ActionBarToggle](https://developer.android.com/reference/android/support/v7/app/ActionBarDrawerToggle.html) class.
+
+We need to tie the DrawewrLayout and toolbar together:
+
+```java
+  protected void onCreate(Bundle savedInstanceState) { 
+	// Set a Toolbar to replace the ActionBar.
+		toolbar = (Toolbar) findViewById(R.id.toolbar);
+		setSupportActionBar(toolbar);
+
+		// Find our drawer view
+		dlDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+		drawerToggle = setupDrawerToggle();
+
+		// Tie DrawerLayout events to the ActionBarToggle
+		dlDrawer.setDrawerListener(drawerToggle);
+   }
+
+   private ActionBarDrawerToggle setupDrawerToggle() {
+        return new ActionBarDrawerToggle(this, dlDrawer, toolbar, R.string.drawer_open,  R.string.drawer_close);
+   }
+```
+
+Next, we need to make sure the synchronize the state whenever the screen is restored or there is a configuration change (i.e screen rotation):
+
+```java
+ @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        // Sync the toggle state after onRestoreInstanceState has occurred.
+        drawerToggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        // Pass any configuration change to the drawer toggles
+        drawerToggle.onConfigurationChanged(newConfig);
+    }
+```
+
+We also need to change the onOptionsItemSelected() method to 
+
+```
+ @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (drawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 ## Custom Background for Selected Item
 
