@@ -54,16 +54,6 @@ Create a `menu/drawer_view.xml` file:
 </menu>
 ```
 
-In your `res/values/strings.xml` add the following:
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="drawer_open">Open navigation drawer</string>
-    <string name="drawer_close">Close navigation drawer</string>
-</resources>
-```
-
 ### Define Fragments
 
 Next, you need to define your fragments that will be displayed within the drawer. These can be any support fragments you define within your application. Make sure that all the fragments extend from **android.support.v4.app.Fragment**.
@@ -320,6 +310,16 @@ Now if you run your app, you should see the navigation drawer and be able to sel
 ## Animate the Hamburger Icon
 
 In order for the hamburger icon to animate to indicate the drawer is being opened and closed, we need to use the [ActionBarToggle](https://developer.android.com/reference/android/support/v7/app/ActionBarDrawerToggle.html) class.
+
+In your `res/values/strings.xml` add the following:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+</resources>
+```
 
 We need to tie the DrawerLayout and Toolbar together:
 
