@@ -193,7 +193,7 @@ public class MainActivity extends ActionBarActivity {
 }
 ```
 
-## Respond to navigation element clicks
+## Navigating between Menu Items
 
 Setup a handler to respond to click events on the navigation elements and swap out the fragment.
 
