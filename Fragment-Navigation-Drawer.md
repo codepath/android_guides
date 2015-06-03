@@ -140,7 +140,6 @@ Now, let's setup the drawer in our activity:
 ```java
 public class MainActivity extends ActionBarActivity {
 	private DrawerLayout dlDrawer;
-	private ActionBarDrawerToggle drawerToggle;
 	private Toolbar toolbar;
 
 	@Override
@@ -151,7 +150,6 @@ public class MainActivity extends ActionBarActivity {
 		// Set a Toolbar to replace the ActionBar.
 		toolbar = (Toolbar) findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
-		drawerToggle = setupDrawerToggle();  // setup rotating hamburger
 		// Find our drawer view
 		dlDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 	}
@@ -167,9 +165,10 @@ public class MainActivity extends ActionBarActivity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// The action bar home/up action should open or close the drawer.
-		// ActionBarDrawerToggle will take care of this.
-		if (drawerToggle.onOptionsItemSelected(item)) {
-			return true;
+		switch (item.getItemId()) {
+			case android.R.id.home:
+				mDrawerLayout.openDrawer(GravityCompat.START);
+				return true;
 		}
 
 		return super.onOptionsItemSelected(item);
@@ -178,19 +177,6 @@ public class MainActivity extends ActionBarActivity {
 	@Override
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
-		// Sync the toggle state after onRestoreInstanceState has occurred.
-		drawerToggle.syncState();
-	}
-
-	@Override
-	public void onConfigurationChanged(Configuration newConfig) {
-		super.onConfigurationChanged(newConfig);
-		// Pass any configuration change to the drawer toggles
-		drawerToggle.onConfigurationChanged(newConfig);
-	}
-
-	private ActionBarDrawerToggle setupDrawerToggle() {
-		return new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.drawer_open,  R.string.drawer_close);
 	}
 }
 ```
