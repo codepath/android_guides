@@ -311,7 +311,7 @@ Now if you run your app, you should see the navigation drawer and be able to sel
 
 ## Animate the Hamburger Icon
 
-In order for the hamburger icon to animate to indicate the drawer is being opened and closed, we need to use the [ActionBarToggle](https://developer.android.com/reference/android/support/v7/app/ActionBarDrawerToggle.html) class.
+In order for the hamburger icon to animate to indicate the drawer is being opened and closed, we need to use the [ActionBarDrawerToggle](https://developer.android.com/reference/android/support/v7/app/ActionBarDrawerToggle.html) class.
 
 In your `res/values/strings.xml` add the following:
 
@@ -374,7 +374,7 @@ We also need to change the onOptionsItemSelected() method and allow the ActionBa
     }
 ```
 
-One thing to note is that you no longer need to the `ic_menu.png` and the setHomeAsUpIndicator() call to set the menu.  The ActionBarToggle renders a custom [DrawerArrowDrawable](
+One thing to note is that you no longer need to the `ic_menu.png` and the setHomeAsUpIndicator() call to set the menu.  The ActionBarDrawerToggle renders a custom [DrawerArrowDrawable](
 https://github.com/android/platform_frameworks_support/blob/master/v7/appcompat/src/android/support/v7/app/DrawerArrowDrawable.java) for you.
 
 ## Custom Background for Selected Item
