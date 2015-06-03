@@ -345,7 +345,7 @@ We need to tie the DrawerLayout and Toolbar together:
 Next, we need to make sure the synchronize the state whenever the screen is restored or there is a configuration change (i.e screen rotation):
 
 ```java
- @Override
+    @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         // Sync the toggle state after onRestoreInstanceState has occurred.
