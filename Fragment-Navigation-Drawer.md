@@ -290,25 +290,6 @@ You would then reference this layout in your `NavigationView` with the `app:head
     </android.support.design.widget.NavigationView>
 ```
 
-
-## Making Status Bar Translucent
-
-To have the status bar translucent and have our drawer slide below it, we need to set `android:windowTranslucentStatus` to true. Because this style is not available for pre Kitkat devices, we'll add  `res/values-v19/styles.xml` file for API version 19 and onwards.  **Note**: If you modify your `res/values/styles.xml` directly with this `android:windowTranslucentStatus` line, you are likely to need to build only for SDK versions 19 or higher, which will obviously limit you from supporting many older devices.
-
-In `res/values-v19/styles.xml` we can add the following:
-
-```xml
-<resources>
-  <!-- Base application theme. -->
-  <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-    <!-- Customize your theme here. -->
-    <item name="android:windowTranslucentStatus">true</item>
-  </style>
-</resources>
-```
-
-Now if you run your app, you should see the navigation drawer and be able to select between your fragments.
-
 ## Animate the Hamburger Icon
 
 In order for the hamburger icon to animate to indicate the drawer is being opened and closed, we need to use the [ActionBarDrawerToggle](https://developer.android.com/reference/android/support/v7/app/ActionBarDrawerToggle.html) class.
@@ -376,6 +357,24 @@ We also need to change the onOptionsItemSelected() method and allow the ActionBa
 
 One thing to note is that you no longer need to the `ic_menu.png` and the setHomeAsUpIndicator() call to set the menu.  The ActionBarDrawerToggle renders a custom [DrawerArrowDrawable](
 https://github.com/android/platform_frameworks_support/blob/master/v7/appcompat/src/android/support/v7/app/DrawerArrowDrawable.java) for you.
+
+## Making Status Bar Translucent
+
+To have the status bar translucent and have our drawer slide below it, we need to set `android:windowTranslucentStatus` to true. Because this style is not available for pre Kitkat devices, we'll add  `res/values-v19/styles.xml` file for API version 19 and onwards.  **Note**: If you modify your `res/values/styles.xml` directly with this `android:windowTranslucentStatus` line, you are likely to need to build only for SDK versions 19 or higher, which will obviously limit you from supporting many older devices.
+
+In `res/values-v19/styles.xml` we can add the following:
+
+```xml
+<resources>
+  <!-- Base application theme. -->
+  <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <!-- Customize your theme here. -->
+    <item name="android:windowTranslucentStatus">true</item>
+  </style>
+</resources>
+```
+
+Now if you run your app, you should see the navigation drawer and be able to select between your fragments.
 
 ## Custom Background for Selected Item
 
