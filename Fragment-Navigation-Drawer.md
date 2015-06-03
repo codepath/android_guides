@@ -19,11 +19,15 @@ Make sure to setup the Google [[Support Design Library]] before using Google's n
 
 ### Download Nav Drawer Item icons
 
-Download the following icons and add them to your drawable folders by copying and pasting them into the drawable folder or using the `New Image Asset` dialog to create versions for each density.
+Download the following icons and add them to your drawable folders by copying and pasting them into the drawable folder or using the `New Image Asset` dialog to create versions for each density.  
 
 * [ic_one](http://i.imgur.com/PfXVA78.png)
 * [ic_two](http://i.imgur.com/xzIdYlo.png)
 * [ic_three](http://i.imgur.com/k5o1mCJ.png)
+
+If you use the `New Image Asset` dialog, choose a black foreground color and change the resource name.
+
+<img src="http://i.imgur.com/DE49F1R.png" width="600"/>
 
 Download the menu icon from Google's official [Material Design icon set](https://github.com/google/material-design-icons) and use `New Image Asset` to create versions of each density too.  Save this file as `ic_menu.png`.
 
