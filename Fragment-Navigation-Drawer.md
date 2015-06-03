@@ -78,8 +78,6 @@ Create a new layout file `res/layout/toolbar.xml` with the following code:
 
 To use the `Toolbar` as an `ActionBar`, you need to disable the default `ActionBar`. This can be done by setting the app theme in `styles.xml` file.   
 
-Also note that normally you should decide on your color scheme by going to [Material Palette](http://www.materialpalette.com/) and choosing a primary and dark primary color. For this example, we will pick purple-based colors as shown in the screenshot.
-
 ```xml
 <resources>
     <!-- Base application theme. -->
@@ -91,7 +89,9 @@ Also note that normally you should decide on your color scheme by going to [Mate
 </resources>
 ```
 
-If you forget this step, you are likely to see a `java.lang.IllegalStateException` with an error message that reads "This Activity already has an action bar supplied by the window decor. Do not request Window.FEATURE_ACTION_BAR and set windowActionBar to false in your theme to use a Toolbar instead.".  If you see this message, you need to make sure to follow the previous steps.
+Also note that normally you should decide on your color scheme by going to [Material Palette](http://www.materialpalette.com/) and choosing a primary and dark primary color. For this example, we will pick purple-based colors as shown in the screenshot.
+
+*Note*: If you forget this step, you are likely to see a `java.lang.IllegalStateException` with an error message that reads "This Activity already has an action bar supplied by the window decor. Do not request Window.FEATURE_ACTION_BAR and set windowActionBar to false in your theme to use a Toolbar instead.".  If you see this message, you need to make sure to follow the previous steps.
 
 ### Setup Drawer in Activity
 
