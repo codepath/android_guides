@@ -25,6 +25,10 @@ Download the following icons and add them to your drawable folders by copying an
 * [ic_two](http://i.imgur.com/xzIdYlo.png)
 * [ic_three](http://i.imgur.com/k5o1mCJ.png)
 
+Download the menu icon from Google's official [Material Design icon set](https://github.com/google/material-design-icons) and use `New Image Asset` to create versions of each density too.  Export this file `ic_menu`.
+
+* [ic_menu_white_36dp.png](https://github.com/google/material-design-icons/blob/master/navigation/drawable-xxxhdpi/ic_menu_white_36dp.png)
+
 ### Setup Drawer Resources
 
 Create a `menu/drawer_view.xml` file:
@@ -135,7 +139,7 @@ When `android:fitsSystemWindows` attribute is set to true for a view, the view w
 </android.support.v4.widget.DrawerLayout>
 ```
 
-Now, let's setup the drawer in our activity:
+Now, let's setup the drawer in our activity.  We can also setup the menu icon too.
 
 ```java
 public class MainActivity extends ActionBarActivity {
@@ -150,6 +154,12 @@ public class MainActivity extends ActionBarActivity {
 		// Set a Toolbar to replace the ActionBar.
 		toolbar = (Toolbar) findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
+
+		// Set the menu icon instead of the launcher icon.
+		final ActionBar ab = getSupportActionBar();
+		ab.setHomeAsUpIndicator(R.drawable.ic_menu);
+	 	ab.setDisplayHomeAsUpEnabled(true);
+
 		// Find our drawer view
 		dlDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 	}
