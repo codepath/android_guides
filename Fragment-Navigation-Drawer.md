@@ -191,7 +191,7 @@ public class MainActivity extends ActionBarActivity {
 }
 ```
 
-## Responding to navigation element clicks
+## Respond to navigation element clicks
 
 Setup a handler to respond to click events on the navigation elements and swap out the fragment.
 
@@ -254,7 +254,7 @@ Setup a handler to respond to click events on the navigation elements and swap o
     }
 ```
 
-## Adding a header
+## Add a header
 
 <img src="http://3.bp.blogspot.com/-WmBBQQEJIKM/VWikAyy08sI/AAAAAAAABvc/1R36Txk83UI/s400/drawer.png"/>
 
