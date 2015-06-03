@@ -81,6 +81,7 @@ Create a new layout file `res/layout/toolbar.xml` with the following code:
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:minHeight="?attr/actionBarSize"
+    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
     android:background="?attr/colorPrimaryDark">
 </android.support.v7.widget.Toolbar>
 ```
@@ -91,6 +92,9 @@ To use the `Toolbar` as an `ActionBar`, you need to disable the default `ActionB
 <resources>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">#673AB7</item>
+        <item name="colorPrimaryDark">#512DA8</item>
+        <item name="colorAccent">#FF4081</item>
     </style>
 </resources>
 ```
@@ -136,6 +140,7 @@ When `android:fitsSystemWindows` attribute is set to true for a view, the view w
         android:layout_width="240dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:background="@android:color/white"
         app:menu="@menu/drawer_view" />
 </android.support.v4.widget.DrawerLayout>
 ```
