@@ -370,6 +370,7 @@ We also need to change the onOptionsItemSelected() method and allow the ActionBa
         }
         return super.onOptionsItemSelected(item);
     }
+```
 
 ## Custom Background for Selected Item
 
