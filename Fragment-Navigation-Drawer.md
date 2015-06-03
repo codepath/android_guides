@@ -319,7 +319,7 @@ Now if you run your app, you should see the navigation drawer and be able to sel
 
 ## Animate the Hamburger Icon
 
-In order for the hamburger icon to rotate upwards to indicate the drawer is being opened and closed, we need to use the [ActionBarToggle](https://developer.android.com/reference/android/support/v7/app/ActionBarDrawerToggle.html) class.
+In order for the hamburger icon to animate to indicate the drawer is being opened and closed, we need to use the [ActionBarToggle](https://developer.android.com/reference/android/support/v7/app/ActionBarDrawerToggle.html) class.
 
 We need to tie the DrawerLayout and Toolbar together:
 
