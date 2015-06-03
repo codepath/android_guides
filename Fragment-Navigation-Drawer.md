@@ -97,7 +97,6 @@ To use the `Toolbar` as an `ActionBar`, you need to disable the default `ActionB
 
 If you forget this step, you are likely to see a `java.lang.IllegalStateException` with an error message that reads "This Activity already has an action bar supplied by the window decor. Do not request Window.FEATURE_ACTION_BAR and set windowActionBar to false in your theme to use a Toolbar instead.".  If you see this message, you need to make sure to follow the previous steps.
 
-
 ### Setup Drawer in Activity
 
 Next, let's setup a basic navigation drawer based on the following layout file which has the entire drawer setup in `res/layout/activity_main.xml`. Note that the `Toolbar` is added as the first child of the main content view by adding the include tag.
@@ -193,7 +192,7 @@ public class MainActivity extends ActionBarActivity {
 }
 ```
 
-## Navigating between Menu Items
+### Navigating between Menu Items
 
 Setup a handler to respond to click events on the navigation elements and swap out the fragment.
 
@@ -256,7 +255,7 @@ Setup a handler to respond to click events on the navigation elements and swap o
     }
 ```
 
-## Add a header
+### Add Navigation Header
 
 <img src="http://3.bp.blogspot.com/-WmBBQQEJIKM/VWikAyy08sI/AAAAAAAABvc/1R36Txk83UI/s400/drawer.png"/>
 
