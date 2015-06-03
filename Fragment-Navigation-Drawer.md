@@ -321,7 +321,7 @@ Now if you run your app, you should see the navigation drawer and be able to sel
 
 In order for the hamburger icon to rotate upwards to indicate the drawer is being opened and closed, we need to use the [ActionBarToggle](https://developer.android.com/reference/android/support/v7/app/ActionBarDrawerToggle.html) class.
 
-We need to tie the DrawewrLayout and toolbar together:
+We need to tie the DrawerLayout and Toolbar together:
 
 ```java
   protected void onCreate(Bundle savedInstanceState) { 
@@ -360,7 +360,7 @@ Next, we need to make sure the synchronize the state whenever the screen is rest
     }
 ```
 
-We also need to change the onOptionsItemSelected() method to 
+We also need to change the onOptionsItemSelected() method and allow the ActionBarToggle to handle the events. 
 
 ```
  @Override
