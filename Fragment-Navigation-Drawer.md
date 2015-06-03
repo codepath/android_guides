@@ -140,7 +140,7 @@ When `android:fitsSystemWindows` attribute is set to true for a view, the view w
 Now, let's setup the drawer in our activity.  We can also setup the menu icon too.
 
 ```java
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
 	private DrawerLayout dlDrawer;
 	private Toolbar toolbar;
 
