@@ -362,7 +362,7 @@ Next, we need to make sure the synchronize the state whenever the screen is rest
 
 We also need to change the onOptionsItemSelected() method and allow the ActionBarToggle to handle the events. 
 
-```
+```java
  @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (drawerToggle.onOptionsItemSelected(item)) {
