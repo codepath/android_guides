@@ -76,7 +76,9 @@ Create a new layout file `res/layout/toolbar.xml` with the following code:
 </android.support.v7.widget.Toolbar>
 ```
 
-To use the `Toolbar` as an `ActionBar`, you need to disable the default `ActionBar`. This can be done by setting the app theme in `styles.xml` file.
+To use the `Toolbar` as an `ActionBar`, you need to disable the default `ActionBar`. This can be done by setting the app theme in `styles.xml` file.   
+
+Also note that normally you should decide on your color scheme by going to [Material Palette](http://www.materialpalette.com/) and choosing a primary and dark primary color. For this example, we will pick purple-based colors as shown in the screenshot.
 
 ```xml
 <resources>
