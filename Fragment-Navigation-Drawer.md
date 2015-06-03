@@ -137,7 +137,6 @@ When `android:fitsSystemWindows` attribute is set to true for a view, the view w
         android:layout_width="240dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@android:color/background_light"
         app:menu="@menu/drawer_view" />
 </android.support.v4.widget.DrawerLayout>
 ```
