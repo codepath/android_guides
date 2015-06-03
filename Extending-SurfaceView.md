@@ -14,3 +14,6 @@ One of the purposes of this class is to provide a surface in which a secondary t
 * <http://developer.android.com/reference/android/view/SurfaceView.html>
 * <http://javandroidevelop.blogspot.com/2012/09/all-about-surfaceview-android-lessons.html>
 * <http://blog.wisecells.com/2012/06/04/surface-view-android/> 
+* <http://blog.lemberg.co.uk/surface-view-playing-video>
+* <https://github.com/google/grafika/blob/master/src/com/android/grafika/PlayMovieSurfaceActivity.java>
+* <https://gist.github.com/ErikHellman/5840101>
