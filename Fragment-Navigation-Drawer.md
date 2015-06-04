@@ -345,10 +345,10 @@ Next, we need to make sure the synchronize the state whenever the screen is rest
     }
 ```
 
-We also need to change the onOptionsItemSelected() method and allow the ActionBarToggle to handle the events. 
-
+We also need to change the `onOptionsItemSelected()` method and allow the ActionBarToggle to handle the events.  
+ 
 ```java
- @Override
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (drawerToggle.onOptionsItemSelected(item)) {
             return true;
@@ -356,6 +356,8 @@ We also need to change the onOptionsItemSelected() method and allow the ActionBa
         return super.onOptionsItemSelected(item);
     }
 ```
+
+The ActionBarToggle will perform the same function done previously but adds a bit more checks and allows mouse clicks on the icon to open and close the drawer.  See the [source code](https://github.com/android/platform_frameworks_support/blob/master/v7/appcompat/src/android/support/v7/app/ActionBarDrawerToggle.java#L285-291) for more context.
 
 One thing to note is that you no longer need to the `ic_menu.png` and the setHomeAsUpIndicator() call to set the menu.  The ActionBarDrawerToggle renders a custom [DrawerArrowDrawable](
 https://github.com/android/platform_frameworks_support/blob/master/v7/appcompat/src/android/support/v7/app/DrawerArrowDrawable.java) for you.
