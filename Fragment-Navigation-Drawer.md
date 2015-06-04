@@ -292,6 +292,8 @@ You would then reference this layout in your `NavigationView` with the `app:head
 
 ## Animate the Hamburger Icon
 
+<img src="http://imgur.com/ekmWl7q.gif"/>
+
 In order for the hamburger icon to animate to indicate the drawer is being opened and closed, we need to use the [ActionBarDrawerToggle](https://developer.android.com/reference/android/support/v7/app/ActionBarDrawerToggle.html) class.
 
 In your `res/values/strings.xml` add the following:
