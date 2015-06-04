@@ -70,11 +70,18 @@ Create a new layout file `res/layout/toolbar.xml` with the following code:
     android:id="@+id/toolbar"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
     android:minHeight="?attr/actionBarSize"
     app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
     android:background="?attr/colorPrimaryDark">
 </android.support.v7.widget.Toolbar>
 ```
+
+Note that when the `android:fitsSystemWindows` attribute is set to true for a view, the view would be laid out as if the `StatusBar` and the `ActionBar` were present i.e. the UI on top gets padding enough to not be obscured by the navigation bar.  Without this attribute, there is not enough padding factored into consideration for the `ToolBar`:
+
+<img src="http://imgur.com/HaOAmoh.png"/>
+
+We want our main content view to have the navigation bar and hence `android:fitsSystemWindows` is set to true for the `LinearLayout`.
 
 To use the `Toolbar` as an `ActionBar`, you need to disable the default `ActionBar`. This can be done by setting the app theme in `styles.xml` file.   
 
@@ -97,12 +104,6 @@ Also note that normally you should decide on your color scheme by going to [Mate
 
 Next, let's setup a basic navigation drawer based on the following layout file which has the entire drawer setup in `res/layout/activity_main.xml`. Note that the `Toolbar` is added as the first child of the main content view by adding the include tag.
 
-When `android:fitsSystemWindows` attribute is set to true for a view, the view would be laid out as if the `StatusBar` and the `ActionBar` were present i.e. the UI on top gets padding enough to not be obscured by the navigation bar.  Without this attribute, there is not enough padding factored into consideration for the `ToolBar`:
-
-<img src="http://imgur.com/HaOAmoh.png"/>
-
-We want our main content view to have the navigation bar and hence `android:fitsSystemWindows` is set to true for the `LinearLayout`.
-
 ```xml
 <android.support.v4.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -114,7 +115,6 @@ We want our main content view to have the navigation bar and hence `android:fits
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
         android:orientation="vertical">
 
         <!-- The ActionBar -->
@@ -526,7 +526,6 @@ Instead of the above steps, an alternative is using a `DrawerLayout` directly in
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
         android:orientation="vertical">
  
         <!-- The ActionBar -->
