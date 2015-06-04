@@ -501,8 +501,6 @@ This requires manual setup of the drawer [as outlined here](https://developer.an
 
 ## References
 
-* <http://www.michenux.net/android-navigation-drawer-748.html>
-* <http://www.androidhive.info/2013/11/android-sliding-menu-using-navigation-drawer/>
 * <http://android-developers.blogspot.com/2014/10/appcompat-v21-material-design-for-pre.html>
 * <http://stackoverflow.com/questions/26440879/how-do-i-use-drawerlayout-to-display-over-the-actionbar-toolbar-and-under-the-st>
 * <http://antonioleiva.com/navigation-view/>
