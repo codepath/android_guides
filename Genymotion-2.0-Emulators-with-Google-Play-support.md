@@ -53,21 +53,19 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 |Android 4.3  |[Google Play Services APK](http://www4.zippyshare.com/v/42927675/file.html)     |
 
 2. Drag and drop the zip file onto the running Genymotion emulator device
-   - Note that it is expected for 'Google Apps Services' to crash frequently with the message "google play services has stopped working".
-   - Open Google Play. After providing your account details, open Google Play and update your installed Google Apps
-   - If you can't open Google Play, open the Google Hangouts app first triggering an update to the Play services
    ![Installing Google Apps APK](http://i.imgur.com/PvGjlyo.png)
 
-
 3. When asked to flash the device, make sure to proceed with the installation.
+   - At this point, 'Google Apps Services' will crash frequently with the message "google play services has stopped working".
 
 4. You must **close and restart the emulator** so that Google Play Store can be installed.
 
 5. After restart, open the "Play Store" app on your emulator and **sign in** with a google account.
+   - If you can't find Google Play, open the Google Hangouts app first triggering an update to the Play Store.
 
 6. **Android 5.0.0 only:** If you are using Android 5.0.0, you will be prompted to update to the latest version of Google+ app.  In addition, make sure to upgrade to at least Genymotion 2.4.0 (there appears to be issues with Genymotion 2.3.1).
 
-7. Make sure to update to the latest version of Google Play Services.
+7. Make sure to update to the latest version of Google Play Services by opening the "Play Store" app and then the "Maps" app to verify play services is running correctly.
 
 ### Enable GPS on Emulator
 
