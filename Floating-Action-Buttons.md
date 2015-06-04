@@ -18,17 +18,20 @@ Google made available during Google I/O 2015 a support library to create floatin
 Make sure to follow the [[Support Design Library]] setup instructions first.  
 
 You should now be able to add the `android.support.design.widget.FloatingActionButton`.  The `src` attribute references the icon that should be used for the floating action.  
-   ```xml
+
+```xml
        <android.support.design.widget.FloatingActionButton
           android:src="@mipmap/ic_launcher"
           app:fabSize="normal"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content" />
-   ```
-   In addition, assuming `xmlns:app="http://schemas.android.com/apk/res-auto` is declared as namespace the top of your layout, you can also define a custom attribute [`fabSize`](http://developer.android.com/reference/android/support/design/widget/FloatingActionButton.html#attr_android.support.design:fabSize) that can reference whether the button should be `normal` or `mini`. 
+```
+
+In addition, assuming `xmlns:app="http://schemas.android.com/apk/res-auto` is declared as namespace the top of your layout, you can also define a custom attribute [`fabSize`](http://developer.android.com/reference/android/support/design/widget/FloatingActionButton.html#attr_android.support.design:fabSize) that can reference whether the button should be `normal` or `mini`. 
 
 To place the floating action button, you will need to use [CoordinatorLayout](http://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.html).   A CoordinatorLayout is a container layout that also enable interactions between views known as [Behaviors](http://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html).  For instance, to provide a floating action button for a ListView, you will need to nest these views inside a `CoordinatorLayout` and define a `layout_anchor` and `layout_anchorGravity` gravity.  
-   ```xml
+
+```xml
        <android.support.design.widget.CoordinatorLayout
           android:id="@+id/main_content"
           xmlns:android="http://schemas.android.com/apk/res/android"
@@ -51,7 +54,7 @@ To place the floating action button, you will need to use [CoordinatorLayout](ht
               app:layout_anchorGravity="bottom|right|end" />
 
         </android.support.design.widget.CoordinatorLayout>
-    ```
+```
 
 ### Dimensions
 
