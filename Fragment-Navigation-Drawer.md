@@ -50,9 +50,27 @@ Create a `menu/drawer_view.xml` file:
             android:icon="@drawable/ic_three"
             android:title="Third" />
     </group>
-
 </menu>
 ```
+
+Note that you can set one of these elements to be default selected by using `android:checked="true"`.  
+
+You can also create subheaders too and group elements together:
+
+```xml
+ <item android:title="Sub items">
+        <menu>
+            <item
+                android:icon="@drawable/ic_dashboard"
+                android:title="Sub item 1" />
+            <item
+                android:icon="@drawable/ic_forum"
+                android:title="Sub item 2" />
+        </menu>
+    </item>
+```
+
+<img src="http://imgur.com/zoDqDKM.png"/>
 
 ### Define Fragments
 
