@@ -97,7 +97,11 @@ Also note that normally you should decide on your color scheme by going to [Mate
 
 Next, let's setup a basic navigation drawer based on the following layout file which has the entire drawer setup in `res/layout/activity_main.xml`. Note that the `Toolbar` is added as the first child of the main content view by adding the include tag.
 
-When `android:fitsSystemWindows` attribute is set to true for a view, the view would be laid out as if the `StatusBar` and the `ActionBar` were present i.e. the UI on top gets padding enough to not be obscured by the navigation bar. We want our main content view to have the navigation bar and hence `android:fitsSystemWindows` is set to true for the `LinearLayout`.
+When `android:fitsSystemWindows` attribute is set to true for a view, the view would be laid out as if the `StatusBar` and the `ActionBar` were present i.e. the UI on top gets padding enough to not be obscured by the navigation bar.  Without this attribute, there is not enough padding factored into consideration for the `ToolBar`:
+
+<img src="http://imgur.com/HaOAmoh.png"/>
+
+We want our main content view to have the navigation bar and hence `android:fitsSystemWindows` is set to true for the `LinearLayout`.
 
 ```xml
 <android.support.v4.widget.DrawerLayout
@@ -255,7 +259,7 @@ Setup a handler to respond to click events on the navigation elements and swap o
 
 ### Add Navigation Header
 
-<img src="http://3.bp.blogspot.com/-WmBBQQEJIKM/VWikAyy08sI/AAAAAAAABvc/1R36Txk83UI/s400/drawer.png"/>
+<img src="http://i.imgur.com/Ri3c6Xz.png"/>
 
 The NavigationView also accepts a custom attribute that can reference a layout that provides a header of our layout.  For instance, you can create a `layout/nav_header.xml` similar to the following:
 
@@ -272,7 +276,8 @@ The NavigationView also accepts a custom attribute that can reference a layout t
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Navigation Header"
+        android:text="Header"
+        android:textColor="@android:color/white"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
 </LinearLayout>
@@ -364,7 +369,9 @@ https://github.com/android/platform_frameworks_support/blob/master/v7/appcompat/
 
 ## Making Status Bar Translucent
 
-To have the status bar translucent and have our drawer slide below it, we need to set `android:windowTranslucentStatus` to true. Because this style is not available for pre Kitkat devices, we'll add  `res/values-v19/styles.xml` file for API version 19 and onwards.  **Note**: If you modify your `res/values/styles.xml` directly with this `android:windowTranslucentStatus` line, you are likely to need to build only for SDK versions 19 or higher, which will obviously limit you from supporting many older devices.
+<img src="http://imgur.com/Jj4Ta27.gif"/>
+
+To have the status bar translucent and have our drawer slide over it, we need to set `android:windowTranslucentStatus` to true. Because this style is not available for pre Kitkat devices, we'll add  `res/values-v19/styles.xml` file for API version 19 and onwards.  **Note**: If you modify your `res/values/styles.xml` directly with this `android:windowTranslucentStatus` line, you are likely to need to build only for SDK versions 19 or higher, which will obviously limit you from supporting many older devices.
 
 In `res/values-v19/styles.xml` we can add the following:
 
