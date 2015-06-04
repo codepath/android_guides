@@ -369,7 +369,7 @@ https://github.com/android/platform_frameworks_support/blob/master/v7/appcompat/
 
 ## Making Status Bar Translucent
 
-<img src="http://imgur.com/Jj4Ta27.gif"/>
+<img src="http://imgur.com/o4WvT3k.gif"/>
 
 To have the status bar translucent and have our drawer slide over it, we need to set `android:windowTranslucentStatus` to true. Because this style is not available for pre Kitkat devices, we'll add  `res/values-v19/styles.xml` file for API version 19 and onwards.  **Note**: If you modify your `res/values/styles.xml` directly with this `android:windowTranslucentStatus` line, you are likely to need to build only for SDK versions 19 or higher, which will obviously limit you from supporting many older devices.
 
