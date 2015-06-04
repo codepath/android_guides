@@ -230,7 +230,8 @@ Note the additional spaces that are added before the tab title while instantiati
 ![Slide 3](http://i.imgur.com/A8xEpKsl.jpg)
 
 ### Add Custom View to TabLayout
-This DOESN'T involve use of `SpannableString`. You can iterate over all the `TabLayout.Tab`s after setting up sliding tabs.
+
+In certain cases, instead of the default tab view we may want to apply a custom XML layout for each tab. To achieve this, iterate over all the `TabLayout.Tab`s after attaching the sliding tabs to the pager:
 
 ```java
 public class MainActivity extends FragmentActivity {
@@ -242,36 +243,48 @@ public class MainActivity extends FragmentActivity {
 
         // Get the ViewPager and set it's PagerAdapter so that it can display items
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-        SampleFragmentPagerAdapter pagerAdapter = new SampleFragmentPagerAdapter(getSupportFragmentManager(), 
-            MainActivity.this);
+        SampleFragmentPagerAdapter pagerAdapter = 
+            new SampleFragmentPagerAdapter(getSupportFragmentManager(), MainActivity.this);
         viewPager.setAdapter(pagerAdapter);
 
         // Give the TabLayout the ViewPager
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
 
-        // Iterate over all tabs and set custom view
+        // Iterate over all tabs and set the custom view
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
             TabLayout.Tab tab = tabLayout.getTabAt(i);
-            tab.setCustomView(pagerAdapter.getView(i));
+            tab.setCustomView(pagerAdapter.getTabView(i));
         }
     }
 
-//...
+    //...
+}
+```
 
-    // Following should be part of the SampleFragmentPagerAdapter
-    public View getView(int position) {
-        // Assuming you have a custom layout in res/layout/custom_tab.xml file with a TextView and an ImageView
-        View v = LayoutInflater.from(context).inflate(R.layout.custom_tab, (ViewGroup)null);
+Next, we add the `getTabView(position)` method to the `SampleFragmentPagerAdapter` class:
+
+```java
+public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
+   private String tabTitles[] = new String[] { "Tab1", "Tab2" };
+   private int[] imageResId = { R.drawable.ic_one, R.drawable.ic_two };
+
+    public View getTabView(int position) {
+        // Given you have a custom layout in `res/layout/custom_tab.xml` with a TextView and ImageView
+        View v = LayoutInflater.from(context).inflate(R.layout.custom_tab, null);
         TextView tv = (TextView) v.findViewById(R.id.textView);
         tv.setText(tabTitles[position]);
         ImageView img = (ImageView) v.findViewById(R.id.imgView);
         img.setImageResource(imageResId[position]);
         return v;
     }
+
 }
 ```
+
+With this you can setup any custom tab content for each page in the adapter. 
+
 ## References
 
-* https://android.googlesource.com/platform/frameworks/support.git/+/master/design/src/android/support/design/widget/TabLayout.java
-* https://android.googlesource.com/platform/frameworks/support.git/+/master/design/res/values/styles.xml
+* <https://android.googlesource.com/platform/frameworks/support.git/+/master/design/src/android/support/design/widget/TabLayout.java>
+* <https://android.googlesource.com/platform/frameworks/support.git/+/master/design/res/values/styles.xml>
