@@ -229,6 +229,47 @@ Note the additional spaces that are added before the tab title while instantiati
 
 ![Slide 3](http://i.imgur.com/A8xEpKsl.jpg)
 
+### Add Custom View to TabLayout
+This DOESN'T involve use of `SpannableString`. You can iterate over all the `TabLayout.Tab`s after setting up sliding tabs.
+
+```java
+public class MainActivity extends FragmentActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        // Get the ViewPager and set it's PagerAdapter so that it can display items
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        SampleFragmentPagerAdapter pagerAdapter = new SampleFragmentPagerAdapter(getSupportFragmentManager(), 
+            MainActivity.this);
+        viewPager.setAdapter(pagerAdapter);
+
+        // Give the TabLayout the ViewPager
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
+        tabLayout.setupWithViewPager(viewPager);
+
+        // Iterate over all tabs and set custom view
+        for (int i = 0; i < tabLayout.getTabCount(); i++) {
+            TabLayout.Tab tab = tabLayout.getTabAt(i);
+            tab.setCustomView(pagerAdapter.getView(i));
+        }
+    }
+
+//...
+
+    // Following should be part of the SampleFragmentPagerAdapter
+    public View getView(int position) {
+        // Assuming you have a custom layout in res/layout/custom_tab.xml file with a TextView and an ImageView
+        View v = LayoutInflater.from(tabLayout.getContext()).inflate(R.layout.custom_tab, (ViewGroup)null);
+        TextView tv = (TextView) v.findViewById(R.id.textView);
+        tv.setText(tabTitles[position]);
+        ImageView img = (ImageView) v.findViewById(R.id.imgView);
+        img.setImageResource(imageResId[position]);
+    }
+}
+```
 ## References
 
 * https://android.googlesource.com/platform/frameworks/support.git/+/master/design/src/android/support/design/widget/TabLayout.java
