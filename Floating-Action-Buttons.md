@@ -15,9 +15,9 @@ Google made available during Google I/O 2015 a support library to create floatin
 
 ### Support Design Library
 
-1. Make sure to follow the [[Support Design Library]] setup instructions first.  
+Make sure to follow the [[Support Design Library]] setup instructions first.  
 
-2. You should now be able to add the `android.support.design.widget.FloatingActionButton`.  The `src` attribute references the icon that should be used for the floating action.  
+You should now be able to add the `android.support.design.widget.FloatingActionButton`.  The `src` attribute references the icon that should be used for the floating action.  
    ```xml
        <android.support.design.widget.FloatingActionButton
           android:src="@mipmap/ic_launcher"
@@ -27,7 +27,7 @@ Google made available during Google I/O 2015 a support library to create floatin
    ```
    In addition, assuming `xmlns:app="http://schemas.android.com/apk/res-auto` is declared as namespace the top of your layout, you can also define a custom attribute [`fabSize`](http://developer.android.com/reference/android/support/design/widget/FloatingActionButton.html#attr_android.support.design:fabSize) that can reference whether the button should be `normal` or `mini`. 
 
-3. To place the floating action button, you will need to use [CoordinatorLayout](http://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.html).   A CoordinatorLayout is a container layout that also enable interactions between views known as [Behaviors](http://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html).  For instance, to provide a floating action button for a ListView, you will need to nest these views inside a `CoordinatorLayout` and define a `layout_anchor` and `layout_anchorGravity` gravity.  
+To place the floating action button, you will need to use [CoordinatorLayout](http://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.html).   A CoordinatorLayout is a container layout that also enable interactions between views known as [Behaviors](http://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html).  For instance, to provide a floating action button for a ListView, you will need to nest these views inside a `CoordinatorLayout` and define a `layout_anchor` and `layout_anchorGravity` gravity.  
    ```xml
        <android.support.design.widget.CoordinatorLayout
           android:id="@+id/main_content"
@@ -60,6 +60,10 @@ The button should be placed in the bottom right corner of the screen. The recomm
 The actual drawable size should be **24dp** according to the Google design specs.  
 
 <a href="http://www.google.com/design/spec/components/buttons.html#buttons-floating-action-button"><img src="http://material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0Bx4BSt6jniD7UGxlcmdDZFRZYU0/patterns_actions_fab3.png" width="300"></a>
+
+### Animating the Floating Action Button
+
+When a user scrolls down a page, the floating action button should disappear.  Once they scroll to the top, it should reappear.  See this [example code](https://github.com/ianhanniballake/cheesesquare/commit/aefa8b57e61266e4ad51bef36e669d69f7fd749c) to see how to implement this behavior.  You simply need to add `app:layout_behavior` and reference the implementation of this file to start having this behavior.
 
 ### With FloatingActionButton (Third-Party)
 
