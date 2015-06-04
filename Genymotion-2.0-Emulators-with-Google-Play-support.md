@@ -61,7 +61,7 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 4. You must **close and restart the emulator** so that Google Play Store can be installed.
 
 5. After restart, open the "Play Store" app on your emulator and **sign in** with a google account.
-   - If you can't find Google Play, open the Google Hangouts app first triggering an update to the Play Store.
+   - If you can't find Google Play, try updating the Google Hangouts app to trigger an update to the Play Store.
 
 6. **Android 5.0.0 only:** If you are using Android 5.0.0, you will be prompted to update to the latest version of Google+ app.  In addition, make sure to upgrade to at least Genymotion 2.4.0 (there appears to be issues with Genymotion 2.3.1).
 
