@@ -99,7 +99,7 @@ Note that when the `android:fitsSystemWindows` attribute is set to true for a vi
 
 <img src="http://imgur.com/HaOAmoh.png"/>
 
-We want our main content view to have the navigation bar and hence `android:fitsSystemWindows` is set to true for the `LinearLayout`.
+We want our main content view to have the navigation bar and hence `android:fitsSystemWindows` is set to true for the `Toolbar`.
 
 To use the `Toolbar` as an `ActionBar`, you need to disable the default `ActionBar`. This can be done by setting the app theme in `styles.xml` file.   
 
