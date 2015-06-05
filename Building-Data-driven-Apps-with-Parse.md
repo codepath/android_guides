@@ -336,6 +336,10 @@ query.findInBackground(new FindCallback<TodoItem>() {
 
 See a list of [query constraints](https://www.parse.com/docs/android_guide#queries-constraints) here and check the [queries overview](https://www.parse.com/docs/android_guide#queries) for explanation of compound queries and relational queries.
 
+#### Objects by Querying GeoLocation
+
+Often we might want to query objects within a certain radius of a coordinate (for example to display them on a map). With Parse, querying by `GeoPoint` to retrieve objects within a certain distance of a location is built in. Check the [AnyWall Tutorial](https://parse.com/tutorials/anywall-android) and the [whereWithinMiles](https://parse.com/docs/android/api/com/parse/ParseQuery.html#whereWithinMiles\(java.lang.String,%20com.parse.ParseGeoPoint,%20double\)) and related `where` conditions for more details.
+
 ### Passing Objects Between Activities
 
 Often with Android development, you need to pass an object from one Activity to another. This is done using the `Intent` system and passing objects as extras within a bundle. Unfortunately, `ParseObject` does not currently implement Parcelable or Serializable. 
