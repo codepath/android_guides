@@ -26,21 +26,32 @@ IntelliJ IDEA contains all the features found in Android Studio.  Setup for Andr
     * One version of the Android Platform.  E.g., `Android 5.1.1 (API 22)`
 * [[Install Genymotion|Genymotion-2.0-Emulators-with-Google-Play-support]]
 
-## Create Project in IntelliJ IDEA
+## Configure IntelliJ IDEA
 * Open IntelliJ IDEA
 * Close all open project windows
 * The IntelliJ Welcome screen will be displayed
-* Click on `Configure > Project Defaults > Project Structure`
-* Select `SDK`
-* Add Java Development Kit
-  * Click `+ > JDK`
-  * Navigate to the JDK location.  E.g., `/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk` on OSX.
-  * Select the JDK folder
-* Add Android SDK
-  * Click `+ > Android SDK`
-  * Navigate to the Android SDK location.  E.g., for Homebrew installations, it will be `/usr/local/Cellar/android-sdk/<sdk-tools-version>`
+* Add required SDKs
+  * Click on `Configure > Project Defaults > Project Structure`
+  * Select `SDK`
+  * Add Java Development Kit
+    * Click `+ > JDK`
+    * Navigate to the JDK location.  E.g., `/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk` on OSX.
+    * Select the JDK folder
+  * Add Android SDK
+    * Click `+ > Android SDK`
+    * Navigate to the Android SDK location.  E.g., for Homebrew installations, it will be `/usr/local/Cellar/android-sdk/<sdk-tools-version>`
+    * Select the Android SDK version folder and accept the defaults presented
+  * Click **OK**
 
-  
-
+## Create an Android Project
+* On the welcome screen, click **Create new project** or select `File > New Project` from the menu bar.
+* Select **Android** from the Project Type List on the left
+* Select **Gradle:Android Module** from the options on the right
+* On the project details screen, specify:
+  * Application name
+  * Package name
+  * Minimum, Target, Compile SDKs
+* Select **Blank Activity** from the template screen.
+* Accept or modify the subsequent defaults as necessary.
 
 
