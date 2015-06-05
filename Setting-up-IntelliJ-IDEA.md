@@ -1,4 +1,4 @@
-Android Studio is version of IntelliJ specifically tailored Android development.  Installation instructions for Android Studio can be found [here](http://goo.gl/X2SVFR).
+Android Studio is version of IntelliJ specifically tailored for Android development.  Installation instructions for Android Studio can be found [here](http://goo.gl/X2SVFR).
 
 IntelliJ IDEA contains all the features found in Android Studio.  Setup for Android development is, however, a bit more involved than Android Studio.
 
