@@ -19,7 +19,7 @@ IntelliJ IDEA contains all the features found in Android Studio.  Setup for Andr
 * Install at least one version of the Android Platform
   * At a terminal prompt, issue the following command to open the Android SDK Manager:
     * `<location of Android SDK Tools>/android sdk`
-  * ![Android SDK Manager](https://github.com/codepath/android_guides/blob/master/images/intellij_idea_android_sdk_manager.png)
+  * ![Android SDK Manager](https://raw.githubusercontent.com/codepath/android_guides/master/images/intellij_idea_add_sdk.png)
   * Ensure the following are installed:
     * `Tools > Android SDK Tools`
     * `Tools > Android SDK Platform-tools`
