@@ -340,7 +340,7 @@ See a list of [query constraints](https://www.parse.com/docs/android_guide#queri
 
 Often we might want to query objects within a certain radius of a coordinate (for example to display them on a map). With Parse, querying by `GeoPoint` to retrieve objects within a certain distance of a location is built in. Check the [AnyWall Tutorial](https://parse.com/tutorials/anywall-android) and the [whereWithinMiles](https://parse.com/docs/android/api/com/parse/ParseQuery.html#whereWithinMiles\(java.lang.String,%20com.parse.ParseGeoPoint,%20double\)) and related `where` conditions for more details. 
 
-If you want to query this based on a map, first you can [add a listener for the map camera](https://developers.google.com/android/reference/com/google/android/gms/maps/GoogleMap#setOnCameraChangeListener\(com.google.android.gms.maps.GoogleMap.OnCameraChangeListener\)). Check the [[Maps Usage Guide|Google-Maps-API-v2-Usage]] for more information on using the map.
+If you want to query this based on a map, first you can [add a listener for the map camera](https://developers.google.com/android/reference/com/google/android/gms/maps/GoogleMap#setOnCameraChangeListener\(com.google.android.gms.maps.GoogleMap.OnCameraChangeListener\)). Next, you can determine the [visible bounds of the map](http://stackoverflow.com/q/16056366) as shown there. Check the [[Maps Usage Guide|Google-Maps-API-v2-Usage]] for additional information on using the map.
 
 ### Passing Objects Between Activities
 
