@@ -19,6 +19,7 @@ IntelliJ IDEA contains all the features found in Android Studio.  Setup for Andr
 * Install at least one version of the Android Platform
   * At a terminal prompt, issue the following command to open the Android SDK Manager:
     * `<location of Android SDK Tools>/android sdk`
+  * ![Android SDK Manager](https://github.com/codepath/android_guides/blob/master/images/intellij_idea_android_sdk_manager.png)
   * Ensure the following are installed:
     * `Tools > Android SDK Tools`
     * `Tools > Android SDK Platform-tools`
@@ -30,16 +31,18 @@ IntelliJ IDEA contains all the features found in Android Studio.  Setup for Andr
 * Open IntelliJ IDEA
 * Close all open project windows
 * The IntelliJ Welcome screen will be displayed
-* Add required SDKs
+  * Add required SDKs
   * Click on `Configure > Project Defaults > Project Structure`
-  * Select `SDK`
+    * ![welcome screen](https://raw.githubusercontent.com/codepath/android_guides/master/images/intellij_idea_welcome_screen.png)
+  * Select `SDKs`
   * Add Java Development Kit
     * Click `+ > JDK`
+      * ![Add JDK](https://raw.githubusercontent.com/codepath/android_guides/master/images/intellij_idea_add_sdk.png)
     * Navigate to the JDK location.  E.g., `/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk` on OSX.
     * Select the JDK folder
   * Add Android SDK
     * Click `+ > Android SDK`
-    * Navigate to the Android SDK location.  E.g., for Homebrew installations, it will be `/usr/local/Cellar/android-sdk/<sdk-tools-version>`
+    * Navigate to the Android SDK location.  E.g., for Homebrew installations, use `/usr/local/Cellar/android-sdk/<sdk-tools-version>`
     * Select the Android SDK version folder and accept the defaults presented
   * Click **OK**
 
@@ -47,10 +50,12 @@ IntelliJ IDEA contains all the features found in Android Studio.  Setup for Andr
 * On the welcome screen, click **Create new project** or select `File > New Project` from the menu bar.
 * Select **Android** from the Project Type List on the left
 * Select **Gradle:Android Module** from the options on the right
+* ![project type selection](https://github.com/codepath/android_guides/blob/master/images/intellij_idea_new_project_type.png)
 * On the project details screen, specify:
   * Application name
   * Package name
   * Minimum, Target, Compile SDKs
+  * ![project details](https://github.com/codepath/android_guides/blob/master/images/intellij_idea_project_details.png)
 * Select **Blank Activity** from the template screen.
 * Accept or modify the subsequent defaults as necessary.
 * When the project is opened, Gradle attempts to pull in any dependencies.  If there are errors:
