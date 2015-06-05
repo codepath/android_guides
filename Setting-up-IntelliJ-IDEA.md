@@ -53,5 +53,9 @@ IntelliJ IDEA contains all the features found in Android Studio.  Setup for Andr
   * Minimum, Target, Compile SDKs
 * Select **Blank Activity** from the template screen.
 * Accept or modify the subsequent defaults as necessary.
+* When the project is opened, Gradle attempts to pull in any dependencies.  If there are errors:
+  * In the error log, click on the recommended resolution.
+  * ![missing repository](https://raw.githubusercontent.com/codepath/android_guides/master/images/intellij_idea_missing_dependency.png)
 
-
+## Deploying and Running on a Genymotion Emulator
+* Instructions are similar to [[running Genymotion with Android Studio|Genymotion-2.0-Emulators-with-Google-Play-support]]
