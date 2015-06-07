@@ -58,7 +58,7 @@ There are two ways to add a fragment to an activity: dynamically using **Java** 
 Before embedding a "support" fragment in an Activity make sure the Activity is changed to extend from `FragmentActivity` or `AppCompatActivity` which adds support for the fragment manager to all Android versions. Any activity using fragments should make sure to extend from `FragmentActivity` or `AppCompatActivity`:
 
 ```java
-import android.support.v4.app.AppCompatActivity;
+import android.support.v7.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     // ...
