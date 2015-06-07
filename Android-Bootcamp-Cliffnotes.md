@@ -45,7 +45,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Implementing a Heterogenous ListView]]
 * [[Creating and Using Fragments]]
 * [[ViewPager with FragmentPagerAdapter]]
-* [[Google Play Style Tabs using TabLayout]
+* [[Google Play Style Tabs using TabLayout]]
 * [[Fragment Navigation Drawer]]
 * [[Working with the ScrollView]]
 * [[Implementing Pull to Refresh Guide]]
