@@ -2,7 +2,7 @@
 
 There are several ways to setup tabs with fragments. The easiest is using ActionBar tabs. Note: Standard ActionBar tabs are not supported in Gingerbread, so many people use [ActionBarSherlock](http://actionbarsherlock.com/) when Gingerbread must be supported. Google has also released a support `ActionBarActivity` class which can be used for compatible tabs. Thankfully, both the support approaches are more or less identical in code with a few class name tweaks.
 
-**Note:** As of Android 5.0, ActionBar Tabs is **now officially deprecated**. Tabs should now be built using the [[PagerSlidingTabStrip|Sliding-Tabs-with-PagerSlidingTabStrip]] third-party library (recommended) or with [[SlidingTabLayout|Google-Play-Style-Tabs-using-SlidingTabLayout]].
+**Note:** As of Android 5.0, ActionBar Tabs is **now officially deprecated**. Tabs should now be built using the [[TabLayout|Google-Play-Style-Tabs-using-TabLayout]].  
 
 ### Without Gingerbread Support
 
