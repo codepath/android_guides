@@ -52,3 +52,4 @@ The source code for this library can be found [here](https://android.googlesourc
 * <https://medium.com/android-bites/first-steps-with-the-design-support-library-8dcf06230ddd>
 * <http://android-developers.blogspot.com/2015/05/android-design-support-library.html>
 * <https://github.com/chrisbanes/cheesesquare>
+* <http://hmkcode.com/material-design-app-android-design-support-library-appcompat/>
