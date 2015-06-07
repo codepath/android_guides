@@ -308,7 +308,7 @@ You would then reference this layout in your `NavigationView` with the `app:head
  <!-- The navigation drawer -->
     <android.support.design.widget.NavigationView
 
-        app:headerLayout="@layout/nav_header.xml">
+        app:headerLayout="@layout/nav_header">
 
     </android.support.design.widget.NavigationView>
 ```
