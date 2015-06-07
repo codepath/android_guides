@@ -10,7 +10,7 @@ In this section we will take a look at how to play audio content using the [Medi
 
 To play local audio in the [supported formats](http://developer.android.com/guide/appendix/media-formats.html), first we should put the local audio file into the `res/raw` folder. For example put this [sample_audio.mp3](https://dl.dropboxusercontent.com/u/10281242/sample_audio.mp3) into `res/raw/sample_audio.mp3`.
 
-Note: If you get the compile error message `INVALID FILE NAME: MUST CONTAIN ONLY [a-z0-9_.]` this is because your MP3 can only have lowercase letters in its filename, not uppercase.
+Note: If you get the compile error message `INVALID FILE NAME: MUST CONTAIN ONLY [a-z0-9_.]`, this is because your MP3 can only have lowercase letters, numbers, periods, and underscores in its name.
 
 Now we can use the [MediaPlayer](http://developer.android.com/reference/android/media/MediaPlayer.html) in order to playback any local files:
 
