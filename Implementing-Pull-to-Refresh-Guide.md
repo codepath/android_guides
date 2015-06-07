@@ -15,7 +15,7 @@ apply plugin: 'com.android.application'
 
 dependencies {
     // ...
-    compile 'com.android.support:support-v4:21.0.3'
+    compile 'com.android.support:support-v4:22.2.0'
 }
 ```
 

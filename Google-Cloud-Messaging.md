@@ -52,7 +52,7 @@ Add the following to your Gradle file
 ```
 dependencies {
   compile "com.google.android.gms:play-services:6.5.87"
-  compile "com.android.support:support-v4:20.0.+"
+  compile 'com.android.support:support-v4:22.2.0'
 }
 ```
 

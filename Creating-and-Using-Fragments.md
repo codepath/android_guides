@@ -8,7 +8,7 @@ A fragment has a separate layout XML file. A Fragment encapsulates functionality
 
 ### Defining a Fragment
 
-A fragment, like an activity, has an XML layout file and a Java class that represents the [Fragment ](http://developer.android.com/reference/android/app/Fragment.html) controller.
+A fragment, like an activity, has an XML layout file and a Java class that represents the [Fragment](http://developer.android.com/reference/android/app/Fragment.html) controller.
 
 The XML layout file is just like any other layout file, and can be named `fragment_foo.xml`. Think of them as a partial (re-usable) activity:
 

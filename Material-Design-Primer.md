@@ -29,7 +29,7 @@ By default, new generated apps are **automatically material design support enabl
 
 ```gradle
 dependencies {
-    compile 'com.android.support:appcompat-v7:21.0.+'
+    compile 'com.android.support:appcompat-v7:22.2.0+'
 }
 ```
 

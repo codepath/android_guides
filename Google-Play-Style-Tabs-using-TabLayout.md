@@ -197,12 +197,12 @@ By default, the tab created by TabLayout sets the `textAllCaps` property to be t
 
 ```xml
   <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
-        <item name="tabTextAppearance">@style/MyCustomTextAppearnace</item>
+        <item name="tabTextAppearance">@style/MyCustomTextAppearance</item>
   </style>
 
-    <style name="MyCustomTextAppearnace" parent="TextAppearance.Design.Tab">
+  <style name="MyCustomTextAppearance" parent="TextAppearance.Design.Tab">
         <item name="textAllCaps">false</item>
-    </style>
+  </style>
 ```
 
 Sliding tabs with images:
