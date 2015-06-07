@@ -55,3 +55,7 @@ Then review this detailed [[import troubleshooting guide|Troubleshooting-Common-
 Often when collaborating on a project with others, you need to have **maps work across multiple computers**. The problem is that the map key fingerprint is different from computer to computer and thus by default maps will only work on the computer that was used to generate the key.
 
 The simplest fix is described in detail within [this stackoverflow post](http://stackoverflow.com/a/9653946/313399) but in short you can get the `debug.keystore` from one of the team members, check that into git and then instruct other team members to replace their `debug.keystore` file with the one from repository. See also [this link](http://groups.google.com/group/android-developers/browse_thread/thread/c9051635ab37f252) and [this guide](http://developer.android.com/guide/publishing/app-signing.html#debugmode). 
+
+## SDK Manager
+
+When working with different teammates that may have different Android Build Tools or SDK versions installed, you might might find it convenient to use Jake Wharton's [SDK Manager plugin](https://github.com/JakeWharton/sdk-manager-plugin) to download these packages automatically. Follow these  [installation instructions](https://github.com/codepath/android_guides/wiki/Installing-Android-SDK-Tools#installing-the-android-sdk-automated-way) for more info.  
