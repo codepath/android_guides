@@ -16,7 +16,7 @@ Make sure to be running at least version 1.1.0 of the Android plug-in for Gradle
          mavenCentral()
       } 
       dependencies {
-         classpath 'com.android.tools.build:gradle:1.2.2'
+         classpath 'com.android.tools.build:gradle:1.2.3'
       }
    }
    ```
