@@ -154,13 +154,13 @@ Now we have completed the process of loading the contacts into our list using a 
 
 There is yet to be a standard place to find what data is exposed by various Content Providers.  Here is a list of known contracts defined for a few common ones.
 
-* `Browser.BookmarkColumns`
-* `CalendarContract`
-* `ContactsContract`
-* `UserDictionary`
-* `MediaStore.Audio`, `MediaStore.Video`
-* `DocumentsContract`
-* `Settings`
+* `Browser.BookmarkColumns` ([Docs](http://developer.android.com/reference/android/provider/Browser.BookmarkColumns.html))
+* `CalendarContract` ([Docs](http://developer.android.com/reference/android/provider/CalendarContract.html))
+* `ContactsContract` ([Docs](http://developer.android.com/reference/android/provider/ContactsContract.html))
+* `UserDictionary` ([Docs](http://developer.android.com/reference/android/provider/UserDictionary.html))
+* `MediaStore.Audio`, `MediaStore.Video` ([Docs](http://developer.android.com/reference/android/provider/MediaStore.html))
+* `DocumentsContract` ([Docs](https://developer.android.com/reference/android/provider/DocumentsContract.html))
+* `Settings` ([Docs](http://developer.android.com/reference/android/provider/Settings.html))
 
 ## References
 
