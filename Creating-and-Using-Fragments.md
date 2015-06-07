@@ -442,7 +442,7 @@ Note that the fragment’s method is called only when the Activity didn’t cons
 
 There are several methods for navigating between different fragments within a single Activity. The primary options are:
 
- 1. [[ActionBar Tabs | ActionBar Tabs with Fragments]] - Tabs at the top
+ 1. [[TabLayout| Google Play Style Tabs using TabLayout]] - Tabs at the top
  2. [[Fragment Navigation Drawer]] - Slide out navigation menu
  3. [[ViewPager | ViewPager with FragmentPagerAdapter]] - Swiping between fragments
 
