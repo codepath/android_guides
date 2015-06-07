@@ -431,7 +431,7 @@ public class BookAdapter extends ArrayAdapter<Book> {
 Now that we have defined the adapter, let's plug all of these components together within the `BookListActivity` by using the client to send out an API call, deserialize the response into an array of `Book` object and then render those into a ListView using the `BookAdapter`. Let's start by initializing the ArrayList, adapter, and the ListView:
 
 ```java
-public class BookListActivity extends ActionBarActivity {
+public class BookListActivity extends AppCompatActivity {
   private ListView lvBooks;
   private BookAdapter bookAdapter;
 
@@ -450,7 +450,7 @@ public class BookListActivity extends ActionBarActivity {
 Now let's make the call to the book search API from the activity using our client:
 
 ```java
-public class BookListActivity extends ActionBarActivity {
+public class BookListActivity extends AppCompatActivity {
   ...
   private BookClient client;
 
@@ -523,7 +523,7 @@ If you run your app now, the SearchView appears in the app's action bar, but it 
 Now we need to hook up a listener for when a search is performed in `BookListActivity.java`. Also note that we modified `fetchBooks()` method to accept the search query and removed the call to fetch books from `onCreate()`.
 
 ```java
-public class BookListActivity extends ActionBarActivity {
+public class BookListActivity extends AppCompatActivity {
   ...
 
   @Override
@@ -603,7 +603,7 @@ To display an indeterminate ProgressBar, add a ProgressBar to `activity_book_lis
 In `BookListActivity.java`, show ProgressBar before calling the search API and hide it when you receive the results back from the server.
 
 ```java
-public class BookListActivity extends ActionBarActivity {
+public class BookListActivity extends AppCompatActivity {
   ...
   private ProgressBar progress;
 
@@ -734,7 +734,7 @@ public class Book implements Serializable {
 Let's now add an item click handler to our `BookListActivity.java` which will launch the detail view with an intent:
 
 ```java
-public class BookListActivity extends ActionBarActivity {
+public class BookListActivity extends AppCompatActivity {
   public static final String BOOK_DETAIL_KEY = "book";
   ...
 
@@ -777,7 +777,7 @@ public class BookClient {
 Now, let's populate the data from the book into the details view with `BookDetailActivity.java`:
 
 ```java
-public class BookDetailActivity extends ActionBarActivity {
+public class BookDetailActivity extends AppCompatActivity {
   private ImageView ivBookCover;
   private TextView tvTitle;
   private TextView tvAuthor;
@@ -886,7 +886,7 @@ Start by adding a menu item in `menu_book_detail.xml`.
 Trigger a share intent and bring up the share menu on click of share menu item. Also note how remote images are shared using shared intent.
 
 ```java
-public class BookDetailActivity extends ActionBarActivity {
+public class BookDetailActivity extends AppCompatActivity {
   ...
 
   @Override

@@ -72,11 +72,11 @@ public class EditNameDialog extends DialogFragment {
 	}
 }
 ```
-and showing the dialog in an Activity (extending FragmentActivity or ActionBarActivity):
+and showing the dialog in an Activity (extending FragmentActivity or AppCompatActivity):
 
 ```java
 // Note: `FragmentActivity` works here as well
-public class FragmentDialogDemo extends ActionBarActivity {
+public class FragmentDialogDemo extends AppCompatActivity {
   @Override
   public void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
@@ -137,10 +137,10 @@ class MyAlertDialogFragment extends DialogFragment {
 }
 ```
 
-and to display the alert dialog in an activity (extending `FragmentActivity` or `ActionBarActivity`):
+and to display the alert dialog in an activity (extending `FragmentActivity` or `AppCompatActivity`):
 
 ```java
-// Note: `ActionBarActivity` works here as well
+// Note: `AppCompatActivity` works here as well
 public class FragmentDialogDemo extends FragmentActivity {
   @Override
   public void onCreate(Bundle savedInstanceState) {

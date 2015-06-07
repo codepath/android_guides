@@ -51,21 +51,21 @@ Change your application theme to extend from a `Theme.Appcompat` theme in the `v
 
 The available `Theme.Appcompat` which support material design include the following: `Theme.AppCompat`, `Theme.AppCompat.Light`, `Theme.AppCompat.Light.DarkActionBar`, `Theme.AppCompat.DeviceDefault`, `Theme.AppCompat.DeviceDefault.Light`, `Theme.AppCompat.DeviceDefault.Light.DarkActionBar`.
 
-### Extend Activities from ActionBarActivity
+### Extend Activities from AppCompatActivity
 
-`ActionBarActivity` is a subclass of `FragmentActivity`, so there should be no issues if you were using `FragmentActivity` from the older support library:
+`AppCompatActivity` is a subclass of `FragmentActivity`, so there should be no issues if you were using `FragmentActivity` from the older support library:
 
 ```java
-public class HomeActivity extends ActionBarActivity {
+public class HomeActivity extends AppCompatActivity {
     // Implementation
 }
 ```
 
 ### Use Support ActionBar
 
-See [[our ActionBar Guide|Extended-ActionBar-Guide#setting-up-actionbaractivity]] for more details on how to setup the compatibility ActionBar using `ActionBarActivity` including updating all of your `menu` files to use `app:showAsAction` instead of `android:showAsAction`.
+See [[our ActionBar Guide|Extended-ActionBar-Guide#setting-up-actionbaractivity]] for more details on how to setup the compatibility ActionBar using `AppCompatActivity` including updating all of your `menu` files to use `app:showAsAction` instead of `android:showAsAction`.
 
-Once you've switched to the `ActionBarActivity`, your code needs to access the ActionBar using `getSupportActionBar` instead of `getActionBar`:
+Once you've switched to the `AppCompatActivity`, your code needs to access the ActionBar using `getSupportActionBar` instead of `getActionBar`:
 
 ```java
 getSupportActionBar.show(); // RIGHT

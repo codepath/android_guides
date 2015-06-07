@@ -6,20 +6,20 @@ Older Android devices have a hardware Option button to open the menu. The Action
 
 This is typically used for displaying the title of the application and providing a primary navigation for the app. The ActionBar can contain primary action buttons as well as tabs to control navigation within any app.
 
-**Note** that we will be using the support library and `ActionBarActivity` for these examples since the library provides maximum compatibility with pre-3.0 Android versions. The APIs and usage are the same with the standard ActionBar just with small changes to the imported classes and class names.
+**Note** that we will be using the support library and `AppCompatActivity` for these examples since the library provides maximum compatibility with pre-3.0 Android versions. The APIs and usage are the same with the standard ActionBar just with small changes to the imported classes and class names.
 
 ## Usage
 
-In the [[Defining ActionBar|Defining-The-ActionBar#actionbar-basics]] cliffnotes we looked at the basics of adding items to the ActionBar and handling clicks. In this section, we take a look at how to use `ActionBarActivity` to support all Android versions and also at several powerful and extensible ActionBar features:
+In the [[Defining ActionBar|Defining-The-ActionBar#actionbar-basics]] cliffnotes we looked at the basics of adding items to the ActionBar and handling clicks. In this section, we take a look at how to use `AppCompatActivity` to support all Android versions and also at several powerful and extensible ActionBar features:
 
  * Using the split action bar to have a top and bottom menu
  * Adding an Action View (action_layout) and SearchView
  * Using ActionProvider and ShareActionProvider to enable richer functions
  * Configuring Home Icon to navigate "Up"
 
-### Setting up ActionBarActivity
+### Setting up AppCompatActivity
 
-In order to ensure that the ActionBar works on all Android versions, we are going to use [ActionBarActivity](https://developer.android.com/reference/android/support/v7/app/ActionBarActivity.html) to setup our support ActionBar.
+In order to ensure that the ActionBar works on all Android versions, we are going to use [AppCompatActivity](https://developer.android.com/reference/android/support/v7/app/AppCompatActivity.html) to setup our support ActionBar.
 
 First, add the following line to your `app/build.gradle` file:
 
@@ -37,11 +37,11 @@ dependencies {
 ```
 **Note** that if you are trying to build for a different version other than SDK 21, use `com.android.support:appcompat-v7:20.0.0`.  There are different themes in SDK 21, so you are likely to have compile errors.  For more context, see this [Stack Overflow](http://stackoverflow.com/questions/26457096/appcompat-v7-r21-returning-error-in-values-xml) discussion.
 
-Once it's added, be sure to sync your project with the gradle file (`Tools => Android => Sync Project with Gradle Files`) and make sure any applicable activities are now extending from `ActionBarActivity` in order to enable
+Once it's added, be sure to sync your project with the gradle file (`Tools => Android => Sync Project with Gradle Files`) and make sure any applicable activities are now extending from `AppCompatActivity` in order to enable
 the compatibility fragments and action bar:
 
 ```java
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
    // ...
 }
 ```
@@ -125,7 +125,7 @@ You can control the order of items within the ActionBar using `orderinCategory` 
 Using split action bar also allows navigation tabs to collapse into the main action bar if you remove the icon and title leaving only tabs at the top and all the actions on the bottom with:
 
 ```java
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
@@ -376,7 +376,7 @@ And now when the home icon is pressed on the child, the parent activity will alw
 
 ## Libraries
 
-* [ActionBarActivity](https://developer.android.com/reference/android/support/v7/app/ActionBarActivity.html) - The support library for ActionBar which provides backwards compatibility to nearly all Android versions.
+* [AppCompatActivity](https://developer.android.com/reference/android/support/v7/app/AppCompatActivity.html) - The support library for ActionBar which provides backwards compatibility to nearly all Android versions.
 * [StyleGenerator](http://jgilfelt.github.com/android-actionbarstylegenerator) - Use this nifty web tool to generate an ActionBar theme easily.
 
 ## References

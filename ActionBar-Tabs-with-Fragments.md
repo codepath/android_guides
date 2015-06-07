@@ -1,6 +1,6 @@
 ## Fragments and Tabs
 
-There are several ways to setup tabs with fragments. The easiest is using ActionBar tabs. Note: Standard ActionBar tabs are not supported in Gingerbread, so many people use [ActionBarSherlock](http://actionbarsherlock.com/) when Gingerbread must be supported. Google has also released a support `ActionBarActivity` class which can be used for compatible tabs. Thankfully, both the support approaches are more or less identical in code with a few class name tweaks.
+There are several ways to setup tabs with fragments. The easiest is using ActionBar tabs. Note: Standard ActionBar tabs are not supported in Gingerbread, so many people use [ActionBarSherlock](http://actionbarsherlock.com/) when Gingerbread must be supported. Google has also released a support `AppCompatActivity` class which can be used for compatible tabs. Thankfully, both the support approaches are more or less identical in code with a few class name tweaks.
 
 **Note:** As of Android 5.0, ActionBar Tabs is **now officially deprecated**. Tabs should now be built using the [[TabLayout|Google-Play-Style-Tabs-using-TabLayout]].  
 
@@ -51,7 +51,7 @@ public class MainActivity extends FragmentActivity {
 
 Now you have fragments that work for any Android version above 3.0. If you need gingerbread support, check out the approaches below.
 
-### With ActionBarActivity Support
+### With AppCompatActivity Support
 
 Google has released an updated support library "android-support-v7-appcompat" which includes official support for the ActionBar with Gingerbread compatibility. To use this, first, we need to **upgrade to latest support library** by opening the Android SDK Manager and verifying we have the latest "Android Support Library".
 
@@ -99,7 +99,7 @@ To setup tabs using ActionBar and fragments, you need to add a `TabListener` imp
 Once you have created the `SupportFragmentTabListener` [from this snippet](https://gist.github.com/nesquena/8b9f9ec29582afd4d138) within your app, setup the ActionBar and define which tabs you would like to display and attach listeners for each tab:
 
 ```java
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

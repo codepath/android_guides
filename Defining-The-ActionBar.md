@@ -60,7 +60,7 @@ When you want to add primary actions to the ActionBar, you add the items to the 
 An activity populates the action bar in its `onCreateOptionsMenu()` method:
 
 ```java
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -114,7 +114,7 @@ There are two ways to handle the click for an ActionBar item. The first approach
 and then define the method `onComposeAction` in the parent activity before attempting to run the application or an exception will be thrown for the missing method:
 
 ```java
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
   public void onComposeAction(MenuItem mi) {
      // handle click here
   }
@@ -197,10 +197,10 @@ As Toolbar is just a `ViewGroup`, it can be styled and positioned like any other
 *Note:* When using the support library, make sure that you are importing `android.support.v7.widget.Toolbar` and not `android.widget.Toolbar`.
 
 ```java
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-public class MyActivity extends ActionBarActivity{
+public class MyActivity extends AppCompatActivity{
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {

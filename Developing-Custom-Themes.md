@@ -607,7 +607,7 @@ public class Utils {
 Now in the `ThemeActivity.java` to enable custom themes being applied:
 
 ```java
-public class ThemeActivity extends ActionBarActivity {
+public class ThemeActivity extends AppCompatActivity {
 	private Spinner spThemes;
         
 	// Here we set the theme for the activity

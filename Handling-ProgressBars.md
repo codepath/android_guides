@@ -107,7 +107,7 @@ Next, we can add the `ActionView` to our `ActionBar` in the `res/menu/activity_m
 Note the use of `android:orderInCategory` to append the item at the end (other items should be less than 100), `android:visible` which hides the menu item and also `app:actionLayout` which specifies the layout for the action-view. Next, we can use the `onPrepareOptionsMenu` method to get a reference to the menu item and the associated view within the activity:
 
 ```java
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
     // Instance of the progress action-view
     MenuItem miActionProgressItem;
   
@@ -126,7 +126,7 @@ public class MainActivity extends ActionBarActivity {
 Finally, we can toggle the visibility of the `miActionProgressItem` item to show and hide the progress-bar in the action-bar:
 
 ```java
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
     public void showProgressBar() {
         // Show progress item
         miActionProgressItem.setVisible(true);
@@ -165,7 +165,7 @@ Often the user is waiting for a list of items to be populated into a `ListView`.
 Note the use of a `LinearLayout` with the `layout_height` set to `wrap_content` as this is important for the footer to be properly hidden. Next, let's setup the footer within our `ListView` by inflating and inserting the header within the activity:
 
 ```java
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
     // ...
     // Store reference to the progress bar later
     ProgressBar progressBarFooter;
@@ -198,7 +198,7 @@ public class MainActivity extends ActionBarActivity {
 Now with the `progressBarFooter` progress-bar instance stored we can show and hide the footer with `setVisibility`:
 
 ```java
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
     // Show progress
     public void showProgressBar() {
         progressBarFooter.setVisibility(View.VISIBLE);
