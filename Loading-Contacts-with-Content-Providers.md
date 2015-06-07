@@ -150,6 +150,18 @@ public class SampleActivity extends FragmentActivity {
 
 Now we have completed the process of loading the contacts into our list using a `CursorLoader` querying the `ContactProvider` and loading the resulting `Cursor` into the `CursorAdapter`. We should now see the list of the names of our contacts.
 
+## Contracts
+
+There is yet to be a standard place to find what data is exposed by various Content Providers.  Here is a list of known contracts defined for a few common ones.
+
+* `Browser.BookmarkColumns`
+* `CalendarContract`
+* `ContactsContract`
+* `UserDictionary`
+* `MediaStore.Audio`, `MediaStore.Video`
+* `DocumentsContract`
+* `Settings`
+
 ## References
 
  * <http://www.androiddesignpatterns.com/2012/07/loaders-and-loadermanager-background.html> 
