@@ -189,3 +189,4 @@ Instead of using a library we can also develop the floating action buttons manua
 * <http://www.bignerdranch.com/blog/floating-action-buttons-in-android-l/>
 * <http://prolificinteractive.com/blog/2014/07/24/android-floating-action-button-aka-fab/>
 * <http://www.survivingwithandroid.com/2014/09/android-floating-action-button.html>
+* <https://android.googlesource.com/platform/frameworks/support.git/+/master/design/src/android/support/design/widget/FloatingActionButton.java>
