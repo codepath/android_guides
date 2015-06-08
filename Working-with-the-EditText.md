@@ -127,6 +127,60 @@ which results in:
 
 Check out the [[basic event listeners|Basic-Event-Listeners#edittext-common-listeners]] cliffnotes for a look at how to listen for changes to an EditText and perform an action when those changes occur.
 
+
+### Displaying Floating Label Feedback
+
+Traditionally, the `EditText` hides the `hint` message (explained above) after the user starts typing. In addition, any validation error messages had to be managed manually by the developer. 
+
+<img src="http://i.imgur.com/UM7NmiK.gif" alt="floating" width="400" />
+
+Starting with Android M and the [[design support library|Design-Support-Library]], the `TextInputLayout` can be used to setup a floating label to display hints and error messages. First, wrap the `EditText` in a `TextInputLayout`:
+
+```xml
+<android.support.design.widget.TextInputLayout
+    android:id="@+id/username_text_input_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <EditText
+        android:id="@+id/etUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:ems="10"
+        android:hint="Username" />
+
+</android.support.design.widget.TextInputLayout>
+```
+
+Now the hint will automatically begin to float once the `EditText` takes focus as shown below:
+
+<img src="http://i.imgur.com/S456c0X.gif" alt="floating" width="400" /> 
+
+We can also use the `TextInputLayout` to display error messages using the `setError` and `setErrorEnabled` properties in the activity at runtime:
+
+```java
+private void setupFloatingLabelError() {
+    final TextInputLayout floatingUsernameLabel = (TextInputLayout) findViewById(R.id.username_text_input_layout);
+    floatingUsernameLabel.getEditText().addTextChangedListener(new TextWatcher() {
+        // ...
+        @Override
+        public void onTextChanged(CharSequence text, int start, int count, int after) {
+            if (text.length() > 0 && text.length() <= 4) {
+                floatingUsernameLabel.setError(getString(R.string.username_required));
+                floatingUsernameLabel.setErrorEnabled(true);
+            } else {
+                floatingUsernameLabel.setErrorEnabled(false);
+            }
+        }
+        // ...
+    });
+}
+```
+
+Here we use the `addTextChangedListener` to watch as the value changes to determine when to display the error message or revert to the hint.
+
 ### Providing Auto-complete
 
 Check out the [official text fields](http://developer.android.com/guide/topics/ui/controls/text.html#AutoComplete) guide for a step-by-step on how to setup autocomplete for the entry.
