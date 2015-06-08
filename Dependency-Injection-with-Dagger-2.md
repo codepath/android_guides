@@ -100,6 +100,9 @@ Example Component:
         DataModule.class,
         NetworkModule.class
     }
+    dependencies = {
+        OtherComponent.class
+    }
 )
 public interface SampleAppComponent {
   public void inject(SomeActivity someActivity);
@@ -119,13 +122,23 @@ public interface SampleAppComponent {
 
 ```
 
+Notice within the annotation, we specify the Modules that @Provide the component and any other full components this component might depend on.
+
+`inject(Class thing)` methods are used to explicitly define classes that have fields annotated with `@Inject` to be injected.
+
+`Class thing()` methods are used to expose dependencies either to direct consumers or to dependent components to consume.
+
+
 #### 3. Injection
 
 Dependencies are used or "injected" through the functions on a `Component`.
 
-There are 2 ways to get a dependency from a component:
-* Directly by calling `component.dependency()`
-* Annotating a field on an object with `@Inject`, then calling `component.inject(object)`. Oftentimes the object is `this`.
+There are 3 ways to get a dependency from a component:
+1. Directly by calling `component.thing()`
+2. Annotating a field on an object with `@Inject`, then calling `component.inject(object)`. Oftentimes the object is `this`.
+3. Using constructor injection by annotating your constructor with @Inject, and letting Dagger create your class for you.
+
+
 
 ### Defining custom scopes
 
