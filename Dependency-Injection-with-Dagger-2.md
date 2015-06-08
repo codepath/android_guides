@@ -50,7 +50,7 @@ Modules are responsible for creating and configuring the objects in your "depend
 Here is an example module:
 ```java
 @Module
-public class AppModule {
+public class SampleAppModule {
 
   static final String PREFS_DEFAULT = "myapp";
 
@@ -82,15 +82,42 @@ Notice the `@Module` annotation on the class and the `@Provides` annotations on 
 
 #### 2. Components
 
-Components are used to group together and build Modules into an object we can use to **get dependencies from**, or **inject fields with**. The job of the component is to be the glue between the Module and the injection points, first by configuring what modules and other components it depends on, then by listing the explicit classes it can be used to inject.
+Components are used to group together and build Modules into an object we can use to **get dependencies from**, and/or **inject fields with**. Basically, it's the glue between the Module and the injection points, first by configuring what modules and other components it depends on, then by listing the explicit classes it can be used to inject.
 
 A Component must:
+
 * Define the modules it is composed of as an argument in the `@Component` annotation
 * Define any dependencies on other `Component`s it has.
 * Define functions to inject explicit types with dependencies. TODO: Link to details
 * Expose any internal dependencies to be accessed externally or by other Components.
 
+Example Component:
+```java
+@PerApp
+@Component(
+    modules = {
+        SampleAppModule.class,
+        DataModule.class,
+        NetworkModule.class
+    }
+)
+public interface SampleAppComponent {
+  public void inject(SomeActivity someActivity);
 
+  public void inject(SomeFragment someFragment);
+
+  public void inject(SomeOtherFragment someOtherFragment);
+
+  Application application();
+
+  Picasso picasso();
+
+  Gson gson();
+
+  OkHttpClient okHttpClient();
+}
+
+```
 
 #### 3. Injection
 
