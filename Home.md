@@ -89,7 +89,7 @@ Exploring the gritty details of views, layout, styling and common UI patterns:
 * [[Ripple Animation]] (Android 5.0)
 * [[Shared Element Activity Transition]] (Android 5.0)
 * [[Circular Reveal Animation]] (Android 5.0)
-* [[Support Design Library]] (Material Design Library)
+* [[Design Support Library]] (Material Design Library)
 
 ### AdapterViews
 

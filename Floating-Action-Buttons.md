@@ -13,9 +13,9 @@ The floating action button represents **the primary action** within a particular
 
 Google made available during Google I/O 2015 a support library to create floating action buttons library.  In the past, third-party libraries such as [makovkastar/FloatingActionButton](https://github.com/makovkastar/FloatingActionButton) and [futuresimple/android-floating-action-button](https://github.com/futuresimple/android-floating-action-button) had to be used.
 
-### Support Design Library
+### Design Support Library
 
-Make sure to follow the [[Support Design Library]] setup instructions first.  
+Make sure to follow the [[Design Support Library]] setup instructions first.  
 
 You should now be able to add the `android.support.design.widget.FloatingActionButton`.  The `src` attribute references the icon that should be used for the floating action.  
 

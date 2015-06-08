@@ -33,9 +33,9 @@ dependencies {
 }
 ```
 
-### Support Design Library
+### Design Support Library
 
-As of June 2015, Google released the [[Support Design Library]] which helps simplify the use of a lot of material design components including a navigation drawer view, floating labels, floating action buttons, snackbars, and a new framework to tie motion and scroll events. 
+As of June 2015, Google released the [[Design Support Library]] which helps simplify the use of a lot of material design components including a navigation drawer view, floating labels, floating action buttons, snackbars, and a new framework to tie motion and scroll events. 
 
 ### Change the Application Theme
 
