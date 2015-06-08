@@ -103,7 +103,9 @@ Consider starting with the following tutorials and resources:
 
 * [Vogella Android Tutorials](http://www.vogella.com/tutorials/Android/article.html) - These are awesome free tutorials for most common Android topics. Great as a supplementary resource on top of the [Android Cliffnotes](http://guides.codepath.com/android).
 
-* [Developing Android Apps by Google](https://www.udacity.com/course/ud853) - Udacity course created by Google that teaches the core concepts involved in developing Android apps through videos and course work. 
+* [Udacity Android Development for Beginners](https://www.udacity.com/course/android-development-for-beginners--ud837) (Beginner) - This course is designed for students who are new to programming, and want to learn how to build Android apps. You don’t need any programming experience to take this course. 
+
+* [Developing Android Apps by Google](https://www.udacity.com/course/ud853) (Intermediate) - Udacity course created by Google that teaches the core concepts involved in developing Android apps through videos and course work. 
 
 * [Google Android Glossary](https://developers.google.com/android/for-all/vocab-words/) - Common Android terms defined in a glossary site with visual diagrams to help reinforce concepts.
 
