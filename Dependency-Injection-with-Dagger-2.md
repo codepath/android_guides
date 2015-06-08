@@ -60,7 +60,7 @@ public class AppModule {
     this.app = app;
   }
 
-  @Provides @PerApp SampleApp provideNowDoThisApp() {
+  @Provides @PerApp SampleApp provideSampleApp() {
     return app;
   }
 
@@ -78,17 +78,17 @@ public class AppModule {
 }
 ```
 
-Notice the `@Module` annotation on the clasee and the `@Provides` annotations on the functions. Functions in modules annotated with @Provides are called when the dependency is injected or used by another dependency. If the function is annotated with a **scope**, in this case `@PerApp`, it is only created once for that scope.
+Notice the `@Module` annotation on the class and the `@Provides` annotations on the functions. Functions in modules annotated with @Provides are called when the dependency is injected or used by another dependency. If the function is annotated with a **scope**, in this case `@PerApp`, it is only created once for that scope.
 
 #### 2. Components
 
-Components are used to group together and build Modules into an object we can use to **get dependencies from**, and **perform injection with**.
+Components are used to group together and build Modules into an object we can use to **get dependencies from**, or **inject fields with**. The job of the component is to be the glue between the Module and the injection points, first by configuring what modules and other components it depends on, then by listing the explicit classes it can be used to inject.
 
 A Component must:
 * Define the modules it is composed of as an argument in the `@Component` annotation
 * Define any dependencies on other `Component`s it has.
 * Define functions to inject explicit types with dependencies. TODO: Link to details
-* Expose any internal dependencies to be accessed externally or by other Components. TODO: Link
+* Expose any internal dependencies to be accessed externally or by other Components.
 
 
 
