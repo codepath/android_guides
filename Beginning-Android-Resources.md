@@ -105,6 +105,8 @@ Consider starting with the following tutorials and resources:
 
 * [Developing Android Apps by Google](https://www.udacity.com/course/ud853) - Udacity course created by Google that teaches the core concepts involved in developing Android apps through videos and course work. 
 
+* [Google Android Glossary](https://developers.google.com/android/for-all/vocab-words/)
+
 * [Programming Android Applications on Coursera](https://www.coursera.org/course/android) - Coursera online course from the University of Maryland.
 
 * [CodeLearn Android Tutorial](http://www.codelearn.org/android-tutorial) - Interesting interactive tutorial for learning Android step-by-step. Definitely worth a look as you build a twitter client step-by-step.
