@@ -32,12 +32,12 @@ In addition, assuming `xmlns:app="http://schemas.android.com/apk/res-auto` is de
 To place the floating action button, you will use [CoordinatorLayout](http://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.html).   A CoordinatorLayout helps facilitate interactions between views contained within it, which will be useful later to describe how to animate the button depending on scroll changes.  For now we can take advantage of a feature in CoordinatorLayout that allows us to hover one element over another.  We simply need to have the ListView and FloatingActionButton contained within the CoordinatorLayout and use the `layout_anchor` and `layout_anchorGravity` attributes. 
 
 ```xml
-       <android.support.design.widget.CoordinatorLayout
-          android:id="@+id/main_content"
-          xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:app="http://schemas.android.com/apk/res-auto"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent">
+<android.support.design.widget.CoordinatorLayout
+    android:id="@+id/main_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
           <ListView
               android:id="@+id/lvToDoList"
@@ -53,7 +53,7 @@ To place the floating action button, you will use [CoordinatorLayout](http://dev
               app:layout_anchor="@id/lvToDoList"
               app:layout_anchorGravity="bottom|right|end" />
 
-        </android.support.design.widget.CoordinatorLayout>
+</android.support.design.widget.CoordinatorLayout>
 ```
 
 The button should be placed in the bottom right corner of the screen. The recommended margin for the bottom is **16dp for phones and 24dp for tablets**.    In the example above, 16dp was used.
@@ -74,7 +74,6 @@ To animate this part, you will need to take advantage of [CoordinatorLayout](htt
 
 Currently, you need to convert your ListViews to use [RecyclerView](http://developer.android.com/reference/android/support/v7/widget/RecyclerView.html). RecyclerView is the successor to ListView as described in [this section](http://guides.codepath.com/android/Using-the-RecyclerView#compared-to-listview).  There is no support built-in for CoordinatorLayout to work with ListView according to [this Google post](https://plus.google.com/101784949561498190574/posts/KPbsTY4NANx). You can review 
 this [guide](http://guides.codepath.com/android/Using-the-RecyclerView) to help make the transition.
-
 
 ```xml
 <android.support.v7.widget.RecyclerView
@@ -102,8 +101,9 @@ public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior {
     @Override
     public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout,
             FloatingActionButton child, View directTargetChild, View target, int nestedScrollAxes) {
-        return nestedScrollAxes == ViewCompat.SCROLL_AXIS_VERTICAL || super.onStartNestedScroll(coordinatorLayout, child, directTargetChild, target,
-                nestedScrollAxes);
+        return nestedScrollAxes == ViewCompat.SCROLL_AXIS_VERTICAL || 
+            super.onStartNestedScroll(coordinatorLayout, child, directTargetChild, target,
+            nestedScrollAxes);
     }
 
 }
