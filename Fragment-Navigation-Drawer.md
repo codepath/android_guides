@@ -163,7 +163,7 @@ Now, let's setup the drawer in our activity.  We can also setup the menu icon to
 
 ```java
 public class MainActivity extends AppCompatActivity {
-	private DrawerLayout dlDrawer;
+	private DrawerLayout mDrawer;
 	private Toolbar toolbar;
 
 	@Override
@@ -176,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
 		setSupportActionBar(toolbar);
 
 		// Find our drawer view
-		dlDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+		mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
 		// Set the menu icon instead of the launcher icon.
 		final ActionBar ab = getSupportActionBar();
@@ -198,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
 		// The action bar home/up action should open or close the drawer.
 		switch (item.getItemId()) {
 			case android.R.id.home:
-				mDrawerLayout.openDrawer(GravityCompat.START);
+				mDrawer.openDrawer(GravityCompat.START);
 				return true;
 		}
 
