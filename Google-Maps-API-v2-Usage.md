@@ -484,6 +484,6 @@ The various types are illustrated below:
 
 <img src="http://i.imgur.com/LWHlz7a.jpg" alt="map types" width="300" />
 
-#### Utility Library
+### Utility Library
 
 For additional features such as heat maps, marker clusters, calculating distances and more be sure to check out the [maps utility library](https://developers.google.com/maps/documentation/android/utility/).
