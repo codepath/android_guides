@@ -105,7 +105,7 @@ public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior {
 }
 ```
 
-Because scrolling will be handled by this class, a separate method onNestedScroll() will be called.   We can check the Y position and determine whether to animate in or out the button:
+Because scrolling will be handled by this class, a separate method [onNestedScroll()](https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onNestedScroll(android.support.design.widget.CoordinatorLayout, V, android.view.View, int, int, int, int)) will be called.   We can check the Y position and determine whether to animate in or out the button:
 
 ```java
 
