@@ -195,7 +195,7 @@ The final step is to associate this CoordinatorLayout Behavior to the Floating A
 
 ```xml
 <android.support.design.widget.FloatingActionButton    
- app:layout_behavior="com.codepath.floatingactionbuttontest.ScrollAwareFABBehavior" />
+    app:layout_behavior="com.codepath.floatingactionbuttontest.ScrollAwareFABBehavior" />
 ```
 
 Because we are defining this behavior statically within the XML, we must also implement a constructor to enable layout inflation to work correctly. 
