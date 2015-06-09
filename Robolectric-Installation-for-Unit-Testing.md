@@ -1,103 +1,103 @@
-Robolectric is a framework which mocks part of the Android framework contained in the android.jar file and which allows you to run Android tests directly on the JVM with the JUnit 4 framework.
+# Robolectric Android Studio Setup
 
-Robolectric is designed to allow you to test Android applications on the JVM. This enables you to run your Android tests in your continuous integration environment without any additional setup and without an emulator running. Because of this Robolectric is **really fast** in comparison to any other testing approach.
+Robolectric is a framework that allows Android applications to be tested on the JVM using JUnit 4 (no emulator or device needed!). More info about robolectric is available [[here|Android-Unit-and-Integration-testing#robolectric]].
+  
+In this guide, we'll walk through the steps necessary to add Robolectric to an existing project.
 
-Let's take a look at a step-by-step for setting up Robolectric to test your project.
+## Prerequisites:
+* Android Studio 1.2.1.1+
+* Android Gradle Plugin 1.2.3+
+* Gradle 2.2.1+
 
-# Setting up for Android Studio
+Note: Robolectric can also be configured with Android Studio 1.1, but the setup requires the [robolectric gradle plugin](https://github.com/robolectric/robolectric-gradle-plugin/) and some additional configuration. Also, keep in mind that unit testing was still considered an [experimental feature](http://tools.android.com/tech-docs/unit-testing-support) in Android Studio 1.1.
 
-## Configure top-level build.gradle
-
-Make sure to be running at least version 1.1.0 of the Android plug-in for Gradle, since unit testing with Android Studio was only recently supported.  More information can be found [here] (http://tools.android.com/tech-docs/unit-testing-support).  
-
-   ```gradle
-   buildscript {
-      repositories {
-         mavenCentral()
-      } 
-      dependencies {
-         classpath 'com.android.tools.build:gradle:1.2.3'
-      }
-   }
-   ```
-
-Setting up this file in the top level will help ensure that there is only one place where this Android plug-in is defined.  All other projects (i.e. app) will inherit this dependency.
-
-## Configure app/build.gradle
+## App build.gradle
+First, we need to add the following to the **_app_** build.gradle. Robolectric's latest version is currently `3.0-rc3`.  
 
   ```gradle
   dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    testCompile('org.robolectric:robolectric:3.0-rc2') {
-           exclude group: 'commons-logging', module: 'commons-logging'
-           exclude group: 'org.apache.httpcomponents', module: 'httpclient'
-    }
-   apply plugin: 'org.robolectric'
+    ...
+    testCompile('org.robolectric:robolectric:3.0-rc3')
+  }
    ``` 
-
-Within your dependencies, you need to include the following defines. The exclude modules are intended to remove duplicate dependency definitions (template borrowed from https://github.com/mutexkid/android-studio-robolectric-example).  
-
-## Creating resource directory
-
-Create an `test/resources/org.robolectric.Config.properties` file.  Note that the directory needs to be resources/ (not to be confused with /res directory used to store your layout files).   
-
-   ```
-   # Robolectric doesn't know how to support SDK 19 yet.
-   emulateSdk=18
-   ```
-
-## Creating tests
-
-1. See [this example](https://github.com/mutexkid/android-studio-robolectric-example/blob/master/app/src/test/java/com/example/joshskeen/myapplication/MyActivityTest.java).  Note that your test needs to be annotated with `RobolectricGradleTestRunner`.  You also need to annotate the `BuildConfig.class`, which should be created during a Gradle run.
-  ```java
-
-     RunWith(RobolectricGradleTestRunner.class)
-     @Config(constants = BuildConfig.class)
-     public class MyActivityTest {
-  ```
-The [Robolectric guide](http://robolectric.org/writing-a-test/) is also a useful resource.  Each of your tests must contain an `@Test` annotation.
-
-2. If you intend to create mock network responses, you will need to place them inside the `src/test/resources/` directory.  You can reference these files by using `getResourceAsStream()` (note the backslash is needed in the front):
-
- 
-   ```
-      InputStream stream = MyClass.class.getResourceAsStream("/test_data.json");
-   ```
-
-   Note that while running Gradle at the command-line, your tests may pass successfully.  However, in Android Studio you may notice that null gets returned whenever trying to make this call.  It is documented as a [known issue](http://tools.android.com/knownissues#TOC-JUnit-tests-missing-resources-in-classpath-when-run-from-Studio) and will be fixed in the next version of Android Studio.  
-
-   One workaround inspired from this [PasteBin](http://pastebin.com/L6CeCtAp) is to add these lines into your `app/build.gradle` file.  What it does it copy all the files from `test/resources` into the build directory so they can be found during your Android Studio test runs.
-
-   ```gradle
-
-      task copyTestResources(type: Copy) {
-           from "${projectDir}/src/test/resources"
-           into "${buildDir}/intermediates/classes/test/debug"
-       }
-
-       assembleDebug.dependsOn(copyTestResources)
-   ```
-
-## Running tests
-
-If you type ./gradlew test from the command line, tests should run correctly.  
-
-## Debugging Tests
-
-If you want to be able to debug your tests inside Android Studio, make sure you are at least using the Android Gradle plug-in v1.1 or above.  In older versions, there were problems being able to run these tests directly from the IDE.
-
-1. Make sure your tests are located in `src/test/java`.   
-
-2. If you are using a Mac, go to `Run` -> `Edit Configurations` -> `Defaults` -> `Junit` and make sure to set $MODULE_DIR$ as the working directory.  There is a known bug in tests not being located unless you set this configuration first.  See the Robolectric [getting started guide](http://robolectric.org/getting-started/) for more information. 
-
-  <img src="http://robolectric.org/images/android-studio-configure-defaults-4bf48402.png">
-
-3. Select `Unit Tests` under `Build Variants`.  If you see this dropdown disabled, make sure to verify what Android Gradle plug-in version you are using.
+## Android Studio Configuration
+Next, there are a couple things we need to configure in Android Studio for running unit tests. One very important setting is the `Test Artifact` setting that toggles between `Unit Tests` and `Android Instrumentation Tests`. This setting controls the visibility of the corresponding tests in the project browser.
 
   <img src="https://camo.githubusercontent.com/cbf79d740e265cc9da9299c2b5f29fc8a63613e7/68747470733a2f2f7777772e657665726e6f74652e636f6d2f73686172642f733331332f73682f35363063346235662d653730622d343830302d623436662d6263313936383631383333382f38396331653734306537313334333136393631613130333032316461663163622f646565702f302f4d794163746976697479546573742e6a6176612d2d2d616e64726f69642d73747564696f2d726f626f6c6563747269632d6578616d706c652d2d2d2d2d2d636f64652d616e64726f69642d73747564696f2d726f626f6c6563747269632d6578616d706c652d2e706e67"/>
 
+For each type of test, Android Studio defaults to looking for tests in the following locations:
+* Unit Tests => `src/test/java`
+* Android Instrumentation Tests => `src/androidTest/java`
 
-4. Make sure you run the test as a JUnit test, not as an Android Application Test.  You can control-click on the file and click on Run.  The icons look different (1st icon is Android test, while the 2nd icon is JUnit.)
+Since we will be creating unit tests, we need our robolectric tests to live in `src/test/java`.  The easiest way to create this folder (if instrumentations tests aren't also needed) is to rename the `androidTest` folder to `test` like so:
 
-   ![](http://i.imgur.com/RDmmdI2.png)
+![image](http://i.imgur.com/EqGf1UQ.png)
+
+Note: If you are using a Mac, there is a known issue that needs to be addressed so that tests can be located properly. Go to `Run` -> `Edit Configurations` -> `Defaults` -> `Junit` and make sure to set `$MODULE_DIR$` as the working directory.  You can see the Robolectric [getting started guide](http://robolectric.org/getting-started/) for more information. 
+
+<img src="http://robolectric.org/images/android-studio-configure-defaults-4bf48402.png">
+
+That's all the setup needed. Now we can move on to writing a test.
+
+## Creating a Robolectric test
+
+The code below shows a basic Robolectric test that verifies the expected text inside of a TextView. To enable this test:
+
+1. Make sure you have a test file named `MainActivityTest.java` (you can rename `ApplicationTest.java` to `MainActivityTest.java` if you'd like)
+2. Make sure your app has an Activity named `MainActivity`
+3. Add a TextView to `MainActivity` named `tvHello` containing the text "Hello world!"
+4. Copy the code below into `MainActivityTest.java`
+
+```java
+import android.widget.TextView;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.robolectric.Robolectric;
+import org.robolectric.RobolectricGradleTestRunner;
+import org.robolectric.annotation.Config;
+
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+@Config(constants = BuildConfig.class, sdk = 21)
+@RunWith(RobolectricGradleTestRunner.class)
+public class MainActivityTest {
+    private MainActivity activity;
+
+    @Before
+    public void setup() {
+        activity = Robolectric.setupActivity(MainActivity.class);
+        assertNotNull("MainActivity is not instantiated", activity);
+    }
+
+    @Test
+    public void validateTextViewContent() throws Exception {
+        TextView tvHelloWorld = (TextView) activity.findViewById(R.id.tvHello);
+        assertNotNull("TextView could not be found", tvHelloWorld);
+        assertTrue("TextView contains incorrect text",
+                "Hello world!".equals(tvHelloWorld.getText().toString()));
+    }
+}
+```
+
+Note: Robolectric currently doesn't support API level 22 (Android 5.1).  If your app targets API 22, you will need to specify the `sdk = 21` annotation.
+
+## Running tests
+
+1. Android Studio - Make sure you run the test as a Gradle test (the first item).  The first item is for a Gradle test, while the 2nd item is for JUnit.
+
+![](http://i.imgur.com/RDmmdI2.png)
+
+If all goes well, you will see the passing results in the console. Note: you may need to enable `Show Passed` as in the diagram to see the full results.
+
+![image](http://i.imgur.com/cv1Aryi.jpg)
+
+To run tests on the command Line - Type `./gradlew test`
+
+## References
+
+* <http://robolectric.org/>
+* <https://github.com/robolectric/robolectric/>
+* <https://www.bignerdranch.com/blog/triumph-android-studio-1-2-sneaks-in-full-testing-support/>
