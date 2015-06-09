@@ -64,6 +64,8 @@ The actual drawable size should be **24dp** according to the Google design specs
 
 ### Animating the Floating Action Button
 
+<img src="http://i.imgur.com/CEtWLA8.gif"/>
+
 When a user scrolls down a page, the floating action button should disappear.  Once they scroll to the top, it should reappear.   To animate this part, you will need to take advantage of [CoordinatorLayout](https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.html), which helps choreograph animations between views defined within this layout.  
 
 ### Converting from ListView to RecyclerView
