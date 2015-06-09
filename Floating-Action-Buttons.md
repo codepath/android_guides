@@ -192,7 +192,7 @@ The final step is to associate this CoordinatorLayout Behavior to the Floating A
 ```xml
    <android.support.design.widget.FloatingActionButton
     
-     app:layout_behavior="com.codepath.com.floatingactionbuttontest.ScrollAwareFABBehavior" />
+     app:layout_behavior="com.codepath.floatingactionbuttontest.ScrollAwareFABBehavior" />
 </android.support.design.widget.CoordinatorLayout>
 ```
 
