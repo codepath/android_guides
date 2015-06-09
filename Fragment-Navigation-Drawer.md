@@ -350,7 +350,7 @@ We need to tie the DrawerLayout and Toolbar together:
    }
 ```
 
-Next, we need to make sure the synchronize the state whenever the screen is restored or there is a configuration change (i.e screen rotation):
+Next, we need to make sure we synchronize the state whenever the screen is restored or there is a configuration change (i.e screen rotation):
 
 ```java
     @Override
