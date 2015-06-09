@@ -93,12 +93,16 @@ Next, you must implement a [CoordinatorLayout Behavior](https://developer.androi
 Create a file called `ScrollAwareFABBehavior.java` that extends from [FloatingActionButton.Behavior](https://developer.android.com/reference/android/support/design/widget/FloatingActionButton.Behavior.html).  Currently, the default behavior is used for the Floating Action Button to make room for the Snackbar as shown in [this video](http://material-design.storage.googleapis.com/publish/material_v_3/material_ext_publish/0B6Okdz75tqQsLWFucDNlYWEyeW8/components_snackbar_usage_fabdo_002.webm).    We want to extend this behavior to signal that we wish to handle scroll events in the vertical direction:
 
 ```java
+public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior {
+
     @Override
     public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout,
             FloatingActionButton child, View directTargetChild, View target, int nestedScrollAxes) {
         return nestedScrollAxes == ViewCompat.SCROLL_AXIS_VERTICAL || super.onStartNestedScroll(coordinatorLayout, child, directTargetChild, target,
                 nestedScrollAxes);
     }
+
+}
 ```
 
 Because scrolling will be handled by this class, a separate method onNestedScroll() will be called.   We can check the Y position and determine whether to animate in or out the button:
