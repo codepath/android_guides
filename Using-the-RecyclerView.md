@@ -42,7 +42,7 @@ Add the following to your `app/build.gradle`:
 ```gradle
 dependencies {
     ...
-    compile 'com.android.support:recyclerview-v7:21.0.+'
+    compile 'com.android.support:recyclerview-v7:22.2.0'
 }
 ```
 
