@@ -64,7 +64,7 @@ The actual drawable size should be **24dp** according to the Google design specs
 
 ### Animating the Floating Action Button
 
-When a user scrolls down a page, the floating action button should disappear.  Once they scroll to the top, it should reappear.   
+When a user scrolls down a page, the floating action button should disappear.  Once the page scrolls to the top, it should reappear.   
 
 <img src="http://i.imgur.com/CEtWLA8.gif"/>
 
