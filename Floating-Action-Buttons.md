@@ -70,7 +70,7 @@ When a user scrolls down a page, the floating action button should disappear.  O
 
 To animate this part, you will need to take advantage of [CoordinatorLayout](https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.html), which helps choreograph animations between views defined within this layout.  
 
-### Converting from ListView to RecyclerView
+#### Converting from ListView to RecyclerView
 
 Currently, you need to convert your ListViews to use [RecyclerView](http://developer.android.com/reference/android/support/v7/widget/RecyclerView.html). RecyclerView is the successor to ListView as described in [this section](http://guides.codepath.com/android/Using-the-RecyclerView#compared-to-listview).  There is no support built-in for CoordinatorLayout to work with ListView according to [this Google post](https://plus.google.com/101784949561498190574/posts/KPbsTY4NANx). You can review 
 this [guide](http://guides.codepath.com/android/Using-the-RecyclerView) to help make the transition.
@@ -112,6 +112,8 @@ public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior {
 Because scrolling will be handled by this class, a separate method [onNestedScroll()](https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onNestedScroll(android.support.design.widget.CoordinatorLayout, V, android.view.View, int, int, int, int)) will be called.   We can check the Y position and determine whether to animate in or out the button:
 
 ```java
+public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior {
+    // ...
 
     @Override
     public void onNestedScroll(CoordinatorLayout coordinatorLayout, FloatingActionButton child,
@@ -125,6 +127,9 @@ Because scrolling will be handled by this class, a separate method [onNestedScro
             animateIn(child);
         }
     }
+
+    // ...
+}
 ```
 
 The `FloatingActionButton.Behavior` base class already has an `animateIn()` and `animateOut()` method, as well as sets a private variable `mIsAnimatingOut`.  Because these methods and variables are declared as private however, we must reimplement the animation methods for now.
@@ -132,13 +137,16 @@ The `FloatingActionButton.Behavior` base class already has an `animateIn()` and 
 ```java
 public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior {
 
-    private static final android.view.animation.Interpolator INTERPOLATOR = new FastOutSlowInInterpolator();
+    private static final android.view.animation.Interpolator INTERPOLATOR = 
+        new FastOutSlowInInterpolator();
     private boolean mIsAnimatingOut = false;
 
-    // Same animation that FloatingActionButton.Behavior uses to hide the FAB when the AppBarLayout exits
+    // Same animation that FloatingActionButton.Behavior uses to 
+    // hide the FAB when the AppBarLayout exits
     private void animateOut(final FloatingActionButton button) {
         if (Build.VERSION.SDK_INT >= 14) {
-           ViewCompat.animate(button).scaleX(0.0F).scaleY(0.0F).alpha(0.0F).setInterpolator(INTERPOLATOR).withLayer()
+           ViewCompat.animate(button).scaleX(0.0F).scaleY(0.0F).alpha(0.0F)
+                    .setInterpolator(INTERPOLATOR).withLayer()
                     .setListener(new ViewPropertyAnimatorListener() {
                         public void onAnimationStart(View view) {
                             ScrollAwareFABBehavior.this.mIsAnimatingOut = true;
@@ -175,7 +183,8 @@ public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior {
         }
     }
 
-    // Same animation that FloatingActionButton.Behavior uses to show the FAB when the AppBarLayout enters
+    // Same animation that FloatingActionButton.Behavior 
+    // uses to show the FAB when the AppBarLayout enters
     private void animateIn(FloatingActionButton button) {
         button.setVisibility(View.VISIBLE);
         if (Build.VERSION.SDK_INT >= 14) {
@@ -189,6 +198,7 @@ public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior {
             button.startAnimation(anim);
         }
     }
+}
 ```
 
 The final step is to associate this CoordinatorLayout Behavior to the Floating Action Button.  We can define it within the XML declaration as a custom attribute `app:layout_behavior`:
@@ -201,19 +211,22 @@ The final step is to associate this CoordinatorLayout Behavior to the Floating A
 Because we are defining this behavior statically within the XML, we must also implement a constructor to enable layout inflation to work correctly. 
 
 ```java
+public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior {
+    // ...
+
     public ScrollAwareFABBehavior(Context context, AttributeSet attrs) {
-                super();
-            }
+        super();
+    }
+
+   // ...
+}
 ```
 
-If you forget to implement this last step, you will see `Could not inflate Behavior subclass` error messages.  
+If you forget to implement this last step, you will see `Could not inflate Behavior subclass` error messages. See this [example code](https://github.com/ianhanniballake/cheesesquare/commit/aefa8b57e61266e4ad51bef36e669d69f7fd749c) for the full set of changes.
 
-See this [example code](https://github.com/ianhanniballake/cheesesquare/commit/aefa8b57e61266e4ad51bef36e669d69f7fd749c) for the full set of changes.
-
-*Note*: Normally when implementing CoordinatorLayout behaviors, we need to implement [layoutDependsOn()](https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html#layoutDependsOn(android.support.design.widget.CoordinatorLayout, V, android.view.View)) and [onDependentViewChanged()](https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onDependentViewChanged(android.support.design.widget.CoordinatorLayout, V, android.view.View)), which are used to track changes in other views contained within the CoordinatorLayout.  Since we only need to monitor scroll changes, we use the existing behavior defined for the Floating Action Button, which is currently implemented to track changes for Snackbars and AppBarLayout as discussed in this [blog post](http://android-developers.blogspot.com/2015/05/android-design-support-library.html).
+*Note*: Normally when implementing `CoordinatorLayout` behaviors, we need to implement [layoutDependsOn()](https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html#layoutDependsOn(android.support.design.widget.CoordinatorLayout, V, android.view.View)) and [onDependentViewChanged()](https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onDependentViewChanged(android.support.design.widget.CoordinatorLayout, V, android.view.View)), which are used to track changes in other views contained within the CoordinatorLayout.  Since we only need to monitor scroll changes, we use the existing behavior defined for the Floating Action Button, which is currently implemented to track changes for Snackbars and AppBarLayout as discussed in this [blog post](http://android-developers.blogspot.com/2015/05/android-design-support-library.html).
 
 Note that there is a known bug that triggers a `NullPointerException` with RecyclerView when scrolling too fast documented [here] (https://code.google.com/p/android/issues/detail?id=174981).  It will be fixed in the next release for this library.
-
 
 ### With FloatingActionButton (Third-Party)
 
