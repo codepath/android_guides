@@ -198,7 +198,7 @@ The final step is to associate this CoordinatorLayout Behavior to the Floating A
 
 Because we are defining this behavior statically within the XML, we must also implement a constructor to enable layout inflation to work correctly. 
 
-```
+```java
     public ScrollAwareFABBehavior(Context context, AttributeSet attrs) {
                 super();
             }
