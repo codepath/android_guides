@@ -357,3 +357,11 @@ map.setInfoWindowAdapter(new CustomWindowAdapter(getLayoutInflater()));
 ```
 
 This will use the custom adapter to create the information window, allowing us to customize how the information is displayed.
+
+#### Loading Remote Images into InfoWindow Contents
+
+If you are loading remote images into an InfoWindow, there is a common problem where the **image doesn't load properly the first time** you open the window for each item. The hacky solution is to [refresh the window after a delay](http://stackoverflow.com/a/22009558). The better solution is to trigger the window to refresh [after the image is finished downloading](http://stackoverflow.com/a/22043781). 
+
+####  Customizing the InfoWindow Frame
+
+When creating a custom information window on the map, the developer can choose to override either `getInfoContents` (as shown above) which allows you to customize **just the contents of the window** but still keep the default info window frame and background. If instead the desired behavior is to provide a view that will be used for the entire info window, we need to override `getInfoWindow` instead of `getInfoContents`. Note that **only one of these can be overridden** for a particular adapter. See further discussion [in this stackoverflow post](http://stackoverflow.com/a/18227721), [this infowindow tutorial](http://bon-app-etit.blogspot.com/2012/12/using-infowindowadapter-part-2.html) or [on the official google docs](https://developers.google.com/maps/documentation/android/infowindows#custom_info_windows). 
