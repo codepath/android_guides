@@ -17,7 +17,7 @@ Google made available during Google I/O 2015 a support library to create floatin
 
 Make sure to follow the [[Design Support Library]] setup instructions first.  
 
-You should now be able to add the `android.support.design.widget.FloatingActionButton`.  The `src` attribute references the icon that should be used for the floating action.  
+You should now be able to add the `android.support.design.widget.FloatingActionButton` view to the layout.  The `src` attribute references the icon that should be used for the floating action.  
 
 ```xml
        <android.support.design.widget.FloatingActionButton
