@@ -192,7 +192,7 @@ The final step is to associate this CoordinatorLayout Behavior to the Floating A
 </android.support.design.widget.CoordinatorLayout>
 ```
 
-Because we are defining this behavior statically within the XML, we must also implement a constructor to enable layout inflation to work correctly.   Otherwise, you will see `Could not inflate Behavior subclass` error messages.
+Because we are defining this behavior statically within the XML, we must also implement a constructor to enable layout inflation to work correctly. 
 
 ```
     public ScrollAwareFABBehavior(Context context, AttributeSet attrs) {
@@ -200,9 +200,11 @@ Because we are defining this behavior statically within the XML, we must also im
             }
 ```
 
+If you forget to implement this last step, you will see `Could not inflate Behavior subclass` error messages.  
+
 See this [example code](https://github.com/ianhanniballake/cheesesquare/commit/aefa8b57e61266e4ad51bef36e669d69f7fd749c) for the full source code.  
 
-Normally when implementing CoordinatorLayout behaviors, we need to implement [layoutDependsOn()](https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html#layoutDependsOn(android.support.design.widget.CoordinatorLayout, V, android.view.View)) and [onDependentViewChanged()](https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onDependentViewChanged(android.support.design.widget.CoordinatorLayout, V, android.view.View)).  Since we only need to monitor scroll changes, we use the existing behavior defined for the Floating Action Button, which is currently implemented to track changes for Snackbars and AppBaseLayout as discussed in this [blog post](http://android-developers.blogspot.com/2015/05/android-design-support-library.html).
+*Note*: Normally when implementing CoordinatorLayout behaviors, we need to implement [layoutDependsOn()](https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html#layoutDependsOn(android.support.design.widget.CoordinatorLayout, V, android.view.View)) and [onDependentViewChanged()](https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onDependentViewChanged(android.support.design.widget.CoordinatorLayout, V, android.view.View)).  Since we only need to monitor scroll changes, we use the existing behavior defined for the Floating Action Button, which is currently implemented to track changes for Snackbars and AppBaseLayout as discussed in this [blog post](http://android-developers.blogspot.com/2015/05/android-design-support-library.html).
 
 Note that there is a known bug that triggers a `NullPointerException` with RecyclerView when scrolling too fast documented [here] (https://code.google.com/p/android/issues/detail?id=174981)
 
