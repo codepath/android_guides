@@ -94,7 +94,7 @@ If all goes well, you will see the passing results in the console. Note: you may
 
 ![image](http://i.imgur.com/cv1Aryi.jpg)
 
-To run tests on the command Line - Type `./gradlew test`
+To run tests on the command line `./gradlew test`
 
 ## References
 
