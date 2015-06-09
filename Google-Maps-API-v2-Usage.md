@@ -4,7 +4,7 @@ This guide will instruct you on how use the Google Maps API v2 library to create
 
 ### Setup Map If Necessary
 
-Assuming you have added the `GoogleMap` v2 `MapFragment` to your layout, you should first run this method `onCreate()`. In my case, I am using the SupportMapFragment, either will work.
+For full setup instructions, see our [[Google Maps Setup Guide|Google-Maps-Fragment-Guide]]. Assuming you have added the `GoogleMap` v2 `MapFragment` to your layout, you should first run this method `onCreate()`. In my case, I am using the SupportMapFragment, either will work.
 
 ```java
 protected void setUpMapIfNeeded() {
@@ -54,6 +54,8 @@ We can add a marker to the map with the following code specifying the position (
 BitmapDescriptor defaultMarker =
     BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN);
 // listingPosition is a LatLng point
+LatLng listingPosition = new LatLng(-33.867, 151.206);
+// Create the marker on the fragment 
 Marker mapMarker = mapFragment.addMarker(new MarkerOptions()
     .position(listingPosition)					 								    
     .title("Some title here")
@@ -365,3 +367,22 @@ If you are loading remote images into an InfoWindow, there is a common problem w
 ####  Customizing the InfoWindow Frame
 
 When creating a custom information window on the map, the developer can choose to override either `getInfoContents` (as shown above) which allows you to customize **just the contents of the window** but still keep the default info window frame and background. If instead the desired behavior is to provide a view that will be used for the entire info window, we need to override `getInfoWindow` instead of `getInfoContents`. Note that **only one of these can be overridden** for a particular adapter. See further discussion [in this stackoverflow post](http://stackoverflow.com/a/18227721), [this infowindow tutorial](http://bon-app-etit.blogspot.com/2012/12/using-infowindowadapter-part-2.html) or [on the official google docs](https://developers.google.com/maps/documentation/android/infowindows#custom_info_windows). 
+
+### Change Map Type
+
+In addition to the standard "normal" map, there are several other map types available including Terrain (`MAP_TYPE_TERRAIN`), Hybrid (`MAP_TYPE_HYBRID`), and Satellite (`MAP_TYPE_SATELLITE`). To set the type, call `setMapType` with one of the following options:
+
+```
+mapFragment.getMapAsync(new OnMapReadyCallback() {
+    @Override
+    public void onMapReady(GoogleMap map) {
+        // once map is ready
+        // Supported types include: MAP_TYPE_NORMAL, MAP_TYPE_SATELLITE
+        // MAP_TYPE_TERRAIN, MAP_TYPE_HYBRID
+        map.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+    }
+});
+
+The various types are illustrated below:
+
+<img src="http://i.imgur.com/LWHlz7a.jpg" alt="map types" width="300" />
