@@ -33,6 +33,33 @@ protected void loadMap(GoogleMap googleMap) {
 
 After you have run that it is safe for you to begin adding markers.
 
+### Configuring Initial State
+
+The Maps API allows you to configure the initial state of the map including type, position, controls, and much more:
+
+```xml
+<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:map="http://schemas.android.com/apk/res-auto"
+  android:name="com.google.android.gms.maps.SupportMapFragment"
+  android:id="@+id/map"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  map:cameraBearing="112.5"
+  map:cameraTargetLat="-33.796923"
+  map:cameraTargetLng="150.922433"
+  map:cameraTilt="30"
+  map:cameraZoom="13"
+  map:mapType="normal"
+  map:uiCompass="false"
+  map:uiRotateGestures="true"
+  map:uiScrollGestures="false"
+  map:uiTiltGestures="true"
+  map:uiZoomControls="false"
+  map:uiZoomGestures="true"/>
+```
+
+See the [official docs for more configuration options](https://developers.google.com/maps/documentation/android/map#configure_initial_state).
+
 ### Controlling the Camera
 
 The map location center and zoom can be manipulated using the [moveCamera](http://developer.android.com/reference/com/google/android/gms/maps/GoogleMap.html#moveCamera\(com.google.android.gms.maps.CameraUpdate\)) or [animateCamera](http://developer.android.com/reference/com/google/android/gms/maps/GoogleMap.html#animateCamera\(com.google.android.gms.maps.CameraUpdate\)) which both take a [CameraUpdate](http://developer.android.com/reference/com/google/android/gms/maps/CameraUpdate.html) object. For example, to retarget the camera to a new latitude and longitude we can do:
@@ -62,6 +89,16 @@ Marker mapMarker = mapFragment.addMarker(new MarkerOptions()
     .snippet("Some description here")
     .icon(defaultMarker));
 ```
+
+We can also use custom markers based on any arbitrary drawable with:
+
+```java
+// Define custom marker 
+BitmapDescriptor customMarker = 
+  BitmapDescriptorFactory.fromResource(R.drawable.house_flag);
+```
+
+See the [BitmapDescriptorFactory](https://developers.google.com/android/reference/com/google/android/gms/maps/model/BitmapDescriptorFactory) docs for other colors or icon loading options. Review the [official markers guide](https://developers.google.com/maps/documentation/android/marker#make_a_marker_draggable) for additional marker customization options.
 
 ### Show AlertDialog on LongClick
 
@@ -368,6 +405,65 @@ If you are loading remote images into an InfoWindow, there is a common problem w
 
 When creating a custom information window on the map, the developer can choose to override either `getInfoContents` (as shown above) which allows you to customize **just the contents of the window** but still keep the default info window frame and background. If instead the desired behavior is to provide a view that will be used for the entire info window, we need to override `getInfoWindow` instead of `getInfoContents`. Note that **only one of these can be overridden** for a particular adapter. See further discussion [in this stackoverflow post](http://stackoverflow.com/a/18227721), [this infowindow tutorial](http://bon-app-etit.blogspot.com/2012/12/using-infowindowadapter-part-2.html) or [on the official google docs](https://developers.google.com/maps/documentation/android/infowindows#custom_info_windows). 
 
+### Drawing Shapes on the Map
+
+The map supports arbitrary drawing of lines and various shapes on the surface including polylines (connected lines), polygons (enclosed regions) and circles. For additional details on drawing shapes on the map, check out the [official maps guide](https://developers.google.com/maps/documentation/android/shapes#customizing_appearances).
+
+#### Polylines
+
+Drawing polylines allows us to connect multiple dots using lines. To draw these connecting lines, simply specify each coordinate that should be connected.
+
+```java
+// Instantiates a new Polyline object and adds points to define a rectangle
+PolylineOptions rectOptions = new PolylineOptions()
+        .add(new LatLng(37.35, -122.0))
+        .add(new LatLng(37.45, -122.0))  // North of the previous point, but at the same longitude
+        .add(new LatLng(37.45, -122.2))  // Same latitude, and 30km to the west
+        .add(new LatLng(37.35, -122.2))  // Same longitude, and 16km to the south
+        .add(new LatLng(37.35, -122.0)); // Closes the polyline.
+// Get back the mutable Polyline
+Polyline polyline = myMap.addPolyline(rectOptions);
+```
+
+#### Polygons
+
+Polygons are designed to define regions within a closed loop with the interior filled in:
+
+```java
+// Instantiates a new Polygon object and adds points to define a rectangle
+PolygonOptions rectOptions = new PolygonOptions()
+              .add(new LatLng(37.35, -122.0),
+                   new LatLng(37.45, -122.0),
+                   new LatLng(37.45, -122.2),
+                   new LatLng(37.35, -122.2),
+                   new LatLng(37.35, -122.0))
+              .strokeColor(Color.RED).fillColor(Color.BLUE));
+// Get back the mutable Polygon
+Polygon polygon = myMap.addPolygon(rectOptions);
+```
+
+#### Circles
+
+Drawing circles requires specifying the center and radius of the circle:
+
+```java
+// Instantiates a new CircleOptions object and defines the center and radius
+CircleOptions circleOptions = new CircleOptions()
+    .center(new LatLng(37.4, -122.1))
+    .radius(1000)); // In meters
+
+// Get back the mutable Circle
+Circle circle = myMap.addCircle(circleOptions);
+```
+
+For additional details on drawing shapes on the map, check out the [official maps guide](https://developers.google.com/maps/documentation/android/shapes#customizing_appearances).
+
+### Creating Ground or Tile Overlays
+
+[Ground overlays](https://developers.google.com/maps/documentation/android/groundoverlay) are image overlays that are tied to latitude/longitude coordinates, so they move when you drag or zoom the map.
+
+A [tile overlay](https://developers.google.com/maps/documentation/android/tileoverlay), sometimes called a tile layer, is a collection of images that are displayed on top of the base map tiles.
+
 ### Change Map Type
 
 In addition to the standard "normal" map, there are several other map types available including Terrain (`MAP_TYPE_TERRAIN`), Hybrid (`MAP_TYPE_HYBRID`), and Satellite (`MAP_TYPE_SATELLITE`). To set the type, call `setMapType` with one of the following options:
@@ -387,3 +483,7 @@ mapFragment.getMapAsync(new OnMapReadyCallback() {
 The various types are illustrated below:
 
 <img src="http://i.imgur.com/LWHlz7a.jpg" alt="map types" width="300" />
+
+#### Utility Library
+
+For additional features such as heat maps, marker clusters, calculating distances and more be sure to check out the [maps utility library](https://developers.google.com/maps/documentation/android/utility/).
