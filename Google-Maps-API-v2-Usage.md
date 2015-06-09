@@ -372,16 +372,17 @@ When creating a custom information window on the map, the developer can choose t
 
 In addition to the standard "normal" map, there are several other map types available including Terrain (`MAP_TYPE_TERRAIN`), Hybrid (`MAP_TYPE_HYBRID`), and Satellite (`MAP_TYPE_SATELLITE`). To set the type, call `setMapType` with one of the following options:
 
-```
+```java
 mapFragment.getMapAsync(new OnMapReadyCallback() {
     @Override
     public void onMapReady(GoogleMap map) {
-        // once map is ready
+        // Once map is loaded
         // Supported types include: MAP_TYPE_NORMAL, MAP_TYPE_SATELLITE
         // MAP_TYPE_TERRAIN, MAP_TYPE_HYBRID
         map.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
     }
 });
+```
 
 The various types are illustrated below:
 
