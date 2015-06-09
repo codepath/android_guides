@@ -67,7 +67,7 @@ public class MainActivityTest {
     private MainActivity activity;
 
     @Before
-    public void setup() {
+    public void setup() throws Exception {
         activity = Robolectric.setupActivity(MainActivity.class);
         assertNotNull("MainActivity is not instantiated", activity);
     }
