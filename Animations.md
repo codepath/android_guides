@@ -307,6 +307,33 @@ This results in the following:
 
 See more details in the [Property Animation](http://developer.android.com/guide/topics/graphics/prop-animation.html) topic guide and the [Animation Resource](http://developer.android.com/guide/topics/resources/animation-resource.html#Property) guide.
 
+### Custom Animations with ValueAnimator
+
+In certain cases, instead of animating the property of an object directly (i.e alpha) as shown above, we might need finer-grained control over the animation at each step of execution. In these situations, we can use a [ValueAnimator](http://developer.android.com/reference/android/animation/ValueAnimator.html) and setup a custom listener to adjust the view as the animation executes:
+
+```java
+// Construct the value animator and define the range
+ValueAnimator valueAnim = ValueAnimator.ofFloat(0, 1);
+// Animate over the course of 700 milliseconds
+valueAnim.setDuration(700);
+// Choose an interpolator
+valueAnim.setInterpolator(new DecelerateInterpolator());
+// Define how to update the view at each "step" of the animation
+valueAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+  @Override
+    public void onAnimationUpdate(ValueAnimator animation) {
+      float animatedValue = (float) animation.getAnimatedValue();
+      // Use the animated value to affect the view
+  }
+});
+// Start the animation if not already running
+if (!valueAnim.isStarted()) {
+  valueAnim.start();
+}
+```
+
+See the [ValueAnimator](http://developer.android.com/reference/android/animation/ValueAnimator.html) for more information. Note that in most cases we can use an `ObjectAnimator` as shown above but the value animator is a lower-level construct that can be used when we do not want to animate the property of an object directly. 
+
 ## View Animations
 
 View animations is a slower and less flexible system for animation that predates the property animation system that was introduced later. **Property animations are generally preferred** but let's take a look at the older system and how to apply animations using the original XML syntax.
