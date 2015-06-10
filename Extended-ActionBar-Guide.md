@@ -341,8 +341,7 @@ You can learn about this provider in the [[Sharing Content with Intents]] guide.
 
 ### Navigating Up with the App Icon
 
-To enable the app icon as an Up button, call [setDisplayHomeAsUpEnabled](http://developer.android.com/reference/android/support/v7/app/ActionBar.html#setDisplayHomeAsUpEnabled(boolean)). "Up" in contrast to  Back" takes the user to the logical parent screen of the current screen. This is not based on the navigation history but rather on the relationship between screens. For example, in a mail client "Back" might take the user to a previous email but 
-"Up" would always take the user to the list of mail in the inbox.
+To enable the app icon as an Up button, call [setDisplayHomeAsUpEnabled](http://developer.android.com/reference/android/support/v7/app/ActionBar.html#setDisplayHomeAsUpEnabled(boolean)). "Up" in contrast to  Back" takes the user to the logical parent screen of the current screen. This is not based on the navigation history but rather on the relationship between screens. For example, in a mail client "Back" might take the user to a previous email but "Up" would always take the user to the list of mail in the inbox.
 
 First, specify that the home icon should be used as "Up":
 
@@ -358,7 +357,9 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-Next, specify the logical parent of an activity in the manifest:
+#### Compile-time Configuration
+
+To specify the "up" activity at compile-time we can set the logical parent of an activity in the `AndroidManifest.xml`:
 
 ```xml
 <activity 
@@ -372,16 +373,21 @@ Next, specify the logical parent of an activity in the manifest:
 </activity>
 ```
 
-And now when the home icon is pressed on the child, the parent activity will always be shown. If we want to set the "up" button dynamically rather than in the manifest, we can override the `getSupportParentActivityIntent()` method on the activity returning the desired intent based on the argument passed in:
+And now when the home icon is pressed on the child, the parent activity will always be shown. 
+
+#### Run-time Configuration
+
+If we want to set the "up" button dynamically rather than in the manifest, we can override the `getSupportParentActivityIntent()` method on the activity returning the desired intent based on the argument passed in:
 
 ```java
 public static final String PACKAGE_NAME = "com.myapplication.";
+public static final String PARENT_NAME_EXTRA = "ParentClassName";
 
 @Override
 public Intent getSupportParentActivityIntent() {
     // Extract the class name of our parent
     Intent parentIntent = getIntent();
-    String className = parentIntent.getStringExtra("ParentClassName");
+    String className = parentIntent.getStringExtra(PARENT_NAME_EXTRA);
     // Create intent based on the parent class name
     Intent newIntent = null;
     try {
@@ -399,7 +405,7 @@ Then when launching a new activity, we need to supply the `ParentClassName` as a
 
 ```java
 Intent intent = new Intent(this, ChildActivity.class);
-intent.putExtra("ParentClassName", "ParentActivity");
+intent.putExtra(ChildActivity.PARENT_NAME_EXTRA, "ParentActivity");
 startActivity(intent);
 ```
 
