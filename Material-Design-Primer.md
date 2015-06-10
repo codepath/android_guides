@@ -88,7 +88,7 @@ Be sure to check out the community-source [materialdesignicons](http://materiald
 
 Take a look at the [Material Design Checklist](http://android-developers.blogspot.ca/2014/10/material-design-on-android-checklist.html) and you will notice that you need to change your existing drawer layout to  be over the toolbar and under the status bar. There’s a [handy StackOverflow post](http://stackoverflow.com/a/26440880/313399) explaining how to implement this.
 
-<img src="http://i.imgur.com/Ag3t4KC.gif" width="250" alt="drawer" />
+<img src="http://i.imgur.com/hPOFJUf.gif" width="250" alt="drawer" />
 
 Check out our [[Material Navigation Drawer|Fragment-Navigation-Drawer#usage]] guide for a step-by-step tutorial for setting up the updated material navigation drawer behavior. Note that to do this properly, you'll need to [[replace your ActionBar with a Toolbar|Defining-The-ActionBar#using-toolbar-as-actionbar]].
 
