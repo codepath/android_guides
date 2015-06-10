@@ -89,7 +89,7 @@ public class TodoItemDatabase extends SQLiteOpenHelper {
 }
 ```
 
-Check out our [[managing databases with SQLiteOpenHelper|Local-Databases-with-SQLiteOpenHelper]] guide for a more detailed look at working with SQLite. In many cases, rather than interacting with SQL directly, Android apps can leverage one of the many available higher-level ORMs (object relational mappers) to persist Java models to a database table as shown below.
+Check out our [[managing databases with SQLiteOpenHelper|Local-Databases-with-SQLiteOpenHelper]] guide for a more detailed look at working with SQLite. In many cases, rather than interacting with SQL directly, Android apps can leverage one of the many available higher-level ORMs (object relational mappers) to persist Java models to a database table as shown below. If needed, we can also [[access the SQLite for debugging|Local-Databases-with-SQLiteOpenHelper#sqlite-database-debugging]].
 
 ### Object Relational Mappers
 
@@ -147,7 +147,7 @@ List<User> users = new Select()
     .orderBy("age ASC").execute();
 ```
 
-This will automatically query the database and return the results as a List for use. For more information, check out our [[ActiveAndroid Guide|ActiveAndroid-Guide]] for links to more resources and answers to common questions.
+This will automatically query the database and return the results as a List for use. For more information, check out our [[ActiveAndroid Guide|ActiveAndroid-Guide]] for links to more resources and answers to common questions. As needed, we can also [[access the SQLite for debugging|Local-Databases-with-SQLiteOpenHelper#sqlite-database-debugging]].
 
 ## References
 
