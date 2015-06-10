@@ -112,7 +112,7 @@ Notification noti = new NotificationCompat.Builder(this).
 .setStyle(new NotificationCompat.BigTextStyle().bigText(longText)) 
 ```
 
-### Cancelling Notifications
+### Canceling Notifications
 
 The user can dismiss all notification or if you set your notification to auto-cancel it is also removed once the user selects it.
 You can also call the cancel() for a specific notification ID on the NotificationManager.
@@ -125,6 +125,23 @@ mNotificationManager.cancel(nId);
 ```
 
 See  the [official notifications guide](http://developer.android.com/guide/topics/ui/notifiers/notifications.html) for more details.
+
+### Adding a Large Icon
+
+If the notification should display a larger higher-quality icon on the left, we can use the `setLargeIcon` method to set a large (64x64) image as the icon. A common usage of this is to show a picture of the person's face that is associated with the notification:
+
+<img src="http://i.imgur.com/iuPmvzA.png" />
+
+This can be done with the following code:
+
+```java
+// .setLargeIcon expects a bitmap
+Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), R.drawable.my_large_icon);
+NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
+    .setLargeIcon(largeIcon);
+```
+
+See the [notification docs](http://developer.android.com/reference/android/app/Notification.Builder.html#setLargeIcon\(android.graphics.Bitmap\)) for more details on setting the icons.
 
 ## References
 
