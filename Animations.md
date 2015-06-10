@@ -696,7 +696,7 @@ Note that these animations are **lollipop only** and do not work on devices with
 
 Use the third-party [Leonids](https://github.com/plattysoft/Leonids) library for simple particle effects. Particle systems are often used in games for a wide range of purposes: Explosions, fire, smoke, etc. This effects can also be used on normal apps to add an element of "juiciness" or Playful Design. Here's an example of particle motion:
 
-![Particles](http://www.plattysoft.com/wp-content/uploads/2014/05/leonids_confeti.gif)
+![Particles](http://i.imgur.com/gTnpLuk.gif)
 
 Precisely because its main use is games, all engines have support for particle systems, but there is no such thing built-in for standard Android UI. Instead we can use Leonids by [reviewing this tutorial](http://www.plattysoft.com/2014/05/30/leonids-particle-system-lib/) for further details.
 
