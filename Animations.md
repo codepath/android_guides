@@ -694,7 +694,7 @@ Note that these animations are **lollipop only** and do not work on devices with
 
 ## Particle Effects
 
-Use the third-party [Leonids](https://github.com/plattysoft/Leonids) library for simple particle effects. Particle systems are often used in games for a wide range of purposes: Explosions, fire, smoke, etc. This effects can also be used on normal apps to add an element of "juiciness" or Playful Design. Here's an example of particle motion:
+Use the third-party [Leonids](https://github.com/plattysoft/Leonids) library for simple particle effects. Particle systems are often used in games for a wide range of purposes: explosions, fire, smoke, etc. This effects can also be used on normal apps to add elements of playful design. Here's an example of particle motion:
 
 ![Particles](http://i.imgur.com/gTnpLuk.gif)
 
