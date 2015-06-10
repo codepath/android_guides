@@ -138,11 +138,13 @@ This can be done with the following code:
 // .setLargeIcon expects a bitmap
 Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), 
     R.drawable.my_large_icon);
+// Pass in the bitmap as the large icon
 NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
+    ...
     .setLargeIcon(largeIcon);
 ```
 
-See the [notification docs](http://developer.android.com/reference/android/app/Notification.Builder.html#setLargeIcon\(android.graphics.Bitmap\)) for more details on setting the icons.
+Note that if the large icon is set, then the small icon supplied will be displayed minified on the right-hand side instead.
 
 ## References
 
