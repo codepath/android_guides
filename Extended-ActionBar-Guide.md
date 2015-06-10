@@ -372,7 +372,38 @@ Next, specify the logical parent of an activity in the manifest:
 </activity>
 ```
 
-And now when the home icon is pressed on the child, the parent activity will always be shown. Read more about ["Up" navigation](http://developer.android.com/training/implementing-navigation/ancestral.html) on the official guide.
+And now when the home icon is pressed on the child, the parent activity will always be shown. If we want to set the "up" button dynamically rather than in the manifest, we can override the `getSupportParentActivityIntent()` method on the activity returning the desired intent based on the argument passed in:
+
+```java
+public static final String PACKAGE_NAME = "com.myapplication.";
+
+@Override
+public Intent getSupportParentActivityIntent() {
+    // Extract the class name of our parent
+    Intent parentIntent = getIntent();
+    String className = parentIntent.getStringExtra("ParentClassName");
+    // Create intent based on the parent class name
+    Intent newIntent = null;
+    try {
+         //you need to define the class with package name
+         newIntent = new Intent(this, Class.forName(PACKAGE_NAME + className));
+    } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+    }
+    // Return the created intent as the "up" activity
+    return newIntent;
+}
+```
+
+Then when launching a new activity, we need to supply the `ParentClassName` as an extra to control the desired parent:
+
+```java
+Intent intent = new Intent(this, ChildActivity.class);
+intent.putExtra("ParentClassName", "ParentActivity");
+startActivity(intent);
+```
+
+Read more about ["Up" navigation](http://developer.android.com/training/implementing-navigation/ancestral.html) on the official guide.
 
 ## Libraries
 
