@@ -436,6 +436,32 @@ public class TodoItemDatabase extends SQLiteOpenHelper {
 
 Once you understand the basics of SQLite above, be sure to review [this more advanced tutorial](http://www.androidhive.info/2013/09/android-sqlite-database-with-multiple-tables/) which explores working with SQLite when you have multiple associated tables.
 
+## SQLite Database Debugging 
+
+When working with local SQL, often inspect the local SQLite data can be helpful while debugging issues with persistence. To access the device's SQLite database, you can perform the following **within the terminal or command-line**:
+
+```bash
+cd /path/to/my/sdk/platform-tools
+./adb shell
+run-as <app package name>
+cd /data/data/<app package name>/databases
+ls
+chmod 666 <databasefile>.db
+sqlite3 <databasefile>.db
+> (commands can be run here to query the data)
+> .exit
+(copy full database path)
+exit
+```
+
+For further inspection, we can download the database file with:
+
+```
+./adb wait-for-device pull /data/data/<app package name>/<databasefile>.db
+```
+
+Now we can download [this desktop SQLite viewer](http://sqlitebrowser.org/) which allows us to open and inspect the SQLite data within the file downloaded to your computer from the device.
+
 ## References
 
 * [Vogella SQLite Tutorial](http://www.vogella.com/articles/AndroidSQLite/article.html)
