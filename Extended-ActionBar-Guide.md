@@ -409,7 +409,7 @@ intent.putExtra(ChildActivity.PARENT_NAME_EXTRA, "ParentActivity");
 startActivity(intent);
 ```
 
-Read more about ["Up" navigation](http://developer.android.com/training/implementing-navigation/ancestral.html) on the official guide.
+Read more about ["Up" navigation](http://developer.android.com/training/implementing-navigation/ancestral.html) within the official guide.
 
 ## Libraries
 
