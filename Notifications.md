@@ -136,7 +136,8 @@ This can be done with the following code:
 
 ```java
 // .setLargeIcon expects a bitmap
-Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), R.drawable.my_large_icon);
+Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), 
+    R.drawable.my_large_icon);
 NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
     .setLargeIcon(largeIcon);
 ```
