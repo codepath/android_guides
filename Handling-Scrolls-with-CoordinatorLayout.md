@@ -1,7 +1,7 @@
 ## Overview
 
 [CoordinatorLayout] 
-(https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.html) enables the ability to accomplish many of the scrolling effects as described in Google's Material Design [spec](http://www.google.com/design/spec/patterns/scrolling-techniques.html).  For instance, it enables the ability to expand or contract the headline space as a user scrolls down or up the page.   See the following <a href="http://material-design.storage.googleapis.com/publish/material_v_4/material_ext_publish/0B6Okdz75tqQsV09qdnY1WkRLTmM/patterns-scrolling-techniques-flexible_space_xhdpi_003.mp4">video clip</a> for one example of what it can do.
+(https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.html) enables the ability to accomplish many of the scrolling effects as described in Google's Material Design [spec](http://www.google.com/design/spec/patterns/scrolling-techniques.html).  For instance, it enables the ability to expand or contract the headline space as a user scrolls down or up the page.   See the following <a href="http://material-design.storage.googleapis.com/publish/material_v_4/material_ext_publish/0B6Okdz75tqQsV09qdnY1WkRLTmM/patterns-scrolling-techniques-flexible_space_xhdpi_003.mp4">video clip</a> for one example of what it can enable.
 
 CoordinatorLayout is basically a `FrameLayout` that also helps manage the scrolling effects for views contained within it.  Currently, there are several ways provided in this framework that allow it to work without needing to write your own custom animation code.  These effects include:
 
@@ -11,7 +11,7 @@ CoordinatorLayout is basically a `FrameLayout` that also helps manage the scroll
 
 These standard ways are described in this [blog post](http://android-developers.blogspot.com/2015/05/android-design-support-library.html).
 
-You can also setup your own custom behaviors, such as the one discussed in using [CoordinatorLayout with Floating Action Buttons](http://guides.codepath.com/android/Floating-Action-Buttons#using-coordinatorlayout).  Because the source code for CoordinatorLayout does not appear to be publicly available, the best way to understand how to implement custom behaviors is by using Android Studio and navigating up the source tree to study the `FloatingActionButton` and `AppBarLayout` default behaviors.  Assuming you are using Android Studio v1.2 or higher, the decompiler code should enable you to understand better what's happening.
+You can also setup your own custom behaviors, such as the one discussed in using [CoordinatorLayout with Floating Action Buttons](http://guides.codepath.com/android/Floating-Action-Buttons#using-coordinatorlayout).  Because the source code does not appear to be publicly available, the best way to understand how to implement custom behaviors is by using Android Studio and navigating up the source tree to study the `FloatingActionButton` and `AppBarLayout` default behaviors.  Assuming you are using Android Studio v1.2 or higher, the decompiler code should enable you to understand better what's happening.
 
 
 ## Setup
@@ -50,3 +50,6 @@ So long as the CoordinatorLayout is used as the primary layout, this animation e
  </android.support.design.widget.CoordinatorLayout>
 ```
 
+## Collapsing and Hiding Toolbar and Headers
+
+ 
