@@ -26,7 +26,7 @@ Using these materials, you can understand and begin adhering to these guidelines
 
 #### Pure Android
 
-As you plan your app for Android, keep in mind that different platforms play by different rules and conventions. Design decisions that make perfect sense on one platform will look and feel misplaced in the context of a different platform. If you have built web and/or mobile apps in the past, review [this Pure Android Guide](http://developer.android.com/design/patterns/pure-android.html) for look at how to avoid making Android design faux pas.
+As you plan your app for Android, keep in mind that different platforms play by different rules and conventions. Design decisions that make perfect sense on one platform will look and feel misplaced in the context of a different platform. If you have built web and/or mobile apps in the past, review [this Pure Android Guide](http://developer.android.com/design/patterns/pure-android.html) for look at how to avoid making Android design faux pas. Check [this article from jackrabbit](http://www.jackrabbitmobile.com/design/mobile-app-design-ios-vs-android/) for a more detailed breakdown.
 
 #### User Interface Overview
 
