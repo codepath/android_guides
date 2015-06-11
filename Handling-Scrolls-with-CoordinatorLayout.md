@@ -6,7 +6,7 @@
 CoordinatorLayout is basically a `FrameLayout` that also helps manage the scrolling effects for views contained within it.  Currently, there are several predefined ways provided in this framework that allow it to work without needing to write your own custom animation code.  These effects include:
 
 * Sliding the Floating Action Button up and down to make space for the Snackbar.
-* Expanding or contracting ToolBar or Header space for the main content.
+* Expanding or contracting ToolBar or header space for the main content.
 * Controlling which elements should expand or collapse and what rate.  
 * Enabling [parallax scrolling effects](https://ihatetomatoes.net/demos/parallax-scroll-effect/) animations.
 
