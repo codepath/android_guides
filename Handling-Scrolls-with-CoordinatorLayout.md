@@ -16,5 +16,5 @@ You can also setup your own custom behaviors, such as the one discussed in using
 
 ## Setup
 
-Make sure to follow the [[Design-Support-Library]] instructions first.
+Make sure to follow the [[Design Support Library]] instructions first.
 
