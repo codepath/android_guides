@@ -7,7 +7,7 @@ CoordinatorLayout is basically a `FrameLayout` that also helps manage the scroll
 
 * Sliding the Floating Action Button up and down to make space for the Snackbar.
 * Adjusting ToolBar or header space to expand or contract room for the main content.
-* Controlling which views should expand or collapse and what rate, including [parallax scrolling effects](https://ihatetomatoes.net/demos/parallax-scroll-effect/) animations.
+* Controlling which views should expand or collapse and at what rate, including [parallax scrolling effects](https://ihatetomatoes.net/demos/parallax-scroll-effect/) animations.
 
 These standard ways are described in this [blog post](http://android-developers.blogspot.com/2015/05/android-design-support-library.html).
 
