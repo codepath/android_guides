@@ -11,7 +11,7 @@ CoordinatorLayout is basically a `FrameLayout` that also helps manage the scroll
 
 These standard ways are described in this [blog post](http://android-developers.blogspot.com/2015/05/android-design-support-library.html).
 
-You can also setup your own custom behaviors, such as the one discussed in using [CoordinatorLayout with Floating Action Buttons](http://guides.codepath.com/android/Floating-Action-Buttons#using-coordinatorlayout).  Because the source code does not appear to be publicly available, the best way to understand how to implement custom behaviors is by using Android Studio and navigating up the source tree to study the `FloatingActionButton` and `AppBarLayout` default behaviors.  Assuming you are using Android Studio v1.2 or higher, the decompiler code should enable you to understand better what's happening.
+You can also setup your own custom behaviors, such as the one discussed in using [CoordinatorLayout with Floating Action Buttons](http://guides.codepath.com/android/Floating-Action-Buttons#using-coordinatorlayout).  Because the source code does not appear to be publicly available, the best way to understand how to implement custom behaviors is by using Android Studio and navigating up to study the `FloatingActionButton` and `AppBarLayout` default behaviors.  Assuming you are using Android Studio v1.2 or higher, the decompiler code should enable you to understand better what's happening.
 
 
 ## Setup
