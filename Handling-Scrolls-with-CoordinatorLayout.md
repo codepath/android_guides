@@ -1,12 +1,12 @@
 ## Overview
 
 [CoordinatorLayout] 
-(https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.html) enables the ability to accomplish many of the scrolling effects as described in Google's Material Design [spec](http://www.google.com/design/spec/patterns/scrolling-techniques.html).  For instance, it enables the ability to expand or contract the headline space as a user scrolls down or up the page.   See the following <a href="http://material-design.storage.googleapis.com/publish/material_v_4/material_ext_publish/0B6Okdz75tqQsV09qdnY1WkRLTmM/patterns-scrolling-techniques-flexible_space_xhdpi_003.mp4">video clip</a> for one example of what it can enable.
+(https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.html) enables the ability to accomplish many of the [scrolling effects](http://www.google.com/design/spec/patterns/scrolling-techniques.html) as described in Google's Material Design spec.  For instance, it enables the ability to expand or compress the headline space as a user scrolls down to view the main content.   See the following <a href="http://material-design.storage.googleapis.com/publish/material_v_4/material_ext_publish/0B6Okdz75tqQsV09qdnY1WkRLTmM/patterns-scrolling-techniques-flexible_space_xhdpi_003.mp4">video clip</a> for one example of what it can enable.
 
-CoordinatorLayout is basically a `FrameLayout` that also helps manage the scrolling effects for views contained within it.  Currently, there are several ways provided in this framework that allow it to work without needing to write your own custom animation code.  These effects include:
+CoordinatorLayout is basically a `FrameLayout` that also helps manage the scrolling effects for views defined within it.  Currently, there are several ways provided in this framework that allow it to work without needing to write your own custom animation code.  These effects include:
 
 * Sliding the Floating Action Button up and down to make space for the Snackbar.
-* Adjusting ToolBar or header space to expand or contract room for the main content.
+* Adjusting ToolBar or header space to expand or contract room to  for the main content.
 * Controlling which views should expand or collapse and at what rate, including [parallax scrolling effects](https://ihatetomatoes.net/demos/parallax-scroll-effect/) animations.
 
 These standard ways are described in this [blog post](http://android-developers.blogspot.com/2015/05/android-design-support-library.html).
