@@ -197,7 +197,7 @@ CoordinatorLayout works by searching through any child view that has a [Coordina
 
 To define your own a CoordinatorLayout Behavior, the layoutDependsOn() and onDependentViewChanged() should be implemented.
 
-```xml
+```java
 
   public boolean layoutDependsOn(CoordinatorLayout parent, View child, View dependency) {
             return dependency instanceof AppBarLayout;
