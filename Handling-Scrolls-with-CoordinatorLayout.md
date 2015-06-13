@@ -86,7 +86,7 @@ If you are using the deprecated ActionBar, make sure to follow the [Using the To
 
 ```
 
-Add an `app:layout_behavior` to a RecyclerView or any other View capable of [nested scrolling] (i.e. [NestedScrollView](http://stackoverflow.com/questions/25136481/what-are-the-new-nested-scrolling-apis-for-android-l)).  The support library contains a special string resource `@string/appbar_scrolling_view_behavior` that maps to [AppBarLayout.ScrollingViewBehavior](https://developer.android.com/reference/android/support/design/widget/AppBarLayout.ScrollingViewBehavior.html), which is used to notify the `AppBarLayout` when scroll events occur on this particular view.  The behavior must be established on the view that triggers the event.
+Add an `app:layout_behavior` to a RecyclerView or any other View capable of [nested scrolling] such as [NestedScrollView](http://stackoverflow.com/questions/25136481/what-are-the-new-nested-scrolling-apis-for-android-l).  The support library contains a special string resource `@string/appbar_scrolling_view_behavior` that maps to [AppBarLayout.ScrollingViewBehavior](https://developer.android.com/reference/android/support/design/widget/AppBarLayout.ScrollingViewBehavior.html), which is used to notify the `AppBarLayout` when scroll events occur on this particular view.  The behavior must be established on the view that triggers the event.
 
 ```xml
  <android.support.v7.widget.RecyclerView
