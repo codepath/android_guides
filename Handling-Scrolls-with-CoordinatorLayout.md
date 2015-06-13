@@ -57,9 +57,7 @@ So long as the CoordinatorLayout is used as the primary layout, this animation e
 
 <img src="http://imgur.com/X5AIH0P.gif" width="350"/>
 
-### Making the Toolbar respond to scroll events
-
-If you are using the deprecated ActionBar, make sure to follow the [Using the ToolBar as ActionBar](http://guides.codepath.com/android/Defining-The-ActionBar#using-toolbar-as-actionbar) guide.  Also make sure that the CoordinatorLayout is the main layout container.
+The first step is to make sure you are not using the deprecated ActionBar.  Make sure to follow the [Using the ToolBar as ActionBar](http://guides.codepath.com/android/Defining-The-ActionBar#using-toolbar-as-actionbar) guide.  Also make sure that the CoordinatorLayout is the main layout container.
 
 ```xml
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -85,10 +83,11 @@ If you are using the deprecated ActionBar, make sure to follow the [Using the To
     </android.support.design.widget.AppBarLayout>
 
 </android.support.design.widget.CoordinatorLayout>
-
 ```
 
-Add an `app:layout_behavior` to a RecyclerView or any other View capable of [nested scrolling] such as [NestedScrollView](http://stackoverflow.com/questions/25136481/what-are-the-new-nested-scrolling-apis-for-android-l).  The support library contains a special string resource `@string/appbar_scrolling_view_behavior` that maps to [AppBarLayout.ScrollingViewBehavior](https://developer.android.com/reference/android/support/design/widget/AppBarLayout.ScrollingViewBehavior.html), which is used to notify the `AppBarLayout` when scroll events occur on this particular view.  The behavior must be established on the view that triggers the event.
+### Respond to Scroll events
+
+Next, we must make the Toolbar responsive to scroll events.  Add an `app:layout_behavior` to a RecyclerView or any other View capable of [nested scrolling] such as [NestedScrollView](http://stackoverflow.com/questions/25136481/what-are-the-new-nested-scrolling-apis-for-android-l).  The support library contains a special string resource `@string/appbar_scrolling_view_behavior` that maps to [AppBarLayout.ScrollingViewBehavior](https://developer.android.com/reference/android/support/design/widget/AppBarLayout.ScrollingViewBehavior.html), which is used to notify the `AppBarLayout` when scroll events occur on this particular view.  The behavior must be established on the view that triggers the event.
 
 ```xml
  <android.support.v7.widget.RecyclerView
