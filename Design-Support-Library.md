@@ -24,7 +24,6 @@ There is a new support design library that must be included.   This library also
           compile 'com.android.support:design:22.2.0'
       }
    ```
-   **Note** The [official Google docs](http://developer.android.com/tools/support-library/features.html#design) suggest that the Gradle line is `support-design`, but it   appears to be a typo.  A ticket is filed [here](https://code.google.com/p/android/issues/detail?id=175066).
 
 ### Features
 
