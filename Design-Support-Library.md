@@ -47,7 +47,7 @@ If you want to see how to use the various components, check out this [sample cod
 
 The source code for this library can be found [here](https://android.googlesource.com/platform/frameworks/support.git/+/master/design/).  For instance, if you are curious about what styles can be overridden for the different components, see this [link](https://android.googlesource.com/platform/frameworks/support.git/+/master/design/res/values/styles.xml).
 
-Currently, the source code for CoordinatorLayout and AppBarLayout do not appear to be publicly available. The best way to understand how to implement custom behaviors is by using Android Studio and navigating up the source tree to study the `FloatingActionButton` and `AppBarLayout` default behaviors.  Assuming you are using Android Studio v1.2 or higher, the decompiler code should enable you to understand better what's happening.
+Currently, the source code for CoordinatorLayout and AppBarLayout do not appear to be publicly available.  Assuming you are using Android Studio v1.2 or higher, the decompiler code should enable you to understand better what's happening.
 
 ## References
 
