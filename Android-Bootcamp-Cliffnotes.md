@@ -66,6 +66,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 
 * [[Customizing UI Quickstart|Polishing a UI Tips and Tools]] Outline
 * [[Styling UI Screens FAQ]]
+* [[Material Design Primer]]
 * [[Drawables|Drawables]]
 * [[Styles and Themes]]
 * [[Cloning a Login Screen Layout Guide]]
@@ -75,6 +76,9 @@ Cliffnotes are references giving you the "most important" Android topics with br
 
 * [[Animations for Layouts and Views|Animations]]
 * [[Gestures and Touch Events]]
+* [[Handling Scrolls with CoordinatorLayout]]
+* [[Shared Element Activity Transition]]
+* [[Floating Action Buttons]]
 
 ### Week 8 - Next Steps
 
