@@ -21,7 +21,7 @@ The ImageView handles all the loading and scaling of the image for you. Note the
 
 ### Sizing ImageView Controls
 
-By default, contents of an ImageView control are of a certain size -- usually the size of the image dimensions. They can also bounded by their layout_width and layout_height attributes: 
+By default, contents of an ImageView control are of a certain size -- usually the size of the image dimensions. They can also be bounded by their layout_width and layout_height attributes: 
 
 ```xml
 <ImageView
