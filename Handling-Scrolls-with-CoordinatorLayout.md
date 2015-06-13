@@ -112,7 +112,7 @@ Next, we need to define an association between the AppBarLayout and the View tha
 
 When a CoordinatorLayout notices this attribute declared in the RecyclerView, it will search across the other views contained within it for any related views associated by the behavior.  In this particular case, the `AppBarLayout.ScrollingViewBehavior` describes a dependency between the RecyclerView and AppBarLayout.   Any scroll events to the RecyclerView should trigger changes to the AppBarLayout layout or any views contained within it.
 
-How scroll events in the RecyclerView trigger changes inside views declared within `AppBarLayout`:
+Scroll events in the RecyclerView trigger changes inside views declared within `AppBarLayout` by using the `app:layout_scrollFlags` attribute:
 
 ```xml
     <android.support.design.widget.AppBarLayout
