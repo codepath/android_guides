@@ -164,9 +164,12 @@ If we want to create the collapsing toolbar effect, we must wrap the Toolbar ins
                 app:layout_scrollFlags="scroll|enterAlways"></android.support.v7.widget.Toolbar>
         </android.support.design.widget.CollapsingToolbarLayout>
 ```
+
+Your result should now appears as:
+
 <img src="http://imgur.com/X5AIH0P.gif" width="350"/>
 
-Normally, we set the title of the Toolbar.  Instead, we need to set the title on the CollapsingToolBarLayout instead of the Toolbar.
+Normally, we set the title of the Toolbar. Now, we need to set the title on the CollapsingToolBarLayout instead of the Toolbar.
 
 ```java
    CollapsingToolbarLayout collapsingToolbar =
