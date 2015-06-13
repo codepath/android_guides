@@ -183,7 +183,7 @@ The CollapsingToolbarLayout also enables us to do more advanced animations, such
 
 <img src="http://imgur.com/ah4l5oj.gif" width="350"/>
 
-To create this effect, we add an ImageView and declare an `app:layout_collapseMode="parallax" attribute to the tag.
+To create this effect, we add an ImageView and declare an `app:layout_collapseMode="parallax"` attribute to the tag.
 
 ```xml
     <android.support.design.widget.CollapsingToolbarLayout
