@@ -85,7 +85,7 @@ The first step is to make sure you are not using the deprecated ActionBar.  Make
 </android.support.design.widget.CoordinatorLayout>
 ```
 
-### Respond to Scroll events
+### Responding to Scroll events
 
 Next, we must make the Toolbar responsive to scroll events.  Add an `app:layout_behavior` to a RecyclerView or any other View capable of [nested scrolling] such as [NestedScrollView](http://stackoverflow.com/questions/25136481/what-are-the-new-nested-scrolling-apis-for-android-l).  The support library contains a special string resource `@string/appbar_scrolling_view_behavior` that maps to [AppBarLayout.ScrollingViewBehavior](https://developer.android.com/reference/android/support/design/widget/AppBarLayout.ScrollingViewBehavior.html), which is used to notify the `AppBarLayout` when scroll events occur on this particular view.  The behavior must be established on the view that triggers the event.
 
