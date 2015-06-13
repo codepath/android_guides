@@ -96,7 +96,7 @@ Add an `app:layout_behavior` to a RecyclerView or any other View capable of [nes
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 ```
 
-When a CoordinatorLayout notices this attributed declared in the RecyclerView, it will search across the other views contained within it for any related views associated by the behavior.  In this particular case, the `AppBarLayout.ScrollingViewBehavior` describes a dependency between the RecyclerView and AppBarLayout.   Any scroll events to the RecyclerView should trigger changes to the Toolbar layout.
+When a CoordinatorLayout notices this attribute declared in the RecyclerView, it will search across the other views contained within it for any related views associated by the behavior.  In this particular case, the `AppBarLayout.ScrollingViewBehavior` describes a dependency between the RecyclerView and AppBarLayout.   Any scroll events to the RecyclerView should trigger changes to the Toolbar layout.
 
 How scroll events in the RecyclerView trigger changes inside views declared within `AppBarLayout` are declared via the `layout_scrollFlags` field:
 
