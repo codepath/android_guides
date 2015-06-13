@@ -53,9 +53,11 @@ So long as the CoordinatorLayout is used as the primary layout, this animation e
  </android.support.design.widget.CoordinatorLayout>
 ```
 
-## Collapsing and Hiding Toolbar or Headers
+## Expanding and Collapsing Toolbars
 
-<img src="http://imgur.com/ah4l5oj.gif" width="350"/>
+<img src="http://imgur.com/X5AIH0P.gif" width="350"/>
+
+### Making the Toolbar respond to scroll events
 
 If you are using the deprecated ActionBar, make sure to follow the [Using the ToolBar as ActionBar](http://guides.codepath.com/android/Defining-The-ActionBar#using-toolbar-as-actionbar) guide.  Also make sure that the CoordinatorLayout is the main layout container.
 
@@ -116,7 +118,79 @@ The `scroll` flag must be enabled in order for the View to scroll off the screen
 
 Keep in mind to order all your views with the scroll flag first.  This way, the views that collapse will exit first while leaving the pinned elements at the top.
 
-# Custom Behaviors
+At this point, you should notice that the Toolbar responds to scroll events.  
+
+<img src="http://imgur.com/Hl2Asb1.gif" width="350"/>
+
+### Creating Collapsing Effects
+
+If we want to create the collapsing toolbar effect, we must wrap the Toolbar inside CollapsingToolbarLayout:
+
+```xml
+<android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="48dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_scrollFlags="scroll|enterAlways"></android.support.v7.widget.Toolbar>
+        </android.support.design.widget.CollapsingToolbarLayout>
+```
+<img src="http://imgur.com/X5AIH0P.gif" width="350"/>
+
+Normally, we set the title of the Toolbar.  Instead, we need to set the title on the CollapsingToolBarLayout instead of the Toolbar.
+
+```java
+   CollapsingToolbarLayout collapsingToolbar =
+                (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
+        collapsingToolbar.setTitle("Title");
+```
+
+### Creating Parallax Animations
+
+The CollapsingToolbarLayout also enables us to do more advanced animations, such as using an ImageView that fades out as it collapses.  The title can also change in height as the user scrolls.
+
+<img src="http://imgur.com/ah4l5oj.gif" width="350"/>
+
+To create this effect, we add an ImageView and declare an `app:layout_collapseMode="parallax" attribute to the tag.
+
+```xml
+    <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="48dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_scrollFlags="scroll|enterAlways"></android.support.v7.widget.Toolbar>
+            <ImageView
+                android:src="@drawable/cheese_1"
+                app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                app:layout_collapseMode="parallax"
+                android:minHeight="100dp"/>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+```
+
+## Custom Behaviors
 
 One example of a custom behavior is discussed in using [CoordinatorLayout with Floating Action Buttons](http://guides.codepath.com/android/Floating-Action-Buttons#using-coordinatorlayout).  
 
@@ -139,8 +213,7 @@ To define your own a CoordinatorLayout Behavior, the layoutDependsOn() and onDep
    }       
 ```
 
-# References
+## References
 
 * <http://android-developers.blogspot.com/2015/05/android-design-support-library.html>
-
 
