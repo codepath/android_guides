@@ -110,7 +110,7 @@ Next, we need to define an association between the AppBarLayout and the View tha
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 ```
 
-When a CoordinatorLayout notices this attribute declared in the RecyclerView, it will search across the other views contained within it for any related views associated by the behavior.  In this particular case, the `AppBarLayout.ScrollingViewBehavior` describes a dependency between the RecyclerView and AppBarLayout.   Any scroll events to the RecyclerView should trigger changes to the Toolbar layout.
+When a CoordinatorLayout notices this attribute declared in the RecyclerView, it will search across the other views contained within it for any related views associated by the behavior.  In this particular case, the `AppBarLayout.ScrollingViewBehavior` describes a dependency between the RecyclerView and AppBarLayout.   Any scroll events to the RecyclerView should trigger changes to the AppBarLayout layout or any views contained within it.
 
 How scroll events in the RecyclerView trigger changes inside views declared within `AppBarLayout`:
 
