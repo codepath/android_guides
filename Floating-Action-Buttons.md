@@ -21,7 +21,7 @@ You should now be able to add the `android.support.design.widget.FloatingActionB
 
 ```xml
        <android.support.design.widget.FloatingActionButton
-          android:src="@mipmap/ic_launcher"
+          android:src="@drawable/ic_done"
           app:fabSize="normal"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content" />
@@ -49,7 +49,7 @@ To place the floating action button, you will use [CoordinatorLayout](http://dev
               android:layout_height="wrap_content"
               android:layout_gravity="bottom|right"
               android:layout_margin="16dp"
-              android:src="@drawable/ic_launcher"
+              android:src="@drawable/ic_done"
               app:layout_anchor="@id/lvToDoList"
               app:layout_anchorGravity="bottom|right|end" />
 
