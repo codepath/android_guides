@@ -125,6 +125,7 @@ Exploring how to allow user interaction and navigation within an app:
 * [[Implementing a Rate Me Feature]] (For getting Play Store ratings)
 * [[Repeating Periodic Tasks]] (Handler, ScheduledThreadPoolExecutor)
 * [[Floating Action Buttons]] (Android 5.0, Promoted Action)
+* [[Handling Scrolls with CoordinatorLayout]] (Collapsing toolbars)
 
 ## Navigation
 
