@@ -236,7 +236,7 @@ To define your own a CoordinatorLayout Behavior, the layoutDependsOn() and onDep
    }       
 ```
 
-The best way to understand how to implement these custom behaviors is by studying the AppBarLayout.Behavior and FloatingActionButtion.Behavior examples.  Although the source code is not publicly available yet, you can use the decompiler integrated with Android 1.2 to examine how they work by navigating up the source tree.
+The best way to understand how to implement these custom behaviors is by studying the AppBarLayout.Behavior and FloatingActionButtion.Behavior examples.  Although the source code is not publicly available yet, you can use the decompiler integrated with Android Studio 1.2 to examine how they work by navigating up the source tree.
 
 ## References
 
