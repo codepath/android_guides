@@ -76,7 +76,7 @@ The first step is to make sure you are not using the deprecated ActionBar.  Make
 </android.support.design.widget.CoordinatorLayout>
 ```
 
-### Responding to Scroll events
+### Responding to scroll events
 
 Next, we must make the Toolbar responsive to scroll events using a container layout called
 [AppBarLayout](http://developer.android.com/reference/android/support/design/widget/AppBarLayout.html):
