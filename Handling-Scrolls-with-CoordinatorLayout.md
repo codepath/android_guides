@@ -219,8 +219,8 @@ One example of a custom behavior is discussed in using [CoordinatorLayout with F
 
 CoordinatorLayout works by searching through any child view that has a [CoordinatorLayout Behavior](http://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html) defined either statically as XML with a `app:layout_behavior` tag or programmatically with the View class annotated with the `@DefaultBehavior` decorator.  When a scroll event happens, CoordinatorLayout attempts to trigger other child views that are declared as dependencies.
 
-To define your own a CoordinatorLayout Behavior, the layoutDependsOn() and onDependentViewChanged() should be implemented.
-
+To define your own a CoordinatorLayout Behavior, the layoutDependsOn() and onDependentViewChanged() should be implemented.  For instance, AppBarLayout.Behavior has these two key methods defined.  This behavior is used to trigger a change on the AppBarLayout when a scroll event happens. 
+ 
 ```java
 
   public boolean layoutDependsOn(CoordinatorLayout parent, View child, View dependency) {
