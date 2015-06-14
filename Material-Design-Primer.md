@@ -153,7 +153,14 @@ See our detailed [[shared element transition guide|Shared-Element-Activity-Trans
 
 ![reveal](http://i.imgur.com/8jzWpX1.gif)
 
-This animation is often times used in conjunction with a floating action button that will grow onto the screen using this transtion.
+This animation is often times used in conjunction with a floating action button that will grow onto the screen using this transition.
+
+### Collapsing Toolbars 
+
+[[Scroll effects|Handling-Scrolls-with-CoordinatorLayout]] can also be created to shrink or expand the Toolbar or Header to make room for the main content area.
+
+![scroll-effects](http://imgur.com/ah4l5oj.gif)
+
 
 ## Material Styles
 
