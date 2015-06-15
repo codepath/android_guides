@@ -635,7 +635,16 @@ The [android:animateLayoutChanges](http://developer.android.com/reference/androi
 
 In certain cases, we want to be able to display animated images such as an simple animated GIF. The underlying class for making this happen is called [AnimationDrawable](http://developer.android.com/reference/android/graphics/drawable/AnimationDrawable.html) which is an XML format for describing a sequence of images to display. 
 
-One of the simplest ways to display an animated gif is to use a third-party library. [gifanimateddrawable](https://github.com/Hipmob/gifanimateddrawable) is an easy way to convert a gif into an `AnimationDrawable` which can be displayed in an `ImageView` (see [blog post](http://engineering.hipmob.com/2013/12/02/Showing-animated-gifs-on-Android/)). First, let's [download](https://github.com/Hipmob/gifanimateddrawable/archive/master.zip) the library and import as a library project and then we can display local gifs. First, setup an `ImageView` in the the activity i.e `activity_main.xml`:
+One of the simplest ways to display an animated gif is to use a third-party library. [Glide](https://github.com/bumptech/glide) is an easy way to display a local or remote gif into an `ImageView`. First, let's add Glide to our `app/build.gradle` file:
+
+```gradle
+dependencies {
+    ...
+    compile 'com.github.bumptech.glide:glide:3.6.0'
+}
+```
+
+Next, setup an `ImageView` in the the activity i.e `activity_main.xml`:
 
 ```xml
 <ImageView
@@ -645,7 +654,7 @@ One of the simplest ways to display an animated gif is to use a third-party libr
     android:layout_height="wrap_content" />
 ```
 
-Be sure to put an animated gif into the `res/raw` folder for displaying. Next, we can convert the GIF into an `AnimationDrawable` and load the GIF into the `ImageView` within the activity i.e `MainActivity.java`:
+For local GIFs, be sure to put an animated gif into the `res/raw` folder for displaying. Next, we can convert and load the GIF into the `ImageView` within the activity i.e `MainActivity.java` using Glide:
 
 ```java
 // MainActivity.java
@@ -657,21 +666,9 @@ public class MainActivity extends Activity {
         // Find the ImageView to display the GIF
         ImageView ivGif = (ImageView) findViewById(R.id.ivGif);
         // Display the GIF (from raw resource) into the ImageView
-        loadGifIntoImageView(ivGif, R.raw.my_gif);
-    }
-
-    // Loads a GIF from the specified raw resource folder into an ImageView
-    protected void loadGifIntoImageView(ImageView ivImage, int rawId) {
-        try {
-            GifAnimationDrawable anim = new GifAnimationDrawable(getResources().openRawResource(rawId));
-            ivImage.setImageDrawable(anim);
-            ((GifAnimationDrawable) ivImage.getDrawable()).setVisible(true, true);
-            anim.start(); // starts the animation
-        } catch (NotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Glide.with(this).load(R.raw.my_gif).asGif().into(imageView);
+        // OR even download from the network
+        // Glide.with(this).load("http://i.imgur.com/l9lffwf.gif").asGif().into(imageView);
     }
 }
 ```
@@ -680,7 +677,7 @@ and now we have this:
 
 ![GIF](http://i.imgur.com/YEmtaE6.gif)
 
-You can also check out the popular [ImageViewEx](https://github.com/frapontillo/ImageViewEx) library for another solution. An alternative method is simply to [use a WebView](http://droid-blog.net/2011/10/17/tutorial-how-to-play-animated-gifs-in-android-part-3/). Any of these approaches will make displaying animated gifs fairly straightforward.
+You can also check out the popular [android-gif-drawable](https://github.com/koral--/android-gif-drawable) library for another solution. An alternative method is simply to [use a WebView](http://droid-blog.net/2011/10/17/tutorial-how-to-play-animated-gifs-in-android-part-3/). 
 
 ## Lollipop Animations
 
