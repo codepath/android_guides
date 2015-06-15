@@ -288,7 +288,7 @@ With this we can update the text for the tab to display update indicators or oth
 
 ### Further Customization
 
-If you need further customization of your ViewPager tabs such as completely custom tab design, check out [[Google's TabLayout approach|Google-Play-Style-Tabs-using-TabLayout#add-custom-view-to-tablayout]] or this alternative third-party library [SmartTabLayout](https://github.com/ogaclejapan/SmartTabLayout)
+If you need further customization of your ViewPager tabs such as completely custom tab design, check out [[Google's TabLayout approach|Google-Play-Style-Tabs-using-TabLayout#add-custom-view-to-tablayout]] or this alternative third-party library [SmartTabLayout](https://github.com/ogaclejapan/SmartTabLayout).
 
 ## References
 
