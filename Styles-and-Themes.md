@@ -129,6 +129,8 @@ Notice that we use the `AppTheme` generated for us to make modifications to [but
 
 ![Screen](http://i.imgur.com/fF7UiTo.png)
 
+#### Additional Resources
+
 Having trouble figuring out which style attributes you can use when defining a theme?  Here are a few resources:
 
  * [themes.xml](http://omapzoom.org/?p=platform/frameworks/base.git;a=blob;f=core/res/res/values/themes.xml;hb=master) for the complete list of the thousands of default styles for an app. 
