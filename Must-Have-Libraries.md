@@ -34,6 +34,28 @@ Using the Butterknife library with the Parceler library causes multiple declarat
     }
 ```
 
+### ButterKnife and Custom Views
+
+Often you may find that using Butterknife or Dagger injections defined in your constructor prevent Android Studio to preview your Custom View layout.  You may see an error about needing `isEditMode()` defined.
+Essentially this method is used to enable your code to short-circuit before executing a section of code that might be used for run-time but cannot be executed within the preview window.
+
+```java
+  public ContentEditorView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+
+        LayoutInflater inflater = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        inflater.inflate(R.layout.view_custom, this, true);
+
+        // short circuit here inside the layout editor
+        if(isInEditMode()) {
+            return;
+        }
+
+        ButterKnife.inject(this);
+```
+
 ### Convenience
 
  * [Dagger](http://square.github.io/dagger/) - A fast dependency injector for Android and Java.  See this [video intro](http://www.infoq.com/presentations/Dagger) from Square.
