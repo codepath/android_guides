@@ -27,7 +27,7 @@ The passed in `bitmap` is the image from which you want to extract the colors. B
 
 ### Asynchronously
 
-By passing in a `PaletteAsyncListener` to the `generate` method, it will now generate the palette asynchronously using an `AsyncTask` to gather the Palette swatch information from the bitmap:
+By passing in a [PaletteAsyncListener](https://developer.android.com/reference/android/support/v7/graphics/Palette.PaletteAsyncListener.html) to the `generate` method, it will now generate the palette asynchronously using an `AsyncTask` to gather the Palette swatch information from the bitmap:
 
 ```java
 // This is the quick and easy integration path. 
