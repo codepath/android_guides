@@ -8,35 +8,31 @@ Make sure to add the Palette dependency to your `build.gradle` file if your targ
 compile 'com.android.support:palette-v7:21.0.+'
 ```
 
-There are two ways to create a Palette and extract the colors from an image:
+## Generating the Palette
 
-* Synchronous
-* Asynchronous
+The [Palette.Builder](https://developer.android.com/reference/android/support/v7/graphics/Palette.Builder.html) allows for creation of a [Palette](https://developer.android.com/reference/android/support/v7/graphics/Palette.html). It provides methods to set the maximum number of colors in the generated palette and to generate the palette synchronously or asynchronously.
 
-### Synchronous Methods
+### Synchronously
 
-These should be used when you have access to the underlying image loading thread. 
-
-```java
-public Palette generate(Bitmap image)
-```
-
-Pass only the image you want to extract the colors from as a parameter. This uses a default number of 15 colors, which should be enough to generate colors that correspond to the special set.
+Generate the palette synchronously when you have access to the underlying image loading thread. 
 
 ```java
-public Palette generate(Bitmap image, int numberOfColors)
+Palette.from(bitmap).generate();
+```
+```java
+Palette.from(bitmap).maximumColorCount(numberOfColors).generate();
 ```
 
-Pass the image and specify the number of colors you want to generate from the image. This allows you to specify the maximum palette size of 24.
+The passed in `bitmap` is the image from which you want to extract the colors. By default, it will use a maximum palette size of 16 colors. This can be overridden using the `maximumColorCount` method.
 
-### Asynchronous Methods
+### Asynchronously
 
-There is an asynchronous method that uses an `AsyncTask` to gather the Palette swatch information from the bitmap:
+By passing in a `PaletteAsyncListener` to the `generate` method, it will now generate the palette asynchronously using an `AsyncTask` to gather the Palette swatch information from the bitmap:
 
 ```java
 // This is the quick and easy integration path. 
 // May not be optimal (since you're dipping in and out of threads)
-Palette.generateAsync(bitmap, new Palette.PaletteAsyncListener() {
+Palette.from(bitmap).maximumColorCount(numberOfColors).generate(new Palette.PaletteAsyncListener() {
     @Override
     public void onGenerated(Palette palette) {
          // Get the "vibrant" color swatch based on the bitmap
@@ -50,8 +46,9 @@ Palette.generateAsync(bitmap, new Palette.PaletteAsyncListener() {
     }
 });
 ```
+### Adjusting the Number of Colors
 
-This method takes in the image to extract the colors from, and a listener for a callback when the asynchronous task finishes. 
+Good values for `numberOfColors` depend on the source image type. For landscapes, good values are in the range 12-16. For images which are largely made up of people's faces then this value should be increased to 24-32. Keep in mind that increasing the number of colors increases the computation time.
 
 ### Palette Properties
 
@@ -77,20 +74,6 @@ Each Swatch contains the following methods:
  * `getTitleTextColor()`: the RGB value of a text color which can be displayed on top of this color.
 
 The different text colors roughly match up to the material design standard styles of the same name. The title text color will be more translucent as the text is larger and thus requires less color contrast. The body text color will be more opaque as text is smaller and thus requires more contrast from color.
-
-### Adjusting the Number of Colors
-
-We can also specify the maximum number of colors in the generated palette (`numColors`) for the given bitmap:
-
-```java
-// Allows you to specify the maximum palette size, in this case 24.
-// Increasing the number of colors increasing computation time
-Palette.generateAsync(bitmap, 24, new Palette.PaletteAsyncListener() {
-    // ...
-});
-```
-
-Good values for `numColors` depend on the source image type. For landscapes, a good values are in the range 12-16. For images which are largely made up of people's faces then this value should be increased to 24-32.
 
 ## References
 
