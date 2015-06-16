@@ -214,6 +214,12 @@ PhotoViewAttacher mAttacher = new PhotoViewAttacher(mImageView);
 
 Check out the [PhotoView](https://github.com/chrisbanes/PhotoView) readme and sample for more details. You can also check the [TouchImageView](https://github.com/MikeOrtiz/TouchImageView) library which is a nice alternative.
 
+### Scrolling Lists
+
+Scrolling is a common gesture associated with lists of items within a `ListView` or `RecyclerView`. Often the scrolling is associated with the hiding of certain elements (toolbar) or the shrinking or morphing of elements such as a parallax header. If you are using a `RecyclerView`, check out the [addOnScrollListener](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html#addOnScrollListener\(android.support.v7.widget.RecyclerView.OnScrollListener\)). With a `ListView`, we can use the [OnScrollListener](http://developer.android.com/reference/android/widget/AbsListView.html#setOnScrollListener\(android.widget.AbsListView.OnScrollListener\)) instead. 
+
+With Android "M" and the release of the [[Design-Support-Library]], the [CoordinatorLayout]() was introduced which enables handling changes associated with the scrolling of a `RecyclerView`. Review the [[Handling Scrolls with CoordinatorLayout]] guide for a detailed breakdown of how to manage scrolls using this new layout to collapse the toolbar or hide and reveal header content.  
+
 ### Dragging and Dropping
 
 Dragging and dropping views is not particularly difficult to do thanks to the [OnDragListener](http://developer.android.com/reference/android/view/View.OnDragListener.html) built in since API 11. Unfortunately, to support gingerbread managing drag and drop becomes much more manual as you have to implement it using the `onTouch` handlers. With API 11 and above, you can leverage the built in drag handling.
