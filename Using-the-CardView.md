@@ -53,7 +53,7 @@ Thats it! Using the support library ensures backward compatibility as well; alth
 
 ### Customizing CardView
 
-`CardView` provides a default elevation and corner radius so that cards have a consistent appearance across the platforms. However, you may choose to customize these values if you desire to do so.
+`CardView` provides a default elevation and corner radius so that cards have a consistent appearance across the platforms. However, you may choose to customize these values if you desire to do so. We can also set the background color of the card.
 
 ```xml
 <android.support.v7.widget.CardView
@@ -72,7 +72,16 @@ Thats it! Using the support library ensures backward compatibility as well; alth
 </android.support.v7.widget.CardView>
 ```
 
-Note that the `card_view:cardElevation` is used to determine the size and softness of the shadow so as to realistically depict the depth. 
+Note that the `card_view:cardElevation` is used to determine the size and softness of the shadow so as to realistically depict the depth. These properties can be set programmatically as well:
+
+```java
+CardView card = ...
+card.setCardBackgroundColor(Color.parseColor("#E6E6E6"));
+card.setMaxCardElevation(0.0);
+card.setRadius(5.0);
+```
+
+See the [CardView docs](https://developer.android.com/reference/android/support/v7/widget/CardView.html) for additional properties.
 
 ### Adding Ripple Effect
 
