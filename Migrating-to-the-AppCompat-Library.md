@@ -8,6 +8,7 @@ dependencies {
 }
 ```
 
+Note that the AppCompat library has an implicit dependency on the support-v4 library.  It does not necessarily need to be declared.
 
 ### Search and replacing changes
 
@@ -84,3 +85,4 @@ android {
 * <http://www.androidauthority.com/goodbye-menu-button-hello-action-bar-48312/>
 * <http://android-developers.blogspot.in/2013/08/actionbarcompat-and-io-2013-app-source.html>
 * <http://android-developers.blogspot.com/2014/10/appcompat-v21-material-design-for-pre.html>
+* <https://chris.banes.me/2015/04/22/support-libraries-v22-1-0/>
