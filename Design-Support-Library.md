@@ -8,7 +8,7 @@ At their I/O 2015 conference, Google announced a new [design support library](ht
 
 ### Setup
 
-Make sure that you have at least the Android Gradle plugin v1.2.3 supported.  There are several issues with using older versions including some support library widgets fail to render correctly (see  https://code.google.com/p/android/issues/detail?id=170841).  
+Make sure that you have at least the Android Gradle plugin v1.2.3 supported.  There are several issues with using older versions including some support library widgets fail to render correctly (see [issue](https://code.google.com/p/android/issues/detail?id=170841)).  
 
 ```gradle
     dependencies {
