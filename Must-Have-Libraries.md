@@ -167,6 +167,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [Realm](https://github.com/realm/realm-java)
  * [NexusData](https://github.com/dkharrat/NexusData)
  * [Hawk](https://github.com/orhanobut/hawk) - Persistent secure key/value store
+ * [Poetry](https://github.com/elastique/poetry) - Persistent JSON directly into SQLite
 
 ### Compatibility
 
