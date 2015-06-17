@@ -12,7 +12,7 @@ Note that the AppCompat library has an implicit dependency on the support-v4 lib
 
 ## Search and replacing changes
 
-Older projects may not include this library, so migrating requires changing the theme references and many of the main imports described in this [blog post](http://android-developers.blogspot.com/2014/10/appcompat-v21-material-design-for-pre.html).  Because the support class declarations are not compatible with the standard Android ones, you need to make sure you are using the support ones entirely.  Otherwise your app is likely to crash.
+Older projects may not include this library, so migrating requires changing the theme references and many of the main imports described in this [blog post](http://android-developers.blogspot.com/2014/10/appcompat-v21-material-design-for-pre.html).  Because the support class declarations are not compatible with the standard Android ones, you need to make sure you are using the imports from the support library entirely.  Otherwise your app is likely to crash.
 
 The simplest is often to do a search-and-replace to start changing the following statements to start using the support libraries.
 
