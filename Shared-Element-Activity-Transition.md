@@ -113,6 +113,8 @@ ActivityOptionsCompat options = ActivityOptionsCompat.
 startActivity(intent, options.toBundle());
 ```
 
+**Note:** By default `android.util.Pair` will be imported but we want to select the `android.support.v4.util.Pair` class instead.
+
 Be careful to not overdo transitions between shared elements. While it can make sense to have one cohesive unit animate from one screen to another (which may or may not contain multiple shared elements), having too many shared elements will result in a distracting animation which makes the experience more jarring.
 
 ### 5. Customizing Shared Elements Transition
