@@ -33,6 +33,10 @@ The simplest is often to do a search-and-replace to start changing the following
  * `import android.app.ActionBar` -> `import android.support.v7.app.ActionBar`
  * `getActionBar()` -> `getSupportActionBar()`
 
+#### AlertDialog Changes
+
+ * `import android.app.AlertDialog` -> `import android.support.v7.app.AlertDialog`
+
 #### Theme XML Changes
 
 If you were migrating from the Holo theme, your new `themes.xml` would inherit from `Theme.AppCompat` instead of `android:Theme.Holo.Light`:
