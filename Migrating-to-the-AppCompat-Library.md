@@ -8,7 +8,7 @@ dependencies {
 }
 ```
 
-Note that the AppCompat library has an implicit dependency on the support-v4 library.  It does not necessarily need to be declared.
+Note that the AppCompat library has an implicit dependency on the support-v4 library.  The support-v4 declaration however does not necessarily need to be declared.
 
 ### Search and replacing changes
 
