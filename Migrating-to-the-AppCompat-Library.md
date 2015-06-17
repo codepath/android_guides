@@ -75,7 +75,7 @@ If you are using widgets such as the SearchView, you must also use `android.supp
 
 ### Changing targetSDKVersion
 
-In addition, setting the `targetSdkVersion` to the latest SDK version ensures that the  AppCompat library will attempt to apply the Material Design assuming the device itself can support it.  In other words, `targetSdkVersion` only is used as an extra check to determine whether the SDK version should even be supported or not.  The support library will still check to see if the minimum SDK version is being used on the device.
+In addition, setting the `targetSdkVersion` to the latest SDK version ensures that the  AppCompat library will attempt to apply the Material Design assuming the device itself can support it. The support library will still check to see if the minimum SDK version is being used on the device.
 
 ```gradle
 android {
