@@ -61,6 +61,7 @@ Thats it! Using the support library ensures backward compatibility as well; alth
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    card_view:cardBackgroundColor="#E6E6E6"
     card_view:cardCornerRadius="8dp"
     card_view:cardElevation="8dp">
 
@@ -71,7 +72,7 @@ Thats it! Using the support library ensures backward compatibility as well; alth
 </android.support.v7.widget.CardView>
 ```
 
-Note that the `card_view:cardElevation` is used to determine the size and softness of the shadow so as to realistically depict the depth.
+Note that the `card_view:cardElevation` is used to determine the size and softness of the shadow so as to realistically depict the depth. 
 
 ### Adding Ripple Effect
 
