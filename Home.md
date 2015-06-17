@@ -59,6 +59,7 @@ Exploring the foundations of app development:
 * [[Organizing your Source Files]] (Cleaning up your Apps)
 * [[Using Resource Files|Using String Resources]] (Understanding String Resources)
 * [[Handling Configuration Changes]] (Screen Rotation)
+* [[Migrating to the AppCompat Library]] (Using the Support Libraries)
 
 ## Views and Layouts
 
