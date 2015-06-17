@@ -7,7 +7,8 @@ The ActionBar is a consistent navigation element that is standard throughout mod
  * Primary action buttons for an activity
  * Consistent navigation (including tabbed UI)
 
-Important to note that prior to 3.0, there was no ActionBar although there is a compatibility library that comes bundled that provides limited ActionBar functionality to older versions. There is now a support library called [ActionBarCompat](http://android-developers.blogspot.com/2013/08/actionbarcompat-and-io-2013-app-source.html) which provides much better compatibility for older versions (including support for tabbed interfaces).
+
+Important to note that prior to 3.0, there was no ActionBar. In 2013, Google announced a [support library](http://android-developers.blogspot.com/2013/08/actionbarcompat-and-io-2013-app-source.html) that provides much better compatibility for older versions and support for tabbed interfaces.  Since most of the examples below depend on this support library, make sure to include the [[AppCompat library|Migrating-to-the-AppCompat-Library]].  
 
 ## ActionBar Basics
 
