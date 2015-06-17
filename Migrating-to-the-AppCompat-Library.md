@@ -48,7 +48,7 @@ If you were migrating from the Holo theme, your new `themes.xml` would inherit f
 
 #### Menu XML Changes
 
-For your menu/ layout files, add an `app:` namespace .  For menu items, the `showAsAction` must be from the `app` namespace instead of `android` namespace.  It is considered a custom attribute of the support library and not supported in the main Android framework.
+For your menu/ layout files, add an `app:` namespace .  For menu items, the `showAsAction` must be from the `app` namespace instead of `android` namespace.  It is considered a custom attribute of the support library and will no otherwise be processed correctly without making this change.
 
 ```xml
 -<menu xmlns:android="http://schemas.android.com/apk/res/android">
