@@ -151,7 +151,7 @@ Next, let's setup a basic navigation drawer based on the following layout file w
     <!-- The navigation drawer -->
     <android.support.design.widget.NavigationView
         android:id="@+id/nvView"
-        android:layout_width="240dp"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="@android:color/white"
