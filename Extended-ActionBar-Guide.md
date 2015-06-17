@@ -6,7 +6,7 @@ Older Android devices have a hardware Option button to open the menu. The Action
 
 This is typically used for displaying the title of the application and providing a primary navigation for the app. The ActionBar can contain primary action buttons as well as tabs to control navigation within any app.
 
-**Note** that we will be using the support library and `AppCompatActivity` for these examples since the library provides maximum compatibility with pre-3.0 Android versions. The APIs and usage are the same with the standard ActionBar just with small changes to the imported classes and class names.
+**Note** that we will be using the support library and `AppCompatActivity` for these examples since the library provides maximum compatibility with pre-3.0 Android versions. The APIs and usage are the same with the standard ActionBar just with small changes to the imported classes and class names.  If you are not currently using the support library, check out this [[migration guide|Migrating to the AppCompat Library]].
 
 ## Usage
 
