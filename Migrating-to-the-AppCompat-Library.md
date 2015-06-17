@@ -1,4 +1,4 @@
-# Overview
+## Overview
 
 The [AppCompat](https://developer.android.com/tools/support-library/features.html#v7) support library enables the use of the ActionBar and Material Design specific implementations such as [Toolbar](https://developer.android.com/reference/android/support/v7/widget/Toolbar.html) for older devices down to Android v2.1.   Currently, new projects created through Android Studio incorporate this library by default.  You can confirm by looking at the `build.gradle` file to see the AppCompat library being set:
 
@@ -10,7 +10,7 @@ dependencies {
 
 Note that the AppCompat library has an implicit dependency on the support-v4 library.  The support-v4 declaration however does not necessarily need to be declared.
 
-### Search and replacing changes
+## Search and replacing changes
 
 Older projects may not include this library, so migrating requires changing the theme references and many of the main imports described in this [blog post](http://android-developers.blogspot.com/2014/10/appcompat-v21-material-design-for-pre.html).  Because the class declarations are not compatible, you need to make sure you are using the support library definitions entirely.  Otherwise your app is likely to crash.
 
@@ -73,7 +73,7 @@ If you are using widgets such as the SearchView, you must also use `android.supp
 +          app:actionViewClass="android.support.v7.widget.SearchView">
 ```
 
-### Changing targetSDKVersion
+#### Changing targetSDKVersion
 
 In addition, setting the `targetSdkVersion` to the latest SDK version ensures that the  AppCompat library will attempt to apply the Material Design assuming the device itself can support it. The support library will still check to see if the minimum SDK version is being used on the device.
 
@@ -81,7 +81,6 @@ In addition, setting the `targetSdkVersion` to the latest SDK version ensures th
 android {
     targetSdkVersion 21
 ```
-
 
 
 # References
