@@ -35,7 +35,17 @@ dependencies {
     // compile 'com.android.support:appcompat-v7:20.0.0'  
 }
 ```
-**Note** that if you are trying to build for a different version other than SDK 21, use `com.android.support:appcompat-v7:20.0.0`.  There are different themes in SDK 21, so you are likely to have compile errors.  For more context, see this [Stack Overflow](http://stackoverflow.com/questions/26457096/appcompat-v7-r21-returning-error-in-values-xml) discussion.
+
+Make sure to bump your `compileSdkVersion` to API version 21.  Otherwise the AppCompat library will not assume the Material Design themes should be included.
+
+```gradle
+android {
+
+   compileSdkVersion 21
+   buildToolsVersion "22.0.1" 
+ 
+}
+```
 
 Once it's added, be sure to sync your project with the gradle file (`Tools => Android => Sync Project with Gradle Files`) and make sure any applicable activities are now extending from `AppCompatActivity` in order to enable
 the compatibility fragments and action bar:
