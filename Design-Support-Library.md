@@ -15,7 +15,7 @@ Make sure that you have at least the Android Gradle plugin v1.2.3 supported.  Th
         classpath 'com.android.tools.build:gradle:1.2.3'
     }
 ```
-There is a new support design library that must be included.   This library also depends on updated versions of the [AppCompat](http://android-developers.blogspot.com/2014/10/appcompat-v21-material-design-for-pre.html) library and support v4 library to be included.  Make sure these versions have been updated too.
+There is a new support design library that must be included.   This library also depends on updated versions of the [AppCompat](http://android-developers.blogspot.com/2014/10/appcompat-v21-material-design-for-pre.html) library and support v4 library to be included.  Make sure these versions have been updated too.  
 
    ```gradle
         dependencies {
@@ -24,6 +24,8 @@ There is a new support design library that must be included.   This library also
           compile 'com.android.support:design:22.2.0'
       }
    ```
+
+If you are not currently using the AppCompat library, check out this [migration guide](https://github.com/codepath/android_guides/wiki/Migrating-to-the-AppCompat-Library).
 
 ### Features
 
