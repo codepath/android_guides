@@ -76,12 +76,6 @@ public class MyParcelable implements Parcelable {
 
 Note that the `Parcelable` interface has two methods defined: `int describeContents()` and `void writeToParcel(Parcel dest, int flags)`. After implementing the `Parcelable` interface, we need to create the `Parcelable.Creator<MyParcelable> CREATOR` constant for our class as well.
 
-### What It Is Not
-
-You may notice some similarities between `Parcelable` and `Serializable`.  DO NOT, I repeat, DO NOT attempt to persist `Parcel` data.  It is meant for high-performance transport and you could lose data by trying to persist it.
-
-Using `Parcelable` compared to `Serializable` can achieve up to 10x performance increase in many cases for transport which is why it's the Android preferred method. :)
-
 ### Passing Data Between Intents
 
 We can now pass the parcelable data between activities within an intent:
@@ -106,6 +100,12 @@ public class NewActivity extends Activity {
 ```
 
 Now we can access the parcelable data from within the launched activity.
+
+### What It Is Not
+
+You may notice some similarities between `Parcelable` and `Serializable`.  DO NOT, I repeat, DO NOT attempt to persist `Parcel` data.  It is meant for high-performance transport and you could lose data by trying to persist it.
+
+Using `Parcelable` compared to `Serializable` can achieve up to 10x performance increase in many cases for transport which is why it's the Android preferred method. 
 
 ### Caveats
 
