@@ -19,70 +19,62 @@ public class MyParcelable implements Parcelable {
     // you can also include child Parcelable objects. Assume MySubParcel is such a Parcelable:
     private MySubParcelable mInfo;
 
+    // In the vast majority of cases you can simply return 0 for this.  
+    // There are cases where you need to use the constant `CONTENTS_FILE_DESCRIPTOR`
+    // But this is rare and out of scope
     @Override
     public int describeContents() {
         return 0;
     }
 
+    // This is where you write the values you want to save to the `Parcel`.  
+    // The `Parcel` class has methods defined to help you save all of your values.  
+    // Note that there are only methods defined for simple values, lists, and other Parcelable objects.  
+    // You may need to make several classes Parcelable to send the data you want.
     @Override
     public void writeToParcel(Parcel out, int flags) {
         out.writeInt(mData);
         out.writeString(mName);
-        
         out.writeParcelable(mInfo, flags)
     }
 
+    // After implementing the `Parcelable` interface, we need to create the 
+    // `Parcelable.Creator<MyParcelable> CREATOR` constant for our class; 
+    // Notice how it has our class as its type.  
     public static final Parcelable.Creator<MyParcelable> CREATOR
             = new Parcelable.Creator<MyParcelable>() {
+
+
+        // This simply calls our new constructor (typically private) and 
+        // passes along the unmarshalled `Parcel`, and then returns the new object!
         @Override
         public MyParcelable createFromParcel(Parcel in) {
             return new MyParcelable(in);
         }
 
+        // We just need to copy this and change the type to match our class.
         @Override
         public MyParcelable[] newArray(int size) {
             return new MyParcelable[size];
         }
     };
      
+    // Using the `in` variable, we can retrieve the values that 
+    // we originally wrote into the `Parcel`.  This constructor is usually 
+    // private so that only the `CREATOR` field can access.
     private MyParcelable(Parcel in) {
         mData = in.readInt();
         mName = in.readString();
-        
         mInfo = in.readParcelable(MySubParcelable.class.getClassLoader());
     }
 
     public MyParcelable() {
-        //normal actions performed by class, it's still a normal object!
+        // normal actions performed by class, it's still a normal object!
     }
 }
 ```
 
-The `Parcelable` interface has two methods defined: `int describeContents()` and `void writeToParcel(Parcel dest, int flags)`:
-
-* `int describeContents()` 
-
-In the vast majority of cases you can simply return 0 for this.  There are cases where you need to use the constant `CONTENTS_FILE_DESCRIPTOR`, also defined in the interface, in combination with this method but it is very rare and out of the scope of this tutorial.  
-
-* `void writeToParcel(Parcel dest, int flags)`
-
-This is where you write the values you want to save to the `Parcel`.  The `Parcel` class has methods defined to help you save all of your values.  Note that there are only methods defined for primitive values (and String!), lists and arrays of primitive values, and other Parcelable objects.  You may need to make several classes Parcelable to send the data you want.
-
-After implementing the `Parcelable` interface, we need to create the `Parcelable.Creator<MyParcelable> CREATOR` constant for our class; notice how it has our class as its type.  This `CREATOR` object also has two methods:
-
-* `MyParcelable createFromParcel(Parcel in)`
-
-This simply calls our new constructor (typically private) and passes along the unmarshalled `Parcel`, and then returns the new object!
-
-* `MyParcelable[] newArray(int size)`
-
-We just need to copy this and change the type to match our class.
-
-Lastly, we have the private constructor that we created:
-
-* `MyParcelable(Parcel in)`
-
-Using the `in` variable, we can retrieve the values that we originally wrote into the `Parcel`.  This constructor is usually private so that only the `CREATOR` field can access it and to not clutter your exposed API.
+Note that the `Parcelable` interface has two methods defined: `int describeContents()` and `void writeToParcel(Parcel dest, int flags)`. After implementing the `Parcelable` interface, we need to create the `Parcelable.Creator<MyParcelable> CREATOR` constant for our class as well.
 
 ### Caveats
 
