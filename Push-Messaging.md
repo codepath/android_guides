@@ -74,15 +74,15 @@ This way is pretty straightforward to bringing up an activity when a push is rec
 
 Receiving push notifications sent with Parse can also be done using the [BroadcastReceiver](http://developer.android.com/reference/android/content/BroadcastReceiver.html) and implementing the `onReceive()` method to manage incoming push events. Any activity can register to handle these broadcast events. 
 
-If you want to implement the push notification receiver, then check out [this tutorial](http://ahirazitai.blogspot.in/2013/05/push-notification.html). Full source code for this tutorial can be [found on github](https://github.com/ahiraz/pushNotificationDemo/blob/master/src/com/iakremera/pushnotificationdemo/MyCustomReceiver.java). 
+If you want to implement the push notification receiver, then check out [this tutorial](http://ahirazitai.blogspot.in/2013/05/push-notification.html). Full source code for this tutorial can be [found on github](https://github.com/codepath/ParsePushNotificationExample/blob/master/app/src/main/java/com/test/MyCustomReceiver.java). 
 
 Once a `BroadcastReceiver` is listening for messages, there are a few actions that are commonly taken once a push is received:
 
  * [[Create a notification|Notifications#creating-a-notification]]
  * [[Update an Activity|Starting-Background-Services#communicating-from-a-service-to-an-application]]
- * [Launch new activity](https://github.com/codepath/ParsePushNotificationExample/blob/master/src/com/test/MyCustomReceiver.java#L69)
+ * [Launch new activity](https://github.com/codepath/ParsePushNotificationExample/blob/master/app/src/main/java/com/test/MyCustomReceiver.java#L69)
 
-You can review examples of these [outlined in this more elaborate code sample](https://github.com/codepath/ParsePushNotificationExample/blob/master/src/com/test/MyCustomReceiver.java). 
+You can review examples of these [outlined in this more elaborate code sample](https://github.com/codepath/ParsePushNotificationExample/blob/master/app/src/main/java/com/test/MyCustomReceiver.java). 
 
 In certain cases when receiving a push, you want to **update an activity only if the activity is on the screen**. Otherwise, you want to raise a notification. The solutions to this are [outlined in this post](http://stackoverflow.com/a/18311830/313399) with a [code sample here](http://stackoverflow.com/a/15949723/313399).
 
