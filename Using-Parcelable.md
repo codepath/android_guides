@@ -12,20 +12,12 @@ Here is a typical implementation:
 
 ```java
 public class MyParcelable implements Parcelable {
-
+    // You can include parcel data types
     private int mData;
     private String mName;
     
-    // you can also include child Parcelable objects. Assume MySubParcel is such a Parcelable:
+    // We can also include child Parcelable objects. Assume MySubParcel is such a Parcelable:
     private MySubParcelable mInfo;
-
-    // In the vast majority of cases you can simply return 0 for this.  
-    // There are cases where you need to use the constant `CONTENTS_FILE_DESCRIPTOR`
-    // But this is rare and out of scope
-    @Override
-    public int describeContents() {
-        return 0;
-    }
 
     // This is where you write the values you want to save to the `Parcel`.  
     // The `Parcel` class has methods defined to help you save all of your values.  
@@ -38,12 +30,32 @@ public class MyParcelable implements Parcelable {
         out.writeParcelable(mInfo, flags)
     }
 
+    // Using the `in` variable, we can retrieve the values that 
+    // we originally wrote into the `Parcel`.  This constructor is usually 
+    // private so that only the `CREATOR` field can access.
+    private MyParcelable(Parcel in) {
+        mData = in.readInt();
+        mName = in.readString();
+        mInfo = in.readParcelable(MySubParcelable.class.getClassLoader());
+    }
+
+    public MyParcelable() {
+        // Normal actions performed by class, since this is still a normal object!
+    }
+
+    // In the vast majority of cases you can simply return 0 for this.  
+    // There are cases where you need to use the constant `CONTENTS_FILE_DESCRIPTOR`
+    // But this is out of scope of this tutorial
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
     // After implementing the `Parcelable` interface, we need to create the 
     // `Parcelable.Creator<MyParcelable> CREATOR` constant for our class; 
-    // Notice how it has our class as its type.  
+    // Notice how it has our class specified as its type.  
     public static final Parcelable.Creator<MyParcelable> CREATOR
             = new Parcelable.Creator<MyParcelable>() {
-
 
         // This simply calls our new constructor (typically private) and 
         // passes along the unmarshalled `Parcel`, and then returns the new object!
@@ -58,23 +70,10 @@ public class MyParcelable implements Parcelable {
             return new MyParcelable[size];
         }
     };
-     
-    // Using the `in` variable, we can retrieve the values that 
-    // we originally wrote into the `Parcel`.  This constructor is usually 
-    // private so that only the `CREATOR` field can access.
-    private MyParcelable(Parcel in) {
-        mData = in.readInt();
-        mName = in.readString();
-        mInfo = in.readParcelable(MySubParcelable.class.getClassLoader());
-    }
-
-    public MyParcelable() {
-        // normal actions performed by class, it's still a normal object!
-    }
 }
 ```
 
-Note that the `Parcelable` interface has two methods defined: `int describeContents()` and `void writeToParcel(Parcel dest, int flags)`. After implementing the `Parcelable` interface, we need to create the `Parcelable.Creator<MyParcelable> CREATOR` constant for our class as well.
+Note that the `Parcelable` interface has two methods defined: `int describeContents()` and `void writeToParcel(Parcel dest, int flags)`. After implementing the `Parcelable` interface, we need to create the `Parcelable.Creator<MyParcelable> CREATOR` constant for our class which requires us to define `createFromParcel`, `newArray`.
 
 ### Passing Data Between Intents
 
