@@ -117,13 +117,7 @@ There are a few common gotchas associated to Parcelable to consider below:
 
 * As mentioned before you can only put primitives, lists and arrays, Strings, and other Parcelable objects into a Parcel.  This means that you cannot store framework dependent objects that are not Parcelable.  For example, you could not write a `Drawable` to a Parcel.  To work around this problem, you can instead do something like writing the resource ID of the Drawable as an integer to the Parcel.  On the receiving side you can try to rebuild the Drawable using that.  Remember, Parcel is supposed to be fast and lightweight! (though it is interesting to see `Bitmap` implementing Parcelable)
 
-* Where is `boolean`!?  For whatever odd reason there is no simple way to write a boolean to a Parcel.  To do so, you can instead write a `byte` with the corresponding value like so:
-
-`out.writeByte((byte) (myBoolean ? 1 : 0));`
-
-And retrieve it similarly:
-
-`myBoolean = in.readByte() != 0;`
+* Where is `boolean`!?  For whatever odd reason there is no simple way to write a boolean to a Parcel.  To do so, you can instead write a `byte` with the corresponding value with `out.writeByte((byte) (myBoolean ? 1 : 0));` and retrieve it similarly with `myBoolean = in.readByte() != 0;`
 
 ### Creating a Parcelable, The Easier Way (using IntelliJ or Android Studio)
 
