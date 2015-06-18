@@ -76,22 +76,6 @@ public class MyParcelable implements Parcelable {
 
 Note that the `Parcelable` interface has two methods defined: `int describeContents()` and `void writeToParcel(Parcel dest, int flags)`. After implementing the `Parcelable` interface, we need to create the `Parcelable.Creator<MyParcelable> CREATOR` constant for our class as well.
 
-### Caveats
-
-* One very important thing to pay close attention to is the order that you write and read your values to and from the Parcel.  They need to match up in both cases.  In my example, I write the `int` and then the `String` to the Parcel.  Afterwards, I read them in that same exact order.  The mechanism that Android uses to read the Parcel is blind and completely trusts you to get the order correct, or else you will run into run-time crashes.
-
-* Another problem I have encountered is with `ClassNotFound` exceptions.  This is an issue with the Classloader not finding your class.  To fix this you can manually set the Classloader to use.  If nothing is set, then it will try the default Classloader which leads to the exception. 
-
-* As mentioned before you can only put primitives, lists and arrays, Strings, and other Parcelable objects into a Parcel.  This means that you cannot store framework dependent objects that are not Parcelable.  For example, you could not write a `Drawable` to a Parcel.  To work around this problem, you can instead do something like writing the resource ID of the Drawable as an integer to the Parcel.  On the receiving side you can try to rebuild the Drawable using that.  Remember, Parcel is supposed to be fast and lightweight! (though it is interesting to see `Bitmap` implementing Parcelable)
-
-* Where is `boolean`!?  For whatever odd reason there is no simple way to write a boolean to a Parcel.  To do so, you can instead write a `byte` with the corresponding value like so:
-
-`out.writeByte((byte) (myBoolean ? 1 : 0));`
-
-And retrieve it similarly:
-
-`myBoolean = in.readByte() != 0;`
-
 ### What It Is Not
 
 You may notice some similarities between `Parcelable` and `Serializable`.  DO NOT, I repeat, DO NOT attempt to persist `Parcel` data.  It is meant for high-performance transport and you could lose data by trying to persist it.
@@ -122,6 +106,24 @@ public class NewActivity extends Activity {
 ```
 
 Now we can access the parcelable data from within the launched activity.
+
+### Caveats
+
+There are a few common gotchas associated to Parcelable to consider below:
+
+* One very important thing to pay close attention to is the order that you write and read your values to and from the Parcel.  They need to match up in both cases.  In my example, I write the `int` and then the `String` to the Parcel.  Afterwards, I read them in that same exact order.  The mechanism that Android uses to read the Parcel is blind and completely trusts you to get the order correct, or else you will run into run-time crashes.
+
+* Another problem I have encountered is with `ClassNotFound` exceptions.  This is an issue with the Classloader not finding your class.  To fix this you can manually set the Classloader to use.  If nothing is set, then it will try the default Classloader which leads to the exception. 
+
+* As mentioned before you can only put primitives, lists and arrays, Strings, and other Parcelable objects into a Parcel.  This means that you cannot store framework dependent objects that are not Parcelable.  For example, you could not write a `Drawable` to a Parcel.  To work around this problem, you can instead do something like writing the resource ID of the Drawable as an integer to the Parcel.  On the receiving side you can try to rebuild the Drawable using that.  Remember, Parcel is supposed to be fast and lightweight! (though it is interesting to see `Bitmap` implementing Parcelable)
+
+* Where is `boolean`!?  For whatever odd reason there is no simple way to write a boolean to a Parcel.  To do so, you can instead write a `byte` with the corresponding value like so:
+
+`out.writeByte((byte) (myBoolean ? 1 : 0));`
+
+And retrieve it similarly:
+
+`myBoolean = in.readByte() != 0;`
 
 ### Creating a Parcelable, The Easier Way (using IntelliJ or Android Studio)
 
