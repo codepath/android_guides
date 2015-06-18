@@ -2,7 +2,7 @@
 
 Due to Android's memory management scheme, you will often find yourself needing to communicate with different components of your application, system components, or other applications installed on the phone.  `Parcelable` will help you pass data between these components. 
 
-Android uses what is called the Binder to facilitate such communication in a highly optimized way.  The Binder communicates with Parcels, which is a message container.  The Binder marshals the Parcel to be sent, sends and receives it, and then unmarshals it on the other side to reconstruct a copy of the original Parcel.  
+Android uses Binder to facilitate such communication in a highly optimized way.  The Binder communicates with Parcels, which is a message container.  The Binder marshals the Parcel to be sent, sends and receives it, and then unmarshals it on the other side to reconstruct a copy of the original Parcel.  
 
 To allow for your class instances to be sent as a Parcel you must implement the `Parcelable` interface along with a static field called `CREATOR`, which itself requires a special constructor in your class.
 
@@ -12,8 +12,12 @@ Here is a typical implementation:
 
 ```java
 public class MyParcelable implements Parcelable {
+
     private int mData;
     private String mName;
+    
+    // you can also include child Parcelable objects. Assume MySubParcel is such a Parcelable:
+    private MySubParcelable mInfo;
 
     @Override
     public int describeContents() {
@@ -24,6 +28,8 @@ public class MyParcelable implements Parcelable {
     public void writeToParcel(Parcel out, int flags) {
         out.writeInt(mData);
         out.writeString(mName);
+        
+        out.writeParcelable(mInfo, flags)
     }
 
     public static final Parcelable.Creator<MyParcelable> CREATOR
@@ -42,6 +48,8 @@ public class MyParcelable implements Parcelable {
     private MyParcelable(Parcel in) {
         mData = in.readInt();
         mName = in.readString();
+        
+        mInfo = in.readParcelable(MySubParcelable.class.getClassLoader());
     }
 
     public MyParcelable() {
@@ -123,7 +131,27 @@ public class NewActivity extends Activity {
 
 Now we can access the parcelable data from within the launched activity.
 
-### Creating a Parcelable, The Easier Way ( using Eclipse)
+### Creating a Parcelable, The Easier Way (using IntelliJ or Android Studio)
+
+There is a [Parcelable plugin](https://github.com/mcharmas/android-parcelable-intellij-plugin) that can be imported directly into IntelliJ or Android Studio, which enables you to generate the boilerplate code for creating Parcelables.  You can install this plugin by going to `Android Studio` -> `Preferences` -> `Plugins` -> `Browse repositories`:
+
+<a href="http://i.imgur.com/jceThxd.gif" alt="Installing Parcelable"><img src="http://i.imgur.com/jceThxd.gif"></a>
+
+Here are all the Java types it supports:
+
+ * Types implementing Parcelable
+ * Custom support (avoids `Serializable`/`Parcelable` implementation) for: `Date`, `Bundle`
+ * Types implementing Serializable
+ * List of `Parcelable` objects
+ * Enumerations
+ * Primitive types: `long`, `int`, `float`, `double`, `boolean`, `byte`, `String`
+ * Primitive type wrappers (written with `Parcel.writeValue(Object)`): `Integer`, `Long`, `Float`, `Double`, `Boolean`, `Byte`
+ * Primitive type arrays: `boolean[]`, `byte[]`, `char[]`, `double[]`, `float[]`, `int[]`, `long[]`
+ * List type of any object (**Warning: validation is not performed**)
+
+<img src="https://github.com/mcharmas/android-parcelable-intellij-plugin/raw/master/screenshot.png"/>
+
+### Creating a Parcelable, The Easier Way (using Eclipse)
 
 Generate your normal class like so:
 
@@ -171,6 +199,7 @@ public class MyCustomObject {
 	
 }
 ```
+
 Then go to the site [Parcelabler](http://devk.it/proj/parcelabler/) designed by Dallas Gutauckis.
 Paste your object into the "Code" text box provided.
 Then watch the magic happen as this site turns your once plain and non-passable object into.
@@ -253,26 +282,6 @@ public class MyCustomObject implements Parcelable {
 A very pretty Parcelable object that you can copy and paste back into your project.
 The site is also able to handle all of the primitives and Java object I didn't include in this tutorial. On top of that it also can handle your own custom parcelable objects and objects that extend other objects that you have already created. This is a util that I stumbled upon searching for a easier way to create Parcelable objects that I can use in my projects. Hope you enjoy.
 
-### Creating a Parcelable, The Easier Way (using IntelliJ or Android Studio)
-
-There is a [Parcelable plugin](https://github.com/mcharmas/android-parcelable-intellij-plugin) that can be imported directly into IntelliJ or Android Studio, which enables you to generate the boilerplate code for creating Parcelables.  You can install this plugin by going to `Android Studio` -> `Preferences` -> `Plugins` -> `Browse repositories`:
-
-<a href="http://i.imgur.com/jceThxd.gif" alt="Installing Parcelable"><img src="http://i.imgur.com/jceThxd.gif"></a>
-
-Here are all the Java types it supports:
-
- * Types implementing Parcelable
- * Custom support (avoids `Serializable`/`Parcelable` implementation) for: `Date`, `Bundle`
- * Types implementing Serializable
- * List of `Parcelable` objects
- * Enumerations
- * Primitive types: `long`, `int`, `float`, `double`, `boolean`, `byte`, `String`
- * Primitive type wrappers (written with `Parcel.writeValue(Object)`): `Integer`, `Long`, `Float`, `Double`, `Boolean`, `Byte`
- * Primitive type arrays: `boolean[]`, `byte[]`, `char[]`, `double[]`, `float[]`, `int[]`, `long[]`
- * List type of any object (**Warning: validation is not performed**)
-
-<img src="https://github.com/mcharmas/android-parcelable-intellij-plugin/raw/master/screenshot.png"/>
-
 ## References
 
 * <http://www.developerphil.com/parcelable-vs-serializable/>
@@ -282,3 +291,4 @@ Here are all the Java types it supports:
 * <http://stackoverflow.com/questions/6201311/how-to-read-write-a-boolean-when-implementing-the-parcelable-interface>
 * <http://devk.it/proj/parcelabler/>
 * <https://github.com/mcharmas/android-parcelable-intellij-plugin>
+* <http://shri.blog.kraya.co.uk/2010/04/26/android-parcel-data-to-pass-between-activities-using-parcelable-classes/>
