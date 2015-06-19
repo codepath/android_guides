@@ -24,6 +24,13 @@ There is a new support design library that must be included.   This library also
       }
    ```
 
+If you are using the [[RecyclerView|Using the RecyclerView]], [[CardView|Using the CardView]], or any other [support v7 related](https://developer.android.com/tools/support-library/features.html#v7) libraries you should also upgrade the versions.  The RecyclerView for instance has features that are used with this new design support library.
+
+```gradle
+        dependencies {
+          compile 'com.android.support:recyclerview-v7:22.2.0'
+      }
+   ```
 
 ### Features
 
