@@ -73,6 +73,16 @@ If you are using widgets such as the SearchView, you must also use `android.supp
 +          app:actionViewClass="android.support.v7.widget.SearchView">
 ```
 
+#### Changes to Menu Options
+
+The `MenuItemCompat` helper class has a few static methods that should be used in lieu of `MenuItem`:
+
+```java
+  @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.my_menu, menu);
+        mSearchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.contentSearch));
+```
 #### Changing targetSDKVersion
 
 In addition, setting the `targetSdkVersion` to the latest SDK version ensures that the  AppCompat library will attempt to apply the Material Design assuming the device itself can support it. The support library will still check to see if the minimum SDK version is being used on the device.
