@@ -99,7 +99,7 @@ You can also drop these jars into the "libs" folder too and add each file by rig
 
 ```gradle
 repositories {
-    mavenCentral()
+    jcenter()
 }
 dependencies {
     // ...

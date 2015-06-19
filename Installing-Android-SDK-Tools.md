@@ -11,7 +11,7 @@ The `android-sdk-manager` plugin needs to be declared before the regular `com.an
 ```gradle
 buildscript {
   repositories {
-    mavenCentral()
+    jcenter()
   }
   dependencies {
     classpath 'com.android.tools.build:gradle:1.2.3'

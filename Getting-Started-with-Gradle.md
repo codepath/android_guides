@@ -36,7 +36,7 @@ In addition, you will need to setup the Android Gradle plugin by setting your bu
 ```gradle
 buildscript {
     repositories {
-        mavenCentral()
+        jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:1.2.3'

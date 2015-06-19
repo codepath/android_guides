@@ -35,7 +35,7 @@ Open your `build.gradle` file and add these libraries as dependencies that can b
 
 ```gradle
 repositories {
-  mavenCentral()
+  jcenter()
 }
 dependencies {
   // ...

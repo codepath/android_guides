@@ -14,7 +14,7 @@ In Android Studio, you can setup ActiveAndroid via Gradle in `app/build.gradle`:
 
 ```gradle
 repositories {
-    mavenCentral()
+    jcenter()
     maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
 }
 

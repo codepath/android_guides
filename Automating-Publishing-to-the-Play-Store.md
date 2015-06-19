@@ -40,7 +40,7 @@ If you want to be push your APKs directly through Gradle, you can install a plug
            buildscript {
 
        repositories {
-           mavenCentral()
+           jcenter()
        }
 
        dependencies {
