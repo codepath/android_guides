@@ -29,6 +29,10 @@ sdkManager {
 }
 ```
 
+When the SDK Manager plug-in runs, it will look at the `local.properties` file to see where the Android SDK files are located.  If this file does not exist, it will attempt to create a directory in `~/.android`.  Regardless, make sure that that the build has permissions to write to whichever directory that is specified.
+
+If you are having any issues with this -plugin, you can run `gradlew build -d` to help see the verbose logging messages.  
+
 ## Installing the Android SDK (Manual Way)
 
 Download the Android SDK without Eclipse bundled. Go to [Android SDK](http://developer.android.com/sdk/index.html) and copy the URL for the **SDK Tools Only** download that's appropriate for your build machine OS.
