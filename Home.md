@@ -210,6 +210,7 @@ Focused on issues like deployment, testing, dependency management, etc:
 * [[Using Android Studio]]
 * [[Installing Android SDK Tools]]
 * [[Building Gradle Projects with Jenkins CI]]
+* [[Setting up Travis CI]]
 * [[Android Unit and Integration Testing]] (with Roboelectric and Robotium)
 * [[Robolectric Installation for Unit Testing]]
 * [[Must Have Libraries]] (Networking, Persistence, Compatibility, Convenience, etc)
