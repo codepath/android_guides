@@ -25,7 +25,7 @@ See the [docs](http://docs.travis-ci.com/user/languages/android/) here for more 
 
 #### Design Support Library
 
-If you are using [Travis](https://travis-ci.org/) for automated Android builds, you will need to make sure to include the `extra-android-m2repository` in `travis.yml`:
+If you are using [Travis](https://travis-ci.org/) for automated Android builds, you will need to make sure to include the `extra-android-m2repository` component in `travis.yml`:
 
 ```yaml
 language: android
@@ -43,4 +43,4 @@ Searched in the following locations:
   file:/usr/local/android-sdk/extras/google/m2repository/com/android/support/support-v4/22.2.0/support-v4-22.2.0.jar
 ```
 
-Currently, the [[Design Support Library]] must be downloaded from the [[SDK Manager|Installing Android SDK Tools]], which retrieves the package as a [local Maven repository](https://dl-ssl.google.com/android/repository/addon.xml).  It is currently not publicly available on a public Maven repository.
+The reason is that the [[Design Support Library]] must be downloaded from the [[SDK Manager|Installing Android SDK Tools]], which retrieves the package as a [local Maven repository](https://dl-ssl.google.com/android/repository/addon.xml).  The support library is currently not publicly available on a public Maven repository.
