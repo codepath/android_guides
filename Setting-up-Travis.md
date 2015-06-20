@@ -31,9 +31,7 @@ If you are using [Travis](https://travis-ci.org/) for automated Android builds, 
 language: android
 android:
   components:
-.
-.
-.
+
      - extra-android-m2repository
 ```
 
