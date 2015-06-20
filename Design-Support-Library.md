@@ -8,7 +8,7 @@ At their I/O 2015 conference, Google announced a new [design support library](ht
 
 ### Setup
 
-Open the [SDK Manager](https://developer.android.com/tools/support-library/setup.html) to download this new support library.  The support library is currently not published on a public Maven repository, so the SDK Manager downloads the package and makes it available to your local repository.  (You can see in the [repository manifest](https://dl-ssl.google.com/android/repository/addon.xml) that there is a separate `Local Maven repository for Support Libraries` declared.)
+Open the [SDK Manager](https://developer.android.com/tools/support-library/setup.html) to download this new support library or use [[Jake Wharton's SDK Manager|Installing-Android-SDK-Tools#installing-the-android-sdk-automated-way]] to download the package for you.  The support library is currently not published on a public Maven repository, but the SDK Manager will make it available to your local repository. 
 
 Make sure that you have at least the Android Gradle plugin v1.2.3 supported.  There are several issues with using older versions including some support library widgets fail to render correctly (see [issue](https://code.google.com/p/android/issues/detail?id=170841)).  
 
