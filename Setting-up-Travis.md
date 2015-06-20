@@ -1,6 +1,6 @@
 ## Overview
 
-[Travis](https://travis-ci.com/) is a continuous integration service that enables you to run tests against your latest Android builds.  You can setup your Android projects to run both unit and integration tests, which can also include launching an emulator.  
+[Travis](https://travis-ci.com/) is a continuous integration service that enables you to run tests against your latest Android builds.  You can setup your projects to run both unit and integration tests, which can also include launching an emulator.  
 
 ### Signing Up
 
