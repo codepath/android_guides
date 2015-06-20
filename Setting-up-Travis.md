@@ -43,4 +43,4 @@ Searched in the following locations:
   file:/usr/local/android-sdk/extras/google/m2repository/com/android/support/support-v4/22.2.0/support-v4-22.2.0.jar
 ```
 
-The reason is that the [[Design Support Library]] must be downloaded from the [[SDK Manager|Installing Android SDK Tools]], which retrieves the package as a [local Maven repository](https://dl-ssl.google.com/android/repository/addon.xml).  The support library is currently not publicly available on a public Maven repository.
+The reason is that the [[Design Support Library]] must be downloaded from the [[SDK Manager|Installing Android SDK Tools]], which retrieves the package as a [local Maven repository](https://dl-ssl.google.com/android/repository/addon.xml).  The support library is currently not yet available on a public Maven repository.
