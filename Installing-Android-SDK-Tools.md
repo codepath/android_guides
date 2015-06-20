@@ -1,10 +1,10 @@
-The Android SDK can be installed automatically using [Jake Wharton's SDK Plugin](https://github.com/JakeWharton/sdk-manager-plugin) or using the Android SDK Manager GUI or by manually downloading the SDK from the official site. Below is an overview of all three approaches.
+The Android SDK can be installed automatically using [Jake Wharton's SDK Plugin](https://github.com/JakeWharton/sdk-manager-plugin), using the Android SDK Manager GUI, or by manually downloading the SDK from the official site. Below is an overview of all three approaches.
 
 ## Installing the Android SDK (Automated Way)
 
 You can use [Jake Wharton's SDK Manager](https://github.com/JakeWharton/sdk-manager-plugin) to manage all missing SDK dependencies.  It is particularly useful for simplifying the steps of retrieving the Build Tools or SDK version used in your project.    
 
-Make sure to be on at least Android Gradle v1.2.3 if you are using Google's new [[Design Support Library]].  There are some issues with not finding the support library with an external Android SDK as discussed in this [Stack Overflow article](http://stackoverflow.com/questions/19958213/how-to-add-android-support-repository-to-android-studio).
+Make sure to be on at least Android Gradle v1.2.3 if you are using Google's new [[Design Support Library]].  There are some issues with not finding the support library with an external Android SDK as discussed in this [Stack Overflow article](http://stackoverflow.com/questions/19958213/how-to-add-android-support-repository-to-android-studio). 
 
 The `android-sdk-manager` plugin needs to be declared before the regular `com.android.application` plugin is applied.  If you have [multiple subprojects](http://gradle.org/docs/current/userguide/multi_project_builds.html) used in your app, make sure every `build.gradle` has this dependency included.
 
