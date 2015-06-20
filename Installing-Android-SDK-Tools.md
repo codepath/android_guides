@@ -29,7 +29,7 @@ sdkManager {
 }
 ```
 
-When the SDK Manager plug-in runs, it will look at the `local.properties` file to see where the Android SDK files are located.  If this file does not exist, it will attempt to check the environment variable `ANDROID_HOME` for the location.  If it does not find one defined, it will create a directory in `~/.android-sdk`.  In this case, you will want to make sure that that the build has permissions to write to this directory.
+When the SDK Manager plug-in runs, it will look at the `local.properties` file to see where the Android SDK files are located.  If this file does not exist, it will attempt to check the environment variable `ANDROID_HOME` for the location.  If it does not find one defined, it will create a directory in `~/.android-sdk`.  In any case, you will want to make sure that that the build has permissions to write to whichever directory if any new packages need to be downloaded.
 
 If you are having any issues with this -plugin, you can run `gradlew build -d` to help see the verbose logging messages.  
 
