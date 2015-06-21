@@ -8,7 +8,7 @@ At their I/O 2015 conference, Google announced a new [design support library](ht
 
 ### Setup
 
-Open the [SDK Manager](https://developer.android.com/tools/support-library/setup.html) to download this new support library or use [[Jake Wharton's SDK Manager|Installing-Android-SDK-Tools#installing-the-android-sdk-automated-way]] to download the package for you.  Your builds will not find the package unless your first download the dependency.
+Open the [SDK Manager](https://developer.android.com/tools/support-library/setup.html) and make sure to download the `Android Support Repository` as well as the latest `Android Support Library`.  You can also use [[Jake Wharton's SDK Manager|Installing-Android-SDK-Tools#installing-the-android-sdk-automated-way]] to download the packages for you.  Your builds will not find the package unless your first download the dependency.
 
 Make sure that you have at least the Android Gradle plugin v1.2.3 supported.  There are several issues with using older versions including some support library widgets fail to render correctly (see [issue](https://code.google.com/p/android/issues/detail?id=170841)).  
 
