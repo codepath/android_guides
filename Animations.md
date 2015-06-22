@@ -720,3 +720,4 @@ Precisely because its main use is games, all engines have support for particle s
  * <http://java.dzone.com/articles/using-view-animations-android>
  * <http://mobile.dzone.com/articles/android-ui-action-layout>
  * <http://www.google.com/design/spec/animation/authentic-motion.html>
+ *<https://github.com/android/platform_frameworks_base/blob/master/core/java/android/view/ViewPropertyAnimator.java#L989-L1022>
