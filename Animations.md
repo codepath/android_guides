@@ -77,7 +77,7 @@ ObjectAnimator fadeAltAnim = ObjectAnimator.ofFloat(image, View.ALPHA, 0, 1);
 fadeAltAnim.start();
 ```
 
-This is considerably faster because this property check doesn't require as much slow runtime reflection. Properties supported include `ALPHA`, `ROTATION`, `ROTATION_X`, `ROTATION_Y`, `SCALE_X`, `SCALE_Y`, `TRANSLATION_X`, `TRANSLATION_Y`, `TRANSLATION_Z`, `X`, `Y`, `Z` in order to improve performance on these animations. 
+This is considerably faster because this property check doesn't require as much [slow runtime reflection](https://github.com/android/platform_frameworks_base/blob/master/core/java/android/view/ViewPropertyAnimator.java#L989-L1022). Properties supported include `ALPHA`, `ROTATION`, `ROTATION_X`, `ROTATION_Y`, `SCALE_X`, `SCALE_Y`, `TRANSLATION_X`, `TRANSLATION_Y`, `TRANSLATION_Z`, `X`, `Y`, `Z` in order to improve performance on these animations. 
 
 #### Setting Duration or Repeat on Property Animation 
 
@@ -719,5 +719,4 @@ Precisely because its main use is games, all engines have support for particle s
  * <http://learnandroideasily.blogspot.in/2013/07/imageview-animation-in-android.html>
  * <http://java.dzone.com/articles/using-view-animations-android>
  * <http://mobile.dzone.com/articles/android-ui-action-layout>
- * <http://www.google.com/design/spec/animation/authentic-motion.html>
- *<https://github.com/android/platform_frameworks_base/blob/master/core/java/android/view/ViewPropertyAnimator.java#L989-L1022>
+ * <http://www.google.com/design/spec/animation/authentic-motion.html> 
