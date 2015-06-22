@@ -195,7 +195,7 @@ See the [Property Animation](http://developer.android.com/guide/topics/graphics/
 
 ### Using ViewPropertyAnimator in Java
 
-We can also do property animations in an even simpler way using the `ViewPropertyAnimator` system which is built on top of the `ObjectAnimator`.  It also enables faster performance as described in this [blog post](http://android-developers.blogspot.com/2011/05/introducing-viewpropertyanimator.html) and should be the recommended way to perform animations.
+We can also do property animations in an even simpler way using the `ViewPropertyAnimator` system which is built on top of the `ObjectAnimator`.  It also enables faster performance as described in this [blog post](http://android-developers.blogspot.com/2011/05/introducing-viewpropertyanimator.html) and provides a convenient way of doing animations.
 
 Without NineOldAndroids and therefore incompatible with Android versions of 3.0 or below we can run concurrent animations with:
 
