@@ -35,7 +35,7 @@ Review these principles for a detailed look at how to think about animations in 
 
 ## Property Animations
 
-Property animations were a more recent Android feature [introduced in 3.0](http://android-developers.blogspot.com/2011/05/introducing-viewpropertyanimator.html). The primary motivations for the introduction of the property animations system are outlined clearly in this [post from 2011 introducing property animations](http://android-developers.blogspot.com/2011/02/animation-in-honeycomb.html). 
+Property animations were a more recent Android feature introduced in 3.0. The primary motivations for the introduction of the property animations system are outlined in this [post from 2011 introducing property animations](http://android-developers.blogspot.com/2011/02/animation-in-honeycomb.html). 
 
 Common properties commonly animated on views include:
 
@@ -195,7 +195,9 @@ See the [Property Animation](http://developer.android.com/guide/topics/graphics/
 
 ### Using ViewPropertyAnimator in Java
 
-We can also do property animations in an even simpler way using the `ViewPropertyAnimator` system which is built on top of the `ObjectAnimator`. Without NineOldAndroids and therefore incompatible with Android versions of 3.0 or below we can run concurrent animations with:
+We can also do property animations in an even simpler way using the `ViewPropertyAnimator` system which is built on top of the `ObjectAnimator`.  It also enables faster performance as described in this [blog post](http://android-developers.blogspot.com/2011/05/introducing-viewpropertyanimator.html) and should be the recommended way to perform animations.
+
+Without NineOldAndroids and therefore incompatible with Android versions of 3.0 or below we can run concurrent animations with:
 
 ```java
 Button btnExample = (Button) findViewById(R.id.btnExample);
