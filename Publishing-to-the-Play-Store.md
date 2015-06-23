@@ -94,7 +94,7 @@ This is the place to manage the (un)published apps. There is the possibility to 
 
 See [[Automating Publishing to the Play Store]] for an advanced tutorial about streamlining the process for pushing your updates.
 
-##References
+## References
 
 * <http://developer.android.com/tools/publishing/publishing_overview.html>
 * <http://developer.android.com/distribute/googleplay/start.html>
