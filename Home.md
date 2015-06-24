@@ -176,6 +176,7 @@ Understanding how to build powerful and flexible views using Fragments:
 
 * [[Creating and Using Fragments]]
 * [[Displaying a DialogFragment|Using DialogFragment]]
+* [[Google-Play-Style-Tabs-using-TabLayout]]
 * [[Sliding Tabs with PagerSlidingTabStrip]]
 * [[ViewPager with FragmentPagerAdapter]]
 * [[Fragment Navigation Drawer]]
