@@ -73,6 +73,10 @@ public Uri getPhotoFileUri(String fileName) {
 
 Check out the official [Photo Basics](http://developer.android.com/training/camera/photobasics.html) guide for more details.
 
+### Loading the Bitmap
+
+In certain cases, when loading a bitmap with `BitmapFactory.decodeFile(file)` decoding the Bitmap in memory may actually cause a crash with a `OutOfMemoryError: Failed to allocate` error. Check out the  [Loading Bitmaps Efficiently](http://developer.android.com/training/displaying-bitmaps/load-bitmap.html) guide and this [stackoverflow post](http://stackoverflow.com/questions/29624487/java-lang-outofmemoryerror-failed-to-allocate-a-31961100-byte-allocation-with-1) for an overview of the solutions.
+
 ### Resizing the Picture
 
 Photos taken with the Camera intent are often quite large. After taking a photo, you may want to consider [[resizing the Bitmap|Working-with-the-ImageView#scaling-a-bitmap]] to a more manageable size before displaying in an `ImageView`.
