@@ -36,16 +36,14 @@ And then include it in your layout:
     android:layout_height="130dp" 
     fresco:placeholderImage=@"drawable/myPlaceholderImage />
 ```
-**Note:** If you want to use any Fresco defined properties, you'll need to add a custom namespace definition.
-```java
-xmlns:fresco="http://schemas.android.com/apk/res-auto"
-```
+**Note:** If you want to use any Fresco defined properties, you'll need to add a custom namespace definition:
+`xmlns:fresco="http://schemas.android.com/apk/res-auto"`
 
 Finally, set the actual image URI:
 ```java
-Uri uri = Uri.parse("http://i.imgur.com/tGbaZCY.jpg");
+Uri imageUri = Uri.parse("http://i.imgur.com/tGbaZCY.jpg");
 SimpleDraweeView draweeView = (SimpleDraweeView) findViewById(R.id.sdvImage);
-draweeView.setImageURI(uri);
+draweeView.setImageURI(imageUri);
 ```
 
 ## Customization
@@ -96,12 +94,12 @@ There is only one case where DraweeView supports `wrap_content` and this is for 
 You can read more about Fresco's capabilities in the [[Fresco docs|http://frescolib.org/docs/index.html]].
 
 ## Getting the underlying Bitmap out of a DraweeView
-With the way Fresco is architected, getting the bitmap out of a SimpleDraweeView requires a couple of steps. The code below shows you how to get the underlying bitmap out of a SimpleDraweeView, which can come in useful for cases when you then want to share the image with another user.
+With the way Fresco is architected, getting the bitmap out of a SimpleDraweeView requires a couple of steps. The code below shows you how to get the underlying bitmap out of a SimpleDraweeView, which can come in useful for cases when you then want to share an image with another user.
 ```java
 ImagePipeline imagePipeline = Fresco.getImagePipeline();
 
 ImageRequest imageRequest = ImageRequestBuilder
-       .newBuilderWithSource(originalImageUri)
+       .newBuilderWithSource(imageUri)
        .setRequestPriority(Priority.HIGH)
        .setLowestPermittedRequestLevel(ImageRequest.RequestLevel.FULL_FETCH)
        .build();
