@@ -93,7 +93,7 @@ There is only one case where DraweeView supports `wrap_content` and this is for 
     fresco:viewAspectRatio="1.33" />
 ```
 
-## Getting the underlying Bitmap from a DraweeView
+## Getting the underlying Bitmap out of a DraweeView
 ```java
 ImagePipeline imagePipeline = Fresco.getImagePipeline();
 
@@ -115,14 +115,14 @@ try {
                return;
            }
            // The bitmap provided to this method is only guaranteed to be around 
-           // for the lifespan of this method. The image pipeline frees the bitmap's
-           // memory after this method has completed.
+           // for the lifespan of this method. The image pipeline frees the
+           // bitmap's memory after this method has completed.
            // 
-           // This is fine when passing the bitmap to a system process as Android automatically 
-           // creates a copy.
+           // This is fine when passing the bitmap to a system process as
+           // Android automatically creates a copy.
            //
-           // If you need to keep the bitmap around, look into using a BaseDataSubscriber instead 
-           // of a BaseBitmapDataSubscriber.
+           // If you need to keep the bitmap around, look into using a
+           // BaseDataSubscriber instead of a BaseBitmapDataSubscriber.
        }
 
        @Override
