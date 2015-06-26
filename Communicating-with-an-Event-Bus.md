@@ -12,7 +12,7 @@ One of primary issues of these current approaches is that they can creates stron
 
 ### How Event Bus Models Helps
 
-In event bus model, there are publishers and subscribers.  Publishers are responsible for posting events in response to some type of state change, while subscribers respond to these events.  The event acts as an intermediary for exchanging information, isolating and minimizing the dependencies between each side.  In this way, message buses create a communication pipeline that is intended to help make your app more maintainable and scalable.
+In event bus model, there are *publishers* and *subscribers*.  Publishers are responsible for posting events in response to some type of state change, while subscribers respond to these events.  The event acts as an intermediary for exchanging information, isolating and minimizing the dependencies between each side.  In this way, message buses create a communication pipeline that is intended to help make your app more maintainable and scalable.
 
 There are many different libraries which attempt to enable the event bus model, including [EventBus](https://github.com/greenrobot/EventBus), [RxJava](https://github.com/ReactiveX/RxJava), and [Otto](https://github.com/square/otto).   Otto is by far the easiest to start using immediately.  EventBus has a few more advanced features than in Otto described in this [comparison chart](http://timnew.me/blog/2014/09/14/otto-and-android-annotations-compatibility-issue-analysis/), and RxJava enables
 a way to declare [sequences of actions](http://www.infoq.com/news/2014/11/android-rxjava-at-soundcloud) to be taken in response to certain events.  
