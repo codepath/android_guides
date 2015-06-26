@@ -101,3 +101,4 @@ To run tests on the command line `./gradlew test`
 * <http://robolectric.org/>
 * <https://github.com/robolectric/robolectric/>
 * <https://www.bignerdranch.com/blog/triumph-android-studio-1-2-sneaks-in-full-testing-support/>
+* <https://github.com/mutexkid/android-studio-robolectric-example>
