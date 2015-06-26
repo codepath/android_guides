@@ -8,7 +8,7 @@ By now, you should be familiar with the various ways the Android framework relie
 
 ### Issues 
 
-One of primary issues of these current approaches is that they can creates strong dependencies between each component, making it difficult to change one part of the system without impacting another area.  This [blog post](https://corner.squareup.com/2012/07/otto.html) describes the challenges of creating unmanageable dependencies with the current Android framework.  Instead of encouraging more modular designs, which they are intended to do, the communication patterns in Android can sometimes do the exact opposite.
+One of primary issues of these current approaches is that they can create strong dependencies between each component, making it difficult to change one part of the system without impacting another area.  This [blog post](https://corner.squareup.com/2012/07/otto.html) describes the challenges of creating unmanageable dependencies with the current Android framework.  Instead of encouraging more modular designs, which they are intended to do, the communication patterns in Android can sometimes do the exact opposite.
 
 ### How Event Bus Models Helps
 
