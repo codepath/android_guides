@@ -34,7 +34,7 @@ And then include it in your layout:
     android:id="@+id/sdvImage"
     android:layout_width="130dp"
     android:layout_height="130dp" 
-    fresco:placeholderImage=@"drawable/myPlaceholderImage />
+    fresco:placeholderImage="@drawable/myPlaceholderImage />
 ```
 **Note:** If you want to use any Fresco defined properties, you'll need to add a custom namespace definition:
 `xmlns:fresco="http://schemas.android.com/apk/res-auto"`
