@@ -148,6 +148,7 @@ Diving into the networking and model layers for data-driven apps:
 * [[Handling ProgressBars]] (with Long-Running Tasks)
 * [[RottenTomatoes Networking Tutorial]]
 * [[Networking with the Volley Library]]
+* [[Displaying Images with the Fresco Library]]
 * [[Building Data-driven Apps with Parse]]
 * [[Building Simple Chat Client with Parse]]
 * [[Troubleshooting Common Issues with Parse]]
