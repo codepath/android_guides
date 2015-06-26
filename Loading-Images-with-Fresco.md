@@ -93,7 +93,10 @@ There is only one case where DraweeView supports `wrap_content` and this is for 
     fresco:viewAspectRatio="1.33" />
 ```
 
+You can read more about Fresco's capabilities in the [[Fresco docs|http://frescolib.org/docs/index.html]].
+
 ## Getting the underlying Bitmap out of a DraweeView
+With the way Fresco is architected, getting the bitmap out of a SimpleDraweeView requires a couple of steps. The code below shows you how to get the underlying bitmap out of a SimpleDraweeView, which can come in useful for cases when you then want to share the image with another user.
 ```java
 ImagePipeline imagePipeline = Fresco.getImagePipeline();
 
