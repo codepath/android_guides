@@ -4,7 +4,7 @@ By now, you should be familiar with the various ways the Android framework relie
 
  * Activities uses [[the Intent system|Using-Intents-to-Create-Flows]] to pass data between screens.
  * Fragments rely on Bundles to construct fragments, methods by the containing Activity to call, and the listener pattern for the Fragment to fire events (see [[Communicating with Fragments|Creating and Using-Fragments#communicating-with-fragments]])
- * Services rely on Broadcast Managers to send data to Applications [[Communicating from a Service to an Application|Starting Background Services#communicating-from-a-service-to-an-application]]
+ * Services rely on Broadcast Managers to send data to Applications([[Communicating from a Service to an Application|Starting Background Services#communicating-from-a-service-to-an-application]])
 
 ### Issues 
 
