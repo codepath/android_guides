@@ -289,6 +289,8 @@ In the `RecyclerViewFragment`, we will create a list which generates random stri
 
 That's it, we're good to go. Now, compile and run the app and you should see something like the screenshot below. Scroll down the list to see the custom animations while loading the item. If you scroll back up, the views will be recycled and far smoother than the `ListView` widget.
 
+<img src="http://i105.photobucket.com/albums/m232/purplehaze0077/Screen%20Shot%202015-06-26%20at%207.25.14%20AM.png" width="500" alt="Screenshot" />
+
 
 
 ### Attaching Click Handlers to Items
@@ -303,6 +305,7 @@ See [this StackOverflow post](http://stackoverflow.com/questions/26245139/how-to
 
 ## References
 
+* <https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html>
 * <http://www.grokkingandroid.com/first-glance-androids-recyclerview/>
 * <http://www.grokkingandroid.com/statelistdrawables-for-recyclerview-selection/>
 * <http://www.bignerdranch.com/blog/recyclerview-part-1-fundamentals-for-listview-experts/>
