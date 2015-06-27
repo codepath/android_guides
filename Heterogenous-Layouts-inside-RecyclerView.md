@@ -57,9 +57,7 @@ public class ComplexRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
 }
 ```
 
-As discussed earlier, we will need to override the following methods to inflate different layouts accordingly:
-
-Override the `getItemViewType` method to tell the `RecyclerView` about the type of view to inflate based on the position. We will return ODD or EVEN based on the position of the item in the dataset provided.
+Now you need to override the `getItemViewType` method to tell the `RecyclerView` about the type of view to inflate based on the position. We will return ODD or EVEN based on the position of the item in the dataset provided.
 
 ```java
     //Returns the view type of the item at position for the purposes of view recycling.
