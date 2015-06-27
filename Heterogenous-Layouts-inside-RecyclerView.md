@@ -15,9 +15,9 @@ To implement heterogeneous layouts inside the `RecyclerView`, most of the work i
 
 ## Implementation 
 
-Building on top of our basic `RecyclerView` [usage project](https://github.com/codepath/android_guides/wiki/Using-the-RecyclerView), we will now replace the `SimpleItemRecyclerViewAdapter` with a more `ComplexRecyclerViewAdapter` which does all the heavy-lifting for inflating different types of layouts based on the item view type.
+Building on top of the basic `RecyclerView` [usage project](https://github.com/codepath/android_guides/wiki/Using-the-RecyclerView), we will now replace the `SimpleItemRecyclerViewAdapter` with a more `ComplexRecyclerViewAdapter` which does all the heavy-lifting for inflating different types of layouts based on the item view type.
 
-For our purpose, we will be inflating two different layouts for odd (layout_viewholder1.xml) and even (layout_viewholder2.xml) positions. Let us first define the `ComplexRecyclerViewAdapter`.
+The following example will be inflating two different layouts for odd (layout_viewholder1.xml) and even (layout_viewholder2.xml) positions. Let us first define the `ComplexRecyclerViewAdapter`.
 
 ### Creating the `ComplexRecyclerViewAdapter`
 
