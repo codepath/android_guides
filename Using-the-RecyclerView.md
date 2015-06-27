@@ -301,7 +301,7 @@ In certain cases, you'd want to setup click handlers for views within the `Recyc
 
 ### Heterogenous Views
 
-See [this StackOverflow post](http://stackoverflow.com/questions/26245139/how-to-create-recyclerview-with-multiple-view-type).
+See [this guide](https://github.com/codepath/android_guides/wiki/Heterogenous-Layouts-inside-RecyclerView) if you want to inflate multiple layouts inside a single `RecyclerView`.
 
 ## References
 
