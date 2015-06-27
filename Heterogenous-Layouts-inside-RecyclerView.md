@@ -261,6 +261,13 @@ private void bindDataToAdapter() {
 
 Rest of the implementation remains the same. At this point, we're good to go. After compiling and running our app, here's the output we should be looking at:
 
+<img src="http://i105.photobucket.com/albums/m232/purplehaze0077/heterogeneous_recyclerview_ss1.png" width="300" alt="ss1" /> <img src="http://i105.photobucket.com/albums/m232/purplehaze0077/heterogeneous_recyclerview_ss2.png" width="300" alt="ss2" />
+
+_Optional_: The asset that was used is attached below. You may choose your own asset instead.
+
+<img src="http://i105.photobucket.com/albums/m232/purplehaze0077/sample_golden_gate.jpeg" width="500" alt="ss1" />
+
+
 
 
 
