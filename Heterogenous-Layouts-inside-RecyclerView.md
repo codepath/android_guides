@@ -69,7 +69,7 @@ Now you need to override the `getItemViewType` method to tell the `RecyclerView`
     }
 ```
 
-Next, we override the `onCreateViewHolder` method to tell the `RecyclerView.Adapter` about which `RecyclerView.ViewHolder` object to create based on the `viewType` returned (we create `ViewHolder1` with view `layout_viewholder1` for ODD items and `ViewHolder2` with view `layout_viewholder2` for EVEN ones)
+Next, you need to override the `onCreateViewHolder` method to tell the `RecyclerView.Adapter` about which `RecyclerView.ViewHolder` object to create based on the `viewType` returned. Create `ViewHolder1` with view `layout_viewholder1` for ODD items and `ViewHolder2` with view `layout_viewholder2` for EVEN ones
 
 ```java
      /**
@@ -103,7 +103,7 @@ Next, we override the `onCreateViewHolder` method to tell the `RecyclerView.Adap
     }
 ```
 
-Next, we override the `onBindViewHolder` method to configure the `ViewHolder` with actual data that needs to be displayed. For our example, we will just distinguish the two different layouts and load them with sample text and image as follows.
+Next, override the `onBindViewHolder` method to configure the `ViewHolder` with actual data that needs to be displayed. Distinguish the two different layouts and load them with sample text and image as follows.
 
 ```java
      /**
