@@ -239,7 +239,7 @@ public class ViewHolder2 extends RecyclerView.ViewHolder {
 }
 ```
 
-#### layout_viewholder1.xml
+#### layout_viewholder2.xml
 
 ```xml
 <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -249,6 +249,10 @@ public class ViewHolder2 extends RecyclerView.ViewHolder {
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"/>
 ```
+
+_Optional_: The asset that was used is attached below. You may choose your own asset instead.
+
+<img src="http://i105.photobucket.com/albums/m232/purplehaze0077/sample_golden_gate.jpeg" width="500" alt="ss1" />
 
 One ***final and important*** change before we can run the program would be to change the `bindDataToAdapter` method in our `RecyclerViewFragment` to set the `ComplexRecyclerViewAdapter` instead of the `SimpleItemRecyclerViewAdapter` as follows:
 
@@ -263,12 +267,11 @@ Rest of the implementation remains the same. At this point, we're good to go. Af
 
 <img src="http://i105.photobucket.com/albums/m232/purplehaze0077/heterogeneous_recyclerview_ss1.png" width="300" alt="ss1" /> <img src="http://i105.photobucket.com/albums/m232/purplehaze0077/heterogeneous_recyclerview_ss2.png" width="300" alt="ss2" />
 
-_Optional_: The asset that was used is attached below. You may choose your own asset instead.
+### References:
 
-<img src="http://i105.photobucket.com/albums/m232/purplehaze0077/sample_golden_gate.jpeg" width="500" alt="ss1" />
-
-
-
+* [RecyclerView] (https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html)
+* [StackOverflow post](http://stackoverflow.com/questions/26245139/how-to-create-recyclerview-with-multiple-view-type).
+* [Stackoverflow post](http://stackoverflow.com/questions/25914003/recyclerview-and-handling-different-type-of-row-inflation/29362643#29362643)
 
 
 
