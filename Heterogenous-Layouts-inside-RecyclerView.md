@@ -8,7 +8,10 @@ Make sure you are familiar with [RecyclerView] (https://developer.android.com/re
 
 Note: Refer [Implementing a Heterogenous ListView](https://github.com/codepath/android_guides/wiki/Implementing-a-Heterogenous-ListView) guide on how to inflate multiple item types within a `ListView`.
 
-To implement heterogeneous layouts inside the `RecyclerView`, most of the work is done within the `RecyclerView.Adapter`. In particular, there are special methods to be overridden within the adapter such as `getItemViewType(..)`, `onCreateViewHolder(..)` and `onBindViewHolder(..)` specifically for these situations.
+To implement heterogeneous layouts inside the `RecyclerView`, most of the work is done within the `RecyclerView.Adapter`. In particular, there are special methods to be overridden within the adapter: 
+* `getItemViewType()`
+* `onCreateViewHolder()`
+* `onBindViewHolder()` 
 
 ## Implementation 
 
