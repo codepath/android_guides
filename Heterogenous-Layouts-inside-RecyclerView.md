@@ -6,7 +6,7 @@ Make sure you are familiar with [RecyclerView] (https://developer.android.com/re
 
 `RecyclerView` can also be used to inflate multiple view types in situations where your list might be heterogeneous, in the sense, based on the response from the server, there might be a requirement for inflating different types of layouts (example: Consider facebook home feed where there are a variety of stories such as a status update, location update, single image, image album, video, etc). This guide will explain how to inflate multiple view types inside your `RecyclerView` widget based on the item type. 
 
-Note: You can refer to the [following guide] (https://github.com/codepath/android_guides/wiki/Implementing-a-Heterogenous-ListView) on how to do the same with a `ListView`.
+Note: Refer [Implementing a Heterogenous ListView](https://github.com/codepath/android_guides/wiki/Implementing-a-Heterogenous-ListView) guide on how to inflate multiple item types within a `ListView`.
 
 To implement a heterogeneous layouts inside the `RecyclerView`, most of the work is done within the `RecyclerView.Adapter`. In particular, there are special methods to be overridden within the adapter such as `getItemViewType(..)`, `onCreateViewHolder(..)` and `onBindViewHolder(..)` specifically for these situations.
 
@@ -272,6 +272,5 @@ Rest of the implementation remains the same. At this point, we're good to go. Af
 * [RecyclerView] (https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html)
 * [StackOverflow post](http://stackoverflow.com/questions/26245139/how-to-create-recyclerview-with-multiple-view-type).
 * [Stackoverflow post](http://stackoverflow.com/questions/25914003/recyclerview-and-handling-different-type-of-row-inflation/29362643#29362643)
-
 
 
