@@ -13,6 +13,8 @@ Publish/subscribe models try to avoid this tight integration by relying an event
 There are many different libraries which attempt to enable the event bus model, including [EventBus](https://github.com/greenrobot/EventBus), [RxJava](https://github.com/ReactiveX/RxJava), and [Otto](https://github.com/square/otto).   Otto is by far the easiest to start using immediately.  EventBus has a few more advanced features than in Otto described in this [comparison chart](http://timnew.me/blog/2014/09/14/otto-and-android-annotations-compatibility-issue-analysis/), and RxJava enables
 a way to declare [sequences of actions](http://www.infoq.com/news/2014/11/android-rxjava-at-soundcloud) to be taken in response to certain events.  
 
+### Considerations
+
 When using an event bus model, there are several considerations:
   * *Don't assume you should replace every communication pattern with an event bus model*.  If you publish an event meant only for one subscriber that shouldn't trigger changes in other subscribers, rely on 1-to-1 communication patterns such as the [[Intents|Using Intent to Create Flows]] or [[listener pattern|Creating Custom Listeners]].  For instance, a date picker fragment that could be reused in multiple components of your app should probably expose a listener interface since using a event bus model could cause this event to be published to many components waiting to respond to changes in the date selection.    Consider the design patterns described in this [article](http://timnew.me/blog/2014/12/06/typical-eventbus-design-patterns/) too.
 
