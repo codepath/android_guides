@@ -4,7 +4,7 @@ The Android SDK can be installed automatically using [Jake Wharton's SDK Plugin]
 
 You can use [Jake Wharton's SDK Manager](https://github.com/JakeWharton/sdk-manager-plugin) to manage all missing SDK dependencies.  It is particularly useful for simplifying the steps of retrieving the Build Tools, SDK version, or support libraries used in your project.    
 
-The `android-sdk-manager` plugin needs to be declared before the regular `com.android.application` plugin is applied.  If you have [multiple subprojects](http://gradle.org/docs/current/userguide/multi_project_builds.html) used in your app, make sure every `build.gradle` has this dependency included.
+Edit your `app/build.gradle` file to include the `com.jakewharton.sdkmanager:gradle-plugin` plugin.
 
 ```gradle
 buildscript {
@@ -16,10 +16,17 @@ buildscript {
     classpath 'com.jakewharton.sdkmanager:gradle-plugin:0.12.+'
   }
 }
+```
 
+The `android-sdk-manager` plugin needs to be declared before the regular `com.android.application` plugin is applied.  If you have [multiple subprojects](http://gradle.org/docs/current/userguide/multi_project_builds.html) used in your app, make sure every `build.gradle` has this dependency included.
+
+```gradle
 apply plugin: 'android-sdk-manager' // run before com.android.application
 apply plugin: 'com.android.application'
+```
 
+If you wish to also download a specific emulator, add this section too:
+```
 // optionally including an emulator
 sdkManager {
   emulatorVersion 'android-19'
