@@ -2,7 +2,7 @@
 
 By now, you should be familiar with the various ways the Android framework relies on passing data between the various abstractions used:
 
- * Activities uses [[Intents|Using-Intent-to-Create-Flows]] to pass data between screens.
+ * Activities uses [[Intents|Using-Intents-to-Create-Flows]] to pass data between screens.
  * Fragments use [[multiple ways|Creating and Using-Fragments#communicating-with-fragments]] to communicate: Bundles to construct fragments, methods by the containing Activity to call, and the listener pattern for the Fragment to fire events.
  * Services rely on [[Broadcast Managers|Starting-Background-Services#communicating-from-a-service-to-an-application]] to send data to Applications.
 
