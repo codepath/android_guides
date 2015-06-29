@@ -1,6 +1,6 @@
-Android Studio is version of IntelliJ specifically tailored for Android development.  Installation instructions for Android Studio can be found [here](http://goo.gl/X2SVFR).
+Android Studio is a version of JetBrain's [IntelliJ Community Edition](http://www.jetbrains.org/pages/viewpage.action?pageId=983211) specifically tailored for Android development.  Installation instructions for Android Studio can be found [here](http://goo.gl/X2SVFR).
 
-IntelliJ IDEA contains all the features found in Android Studio.  Setup for Android development is, however, a bit more involved than Android Studio.
+IntelliJ IDEA contains all the features found in Android Studio.  Setup for Android development is, however, a bit more involved since it does not include the Android SDK by default.
 
 ## Prerequisites
 * Install [Java 7 JDK](http://www.oracle.com/technetwork/java/javase/downloads)
