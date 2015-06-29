@@ -139,4 +139,3 @@ Several other Android OAuth libraries can be explored instead of signpost:
 
  * <http://engineering.meetme.com/2014/03/best-practices-for-consuming-apis-on-android/>
  * <https://github.com/MeetMe/TwitchTvClient>
- * 
