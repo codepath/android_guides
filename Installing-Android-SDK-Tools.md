@@ -76,9 +76,9 @@ Save and quit. Reload `.bash_profile`:
 
 ### Installing via the GUI
  
-![Android SDK manager on build machine](https://raw.githubusercontent.com/codepath/android_guides/master/images/intellij_idea_android_sdk_manager.png)
-
 At the prompt, type `android` and hit Enter to launch the Android SDK Manager in a window. If this doesn't work, your `PATH` variable has not been set up with the Android SDK location.   
+
+![Android SDK manager on build machine](https://raw.githubusercontent.com/codepath/android_guides/master/images/intellij_idea_android_sdk_manager.png)
 
 You will want to install the same Android SDK packages on your build machine as you did to get Gradle running locally. Before you begin, take a look at the `build.gradle` file in your project.
 
