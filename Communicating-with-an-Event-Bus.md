@@ -137,6 +137,7 @@ a message that will be displayed when the event is received on the Activity.
 
       // do some work
       BusProvider.postOnMain(new IntentServiceResult(Activity.RESULT_OK, "done!!"));
+  }
 ```
 
 ### Creating a subscriber
