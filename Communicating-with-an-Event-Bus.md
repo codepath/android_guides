@@ -2,9 +2,9 @@
 
 By now, you should be familiar with the various ways the Android framework relies on passing data between the various abstractions used:
 
- * Activities uses [[Intents|Using Intent to Create Flows]] to pass data between screens.
+ * Activities uses [[Intents|Using-Intent-to-Create-Flows]] to pass data between screens.
  * Fragments use [[multiple ways|Creating and Using-Fragments#communicating-with-fragments]] to communicate: Bundles to construct fragments, methods by the containing Activity to call, and the listener pattern for the Fragment to fire events.
- * Services rely on [[Broadcast Managers#communicating-from-a-service-to-an-application]] to send data to Applications.
+ * Services rely on [[Broadcast Managers|Starting-Background-Services#communicating-from-a-service-to-an-application]] to send data to Applications.
 
 One of primary issues of these current approaches is that they can create strong dependencies between each component, making it difficult to change one part of the system without impacting another area.  This [blog post](https://corner.squareup.com/2012/07/otto.html) describes the challenges of creating unmanageable dependencies with the current Android framework.  Instead of encouraging more modular designs, which much of the Android framework is intended to do, the communication patterns can sometimes do the exact opposite.
 
@@ -14,7 +14,7 @@ There are many different libraries which attempt to enable the event bus model, 
 a way to declare [sequences of actions](http://www.infoq.com/news/2014/11/android-rxjava-at-soundcloud) to be taken in response to certain events.  
 
 When using an event bus model, there are several considerations:
-  * *Don't assume you should replace every communication pattern with an event bus model*.  If you publish an event meant only for one subscriber that shouldn't trigger changes in other subscribers, rely on 1-to-1 communication patterns such as the [[Intents|Using Intent to Create Flows]] or [listener pattern|Creating Custom Listeners].  For instance, a date picker fragment that could be reused in multiple components of your app should probably expose a listener interface since using a event bus model could cause this event to be published to many components waiting to respond to changes in the date selection.    Consider the design patterns described in this [article](http://timnew.me/blog/2014/12/06/typical-eventbus-design-patterns/) too.
+  * *Don't assume you should replace every communication pattern with an event bus model*.  If you publish an event meant only for one subscriber that shouldn't trigger changes in other subscribers, rely on 1-to-1 communication patterns such as the [[Intents|Using Intent to Create Flows]] or [[listener pattern|Creating Custom Listeners]].  For instance, a date picker fragment that could be reused in multiple components of your app should probably expose a listener interface since using a event bus model could cause this event to be published to many components waiting to respond to changes in the date selection.    Consider the design patterns described in this [article](http://timnew.me/blog/2014/12/06/typical-eventbus-design-patterns/) too.
 
   * If you are using publishing or subscribers within an Activity of Fragment they should be registered and unregistered with their lifecycle.*  Otherwise, it's likely you will encounter memory leaks or dangling references that can cause your app to crash.
 
@@ -23,8 +23,6 @@ When using an event bus model, there are several considerations:
 
 
 ## Setting up an Event Bus with Otto
-
-### Setup
 
 Add this Gradle dependency to your `app/build.gradle` file:
 
