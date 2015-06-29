@@ -5,15 +5,7 @@ IntelliJ IDEA contains all the features found in Android Studio.  Setup for Andr
 ## Prerequisites
 * Install [Java 7 JDK](http://www.oracle.com/technetwork/java/javase/downloads)
 * Install [IntelliJ IDEA](https://www.jetbrains.com/idea/download/)
-
-## Install the Android SDK Tools
-* Option 1: Homebrew
-  * [Install Homebrew](http://brew.sh/) - package manager for OSX
-  * run `brew install android-sdk`
-  * This will install the Android SDK tools in `/usr/local/Cellar/android-sdk/<version number>`
-* Option 2: Download and unzip
-  * Download the [Android SDK Tools](https://developer.android.com/sdk/installing/index.html?pkg=tools)
-  * Unzip files to an easy to access/find location.  The location will be required later E.g., `~/android-sdk/`
+* Follow [[Installing Android SDK Tools|Installing-Android-SDK-Tools]] setup guide.
 
 ## Install Android Platform and Genymotion Emulator
 * Install at least one version of the Android Platform
