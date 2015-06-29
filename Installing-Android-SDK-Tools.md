@@ -121,4 +121,10 @@ If you want to be selective about installing, you can use `android list` to view
 sudo android update sdk --no-ui --filter platform-tools,tools
 ```
 
+If you decide to be selective about which packages to be installed, make sure to include the extra Android Maven repository.  Otherwise, you may not be able to use the latest [[support design library|Design Support Library]].
+
+```
+android update sdk --no-ui --all --filter extra-android-m2repository     
+```
+
 There is currently no filter to install the build tools directly.  See this [ticket](https://code.google.com/p/android/issues/detail?id=78765) for more information.
