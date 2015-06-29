@@ -76,7 +76,7 @@ Save and quit. Reload `.bash_profile`:
 
 ### Installing via the GUI
  
-![Android SDK manager on build machine](https://dl.dropboxusercontent.com/u/10808663/gradle_jenkins_android/android_sdk_manager.png)
+![Android SDK manager on build machine](https://raw.githubusercontent.com/codepath/android_guides/master/images/intellij_idea_android_sdk_manager.png)
 
 At the prompt, type `android` and hit Enter to launch the Android SDK Manager in a window. If this doesn't work, your `PATH` variable has not been set up with the Android SDK location.   
 
@@ -85,6 +85,7 @@ You will want to install the same Android SDK packages on your build machine as 
 #### Packages to install
 
 Here are the SDK package names you'll definitely wish to select:
+
 
   * Android SDK Tools (latest version)
   * Android SDK Platform-tools (latest version)
