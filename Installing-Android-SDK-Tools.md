@@ -31,9 +31,18 @@ When the SDK Manager plug-in runs, it will look at the `local.properties` file t
 
 If you are having any issues with this -plugin, you can run `gradlew build -d` to help see the verbose logging messages.  
 
+## Installing the Android SDK (via Homebrew)
+
+Assuming you have OS X running, you can use Homebrew to install the Android SDK.
+
+1. [Install Homebrew](http://brew.sh/) - package manager for OSX
+2. run `brew install android-sdk`
+
+This will install the Android SDK tools in `/usr/local/Cellar/android-sdk/<version number>`
+
 ## Installing the Android SDK (Manual Way)
 
-Download the Android SDK without Android Studio bundled. Go to [Android SDK](http://developer.android.com/sdk/index.html) and copy the URL for the **SDK Tools Only** download that's appropriate for your build machine OS.
+You wlil need to download the Android SDK without Android Studio bundled. Go to [Android SDK](http://developer.android.com/sdk/index.html) and navigate to the **SDK Tools Only** section. Copy the URL for the download that's appropriate for your build machine OS.
 
 ![List of Android SDK downloads from developers.android.com](https://dl.dropboxusercontent.com/u/10808663/gradle_jenkins_android/sdk_downloads.png)
 
@@ -76,7 +85,7 @@ Here are the SDK package names you'll definitely wish to select:
   * Android SDK Build-tools for the version of Android that you listed in the `build.gradle` file as the `android: buildToolsVersion` target. If your `build.gradle` says 
 ```gradle
     android {
-        buildToolsVersion '17'
+        buildToolsVersion '21'
         ...
     }
 ```
@@ -89,8 +98,7 @@ You will also want to download the extras:
   * Android Support Repository
   * Android Support Library
 
-
-## Downloading the SDK from the Command Line
+### Downloading the SDK from the Command Line
 
 You can also download the SDK packages using the command line with the `--no-ui` parameter.
 
