@@ -86,11 +86,18 @@ You will want to install the same Android SDK packages on your build machine as 
 
 Here are the SDK package names you'll definitely wish to select:
 
+  * `Tools > Android SDK Tools`
+  * `Tools > Android SDK Platform-tools`
+  * `Tools > Android SDK Build-tools`
+  * One version of the Android Platform.  E.g., `Android 5.1.1 (API 22)`.  It should be the one you named named in the `android: compileSdkVersion` section of your `build.gradle` file.
 
-  * Android SDK Tools (latest version)
-  * Android SDK Platform-tools (latest version)
-  * Android SDK Build-tools (latest version)
-  * Android SDK Build-tools for the version of Android that you listed in the `build.gradle` file as the `android: buildToolsVersion` target. If your `build.gradle` says 
+You will also want to download the extras:
+
+  * Android Support Repository
+  * Android Support Library
+
+Note: Choose the Android SDK Build-tools for the version of Android that you listed in the `build.gradle` file as the `android: buildToolsVersion` target. If your `build.gradle` says 
+
 ```gradle
     android {
         buildToolsVersion '21'
@@ -99,12 +106,6 @@ Here are the SDK package names you'll definitely wish to select:
 ```
 
 then make sure to download that API version in the Android SDK Manager. 
-
-  * Android SDK set for the API levels that you named in the `android: compileSdkVersion` section of your `build.gradle` file.
-
-You will also want to download the extras:
-  * Android Support Repository
-  * Android Support Library
 
 ### Downloading the SDK from the Command Line
 
