@@ -107,7 +107,7 @@ Note: Choose the Android SDK Build-tools for the version of Android that you lis
 
 then make sure to download that API version in the Android SDK Manager. 
 
-#### Downloading the SDK from the Command Line
+#### Installing via the Command Line
 
 You can also download the SDK packages using the command line with the `--no-ui` parameter.
 
