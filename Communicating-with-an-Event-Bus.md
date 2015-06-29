@@ -142,9 +142,9 @@ a message that will be displayed when the event is received on the Activity.
 
 ### Creating a subscriber
 
-We simply need to annotate a method that has this specific event type with the `@Subscribe` decorator.
-Assuming the Activity is registered on the bus, Otto will look for any subscribers when this specific event
-is published.  We can display the result value to verify that the data passed is correct.
+We simply need to annotate a method that has this specific event type with the `@Subscribe` decorator.  The method must also take in the parameter of the event for which it is listening.  In this case, it's `IntentServiceResult`.
+
+Assuming the Activity is registered on the bus, Otto will look for any subscribers when this specific event is published.  We can display the result value to verify that the data passed is correct.
 
 ```java
    public class MainActivity extends ActionBarActivity {
