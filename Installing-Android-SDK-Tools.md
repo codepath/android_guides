@@ -41,7 +41,7 @@ Use `wget` with the correct SDK URL:
 
     $ wget http://dl.google.com/android/android-sdk_r22.6.2-macosx.zip
 
-Unzip and place the contents within your home directory. The directory names can be anything you like, but I like the following setup.  The Android SDK is in `/Users/ciandroid/src/`.
+Unzip and place the contents within your home directory. The directory names can be anything you like, but save the files in somewhere easy to find (i.e. ~/android-sdk).
 
  ![Directory structure on the build server](https://dl.dropboxusercontent.com/u/10808663/gradle_jenkins_android/directories_on_build_server.png)
 
