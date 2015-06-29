@@ -51,7 +51,8 @@ IntelliJ IDEA contains all the features found in Android Studio.  Setup for Andr
 * On the welcome screen, click **Create new project** or select `File > New Project` from the menu bar.
 * Select **Android** from the Project Type List on the left
 * Select **Gradle:Android Module** from the options on the right
-* ![project type selection](https://github.com/codepath/android_guides/blob/master/images/intellij_idea_new_project_type.png)
+* project type selection
+<img src="https://github.com/codepath/android_guides/blob/master/images/intellij_idea_new_project_type.png" alt="Project Type"
 * On the project details screen, specify:
   * Application name
   * Package name
