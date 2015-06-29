@@ -155,6 +155,8 @@ is published.  We can display the result value to verify that the data passed is
 
 ### Using Otto with Dagger (TODO)
 
+## References
+
 * <http://awalkingcity.com/blog/2013/02/26/productive-android-eventbus/>
 * <https://github.com/kevintanhongann/EventBusSample/>
 * <http://nerds.weddingpartyapp.com/tech/2014/12/24/implementing-an-event-bus-with-rxjava-rxbus/>
