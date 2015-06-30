@@ -24,13 +24,13 @@ Services can be thought of at a high-level as background tasks that run independ
 
 | Trigger      | Description   | Example |
 | ---------    | ---------     | ------- |
-| Intent       | Trigger directly from an activity or fragment after user action | Starts an image upload |
-| AlarmManager | Trigger at a specified time in the future or at a recurring interval | Poll for new updates |
-| GCM          | Trigger when a push message is received through cloud messaging | Chat message received |
-| Sensors      | Trigger when a particular sensor value is received | Geofencing location update |
+| [[Intent|Starting-Background-Services#executing-the-intentservice]]       | Trigger directly from an activity or fragment after user action | Starts an image upload |
+| [[AlarmManager|Starting-Background-Services#using-with-alarmmanager-for-periodic-tasks]] | Trigger at a specified time in the future or at a recurring interval | Poll for new updates |
+| [[GCM|Push-Messaging]]          | Trigger when a push message is received through cloud messaging | Chat message received |
 | BroadcastReceiver | Trigger when a particular broadcast message is received | Launch on device bootup |
+| Sensors      | Trigger when a particular sensor value is received | Geofencing location update |
 
-Since most developer created services are **short-lived task-based**, they should be running for a finite amount of time after being triggered. Generally speaking, developers should be wary of building extended-run services. Refer to the [[Executing an IntentService|Starting-Background-Services#executing-the-intentservice]] guide for starting a service through an intent. See the [[AlarmManager section|Starting-Background-Services#using-with-alarmmanager-for-periodic-tasks]] for how to trigger an intent using an alarm. Check the [[Push Messaging|Push-Messaging]] guide for an overview of how to trigger a service or launch your app using GCM.
+Since most developer created services are **short-lived task-based**, they should be running for a finite amount of time after being triggered. Generally speaking, developers should be wary of building extended-run services. 
 
 ### Outputs
 
@@ -38,13 +38,13 @@ Remember that a service is **not bound to the Activity and cannot modify views w
 
 | Output       | Description   | Example |
 | ---------    | ---------     | ------- |
-| Notification | Creates a dashboard notification to alert the user | New direct message received |
-| Broadcasts   | Triggers a broadcast message to be received | Activity wants to add a new chat message |
+| [[Notifications]] | Creates a dashboard notification to alert the user | New direct message received |
+| [[Broadcasts|Starting-Background-Services#communicating-with-a-broadcastreceiver]]   | Triggers a broadcast message to be received | Activity wants to add a new chat message |
 | SQLite       | Write data received into the local database | Store new content for querying later |
 | Files        | Cache blob data such as images or json to file | Cache images to be displayed quickly later |
 | Prefs        | Save key-values to shared preferences | Store a flag to display a message on next app open |
 
-Refer to the [[Notifications]] guide for how to create a dashboard notification. Note that we can use [[broadcasts to trigger updates within our app|Starting-Background-Services#communicating-with-a-broadcastreceiver]] while the app is running. In this way, the activity can update the UI accordingly after being told to by a service broadcast. Refer to the [[Persisting Data to the Device]] for additional information on writing to SQL, Files or Prefs from a service. 
+Note that we can use [[broadcasts to trigger updates within our app|Starting-Background-Services#communicating-with-a-broadcastreceiver]] while the app is running. In this way, the activity can update the UI accordingly after being told to by a service broadcast. Refer to the [[Persisting Data to the Device]] for additional information on writing to SQL, Files or Prefs from a service. 
 
 ## Creating an IntentService
 
