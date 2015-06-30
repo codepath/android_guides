@@ -28,7 +28,7 @@ Services can be thought of at a high-level as background tasks that run independ
 | [[AlarmManager|Starting-Background-Services#using-with-alarmmanager-for-periodic-tasks]] | Trigger at a specified time in the future or at a recurring interval | Poll for new updates |
 | [[GCM|Push-Messaging]]          | Trigger when a push message is received through cloud messaging | Chat message received |
 | [[BroadcastReceiver|Starting-Background-Services#starting-a-service-at-device-boot]] | Trigger when a particular broadcast message is received | Launch on device bootup |
-| Sensors      | Trigger when a particular sensor value is received | Geofencing location update |
+| [Sensors](https://developer.android.com/training/location/geofencing.html) | Trigger when a particular sensor value is received | Geofencing location update |
 
 Since most developer created services are **short-lived task-based**, they should be running for a finite amount of time after being triggered. Generally speaking, developers should be wary of building extended-run services. 
 
