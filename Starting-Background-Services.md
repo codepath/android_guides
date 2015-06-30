@@ -20,7 +20,7 @@ A common point of confusion is when to use an AsyncTask and when to use an Inten
 
 ### Launchers
 
-Services can be thought of at a high-level as background tasks that run independent of the rest of the app. The services are "launched" or started by a few different types of "triggers". Refer to the following table to better understand the launchers that startup services:
+Services can be thought of at a high-level as background tasks that run independent of the rest of the app. The services are "launched" or started by a few different types of "triggers". Refer to the following table to better understand the launchers that trigger the start of a service:
 
 | Trigger      | Description   | Example |
 | ---------    | ---------     | ------- |
@@ -30,17 +30,21 @@ Services can be thought of at a high-level as background tasks that run independ
 | Sensors      | Trigger when a particular sensor value is received | Geofencing location update |
 | BroadcastReceiver | Trigger when a particular broadcast message is received | Launch on device bootup |
 
+Since most developer created services are **short-lived task-based**, they should be running for a finite amount of time after being triggered. Generally speaking, developers should be wary of building extended-run services. 
+
 ### Outputs
 
-Remember that a service is **not bound to the Activity and cannot modify views within the UI directly**. Instead, a service tends to have very specific outputs after running that are not directly associated with the UI. Refer to the following table to better understand the outputs of services:
+Remember that a service is **not bound to the Activity and cannot modify views within the UI directly**. Instead, a service tends to have very specific outputs after running that are not directly associated with the UI. Refer to the following table to better understand the outputs created by services:
 
 | Output       | Description   | Example |
 | ---------    | ---------     | ------- |
 | Notification | Creates a dashboard notification to alert the user | New direct message received |
 | Broadcasts   | Triggers a broadcast message to be received | Activity wants to add a new chat message |
 | SQLite       | Write data received into the local database | Store new content for querying later |
-| Files        | Cache blog data to files | Cache images to be displayed quickly later |
-| Prefs        | Save key-values to preferences | Store a flag to display a message on next app open |
+| Files        | Cache blob data such as images or json to file | Cache images to be displayed quickly later |
+| Prefs        | Save key-values to shared preferences | Store a flag to display a message on next app open |
+
+Refer to the [[Notifications]] guide for how to create a dashboard notification. Note that we can use [[broadcasts to trigger updates within our app|Starting-Background-Services#communicating-with-a-broadcastreceiver]] while the app is running. In this way, the activity can update the UI accordingly after being told to by a service broadcast. Refer to the [[Persisting Data to the Device]] for additional information on writing to SQL, Files or Prefs from a service. 
 
 ## Creating an IntentService
 
