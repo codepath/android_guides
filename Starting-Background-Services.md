@@ -1,3 +1,5 @@
+## Overview
+
 A service is a component which runs in the background, without direct interaction with the user. As the service has no user interface it is not bound to the lifecycle of an activity. Services are used for repetitive and potential long running operations, checking for new data, data processing, indexing content, etc.
 
 The [IntentService](http://developer.android.com/reference/android/app/IntentService.html) class provides a straightforward structure for running an operation on a single background thread. IntentService runs outside the application in a background process, so the process will run even if your application is closed.
@@ -10,11 +12,34 @@ A few limitations of an IntentService to be aware of:
 
 However, in most cases an IntentService is the preferred way to simple background operations.
 
-## In Comparison to AsyncTask
+### In Comparison to AsyncTask
 
-A common point of confusion is when to use an AsyncTask and when to use an IntentService. An AsyncTask is tightly bound to a particular Activity. In other words, if the Activity changes the AsyncTask will stop running. For short one-off background tasks **tightly coupled to an Activity**, we want to use AsyncTask. A good example is for a several second network request that will populate data into a ListView.
+A common point of confusion is when to use an AsyncTask and when to use an IntentService. An AsyncTask is tightly bound to a particular Activity. In other words, if the Activity is destroyed or the configuration changes then the AsyncTask will not be able to update the UI on completion. For short one-off background tasks **tightly coupled to updating an Activity**, we should use an AsyncTask. A good example is for a several second network request that will populate data into a ListView.
 
-IntentService are geared towards longer running tasks that should run in the background, independent of the application or activity that is currently open. The activity can be switched or the application can be paused and the IntentService will still continue to run in the background. For longer running tasks that are **independent of a particular Activity**, use IntentService.
+`IntentService` is geared towards longer running tasks that should run in the background, independent of the activity that is currently open and being viewed. The activity can be switched or the app can be paused and the `IntentService` will still continue to run in the background. For longer running tasks that are **independent of a particular Activity**, use IntentService.
+
+### Launchers
+
+Services can be thought of at a high-level as background tasks that run independent of the app. The services are "launched" or started by a few different "triggers". Refer to the following table to better understand the launchers that startup services:
+
+| Trigger      | Description   | Example |
+| ---------    | ---------     | ------- |
+| Activity     | Trigger directly from an activity or fragment after user action | Starts an image upload |
+| AlarmManager | Trigger at a specified time in the future or at a recurring interval | Poll for new updates |
+| GCM          | Trigger when a push message is received through cloud messaging | Chat message received |
+| Sensors      | Trigger when a particular sensor value is received | Geofencing location update |
+
+### Outputs
+
+Remember that a service is **not bound to the Activity and cannot modify views within the UI directly**. Instead, a service tends to have very specific outputs after running that are not directly associated with the UI. Refer to the following table to better understand the outputs of services:
+
+| Output       | Description   | Example |
+| ---------    | ---------     | ------- |
+| Notification | Creates a dashboard notification to alert the user | New direct message received |
+| Broadcasts   | Triggers a broadcast message to be received | Activity wants to add a new chat message |
+| SQLite       | Write data received into the local database | Store new content for querying later |
+| Files        | Cache blog data to files | Cache images to be displayed quickly later |
+| Prefs        | Save key-values to preferences | Store a flag to display a message on next app open |
 
 ## Creating an IntentService
 
