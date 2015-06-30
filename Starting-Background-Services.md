@@ -402,6 +402,57 @@ public void cancelAlarm() {
 
 You can see a more detailed example [here](http://www.jeevanreddy.in/2012/05/scheduling-background-tasks-using-alarm.html) or [here](http://nerdwin15.com/2013/04/android-creating-an-alarm-with-alarmmanager/). For a more detailed example that includes starting the alarm when the phone boots up, check out [this blog post](http://dhimitraq.wordpress.com/2012/11/27/using-intentservice-with-alarmmanager-to-schedule-alarms/).
 
+## Starting a Service at Device Boot
+
+In certain cases, we might want a service to start **right after the device boots up**. This is a specific case of a broader trigger of launching a service when a particular broadcast is received by your application. To start a service when a broadcast (such as boot message) is received, we can start by adding the necessary permissions to receive this message in our manifest `AndroidManifest.xml` in the `<manifest>` element:
+
+```xml
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+<uses-permission android:name="android.permission.WAKE_LOCK" />
+```
+
+We need to link this boot message with a particular broadcast receiver which will receive and processes the "boot" message issued by the phone. Second, let's define our broadcast receiver class as extending from [WakefulBroadcastReceiver](https://developer.android.com/reference/android/support/v4/content/WakefulBroadcastReceiver.html] which ensures the device will stay awake until service has been started:
+
+```java
+package com.codepath.example;
+
+// WakefulBroadcastReceiver ensures the device does not go back to sleep 
+// during the startup of the service
+public class BootBroadcastReceiver extends WakefulBroadcastReceiver {
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        // Launch the specified service when this message is received
+        Intent startServiceIntent = new Intent(context, MyTestService.class);
+        context.startService(startServiceIntent);
+    }
+}
+```
+
+Now that we've created the receiver to start our service, within our manifest `AndroidManifest.xml` in your <application> element, we need to add our broadcast receiver specifying a fully qualified path:
+
+```xml
+<receiver android:name="com.codepath.example.MyBroadcastReceiver">  
+    <intent-filter>  
+        <action android:name="android.intent.action.BOOT_COMPLETED" />  
+    </intent-filter>  
+</receiver>
+```
+
+This registers the receiver and applies the `BOOT_COMPLETED` message which ensures the receiver is launched when the device boots up. The boot message is received and the "wakeful" receiver launches the service. Don't forget to **release the wake lock** within `onHandleIntent` so the device can go back to sleep after the service is launched:
+
+```java
+public class MyTestService extends IntentService {
+  // ...
+  @Override
+  protected void onHandleIntent(Intent intent) {
+      // Release the wake lock provided by the WakefulBroadcastReceiver.
+      BootBroadcastReceiver.completeWakefulIntent(intent);
+  }
+}
+```
+
+With this completed, our service will start automatically whenever the device boots!
+
 ## Custom Services
 
 In 90% of cases when you need a background service, you will grab `IntentService` as your tool. However, `IntentService` does have a few limitations. The biggest limitation is that the `IntentService` uses a single worker thread to handle start requests **one at a time**. Therefore, as long as you don't require that your service handle multiple requests simultaneously, the `IntentService` is the best tool for the job.
