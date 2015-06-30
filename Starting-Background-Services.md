@@ -20,7 +20,7 @@ A common point of confusion is when to use an AsyncTask and when to use an Inten
 
 ### Launchers
 
-Services can be thought of at a high-level as background tasks that run independent of the app. The services are "launched" or started by a few different "triggers". Refer to the following table to better understand the launchers that startup services:
+Services can be thought of at a high-level as background tasks that run independent of the rest of the app. The services are "launched" or started by a few different types of "triggers". Refer to the following table to better understand the launchers that startup services:
 
 | Trigger      | Description   | Example |
 | ---------    | ---------     | ------- |
@@ -28,6 +28,7 @@ Services can be thought of at a high-level as background tasks that run independ
 | AlarmManager | Trigger at a specified time in the future or at a recurring interval | Poll for new updates |
 | GCM          | Trigger when a push message is received through cloud messaging | Chat message received |
 | Sensors      | Trigger when a particular sensor value is received | Geofencing location update |
+| BroadcastReceiver | Trigger when a particular broadcast message is received | Launch on device bootup |
 
 ### Outputs
 
