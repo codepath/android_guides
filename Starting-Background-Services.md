@@ -24,13 +24,13 @@ Services can be thought of at a high-level as background tasks that run independ
 
 | Trigger      | Description   | Example |
 | ---------    | ---------     | ------- |
-| Activity     | Trigger directly from an activity or fragment after user action | Starts an image upload |
+| Intent       | Trigger directly from an activity or fragment after user action | Starts an image upload |
 | AlarmManager | Trigger at a specified time in the future or at a recurring interval | Poll for new updates |
 | GCM          | Trigger when a push message is received through cloud messaging | Chat message received |
 | Sensors      | Trigger when a particular sensor value is received | Geofencing location update |
 | BroadcastReceiver | Trigger when a particular broadcast message is received | Launch on device bootup |
 
-Since most developer created services are **short-lived task-based**, they should be running for a finite amount of time after being triggered. Generally speaking, developers should be wary of building extended-run services. 
+Since most developer created services are **short-lived task-based**, they should be running for a finite amount of time after being triggered. Generally speaking, developers should be wary of building extended-run services. Refer to the [[Executing an IntentService|Starting-Background-Services#executing-the-intentservice]] guide for starting a service through an intent. See the [[AlarmManager section|Starting-Background-Services#using-with-alarmmanager-for-periodic-tasks]] for how to trigger an intent using an alarm. Check the [[Push Messaging|Push-Messaging]] guide for an overview of how to trigger a service or launch your app using GCM.
 
 ### Outputs
 
