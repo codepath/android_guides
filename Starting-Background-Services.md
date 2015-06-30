@@ -411,7 +411,7 @@ In certain cases, we might want a service to start **right after the device boot
 <uses-permission android:name="android.permission.WAKE_LOCK" />
 ```
 
-We need to link this boot message with a particular broadcast receiver which will receive and processes the "boot" message issued by the phone. Second, let's define our broadcast receiver class as extending from [WakefulBroadcastReceiver](https://developer.android.com/reference/android/support/v4/content/WakefulBroadcastReceiver.html] which ensures the device will stay awake until service has been started:
+We need to link this boot message with a particular broadcast receiver which will receive and processes the "boot" message issued by the phone. Second, let's define our broadcast receiver class as extending from [WakefulBroadcastReceiver](https://developer.android.com/reference/android/support/v4/content/WakefulBroadcastReceiver.html) which ensures the device will stay awake until service has been started:
 
 ```java
 package com.codepath.example;
