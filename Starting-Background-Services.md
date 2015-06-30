@@ -431,7 +431,7 @@ public class BootBroadcastReceiver extends WakefulBroadcastReceiver {
 Now that we've created the receiver to start our service, within our manifest `AndroidManifest.xml` in the `<application>` element, we need to add our broadcast receiver specifying a fully qualified path:
 
 ```xml
-<receiver android:name="com.codepath.example.MyBroadcastReceiver">  
+<receiver android:name="com.codepath.example.BootBroadcastReceiver">  
     <intent-filter>  
         <action android:name="android.intent.action.BOOT_COMPLETED" />  
     </intent-filter>  
