@@ -6,7 +6,7 @@ Make sure you are familiar with [RecyclerView] (https://developer.android.com/re
 
 `RecyclerView` can also be used to inflate multiple view types in situations where your list might be heterogeneous, in the sense, based on the response from the server, there might be a requirement for inflating different types of layouts (example: Consider facebook home feed where there are a variety of stories such as a status update, location update, single image, image album, video, etc). This guide will explain how to inflate multiple view types inside your `RecyclerView` widget based on the item type. 
 
-Note: Refer [Implementing a Heterogenous ListView](https://github.com/codepath/android_guides/wiki/Implementing-a-Heterogenous-ListView) guide on how to inflate multiple item types within a `ListView`.
+Note: Refer [Implementing a Heterogeneous ListView](https://github.com/codepath/android_guides/wiki/Implementing-a-Heterogenous-ListView) guide on how to inflate multiple item types within a `ListView`.
 
 To implement heterogeneous layouts inside the `RecyclerView`, most of the work is done within the `RecyclerView.Adapter`. In particular, there are special methods to be overridden within the adapter: 
 * `getItemViewType()`
@@ -17,7 +17,7 @@ To implement heterogeneous layouts inside the `RecyclerView`, most of the work i
 
 Building on top of the basic `RecyclerView` [usage project](https://github.com/codepath/android_guides/wiki/Using-the-RecyclerView), we will now replace the `SimpleItemRecyclerViewAdapter` with a more `ComplexRecyclerViewAdapter` which does all the heavy-lifting for inflating different types of layouts based on the item view type. The following example will be inflating two different layouts for based on the object that the List<Object> holds.  `layout_viewholder1.xml` will be used for `User` objects and `layout_viewholder2.xml` will be used for `String` objects. 
 
-For the purpose of this exercise, we will modify our sample data set to contain a list of objects as shown:
+For the purpose of this exercise, we will modify our sample data set in `RecyclerViewActivity` to contain a list of objects as shown:
 
 ```java
     private ArrayList<Object> getSampleArrayList() {
