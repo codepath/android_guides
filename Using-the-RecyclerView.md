@@ -65,49 +65,26 @@ Click on "Sync Project with Gradle files" to let your IDE download the appropria
 
 ### Constructing the `RecyclerViewActivity`: 
 
-Create a new activity and call it `RecyclerViewActivity`. You can optionally choose to create a new activity with blank fragment called `RecyclerViewFragment`.
+Create a new activity and call it `RecyclerViewActivity`. 
 
-Here's how your activity looks like: 
+Here's how your activity initially looks like with the `RecyclerView` object instantiated: 
 
 ```java
 public class RecyclerViewActivity extends ActionBarActivity {
+
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_view);
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new RecyclerViewFragment())
-                    .commit();
-        }
-    }
-}
-```
-
-Following is the initial creation of the `RecyclerViewFragment`. We will later look at what the `initUi()` method does.
-
-```java
-public class RecyclerViewFragment extends Fragment {
-
-    private RecyclerView recyclerView;
-
-    public RecyclerViewFragment() {
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_recycler_view, container, false);
 
         //Get Handle to your UI elements
-        initUi(view);
-        return view;
+        initUi();
     }
-}
 ```
 
-Before proceeding, let's add a `RecyclerView` widget to our layout file (`fragment_recycler_view`):
+Before proceeding, let's add a `RecyclerView` widget to our layout file (`activity_recycler_view`):
 
 ```xml
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -122,10 +99,10 @@ Before proceeding, let's add a `RecyclerView` widget to our layout file (`fragme
 </RelativeLayout>
 ```
 
-Now, lets get the handle to our `RecyclerView` in our fragment in the `initUi` method:
+Next, get the handle to the `RecyclerView` in the activity in the `initUi` method:
 
 ```java
-private void initUi(View view) {
+     private void initUi(View view) {
         //Get the handle to the recycler view
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         configureRecyclerView();
@@ -137,10 +114,10 @@ private void initUi(View view) {
 ### Configuring the `RecyclerView` (read comments for what the lines do):
 
 ```java
-private void configureRecyclerView() {
+      private void configureRecyclerView() {
         
         // Setup layout manager for items
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         
         // Control orientation of the items
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -155,8 +132,16 @@ private void configureRecyclerView() {
         recyclerView.setHasFixedSize(true);
 
         // Reference : https://gist.githubusercontent.com/alexfu/0f464fc3742f134ccd1e/raw/abe729359e5b3691f2fe56445644baf0e40b35ba/DividerItemDecoration.java
-        RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST);
+        RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST);
         recyclerView.addItemDecoration(itemDecoration);
+        
+        bindDataToAdapter();
+    }
+```
+
+Optionally, you can also add the following properties to define animations and item touches:
+
+```java
 
         // RecyclerView uses this by default. You can add custom animations by using RecyclerView.ItemAnimator()
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -174,9 +159,7 @@ private void configureRecyclerView() {
                 return false;
             }
         });
-        
-        bindDataToAdapter();
-    }
+
 ```
 
 ### Creating the `RecyclerView.Adapter`
