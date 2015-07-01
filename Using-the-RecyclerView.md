@@ -100,7 +100,7 @@ public class RecyclerViewActivity extends ActionBarActivity {
     }
 ```
 
-Define method `` to create a random set of Users for displaying in the `RecyclerView`:
+Define method `getSampleArrayList()` to create a random set of Users for displaying in the `RecyclerView`:
 
 ```java
     private ArrayList<User> getSampleArrayList() {
@@ -134,16 +134,16 @@ Next, get the handle to the `RecyclerView` in the activity in the `initUi` metho
      private void initUi(View view) {
         //Get the handle to the recycler view
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-        configureRecyclerView();
+        initializeRecyclerView();
         //Initiate your other elements here
         // ...
     }
 ```
 
-### Configuring the `RecyclerView` (read comments for what the lines do):
+### Initializing the `RecyclerView` (read comments for what the lines do):
 
 ```java
-      private void configureRecyclerView() {
+      private void initializeRecyclerView() {
         
         // Setup layout manager for items
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -168,7 +168,7 @@ Next, get the handle to the `RecyclerView` in the activity in the `initUi` metho
     }
 ```
 
-Optionally, you can also add the following properties to define animations and item touches:
+**Optionally**, you can also add the following properties to define custom properties such as animations and item touches:
 
 ```java
 
