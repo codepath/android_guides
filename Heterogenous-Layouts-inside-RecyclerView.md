@@ -130,7 +130,7 @@ public class ComplexRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
     // The items to display in your RecyclerView
     private List<String> items;
 
-    private final int ODD = 0, EVEN = 2;
+    private final int USER = 0, IMAGE = 1;
 
     // Provide a suitable constructor (depends on the kind of dataset)
     public ComplexRecyclerViewAdapter(List<String> items) {
@@ -160,15 +160,18 @@ public class ComplexRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
 }
 ```
 
-Now, you need to override the `getItemViewType` method to tell the `RecyclerView` about the type of view to inflate based on the position. We will return ODD or EVEN based on the position of the item in the dataset provided.
+Now, you need to override the `getItemViewType` method to tell the `RecyclerView` about the type of view to inflate based on the position. We will return USER or IMAGE based on the type of object in the data we have.
 
 ```java
     //Returns the view type of the item at position for the purposes of view recycling.
     @Override
     public int getItemViewType(int position) {
-        // Just as an example, return 0 or 2 depending on position
-        // Note that unlike in ListView adapters, types don't have to be contiguous
-        return position % 2 * 2;
+        if (items.get(position) instanceof User) {
+            return USER;
+        } else if (items.get(position) instanceof String) {
+            return IMAGE;
+        }
+        return -1;
     }
 ```
 
@@ -189,11 +192,11 @@ Next, you need to override the `onCreateViewHolder` method to tell the `Recycler
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
 
         switch (viewType) {
-            case ODD:
+            case USER:
                 View v1 = inflater.inflate(R.layout.layout_viewholder1, viewGroup, false);
                 viewHolder = new ViewHolder1(v1);
                 break;
-            case EVEN:
+            case IMAGE:
                 View v2 = inflater.inflate(R.layout.layout_viewholder2, viewGroup, false);
                 viewHolder = new ViewHolder2(v2);
                 break;
@@ -209,22 +212,22 @@ Next, you need to override the `onCreateViewHolder` method to tell the `Recycler
 Next, override the `onBindViewHolder` method to configure the `ViewHolder` with actual data that needs to be displayed. Distinguish the two different layouts and load them with sample text and image as follows.
 
 ```java
-     /**
+    /**
      * This method internally calls onBindViewHolder(ViewHolder, int) to update the
      * RecyclerView.ViewHolder contents with the item at the given position
      * and also sets up some private fields to be used by RecyclerView.
      *
      * @param viewHolder The type of RecyclerView.ViewHolder to populate
-     * @param position Item position in the ViewGroup.
+     * @param position Item position in the viewgroup.
      */
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
         switch (viewHolder.getItemViewType()) {
-            case ODD:
+            case USER:
                 ViewHolder1 vh1 = (ViewHolder1) viewHolder;
                 configureViewHolder1(vh1, position);
                 break;
-            case EVEN:
+            case IMAGE:
                 ViewHolder2 vh2 = (ViewHolder2) viewHolder;
                 configureViewHolder2(vh2);
                 break;
@@ -240,12 +243,15 @@ The following methods are used for configuring the individual `RecyclerView.View
 
 ```java 
     private void configureDefaultViewHolder(RecyclerViewSimpleTextViewHolder vh, int position) {
-        vh.getLabel().setText(items.get(position));
+        vh.getLabel().setText((CharSequence) items.get(position));
     }
 
     private void configureViewHolder1(ViewHolder1 vh1, int position) {
-        vh1.getLabel1().setText("Sample Title " + (position+1));
-        vh1.getLabel2().setText("Sample Description " + items.get(position));
+        User user = (User) items.get(position);
+        if (user != null) {
+            vh1.getLabel1().setText("Name: " + user.name);
+            vh1.getLabel2().setText("Hometown: " + user.hometown);
+        }
     }
 
     private void configureViewHolder2(ViewHolder2 vh2) {
@@ -253,18 +259,18 @@ The following methods are used for configuring the individual `RecyclerView.View
     }
 ```
 
-One ***final and important*** change before you can run the program would be to change the `bindDataToAdapter` method in our `RecyclerViewFragment` to set the `ComplexRecyclerViewAdapter` instead of the `SimpleItemRecyclerViewAdapter` as follows:
+One ***final and important*** change before you can run the program would be to change the `bindDataToAdapter` method in our `RecyclerViewActivity` to set the `ComplexRecyclerViewAdapter` instead of the `SimpleItemRecyclerViewAdapter` as follows:
 
 ```java
-private void bindDataToAdapter() {
-        // Bind adapter to recycler view by setting the adapter
+    private void bindDataToAdapter() {
+        // Bind adapter to recycler view object
         recyclerView.setAdapter(new ComplexRecyclerViewAdapter(getSampleArrayList()));
-}
+    }
 ```
 
 Rest of the implementation remains the same. After compiling and running your app, here's the output you should be looking at:
 
-<img src="http://i105.photobucket.com/albums/m232/purplehaze0077/heterogeneous_recyclerview_ss1.png" width="300" alt="ss1" /> <img src="http://i105.photobucket.com/albums/m232/purplehaze0077/heterogeneous_recyclerview_ss2.png" width="300" alt="ss2" />
+<img src="http://i105.photobucket.com/albums/m232/purplehaze0077/heterorecycler1.png" width="300" alt="ss1" /> <img src="http://i105.photobucket.com/albums/m232/purplehaze0077/heterorecycler2.png" width="300" alt="ss2" />
 
 ### References:
 
