@@ -15,9 +15,24 @@ To implement heterogeneous layouts inside the `RecyclerView`, most of the work i
 
 ## Implementation 
 
-Building on top of the basic `RecyclerView` [usage project](https://github.com/codepath/android_guides/wiki/Using-the-RecyclerView), we will now replace the `SimpleItemRecyclerViewAdapter` with a more `ComplexRecyclerViewAdapter` which does all the heavy-lifting for inflating different types of layouts based on the item view type. The following example will be inflating two different layouts for odd (layout_viewholder1.xml) and even (layout_viewholder2.xml) positions.
+Building on top of the basic `RecyclerView` [usage project](https://github.com/codepath/android_guides/wiki/Using-the-RecyclerView), we will now replace the `SimpleItemRecyclerViewAdapter` with a more `ComplexRecyclerViewAdapter` which does all the heavy-lifting for inflating different types of layouts based on the item view type. The following example will be inflating two different layouts for based on the object that the List<Object> holds.  `layout_viewholder1.xml` will be used for `User` objects and `layout_viewholder2.xml` will be used for `String` objects. 
 
-You will first need to create the classes (and layouts) for `ViewHolder1` (`layout_viewholder1.xml`) and `ViewHolder2` (`layout_viewholder2.xml`).
+For the purpose of this exercise, we will modify our sample data set to contain a list of objects as shown:
+
+```java
+    private ArrayList<Object> getSampleArrayList() {
+        ArrayList<Object> items = new ArrayList<>();
+        items.add(new User("Dany Targaryen", "Valyria"));
+        items.add(new User("Rob Stark", "Winterfell"));
+        items.add("image");
+        items.add(new User("Jon Snow", "Castle Black"));
+        items.add("image");
+        items.add(new User("Tyrion Lanister", "King's Landing"));
+        return items;
+    }
+```
+
+Next, you need to create the classes (and layouts) for `ViewHolder1` (`layout_viewholder1.xml`) and `ViewHolder2` (`layout_viewholder2.xml`).
 
 #### ViewHolder1.java
 
@@ -57,8 +72,8 @@ public class ViewHolder1 extends RecyclerView.ViewHolder {
     android:id="@+id/llContainer"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
+    android:layout_height="wrap_content"
+    android:padding="5dp">
 
     <TextView
         android:id="@+id/text1"
@@ -66,24 +81,17 @@ public class ViewHolder1 extends RecyclerView.ViewHolder {
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceListItemSmall"
-        android:gravity="center_vertical"
-        android:paddingStart="?android:attr/listPreferredItemPaddingStart"
-        android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
-        android:minHeight="?android:attr/listPreferredItemHeightSmall" />
+        android:gravity="center_vertical"/>
 
     <TextView
         android:id="@+id/text2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceListItemSmall"
-        android:gravity="center_vertical"
-        android:paddingStart="?android:attr/listPreferredItemPaddingStart"
-        android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
-        android:minHeight="?android:attr/listPreferredItemHeightSmall" />
+        android:gravity="center_vertical" />
 
 </LinearLayout>
 ```
-
 
 #### ViewHolder2.java
 
@@ -128,12 +136,12 @@ _Optional_: The asset that was used is attached below. You may choose your own a
 public class ComplexRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     // The items to display in your RecyclerView
-    private List<String> items;
+    private List<Object> items;
 
     private final int USER = 0, IMAGE = 1;
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public ComplexRecyclerViewAdapter(List<String> items) {
+    public ComplexRecyclerViewAdapter(List<Object> items) {
         this.items = items;
     }
 
