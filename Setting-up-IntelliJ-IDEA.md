@@ -19,13 +19,13 @@ IntelliJ IDEA contains all the features found in Android Studio.  Setup for Andr
   * Add Java Development Kit
     * Click `+ > JDK`
       * ![Add JDK](https://raw.githubusercontent.com/codepath/android_guides/master/images/intellij_idea_add_sdk.png)
+    * Note: Press `Cmd+Shift+.` to show hidden files in the file chooser dialog.
     * Navigate to the JDK location.  E.g., `/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk` on OSX.
-      * Note: Press `Cmd+Shift+.` to show hidden files in the file chooser dialog.
     * Select the JDK folder
   * Add Android SDK
     * Click `+ > Android SDK`
-    * Navigate to the Android SDK location.  E.g., for Homebrew installations, use `/usr/local/Cellar/android-sdk/<sdk-tools-version>`
     * Note: Press `Cmd+Shift+.` to show hidden files in the file chooser dialog.
+    * Navigate to the Android SDK location.  E.g., for Homebrew installations, use `/usr/local/Cellar/android-sdk/<sdk-tools-version>`
     * Select the Android SDK version folder and accept the defaults presented
   * Click **OK**
 
