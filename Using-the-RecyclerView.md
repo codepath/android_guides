@@ -63,6 +63,22 @@ dependencies {
 
 Click on "Sync Project with Gradle files" to let your IDE download the appropriate resources.
 
+### Defining a model:
+
+Using this Java Model object representing a `User`, we will display the user's name and hometown in our `RecyclerView` list by binding some sample data to the adapter.
+
+```java
+public class User {
+    public String name;
+    public String hometown;
+
+    public User(String name, String hometown) {
+       this.name = name;
+       this.hometown = hometown;
+    }
+}
+```
+
 ### Constructing the `RecyclerViewActivity`: 
 
 Create a new activity and call it `RecyclerViewActivity`. 
@@ -81,6 +97,19 @@ public class RecyclerViewActivity extends ActionBarActivity {
 
         //Get Handle to your UI elements
         initUi();
+    }
+```
+
+Define method `` to create a random set of Users for displaying in the `RecyclerView`:
+
+```java
+    private ArrayList<User> getSampleArrayList() {
+        ArrayList<User> items = new ArrayList<>();
+        items.add(new User("Dany Targaryen", "Valyria"));
+        items.add(new User("Rob Stark", "Winterfell"));
+        items.add(new User("Jon Snow", "Castle Black"));
+        items.add(new User("Tyrion Lanister", "King's Landing"));
+        return items;
     }
 ```
 
@@ -162,6 +191,29 @@ Optionally, you can also add the following properties to define animations and i
 
 ```
 
+### Defining the `RecyclerView.ViewHolder`:
+
+A `ViewHolder` describes an item view and metadata about its place within the `RecyclerView`. Instead of binding views (like in the `ListView`), the `RecyclerView.Adapter` creates and binds `ViewHolders`.
+
+```java
+public class RecyclerViewSimpleTextViewHolder extends RecyclerView.ViewHolder {
+    private TextView label;
+
+    public RecyclerViewSimpleTextViewHolder(View v) {
+        super(v);
+        label = (TextView) v.findViewById(android.R.id.text1);
+    }
+
+    public TextView getLabel() {
+        return label;
+    }
+
+    public void setLabel(TextView label) {
+        this.label = label;
+    }
+}
+```
+
 ### Creating the `RecyclerView.Adapter`
 
 Next, let's define the adapter for our `RecyclerView` which will bind to the data source and populate the `RecyclerView` with item rows.
@@ -171,16 +223,12 @@ The interface for the adapter now aligns more closely with the `ViewHolder` patt
 ```java
 public class SimpleItemRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewSimpleTextViewHolder> {
 
-    private Context context;
     // The items to display in your RecyclerView
-    private List<String> items;
-    // Allows to remember the last item shown on screen
-    private int lastPosition = -1;
+    private List<User> items;
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public SimpleItemRecyclerViewAdapter(List<String> items, Context context) {
+    public SimpleItemRecyclerViewAdapter(List<User> items) {
         this.items = items;
-        this.context = context;
     }
 
     // Return the size of your dataset (invoked by the layout manager)
@@ -202,79 +250,39 @@ public class SimpleItemRecyclerViewAdapter extends RecyclerView.Adapter<Recycler
     // Involves populating data into the item through holder
     @Override
     public void onBindViewHolder(RecyclerViewSimpleTextViewHolder viewHolder, int position) {
-        String item = items.get(position);
-        viewHolder.getLabel().setText(item);
-        // Here you apply the animation when the view is bound
-        setAnimation(viewHolder.itemView, position);
-    }
-
-    // Apply some custom animations to loading the items in the list
-    private void setAnimation(View viewToAnimate, int position)
-    {
-        // If the bound view wasn't previously displayed on screen, it's animated
-        if (position > lastPosition)
-        {
-            Animation animation = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
-            viewToAnimate.startAnimation(animation);
-            lastPosition = position;
-        }
-    }
-}
-
-```
-
-### Defining the `RecyclerView.ViewHolder`:
-
-```java
-public class RecyclerViewSimpleTextViewHolder extends RecyclerView.ViewHolder {
-    private TextView label;
-
-    public RecyclerViewSimpleTextViewHolder(View v) {
-        super(v);
-        label = (TextView) v.findViewById(android.R.id.text1);
-    }
-
-    public TextView getLabel() {
-        return label;
-    }
-
-    public void setLabel(TextView label) {
-        this.label = label;
+        User user = items.get(position);
+        viewHolder.getLabel().setText(user.name + " from " + user.hometown);
     }
 }
 ```
 
 ### Binding the data to the adapter
 
-In the `RecyclerViewFragment`, we will create a list which generates random strings and pass that to the adapter. We then set the adapter to the `RecyclerView` object:
+In the `RecyclerViewActivity`, populate a set of sample users which should be displayed in the `RecyclerView`. 
 
 ```java
-     private void bindDataToAdapter() {
-        // Bind adapter to recycler view object
-        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(getSampleArrayList(), getActivity()));
-     }
-
-    private ArrayList<String> getSampleArrayList() {
-        SecureRandom random = new SecureRandom();
-        ArrayList<String> items = new ArrayList<>();
-
-        for (int i = 0; i < 50; i++) {
-            items.add(getRandomString(i, random));
-        }
-
+     private ArrayList<User> getSampleArrayList() {
+        ArrayList<User> items = new ArrayList<>();
+        items.add(new User("Dany Targaryen", "Valyria"));
+        items.add(new User("Rob Stark", "Winterfell"));
+        items.add(new User("Jon Snow", "Castle Black"));
+        items.add(new User("Tyrion Lanister", "King's Landing"));
         return items;
-    }
-
-    private String getRandomString(int i, SecureRandom random) {
-        return (i+1) + ". " + new BigInteger(130, random).toString(32).toUpperCase();
     }
 ```
 
-That's it, we're good to go. Now, compile and run the app and you should see something like the screenshot below. Scroll down the list to see the custom animations while loading the item. If you scroll back up, the views will be recycled and far smoother than the `ListView` widget.
+We then set the adapter to the `RecyclerView` object in the `` method:
 
-<img src="http://i105.photobucket.com/albums/m232/purplehaze0077/Screen%20Shot%202015-06-26%20at%207.25.14%20AM.png" width="500" alt="Screenshot" />
+```java
+    private void bindDataToAdapter() {
+        // Bind adapter to recycler view object
+        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(getSampleArrayList()));
+    }
+```
 
+Finally, compile and run the app and you should see something like the screenshot below. If you scroll back up, the views will be recycled and far smoother than the `ListView` widget.
 
+<img src="http://i105.photobucket.com/albums/m232/purplehaze0077/recyclerview1.png" width="500" alt="Screenshot" />
 
 ### Attaching Click Handlers to Items
 
@@ -282,7 +290,7 @@ See [this detailed stackoverflow post](http://stackoverflow.com/a/24933117) whic
 
 In certain cases, you'd want to setup click handlers for views within the `RecyclerView` but define the click logic within the containing `Activity` or `Fragment` (i.e bubble up events from the adapter). To achieve this, [[create a custom listener|Creating-Custom-Listeners]] within the adapter and then fire the events upwards to an interface implementation defined within the parent.
 
-### Heterogenous Views
+### Heterogeneous Views
 
 See [this guide](https://github.com/codepath/android_guides/wiki/Heterogenous-Layouts-inside-RecyclerView) if you want to inflate multiple layouts inside a single `RecyclerView`.
 
