@@ -48,30 +48,31 @@ To create a custom layout manager, extend the [RecyclerView.LayoutManager](https
 
 `RecyclerView.ItemAnimator` will animate `ViewGroup` modifications such as add/delete/select that are notified to adapter. `DefaultItemAnimator` can be used for basic default animations and works quite well.
 
-# Using the `RecyclerView`
+## Using the RecyclerView
 
 ### Installation
 
-Add the following dependencies to your `app/build.gradle`:
+Make sure the recyclerview support library is listed as a dependency in your `app/build.gradle`:
 
 ```gradle
 dependencies {
     ...
-    compile 'com.android.support:recyclerview-v7:22.0.0'
+    compile 'com.android.support:recyclerview-v7:22.2.+'
 }
 ```
 
 Click on "Sync Project with Gradle files" to let your IDE download the appropriate resources.
 
-### Defining a model:
+### Defining a Model
 
-Using this Java Model object representing a `User`, we will display the user's name and hometown in our `RecyclerView` list by binding some sample data to the adapter.
+Every RecyclerView is backed by a source for data. In this case, we will define a `User` class which represents the data model being represented by the RecyclerView:
 
 ```java
 public class User {
+    // Define attributes of a user
     public String name;
     public String hometown;
-
+    // Create a constructor 
     public User(String name, String hometown) {
        this.name = name;
        this.hometown = hometown;
@@ -79,189 +80,197 @@ public class User {
 }
 ```
 
-### Constructing the `RecyclerViewActivity`: 
+### Create the RecyclerView within Layout
 
-Create a new activity and call it `RecyclerViewActivity`. 
-
-Here's how your activity initially looks like with the `RecyclerView` object instantiated: 
-
-```java
-public class RecyclerViewActivity extends ActionBarActivity {
-
-    private RecyclerView recyclerView;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recycler_view);
-
-        //Get Handle to your UI elements
-        initUi();
-    }
-```
-
-Define method `getSampleArrayList()` to create a random set of Users for displaying in the `RecyclerView`:
-
-```java
-    private ArrayList<User> getSampleArrayList() {
-        ArrayList<User> items = new ArrayList<>();
-        items.add(new User("Dany Targaryen", "Valyria"));
-        items.add(new User("Rob Stark", "Winterfell"));
-        items.add(new User("Jon Snow", "Castle Black"));
-        items.add(new User("Tyrion Lanister", "King's Landing"));
-        return items;
-    }
-```
-
-Before proceeding, let's add a `RecyclerView` widget to our layout file (`activity_recycler_view`):
+Inside the desired activity layout XML file in `res/layout/activity_users.xml`, let's add the `RecyclerView` from the support library:
 
 ```xml
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
-
+    
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+      android:id="@+id/rvUsers"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent" />
 
 </RelativeLayout>
 ```
 
-Next, get the handle to the `RecyclerView` in the activity in the `initUi` method:
+In the layout, preview we can see the `RecyclerView` within the activity:
 
-```java
-     private void initUi(View view) {
-        //Get the handle to the recycler view
-        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-        initializeRecyclerView();
-        //Initiate your other elements here
-        // ...
-    }
+<img src="http://i.imgur.com/Qf5fQ8X.png" width="300" />
+
+Now the `RecyclerView` is embedded within our activity layout file. Next, we can define the layout for each item within our list.
+
+### Creating the Custom Row Layout
+
+Before we create the adapter, let's define the XML layout file that will be used for each row within the list. This item layout for now should contain a horizontal linear layout with a textview for the name and hometown as shown below:
+
+<img src="http://i.imgur.com/MmY8zqI.png" width="300" />
+<img src="http://i.imgur.com/fu3FzsV.png" width="300" />
+
+This layout file can be created in `res/layout/item_user.xml` and will be rendered for each item row:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/selectableItemBackground">
+    
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/imageView"
+        android:src="@mipmap/ic_launcher"
+        android:layout_gravity="center_vertical" />    
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Dennis"
+        android:id="@+id/tvName"
+        android:layout_gravity="center_vertical" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Winterfell"
+        android:id="@+id/tvHometown"
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="center_vertical" />
+</LinearLayout>
 ```
 
-### Initializing the `RecyclerView` (read comments for what the lines do):
-
-```java
-      private void initializeRecyclerView() {
-        
-        // Setup layout manager for items
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        
-        // Control orientation of the items
-        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-
-        //Customize the position you want to default scroll to
-        layoutManager.scrollToPosition(0);
-
-        // Attach layout manager to the RecyclerView
-        recyclerView.setLayoutManager(layoutManager);
-
-        // allows for optimizations if all item views are of the same size:
-        recyclerView.setHasFixedSize(true);
-
-        // Reference : https://gist.githubusercontent.com/alexfu/0f464fc3742f134ccd1e/raw/abe729359e5b3691f2fe56445644baf0e40b35ba/DividerItemDecoration.java
-        RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST);
-        recyclerView.addItemDecoration(itemDecoration);
-        
-        bindDataToAdapter();
-    }
-```
-
-**Optionally**, you can also add the following properties to define custom properties such as animations and item touches:
-
-```java
-
-        // RecyclerView uses this by default. You can add custom animations by using RecyclerView.ItemAnimator()
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-
-        //Handle item touch events
-        recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
-
-            @Override
-            public void onTouchEvent(RecyclerView recycler, MotionEvent event) {
-                //Handle on touch events
-            }
-
-            @Override
-            public boolean onInterceptTouchEvent(RecyclerView recycler, MotionEvent event) {
-                return false;
-            }
-        });
-
-```
-
-### Defining the `RecyclerView.ViewHolder`:
-
-A `ViewHolder` describes an item view and metadata about its place within the `RecyclerView`. Instead of binding views (like in the `ListView`), the `RecyclerView.Adapter` creates and binds `ViewHolders`.
-
-```java
-public class RecyclerViewSimpleTextViewHolder extends RecyclerView.ViewHolder {
-    private TextView label;
-
-    public RecyclerViewSimpleTextViewHolder(View v) {
-        super(v);
-        label = (TextView) v.findViewById(android.R.id.text1);
-    }
-
-    public TextView getLabel() {
-        return label;
-    }
-
-    public void setLabel(TextView label) {
-        this.label = label;
-    }
-}
-```
+With the custom item layout complete, let's create the adapter to populate the data into the recycler view.
 
 ### Creating the `RecyclerView.Adapter`
 
-Next, let's define the adapter for our `RecyclerView` which will bind to the data source and populate the `RecyclerView` with item rows.
+Here we need to create the adapter which will actually populate the data into the RecyclerView. The adapter's role is to **convert an object at a position into a list row item** to be inserted. 
 
-The interface for the adapter now aligns more closely with the `ViewHolder` pattern, which has a method to inflate new views and another to simply populate the information from a previously reused item.
+However, with a `RecyclerView` the adapter requires the existence of a "ViewHolder" object which describes and provides access to all the views within each item row.  We can create the basic empty adapter and holder together in `UserRecyclerViewAdapter.java` as follows:
 
 ```java
-public class SimpleItemRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewSimpleTextViewHolder> {
+// Create the basic adapter extending from RecyclerView.Adapter
+// Note that we specify the custom ViewHolder which gives us access to our views
+public class UserRecyclerViewAdapter extends 
+    RecyclerView.Adapter<UserRecyclerViewAdapter.ViewHolder> {
 
-    // The items to display in your RecyclerView
-    private List<User> items;
-
-    // Provide a suitable constructor (depends on the kind of dataset)
-    public SimpleItemRecyclerViewAdapter(List<User> items) {
-        this.items = items;
+    // Provide a direct reference to each of the views within a data item
+    // Used to cache the views within the item layout for fast access
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        // Your holder should contain a member variable
+        // for any view that will be set as you render a row
+        public TextView tvName;
+        public TextView tvHometown;
+        // We also create a constructor that accepts the entire item row
+        // and does the view lookups to find each subview
+        public ViewHolder(View itemView) {
+            super(itemView);
+            this.tvName = (TextView) itemView.findViewById(R.id.tvName);
+            this.tvHometown = (TextView) itemView.findViewById(R.id.tvHometown);
+        }
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
-    @Override
-    public int getItemCount() {
-        return this.items.size();
+}
+```
+
+Now that we've defined the basic adapter and `ViewHolder`, we need to begin filling in our adapter. First, let's store a member variable for the list of users and pass the list in through our constructor:
+
+```java
+public class UserRecyclerViewAdapter extends 
+    RecyclerView.Adapter<UserRecyclerViewAdapter.ViewHolder> {
+
+    // ... view holder defined above...
+
+    // Store a member variable for the users
+    private ArrayList<User> users;
+
+    // Pass in the users array into the constructor
+    public UserRecyclerViewAdapter(ArrayList<User> users) {
+        this.users = users;
     }
 
-    // Create new items (invoked by the layout manager)
+    // Create new items when invoked by the layout manager
     // Usually involves inflating a layout from XML and returning the holder
     @Override
-    public RecyclerViewSimpleTextViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        View itemView = LayoutInflater.from(viewGroup.getContext()).
-                inflate(android.R.layout.simple_list_item_1, viewGroup, false);
-        return new RecyclerViewSimpleTextViewHolder(itemView);
+    public UserRecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        // Inflate the custom layout file for the row
+        // Return a new holder instance
+        return null;
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
-    // Involves populating data into the item through holder
+    // Involves populating data from the model into the item row through holder
     @Override
-    public void onBindViewHolder(RecyclerViewSimpleTextViewHolder viewHolder, int position) {
-        User user = items.get(position);
-        viewHolder.getLabel().setText(user.name + " from " + user.hometown);
+    public void onBindViewHolder(UserRecyclerViewAdapter.ViewHolder holder, int position) {
+        // Set item views based on the data model
+    }
+
+    // Return the total count of items
+    @Override
+    public int getItemCount() {
+        return users.size();
     }
 }
 ```
 
-### Binding the data to the adapter
-
-In the `RecyclerViewActivity`, populate a set of sample users which should be displayed in the `RecyclerView`. 
+Every adapter has three primary methods: `onCreateViewHolder` to inflate the item layout and create the holder, `onBindViewHolder` to set the view attributes based on the data and `getItemCount` to determine the number of items. We need to implement all three to finish the adapter:
 
 ```java
-     private ArrayList<User> getSampleArrayList() {
+public class UserRecyclerViewAdapter extends 
+    RecyclerView.Adapter<UserRecyclerViewAdapter.ViewHolder> {
+
+    // ...
+
+    // Usually involves inflating a layout from XML and returning the holder
+    @Override
+    public UserRecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        // Inflate the custom layout
+        View itemView = LayoutInflater.from(parent.getContext()).
+            inflate(R.layout.item_user, parent, false);
+        // Return a new holder instance
+        return new UserRecyclerViewAdapter.ViewHolder(itemView);
+    }
+    
+    // Involves populating data into the item through holder
+    @Override
+    public void onBindViewHolder(UserRecyclerViewAdapter.ViewHolder holder, int position) {
+        // Get the data model based on position
+        User user = users.get(position);
+        // Set item views based on the data model
+        holder.tvName.setText(user.name);
+        holder.tvHometown.setText(user.hometown);
+    }
+}
+```
+
+With the adapter completed, all that is remaining is to bind the data from the adapter into the RecyclerView.
+
+### Binding the Adapter to the RecyclerView
+
+In our activity, we will populate a set of sample users which should be displayed in the `RecyclerView`. 
+
+```java
+public class UserListActivity extends ActionBarActivity {
+
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         // ...
+         // Lookup the recyclerview in activity layout
+         RecyclerView rvUsers = (RecyclerView) findViewById(R.id.rvUsers);
+         // Create adapter passing in the sample user data
+         UserRecyclerViewAdapter adapter = new UserRecyclerViewAdapter(getThronesCharacters());
+         // Attach the adapter to the recyclerview to populate items
+         rvUsers.setAdapter(adapter);
+         // Set layout manager to position the items
+         rvUsers.setLayoutManager(new LinearLayoutManager(this));
+         // That's all!
+     }
+
+     private ArrayList<User> getThronesCharacters() {
         ArrayList<User> items = new ArrayList<>();
         items.add(new User("Dany Targaryen", "Valyria"));
         items.add(new User("Rob Stark", "Winterfell"));
@@ -269,30 +278,219 @@ In the `RecyclerViewActivity`, populate a set of sample users which should be di
         items.add(new User("Tyrion Lanister", "King's Landing"));
         return items;
     }
+
+}
 ```
 
-We then set the adapter to the `RecyclerView` object in the `` method:
+Finally, compile and run the app and you should see something like the screenshot below. If you create enough items and scroll through the list, the views will be recycled and far smoother by default than the `ListView` widget:
+
+<img src="http://i.imgur.com/LUPAekZ.png" width="400" alt="Screenshot" />
+
+## Configuring the RecyclerView
+
+The `RecyclerView` is quite flexible and customizable. Several of the options available are shown below.
+
+### Performance
+
+We can also enable optimizations if all item views are of the same height and width for significantly smoother scrolling:
 
 ```java
-    private void bindDataToAdapter() {
-        // Bind adapter to recycler view object
-        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(getSampleArrayList()));
-    }
+recyclerView.setHasFixedSize(true);
 ```
 
-Finally, compile and run the app and you should see something like the screenshot below. If you scroll back up, the views will be recycled and far smoother than the `ListView` widget.
+### Decorations
 
-<img src="http://i105.photobucket.com/albums/m232/purplehaze0077/recyclerview1.png" width="500" alt="Screenshot" />
+We can decorate the items using various decorators attached to the recycler such as the [DividerItemDecoration](https://gist.githubusercontent.com/alexfu/0f464fc3742f134ccd1e/raw/abe729359e5b3691f2fe56445644baf0e40b35ba/DividerItemDecoration.java):
 
-### Attaching Click Handlers to Items
+```java
+RecyclerView.ItemDecoration itemDecoration = new 
+    DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST);
+recyclerView.addItemDecoration(itemDecoration);
+```
 
-See [this detailed stackoverflow post](http://stackoverflow.com/a/24933117) which describes how to setup item-level click handlers when using `RecyclerView`. Note that there is no `onItemClickListener` equivalent. 
+This will display dividers between each item within the list as shown below:
 
-In certain cases, you'd want to setup click handlers for views within the `RecyclerView` but define the click logic within the containing `Activity` or `Fragment` (i.e bubble up events from the adapter). To achieve this, [[create a custom listener|Creating-Custom-Listeners]] within the adapter and then fire the events upwards to an interface implementation defined within the parent.
+<img src="http://i.imgur.com/penvJxw.png" width="400" alt="Screenshot" />
+
+### Layouts
+
+The positioning of the items is configured using the layout manager. By default, we can choose between `LinearLayoutManager`, `GridLayoutManager`, and `StaggeredGridLayoutManager`. Linear displays items either vertically or horizontally:
+
+```java
+// Setup layout manager for items
+LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+// Control orientation of the items
+// also supports LinearLayoutManager.HORIZONTAL
+layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+// Optionally customize the position you want to default scroll to
+layoutManager.scrollToPosition(0);
+// Attach layout manager to the RecyclerView
+recyclerView.setLayoutManager(layoutManager);
+```
+
+Displaying items in a grid or staggered grid works similarly:
+
+```java
+// First param is number of columns and second param is orientation i.e Vertical or Horizontal
+StaggeredGridLayoutManager gridLayoutManager = 
+    new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+// Attach the layout manager to the recycler view
+recyclerView.setLayoutManager(gridLayoutManager);
+```
+
+For example, a staggered grid might look like:
+
+<img src="http://i.imgur.com/AlANFgj.png" width="300" alt="Screenshot" />
+
+We can build [our own custom layout managers](http://wiresareobsolete.com/2014/09/building-a-recyclerview-layoutmanager-part-1/) as outlined there.
+
+### Animators
+
+RecyclerView supports custom animations for items as they enter, move, or get deleted. If you want to setup custom animations, first load the [third-party recyclerview-animators library](https://github.com/wasabeef/recyclerview-animators) into `app/build.gradle`:
+
+```gradle
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'jp.wasabeef:recyclerview-animators:1.2.0@aar'
+}
+```
+
+Next, we can use any of the defined animators to change the behavior of our RecyclerView:
+
+```java
+recyclerView.setItemAnimator(new SlideInUpAnimator());
+```
+
+For example, here's scrolling through a list after customizing the animation:
+
+<img src="http://i.imgur.com/v0VyQS8.gif" width="300" alt="Screenshot" />
 
 ### Heterogeneous Views
 
 See [this guide](https://github.com/codepath/android_guides/wiki/Heterogenous-Layouts-inside-RecyclerView) if you want to inflate multiple layouts inside a single `RecyclerView`.
+
+### Handling Touch Events
+
+RecyclerView allows us to handle touch events with:
+
+```java
+recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+
+    @Override
+    public void onTouchEvent(RecyclerView recycler, MotionEvent event) {
+        // Handle on touch events here
+    }
+
+    @Override
+    public boolean onInterceptTouchEvent(RecyclerView recycler, MotionEvent event) {
+        return false;
+    }
+    
+});
+```
+
+### Attaching Click Handlers to Items
+
+RecyclerView does not have special provisions for attaching click handlers to items unlike ListView which has the method `setOnItemClickListener`. To achieve a similar effect, we can attach click events within the `ViewHolder` within our adapter:
+
+```java
+public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerViewAdapter.ViewHolder> {
+    // ...
+
+    // Used to cache the views within the item layout for fast access
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        public TextView tvName;
+        public TextView tvHometown;
+        private Context context;
+
+        public ViewHolder(Context context, View itemView) {
+            super(itemView);
+            this.tvName = (TextView) itemView.findViewById(R.id.tvName);
+            this.tvHometown = (TextView) itemView.findViewById(R.id.tvHometown);
+            // Store the context
+            this.context = context;
+            // Attach a click listener to the entire row view
+            itemView.setOnClickListener(this);
+        }
+
+        // Handles the row being being clicked
+        @Override
+        public void onClick(View view) {
+            int position = getLayoutPosition(); // gets item position
+            // We can access the data within the views
+            Toast.makeText(context, tvName.getText(), Toast.LENGTH_SHORT).show();
+        }
+    }
+    
+    // ...
+ }
+```
+
+In certain cases, you'd want to setup click handlers for views within the `RecyclerView` but define the click logic within the containing `Activity` or `Fragment` (i.e bubble up events from the adapter). To achieve this, [[create a custom listener|Creating-Custom-Listeners]] within the adapter and then fire the events upwards to an interface implementation defined within the parent:
+
+```java
+public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerViewAdapter.ViewHolder> {
+    // ...
+    
+    /***** Creating OnItemClickListener *****/
+    
+    // Define listener member variable    
+    private OnItemClickListener listener;
+    // Define the listener interface
+    public interface OnItemClickListener {
+        void onItemClick(View view, int position);
+    }
+    // Define the method that allows the parent activity or fragment to define the listener
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        public TextView tvName;
+        public TextView tvHometown;
+        private Context context;
+        // Store listener and the itemView in member variables
+        private TextView itemView;
+        private OnItemClickListener listener;
+
+        public ViewHolder(Context context, View itemView, OnItemClickListener listener) {
+            super(itemView);
+            this.tvName = (TextView) itemView.findViewById(R.id.tvName);
+            this.tvHometown = (TextView) itemView.findViewById(R.id.tvHometown);
+            // Store context, listener and apply click listener to row item
+            this.context = context;
+            this.listener = listener;
+            itemView.setOnClickListener(this);
+        }
+
+        // Handles an item being clicked
+        @Override
+        public void onClick(View view) {
+            // Triggers click upwards to the adapter on click
+            if (listener != null)
+              listener.onItemClick(itemView, getLayoutPosition());
+        }
+    }
+}
+```
+
+Then we can attach a click handler to the adapter with:
+
+```java
+UserRecyclerViewAdapter adapter = ...;
+adapter.setOnItemClickListener(new UserRecyclerViewAdapter.OnItemClickListener() {
+    @Override
+    public void onItemClick(View view, int position) {
+        String name = users.get(position).name;
+        Toast.makeText(UserListActivity.this, name + " was clicked!", Toast.LENGTH_SHORT).show();
+    }
+});
+```
+
+See [this detailed stackoverflow post](http://stackoverflow.com/a/24933117/313399) which describes how to setup item-level click handlers when using `RecyclerView`. 
 
 ## References
 
