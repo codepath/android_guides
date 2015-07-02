@@ -286,6 +286,10 @@ Finally, compile and run the app and you should see something like the screensho
 
 <img src="http://i.imgur.com/LUPAekZ.png" width="400" alt="Screenshot" />
 
+### Notifying Updates
+
+
+
 ## Configuring the RecyclerView
 
 The `RecyclerView` is quite flexible and customizable. Several of the options available are shown below.
@@ -426,15 +430,31 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
     }
     
     // ...
- }
+}
 ```
+
+If we want the item to show a "selected" effect when pressed, we can set the `android:background` of **the root layout for the row** to `?android:attr/selectableItemBackground`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/selectableItemBackground"> 
+  <!-- ... -->
+</LinearLayout>
+```
+
+This creates the following effect:
+
+<img src="http://i.imgur.com/olMUglF.gif" width="400" alt="Screenshot" />
 
 In certain cases, you'd want to setup click handlers for views within the `RecyclerView` but define the click logic within the containing `Activity` or `Fragment` (i.e bubble up events from the adapter). To achieve this, [[create a custom listener|Creating-Custom-Listeners]] within the adapter and then fire the events upwards to an interface implementation defined within the parent:
 
 ```java
 public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerViewAdapter.ViewHolder> {
     // ...
-    
+
     /***** Creating OnItemClickListener *****/
     
     // Define listener member variable    
@@ -448,38 +468,34 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
         this.listener = listener;
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView tvName;
         public TextView tvHometown;
-        private Context context;
-        // Store listener and the itemView in member variables
-        private TextView itemView;
-        private OnItemClickListener listener;
 
-        public ViewHolder(Context context, View itemView, OnItemClickListener listener) {
+        public ViewHolder(final View itemView) {
             super(itemView);
             this.tvName = (TextView) itemView.findViewById(R.id.tvName);
             this.tvHometown = (TextView) itemView.findViewById(R.id.tvHometown);
-            // Store context, listener and apply click listener to row item
-            this.context = context;
-            this.listener = listener;
-            itemView.setOnClickListener(this);
-        }
-
-        // Handles an item being clicked
-        @Override
-        public void onClick(View view) {
-            // Triggers click upwards to the adapter on click
-            if (listener != null)
-              listener.onItemClick(itemView, getLayoutPosition());
+            // Setup the click listener
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Triggers click upwards to the adapter on click
+                    if (listener != null)
+                        listener.onItemClick(itemView, getLayoutPosition());
+                }
+            });
         }
     }
+    
+    // ...
 }
 ```
 
 Then we can attach a click handler to the adapter with:
 
 ```java
+// In the activity or fragment
 UserRecyclerViewAdapter adapter = ...;
 adapter.setOnItemClickListener(new UserRecyclerViewAdapter.OnItemClickListener() {
     @Override
