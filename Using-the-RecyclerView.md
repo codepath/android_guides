@@ -280,7 +280,7 @@ With `RecyclerView` as the data source changes, we need to keep the adapter noti
 | `notifyDataSetChanged()` | Notify that the dataset has changed. |
 | `notifyItemChanged(int pos)` | Notify that item at position has changed. |
 | `notifyItemInserted(int pos)` | Notify that item reflected at position has been newly inserted. |
-| `notifyItemMoved(int from, int to)` | Notify that the item reflected at from has been moved to. |
+| `notifyItemMoved(int frm,int to)` | Notify that item reflected at from has been moved to. |
 | `notifyItemRemoved(int pos)` | Notify that items previously located at position has been removed from the data set. |
 
 We can use these from the activity or fragment:
