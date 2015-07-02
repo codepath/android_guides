@@ -271,7 +271,7 @@ Finally, compile and run the app and you should see something like the screensho
 
 <img src="http://i.imgur.com/LUPAekZ.png" width="400" alt="Screenshot" />
 
-## Notifying the Adapter
+### Notifying the Adapter
 
 With `RecyclerView` as the data source changes, we need to keep the adapter notified of any changes. There are many method available to use when notifying the adapter of different changes:
 
