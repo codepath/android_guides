@@ -151,7 +151,7 @@ With the custom item layout complete, let's create the adapter to populate the d
 
 Here we need to create the adapter which will actually populate the data into the RecyclerView. The adapter's role is to **convert an object at a position into a list row item** to be inserted. 
 
-However, with a `RecyclerView` the adapter requires the existence of a "ViewHolder" object which describes and provides access to all the views within each item row.  We can create the basic empty adapter and holder together in `UserRecyclerViewAdapter.java` as follows:
+However with a `RecyclerView` the adapter requires the existence of a "ViewHolder" object which describes and provides access to all the views within each item row.  We can create the basic empty adapter and holder together in `UserRecyclerViewAdapter.java` as follows:
 
 ```java
 // Create the basic adapter extending from RecyclerView.Adapter
@@ -193,27 +193,6 @@ public class UserRecyclerViewAdapter extends
     public UserRecyclerViewAdapter(ArrayList<User> users) {
         this.users = users;
     }
-
-    // Create new items when invoked by the layout manager
-    // Usually involves inflating a layout from XML and returning the holder
-    @Override
-    public UserRecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        // Inflate the custom layout file for the row
-        // Return a new holder instance
-        return null;
-    }
-
-    // Involves populating data from the model into the item row through holder
-    @Override
-    public void onBindViewHolder(UserRecyclerViewAdapter.ViewHolder holder, int position) {
-        // Set item views based on the data model
-    }
-
-    // Return the total count of items
-    @Override
-    public int getItemCount() {
-        return users.size();
-    }
 }
 ```
 
@@ -223,7 +202,7 @@ Every adapter has three primary methods: `onCreateViewHolder` to inflate the ite
 public class UserRecyclerViewAdapter extends 
     RecyclerView.Adapter<UserRecyclerViewAdapter.ViewHolder> {
 
-    // ...
+    // ... constructor and member variables
 
     // Usually involves inflating a layout from XML and returning the holder
     @Override
@@ -243,6 +222,12 @@ public class UserRecyclerViewAdapter extends
         // Set item views based on the data model
         holder.tvName.setText(user.name);
         holder.tvHometown.setText(user.hometown);
+    }
+
+    // Return the total count of items
+    @Override
+    public int getItemCount() {
+        return users.size();
     }
 }
 ```
@@ -286,9 +271,28 @@ Finally, compile and run the app and you should see something like the screensho
 
 <img src="http://i.imgur.com/LUPAekZ.png" width="400" alt="Screenshot" />
 
-### Notifying Updates
+## Notifying the RecyclerView.Adapter of Changes
 
+With `RecyclerView` as the data source changes, we need to keep the adapter notified of any changes. There are many method available to use when notifying the adapter of different changes:
 
+| Method | Description |
+| ------ | ----------  |
+| `notifyDataSetChanged()` | Notify that the dataset has changed. |
+| `notifyItemChanged(int pos)` | Notify that item at position has changed. |
+| `notifyItemInserted(int pos)` | Notify that item reflected at position has been newly inserted. |
+| `notifyItemMoved(int from, int to)` | Notify that the item reflected at from has been moved to. |
+| `notifyItemRemoved(int pos)` | Notify that items previously located at position has been removed from the data set. |
+
+We can use these from the activity or fragment:
+
+```java
+// Add a new user
+users.set(0, new User(...));
+// Notify the adapter
+adapter.notifyItemInserted(0);
+```
+
+Every time we want to add or remove items from the recyclerview, we will need to explicitly inform to the adapter of the event. 
 
 ## Configuring the RecyclerView
 
