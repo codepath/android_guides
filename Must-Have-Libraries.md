@@ -67,6 +67,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [AndroidAnnotations](https://github.com/excilys/androidannotations) - Framework that speeds up Android development. It takes care of the plumbing, and lets you concentrate on what's really important. By simplifying your code, it facilitates its maintenance
  * [RoboGuice](https://github.com/roboguice/roboguice) - Powerful extensions to Android using dependency injection.
  * [Calligraphy](https://github.com/chrisjenx/Calligraphy) - Custom fonts made easy
+ * [EasyFonts](https://github.com/vsvankhede/easyfonts) - Easy preloaded custom fonts in your app
  * [AndroidViewAnimations](https://github.com/daimajia/AndroidViewAnimations) - Common property animations made easy
  * [SDK Manager Plugin](https://github.com/JakeWharton/sdk-manager-plugin) - Helpful plugin especially for group projects if you're missing an SDK version, haven't downloaded an API version, or your support library is updated.  
 
