@@ -136,7 +136,7 @@ You can find any of the tests, right click on the file, and click on the `Debug 
 
 <img src="http://imgur.com/G5eqCdM.png"/>
 
-#### Submitting changes
+### Submitting changes
 
 You must first start a branch using the repo command:
 
