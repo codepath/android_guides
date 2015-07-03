@@ -6,7 +6,7 @@ It's important to note that the open source project for Android consists of [mul
 will need to use this tool for any code changes.
 
 While downloading and building the entire tree requires at least 100GB and usually relies on building on
-Ubuntu Linux v14.04 machines according to [the official docs](https://source.android.com/source/building.html), you
+certain machines according to [the official docs](https://source.android.com/source/building.html), you
 can also build portions of the repo without needing this much disk space.   One downside however is that
 initially downloading the Git data from all the repos still takes at least 1-3 hours.
 
