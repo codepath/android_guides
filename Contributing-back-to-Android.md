@@ -174,7 +174,7 @@ The branch name can refer to any name you wish.  It is a name that you will crea
 
 Once you've started a branch, you can go into the individual repositories and use Git as you normally would to add, revise, and commit changes.   To create a pull request, you can type `repo upload`.  If you revise any changes, you would use the same command too.
 
-See [the Google guide](https://source.android.com/source/submit-patches.html) for submitting patches.
+See the [Google guide](https://source.android.com/source/submit-patches.html) for submitting patches.
 
 ## References
 
