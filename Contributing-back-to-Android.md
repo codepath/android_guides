@@ -136,6 +136,30 @@ You can find any of the tests, right click on the file, and click on the `Debug 
 
 <img src="http://imgur.com/G5eqCdM.png"/>
 
+### Experimenting with changes
+
+Click on the Gradle icon on the right and find the `publishLocal` option.  Click on it to save it to an `/out/repo` directory that will be used in the next step.
+
+<img src="http://imgur.com/zVY3y3S.png"/>
+
+You can also type the same command at the command-line:
+
+```bash
+./gradlew publishLocal
+```
+
+If you wish to experiment with the changes made with this new package, you can simply modify your `app/build.gradle`.  You would add an extra `maven` reference to the `out/repo` directory created. Assuming you were experimenting on the `gradle:1.4.0-alpha1` branch, your `app/build.gradle` would look like the following:
+
+```gradle
+buildscript {
+    repositories {
+        jcenter()
+        maven { url '/home/johndoe/projects/android/out/repo/' }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.4.0-alpha1'
+```
+
 ### Submitting changes
 
 You must first start a branch using the repo command:
