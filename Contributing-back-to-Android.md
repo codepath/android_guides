@@ -98,7 +98,7 @@ This [pull request](https://android-review.googlesource.com/#/c/157841/) is inte
 
 #### Updating gradle.properties
 
-You should have a `tools/gradle/wrapper/gradle.properties` already created as well.  Currently this [file](https://android.googlesource.com/platform/tools/gradle/+/master/wrapper/gradle-wrapper.properties) assumes that
+You should have a `tools/gradle/wrapper/gradle.properties` already created as well.  Currently [this file](https://android.googlesource.com/platform/tools/gradle/+/master/wrapper/gradle-wrapper.properties) assumes that
 you have Gradle stored in a `external/gradle directory`.  You can change the `distributionUrl` reference to point to a remote URL, which will be fetched if it doesn't currently exist:
 
 ```
