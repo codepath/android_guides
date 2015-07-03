@@ -76,7 +76,7 @@ repo forall -vc "git reset --hard"
 
 #### Editing the build.gradle
 
-After running repo, you should have a tools/ directory created:
+After running repo, you should have a `tools/` directory created:
 
 ```bash
 cd tools
