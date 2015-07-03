@@ -148,7 +148,7 @@ You can also type the same command at the command-line:
 ./gradlew publishLocal
 ```
 
-If you wish to experiment with the changes made with this new package, you can simply modify your `app/build.gradle`.  You would add an extra `maven` reference to the `out/repo` directory created. Assuming you were experimenting on the `gradle:1.4.0-alpha1` branch, your `app/build.gradle` would look like the following:
+If you wish to experiment with the changes made with this new package, you can simply modify your `app/build.gradle`.  You would add an extra `maven` reference to the `out/repo` directory created. Assuming you were experimenting on the `gradle:1.4.0-alpha1` branch, your configuration would look like the following:
 
 ```gradle
 buildscript {
