@@ -74,13 +74,9 @@ The `repo sync` script will refetch any changes.  If you have made any changes i
 repo forall -vc "git reset --hard"
 ```
 
+After running `repo`, you should have a `tools/` directory created.  There should be many subdirectories under this directory such as `base`, `emulator`, and `gradle` too.  Many of these directories are also separate Git repositories.
+
 #### Editing the build.gradle
-
-After running repo, you should have a `tools/` directory created:
-
-```bash
-cd tools
-```
 
 The current tools project requires Java 1.6 and prevents you from building unless Java v1.6 is used.  Assuming you have downloaded the latest branch, you can edit the `tools/build.gradle` in this directory and change the `requiredVersion` check to match the version you are running.  You can obviously set an environment variable to do the same as well.
 
