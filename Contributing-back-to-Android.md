@@ -2,7 +2,7 @@
 
 The source code for Android is available at [[https://android.googlesource.com]].
 
-It's important to note that the open source project for Android consists of multiple Git repositories. While each Git repo can be cloned separately, Google provides a special [repo](https://source.android.com/source/developing.html) script to help retrieve all of them. This script also helps automate the process of submitting pull request changes to the [repository](https://android-review.googlesource.com), so you
+It's important to note that the open source project for Android consists of [multiple Git repositories](https://android.googlesource.com/platform/manifest/+/master/default.xml). While each Git repo can be cloned separately, Google provides a special [repo](https://source.android.com/source/developing.html) script to help retrieve all of them. This script also helps automate the process of submitting pull request changes to the [repository](https://android-review.googlesource.com), so you
 will need to use this tool for any code changes.
 
 While downloading and building the entire tree requires at least 100GB and usually relies on building on
