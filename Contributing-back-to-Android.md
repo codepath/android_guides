@@ -138,7 +138,7 @@ You can find any of the tests, right click on the file, and click on the `Debug 
 
 ### Experimenting with changes
 
-Click on the Gradle icon on the right side of the screen and find the `publishLocal` option.  Click on it to save it to an `/out/repo` directory that will be used in the next step.
+Click on the Gradle icon on the right side of the screen and find the `publishLocal` option by going to `tools`->`Tasks`->`other`->`publishLocal`.  Click on it to save it to an `/out/repo` directory that will be used in the next step.
 
 <img src="http://imgur.com/zVY3y3S.png"/>
 
