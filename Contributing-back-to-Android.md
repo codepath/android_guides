@@ -12,7 +12,7 @@ initially downloading the Git data from all the repos still takes at least 1-3 h
 
 ## Building Android Tools
 
-This walkthrough shows an example of how you can build the [Android Tools](http://tools.android.com/overview) repository. It is intended to show how you can contribute back to any part of the Android open source code, such as the components that work with Android Studio, the native emulator, the 9-patch viewer, etc.  It also will show you how to setup with a Java IDE to be able to set breakpoints and understand the code better too.
+This walkthrough shows an example of how you can build the [Android Tools](http://tools.android.com/overview) repository. It is intended to show how you can contribute back to any part of the Android open source code, such as the components that work with Android Studio, the native emulator, the 9-patch viewer, etc.  It also will show you how to setup with a Java IDE to be able to set breakpoints and understand the code better.
 
 <img src="http://imgur.com/qH9BQDE.png"/>
 
@@ -99,7 +99,7 @@ This [pull request](https://android-review.googlesource.com/#/c/157841/) is inte
 #### Updating gradle.properties
 
 You should have a `tools/gradle/wrapper/gradle.properties` already created as well.  Currently [this file](https://android.googlesource.com/platform/tools/gradle/+/master/wrapper/gradle-wrapper.properties) assumes that
-you have Gradle stored in a `external/gradle directory`.  You can change the `distributionUrl` reference to point to a remote URL, which will be fetched if it doesn't currently exist:
+you have Gradle stored in a `external/gradle` directory.  You can change the `distributionUrl` reference to point to a remote URL, which will be fetched if it doesn't currently exist:
 
 ```
 distributionBase=GRADLE_USER_HOME
