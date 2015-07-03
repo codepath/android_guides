@@ -144,7 +144,9 @@ You must first start a branch using the repo command:
 repo start <branch_name> <project_name>
 ```
 
-The project name can be determined by looking through the [manifest file](https://android.googlesource.com/platform/manifest/+/master/default.xml).  For instance, the Tools project has multiple project names: `platform/tools/base`, `platform/tools/build`, `platform/tools/emulator`, etc.
+The project name can be determined by looking through the [manifest file](https://android.googlesource.com/platform/manifest/+/master/default.xml).  For instance, the Tools project has multiple project names: `platform/tools/base`, `platform/tools/build`, `platform/tools/emulator`, etc.  
+
+The branch name can refer to any name you wish.  It is a name that you will create locally and should refer to the set of changes for a particular improvement or feature change.
 
 Once you've started a branch, you can go into the individual repositories and use Git as you normally would to add, revise, and commit changes.   To create a pull request, you can type `repo upload`.  If you revise any changes, you would use the same command too.
 
