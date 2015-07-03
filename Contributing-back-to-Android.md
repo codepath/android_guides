@@ -74,7 +74,7 @@ The `repo sync` script will refetch any changes.  If you have made any changes i
 repo forall -vc "git reset --hard"
 ```
 
-#### Edit the build.gradle
+#### Editing the build.gradle
 
 After running repo, you should have a tools/ directory created:
 
@@ -111,7 +111,7 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-2.2.1-all.zip
 
 If you forget this step, IntellIJ will likely complain about not having a Gradle Home setup.  
 
-#### Change the output directory
+#### Changing the output directory
 
 Normally the Tools project will try to store all the intermediate builds inside a common `build/` directory in the main repo. There is a [current issue](https://youtrack.jetbrains.com/issue/IDEA-122577) with IntelliJ v13.1 that prevents you from doing so.
 
