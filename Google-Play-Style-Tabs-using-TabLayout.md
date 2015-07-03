@@ -149,7 +149,7 @@ Heres the output:
 
 ### Customize Tab Indicator Color
 
-Normally, the tab indicator color chosen is the [accent color](http://www.google.com/design/spec/style/color.html#color-color-palette) defined for your Material Design them.  If you intend to override this color, you will need to create a style that overrides this color.
+Normally, the tab indicator color chosen is the [accent color](http://www.google.com/design/spec/style/color.html#color-color-palette) defined for your Material Design theme.  If you intend to override this color, you will need to create a style that overrides this color.
 
 ```xml
 <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
