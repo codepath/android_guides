@@ -2,9 +2,7 @@
 
 The source code for Android is available at [[https://android.googlesource.com]].
 
-It's important to note that the open source project for Android consists of multiple Git repositories.  
-While each Git repo can be cloned separately, Google provides a `repo` script to help retrieve all of them.
-This script also helps automate the process of submitting pull request changes to the [repository](https://android-review.googlesource.com/#/dashboard/self), so you
+It's important to note that the open source project for Android consists of multiple Git repositories. While each Git repo can be cloned separately, Google provides a special `repo` script to help retrieve all of them. This script also helps automate the process of submitting pull request changes to the [repository](https://android-review.googlesource.com/#/dashboard/self), so you
 will need to use this tool for any code changes.
 
 While downloading and building the entire tree requires at least 100GB and usually relies on building on
@@ -16,9 +14,11 @@ downloading the Git data from all the repos still takes at least 1-3 hours the f
 
 This walkthrough shows an example of how you can build the [Android Tools](http://tools.android.com/overview) repository. It is intended to show how you can contribute back to any part of the Android open source code, such as the components that work with Android Studio, the native emulator, the 9-patch viewer, etc.  It also will show you how to setup with a native Java IDE to be able to set breakpoints and understand the code better too.
 
+<img src="http://imgur.com/qH9BQDE.png"/>
+
 ### Preliminary Setup
 
-See the [instructions] (http://source.android.com/source/initializing.html) to make sure you have installed all the necessary libraries.  You will need at least JDK 7 installed.  There isn't much setup work needed for OS X, but follow the `ap-get` install commands if running Ubuntu-based machines.  If you are using Ubuntu 15.04 machines, you may need to run these commands at the minimum to get the Tools repository to compile:
+See the [instructions] (http://source.android.com/source/initializing.html) to make sure you have installed all the necessary libraries.  You will need at least JDK 7 installed.  There isn't much setup work needed for OS X, but follow the `apt-get` install commands if running Ubuntu-based machines.  If you are using Ubuntu 15.04 machines, you may need to run these commands at the minimum to get the Tools repository to compile:
 
 ```bash
 sudo apt-get install libc6-dev-i386 lib32z1
@@ -31,7 +31,7 @@ Download the [IntelliJ IDEA Community Edition IDE](https://www.jetbrains.com/ide
 
 The first step necessary is to download the `repo` client, which helps manage all the various Android repos.
 
-#### Create a ``~/bin` directory
+#### Create a `~/bin` directory
 
 You will need to download and store the repo script somewhere.  The [official docs](https://source.android.com/source/downloading.html) recommend storing the program
 in a `~/bin` directory accessible through the `PATH` environment variable.
@@ -59,7 +59,7 @@ $ repo init -u https://android.googlesource.com/platform/manifest -b studio-1.4-
 $ repo sync
 ```
 
-When the `repo init` command is run, it will first download code from its own [repository] code](https://gerrit.googlesource.com/git-repo/+/master).  It uses the manifest repository to determine what Android repositories are available.  You can type `repo help` or check out the [sub commands](https://gerrit.googlesource.com/git-repo/+/master/subcmds/) to see what functions are supported.  
+When the `repo init` command is run, it will first download code from its own [repository](https://gerrit.googlesource.com/git-repo/+/master).  It uses the manifest repository to determine what Android repositories are available.  You can type `repo help` or check out the [sub commands](https://gerrit.googlesource.com/git-repo/+/master/subcmds/) to see what functions are supported.  
 
 The [overview page](http://tools.android.com/build) lists all the available branches to use.   Most likely you should pick the current development branch.  Android Studio and Gradle versions are often released at different times, so there are also separate Git tags created.  For instance, if you wish to check out tagged releases for Gradle releases, you can also look through the [list of tagged branches](https://android.googlesource.com/platform/manifest/+refs) and use repo to switch to this branch by typing:
 
@@ -130,15 +130,21 @@ subprojects { Project project ->
 
 #### Opening with a native Java IDE
 
-You should now be able to open the `tools/build.gradle` file.  
+You should now be able to open the `tools/build.gradle` file.  Import the project and make sure that the Gradle wrapper option is selected.  You should be able to build the project successfully.
+
+You can find any of the tests, right click on the file, and click on the `Debug option`..
+
+<img src="http://imgur.com/G5eqCdM.png"/>
 
 #### Submitting changes
 
-You must first start a branch using the repo command.  The project name can be determined by looking through the [manifest file](https://android.googlesource.com/platform/manifest/+/master/default.xml).  For instance, the Tools project has multiple project names: `platform/tools/base`, `platform/tools/build`, `platform/tools/emulator`, etc.
+You must first start a branch using the repo command:
 
 ```bash
 repo start <branch_name> <project_name>
 ```
+
+The project name can be determined by looking through the [manifest file](https://android.googlesource.com/platform/manifest/+/master/default.xml).  For instance, the Tools project has multiple project names: `platform/tools/base`, `platform/tools/build`, `platform/tools/emulator`, etc.
 
 Once you've started a branch, you can go into the individual repositories and use Git as you normally would to add, revise, and commit changes.   To create a pull request, you can type `repo upload`.  If you revise any changes, you would use the same command too.
 
