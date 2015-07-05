@@ -154,7 +154,9 @@ Assuming the Activity is registered on the bus, Otto will look for any subscribe
    }
 ```
 
-### Using Otto with Dagger (TODO)
+### Using Otto with dependency injection
+
+The example shown uses a singleton instance and makes a lot of repetitive `BusProvider.getInstance()` calls.  You can also use the [[Dagger|Dependency-Injection-with-Dagger-2]] library to define an instance as a member variable in each class.
 
 ## References
 
