@@ -90,7 +90,7 @@ Still not working?  Try to increase the heap size of Android Studio.
 
 ### Getting "No resource found that matches given name."
 
-If you decide to rename any of your ID tags in your XML files, you may get "No resource found that matches given name." You will need to do a `Rebuild Project` so that the entire resource files can be regenerated and the build/ directories are fully removed.  Note: `Clean Project` may not work.
+If you are using [multiple layout folders](http://stackoverflow.com/questions/4930398/can-the-android-layout-folder-contain-subfolders) and decide to rename any of your ID tags in your XML files, you may get "No resource found that matches given name."    There is a current bug in how changes are detected in [nested subfolders](http://stackoverflow.com/a/31187196/961939) so your best option is to not use this approach until the problem is fixed.  Otherwise, you will need to do a `Rebuild Project` so that the entire resource files can be regenerated and the build/ directories are fully removed.  Note: `Clean Project` may not work. 
 
 ### Getting "tooling.GradleConnectionException" errors
 
