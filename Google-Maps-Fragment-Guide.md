@@ -4,11 +4,11 @@ Many Android applications require the use of an embedded interactive map. On And
 
 In this guide, we will walk you through the step by step process of getting an embedded Google Map working within an Android emulator.
 
-### Download Google Play Services
+### Download Google Play Services and Google Repository
 
-First, let's download and setup the Google Play Services SDK. Open `Android Studio` ⇒ `Tools` ⇒ `Android` ⇒ `Android SDK Manager` and check whether you have already downloaded "Google Play services" or not under Extras section. If not, select "Google Play services" and install the package.
+First, let's download and setup the Google Play Services and Google Repository SDKs. Open `Android Studio` ⇒ `Tools` ⇒ `Android` ⇒ `Android SDK Manager` and check whether you have already downloaded "Google Play services" and "Google Repository" or not under Extras section. If not, select "Google Play services" and "Google Repository" to install the missing packages.
 
-![Play Services](http://i.imgur.com/vvmOHCj.png)
+![Play Services and Repository](http://i.imgur.com/d37zzjg.png)
 
 ### Retrieve your SHA-1 Fingerprint
 
@@ -40,7 +40,7 @@ In the output you can see SHA 1 finger print:
 
 Now open [Google API Console](https://cloud.google.com/console), create and select a project, select "APIs & Auth" on left side and turn on **Google Maps Android API v2** toggle switch.
 
-![Services](http://imgur.com/ZzUOYtA.png)
+![Services](http://i.imgur.com/F6wSs4y.png)
 
 Now select "Credentials" on left side and on the right side click on "Create New Key" =>  "Android Key"
 
