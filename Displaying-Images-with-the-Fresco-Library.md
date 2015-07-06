@@ -17,7 +17,7 @@ dependencies {
     compile 'com.facebook.fresco:fresco:0.5.2'
 }
 ```
-Then, ensure you have the Internet permission if you plan to fetch any images from the network:
+Then, in your `AndroidManifest.xml` make you have the Internet permission if you plan to fetch any images from the network:
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
