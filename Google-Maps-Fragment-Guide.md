@@ -44,7 +44,7 @@ Now open [Google API Console](https://cloud.google.com/console), create and sele
 
 Now select "Credentials" on left side and on the right side click on "Create New Key" =>  "Android Key"
 
-![Access](http://www.androidhive.info/wp-content/uploads/2013/08/google-console-creating-a-key.png)
+![Access](http://i.imgur.com/qYF1o2c.png)
 
 It will popup a window asking the SHA1 and package name. Enter your `SHA 1` and your `android project package name` separated by semicolon ; and click on create. The format is:
 
