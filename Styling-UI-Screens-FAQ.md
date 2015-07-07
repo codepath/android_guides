@@ -102,6 +102,16 @@ For this, we'd use a custom [ToggleButton as described here](http://mirhoseini.i
 
 ### Views
 
+#### How do I display a "toast" to display text on an activity?
+
+Toast is a quick alert that can be displayed with:
+
+```java
+Toast.makeText(MyActivity.this, "some message", Toast.LENGTH_SHORT).show();
+```
+
+Review the [[Displaying Toasts]] guide for more details on how to display a toast. 
+
 #### How do I setup click handlers for my views or buttons?
 
 Any view can have a click handler setup by [following this event handler guide](http://guides.codepath.com/android/Basic-Event-Listeners) which triggers an action when the click occurs. 
