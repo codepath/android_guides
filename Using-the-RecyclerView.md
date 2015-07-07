@@ -491,9 +491,9 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
             this.tvName = (TextView) itemView.findViewById(R.id.tvName);
             this.tvHometown = (TextView) itemView.findViewById(R.id.tvHometown);
             // Setup the click listener
-            itemView.setOnClickListener(new OnItemClickListener() {
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onItemClick(View itemView, int position) {
+                public void onClick(View v) {
                     // Triggers click upwards to the adapter on click
                     if (listener != null)
                         listener.onItemClick(itemView, getLayoutPosition());
