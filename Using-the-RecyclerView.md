@@ -475,7 +475,7 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
     private OnItemClickListener listener;
     // Define the listener interface
     public interface OnItemClickListener {
-        void onItemClick(View view, int position);
+        void onItemClick(View itemView, int position);
     }
     // Define the method that allows the parent activity or fragment to define the listener
     public void setOnItemClickListener(OnItemClickListener listener) {
@@ -491,9 +491,9 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
             this.tvName = (TextView) itemView.findViewById(R.id.tvName);
             this.tvHometown = (TextView) itemView.findViewById(R.id.tvHometown);
             // Setup the click listener
-            itemView.setOnClickListener(new View.OnClickListener() {
+            itemView.setOnClickListener(new OnItemClickListener() {
                 @Override
-                public void onClick(View v) {
+                public void onItemClick(View itemView, int position) {
                     // Triggers click upwards to the adapter on click
                     if (listener != null)
                         listener.onItemClick(itemView, getLayoutPosition());
