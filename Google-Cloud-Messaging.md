@@ -96,7 +96,7 @@ For an explanation of why these permissions are needed, see [Google's guide](htt
 
 ### Copy over `GCMClientManager.java`
 
-Copy source of [GCMClientManager.java](https://gist.github.com/nesquena/fede844799d103586f75) to your Android project. Use in your first Activity with the following:
+Copy source of [GCMClientManager.java](https://gist.github.com/rogerhu/dfdf83c58e7022839256) to your Android project. Use in your first Activity with the following:
 
 ```java
 public class FirstActivity extends Activity {
