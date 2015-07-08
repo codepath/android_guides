@@ -115,7 +115,7 @@ client.get(url, params, new JsonHttpResponseHandler() {
 });
 ```
 
-The request will be sent out with the appropriate parameters passed in the query string and then the response will be parsed as JSON and made available within `onSuccess`.
+The request will be sent out with the appropriate parameters passed in the query string and then the response will be parsed as JSON and made available within `onSuccess`. Check the [[Converting JSON to Models]] guide for more details on parsing a JSON response.
 
 ### Sending an Authenticated API Request
 
