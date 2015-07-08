@@ -65,7 +65,7 @@ First, let's download and setup the Google Play Services SDK. Open `Tools`->`And
 
 **Android Studio Users:** 
 
-Add the following to your Gradle file
+Add the following to your Gradle file:
 
 ```
 dependencies {
