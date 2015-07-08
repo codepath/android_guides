@@ -321,5 +321,6 @@ This will send messages to the devices specified.
 ## References
 
 - <https://developers.google.com/cloud-messaging/android/start/>
+- <https://developers.google.com/cloud-messaging/android/client/>
 - <http://hmkcode.com/android-google-cloud-messaging-tutorial/>
 - <https://developer.android.com/google/gcm/client.html>
