@@ -26,11 +26,35 @@ Make sure to select JSON as the Source Type:
  
 <img src="http://imgur.com/3DRH984.png"/>
 
+Select None as the Annotation Style:
+
+<img src="http://imgur.com/aTrRfpu.png"/>
+
 Next, paste the JSON output into the textbox:
 
 <img src="http://i.imgur.com/DG4TAB2.png" width="400" alt="POJO Generator" />
 
-Paste the generated classes into your project under a `models` sub-package.
+Click Preview.  You should see the top section look sort of like the following:
+
+```java
+package com.example;
+
+import java.util.HashMap;
+import java.util.Map;
+import javax.annotation.Generated;
+
+@Generated("org.jsonschema2pojo")
+public class Example {
+```
+
+Paste the generated classes into your project under a `models` sub-package.  Rename the class name `Example` to reflect your model.
+
+*Note*: Android does not come normally with many of the `javax.annotation` library by default.  If you wish to keep the `@Generated` annotation, you will need to add this dependency.  See this [Stack Overflow discussion](http://stackoverflow.com/questions/9650808/android-javax-annotation-processing-package-missing) for more context.  Otherwise, you can delete that annotation and use the rest of the generated code.
+
+```gradle
+dependencies {
+  provided 'org.glassfish:javax.annotation:10.0-b28'
+```
 
 ### Creating the RestAdapter
 
