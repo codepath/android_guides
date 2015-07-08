@@ -152,7 +152,7 @@ To share an image from Fresco, you first need to [get the bitmap](#getting-the-u
 ```java
 public void shareBitmap(Bitmap bitmap) {
    String path = MediaStore.Images.Media.insertImage(mContext.getContentResolver(),
-                                                      bitmap, "Image Description", null);
+                                                     bitmap, "Image Description", null);
    Uri bmpUri = Uri.parse(path);
    Intent shareIntent = new Intent(Intent.ACTION_SEND);
    shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
