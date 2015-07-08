@@ -39,18 +39,9 @@ Next, paste the JSON output into the textbox:
 
 <img src="http://i.imgur.com/DG4TAB2.png" width="400" alt="POJO Generator" />
 
-Click Preview.  You should see the top section look sort of like the following:
+Click the Preview button.  You should see the top section look sort of like the following:
 
-```java
-package com.example;
-
-import java.util.HashMap;
-import java.util.Map;
-import javax.annotation.Generated;
-
-@Generated("org.jsonschema2pojo")
-public class Example {
-```
+<img src="http://imgur.com/l9l3Q81.png"/>
 
 Paste the generated classes into your project under a `models` sub-package.  Rename the class name `Example` to reflect your model name.  For this example, we will call this file and class the `User` model.
 
