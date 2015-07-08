@@ -57,9 +57,9 @@ Now let's setup our Android client.
 
 ### Download Google Play Services
 
-First, let's download and setup the Google Play Services SDK. Open **Eclipse ⇒ Windows ⇒ Android SDK** Manager and check whether you have already downloaded "Google Play services" or not under Extras section. If not, select "Google Play services" and install the package.
+First, let's download and setup the Google Play Services SDK. Open `Tools`->`Android`->`SDK Manager` and check whether or not you have already downloaded `Google Play services` under the Extras section. If not, install the package.
 
-![Play Services](http://i.imgur.com/3ZJsWEw.png)
+![Play Services](http://imgur.com/RhBjpSE.png)
 
 ### Import Google Play Services
 
