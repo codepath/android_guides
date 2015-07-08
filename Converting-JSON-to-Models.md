@@ -164,28 +164,72 @@ With that in place, we can now pass an JSONArray of business json data and proce
 
 ### Putting It All Together
 
-Now, we can return to our Activity where we are executing the network request and use the new Model to get easy access to our Business data. Let's tweak the network request handler:
+Now, we can return to our Activity where we are executing the network request and use the new Model to get easy access to our Business data. Let's tweak the network request handler in our activity:
 
 ```java
+// Within an activity or fragment
 YelpClient client = YelpClientApp.getRestClient();
 client.search("food", "san francisco", new JsonHttpResponseHandler() {
   @Override
-  public void onSuccess(int code, JSONObject body) {
+  public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
     try {
       JSONArray businessesJson = body.getJSONArray("businesses");
       ArrayList<Business> businesses = Business.fromJson(businessesJson);
       // Now we have an array of business objects
-      // Might now create an ArrayAdapter<Business> to load the businesses into a ListView
+      // Might now create an adapter BusinessArrayAdapter<Business> to load the businesses into a list
+      // You might also simply update the data in an existing array and then notify the adapter
     } catch (JSONException e) {
       e.printStackTrace();
     }
   }
 
   @Override
-  public void onFailure(Throwable arg0) {
+  public void onFailure(int statusCode, Header[] headers, String res, Throwable t) {
     Toast.makeText(getBaseContext(), "FAIL", Toast.LENGTH_LONG).show();
   }
 });
 ```
 
-This approach works very similarly for any simple API data which often is returned in collections whether it be images on Instagram, tweets on Twitter, or auctions on Ebay. The next step might be to create an `ArrayAdapter<Business>` and populate these new model objects into a ListView.
+This approach works very similarly for any simple API data which often is returned in collections whether it be images on Instagram, tweets on Twitter, or auctions on Ebay. 
+
+### Bonus: Setting Up Your Adapter
+
+The next step might be to create an adapter and populate these new model objects into a `ListView` or `RecyclerView`.
+
+```java
+// Within an activity
+ArrayList<Business> businesses;
+BusinessRecyclerViewAdapter adapter;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+   // ...
+   // Lookup the recyclerview in activity layout
+   RecyclerView rvBusinesses = (RecyclerView) findViewById(...);
+   // Initialize default business array
+   businesses = new ArrayList<Business>();
+   // Create adapter passing in the sample user data
+   adapter = new BusinessRecyclerViewAdapter(business);
+   rvBusinesses.setAdapter(adapter);
+   // Set layout manager to position the items
+   rvBusinesses.setLayoutManager(new LinearLayoutManager(this));
+}
+
+// Anywhere in your activity
+client.search("food", "san francisco", new JsonHttpResponseHandler() {
+  @Override
+  public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+      try {
+          // Get and store decoded array of business results
+          JSONArray businessesJson = body.getJSONArray("businesses");
+          businesses.clear(); // clear existing items if needed
+          businesses.addAll(Business.fromJson(businessesJson)); // add new items
+          adapter.notifyDataSetChanged();
+      } catch (JSONException e) {
+          e.printStackTrace();
+      }
+  }
+}
+```
+
+For additional details on creating using adapters to display data in lists, see [[Using RecyclerView|Using-the-RecyclerView#creating-the-recyclerviewadapter]] or [[Using ListView|Using-an-ArrayAdapter-with-ListView]].
