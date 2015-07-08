@@ -133,78 +133,50 @@ public class FirstActivity extends Activity {
 
 ## Create Broadcast Receiver and Message Handler
 
-This receiver's `onReceive` method will be called by the GCM service because of a `receiver` registration in the `AndroidManifest.xml`. This will simply invoke the `GcmMessageHandler` to manage the push:
+In the past, Google required implementing a [WakefulBroadcastReceiver](https://developer.android.com/training/scheduling/wakelock.html) that would launch a service that would process this GCM message.  It now provides `com.google.android.gms.gcm.GcmReceiver` that simply needs to be defined in your `AndroidManifest.xml`:
 
-```java
-import android.app.Activity;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.support.v4.content.WakefulBroadcastReceiver;
-
-public class GcmBroadcastReceiver extends WakefulBroadcastReceiver {
-    // Receives the broadcast directly from GCM service
-    @Override
-    public void onReceive(Context context, Intent intent) {
-        // Explicitly specify that GcmMessageHandler will handle the intent.
-        ComponentName comp = new ComponentName(context.getPackageName(),
-                GcmMessageHandler.class.getName());
-        // Start the service, keeping the device awake while it is executing.
-        startWakefulService(context, (intent.setComponent(comp)));
-        // Return successful
-        setResultCode(Activity.RESULT_OK);
-    }
-}
+```xml
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="com.codepath.gcmquickstart" />
+            </intent-filter>
+        </receiver>
 ```
 
-and then let's define the corresponding `GCMMessageHandler.java` which handles the push message in the `onHandleIntent` method:
+Let's define `GCMMessageHandler.java` that extends from `GcmListenerService` that will process the message received: 
 
 ```java
-import android.app.IntentService;
+import com.google.android.gms.gcm.GcmListenerService;
+
 import android.app.NotificationManager;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
-import android.util.Log;
-import com.google.android.gms.gcm.GoogleCloudMessaging;
 
-public class GcmMessageHandler extends IntentService {
-        public static final int MESSAGE_NOTIFICATION_ID = 435345;
+public class GcmMessageHandler extends GcmListenerService {
+    public static final int MESSAGE_NOTIFICATION_ID = 435345;
 
-	public GcmMessageHandler() {
-		super("GcmMessageHandler");
-	}
+    @Override
+    public void onMessageReceived(String from, Bundle data) {
+        String message = data.getString("message");
 
-	@Override
-	protected void onHandleIntent(Intent intent) {
-		// Retrieve data extras from push notification
-		Bundle extras = intent.getExtras();
-		GoogleCloudMessaging gcm = GoogleCloudMessaging.getInstance(this);
-		// The getMessageType() intent parameter must be the intent you received
-		// in your BroadcastReceiver.
-		String messageType = gcm.getMessageType(intent);
-		// Keys in the data are shown as extras
-		String title = extras.getString("title");
-		String body = extras.getString("body");
-		// Create notification or otherwise manage incoming push
-		createNotification(title, body);
-		// Log receiving message
-		Log.i("GCM", "Received : (" + messageType + ")  " + extras.getString("title"));
-		// Notify receiver the intent is completed
-		GcmBroadcastReceiver.completeWakefulIntent(intent);
-	}
+        createNotification(from, message);
+    }
 
-	// Creates notification based on title and body received
-	private void createNotification(String title, String body) {
-		Context context = getBaseContext();
-		NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
-		    .setSmallIcon(R.drawable.ic_launcher).setContentTitle(title)
-		    .setContentText(body);
-		NotificationManager mNotificationManager = (NotificationManager) context
-				.getSystemService(Context.NOTIFICATION_SERVICE);
-		mNotificationManager.notify(MESSAGE_NOTIFICATION_ID, mBuilder.build());
-	}
+        // Creates notification based on title and body received
+    private void createNotification(String title, String body) {
+        Context context = getBaseContext();
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
+                .setSmallIcon(R.mipmap.ic_launcher).setContentTitle(title)
+                .setContentText(body);
+        NotificationManager mNotificationManager = (NotificationManager) context
+                .getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager.notify(MESSAGE_NOTIFICATION_ID, mBuilder.build());
+    }
 
 }
 ```
@@ -231,20 +203,9 @@ Finally we need to register the receiver class with GCM in the `AndroidManifest.
          <activity
              ...>
          </activity>
-         
-         <receiver
-             android:name=".GcmBroadcastReceiver"
-             android:permission="com.google.android.c2dm.permission.SEND" >
-             <intent-filter>
-                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                 <category android:name="com.codepath.android.gcm" />
-             </intent-filter>
-         </receiver>
-         
+                  
          <service android:name=".GcmMessageHandler" />
          
-         <meta-data android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
      </application>
  
 </manifest>
