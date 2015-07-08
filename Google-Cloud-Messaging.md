@@ -185,9 +185,9 @@ Note that above the push message is handled by creating a notification. There ar
 
  * [[Create a notification|Notifications#creating-a-notification]]
  * [[Update an Activity|Starting-Background-Services#communicating-from-a-service-to-an-application]]
- * [Launch new activity](https://github.com/codepath/ParsePushNotificationExample/blob/master/src/com/test/MyCustomReceiver.java#L69)
+ * [Launch new activity](https://github.com/codepath/ParsePushNotificationExample/blob/master/app/src/main/java/com/test/MyCustomReceiver.java#L69)
 
-You can review examples of these [outlined in this more elaborate code sample](https://github.com/codepath/ParsePushNotificationExample/blob/master/src/com/test/MyCustomReceiver.java). 
+You can review examples of these [outlined in this more elaborate code sample](https://github.com/codepath/ParsePushNotificationExample/blob/master/app/src/main/java/com/test/MyCustomReceiver.java). 
 
 In certain cases when receiving a push, you want to update an activity if the activity is on the screen. Otherwise, you want to raise a notification. The solutions to this are [outlined in this post](http://stackoverflow.com/a/18311830/313399) with a [code sample here](http://stackoverflow.com/a/15949723/313399).
 
