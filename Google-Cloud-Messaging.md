@@ -133,7 +133,7 @@ public class FirstActivity extends Activity {
 
 ## Create Broadcast Receiver and Message Handler
 
-In the past, Google required implementing a [WakefulBroadcastReceiver](https://developer.android.com/training/scheduling/wakelock.html) that would launch a service that would process this GCM message.  It now provides `com.google.android.gms.gcm.GcmReceiver` that simply needs to be defined in your `AndroidManifest.xml`:
+In the past, Google required implementing a [WakefulBroadcastReceiver](https://developer.android.com/training/scheduling/wakelock.html) that would launch a service that would process this GCM message.  It now provides `com.google.android.gms.gcm.GcmReceiver` that simply needs to be defined in your `AndroidManifest.xml` file:
 
 ```xml
         <receiver
