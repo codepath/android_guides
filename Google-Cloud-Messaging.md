@@ -204,7 +204,13 @@ Finally we need to register the receiver class with GCM in the `AndroidManifest.
              ...>
          </activity>
                   
-         <service android:name=".GcmMessageHandler" />
+         <service
+            android:name=".GcmMessageHandler"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+         </service>
          
      </application>
  
