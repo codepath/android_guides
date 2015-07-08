@@ -76,6 +76,8 @@ dependencies {
 
 ### Add GCM Permissions
 
+For an explanation of why these permissions are needed, see [Google's guide](https://developers.google.com/cloud-messaging/android/client#manifest).
+
 ```xml
 <manifest package="com.example.gcm" ...>
   <uses-permission android:name="android.permission.INTERNET" />
