@@ -4,8 +4,6 @@
 
 This library makes downloading JSON or XML data from a web API fairly straightforward. Once the data is downloaded then it is parsed into a Plain Old Java Object (POJO) which must be defined for each "resource" in the response. 
 
-**Attribution:** This guide has been adapted from [this external guide](http://engineering.meetme.com/2014/03/best-practices-for-consuming-apis-on-android/) authored by [MeetMe](http://www.meetme.com/). 
-
 ### Setup
 
 Make sure to require Internet permissions in your `AndroidManifest.xml` file:
@@ -171,3 +169,5 @@ Several other Android OAuth libraries can be explored instead of signpost:
 
  * <http://engineering.meetme.com/2014/03/best-practices-for-consuming-apis-on-android/>
  * <https://github.com/MeetMe/TwitchTvClient>
+
+**Attribution:** This guide has been adapted from [this external guide](http://engineering.meetme.com/2014/03/best-practices-for-consuming-apis-on-android/) authored by [MeetMe](http://www.meetme.com/). 
