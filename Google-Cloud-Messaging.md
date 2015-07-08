@@ -21,12 +21,29 @@ In order to use GCM, we need to go through the following steps:
 
 ## Step 1: Register with Google Developers Console
 
+### Quickstart
+
+ - Use the new [creation page](https://developers.google.com/mobile/add?platform=android&cntapi=gcm).  You can either select an existing project or create a new one.  The Android package name is required but not necessarily used for GCM configuration.  Proceed to the next step by selecting `Choose and configure services`.
+
+   <img src="http://imgur.com/kaB26fE.png" height="250"/>
+
+ - You will want to make sure to `Enable Google Cloud Messaging`.  
+
+   <img src="http://imgur.com/QyJq7TT.png" height="250"/>
+
+   A server key will be generated for you.  Record this data.
+
+      <img src="http://imgur.com/FBxF8V8.png" height="250">
+
+### Alternate instructions
+
  - Go to the [Google Developers Console](https://cloud.google.com/console)
- - If this is the first time you visit Google Developer Console, you need to create a Project
+ - If this is the first time you visit Google Developer Console, you need to create a Project.
  - Find the **Project Number** at the top of the page and record this for later use
- - Under "APIs & Auth" >> API, enable "Google Cloud Messaging for Android"
-   <img src="http://imgur.com/DhWqzyX.png"/>A
- - Under "APIs & Auth" >> Credentials, "Create New Key" => "Server Key", record key for later
+ - Under `APIs & Auth` -> `APIs`, find "Google Cloud Messaging for Android".  Click Enable API.
+   <img src="http://imgur.com/DhWqzyX.png"/>
+ - Under `APIs & Auth` -> Credentials, select "Create New Key" => "Server Key".  Record key for later
+   <img src="http://imgur.com/WEWaUBj.png"/>
 
 Before continuing make sure:
 
