@@ -108,10 +108,10 @@ public class FirstActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         pushClientManager = new GCMClientManager(this, PROJECT_NUMBER);
-        pushClientManager.registerIfNeeded(new RegistrationCompletedHandler() {
+        pushClientManager.registerIfNeeded(new GCMClientManager.RegistrationCompletedHandler() {
            @Override
            public void onSuccess(String registrationId, boolean isNewRegistration) {
-    	       Toast.makeText(MainActivity.this, registrationId, 
+    	       Toast.makeText(FirstActivity.this, registrationId, 
     	          Toast.LENGTH_SHORT).show();
     	       // SEND async device registration to your back-end server 
     	       // linking user with device registration id
