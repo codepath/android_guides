@@ -27,7 +27,7 @@ In order to use GCM, we need to go through the following steps:
 
    <img src="http://imgur.com/kaB26fE.png" height="250"/>
 
- - You will want to make sure to `Enable Google Cloud Messaging`.  
+ - You will want to make sure to click the `Enable Google Cloud Messaging` button:  
 
    <img src="http://imgur.com/QyJq7TT.png" height="250"/>
 
