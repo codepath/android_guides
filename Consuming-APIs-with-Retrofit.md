@@ -20,7 +20,13 @@ dependencies {
 
 ### Create Java Objects for Resources
 
-Capture the actual JSON output for an API endpoint in order to generate the POJO (java objects) that will be used to deserialize the response. Once you have the sample JSON output, you can run the response through [jsonschema2pojo](http://www.jsonschema2pojo.org/) which will auto-generate the necessary objects within the response:
+Capture the actual JSON output for an API endpoint in order to generate the POJO (java objects) that will be used to deserialize the response. Once you have the sample JSON output, you can run the response through [jsonschema2pojo](http://www.jsonschema2pojo.org/) which will auto-generate the necessary objects within the response.  
+
+Make sure to select JSON as the Source Type:
+ 
+<img src="http://imgur.com/3DRH984.png"/>
+
+Next, paste the JSON output into the textbox:
 
 <img src="http://i.imgur.com/DG4TAB2.png" width="400" alt="POJO Generator" />
 
