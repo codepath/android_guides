@@ -147,7 +147,7 @@ Make sure to add the following permissions to your `AndroidManifest.xml`:
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 ```
 
-To share an image from Fresco, you first need to [get the bitmap](#Getting-the-underlying-Bitmap-out-of-a-DraweeView) from the `ImagePipeline`. Then you can use the following code to save the bitmap to the Media image store and pass the path into the share intent.
+To share an image from Fresco, you first need to [get the bitmap](#getting-the-underlying-bitmap-out-of-a-draweeview) from the `ImagePipeline`. Then you can use the following code to save the bitmap to the Media image store and pass the path into the share intent.
 
 ```java
 String path = MediaStore.Images.Media.insertImage(mContext.getContentResolver(),
