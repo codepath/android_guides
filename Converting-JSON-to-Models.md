@@ -221,7 +221,7 @@ client.search("food", "san francisco", new JsonHttpResponseHandler() {
   public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
       try {
           // Get and store decoded array of business results
-          JSONArray businessesJson = body.getJSONArray("businesses");
+          JSONArray businessesJson = response.getJSONArray("businesses");
           businesses.clear(); // clear existing items if needed
           businesses.addAll(Business.fromJson(businessesJson)); // add new items
           adapter.notifyDataSetChanged();
