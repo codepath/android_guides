@@ -27,11 +27,11 @@ dependencies {
 
 Capture the actual JSON output for an API endpoint in order to generate the POJO (java objects) that will be used to deserialize the response. Once you have the sample JSON output, you can run the response through [jsonschema2pojo](http://www.jsonschema2pojo.org/) which will auto-generate the necessary objects within the response.  
 
-Make sure to select JSON as the Source Type:
+Make sure to select `JSON` as the Source Type:
  
 <img src="http://imgur.com/3DRH984.png"/>
 
-Select None as the Annotation Style:
+Select `None` as the Annotation Style:
 
 <img src="http://imgur.com/aTrRfpu.png"/>
 
