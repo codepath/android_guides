@@ -147,18 +147,21 @@ Make sure to add the following permissions to your `AndroidManifest.xml`:
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 ```
 
-To share an image from Fresco, you first need to [get the bitmap](#getting-the-underlying-bitmap-out-of-a-draweeview) from the `ImagePipeline`. Then you can use the following code to save the bitmap to the Media image store and pass the path into the share intent.
+To share an image from Fresco, you first need to [get the bitmap](#getting-the-underlying-bitmap-out-of-a-draweeview) from the `ImagePipeline`. Then you can use the following code to save the bitmap to the Media image store and pass the path into a share intent.
 
 ```java
-String path = MediaStore.Images.Media.insertImage(mContext.getContentResolver(),
-                                bitmap, "Image Description", null);
-Uri bmpUri = Uri.parse(path);
-Intent shareIntent = new Intent(Intent.ACTION_SEND);
-shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
-shareIntent.setType("image/*");
+public void shareBitmap(Bitmap bitmap) {
+   String path = MediaStore.Images.Media.insertImage(mContext.getContentResolver(),
+                                                      bitmap, "Image Description", null);
+   Uri bmpUri = Uri.parse(path);
+   Intent shareIntent = new Intent(Intent.ACTION_SEND);
+   shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
+   shareIntent.setType("image/*");
 
-mContext.startActivity(Intent.createChooser(shareIntent, "Share Image"));
+   mContext.startActivity(Intent.createChooser(shareIntent, "Share Image"));
+}
 ```
+See the [guide on sharing](http://guides.codepath.com/android/Sharing-Content-with-Intents) if you want to read more about the different sharing options.
 
 ## Gotchas
 Make sure you review the list of [[gotchas|http://frescolib.org/docs/gotchas.html]] in the Fresco documentation. The most notable one is to avoid `ImageView` methods and properties when dealing with a `DraweeView` (even though `DraweeView` extends `ImageView`).
