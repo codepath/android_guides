@@ -8,12 +8,7 @@ This library makes downloading JSON or XML data from a web API fairly straightfo
 
 ### Setup
 
-First, we need to add the libraries to our project. Without Gradle, this means:
-
-1. Download the jar files for [Retrofit](https://github.com/square/retrofit), [OkHttp](https://github.com/square/okhttp), and [GSON](https://code.google.com/p/google-gson/).
-2. Drag each of the jar files into your libs folder in your project
-
-With Gradle, add the following to your `app/build.gradle` file:
+Add the following to your `app/build.gradle` file:
 
 ```gradle
 dependencies {
