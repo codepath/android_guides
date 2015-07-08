@@ -412,6 +412,8 @@ recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
 
 ### Attaching Click Handlers to Items
 
+#### Simple Click Handler within ViewHolder
+
 RecyclerView does not have special provisions for attaching click handlers to items unlike ListView which has the method `setOnItemClickListener`. To achieve a similar effect, we can attach click events within the `ViewHolder` within our adapter:
 
 ```java
@@ -462,6 +464,8 @@ If we want the item to show a "selected" effect when pressed, we can set the `an
 This creates the following effect:
 
 <img src="http://i.imgur.com/olMUglF.gif" width="400" alt="Screenshot" />
+
+#### Attaching Click Handlers using Listeners
 
 In certain cases, you'd want to setup click handlers for views within the `RecyclerView` but define the click logic within the containing `Activity` or `Fragment` (i.e bubble up events from the adapter). To achieve this, [[create a custom listener|Creating-Custom-Listeners]] within the adapter and then fire the events upwards to an interface implementation defined within the parent:
 
