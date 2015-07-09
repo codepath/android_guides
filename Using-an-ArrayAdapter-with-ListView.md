@@ -9,6 +9,22 @@ The `ArrayAdapter` fits in between an `ArrayList` (data source) and the `ListVie
 
 Note as shown above that there are other data sources besides an `ArrayAdapter` such as the [[CursorAdapter|Populating-a-ListView-with-a-CursorAdapter]] which instead binds directly to a result set from a [[Local SQLite Database|Local-Databases-with-SQLiteOpenHelper]].
 
+## Row View Recycling
+
+When using an adapter and a `ListView`, we need to make sure to understand how view recycling works. 
+
+When your `ListView` is connected to an adapter, the adapter will instantiate rows until the `ListView` has been fully populated with enough items to fill the full height of the list. At that point, no additional row items are created in memory.  
+
+Instead, as the user scroll through the list, **items that leave the screen are kept in memory for later use** and then every new row that enters the screen **reuses an older row kept around in memory**. In this way, even for a list of 1000 items, only ~7 item view rows are ever instantiated or held in memory. Here is a visual overview of recycling:
+
+<img src="http://i.imgur.com/zpkVUMR.png" width="500" />
+
+Here is another related diagram on view recycling:
+
+<img src="http://i.imgur.com/SZ8iKuu.jpg" width="500" />
+
+Refer to [this ListView guide](http://android.amberfog.com/?p=296) for another look at how this works to optimize the performance of your lists.
+
 ## Using a Basic ArrayAdapter
 
 To use a basic `ArrayAdapter`, you just need to initialize the adapter and attach the adapter to the ListView. First, we initialize the adapter:
