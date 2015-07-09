@@ -421,7 +421,7 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
     // ...
 
     // Used to cache the views within the item layout for fast access
-    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView tvName;
         public TextView tvHometown;
         private Context context;
@@ -440,6 +440,7 @@ public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerVi
         @Override
         public void onClick(View view) {
             int position = getLayoutPosition(); // gets item position
+            User user = users.get(position);
             // We can access the data within the views
             Toast.makeText(context, tvName.getText(), Toast.LENGTH_SHORT).show();
         }
