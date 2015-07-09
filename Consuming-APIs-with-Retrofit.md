@@ -160,5 +160,6 @@ Several other Android OAuth libraries can be explored instead of signpost:
 
  * <http://engineering.meetme.com/2014/03/best-practices-for-consuming-apis-on-android/>
  * <https://github.com/MeetMe/TwitchTvClient>
+ * <http://themakeinfo.com/2015/04/android-retrofit-images-tutorial/>
 
 **Attribution:** This guide has been adapted from [this external guide](http://engineering.meetme.com/2014/03/best-practices-for-consuming-apis-on-android/) authored by [MeetMe](http://www.meetme.com/). 
