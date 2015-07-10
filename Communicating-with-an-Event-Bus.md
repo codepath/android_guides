@@ -161,7 +161,7 @@ The example shown uses a singleton instance and makes a lot of repetitive `BusPr
 
 ### Installing the Otto plugin
 
-Install Jake Wharton's [Otto plugin](https://github.com/square/otto-intellij-plugin﻿) that helps you navigate which elements are dependent on each other.
+Install Jake Wharton's [Otto plugin](https://github.com/square/otto-intellij-plugin/﻿) that helps you navigate which elements are dependent on each other.
 
 <img src="https://lh3.googleusercontent.com/proxy/tfZ-YEEADeiQ_MJa0_FZLwUd5tWAmRcgHMOJGzFPV-qab0f7x_5cBsNDQhjCyH5oD0tn3oOJZIC29DnS2GvPeoEjhWYvwh7TssnjbPZxKK5xjr_67efRLUs=w506-h281"/>
 
