@@ -64,7 +64,7 @@ public class FirstActivityUnitTest extends
 
   private FirstActivity activity;
 
-  public SomeActivityUnitTest() {
+  public FirstActivityUnitTest() {
     super(FirstActivity.class);
   }
 
