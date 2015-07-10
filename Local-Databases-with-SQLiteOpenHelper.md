@@ -466,7 +466,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 }
 ```
 
-The static getInstance() method ensures that only one DatabaseHelper will ever exist at any given time. If the sInstance object has not been initialized, one will be created. If one has already been created then it will simply be returned. Then we can access our database connection with:
+The static `getInstance()` method ensures that only one `DatabaseHelper` will ever exist at any given time. If the `sInstance` object has not been initialized, one will be created. If one has already been created then it will simply be returned. Then we can access our database connection with:
 
 ```java
 // In any activity just pass the context and use singleton method
