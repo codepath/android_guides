@@ -8,7 +8,9 @@ By now, you should be familiar with the various ways the Android framework relie
 
 One of primary issues of these current approaches is that they can create strong dependencies between each component, making it difficult to change one part of the system without impacting another area.  This [blog post](https://corner.squareup.com/2012/07/otto.html) describes the challenges of creating unmanageable dependencies with the current Android framework.  Instead of encouraging more modular designs, the communication patterns can sometimes do the exact opposite.
 
-Publish/subscribe models try to avoid this tight integration by relying an event bus model.  In this type of model, there are publishers and subscribers.  Publishers are responsible for posting events in response to some type of state change, while subscribers respond to these events.  The event acts as an intermediary for exchanging information, isolating and minimizing the dependencies between each side.  In this way, message buses create a communication pipeline that is intended to help make your app more maintainable and scalable.
+Publish/subscribe models try to avoid this tight integration by relying an event bus model.  In this type of model, there are publishers and subscribers.  Publishers are responsible for posting events in response to some type of state change, while subscribers respond to these events.  The event acts as an intermediary for exchanging information, isolating and minimizing the dependencies between each side.  In this way, message buses create a communication pipeline that is intended to help make your app more maintainable and scalable.  
+
+One additional benefit of using these pub/sub frameworks is that they help facilitate passing Java objects between Activities, Fragments, or Services.  You don't need to spend time serializing and deserializing data, which can often creates the tight bindings between these components.   It also helps enforce more type-safety across complex Java objects.  
 
 There are many different libraries which attempt to enable the event bus model, including [EventBus](https://github.com/greenrobot/EventBus), [RxJava](https://github.com/ReactiveX/RxJava), and [Otto](https://github.com/square/otto).   Otto is by far the easiest to start using immediately.  EventBus has a few more advanced features than in Otto described in this [comparison chart](http://timnew.me/blog/2014/09/14/otto-and-android-annotations-compatibility-issue-analysis/), and RxJava enables
 a way to declare [sequences of actions](http://www.infoq.com/news/2014/11/android-rxjava-at-soundcloud) to be taken in response to certain events.  
@@ -174,3 +176,4 @@ Install Jake Wharton's [Otto plugin](https://github.com/square/otto-intellij-plu
 * <https://github.com/kaushikgopal/Android-RxJava/>
 * <https://gist.github.com/staltz/868e7e9bc2a7b8c1f754/>
 * <https://github.com/square/otto/tree/master/otto-sample/>
+* <http://www.stevenmarkford.com/passing-objects-between-android-activities/>
