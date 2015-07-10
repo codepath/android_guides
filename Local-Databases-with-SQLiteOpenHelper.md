@@ -436,6 +436,45 @@ public class TodoItemDatabase extends SQLiteOpenHelper {
 
 Once you understand the basics of SQLite above, be sure to review [this more advanced tutorial](http://www.androidhive.info/2013/09/android-sqlite-database-with-multiple-tables/) which explores working with SQLite when you have multiple associated tables.
 
+## Singleton Pattern
+
+Often SQLite will be used across your entire application; within services, applications, fragments, and more. For this reason, best practices often advise you to apply the singleton pattern to your `SQLiteOpenHelper` instances to avoid memory leaks and unnecessary reallocations. The best solution is to **make your database instance a singleton instance** across the entire application's lifecycle.
+
+```java
+public class DatabaseHelper extends SQLiteOpenHelper { 
+  private static DatabaseHelper sInstance;
+
+  // ...
+
+  public static synchronized DatabaseHelper getInstance(Context context) {
+    // Use the application context, which will ensure that you 
+    // don't accidentally leak an Activity's context.
+    // See this article for more information: http://bit.ly/6LRzfx
+    if (sInstance == null) {
+      sInstance = new DatabaseHelper(context.getApplicationContext());
+    }
+    return sInstance;
+  }
+
+  /**
+   * Constructor should be private to prevent direct instantiation.
+   * make call to static method "getInstance()" instead.
+   */
+  private DatabaseHelper(Context context) {
+    super(context, DATABASE_NAME, null, DATABASE_VERSION);
+  }
+}
+```
+
+The static getInstance() method ensures that only one DatabaseHelper will ever exist at any given time. If the sInstance object has not been initialized, one will be created. If one has already been created then it will simply be returned. Then we can access our database connection with:
+
+```java
+// In any activity just pass the context and use singleton method
+DatabaseHelper helper = DatabaseHelper.getInstance(this);
+```
+
+See [this android design patterns article](http://www.androiddesignpatterns.com/2012/05/correctly-managing-your-sqlite-database.html) for more information.
+
 ## SQLite Database Debugging 
 
 When working with local SQL, often inspect the local SQLite data can be helpful while debugging issues with persistence. To access the device's SQLite database, you can perform the following **within the terminal or command-line**:
