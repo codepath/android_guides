@@ -152,3 +152,4 @@ Defining custom scope(s) is highly recommended as it
 * <http://code.tutsplus.com/tutorials/dependency-injection-with-dagger-2-on-android--cms-23345>
 * [Jake Wharton's Devoxx Dagger 2 Slides](https://speakerdeck.com/jakewharton/dependency-injection-with-dagger-2-devoxx-2014)
 * [Dagger 2 Google Developers Talk](https://www.youtube.com/watch?v=oK_XtfXPkqw)
+* [Dagger 1 to Dagger 2](http://frogermcs.github.io/dagger-1-to-2-migration/)
