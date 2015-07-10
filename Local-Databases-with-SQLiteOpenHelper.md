@@ -326,7 +326,7 @@ public class TodoItemDatabase extends SQLiteOpenHelper {
     // adding constraints to database, etc
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-    	if (newVersion == 1) {
+    	if (oldVersion != newVersion) {
            // Wipe older tables if existed
            db.execSQL("DROP TABLE IF EXISTS " + TABLE_TODO);
            // Create tables again
