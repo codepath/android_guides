@@ -60,7 +60,7 @@ public final class BusProvider {
 }
 ```
 
-Since services normally run on separate threads from the main UI thread, we must also ensure that the events are published on the main thread by subscribers to handle.  We expose some extra functionality to provide the ability for services to explicitly publish on the main thread:
+Since services normally run on separate threads from the main UI thread, we must also ensure that the events are published on the main thread by subscribers to handle especially if they update the screen.  We expose some extra functionality to provide the ability for services to explicitly publish on the main thread:
 
 ```java
     private static final Handler mainThread = new Handler(Looper.getMainLooper());
@@ -82,10 +82,7 @@ Since services normally run on separate threads from the main UI thread, we must
 
 ### Registering on the Bus
 
-If you wish to subscribe Activities and Fragments to the event bus, it should be done with respect to the lifecycle
-of these objects.  The reason is that when an event is published, Otto will try to find all the registered subscribers.
-If there is a subscriber attached to the Activity currently not running, there is likely to be a stale reference
-that causes your app to crash.
+If you wish to subscribe Activities and Fragments to the event bus, it should be done with respect to the lifecycle of these objects.  The reason is that when an event is published, Otto will try to find all the registered subscribers.  If there is a subscriber attached to the Activity currently not running, there is likely to be a stale reference that causes your app to crash.
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -105,8 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
 ### Creating an Event
 
-Create a new Event from a standard Java class.   You can define any set of members variables.  For now, we
-create a class to accept a result code and a String values.
+Create a new Event from a standard Java class.   You can define any set of members variables.  For now, we create a class to accept a result code and a String values.
 
 ```java
 public class IntentServiceResult {
