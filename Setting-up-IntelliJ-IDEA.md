@@ -6,7 +6,7 @@ IntelliJ IDEA contains all the features found in Android Studio.  Setup for Andr
 * Install [Java 7 JDK](http://www.oracle.com/technetwork/java/javase/downloads)
 * Install [IntelliJ IDEA](https://www.jetbrains.com/idea/download/)
 * Install [[Android SDK Tools|Installing-Android-SDK-Tools]]
-* Install l[[Genymotion|Genymotion-2.0-Emulators-with-Google-Play-support]]
+* Install [[Genymotion|Genymotion-2.0-Emulators-with-Google-Play-support]]
 
 ## Configure IntelliJ IDEA
 * Open IntelliJ IDEA
