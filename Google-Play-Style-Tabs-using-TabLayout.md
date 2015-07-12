@@ -147,9 +147,7 @@ Heres the output:
 
 ![Screen 1](http://i.imgur.com/rhRXjLIl.png)
 
-### Styling TabLayout
-
-Customize Tab Indicator Color
+### Styling the TabLayout
 
 Normally, the tab indicator color chosen is the [accent color](http://www.google.com/design/spec/style/color.html#color-color-palette) defined for your Material Design theme.  If you intend to override this color, you will need to create a style that overrides this color.
 
@@ -169,23 +167,24 @@ You can then override this style for your TabLayout:
         android:layout_height="wrap_content"></android.support.design.widget.TabLayout>
 ```
 
-Further aspects that can be styled for the TabLayout:
+There are several other styles that can be configured for the `TabLayout`:
+
 ```xml
-    <style name="Base.Widget.Design.TabLayout" parent="android:Widget">
-        <item name="tabMaxWidth">@dimen/tab_max_width</item>
-        <item name="tabIndicatorColor">?attr/colorAccent</item>
-        <item name="tabIndicatorHeight">2dp</item>
-        <item name="tabPaddingStart">12dp</item>
-        <item name="tabPaddingEnd">12dp</item>
-        <item name="tabBackground">?attr/selectableItemBackground</item>
-        <item name="tabTextAppearance">@style/TextAppearance.Design.Tab</item>
-        <item name="tabSelectedTextColor">?android:textColorPrimary</item>
-    </style>
-    <style name="TextAppearance.Design.Tab" parent="TextAppearance.AppCompat.Button">
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">?android:textColorSecondary</item>
-        <item name="textAllCaps">true</item>
-    </style>
+<style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
+    <item name="tabMaxWidth">@dimen/tab_max_width</item>
+    <item name="tabIndicatorColor">?attr/colorAccent</item>
+    <item name="tabIndicatorHeight">2dp</item>
+    <item name="tabPaddingStart">12dp</item>
+    <item name="tabPaddingEnd">12dp</item>
+    <item name="tabBackground">?attr/selectableItemBackground</item>
+    <item name="tabTextAppearance">@style/MyCustomTabTextAppearance</item>
+    <item name="tabSelectedTextColor">?android:textColorPrimary</item>
+</style>
+<style name="MyCustomTabTextAppearance" parent="TextAppearance.Design.Tab">
+    <item name="android:textSize">14sp</item>
+    <item name="android:textColor">?android:textColorSecondary</item>
+    <item name="textAllCaps">true</item>
+</style>
 ```
 
 ### Add Icons to TabLayout
