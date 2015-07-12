@@ -187,7 +187,6 @@ Further aspects that can be styled for the TabLayout:
         <item name="textAllCaps">true</item>
     </style>
 ```
-Source: https://android.googlesource.com/platform/frameworks/support.git/+/master/design/res/values/styles.xml
 
 ### Add Icons to TabLayout
 
