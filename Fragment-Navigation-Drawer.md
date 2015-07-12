@@ -454,4 +454,4 @@ inflater.inflate(R.layout.activity_main, container);
 
 * <http://android-developers.blogspot.com/2014/10/appcompat-v21-material-design-for-pre.html>
 * <http://stackoverflow.com/questions/26440879/how-do-i-use-drawerlayout-to-display-over-the-actionbar-toolbar-and-under-the-st>
-* <http://antonioleiva.com/navigation-view/> Я ЕБАНУТЫЙ ДОЛБОЕБ, ПОТОМУ ЧТО НЕ ВЫЛОЖИЛ ИСХОДНИК!
+* <http://antonioleiva.com/navigation-view/>
