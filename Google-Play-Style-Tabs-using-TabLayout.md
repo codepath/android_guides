@@ -149,11 +149,11 @@ Heres the output:
 
 ### Styling the TabLayout
 
-Normally, the tab indicator color chosen is the [accent color](http://www.google.com/design/spec/style/color.html#color-color-palette) defined for your Material Design theme.  If you intend to override this color, you will need to create a style that overrides this color.
+Normally, the tab indicator color chosen is the [accent color](http://www.google.com/design/spec/style/color.html#color-color-palette) defined for your Material Design theme.  We can override this color by defining a custom style in `styles.xml` and then applying the style to your `TabLayout`:
 
 ```xml
 <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
-        <item name="tabIndicatorColor">#0000FF</item>
+    <item name="tabIndicatorColor">#0000FF</item>
 </style>
 ```
 
@@ -164,7 +164,8 @@ You can then override this style for your TabLayout:
         android:id="@+id/tabs"
         style="@style/MyCustomTabLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></android.support.design.widget.TabLayout>
+        android:layout_height="wrap_content">
+</android.support.design.widget.TabLayout>
 ```
 
 There are several other styles that can be configured for the `TabLayout`:
