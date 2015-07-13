@@ -34,6 +34,13 @@ dependencies {
 }
 ```
 
+One less published addition is the percent support library, which enables you to create layouts that can specify the percentage of the total amount of space occupied by the width or height.  
+
+```gradle
+dependencies {
+    compile 'com.android.support:percent:22.2.0'
+}
+```
 ### Features
 
 The support design library has the following key features:
@@ -46,8 +53,7 @@ The support design library has the following key features:
 6. [[CoordinatorLayout|Handling-Scrolls-with-CoordinatorLayout]] - Provides an additional level of control over scroll and touch events between child views.
      * [AppBarLayout](http://developer.android.com/reference/android/support/design/widget/AppBarLayout.html) allows your toolbar and other views to react to scroll events. 
      * [CollapsingToolbarLayout](http://developer.android.com/reference/android/support/design/widget/CollapsingToolbarLayout.html) extend this to allow the toolbar to collapse as the user scrolls through a view.  
-
-7. PercentRelativeLayout, PercentLinearLayout, and PercentFrameLayout to enable [percentage-based](https://juliengenoud.github.io/android-percent-support-lib-sample/) dimensions.  See [this source code example](https://github.com/JulienGenoud/android-percent-support-lib-sample).
+7. PercentRelativeLayout, PercentLinearLayout, and PercentFrameLayout to enable layouts to occupy  [percentage-based dimensions](https://juliengenoud.github.io/android-percent-support-lib-sample/).  See [this source code example](https://github.com/JulienGenoud/android-percent-support-lib-sample).
 
 ### Sample Code
 
