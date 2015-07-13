@@ -47,6 +47,8 @@ The support design library has the following key features:
      * [AppBarLayout](http://developer.android.com/reference/android/support/design/widget/AppBarLayout.html) allows your toolbar and other views to react to scroll events. 
      * [CollapsingToolbarLayout](http://developer.android.com/reference/android/support/design/widget/CollapsingToolbarLayout.html) extend this to allow the toolbar to collapse as the user scrolls through a view.  
 
+7. PercentRelativeLayout, PercentLinearLayout, and PercentFrameLayout to enable [percentage-based](https://juliengenoud.github.io/android-percent-support-lib-sample/) dimensions.  See [this source code example](https://github.com/JulienGenoud/android-percent-support-lib-sample).
+
 ### Sample Code
 
 If you want to see how to use the various components, check out this [sample code](https://github.com/chrisbanes/cheesesquare).
