@@ -48,7 +48,7 @@ dependencies {
 }
 ```
 
-One less published addition is the percent support library, which enables you to create layouts that can specify the percentage of the total amount of space occupied by the width or height.  
+To add the percent support library, you need to add this library:  
 
 ```gradle
 dependencies {
