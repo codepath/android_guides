@@ -48,7 +48,7 @@ dependencies {
 }
 ```
 
-To add the percent support library, you need to add this library:  
+To add the percent support library, you need to add this statement:  
 
 ```gradle
 dependencies {
