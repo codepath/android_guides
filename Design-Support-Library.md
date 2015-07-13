@@ -18,7 +18,7 @@ The support design library has the following key features:
 6. [[CoordinatorLayout|Handling-Scrolls-with-CoordinatorLayout]] - Provides an additional level of control over scroll and touch events between child views.
      * [AppBarLayout](http://developer.android.com/reference/android/support/design/widget/AppBarLayout.html) allows your toolbar and other views to react to scroll events. 
      * [CollapsingToolbarLayout](http://developer.android.com/reference/android/support/design/widget/CollapsingToolbarLayout.html) extend this to allow the toolbar to collapse as the user scrolls through a view.  
-7. PercentRelativeLayout, PercentLinearLayout, and PercentFrameLayout to enable layouts to occupy  [percentage-based dimensions](https://juliengenoud.github.io/android-percent-support-lib-sample/).  See [this source code example](https://github.com/JulienGenoud/android-percent-support-lib-sample).
+7. PercentRelativeLayout, PercentLinearLayout, and PercentFrameLayout to enable layouts to occupy  [percentage-based dimensions](https://juliengenoud.github.io/android-percent-support-lib-sample/).  
 
 ### Setup
 
@@ -58,7 +58,7 @@ dependencies {
 
 ### Sample Code
 
-If you want to see how to use the various components, check out this [sample code](https://github.com/chrisbanes/cheesesquare).
+If you want to see how to use the various components, check out this [sample code](https://github.com/chrisbanes/cheesesquare).  For an example of the percent support library, see [this sample code](https://github.com/JulienGenoud/android-percent-support-lib-sample).
 
 ### Official Source Code
 
