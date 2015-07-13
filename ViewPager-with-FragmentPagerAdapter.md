@@ -385,6 +385,21 @@ vpPager.setPageTransformer(false, new ViewPager.PageTransformer() {
 ```
 
 For more details, check out [the official guide](http://developer.android.com/training/animation/screen-slide.html#pagetransformer) or [this guide](http://howrobotswork.wordpress.com/2013/06/27/create-viewpager-transitions-a-pagertransformer-example/). You can also review this cool [rotating page transformer effect](https://stevenkideckel.wordpress.com/tag/pagetransformer/) for another example.
+
+## Disabling Swipe Events
+
+In certain situation, our app will want to have a `ViewPager` that allows switching pages using an indicator but perhaps **not intercept swipe events**. This is usually because we want to have the swipe events perform another action rather than change pages.
+
+The first step is to create a custom `ViewPager` [subclass called LockableViewPager](https://gist.github.com/nesquena/898db22a38747bd9bc19). The class inherits from ViewPager and includes a new method called `setSwipeable` to control if swipe events are enabled or not. Copy [this class](https://gist.github.com/nesquena/898db22a38747bd9bc19) into your project. Make sure to change your layout file accordingly:
+
+```xml
+<mypackage.lockableviewpager
+    android:id="@+id/photosViewPager" 
+    android:layout_height="match_parent" 
+    android:layout_width="match_parent" />
+```
+
+Now, just call `setSwipeable(false)` to disable swiping to change the page. 
  
 ## References
 
