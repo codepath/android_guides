@@ -388,9 +388,9 @@ For more details, check out [the official guide](http://developer.android.com/tr
 
 ## Disabling Swipe Events
 
-In certain situation, our app will want to have a `ViewPager` that allows switching pages using an indicator but perhaps **not intercept swipe events**. This is usually because we want to have the swipe events perform another action rather than change pages.
+In certain situations your app might want to have a `ViewPager` that allows switching pages using an indicator but that **doesn't intercept swipe events**. This is usually because we want to have the swipe events perform another action rather than change the page.
 
-The first step is to create a custom `ViewPager` [subclass called LockableViewPager](https://gist.github.com/nesquena/898db22a38747bd9bc19). The class inherits from ViewPager and includes a new method called `setSwipeable` to control if swipe events are enabled or not. Copy [this class](https://gist.github.com/nesquena/898db22a38747bd9bc19) into your project. Make sure to change your layout file accordingly:
+The first step is to define a custom `ViewPager` [subclass called LockableViewPager](https://gist.github.com/nesquena/898db22a38747bd9bc19). The class inherits from ViewPager and includes a new method called `setSwipeable` to control if swipe events are enabled or not. Copy [this class](https://gist.github.com/nesquena/898db22a38747bd9bc19) into your project. Make sure to change your layout file accordingly:
 
 ```xml
 <mypackage.lockableviewpager
