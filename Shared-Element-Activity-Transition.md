@@ -1,6 +1,6 @@
 ## Overview
 
-Traditionally transitions between different activities or fragments involved enter and exit transitions that animated entire view hierarchies independant to each other. Example of such transitions are a fade transition, slide transition or the newly introduced explode transition.
+Traditionally transitions between different activities or fragments involved enter and exit transitions that animated entire view hierarchies independent to each other. Example of such transitions are a fade transition, slide transition or the newly introduced explode transition.
 
 Default Activity Transition:
 
@@ -15,7 +15,7 @@ The nature of this transition forces the human eye to focus on the content and i
 ![Imgur](http://i.imgur.com/rUkkfUZ.gif)
 ![Shared Element Transition](http://i.imgur.com/1cjqsSA.gif)
 
-### Getting Started
+## Activity Shared Elements Transitions
 
 Note that the shared element transitions require Android 5.0 (API level 21) and above and will be ignored for any lower API versions. Be sure to [check the version at runtime](https://developer.android.com/training/material/compatibility.html#CheckVersion) before using API 21 specific features.
 
@@ -161,6 +161,83 @@ getWindow().setExitTransition(new Explode());
 ```
 
 See this official guide on [Defining Custom Animations](https://developer.android.com/training/material/animations.html#Transitions) for more details.
+
+## Fragment Shared Elements Transitions
+
+Leveraging shared element transitions works with fragments too in a similar way as was shown above for activities.
+
+Note that the shared element transitions require Android 5.0 (API level 21) and above and will be ignored for any lower API versions. Be sure to [check the version at runtime](https://developer.android.com/training/material/compatibility.html#CheckVersion) before using API 21 specific features.
+
+### Assign a Common Transition Name
+
+Within two fragments let's assign a common transition name to the shared elements in both layouts. Use the `android:transitionName` attribute and put the view inside both `FirstFragment` and `SecondFragment`:
+
+```xml
+<android.support.v7.widget.CardView
+  ...>
+      <ImageView
+          android:id="@+id/ivProfile"
+          android:transitionName="profile"
+          android:scaleType="centerCrop"
+          android:layout_width="match_parent"
+          android:layout_height="160dp" />
+      ...
+</android.support.v7.widget.CardView>
+```
+
+### Define the Transition
+
+Add a transition to the `res/transition` folder named `change_image_transform.xml` with the following:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<transitionSet xmlns:android="http://schemas.android.com/apk/res/android">
+    <changeImageTransform />
+</transitionSet>
+```
+
+### Animate Transition in FragmentTransaction
+
+Now within the activity, we can trigger the transition as part of any `FragmentTransaction`:
+
+```java
+// Get access to or create instances to each fragment
+FirstFragment fragmentOne = ...;
+SecondFragment fragmentTwo = ...;
+// Check that the device is running lollipop
+if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+    // Inflate transitions to apply
+    Transition changeTransform = TransitionInflater.from(this).
+          inflateTransition(R.transition.change_image_transform);
+    Transition explodeTransform = TransitionInflater.from(this).
+          inflateTransition(android.R.transition.explode);
+ 
+    // Setup exit transition on first fragment
+    fragmentOne.setSharedElementReturnTransition(changeTransform);
+    fragmentOne.setExitTransition(explodeTransform);
+
+    // Setup enter transition on second fragment
+    fragmentTwo.setSharedElementEnterTransition(changeTransform);
+    fragmentTwo.setEnterTransition(explodeTransform);
+
+    // Find the shared element (in Fragment A)
+    ImageView ivProfile = (ImageView) findViewById(R.id.ivProfile);
+
+    // Add second fragment by replacing first 
+    FragmentTransaction ft = getFragmentManager().beginTransaction()
+            .replace(R.id.container, fragmentTwo)
+            .addToBackStack("transaction")
+            .addSharedElement(ivProfile, "profile");
+    // Apply the transaction
+    ft.commit();
+}
+else {
+    // Code to run on older devices
+}
+```
+
+Note that we need use methods on the exiting fragment such as `setSharedElementReturnTransition` and `setExitTransition`. On the entering fragment, we call `setSharedElementEnterTransition` and `setEnterTransition`. Finally we need to find the instance of the shared element and then call `addSharedElement(view, transitionName)` as part of building the `FragmentTransaction`.
+
 
 ## References
 
