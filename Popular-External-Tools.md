@@ -56,3 +56,7 @@ These are the best resources for testing your app across multiple real and emula
 
 * [TestObject](http://testobject.com) - New site for scheduled or manual black box testing of Android apps or mobile web sites. Allows testing on real devices.
 * [Monkop](http://monkop.com) - Android Tuning Advisor. Test-drive applications on multiple devices with one click. 
+
+### Performance
+
+* [Monkop](https://www.monkop.com/) - Get detailed analysis about performance, security and functionality of your Android apps.
