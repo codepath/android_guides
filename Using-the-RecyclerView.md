@@ -199,10 +199,13 @@ public class UserRecyclerViewAdapter extends
 
     // Store a member variable for the users
     private ArrayList<User> users;
+    // Store the context for later use
+    private Context context;
 
-    // Pass in the users array into the constructor
-    public UserRecyclerViewAdapter(ArrayList<User> users) {
+    // Pass in the context and users array into the constructor
+    public UserRecyclerViewAdapter(Context context, ArrayList<User> users) {
         this.users = users;
+        this.context = context;
     }
 }
 ```
@@ -219,7 +222,7 @@ public class UserRecyclerViewAdapter extends
     @Override
     public UserRecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // Inflate the custom layout
-        View itemView = LayoutInflater.from(parent.getContext()).
+        View itemView = LayoutInflater.from(context).
             inflate(R.layout.item_user, parent, false);
         // Return a new holder instance
         return new UserRecyclerViewAdapter.ViewHolder(itemView);
@@ -258,7 +261,7 @@ public class UserListActivity extends ActionBarActivity {
          // Lookup the recyclerview in activity layout
          RecyclerView rvUsers = (RecyclerView) findViewById(R.id.rvUsers);
          // Create adapter passing in the sample user data
-         UserRecyclerViewAdapter adapter = new UserRecyclerViewAdapter(getThronesCharacters());
+         UserRecyclerViewAdapter adapter = new UserRecyclerViewAdapter(this, getThronesCharacters());
          // Attach the adapter to the recyclerview to populate items
          rvUsers.setAdapter(adapter);
          // Set layout manager to position the items
