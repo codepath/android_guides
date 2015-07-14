@@ -477,7 +477,11 @@ See [this android design patterns article](http://www.androiddesignpatterns.com/
 
 ## SQLite Database Debugging 
 
-When working with local SQL, often inspect the local SQLite data can be helpful while debugging issues with persistence. To access the device's SQLite database, you can perform the following **within the terminal or command-line**:
+When working with SQLite, opening and inspecting the SQLite database can be helpful while debugging issues. The commands below will show how to get at the data (whether running on an emulator or an actual device). The commands should be performed **within the terminal or command-line**. Once you have the data, there are [desktop SQLite viewers](http://sqlitebrowser.org/) to help inspect the SQLite data graphically.
+
+### On an Emulator:
+
+Use `SQLite3` to query the data on the emulator:
 
 ```bash
 cd /path/to/my/sdk/platform-tools
@@ -485,9 +489,9 @@ cd /path/to/my/sdk/platform-tools
 run-as <app package name>
 cd /data/data/<app package name>/databases
 ls
-chmod 666 <databasefile>.db
-sqlite3 <databasefile>.db
-> (commands can be run here to query the data)
+chmod 666 <database file name>
+sqlite3 <database file name>
+> (semi-colon terminated commands can be run here to query the data)
 > .exit
 (copy full database path)
 exit
@@ -496,10 +500,18 @@ exit
 For further inspection, we can download the database file with:
 
 ```
-./adb wait-for-device pull /data/data/<app package name>/<databasefile>.db
+./adb wait-for-device pull /data/data/<app package name>/databases/<database file name>
 ```
 
-Now we can download [this desktop SQLite viewer](http://sqlitebrowser.org/) which allows us to open and inspect the SQLite data within the file downloaded to your computer from the device.
+### On a Device:
+
+There isn't a `SQLite3` executable on the device so our only option is to download the database file with:
+
+```bash
+./adb shell run-as <app package name> chmod 666 /data/data/<app package name>/databases/<database file name>
+./adb shell cp /data/data/<app package name>/databases/<database file name> /sdcard/
+./adb pull /sdcard/<database file name>
+```
 
 ## References
 
