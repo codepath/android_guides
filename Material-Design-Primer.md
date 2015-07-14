@@ -25,13 +25,7 @@ Google has released a handy [Material Design Checklist](http://android-developer
 
 ### Include Support Library
 
-By default, new generated apps are **automatically material design support enabled** within Android Studio. However, what about our old apps? How do we change them to support material design? First, let's add the support library to the `app/build.gradle`:
-
-```gradle
-dependencies {
-    compile 'com.android.support:appcompat-v7:22.2.0'
-}
-```
+By default, new generated apps are **automatically material design support enabled** within Android Studio. However, what about our old apps? How do we change them to support material design?  Take a look at this [[migration|Migrating-to-the-AppCompat-Library]] guide. 
 
 ### Design Support Library
 
