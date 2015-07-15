@@ -115,7 +115,7 @@ dependencies {
 }
 ```
 
-The `layout_width` and `layout_height` of the PercentRelativeLayout should determine the total width and height that can be used.  Any elements contained within PercentRelativeLayout should specify the width and height possible using `layout_heightPercent` and/or `layout_widthPercent`.  Because this library is not part of the standard Android library, note that a custom attribute `app` namespace is being used.
+The `layout_width` and `layout_height` of the PercentRelativeLayout should determine the total width and height that can be used.  Any elements contained within it should specify the width and height possible using `layout_heightPercent` and/or `layout_widthPercent`.  Because this library is not part of the standard Android library, note that a custom attribute `app` namespace is being used.
 
 An example of a layout used to describe the image above is shown below:
 
