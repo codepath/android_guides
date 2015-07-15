@@ -117,7 +117,7 @@ dependencies {
 
 The `layout_width` and `layout_height` of the PercentRelativeLayout should determine the total width and height that can be used.  Any container elements should specify the width and height possible using `layout_heightPercent` and/or `layout_widthPercent`.  Because this library is not part of the standard Android library, note that a custom attribute `app` namespace is being used.
 
-```
+```xml
 <android.support.percent.PercentRelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
