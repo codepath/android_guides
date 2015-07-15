@@ -143,8 +143,16 @@ The `layout_width` and `layout_height` of the PercentRelativeLayout should deter
         app:layout_heightPercent="20%"
         app:layout_widthPercent="30%" />
 
+    <View
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@+id/top_left"
+        android:background="#ff00ff22"
+        app:layout_heightPercent="80%" />
 </android.support.percent.PercentRelativeLayout>
 ```
+
 ## FrameLayout
 
 In a frame layout, the children are displayed with a z-index in the order of how they appear.  Put simply, the last child added to a `FrameLayout` will be drawn on top of all the previous children.  Think of it like a stack of items, the item last put on the stack will be drawn on top of the items below it.  This layout makes it very easy to draw on top of other layouts, especially for tasks such as button placement. 
