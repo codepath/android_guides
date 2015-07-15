@@ -103,7 +103,7 @@ You can see more about this layout by inspecting the [RelativeLayout.LayoutParam
 
 ## PercentRelativeLayout
 
-PercentRelativeLayout, a recent addition to the [[Design Support Library]], enables the ability to specify not only elements relative to each other but also the total percentage of available space.   
+PercentRelativeLayout, a recent undocumented addition to the [[Design Support Library]], enables the ability to specify not only elements relative to each other but also the total percentage of available space.   
 
 <img src="http://imgur.com/CmMsIgp.png"/>
 
