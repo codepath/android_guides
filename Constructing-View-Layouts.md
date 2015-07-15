@@ -101,6 +101,50 @@ An example of a RelativeLayout:
 
 You can see more about this layout by inspecting the [RelativeLayout.LayoutParams](http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html) docs and the official [RelativeLayout guide](http://developer.android.com/guide/topics/ui/layout/relative.html).
 
+## PercentRelativeLayout
+
+PercentRelativeLayout, a recent addition to the [[Design Support Library]], enables the ability to specify not only elements relative to each other but also the total percentage of available space.   
+
+<img src="http://imgur.com/CmMsIgp.png"/>
+
+To use, you need to add this library to your Gradle dependency list:  
+
+```gradle
+dependencies {
+    compile 'com.android.support:percent:22.2.0'
+}
+```
+
+The `layout_width` and `layout_height` of the PercentRelativeLayout should determine the total width and height that can be used.  Any container elements should specify the width and height possible using `layout_heightPercent` and/or `layout_widthPercent`.  Because this library is not part of the standard Android library, note that a custom attribute `app` namespace is being used.
+
+```
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/top_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentTop="true"
+        android:background="#ff44aacc"
+        app:layout_heightPercent="20%"
+        app:layout_widthPercent="70%" />
+
+    <View
+        android:id="@+id/top_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/top_left"
+        android:background="#ffe40000"
+        app:layout_heightPercent="20%"
+        app:layout_widthPercent="30%" />
+
+</android.support.percent.PercentRelativeLayout>
+```
 ## FrameLayout
 
 In a frame layout, the children are displayed with a z-index in the order of how they appear.  Put simply, the last child added to a `FrameLayout` will be drawn on top of all the previous children.  Think of it like a stack of items, the item last put on the stack will be drawn on top of the items below it.  This layout makes it very easy to draw on top of other layouts, especially for tasks such as button placement. 
