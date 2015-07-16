@@ -18,7 +18,7 @@ While themes and styles are usually applied at the application level, they can b
            android:theme="@style/MyCustomTheme">
 ```
 
-For this reason, it's important to know that there is an Application Context and an Activity Context, which last for the duration of their respective lifecycle.  Most [[Views|Defining-Views-and-their-Attributes]] should be passed an Activity Context in order to gain access to what themes, styles, dimensions should be applied.   If no theme is specified explicitly for the Activity, the system defaults are used.
+For this reason, it's important to know that there is an Application Context and an Activity Context, which last for the duration of their respective lifecycle.  Most [[Views|Defining-Views-and-their-Attributes]] should be passed an Activity Context in order to gain access to what themes, styles, dimensions should be applied.   If no theme is specified explicitly for the Activity, the default is to use the one specified for the application.
 
 In most cases, you should use the Activity Context.  Normally, the keyword `this` in Java references the instance of the class and can be used whenever Context is needed inside an Activity.  The example below shows how Toast messages can be displayed using this approach:
 
