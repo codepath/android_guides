@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
 ### ArrayAdapters
 
-When constructing adapters for a [[ListView|Using-an-ArrayAdapter-with-ListView#defining-the-model]] or a [[RecyclerView|Using-the-RecyclerView]], typically `getContext()` is usually called during the layout inflation process.  This usually uses the context that instantiated the ArrayAdapter:
+When constructing adapters for a [[ListView|Using-an-ArrayAdapter-with-ListView#defining-the-model]] or a [[RecyclerView|Using-the-RecyclerView]], typically `getContext()` is usually called during the layout inflation process.  This method usually uses the context that instantiated the ArrayAdapter:
 
 ```java
      if (convertView == null) {
@@ -64,7 +64,7 @@ When constructing adapters for a [[ListView|Using-an-ArrayAdapter-with-ListView#
      }
 ```
 
-If you instantiate the ArrayAdapter however with the application context, you are likely to notice that the themes/styles are not being applied.
+If you instantiate the ArrayAdapter however with the application context, you are likely to notice that the themes/styles are not being applied.  For this reason, make sure you are passing in the Activity context in these cases.
 
 ### Avoiding memory leaks
 
