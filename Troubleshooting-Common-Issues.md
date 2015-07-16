@@ -123,6 +123,20 @@ dependencies {
 
 It turns out that having both is redundant and will cause errors.  It is necessary in this case to remove one or the other, depending on your need to use other Google API libraries. See this overview of the [multidex issue on the Android docs](https://developer.android.com/tools/building/multidex.html).
 
+### Seeing `Unsupported major.minor version 52.0` on some plugins
+
+Some Android Studio plugins do not support Java 1.6 anymore, so it's best to confirm what version you are using.  Inside Android Studio, click on `About Android Studio`.  You should see the JRE version listed as 1.x.x below:
+
+<img src="http://imgur.com/Jn2jevR.png"/>
+
+If you have multiple Java versions installed, you should make sure that v1.6 is not being used.
+
+On OS X machines, you can remove the JDK from being noticed.  You can move it the temporary directory in case other issues are created by this change.
+
+```bash
+sudo mv /System/Library/Java/JavaVirtualMachines/1.6.0.jdk /tmp
+```
+
 ## Eclipse ADT Issues
 
 For common issues experienced with Eclipse, check the [[Troubleshooting Eclipse Issues]] page instead for a detailed list of common problems.
