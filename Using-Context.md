@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
 ### ArrayAdapters
 
-When constructing adapters for a [[ListView|Using-an-ArrayAdapter-with-ListView#defining-the-model]] or a [[RecyclerView|Using-the-RecyclerView]], typically `getContext()` is usually called during the layout inflation process.  This method usually uses the context that instantiated the ArrayAdapter:
+When constructing adapters for a [[ListView|Using-an-ArrayAdapter-with-ListView#defining-the-adapter]] or a [[RecyclerView|Using-the-RecyclerView]], typically `getContext()` is usually called during the layout inflation process.  This method usually uses the context that instantiated the ArrayAdapter:
 
 ```java
      if (convertView == null) {
