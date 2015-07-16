@@ -215,6 +215,59 @@ And this will result in:
 
 You'll also want to keep an eye on the total size of your custom fonts, as this can grow quite large if you're using a lot of different typefaces.
 
+## Using Spans to Style Sections of Text
+
+Spans come in really handy when we want to apply styles to portions of text within the same TextView. We can change the text color, change the typeface, add an underline, etc, and apply these to only certain portions of the text. The [full list of spans](http://developer.android.com/reference/android/text/style/package-summary.html) shows all the available options.
+
+As an example, let's say we have a single TextView where we want the first word to show up in red and the second word to have a strikethrough:
+ 
+![Custom](http://i.imgur.com/X9tKFmv.png)
+
+We can accomplish this with spans using the code below:
+
+```java
+String firstWord = "Hello";
+String secondWord = "World!";
+
+TextView tvHelloWorld = (TextView)findViewById(R.id.tvHelloWorld);
+
+// Create a span that will make the text red
+ForegroundColorSpan redForegroundColorSpan = new ForegroundColorSpan(
+        getResources().getColor(android.R.color.holo_red_dark));
+
+// Use a SpannableStringBuilder so that both the text and the spans are mutable
+SpannableStringBuilder ssb = new SpannableStringBuilder(firstWord);
+
+// Apply the color span
+ssb.setSpan(
+        redForegroundColorSpan,            // the span to add
+        0,                                 // the start of the span (inclusive)
+        ssb.length(),                      // the end of the span (exclusive)
+        Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); // behavior when text is later inserted into the SpannableStringBuilder
+                                           // SPAN_EXCLUSIVE_EXCLUSIVE means to not extend the span when additional
+                                           // text is added in later
+
+// Add a blank space
+ssb.append(" ");
+
+// Create a span that will strikethrough the text
+StrikethroughSpan strikethroughSpan = new StrikethroughSpan();
+
+// Add the secondWord and apply the strikethrough span to only the second word
+ssb.append(secondWord);
+ssb.setSpan(
+        strikethroughSpan,
+        ssb.length() - secondWord.length(),
+        ssb.length(),
+        Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+// Set the TextView text and denote that it is Editable
+// since it's a SpannableStringBuilder
+tvHelloWorld.setText(ssb, TextView.BufferType.EDITABLE);
+```
+
+Note: There are 3 different classes that can be used to represent text that has markup attached. [SpannableStringBuilder](http://developer.android.com/reference/android/text/SpannableStringBuilder.html) (used above) is the one to use when dealing with mutable spans and mutable text. [SpannableString](http://developer.android.com/reference/android/text/SpannableString.html) is for mutable spans, but immutable text. And [SpannedString](http://developer.android.com/reference/android/text/SpannedString.html) is for immutable spans and immutable text.
+
 ## Displaying Images within a TextView
 
 A TextView is actually surprisingly powerful and actually supports having images displayed as a part of it's content area. Any images stored in the "drawable" folders can actually be embedded within a TextView at several key locations in relation to the text using the [android:drawableRight](http://developer.android.com/reference/android/widget/TextView.html#attr_android:drawableRight) and the `android:drawablePadding` property. For example:
