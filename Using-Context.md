@@ -4,7 +4,7 @@ Context provides access to information about the application state.  It provides
 
 ## Application vs Activity Context
 
-While themes and styles are usually applied at the application level, they can be also specified at the Activity level.  In this way, the activity can have a different set of themes or styles than the rest of the application.   You will notice in the `AndroidManifest.xml` file that there is typically an `android:theme` for the application.  We can also specify a different one for an Activity:
+While themes and styles are usually applied at the application level, they can be also specified at the Activity level.  In this way, the activity can have a different set of themes or styles than the rest of the application (i.e. if the ActionBar needs to be disabled for certain pages).   You will notice in the `AndroidManifest.xml` file that there is typically an `android:theme` for the application.  We can also specify a different one for an Activity:
 
 ```xml
 <application
