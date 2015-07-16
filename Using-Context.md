@@ -13,6 +13,7 @@ Context provides an interface to global information about an application environ
 ## Context subclasses
 Contexts follow the wrapper/decorator pattern that allow subclasses to add on only the specific feature sets required.
 
+![context subclasses](https://raw.githubusercontent.com/codepath/android_guides/master/images/context_subclasses.png)
 * ContextWrapper
 * ContextThemeWrapper
 * Application
