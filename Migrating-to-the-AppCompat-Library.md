@@ -39,12 +39,22 @@ The simplest is often to do a search-and-replace to start changing the following
 
 #### Theme XML Changes
 
-If you were migrating from the Holo theme, your new `themes.xml` would inherit from `Theme.AppCompat` instead of `android:Theme.Holo.Light`:
+If you were migrating from the Holo theme, your new theme  would inherit from `Theme.AppCompat` instead of `android:Theme.Holo.Light`:
 
 ```xml
 -    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
 +    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
 ```
+
+If you wish to have a style that disables the ActionBar in certain Activity screens but still wish to use many of the ones you custom defined, you can inherit from `AppTheme` and apply the same styles declared in `Theme.AppCompat.NoActionBar`:
+
+```xml
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+```
+If you see `AppCompat does not support the current theme features`, it's likely the `windowNoTitle` setting has not been set or is set to false.  There is more strict enforcement on what this value must be set on newer AppCompat libraries.  See this [Stack Overflow](http://stackoverflow.com/questions/29790070/upgraded-to-appcompat-v22-1-0-and-now-getting-illegalargumentexception-appcompa) article for more context.
 
 #### Menu XML Changes
 
