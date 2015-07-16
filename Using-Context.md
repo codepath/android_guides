@@ -1,6 +1,6 @@
 ## Overview
 
-Context provides access to information about the application state.  It provides Activities, Fragments, and Services access to resource files, images, themes/styles, and external directory locations.  It also enables access to Android's built-in services, such as those used for layout inflation, keyboard, and finding content providers.
+Context provides access to information about the application state.  It provides Activities, Fragments, and Services access to resource files, images, [[themes/styles|Styles-and-Themes]], and external directory locations.  It also enables access to Android's built-in services, such as those used for layout inflation, keyboard, and finding content providers.
 
 ## Application vs Activity Context
 
