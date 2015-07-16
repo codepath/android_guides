@@ -13,9 +13,9 @@ While themes and styles are usually applied at the application level, they can b
        android:label="@string/app_name"
        android:theme="@style/AppTheme" >
        <activity
-        android:name=".MainActivity"
-        android:label="@string/app_name"
-        android:theme="@style/MyCustomTheme">
+           android:name=".MainActivity"
+           android:label="@string/app_name"
+           android:theme="@style/MyCustomTheme">
 ```
 
 For this reason, it's important to know that there is an Application Context and an Activity Context, which last for the duration of their respective lifecycle.  Most [[Views|Defining-Views-and-their-Attributes]] should be passed an Activity Context in order to gain access to what themes, styles, dimensions should be applied.   If no theme is specified explicitly for the Activity, the system defaults are used.
