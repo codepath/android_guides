@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
 ### Anonymous functions
 
-When using anonymous functions when implementing listeners, the keyword `this` in Java applies to the click handler being declared.  In these cases, the outer class `MainActivity` has to be specified to refer to the Activity instance.
+When using anonymous functions when implementing listeners, the keyword `this` in Java applies to the most immediate class being declared.  In these cases, the outer class `MainActivity` has to be specified to refer to the Activity instance.  
 
 ```java
 public class MainActivity extends AppCompatActivity {
