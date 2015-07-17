@@ -6,31 +6,54 @@ A Context provides access to information about the application state.  It provid
 
 Below are a few use cases that require a Context object.
 
+**Retrieving a System Service**
+To send notifications from an application, the `NotificationManager` system service is required.
+
 ```java
-Context context;
+// Context objects are able to fetch or create system services.
+NotificationManager manager = 
+    (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
-// Retrieving a system service.
+int notificationId = 1;
 
+// Context is required to construct RemoteViews
+Notification.Builder builder = 
+    new Notification.Builder(context).setContentTitle("custom title");
 
-// Explicitly starting a component.  The context is necessary
-// because it contains the package name for the application 
-// the component is in, which the system needs to resolve
+notificationManager.notify(notificationId, builder.build());
+```
+
+Refer to the **[list of available system services](http://developer.android.com/reference/android/content/Context.html#getSystemService(java.lang.String))** that can be retrieved by a context.
+
+### Explicitly starting a component
+
+```java
+// The context is necessary because it contains the package name 
+// for the application the component is in, which the system needs to resolve
 Intent intent = new Intent(context, MyActivity.class);
 startActivity(intent);
+```
 
-// Creating a view.
+### Creating a View
+
+```
 // Contexts contain the following information that views require:
 // * device screen size and dimensions for converting dp,sp to pixels
 // * styled attributes
 // * activity reference for onClick attributes
 TextView textView = new TextView(context);
+```
 
-// Inflating an XML layout file.
+### Inflating an XML Layout file
+
+```java
 // A context is required when creating views.
 LayoutInflater inflater = LayoutInflater.from(context);
 inflater.inflate(R.layout.my_layout, parent);
+```
 
-// Sending a local broadcast.
+### Sending a local broadcast
+```java
 // The context contains a reference to the main Looper, 
 // which runs on the application's main thread.
 Intent broadcastIntent = new Intent("custom-action");
