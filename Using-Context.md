@@ -6,7 +6,8 @@ A Context provides access to information about the application state.  It provid
 
 Below are a few use cases that require a Context object.
 
-**Retrieving a System Service**
+### Retrieving a System Service
+
 To send notifications from an application, the `NotificationManager` system service is required.
 
 ```java
