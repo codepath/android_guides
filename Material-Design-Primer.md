@@ -76,7 +76,7 @@ With the Lollipop release comes an improved visual design style for icons used t
 
 If you are intending to use these icons for the [[Floating Action Buttons]], just make sure to pick one that is **24dp** according to the [Google specs](https://github.com/codepath/android_guides/wiki/Floating-Action-Buttons#dimensions).
 
-Be sure to check out the community-source [materialdesignicons](http://materialdesignicons.com/) icon site as well for an even larger selection of material icons.  
+Be sure to check out the community-source [materialdesignicons](http://materialdesignicons.com/) icon site as well for an even larger selection of material icons.   If you wish to copy all the various density files to your project, you can use this [source code example](https://gist.github.com/rogerhu/6a56ad8a02159c266531) to help you copy the files through the command line.
 
 ### Material Navigation Drawer
 
