@@ -63,7 +63,7 @@ inflater.inflate(R.layout.my_layout, parent);
 ### Sending a local broadcast
 ```java
 // The context contains a reference to the main Looper, 
-// which runs on the application's main thread.
+// which manages the queue for the application's main thread.
 Intent broadcastIntent = new Intent("custom-action");
 LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
 ```
