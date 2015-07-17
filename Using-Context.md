@@ -51,7 +51,6 @@ Contexts contain the following information that views require:
 * styled attributes
 * activity reference for onClick attributes
 
-
 ### Inflating an XML Layout file
 
 ```java
@@ -123,6 +122,36 @@ public class MainActivity extends AppCompatActivity {
 ### Adapters
 
 #### RecyclerView Adapter
+```java
+public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.ViewHolder> {
+
+    @Override 
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View v = 
+            LayoutInflater
+                .from(parent.getContext())
+                .inflate(itemLayout, parent, false);
+        
+        return new ViewHolder(v);
+    }
+    
+    class ViewHolder {
+        // Optional field if views need to be dynamically created and attached.
+        // E.g., inside of an OnClickListener.onClick() method.
+        Context context;
+
+        public ViewHolder(View view) {
+            // Assign optional context field;
+            this.context = view.getContext();
+
+            // Perform view lookups as needed.
+            . . .
+        }
+    }
+}
+```
+
+A `RecyclerView.Adapter` does not require the context to be passed into it's constructor.  The context is instead 
 
 #### Array Adapter
 
