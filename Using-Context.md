@@ -11,14 +11,18 @@ Context context;
 
 // Retrieving a system service.
 
+// Explicitly starting a component.  The context is necessary
+// because it contains the package name for the application 
+// the component is in, which the system needs to resolve
+Intent intent = new Intent(context, MyActivity.class);
+startActivity(intent);
 
 // Inflating an XML layout file requires a properly configured inflater.
-LayoutInflater inflater = LayoutInflater.from(context)
-inflater.inflate(R.layout.my_layout, root)
+LayoutInflater inflater = LayoutInflater.from(context);
+inflater.inflate(R.layout.my_layout, root);
 
 // Creating a view
 
-// Starting a component
 
 ```
 
