@@ -29,21 +29,28 @@ Refer to the **[list of available system services](http://developer.android.com/
 ### Explicitly starting a component
 
 ```java
-// The context is necessary because it contains the package name 
-// for the application the component is in, which the system needs to resolve
+// Provide context if MyActivity is an internal activity.
 Intent intent = new Intent(context, MyActivity.class);
 startActivity(intent);
 ```
 
+When explicitly starting a component two pieces of information are required:
+* package name, which identifies the application that contains the component.
+* fully-qualified Java class name for the component.
+
+If starting an internal component, the context can be passed in since the package name of the current application can be extracted through `context.getPackageName()`.
+
 ### Creating a View
 
-```
-// Contexts contain the following information that views require:
-// * device screen size and dimensions for converting dp,sp to pixels
-// * styled attributes
-// * activity reference for onClick attributes
+```java
 TextView textView = new TextView(context);
 ```
+
+Contexts contain the following information that views require:
+* device screen size and dimensions for converting dp,sp to pixels
+* styled attributes
+* activity reference for onClick attributes
+
 
 ### Inflating an XML Layout file
 
