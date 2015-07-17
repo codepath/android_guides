@@ -136,8 +136,9 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
     }
     
     class ViewHolder {
-        // Optional field if views need to be dynamically created and attached.
-        // E.g., inside of an OnClickListener.onClick() method.
+        // Optional field if views need to be dynamically 
+        // created and attached. E.g., inside of an 
+        // OnClickListener.onClick() method.
         Context context;
 
         public ViewHolder(View view) {
