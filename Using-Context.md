@@ -11,7 +11,7 @@ Below are a few use cases that require a Context object.
 To send notifications from an application, the `NotificationManager` system service is required.
 
 ```java
-// Context objects are able to fetch or create system services.
+// Context objects are able to fetch or start system services.
 NotificationManager manager = 
     (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
@@ -24,7 +24,7 @@ Notification.Builder builder =
 notificationManager.notify(notificationId, builder.build());
 ```
 
-Refer to the **[list of available system services](http://developer.android.com/reference/android/content/Context.html#getSystemService(java.lang.String))** that can be retrieved by a context.
+Refer to the **[list of all available system services](http://developer.android.com/reference/android/content/Context.html#getSystemService(java.lang.String))** that can be retrieved through a Context.
 
 ### Explicitly starting a component
 
