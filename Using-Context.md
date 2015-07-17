@@ -153,7 +153,9 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
 
 Whereas an `ArrayAdapter` requires a context to be passed into it's constructor, a `RecyclerView.Adapter` does not.  Instead, the correct context can inferred from the parent view when inflation is necessary.
 
-The associated `RecyclerView` always passes itself as the parent view into the `RecyclerView.Adapter.oncCreateViewHolder()` call.
+The associated `RecyclerView` always passes itself as the parent view into the `RecyclerView.Adapter.onCreateViewHolder()` call.
+
+This context can then be set as a field in each `ViewHolder` instance if any views need to be created dynamically in other methods.
 
 #### Array Adapter
 
