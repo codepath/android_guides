@@ -1,6 +1,26 @@
 ## Overview
 
-Context provides access to information about the application state.  It provides Activities, Fragments, and Services access to resource files, images, [[themes/styles|Styles-and-Themes]], and external directory locations.  It also enables access to Android's built-in services, such as those used for layout inflation, keyboard, and finding content providers.
+A Context provides access to information about the application state.  It provides Activities, Fragments, and Services access to resource files, images, [[themes/styles|Styles-and-Themes]], and external directory locations.  It also enables access to Android's built-in services, such as those used for layout inflation, keyboard, and finding content providers.
+
+## What is a Context used for?
+
+Below are a few use cases that require a Context object.
+
+```java
+Context context;
+
+// Retrieving a system service.
+
+
+// Inflating an XML layout file requires a properly configured inflater.
+LayoutInflater inflater = LayoutInflater.from(context)
+inflater.inflate(R.layout.my_layout, root)
+
+// Creating a view
+
+// Starting a component
+
+```
 
 ## Application vs Activity Context
 
