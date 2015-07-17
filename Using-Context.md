@@ -11,19 +11,30 @@ Context context;
 
 // Retrieving a system service.
 
+
 // Explicitly starting a component.  The context is necessary
 // because it contains the package name for the application 
 // the component is in, which the system needs to resolve
 Intent intent = new Intent(context, MyActivity.class);
 startActivity(intent);
 
-// Inflating an XML layout file requires a properly configured inflater.
+// Creating a view.
+// Contexts contain the following information that views require:
+// * device screen size and dimensions for converting dp,sp to pixels
+// * styled attributes
+// * activity reference for onClick attributes
+TextView textView = new TextView(context);
+
+// Inflating an XML layout file.
+// A context is required when creating views.
 LayoutInflater inflater = LayoutInflater.from(context);
-inflater.inflate(R.layout.my_layout, root);
+inflater.inflate(R.layout.my_layout, parent);
 
-// Creating a view
-
-
+// Sending a local broadcast.
+// The context contains a reference to the main Looper, 
+// which runs on the application's main thread.
+Intent broadcastIntent = new Intent("custom-action");
+LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
 ```
 
 ## Application vs Activity Context
