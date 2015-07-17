@@ -157,6 +157,8 @@ The associated `RecyclerView` always passes itself as the parent view into the `
 
 This context can then be set as a field in each `ViewHolder` instance if any views need to be created dynamically in other methods.
 
+The context cannot be cached since multiple `RecyclerViews` can listen to a single `ReyclerView.Adapter`.
+
 #### Array Adapter
 
 When constructing adapters for a [[ListView|Using-an-ArrayAdapter-with-ListView#defining-the-adapter]], typically `getContext()` is usually called during the layout inflation process.  This method usually uses the context that instantiated the ArrayAdapter:
