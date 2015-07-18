@@ -146,7 +146,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
             TextView tvMessage = new TextView(context);
             tvMessage.setText("Only displayed for the first item.")
 
-            viewHolder.someViewGroup.addView(tvMessage);
+            viewHolder.customViewGroup.addView(tvMessage);
         }
     }
 }
