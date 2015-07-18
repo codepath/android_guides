@@ -143,7 +143,10 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
 
         // Dynamically add a view using the context provided.
         if(i == 0) {
-            viewHolder.itemView.addView(new TextView(context));
+            TextView tvMessage = new TextView(context);
+            tvMessage.setText("Only displayed for the first item.")
+
+            viewHolder.someViewGroup.addView(tvMessage);
         }
     }
 }
@@ -153,7 +156,7 @@ Whereas an `ArrayAdapter` requires a context to be passed into it's constructor,
 
 The associated `RecyclerView` always passes itself as the parent view into the `RecyclerView.Adapter.onCreateViewHolder()` call.
 
-If a context is needed outside of the `onCreateViewHolder()` method, as long as there's a `ViewHolder` instance available, it can be retrieved via: `viewHolder.itemView.getContext()`.  `itemView` is public, guaranteed to be non-null, and is a `final` field.
+If a context is needed outside of the `onCreateViewHolder()` method, as long as there's a `ViewHolder` instance available, a context can be retrieved via: `viewHolder.itemView.getContext()`.  `itemView` is a public, non-null, and `final` field.
 
 #### Array Adapter
 
