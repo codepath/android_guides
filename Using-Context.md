@@ -153,7 +153,7 @@ Whereas an `ArrayAdapter` requires a context to be passed into it's constructor,
 
 The associated `RecyclerView` always passes itself as the parent view into the `RecyclerView.Adapter.onCreateViewHolder()` call.
 
-If a context is needed outside of the `onCreateViewHolder()` method, as long as there's a `ViewHolder` instance available, it can be retrieved via: `viewHolder.itemView.getContext()`.  `itemView` is guaranteed to be non-null and is a `final` field.
+If a context is needed outside of the `onCreateViewHolder()` method, as long as there's a `ViewHolder` instance available, it can be retrieved via: `viewHolder.itemView.getContext()`.  `itemView` is public, guaranteed to be non-null, and is a `final` field.
 
 #### Array Adapter
 
