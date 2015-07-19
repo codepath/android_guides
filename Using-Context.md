@@ -152,7 +152,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
     }
 
    public static class ViewHolder extends RecyclerView.ViewHolder {
-       FrameLayout customViewGroup;
+       public FrameLayout customViewGroup;
 
        public ViewHolder(view imageView) {
            // Very important to call the parent constructor
