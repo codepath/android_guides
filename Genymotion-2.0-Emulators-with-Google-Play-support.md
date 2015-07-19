@@ -7,8 +7,8 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 #### Installation
 
 1. Sign up for an account on the [Genymotion Website](https://cloud.genymotion.com/page/customer/login/?next=/)
-2. (Mac or Linux) Install [VirtualBox 4.3.28 or lower](https://www.virtualbox.org/wiki/Download_Old_Builds_4_3), a powerful free virtualization software for Genymotion to run.  Newer versions do not work.  A <a href="https://twitter.com/Genymotion/status/620646054996901888">fix</a> is in the works for VirtualBox 5.0.
-3. [Download Genymotion Emulator](https://cloud.genymotion.com/page/launchpad/download/) for your platform.
+2. (Mac or Linux) Install [VirtualBox 5.0](https://www.virtualbox.org/wiki/Downloads), a powerful free virtualization software for Genymotion to run. 
+3. [Download Genymotion Emulator v2.5.2 or higher](https://cloud.genymotion.com/page/launchpad/download/) for your platform.  **Note**: There is an issue with Genymotion v2.5.1 for VirtualBox 5.0 versions.
 4. Install the Genymotion Emulator
   * Windows: Run the MSI installer
   * Mac: Open the dmg and drag both apps to Applications directory
