@@ -117,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
               }
           });
         }
+    }
 ```
 
 ### Adapters
@@ -149,6 +150,19 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
             viewHolder.customViewGroup.addView(tvMessage);
         }
     }
+
+   public static class ViewHolder extends RecyclerView.ViewHolder {
+       FrameLayout customViewGroup;
+
+       public ViewHolder(view imageView) {
+           // Very important to call the parent constructor
+           // as this ensures that the imageView field is populated.
+           super(imageView);
+           
+           // Perform other view lookups.
+           customViewGroup = (FrameLayout) imageView.findById(R.id.customViewGroup);
+       }
+   }
 }
 ```
 
