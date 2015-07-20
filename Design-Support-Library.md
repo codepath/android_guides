@@ -24,7 +24,7 @@ The support design library has the following key features:
 
 Open the [SDK Manager](https://developer.android.com/tools/support-library/setup.html) and make sure to download the `Android Support Repository` as well as the latest `Android Support Library`.  You can also use [[Jake Wharton's SDK Manager|Installing-Android-SDK-Tools#installing-the-android-sdk-automated-way]] to download the packages for you.  Your builds will not find the package unless your first download these dependencies.  
 
-Alternatively, you can update the Gradle file and then have Android Studio download the updated library by clicking on the `Install repository and sync project`.  The process will only succeed if you specify a valid repository name and version, but it enables you to upgrade without needing to open the SDK Manager.
+Alternatively, you can update the Gradle file and then have Android Studio download the updated library by clicking on the `Install repository and sync project`.  The process will only succeed if you specify a valid library and version, but it enables you to upgrade without needing to open the SDK Manager.
 
 <img src="http://imgur.com/GQw6IHt.png"/>
 
