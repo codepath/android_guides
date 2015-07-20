@@ -111,6 +111,8 @@ public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior {
 
 Because scrolling will be handled by this class, a separate method [onNestedScroll()](https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onNestedScroll(android.support.design.widget.CoordinatorLayout, V, android.view.View, int, int, int, int)) will be called.   We can check the Y position and determine whether to animate in or out the button.  
 
+Thanks to a [recent upgrade](https://plus.google.com/+AndroidDevelopers/posts/XTtNCPviwpj) to the support v4 library, there is also a show() and hide() method available that performs the fade-in and fade-out animations for Floating Action Buttons.   Previously, much of the [animation code had to be reimplemented](https://github.com/ianhanniballake/cheesesquare/commit/aefa8b57e61266e4ad51bef36e669d69f7fd749c). 
+
 ```java
 public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior {
     // ...
@@ -131,8 +133,6 @@ public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior {
     // ...
 }
 ```
-
-*Note*: Thanks to a [recent upgrade](https://plus.google.com/+AndroidDevelopers/posts/XTtNCPviwpj) to the support v4 library, there is also a show() and hide() method available that performs the fade-in and fade-out animations for Floating Action Buttons.   Previously, much of the [animation code had to be reimplemented](https://github.com/ianhanniballake/cheesesquare/commit/aefa8b57e61266e4ad51bef36e669d69f7fd749c). 
    
 The final step is to associate this CoordinatorLayout Behavior to the Floating Action Button.  We can define it within the XML declaration as a custom attribute `app:layout_behavior`:
 
