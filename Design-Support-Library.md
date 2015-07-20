@@ -78,3 +78,4 @@ Currently, the source code for CoordinatorLayout and AppBarLayout do not appear 
 * <http://hmkcode.com/material-design-app-android-design-support-library-appcompat/>
 * <https://medium.com/ribot-labs/exploring-the-new-android-design-support-library-b7cda56d2c32>
 * <https://plus.google.com/+AndroidDevelopers/posts/XTtNCPviwpj>
+* <https://code.google.com/p/android/issues/list?can=1&q=label%3AVersion-22.2.1>
