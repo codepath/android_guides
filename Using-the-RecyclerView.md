@@ -530,6 +530,10 @@ adapter.setOnItemClickListener(new UserRecyclerViewAdapter.OnItemClickListener()
 
 See [this detailed stackoverflow post](http://stackoverflow.com/a/24933117/313399) which describes how to setup item-level click handlers when using `RecyclerView`. 
 
+## Implementing Pull to Refresh
+
+The `SwipeRefreshLayout` should be used to refresh the contents of a `RecyclerView` via a vertical swipe gesture. See our detailed [RecyclerView with SwipeRefreshLayout](http://guides.codepath.com/android/Implementing-Pull-to-Refresh-Guide#recyclerview-with-swiperefreshlayout) guide for a step-by-step tutorial on implementing pull to refresh.
+
 ## References
 
 * <https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html>
