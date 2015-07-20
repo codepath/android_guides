@@ -4,7 +4,7 @@ Prior to Android "M", the easiest way to setup tabs with Fragments was to use Ac
 
 ### Design Support Library
 
-To implement Google Play style sliding tabs, make sure to follow the [[Design Support Library]] setup instructions first.
+To implement Google Play style sliding tabs, make sure to follow the Design Support Library [[setup instructions|Design-Support-Library#setup]] first.
 
 ### Sliding Tabs Layout
 
