@@ -391,7 +391,11 @@ For example, here's scrolling through a list after customizing the animation:
 
 ### Heterogeneous Views
 
-See [this guide](https://github.com/codepath/android_guides/wiki/Heterogenous-Layouts-inside-RecyclerView) if you want to inflate multiple layouts inside a single `RecyclerView`.
+See [this guide](https://github.com/codepath/android_guides/wiki/Heterogenous-Layouts-inside-RecyclerView) if you want to inflate multiple types of rows inside a single `RecyclerView`:
+
+<img src="http://i105.photobucket.com/albums/m232/purplehaze0077/heterorecycler2.png" width="300" alt="ss2" />
+
+This is useful for feeds which contain various different types of items within a single list.
 
 ### Handling Touch Events
 
