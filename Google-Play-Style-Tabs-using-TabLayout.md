@@ -307,6 +307,36 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
 
 With this you can setup any custom tab content for each page in the adapter. 
 
+### Getting or Selected the Current Page
+
+With the [recent updates](https://plus.google.com/+AndroidDevelopers/posts/XTtNCPviwpj) to the design support library, you can also get the selected tab position by calling `getSelectedTabPosition()`.  If you need to save or restore the selected tab position during screen rotation or other configuration changes, this method is helpful for restoring the original tab position.
+
+First, move your `tabLayout` and `viewPager` as member variables of your main activity:
+
+```java
+public class MainActivity extends AppCompatActivity {
+    TabLayout tabLayout;
+    ViewPager viewPager;
+```
+
+Next, we can save and restore the last known tab position by implementing methods on `onSaveInstanceState` and `onRestoreInstanceState` to persist this data.  When the view is recreated, we can use this data and set the current tab to the last selected tab value.
+
+```java
+     public static String POSITION = "POSITION";
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(POSITION, tabLayout.getSelectedTabPosition());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        viewPager.setCurrentItem(savedInstanceState.getInt(POSITION);
+    }
+```
+
 ## References
 
 * <https://android.googlesource.com/platform/frameworks/support.git/+/master/design/src/android/support/design/widget/TabLayout.java>
