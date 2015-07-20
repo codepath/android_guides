@@ -160,7 +160,7 @@ To use Toolbar as an ActionBar, first ensure the AppCompat-v7 support library is
 ```gradle
 dependencies {
   compile fileTree(dir: 'libs', include: ['*.jar'])
-  compile 'com.android.support:appcompat-v7:22.2.0+'
+  compile 'com.android.support:appcompat-v7:22.2.1+'
 }
 ```
 

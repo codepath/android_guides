@@ -35,8 +35,8 @@ There is a new support design library that must be included.   This library also
 
 ```gradle
 dependencies {
-    compile 'com.android.support:appcompat-v7:22.2.0'
-    compile 'com.android.support:design:22.2.0'
+    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile 'com.android.support:design:22.2.1'
 }
 ```
 
@@ -44,7 +44,7 @@ If you are using the [[RecyclerView|Using the RecyclerView]], [[CardView|Using t
 
 ```gradle
 dependencies {
-    compile 'com.android.support:recyclerview-v7:22.2.0'
+    compile 'com.android.support:recyclerview-v7:22.2.1'
 }
 ```
 

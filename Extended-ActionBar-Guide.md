@@ -30,9 +30,9 @@ apply plugin: 'com.android.application'
 
 dependencies {
     // ...
-    compile 'com.android.support:appcompat-v7:22.2.0' 
+    compile 'com.android.support:appcompat-v7:22.2.1' 
     // or if not compiling to SDK 21 see note below and use:
-    // compile 'com.android.support:appcompat-v7:20.0.0'  
+    // compile 'com.android.support:appcompat-v7:22.2.1'  
 }
 ```
 

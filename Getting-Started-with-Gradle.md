@@ -120,7 +120,7 @@ android {
       compile 'com.google.android.gms:play-services:6.5.+'
 
       // Support Libraries
-      compile 'com.android.support:support-v4:22.2.0'
+      compile 'com.android.support:support-v4:22.2.1'
       compile 'com.android.support:appcompat-v7:22.2.+'
       compile 'com.android.support:gridlayout-v7:22.2.+'
       compile 'com.android.support:support-v7-mediarouter:22.2.0+'
