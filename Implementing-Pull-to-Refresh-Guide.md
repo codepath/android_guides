@@ -4,7 +4,7 @@ In Android, the common "pull to refresh" UX concept is not built in to a ListVie
 
 ## Using SwipeRefreshLayout
 
-[SwipeRefreshLayout](https://developer.android.com/reference/android/support/v4/widget/SwipeRefreshLayout.html) is a ViewGroup that can hold only one scrollable view as a child. This can be either a `ScrollView` or an `AdapterView` such as a `ListView`. 
+[SwipeRefreshLayout](https://developer.android.com/reference/android/support/v4/widget/SwipeRefreshLayout.html) is a ViewGroup that can hold only one scrollable view as a child. This can be either a `ScrollView` or an `AdapterView` such as a `ListView` or a `RecyclerView`. 
 
 **Note:** This layout only exists within more recent versions of support-v4 as [explained in this post](http://stackoverflow.com/a/23325011/313399). Edit your `app/build.gradle` file to include a support library later than version 19:
 
@@ -25,6 +25,8 @@ You must download and use a [recent jar](https://dl-ssl.google.com/android/repos
 2. The support library is under "Extras"
 
 Once you have a recent version support library installed, we can continue.
+
+## ListView with SwipeRefreshLayout
 
 ### Step 1: Wrap ListView
 
@@ -99,6 +101,51 @@ public class TimelineActivity extends Activity {
 ```
 
 **Note** that upon successful reload, we must also signal that the refresh has completed by calling `setRefreshing(false)`. Also note that you should **clear out old items** before appending the new ones during a refresh.
+
+## RecyclerView with SwipeRefreshLayout
+
+### Step 1: Wrap RecyclerView
+
+Just like the previous section, wrap the scrollable view, in this case a `RecyclerView` with a `SwipeRefreshLayout` in the XML layout:
+
+```xml
+<android.support.v4.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipeContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+  <android.support.v7.widget.RecyclerView
+      android:id="@+id/rvItems"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentLeft="true"
+      android:layout_alignParentTop="true" />
+
+</android.support.v4.widget.SwipeRefreshLayout>
+```
+
+### Step 2: Update RecyclerView.Adapter
+
+Make sure to have helper methods in your `RecyclerView` adapter to clear items from the underlying dataset or add items to it.
+
+```java
+// Clean all elements of the recycler
+public void clear() { 
+    items.clear(); 
+    notifyDataSetChanged(); 
+}
+
+// Add a list of items
+public void addAll(List<list> list) { 
+    items.addAll(list); 
+    notifyDataSetChanged(); 
+}
+```
+
+### Step 3: Setup SwipeRefreshLayout
+
+Next, we need to configure the `SwipeRefreshLayout` during view initialization in the activity. The activity that instantiates `SwipeRefreshLayout` should add an `OnRefreshListener` to be notified whenever the swipe to refresh gesture is completed. The `SwipeRefreshLayout` will notify the listener each and every time the gesture is completed again; the listener is responsible for correctly determining when to actually initiate a refresh of its content. You can do this the same way you can configure the `SwipeRefreshLayout` for a `ListView` as shown in this section.
 
 ## References
 
