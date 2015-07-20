@@ -211,6 +211,8 @@ fab.attachToListView(listView); // or attachToRecyclerView
 
 We can attach to a `RecyclerView` with `fab.attachToRecyclerView(recyclerView)` or a `ScrollView` with `fab.attachToScrollView(scrollView)`
 
+One limitation in using this third-party library is that implementing [[endless scrolling|Endless-Scrolling-with-AdapterViews]] conflicts with this behavior because both attempt to listen for scroll events.  The floating action button that comes with support design library is the recommended approach now.
+
 #### Adjust Button Type
 
 Floating action buttons come in two sizes: the default, which should be used in most cases, and the mini, which should only be used to create visual continuity with other elements on the screen. 
