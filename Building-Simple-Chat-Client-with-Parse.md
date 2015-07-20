@@ -344,7 +344,7 @@ Create a class named `ChatListAdapter.java` with below code. This is a custom li
 ...
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
-    compile 'com.android.support:appcompat-v7:22.2.0+'
+    compile 'com.android.support:appcompat-v7:22.2.1'
     compile 'com.squareup.picasso:picasso:2.5.0'
 }
 ```
