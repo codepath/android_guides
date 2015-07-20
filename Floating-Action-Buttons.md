@@ -132,7 +132,7 @@ public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior {
 }
 ```
 
-*Note*: Thanks to a [recent upgrade](https://plus.google.com/+AndroidDevelopers/posts/XTtNCPviwpj) to the support v4 library, there is also a show() and hide() method available for Floating Action Buttons.  We can compare the difference between the previous way and new way in this [pull request](https://github.com/chrisbanes/cheesesquare/compare/master...ianhanniballake:scroll_aware_fab).
+*Note*: Thanks to a [recent upgrade](https://plus.google.com/+AndroidDevelopers/posts/XTtNCPviwpj) to the support v4 library, there is also a show() and hide() method available that performs the animation for fading in and out for Floating Action Buttons.  We can compare the difference between the previous way and new way in this [pull request](https://github.com/chrisbanes/cheesesquare/compare/master...ianhanniballake:scroll_aware_fab).
  
 The final step is to associate this CoordinatorLayout Behavior to the Floating Action Button.  We can define it within the XML declaration as a custom attribute `app:layout_behavior`:
 
