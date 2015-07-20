@@ -2,6 +2,8 @@
 
 A Context provides access to information about the application state.  It provides Activities, Fragments, and Services access to resource files, images, [[themes/styles|Styles-and-Themes]], and external directory locations.  It also enables access to Android's built-in services, such as those used for layout inflation, keyboard, and finding content providers.
 
+In many cases when the "context is required", we simply need to **pass in the instance of the current activity**. In situations where we are inside objects created by the activity such as adapters or fragments, we need to pass in the activity instance into those objects. In situations where we are outside of an activity (in an application or service), we can use the "application" context instead.
+
 ## What is a Context used for?
 
 Below are a few use cases that require a Context object.
