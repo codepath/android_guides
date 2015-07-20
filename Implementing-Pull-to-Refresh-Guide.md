@@ -130,6 +130,8 @@ Just like the previous section, wrap the scrollable view, in this case a `Recycl
 Make sure to have helper methods in your `RecyclerView` adapter to clear items from the underlying dataset or add items to it.
 
 ```java
+/* Within the RecyclerView.Adapter class */
+
 // Clean all elements of the recycler
 public void clear() { 
     items.clear(); 
