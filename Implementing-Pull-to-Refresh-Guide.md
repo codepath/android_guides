@@ -145,7 +145,7 @@ public void addAll(List<list> list) {
 
 ### Step 3: Setup SwipeRefreshLayout
 
-Next, we need to configure the `SwipeRefreshLayout` during view initialization in the activity. The activity that instantiates `SwipeRefreshLayout` should add an `OnRefreshListener` to be notified whenever the swipe to refresh gesture is completed. The `SwipeRefreshLayout` will notify the listener each and every time the gesture is completed again; the listener is responsible for correctly determining when to actually initiate a refresh of its content. You can do this the same way you can configure the `SwipeRefreshLayout` for a `ListView` as shown in this section.
+Next, we need to configure the `SwipeRefreshLayout` during view initialization in the activity. The activity that instantiates `SwipeRefreshLayout` should add an `OnRefreshListener` to be notified whenever the swipe to refresh gesture is completed. The `SwipeRefreshLayout` will notify the listener each and every time the gesture is completed again; the listener is responsible for correctly determining when to actually initiate a refresh of its content. You can do this the same way you can configure the `SwipeRefreshLayout` for a `ListView` as shown in [Setup SwipeRefreshLayout](#step-2-setup-swiperefreshlayout) section.
 
 ## References
 
