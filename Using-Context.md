@@ -6,26 +6,6 @@ A Context provides access to information about the application state.  It provid
 
 Below are a few use cases that require a Context object.
 
-### Retrieving a System Service
-
-To send notifications from an application, the `NotificationManager` system service is required.
-
-```java
-// Context objects are able to fetch or start system services.
-NotificationManager manager = 
-    (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-
-int notificationId = 1;
-
-// Context is required to construct RemoteViews
-Notification.Builder builder = 
-    new Notification.Builder(context).setContentTitle("custom title");
-
-notificationManager.notify(notificationId, builder.build());
-```
-
-Refer to the **[list of all available system services](http://developer.android.com/reference/android/content/Context.html#getSystemService(java.lang.String))** that can be retrieved through a Context.
-
 ### Explicitly starting a component
 
 ```java
@@ -53,6 +33,8 @@ Contexts contain the following information that views require:
 
 ### Inflating an XML Layout file
 
+We use the context to fetch the `LayoutInflater` in order to inflate an XML layout into memory:
+
 ```java
 // A context is required when creating views.
 LayoutInflater inflater = LayoutInflater.from(context);
@@ -60,12 +42,35 @@ inflater.inflate(R.layout.my_layout, parent);
 ```
 
 ### Sending a local broadcast
+
+We use the context to fetch the `LocalBroadcastManager` when sending out or registering a receiver for a broadcast:
+
 ```java
 // The context contains a reference to the main Looper, 
 // which manages the queue for the application's main thread.
 Intent broadcastIntent = new Intent("custom-action");
 LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
 ```
+
+### Retrieving a System Service
+
+To send notifications from an application, the `NotificationManager` system service is required:
+
+```java
+// Context objects are able to fetch or start system services.
+NotificationManager manager = 
+    (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+int notificationId = 1;
+
+// Context is required to construct RemoteViews
+Notification.Builder builder = 
+    new Notification.Builder(context).setContentTitle("custom title");
+
+notificationManager.notify(notificationId, builder.build());
+```
+
+Refer to the **[list of all available system services](http://developer.android.com/reference/android/content/Context.html#getSystemService(java.lang.String))** that can be retrieved through a Context.
 
 ## Application vs Activity Context
 
