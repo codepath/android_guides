@@ -20,6 +20,11 @@ Snackbar.make(parentLayout, R.string.snackbar_text, Snackbar.LENGTH_LONG)
 
 Note the use of a `View` as the first parameter to `make()` which the snackbar uses as the parent layout used for positioning.  Snackbar will try to walk up the view hierarchy searching for either a CoordinatorLayout or the top-most container layout, whichever comes first.  Adding a CoordinatorLayout in the view hierarchy is helpful in cases where the floating action buttons needs to moved to make room for displaying the Snackbar as discussed in [this guide](http://guides.codepath.com/android/Handling-Scrolls-with-CoordinatorLayout#floating-action-buttons-and-snackbars).
 
+In a [recent update](https://plus.google.com/+AndroidDevelopers/posts/XTtNCPviwpj) of the support library, you can now specify `LENGTH_INDEFINITE` that will continue to show the Snackbar until it is dismissed or another one is shown:
+
+```java
+Snackbar.make(parentLayout, R.string.snackbar_text, Snackbar.LENGTH_INDEFINITE).show();
+```
 
 ### Configuration Options
 
@@ -31,6 +36,7 @@ Snackbar.make(parentLayout, R.string.snackbar_text, Snackbar.LENGTH_LONG)
  .setActionTextColor(R.color.green)
  .setDuration(3000).show();
 ```
+
 
 That's all!
 
