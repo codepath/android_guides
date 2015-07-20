@@ -146,7 +146,7 @@ We simply need to annotate a method that has this specific event type with the `
 Assuming the Activity is registered on the bus, Otto will look for any subscribers when this specific event is published.  We can display the result value to verify that the data passed is correct.
 
 ```java
-   public class MainActivity extends ActionBarActivity {
+   public class MainActivity extends AppCompatActivity {
 
    @Subscribe public void doThis(IntentServiceResult intentServiceResult) {
        Toast.makeText(this, intentServiceResult.getResultValue(), Toast.LENGTH_SHORT).show();
