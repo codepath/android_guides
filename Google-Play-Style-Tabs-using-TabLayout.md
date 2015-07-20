@@ -319,7 +319,7 @@ public class MainActivity extends AppCompatActivity {
     ViewPager viewPager;
 ```
 
-Next, we can save and restore the last known tab position by implementing methods on `onSaveInstanceState` and `onRestoreInstanceState` to persist this data.  When the view is recreated, we can use this data and set the current tab to the last selected tab value.
+Next, we can save and restore the last known tab position by implementing methods on `onSaveInstanceState()` and `onRestoreInstanceState()` to persist this data.  When the view is recreated, we can use this data and set the current tab to the last selected tab value.
 
 ```java
      public static String POSITION = "POSITION";
