@@ -135,7 +135,7 @@ The corresponding XML would be:
 </RelativeLayout>
 ```
 
-Suppose we add `android:layout_alignRight="@id/button1"` to the second button's XML style.  It may seem counterintuitive what happens when we declare both `layout_alignLeft` and `layout_alignRight`, but doing more causes the second button to expand the width to match that of the first button.   In other words, the only way to meet the requirements of specifying alignment on both sides is to expand the width of the second button.
+Suppose we also specify that the second button should be aligned left and aligned right to the first button.  If we add `android:layout_alignRight="@id/button1"` to the second button's XML style, the change causes the second button to expand the width to match that of the first button.   In other words, the only way to meet the requirements of specifying alignment on both sides is to expand the width of the second button.
  
 <img src="http://i.imgur.com/4DE1WzS.png/">
 
