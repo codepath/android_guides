@@ -99,6 +99,93 @@ An example of a RelativeLayout:
 </RelativeLayout>
 ```
 
+### Using alignment to control width or height
+
+A less understood aspect of RelativeLayout is how the use of alignment can determine width or height.  It may seem counterintuitive at first about how this works, so we'll walkthrough a few examples in this section.   Using this approach is especially useful in creating responsive layouts.
+
+Suppose we have two buttons of varying widths:
+
+<img src="http://imgur.com/0Hxn1Z5.png"/>
+
+The corresponding XML would be:
+
+```xml
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1245678901234567890"
+        android:id="@+id/button1"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CANCEL IT"
+        android:id="@+id/button2"
+        android:layout_below="@id/button1"
+        android:layout_alignLeft="@id/button1" />
+</RelativeLayout>
+```
+
+Suppose we add `android:layout_alignRight="@id/button1"` to the second button's XML style.  It may seem counterintuitive what happens when we declare both `layout_alignLeft` and `layout_alignRight`, but doing more causes the second button to expand the width to match that of the first button.   In other words, the only way to meet the requirements of specifying alignment on both sides is to expand the width of the second button.
+ 
+<img src="http://i.imgur.com/4DE1WzS.png/">
+
+In this way, when two elements are vertically positioned above or below the other, alignment will control the *width*.  When two elements are positioned horizontally next to each other, alignment will control the *height*.    We'll show how height can be impacted by specifying top and bottom alignments.
+
+Suppose we have this layout definition:
+
+```xml
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:height="200dp"
+        android:text="1245678901234567890"
+        android:id="@+id/button1"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CANCEL IT"
+        android:id="@+id/button2"
+        android:layout_toRightOf="@id/button1" />
+</RelativeLayout>
+```
+
+The corresponding preview looks like:
+
+<img src="http://imgur.com/bdD2BjC.png"/>
+
+If we wish to match the height of the first button, we can specify `layout_alignTop` and `layout_alignBottom` on the second button.  
+
+```xml
+  <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/button1"
+        android:layout_alignBottom="@id/button1"
+        android:text="CANCEL IT"
+        android:id="@+id/button2"
+        android:layout_toRightOf="@id/button1" />
+```
+
+The only way to fulfill this requirement is to expand the height of the second button as shown below:
+
+<img src="http://imgur.com/cDK6tws.png"/>
+
 You can see more about this layout by inspecting the [RelativeLayout.LayoutParams](http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html) docs and the official [RelativeLayout guide](http://developer.android.com/guide/topics/ui/layout/relative.html).
 
 ## PercentRelativeLayout
