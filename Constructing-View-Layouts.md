@@ -101,7 +101,7 @@ An example of a RelativeLayout:
 
 ### Using alignment to control width or height
 
-A less understood aspect of RelativeLayout is how the use of alignment can determine width or height.  It may seem counterintuitive at first about how this works, so we'll walkthrough a few examples in this section.   Using this approach is especially useful in creating responsive layouts.
+A less understood aspect of RelativeLayout is how the use of alignment can determine width or height.  It may seem counterintuitive at first about how this works, so we'll walkthrough a few examples in this section.   Using this approach is especially useful in matching the widths or heights relative to other elements.
 
 #### Example 1: How alignment can determine width
 
