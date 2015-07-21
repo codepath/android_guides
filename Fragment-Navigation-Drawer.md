@@ -263,7 +263,7 @@ Setup a handler to respond to click events on the navigation elements and swap o
         // Highlight the selected item, update the title, and close the drawer
         menuItem.setChecked(true);
         setTitle(menuItem.getTitle());
-        dlDrawer.closeDrawers();
+        mDrawer.closeDrawers();
     }
 ```
 
