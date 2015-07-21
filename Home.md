@@ -139,6 +139,7 @@ Exploring how to allow user interaction and navigation within an app:
 * [[Using Parcelable]] (Pass data fast between activities)
 * [[Using Context]]
 * [[Book Search Tutorial]] (Toolbar with SearchView and sharing content)
+* [[Communicating with an Event Bus]]
 
 ## Networking and Models
 
