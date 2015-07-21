@@ -99,6 +99,8 @@ An example of a RelativeLayout:
 </RelativeLayout>
 ```
 
+You can see more about this layout by inspecting the [RelativeLayout.LayoutParams](http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html) docs and the official [RelativeLayout guide](http://developer.android.com/guide/topics/ui/layout/relative.html).
+
 ### Using alignment to control width or height
 
 A less understood aspect of RelativeLayout is how the use of alignment can determine width or height.  It may seem counterintuitive at first about how this works, so we'll walkthrough a few examples in this section.   Using this approach is especially useful in matching the widths or heights relative to other elements.
@@ -189,8 +191,6 @@ If we wish to match the height of the first button, we can specify `layout_align
 The only way to fulfill this requirement is to expand the height of the second button as shown below:
 
 <img src="http://imgur.com/cDK6tws.png"/>
-
-You can see more about this layout by inspecting the [RelativeLayout.LayoutParams](http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html) docs and the official [RelativeLayout guide](http://developer.android.com/guide/topics/ui/layout/relative.html).
 
 ## PercentRelativeLayout
 
