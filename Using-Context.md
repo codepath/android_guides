@@ -129,6 +129,22 @@ public class MainActivity extends AppCompatActivity {
 
 ### Adapters
 
+
+#### Array Adapter
+
+When constructing adapters for a [[ListView|Using-an-ArrayAdapter-with-ListView#defining-the-adapter]], typically `getContext()` is usually called during the layout inflation process.  This method usually uses the context that instantiated the ArrayAdapter:
+
+```java
+     if (convertView == null) {
+        convertView = 
+            LayoutInflater
+                .from(getContext())
+                .inflate(R.layout.item_user, parent, false);
+     }
+```
+
+If you instantiate the ArrayAdapter with the application context, however, you are likely to notice that the themes/styles are not being applied.  For this reason, make sure you are passing in the Activity context in these cases.
+
 #### RecyclerView Adapter
 ```java
 public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.ViewHolder> {
@@ -178,21 +194,6 @@ Whereas an `ArrayAdapter` requires a context to be passed into it's constructor,
 The associated `RecyclerView` always passes itself as the parent view into the `RecyclerView.Adapter.onCreateViewHolder()` call.
 
 If a context is needed outside of the `onCreateViewHolder()` method, as long as there's a `ViewHolder` instance available, a context can be retrieved via: `viewHolder.itemView.getContext()`.  `itemView` is a public, non-null, and `final` field in the base ViewHolder class.
-
-#### Array Adapter
-
-When constructing adapters for a [[ListView|Using-an-ArrayAdapter-with-ListView#defining-the-adapter]], typically `getContext()` is usually called during the layout inflation process.  This method usually uses the context that instantiated the ArrayAdapter:
-
-```java
-     if (convertView == null) {
-        convertView = 
-            LayoutInflater
-                .from(getContext())
-                .inflate(R.layout.item_user, parent, false);
-     }
-```
-
-If you instantiate the ArrayAdapter with the application context, however, you are likely to notice that the themes/styles are not being applied.  For this reason, make sure you are passing in the Activity context in these cases.
 
 ### Avoiding memory leaks
 
