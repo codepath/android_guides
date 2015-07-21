@@ -103,6 +103,8 @@ An example of a RelativeLayout:
 
 A less understood aspect of RelativeLayout is how the use of alignment can determine width or height.  It may seem counterintuitive at first about how this works, so we'll walkthrough a few examples in this section.   Using this approach is especially useful in creating responsive layouts.
 
+#### Example 1: How alignment can determine width
+
 Suppose we have two buttons of varying widths:
 
 <img src="http://imgur.com/0Hxn1Z5.png"/>
@@ -137,7 +139,9 @@ Suppose we add `android:layout_alignRight="@id/button1"` to the second button's 
  
 <img src="http://i.imgur.com/4DE1WzS.png/">
 
-In this way, when two elements are vertically positioned above or below the other, alignment will control the *width*.  When two elements are positioned horizontally next to each other, alignment will control the *height*.    We'll show how height can be impacted by specifying top and bottom alignments.
+In this way, when two elements are vertically positioned above or below the other, left and right alignments will control the **width**.  When two elements are positioned horizontally next to each other, top and bottom alignments will control the **height**.    We'll show how height can be impacted by specifying top and bottom alignments in the next example.
+
+#### Example 2: How alignment can determine height
 
 Suppose we have this layout definition:
 
