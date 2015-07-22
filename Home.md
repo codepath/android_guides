@@ -55,6 +55,7 @@ If you are an experienced engineer (2+ years of professional experience in softw
 
 Exploring the foundations of app development:
 
+* [[Using Context]] (What is context and how is it used?)
 * [[Android Directory Structure]] (Files and Folders for Android apps)
 * [[Organizing your Source Files]] (Cleaning up your Apps)
 * [[Using Resource Files|Using String Resources]] (Understanding String Resources)
@@ -137,9 +138,8 @@ Exploring how to allow user interaction and navigation within an app:
 * [[Navigation and Task Stacks]] (Controlling the behavior of the task stack)
 * [[Sharing Content with Intents]] (and ShareActionProvider)
 * [[Using Parcelable]] (Pass data fast between activities)
-* [[Using Context]]
 * [[Book Search Tutorial]] (Toolbar with SearchView and sharing content)
-* [[Communicating with an Event Bus]]
+* [[Communicating with an Event Bus]] (Using Otto to publish and receive events)
 
 ## Networking and Models
 
