@@ -362,7 +362,7 @@ Now we have our `IntentService` task defined and our receiver that will be setup
 ```
 (Note that we need to define `android:process=":remote"` so that the BroadcastReceiver will run in a separate process so that it will continue to stay alive if the app has closed.  See this [Stack Overflow post](http://stackoverflow.com/questions/4311069/should-i-use-android-process-remote-in-my-receiver) for more details.)
 
-Finally, we need to actually start the periodic alarm that will trigger the receiver. Let's do this in our Activity:
+Finally, we need to actually start the periodic alarm that will trigger the receiver by registering with the Alarm system service. Let's setup the recurring alarm in our Activity:
 
 ```java
 public class MainActivity extends Activity {
@@ -372,7 +372,8 @@ public class MainActivity extends Activity {
     setContentView(R.layout.activity_main);
     scheduleAlarm();
   }
-
+  
+  // Setup a recurring alarm every half hour
   public void scheduleAlarm() {
     // Construct an intent that will execute the AlarmReceiver
     Intent intent = new Intent(getApplicationContext(), MyAlarmReceiver.class);
@@ -380,15 +381,19 @@ public class MainActivity extends Activity {
     final PendingIntent pIntent = PendingIntent.getBroadcast(this, MyAlarmReceiver.REQUEST_CODE,
         intent, PendingIntent.FLAG_UPDATE_CURRENT);
     // Setup periodic alarm every 5 seconds
-    long firstMillis = System.currentTimeMillis(); // first run of alarm is immediate
-    int intervalMillis = 5000; // 5 seconds
+    long firstMillis = System.currentTimeMillis(); // alarm is set right away
     AlarmManager alarm = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
-    alarm.setInexactRepeating(AlarmManager.RTC_WAKEUP, firstMillis, intervalMillis, pIntent);
+    // First parameter is the type: ELAPSED_REALTIME, ELAPSED_REALTIME_WAKEUP, RTC_WAKEUP
+    // Interval can be INTERVAL_FIFTEEN_MINUTES, INTERVAL_HALF_HOUR, INTERVAL_HOUR, INTERVAL_DAY
+    alarm.setInexactRepeating(AlarmManager.RTC_WAKEUP, firstMillis,
+        AlarmManager.INTERVAL_HALF_HOUR, pIntent);
   }
 }
 ```
 
-This will cause the alarm to trigger immediately and then fire every 5 seconds from that point forward. Each time the alarm fires, the `MyAlarmReceiver` broadcast intent is triggered which starts up the `IntentService`. The `PendingIntent.FLAG_UPDATE_CURRENT` flag ensures that if the alarm fires very quickly, that the events will replace each other rather than stack up. Similarly, if we ever want to cancel the alarm, we can do:
+This will cause the alarm to trigger immediately and then fire every half hour from that point forward. Each time the alarm fires, the `MyAlarmReceiver` broadcast intent is triggered which starts up the `IntentService`. The `PendingIntent.FLAG_UPDATE_CURRENT` flag ensures that if the alarm fires very quickly, that the events will replace each other rather than stack up. See the [scheduling alarms docs](https://developer.android.com/training/scheduling/alarms.html#set) for more examples of different types of scheduling. 
+
+After setting an alarm, if we ever want to cancel the alarm, we can do this with:
 
 ```java
 public void cancelAlarm() {
@@ -400,7 +405,7 @@ public void cancelAlarm() {
 }
 ```
 
-You can see a more detailed example [here](http://www.jeevanreddy.in/2012/05/scheduling-background-tasks-using-alarm.html) or [here](http://nerdwin15.com/2013/04/android-creating-an-alarm-with-alarmmanager/). For a more detailed example that includes starting the alarm when the phone boots up, check out [this blog post](http://dhimitraq.wordpress.com/2012/11/27/using-intentservice-with-alarmmanager-to-schedule-alarms/).
+You can see a more detailed information [here](https://developer.android.com/training/scheduling/alarms.html) or [here](http://nerdwin15.com/2013/04/android-creating-an-alarm-with-alarmmanager/). For a more detailed example that includes starting the alarm when the phone boots up, check out [this blog post](http://dhimitraq.wordpress.com/2012/11/27/using-intentservice-with-alarmmanager-to-schedule-alarms/).
 
 ## Starting a Service at Device Boot
 
