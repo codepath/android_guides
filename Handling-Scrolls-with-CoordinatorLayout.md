@@ -238,6 +238,10 @@ To define your own a CoordinatorLayout Behavior, the layoutDependsOn() and onDep
 
 The best way to understand how to implement these custom behaviors is by studying the AppBarLayout.Behavior and FloatingActionButtion.Behavior examples.  Although the source code is not publicly available yet, you can use the decompiler integrated with Android Studio 1.2 to examine how they work by navigating up the source tree.
 
+## Third-Party Scrolling and Parallax
+
+In addition to using the `CoordinatorLayout` as outlined above, be sure to check out [these popular third-party libraries](https://guides.codepath.com/android/Must-Have-Libraries#scrolling-and-parallax) for scrolling and parallax effects across `ScrollView`, `ListView`, `ViewPager` and `RecyclerView`.
+
 ## References
 
 * <http://android-developers.blogspot.com/2015/05/android-design-support-library.html>
