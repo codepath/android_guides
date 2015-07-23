@@ -153,6 +153,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [WilliamChart](https://github.com/diogobernardino/WilliamChart) - Flexible charting library with useful motion capabilities.
  * [HelloCharts](https://github.com/lecho/hellocharts-android) - Charts/graphs library for Android with support for scaling, scrolling and animations.
  * [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart)-A powerful Android chart view / graph view library, supporting line- bar- pie- radar- bubble- and candlestick charts as well as scaling, dragging and animations.
+
 ### Scanning
 
  * [ZXing](https://github.com/zxing/zxing) - Barcode or QR scanner
