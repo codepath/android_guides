@@ -397,11 +397,11 @@ After setting an alarm, if we ever want to cancel the alarm, we can do this with
 
 ```java
 public void cancelAlarm() {
-  Intent intent = new Intent(getApplicationContext(), MyAlarmReceiver.class);
-  final PendingIntent pIntent = PendingIntent.getBroadcast(this, MyAlarmReceiver.REQUEST_CODE,
-      intent, PendingIntent.FLAG_UPDATE_CURRENT);
-  AlarmManager alarm = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
-  alarm.cancel(pIntent);
+    Intent intent = new Intent(getApplicationContext(), MyAlarmReceiver.class);
+    final PendingIntent pIntent = PendingIntent.getBroadcast(this, MyAlarmReceiver.REQUEST_CODE,
+       intent, PendingIntent.FLAG_UPDATE_CURRENT);
+    AlarmManager alarm = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
+    alarm.cancel(pIntent);
 }
 ```
 
