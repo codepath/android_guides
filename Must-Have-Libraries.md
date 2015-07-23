@@ -185,7 +185,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [HoloEverywhere](https://github.com/Prototik/HoloEverywhere) - Backport Holo theme from Android 4.2 to 2.1+
  * [CropImage](https://github.com/biokys/cropimage) - Simple compatible cropping intent for images
 
-## Scrolling and Parallax
+### Scrolling and Parallax
 
 This is a list of popular scrolling and parallax libraries:
 
