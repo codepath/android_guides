@@ -79,7 +79,7 @@ this [guide](http://guides.codepath.com/android/Using-the-RecyclerView) to help 
 <android.support.v7.widget.RecyclerView
          android:id="@+id/lvToDoList"
          android:layout_width="match_parent"
-         android:layout_height="match_parent"
+         android:layout_height="match_parent">
 </android.support.v7.widget.RecyclerView>
 ```
 
