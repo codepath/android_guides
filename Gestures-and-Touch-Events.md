@@ -338,6 +338,68 @@ Now we just have to implement the expected behavior for the shaking event in the
 
 Additional multi-touch events such as "rotation" of fingers, finger movement events, etc you can check out the [multitouch-gesture-detectors](https://github.com/Almeros/android-gesture-detectors) third-party library. Read the [documentation](http://code.almeros.com/android-multitouch-gesture-detectors#.UmTf0JQ6VZ8) for more details about how to handle multi-touch gestures. Also, for a more generic approach, read the official [multitouch guide](http://developer.android.com/training/gestures/multi.html).  See this [blog post](http://android-developers.blogspot.com/2010/06/making-sense-of-multitouch.html) for more details about how multi-touch events work.
 
+## Understanding Touch Events
+
+This section briefly summarizes touch propagation within the view hierarchy. There are three distinct touch related methods which will be outlined below:
+
+| Order | Method                 | Invoked On  |    Description                                    |
+| ----- | -------------------    | ----------- | ----------------------                            |
+| 1st   | dispatchTouchEvent     | A, VG, V    | Dispatch touch events to affected child views     | 
+| 2nd   | onInterceptTouchEvent  | VG          | Intercept touch events before passing to children | 
+| 3rd   | onTouchEvent           | VG, V       | Handle the touch event and stop propogation       | 
+ 
+"Order" above defines which of these methods gets invoked first when a touch is initiated. Note that above in "invoked on" **A** represents `Activity`, **VG** is `ViewGroup`, **V** is `View` describing where the method is invoked during a touch event.
+
+Keep in mind that a **gesture is simply a series of touch events** as follows:
+
+1. **DOWN**. Begins with a single DOWN event when the user touches the screen
+2. **MOVE**. Zero or more MOVE events when the user moves the finger around
+3. **UP**. Ends with a single UP (or CANCEL) event when the user releases the screen
+
+These touch events trigger a very particular set of method invocations on affected views. To further illustrate, assume a "View C" is contained within a "ViewGroup B" which is then contained within "ViewGroup A" such as:
+
+<img src="http://i.imgur.com/mLB5ACK.png" />
+
+Review this example carefully as all sections below will be referring to the example presented here.
+
+### Touch Event Propagation
+
+When a touch DOWN event occurs on "View C" and **the view has registered a touch listener**, the following series of actions happens as the [onTouchEvent](http://developer.android.com/reference/android/view/View.html#onTouchEvent%28android.view.MotionEvent%29) is triggered on the view:
+
+* The DOWN touch event is passed to "View C" `onTouchEvent` and the **boolean result** of **TRUE** or **FALSE** determines if the action is captured.
+* **Returning TRUE:** If the "View C" `onTouchEvent` returns true then this view captures the gesture
+  * Because "View C" returns true and is handling the gesture, the event is not passed to "ViewGroup B"'s nor "ViewGroup A"'s `onTouchEvent` methods.
+  * Because View C says it's handling the gesture, any additional events in this gesture will also be passed to "View C"'s `onTouchEvent` method until the gesture ends with an UP touch event. 
+* **Returning FALSE:** If the "View C" `onTouchEvent` returns false then the gesture is propagated upwards
+  - The DOWN event is passed upward to "ViewGroup B" `onTouchEvent` method, and the boolean result determines if the event continues to propagate.
+  - If "ViewGroup B" doesn't return true then the event is passed upward to "ViewGroup A" `onTouchEvent`
+
+### Intercepting Touches
+
+In addition to the `onTouchEvent`, there is also a separate [onInterceptTouchEvent](http://developer.android.com/reference/android/view/ViewGroup.html#onInterceptTouchEvent%28android.view.MotionEvent%29) that exists **only on ViewGroups** such as layouts. Before the `onTouchEvent` is called on any `View`, all its ancestors are first given the chance to intercept this event. In other words, **a containing layout can choose to steal the event** from a touched view **before the view even receives the event**. With this added in, the series of events from above become:
+
+* The DOWN event on "View C" is first passed to "ViewGroup A" `onInterceptTouchEvent`, which can return false or true depending on if it wants to intercept the touch. 
+* If false, the event is then passed to "ViewGroup B" `onInterceptTouchEvent` can also return false or true depending on if it wants to intercept the touch. 
+* Next the DOWN event is passed to "View C" `onTouchEvent` which can return true to handle the event.
+* Additional touch events within the same gesture are still passed to A and B's `onInterceptTouchEvent` before being called on "View C" `onTouchEvent` even if the ancestors chose not to previously intercept.
+
+The takeaway here is that **any viewgroup can choose to implement `onInterceptTouchEvent`** and effectively decide to steal touch events from any of the child views. If the children choose not respond to the touch once received, then the touch event is propagated back upwards through the `onTouchEvent` of each of the containing `ViewGroup` as described in the previous section.
+
+### Touch Dispatch
+
+As the chart much earlier shows, all of this above behavior of touch and interception is being managed by "dispatchers" via the [dispatchTouchEvent](http://developer.android.com/reference/android/view/ViewGroup.html#dispatchTouchEvent%28android.view.MotionEvent%28) method invoked on each view. Revealing this behavior, as soon as a touch event occurs on top of "View C", the following dispatching occurs:
+
+1. The `Activity.dispatchTouchEvent()` is called for the current activity containing the view. 
+2. If the activity chooses not to "consume" the event (and stop propagation), the event is passed to the "ViewGroup A" `dispatchTouchEvent` since A is the outermost viewgroup affected by the touch.
+3. "ViewGroup A" `dispatchTouchEvent` will trigger the "ViewGroup A" `onInterceptTouchEvent` first and if that method chooses not to intercept, the touch event is then sent to the "ViewGroup B" `dispatchTouchEvent`.
+4. In turn, the "ViewGroup B" `dispatchTouchEvent` will trigger the "ViewGroup B" `onInterceptTouchEvent` and if that method chooses not to intercept, the touch event is then sent to the "ViewGroup C" `dispatchTouchEvent`.
+5. "ViewGroup C" `dispatchTouchEvent` then invokes the "ViewGroup C" `onTouchEvent`.
+
+To recap, the `dispatchTouchEvent` is called at every level of the way starting with the `Activity`. The dispatcher is responsible for identifying which methods to invoke next. On a `ViewGroup`, the dispatcher triggers the `onInterceptTouchEvent`, before triggering the `dispatchTouchEvent` on the next child in the view hierarchy. 
+
+### Further Reading
+
+The explanation above has been simplified and abridged for clarity. For additional reading on the touch propagation system, please review [this detailed article](http://codetheory.in/understanding-android-input-touch-events/) as well as this doc on [ViewGroup touch handling](http://developer.android.com/training/gestures/viewgroup.html) and this [useful blog post](http://balpha.de/2013/07/android-development-what-i-wish-i-had-known-earlier/).
 
 ## Libraries
 
