@@ -15,7 +15,7 @@ The course was broken up into eight lectures. Each lecture provides step-by-step
   * Run, debug, test.
   * Parts of an android project
   * Background on Android ecosystem
-  * [Java Review Slides](https://drive.google.com/open?id=0B_tq9HHgpVcWNk95bktRUjlLb2M&authuser=0)
+  * [Java Review Slides](https://docs.google.com/presentation/d/1ZunRXfbh6LkgsFuuKpybLbMxxpVyqk-UGsO82RMhGhU/pub?start=false&loop=false&delayms=3000)
 * [Lecture 2 - Layouts and UI components](https://drive.google.com/open?id=0B_tq9HHgpVcWOUx5ODEyNVlSdjg&authuser=0)
   * Why layouts
   * Linear layouts - weights, centering
