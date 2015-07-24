@@ -12,12 +12,12 @@ In this guide, we'll walk through the steps necessary to add Robolectric to an e
 Note: Robolectric can also be configured with Android Studio 1.1, but the setup requires the [robolectric gradle plugin](https://github.com/robolectric/robolectric-gradle-plugin/) and some additional configuration. Also, keep in mind that unit testing was still considered an [experimental feature](http://tools.android.com/tech-docs/unit-testing-support) in Android Studio 1.1.
 
 ## App build.gradle
-First, we need to add the following to the **_app_** build.gradle. Robolectric's latest version is currently `3.0-rc3`.  
+First, we need to add the following to the **_app_** build.gradle. Robolectric's latest version is currently `3.0`.  
 
   ```gradle
   dependencies {
     ...
-    testCompile('org.robolectric:robolectric:3.0-rc3')
+    testCompile('org.robolectric:robolectric:3.0')
   }
    ``` 
 ## Android Studio Configuration
