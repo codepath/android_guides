@@ -33,6 +33,8 @@ Each `onTouch` event has access to the [MotionEvent](http://developer.android.co
  * `getX()` - Returns the x coordinate of the touch event
  * `getY()` - Returns the y coordinate of the touch event
 
+Note that every touch event can be propagated through the entire affected view hierarchy. Not only can the touched view respond to the event but every layout that contains the view has an opportunity as well. Refer to the [[understanding touch events|Gestures-and-Touch-Events#understanding-touch-events]] section for a detailed overview.
+
 ### Handling Multi Touch Events
 
 Note that `getAction()` normally includes information about both the action as well as the pointer index.  In single-touch events, there is only one pointer (set to 0), so no [bitmap mask](http://developer.android.com/reference/android/view/MotionEvent.html#ACTION_MASK) is needed.  In multiple touch events (i.e pinch open or pinch close), however, there are multiple fingers involved and a non-zero pointer index may be included when calling `getAction()`. As a result, there are other methods that should be used to determine the touch event:
