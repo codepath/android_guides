@@ -52,7 +52,7 @@ Let's setup Parse into a brand new Android app following the steps below.
     ```xml
     <application
       android:name=".ChatApplication"
-      android:icon="@drawable/ic_launcher"
+      android:icon="@mipmap/ic_launcher"
       android:label="@string/app_name"
       ...>
           <activity 
@@ -267,7 +267,7 @@ We will be showing the logged in user's gravatar and messages on the right and t
         android:contentDescription="@string/profile_other"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:src="@drawable/ic_launcher" />
+        android:src="@mipmap/ic_launcher" />
     <TextView
         android:textSize="18sp"
         android:id="@+id/tvBody"
@@ -283,7 +283,7 @@ We will be showing the logged in user's gravatar and messages on the right and t
         android:layout_marginLeft="-64dp"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:src="@drawable/ic_launcher" />
+        android:src="@mipmap/ic_launcher" />
 </LinearLayout>
 ```
 
@@ -550,7 +550,7 @@ The final manifest for this chat application looks like:
     <application
         android:name="com.codepath.simplechat.ChatApplication"
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
