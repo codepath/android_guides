@@ -33,7 +33,7 @@ Each `onTouch` event has access to the [MotionEvent](http://developer.android.co
  * `getX()` - Returns the x coordinate of the touch event
  * `getY()` - Returns the y coordinate of the touch event
 
-Note that every touch event can be propagated through the entire affected view hierarchy. Not only can the touched view respond to the event but every layout that contains the view has an opportunity as well. Refer to the [[understanding touch events|Gestures-and-Touch-Events#understanding-touch-events]] section for a detailed overview.
+Note that every touch event can be **propagated through the entire affected view hierarchy**. Not only can the touched view respond to the event but every layout that contains the view has an opportunity as well. Refer to the [[understanding touch events|Gestures-and-Touch-Events#understanding-touch-events]] section for a detailed overview.
 
 ### Handling Multi Touch Events
 
