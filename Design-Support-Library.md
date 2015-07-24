@@ -4,7 +4,7 @@ At their I/O 2015 conference, Google announced a new [design support library](ht
 
 <img src="http://cdn.androidpolice.com/wp-content/uploads/2014/10/nexus2cee_67-351x625.png" width="200" />
 <a href="https://github.com/chrisbanes/cheesesquare"><img src="http://i.stack.imgur.com/Wb28n.png" width="200" /></a>
-<a href="https://github.com/codepath/android_guides/wiki/Displaying-the-Snackbar"><img src="http://i.imgur.com/JSdKnP2.png" width="200" /></a>
+<a href="http://guides.codepath.com/android/Displaying-the-Snackbar"><img src="http://i.imgur.com/JSdKnP2.png" width="200" /></a>
 
 ### Features
 
@@ -18,7 +18,7 @@ The support design library has the following key features:
 6. [[CoordinatorLayout|Handling-Scrolls-with-CoordinatorLayout]] - Provides an additional level of control over scroll and touch events between child views.
      * [AppBarLayout](http://developer.android.com/reference/android/support/design/widget/AppBarLayout.html) allows your toolbar and other views to react to scroll events. 
      * [CollapsingToolbarLayout](http://developer.android.com/reference/android/support/design/widget/CollapsingToolbarLayout.html) extend this to allow the toolbar to collapse as the user scrolls through a view.  
-7. [PercentRelativeLayout](https://github.com/codepath/android_guides/wiki/Constructing-View-Layouts#percentrelativelayout) and PercentFrameLayout to enable views to occupy [percentage-based dimensions](https://juliengenoud.github.io/android-percent-support-lib-sample/).  
+7. [[PercentRelativeLayout|Constructing-View-Layouts#percentrelativelayout]] and PercentFrameLayout to enable views to occupy [percentage-based dimensions](https://juliengenoud.github.io/android-percent-support-lib-sample/).  
 
 ### Setup
 
@@ -29,7 +29,7 @@ Make sure that you have at least the Android Gradle plugin v1.2.3 supported.  Th
         classpath 'com.android.tools.build:gradle:1.2.3'
     }
 ```
-There is a new support design library that must be included.   This library also depends on updated versions of the [AppCompat](http://android-developers.blogspot.com/2014/10/appcompat-v21-material-design-for-pre.html) library to be included.  If you are not currently using this library, check out this [migration guide](https://github.com/codepath/android_guides/wiki/Migrating-to-the-AppCompat-Library).  In addition, make sure these versions have been updated.  
+There is a new support design library that must be included.   This library also depends on updated versions of the [AppCompat](http://android-developers.blogspot.com/2014/10/appcompat-v21-material-design-for-pre.html) library to be included.  If you are not currently using this library, check out this [[migration guide|Migrating-to-the-AppCompat-Library]].  In addition, make sure these versions have been updated.  
 
 ```gradle
 dependencies {
