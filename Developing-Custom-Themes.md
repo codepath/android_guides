@@ -159,7 +159,7 @@ An `<attr>` element has two XML attributes `name` and `format`. `name` lets you 
 
 In this case, it is a "reference" to another attribute i.e. it references another resource id (e.g, `@color/my_color`, `@layout/my_layout`). Other examples of possible formats are `pixels`, `color`, `boolean`, `dimension`, `integer`, and `float`, `string`, `fraction`, `enum` and `flag`.
 
-These attributes can be defined in each theme later and then applied to views on the page by adding a `style` property indicating the attribute to apply.  We will implement this part in [step 6](https://github.com/codepath/android_guides/wiki/Developing-Custom-Themes#6-create-themesxml-file).
+These attributes can be defined in each theme later and then applied to views on the page by adding a `style` property indicating the attribute to apply.  We will implement this part in [[step 6|Developing-Custom-Themes#6-create-themesxml-file]].
 
 Create a file called `attrs.xml` inside `/res/values/` and add the following
 
@@ -411,7 +411,7 @@ Above in the `styles.xml` is where we define the "implementation" of the style a
 
 To define the theme attributes we use a `themes.xml` file. In our theme definition, we set some custom styles using the `item` element. Note how the default OS attribute `android:actionBarStyle` has been overridden to style the action bar along with the custom attributes. For more information on styling action bar, check out [[styling the action bar|Extended-ActionBar-Guide#custom-actionbar-styles]] cliffnotes. 
 
-In addition, note how we implement the custom attributes in the theme [defined in step 3](https://github.com/codepath/android_guides/wiki/Developing-Custom-Themes#3-custom-attributes), such as `pageBackground`, `textSubheader`, etc. in the theme.
+In addition, note how we implement the custom attributes in the theme [[defined in step 3|Developing-Custom-Themes#3-custom-attributes]], such as `pageBackground`, `textSubheader`, etc. in the theme.
 
 Add the following to `res/values/themes.xml`:
 

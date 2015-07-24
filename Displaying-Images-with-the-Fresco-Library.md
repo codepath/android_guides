@@ -5,7 +5,7 @@
 When working with Fresco, it's helpful to be familiar with the following terms:
 * ImagePipeline - Responsible for getting you the image. It fetches from the network, a local file, a content provider, or a local resource. It keeps a cache of compressed images in local storage, and a second cache of decompressed images in memory.
 * Drawee - Drawees deal with rendering images on screen and are made up of 3 parts.
-  * DraweeView - The view that shows the image. It extends from `ImageView`, but only for convenience (see the [[gotchas|https://github.com/codepath/android_guides/wiki/Loading-Images-with-Fresco#Gotachas]] below for more info on this). Most of the time you'll be using a `SimpleDraweeView` in your code.
+  * DraweeView - The view that shows the image. It extends from `ImageView`, but only for convenience (see the [[gotchas|Loading-Images-with-Fresco#Gotachas]] below for more info on this). Most of the time you'll be using a `SimpleDraweeView` in your code.
   * DraweeHierarchy - Fresco provides a lot of customization. You can add a placeholderImage, a retryImage, a failureImage, a backgroundImage, etc. The hierarchy is what keeps track of all these drawables and when they should be shown. 
   * DraweeController - This is the class responsible for dealing with the image loader. Fresco allows you to customize the image loader if you don't want to use the provided `ImagePipeline`.
 

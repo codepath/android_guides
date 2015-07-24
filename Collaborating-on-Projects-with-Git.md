@@ -58,4 +58,4 @@ The simplest fix is described in detail within [this stackoverflow post](http://
 
 ## SDK Manager
 
-When working with different teammates that may have different Android Build Tools or SDK versions installed, you might might find it convenient to use Jake Wharton's [SDK Manager plugin](https://github.com/JakeWharton/sdk-manager-plugin) to download these packages automatically. Follow these  [installation instructions](https://github.com/codepath/android_guides/wiki/Installing-Android-SDK-Tools#installing-the-android-sdk-automated-way) for more info.  
+When working with different teammates that may have different Android Build Tools or SDK versions installed, you might might find it convenient to use Jake Wharton's [SDK Manager plugin](https://github.com/JakeWharton/sdk-manager-plugin) to download these packages automatically. Follow these [[installation instructions|Installing-Android-SDK-Tools#installing-the-android-sdk-automated-way]] for more info.  

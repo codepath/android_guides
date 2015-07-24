@@ -1,6 +1,6 @@
 ## Overview
 
-The `RecyclerView` is a new `ViewGroup` that is prepared to render any adapter-based view in a similar way. It is supposed to be the successor of [ListView] (https://github.com/codepath/android_guides/wiki/Using-an-ArrayAdapter-with-ListView) and [GridView] (http://developer.android.com/guide/topics/ui/layout/gridview.html), and it can be found in the [latest support-v7 version] (https://developer.android.com/reference/android/support/v7/app/package-summary.html). One of the reasons is that `RecyclerView` has a more extensible framework, especially since it provides the ability to implement both horizontal and vertical layouts. Use the `RecyclerView` widget when you have data collections whose elements change at runtime based on user action or network events.
+The `RecyclerView` is a new `ViewGroup` that is prepared to render any adapter-based view in a similar way. It is supposed to be the successor of [[ListView|Using-an-ArrayAdapter-with-ListView]] and [GridView](http://developer.android.com/guide/topics/ui/layout/gridview.html), and it can be found in the [latest support-v7 version](https://developer.android.com/reference/android/support/v7/app/package-summary.html). One of the reasons is that `RecyclerView` has a more extensible framework, especially since it provides the ability to implement both horizontal and vertical layouts. Use the `RecyclerView` widget when you have data collections whose elements change at runtime based on user action or network events.
 
 If you want to use a `RecyclerView`, you will need to work with the following:
 * `RecyclerView.Adapter` - To handle the data collection and bind it to the view
@@ -391,7 +391,7 @@ For example, here's scrolling through a list after customizing the animation:
 
 ### Heterogeneous Views
 
-See [this guide](https://github.com/codepath/android_guides/wiki/Heterogenous-Layouts-inside-RecyclerView) if you want to inflate multiple types of rows inside a single `RecyclerView`:
+See [[this guide|Heterogenous-Layouts-inside-RecyclerView]] if you want to inflate multiple types of rows inside a single `RecyclerView`:
 
 <img src="http://i105.photobucket.com/albums/m232/purplehaze0077/heterorecycler2.png" width="300" alt="ss2" />
 
