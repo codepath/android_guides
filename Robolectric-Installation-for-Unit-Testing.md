@@ -17,7 +17,7 @@ First, we need to add the following to the **_app_** build.gradle. Robolectric's
   ```gradle
   dependencies {
     ...
-    testCompile('org.robolectric:robolectric:3.0')
+    testCompile 'org.robolectric:robolectric:3.0'
   }
    ``` 
 ## Android Studio Configuration
