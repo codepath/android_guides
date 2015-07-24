@@ -426,3 +426,5 @@ The explanation above has been simplified and abridged for clarity. For addition
  * <http://www.codeproject.com/Articles/319401/Simple-Gestures-on-Android>
  * <http://developer.android.com/guide/topics/ui/drag-drop.html>
  * <http://javapapers.com/android/android-drag-and-drop/>
+ * <http://balpha.de/2013/07/android-development-what-i-wish-i-had-known-earlier/>
+ * <http://developer.android.com/training/gestures/viewgroup.html>
