@@ -42,7 +42,7 @@ Now open [Google API Console](https://cloud.google.com/console), **create or sel
 
 ![Services](http://i.imgur.com/F6wSs4y.png)
 
-Now select "Credentials" on left side and on the right side click on "Create New Key" =>  "Android Key"
+Now select **"Credentials" on left-side** and on the right side click on "Create New Key" =>  **"Android Key"**
 
 ![Access](http://i.imgur.com/qYF1o2c.png)
 
