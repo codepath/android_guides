@@ -18,6 +18,9 @@ Using a handler to execute `Runnable` code involves creating a `Handler` and the
 Using a handler to execute a periodic runnable task is demonstrated below:
 
 ```java
+// We need to use this Handler package
+import android.os.Handler;
+
 // Create the Handler object 
 Handler handler = new Handler();
 // Define the task to be run here
