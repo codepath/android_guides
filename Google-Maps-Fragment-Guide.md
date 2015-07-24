@@ -48,9 +48,9 @@ Now select **"Credentials" on left-side** and on the right side click on "Create
 
 It will popup a window asking the SHA1 and package name. Enter your `SHA 1` and your `android project package name` separated by semicolon ; and click on create. The format is:
 
-`<YOURSHA1KEY>;<FULL.APP.PACKAGE.NAME>`
+`YOUR:SHA1:KEY;FULL.APP.PACKAGE.NAME`
 
-For example you might enter:
+Note that this **must be your actual fingerprint from earlier** and the **package name must match the package name in your AndroidManifest.xml**. For example you might enter:
 
 ```
 BE:03:E1:44:39:7B:E8:17:02:9F:7F:B7:98:82:EA:DF:84:D0:FB:6A;com.example.mapdemo
