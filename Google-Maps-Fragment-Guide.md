@@ -38,7 +38,7 @@ In the output you can see SHA 1 finger print:
 
 ### Register for an API Key
 
-Now open [Google API Console](https://cloud.google.com/console), **create or select a project**, select "APIs & Auth" on left side, select **Google Maps Android API** and enable the Maps API via the toggle switch.
+Now open [Google API Console](https://cloud.google.com/console), **create or select a project**, select "APIs & Auth" on left side, select **Google Maps Android API** and make sure to **enable the Maps Android API** via the toggle switch.
 
 ![Services](http://i.imgur.com/F6wSs4y.png)
 
