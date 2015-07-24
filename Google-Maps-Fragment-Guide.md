@@ -60,6 +60,8 @@ BE:03:E1:44:39:7B:E8:17:02:9F:7F:B7:98:82:EA:DF:84:D0:FB:6A;com.example.mapdemo
 
 ![Key](http://www.androidhive.info/wp-content/uploads/2013/08/google-console-android-maps-api-key1.png)
 
+Your API Key to keep should look similar to `AIwaSyDpkYHhw4LLA7WpZRvFs9gnNnRg2BHa18A`.
+
 ### Setup x86-based Emulator
 
 **Note:** As of March 6th, 2014, we can download the [Google APIs x86](http://software.intel.com/en-us/blogs/2014/03/06/now-available-android-sdk-x86-system-image-with-google-apis) image to test maps. If you want to set the GPS coordinates of the emulator and you're using Android Studio, go to `Tools`->`Android`->`Android Device Monitor`->`Emulator Control`, then type one in Location Controls and hit "Send". Otherwise, for using the Genymotion emulator, see below. Note that **Genymotion is much harder to setup**, but is a much faster and more powerful Android emulator that more closely mirrors a device.
