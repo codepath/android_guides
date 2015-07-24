@@ -48,7 +48,7 @@ Now select **"Credentials" on left-side** and on the right side click on "Create
 
 It will popup a window asking the SHA1 and package name. Enter your `SHA 1` and your `android project package name` separated by semicolon ; and click on create. The format is:
 
-`<YOURSHA1KEY>;com.example.mapdemo`
+`<YOURSHA1KEY>;<FULL.APP.PACKAGE.NAME>`
 
 For example you might enter:
 
