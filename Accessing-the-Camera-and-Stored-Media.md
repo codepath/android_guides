@@ -57,6 +57,9 @@ public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 // Returns the Uri for a photo stored on disk given the fileName
 public Uri getPhotoFileUri(String fileName) {
+    // Only continue if the SD Card is mounted
+    if (isExternalStorageAvailable()) {
+
     // Get safe storage directory for photos
     File mediaStorageDir = new File(
         Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), APP_TAG);
@@ -68,7 +71,17 @@ public Uri getPhotoFileUri(String fileName) {
 
     // Return the file target for the photo based on filename
     return Uri.fromFile(new File(mediaStorageDir.getPath() + File.separator + fileName));
+    }
+    return null;
 }
+
+private boolean isExternalStorageAvailable() {
+			String state = Environment.getExternalStorageState();
+			if (state.equals(Environment.MEDIA_MOUNTED)) {
+				return true;
+			}
+			return false;
+		}
 ```
 
 Check out the official [Photo Basics](http://developer.android.com/training/camera/photobasics.html) guide for more details.
