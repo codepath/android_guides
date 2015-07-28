@@ -85,6 +85,7 @@ Create a new layout file `res/layout/toolbar.xml` with the following code:
 ```xml
 <android.support.v7.widget.Toolbar
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/toolbar"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
