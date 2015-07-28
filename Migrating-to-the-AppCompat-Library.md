@@ -102,6 +102,9 @@ android {
     targetSdkVersion 21
 ```
 
+### Known issues
+
+The AppCompat library has issues with Samsung v4.2.2 devices.  See [this issue](https://code.google.com/p/android/issues/detail?id=78377) for more details.
 
 # References
 
