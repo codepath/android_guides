@@ -59,7 +59,9 @@ dependencies {
 
 #### Migrating Previously Defined Java Objects
 
-If you are attempting to migrate previously created Java models to take advantage of Retrofit, you can add `@SerializedName` annotations to provide the actual corresponding JSON name.  In this way, you can avoid renaming all your variables. 
+Retrofit by default relies on the Gson library to parse JSON.  Usually it assumes that the variable name matches the name of the variable declared.  If you are attempting to migrate previously created Java models to take advantage of Retrofit, you may find that your variable names may not match.
+
+To enable the library to build a map what keys in the JSON data should match your internal variables, you can add annotations to provide the actual corresponding JSON name.  An example of a previously defined Java model using the based on GitHub's [User](https://developer.github.com/v3/users/) model is shown below.  Note how the `@SerializedName` annotation is used.
 
 ```java
 @SerializedName("login")
@@ -100,7 +102,6 @@ We can annotate these attributes with `@SerializedName` too:
     };
 ```
 
-Retrofit by default relies on the Gson library to parse JSON.  Usually it assumes that the variable name matches the name of the variable declared.  The use of this decorator allows the library to build a mapping of the JSON data to your internal variables. 
 
 ### Creating the RestAdapter
 
