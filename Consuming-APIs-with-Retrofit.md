@@ -56,7 +56,7 @@ dependencies {
   provided 'org.glassfish:javax.annotation:10.0-b28'
 ```
 
-Note: if you are trying to use Java models that you may have already created, see [this section](#migrating-previously-defined-java-objects).
+Note: if you are trying to use Java models that you may have already created, see [this section](Consuming-APIs-with-Retrofit#migrating-previously-defined-java-objects).
 
 ### Creating the RestAdapter
 
