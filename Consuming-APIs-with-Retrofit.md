@@ -88,7 +88,7 @@ We can annotate these attributes with `@SerializedName` too:
     @SerializedName("color")
     public Color colorType;
 
-    public enum LoginTypes {
+    public enum ColorTypes {
         @SerializedName("red")
         RED,
 
