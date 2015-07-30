@@ -49,13 +49,14 @@ Click the Preview button.  You should see the top section look sort of like the 
 
 Paste the generated class into your project under a `models` sub-package.  Rename the class name `Example` to reflect your model name.  For this example, we will call this file and class the `User` model.
 
-
 *Note*: Android does not come normally with many of the `javax.annotation` library by default.  If you wish to keep the `@Generated` annotation, you will need to add this dependency.  See this [Stack Overflow discussion](http://stackoverflow.com/questions/9650808/android-javax-annotation-processing-package-missing) for more context.  Otherwise, you can delete that annotation and use the rest of the generated code.
 
 ```gradle
 dependencies {
   provided 'org.glassfish:javax.annotation:10.0-b28'
 ```
+
+Note: if you are trying to use Java models that you may have already created, see [this section](#migrating-previously-defined-java-objects).
 
 ### Creating the RestAdapter
 
