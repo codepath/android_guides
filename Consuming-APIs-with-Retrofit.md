@@ -35,9 +35,9 @@ Make sure to select `JSON` as the Source Type:
  
 <img src="http://imgur.com/3DRH984.png"/>
 
-Select `Gson` as the Annotation Style.  Retrofit by default relies on the `@SerializedName` annotations generated to determine how to map the data to the models defined.
+If you happen to be creating Java models using the previous step, you therefore won't need to do anything else and select `None` as the Annotation type. 
 
-<img src="http://imgur.com/vYRwpWB.png"/>
+<img src="http://imgur.com/aTrRfpu.png"/>
 
 Next, paste the JSON output into the textbox:
 
@@ -45,15 +45,59 @@ Next, paste the JSON output into the textbox:
 
 Click the Preview button.  You should see the top section look sort of like the following:
 
-<img src="http://imgur.com/l9l3Q81.png"/>
+<img src="http://imgur.com/qoMywKe.png"/>
 
 Paste the generated class into your project under a `models` sub-package.  Rename the class name `Example` to reflect your model name.  For this example, we will call this file and class the `User` model.
+
 
 *Note*: Android does not come normally with many of the `javax.annotation` library by default.  If you wish to keep the `@Generated` annotation, you will need to add this dependency.  See this [Stack Overflow discussion](http://stackoverflow.com/questions/9650808/android-javax-annotation-processing-package-missing) for more context.  Otherwise, you can delete that annotation and use the rest of the generated code.
 
 ```gradle
 dependencies {
   provided 'org.glassfish:javax.annotation:10.0-b28'
+```
+
+#### Migrating Previously Defined Java Objects
+
+Retrofit by default relies on the Gson library to parse JSON.  Usually it assumes that the variable name matches the name of the variable declared.  If you are attempting to migrate previously created Java models to take advantage of Retrofit, you can annotate `@SerializedName` annotations to provide the actual corresponding JSON name.  In this way, you can avoid renaming all your variables. 
+
+```java
+@SerializedName("login")
+private String mLogin;
+
+@SerializedName("id")
+private Integer mId;
+
+@SerializedName("avatarUrl")
+private String mAvatarUrl;
+```
+
+#### Annotating Enums
+
+You can also use this same approach with enums.   Suppose we had an enum of different colors:
+
+```java
+    public ColorTypes colorType;
+
+    public enum ColorTypes { RED, WHITE, BLUE };
+```
+
+We can annotate these attributes with `@SerializedName` too:
+
+```java
+    @SerializedName("color")
+    public Color colorType;
+
+    public enum LoginTypes {
+        @SerializedName("red")
+        RED,
+
+        @SerializedName("white")
+        WHITE,
+
+        @SerializedName("blue")
+        BLUE
+    };
 ```
 
 ### Creating the RestAdapter
