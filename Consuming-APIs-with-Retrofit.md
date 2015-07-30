@@ -33,9 +33,9 @@ Make sure to select `JSON` as the Source Type:
  
 <img src="http://imgur.com/3DRH984.png"/>
 
-Select `None` as the Annotation Style:
+Select `Gson` as the Annotation Style.  Retrofit by default relies on the `@SerializedName` annotations generated to determine how to map the data to the models defined.
 
-<img src="http://imgur.com/aTrRfpu.png"/>
+<img src="http://imgur.com/vYRwpWB.png"/>
 
 Next, paste the JSON output into the textbox:
 
