@@ -57,52 +57,6 @@ dependencies {
   provided 'org.glassfish:javax.annotation:10.0-b28'
 ```
 
-#### Migrating Previously Defined Java Objects
-
-Retrofit by default relies on the Gson library to parse JSON.  Usually it assumes that the variable name matches the name of the variable declared.  If you are attempting to migrate previously created Java models to take advantage of Retrofit, you may find that your variable names may not match.
-
-To enable the library to build a map what keys in the JSON data should match your internal variables, you can add annotations to provide the actual corresponding JSON name.  An example of a previously defined Java model using the based on GitHub's [User](https://developer.github.com/v3/users/) model is shown below.  Note how the `@SerializedName` annotation is used.
-
-```java
-@SerializedName("login")
-private String mLogin;
-
-@SerializedName("id")
-private Integer mId;
-
-@SerializedName("avatarUrl")
-private String mAvatarUrl;
-```
-
-#### Annotating Enums
-
-You can also use this same approach with enums.   Suppose we had an enum of different colors:
-
-```java
-    public ColorTypes colorType;
-
-    public enum ColorTypes { RED, WHITE, BLUE };
-```
-
-We can annotate these attributes with `@SerializedName` too:
-
-```java
-    @SerializedName("color")
-    public Color colorType;
-
-    public enum ColorTypes {
-        @SerializedName("red")
-        RED,
-
-        @SerializedName("white")
-        WHITE,
-
-        @SerializedName("blue")
-        BLUE
-    };
-```
-
-
 ### Creating the RestAdapter
 
 To send out network requests to an API, we need to construct a [RestAdapter](http://square.github.io/retrofit/javadoc/retrofit/RestAdapter.html) by specifying the base url for the service:
@@ -165,6 +119,51 @@ apiService.getUser(username, new Callback<User>() {
 Shown above, Retrofit will download and parse the API data on a background thread, and then deliver the results back to the UI thread via the success or failure method. 
 
 Be sure to check out a [sample TwitchTvClient](https://github.com/MeetMe/TwitchTvClient) for a working sample and the [retrofit docs](http://square.github.io/retrofit/) for additional details about how to use the library.
+
+### Migrating Previously Defined Java Objects
+
+Retrofit by default relies on the Gson library to parse JSON.  Usually it assumes that the variable name matches the name of the variable declared.  If you are attempting to migrate previously created Java models to take advantage of Retrofit, you may find that your variable names may not match.
+
+To enable the library to build a map what keys in the JSON data should match your internal variables, you can add annotations to provide the actual corresponding JSON name.  An example of a previously defined Java model using the based on GitHub's [User](https://developer.github.com/v3/users/) model is shown below.  Note how the `@SerializedName` annotation is used.
+
+```java
+@SerializedName("login")
+private String mLogin;
+
+@SerializedName("id")
+private Integer mId;
+
+@SerializedName("avatarUrl")
+private String mAvatarUrl;
+```
+
+#### Annotating Enums
+
+You can also use this same approach with enums.   Suppose we had an enum of different colors:
+
+```java
+    public ColorTypes colorType;
+
+    public enum ColorTypes { RED, WHITE, BLUE };
+```
+
+We can annotate these attributes with `@SerializedName` too:
+
+```java
+    @SerializedName("color")
+    public Color colorType;
+
+    public enum ColorTypes {
+        @SerializedName("red")
+        RED,
+
+        @SerializedName("white")
+        WHITE,
+
+        @SerializedName("blue")
+        BLUE
+    };
+```
 
 ## Retrofit and Authentication
 
