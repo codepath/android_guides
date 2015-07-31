@@ -45,11 +45,11 @@ If you want to be push your APKs directly through Gradle, you can install a plug
 
        dependencies {
            // ...
-           classpath 'com.github.triplet.gradle:play-publisher:1.0.2'
+           classpath 'com.github.triplet.gradle:play-publisher:1.1.2'
        }
     }
 
-       apply plugin: 'play'
+       apply plugin: 'com.github.triplet.play'
        ```
 
 2. Configure the plugin with the Google Service Account and p12 file saved in steps #5 and #6.
