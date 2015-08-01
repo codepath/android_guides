@@ -16,7 +16,7 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 `C:\Documents and Settings\<user>\AppData\Local\Android\sdk`)
 
    ![image](http://i.imgur.com/iGqP85B.png)
-6. Install the Genymotion plugin for Android Studio.  Go to `Preferences`->`Plugins`, and click Browse repositories. Search for Genymotion and you should find one provided by http://www.genymotion.com.
+6. Install the Genymotion plugin for Android Studio.  Go to `Preferences`->`Plugins` and click Browse repositories. Search for Genymotion and you should find one provided by http://www.genymotion.com.
 
   ![http://i.imgur.com/AIY7gOS.gif](http://i.imgur.com/AIY7gOS.gif | width=100%)
 
