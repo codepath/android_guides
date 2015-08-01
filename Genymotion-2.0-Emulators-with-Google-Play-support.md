@@ -7,7 +7,7 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 #### Installation
 
 1. Sign up for an account on the [Genymotion Website](https://cloud.genymotion.com/page/customer/login/?next=/)
-2. (Mac or Linux) Install [VirtualBox 5.0](https://www.virtualbox.org/wiki/Downloads), a powerful free virtualization software for Genymotion to run. 
+2. (Mac or Linux) Install [VirtualBox 5.0](https://www.virtualbox.org/wiki/Downloads), a powerful free virtualization software for Genymotion to run.  
 3. [Download Genymotion Emulator v2.5.2 or higher](https://cloud.genymotion.com/page/launchpad/download/) for your platform.  **Note**: There is an incompatibility issue with Genymotion v2.5.1 for VirtualBox 4.3.28 and higher versions.
 4. Install the Genymotion Emulator
   * Windows: Run the MSI installer
@@ -16,11 +16,11 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 `C:\Documents and Settings\<user>\AppData\Local\Android\sdk`)
 
    ![image](http://i.imgur.com/iGqP85B.png)
-6. Install the Genymotion plugin for Android Studio.  Go to Preferences->Plugins, and click Browse repositories. Search for Genymotion and you should find one provided by http://www.genymotion.com.
+6. Install the Genymotion plugin for Android Studio.  Go to `Preferences`->`Plugins`, and click Browse repositories. Search for Genymotion and you should find one provided by http://www.genymotion.com.
 
   ![http://i.imgur.com/AIY7gOS.gif](http://i.imgur.com/AIY7gOS.gif | width=100%)
 
-  After restarting, go to Preferences->Genymotion and setup the location of the Genymotion app.
+  After restarting, go to `Preferences`->`Genymotion` and setup the location of the Genymotion app.
 
   ![http://i.imgur.com/0bdrECm.png](http://i.imgur.com/0bdrECm.png)
 
