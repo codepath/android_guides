@@ -28,6 +28,8 @@ community members including:
 
  * [Nidhi Shah](https://github.com/nidhi1608) (CodePath Alumni and Staff)
  * [Roger Hu](https://github.com/rogerhu) (CodePath Alumni and Instructor)
+ * [Nick Aiwazian](https://github.com/nickai) (CodePath Alumni and Instructor)
+ * [Kevin Leong](https://github.com/kgleong) (CodePath Alumni and Instructor)
  * [Michael Alan Huff](https://github.com/koalahamlet) (CodePath Alumni and Mentor)
  * [Vibhor Bharadwaj](https://github.com/vibhorB) (CodePath Alumni and Mentor)
  * [Ari Lacenski](https://github.com/tensory) (CodePath Alumni)
