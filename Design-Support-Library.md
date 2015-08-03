@@ -50,7 +50,7 @@ To add the percent support library, you need to add this statement:
 
 ```gradle
 dependencies {
-    compile 'com.android.support:percent:22.2.1'
+    compile 'com.android.support:percent:22.2.0'
 }
 ```
 
