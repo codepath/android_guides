@@ -193,7 +193,7 @@ After [downloading the Picasso jar](http://repo1.maven.org/maven2/com/squareup/p
 
 ```gradle
 dependencies {
-    compile 'com.squareup.picasso:picasso:2.4.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
 }
 ```
 
