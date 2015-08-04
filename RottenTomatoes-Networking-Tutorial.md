@@ -89,9 +89,7 @@ Before we continue, we need to setup the [android-async-http-client](http://loop
 
 Let's also install a library for remote image loading called [Picasso](http://square.github.io/picasso/) so we can easily display movie posters. 
 
-_Android Studio_ users:
-
-Edit the build.gradle file and add them as dependencies that can be downloaded via a remote repository:
+Edit the `build.gradle` file and add them as dependencies that can be downloaded via a remote repository:
 
 ```gradle
 repositories {
