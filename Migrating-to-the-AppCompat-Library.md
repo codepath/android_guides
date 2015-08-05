@@ -93,6 +93,7 @@ The `MenuItemCompat` helper class has a few static methods that should be used i
         inflater.inflate(R.menu.my_menu, menu);
         mSearchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.contentSearch));
 ```
+
 #### Changing targetSDKVersion
 
 In addition, setting the `targetSdkVersion` to the latest SDK version ensures that the  AppCompat library will attempt to apply the Material Design assuming the device itself can support it. The support library will still check to see if the minimum SDK version is being used on the device.
@@ -102,6 +103,23 @@ android {
     targetSdkVersion 21
 ```
 
+### Material Dialogs
+
+Your AlertDialog's should import from the AppCompat support library instead, which takes advantage of the new Material Design theme.
+
+<img src="https://blog.xamarin.com/wp-content/uploads/2015/05/alertdialogs.png"/>
+
+Instead of:
+
+```java
+import android.app.AlertDialog;
+```
+
+The import should be:
+
+```java
+import android.support.v7.app.AlertDialog;
+```
 ### Known issues
 
 The AppCompat library has issues with Samsung v4.2.2 devices.  See [this issue](https://code.google.com/p/android/issues/detail?id=78377) for more details.
