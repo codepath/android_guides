@@ -35,6 +35,10 @@ The simplest is often to do a search-and-replace to start changing the following
 
 #### AlertDialog Changes
 
+Your AlertDialogs should import from the AppCompat support library instead, which takes advantage of the new Material Design theme.
+
+<img src="https://blog.xamarin.com/wp-content/uploads/2015/05/alertdialogs.png"/>
+
  * `import android.app.AlertDialog` -> `import android.support.v7.app.AlertDialog`
 
 #### Theme XML Changes
@@ -103,23 +107,6 @@ android {
     targetSdkVersion 21
 ```
 
-### Material Dialogs
-
-Your AlertDialog's should import from the AppCompat support library instead, which takes advantage of the new Material Design theme.
-
-<img src="https://blog.xamarin.com/wp-content/uploads/2015/05/alertdialogs.png"/>
-
-Instead of:
-
-```java
-import android.app.AlertDialog;
-```
-
-The import should be:
-
-```java
-import android.support.v7.app.AlertDialog;
-```
 ### Known issues
 
 The AppCompat library has issues with Samsung v4.2.2 devices.  See [this issue](https://code.google.com/p/android/issues/detail?id=78377) for more details.
