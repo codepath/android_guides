@@ -6,11 +6,25 @@ Often you'll find it is necessary to store certain options persistently througho
 
 In order to store data to the SharedPreferences you need to first instantiate an instance of the SharedPreferences like so.
 
+#### Specifying a Preference File
+
 ```java
 SharedPreferences mSettings = getActivity().getSharedPreferences("Settings", 0);
 ```
 
-The string Settings is the name of the settings file you wish to access. If it does not exist it will be created. The mode value of 0 designates the default behavior.
+The string `Settings` is the name of the preference file you wish to access. If it does not exist, it will be created. The mode value of 0 designates the default behavior, which is to allow read access to only to the application.  There are other read/write permissions that can be specified for other applications, but are no longer encouraged for security issues.  See [the Android documentation](http://developer.android.com/reference/android/content/Context.html#MODE_WORLD_READABLE) for more information.
+
+#### Using a Default Preferences File
+
+If you wish to have a common preference file and don't wish to specify a file, you can also use default shared preferences too:
+
+```java
+SharedPreferences mSettings = PreferenceManager.getDefaultSharedPreferences(getActivity());
+```
+
+Using this way will default the preference file to be stored as `/data/data/com.package.name/shared_prefs/com.package.name_preferences.xml`. 
+
+#### Editing Preferences
 
 The next step is to create an Editor instance of SharedPreferences like so.
 
