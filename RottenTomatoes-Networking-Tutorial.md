@@ -112,7 +112,7 @@ Make sure to download the two placeholder movie posters:
 src="http://i.imgur.com/o8Y6d6u.png/small_movie_poster.png" /></a>
 <a href="http://i.imgur.com/Z2MYNbj.png/large_movie_poster.png"><img src="http://i.imgur.com/Z2MYNbj.png/large_movie_poster.png" /></a>
 
-Copy and paste both [small_movie_poster.png](http://i.imgur.com/o8Y6d6u.png/small_movie_poster.png) and [large_movie_poster.png](http://i.imgur.com/Z2MYNbj.png/large_movie_poster.png) into `res/drawable` for use later.  You can drag and drop these files assuming you have selected the `Project` dropdown inside Android Studio.
+Copy and paste both [small_movie_poster.png](http://i.imgur.com/o8Y6d6u.png/small_movie_poster.png) and [large_movie_poster.png](http://i.imgur.com/Z2MYNbj.png/large_movie_poster.png) into `res/drawable` for use later.  You can drag and drop these files into the appropriate folders assuming you have selected the `Project` dropdown inside Android Studio.
 
 <img src="http://imgur.com/deqXuA6.png/" width=400>
 
