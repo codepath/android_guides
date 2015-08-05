@@ -27,7 +27,32 @@ The following diagram shows the important state paths of an Activity. The square
 | onDestroy() | Counterpart to `onCreate(...)`. This can be triggered because `finish()` was called on the activity or the system needed to free up some memory. |  It's common to do any cleanup here. For example, if the activity has a thread running in the background to download data from the network, it may create that thread in onCreate() and then stop the thread here in onDestroy() |
 | onRestart() | Called when the activity has been stopped, before it is started again | It isn't very common to need to implement this callback.    |
 
-Note: Make sure to always call up to the superclass implementation when overriding any of these methods.
+## Calling the super class
+
+When overriding any of the methods, you may need to call the superclass implementation.  The rule of thumb is that during initialization, you should always call the superclass first:
+
+```java
+
+public void onCreate() {
+   super.onCreate();
+   // do work after super class function
+   // setContentView(R.layout.main);
+}
+```
+
+During de-initialization, you should do the work first before calling the super class:
+
+```java
+
+public void onPause() {
+   // do work here first before super class function
+   // LocalBroadcastManager.getInstance(this).unregisterReceiver(mMessageReceiver);
+   super.onPause();
+}
+```
+
+See this [Stack Overflow article](http://stackoverflow.com/questions/16925579/android-implementation-of-lifecycle-methods-can-call-the-superclass-implementati) for more context.
 
 # References
 * http://developer.android.com/training/basics/activity-lifecycle/index.html
+
