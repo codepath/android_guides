@@ -86,6 +86,14 @@ each test run:
 
 ![image](http://i.imgur.com/iGqP85B.png)
 
+* Install the GenerateSerialVersionUID to allow you to use the same feature in Eclipse to auto-generate a unique ID for a Serializable class.  
+
+![image](https://cloud.githubusercontent.com/assets/326857/2773890/6abf6e7c-caa9-11e3-9077-b8c25fa0df25.png)
+
+You can then click on Code->Generate to SerialVersionUID:
+
+![image](https://cloud.githubusercontent.com/assets/326857/2773934/76540c56-caaa-11e3-928a-d9698c9c79d4.png)
+
 ## References
 
 * <http://www.androidsx.com/how-to-link-an-android-library-project-with-gradle-in-android-studio/>
