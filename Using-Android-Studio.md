@@ -82,14 +82,6 @@ each test run:
 
 * Get familiar with the Code->Generate, Code->Reformat, and Code->Optimize Imports options.  The first one will allow you to help generate getter and setter methods on your classes, saving you time from having to write boilerplate code.  The other two options help to tidy up your code.
 
-* Install the GenerateSerialVersionUID to allow you to use the same feature in Eclipse to auto-generate a unique ID for a Serializable class.  
-
-![image](https://cloud.githubusercontent.com/assets/326857/2773890/6abf6e7c-caa9-11e3-9077-b8c25fa0df25.png)
-
-You can then click on Code->Generate to SerialVersionUID:
-
-![image](https://cloud.githubusercontent.com/assets/326857/2773934/76540c56-caaa-11e3-928a-d9698c9c79d4.png)
-
 * If you are using Genymotion as the emulator, you may have issues trying to use other Android SDK tools such as the Hierarchy Viewer unless you go to Genymotion ADB settings and set the path to your SDK directory (i.e. for OSX, ~/Library/Android/sdk)
 
 ![image](http://i.imgur.com/iGqP85B.png)
