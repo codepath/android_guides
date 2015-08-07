@@ -547,3 +547,4 @@ The `SwipeRefreshLayout` should be used to refresh the contents of a `RecyclerVi
 * <https://developer.android.com/training/material/lists-cards.html>
 * <http://antonioleiva.com/recyclerview/>
 * <https://code.tutsplus.com/tutorials/getting-started-with-recyclerview-and-cardview-on-android--cms-23465>
+* <https://code.tutsplus.com/tutorials/introduction-to-the-new-lollipop-activity-transitions--cms-23711>
