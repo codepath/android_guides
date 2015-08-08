@@ -12,7 +12,17 @@ Thread management is important to understand because a custom service **still ru
 
 ## Thread Management
 
-### Understand the Main Thread
+As a result of the major problems with blocking the UI Thread outlined below, every Android app should **utilize background threads** to perform long-running tasks such as I/O operations including reading from or writing to the disk and performing network operations. However, there are **several different abstractions for managing threads in the Android framework**. The following table breaks down the most practical options:
+
+| Type            | Description                          | Built On |
+| --------------- | -----------------------------------  | -------- |
+| [[AsyncTask|Creating-and-Executing-Async-Tasks]] | Short sequential tasks to update UI within activity context  | `HandlerThread` |
+| `HandlerThread`   | Sequentially runs tasks on a single thread | `Handler`, `Looper` |
+| `ThreadPoolExecutor` | Concurrently runs tasks using a thread pool | `Executor`, `ExecutorService` |
+
+<img src="http://i.imgur.com/VekPWIr.png" width="500" />
+
+### Understanding the Main Thread
 
 When an application is launched, the system creates a thread of execution for the application, called "main." This thread is very important because it is in charge of dispatching events and rendering the user interface and is usually called the **UI thread**. All components (activities, services, etc) and their executed code run in the same process and are **instantiated by default in the UI thread**. 
 
@@ -20,14 +30,37 @@ When an application is launched, the system creates a thread of execution for th
 
 Keep in mind that performing long operations such as network access or database queries in the UI thread will block the entire app UI from responding. When the UI thread is blocked, no events can be dispatched, including drawing events. From the user's perspective, the application will appear to freeze. Additionally, keep in mind the **Android UI toolkit is not thread-safe** and as such you must **not manipulate your UI from a background thread**. 
 
-### Managing Worker Threads
+### Using HandlerThread
 
-As a result of the major problems with blocking the UI Thread outlined above, every Android app should **utilize background threads** to perform long-running tasks such as I/O operations including reading from or writing to the disk and performing network operations. However, there are **several different abstractions for managing threads in the Android framework**. The following table breaks down the most practical options:
+```java
+HandlerThread handlerThread = new HandlerThread("HandlerThread");
+handlerThread.start();
+ 
+// Create a handler attached to the HandlerThread's Looper
+mHandler = new Handler(handlerThread.getLooper()) {
+    @Override
+    public void handleMessage(Message msg) {
+        // Process messages here
+    }
+};
+ 
+// Now send messages using mHandler.sendMessage()
+```
 
-| Type            | Description                          |
-| --------------- | -----------------------------------  |
-| [[AsyncTask|Creating-and-Executing-Async-Tasks]] | Short sequential tasks to update UI within an activity context  |
-| 
+### Threading Glossary
+
+All threading management options within Android including `AsyncTask`, `HandlerThread` and `ThreadPoolExecutor` are all built on even more foundational classes that power threads. The following is a glossary of concepts that power threading within the Android OS:
+
+| Name      | Description |
+| ----      | ----------- |
+| `Runnable`  | Represents code that can be executed on any thread usually scheduled through a handler |
+| `Thread`    | Concurrent unit of execution which runs code specified in a `Runnable` |
+| `Message`   | Represents data that can be sent or received through a `Handler` |
+| `Handler`   | Processes `Runnable` or `Message` objects on a thread. |
+| `Looper`    | Loop that queues and sends `Runnable` or `Message` objects to a `Handler` |
+| `MessageQueue` | Stores the list of `Runnable` or `Message` objects dispatched by the `Looper` |
+
+For a more detailed description of these terms, check out this [excellent post on the subject](http://codetheory.in/android-handlers-runnables-loopers-messagequeue-handlerthread/).
 
 ## Custom Services
 
@@ -42,9 +75,6 @@ However, in certain specialized cases where you do need background tasks to be p
 * <http://developer.android.com/guide/components/services.html>
 * <http://developer.android.com/guide/components/processes-and-threads.html#Threads>
 * <http://developer.android.com/training/multiple-threads/index.html>
-* <http://developer.android.com/training/multiple-threads/define-runnable.html>
-* <http://developer.android.com/training/multiple-threads/create-threadpool.html>
-* <http://developer.android.com/training/multiple-threads/communicate-ui.html>
 * <http://www.techotopia.com/index.php/A_Basic_Overview_of_Android_Threads_and_Thread_handlers>
 * <http://codetheory.in/android-handlers-runnables-loopers-messagequeue-handlerthread/>
 * <http://stackoverflow.com/questions/7597742/what-is-the-purpose-of-looper-and-how-to-use-it>
@@ -56,3 +86,4 @@ However, in certain specialized cases where you do need background tasks to be p
 * <http://stackoverflow.com/questions/25246185/what-is-more-efficient-broadcast-receiver-or-handler>
 * <http://codetheory.in/android-interprocess-communication-ipc-messenger-remote-bound-services/>
 * <http://www.intertech.com/Blog/using-localbroadcastmanager-in-service-to-activity-communications/>
+* <http://blog.nikitaog.me/2014/10/11/android-looper-handler-handlerthread-i/>
