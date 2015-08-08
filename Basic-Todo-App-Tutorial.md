@@ -201,10 +201,10 @@ and now we are able to remove items from the list.
 
 First, we need to add the commons.io library into our gradle dependencies to make reading and writing easier.  
 
-```dependencies {
+    dependencies {
     compile "commons-io:commons-io:+"
-}
-```
+    }
+    
 
 Select `Tools => Android => Sync Project with Gradle Files` to reload the dependencies. 
 
