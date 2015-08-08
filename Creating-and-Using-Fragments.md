@@ -122,7 +122,7 @@ If the fragment should always be within the activity, use XML to statically add 
 
 ### Fragment Lifecycle
 
-Fragment has many methods which can be overridden to plug into the lifecycle (similar to an Activity):
+Fragment has many methods which can be overridden to plug into the lifecycle (**[similar to an Activity](http://developer.android.com/intl/es/guide/components/fragments.html#Lifecycle)**):
 
 - `onAttach()` is called when a fragment is connected to an activity.
 - `onCreate()` is called to do initial creation of the fragment.
