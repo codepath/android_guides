@@ -460,15 +460,9 @@ With this completed, our service will start automatically whenever the device bo
 
 ## Custom Services
 
-In 90% of cases when you need a background service, you will grab `IntentService` as your tool. However, `IntentService` does have a few limitations. The biggest limitation is that the `IntentService` uses a single worker thread to handle start requests **one at a time**. Therefore, as long as you don't require that your service handle multiple requests simultaneously, the `IntentService` is the best tool for the job.
+In 90% of cases when you need a background service, you will grab `IntentService` as your tool. However, `IntentService` does have a few limitations. The biggest limitation is that the `IntentService` uses a **single worker thread** to handle start requests **one at a time** and processes them serially. Therefore, as long as you don't require that your service handle multiple requests simultaneously, typically the `IntentService` is the best tool for the job.
 
-However, in certain specialized cases where you do need the requests to be processed in parallel, you cannot use `IntentService` and instead might want to extend from [Service](http://developer.android.com/reference/android/app/Service.html) directly. See the [Services guide](http://developer.android.com/guide/components/services.html) for more details on the basics of the `Service` and it's underlying behavior.
-
-Now that the base `Service` actually runs in the same process as the application in which it is declared and in the **main UI thread** of that application. To avoid impacting application performance, you have to manually manage your own threads for the Service.
-
-## Custom Threading
-
-In cases where we want to avoid services altogether, you might want to consider `Runnable` as a last resort. In 99% of cases, you will probably use a `Service` or `IntentService` but in that last 1% of cases, check [this article about threads](http://www.techotopia.com/index.php/A_Basic_Overview_of_Android_Threads_and_Thread_handlers) can get you started. In nearly all cases, the `IntentService` is the simplest and most robust option for background processing. Make sure you have a very good reason for implementing your own threading. Otherwise, fall back to the higher-level built in mechanisms provided by the Android framework.
+However, in certain specialized cases where you do need the requests to be processed in parallel, you cannot use `IntentService` and instead might want to [[extend from Service|Managing-Threads-and-Custom-Services]] directly. Note that the base `Service` by default **runs in the same process** as the application in which it is declared and in the **main UI thread** of that application. To avoid impacting application performance, you have to [[manage your own threading||Managing-Threads-and-Custom-Services]] within the Service.
 
 ## Concluding Background Services
 
