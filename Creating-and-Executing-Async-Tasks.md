@@ -44,6 +44,18 @@ private class MyAsyncTask extends AsyncTask<String, Void, Bitmap> {
          progressBar.setVisibility(ProgressBar.INVISIBLE);
      }
 }
+```
+
+### Executing the AsyncTask
+
+The worker once defined can be started anytime by creating an instance of the class and then invoke `.execute` to start the task:
+
+```java
+public void onCreate(Bundle b) {
+   // ...
+   // Initiate the background task
+   downloadImageAsync();
+}
 
 private void downloadImageAsync() {
     // Now we can execute the long-running task at any time.
@@ -51,7 +63,9 @@ private void downloadImageAsync() {
 }
 ```
 
-AsyncTask accept three generic types to inform the background work being done:
+### Understanding the AsyncTask
+
+AsyncTask accepts three generic types to inform the background work being done:
 
 * `AsyncTask<Params, Progress, Result>`
   * `Params` - the type that is passed into the execute() method.
