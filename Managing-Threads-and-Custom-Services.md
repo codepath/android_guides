@@ -10,6 +10,26 @@ This guide focuses on defining custom services including the various mechanisms 
 
 Thread management is important to understand because a custom service **still runs in your application's main thread by default**. If you create a custom `Service`, then you will still **need to manage the background threads** manually unless the [[IntentService|Starting-Background-Services]] is leveraged.
 
+## Thread Management
+
+### Understand the Main Thread
+
+When an application is launched, the system creates a thread of execution for the application, called "main." This thread is very important because it is in charge of dispatching events and rendering the user interface and is usually called the **UI thread**. All components (activities, services, etc) and their executed code run in the same process and are **instantiated by default in the UI thread**. 
+
+<img src="http://i.imgur.com/gOLOBYs.png" width="500" />
+
+Keep in mind that performing long operations such as network access or database queries in the UI thread will block the entire app UI from responding. When the UI thread is blocked, no events can be dispatched, including drawing events. From the user's perspective, the application will appear to freeze. Additionally, keep in mind the **Android UI toolkit is not thread-safe** and as such you must **not manipulate your UI from a background thread**. 
+
+### Managing Worker Threads
+
+As a result of the major problems with blocking the UI Thread outlined above, every Android app should **utilize background threads** to perform long-running tasks such as I/O operations including reading from or writing to the disk and performing network operations. However, there are **several different abstractions for managing threads in the Android framework**. The following table breaks down the most practical options:
+
+| Type            | Description                          |
+| --------------- | -----------------------------------  |
+| [[AsyncTask|Creating-and-Executing-Async-Tasks]] | Short sequential background tasks within an activity or fragment to update UI |
+
+## Custom Services
+
 ### Background Services with IntentService 
 
 In 90% of cases when you need a background service doing a task when your app is closed, you will [[leverage the IntentService|Starting-Background-Services]] as your first tool for the job. However, `IntentService` does have a few limitations. The biggest limitation is that the `IntentService` uses a **single worker thread** to handle start requests **one at a time**. However, as long as you don't require that your service handle multiple requests simultaneously, the `IntentService` is typically the easiest tool for the job.
