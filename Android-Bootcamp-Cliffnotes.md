@@ -93,14 +93,13 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Getting Started with Gradle]]
 
 ### Recommended
-* [[Genymotion 2.0 Emulators with Google Play support]]
+
+* [[Managing Threads and Custom Services]]
 * [[Extended ActionBar Guide]]
 * [[Menus and Popups]]
 * [[Using DialogFragment]]
+* [[Genymotion 2.0 Emulators with Google Play support]]
 * [[Common Navigation Paradigms]]
-  * [[Fragment ActionBar Tabs|ActionBar Tabs with Fragments]] Guide
-  * [[Fragment Navigation Drawer]] Guide
-  * [[ViewPager with FragmentPagerAdapter]] Guide
 * [[Implementing a Horizontal ListView Guide]]
  
 If there's anything else, feel free to suggest new cliffnotes and/or help contribute to them!
