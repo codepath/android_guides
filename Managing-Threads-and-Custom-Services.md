@@ -24,3 +24,14 @@ However, in certain specialized cases where you do need background tasks to be p
 * <http://developer.android.com/training/multiple-threads/define-runnable.html>
 * <http://developer.android.com/training/multiple-threads/create-threadpool.html>
 * <http://developer.android.com/training/multiple-threads/communicate-ui.html>
+* <http://www.techotopia.com/index.php/A_Basic_Overview_of_Android_Threads_and_Thread_handlers>
+* <http://codetheory.in/android-handlers-runnables-loopers-messagequeue-handlerthread/>
+* <http://stackoverflow.com/questions/7597742/what-is-the-purpose-of-looper-and-how-to-use-it>
+* <http://developer.android.com/reference/java/util/concurrent/ExecutorService.html>
+* <http://edisontus.blogspot.com/2014/01/simple-guide-to-executorservice.html>
+* <http://codetheory.in/android-java-executor-framework/>
+* <http://thegreyblog.blogspot.com/2011/12/using-threadpoolexecutor-to-parallelize.html>
+* <http://developer.android.com/guide/components/bound-services.html>
+* <http://stackoverflow.com/questions/25246185/what-is-more-efficient-broadcast-receiver-or-handler>
+* <http://codetheory.in/android-interprocess-communication-ipc-messenger-remote-bound-services/>
+* <http://www.intertech.com/Blog/using-localbroadcastmanager-in-service-to-activity-communications/>
