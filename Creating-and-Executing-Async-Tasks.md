@@ -87,7 +87,7 @@ An `AsyncTask` is tightly bound to a particular `Activity`. In other words, if t
 
 ### Custom Thread Management
 
-Using the `AsyncTask` is the easiest and most convenient way to manage background tasks from within an Activity. In cases where tasks need to be processed in parallel with more control, or the tasks **need to continue executing even when the activity leaves the screen**, you'll need to create a [[background service|Starting-Background-Services]] or even [[manage threaded operations|Managing-Threads-and-Custom-Services]] more manually. If you can work with the `AsyncTask` 
+Using the `AsyncTask` is the easiest and most convenient way to manage background tasks from within an Activity. However, in cases where tasks need to be processed in parallel with more control, or the tasks **need to continue executing even when the activity leaves the screen**, you'll need to create a [[background service|Starting-Background-Services]] or [[manage threaded operations|Managing-Threads-and-Custom-Services]] more manually.
 
 ## References
 
