@@ -199,9 +199,14 @@ and now we are able to remove items from the list.
 
 ### Persist Items to File
 
-First, we need to **load a third-party JAR file** to make reading and writing easier. First, download [commons-io-2.4.jar](https://www.dropbox.com/s/ynokptio9g49ig0/commons-io-2.4.jar) and copy and paste the file into the `libs` folder in Android Studio.
+First, we need to add the commons.io library into our gradle dependencies to make reading and writing easier.  
 
-Next, right-click on the jar within the lib folder and select `Add as Library...` and then hit `OK`. Then if you don't notice a sync happen, select `Tools => Android => Sync Project with Gradle Files` to reload the dependencies. 
+```dependencies {
+    compile "commons-io:commons-io:+"
+}
+```
+
+Select `Tools => Android => Sync Project with Gradle Files` to reload the dependencies. 
 
 With the library loaded, we need to define the methods to read and write the data to a file:
 
