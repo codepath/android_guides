@@ -207,7 +207,7 @@ Digging into how to run background services or leverage Android system services:
 * [[Push Messaging]] (Parse Push and Broadcast Receiver Overview)
 * [[Google Cloud Messaging]] (Detailed GCM Implementation)
 * [[Real-time Messaging]] (**Needs Attention**)
-* [[Managing Threads and Custom-Services]] (Service, Looper, Handler, ThreadPoolExecutor)
+* [[Managing Threads and Custom Services]] (Looper, Handler, ThreadPoolExecutor)
 
 ## Workflow Guides
 
