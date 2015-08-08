@@ -60,7 +60,7 @@ All threading management options within Android including `AsyncTask`, `HandlerT
 | `Looper`    | Loop that queues and sends `Runnable` or `Message` objects to a `Handler` |
 | `MessageQueue` | Stores the list of `Runnable` or `Message` objects dispatched by the `Looper` |
 
-For a more detailed description of these terms, check out this [excellent post on the subject](http://codetheory.in/android-handlers-runnables-loopers-messagequeue-handlerthread/).
+Note that often these objects are primarily used within the context of higher-order abstractions such as `AsyncTask`, `HandlerThread` and `ThreadPoolExecutor`. For a more detailed description of these basic building blocks, check out this [excellent post on the subject](http://codetheory.in/android-handlers-runnables-loopers-messagequeue-handlerthread/). 
 
 ## Custom Services
 
