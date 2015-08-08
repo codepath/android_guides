@@ -26,7 +26,8 @@ As a result of the major problems with blocking the UI Thread outlined above, ev
 
 | Type            | Description                          |
 | --------------- | -----------------------------------  |
-| [[AsyncTask|Creating-and-Executing-Async-Tasks]] | Short sequential background tasks within an activity or fragment to update UI |
+| [[AsyncTask|Creating-and-Executing-Async-Tasks]] | Short sequential tasks to update UI within an activity context  |
+| 
 
 ## Custom Services
 
