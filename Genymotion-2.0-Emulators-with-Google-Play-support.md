@@ -13,7 +13,7 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 4. Install the Genymotion Emulator
   * Windows: Run the MSI installer
   * Mac: Open the dmg and drag both apps to Applications directory
-5. Go to the Genymotion ADB settings and set the path to your SDK directory (i.e. for Mac OSX, the directory is `~/Library/Android/sdk`.  For Windows, all SDK files should be by default in 
+5. Go to the Genymotion ADB settings and set the path to your SDK directory (i.e. for Mac OSX, the directory is `/Users/[username]/Library/Android/sdk`.  For Windows, all SDK files should be by default in 
 `C:\Documents and Settings\<user>\AppData\Local\Android\sdk`)
 
    ![image](http://i.imgur.com/iGqP85B.png)
