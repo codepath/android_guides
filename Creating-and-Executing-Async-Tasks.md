@@ -81,7 +81,7 @@ AsyncTask has multiple events that can be overridden to control different behavi
  * `onProgressUpdate` - executed in the main thread when `publishProgress` is called from doInBackground.
  * `onPostExecute` - executed in the main thread to do things like set image views.
 
-## Limitations
+### Limitations
 
 An `AsyncTask` is tightly bound to a particular `Activity`. In other words, if the `Activity` is destroyed or the configuration changes then the `AsyncTask` will not be able to update the UI on completion. As a result, for short one-off background tasks **tightly coupled to updating an Activity**, we should consider using an `AsyncTask` as outlined above. A good example is for a several second network request that will populate data into a `ListView` within an activity.
 
