@@ -199,7 +199,7 @@ and now we are able to remove items from the list.
 
 ### Persist Items to File
 
-First, we need to add the commons.io library into our gradle dependencies to make reading and writing easier.  
+First, we need to add the commons.io library into our gradle.io file dependencies to make reading and writing easier.  
 
     dependencies {
     compile "commons-io:commons-io:+"
