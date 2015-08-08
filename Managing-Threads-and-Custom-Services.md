@@ -142,7 +142,7 @@ Note that the `ThreadPoolExecutor` is incredibly flexible and affords the develo
 
 ### Threading Glossary
 
-All threading management options within Android including `AsyncTask`, `HandlerThread` and `ThreadPoolExecutor` are all built on even more foundational classes that power threads. The following is a glossary of concepts that power threading within the Android OS:
+All threading management options within Android including `AsyncTask`, `HandlerThread` and `ThreadPoolExecutor` are all built on foundational classes that power threading. The following is a glossary of concepts that power threading within the Android OS:
 
 | Name      | Description |
 | ----      | ----------- |
@@ -162,6 +162,269 @@ Note that often these objects are primarily used within the context of higher-or
 In 90% of cases when you need a background service doing a task when your app is closed, you will [[leverage the IntentService|Starting-Background-Services]] as your first tool for the job. However, `IntentService` does have a few limitations. The biggest limitation is that the `IntentService` uses a **single worker thread** to handle start requests **one at a time**. However, as long as you don't require that your service handle multiple requests simultaneously, the `IntentService` is typically the easiest tool for the job.
 
 However, in certain specialized cases where you do need background tasks to be processed in parallel using a concurrent thread pool and as such you cannot use `IntentService` and must extend from [Service](http://developer.android.com/reference/android/app/Service.html) directly. The rest of this guide is focused on that particular use case.
+
+### Defining Custom Services
+
+First, you define a class within your application that extends `Service` and defines the `onHandleIntent` which describes the work to do when this intent is executed:
+
+```java
+import android.app.Service;
+
+public class MyCustomService extends Service {
+    public void onCreate() {
+        super.onCreate();
+        // Fires when a service is first initialized
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+       // Fires when a service is started up, do work here!
+       return START_STICKY;
+    }
+   
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
+
+    @Override
+    public void onDestroy() {
+       // Cleanup service before destruction
+    }
+}
+```
+
+At the core, this is all that is required to define the skeleton of a service. However, remember that the custom service **runs in your app's main thread and process by default**. We need to manage the background thread(s) that will execute tasks within our service. But first, let's register our service in the manifest.
+
+### Registering the Service
+
+Each service needs to be **registered in the manifest** for your app in `AndroidManifest.xml`:
+
+```xml
+<application
+        android:icon="@drawable/icon"
+        android:label="@string/app_name">
+
+        <service
+          android:name=".MyCustomService"
+          android:exported="false"/>
+<application/>
+```
+
+Notice that we specify this in the manifest file with the `name` and `exported` properties set. `exported` determines whether or not the service can be executed by other applications.
+
+### Threading within the Service
+
+If you create a custom `Service`, then you will **need to manage the background threading** yourself using the [[threading management options|Managing-Threads-and-Custom-Services#thread-management]] outlined in the earlier part of this guide. In particular, there are two options readily available:
+
+* **Sequential:** If you want the service to run a **single worker thread** sequentially processing tasks, [[use a HandlerThread|Managing-Threads-and-Custom-Services#using-a-handlerthread]].
+* **Concurrent:** If you want the service to run tasks concurrently within a thread pool, [[use a ThreadPoolExecute|Managing-Threads-and-Custom-Services#using-a-threadpoolexecutor]].
+
+For example, we are going to use a `HandlerThread` below to process the tasks in the background of the service:
+
+```java
+import android.os.Handler;
+import android.os.Looper;
+
+public class MyCustomService extends Service {
+    private volatile HandlerThread mHandlerThread;
+    private ServiceHandler mServiceHandler;
+
+    // Define how the handler will process messages
+    private final class ServiceHandler extends Handler {
+        public ServiceHandler(Looper looper) {
+            super(looper);
+        }
+
+        // Define how to handle any incoming messages here
+        @Override
+        public void handleMessage(Message message) {
+            // ...
+            // When needed, stop the service with
+            // stopSelf();
+        }
+    }
+
+    // Fires when a service is first initialized
+    public void onCreate() {
+        super.onCreate();
+        // An Android handler thread internally operates on a looper.
+        mHandlerThread = new HandlerThread("MyCustomService.HandlerThread");
+        mHandlerThread.start();
+        // An Android service handler is a handler running on a specific background thread.
+        mServiceHandler = new ServiceHandler(mHandlerThread.getLooper());
+    }
+
+    // Fires when a service is started up
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        // ...
+        return START_STICKY;
+    }
+
+    // Defines the shutdown sequence
+    @Override
+    public void onDestroy() {
+        // Cleanup service before destruction
+        mHandlerThread.quit();
+    }
+
+    // Binding is another way to communicate between service and activity
+    // Not needed here, local broadcasts will be used instead
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
+}
+```
+
+### Running Tasks in the Service
+
+The above code sets up the `HandlerThread` that allows background tasks to be performed. Next, we can either send a [Message](http://developer.android.com/reference/android/os/Message.html) or process a [Runnable](http://developer.android.com/reference/java/lang/Runnable.html) to execute code in the background with:
+
+```java
+public class MyCustomService extends Service {
+    private volatile HandlerThread mHandlerThread;
+    private ServiceHandler mServiceHandler;
+    // ...
+
+    // Fires when a service is started up
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        // Send empty message to background thread
+        mServiceHandler.sendEmptyMessageDelayed(0, 500);
+        // or run code in background
+        mServiceHandler.post((new Runnable() {
+            @Override
+            public void run() {
+                // Do something here in background!
+                // ...
+                // If desired, stop the service
+                stopSelf();
+            }
+        });
+        // Keep service around "sticky"
+        return START_STICKY;
+    }
+
+    // ...
+}
+```
+
+## Starting the Service
+
+Once we have defined the service, let's take a look at how to trigger the service and pass the service data. This is done using the same `Intent` system we are already familiar with. We simply create an intent like normal specifying the `Service` to execute:
+
+```java
+public class MainActivity extends Activity { 
+    // Call `launchTestService` to initiate the service
+    public void launchTestService() {
+        // Construct our Intent specifying the Service
+        Intent i = new Intent(this, MyCustomService.class);
+        // Add extras to the bundle
+        i.putExtra("foo", "bar");
+        // Start the service
+        startService(i);
+    }
+}
+```
+
+You can start the `Service` from any Activity or Fragment at any time during your application. Once you call `startService()`, the `Service` fires the method `onStartCommand()` method and runs until the service is explicitly shutdown.
+
+### Communicating with the Service
+
+If an `Activity` or other component wants to communicate with a service, the [LocalBroadcastManager](http://developer.android.com/reference/android/support/v4/content/LocalBroadcastManager.html) can be used. The service can send messages through a local broadcast that will be received by the `Activity`. A broadcast can be sent anytime to the activity from a service with:
+
+```java
+public class MyCustomService extends Service {
+    private ServiceHandler mServiceHandler;
+    // ...
+    private LocalBroadcastManager mLocalBroadcastManager;
+    public static final String ACTION = "com.my.app.MyCustomService";
+
+    // Fires when a service is first initialized
+    public void onCreate() {
+        super.onCreate();
+        // ... setting up handler thread from before
+        // Get access to local broadcast manager
+        mLocalBroadcastManager = LocalBroadcastManager.getInstance(this);
+    }
+
+    // Fires when a service is started up
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        mServiceHandler.post((new Runnable() {
+            @Override
+            public void run() {
+                // Send broadcast out with action filter and extras
+                Intent intent = new Intent(ACTION);
+                intent.putExtra("result", "baz");
+                mLocalBroadcastManager.sendBroadcast(intent);
+                // If desired, stop the service
+                stopSelf();
+            }
+        });
+        // Keep service around "sticky"
+        return START_STICKY;
+    }
+
+    // ...
+}
+```
+
+This service is now sending this local broadcast message to any component that wants to listen for these messages based on the `ACTION` namespace. Next, we need to construct a new `BroadcastReceiver`, register to listen and define the `onReceive` method to handle the messages within our `Activity`:
+
+```java
+public class MainActivity extends Activity {
+    // ...onCreate...
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Register for the particular broadcast based on ACTION string
+        IntentFilter filter = new IntentFilter(MyCustomService.ACTION);
+        LocalBroadcastManager.getInstance(this).registerReceiver(testReceiver, filter);
+        // or `registerReceiver(testReceiver, filter)` for a normal broadcast
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // Unregister the listener when the application is paused
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(testReceiver);
+        // or `unregisterReceiver(testReceiver)` for a normal broadcast
+    }
+
+    // Define the callback for what to do when message is received
+    private BroadcastReceiver testReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String result = intent.getStringExtra("result");
+            Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
+        }
+    };
+}
+```
+
+Keep in mind that any activity or other component in this app can listen for the messages using this same approach. This is what makes the `BroadcastReceiver` a powerful approach for communication between services and activities. 
+
+### Stopping the Service
+
+Note that when a service is started, it has a lifecycle that's **independent of the component that started it** and the service can run in the background indefinitely, even if the component that started it is destroyed. As such, the service should stop itself when its job is done by calling `stopSelf()`, or the activity (or other component) can stop it by calling `stopService()`.
+
+### Bound Services
+
+In the section above, we outlined how to communicate between an activity and a service using the [LocalBroadcastManager](http://developer.android.com/reference/android/support/v4/content/LocalBroadcastManager.html) to send and receive messages powered by the `Intent` messaging system. 
+
+Note that there is an additional concept of a [bound service](http://developer.android.com/guide/components/bound-services.html) which allows components (such as activities) to bind to the service, send requests, receive responses, and even perform interprocess communication (IPC). The bound service uses [AIDL](http://developer.android.com/guide/components/aidl.html) to communicate via an RPC protocol. 
+
+Since passing data using AIDL is quite tedious and verbose, the more efficient approach if bound communication is desired is to use the convenient [Messenger system](http://codetheory.in/android-interprocess-communication-ipc-messenger-remote-bound-services/) which wraps the binder into a much easier to use `Handler` object. 
+
+Note that in 99% of cases, the `LocalBroadcastManager` explained in a previous section should be favored to the bound `Messenger` approach to communication. In most cases, `LocalBroadcastManager` is just as fast, equally secure and significantly more robust. `Messenger`'s and `AIDL`'s are mainly used when your app needs to **communicate to other processes** via IPC. 
+
+### Learn More About Services
+
+There is quite a bit more that can be done to configure services. See the [official services guide](http://developer.android.com/guide/components/services.html) for more of that detail.
 
 ## References
 
