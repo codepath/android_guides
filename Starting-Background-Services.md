@@ -462,7 +462,7 @@ With this completed, our service will start automatically whenever the device bo
 
 In 90% of cases when you need a background service, you will grab `IntentService` as your tool. However, `IntentService` does have a few limitations. The biggest limitation is that the `IntentService` uses a **single worker thread** to handle start requests **one at a time** and processes them serially. Therefore, as long as you don't require that your service handle multiple requests simultaneously, typically the `IntentService` is the best tool for the job.
 
-However, in certain specialized cases where you do need the requests to be processed in parallel, you cannot use `IntentService` and instead might want to [[extend from Service|Managing-Threads-and-Custom-Services]] directly. Note that the base `Service` by default **runs in the same process** as the application in which it is declared and in the **main UI thread** of that application. To avoid impacting application performance, you have to [[manage your own threading||Managing-Threads-and-Custom-Services]] within the Service.
+However, in certain specialized cases where you do need the requests to be processed in parallel, you cannot use `IntentService` and instead might want to [[extend from Service|Managing-Threads-and-Custom-Services]] directly. Note that the base `Service` by default **runs in the same process** as the application in which it is declared and in the **main UI thread** of that application. To avoid impacting application performance, you have to [[manage your own threading|Managing-Threads-and-Custom-Services]] within the Service.
 
 ## Concluding Background Services
 
