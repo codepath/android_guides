@@ -12,7 +12,7 @@ Thread management is important to understand because a custom service **still ru
 
 ### Background Services with IntentService 
 
-In 90% of cases when you need a background service doing a task when your app is closed, you will leverage the [[IntentService|Starting-Background-Services]] as your first tool for the job. However, `IntentService` does have a few limitations. The biggest limitation is that the `IntentService` uses a **single worker thread** to handle start requests **one at a time**. However, as long as you don't require that your service handle multiple requests simultaneously, the `IntentService` is typically the easiest tool for the job.
+In 90% of cases when you need a background service doing a task when your app is closed, you will [[leverage the IntentService|Starting-Background-Services]] as your first tool for the job. However, `IntentService` does have a few limitations. The biggest limitation is that the `IntentService` uses a **single worker thread** to handle start requests **one at a time**. However, as long as you don't require that your service handle multiple requests simultaneously, the `IntentService` is typically the easiest tool for the job.
 
 However, in certain specialized cases where you do need background tasks to be processed in parallel using a concurrent thread pool and as such you cannot use `IntentService` and must extend from [Service](http://developer.android.com/reference/android/app/Service.html) directly. The rest of this guide is focused on that particular use case.
 
