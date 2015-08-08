@@ -7,7 +7,7 @@ This is typically used for long running tasks that cannot be done on UIThread, s
 1. **Pre** - Execute code on the UI thread before starting a task (e.g show ProgressBar)
 2. **Task** - Run a background task on a thread given certain inputs (e.g fetch data)
 3. **Updates** - Display progress updates during the task (optional)
-4. **Post** - Execute code on the UI thread following the completion of the task (e.g show data)
+4. **Post** - Execute code on UI thread following completion of the task (e.g show data)
 
 See [Displaying Remote Images the Hard Way](http://guides.codepath.com/android/Sending-and-Managing-Network-Requests#displaying-remote-images-the-hard-way) for an example of how AsyncTask can be used for retrieving a remote image.
 
