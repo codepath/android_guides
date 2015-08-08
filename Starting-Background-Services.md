@@ -96,7 +96,9 @@ Once we have defined the service, let's take a look at how to trigger the servic
 
 ```java
 public class MainActivity extends Activity { 
-    public void onStartService(View v) {
+    // Call `startService()` in the activity
+    // to startup the service
+    public void startService() {
         // Construct our Intent specifying the Service
         Intent i = new Intent(this, MyTestService.class);
         // Add extras to the bundle
