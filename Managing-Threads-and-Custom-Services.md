@@ -230,11 +230,11 @@ See the [Thread docs](https://developer.android.com/reference/java/lang/Thread.h
 
 #### Handler and Loopers
 
-A [Handler](http://developer.android.com/reference/android/os/Handler.html) manages the sending and processing of `Message` (data) or `Runnable` (code) objects to a [Looper](http://developer.android.com/reference/android/os/Looper.html) which is continuously enqueuing and processing incoming messages. As the `Looper` is dequeuing messages, the `Handler` also executes the messages or runnables as they get dispatched. Note that a `Handler` **requires a Looper to function**.
+A [Handler](http://developer.android.com/reference/android/os/Handler.html) manages the sending and processing of `Message` (data) or `Runnable` (code) objects to a [Looper](http://developer.android.com/reference/android/os/Looper.html) which is continuously enqueuing and processing incoming messages. As the `Looper` is dequeuing messages, the `Handler` also executes the messages or runnables as they get dispatched. Note that a `Handler` **requires a Looper to function**. Generally the following sequence occurs:
 
 1. `Handler` enqueues a `Message` or `Runnable` object onto the `MessageQueue`
-2. `Looper` pulls `Message`s off the queue in sequential order
-3. `Looper` dispatches the `Message` to the `Handler` to be processed
+2. `Looper` dequeues `Message`s off the `MessageQueue` in sequential order
+3. `Looper` dispatches the `Message` or `Runnable` to the `Handler` to be processed
 
 Note that the **UI Thread** that is the main thread within an app is a singleton `Looper` processing all incoming view-related events. The UI Looper can be accessed anytime with `Looper.getMainLooper()`. A `Handler` can therefore also be used to post code to be run on the main thread from any other threads running:
 
