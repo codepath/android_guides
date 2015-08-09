@@ -245,11 +245,11 @@ handler.post(new Runnable() {
 });
 ```
 
-Since this pattern is so common within an Activity, the [`Activity.runOnUiThread(Runnable action)` method](http://developer.android.com/reference/android/app/Activity.html#runOnUiThread\(java.lang.Runnable\)) simplifies the above code even further:
+See [this post by a developer at weddingparty](http://nerds.weddingpartyapp.com/tech/2014/06/20/primer-threading-handlers-android/) for better code samples. Since this pattern of accessing the UI thread's handler is so common within an Activity, the [`Activity.runOnUiThread(Runnable action)` method](http://developer.android.com/reference/android/app/Activity.html#runOnUiThread\(java.lang.Runnable\)) simplifies the above code even further:
 
 ```java
 // From within an Activity, 
-// usually within a worker thread
+// usually executed within a worker thread to update UI
 runOnUiThread(new Runnable(){
      public void run() {
           // UI code goes here
