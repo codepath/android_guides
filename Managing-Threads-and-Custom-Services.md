@@ -190,7 +190,7 @@ This will shutdown the executor safely once all runnables have been processed. T
 
 ### Threading Glossary
 
-All threading management options within Android including `AsyncTask`, `HandlerThread` and `ThreadPoolExecutor` are all built on foundational classes that power threading. The following is a glossary of concepts that power threading within the Android OS:
+All threading management options within Android including `AsyncTask`, `HandlerThread` and `ThreadPoolExecutor` are all built on several foundational classes that power threading within the Android OS:
 
 | Name           | Description |
 | ----           | ----------- |
