@@ -61,11 +61,11 @@ mHandler = new Handler(handlerThread.getLooper()) {
 };
 ```
 
-Now we can either send a [Message](http://developer.android.com/reference/android/os/Message.html) to pass data or process a [Runnable](http://developer.android.com/reference/java/lang/Runnable.html) to execute code. 
+Now we can enqueue either a [Message](http://developer.android.com/reference/android/os/Message.html) to pass data or process a [Runnable](http://developer.android.com/reference/java/lang/Runnable.html) to execute code. In either case, the enqueued object is added through the `Handler` into the `Looper`'s internal `MessageQueue` for processing.
 
 #### Executing Runnables on HandlerThread
 
-To execute code on the worker thread through the [handler](http://developer.android.com/reference/android/os/Handler.html):
+Once the `HandlerThread` is started, we can execute code on the worker thread through the [Handler](http://developer.android.com/reference/android/os/Handler.html):
 
 ```java
 // Execute the specified code on the worker thread
@@ -90,7 +90,7 @@ See the [Handler docs](http://developer.android.com/reference/android/os/Handler
 
 #### Processing Messages on HandlerThread 
 
-To send a [Message](http://developer.android.com/reference/android/os/Message.html) on the worker thread through the [Handler](http://developer.android.com/reference/android/os/Handler.html):
+Rather than running arbitrary code on the background thread using a `Runnable` as shown above, `Handler` can also enqueue messages with bundled information. To send a [Message](http://developer.android.com/reference/android/os/Message.html) on the worker thread through the [Handler](http://developer.android.com/reference/android/os/Handler.html):
  
 ```java
 // Secure a new message to send
@@ -117,7 +117,7 @@ In the code above, we invoke the `sendMessage` method on the handler to enqueue 
 | `sendEmptyMessageDelayed` | Sends Message to be delivered after the specified time elapses. |
 | `sendEmptyMessageAtTime`  | Sends Message to be delivered at the specified absolute time.   |
 
-See the [Handler docs](http://developer.android.com/reference/android/os/Handler.html) for more details.
+**Messages vs Runnables?** Often the purpose for a `Handler` accepting both `Runnable` and `Message` comes into question. Keep in mind that a [Runnable is simply a Message storing the codeblock](http://stackoverflow.com/a/22533988/313399) and that both are contained within the same [MessageQueue](http://developer.android.com/reference/android/os/MessageQueue.html) to be processed. However, one advantage of a `Message` is that a class sending one to a `Handler` doesn't necessarily need to [know anything about the implementation](http://stackoverflow.com/a/20205625/313399) which can enable better encapsulation.
 
 #### Stopping the HandlerThread
 
@@ -137,6 +137,8 @@ On API >= 18, we should use `quitSafely()` instead to finish processing pending 
 
 [ThreadPoolExecutor](http://developer.android.com/reference/java/util/concurrent/ThreadPoolExecutor.html) is a great way to **execute parallelized tasks across multiple different threads** within a limited thread pool. If you want to execute work concurrently and retain control over how the work is executed, this is the tool for the job. 
 
+#### Constructing the ThreadPoolExecutor
+
 Using a `ThreadPoolExecutor` starts with [constructing a new instance along with many arguments](http://developer.android.com/reference/java/util/concurrent/ThreadPoolExecutor.html#ThreadPoolExecutor\(int, int, long, java.util.concurrent.TimeUnit, java.util.concurrent.BlockingQueue<java.lang.Runnable>\)) configuring the thread pool:
 
 ```java
@@ -154,6 +156,10 @@ ThreadPoolExecutor executor = new ThreadPoolExecutor(
 );
 ```
 
+See additional options for control by reviewing [this advanced guide](http://thegreyblog.blogspot.com/2011/12/using-threadpoolexecutor-to-parallelize.html).
+
+#### Executing Runnables on ThreadPoolExecutor
+
 Next, we can queue up a `Runnable` code block to execute on a thread in the pool with:
 
 ```java
@@ -166,7 +172,13 @@ executor.execute(new Runnable() {
 });
 ```
 
-Threads are used to process each runnable concurrently as the message is received until all threads are busy. If all threads are currently busy, the `Executor` will queue a new task until a thread becomes available. The thread pool can be shutdown any time with the [shutdown](http://developer.android.com/reference/java/util/concurrent/ThreadPoolExecutor.html#shutdown\(\)) command:
+Threads are used to process each runnable concurrently as the message is received until all threads are busy. If all threads are currently busy, the `Executor` will queue a new task until a thread becomes available.
+
+Note that the `ThreadPoolExecutor` is incredibly flexible and affords the developer significant control over all aspects of how tasks are executed. For a more comprehensive overview of `ThreadPoolExecutor` and all underlying components, check out [this excellent tutorial](http://codetheory.in/android-java-executor-framework/) by codetheory.  
+
+#### Stopping the ThreadPoolExecutor
+
+The thread pool can be shutdown any time with the [shutdown](http://developer.android.com/reference/java/util/concurrent/ThreadPoolExecutor.html#shutdown\(\)) command:
 
 ```java
 executor.shutdown();
@@ -174,22 +186,47 @@ executor.shutdown();
 
 This will shutdown the executor safely once all runnables have been processed. To shut down the executor immediately, instead use `executor.shutdownNow()`.
 
-Note that the `ThreadPoolExecutor` is incredibly flexible and affords the developer significant control over all aspects of how tasks are executed. For a more comprehensive overview of `ThreadPoolExecutor` and all underlying components, check out [this excellent tutorial](http://codetheory.in/android-java-executor-framework/) by codetheory. See additional options for control by reviewing [this advanced guide](http://thegreyblog.blogspot.com/2011/12/using-threadpoolexecutor-to-parallelize.html). 
-
 ### Threading Glossary
 
 All threading management options within Android including `AsyncTask`, `HandlerThread` and `ThreadPoolExecutor` are all built on foundational classes that power threading. The following is a glossary of concepts that power threading within the Android OS:
 
-| Name      | Description |
-| ----      | ----------- |
-| `Runnable`  | Represents code that can be executed on any thread usually scheduled through a handler |
-| `Thread`    | Concurrent unit of execution which runs code specified in a `Runnable` |
-| `Message`   | Represents data that can be sent or received through a `Handler` |
-| `Handler`   | Processes `Runnable` or `Message` objects on a thread. |
-| `Looper`    | Loop that processes and sends `Runnable` or `Message` objects to a `Handler` |
+| Name           | Description |
+| ----           | ----------- |
+| `Runnable`     | Represents code that can be executed on any `Thread`.  |
+| `Thread`       | Concurrent unit of execution which runs code specified in a `Runnable` |
+| `Message`      | Represents data that can be sent or received through a `Handler` |
+| `Handler`      | Processes `Runnable` or `Message` objects on a `Thread`. |
+| `Looper`       | Loop that processes and sends `Runnable` or `Message` objects to a `Handler` |
 | `MessageQueue` | Stores the list of `Runnable` or `Message` objects dispatched by the `Looper` |
 
-Note that often these objects are primarily used within the context of higher-order abstractions such as `AsyncTask`, `HandlerThread` and `ThreadPoolExecutor`. For a more detailed description of these basic building blocks, check out this [excellent post on the subject](http://codetheory.in/android-handlers-runnables-loopers-messagequeue-handlerthread/). 
+Note that often these objects are primarily used within the context of higher-order abstractions such as `AsyncTask`, `HandlerThread` and `ThreadPoolExecutor`. A brief overview of these underlying concepts can be found below. For a more detailed description of these basic building blocks, check out this [excellent post on the subject](http://codetheory.in/android-handlers-runnables-loopers-messagequeue-handlerthread/). 
+
+#### Runnable
+
+A `Runnable` represents code that can be executed on a thread usually scheduled through a `Handler`. Runnables is an abstract class that has a [`run` method to implement](https://developer.android.com/reference/java/lang/Runnable.html#run\(\)).   
+
+```java
+Runnable taskToRun = new Runnable() {
+    @Override
+    public void run() {
+        // The code to execute when the runnable is processed by a thread
+    }
+};
+```
+
+Refer to [this guide on defining runnables](https://developer.android.com/training/multiple-threads/define-runnable.html) for additional context.
+
+#### Thread
+
+A `Thread` is a concurrent unit of execution which runs code specified in a `Runnable`. The `Runnable` defined above `taskToRun` can be executed using a `Thread`:
+
+```java
+// P
+Thread thread = new Thread(taskToRun);
+thread.start();
+```
+
+See the [Thread docs](https://developer.android.com/reference/java/lang/Thread.html) for more details.
 
 ## Custom Services
 
