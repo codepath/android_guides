@@ -15,7 +15,7 @@ In short, throughout this guide keep in mind two important rules:
 * Do not run long tasks on the main thread (to avoid blocking the UI)
 * Do not change the UI at all from a background thread (only the main thread)
 
-For additional details about how the UI Thread is constructed, refer to the [[handlers and loopers section|Managing-Threads-and-Custom-Services#handlers-and-loopers]]. Next, let's understand the connection between services and threading.
+For additional details about how the UI Thread is constructed, refer to the [[handlers and loopers section|Managing-Threads-and-Custom-Services#handler-and-loopers]]. Next, let's understand the connection between services and threading.
 
 ### Services and Threading
 
