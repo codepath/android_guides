@@ -15,7 +15,7 @@ In short, throughout this guide keep in mind two important rules:
 * Do not run long tasks on the main thread (to avoid blocking the UI)
 * Do not change the UI at all from a background thread (only the main thread)
 
-Next, let's understand the connection between services and threading.
+For additional details about how the UI Thread is constructed, refer to the [[handlers and loopers section|Managing-Threads-and-Custom-Services#handlers-and-loopers]]. Next, let's understand the connection between services and threading.
 
 ### Services and Threading
 
@@ -221,12 +221,43 @@ Refer to [this guide on defining runnables](https://developer.android.com/traini
 A `Thread` is a concurrent unit of execution which runs code specified in a `Runnable`. The `Runnable` defined above `taskToRun` can be executed using a `Thread`:
 
 ```java
-// P
+// Start a new thread to execute the runnable codeblock
 Thread thread = new Thread(taskToRun);
 thread.start();
 ```
 
-See the [Thread docs](https://developer.android.com/reference/java/lang/Thread.html) for more details.
+See the [Thread docs](https://developer.android.com/reference/java/lang/Thread.html) for more details on configuring the priority or other behavior.
+
+#### Handler and Loopers
+
+A [Handler](http://developer.android.com/reference/android/os/Handler.html) manages the sending and processing of `Message` (data) or `Runnable` (code) objects to a [Looper](http://developer.android.com/reference/android/os/Looper.html) which is continuously enqueuing and processing incoming messages. As the `Looper` is dequeuing messages, the `Handler` also executes the messages or runnables as they get dispatched. Note that a `Handler` **requires a Looper to function**.
+
+Note that the **UI Thread** that is the main thread within an app is a singleton `Looper` processing all incoming view-related events. The UI Looper can be accessed anytime with `Looper.getMainLooper()`. A `Handler` can therefore also be used to post code to be run on the main thread from any other threads running:
+
+```java
+// Create a handler attached to the UI Looper
+Handler handler = new Handler(Looper.getMainLooper());
+// Post code to run on the main UI Thread (usually invoked from worker thread)
+handler.post(new Runnable() {
+     public void run() {
+          // UI code goes here
+     }
+});
+```
+
+Since this pattern is so common within an Activity, the [`Activity.runOnUiThread(Runnable action)` method](http://developer.android.com/reference/android/app/Activity.html#runOnUiThread\(java.lang.Runnable\)) simplifies the above code even further:
+
+```java
+// From within an Activity, 
+// usually within a worker thread
+runOnUiThread(new Runnable(){
+     public void run() {
+          // UI code goes here
+     }
+});
+```
+
+Note that the `Handler` supports additional "scheduling" commands to execute runnable code blocks after a short delay or at a specified future time. A `Handler` can also invoke itself recursively to [[repeat periodic tasks|Repeating-Periodic-Tasks#handler]] (i.e polling for new updates) within an app.
 
 ## Custom Services
 
