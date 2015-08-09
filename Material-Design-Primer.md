@@ -43,6 +43,10 @@ Change your application theme to extend from a `Theme.Appcompat` theme in the `v
 </style>
 ``` 
 
+These colors correspond to the following diagram:
+
+<img src="https://developer.android.com/training/material/images/ThemeColors.png" width="300"/>
+
 The available `Theme.Appcompat` which support material design include the following: `Theme.AppCompat`, `Theme.AppCompat.Light`, `Theme.AppCompat.Light.DarkActionBar`, `Theme.AppCompat.DeviceDefault`, `Theme.AppCompat.DeviceDefault.Light`, `Theme.AppCompat.DeviceDefault.Light.DarkActionBar`.
 
 ### Extend Activities from AppCompatActivity
