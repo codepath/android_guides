@@ -548,3 +548,4 @@ There is quite a bit more that can be done to configure services. See the [offic
 * <http://www.intertech.com/Blog/using-localbroadcastmanager-in-service-to-activity-communications/>
 * <http://blog.nikitaog.me/2014/10/11/android-looper-handler-handlerthread-i/>
 * <http://blog.denevell.org/android-service-handler-tutorial.html>
+* <http://nerds.weddingpartyapp.com/tech/2014/06/20/primer-threading-handlers-android/>
