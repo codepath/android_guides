@@ -269,7 +269,7 @@ However, in certain specialized cases where you do need background tasks to be p
 
 ### Defining Custom Services
 
-First, you define a class within your application that extends `Service` and defines the `onHandleIntent` which describes the work to do when this intent is executed:
+First, you define a class within your application that extends `Service` and defines the `onStartCommand` which describes the work to do when this intent is executed:
 
 ```java
 import android.app.Service;
