@@ -33,8 +33,6 @@ As a result of the major problems with blocking the UI thread outlined above, ev
 | `HandlerThread` | Sequentially runs tasks on a single thread | `Handler`, `Looper` |
 | `ThreadPoolExecutor` | Concurrently runs tasks using a thread pool | `Executor`, `ExecutorService` |
 
-<img src="http://i.imgur.com/VekPWIr.png" width="500" />
-
 ### Using an AsyncTask
 
 [[AsyncTask|Creating-and-Executing-Async-Tasks]] allows for short sequential tasks to be performed within an activity context in the easiest way possible. Often the `AsyncTask` is used to run a background task, report progress and then update the UI thread with the results. `AsyncTask` is designed as a helper class around the [ThreadPoolExecutor](http://developer.android.com/reference/java/util/concurrent/ThreadPoolExecutor.html) which removes the need for a user to be exposed to threads and operations directly. See the [AsyncTask source code](https://github.com/android/platform_frameworks_base/blob/master/core/java/android/os/AsyncTask.java#L200) if you are curious about how this class was implemented.
@@ -198,6 +196,8 @@ All threading management options within Android including `AsyncTask`, `HandlerT
 | `Handler`      | Processes `Runnable` or `Message` objects on a `Thread`. |
 | `Looper`       | Loop that processes and sends `Runnable` or `Message` objects to a `Handler` |
 | `MessageQueue` | Stores the list of `Runnable` or `Message` objects dispatched by the `Looper` |
+
+<img src="http://i.imgur.com/VekPWIr.png" width="500" />
 
 Note that often these objects are primarily used within the context of higher-order abstractions such as `AsyncTask`, `HandlerThread` and `ThreadPoolExecutor`. A brief overview of these underlying concepts can be found below. For a more detailed description of these basic building blocks, check out this [excellent post on the subject](http://codetheory.in/android-handlers-runnables-loopers-messagequeue-handlerthread/). 
 
