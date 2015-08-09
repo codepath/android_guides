@@ -61,7 +61,11 @@ mHandler = new Handler(handlerThread.getLooper()) {
 };
 ```
 
-Now we can either send a [Message](http://developer.android.com/reference/android/os/Message.html) to pass data or process a [Runnable](http://developer.android.com/reference/java/lang/Runnable.html) to execute code. To execute code on the worker thread through the [handler](http://developer.android.com/reference/android/os/Handler.html):
+Now we can either send a [Message](http://developer.android.com/reference/android/os/Message.html) to pass data or process a [Runnable](http://developer.android.com/reference/java/lang/Runnable.html) to execute code. 
+
+#### Executing Runnables on HandlerThread
+
+To execute code on the worker thread through the [handler](http://developer.android.com/reference/android/os/Handler.html):
 
 ```java
 // Execute the specified code on the worker thread
@@ -73,7 +77,20 @@ mHandler.post(new Runnable() {
 });
 ```
 
-To send a [message](http://developer.android.com/reference/android/os/Message.html) on the worker thread through the [handler](http://developer.android.com/reference/android/os/Handler.html):
+In the code above, we invoke the `post` method on the handler to enqueue a `Runnable` to be executed as soon as possible. The `Handler` class supports several other ways to schedule a `Runnable` to be processed at a future time:
+
+| Method                | Description |
+| ------                | ----------- |
+| `post`                | Immediately enqueue Runnable to be executed. |
+| `postAtTime`          | Enqueue Runnable to execute at absolute time specified in millis. |
+| `postDelayed`         | Enqueue Runnable to execute after the specified delay in millis.  |
+| `postAtFrontOfQueue`  | Immediately enqueue Runnable to the front to be executed.         |
+
+See the [Handler docs](http://developer.android.com/reference/android/os/Handler.html) for more details.
+
+#### Processing Messages on HandlerThread 
+
+To send a [Message](http://developer.android.com/reference/android/os/Message.html) on the worker thread through the [Handler](http://developer.android.com/reference/android/os/Handler.html):
  
 ```java
 // Secure a new message to send
@@ -85,7 +102,24 @@ b.putString("message", "foo");
 message.setData(b);
 // Send message through the handler
 mHandler.sendMessage(message);
+// or instead send an empty message with
+// mHandler.sendEmptyMessage(0);
 ```
+
+In the code above, we invoke the `sendMessage` method on the handler to enqueue a `Message` to be processed as soon as possible. The `Handler` class supports several other ways to schedule a `Message` to be processed at a future time:
+
+| Method                    | Description |
+| ------                    | ----------- |
+| `sendMessage`             | Pushes a message onto the end of the message queue. |
+| `sendMessageDelayed`      | Pushes a message onto the end of the message queue. |
+| `sendMessageAtTime`       | Pushes a message onto the end of the message queue. |
+| `sendEmptyMessage`        | Sends Message containing only a single int code.  |
+| `sendEmptyMessageDelayed` | Sends Message to be delivered after the specified time elapses. |
+| `sendEmptyMessageAtTime`  | Sends Message to be delivered at the specified absolute time.   |
+
+See the [Handler docs](http://developer.android.com/reference/android/os/Handler.html) for more details.
+
+#### Stopping the HandlerThread
 
 The worker thread can be stopped immediately with:
 
@@ -95,7 +129,9 @@ handlerThread.quit(); // On API >= 1
 
 On API >= 18, we should use `quitSafely()` instead to finish processing pending messages before shutting down.
 
-**Caveats:** `HandlerThread` is great for running tasks linearly (sequentially) on a thread and affords the developer control over how and when messages and runnables are processed by exposing access to the underlying `Looper` and `Handler`. However, if we need the ability to run tasks concurrently with one another, then we should use a `ThreadPoolExecutor` which helps us to manage a thread pool to execute the tasks in parallel.
+#### HandlerThread Caveats
+
+`HandlerThread` is great for running tasks linearly (sequentially) on a thread and affords the developer control over how and when messages and runnables are processed by exposing access to the underlying `Looper` and `Handler`. However, if we need the ability to run tasks concurrently with one another, then we should use a `ThreadPoolExecutor` which helps us to manage a thread pool to execute the tasks in parallel.
 
 ### Using a ThreadPoolExecutor
 
