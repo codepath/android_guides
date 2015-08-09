@@ -117,7 +117,7 @@ In the code above, we invoke the `sendMessage` method on the handler to enqueue 
 | `sendEmptyMessageDelayed` | Sends Message to be delivered after the specified time elapses. |
 | `sendEmptyMessageAtTime`  | Sends Message to be delivered at the specified absolute time.   |
 
-The "empty message" still [contains a single int value](http://stackoverflow.com/questions/15338977/what-does-zero-mean-in-handler-sendemptymessage0) representing the type of message. Empty messages can be used for simple handlers receiving a "refresh" or "notify" type message not requiring additional data.
+The "empty message" still [contains a single int value](http://stackoverflow.com/a/15339106/313399) representing the type of message. Empty messages can be used for simple handlers receiving a "refresh" or "notify" type message not requiring additional data.
 
 **Messages vs Runnables?** Often the purpose for a `Handler` accepting both `Runnable` and `Message` comes into question. Keep in mind that a [Runnable is simply a Message storing the codeblock](http://stackoverflow.com/a/22533988/313399) and that both are contained within the same [MessageQueue](http://developer.android.com/reference/android/os/MessageQueue.html) to be processed. However, one advantage of a `Message` is that a class sending one to a `Handler` doesn't necessarily need to [know anything about the implementation](http://stackoverflow.com/a/20205625/313399) which can enable better encapsulation.
 
