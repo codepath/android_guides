@@ -11,7 +11,7 @@ Recommended methods are outlined below.
 
 ### Handler
 
-Using a handler to execute `Runnable` code involves creating a `Handler` and then "posting" messages to the event message queue on the thread.
+We can use a [Handler](http://developer.android.com/reference/android/os/Handler.html) to repeat code at an interval by constructing a `Handler` and then "posting" `Runnable` code to the event message queue on the thread to be processed.
 
 <img src="http://i.imgur.com/2vg53fk.png" alt="handler" width="450" />
 
@@ -21,19 +21,19 @@ Using a handler to execute a periodic runnable task is demonstrated below:
 // We need to use this Handler package
 import android.os.Handler;
 
-// Create the Handler object 
+// Create the Handler object (on the main thread by default)
 Handler handler = new Handler();
 // Define the task to be run here
 private Runnable runnableCode = new Runnable() {
     @Override
     public void run() {
-      // Do something here
+      // Do something here on the main thread
       Log.e("Handlers", "Called");
-      // Repeat this runnable code block again every 2 seconds
+      // Repeat this runnable code again every 2 seconds
       handler.postDelayed(runnableCode, 2000);
     }
 };
-// Execute a runnable task as soon as possible
+// Kick off the first runnable task right away
 handler.post(runnableCode);
 ```
 
@@ -44,7 +44,9 @@ Remove the scheduled execution of a runnable with:
 handler.removeCallbacks(runnableCode);
 ```
 
-Note that with a `Handler`, the `Runnable` executes in `UIThread` so you can safely update the user interface within the runnable code block. see [this handler post](http://www.mopri.de/2010/timertask-bad-do-it-the-android-way-use-a-handler/) and [this other handler post](http://androidtrainningcenter.blogspot.in/2013/12/handler-vs-timer-fixed-period-execution.html) for reference.
+Note that with a `Handler`, the `Runnable` executes in `UIThread` by default so you can safely update the user interface within the runnable code block. See [this handler post](http://www.mopri.de/2010/timertask-bad-do-it-the-android-way-use-a-handler/) and [this other handler post](http://androidtrainningcenter.blogspot.in/2013/12/handler-vs-timer-fixed-period-execution.html) for reference.
+
+Refer to our [[threads and handlers guide|Managing-Threads-and-Custom-Services#handler-and-loopers]] for a more advanced breakdown. 
 
 ### ScheduledThreadPoolExecutor
 
