@@ -29,7 +29,7 @@ As a result of the major problems with blocking the UI thread outlined above, ev
 
 | Type            | Description                          | Built On |
 | --------------- | -----------------------------------  | -------- |
-| `AsyncTask`     |  Sequentially runs short tasks updating the UI | `HandlerThread` |
+| `AsyncTask`     |  Sequentially runs short tasks updating the UI | `Handler`, `Thread` |
 | `HandlerThread` | Sequentially runs tasks on a single thread | `Handler`, `Looper` |
 | `ThreadPoolExecutor` | Concurrently runs tasks using a thread pool | `Executor`, `ExecutorService` |
 
