@@ -124,7 +124,7 @@ In the code above, we invoke the `sendMessage` method on the handler to enqueue 
 The worker thread can be stopped immediately with:
 
 ```java
-handlerThread.quit(); // On API >= 1
+handlerThread.quit(); // quits immediately
 ```
 
 On API >= 18, we should use `quitSafely()` instead to finish processing pending messages before shutting down.
