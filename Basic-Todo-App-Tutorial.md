@@ -199,12 +199,13 @@ and now we are able to remove items from the list.
 
 ### Persist Items to File
 
-First, we need to add the commons.io library into our gradle.io file dependencies to make reading and writing easier.  
+First, we need to add the `commons.io` library into our gradle file dependencies to make reading and writing easier by modifying `app/build.gradle`:
 
-    dependencies {
+```gradle
+dependencies {
     compile "commons-io:commons-io:+"
-    }
-    
+}
+```
 
 Select `Tools => Android => Sync Project with Gradle Files` to reload the dependencies. 
 
