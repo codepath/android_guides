@@ -27,9 +27,9 @@ Thread management is important to understand because a custom service **still ru
 
 As a result of the major problems with blocking the UI thread outlined above, every Android app should **utilize background threads** to perform all long-running tasks such as reading from or writing to the disk or performing network operations. However, there are **several different abstractions for managing threads in the Android framework**. The following table breaks down the most practical options for running background tasks:
 
-| Type            | Description                          | Built On |
-| --------------- | -----------------------------------  | -------- |
-| `AsyncTask`     |  Sequentially runs short tasks updating the UI | `Handler`, `Thread` |
+| Type            | Description                                    | Built On |
+| --------------- | -----------------------------------            | -------- |
+| `AsyncTask`     |  Sequentially runs short tasks updating the UI | `ThreadPoolExecutor` |
 | `HandlerThread` | Sequentially runs tasks on a single thread | `Handler`, `Looper` |
 | `ThreadPoolExecutor` | Concurrently runs tasks using a thread pool | `Executor`, `ExecutorService` |
 
@@ -283,6 +283,9 @@ public class MyCustomService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
        // Fires when a service is started up, do work here!
+       // ...
+       // Return "sticky" for services that are explicitly 
+       // started and stopped as needed by the app. 
        return START_STICKY;
     }
    
@@ -297,6 +300,8 @@ public class MyCustomService extends Service {
     }
 }
 ```
+
+Note that [onStartCommand](http://developer.android.com/reference/android/app/Service.html#onStartCommand\(android.content.Intent, int, int\)) is the method that is triggered when an intent triggers the service. The method `onStartCommand` requires a int representing  the "mode of operation". There are two additional major modes of operation: `START_STICKY` is used for services that are [explicitly started and stopped as needed](http://developer.android.com/reference/android/app/Service.html#START_STICKY), while `START_NOT_STICKY` or `START_REDELIVER_INTENT` are used for services that should only remain running while processing any commands sent to them. 
 
 At the core, this is all that is required to define the skeleton of a service. However, remember that the custom service **runs in your app's main thread and process by default**. We need to manage the background thread(s) that will execute tasks within our service. But first, let's register our service in the manifest.
 
