@@ -90,11 +90,10 @@ client.get(url, params, new JsonHttpResponseHandler() {
        // Handle resulting parsed JSON response here
     }
 
-    @Override
-    public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
-       // Root JSON in response is an array i.e [ { ... }, { ... } ] 
-       // Handle resulting parsed JSON response here
-    }
+        @Override
+        public void onFailure(int statusCode, Header[] headers, String res, Throwable t) {
+            // called when response HTTP status is "4XX" (eg. 401, 403, 404)
+        }
 });
 ```
 
