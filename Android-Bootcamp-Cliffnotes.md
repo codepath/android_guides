@@ -9,6 +9,8 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Using String Resources]]
 * [[Constructing View Layouts]]
 * [[Defining Views and their Attributes]] 
+* [[Using Context]]
+* [[Understanding the Activity Lifecycle|The Activity Lifecycle]]
 * [[Working with the TextView]]
 * [[Working with the EditText]]
 * [[Working with the ImageView]]
@@ -94,6 +96,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 
 ### Recommended
 
+* [[Handling Configuration Changes]]
 * [[Managing Threads and Custom Services]]
 * [[Extended ActionBar Guide]]
 * [[Menus and Popups]]
