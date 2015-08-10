@@ -98,18 +98,21 @@ Photos taken with the Camera intent are often quite large. After taking a photo,
 
 When using the Camera intent to capture a photo, the picture is always taken in the orientation the camera is built into the device. To get your image rotated correctly you'll have to read the orientation information that is stored into the picture (EXIF meta data) and perform the following transformation:
 
-NOTE `file` is the name of the image file
-
 ```java
 public Bitmap rotateBitmapOrientation(String photoFilePath) {
     // Create and configure BitmapFactory
     BitmapFactory.Options bounds = new BitmapFactory.Options();
     bounds.inJustDecodeBounds = true;
-    BitmapFactory.decodeFile(file, bounds);
+    BitmapFactory.decodeFile(photoFilePath, bounds);
     BitmapFactory.Options opts = new BitmapFactory.Options();
-    Bitmap bm = BitmapFactory.decodeFile(file, opts);
+    Bitmap bm = BitmapFactory.decodeFile(photoFilePath, opts);
     // Read EXIF Data
-    ExifInterface exif = new ExifInterface(file);
+    ExifInterface exif = null;
+    try {
+      exif = new ExifInterface(photoFilePath);
+     } catch (IOException e) {
+      e.printStackTrace();
+     }
     String orientString = exif.getAttribute(ExifInterface.TAG_ORIENTATION);
     int orientation = orientString != null ? Integer.parseInt(orientString) : ExifInterface.ORIENTATION_NORMAL;
     int rotationAngle = 0;
