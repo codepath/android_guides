@@ -175,7 +175,7 @@ Bunny bunny = cupboard().withDatabase(db).query(Bunny.class).get();
 Cursor bunnies = cupboard().withDatabase(db).query(Bunny.class).getCursor();
 try {
   // Iterate Bunnys
-  QueryResultIterable<Bunny> itr = cupboard().withDatabase(db).query(Bunny.class).iterate();
+  QueryResultIterable<Bunny> itr = cupboard().withCursor(bunnies).iterate(Bunny.class);
   for (Bunny bunny : itr) {
     // do something with bunny
   }
