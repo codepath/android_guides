@@ -53,7 +53,21 @@ Every view has many different attributes which can be applied to manage various 
 * Certain properties are shared across many views such as `android:layout_width`
 * Other properties are based on a view's function such as `android:textColor`
 
-An example of setting view attributes:
+Common view attributes include:
+
+| Attribute             | Description               | Example Value |
+| ---------             | ------------              | ------------  |
+| `android:background`  | Background for the view   | `#ffffff`             |
+| `android:id`          | Unique identifying label      | `@+id/btnLaunch`  |
+| `android:onClick`     | Method to invoke when clicked | `onButtonClicked` | 
+| `android:visibility`  | Controls how view appears     | `invisible`       |
+| `android:hint`        | Hint text to display when empty | `@string/hint`  |
+| `android:text`        | Text to display in view       | `@string/foo`     |
+| `android:textColor`   | Color of the text             | `#000000`         |
+| `android:textSize`    | Size of the text              | `21sp`            |
+| `android:textStyle`   | Style of the text formatting  | `bold`            |
+
+Review the [View docs](http://developer.android.com/reference/android/view/View.html) and [TextView docs](http://developer.android.com/reference/android/widget/TextView.html) for a list of additional attributes. An example of setting view attributes:
 
 ```xml
 <TextView
