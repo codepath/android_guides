@@ -35,9 +35,12 @@ public class TodoItemDatabase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
     	// Construct a table for todo items
-        String CREATE_TODO_TABLE = "CREATE TABLE " + TABLE_TODO + "("
-                + KEY_ID + " INTEGER PRIMARY KEY," + KEY_BODY + " TEXT,"
-                + KEY_PRIORITY + " INTEGER" + ")";
+        String CREATE_TODO_TABLE = "CREATE TABLE " + TABLE_TODO + 
+                "(" +
+                    KEY_ID + " INTEGER PRIMARY KEY," +
+                    KEY_BODY + " TEXT," +
+                    KEY_PRIORITY + " INTEGER" + 
+                ")";
         db.execSQL(CREATE_TODO_TABLE);
     }
  
@@ -315,9 +318,12 @@ public class TodoItemDatabase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
     	// Construct a table for todo items
-        String CREATE_TODO_TABLE = "CREATE TABLE " + TABLE_TODO + "("
-                + KEY_ID + " INTEGER PRIMARY KEY," + KEY_BODY + " TEXT,"
-                + KEY_PRIORITY + " INTEGER" + ")";
+        String CREATE_TODO_TABLE = "CREATE TABLE " + TABLE_TODO + 
+                "(" +
+                    KEY_ID + " INTEGER PRIMARY KEY," +
+                    KEY_BODY + " TEXT," +
+                    KEY_PRIORITY + " INTEGER" + 
+                ")";
         db.execSQL(CREATE_TODO_TABLE);
     }
  
@@ -479,7 +485,7 @@ See [this android design patterns article](http://www.androiddesignpatterns.com/
 
 When working with SQLite, opening and inspecting the SQLite database can be helpful while debugging issues. The commands below will show how to get at the data (whether running on an emulator or an actual device). The commands should be performed **within the terminal or command-line**. Once you have the data, there are [desktop SQLite viewers](http://sqlitebrowser.org/) to help inspect the SQLite data graphically.
 
-### On an Emulator:
+### On an Emulator
 
 Use `SQLite3` to query the data on the emulator:
 
@@ -503,7 +509,7 @@ For further inspection, we can download the database file with:
 ./adb wait-for-device pull /data/data/<app package name>/databases/<database file name>
 ```
 
-### On a Device:
+### On a Device
 
 There isn't a `SQLite3` executable on the device so our only option is to download the database file with:
 
