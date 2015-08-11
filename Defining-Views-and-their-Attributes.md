@@ -13,6 +13,22 @@ The six most common views are:
  * **EditText** is an editable text field for user input
  * **ListView** is a scrollable list of items containing other views
 
+### View Identifiers
+
+Any view can have an identifier attached that uniquely names that view for later access. You can assign a view an id within the XML layout:
+
+```xml
+<Button android:id="@+id/my_button" />
+```
+
+This id can then be accessed within the Java code for the corresponding activity (in `onCreate` of Activity for example):
+
+```java
+Button myButton = (Button) findViewById(R.id.my_button);
+```
+
+Another important note is that any view with an id specified will automatically retain its state on a configuration change (i.e phone orientation switch).
+
 ### Views Margin and Padding
 
 Margins and padding values for views allows us to position and space elements in a layout.
@@ -55,17 +71,16 @@ Every view has many different attributes which can be applied to manage various 
 
 Common view attributes include:
 
-| Attribute             | Description               | Example Value |
-| ---------             | ------------              | ------------  |
-| `android:background`  | Background for the view   | `#ffffff`             |
-| `android:id`          | Unique identifying label      | `@+id/btnLaunch`  |
-| `android:onClick`     | Method to invoke when clicked | `onButtonClicked` | 
-| `android:visibility`  | Controls how view appears     | `invisible`       |
-| `android:hint`        | Hint text to display when empty | `@string/hint`  |
-| `android:text`        | Text to display in view       | `@string/foo`     |
-| `android:textColor`   | Color of the text             | `#000000`         |
-| `android:textSize`    | Size of the text              | `21sp`            |
-| `android:textStyle`   | Style of the text formatting  | `bold`            |
+| Attribute             | Description                     | Example Value     |
+| ---------             | ------------                    | ------------      |
+| `android:background`  | Background for the view         | `#ffffff`         |
+| `android:onClick`     | Method to invoke when clicked   | `onButtonClicked` | 
+| `android:visibility`  | Controls how view appears       | `invisible`       |
+| `android:hint`        | Hint text to display when empty | `@string/hint`    |
+| `android:text`        | Text to display in view         | `@string/foo`     |
+| `android:textColor`   | Color of the text               | `#000000`         |
+| `android:textSize`    | Size of the text                | `21sp`            |
+| `android:textStyle`   | Style of the text formatting    | `bold`            |
 
 Review the [View docs](http://developer.android.com/reference/android/view/View.html) and [TextView docs](http://developer.android.com/reference/android/widget/TextView.html) for a list of additional attributes. An example of setting view attributes:
 
@@ -79,22 +94,6 @@ Review the [View docs](http://developer.android.com/reference/android/view/View.
    android:layout_centerHorizontal="true"
 />
 ```
-
-### View Identifiers
-
-Any view can have an identifier attached that uniquely names that view for later access. You can assign a view an id within the XML layout:
-
-```xml
-<Button android:id="@+id/my_button" />
-```
-
-This id can then be accessed within the Java code for the corresponding activity (in `onCreate` of Activity for example):
-
-```java
-Button myButton = (Button) findViewById(R.id.my_button);
-```
-
-Another important note is that any view with an id specified will automatically retain its state on a configuration change (i.e phone orientation switch).
 
 ## References
 
