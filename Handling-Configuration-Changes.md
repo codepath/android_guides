@@ -144,6 +144,8 @@ public class RetainedFragment extends Fragment {
 }
 ```
 
+This approach keeps the fragment from being destroyed during the activity lifecycle.  They are instead retained inside the Fragment Manager.  See the Android official docs for more [information](http://developer.android.com/guide/topics/resources/runtime-changes.html#RetainingAnObject).  
+
 Now you can **check to see if the fragment already exists by tag** before creating one and the fragment will retain it's state across configuration changes. See the [Handling Runtime Changes](http://developer.android.com/guide/topics/resources/runtime-changes.html#RetainingAnObject) guide for more details.
 
 
