@@ -421,6 +421,53 @@ startActivity(intent);
 
 Read more about ["Up" navigation](http://developer.android.com/training/implementing-navigation/ancestral.html) within the official guide.
 
+### Configuring the ActionBar from a Fragment
+
+Configuring the action bar from a fragment is very similar to how it's done from an activity, with a couple small differences. By default, Android assumes that fragments don't want to contribute items to the action bar. When a fragment actually wants to add items to the action bar, it needs to tell Android about this by calling `setHasOptionsMenu(true)` in it's `onCreate()` method:
+
+```java
+@Override
+public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+
+    // ...
+
+    setHasOptionsMenu(true);
+}
+```
+
+Now Android knows to call the fragment's `onCreateOptionsMenu(...)` and related methods. 
+
+Keep in mind that any action bar items added by the fragment will be appended to any existing action bar items. This includes action bar items added by the containing activity. You can use the `orderInCategory` property of your action bar items to control the ordering yourself.
+
+Adding items to the menu is very similar to how it's done in an activity. Inside a fragment, Android provides a `MenuInflater` for you in the callback:
+
+```java
+@Override
+public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    // Inflate the menu; this adds items to the action bar.
+    inflater.inflate(R.menu.my_menu, menu);
+    
+    // ...
+}
+```
+
+Handling clicks is exactly the same as if you were in an activity. The only difference is that the fragment's `onOptionsItemSelected(...)` method only gets called if the activity's `onOptionsItemSelected(...)` doesn't handle the click.
+
+```java
+@Override
+public boolean onOptionsItemSelected(MenuItem item) {
+   // handle item selection
+   switch (item.getItemId()) {
+      case R.id.my_item:
+         // Handle this selection
+         return true;
+      default:
+         return super.onOptionsItemSelected(item);
+   }
+}
+```
+
 ## Libraries
 
 * [AppCompatActivity](https://developer.android.com/reference/android/support/v7/app/AppCompatActivity.html) - The support library for ActionBar which provides backwards compatibility to nearly all Android versions.
@@ -432,6 +479,7 @@ Read more about ["Up" navigation](http://developer.android.com/training/implemen
  * <http://developer.android.com/guide/topics/ui/actionbar.html>
  * <http://developer.android.com/design/patterns/actionbar.html>
  * <http://developer.android.com/reference/android/app/ActionBar.html>
+ * <http://developer.android.com/guide/components/fragments.html>
  * <http://www.vogella.com/articles/AndroidActionBar/article.html>
  * <http://jgilfelt.github.io/android-actionbarstylegenerator/>
  * <http://blog.stylingandroid.com/archives/1144>
