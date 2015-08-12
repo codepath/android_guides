@@ -6,7 +6,7 @@ In this guide, we'll use the example of building a database to persist user crea
 
 If you want to use SQLite directly but reduce the verbosity of working with the database, check out our [[Easier SQL with Cupboard]] guide for a middle ground between SQLite and a [[full-fledged ORM|ActiveAndroid-Guide]].
 
-### Defining the Database Handler
+## Defining the Database Handler
 
 We need to write our own class to handle database operations such as creation, upgrading, reading and writing. Database operations are defined using the [SQLiteOpenHelper](http://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper.html):
 
@@ -120,7 +120,7 @@ PostsDatabaseHelper helper = PostsDatabaseHelper.getInstance(this);
 
 See [this android design patterns article](http://www.androiddesignpatterns.com/2012/05/correctly-managing-your-sqlite-database.html) for more information.
 
-### Defining our Models
+## Defining our Models
 
 In order to access our records from the database more easily, we should create a model class for each of our resources. In this case, let's define a `Post` and a `User` model:
 
@@ -140,11 +140,11 @@ public class User {
 
 Now we can interact with our data using the models.
 
-### CRUD Operations (Create, Read, Update, Delete)
+## CRUD Operations (Create, Read, Update, Delete)
 
 We'll walk through examples of creating, reading, updating, and deleting posts / users in our database.
 
-#### Inserting New Records
+### Inserting New Records
 
 ```java
 public class PostsDatabaseHelper extends SQLiteOpenHelper {
@@ -229,7 +229,7 @@ public class PostsDatabaseHelper extends SQLiteOpenHelper {
 ```
 **Note:** If you are inserting a large number of records, you might want to use a compiled [SQLiteStatement](http://developer.android.com/reference/android/database/sqlite/SQLiteStatement.html). You can read more about the performance benefits on [this blog](http://www.techrepublic.com/blog/software-engineer/turbocharge-your-sqlite-inserts-on-android/).
 
-#### Querying Records
+### Querying Records
 
 ```java
 public class PostsDatabaseHelper extends SQLiteOpenHelper {
@@ -277,7 +277,7 @@ public class PostsDatabaseHelper extends SQLiteOpenHelper {
 }
 ```
 
-#### Updating Records
+### Updating Records
 
 ```java
 public class PostsDatabaseHelper extends SQLiteOpenHelper {
@@ -297,7 +297,7 @@ public class PostsDatabaseHelper extends SQLiteOpenHelper {
 }
 ```
 
-#### Deleting Records
+### Deleting Records
 
 ```java
 public class PostsDatabaseHelper extends SQLiteOpenHelper {
@@ -320,7 +320,7 @@ public class PostsDatabaseHelper extends SQLiteOpenHelper {
 }
 ```
 
-### Using our Database Handler
+## Using our Database Handler
 
 We can now leverage our database handler and models to persist data to our SQLite store:
 
@@ -357,7 +357,7 @@ public class SQLiteExampleActivity extends AppCompatActivity {
 
 **Note:** In many cases, rather than interacting with SQL directly, Android apps can leverage one of the many available [[higher-level ORMs|Persisting-Data-to-the-Device#object-relational-mappers]] (object relational mappers) to persist Java models to a database table instead.
 
-### Full Database Handler Source
+## Full Database Handler Source
 
 The full source code for the database handler above can be found here for reference:
 
