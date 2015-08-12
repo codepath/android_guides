@@ -43,7 +43,7 @@ See the [AsyncTask source code](https://github.com/android/platform_frameworks_b
 
 ### Using a HandlerThread
 
-[HandlerThread](http://developer.android.com/reference/android/os/HandlerThread.html) is a handy class for starting up a new worker thread that **sequentially runs tasks**. If you need a **single background thread** that starts a loop capable of running code or processing messages as needed, this is the tool for the job. 
+[HandlerThread](http://developer.android.com/reference/android/os/HandlerThread.html) is a handy class for starting up a new worker thread that **sequentially runs tasks**. If you need a **single background thread** that starts a loop capable of running code or processing messages in the order that they arrive, this is the tool for the job. 
 
 The `HandlerThread` is a convenience class that initiates a [Looper](http://developer.android.com/reference/android/os/Looper.html) within a [Thread](http://developer.android.com/reference/java/lang/Thread.html) to process `Runnable` or [Message](http://developer.android.com/reference/android/os/Message.html) objects. Note that a [Handler](http://developer.android.com/reference/android/os/Handler.html) is used to **handle the insertion** of the `Runnable` or `Message` objects into the looper's queue:
 
