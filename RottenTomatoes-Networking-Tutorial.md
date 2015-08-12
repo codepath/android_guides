@@ -1,4 +1,4 @@
-This is a tutorial about building a basic app for displaying popular movies currently in theaters using the unauthenticated [RottenTomatoes](http://www.rottentomatoes.com/) API.
+This is a tutorial about building a basic app for displaying popular movies currently in theaters using the unauthenticated [RottenTomatoes](http://www.rottentomatoes.com/) API.  Checkout out [this slide deck](http://slides.com/rogerhu/deck/#/) for a basic walkthrough.
 
 ## App
 
