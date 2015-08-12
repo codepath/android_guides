@@ -174,6 +174,8 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [greenDAO](https://github.com/greenrobot/greenDAO)
  * [SugarORM](http://satyan.github.io/sugar/)
  * [ORMLite](http://ormlite.com/sqlite_java_android_orm.shtml)
+ * [SQLBrite](https://github.com/square/sqlbrite) - Lightweight wrapper around SQLiteOpenHelper
+ * [Cupboard](https://guides.codepath.com/android/Easier-SQL-with-Cupboard)
  * [Realm](https://github.com/realm/realm-java)
  * [NexusData](https://github.com/dkharrat/NexusData)
  * [Hawk](https://github.com/orhanobut/hawk) - Persistent secure key/value store
