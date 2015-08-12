@@ -150,7 +150,7 @@ Diving into the networking and model layers for data-driven apps:
 * [[Converting JSON to Models]] (JSON to Objects Deserialization)
 * [[Creating and Executing Async Tasks]] (Long-running Background Tasks)
 * [[Handling ProgressBars]] (with Long-Running Tasks)
-* [[RottenTomatoes Networking Tutorial]]
+* [[Rotten Tomatoes Networking Tutorial]]
 * [[Networking with the Volley Library]]
 * [[Displaying Images with the Fresco Library]]
 * [[Building Data-driven Apps with Parse]]
