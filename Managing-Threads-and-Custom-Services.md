@@ -6,7 +6,7 @@ This guide focuses on defining custom services including the various mechanisms 
 
 When an application is launched, the system creates a thread of execution for the application, called "main." This thread is very important because it is in charge of dispatching events and rendering the user interface and is usually called the **UI thread**. All components (activities, services, etc) and their executed code run in the same process and are **instantiated by default in the UI thread**. 
 
-<img src="http://i.imgur.com/gOLOBYs.png" width="500" />
+<img src="https://i.imgur.com/gOLOBYs.png" width="500" />
 
 Keep in mind that performing long operations such as network access or database queries in the UI thread will block the entire app UI from responding. When the UI thread is blocked, no events can be dispatched, including drawing events. From the user's perspective, the application will appear to freeze. Additionally, keep in mind the **Android UI toolkit is not thread-safe** and as such you must **not manipulate your UI from a background thread**. 
 
@@ -201,7 +201,7 @@ All threading management options within Android including `AsyncTask`, `HandlerT
 | `Looper`       | Loop that processes and sends `Runnable` or `Message` objects to a `Handler` |
 | `MessageQueue` | Stores the list of `Runnable` or `Message` objects dispatched by the `Looper` |
 
-<img src="http://i.imgur.com/VekPWIr.png" width="500" />
+<img src="https://i.imgur.com/VekPWIr.png" width="500" />
 
 Note that often these objects are primarily used within the context of higher-order abstractions such as `AsyncTask`, `HandlerThread` and `ThreadPoolExecutor`. A brief overview of these underlying concepts can be found below. For a more detailed description of these basic building blocks, check out this [excellent post on the subject](http://codetheory.in/android-handlers-runnables-loopers-messagequeue-handlerthread/). 
 
