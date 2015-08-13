@@ -5,7 +5,7 @@
 For example, if we are using an email app and we are listing the inbox folder, the promoted action might be composing a new message.
 
 <img src="https://github.com/makovkastar/FloatingActionButton/raw/master/art/demo.gif" width="185" alt="FAB1" />&nbsp;
-<img src="http://i.imgur.com/SBbLXo2.png" width="200" alt="FAB2" />
+<img src="https://i.imgur.com/SBbLXo2.png" width="200" alt="FAB2" />
 
 The floating action button represents **the primary action** within a particular screen. More info and use cases of the FAB button from Google’s official [design specs can be found here](http://www.google.com/design/spec/components/buttons.html#buttons-floating-action-button).
 
@@ -66,7 +66,7 @@ The actual drawable size should be **24dp** according to the Google design specs
 
 When a user scrolls down a page, the floating action button should disappear.  Once the page scrolls to the top, it should reappear.   
 
-<img src="http://i.imgur.com/CEtWLA8.gif"/>
+<img src="https://i.imgur.com/CEtWLA8.gif"/>
 
 To animate this part, you will need to take advantage of [CoordinatorLayout](https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.html), which helps choreograph animations between views defined within this layout.  
 
@@ -217,7 +217,7 @@ One limitation in using this third-party library is that implementing [[endless 
 
 Floating action buttons come in two sizes: the default, which should be used in most cases, and the mini, which should only be used to create visual continuity with other elements on the screen. 
 
-<img src="http://i.imgur.com/SP6RG9d.png" alt="Mini" width="200" />
+<img src="https://i.imgur.com/SP6RG9d.png" alt="Mini" width="200" />
 
 We can adjust the FAB button type to "normal" or "mini":
 

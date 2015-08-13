@@ -2,7 +2,7 @@
 
 One common challenge on Android that often arises is the need to create a horizontal ListView that works like a regular ListView but scrolls horizontally instead. This is common for news, images, etc. 
 
-![Horizontal ListView](http://i.imgur.com/z3xLN7M.png)
+![Horizontal ListView](https://i.imgur.com/z3xLN7M.png)
 
 Unfortunately, there is no "canonical" officially supported solution for this. Instead all we have is a series of half-baked unfinished libraries. This can make developing Horizontal ListView more challenging then you would initially suspect.
 
@@ -74,7 +74,7 @@ lvTest.setAdapter(aItems);
 ```
 The view will now present the items horizontally like:
 
-![View Screen](http://i.imgur.com/76YnbHp.png)
+![View Screen](https://i.imgur.com/76YnbHp.png)
 
 ### Conclusion
 

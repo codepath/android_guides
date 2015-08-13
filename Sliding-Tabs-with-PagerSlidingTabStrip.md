@@ -2,7 +2,7 @@ Prior to Android "L" preview, the easiest way to setup tabs with Fragments was t
 
 As a result, tabs are now best implemented by leveraging the [[ViewPager|ViewPager-with-FragmentPagerAdapter]] with a custom "tab indicator" on top. In this guide, we will be using the [PagerSlidingTabStrip](https://github.com/astuetz/PagerSlidingTabStrip) to produce tabbed navigation within our app. 
 
-![Tabs](http://i.imgur.com/a2wpJ80.png)
+![Tabs](https://i.imgur.com/a2wpJ80.png)
 
 **Note:** Want to avoid using a third-party library for tabs? Check out how to build sliding tabs using [[Google's TabLayout approach|Google Play Style Tabs using TabLayout]].
 
@@ -166,7 +166,7 @@ public class MainActivity extends FragmentActivity {
 
 Heres the output:
 
-![Screen 1](http://i.imgur.com/rhRXjLIl.png)
+![Screen 1](https://i.imgur.com/rhRXjLIl.png)
 
 Read the [[ViewPager and FragmentPagerAdapter|ViewPager-with-FragmentPagerAdapter]] for additional details such as how to access and modify the current selected tab.
 
@@ -223,7 +223,7 @@ You can change the style of the tabs by adding any of the following properties t
 
 and the result of this is:
 
-![Tabs Styled](http://i.imgur.com/QeftdvU.png)
+![Tabs Styled](https://i.imgur.com/QeftdvU.png)
 
 In addition to the above, there are several other attributes that can be set:
 

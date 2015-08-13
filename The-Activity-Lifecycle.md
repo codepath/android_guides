@@ -15,7 +15,7 @@ At any point in time a particular activity can be in one of the following 4 stat
 
 The following diagram shows the important state paths of an Activity. The square rectangles represent callback methods you can implement to perform operations when the Activity moves between states. These are described further in the table below the diagram.
 
-![Imgur](http://i.imgur.com/aUd1KA1.png)
+![Imgur](https://i.imgur.com/aUd1KA1.png)
 
 | Lifecycle Method | Description | Common Uses  |
 | ------------- |-------------| -----|

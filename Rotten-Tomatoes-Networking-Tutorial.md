@@ -6,7 +6,7 @@ Checkout out [this slide deck](http://slides.com/rogerhu/deck/#/) for a basic wa
 
 Let's build an Android app step by step. The app will display a list of popular movies currently in theaters  which includes the poster, title, and cast of each film. 
 
-<img src="http://i.imgur.com/zQPzAxD.png" alt="Screen Demo" width="350" />
+<img src="https://i.imgur.com/zQPzAxD.png" alt="Screen Demo" width="350" />
 
 The app will do the following:
 
@@ -110,11 +110,11 @@ Then you need to sync with gradle and make sure there are no errors.
 
 Make sure to download the two placeholder movie posters:
 
-<a href="http://i.imgur.com/o8Y6d6u.png/small_movie_poster.png"><img 
-src="http://i.imgur.com/o8Y6d6u.png/small_movie_poster.png" /></a>
-<a href="http://i.imgur.com/Z2MYNbj.png/large_movie_poster.png"><img src="http://i.imgur.com/Z2MYNbj.png/large_movie_poster.png" /></a>
+<a href="https://i.imgur.com/o8Y6d6u.png/small_movie_poster.png"><img 
+src="https://i.imgur.com/o8Y6d6u.png/small_movie_poster.png" /></a>
+<a href="https://i.imgur.com/Z2MYNbj.png/large_movie_poster.png"><img src="https://i.imgur.com/Z2MYNbj.png/large_movie_poster.png" /></a>
 
-Copy and paste both [small_movie_poster.png](http://i.imgur.com/o8Y6d6u.png/small_movie_poster.png) and [large_movie_poster.png](http://i.imgur.com/Z2MYNbj.png/large_movie_poster.png) into `res/drawable` for use later.  You can drag and drop these files into the appropriate folders assuming you have selected the `Project` dropdown inside Android Studio.
+Copy and paste both [small_movie_poster.png](https://i.imgur.com/o8Y6d6u.png/small_movie_poster.png) and [large_movie_poster.png](https://i.imgur.com/Z2MYNbj.png/large_movie_poster.png) into `res/drawable` for use later.  You can drag and drop these files into the appropriate folders assuming you have selected the `Project` dropdown inside Android Studio.
 
 <img src="http://imgur.com/deqXuA6.png/" width=400>
 
@@ -152,7 +152,7 @@ Generate a project with the name "RottenTomatoesDemo", a minimum API of 10 and a
 </RelativeLayout>
 ```
 
-![Imgur](http://i.imgur.com/ze0XeWe.png)
+![Imgur](https://i.imgur.com/ze0XeWe.png)
 
 ### Construct API Client
 
@@ -522,7 +522,7 @@ public class BoxOfficeActivity extends Activity {
 
 After running the app, we should see the populated box office movie data:
 
-![Imgur](http://i.imgur.com/zQPzAxD.png)
+![Imgur](https://i.imgur.com/zQPzAxD.png)
 
 The full source code for this app can be [downloaded here](https://github.com/codepath/android-rottentomatoes-demo) for review as well.
 
@@ -752,6 +752,6 @@ public class BoxOfficeDetailActivity extends Activity {
 
 With this, we should now be able to view the movie detail view:
 
-<img src="http://i.imgur.com/9Uw7qLc.png" width="400" />
+<img src="https://i.imgur.com/9Uw7qLc.png" width="400" />
 
 The full source code for this app can be [downloaded here](https://github.com/codepath/android-rottentomatoes-demo) for review as well.

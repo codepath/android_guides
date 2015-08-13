@@ -39,13 +39,13 @@ The Android testing API also provides hooks into the Android component and appli
 
 Let's try testing a very simple application called [SimpleApp](https://github.com/codepath/android-simple-app). This app is just two activities. The first (`FirstActivity`) has a text field and a button. When you type in the text field and hit the button, a `SecondActivity` appears that displays the text entered.
 
-<img src="http://i.imgur.com/BhD9S8n.png" width="430" alt="Screen 1" />
+<img src="https://i.imgur.com/BhD9S8n.png" width="430" alt="Screen 1" />
 &nbsp;
-<img src="http://i.imgur.com/YOssiuC.png" width="430" alt="Screen 2" />
+<img src="https://i.imgur.com/YOssiuC.png" width="430" alt="Screen 2" />
 
 Let's take a look at how to test this very simple application using the Android testing framework. Make sure to [download SimpleApp](https://github.com/codepath/android-simple-app) and import the project into your workspace. First, let's create a new Test Project called "SimpleAppTest".
 
-![Test Project](http://i.imgur.com/7APmagr.png)
+![Test Project](https://i.imgur.com/7APmagr.png)
 
 Select the "Test Target" as SimpleApp. Now we have our brand new test project for writing out app test cases. If we want to embed the test project within our existing application within a folder, check out [this step-by-step guide](https://web.archive.org/web/20140117014928/http://jonblack.org/2012/11/24/creating-an-android-test-project-within-a-project/). 
 
@@ -134,11 +134,11 @@ public class FirstActivityUnitTest extends
 
 You may notice the use of the `@SmallTest` annotation which is used to indicate the "scale" of each test method and categorize them into groups. This allows us to run only certain groups of tests instead of the entire suite to allow for faster targeted test executions. Google has a [blog post](http://googletesting.blogspot.com/2010/12/test-sizes.html) explaining the rules of thumb for organizing tests:
 
-[![Size table](http://i.imgur.com/dwvkQI2.png)](http://googletesting.blogspot.com/2010/12/test-sizes.html)
+[![Size table](https://i.imgur.com/dwvkQI2.png)](http://googletesting.blogspot.com/2010/12/test-sizes.html)
 
 The full source code for that file can be [found here](https://gist.github.com/nesquena/7f38c84891abe7528991). This is the basic structure of an Activity unit test. 
 
-![Run Tests](http://i.imgur.com/k6LjpW9.png)
+![Run Tests](https://i.imgur.com/k6LjpW9.png)
 
 Now, in Eclipse we can right-click and select "Run As..." and then select "Android JUnit Test" and the tests will execute within the test runner. The tests should both pass and the "test bar" should be green.
 
@@ -237,7 +237,7 @@ public class SimpleActivityFunctionalTest extends
 
 The full functional test source code can be [found here](https://gist.github.com/nesquena/0c5be91e4cd7698cf3be). At this point we have tested the functionality of our basic application and we have explored both unit testing and functional testing approaches using the built-in Android Testing Framework.
 
-![Run Tests](http://i.imgur.com/k6LjpW9.png)
+![Run Tests](https://i.imgur.com/k6LjpW9.png)
 
 Now, in Eclipse we can right-click and select "Run As..." and then select "Android JUnit Test" and the tests will execute within the test runner. The tests should both pass and the "test bar" should be green.
 
@@ -255,7 +255,7 @@ Let's take a look at writing blackbox integration tests with Robotium for our [S
 
 Next, we need to add the [robotium jar](https://code.google.com/p/robotium/downloads/list) to our Test Project. Download the latest "robotium-solo-X.X.jar". You need to add the robotium JAR to the Libraries on the projects Build Path.
 
-![Build Path](http://i.imgur.com/ghMdX4W.png)
+![Build Path](https://i.imgur.com/ghMdX4W.png)
 
 Now, within the integration test case, in the setUp method of your testing class, you can create a Solo object and specify the Activity to be started. The Solo object can then be used in your testXXX methods to get and set values in/from UI components and click buttons and such. A skeleton integration testing class with Robotium looks like:
 
@@ -329,7 +329,7 @@ public void testStartSecondActivity() throws Exception {
 
 The full source for this test can be [found here](https://gist.github.com/nesquena/631575e209e2cd165719). Compare this with the official Android testing and notice how much cleaner and clearer tests are with Robotium. 
 
-![Run Tests](http://i.imgur.com/k6LjpW9.png)
+![Run Tests](https://i.imgur.com/k6LjpW9.png)
 
 Now, in Eclipse we can right-click and select "Run As..." and then select "Android JUnit Test" and the tests will execute within the test runner. The tests should both pass and the "test bar" should be green.
 

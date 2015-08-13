@@ -360,7 +360,7 @@ Keep in mind that a **gesture is simply a series of touch events** as follows:
 
 These touch events trigger a very particular set of method invocations on affected views. To further illustrate, assume a "View C" is contained within a "ViewGroup B" which is then contained within "ViewGroup A" such as:
 
-<a href="http://balpha.de/2013/07/android-development-what-i-wish-i-had-known-earlier/"><img src="http://i.imgur.com/mLB5ACK.png" /></a>
+<a href="http://balpha.de/2013/07/android-development-what-i-wish-i-had-known-earlier/"><img src="https://i.imgur.com/mLB5ACK.png" /></a>
 
 Review this example carefully as all sections below will be referring to the example presented here.
 

@@ -98,7 +98,7 @@ Make sure to add the appropriate permissions to your `AndroidManifest.xml`:
 
 and setup the "SD Card" within the emulator device settings:
 
-<img src="http://i.imgur.com/nvA2ZKz.png" width="300" />
+<img src="https://i.imgur.com/nvA2ZKz.png" width="300" />
 
 ### Sharing Remote Images (without explicit file IO)
 

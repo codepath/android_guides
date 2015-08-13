@@ -3,7 +3,7 @@ released [NavigationView] (https://developer.android.com/reference/android/suppo
 
 With the release of Android 5.0 Lollipop, the new material design style navigation drawer spans the full height of the screen and is displayed over the `ActionBar` and overlaps the translucent `StatusBar`. Read the [material design style navigation drawer](http://www.google.com/design/spec/patterns/navigation-drawer.html) document for specs on styling your navigation drawer.
 
-<img src="http://i.imgur.com/hPOFJUf.gif" width="350" />
+<img src="https://i.imgur.com/hPOFJUf.gif" width="350" />
 
 ## Usage
 
@@ -17,13 +17,13 @@ Make sure to setup the Google [[Design Support Library]] before using Google's n
 
 Download the following icons and add them to your drawable folders by copying and pasting them into the drawable folder or using the `New Image Asset` dialog to create versions for each density.  
 
-* [ic_one](http://i.imgur.com/PfXVA78.png)
-* [ic_two](http://i.imgur.com/xzIdYlo.png)
-* [ic_three](http://i.imgur.com/k5o1mCJ.png)
+* [ic_one](https://i.imgur.com/PfXVA78.png)
+* [ic_two](https://i.imgur.com/xzIdYlo.png)
+* [ic_three](https://i.imgur.com/k5o1mCJ.png)
 
 If you use the `New Image Asset` dialog, choose a black foreground color and change the resource name.
 
-<img src="http://i.imgur.com/DE49F1R.png" width="600"/>
+<img src="https://i.imgur.com/DE49F1R.png" width="600"/>
 
 Download the menu icon from Google's official [Material Design icon set](https://github.com/google/material-design-icons) and use `New Image Asset` to create versions of each density too.  Save this file as `ic_menu.png`.
 
@@ -270,7 +270,7 @@ Setup a handler to respond to click events on the navigation elements and swap o
 
 ### Add Navigation Header
 
-<img src="http://i.imgur.com/Ri3c6Xz.png"/>
+<img src="https://i.imgur.com/Ri3c6Xz.png"/>
 
 The NavigationView also accepts a custom attribute that can reference a layout that provides a header of our layout.  For instance, you can create a `layout/nav_header.xml` similar to the following:
 

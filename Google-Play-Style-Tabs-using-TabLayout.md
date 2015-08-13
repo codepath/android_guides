@@ -145,7 +145,7 @@ public class MainActivity extends FragmentActivity {
 
 Heres the output:
 
-![Screen 1](http://i.imgur.com/rhRXjLIl.png)
+![Screen 1](https://i.imgur.com/rhRXjLIl.png)
 
 ### Styling the TabLayout
 
@@ -228,7 +228,7 @@ By default, the tab created by TabLayout sets the `textAllCaps` property to be t
 
 Sliding tabs with images:
 
-![Slide 2](http://i.imgur.com/dYvY5NKl.jpg)
+![Slide 2](https://i.imgur.com/dYvY5NKl.jpg)
 
 ### Add Icons+Text to TabLayout
 
@@ -250,7 +250,7 @@ public CharSequence getPageTitle(int position) {
 
 Note the additional spaces that are added before the tab title while instantiating `SpannableString` class. The blank spaces are used to place the image icon so that the actual title is displayed completely. Depending on where you want to position your icon, you can specify the range start…end of the span in `setSpan()` method.
 
-![Slide 3](http://i.imgur.com/A8xEpKsl.jpg)
+![Slide 3](https://i.imgur.com/A8xEpKsl.jpg)
 
 ### Add Custom View to TabLayout
 

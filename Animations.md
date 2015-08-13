@@ -68,7 +68,7 @@ fadeAnim.start();
 
 This code will execute the animation to fade out the button.   Notice that the "alpha" is designated as a string type.  The ObjectAnimator relies on [reflection](https://github.com/android/platform_frameworks_base/blob/master/core/java/android/animation/PropertyValuesHolder.java#L658-719) and uses the button's [getAlpha()](http://developer.android.com/reference/android/view/View.html#getAlpha()) and [setAlpha()](http://developer.android.com/reference/android/view/View.html#setAlpha(float)) methods to perform the animation.
 
-![Simple Fadeout](http://i.imgur.com/dsyRMsl.gif)
+![Simple Fadeout](https://i.imgur.com/dsyRMsl.gif)
 
 We can also use the [properties system in 4.0](http://android-developers.blogspot.com/2011/11/android-40-graphics-and-animations.html) to execute property animations on common properties using:
 
@@ -104,7 +104,7 @@ moveAnim.start();
 
 The result of this is a different rate of motion:
 
-![Bounce](http://i.imgur.com/Wu96uOS.gif)
+![Bounce](https://i.imgur.com/Wu96uOS.gif)
 
 Common pre-defined interpolators are listed below:
 
@@ -152,7 +152,7 @@ set.start();
 
 This results in the following:
 
-![Animation 3](http://i.imgur.com/Q2uORr7.gif)
+![Animation 3](https://i.imgur.com/Q2uORr7.gif)
 
 We can also animate sets of other animator sets:
 
@@ -221,7 +221,7 @@ animate(btnExample).alpha(0);
 
 This will automatically create and execute the animation to fade out the button: 
 
-![Simple Fadeout](http://i.imgur.com/dsyRMsl.gif)
+![Simple Fadeout](https://i.imgur.com/dsyRMsl.gif)
 
 The animate method has many properties that mirror the methods from the [ViewPropertyAnimator](http://developer.android.com/reference/android/view/ViewPropertyAnimator.html) class including changing many possible properties such as opacity, rotation, scale, x&y positions, and more. For example, here's a more complex animation being executed:
 
@@ -305,7 +305,7 @@ anim.start();
 
 This results in the following:
 
-![Complex Animation](http://i.imgur.com/0AB0E2Q.gif) 
+![Complex Animation](https://i.imgur.com/0AB0E2Q.gif) 
 
 See more details in the [Property Animation](http://developer.android.com/guide/topics/graphics/prop-animation.html) topic guide and the [Animation Resource](http://developer.android.com/guide/topics/resources/animation-resource.html#Property) guide.
 
@@ -399,7 +399,7 @@ btnExample.startAnimation(animFadeOut);
 
 This results in the following:
 
-![Simple Fadeout](http://i.imgur.com/dsyRMsl.gif)
+![Simple Fadeout](https://i.imgur.com/dsyRMsl.gif)
 
 See more details in the [View Animation Resource](http://developer.android.com/guide/topics/resources/animation-resource.html#View) guide or this [more detailed tutorial](http://www.androidhive.info/2013/06/android-working-with-xml-animations/#fade_in).
 
@@ -506,7 +506,7 @@ public class SecondActivity extends Activity {
 
 This results in the following:
 
-![Activity Transition](http://i.imgur.com/lRU3wrn.gif)
+![Activity Transition](https://i.imgur.com/lRU3wrn.gif)
 
 You can see several complete examples of activity transitions in the following resources:
 
@@ -558,7 +558,7 @@ ft.commit();
 
 This results in the following:
 
-![Fragment Transition](http://i.imgur.com/Y9L82FI.gif)
+![Fragment Transition](https://i.imgur.com/Y9L82FI.gif)
 
 **Compatibility Note:** The animation files explained above are used in conjunction with support fragments. Keep in mind that if you are not using support fragments, you need to use object animations instead as [explained on StackOverflow](http://stackoverflow.com/a/9856449).
 
@@ -670,14 +670,14 @@ public class MainActivity extends Activity {
         // Display the GIF (from raw resource) into the ImageView
         Glide.with(this).load(R.raw.my_gif).asGif().into(imageView);
         // OR even download from the network
-        // Glide.with(this).load("http://i.imgur.com/l9lffwf.gif").asGif().into(imageView);
+        // Glide.with(this).load("https://i.imgur.com/l9lffwf.gif").asGif().into(imageView);
     }
 }
 ```
 
 and now we have this:
 
-![GIF](http://i.imgur.com/YEmtaE6.gif)
+![GIF](https://i.imgur.com/YEmtaE6.gif)
 
 You can also check out the popular [android-gif-drawable](https://github.com/koral--/android-gif-drawable) library for another solution. An alternative method is simply to [use a WebView](http://droid-blog.net/2011/10/17/tutorial-how-to-play-animated-gifs-in-android-part-3/). 
 
@@ -695,7 +695,7 @@ Note that these animations are **lollipop only** and do not work on devices with
 
 Use the third-party [Leonids](https://github.com/plattysoft/Leonids) library for simple particle effects. Particle systems are often used in games for a wide range of purposes: explosions, fire, smoke, etc. This effects can also be used on normal apps to add elements of playful design. Here's an example of particle motion:
 
-![Particles](http://i.imgur.com/gTnpLuk.gif)
+![Particles](https://i.imgur.com/gTnpLuk.gif)
 
 Precisely because its main use is games, all engines have support for particle systems, but there is no such thing built-in for standard Android UI. Instead we can use Leonids by [reviewing this tutorial](http://www.plattysoft.com/2014/05/30/leonids-particle-system-lib/) for further details.
 

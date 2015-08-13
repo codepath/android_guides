@@ -85,7 +85,7 @@ public class SimpleDrawingView extends View {
 
 Notice that `onDraw` passes us a `canvas` object which we use to draw leveraging the `Paint` we defined earlier. The `drawCircle` method accepts the x, y and radius of the circle in addition to the paint. This renders the following:
 
-![Circle](http://i.imgur.com/fK8Vfuz.png)
+![Circle](https://i.imgur.com/fK8Vfuz.png)
 
 ### Handling Touch Interactions
 
@@ -135,7 +135,7 @@ public class SimpleDrawingView extends View {
 
 with this, a black circle is drawn each time we press down:
 
-![Circle 2](http://i.imgur.com/MmxcjsV.png)
+![Circle 2](https://i.imgur.com/MmxcjsV.png)
 
 ### Drawing with Paths
 
@@ -203,7 +203,7 @@ public class SimpleDrawingView extends View {
 
 and with that, we have a very basic painting app that looks like:
 
-![Circle 3](http://i.imgur.com/RixrXoy.png)
+![Circle 3](https://i.imgur.com/RixrXoy.png)
 
 ### Efficient Drawing with Bitmap Cache
 

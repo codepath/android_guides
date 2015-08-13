@@ -4,7 +4,7 @@ Google Cloud Messaging for Android (GCM) is a service that allows you to send da
 
 A GCM implementation includes a Google-provided connection server, a 3rd-party app server that interacts with the connection server, and a GCM-enabled client app running on an Android device:
 
-![GCM Arch](http://i.imgur.com/9XzwPqc.png)
+![GCM Arch](https://i.imgur.com/9XzwPqc.png)
 
 In order to use GCM, we need to go through the following steps:
 

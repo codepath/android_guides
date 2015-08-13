@@ -2,7 +2,7 @@
 
 ProgressBar is used to display the progress of an activity while the user is waiting. You can display an **indeterminate** progress (spinning wheel) or **result-based** progress.
 
-![ProgressBars](http://i.imgur.com/1nUlHOq.png)
+![ProgressBars](https://i.imgur.com/1nUlHOq.png)
 
 ### Indeterminate
 
@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
 
 and the result:
 
-![Progress Action](http://i.imgur.com/DL6O3kT.gif)
+![Progress Action](https://i.imgur.com/DL6O3kT.gif)
 
 ## Progress Within ListView Footer
 
@@ -213,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
 
 Now we can call these show and hide methods as needed to show the footer in the list:
 
-<img src="http://i.imgur.com/43L4Y0R.gif" width="400" alt="progress in footer" />
+<img src="https://i.imgur.com/43L4Y0R.gif" width="400" alt="progress in footer" />
 
 ## Third-party Libraries
 

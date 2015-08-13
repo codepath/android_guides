@@ -6,7 +6,7 @@ This tutorial is a complementary reference which can be used in conjunction with
 
 First, we create a new Android project with **minimum SDK 14** named `SimpleTodo` and then select "Empty Activity". Hit Finish to generate the project.
 
-<img src="http://i.imgur.com/rX7FoFU.png" alt="Fix imports" width="600" />
+<img src="https://i.imgur.com/rX7FoFU.png" alt="Fix imports" width="600" />
 
 ### Configuring Android Studio
 
@@ -15,7 +15,7 @@ Go into Preferences for Android Studio. On a Mac through `Android Studio => Pref
  * Change `Insert imports on paste` to `All`
  * Check `Add unambigious imports on the fly` option
 
-<img src="http://i.imgur.com/mNZB3JB.png" alt="Fix imports" width="600" />
+<img src="https://i.imgur.com/mNZB3JB.png" alt="Fix imports" width="600" />
 
 ### Creating our Layout
 
@@ -63,7 +63,7 @@ Next, we need to define the layout of our views. In particular, we want to add `
 
 which results in this layout for our Todo app:
 
-![Todo 1](http://i.imgur.com/GGozNwt.png)
+![Todo 1](https://i.imgur.com/GGozNwt.png)
 
 ### Modifying our Activity
 
@@ -116,7 +116,7 @@ public class MainActivity extends Activity {
 
 which when we run the app with `Run => 'app'` results in:
 
-![Todo 2](http://i.imgur.com/gcRiQb5.png)
+![Todo 2](https://i.imgur.com/gcRiQb5.png)
 
 ### Adding Items
 

@@ -139,7 +139,7 @@ The corresponding XML would be:
 
 Suppose we also specify that the second button should be aligned left **and** right to the first button.  If we add `android:layout_alignRight="@id/button1"` to the second button's XML style, the change causes the second button to expand the width to match that of the first button.   In other words, the only way to meet the requirements of specifying alignment on both sides is to expand the width of the second button.
  
-<img src="http://i.imgur.com/4DE1WzS.png/">
+<img src="https://i.imgur.com/4DE1WzS.png/">
 
 In this way, when two elements are vertically positioned above or below the other, left and right alignments will control the **width**.  When two elements are positioned horizontally next to each other, top and bottom alignments will control the **height**.    We'll show how height can be impacted by specifying top and bottom alignments in the next example.
 

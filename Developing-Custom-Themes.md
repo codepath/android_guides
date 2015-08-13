@@ -4,7 +4,7 @@ A `style` in Android is a collection of attribute/value pairs applied to a view.
 
 We will be defining multiple themes in our app and use a spinner view to switch between themes.  By the end of this exercise, you should know how to define a theme in your resources in an XML file, how to define attributes of the theme, how to apply those to your layout file, and finally how to dynamically change the theme of an activity. Below is the final output.
 
-![Imgur](http://i.imgur.com/a7glYfd.png)
+![Imgur](https://i.imgur.com/a7glYfd.png)
 
 ## 1. Create a New Android Application Project
 
@@ -149,7 +149,7 @@ Note that the spinner is bound to the string array and will display the theme na
 
 If you run your application now, you should see the following output.
 
-![Imgur](http://i.imgur.com/l2cW1Tj.png)
+![Imgur](https://i.imgur.com/l2cW1Tj.png)
 
 ## 3. Custom Attributes
 
@@ -282,7 +282,7 @@ Define the state list for the button in `res/drawable/button_wh.xml`:
 </selector>
 ```
 
-For the spinner, [download the nine-patch file](http://i.imgur.com/C5goXvG.png/spinner_default_holo_light.9.png) for the corner triangle. You can find all the default drawables in the [Android SDK on Github](https://github.com/android/platform_frameworks_base/tree/master/core/res/res/drawable) or on your system at `/path/to/android/sdk/platforms/<sdk-version>/data/res/drawable/spinner_default_holo_light.9.png`. Copy this stretchy nine-patch graphic to your `drawable` folder.
+For the spinner, [download the nine-patch file](https://i.imgur.com/C5goXvG.png/spinner_default_holo_light.9.png) for the corner triangle. You can find all the default drawables in the [Android SDK on Github](https://github.com/android/platform_frameworks_base/tree/master/core/res/res/drawable) or on your system at `/path/to/android/sdk/platforms/<sdk-version>/data/res/drawable/spinner_default_holo_light.9.png`. Copy this stretchy nine-patch graphic to your `drawable` folder.
 
 Let's define the style for our spinner. First the background in `res/drawable/spinner_wh_background.xml` creating a selector:
 

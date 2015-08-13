@@ -4,19 +4,19 @@ This page will compile common issues experienced with Android Studio 1.0 or abov
 
 If you want to do more in-depth debugging in your code, you can setup breakpoints in your code by clicking on the left side pane and then clicking on `Run`->`Debug`.    You can also click on the bug icon if you've enabled the Toolbar (`View`->`Enable Toolbar`):
 
-![http://i.imgur.com/zGh8wZ0.png](http://i.imgur.com/zGh8wZ0.png)
+![https://i.imgur.com/zGh8wZ0.png](https://i.imgur.com/zGh8wZ0.png)
 
 ## LogCat
 
 Android Studio contains a panel to receive logging messages from the emulator, known as [LogCat](http://developer.android.com/tools/help/logcat.html). If you are not seeing any log messages, click on the Restart icon ![http://imgur.com/kQKr1zv.png](http://imgur.com/kQKr1zv.png).  
 
-![http://i.imgur.com/xP3dQcG.png](http://i.imgur.com/xP3dQcG.png)
+![https://i.imgur.com/xP3dQcG.png](https://i.imgur.com/xP3dQcG.png)
 
 ## Resetting adb
 
 If you are having issues trying to connect to the emulator or see any type of "Connection refused" errors, you may need to reset the Android Debug Bridge.  You can go to `Tools`->`Android`->`Android Device Monitor`.  Click on the mobile device icon and click on the arrow facing down to find the `Reset adb` option.
 
-![http://i.imgur.com/srLBOMJ.gif](http://i.imgur.com/srLBOMJ.gif)
+![https://i.imgur.com/srLBOMJ.gif](https://i.imgur.com/srLBOMJ.gif)
 
 ## Virtual Device Manager
 
@@ -96,13 +96,13 @@ If you are using [multiple layout folders](http://stackoverflow.com/questions/49
 
 If you see `org.gradle.tooling.GradleConnectionException` errors, you may need to install a newer version of JDK (there have been reports of 1.7.0_71 having this issue).  First try to restart the adb server first.
 
-![http://i.imgur.com/1kWwmuh.png](http://i.imgur.com/1kWwmuh.png)
+![https://i.imgur.com/1kWwmuh.png](https://i.imgur.com/1kWwmuh.png)
 
 ### Getting "failed to find Build Tools revision x.x.x"
 
 If you're opening another Android Studio project and the project fails to compile, you may see "failed to find Build Tools revision x.x.x" at the bottom of the screen.  Since this package is constantly being changed, it should be no surprise that other people who have installed Android Studio may have different versions. You can either click the link below to install this specific Build Tools version, or you can modify the build.gradle file to match the version you currently have installed.
 
-![http://i.imgur.com/IsAWMrl.png](http://i.imgur.com/IsAWMrl.png)
+![https://i.imgur.com/IsAWMrl.png](https://i.imgur.com/IsAWMrl.png)
 
 ### Getting "com.android.dex.DexException: Multiple dex files define" 
 

@@ -4,7 +4,7 @@
 
 Android Studio uses a new build system called [[Gradle|Getting-Started-with-Gradle]].  The recommended approach is to directly import your Eclipse projects.  In Android Studio v1.0, there is an option to "Import Non-Android Studio Project".  Note that you will need to refer to the Eclipse project root directory, which should have immediate subdirectories src/ and res/.  (If Android Studio does not find these directories in the project directory specified, it does not try to perform the migration to Gradle.)
 
-![http://i.imgur.com/gnr8dhW.png](http://i.imgur.com/gnr8dhW.png)
+![https://i.imgur.com/gnr8dhW.png](https://i.imgur.com/gnr8dhW.png)
 
 When you do the import, your Java and XML resource files are relocated to src/main/java and src/main/res respectively.  Gradle looks explicitly in the src/main directory and can compile successfully but will fail to include your .class files if they are not located in these particular directories.
 
@@ -76,7 +76,7 @@ each test run:
 
 * By default, Android Studio does not perform auto-imports.  If you want to enable it, go to Preferences->Editor->Auto Import, click the checkbox "Add unambiguous imports on the fly" but make sure to exclude android.R auto imports since it can often cause conflicts with your own resource imports.  You may also wish to Optimize Imports on the Fly, but you can also type Command-Option-O to do it manually:
 
-  ![http://i.imgur.com/UoFj1XY.gif](http://i.imgur.com/UoFj1XY.gif | height=200px)
+  ![https://i.imgur.com/UoFj1XY.gif](https://i.imgur.com/UoFj1XY.gif | height=200px)
 
 * If you're adding libraries that also define R.java resource files (such as a [PullToRefresh library](http://guides.codepath.com/android/Implementing-Pull-to-Refresh) or Google Play Services), you cannot add them as .jar files.  They must be included as dependencies.  If you try to include them as .jar files, you may encounter R definitions not found during execution time.
 
@@ -84,7 +84,7 @@ each test run:
 
 * If you are using Genymotion as the emulator, you may have issues trying to use other Android SDK tools such as the Hierarchy Viewer unless you go to Genymotion ADB settings and set the path to your SDK directory (i.e. for OSX, ~/Library/Android/sdk)
 
-![image](http://i.imgur.com/iGqP85B.png)
+![image](https://i.imgur.com/iGqP85B.png)
 
 * Install the GenerateSerialVersionUID to allow you to use the same feature in Eclipse to auto-generate a unique ID for a Serializable class.  
 

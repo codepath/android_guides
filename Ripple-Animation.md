@@ -4,7 +4,7 @@ Ripple touch effect was [introduced with material design in Android 5.0](https:/
 
 Touch feedback in material design provides an instantaneous visual confirmation at the point of contact when users interact with UI elements. For example, buttons now display a ripple effect when they are touched-this is the default touch feedback animation in Android 5.0. Ripple animation is implemented by the new `RippleDrawable` class. The ripple effect can be configured to end at the bounds of the view or extend beyond the bounds of the view. For example, the following sequence of screenshots illustrates the ripple effect in a button during touch animation:
 
-  ![touch](http://i.imgur.com/hrkinJY.png)
+  ![touch](https://i.imgur.com/hrkinJY.png)
 
 Initial touch contact with the button occurs in the first image on the left, while the remaining sequence (from left to right) illustrates how the ripple effect spreads out to the edge of the button. When the ripple animation ends, the view returns to its original appearance. The default ripple animation takes place in a fraction of a second, but the length of the animation can be customized for longer or shorter lengths of time.
 
@@ -27,7 +27,7 @@ int backgroundResource = typedArray.getResourceId(0, 0);
 myView.setBackgroundResource(backgroundResource);
 ```
 
-  ![view](http://i.imgur.com/SkExpyw.gif)
+  ![view](https://i.imgur.com/SkExpyw.gif)
 
 
 ### Buttons
@@ -56,7 +56,7 @@ If you have a custom button with selected state, your text color changes dependi
 
 Using `?android:colorControlHighlight` will give the ripple the same color as the built-in ripples in your app.
 
-  ![button](http://i.imgur.com/L9ZnabL.gif)
+  ![button](https://i.imgur.com/L9ZnabL.gif)
 
 If you don’t like the default grey, you can specify what color you want `android:colorControlHighlight` to be in your theme.
 
@@ -73,7 +73,7 @@ If you don’t like the default grey, you can specify what color you want `andro
 
 If you want the ripple to extend past the boundary of the view, then you can instead use `?attr/selectableItemBackgroundBorderless`. This works well with ImageButtons and smaller Buttons that are part of a larger View:
 
-  ![anim](http://i.imgur.com/RYQ6nnB.gif)
+  ![anim](https://i.imgur.com/RYQ6nnB.gif)
 
 ## References
 

@@ -47,8 +47,8 @@ Let's take an end-to-end look at creating a master-detail interface using fragme
 
 First, let's create a **new Android application** with a minimum of API level 11. In the wizard, select `Blank Activity` and then name the Activity` and hit "Finish".
 
-![Create Project](http://i.imgur.com/ZX7aLMS.png)
-![Create Project 2](http://i.imgur.com/wsj17qG.png)
+![Create Project](https://i.imgur.com/ZX7aLMS.png)
+![Create Project 2](https://i.imgur.com/wsj17qG.png)
 
 #### Defining the Item Model
 
@@ -248,7 +248,7 @@ public class ItemsListFragment extends Fragment {
 
 Here we have fetched our items, created an adapter based on those items and then attached those items into the ListView. Now we will see the following list when we run:
 
-![State 1](http://i.imgur.com/LWAMwQx.png)
+![State 1](https://i.imgur.com/LWAMwQx.png)
 
 Now we have the list of items populated properly into our fragment and displayed in our activity.
 
@@ -256,7 +256,7 @@ Now we have the list of items populated properly into our fragment and displayed
 
 Next, let's add the ability to select an item and have the details show up. So we want to be able to bring up the detail view when an item is pressed. On the phone size screen, this will bring up a separate activity. So let's create a new blank activity called `ItemDetailActivity` that will display our `ItemDetailFragment`.
 
-![State 2](http://i.imgur.com/mKCCTzh.png)
+![State 2](https://i.imgur.com/mKCCTzh.png)
 
 Inside our `ItemDetailActivity`, we just need to embed a `FrameLayout` that will be dynamically replaced with the `ItemDetailFragment`. In our `res/layout/activity_item_detail.xml`, let's add the frame container:
 
@@ -463,9 +463,9 @@ public class ItemsListActivity extends FragmentActivity implements
 
 With that, if we run the application, we can now see that selecting an item in the item list will correctly bring up our detail activity. 
 
-<img src="http://i.imgur.com/JHwjiJo.png" width="450" alt="Phone 1" />
+<img src="https://i.imgur.com/JHwjiJo.png" width="450" alt="Phone 1" />
 &nbsp;
-<img src="http://i.imgur.com/IFS7Pxh.png" width="450" alt="Phone 2" />
+<img src="https://i.imgur.com/IFS7Pxh.png" width="450" alt="Phone 2" />
 
 #### Creating a Two-Pane View
 
@@ -477,9 +477,9 @@ On a tablet, the current listview activity looks odd. We really want a way to ha
 
 So, let's take a look at how to setup the two-pane view only for larger tablet devices and keep phones using the current behavior. Within Android, there is a concept of [Alternative Resources](http://developer.android.com/guide/topics/resources/providing-resources.html#AlternativeResources). That is, we can have resource files that are automatically selected based on certain "qualifiers". There are many, but one easy qualifier is "screen size". We can declare that if the screen size is "large", that a different XML layout will be used for the same activity. To do that, let's right-click to create a new "Android XML Layout File".
 
-<img src="http://i.imgur.com/0NZI0VK.png" alt="image 1" width="450" />
+<img src="https://i.imgur.com/0NZI0VK.png" alt="image 1" width="450" />
 &nbsp;
-<img src="http://i.imgur.com/HbztuOc.png" alt="image 1" width="450" />
+<img src="https://i.imgur.com/HbztuOc.png" alt="image 1" width="450" />
 
 The net result is we want to **create an alternate layout XML for our activity** at `res/layout-large/activity_items_list.xml`:
 
@@ -518,7 +518,7 @@ The net result is we want to **create an alternate layout XML for our activity**
 
 This layout is only used **when the screen size is large** such as a tablet. In this version of the activity layout, there is a static fragment for the `ItemsListFragment` **and** the dynamic frame layout for the `ItemDetailFragment` within the same screen. Notice, that we have used a `LinearLayout` with `android:layout_weight` to ensure that the detail view is about 3x wider then the item list. We have also added a `View` which is being used as a divider between the list and detail fragments.
 
-![Tablet](http://i.imgur.com/l3Aj9WR.png)
+![Tablet](https://i.imgur.com/l3Aj9WR.png)
 
 #### Supporting Item Selection for Two-Pane View
 
@@ -573,7 +573,7 @@ public class ItemsListActivity extends FragmentActivity implements OnItemSelecte
 
 Great! Now in a tablet view, the details show up within the detail area within the same activity and on the phone, the intent launches and we are able to see the details in a separate view. 
 
-![Tablet 2](http://i.imgur.com/aJhD3WO.png)
+![Tablet 2](https://i.imgur.com/aJhD3WO.png)
 
 #### Setting Up Activated List Item
 
@@ -618,7 +618,7 @@ public class ItemsListActivity extends FragmentActivity implements
 
 Here we are calling the `setActivateOnItemClick` method only if we are in a two-pane layout which activates the `CHOICE_MODE_SINGLE` option on our ListView and allows us to have "activated items". Now, when we run the app on tablets, the last item selected will appear "activated" in the list view. 
 
-![Tablet 3](http://i.imgur.com/qXjBcuL.png)
+![Tablet 3](https://i.imgur.com/qXjBcuL.png)
 
 #### Master-Detail Conclusion
 

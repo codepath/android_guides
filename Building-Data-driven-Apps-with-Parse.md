@@ -8,11 +8,11 @@ First, we need to [sign up for a Parse account](https://www.parse.com/#signup) u
 
 Make sure you have an app prepared that you would like to integrate with Parse. Follow the steps on the [existing app page](https://www.parse.com/apps/quickstart#parse_data/mobile/android/native/existing) starting with [downloading the Parse SDK](https://parse.com/downloads/android/Parse/latest).  Make sure to edit the `app/build.gradle` file to make any changes (not the top-level `build.gradle` file).  You must also unzip the Parse SDK .ZIP file too.
 
-<a target="_blank" href="https://www.parse.com/apps/quickstart#parse_data/mobile/android/native/existing"><img src="http://i.imgur.com/ldLJfil.png" alt="screen_1" width="500" /></a>
+<a target="_blank" href="https://www.parse.com/apps/quickstart#parse_data/mobile/android/native/existing"><img src="https://i.imgur.com/ldLJfil.png" alt="screen_1" width="500" /></a>
 
 Inside the Parse SDK .zip file should be a  `Parse-X.X.X.jar` file.  Drag this JAR file (not the .ZIP file) into the "libs" folder of your Android app. See these [instructions for how to reveal the libs folder](http://stackoverflow.com/a/28020621/313399) in Android Studio.
 
-<img src="http://i.imgur.com/EO6vp5S.png" alt="screen_2" width="400" />
+<img src="https://i.imgur.com/EO6vp5S.png" alt="screen_2" width="400" />
 
 Next, we need to create an `Application` class and initialize Parse. Be sure to replace the initialization line below with **your correct Parse keys**:
 
@@ -92,7 +92,7 @@ public class ParseApplication extends Application {
 
 Run your app and a new object of class TestObject will be sent to the Parse Cloud and saved. Click on the "Test" button back on the [Parse quickstart guide](https://www.parse.com/apps/quickstart#parse_data/mobile/android/native/existing) to confirm data was successfully transmitted.
 
-<img src="http://i.imgur.com/YloGilR.png" alt="screen_3" width="500" />
+<img src="https://i.imgur.com/YloGilR.png" alt="screen_3" width="500" />
 
 If you see "Congrats! You saved your first object", then Parse is setup successfully. If not, review the steps above to get Parse setup. 
 
@@ -559,23 +559,23 @@ Suppose we had a simple todo application with user accounts and items persisted 
 
 First, **remove the test code that we added previously** and drop the "TestObject" listed in the browser to clear testing data.
 
-<img src="http://i.imgur.com/ZFds0Fn.png" alt="screen_5" width="400" />
+<img src="https://i.imgur.com/ZFds0Fn.png" alt="screen_5" width="400" />
 
 Next, select "New Class" and pick "User" to create the user object used to manage session authetication:
 
-<img src="http://i.imgur.com/7hQZz3y.png" alt="screen_6" width="300" />
+<img src="https://i.imgur.com/7hQZz3y.png" alt="screen_6" width="300" />
 
 Let's also add our "Custom" class which can represent any custom data. In this case, we will create a `TodoItem` class:
 
-<img src="http://i.imgur.com/MIZkV8L.png" alt="screen_7" width="300" />
+<img src="https://i.imgur.com/MIZkV8L.png" alt="screen_7" width="300" />
 
 Now, we need to add our custom columns to our class. In this case, let's add a "body" field to our `TodoItem` by selecting "+Col" and then selecting the type as a String and column name as "body":
 
-<img src="http://i.imgur.com/qYel2NP.png" alt="screen_8" width="300" />
+<img src="https://i.imgur.com/qYel2NP.png" alt="screen_8" width="300" />
 
 Once you've finished adding your columns to the class, you can create as many additional classes as necessary and configure their respective columns. Let's add a row of data to the class directly through the data browser:
 
-<img src="http://i.imgur.com/QFMEnb7.png" alt="screen_9" width="600" />
+<img src="https://i.imgur.com/QFMEnb7.png" alt="screen_9" width="600" />
 
 We are now ready to access these classes within our application.
 

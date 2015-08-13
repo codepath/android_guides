@@ -41,7 +41,7 @@ If you happen to be creating Java models using the previous step, you therefore 
 
 Next, paste the JSON output into the textbox:
 
-<img src="http://i.imgur.com/DG4TAB2.png" width="400" alt="POJO Generator" />
+<img src="https://i.imgur.com/DG4TAB2.png" width="400" alt="POJO Generator" />
 
 Click the Preview button.  You should see the top section look sort of like the following:
 

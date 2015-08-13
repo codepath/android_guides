@@ -5,11 +5,11 @@ The app is composed of two screens. The first screen displays a list of books, i
 
 **Book List**
 
-![Imgur](http://i.imgur.com/sSINs2zl.png)
+![Imgur](https://i.imgur.com/sSINs2zl.png)
 
 **Book Details**
 
-![Imgur](http://i.imgur.com/y9a4AtQl.png)
+![Imgur](https://i.imgur.com/y9a4AtQl.png)
 
 The full source code for this app can be [downloaded here](https://github.com/codepath/android-booksearch-demo) for review as well.
 
@@ -49,13 +49,13 @@ Then you need to sync with gradle and make sure there are no errors.
 ### Download Assets
 We'll be using the following icon for our app.
 
-<a href="http://imgur.com/3odnsIE"><img src="http://i.imgur.com/3odnsIEl.png" title="source: imgur.com" /></a>
+<a href="http://imgur.com/3odnsIE"><img src="https://i.imgur.com/3odnsIEl.png" title="source: imgur.com" /></a>
 
 We'll use the following image when the cover image is not available.
 
-<a href="http://imgur.com/DTkTKtI"><img src="http://i.imgur.com/DTkTKtIl.png" title="source: imgur.com" /></a>
+<a href="http://imgur.com/DTkTKtI"><img src="https://i.imgur.com/DTkTKtIl.png" title="source: imgur.com" /></a>
 
-Copy and paste both [ic_launcher.png](http://i.imgur.com/3odnsIEl.png/ic_launcher.png) and [ic_nocover.png](http://i.imgur.com/DTkTKtIl.png/ic_nocover.png) into `res/drawable` for use later.
+Copy and paste both [ic_launcher.png](https://i.imgur.com/3odnsIEl.png/ic_launcher.png) and [ic_nocover.png](https://i.imgur.com/DTkTKtIl.png/ic_nocover.png) into `res/drawable` for use later.
 
 ### Setup Internet Permission
 
@@ -83,7 +83,7 @@ In the `res/layout/activity_book_list.xml`, lets drop out a ListView with the id
     android:layout_height="match_parent" />
 </LinearLayout>
 ```
-![Imgur](http://i.imgur.com/4e1PlU4l.png)
+![Imgur](https://i.imgur.com/4e1PlU4l.png)
 
 
 ### Construct API Client
@@ -495,7 +495,7 @@ public class BookListActivity extends AppCompatActivity {
 
 After running the app, we should see the following output:
 
-![Imgur](http://i.imgur.com/NJmF42Yl.png)
+![Imgur](https://i.imgur.com/NJmF42Yl.png)
 
 Note that the search query is hardcoded in `fetchBooks()` method. We'll fix this shortly. In the next step, we'll add SearchView to ActionBar and pass the query entered in the SearchView to retrieve the books from OpenLibrary search API.
 
@@ -518,7 +518,7 @@ We can use a SearchView to search for a book by its author or title. Using the S
 
 If you run your app now, the SearchView appears in the app's action bar, but it isn't functional.
 
-![Imgur](http://i.imgur.com/TtRNzjml.png)
+![Imgur](https://i.imgur.com/TtRNzjml.png)
 
 Now we need to hook up a listener for when a search is performed in `BookListActivity.java`. Also note that we modified `fetchBooks()` method to accept the search query and removed the call to fetch books from `onCreate()`.
 
@@ -574,7 +574,7 @@ public class BookListActivity extends AppCompatActivity {
 ```
 
 You should now be able to search for books from the SearchView in your ActionBar.
-![Imgur](http://i.imgur.com/sSINs2zl.png)
+![Imgur](https://i.imgur.com/sSINs2zl.png)
 
 ### Show Progress Bar
 A ProgressBar should be used when we want the user to wait till a task completes. It's a good practice to always show a ProgressBar before making a network call.
@@ -861,7 +861,7 @@ public class BookDetailActivity extends AppCompatActivity {
 
 If you run your app now, your detail screen should look similar to this:
 
-![Imgur](http://i.imgur.com/SJSEsVml.png)
+![Imgur](https://i.imgur.com/SJSEsVml.png)
 
 
 ### Add Share Intent
@@ -958,8 +958,8 @@ Make sure to add the appropriate permissions to your `AndroidManifest.xml`:
 
 Here's the final detail view with share icon:
 
-![Imgur](http://i.imgur.com/y9a4AtQl.png)
+![Imgur](https://i.imgur.com/y9a4AtQl.png)
 
 Tap the share icon and the share menu appears:
 
-![Imgur](http://i.imgur.com/w0ZQQyKl.png)
+![Imgur](https://i.imgur.com/w0ZQQyKl.png)

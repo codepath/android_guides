@@ -18,7 +18,7 @@ Creating custom views is centered around five primary aspects that we may need t
 
 To take a closer look, suppose we want to **create our own view control that allows the user to select between different shapes**. The view will display a single shape (square, circle or triangle) and clicking on the view will toggle the shape selected between the different options.
 
-![ShapeView 1](http://i.imgur.com/WrZx6wE.png)
+![ShapeView 1](https://i.imgur.com/WrZx6wE.png)
 
 ### Define Custom View Class
 
@@ -204,7 +204,7 @@ public class ShapeSelectorView extends View {
 
 This will paint the square based on the `shapeColor` specified in the XML and will paint the shape name if specified within the `displayShapeName` property. Result looks like:
 
-![ShapeView 1](http://i.imgur.com/CUJnh0b.png)
+![ShapeView 1](https://i.imgur.com/CUJnh0b.png)
 
 You can read more about drawing onto a canvas on the official [Custom 2D Drawing Tutorial](http://developer.android.com/guide/topics/graphics/2d-graphics.html).
 
@@ -309,7 +309,7 @@ public class ShapeSelectorView extends View {
 
 Now every time that we click the view, a different shape appears rotating between the three available options. Result looks like:
 
-![ShapeView 2](http://i.imgur.com/uJnup7s.png)
+![ShapeView 2](https://i.imgur.com/uJnup7s.png)
 
 For more advanced view user interaction, check out the [Making the View Interactive](http://developer.android.com/training/custom-views/making-interactive.html) official docs.
 
@@ -353,7 +353,7 @@ public class MainActivity extends Activity {
 
 The result of this is the following:
 
-![Shape 3](http://i.imgur.com/c0qMRel.png)
+![Shape 3](https://i.imgur.com/c0qMRel.png)
 
 There are many events which can be customized for a view, check out the [Custom Components](http://developer.android.com/guide/topics/ui/custom-components.html#custom) guide for a more details.
 

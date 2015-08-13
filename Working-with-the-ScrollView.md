@@ -2,7 +2,7 @@
 
 When an app has layout content that might be longer than the height of the device and that content should be vertically scrollable, then we need to use a [ScrollView](http://developer.android.com/reference/android/widget/ScrollView.html).
 
-<img src="http://i.imgur.com/1TaIN6g.gif" width="350" />
+<img src="https://i.imgur.com/1TaIN6g.gif" width="350" />
 
 ## Usage
 

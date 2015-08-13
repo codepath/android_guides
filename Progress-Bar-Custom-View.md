@@ -2,7 +2,7 @@
 
 We're going to create our own implementation of a determinate progress bar by creating a custom view. The progress bar will have an indicator that represents a goal. We will define custom attributes, handle measuring and drawing, and animations. 
 
-![](http://i.imgur.com/rMW3K4A.gif)
+![](https://i.imgur.com/rMW3K4A.gif)
 
 Review the [creating a custom view](http://guides.codepath.com/android/Defining-Custom-Views) cliffnotes for a broader overview of what is required in building custom views.
 
@@ -10,7 +10,7 @@ Review the [creating a custom view](http://guides.codepath.com/android/Defining-
 
 Clone [this repository](https://github.com/codepath/android-custom-progress-bar), and import the project in Android Studio. Build and run the app to see the following screen: 
 
-<img src="http://i.imgur.com/n6LW1jL.png" width="300">
+<img src="https://i.imgur.com/n6LW1jL.png" width="300">
 
 The skeleton app contains a `GoalProgressBar` class which extends Android's [ProgressBar](http://developer.android.com/reference/android/widget/ProgressBar.html), but doesn't add any additional functionality. Clicking on the `Reset Progress` button will update the progress to a new value, which will help us test our changes during development. 
 
@@ -219,7 +219,7 @@ protected void onDraw(Canvas canvas) {
 
 Next we're going to create some different options for the goal indicator. We can allow users to choose between different shapes to use as the goal indicator. We'll do this by creating a new XML attribute that has a predefined set of values, to make the API as user friendly as possible:
  
-<img src="http://i.imgur.com/M3yEzH9.png" width="300">
+<img src="https://i.imgur.com/M3yEzH9.png" width="300">
 
 We'll need to add a new `attr` to our existing declared styleable in `attrs.xml`, this time it will be of type `enum`: 
 

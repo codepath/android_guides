@@ -1,6 +1,6 @@
 In Android development, any time we want to show a vertical list of scrollable items we will use a `ListView` which has data populated using an `Adapter`. The simplest adapter to use is called an `ArrayAdapter` because the adapter converts an `ArrayList` of objects into `View` items loaded into the `ListView` container.
 
-<img src="http://i.imgur.com/mk82Jd2.jpg" width="600" />
+<img src="https://i.imgur.com/mk82Jd2.jpg" width="600" />
 
 The `ArrayAdapter` fits in between an `ArrayList` (data source) and the `ListView` (visual representation) and configures two aspects:
 
@@ -17,11 +17,11 @@ When your `ListView` is connected to an adapter, the adapter will instantiate ro
 
 Instead, as the user scroll through the list, **items that leave the screen are kept in memory for later use** and then every new row that enters the screen **reuses an older row kept around in memory**. In this way, even for a list of 1000 items, only ~7 item view rows are ever instantiated or held in memory. Here is a visual overview of recycling:
 
-<img src="http://i.imgur.com/zpkVUMR.png" width="500" />
+<img src="https://i.imgur.com/zpkVUMR.png" width="500" />
 
 Here is another related diagram on view recycling:
 
-<img src="http://i.imgur.com/SZ8iKuu.jpg" width="500" />
+<img src="https://i.imgur.com/SZ8iKuu.jpg" width="500" />
 
 Refer to [this ListView guide](http://android.amberfog.com/?p=296) for another look at how this works to optimize the performance of your lists.
 

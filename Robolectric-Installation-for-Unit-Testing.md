@@ -31,7 +31,7 @@ For each type of test, Android Studio defaults to looking for tests in the follo
 
 Since we will be creating unit tests, we need our robolectric tests to live in `src/test/java`.  The easiest way to create this folder (if instrumentations tests aren't also needed) is to rename the `androidTest` folder to `test` like so:
 
-![image](http://i.imgur.com/EqGf1UQ.png)
+![image](https://i.imgur.com/EqGf1UQ.png)
 
 Note: If you are using a Mac, there is a known issue that needs to be addressed so that tests can be located properly. Go to `Run` -> `Edit Configurations` -> `Defaults` -> `Junit` and make sure to set `$MODULE_DIR$` as the working directory.  You can see the Robolectric [getting started guide](http://robolectric.org/getting-started/) for more information. 
 
@@ -88,11 +88,11 @@ Note: Robolectric currently doesn't support API level 22 (Android 5.1).  If your
 
 1. Android Studio - Make sure you run the test as a Gradle test (the first item).  The first item is for a Gradle test, while the 2nd item is for JUnit.
 
-![](http://i.imgur.com/RDmmdI2.png)
+![](https://i.imgur.com/RDmmdI2.png)
 
 If all goes well, you will see the passing results in the console. Note: you may need to enable `Show Passed` as in the diagram to see the full results.
 
-![image](http://i.imgur.com/cv1Aryi.jpg)
+![image](https://i.imgur.com/cv1Aryi.jpg)
 
 To run tests on the command line `./gradlew test`
 

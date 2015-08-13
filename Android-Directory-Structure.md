@@ -1,6 +1,6 @@
 ## Overview
 
-Within an [Android project structure](http://i.imgur.com/KDSWUXt.png), the most frequently edited folders are:
+Within an [Android project structure](https://i.imgur.com/KDSWUXt.png), the most frequently edited folders are:
 
 * `src` - Java source files associated with your project. This includes the Activity "controller" files as well as your models and helpers.
 * `res` - Resource files associated with your project. All graphics, strings, layouts, and other resource files are stored in the resource file hierarchy under the res directory. 

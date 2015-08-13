@@ -54,7 +54,7 @@ and then applied to a TextView using the `background` property:
 
 and the resulting view looks like:
 
-![Solid Shape](http://i.imgur.com/RPzvPc7.png)
+![Solid Shape](https://i.imgur.com/RPzvPc7.png)
 
 Note that **drawables can be applied to any view** and are usually set with the `background` property referencing the drawable resource.
 
@@ -80,7 +80,7 @@ Here's an example of a simple linear gradient shape specified in `res/layout/dra
 
 applied to a button and the resulting view looks like:
 
-![Gradient Shape](http://i.imgur.com/g8b9XWb.png)
+![Gradient Shape](https://i.imgur.com/g8b9XWb.png)
 
 You can also setup radial-type gradients with:
 
@@ -103,7 +103,7 @@ You can also setup radial-type gradients with:
 
 and applied to a TextView, this looks like:
 
-![Screen Radial Background](http://i.imgur.com/rReIfCC.png)
+![Screen Radial Background](https://i.imgur.com/rReIfCC.png)
 
 Using solid color shapes and gradients we can customize the appearance of buttons, layouts and other views without requiring the use of any images. Note that custom shapes can be created at runtime using [other shape drawable types](http://kirill-poletaev.blogspot.com/2013/02/android-beginner-tutorial-part-90-path.html) using `PathShape` and `ArcShape`.
 
@@ -161,7 +161,7 @@ A [LayerDrawable](http://developer.android.com/guide/topics/resources/drawable-r
 
 The LayerList can be used to draw multiple other drawables (shapes, images, etc) and position them in relationship to one another. The layers are placed on top of one another by default with the last item  being drawn on the top. Layers can then have their coordinates shifted using the `left`, `right`, `top`, and `bottom` properties. 
 
-<img src="http://i.imgur.com/SwTEJ3x.png" alt="layerlists" width="750" />
+<img src="https://i.imgur.com/SwTEJ3x.png" alt="layerlists" width="750" />
 
 Common use cases for layer lists include:
 
@@ -205,7 +205,7 @@ For a simple example, the following layer list draws several shapes in relation 
 
 and this results in the following:
 
-![Layer List](http://i.imgur.com/T1BN9tf.png)
+![Layer List](https://i.imgur.com/T1BN9tf.png)
 
 Keep in mind that the items in a [LayerList](http://developer.android.com/guide/topics/resources/drawable-resource.html#LayerList) can also be images or any other type of drawable. You can use this to create more complex drawings and overlay multiple drawables on top of each other. See more examples within the [official docs](http://developer.android.com/guide/topics/resources/drawable-resource.html#LayerList).
 
@@ -213,14 +213,14 @@ Keep in mind that the items in a [LayerList](http://developer.android.com/guide/
 
 A [NinePatch](http://developer.android.com/guide/topics/graphics/2d-graphics.html#nine-patch) is a PNG image in which you can **define stretchable regions that is stretched** when content within the View exceeds the normal image bounds. You typically assign this type of image as the background of a View which has width set to `wrap_content`. The most common use is a button that has to stretch based on the text displayed inside.
 
-<img src="http://i.imgur.com/JHVsslP.png" width="450" alt="9patch" />
+<img src="https://i.imgur.com/JHVsslP.png" width="450" alt="9patch" />
 
 NinePatch are images that have a `.9.png` file extension signifies that this is a stretchable PNG image.  The file is no different from a normal PNG file except that you will add thin black lines to indicate the vertical and horizontal "stretchable" and "fill" areas for the image. Android will not show these guide lines, which are used to determine how the image should be rendered.
 
 An example of a 9-patch image is embedded below (left is the 9patch graphic, right is an example of use in an app):
 
-<img src="http://i.imgur.com/btT0ybk.png" height="60" /> &nbsp;
-<img src="http://i.imgur.com/oSFvjxF.png" height="60" />
+<img src="https://i.imgur.com/btT0ybk.png" height="60" /> &nbsp;
+<img src="https://i.imgur.com/oSFvjxF.png" height="60" />
 
 A NinePatch is defined and saved in the `drawable` folder and setting the background works the same as with any image:
 
@@ -291,7 +291,7 @@ This now represents the shape and background of the button in the default state 
 
 If we run that, we will see the following button:
 
-![Button Graphic 1](http://i.imgur.com/UJc7SQd.png)
+![Button Graphic 1](https://i.imgur.com/UJc7SQd.png)
 
 Now the button shows up nicely but doesn't have any "pressed" or "focused" states. To do this, we need to create a **State List** drawable that describes the drawables for each state in `res/drawable/states_nice_button.xml`:
 
@@ -388,7 +388,7 @@ lvTest.setAdapter(aItems);
 
 This results in the following default styles ListView:
 
-![List Original](http://i.imgur.com/mmRV3lW.png)
+![List Original](https://i.imgur.com/mmRV3lW.png)
 
 Now, let's add our own styling to the ListView. Let's add a default gradient and a pressed gradient, change the divider color between items and add a border around the ListView. First, let's add the shape gradient background for the default state in `res/drawable/gradient_bg.xml`:
 
@@ -469,7 +469,7 @@ Notice that the `background` property has been set to the states list in order t
 
 Here we have customized the `divider` color and `dividerHeight` as well as the `background` to apply the border and `listSelector` to manage the states when an item is pressed. With all this in place, our customized ListView now looks like:
 
-![Customized ListView](http://i.imgur.com/MLpQC8W.png)
+![Customized ListView](https://i.imgur.com/MLpQC8W.png)
 
 We've now successfully customized the appearance of our ListView and it's items using a series of drawables. You can use these techniques to make a list look however you want based on the needs for your app.
 

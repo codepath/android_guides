@@ -130,7 +130,7 @@ See  the [official notifications guide](http://developer.android.com/guide/topic
 
 If the notification should display a larger higher-quality icon on the left, we can use the `setLargeIcon` method to set a large (64x64) image as the icon. A common usage of this is to show a picture of the person's face that is associated with the notification:
 
-<img src="http://i.imgur.com/iuPmvzA.png" />
+<img src="https://i.imgur.com/iuPmvzA.png" />
 
 This can be done with the following code:
 

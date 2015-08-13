@@ -334,7 +334,7 @@ public class SQLiteExampleActivity extends AppCompatActivity {
         // Create sample data
         User sampleUser = new User();
         sampleUser.userName = "Steph";
-        sampleUser.profilePictureUrl = "http://i.imgur.com/tGbaZCY.jpg";
+        sampleUser.profilePictureUrl = "https://i.imgur.com/tGbaZCY.jpg";
 
         Post samplePost = new Post();
         samplePost.user = sampleUser;

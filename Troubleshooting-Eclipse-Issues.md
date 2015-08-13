@@ -6,7 +6,7 @@ If you are having trouble with Eclipse or the Emulator, check here for common pr
 
 When generating a new project in Eclipse, the generation fails:
 
-<img src="http://i.imgur.com/j0j986J.png" width="600" />
+<img src="https://i.imgur.com/j0j986J.png" width="600" />
 
 Here's a workaround that lets you keep Java 7 as the default but run ADT with Java 6 when you have both installed. Find the Eclipse app in `<YOUR_ADT_PATH>/eclipse/Eclipse.app` and right click and select "Show Package Contents" and then navigate to `/Contents/MacOS/eclipse.ini` in an editor.  Before the `-vmargs` line, insert these two lines:
 
@@ -23,7 +23,7 @@ This problem will cause new Android projects not to generate an initial Activity
 
 Fixed by updating the Eclipse plugin: `Eclipse > Help > Install New Software` and enter the URL `http://dl-ssl.google.com/android/eclipse/` into "Work with", make sure "Developer Tools" is checked and hit `Finish`. Leave unchecked "Contact all update sites during install to find required software". Now regenerate the project.
 
-<img src="http://i.imgur.com/Hg8QXDP.png" width="460" />
+<img src="https://i.imgur.com/Hg8QXDP.png" width="460" />
 
 See [this stackoverflow post](http://stackoverflow.com/questions/22219392/eclipse-doesnt-create-main-activity-and-layout) and [this other one](http://stackoverflow.com/questions/6470802/what-to-do-about-eclipses-no-repository-found-containing-error-messages) for more details.
 
@@ -31,7 +31,7 @@ See [this stackoverflow post](http://stackoverflow.com/questions/22219392/eclips
 
 **Note:** Easiest way to avoid placeholder fragments is to update to latest eclipse and select **Empty Activity** rather than **Blank Activity** when generating activities which does not include the fragment placeholder.
 
-<img src="http://i.imgur.com/u3r3LPd.png" width="460" />
+<img src="https://i.imgur.com/u3r3LPd.png" width="460" />
 
 In recent versions of Eclipse, a "Blank Activity" is generated with a built-in placeholder fragment which can't be easily disabled. If you want to remove this placeholder fragment from a "Blank Activity" and work directly with the activity, you can follow these steps:
 
@@ -49,7 +49,7 @@ First, try simply running `Project => Clean...` from the top-menu on the project
 
 This happens when the Android project was generated with a minimum SDK of 10 or below. One fix is to simply generate new projects with a minimum SDK of 14 instead. However when generating with a lower minSDK, in order to maintain compatibility with older versions, you'll notice that the activity Java class (i.e src/.../MainActivity.java) extends from `AppCompatActivity` rather than the standard `Activity` class. When an activity extends from `AppCompatActivity`, this requires the app to use a "backwards compatible theme". Easiest fix is to change the theme for the application within the `AndroidManifest.xml` such that `application:theme` is set to `@style/Theme.AppCompat.Light.DarkActionBar` as shown below:
 
-<img src="http://i.imgur.com/aIXHlQM.gif" width="750" />
+<img src="https://i.imgur.com/aIXHlQM.gif" width="750" />
 
 See [this issue](http://stackoverflow.com/questions/18063395/actionbarcompat-java-lang-illegalstateexception-you-need-to-use-a-theme-appcom), [this issue](http://stackoverflow.com/questions/21814825/you-need-to-use-a-theme-appcompat-theme-or-descendant-with-this-activity) or [this issue](http://stackoverflow.com/questions/21331836/java-lang-illegalstateexception-you-need-to-use-a-theme-appcompat-theme-or-des) for more details on this issue.
 
@@ -61,8 +61,8 @@ You should be able to use Autocompletion (Ctrl + Space) to complete words as you
 2. Open eclipse and go to the following in the menu: `Preferences > Java > Editor > Content Assist > Advanced`. Select all checkboxes here (especially ones mentioning Java) and click OK.
 3. Open eclipse and go to the following in the menu: `Preferences > General > Keys` and the find the Command "Content Assist" in the list and remap the "Binding" to a different set of keys and click OK.
 
-<img src="http://i.imgur.com/FT2hAm4.png" width="440" />
-<img src="http://i.imgur.com/fopm3WG.png" width="460" />
+<img src="https://i.imgur.com/FT2hAm4.png" width="440" />
+<img src="https://i.imgur.com/fopm3WG.png" width="460" />
 
 
 ## Using Eclipse
@@ -71,7 +71,7 @@ You should be able to use Autocompletion (Ctrl + Space) to complete words as you
 
 See a red line under a class that should exist (i.e ArrayList, View)? - Hover over the class and select "import" from the list of suggestions or better use "Cmd + Shift + O" to auto-import all missing types.
 
-![Red Line](http://i.imgur.com/ibxttW4.png)
+![Red Line](https://i.imgur.com/ibxttW4.png)
 
 ### Getting "R cannot be resolved to a variable" errors?
 
@@ -81,8 +81,8 @@ This means that the project does not have an `R` file generated and is usually a
 2. Try running `Project => Clean` to regenerate the `R` file
 3. Try closing and relaunching Eclipse
 
-<img src="http://i.imgur.com/ChMkx09.png" width="440" />&nbsp;
-<img src="http://i.imgur.com/AXcdNlW.png" width="440" />
+<img src="https://i.imgur.com/ChMkx09.png" width="440" />&nbsp;
+<img src="https://i.imgur.com/AXcdNlW.png" width="440" />
 
 Be sure to check for these possibilities if that does not work, this is an indication there is an issue with your resources (within `res`):
 
@@ -95,8 +95,8 @@ A more comprehensive guide to every possible way this error can crop up can be f
 
 This common issue is a beginner gotcha. In certain cases, you will accidentally import `android.R` which will shadow the local resources with the built-in Android resources.
 
-<img src="http://i.imgur.com/n9WNqat.png" width="440" />&nbsp;
-<img src="http://i.imgur.com/ZUnGWU1.png" width="440" />
+<img src="https://i.imgur.com/n9WNqat.png" width="440" />&nbsp;
+<img src="https://i.imgur.com/ZUnGWU1.png" width="440" />
 
 The simple fix is to **make sure you don't import android.R**. Remove that line at the top of your source file. See [this StackOverflow post](http://stackoverflow.com/questions/885009/r-cannot-be-resolved-android-error) to learn more about this issue. A more comprehensive guide to every possible way this error can crop up can be found in this [comprehensive troubleshooting guide](http://www.techrepublic.com/blog/software-engineer/a-comprehensive-troubleshooting-guide-for-androids-r-cannot-be-resolved-error/).
 
@@ -164,7 +164,7 @@ If you have imported an existing Android project into the Eclipse workspace and 
 
 Right click on the project name in the package explorer on the left side and select "Properties". Select "Android" on the left side and then pick a sensible "Project Build Target" (i.e Android 4.4.2). 
 
-<img src="http://i.imgur.com/UiMC3iN.png" width="450" />
+<img src="https://i.imgur.com/UiMC3iN.png" width="450" />
 
 **Fix Imported Libraries**
 
@@ -174,13 +174,13 @@ Right click on the project name in the package explorer on the left side and sel
 
 Right click on the project name in the package explorer on the left side and select "Properties". Select "Java Build Path" on the left side and select the tab "Libraries". Expand all the groups displayed there. Ensure that there are no "missing" libraries or folders on the build path.
 
-<img src="http://i.imgur.com/ZfZPZtS.png" width="450" />
+<img src="https://i.imgur.com/ZfZPZtS.png" width="450" />
 
 **Fix Project Properties**
 
 Right click on the project name in the package explorer on the left side and select `Android Tools => Fix Project Properties`.
 
-<img src="http://i.imgur.com/tmXvUeX.png" width="450" />
+<img src="https://i.imgur.com/tmXvUeX.png" width="450" />
 
 **Clean the Project**
 
@@ -199,13 +199,13 @@ If after all these steps and a clean the project is still not able to compile, t
 * Select the small down arrow and click "reset adb"
 * Still having problems? Time to restart eclipse
 
-![Reset ADB](http://i.imgur.com/5pj2rZA.png)
+![Reset ADB](https://i.imgur.com/5pj2rZA.png)
 
 ### Cannot access the internet 
 
 In some cases, even after requesting Internet access in the Manifest.xml, you might experience problems when trying to access Internet.
 
-<img src="http://i.imgur.com/aCuexMz.png" width="440" />
+<img src="https://i.imgur.com/aCuexMz.png" width="440" />
 
 One fix for this is to manually specify DNS in `Configuration / Target / Emulator` launch parameters: `-dns-server 8.8.8.8` (that's a Google one). Make sure to **restart the emulator** after making this change to see the effect.
 
@@ -215,7 +215,7 @@ One fix for this is to manually specify DNS in `Configuration / Target / Emulato
 * Click "Edit" on your Virtual Device and verify "Intel x86" is selected for CPU
 * Make sure not to close your emulator once it is booted, leave it open and just re-run
 
-![Intel HAXM](http://i.imgur.com/gU6KWNO.png)
+![Intel HAXM](https://i.imgur.com/gU6KWNO.png)
 
 ### Started emulator either doesn't boot, freezes computer or looks glitchy
 
@@ -225,7 +225,7 @@ One fix for this is to manually specify DNS in `Configuration / Target / Emulato
 * Verify the CPU has "Intel x86" selected rather than "ARM"
 * Now fully restart the emulator and relaunch
 
-![Host GPU](http://i.imgur.com/5pMO0PH.png)
+![Host GPU](https://i.imgur.com/5pMO0PH.png)
 
 ### Emulator is crashing unexpectedly and my mac has dual-monitors
 
@@ -243,5 +243,5 @@ Check out [this post for quick fix](http://timvoet.com/2013/01/04/avd-emulator-c
 * Find the error stacktrace and identify the line (in your code) that triggered the error.
 * This is often a NullPointerException (accessing a null object) or other null references (such as an `android:onClick` handler referencing a non-existent method)
 
-<img src="http://i.imgur.com/851bDxf.png" alt="Show LogCat" width="300">
-<img src="http://i.imgur.com/lZlJ2z1.png" alt="LogCat" width="600">
+<img src="https://i.imgur.com/851bDxf.png" alt="Show LogCat" width="300">
+<img src="https://i.imgur.com/lZlJ2z1.png" alt="LogCat" width="600">

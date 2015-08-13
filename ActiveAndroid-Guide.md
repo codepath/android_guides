@@ -2,7 +2,7 @@
 
 Using the ActiveAndroid ORM makes managing client-side models extremely easy in simple cases. For more advanced or custom cases, you can use [[SQLiteOpenHelper|Local-Databases-with-SQLiteOpenHelper]] to manage the database communication directly. But for simple model mapping from JSON, ActiveAndroid keeps things simple.  
 
-<img src="http://i.imgur.com/Aw6NNFE.png" width="500" alt="orm" />
+<img src="https://i.imgur.com/Aw6NNFE.png" width="500" alt="orm" />
 
 ActiveAndroid works like any **Object Relational Mapper** by mapping java classes to database tables and mapping java class member variables to the table columns. Through this process, **each table** maps to a **Java model** and **the columns** in the table represent the respective **data fields**. Similarly, each row in the database represents a particular object. This allows us to create, modify, delete and query our SQLite database using model objects instead of raw SQL.
 

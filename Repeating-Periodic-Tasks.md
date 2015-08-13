@@ -13,7 +13,7 @@ Recommended methods are outlined below.
 
 We can use a [Handler](http://developer.android.com/reference/android/os/Handler.html) to repeat code at an interval by constructing a `Handler` and then "posting" `Runnable` code to the event message queue on the thread to be processed.
 
-<img src="http://i.imgur.com/2vg53fk.png" alt="handler" width="450" />
+<img src="https://i.imgur.com/2vg53fk.png" alt="handler" width="450" />
 
 Using a handler to execute a periodic runnable task is demonstrated below:
 

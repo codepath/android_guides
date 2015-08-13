@@ -2,7 +2,7 @@
 
 In certain situations, we need to implement a ListView where there are **different types of rows** in the same list. In other words, different items in the list need to be represented differently. Examples include a Tumblr client where each post might be an image, text or a video. Another example would be Facebook with the many different types of feed items.
 
-<img src="http://i.imgur.com/9cfECVP.png" width="300" />
+<img src="https://i.imgur.com/9cfECVP.png" width="300" />
 
 To implement a heterogenous list of items, most of the work is done **within the adapter**. In particular, there are special methods to be overridden within an adapter such as `getItemViewType`, `getViewTypeCount` specifically for these situations.
 
@@ -140,7 +140,7 @@ public class HeterogenousListActivity extends Activity {
 
 Here we've attached the array into an adapter and then populated the ListView as always. The result might look like this:
 
-<img src="http://i.imgur.com/9cfECVP.png" width="450" />
+<img src="https://i.imgur.com/9cfECVP.png" width="450" />
 
 This is a simple example for demonstration purposes. See [this article](https://edisonthk.wordpress.com/2014/06/12/constraints-of-multiple-layouts-listview-for-android/) for a more detailed overview.
 

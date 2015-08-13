@@ -19,7 +19,7 @@ Check out [this official tutorial](https://parse.com/tutorials/android-push-noti
 
 Make sure to go to the `Settings` -> `Push` section and toggle on `Client push enabled`.  Otherwise, you may notice test push notifications work but sending between Android devices doesn't work.
 
-<img src="http://i.imgur.com/2zrp2KB.png"/>
+<img src="https://i.imgur.com/2zrp2KB.png"/>
 
 ```java
 ParsePush push = new ParsePush();
@@ -114,7 +114,7 @@ Second approach is the more manual one using GCM. Google Cloud Messaging for And
 
 A GCM implementation includes a Google-provided connection server, a 3rd-party app server that interacts with the connection server, and a GCM-enabled client app running on an Android device:
 
-![GCM Arch](http://i.imgur.com/9XzwPqc.png)
+![GCM Arch](https://i.imgur.com/9XzwPqc.png)
 
 In order to use GCM, we need to go through the following steps:
 

@@ -14,7 +14,7 @@ Important to note that prior to 3.0, there was no ActionBar. In 2013, Google ann
 
 Every application unless otherwise specified has an ActionBar by default. The ActionBar by default just has the application icon and an activity title.
 
-![ActionBar](http://i.imgur.com/DighSEo.png)
+![ActionBar](https://i.imgur.com/DighSEo.png)
 
 ### Changing the ActionBar Icon or Title
 

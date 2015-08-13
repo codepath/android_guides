@@ -61,7 +61,7 @@ An ImageView can display an image differently based on the `scaleType` provided.
 
 **Note:** The `fitXY` scale type allows you to set the exact size of the image in your layout. However, be mindful of potential distortions of the image due to scaling. If you’re creating a photo-viewing application, you will probably want to use the `center` or `fitCenter` scale types.
 
-![Screens](http://i.imgur.com/vZHC82o.jpg)
+![Screens](https://i.imgur.com/vZHC82o.jpg)
 
 **Pictured**: Examples of `android:scaleType` attribute.<br/>
 Top row (l-r) center, centerCrop, centerInside.<br/>
@@ -88,7 +88,7 @@ This means that if you generate a 100x100 for mdpi (1x baseline), then you shoul
 
 To resize images more easily, check out the [Final Android Resizer](https://github.com/asystat/Final-Android-Resizer) by [downloading and running this JAR](https://github.com/asystat/Final-Android-Resizer/blob/master/Executable%20Jar/Final%20Android%20Resizer.jar?raw=true). 
 
-<a href="https://github.com/asystat/Final-Android-Resizer/blob/master/Executable%20Jar/Final%20Android%20Resizer.jar?raw=true"><img src="http://i.imgur.com/Usx4iXH.png" alt="final resizer" width="350" /></a>
+<a href="https://github.com/asystat/Final-Android-Resizer/blob/master/Executable%20Jar/Final%20Android%20Resizer.jar?raw=true"><img src="https://i.imgur.com/Usx4iXH.png" alt="final resizer" width="350" /></a>
 
 This handy utility allows us to select a resources directory, choose an extra high density image and the tool will automatically generate the corresponding lower size images for us and place them in the correct folders.
 

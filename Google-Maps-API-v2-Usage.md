@@ -482,7 +482,7 @@ mapFragment.getMapAsync(new OnMapReadyCallback() {
 
 The various types are illustrated below:
 
-<img src="http://i.imgur.com/LWHlz7a.jpg" alt="map types" width="300" />
+<img src="https://i.imgur.com/LWHlz7a.jpg" alt="map types" width="300" />
 
 ### Utility Library
 

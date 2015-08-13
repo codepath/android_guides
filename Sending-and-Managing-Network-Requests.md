@@ -199,7 +199,7 @@ dependencies {
 We can then load a remote image into any `ImageView` with:
 
 ```java
-String imageUri = "http://i.imgur.com/tGbaZCY.jpg";
+String imageUri = "https://i.imgur.com/tGbaZCY.jpg";
 ImageView ivBasicImage = (ImageView) findViewById(R.id.ivBasicImage);
 Picasso.with(context).load(imageUri).into(ivBasicImage);
 ```
@@ -221,7 +221,7 @@ Suppose we wanted to load an image using only the built-in Android network const
 
 ```java
 // 1. Declare a URL Connection
-URL url = new URL("http://i.imgur.com/tGbaZCY.jpg");
+URL url = new URL("https://i.imgur.com/tGbaZCY.jpg");
 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 // 2. Open InputStream to connection
 conn.connect();
@@ -245,7 +245,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ivBasicImage = (ImageView) findViewById(R.id.ivBasicImage);
-        String url = "http://i.imgur.com/tGbaZCY.jpg";
+        String url = "https://i.imgur.com/tGbaZCY.jpg";
         // Download image from URL and display within ImageView
         new ImageDownloadTask(ivBasicImage).execute(url);
     }

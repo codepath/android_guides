@@ -2,7 +2,7 @@
 
 Layout that allows the user to swipe left and right through "pages" of content which are usually different fragments. This is a common navigation mode to use instead of [[ActionBar Tabs with Fragments]].
 
-![ViewPager](http://i.imgur.com/75zqnxN.png)
+![ViewPager](https://i.imgur.com/75zqnxN.png)
 
 ## Usage
 
@@ -212,7 +212,7 @@ At Google I/O 2015, Google announced a new `TabLayout` class that makes creating
 
 An alternative approach to achieve this is to use the third-party [[PagerSlidingTabStrip|Sliding-Tabs-with-PagerSlidingTabStrip]] library. 
 
-![Tabs](http://i.imgur.com/a2wpJ80.png)
+![Tabs](https://i.imgur.com/a2wpJ80.png)
 
 In this way, we can use the same pager system described above and augment the pager with a tabbed navigation indicator.
 

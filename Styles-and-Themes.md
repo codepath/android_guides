@@ -127,7 +127,7 @@ In many cases, you will want to **customize the default appearance of views** wi
 
 Notice that we use the `AppTheme` generated for us to make modifications to [buttonStyle](http://developer.android.com/reference/android/R.attr.html#buttonStyle) and `textViewStyle` in order to determine the default styles for those controls. Next, we inherit from the default `Widget.Button` or `Widget.TextView` to take the default styles and make our changes. The result of this is the default text color is different for Button and TextView:
 
-![Screen](http://i.imgur.com/fF7UiTo.png)
+![Screen](https://i.imgur.com/fF7UiTo.png)
 
 #### Additional Resources
 

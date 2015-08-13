@@ -41,7 +41,7 @@ And then include it in your layout:
 
 Finally, set the actual image URI:
 ```java
-Uri imageUri = Uri.parse("http://i.imgur.com/tGbaZCY.jpg");
+Uri imageUri = Uri.parse("https://i.imgur.com/tGbaZCY.jpg");
 SimpleDraweeView draweeView = (SimpleDraweeView) findViewById(R.id.sdvImage);
 draweeView.setImageURI(imageUri);
 ```

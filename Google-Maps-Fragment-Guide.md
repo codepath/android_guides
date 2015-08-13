@@ -8,7 +8,7 @@ In this guide, we will walk you through the step by step process of getting an e
 
 First, let's download and setup the Google Play Services and Google Repository SDKs. Open `Android Studio` ⇒ `Tools` ⇒ `Android` ⇒ `Android SDK Manager` and check whether you have already downloaded "Google Play services" and "Google Repository" or not under Extras section. If not, select "Google Play services" and "Google Repository" to install the missing packages.
 
-![Play Services and Repository](http://i.imgur.com/d37zzjg.png)
+![Play Services and Repository](https://i.imgur.com/d37zzjg.png)
 
 ### Retrieve your SHA-1 Fingerprint
 
@@ -40,11 +40,11 @@ In the output you can see SHA 1 finger print:
 
 Now open [Google API Console](https://cloud.google.com/console), **create or select a project**, select "APIs & Auth" on left side, select **Google Maps Android API** and make sure to **enable the Maps Android API** via the toggle switch.
 
-![Services](http://i.imgur.com/F6wSs4y.png)
+![Services](https://i.imgur.com/F6wSs4y.png)
 
 Now select **"Credentials" on left-side** and on the right side click on "Create New Key" =>  **"Android Key"**
 
-![Access](http://i.imgur.com/qYF1o2c.png)
+![Access](https://i.imgur.com/qYF1o2c.png)
 
 It will popup a window asking the SHA1 and package name. Enter your `SHA 1` and your `android project package name` separated by semicolon ; and click on create. The format is:
 
@@ -101,11 +101,11 @@ Fill in your API Key into the meta data for `com.google.android.maps.v2.API_KEY`
 
 In Android Studio, you need to install the "Google Repository" through the Android Studio SDK Manager. Gradle will pull the Google Play Services library from there.
 
-![Google Repository](http://i.imgur.com/azsdjaz.png)
+![Google Repository](https://i.imgur.com/azsdjaz.png)
 
 Now we want to run the map demo, and if everything went well we should see:
 
-<img src="http://i.imgur.com/3KFfS9G.png" width="350" />
+<img src="https://i.imgur.com/3KFfS9G.png" width="350" />
 
 **Note:** If you don't, you may have not properly installed the Google Play services on the emulator (see instructions in genymotion setup above) or you may need to update the Google Play services on your emulator by following the instructions given in the app.
 
@@ -136,7 +136,7 @@ Did you download the latest Google Play Services APK?  See the [[google play gen
 
  You are likely to see an error message such as the following in your LogCat:
 
- ![](http://i.imgur.com/V6EzQGV.png)
+ ![](https://i.imgur.com/V6EzQGV.png)
 
  If so, make sure to check the following:
 

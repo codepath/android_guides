@@ -2,7 +2,7 @@
 
 Snackbars are shown on the bottom of the screen and contain text with an optional single action. They automatically fade out after enough time similar to a toast. Snackbars can be swiped away by the user or contain other actions making them more powerful [[than simple toasts|Displaying-Toasts]]. However, the API is very familiar.
 
-<img src="http://i.imgur.com/JSdKnP2.png" width="200" />
+<img src="https://i.imgur.com/JSdKnP2.png" width="200" />
 
 Note the snackbar at the bottom with embedded action. See [this design guide](http://www.google.com/design/spec/components/snackbars-toasts.html) or more details.
 

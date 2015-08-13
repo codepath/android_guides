@@ -28,7 +28,7 @@ This guide will show you how you can setup publishing APK's directly through the
 
 7. Once you are done, go back to the Google Play Developer Console and navigate to the `Settings` -> `API Access`.  Make sure the checkboxes for `Edit store listing, pricing & distribution`, `Manage Production APKs`, and `Manage Alpha & Beta APKs` are checked for the Google Service account used.  (If you intend to upload an alpha or beta SDK through a Google service account, apparently these permissions must be checked according to this [discussion](http://echelog.com/logs/browse/jenkins/1409263200).
 
-       <img src="http://i.imgur.com/QBF0Vmp.png"/>
+       <img src="https://i.imgur.com/QBF0Vmp.png"/>
 
 ## Setting Up Gradle Plugin (for command-line APK publishing)
 
@@ -89,11 +89,11 @@ This section mainly shows how to setup the [Google Play Android Publisher plugin
 
 4. Navigate to the `Credentials` section in Jenkins and load the `.p12` key file downloaded during the initial setup process of setting up Google API access.  A [basic walkthrough video](https://www.youtube.com/watch?v=txdPSJF94RM&list=PLhF0STyfNdUk1R3taEmgFR30yzp41yuRK) also demonstrates how to do this step.
 
-       <img src="http://i.imgur.com/xxs8qlD.png"/>
+       <img src="https://i.imgur.com/xxs8qlD.png"/>
 
 5. Add a post-build step to your existing Jenkins project.  
 
-       <a href="http://i.imgur.com/nfc4xDA.png"><img src="http://i.imgur.com/nfc4xDA.png"></a>
+       <a href="https://i.imgur.com/nfc4xDA.png"><img src="https://i.imgur.com/nfc4xDA.png"></a>
 
        a. Make sure to choose the credential name from the drop-down list.  It should belong to the Google Play account that manages the app.
 
@@ -109,12 +109,12 @@ This section mainly shows how to setup the [Google Play Android Publisher plugin
 
 1. Setup a `Build Trigger` in your Jenkins job to allow builds to be [triggered via remote API commands](https://wiki.jenkins-ci.org/display/JENKINS/Remote+access+API).  You can use the URL shown below the `Authentication token` (i.e. http://ci.mycompany.com/view/All/job/AndroidBuild/build?token=TOKEN_NAME) to trigger this Jenkins job.  
 
-       <img src="http://i.imgur.com/QfzhhQM.png"/>
+       <img src="https://i.imgur.com/QfzhhQM.png"/>
 
 2. Go to your GitHub repository `Settings` page and visit the `Webhooks & Services` section.  Enter the `Payload URL` for your Jenkins build job.   
 
-       <img src="http://i.imgur.com/iONpTHh.png"/>
+       <img src="https://i.imgur.com/iONpTHh.png"/>
 
 3. You can also control which GitHub events should fire these Jenkins build jobs:
 
-       <img src="http://i.imgur.com/JpwMRTn.png/">
+       <img src="https://i.imgur.com/JpwMRTn.png/">

@@ -118,7 +118,7 @@ public class MainActivity extends Activity {
 
 That's all and now you have a TextView that upon long clicking will reveal the contextual action bar menu as show below:
 
-![ViewActionMenu](http://i.imgur.com/h0r3PRS.png)
+![ViewActionMenu](https://i.imgur.com/h0r3PRS.png)
 
 #### Enabling for Adapter Views
 
@@ -182,7 +182,7 @@ private ActionMode.Callback modeCallBack = new ActionMode.Callback() {
 
 This will result in the following after being defined correctly:
 
-![ListView CAB](http://i.imgur.com/hdSxf9e.png)
+![ListView CAB](https://i.imgur.com/hdSxf9e.png)
 
 Using this approach we can easily allow users to act on items within a list. Note that in certain cases we may want to also **support batch modes** where more then one item can be affected by a contextual action. In that case, we need to use a [MultiChoiceModeListener](http://developer.android.com/reference/android/widget/AbsListView.MultiChoiceModeListener.html) as the ActionMode as explained in [the official menus docs](http://developer.android.com/guide/topics/ui/menus.html#CABforListView).
 
@@ -254,13 +254,13 @@ public class MainActivity extends Activity {
 
 With that setup, whenever the button is pressed, the menu will be displayed and a different action will be taken based on the item selected. Here's the result:
 
-![PopupMenu](http://i.imgur.com/r97rvpp.png)
+![PopupMenu](https://i.imgur.com/r97rvpp.png)
 
 ### Popup Window
 
 In addition to contextual action modes and popup menus, there are also a more customizable [PopupWindow](http://developer.android.com/reference/android/widget/PopupWindow.html) concept. `PopupWindow` is a floating content container that appears over the current activity like a simplified [[DialogFragment|Using DialogFragment]] that is less flexible but easier to implement. Popups are usually used to show some additional information or something user wants to know after an event takes place.
 
-To display a `PopupWindow`, let's first [download a background](http://i.imgur.com/C89eYBC.png/popup_bg.9.png) to use for the popup within `res/drawable/popup_bg.9.png`. The background is a nine-patch image which will be used as the background for the popup content. 
+To display a `PopupWindow`, let's first [download a background](https://i.imgur.com/C89eYBC.png/popup_bg.9.png) to use for the popup within `res/drawable/popup_bg.9.png`. The background is a nine-patch image which will be used as the background for the popup content. 
 
 Next, let's define an arbitrary XML layout file which will be **displayed within the popup** at `res/layout/popup_content.xml`:
 
@@ -332,7 +332,7 @@ public class DemoWindowActivity extends Activity {
 
 The result of this is a dismissable popup window with our content and which looks like:
 
-![PopupWindow](http://i.imgur.com/CfTnHyX.png)
+![PopupWindow](https://i.imgur.com/CfTnHyX.png)
 
 Read more details on the [PopupWindow tutorial](http://mrbool.com/how-to-implement-popup-window-in-android/28285). You might also want to check out this extended [DismissablePopupWindow](https://gist.github.com/raquibulbari/6059845) for a simple re-usable popup that had a dismiss button embedded within the window.
 

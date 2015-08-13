@@ -571,4 +571,4 @@ The final manifest for this chat application looks like:
 
 Run your project and test it out with your pair partner. Below is the final output.
 
-![Chat App|250](http://i.imgur.com/3UZ6ZNy.png)
+![Chat App|250](https://i.imgur.com/3UZ6ZNy.png)

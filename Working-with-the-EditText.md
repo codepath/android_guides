@@ -2,7 +2,7 @@
 
 The [EditText](http://developer.android.com/reference/android/widget/EditText.html) is the standard text entry widget in Android apps. If the user needs to enter text into an app, this is the primary way for them to do that. 
 
-![EditText](http://i.imgur.com/W3tEdH0.png)
+![EditText](https://i.imgur.com/W3tEdH0.png)
 
 There are many important properties that can be set to customize the behavior of an `EditText`. Several of these are listed below. Check out the [official text fields](http://developer.android.com/guide/topics/ui/controls/text.html#AutoComplete) guide for even more input field details.
 
@@ -106,7 +106,7 @@ You can adjust the highlight background color of selected text within an `EditTe
 
 with a result such as this:
 
-<img src="http://i.imgur.com/cbfm3Fb.png" width="315" />
+<img src="https://i.imgur.com/cbfm3Fb.png" width="315" />
 
 ### Displaying Placeholder Hints
 
@@ -121,7 +121,7 @@ You may want to set the hint for the EditText control to prompt a user for speci
 
 which results in:
 
-![Hints](http://i.imgur.com/b0kKM7g.png)
+![Hints](https://i.imgur.com/b0kKM7g.png)
 
 ### Listening for EditText Input
 
@@ -132,7 +132,7 @@ Check out the [[basic event listeners|Basic-Event-Listeners#edittext-common-list
 
 Traditionally, the `EditText` hides the `hint` message (explained above) after the user starts typing. In addition, any validation error messages had to be managed manually by the developer. 
 
-<img src="http://i.imgur.com/UM7NmiK.gif" alt="floating" width="400" />
+<img src="https://i.imgur.com/UM7NmiK.gif" alt="floating" width="400" />
 
 Starting with Android M and the [[design support library|Design-Support-Library]], the `TextInputLayout` can be used to setup a floating label to display hints and error messages. First, wrap the `EditText` in a `TextInputLayout`:
 
@@ -156,7 +156,7 @@ Starting with Android M and the [[design support library|Design-Support-Library]
 
 Now the hint will automatically begin to float once the `EditText` takes focus as shown below:
 
-<img src="http://i.imgur.com/S456c0X.gif" alt="floating" width="400" /> 
+<img src="https://i.imgur.com/S456c0X.gif" alt="floating" width="400" /> 
 
 We can also use the `TextInputLayout` to display error messages using the `setError` and `setErrorEnabled` properties in the activity at runtime:
 

@@ -21,7 +21,7 @@ As stated in the overview, there are three different default typefaces which are
 
 Here's how they look:
 
-![Fonts](http://i.imgur.com/or5z86M.png)
+![Fonts](https://i.imgur.com/or5z86M.png)
 
 In addition to the above, there is another attribute value named "normal" which defaults to the sans typeface.
 
@@ -211,7 +211,7 @@ txt.setTypeface(font);
 
 And this will result in:
 
-![Custom](http://i.imgur.com/WW2QWpe.png)
+![Custom](https://i.imgur.com/WW2QWpe.png)
 
 You'll also want to keep an eye on the total size of your custom fonts, as this can grow quite large if you're using a lot of different typefaces.
 
@@ -221,7 +221,7 @@ Spans come in really handy when we want to apply styles to portions of text with
 
 As an example, let's say we have a single TextView where we want the first word to show up in red and the second word to have a strikethrough:
  
-![Custom](http://i.imgur.com/X9tKFmv.png)
+![Custom](https://i.imgur.com/X9tKFmv.png)
 
 We can accomplish this with spans using the code below:
 
@@ -285,7 +285,7 @@ A TextView is actually surprisingly powerful and actually supports having images
 
 Which results in:
 
-![Contacts View](http://i.imgur.com/LoN8jpH.png)
+![Contacts View](https://i.imgur.com/LoN8jpH.png)
 
 In Android, many views inherit from `TextView` such as `Button`s, `EditText`s, `RadioButton`s which means that all of these views support the same functionality. For example, we can also do:
 
@@ -301,7 +301,7 @@ In Android, many views inherit from `TextView` such as `Button`s, `EditText`s, `
 
 Which results in:
 
-![EditText with drawable](http://i.imgur.com/GZiIf1C.png)
+![EditText with drawable](https://i.imgur.com/GZiIf1C.png)
 
 The relevant attributes here are `drawableLeft`, `drawableRight`, `drawableTop` and `drawableBottom` along with `drawablePadding`. Check out [this TextView article](http://antonioleiva.com/textview_power_drawables/) for a more detailed look at how to use this functionality. 
 

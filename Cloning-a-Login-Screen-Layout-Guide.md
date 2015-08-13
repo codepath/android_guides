@@ -10,13 +10,13 @@ This guide is going to walk us through the step-by-step process of recreating th
 
 First, I will make the downloadable assets available. Keep in mind these were stolen right out of the screenshot and therefore their quality is pretty poor. But it demonstrates the concepts nonetheless. To create the mockup, we need the following assets:
 
- * [Highlight Launcher Icon](http://i.imgur.com/pysgYQU.png/ic_highlight.png)
- * [Facebook Connect](http://i.imgur.com/TJxrci5.png/facebook_connect.png)
- * [LinkedIn Connect](http://i.imgur.com/dhYw2xF.png/linkedin_connect.png)
+ * [Highlight Launcher Icon](https://i.imgur.com/pysgYQU.png/ic_highlight.png)
+ * [Facebook Connect](https://i.imgur.com/TJxrci5.png/facebook_connect.png)
+ * [LinkedIn Connect](https://i.imgur.com/dhYw2xF.png/linkedin_connect.png)
 
 Download those and import the images one by one into the drawable folder as shown below:
 
-<img width="500" src="http://i.imgur.com/OiIeLdK.gif" />
+<img width="500" src="https://i.imgur.com/OiIeLdK.gif" />
 
 Note that in production applications you would multiple sizes of these images for [different image densities](http://developer.android.com/guide/practices/screens_support.html#DesigningResources).
 
@@ -24,9 +24,9 @@ Note that in production applications you would multiple sizes of these images fo
 
 Generate a new Android project that uses the highlight icon as the launcher icon:
 
-<img width="500" src="http://i.imgur.com/aoNyTYc.gif" />
+<img width="500" src="https://i.imgur.com/aoNyTYc.gif" />
 
-<img width="500" src="http://i.imgur.com/ZKjFv99.gif" />
+<img width="500" src="https://i.imgur.com/ZKjFv99.gif" />
 
 Generate the project with **minimum SDK of 15** and no additional changes.
 
@@ -95,7 +95,7 @@ Let's start with the ImageButtons. Drag the two image buttons to the screen and 
 
 Here we've aligned the first button to the top of the parent, used `layout_centerHorizontal`, set `android:background` to null to avoid the button border, set text descriptions for `android:contentDescription` and assigned the `android:src` to the respective buttons. Now our screen looks like:
 
-<img width="400" src="http://i.imgur.com/AffrW7w.png" />
+<img width="400" src="https://i.imgur.com/AffrW7w.png" />
 
 #### Step 3: Basic TextViews
 
@@ -119,7 +119,7 @@ Now, let's drag in the TextViews for the screen. (There's five of these). First,
 
 Now let's drag on the different TextView and set the appropriate text values. Without any styling or proper positioning it might look like this screen:
 
-<img width="400" src="http://i.imgur.com/udYbT3n.png" />
+<img width="400" src="https://i.imgur.com/udYbT3n.png" />
 
 #### TextView Styling
 
@@ -133,7 +133,7 @@ Let's add basic styling:
 
 The screen now looks like:
 
-<img width="400" src="http://i.imgur.com/5bGsYzx.png" />
+<img width="400" src="https://i.imgur.com/5bGsYzx.png" />
 
 The resulting XML layout might look like:
 
@@ -284,7 +284,7 @@ and then apply that theme to the Activity in the `AndroidManifest.xml`:
 
 Now the screen looks like:
 
-<img width="400" src="http://i.imgur.com/QOjbrcH.png" />
+<img width="400" src="https://i.imgur.com/QOjbrcH.png" />
 
 ### Switch TextView to use HTML
 
@@ -310,7 +310,7 @@ This applies the text to the TextView as HTML and displays a clickable link in t
 
 Here's the "final" result:
 
-<img width="400" src="http://i.imgur.com/ttNmQbK.png" />
+<img width="400" src="https://i.imgur.com/ttNmQbK.png" />
 
 In comparison to the original mockup:
 

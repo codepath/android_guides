@@ -111,7 +111,7 @@ If you forget this step, IntellIJ will likely complain about not having a Gradle
 
 Normally the Tools project will try to store all the intermediate builds inside a common `build/` directory in the main repo. There is a [current issue](https://youtrack.jetbrains.com/issue/IDEA-122577) with IntelliJ v13.1 and up that prevents you from doing so.
 
-<img src="http://i.imgur.com/R6AKUA1.png">
+<img src="https://i.imgur.com/R6AKUA1.png">
 
 If you see "Can't register given path of type 'SOURCE' because it's out of content root", you will need to change
 the `project.buildDir` as shown:

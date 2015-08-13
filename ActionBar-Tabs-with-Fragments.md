@@ -57,11 +57,11 @@ Google has released an updated support library "android-support-v7-appcompat" wh
 
 Now, we need to import the support library as a library project following the [usual steps](http://imgur.com/a/N8baF). `File => Import => Existing Android Code...` and then go to your **sdk folder** and select `sdk => extras => android => support => v7 => appcompat`. 
 
-![Screen 1](http://i.imgur.com/pRffDgs.png)
+![Screen 1](https://i.imgur.com/pRffDgs.png)
 
 Now, for your app, right-click and select "Properties..." and then add "android-support-v7-appcompat" as a library.
 
-![Screen 2](http://i.imgur.com/E5IYm69.png)
+![Screen 2](https://i.imgur.com/E5IYm69.png)
 
 Make sure to setup your app to use the correct support theme within the `AndroidManifest.xml`:
 
@@ -275,7 +275,7 @@ Using these methods described above, we can modify the tabs and their selected s
 
 There are several different ways of styling the tabs within the ActionBar. The easiest way to style the ActionBar tabs is using the nifty [Android ActionBar Style Generator](http://jgilfelt.github.io/android-actionbarstylegenerator/). This utility will allow you to easily drop-in a new skin for the ActionBar.
 
-![Tab Generator](http://i.imgur.com/xEvwLrb.png)
+![Tab Generator](https://i.imgur.com/xEvwLrb.png)
 
 #### Custom Styles
 
@@ -312,7 +312,7 @@ We can tweak the styles of these by building a custom theme in the `res/values-v
 
 The result of these styles is this with the **actionBarTabBarStyle** set orange, the **actionBarTabStyle** set green and the **actionBarTabTextStyle** set purple (selected) or white:
 
-<img src="http://i.imgur.com/u8bRsr4.png" width="400" alt="TabBar" />
+<img src="https://i.imgur.com/u8bRsr4.png" width="400" alt="TabBar" />
 
 #### Customize Tabs with Indicator Colors
 
@@ -370,7 +370,7 @@ Finally, we need to set the background for the tabs to the `tab_bar_background` 
 
 With these steps in place, we now have fully customized tabs with this result:
 
-<img src="http://i.imgur.com/tzYnzUG.png" width="400" alt="TabBar" />
+<img src="https://i.imgur.com/tzYnzUG.png" width="400" alt="TabBar" />
 
 #### Setting Tab Text Color
 
@@ -402,7 +402,7 @@ and then we can apply this color selector to the tab text color within `res/valu
 ```
 The result of these styles is that the text color is purple when tab is selected and white otherwise.
 
-<img src="http://i.imgur.com/Xt7AAlo.png" width="400" alt="TabBar" />
+<img src="https://i.imgur.com/Xt7AAlo.png" width="400" alt="TabBar" />
 
 #### Additional Examples
 

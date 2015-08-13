@@ -110,7 +110,7 @@ Inside the desired activity layout XML file in `res/layout/activity_users.xml`, 
 
 In the layout, preview we can see the `RecyclerView` within the activity:
 
-<img src="http://i.imgur.com/Qf5fQ8X.png" width="300" />
+<img src="https://i.imgur.com/Qf5fQ8X.png" width="300" />
 
 Now the `RecyclerView` is embedded within our activity layout file. Next, we can define the layout for each item within our list.
 
@@ -118,8 +118,8 @@ Now the `RecyclerView` is embedded within our activity layout file. Next, we can
 
 Before we create the adapter, let's define the XML layout file that will be used for each row within the list. This item layout for now should contain a horizontal linear layout with a textview for the name and hometown as shown below:
 
-<img src="http://i.imgur.com/MmY8zqI.png" width="300" />
-<img src="http://i.imgur.com/fu3FzsV.png" width="300" />
+<img src="https://i.imgur.com/MmY8zqI.png" width="300" />
+<img src="https://i.imgur.com/fu3FzsV.png" width="300" />
 
 This layout file can be created in `res/layout/item_user.xml` and will be rendered for each item row:
 
@@ -283,7 +283,7 @@ public class UserListActivity extends ActionBarActivity {
 
 Finally, compile and run the app and you should see something like the screenshot below. If you create enough items and scroll through the list, the views will be recycled and far smoother by default than the `ListView` widget:
 
-<img src="http://i.imgur.com/LUPAekZ.png" width="400" alt="Screenshot" />
+<img src="https://i.imgur.com/LUPAekZ.png" width="400" alt="Screenshot" />
 
 ### Notifying the Adapter
 
@@ -331,7 +331,7 @@ recyclerView.addItemDecoration(itemDecoration);
 
 This will display dividers between each item within the list as shown below:
 
-<img src="http://i.imgur.com/penvJxw.png" width="400" alt="Screenshot" />
+<img src="https://i.imgur.com/penvJxw.png" width="400" alt="Screenshot" />
 
 ### Layouts
 
@@ -361,7 +361,7 @@ recyclerView.setLayoutManager(gridLayoutManager);
 
 For example, a staggered grid might look like:
 
-<img src="http://i.imgur.com/AlANFgj.png" width="300" alt="Screenshot" />
+<img src="https://i.imgur.com/AlANFgj.png" width="300" alt="Screenshot" />
 
 We can build [our own custom layout managers](http://wiresareobsolete.com/2014/09/building-a-recyclerview-layoutmanager-part-1/) as outlined there.
 
@@ -387,7 +387,7 @@ recyclerView.setItemAnimator(new SlideInUpAnimator());
 
 For example, here's scrolling through a list after customizing the animation:
 
-<img src="http://i.imgur.com/v0VyQS8.gif" width="300" alt="Screenshot" />
+<img src="https://i.imgur.com/v0VyQS8.gif" width="300" alt="Screenshot" />
 
 ### Heterogeneous Views
 
@@ -471,7 +471,7 @@ If we want the item to show a "selected" effect when pressed, we can set the `an
 
 This creates the following effect:
 
-<img src="http://i.imgur.com/olMUglF.gif" width="400" alt="Screenshot" />
+<img src="https://i.imgur.com/olMUglF.gif" width="400" alt="Screenshot" />
 
 #### Attaching Click Handlers using Listeners
 

@@ -1,8 +1,8 @@
 With the release of Android 5.0, there are updated guidelines for modern Android UI design. These guidelines are called "material design". This page is dedicated to living in the "material world". 
 
-<img src="http://i.imgur.com/bYWINtw.png" width="200" alt="screen 1" />
-<img src="http://i.imgur.com/yMlrtTp.png" width="200" alt="screen 2" />
-<img src="http://i.imgur.com/JZRCVkh.png" width="203" alt="screen 3" />
+<img src="https://i.imgur.com/bYWINtw.png" width="200" alt="screen 1" />
+<img src="https://i.imgur.com/yMlrtTp.png" width="200" alt="screen 2" />
+<img src="https://i.imgur.com/JZRCVkh.png" width="203" alt="screen 3" />
 
 ## Design Guidelines
 
@@ -76,7 +76,7 @@ In addition, styling the ActionBar needs to be done updated to use the [[materia
 
 With the Lollipop release comes an improved visual design style for icons used throughout modern Android apps. Google has provided a set of [material design icons](https://github.com/google/material-design-icons/) for developers to use within their apps.  You should [download the repo](https://github.com/google/material-design-icons/archive/master.zip) and grab the relevant files.  
 
-<a href="http://google.github.io/material-design-icons/"><img width="500" src="http://i.imgur.com/VY4empy.png" alt="icons"></a>
+<a href="http://google.github.io/material-design-icons/"><img width="500" src="https://i.imgur.com/VY4empy.png" alt="icons"></a>
 
 If you are intending to use these icons for the [[Floating Action Buttons]], just make sure to pick one that is **24dp** according to the [[Google specs|Floating-Action-Buttons#dimensions]].
 
@@ -86,7 +86,7 @@ Be sure to check out the community-source [materialdesignicons](http://materiald
 
 Take a look at the [Material Design Checklist](http://android-developers.blogspot.ca/2014/10/material-design-on-android-checklist.html) and you will notice that you need to change your existing drawer layout to  be over the toolbar and under the status bar. There’s a [handy StackOverflow post](http://stackoverflow.com/a/26440880/313399) explaining how to implement this.
 
-<img src="http://i.imgur.com/hPOFJUf.gif" width="250" alt="drawer" />
+<img src="https://i.imgur.com/hPOFJUf.gif" width="250" alt="drawer" />
 
 Check out our [[Material Navigation Drawer|Fragment-Navigation-Drawer#usage]] guide for a step-by-step tutorial for setting up the updated material navigation drawer behavior. Note that to do this properly, you'll need to [[replace your ActionBar with a Toolbar|Defining-The-ActionBar#using-toolbar-as-actionbar]].
 
@@ -96,7 +96,7 @@ Check out our [[Material Navigation Drawer|Fragment-Navigation-Drawer#usage]] gu
 
 With our material theme, there comes a much more flexible way to display lists of items called the  [[RecyclerView|Using-the-RecyclerView]], the spiritual successor to the `ListView`. 
 
-![RecyclerView](http://i.imgur.com/bjKHkQFm.png)
+![RecyclerView](https://i.imgur.com/bjKHkQFm.png)
 
 In theory, we can still use either of these but Google recommends using the `RecyclerView` going forward. Check out the differences in our [[RecyclerView vs. ListView section|Using-the-RecyclerView#compared-to-listview]].
 
@@ -112,7 +112,7 @@ Android 5.0 introduces a [[new widget called CardView|Using-the-CardView]] which
 
 With our material themes, there is now a spiritual successor to the `ActionBar` called the [[Toolbar|Defining-The-ActionBar#toolbar-basics]]. 
 
-![Toolbar](http://i.imgur.com/dGzDoDSm.png)
+![Toolbar](https://i.imgur.com/dGzDoDSm.png)
 
 The toolbar operates as a replacement for the original `ActionBar` but is added directly to the layout XML file and can be placed and styled like any other view in the layout.
 
@@ -121,7 +121,7 @@ The toolbar operates as a replacement for the original `ActionBar` but is added 
 [[Floating action buttons|Floating-Action-Buttons]] (or FAB) are a special "promoted action" within an activity or fragment that is moved from the `ActionBar` to a round icon floating above the UI in the bottom right corner.
 
 <img src="https://github.com/makovkastar/FloatingActionButton/raw/master/art/demo.gif" width="185" alt="FAB1" />&nbsp;
-<img src="http://i.imgur.com/SBbLXo2.png" width="200" alt="FAB2" />
+<img src="https://i.imgur.com/SBbLXo2.png" width="200" alt="FAB2" />
 
 The floating action button should represent **the primary action** within a screen. More info and use cases of the FAB button can be found in Google’s official [design specs found here](http://www.google.com/design/spec/components/buttons.html#buttons-floating-action-button).
 
@@ -133,7 +133,7 @@ Note that material animations are not compatible with Android versions prior to 
 
 Ripple provides an instantaneous visual confirmation at the point of contact when users interact with UI elements. Note that the ripples will only show up on devices running Lollipop, and will fall back to a static highlight on previous versions.
 
-![Ripple](http://i.imgur.com/L9ZnabL.gif)
+![Ripple](https://i.imgur.com/L9ZnabL.gif)
 
 See our detailed [[ripple animations guide|Ripple-Animation]] for an overview of how to enable this effect on views and buttons.
 
@@ -141,7 +141,7 @@ See our detailed [[ripple animations guide|Ripple-Animation]] for an overview of
 
 In many situations when navigating from a list of items to a detail view, there are elements common to both activities. With the new shared element transitions system, we can transition these shared elements from one activity or fragment to another creating a much more contiguous navigation effect.
 
-![Shared Element Transition](http://i.imgur.com/1cjqsSA.gif)
+![Shared Element Transition](https://i.imgur.com/1cjqsSA.gif)
 
 See our detailed [[shared element transition guide|Shared-Element-Activity-Transition]] for an overview of how to enable these beautiful transitions. 
 
@@ -149,7 +149,7 @@ See our detailed [[shared element transition guide|Shared-Element-Activity-Trans
 
 [[Circular Reveal|Circular-Reveal-Animation]] is a new animation introduced in Android 5 that animates the view's clipping boundaries. Reveal animations provide users visual continuity when you show or hide a group of UI elements. 
 
-![reveal](http://i.imgur.com/8jzWpX1.gif)
+![reveal](https://i.imgur.com/8jzWpX1.gif)
 
 This animation is often times used in conjunction with a floating action button that will grow onto the screen using this transition.
 
@@ -173,7 +173,7 @@ Material design introduces elevation for UI elements. Elevation (controlling the
 
 with this as the result:
 
-![Example](http://i.imgur.com/QzaSPbI.png)
+![Example](https://i.imgur.com/QzaSPbI.png)
 
 You can also set this from code using `getElevation()` or `setElevation()`. To customize the shadows or outlines of elevated views, check out the [official guide on shadows](https://developer.android.com/training/material/shadows-clipping.html#Shadows).
 
@@ -181,7 +181,7 @@ You can also set this from code using `getElevation()` or `setElevation()`. To c
 
 Material Design encourages dynamic use of color, especially when you have rich images to work with. The [[new Palette support library|Dynamic-Color-using-Palettes]] lets you extract a small set of colors from an image to style your UI controls to match; creating an immersive experience. 
 
-![Palette](http://i.imgur.com/nwtguAS.png)
+![Palette](https://i.imgur.com/nwtguAS.png)
 
 The extracted swatches will include vibrant and muted tones as well as foreground text colors for optimal legibility. This allows us to use these dynamically selected colors to apply better color selections to our layouts.
 
@@ -193,7 +193,7 @@ If you want your Dialogs to have a Material look and feel across all Android ver
  * [AlertDialogPro](https://github.com/fengdai/AlertDialogPro/)
  * [MaterialDialog](https://github.com/drakeet/MaterialDialog)
 
-![Material Dialog](http://i.imgur.com/U4mr2BB.jpg)
+![Material Dialog](https://i.imgur.com/U4mr2BB.jpg)
 
 ## References
 

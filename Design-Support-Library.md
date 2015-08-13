@@ -4,7 +4,7 @@ At their I/O 2015 conference, Google announced a new [design support library](ht
 
 <img src="http://cdn.androidpolice.com/wp-content/uploads/2014/10/nexus2cee_67-351x625.png" width="200" />
 <a href="https://github.com/chrisbanes/cheesesquare"><img src="http://i.stack.imgur.com/Wb28n.png" width="200" /></a>
-<a href="http://guides.codepath.com/android/Displaying-the-Snackbar"><img src="http://i.imgur.com/JSdKnP2.png" width="200" /></a>
+<a href="http://guides.codepath.com/android/Displaying-the-Snackbar"><img src="https://i.imgur.com/JSdKnP2.png" width="200" /></a>
 
 ### Features
 

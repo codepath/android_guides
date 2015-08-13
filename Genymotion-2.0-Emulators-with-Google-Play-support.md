@@ -14,7 +14,7 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
   * Mac: Open the dmg and drag both apps to Applications directory
 5. Go to the Genymotion ADB settings and set the path to your SDK directory (i.e. for Mac OSX, the directory is `/Users/[username]/Library/Android/sdk`.  For Windows, all SDK files should be by default in `C:\Documents and Settings\<user>\AppData\Local\Android\sdk`)
 
-   ![image](http://i.imgur.com/iGqP85B.png)
+   ![image](https://i.imgur.com/iGqP85B.png)
 
 6. (PC's only) You need to reboot and enable Intel Virtualization Technology or Intel VT-x on the BIOS.   Typically you need to reboot and hit `F1`, `Esc`, or `F10` to enter this mode.  See these [instructions](http://www.sysprobs.com/disable-enable-virtualization-technology-bios) for more information.
 
@@ -22,11 +22,11 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 
 7. Install the Genymotion plugin for Android Studio.  Go to `Preferences`->`Plugins` and click Browse repositories. Search for Genymotion and you should find one provided by http://www.genymotion.com.
 
-  ![http://i.imgur.com/AIY7gOS.gif](http://i.imgur.com/AIY7gOS.gif | width=100%)
+  ![https://i.imgur.com/AIY7gOS.gif](https://i.imgur.com/AIY7gOS.gif | width=100%)
 
   After restarting, go to `Preferences`->`Genymotion` and setup the location of the Genymotion app.
 
-  ![http://i.imgur.com/0bdrECm.png](http://i.imgur.com/0bdrECm.png)
+  ![https://i.imgur.com/0bdrECm.png](https://i.imgur.com/0bdrECm.png)
 
 #### Configuration
 
@@ -55,7 +55,7 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 |Android 4.3  |[Google Play Services APK](http://www4.zippyshare.com/v/42927675/file.html)     |
 
 2. Drag and drop the zip file onto the running Genymotion emulator device
-   ![Installing Google Apps APK](http://i.imgur.com/PvGjlyo.png)
+   ![Installing Google Apps APK](https://i.imgur.com/PvGjlyo.png)
 
 3. When asked to flash the device, make sure to proceed with the installation.
    - At this point, 'Google Apps Services' will crash frequently with the message "google play services has stopped working".
@@ -73,8 +73,8 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 
 Next, if you **don't have the emulator started yet**, be sure to boot the genymotion emulator from **within the Android Studio plugin**:
 
-![Emulator](http://i.imgur.com/OsGYNpE.png)
+![Emulator](https://i.imgur.com/OsGYNpE.png)
 
 Now we need to enable the GPS location on the emulator by **manually selecting a location** on the map:
 
-![Emulator](http://i.imgur.com/oAdAKA0.png)
+![Emulator](https://i.imgur.com/oAdAKA0.png)

@@ -8,7 +8,7 @@ Android Studio uses an [Android Gradle plugin](https://developer.android.com/too
 
 When importing existing Android Studio projects, you should make sure to select the `build.gradle` in the top-level directory.  If you choose this option, you should see the `Use default gradle wrapper` option exposed and will be able to import the project properly.  If you select on a folder or even the `app/build.gradle` file, you are likely to import a blank project and will need to redo the import.
 
-![](http://i.imgur.com/joPKoTk.gif)
+![](https://i.imgur.com/joPKoTk.gif)
 
 If you are interested in what is the Gradle wrapper and why it's helpful to have, read the section below.
 
@@ -134,7 +134,7 @@ android {
 
 You can also add dependencies based on the [Maven Central Repository](http://search.maven.org/). The best tool for finding packages is actually the [Gradle Please](http://gradleplease.appspot.com/) utility that takes care of helping you locate the correct package and version to add to your gradle file for any library:
 
-<a href="http://gradleplease.appspot.com#picasso"><img src="http://i.imgur.com/PmeUfhE.png" title="Gradle Please Utility" /></a>
+<a href="http://gradleplease.appspot.com#picasso"><img src="https://i.imgur.com/PmeUfhE.png" title="Gradle Please Utility" /></a>
 
 ### How to setup the Gradle wrapper
 
