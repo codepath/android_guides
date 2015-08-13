@@ -253,7 +253,7 @@ With the adapter completed, all that is remaining is to bind the data from the a
 In our activity, we will populate a set of sample users which should be displayed in the `RecyclerView`. 
 
 ```java
-public class UserListActivity extends ActionBarActivity {
+public class UserListActivity extends AppCompatActivity {
 
      @Override
      protected void onCreate(Bundle savedInstanceState) {
