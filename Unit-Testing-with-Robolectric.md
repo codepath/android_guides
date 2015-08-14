@@ -1,0 +1,275 @@
+# Overview
+
+Robolectric is a unit testing framework that allows Android applications to be tested on the JVM (no emulator or device needed!). If you've ever tried to run Android tests on the JVM without Robolectric, you probably ran into an exception similar to `java.lang.RuntimeException: Method getWindow in android.app.Activity not mocked...` This is because the `android.jar` that your code is compiled against only contains stub implementations of the Android classes. The actual implementations only exist when running on a device or emulator. 
+
+So for all of us that want faster executing tests on the JVM (either for our Continuous Integration Server or just for faster iteration during development), Robolectric saves the day. Robolectric provides implementations of the Android SDK by rewriting the Android classes as they are being loaded (replacing the stubs for "actual" implementations). This gives us the ability to execute our tests on the JVM and achieve must faster test execution times than if we were running on a device or emulator.
+ 
+## Setup
+
+Recent versions of Android Studio have made setup much easier. We'll walk through these steps before we jump into the actual tests.
+
+### Prerequisites:
+* Android Studio 1.2+
+* Android Gradle Plugin 1.2.3+
+* Gradle 2.2.1+
+
+Note: Robolectric can also be configured with Android Studio 1.1, but the setup requires the [robolectric gradle plugin](https://github.com/robolectric/robolectric-gradle-plugin/) and some additional configuration. Keep in mind that unit testing was still considered an [experimental feature](http://tools.android.com/tech-docs/unit-testing-support) in Android Studio 1.1.
+
+### Android Studio Configuration
+1. The first thing we should do is change to the `Project` perspective in the `Project Window`. This will show us a full view of everything contained in the project. The default setting (the `Android` perspective) hides certain directories (including the unit tests!):
+
+    ![Imgur](https://i.imgur.com/OWun9AJ.png)
+
+2. Next, open the `Build Variants` window and set the `Test Artifact` to `Unit Tests`. Without this, our unit tests won't be included in the build.
+
+    <img src="https://camo.githubusercontent.com/cbf79d740e265cc9da9299c2b5f29fc8a63613e7/68747470733a2f2f7777772e657665726e6f74652e636f6d2f73686172642f733331332f73682f35363063346235662d653730622d343830302d623436662d6263313936383631383333382f38396331653734306537313334333136393631613130333032316461663163622f646565702f302f4d794163746976697479546573742e6a6176612d2d2d616e64726f69642d73747564696f2d726f626f6c6563747269632d6578616d706c652d2d2d2d2d2d636f64652d616e64726f69642d73747564696f2d726f626f6c6563747269632d6578616d706c652d2e706e67"/>
+ 
+3. Creating a new project doesn't automatically create a directory for our unit tests so let's manually add the `src/test/java` directory to the project. This is the default location for unit tests.
+
+    ![Imgur](https://i.imgur.com/zI7xcBx.png)
+
+4. (Mac and Linux users only) => There is a known issue that needs to be addressed so that tests can be located properly. Go to `Run` -> `Edit Configurations` -> `Defaults` -> `Junit` and make sure to set `Working directory:` = `$MODULE_DIR$`.  You can see the Robolectric [getting started guide](http://robolectric.org/getting-started/) for more information. 
+
+    <img src="http://robolectric.org/images/android-studio-configure-defaults-4bf48402.png">
+
+5. Then, we just need to pull in Robolectric to our **_app_** build.gradle.
+
+```gradle
+dependencies {
+    ...
+    testCompile 'org.robolectric:robolectric:3.0'
+}
+```
+
+That's all the setup needed. Now let's move on to writing some actual tests.
+
+## Creating a Simple Robolectric test
+
+The code below shows a basic Robolectric test that verifies the text inside of a TextView. It's based off the standard new project template which has a single `MainActivity` that contains a `TextView` with the text "Hello world!".
+
+1. Create a new class `MainActivityTest` inside of the unit tests directory (`src/test/java`). The best practice is to mimic the same package structure with your tests as your product code. This has the benefit of giving your tests access to `package-private` fields in your product code. For this example, we'll be creating `MainActivityTest` at `src/test/java/com.codepath.robolectricdemo.MainActivityTest`.
+2. The best way to look up a view in the view hierarchy is by using an `id`. Since the "Hello world!" TextView doesn't have an `id`, make sure to give it one before running the test. In the example below, we've called it `tvHelloWorld`.
+
+```java
+// MainActivityTest.java
+
+// Static imports for assertion methods
+import static junit.framework.Assert.assertNotNull;
+import static junit.framework.Assert.assertTrue;
+
+@Config(constants = BuildConfig.class, sdk = Build.VERSION_CODES.LOLLIPOP)
+@RunWith(RobolectricGradleTestRunner.class)
+public class MainActivityTest {
+    private MainActivity activity;
+	
+    // @Before => JUnit 4 annotation that specifies this method should run before each test is run
+    // Useful to do setup for objects that are needed in the test
+    @Before
+    public void setup() {
+        // Convenience method to run MainActivity through the Activity Lifecycle methods:
+        // onCreate(...) => onStart() => onPostCreate(...) => onResume()
+        activity = Robolectric.setupActivity(MainActivity.class);
+    }
+	
+    // @Test => JUnit 4 annotation specifying this is a test to be run
+    // The test simply checks that our TextView exists and has the text "Hello world!"
+    @Test
+    public void validateTextViewContent() {
+        TextView tvHelloWorld = (TextView) activity.findViewById(R.id.tvHelloWorld);
+        assertNotNull("TextView could not be found", tvHelloWorld);
+        assertTrue("TextView contains incorrect text",
+            "Hello world!".equals(tvHelloWorld.getText().toString()));
+    }
+}
+```
+
+Note: Robolectric currently doesn't support API level 22 (Android 5.1).  If your app targets API 22, you will need to specify the `sdk = Build.VERSION_CODES.LOLLIPOP` annotation.
+
+## Running Robolectric Tests
+
+There are 2 ways to run your tests:
+
+1. Run a single test through Android Studio:
+    * Right click on the test class and select `Run`:
+      
+      ![Imgur](https://i.imgur.com/WHmlAaT.png)
+
+    * **Note:** If you are presented with two options as in the diagram below, make sure to select the first one (designating to use the Gradle Test Runner instead of the JUnit Test Runner). Android Studio will cache your selection for future runs.
+      
+      ![Imgur](https://i.imgur.com/RDmmdI2.png)
+      
+    * View the results in the `Console` output. You may need to enable `Show Passed` as in the diagram below to see the full results.
+      
+      ![Imgur](https://i.imgur.com/cv1Aryi.jpg)  
+      
+2. Run all the tests through Gradle:
+    * Open the Gradle window and find `testDebug` under Tasks => verification
+    * Right click and select `Run`
+
+      ![Imgur](https://i.imgur.com/6xthcJH.png)
+
+    * This will generate an html test result report at `app/build/reports/tests/debug/index.html`
+      
+      ![Imgur](https://i.imgur.com/eTBMo82.png)
+
+    * Note: You can also run the tests on the command line using: `./gradlew testDebug`
+
+## Using Shadows
+
+Robolectric has an important concept called shadows. Shadows are classes that modify or extend the behavior of classes in the Android SDK. When an Android class is instantiated, Robolectric first looks to see if it has a corresponding shadow class implementation (i.e. a ShadowTextView for a TextView), and if it finds one it creates a shadow object to associate with the Android class. Every time a method is invoked on the Android class, Robolectric first invokes the shadow class' corresponding method (if there is one). This gives the shadow classes a chance to maintain and expose extra state that wouldn't be available from just the Android classes. 
+
+Let's assume our MainActivity has a `Button` that launches a `SecondActivity`. We'd like to validate that clicking on the button launches the correct activity with an automated test.  
+
+**Side Note:** This brings up an important point about Robolectric. Since it's a unit testing framework, a single test only has the capability to work with a particular "unit" (i.e. an activity, a fragment, an adapter, etc). It doesn't have the ability to create integration or end to end tests that span across several activities. If we think about our scenario where we have a button that launches a second activity, Robolectric is only able to validate that the second activity ***would*** have been launched, but not that it is actually launched.
+
+The test below uses shadows to validate that the correct activity is launched when the button is clicked.
+
+```java
+@Test
+public void secondActivityStartedOnClick() {
+    activity.findViewById(R.id.btnLaunchNextActivity).performClick();
+
+    // The intent we expect to be launched when a user clicks on the button
+    Intent expectedIntent = new Intent(activity, SecondActivity.class);
+
+    // An Android "Activity" doesn't expose a way to find out about activities it launches
+    // Robolectric's "ShadowActivity" keeps track of all launched activities and exposes this information
+    // through the "getNextStartedActivity" method.
+    ShadowActivity shadowActivity = Shadows.shadowOf(activity);
+    Intent actualIntent = shadowActivity.getNextStartedActivity();
+
+    // Determine if two intents are the same for the purposes of intent resolution (filtering).
+    // That is, if their action, data, type, class, and categories are the same. This does
+    // not compare any extra data included in the intents
+    assertTrue(actualIntent.filterEquals(expectedIntent));
+}
+```
+
+You can read more about Robolectric's shadows [here](http://robolectric.org/extending/). 
+
+## Testing the Activity Lifecycle
+
+Dealing with the activity lifecycle is a common source of bugs in Android. Fortunately, Robolectric allows you to test the activity lifecycle. Below you'll see how we've added some activity lifecycle tests to our `MainActivityTest` class.
+
+### Simulating the full activity lifecycle
+
+```java
+@Config(constants = BuildConfig.class, sdk = Build.VERSION_CODES.LOLLIPOP)
+@RunWith(RobolectricGradleTestRunner.class)
+public class MainActivityTest {
+    // ActivityController is a Robolectric class that drives the Activity lifecycle
+    private ActivityController<MainActivity> controller;
+    private MainActivity activity;
+	    
+    @Before
+    public void setUp() {
+        // Call the "buildActivity" method so we get an ActivityController which we can use
+        // to have more control over the activity lifecycle
+        controller = Robolectric.buildActivity(MainActivity.class);
+    }
+	
+    // Activity creation that allows intent extras to be passed in
+    private void createWithIntent(String extra) {
+        Intent intent = new Intent(RuntimeEnvironment.application, MainActivity.class);
+        intent.putExtra("activity_extra", extra);
+        activity = controller
+                .withIntent(intent)
+                .create()
+                .start()
+                .resume()
+                .visible()
+                .get();
+    }
+	
+    // Test that simulates the full lifecycle of an activity
+    @Test
+    public void createsAndDestroysActivity() {
+        createWithIntent("my extra_value");
+
+        // ... add assertions ...
+    }
+
+    // @After => JUnit 4 annotation that specifies this method should be run after each test
+    @After
+    public void tearDown() {
+        // Destroy activity after every test
+        controller
+                .pause()
+                .stop()
+                .destroy();
+    }
+}
+```
+
+### Simulating a Phone Call
+
+```java
+@Test
+public void pausesAndResumesActivity() {
+    createWithIntent("my extra_value");
+    controller.pause().resume();
+
+    // ... add assertions ...
+}
+```
+
+### Simulating Device Rotation
+
+```java
+@Test
+public void recreatesActivity() {
+    Bundle bundle = new Bundle();
+
+    // Destroy the original activity
+    controller
+        .saveInstanceState(bundle)
+        .pause()
+        .stop()
+        .destroy();
+
+    // Bring up a new activity
+    controller = Robolectric.buildActivity(MainActivity.class)
+            .create(bundle)
+            .start()
+            .restoreInstanceState(bundle)
+            .resume()
+            .visible();
+    activity = controller.get();
+
+    // ... add assertions ...
+}
+```
+
+You can read more about driving the activity lifecycle through Robolectric [here](http://robolectric.org/activity-lifecycle/). 
+
+## Testing Qualified Resources
+
+If you've ever wanted to test something on a tablet or when the language is set to Spanish, Robolectric can help you there. Robolectric has support for specifying resource qualifiers to simulate different configurations for the [alternative resources](http://developer.android.com/guide/topics/resources/providing-resources.html#AlternativeResources) system.
+
+Let's return to the original example where we just have a `TextView` with the text "Hello world!". If we want to validate this is localized properly in Spanish and French, we can annotate each test with the config qualifier and Robolectric will make sure those resources are loaded for our test!
+
+```java
+@Test
+@Config(qualifiers = "es")
+public void localizedSpanishHelloWorld() {
+    TextView tvHelloWorld = (TextView)activity.findViewById(R.id.tvHelloWorld);
+    assertEquals(tvHelloWorld.getText().toString(), "Hola Mundo!");
+}
+
+@Test
+@Config(qualifiers = "fr")
+public void localizedFrenchHelloWorld() {
+    TextView tvHelloWorld = (TextView)activity.findViewById(R.id.tvHelloWorld);
+    assertEquals(tvHelloWorld.getText().toString(), "Bonjour le monde!");
+}
+```
+
+You can read more about Robolectric's support for qualified resources [here](http://robolectric.org/using-qualifiers/).
+
+## References
+
+* <http://robolectric.org/>
+* <https://github.com/robolectric/robolectric/>
+* <https://www.bignerdranch.com/blog/triumph-android-studio-1-2-sneaks-in-full-testing-support/>
+* <https://github.com/mutexkid/android-studio-robolectric-example>
+* <http://blog.nikhaldimann.com/2013/10/10/robolectric-2-2-some-pages-from-the-missing-manual/>
