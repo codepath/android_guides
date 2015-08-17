@@ -13,6 +13,7 @@ This "standard pack" listed below are libraries that are quite popular, widely a
 | [ButterKnife](http://jakewharton.github.io/butterknife/) | Using Java annotations, makes Android development better by simplifying common tasks. |
 | [Parceler](http://parceler.org/) | Android Parcelable made easy through code generation |
 | [IcePick](https://github.com/frankiesardo/icepick) | Android Instance State made easy |
+| [Akatsuki](https://github.com/tom91136/Akatsuki) | Handles instanace state restoration via annotations |
 | [Crouton](https://github.com/keyboardsurfer/Crouton) | Context-sensitive, configurable alert notices much better than toasts |
 | [Hugo](https://github.com/JakeWharton/hugo) | Easier logging using annotations |
 | [LeakCanary](https://github.com/square/leakcanary) | Catch memory leaks in your apps | 
@@ -21,7 +22,7 @@ Keep in mind that the combination of these libraries may not always play nicely 
 
 #### Parceler and IcePick
 
-Note that you cannot use IcePick at the current time to save state of Parceler objects.  See this [GitHub issue](https://github.com/frankiesardo/icepick/issues/36) for more context.  You will need to use Parcelable objects with IcePick.
+Note that you cannot use IcePick at the current time to save state of Parceler objects.  See this [GitHub issue](https://github.com/frankiesardo/icepick/issues/36) for more context.  You will need to use Parcelable objects with IcePick. Akatsuki on the other hand supports Parceler and custom code generation templates.
 
 #### ButterKnife and Parceler
 
