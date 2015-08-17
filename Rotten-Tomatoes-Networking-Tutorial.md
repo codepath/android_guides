@@ -381,7 +381,7 @@ Now, we need to define a layout to use for visualizing a particular movie. Let's
         android:maxHeight="70dp"
         android:scaleType="fitXY"
         android:adjustViewBounds="true"
-        android:src="@drawable/ic_launcher" />
+        android:src="@drawable/small_movie_poster" />
 
     <RelativeLayout
         android:layout_width="match_parent"
