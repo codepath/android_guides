@@ -228,3 +228,13 @@ Now, in Eclipse we can right-click and select "Run As..." and then select "Andro
 #### More Details
 
 You can check out the [Testing API](http://developer.android.com/tools/testing/testing_android.html#TestAPI) on the official docs. To understand how to test activities in particular, check out the [Activity Testing Guide](http://developer.android.com/tools/testing/activity_testing.html) including the `ActivityInstrumentationTestCase2` class. You can also read about how to do testing [within the Eclipse IDE](http://developer.android.com/tools/testing/testing_eclipse.html).
+
+## References
+
+* <http://developer.android.com/tools/testing/index.html>
+* <http://developer.android.com/tools/testing/testing_android.html>
+* <http://developer.android.com/tools/testing/testing_eclipse.html>
+* <http://developer.android.com/tools/testing/activity_testing.html>
+* <http://www.vogella.com/articles/AndroidTesting/article.html>
+* <http://corner.squareup.com/2013/04/the-resurrection-of-testing-for-android.html>
+* <http://www.guru99.com/why-android-testing.html>
