@@ -113,3 +113,5 @@ For more details, make sure to check the [Robotium documentation](https://code.g
 
 * <http://www.vogella.com/articles/Robotium/article.html>
 * <http://jayaruwanmannapperuma.wordpress.com/2012/03/01/robotium-for-android/>
+* <https://code.google.com/p/robotium/wiki/Getting_Started>
+* <http://www.guru99.com/why-android-testing.html>
