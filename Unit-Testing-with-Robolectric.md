@@ -90,29 +90,28 @@ Note: Robolectric currently doesn't support API level 22 (Android 5.1).  If your
 There are 2 ways to run your tests:
 
 1. Run a single test through Android Studio:
-    * Right click on the test class and select `Run`:
+  * Right click on the test class and select `Run`:
+   
+    ![Imgur](https://i.imgur.com/WHmlAaT.png)
+  * **Note:** If you are presented with two options as in the diagram below, make sure to select the first one (designating to use the Gradle Test Runner instead of the JUnit Test Runner). Android Studio will cache your selection for future runs.
       
-      ![Imgur](https://i.imgur.com/WHmlAaT.png)
-
-    * **Note:** If you are presented with two options as in the diagram below, make sure to select the first one (designating to use the Gradle Test Runner instead of the JUnit Test Runner). Android Studio will cache your selection for future runs.
+    ![Imgur](https://i.imgur.com/RDmmdI2.png)
       
-      ![Imgur](https://i.imgur.com/RDmmdI2.png)
+  * View the results in the `Console` output. You may need to enable `Show Passed` as in the diagram below to see the full results.
       
-    * View the results in the `Console` output. You may need to enable `Show Passed` as in the diagram below to see the full results.
-      
-      ![Imgur](https://i.imgur.com/cv1Aryi.jpg)  
+    ![Imgur](https://i.imgur.com/cv1Aryi.jpg)  
       
 2. Run all the tests through Gradle:
-    * Open the Gradle window and find `testDebug` under Tasks => verification
-    * Right click and select `Run`
+  * Open the Gradle window and find `testDebug` under Tasks => verification
+  * Right click and select `Run`
 
-      ![Imgur](https://i.imgur.com/6xthcJH.png)
+    ![Imgur](https://i.imgur.com/6xthcJH.png)
 
-    * This will generate an html test result report at `app/build/reports/tests/debug/index.html`
+  * This will generate an html test result report at `app/build/reports/tests/debug/index.html`
       
-      ![Imgur](https://i.imgur.com/eTBMo82.png)
+    ![Imgur](https://i.imgur.com/eTBMo82.png)
 
-    * Note: You can also run the tests on the command line using: `./gradlew testDebug`
+  * Note: You can also run the tests on the command line using: `./gradlew testDebug`
 
 ## Using Shadows
 
