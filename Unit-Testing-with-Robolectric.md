@@ -267,8 +267,9 @@ You can read more about Robolectric's support for qualified resources [here](htt
 
 ## References
 
-* <http://robolectric.org/>
-* <https://github.com/robolectric/robolectric/>
-* <https://www.bignerdranch.com/blog/triumph-android-studio-1-2-sneaks-in-full-testing-support/>
+* <http://robolectric.org>
+* <https://github.com/robolectric/robolectric>
+* <https://www.bignerdranch.com/blog/triumph-android-studio-1-2-sneaks-in-full-testing-support>
 * <https://github.com/mutexkid/android-studio-robolectric-example>
-* <http://blog.nikhaldimann.com/2013/10/10/robolectric-2-2-some-pages-from-the-missing-manual/>
+* <http://blog.nikhaldimann.com/2013/10/10/robolectric-2-2-some-pages-from-the-missing-manual>
+* <https://corner.squareup.com/2013/04/the-resurrection-of-testing-for-android.html>
