@@ -44,7 +44,15 @@ Using a third-party library such as [android-async-http](http://loopj.com/androi
 
 ```gradle
 dependencies {
-  compile 'com.loopj.android:android-async-http:1.4.6'
+  compile 'com.loopj.android:android-async-http:1.4.8'
+}
+```
+
+**Android Marshmallow Compatibility:** Apache HTTP client (a dependency of [android-async-http](http://loopj.com/android-async-http/)) has been [removed from Marshmallow](http://developer.android.com/preview/behavior-changes.html#behavior-apache-http-client). If your app targets API 23, you'll need to add the following to your gradle file until the [library is updated](https://github.com/loopj/android-async-http/issues/830):
+
+```gradle
+android {
+    useLibrary 'org.apache.http.legacy'
 }
 ```
 
@@ -71,7 +79,7 @@ client.get("http://www.google.com", params, new TextHttpResponseHandler() {
 );
 ```
 
-This will automatically execute the request asynchronously and fire the `onSuccess` when the response returns a success code and `onFailure` if the response does not. 
+This will automatically execute the request asynchronously and fire the `onSuccess` when the response returns a success code and `onFailure` if the response does not.
 
 ### Sending a JSON Request
 
