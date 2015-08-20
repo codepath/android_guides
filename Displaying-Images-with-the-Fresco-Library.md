@@ -14,7 +14,7 @@ When working with Fresco, it's helpful to be familiar with the following terms:
 First, make sure to add the Fresco dependency in your app/build.gradle file:
 ```gradle
 dependencies {
-    compile 'com.facebook.fresco:fresco:0.5.2'
+    compile 'com.facebook.fresco:fresco:0.6.1'
 }
 ```
 Then, in your `AndroidManifest.xml` make you have the Internet permission if you plan to fetch any images from the network:
@@ -146,6 +146,7 @@ Make sure to add the following permissions to your `AndroidManifest.xml`:
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 ```
+**Note:** For Marshmallow devices, you'll need to [get these permissions at runtime](http://developer.android.com/preview/features/runtime-permissions.html#coding).
 
 To share an image from Fresco, you first need to [get the bitmap](#getting-the-underlying-bitmap-out-of-a-draweeview) from the `ImagePipeline`. Then you can use the following code to save the bitmap to the Media image store and pass the path into a share intent.
 
