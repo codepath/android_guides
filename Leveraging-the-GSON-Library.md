@@ -1,5 +1,3 @@
-Leveraging the GSON library
-
 ## Overview
 
 Google's [GSON](https://github.com/google/gson) library provides a powerful framework for converting between JSON strings and Java objects.
