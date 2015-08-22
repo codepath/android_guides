@@ -103,7 +103,7 @@ For instance, if our property name matches that of the JSON key, then we do not 
 use, we can simply annotate the declaration with `@SerializedName`:
 
 ```java
-public class Response {
+public class BoxOfficeMovieResponse {
 
     @SerializedName("movies")
     List<Movie> movieList;
