@@ -123,7 +123,7 @@ We can annotate these attributes with `@SerializedName` too:
 
 ```java
     @SerializedName("color")
-    public Color colorType;
+    public ColorTypes colorType;
 
     public enum ColorTypes {
         @SerializedName("red")
