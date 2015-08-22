@@ -58,7 +58,7 @@ movies: [
 Because the API returns a list of movies and not just an individual one, we also need to create a class that will map the `movies` key to a list of Movie objects.
 
 ```java
-public class Response {
+public class BoxOfficeMovieResponse {
 
     List<Movie> movies;
 
@@ -72,17 +72,17 @@ Note below that a public constructor is needed to initialize the list.  Without 
 
 ### Parsing the response
 
-Assuming we have the JSON response in string form, we simply need to use the Gson library and using the  `fromJson` method.  The first parameter for this method is the JSON response in text form, and the second parameter is the class that should be mapped.  We can create a static method that returns back a Response class as shown below:
+Assuming we have the JSON response in string form, we simply need to use the Gson library and using the  `fromJson` method.  The first parameter for this method is the JSON response in text form, and the second parameter is the class that should be mapped.  We can create a static method that returns back a `BoxOfficeMovieResponse` class as shown below:
 
 ```java
-public class Response {
+public class BoxOfficeMovieResponse {
 .
 .
 .
-    public static Response parseJSON(String response) {
+    public static BoxOfficeMovieResponse parseJSON(String response) {
         Gson gson = new GsonBuilder().create();
-        Response movies = gson.fromJson(response, Response.class);
-        return response;
+        BoxOfficeMovieResponse boxOfficeMovieResponse = gson.fromJson(response, Response.class);
+        return boxOfficeMovieResponse;
     }
 }
 ```
@@ -129,7 +129,27 @@ gsonBuilder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
 Gson gson = gsonBuilder.create();
 ```
 
-#### Custom Java types
+#### Mapping Java Date objects
+
+If we know what date format is used in the response by default, we also specify this date format.  The Rotten Tomatoes API for instance returns a release date for theaters (i.e. "2015-08-14").    If we wanted to map the data directly from a String to a Date object, we could specify the date format:
+
+```java
+public String DATE_FORMAT = "yyyy-MM-dd";
+
+GsonBuilder gsonBuilder = new GsonBuilder();
+gsonBuilder.setDateFormat(DATE_FORMAT);
+Gson gson = gsonBuilder.create();
+```
+
+Similarly, the date format could also be used for parsing standard ISO format time directly into a Date object:
+```java
+public String ISO_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";
+GsonBuilder gsonBuilder = new GsonBuilder();
+gsonBuilder.setDateFormat(ISO_FORMAT);
+Gson gson = gsonBuilder.create();
+```
+
+#### Mapping custom Java types
 
 By default, the Gson library is not aware of many Java types such as Timestamps.  If we wish to convert these types, we can also create a custom deserializer class that will handle this work for us.
 
@@ -160,26 +180,6 @@ gsonBuilder.registerTypeAdapter(Timestamp.class, new TimestampDeserializer());
 Gson Gson = gsonBuilder.create();
 ```
 
-#### Mapping Java Date objects
-
-If we know what date format is used in the response by default, we also specify this date format.  The Rotten Tomatoes API for instance returns a release date for theaters (i.e. "2015-08-14").    If we wanted to map the data directly from a String to a Date object, we could specify the date format:
-
-```java
-public String DATE_FORMAT = "yyyy-MM-dd";
-
-GsonBuilder gsonBuilder = new GsonBuilder();
-gsonBuilder.setDateFormat(DATE_FORMAT);
-Gson gson = gsonBuilder.create();
-```
-
-Similarly, the date format could also be used for parsing standard ISO format time directly into a Date object:
-```java
-public String ISO_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";
-GsonBuilder gsonBuilder = new GsonBuilder();
-gsonBuilder.setDateFormat(ISO_FORMAT);
-Gson gson = gsonBuilder.create();
-```
-
 ### HTTP Client Libraries
 
 We can use any type of HTTP client library with GSON, such as Android Async HTTP Client or Square's Retrofit library.
@@ -187,9 +187,11 @@ We can use any type of HTTP client library with GSON, such as Android Async HTTP
 #### Android Async HTTP Client
 
 ```java
+String apiKey = "YOUR-API-KEY-HERE";
+
 AsyncHttpClient client = new AsyncHttpClient();
  client.get(
-         "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=[APIKEY]j",
+         "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=" + apiKey,
          new TextHttpResponseHandler() {
              @Override
              public void onFailure(int i, org.apache.http.Header[] headers, String s,
@@ -211,3 +213,52 @@ AsyncHttpClient client = new AsyncHttpClient();
 ```
 
 #### Retrofit
+
+We first need to define an interface file called `RottenTomatoesService.java`.  To ensure that the API call will be made asynchronously, we also define a callback interface.  Note that if this API call required other parameters, we should always make sure that the `Callback` declaration is last.
+    
+```java
+ public interface RottenTomatoesService {
+        @GET("/lists/movies/box_office.json")
+        public void listRepos(Callback<BoxOfficeMovieResponse> responseCallback);
+    }
+```
+
+Then we can make sure to always inject the API key for each request by defining a `RequestInterceptor`.  class.  In this way, we can avoid needing to have it be defined for each API call.
+
+```java
+String apiKey = "YOUR-API-KEY-HERE";
+
+RequestInterceptor requestInterceptor = new RequestInterceptor() {
+   @Override
+   public void intercept(RequestFacade request) {
+       request.addQueryParam("apikey", apiKey);
+   }
+};
+```
+
+Next, we need to create a `RestAdapter` and making sure to associate the adapter to this `RequestInterceptor`:
+
+```java 
+RestAdapter restAdapter = new RestAdapter.Builder()
+               .setRequestInterceptor(requestInterceptor)
+               .setEndpoint("http://api.rottentomatoes.com/api/public/v1.0")
+               .build();
+```
+
+We then simply need to create a service class that will enable us to make API calls:
+
+```java
+RottenTomatoesService service = restAdapter.create(RottenTomatoesService.class);
+
+service.listRepos(new Callback<BoxOfficeMovies>() {
+            @Override
+            public void success(BoxOfficeMovies boxOfficeMovies, Response response) {
+                // handle response here
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+
+            }
+        });
+```
