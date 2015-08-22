@@ -87,9 +87,9 @@ public class Response {
 }
 ```
 
-#### GSON Builder
+### Custom options
 
-The GSON Builder enables a variety of different options that help provide more flexibility for the JSON parsing.  Before we instantiate a GSON parser, it's important to know what options are available using the Builder class.  For instance, if our Java variable names do not match that of a corresponding JSON key, we can annotate it to specify the mapping explicitly.  In addition, we can also specify how a default way in which fields from Java variables should be mapped to JSON keys, as well as creating custom deserializers.
+The [Gson Builder](https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/GsonBuilder.html) class enables a variety of different options that help provide more flexibility for the JSON parsing.  Before we instantiate a Gson parser, it's important to know what options are available using the Builder class.  For instance, if our Java variable names do not match that of a corresponding JSON key, we can annotate it to specify the mapping explicitly.  In addition, we can also specify how a default way in which fields from Java variables should be mapped to JSON keys, as well as creating custom deserializers.
 
 ```java
 GsonBuilder gsonBuilder = new GsonBuilder();
@@ -109,7 +109,7 @@ public class Response {
     List<Movie> movieList;
 ```
 
-##### Mapping camel case field names
+#### Mapping camel case field names
 
 There is also the option to specify how Java field names should map to JSON keys by default.   For instance, the Rotten Tomatoes API response includes an `mpaa_rating` key in the JSON response.  If we followed Java conventions and named this variable as `mpaaRating`, then we could need to add a `SerializedName` decorator:
 
@@ -129,12 +129,11 @@ gsonBuilder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
 Gson gson = gsonBuilder.create();
 ```
 
-##### Mapping Java types
+#### Custom Java types
 
-By default, the GSON library is not aware of many Java types such as Timestamps.  If we wish to convert these types, we can also create a custom deserializer class that
-will handle this work for us.
+By default, the Gson library is not aware of many Java types such as Timestamps.  If we wish to convert these types, we can also create a custom deserializer class that will handle this work for us.
 
-Here is an example of a Timestamp deserializer:
+Here is an example of a deserializer that will convert any JSON data that needs to be converted to a  Java field declared as a Timestamp:
 
 ```java
 import com.google.gson.JsonDeserializationContext;
@@ -153,8 +152,7 @@ public class TimestampDeserializer implements JsonDeserializer<Timestamp> {
 }
 ```
 
-Then we simply need to register this new type adapter and this type adapter would convert the value automatically declared as a Timestamp
-value.
+Then we simply need to register this new type adapter and enable the Gson library to map any JSON value that needs to be converted into a Java Timestamp.
 
 ```java
 GsonBuilder gsonBuilder = new GsonBuilder();
@@ -162,13 +160,21 @@ gsonBuilder.registerTypeAdapter(Timestamp.class, new TimestampDeserializer());
 Gson Gson = gsonBuilder.create();
 ```
 
-##### Mapping Java Date objects
+#### Mapping Java Date objects
 
-If we know what date format is used in the response by default, we also specify this date format:
+If we know what date format is used in the response by default, we also specify this date format.  The Rotten Tomatoes API for instance returns a release date for theaters (i.e. "2015-08-14").    If we wanted to map the data directly from a String to a Date object, we could specify the date format:
 
 ```java
-public String ISO_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";
+public String DATE_FORMAT = "yyyy-MM-dd";
 
+GsonBuilder gsonBuilder = new GsonBuilder();
+gsonBuilder.setDateFormat(DATE_FORMAT);
+Gson gson = gsonBuilder.create();
+```
+
+Similarly, the date format could also be used for parsing standard ISO format time directly into a Date object:
+```java
+public String ISO_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";
 GsonBuilder gsonBuilder = new GsonBuilder();
 gsonBuilder.setDateFormat(ISO_FORMAT);
 Gson gson = gsonBuilder.create();
