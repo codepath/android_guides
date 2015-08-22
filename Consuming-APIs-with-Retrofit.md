@@ -29,8 +29,9 @@ dependencies {
 
 ### Create Java Objects for Resources
 
-Capture the actual JSON output for an API endpoint in order to generate the POJO (java objects) that will be used to deserialize the response. Once you have the sample JSON output, you can run the response through [jsonschema2pojo](http://www.jsonschema2pojo.org/) which will auto-generate the necessary objects within the response.  
+You can auto-generate the Java objects you need by capturing the JSON output and using [jsonschema2pojo](http://www.jsonschema2pojo.org/).  You can also create them manually, but you will need to learn how to use the [[Gson library|Leveraging-the-GSON-Library]] that is used by default with Retrofit.
 
+#### Auto-generating the Java objects
 Make sure to select `JSON` as the Source Type:
  
 <img src="http://imgur.com/3DRH984.png"/>
@@ -57,6 +58,10 @@ dependencies {
 ```
 
 Note: if you are trying to use Java models that you may have already created, see [this section](Consuming-APIs-with-Retrofit#migrating-previously-defined-java-objects).
+
+#### Creating Java objects manually
+
+Retrofit by default relies on the Gson library to parse JSON.  See [[this guide|Leveraging-the-GSON-Library]] for more information about how to create your own.
 
 ### Creating the RestAdapter
 
@@ -121,50 +126,6 @@ Shown above, Retrofit will download and parse the API data on a background threa
 
 Be sure to check out a [sample TwitchTvClient](https://github.com/MeetMe/TwitchTvClient) for a working sample and the [retrofit docs](http://square.github.io/retrofit/) for additional details about how to use the library.
 
-### Migrating Previously Defined Java Objects
-
-Retrofit by default relies on the Gson library to parse JSON.  Usually it assumes that the variable name matches the name of the variable declared.  If you are attempting to migrate previously created Java models to take advantage of Retrofit, you may find that your variable names may not match.
-
-To enable the library to build a map what keys in the JSON data should match your internal variables, you can add annotations to provide the actual corresponding JSON name.  An example of a previously defined Java model using the based on GitHub's [User](https://developer.github.com/v3/users/) model is shown below.  Note how the `@SerializedName` annotation is used.
-
-```java
-@SerializedName("login")
-private String mLogin;
-
-@SerializedName("id")
-private Integer mId;
-
-@SerializedName("avatarUrl")
-private String mAvatarUrl;
-```
-
-#### Annotating Enums
-
-You can also use this same approach with enums.   Suppose we had an enum of different colors:
-
-```java
-    public ColorTypes colorType;
-
-    public enum ColorTypes { RED, WHITE, BLUE };
-```
-
-We can annotate these attributes with `@SerializedName` too:
-
-```java
-    @SerializedName("color")
-    public Color colorType;
-
-    public enum ColorTypes {
-        @SerializedName("red")
-        RED,
-
-        @SerializedName("white")
-        WHITE,
-
-        @SerializedName("blue")
-        BLUE
-    };
-```
 
 ## Retrofit and Authentication
 
