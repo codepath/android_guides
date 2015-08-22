@@ -42,9 +42,9 @@ See [this official connectivity guide](http://developer.android.com/training/mon
 
 There are two popular third-party networking libraries you should consider using.  
 
-* [[Android Async Http Client|Using-Android-Async-Http-Client]] for making basic network calls.
+* See the [[Android Async Http Client guide|Using-Android-Async-Http-Client]] for making basic network calls.
 
-* [[Retrofit|Consuming-APIs-with-Retrofit]] for making API calls.
+* See the [[Retrofit guide|Consuming-APIs-with-Retrofit]] for making API calls.
 
 #### Sending an Authenticated API Request
 
