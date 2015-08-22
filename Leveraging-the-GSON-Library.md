@@ -109,6 +109,34 @@ public class BoxOfficeMovieResponse {
     List<Movie> movieList;
 ```
 
+#### Mapping Enums
+
+You can also use this same approach with enums.   Suppose we had an enum of different colors:
+
+```java
+    public ColorTypes colorType;
+
+    public enum ColorTypes { RED, WHITE, BLUE };
+```
+
+We can annotate these attributes with `@SerializedName` too:
+
+```java
+    @SerializedName("color")
+    public Color colorType;
+
+    public enum ColorTypes {
+        @SerializedName("red")
+        RED,
+
+        @SerializedName("white")
+        WHITE,
+
+        @SerializedName("blue")
+        BLUE
+    };
+```
+
 #### Mapping camel case field names
 
 There is also the option to specify how Java field names should map to JSON keys by default.   For instance, the Rotten Tomatoes API response includes an `mpaa_rating` key in the JSON response.  If we followed Java conventions and named this variable as `mpaaRating`, then we would have to add a `SerializedName` decorator to map them correctly:
@@ -147,6 +175,19 @@ public String ISO_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";
 GsonBuilder gsonBuilder = new GsonBuilder();
 gsonBuilder.setDateFormat(ISO_FORMAT);
 Gson gson = gsonBuilder.create();
+```
+
+To enable the library to build a map what keys in the JSON data should match your internal variables, you can add annotations to provide the actual corresponding JSON name.  An example of a previously defined Java model using the based on GitHub's [User](https://developer.github.com/v3/users/) model is shown below.  Note how the `@SerializedName` annotation is used.
+
+```java
+@SerializedName("login")
+private String mLogin;
+
+@SerializedName("id")
+private Integer mId;
+
+@SerializedName("avatarUrl")
+private String mAvatarUrl;
 ```
 
 #### Mapping custom Java types
