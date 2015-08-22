@@ -166,17 +166,9 @@ gsonBuilder.setDateFormat(ISO_FORMAT);
 Gson gson = gsonBuilder.create();
 ```
 
-### Parsing the response
+### HTTP Client Libraries
 
-```java
-public static Response fromJson(String jsonList) {
-    Gson gson = new GsonBuilder().create();
-    Response movies = gson.fromJson(jsonList, Response.class);
-    return movies;
-}
-```
-
-We can use any type of HTTP client library to parse this response, such as Android Async HTTP Client or Square's Retrofit library.
+We can use any type of HTTP client library with GSON, such as Android Async HTTP Client or Square's Retrofit library.
 
 #### Android Async HTTP Client
 
