@@ -6,6 +6,8 @@ database ORMs work in that the library helps map the JSON representation to thei
 
 ### Setup
 
+Add the following line to your Gradle configuration:
+
 ```gradle
 dependencies {
   compile 'com.google.code.gson:gson:2.3'
