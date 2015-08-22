@@ -63,6 +63,10 @@ We simply just need to create a Gson parser instance that will use a method call
 this method is the JSON response in text form, and the second parameter is the class that should be mapped.
 
 ```java
+public class Response {
+.
+.
+.
     public static Response fromJson(String response) {
         Gson gson = new GsonBuilder().create();
         Response movies = gson.fromJson(response, Response.class);
