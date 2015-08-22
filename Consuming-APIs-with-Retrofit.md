@@ -2,7 +2,7 @@
 
 [Retrofit](http://square.github.io/retrofit/) is a type-safe REST client for Android built by Square. The library provides a powerful framework for authenticating and interacting with APIs and sending network requests with [OkHttp](http://square.github.io/okhttp/).
 
-This library makes downloading JSON or XML data from a web API fairly straightforward. Once the data is downloaded then it is parsed into a Plain Old Java Object (POJO) which must be defined for each "resource" in the response. 
+This library makes downloading JSON or XML data from a web API fairly straightforward. Once the data is downloaded then it is parsed into a Plain Old Java Object (POJO) which must be defined for each "resource" in the response.
 
 ### Setup
 
@@ -33,10 +33,10 @@ You can auto-generate the Java objects you need by capturing the JSON output and
 
 #### Auto-generating the Java objects
 Make sure to select `JSON` as the Source Type:
- 
+
 <img src="http://imgur.com/3DRH984.png"/>
 
-If you happen to be creating Java models using the previous step, you therefore won't need to do anything else and select `None` as the Annotation type. 
+If you happen to be creating Java models using the previous step, you therefore won't need to do anything else and select `None` as the Annotation type.
 
 <img src="http://imgur.com/aTrRfpu.png"/>
 
@@ -61,7 +61,7 @@ Note: if you are trying to use Java models that you may have already created, se
 
 #### Creating Java objects manually
 
-Retrofit by default relies on the Gson library to parse JSON.  See [[this guide|Leveraging-the-GSON-Library]] for more information about how to create your own Java objects.
+Retrofit by default relies on the Gson library to parse JSON.  See [[this guide|Leveraging-the-Gson-Library]] for more information about how to create your own Java objects.
 
 ### Creating the RestAdapter
 
@@ -88,7 +88,7 @@ public interface MyApiEndpointInterface {
 
     @GET("/group/{id}/users")
     void groupList(@Path("id") int groupId, @Query("sort") String sort, Callback<List<User>> cb);
- 
+
     @POST("/users/new")
     void createUser(@Body User user, Callback<User> cb);
 }
@@ -101,7 +101,7 @@ Check out the [retrofit docs](http://square.github.io/retrofit/) for additional 
 We can bring this all together by constructing a service through the `RestAdapter` leveraging the `MyApiEndpointInterface` interface with the defined endpoints:
 
 ```java
-MyApiEndpointInterface apiService = 
+MyApiEndpointInterface apiService =
     restAdapter.create(MyApiEndpointInterface.class);
 ```
 
@@ -114,7 +114,7 @@ apiService.getUser(username, new Callback<User>() {
     public void success(User user, Response response) {
         // Access user here after response is parsed
     }
- 
+
     @Override
     public void failure(RetrofitError retrofitError) {
         // Log error here since request failed
@@ -122,7 +122,7 @@ apiService.getUser(username, new Callback<User>() {
 });
 ```
 
-Shown above, Retrofit will download and parse the API data on a background thread, and then deliver the results back to the UI thread via the success or failure method. 
+Shown above, Retrofit will download and parse the API data on a background thread, and then deliver the results back to the UI thread via the success or failure method.
 
 Be sure to check out a [sample TwitchTvClient](https://github.com/MeetMe/TwitchTvClient) for a working sample and the [retrofit docs](http://square.github.io/retrofit/) for additional details about how to use the library.
 
@@ -174,4 +174,4 @@ Several other Android OAuth libraries can be explored instead of signpost:
  * <https://github.com/MeetMe/TwitchTvClient>
  * <http://themakeinfo.com/2015/04/android-retrofit-images-tutorial/>
 
-**Attribution:** This guide has been adapted from [this external guide](http://engineering.meetme.com/2014/03/best-practices-for-consuming-apis-on-android/) authored by [MeetMe](http://www.meetme.com/). 
+**Attribution:** This guide has been adapted from [this external guide](http://engineering.meetme.com/2014/03/best-practices-for-consuming-apis-on-android/) authored by [MeetMe](http://www.meetme.com/).
