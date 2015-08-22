@@ -223,7 +223,7 @@ Gson Gson = gsonBuilder.create();
 
 ### HTTP Client Libraries
 
-We can use any type of HTTP client library with GSON, such as Android Async HTTP Client or Square's Retrofit library.
+We can use any type of HTTP client library with Gson, such as Android Async HTTP Client or Square's Retrofit library.
 
 #### Android Async HTTP Client
 
