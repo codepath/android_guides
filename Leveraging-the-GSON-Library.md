@@ -76,11 +76,13 @@ this method is the JSON response in text form, and the second parameter is the c
 The GSON Builder enables a variety of different options that help provide more flexibility for JSON parsing.  Before we instantiate a GSON parser,
 it's important to know what options are available using the Builder class.  For instance, if our Java variable names do not match that of a corresponding JSON key, we
 can annotate it to specify the mapping explicitly.  In addition, we can also specify how a default way in which fields from Java variables should be mapped to JSON keys,
-as well as
+as well as creating custom deserializers.
 
+```java
 GsonBuilder gsonBuilder = new GsonBuilder();
 // register type adapters here, specify field naming policy, etc.
 Gson Gson = gsonBuilder.create();
+```
 
 ##### Matching variable names to JSON keys
 
