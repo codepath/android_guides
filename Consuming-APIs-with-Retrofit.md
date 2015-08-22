@@ -26,7 +26,7 @@ dependencies {
 
 ### Create Java Objects for Resources
 
-You can also create them manually, but you will need to learn how to use the [Gson](https://github.com/google/gson) library that is used by default with Retrofit.  You can also auto-generate the Java objects you need by capturing the JSON output and using [jsonschema2pojo](http://www.jsonschema2pojo.org/).  
+You can also create them manually, but you will need to create your own Java classes and learn how to use the [Gson](https://github.com/google/gson) library that is used by default with Retrofit.  You can also auto-generate the Java objects you need by capturing the JSON output and using [jsonschema2pojo](http://www.jsonschema2pojo.org/).   We encourage you to follow the first way to best understand how the auto-generated code approach works.
 
 #### Creating Java objects manually
 
