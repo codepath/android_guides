@@ -206,7 +206,7 @@ private void downloadResponseFromNetwork() {
 
 Displaying images is easiest using a third party library such as [Picasso](http://square.github.io/picasso/) from Square which will download and cache remote images and abstract the complexity behind an easy to use DSL.
 
-After [downloading the Picasso jar](http://repo1.maven.org/maven2/com/squareup/picasso/picasso/2.4.0/picasso-2.4.0.jar), or adding Picasso to our `app/build.gradle` file:
+Adding Picasso to our `app/build.gradle` file:
 
 ```gradle
 dependencies {
