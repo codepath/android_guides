@@ -111,7 +111,7 @@ public class Response {
 
 #### Mapping camel case field names
 
-There is also the option to specify how Java field names should map to JSON keys by default.   For instance, the Rotten Tomatoes API response includes an `mpaa_rating` key in the JSON response.  If we followed Java conventions and named this variable as `mpaaRating`, then we could need to add a `SerializedName` decorator:
+There is also the option to specify how Java field names should map to JSON keys by default.   For instance, the Rotten Tomatoes API response includes an `mpaa_rating` key in the JSON response.  If we followed Java conventions and named this variable as `mpaaRating`, then we would have to add a `SerializedName` decorator to map them correctly:
 
 ```java
 class Response {
@@ -121,7 +121,7 @@ class Response {
 }
 ```
 
-An alternate way, especially if we have many instances, is to set the field naming policy in the Gson library.  We can specify that all field names should be converted to lower cases and separated with underscores, which would caused camel case field names to be converted from `mpaaRating` to `mpaa_rating`:
+An alternate way, especially if we have many cases similar to this one, is to set the field naming policy in the Gson library.  We can specify that all field names should be converted to lower cases and separated with underscores, which would caused camel case field names to be converted from `mpaaRating` to `mpaa_rating`:
 
 ```java
 GsonBuilder gsonBuilder = new GsonBuilder();
