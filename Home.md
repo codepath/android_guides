@@ -148,7 +148,7 @@ Diving into the networking and model layers for data-driven apps:
 
 * [[Sending and Managing Network Requests]] (API Calls, Image Downloading)
 * [[Converting JSON to Models]] (JSON to Objects Deserialization)
-* [[Leveraging-the-Gson-Library]] (JSON deserialization library)
+* [[Leveraging the Gson Library]] (JSON deserialization library)
 * [[Creating and Executing Async Tasks]] (Long-running Background Tasks)
 * [[Handling ProgressBars]] (with Long-Running Tasks)
 * [[Rotten Tomatoes Networking Tutorial]]
