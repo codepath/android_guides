@@ -114,7 +114,7 @@ public class BoxOfficeMovieResponse {
 There is also the option to specify how Java field names should map to JSON keys by default.   For instance, the Rotten Tomatoes API response includes an `mpaa_rating` key in the JSON response.  If we followed Java conventions and named this variable as `mpaaRating`, then we would have to add a `SerializedName` decorator to map them correctly:
 
 ```java
-class Response {
+public class BoxOfficeMovieResponse {
 
     @SerializedName("mpaa_rating") 
     String mpaaRating;
