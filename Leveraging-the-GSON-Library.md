@@ -89,7 +89,7 @@ public class Response {
 
 ### Custom options
 
-The [Gson Builder](https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/GsonBuilder.html) class enables a variety of different options that help provide more flexibility for the JSON parsing.  Before we instantiate a Gson parser, it's important to know what options are available using the Builder class.  For instance, if our Java variable names do not match that of a corresponding JSON key, we can annotate it to specify the mapping explicitly.  In addition, we can also specify how a default way in which fields from Java variables should be mapped to JSON keys, as well as creating custom deserializers.
+The [Gson Builder](https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/GsonBuilder.html) class enables a variety of different options that help provide more flexibility for the JSON parsing.  Before we instantiate a Gson parser, it's important to know what options are available using the Builder class.  
 
 ```java
 GsonBuilder gsonBuilder = new GsonBuilder();
@@ -97,7 +97,7 @@ GsonBuilder gsonBuilder = new GsonBuilder();
 Gson Gson = gsonBuilder.create();
 ```
 
-##### Matching variable names to JSON keys
+#### Matching variable names to JSON keys
 
 For instance, if our property name matches that of the JSON key, then we do not to annotate the attributes.  However, if we have a different name we wish to
 use, we can simply annotate the declaration with `@SerializedName`:
