@@ -4,8 +4,7 @@ Leveraging the GSON library
 
 Google's [GSON](https://github.com/google/gson) library provides a powerful framework for converting between JSON strings and Java objects.
 You can take advantage of it to avoid needing to write repetitive code to parse JSON responses yourself.  In many ways, the approach models the way
-database ORMs work in that the library helps map the JSON representation to their respective models.  If you have nested JSON structures, the GSON
-library can also help handle this work for you.
+database ORMs work in that the library helps map the JSON representation to their respective models. 
 
 ### Setup
 
