@@ -1,8 +1,6 @@
 ## Overview
 
-Google's [GSON](https://github.com/google/gson) library provides a powerful framework for converting between JSON strings and Java objects.
-You can take advantage of it to avoid needing to write repetitive code to parse JSON responses yourself.  In many ways, the approach models the way
-database ORMs work in that the library helps map the JSON representation to their respective models. 
+Google's [Gson](https://github.com/google/gson) library provides a powerful framework for converting between JSON strings and Java objects.  This library helps to avoid needing to write boilerplate code to parse JSON responses yourself.   It can be used with any networking library, including the [Android Async HTTP Client](https://github.com/loopj/android-async-http) and [Retrofit](http://square.github.io/retrofit/).
 
 ### Setup
 
@@ -16,9 +14,7 @@ dependencies {
 
 ### Usage
 
-First, we need to know what type of JSON response we will be receiving.    Let's use the Rotten Tomatoes API as an example and show how to create structures
-to parse the latest [box office movies](http://developer.rottentomatoes.com/docs/read/json/v10/Box_Office_Movies).  Let's first define how a basic movie
-representation should look like:
+First, we need to know what type of JSON response we will be receiving.    Let's use the [Rotten Tomatoes API](http://developer.rottentomatoes.com/docs) as an example and show how to create Java objects that will be able to parse the latest [box office movies](http://developer.rottentomatoes.com/docs/read/json/v10/Box_Office_Movies).  Based on the JSON response returned for this API call, let's first define how a basic movie representation should look like:
 
 ```java
 
@@ -41,9 +37,25 @@ class Movie {
 };
 ```
 
-Because the API returns a list of movies and not just an individual one, we also need to create a class that will handle the response.
-Note below that a public constructor is needed to initialize the list.  Without this constructor, the GSON library will be unable to parse the
-response correctly for collection types.
+By default, the Gson library will map the fields defined in the class to the JSON keys defined in the response.  In this specific case, the Movie class will correspond to each individual movie element:
+
+
+```javascript
+movies: [
+  {
+    id: "771305050",
+    title: "Straight Outta Compton",
+    year: 2015,
+  },
+  { 
+    id: "771357161",
+    title: "Mission: Impossible Rogue Nation",
+    year: 2015
+  }
+]
+```
+
+Because the API returns a list of movies and not just an individual one, we also need to create a class that will map the `movies` key to a list of Movie objects.
 
 ```java
 public class Response {
@@ -56,18 +68,18 @@ public class Response {
     }
 ```
 
+Note below that a public constructor is needed to initialize the list.  Without this constructor, the GSON library will be unable to parse the response correctly for collection types.
+
 ### Parsing the response
 
-Assuming we have the JSON response in string form, we simply need to implement a static method to parse this information.
-We simply just need to create a Gson parser instance that will use a method called `fromJson`.  The first parameter for
-this method is the JSON response in text form, and the second parameter is the class that should be mapped.
+Assuming we have the JSON response in string form, we simply need to use the Gson library and using the  `fromJson` method.  The first parameter for this method is the JSON response in text form, and the second parameter is the class that should be mapped.  We can create a static method that returns back a Response class as shown below:
 
 ```java
 public class Response {
 .
 .
 .
-    public static Response fromJson(String response) {
+    public static Response parseJSON(String response) {
         Gson gson = new GsonBuilder().create();
         Response movies = gson.fromJson(response, Response.class);
         return response;
@@ -77,10 +89,7 @@ public class Response {
 
 #### GSON Builder
 
-The GSON Builder enables a variety of different options that help provide more flexibility for JSON parsing.  Before we instantiate a GSON parser,
-it's important to know what options are available using the Builder class.  For instance, if our Java variable names do not match that of a corresponding JSON key, we
-can annotate it to specify the mapping explicitly.  In addition, we can also specify how a default way in which fields from Java variables should be mapped to JSON keys,
-as well as creating custom deserializers.
+The GSON Builder enables a variety of different options that help provide more flexibility for the JSON parsing.  Before we instantiate a GSON parser, it's important to know what options are available using the Builder class.  For instance, if our Java variable names do not match that of a corresponding JSON key, we can annotate it to specify the mapping explicitly.  In addition, we can also specify how a default way in which fields from Java variables should be mapped to JSON keys, as well as creating custom deserializers.
 
 ```java
 GsonBuilder gsonBuilder = new GsonBuilder();
@@ -100,25 +109,24 @@ public class Response {
     List<Movie> movieList;
 ```
 
-##### Mapping camel case names
+##### Mapping camel case field names
 
-There is also the option to specify how Java variable names should map to JSON keys by default.   For instance, if we wanted to declare a Java variable as 'mpaaRating' and
-map it to the JSON 'mpaa_rating' key, we can take advantage of the GSON field naming policy:
+There is also the option to specify how Java field names should map to JSON keys by default.   For instance, the Rotten Tomatoes API response includes an `mpaa_rating` key in the JSON response.  If we followed Java conventions and named this variable as `mpaaRating`, then we could need to add a `SerializedName` decorator:
+
+```java
+class Response {
+
+    @SerializedName("mpaa_rating") 
+    String mpaaRating;
+}
+```
+
+An alternate way, especially if we have many instances, is to set the field naming policy in the Gson library.  We can specify that all field names should be converted to lower cases and separated with underscores, which would caused camel case field names to be converted from `mpaaRating` to `mpaa_rating`:
 
 ```java
 GsonBuilder gsonBuilder = new GsonBuilder();
 gsonBuilder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
 Gson gson = gsonBuilder.create();
-```
-
-In this way, we do not need to specify a `@SerializedName` decorator:
-
-```java
-class Response {
-
-    // @SerializedName("mpaa_rating") is redundant
-    String mpaaRating;
-}
 ```
 
 ##### Mapping Java types
