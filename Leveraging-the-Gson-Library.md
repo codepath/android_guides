@@ -37,7 +37,9 @@ class Movie {
 };
 ```
 
-By default, the Gson library will map the fields defined in the class to the JSON keys defined in the response.  In this specific case, the Movie class will correspond to each individual movie element:
+By default, the Gson library will map the fields defined in the class to the JSON keys defined in the response.  For instance, the fields `id`, `title`, and `year` will be mapped automatically.   We do not need any special annotations unless the field names and JSON keys are different.
+
+In this specific case, the Movie class will correspond to each individual movie element:
 
 
 ```javascript
