@@ -100,7 +100,7 @@ public class Response {
     List<Movie> movieList;
 ```
 
-#### Mapping camel case names
+##### Mapping camel case names
 
 There is also the option to specify how Java variable names should map to JSON keys by default.   For instance, if we wanted to declare a Java variable as 'mpaaRating' and
 map it to the JSON 'mpaa_rating' key, we can take advantage of the GSON field naming policy:
@@ -121,7 +121,7 @@ class Response {
 }
 ```
 
-#### Mapping Java types
+##### Mapping Java types
 
 By default, the GSON library is not aware of many Java types such as Timestamps.  If we wish to convert these types, we can also create a custom deserializer class that
 will handle this work for us.
@@ -154,7 +154,7 @@ gsonBuilder.registerTypeAdapter(Timestamp.class, new TimestampDeserializer());
 Gson Gson = gsonBuilder.create();
 ```
 
-#### Mapping Java Date objects
+##### Mapping Java Date objects
 
 If we know what date format is used in the response by default, we also specify this date format:
 
