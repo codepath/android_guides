@@ -40,6 +40,8 @@ See [this official connectivity guide](http://developer.android.com/training/mon
 
 ### Sending an HTTP Request (Third Party)
 
+#### Using Android Async Http Client
+
 Using a third-party library such as [android-async-http](http://loopj.com/android-async-http/), sending an HTTP request is quite straightforward. First, we add the library to gradle:
 
 ```gradle
@@ -48,18 +50,26 @@ dependencies {
 }
 ```
 
-**Android Marshmallow Compatibility:** Apache HTTP client (a dependency of [android-async-http](http://loopj.com/android-async-http/)) has been [removed from Marshmallow](http://developer.android.com/preview/behavior-changes.html#behavior-apache-http-client). If your app targets API 23, you'll need to add the following to your gradle file until the [library is updated](https://github.com/loopj/android-async-http/issues/830):
+**Android Marshmallow Compatibility Issues** 
 
-```gradle
-android {
-    useLibrary 'org.apache.http.legacy'
-}
-```
+* Apache HTTP client (a dependency of [android-async-http](http://loopj.com/android-async-http/)) has been [removed from Marshmallow](http://developer.android.com/preview/behavior-changes.html#behavior-apache-http-client). If your app targets API 23, you'll need to add the following to your gradle file until the [library is updated](https://github.com/loopj/android-async-http/issues/830):
+
+  ```gradle
+  android {
+      compileSdkVersion 23
+      useLibrary 'org.apache.http.legacy'   // required if compileSdkVersion >= 23
+  }
+  ```
+
+* You may also need to add `import org.apache.http.Header;` manually to your Java file.  There is a current bug in Android Studio 1.3.1 where it may not recognized this added library.  Assuming you are It will however compile successfully.
+
+  <img src="https://i.imgur.com/jreDUla.png"/>
 
 Now, we just create an `AsyncHttpClient`, and then execute a request specifying an anonymous class as a callback:
 
 ```java
 import com.loopj.android.http.*;
+import org.apache.http.Header;
 
 AsyncHttpClient client = new AsyncHttpClient();
 RequestParams params = new RequestParams();
@@ -81,7 +91,7 @@ client.get("http://www.google.com", params, new TextHttpResponseHandler() {
 
 This will automatically execute the request asynchronously and fire the `onSuccess` when the response returns a success code and `onFailure` if the response does not.
 
-### Sending a JSON Request
+#### Sending a JSON Request
 
 Similar to sending a regular HTTP request, [android-async-http](http://loopj.com/android-async-http/) can also be used for sending JSON API requests:
 
@@ -107,7 +117,7 @@ client.get(url, params, new JsonHttpResponseHandler() {
 
 The request will be sent out with the appropriate parameters passed in the query string and then the response will be parsed as JSON and made available within `onSuccess`. Check the [[Converting JSON to Models]] guide for more details on parsing a JSON response.
 
-### Sending an Authenticated API Request
+#### Sending an Authenticated API Request
 
 API requests tend to be JSON or XML responses that are sent to a server and then the result needs to be parsed and processed as data models on the client. In addition, many API requests require authentication in order to identify the user making the request. This is typically done with a standard [OAuth](http://oauth.net/2/) process for authentication.
 
