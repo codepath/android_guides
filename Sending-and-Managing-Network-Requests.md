@@ -61,7 +61,7 @@ dependencies {
   }
   ```
 
-* You may also need to add `import org.apache.http.Header;` manually to your Java file.  There is a current bug in Android Studio 1.3.1 where it may not recognized this added library.  Assuming you are It will however compile successfully.
+* You may also need to add `import org.apache.http.Header;` manually to your Java file.  There is a current bug in Android Studio 1.3.1 where it may not recognized this added library.  Assuming you have included the `useLibrary` statement, your build should however compile successfully.
 
   <img src="https://i.imgur.com/jreDUla.png"/>
 
