@@ -29,9 +29,14 @@ dependencies {
 
 ### Create Java Objects for Resources
 
-You can auto-generate the Java objects you need by capturing the JSON output and using [jsonschema2pojo](http://www.jsonschema2pojo.org/).  You can also create them manually, but you will need to learn how to use the [Gson](https://github.com/google/gson) library that is used by default with Retrofit.
+You can also create them manually, but you will need to learn how to use the [Gson](https://github.com/google/gson) library that is used by default with Retrofit.  You can also auto-generate the Java objects you need by capturing the JSON output and using [jsonschema2pojo](http://www.jsonschema2pojo.org/).  
+
+#### Creating Java objects manually
+
+Retrofit by default relies on the Gson library to parse JSON.  See [[this guide|Leveraging-the-Gson-Library]] for more information about how to create your own Java objects for use with Retrofit.
 
 #### Auto-generating the Java objects
+
 Make sure to select `JSON` as the Source Type:
 
 <img src="http://imgur.com/3DRH984.png"/>
@@ -58,10 +63,6 @@ dependencies {
 ```
 
 Note: if you are trying to use Java models that you may have already created, see [this section](Consuming-APIs-with-Retrofit#migrating-previously-defined-java-objects).
-
-#### Creating Java objects manually
-
-Retrofit by default relies on the Gson library to parse JSON.  See [[this guide|Leveraging-the-Gson-Library]] for more information about how to create your own Java objects.
 
 ### Creating the RestAdapter
 
