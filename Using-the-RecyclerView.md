@@ -116,43 +116,38 @@ Now the `RecyclerView` is embedded within our activity layout file. Next, we can
 
 ### Creating the Custom Row Layout
 
-Before we create the adapter, let's define the XML layout file that will be used for each row within the list. This item layout for now should contain a horizontal linear layout with a textview for the name and hometown as shown below:
+Before we create the adapter, let's define the XML layout file that will be used for each row within the list. This item layout for now should contain a horizontal linear layout with a textview for the name and a button to message the person:
 
-<img src="https://i.imgur.com/MmY8zqI.png" width="300" />
 <img src="https://i.imgur.com/fu3FzsV.png" width="300" />
 
-This layout file can be created in `res/layout/item_user.xml` and will be rendered for each item row:
+This layout file can be created in `res/layout/item_contact.xml` and will be rendered for each item row:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?android:attr/selectableItemBackground">
-    
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:id="@+id/imageView"
-        android:src="@mipmap/ic_launcher"
-        android:layout_gravity="center_vertical" />    
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        >
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/contact_name"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Dennis"
-        android:id="@+id/tvName"
-        android:layout_gravity="center_vertical" />
+        android:layout_weight="1"
+        />
 
-    <TextView
+    <Button
+        android:id="@+id/message_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Winterfell"
-        android:id="@+id/tvHometown"
-        android:layout_marginLeft="10dp"
-        android:layout_gravity="center_vertical" />
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:textSize="10sp"
+        />
 </LinearLayout>
 ```
 
