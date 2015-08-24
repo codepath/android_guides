@@ -120,7 +120,7 @@ Inside the desired activity layout XML file in `res/layout/activity_users.xml`, 
     android:layout_height="match_parent" >
     
     <android.support.v7.widget.RecyclerView
-      android:id="@+id/rvUsers"
+      android:id="@+id/rvContacts"
       android:layout_width="match_parent"
       android:layout_height="match_parent" />
 
@@ -274,13 +274,13 @@ public class UserListActivity extends AppCompatActivity {
      protected void onCreate(Bundle savedInstanceState) {
          // ...
          // Lookup the recyclerview in activity layout
-         RecyclerView rvUsers = (RecyclerView) findViewById(R.id.rvUsers);
+         RecyclerView rvContacts = (RecyclerView) findViewById(R.id.rvContacts);
          // Create adapter passing in the sample user data
          UserRecyclerViewAdapter adapter = new UserRecyclerViewAdapter(this, getThronesCharacters());
          // Attach the adapter to the recyclerview to populate items
-         rvUsers.setAdapter(adapter);
+         rvContacts.setAdapter(adapter);
          // Set layout manager to position the items
-         rvUsers.setLayoutManager(new LinearLayoutManager(this));
+         rvContacts.setLayoutManager(new LinearLayoutManager(this));
          // That's all!
      }
 
