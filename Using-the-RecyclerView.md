@@ -293,23 +293,13 @@ public class UserListActivity extends AppCompatActivity {
          // Lookup the recyclerview in activity layout
          RecyclerView rvContacts = (RecyclerView) findViewById(R.id.rvContacts);
          // Create adapter passing in the sample user data
-         ContactsAdapter adapter = new ContactsAdapter(this, getThronesCharacters());
+         ContactsAdapter adapter = new ContactsAdapter(Contacts.createContactsList(20));
          // Attach the adapter to the recyclerview to populate items
          rvContacts.setAdapter(adapter);
          // Set layout manager to position the items
          rvContacts.setLayoutManager(new LinearLayoutManager(this));
          // That's all!
      }
-
-     private ArrayList<User> getThronesCharacters() {
-        ArrayList<User> items = new ArrayList<>();
-        items.add(new User("Dany Targaryen", "Valyria"));
-        items.add(new User("Rob Stark", "Winterfell"));
-        items.add(new User("Jon Snow", "Castle Black"));
-        items.add(new User("Tyrion Lanister", "King's Landing"));
-        return items;
-    }
-
 }
 ```
 
