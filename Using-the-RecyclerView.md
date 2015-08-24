@@ -190,21 +190,24 @@ public class ContactsAdapter extends
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // Your holder should contain a member variable
         // for any view that will be set as you render a row
-        public TextView tvName;
-        public TextView tvHometown;
+        public TextView nameTextView;
+        public Button messageButton;
+
         // We also create a constructor that accepts the entire item row
         // and does the view lookups to find each subview
         public ViewHolder(View itemView) {
+            // Stores the itemView in a public final member variable that can be used
+            // to access the context from any ViewHolder instance.
             super(itemView);
-            this.tvName = (TextView) itemView.findViewById(R.id.tvName);
-            this.tvHometown = (TextView) itemView.findViewById(R.id.tvHometown);
+
+            nameTextView = (TextView) itemView.findViewById(R.id.contact_name);
+            messageButton = (Button) itemView.findViewById(R.id.message_button);
         }
     }
-
 }
 ```
 
-Now that we've defined the basic adapter and `ViewHolder`, we need to begin filling in our adapter. First, let's store a member variable for the list of users and pass the list in through our constructor:
+Now that we've defined the basic adapter and `ViewHolder`, we need to begin filling in our adapter. First, let's store a member variable for the list of contacts and pass the list in through our constructor:
 
 ```java
 public class ContactsAdapter extends 
@@ -212,15 +215,12 @@ public class ContactsAdapter extends
 
     // ... view holder defined above...
 
-    // Store a member variable for the users
-    private ArrayList<User> users;
-    // Store the context for later use
-    private Context context;
+    // Store a member variable for the contacts
+    private List<Contact> mContacts;
 
-    // Pass in the context and users array into the constructor
-    public ContactsAdapter(Context context, ArrayList<User> users) {
-        this.users = users;
-        this.context = context;
+    // Pass in the contact array into the constructor
+    public ContactsAdapter(ArrayList<Contact> contacts) {
+        mContacts = contacts;
     }
 }
 ```
@@ -236,21 +236,38 @@ public class ContactsAdapter extends
     // Usually involves inflating a layout from XML and returning the holder
     @Override
     public ContactsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        Context context = parent.getContext();
+        LayoutInflater inflater = LayoutInflater.from(context);
+
         // Inflate the custom layout
-        View itemView = LayoutInflater.from(context).
-            inflate(R.layout.item_user, parent, false);
+        View contactView = inflater.inflate(R.layout.item_contact, parent, false);
+
         // Return a new holder instance
-        return new ContactsAdapter.ViewHolder(itemView);
+        ViewHolder viewHolder = new ViewHolder(contactView);
+        return viewHolder;
     }
     
     // Involves populating data into the item through holder
     @Override
     public void onBindViewHolder(ContactsAdapter.ViewHolder holder, int position) {
         // Get the data model based on position
-        User user = users.get(position);
+        Contact contact = mContacts.get(position);
+
         // Set item views based on the data model
-        holder.tvName.setText(user.name);
-        holder.tvHometown.setText(user.hometown);
+        TextView textView = viewHolder.nameTextView;
+        textView.setText(contact.getName());
+
+        Button button = viewHolder.messageButton;
+
+        if (contact.isOnline()) {
+            button.setText("Message");
+            button.setEnabled(true);
+        }
+        else {
+            button.setText("Offline");
+            button.setEnabled(false);
+        }
+
     }
 
     // Return the total count of items
