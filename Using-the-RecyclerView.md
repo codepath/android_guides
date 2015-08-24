@@ -76,17 +76,36 @@ Click on "Sync Project with Gradle files" to let your IDE download the appropria
 
 ### Defining a Model
 
-Every RecyclerView is backed by a source for data. In this case, we will define a `User` class which represents the data model being represented by the RecyclerView:
+Every RecyclerView is backed by a source for data. In this case, we will define a `Contact` class which represents the data model being displayed by the RecyclerView:
 
 ```java
-public class User {
-    // Define attributes of a user
-    public String name;
-    public String hometown;
-    // Create a constructor 
-    public User(String name, String hometown) {
-       this.name = name;
-       this.hometown = hometown;
+public class Contact {
+    private String mName;
+    private boolean mOnline;
+
+    public Contact(String name, boolean online) {
+        mName = name;
+        mOnline = online;
+    }
+
+    public String getName() {
+        return mName;
+    }
+
+    public boolean isOnline() {
+        return mOnline;
+    }
+
+    private static int lastContactId = 0;
+
+    public static List<Contact> createContactsList(int numContacts) {
+        List<Contact> contacts = new ArrayList<>();
+
+        for (int i = 1; i <= numContacts; i++) {
+            contacts.add(new Contact("Person " + ++lastContactId, i <= numContacts / 2));
+        }
+
+        return contacts;
     }
 }
 ```
@@ -110,6 +129,7 @@ Inside the desired activity layout XML file in `res/layout/activity_users.xml`, 
 
 In the layout, preview we can see the `RecyclerView` within the activity:
 
+<img src="https://i.imgur.com/wPRTc76.png" width="300" />
 <img src="https://i.imgur.com/Qf5fQ8X.png" width="300" />
 
 Now the `RecyclerView` is embedded within our activity layout file. Next, we can define the layout for each item within our list.
