@@ -177,13 +177,13 @@ With the custom item layout complete, let's create the adapter to populate the d
 
 Here we need to create the adapter which will actually populate the data into the RecyclerView. The adapter's role is to **convert an object at a position into a list row item** to be inserted. 
 
-However with a `RecyclerView` the adapter requires the existence of a "ViewHolder" object which describes and provides access to all the views within each item row.  We can create the basic empty adapter and holder together in `UserRecyclerViewAdapter.java` as follows:
+However with a `RecyclerView` the adapter requires the existence of a "ViewHolder" object which describes and provides access to all the views within each item row.  We can create the basic empty adapter and holder together in `ContactsAdapter.java` as follows:
 
 ```java
 // Create the basic adapter extending from RecyclerView.Adapter
 // Note that we specify the custom ViewHolder which gives us access to our views
-public class UserRecyclerViewAdapter extends 
-    RecyclerView.Adapter<UserRecyclerViewAdapter.ViewHolder> {
+public class ContactsAdapter extends 
+    RecyclerView.Adapter<ContactsAdapter.ViewHolder> {
 
     // Provide a direct reference to each of the views within a data item
     // Used to cache the views within the item layout for fast access
@@ -207,8 +207,8 @@ public class UserRecyclerViewAdapter extends
 Now that we've defined the basic adapter and `ViewHolder`, we need to begin filling in our adapter. First, let's store a member variable for the list of users and pass the list in through our constructor:
 
 ```java
-public class UserRecyclerViewAdapter extends 
-    RecyclerView.Adapter<UserRecyclerViewAdapter.ViewHolder> {
+public class ContactsAdapter extends 
+    RecyclerView.Adapter<ContactsAdapter.ViewHolder> {
 
     // ... view holder defined above...
 
@@ -218,7 +218,7 @@ public class UserRecyclerViewAdapter extends
     private Context context;
 
     // Pass in the context and users array into the constructor
-    public UserRecyclerViewAdapter(Context context, ArrayList<User> users) {
+    public ContactsAdapter(Context context, ArrayList<User> users) {
         this.users = users;
         this.context = context;
     }
@@ -228,24 +228,24 @@ public class UserRecyclerViewAdapter extends
 Every adapter has three primary methods: `onCreateViewHolder` to inflate the item layout and create the holder, `onBindViewHolder` to set the view attributes based on the data and `getItemCount` to determine the number of items. We need to implement all three to finish the adapter:
 
 ```java
-public class UserRecyclerViewAdapter extends 
-    RecyclerView.Adapter<UserRecyclerViewAdapter.ViewHolder> {
+public class ContactsAdapter extends 
+    RecyclerView.Adapter<ContactsAdapter.ViewHolder> {
 
     // ... constructor and member variables
 
     // Usually involves inflating a layout from XML and returning the holder
     @Override
-    public UserRecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ContactsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // Inflate the custom layout
         View itemView = LayoutInflater.from(context).
             inflate(R.layout.item_user, parent, false);
         // Return a new holder instance
-        return new UserRecyclerViewAdapter.ViewHolder(itemView);
+        return new ContactsAdapter.ViewHolder(itemView);
     }
     
     // Involves populating data into the item through holder
     @Override
-    public void onBindViewHolder(UserRecyclerViewAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(ContactsAdapter.ViewHolder holder, int position) {
         // Get the data model based on position
         User user = users.get(position);
         // Set item views based on the data model
@@ -276,7 +276,7 @@ public class UserListActivity extends AppCompatActivity {
          // Lookup the recyclerview in activity layout
          RecyclerView rvContacts = (RecyclerView) findViewById(R.id.rvContacts);
          // Create adapter passing in the sample user data
-         UserRecyclerViewAdapter adapter = new UserRecyclerViewAdapter(this, getThronesCharacters());
+         ContactsAdapter adapter = new ContactsAdapter(this, getThronesCharacters());
          // Attach the adapter to the recyclerview to populate items
          rvContacts.setAdapter(adapter);
          // Set layout manager to position the items
@@ -439,7 +439,7 @@ recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
 RecyclerView does not have special provisions for attaching click handlers to items unlike ListView which has the method `setOnItemClickListener`. To achieve a similar effect, we can attach click events within the `ViewHolder` within our adapter:
 
 ```java
-public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerViewAdapter.ViewHolder> {
+public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHolder> {
     // ...
 
     // Used to cache the views within the item layout for fast access
@@ -493,7 +493,7 @@ This creates the following effect:
 In certain cases, you'd want to setup click handlers for views within the `RecyclerView` but define the click logic within the containing `Activity` or `Fragment` (i.e bubble up events from the adapter). To achieve this, [[create a custom listener|Creating-Custom-Listeners]] within the adapter and then fire the events upwards to an interface implementation defined within the parent:
 
 ```java
-public class UserRecyclerViewAdapter extends RecyclerView.Adapter<UserRecyclerViewAdapter.ViewHolder> {
+public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHolder> {
     // ...
 
     /***** Creating OnItemClickListener *****/
@@ -537,8 +537,8 @@ Then we can attach a click handler to the adapter with:
 
 ```java
 // In the activity or fragment
-UserRecyclerViewAdapter adapter = ...;
-adapter.setOnItemClickListener(new UserRecyclerViewAdapter.OnItemClickListener() {
+ContactsAdapter adapter = ...;
+adapter.setOnItemClickListener(new ContactsAdapter.OnItemClickListener() {
     @Override
     public void onItemClick(View view, int position) {
         String name = users.get(position).name;
