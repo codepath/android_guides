@@ -129,7 +129,6 @@ Inside the desired activity layout XML file in `res/layout/activity_users.xml`, 
 
 In the layout, preview we can see the `RecyclerView` within the activity:
 
-<img src="https://i.imgur.com/wPRTc76.png" width="300" />
 <img src="https://i.imgur.com/Qf5fQ8X.png" width="300" />
 
 Now the `RecyclerView` is embedded within our activity layout file. Next, we can define the layout for each item within our list.
@@ -138,6 +137,7 @@ Now the `RecyclerView` is embedded within our activity layout file. Next, we can
 
 Before we create the adapter, let's define the XML layout file that will be used for each row within the list. This item layout for now should contain a horizontal linear layout with a textview for the name and a button to message the person:
 
+<img src="https://i.imgur.com/wPRTc76.png" width="300" />
 <img src="https://i.imgur.com/fu3FzsV.png" width="300" />
 
 This layout file can be created in `res/layout/item_contact.xml` and will be rendered for each item row:
