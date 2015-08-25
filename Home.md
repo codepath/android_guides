@@ -216,8 +216,10 @@ Covering automated testing frameworks and tools for Android:
 
 * [[Android Testing Options]]
 * [[Unit Testing with Robolectric]]
-* [[Android Testing Framework]] (**Needs Attention**)
+* [[UI Testing with Espresso]]
 * [[UI Testing with Robotium]] (**Needs Attention**)
+* [[Android Testing Framework]] (**Needs Attention**)
+
 
 ## Workflow Guides
 
