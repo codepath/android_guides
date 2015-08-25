@@ -43,7 +43,7 @@ dependencies {
 
 That's all the setup needed. Now let's move on to writing some actual tests.
 
-## Creating a Simple Robolectric test
+## Creating a Simple Robolectric Test
 
 The code below shows a basic Robolectric test that verifies the text inside of a TextView. It's based off the standard new project template which has a single `MainActivity` that contains a `TextView` with the text "Hello world!".
 
@@ -150,7 +150,7 @@ You can read more about Robolectric's shadows [here](http://robolectric.org/exte
 
 Dealing with the activity lifecycle is a common source of bugs in Android. Fortunately, Robolectric allows you to test the activity lifecycle. Below you'll see how we've added some activity lifecycle tests to our `MainActivityTest` class.
 
-### Simulating the full activity lifecycle
+### Simulating the Full Activity Lifecycle
 
 ```java
 @Config(constants = BuildConfig.class, sdk = Build.VERSION_CODES.LOLLIPOP)
