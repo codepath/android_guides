@@ -23,9 +23,17 @@ Apache HTTP client (a dependency of [android-async-http](http://loopj.com/androi
   }
   ```
 
-You may also need to add `import org.apache.http.Header;` manually to your Java file.  There is a current bug in Android Studio 1.3.1 where it may not recognized this added library.  Assuming you have included the `useLibrary` statement, your build should however compile successfully.
+You may also need to add the import statement manually to your Java file wherever you make network calls with this library:
+
+```java
+`import org.apache.http.Header;
+```
+
+The reason is that is a current bug in Android Studio 1.3.1 where it may not recognized this added library.  You will notice that Android Studio will not recognized the module:
 
   <img src="https://i.imgur.com/jreDUla.png"/>
+
+Assuming you have included the `useLibrary` statement, your build should however compile successfully.  The Gradle configuration will add this library to the Java classpath, but the IDE currently has a bug where it is not recognized as an added dependency.
 
 ### Sending a Network Request
 
