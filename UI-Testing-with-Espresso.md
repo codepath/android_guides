@@ -54,7 +54,34 @@ That's all the setup needed. Now let's move on to writing some actual tests.
 
 ## Creating a Simple Espresso Test
 
-TODO ...
+The code below shows a simple Espresso test that verifies that a single `TextView` exists on screen containing the text "Hello world!". It's based off the standard new project template which has a single `MainActivity` that contains a `TextView` with the text "Hello world!".
+
+Create a new class `MainActivityInstrumentationTest` inside of the default instrumentation tests directory (`src/androidTest/java`). The best practice is to mimic the same package structure with your tests as your product code. This has the benefit of giving your tests access to `package-private` fields in your product code. For this example, we'll be creating `MainActivityInstrumentationTest` at `src/androidTest/java/com.codepath.espressodemo.MainActivityInstrumentationTest`.
+
+```java
+// MainActivityInstrumentationTest.java
+import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
+
+// Tests for MainActivity
+public class MainActivityInstrumentationTest {
+
+    // Preferred JUnit 4 mechanism of specifying the activity to be launched before each test
+    @Rule
+    public ActivityTestRule<MainActivity> activityTestRule = 
+            new ActivityTestRule<>(MainActivity.class);
+
+    // Looks for a single TextView with the text "Hello world!"
+    // This TextView's bounds must be 90%+ visible on screen (with Visibility = View.VISIBLE)
+    // for the test to pass.
+    @Test
+    public void validateHelloWorldExists() {
+        onView(withText("Hello world!")).check(matches(isDisplayed()));
+    }
+}
+```
 
 ## Running Espresso Tests
 
