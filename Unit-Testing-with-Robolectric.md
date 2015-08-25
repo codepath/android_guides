@@ -8,7 +8,7 @@ So for all of us that want faster executing tests on the JVM (either for our Con
 
 Recent versions of Android Studio have made setup much easier. We'll walk through these steps before we jump into the actual tests.
 
-### Prerequisites:
+### Prerequisites
 * Android Studio 1.2+
 * Android Gradle Plugin 1.2.3+
 * Gradle 2.2.1+
