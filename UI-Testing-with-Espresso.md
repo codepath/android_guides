@@ -2,16 +2,8 @@
 
 Espresso is an instrumentation test framework...
  
-## Setup
+## Android Studio Setup
 
-### Prerequisites
-* Android Studio 1.2+
-* Android Gradle Plugin 1.2.3+
-* Gradle 2.2.1+
-
-Note: Espresso can also be configured with Android Studio 1.1, but the setup requires some additional configuration. Keep in mind that unit testing was still considered an [experimental feature](http://tools.android.com/tech-docs/unit-testing-support) in Android Studio 1.1.
-
-### Android Studio Configuration
 1. The first thing we should do is change to the `Project` perspective in the `Project Window`. This will show us a full view of everything contained in the project. The default setting (the `Android` perspective) hides certain folders:
 
     ![Imgur](https://i.imgur.com/OWun9AJ.png)
@@ -45,8 +37,17 @@ android {
 }
 
 dependencies {
-    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2'
-    androidTestCompile 'com.android.support.test:runner:0.3'
+    ...
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2') {
+        // Necessary if your app targets Marshmallow (since Espresso
+        // hasn't moved to Marshmallow yet)
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    androidTestCompile('com.android.support.test:runner:0.3') {
+        // Necessary if your app targets Marshmallow (since the test runner
+        // hasn't moved to Marshmallow yet)
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
 }
 ```
 That's all the setup needed. Now let's move on to writing some actual tests.
@@ -57,7 +58,31 @@ TODO ...
 
 ## Running Espresso Tests
 
-TODO ...
+There are 2 ways to run your tests:
+
+1. Run a single test through Android Studio:
+  * Right click on the test class and select `Run`:
+   
+    ![Imgur](http://i.imgur.com/HVntgBc.png)
+  * **Note:** If you are presented with two options as in the diagram below, make sure to select the first one (designating to use the Gradle Test Runner instead of the JUnit Test Runner). Android Studio will cache your selection for future runs.
+      
+    ![Imgur](https://i.imgur.com/RDmmdI2.png)
+      
+  * View the results in the `Console` output. You may need to enable `Show Passed` as in the diagram below to see the full results.
+      
+    ![Imgur](http://i.imgur.com/oCHth1N.png)
+      
+2. Run all the tests through Gradle:
+  * Open the Gradle window and find `connectedDebugAndroidTest` under `Tasks` => `verification`.
+  * Right click and select `Run`
+
+    ![Imgur](http://i.imgur.com/rqw0GPb.png)
+
+  * This will generate an html test result report at `app/build/reports/androidTests/connected/index.html`
+      
+    ![Imgur](http://i.imgur.com/m7KYVYX.png)
+
+  * Note: You can also run the tests on the command line using: `./gradlew connectedDebugAndroidTest`
 
 ## References
 
