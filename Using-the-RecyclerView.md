@@ -68,7 +68,7 @@ Make sure the recyclerview support library is listed as a dependency in your `ap
 ```gradle
 dependencies {
     ...
-    compile 'com.android.support:recyclerview-v7:22.2.+'
+    compile 'com.android.support:recyclerview-v7:23.+'
 }
 ```
 
@@ -219,7 +219,7 @@ public class ContactsAdapter extends
     private List<Contact> mContacts;
 
     // Pass in the contact array into the constructor
-    public ContactsAdapter(ArrayList<Contact> contacts) {
+    public ContactsAdapter(List<Contact> contacts) {
         mContacts = contacts;
     }
 }
@@ -249,7 +249,7 @@ public class ContactsAdapter extends
     
     // Involves populating data into the item through holder
     @Override
-    public void onBindViewHolder(ContactsAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(ContactsAdapter.ViewHolder viewHolder, int position) {
         // Get the data model based on position
         Contact contact = mContacts.get(position);
 
@@ -273,7 +273,7 @@ public class ContactsAdapter extends
     // Return the total count of items
     @Override
     public int getItemCount() {
-        return users.size();
+        return mContacts.size();
     }
 }
 ```
@@ -293,7 +293,7 @@ public class UserListActivity extends AppCompatActivity {
          // Lookup the recyclerview in activity layout
          RecyclerView rvContacts = (RecyclerView) findViewById(R.id.rvContacts);
          // Create adapter passing in the sample user data
-         ContactsAdapter adapter = new ContactsAdapter(Contacts.createContactsList(20));
+         ContactsAdapter adapter = new ContactsAdapter(Contact.createContactsList(20));
          // Attach the adapter to the recyclerview to populate items
          rvContacts.setAdapter(adapter);
          // Set layout manager to position the items
