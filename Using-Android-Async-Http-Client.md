@@ -26,7 +26,7 @@ Apache HTTP client (a dependency of [android-async-http](http://loopj.com/androi
 You may also need to add the import statement manually to your Java file wherever you make network calls with this library:
 
 ```java
-`import org.apache.http.Header;
+import org.apache.http.Header;
 ```
 
 The reason is that is a current bug in Android Studio 1.3.1 where it may not recognized this added library.  You will notice that Android Studio will not recognized the module:
