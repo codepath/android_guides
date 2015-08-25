@@ -13,7 +13,7 @@ Unit testing is about testing a particular component (i.e. an activity or model 
 
 Android Instrumentation is a set of "hooks" into the Android system that allow you to control the lifecycle of Android components (i.e. drive the activity lifecycle yourself instead of having these driven by the system). These tests require an actual device or emulator to run and are typically placed in the `app/src/androidTest/java` folder.
  
- * [Espresso](https://code.google.com/p/android-test-kit/wiki/Espresso) - Extensible Android UI Test Framework provided by Google that handles test synchronization very well.
+ * [[Espresso|UI-Testing-with-Espresso]] - Extensible Android UI Test Framework provided by Google that handles test synchronization very well.
  * [UIAutomator](https://developer.android.com/training/testing/ui-testing/uiautomator-testing.html) - Android UI Test Framework provided by Google for testing across multiple apps at the same time.
  * [Google Android Testing](http://developer.android.com/tools/testing/testing_android.html) - This is the testing framework included as part of the platform.
  * [[Robotium|UI-Testing-with-Robotium]] - Third party Android UI Test Framework ([comparison with Espresso](http://stackoverflow.com/a/20487527/5154829))
