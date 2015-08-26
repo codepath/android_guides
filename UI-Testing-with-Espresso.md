@@ -1,10 +1,14 @@
 ## Overview
 
-Espresso is an instrumentation test framework...
- 
+Espresso is a UI test framework (part of the [Android Testing Support Library](https://developer.android.com/tools/testing-support-library/index.html)) that allows you to create automated UI tests for your Android app. Espresso tests run on actual device or emulator (they are [instrumentation based tests](http://developer.android.com/tools/testing/testing_android.html#Instrumentation)) and behave as if an actual user is using the app (i.e. if a particular view is off screen, the test won't be able to interact with it). 
+
+Espresso's simple and extensible API, automatic synchronization of test actions with the UI of the app under test, and rich failure information make it a great choice for UI testing. In many circles Espresso is considered to be a full replacement for Robotium (see this [stack overflow post](http://stackoverflow.com/a/20487527/5154829) that compares Robotium to Espresso).
+
 ## Android Studio Setup
 
-1. The first thing we should do is change to the `Project` perspective in the `Project Window`. This will show us a full view of everything contained in the project. The default setting (the `Android` perspective) hides certain folders:
+There are several steps needed to setup Espresso with Android Studio:
+
+1. First, let's change to the `Project` perspective in the `Project Window`. This will show us a full view of everything contained in the project. The default setting (the `Android` perspective) hides certain folders:
 
     ![Imgur](https://i.imgur.com/OWun9AJ.png)
 
@@ -54,15 +58,18 @@ That's all the setup needed. Now let's move on to writing some actual tests.
 
 ## Creating a Simple Espresso Test
 
-The code below shows a simple Espresso test that verifies that a single `TextView` exists on screen containing the text "Hello world!". It's based off the standard new project template which has a single `MainActivity` that contains a `TextView` with the text "Hello world!".
+The code below shows a simple Espresso test that enters some text into an EditText and then verifies the text entered. It's based off the standard new project template which has a single `MainActivity` that contains a `TextView` with the text "Hello world!".
 
-Create a new class `MainActivityInstrumentationTest` inside of the default instrumentation tests directory (`src/androidTest/java`). The best practice is to mimic the same package structure with your tests as your product code. This has the benefit of giving your tests access to `package-private` fields in your product code. For this example, we'll be creating `MainActivityInstrumentationTest` at `src/androidTest/java/com.codepath.espressodemo.MainActivityInstrumentationTest`.
+1. Add an `EditText` to `MainActivity` that has `id` = `R.id.etInput`.
+2. Create a new class `MainActivityInstrumentationTest` inside of the default instrumentation tests directory (`src/androidTest/java`). The best practice is to mimic the same package structure with your tests as your product code. This has the benefit of giving your tests access to `package-private` fields in your product code. For this example, we'll be creating `MainActivityInstrumentationTest` at `src/androidTest/java/com.codepath.espressodemo.MainActivityInstrumentationTest`.
 
 ```java
 // MainActivityInstrumentationTest.java
+
 import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 // Tests for MainActivity
@@ -70,18 +77,27 @@ public class MainActivityInstrumentationTest {
 
     // Preferred JUnit 4 mechanism of specifying the activity to be launched before each test
     @Rule
-    public ActivityTestRule<MainActivity> activityTestRule = 
+    public ActivityTestRule<MainActivity> activityTestRule =
             new ActivityTestRule<>(MainActivity.class);
 
-    // Looks for a single TextView with the text "Hello world!"
-    // This TextView's bounds must be 90%+ visible on screen (with Visibility = View.VISIBLE)
-    // for the test to pass.
+    // Looks for an EditText with id = "R.id.etInput"
+    // Types the text "Hello" into the EditText
+    // Verifies the EditText has text "Hello"
     @Test
-    public void validateHelloWorldExists() {
-        onView(withText("Hello world!")).check(matches(isDisplayed()));
+    public void validateEditText() {
+        onView(withId(R.id.etInput)).perform(typeText("Hello")).check(matches(withText("Hello")));
     }
 }
 ```
+
+When writing Espresso tests, you'll be using a lot of static imports. This makes the code easier to read, but can make it more difficult to understand when you are first learning Espresso. Let's dive into the parts of the above test:
+
+* [Espresso](http://developer.android.com/reference/android/support/test/espresso/Espresso.html) – This is the entry point. Mostly of the time you'll be using `onView(...)` to specify you want to interact with a view.
+* [ViewMatchers](http://developer.android.com/reference/android/support/test/espresso/matcher/ViewMatchers.html) – This is how we find views. `ViewMatchers` contains a collection of [hamcrest matchers](https://code.google.com/p/hamcrest/wiki/Tutorial) that allow you to find specific views in your view hierarchy. Above, we've used `withId(R.id.etInput)` to specify we are looking for an `EditText` with `id` = `R.id.etInput`.
+* [ViewActions](http://developer.android.com/reference/android/support/test/espresso/action/ViewActions.html) – This is how we interact with views. Above we've used the `typeText(...)` method to type `Hello` into our `EditText`.
+* [ViewAssertions](http://developer.android.com/reference/android/support/test/espresso/assertion/ViewAssertions.html) – This is our validation. We use `ViewAssertions` to validate specific properties of views. Most of the time you'll be using `ViewAssertions` that are powered by `ViewMatchers` underneath. In our example above the `withText(...)` method is actually returning a `ViewMatcher` which we've converted into a `ViewAssertion` using the `matches(...)` method.
+
+The standard pattern for an Espresso test is to find a view (`ViewMatchers`), do something to that view (`ViewActions`), and then validate some view properties (`ViewAssertions`). There's a handy [cheat sheet] (https://github.com/googlesamples/android-testing/blob/master/downloads/Espresso%20Cheat%20Sheet%20Master.pdf) that's a great reference to see what's available in each of these classes.
 
 ## Running Espresso Tests
 
@@ -114,3 +130,4 @@ There are 2 ways to run your tests:
 ## References
 
 * <https://code.google.com/p/android-test-kit>
+* <https://developer.android.com/training/testing/ui-testing/espresso-testing.html>
