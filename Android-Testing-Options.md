@@ -21,7 +21,7 @@ Android Instrumentation is a set of "hooks" into the Android system that allow y
 
 ### Richer Validation Support
 
-Simple [JUnit assertions](http://junit.org/apidocs/org/junit/Assert.html) leave a lot to be desired when working on Android. The following library and classes help fill this gap. 
+Simple [JUnit assertions](http://junit.org/apidocs/org/junit/Assert.html) leave a lot to be desired when working on Android. The following libraries and classes help fill this gap. 
 
  * [Assertj-Android](http://square.github.io/assertj-android/) - An extension of [AssertJ](http://joel-costigliola.github.io/assertj/) (fluent assertions for Java) extended for Android (formerly known as FEST Android).
  * [MoreAsserts](http://developer.android.com/reference/android/test/MoreAsserts.html) - Extension of JUnit assertions to add assertions for sets, lists, etc.
