@@ -127,6 +127,51 @@ There are 2 ways to run your tests:
 
   * Note: You can also run the tests on the command line using: `./gradlew connectedDebugAndroidTest`
 
+## Other Espresso Test Scenarios
+
+We've included several test recipes below for scenarios you might encounter when testing your app.
+
+### Interacting with a ListView
+
+[`AdapterView's`] (`ListView` is an example of an `AdapterView`) present a problem when doing UI testing. Since an `AdapterView` doesn't load all of it's items upfront (only as the user scrolls through the items), `AdapterView`'s don't work well with `onView(...)` since the particular view might not be part of the view hierarchy yet.
+
+Fortunately, Espresso provides an `onData(...)` entry point that makes sure to load the `AdapterView` item before performing any operations on it.
+
+Let's run through an example of how you might interact with a `ListView` in Espresso. Our `ListView` will be a simple list of text strings.
+
+```gradle
+@Test
+public void clickOnItemWithTextEqualToTwo() {
+    // Find the adapter position to click based on matching the text "two" to the adapter item's text
+    onData(allOf(is(instanceOf(String.class)), is("two"))) // Use Hamcrest matchers to match item
+        .inAdapterView(withId(R.id.lvItems)) // Specify the explicit id of the ListView
+        .perform(click()); // Standard ViewAction
+}
+```
+
+Alternately, if we know the position of the particular item, we can directly specify the position instead of using a data `Matcher` to find it:
+
+```gradle
+@Test
+public void clickOnItemWithTextEqualToTwo() {
+    // Directly specify the position in the adapter to click on
+    onData(anything()) // We are using the position so don't need to specify a data matcher
+        .inAdapterView(withId(R.id.lvItems)) // Specify the explicit id of the ListView
+        .atPosition(1) // Explicitly specify the adapter item to use
+        .perform(click()); // Standard ViewAction
+}
+```
+
+### Interacting with a RecyclerView
+
+Unfortunately, `RecyclerView` is not an `AdapterView` so `onData(...)` will not work for us here.
+
+TODO...
+
+### Stubbing out the Camera using Intent Stubbing
+
+TODO...
+
 ## References
 
 * <https://code.google.com/p/android-test-kit>
