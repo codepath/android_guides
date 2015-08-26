@@ -139,7 +139,7 @@ Fortunately, Espresso provides an `onData(...)` entry point that makes sure to l
 
 Let's run through an example of how you might interact with a `ListView` in Espresso. Our `ListView` will be a simple list of text strings.
 
-```gradle
+```java
 @Test
 public void clickOnItemWithTextEqualToTwo() {
     // Find the adapter position to click based on matching the text "two" to the adapter item's text
@@ -151,7 +151,7 @@ public void clickOnItemWithTextEqualToTwo() {
 
 Alternately, if we know the position of the particular item, we can directly specify the position instead of using a data `Matcher` to find it:
 
-```gradle
+```java
 @Test
 public void clickOnItemWithTextEqualToTwo() {
     // Directly specify the position in the adapter to click on
