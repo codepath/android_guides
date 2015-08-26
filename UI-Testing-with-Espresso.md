@@ -131,3 +131,4 @@ There are 2 ways to run your tests:
 
 * <https://code.google.com/p/android-test-kit>
 * <https://developer.android.com/training/testing/ui-testing/espresso-testing.html>
+* <https://github.com/vgrec/EspressoExamples>
