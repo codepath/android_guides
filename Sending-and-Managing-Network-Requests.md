@@ -46,38 +46,6 @@ There are at least two popular third-party networking libraries you should consi
 
 * See the [[Retrofit guide|Consuming-APIs-with-Retrofit]] for making more RESTful API calls.  There can be a bit of a learning curve with using the [[Gson|Leveraging-the-Gson-Library]] library, so your best bet when first learning is to use Android Async Http Client.
 
-#### Sending an Authenticated API Request
-
-API requests tend to be JSON or XML responses that are sent to a server and then the result needs to be parsed and processed as data models on the client. In addition, many API requests require authentication in order to identify the user making the request. This is typically done with a standard [OAuth](http://oauth.net/2/) process for authentication.
-
-Fortunately, there are several OAuth libraries out there to simplify the process of authentication such as [scribe](https://github.com/fernandezpablo85/scribe-java) and [signpost](https://code.google.com/p/oauth-signpost/). You can explore several examples of [using scribe](https://github.com/fernandezpablo85/scribe-java/tree/master/src/test/java/org/scribe/examples) or [signpost](https://github.com/mttkay/signpost-examples) to authenticate.
-
-We have also created a meta-library to make this process as simple as possible called [android-oauth-handler](https://github.com/codepath/android-oauth-handler) and a skeleton app to act as a template for a simple rest client called [android-rest-client-template](https://github.com/codepath/android-rest-client-template). You can see the details of these libraries by checking out their respective READMEs.
-
-Using these wrappers, you can then send an API request and properly process the response using code like this:
-
-```java
-// SomeActivity.java
-RestClient client = RestClientApp.getRestClient();
-RequestParams params = new RequestParams();
-params.put("key", "value");
-params.put("more", "data");
-client.getHomeTimeline(1, new JsonHttpResponseHandler() {
-    public void onSuccess(int statusCode, Header[] headers, JSONObject json) {
-        // Response is automatically parsed into a JSONArray
-        // json.getJSONObject(0).getLong("id");
-        // Here we want to process the json data into Java models.
-    }
-
-  public void onFailure(int statusCode, Header[] headers, Throwable t, JSONObject e)  {
-    // Handle the failure and alert the user to retry
-    Log.e("ERROR", e.toString());
-  }
-});
-```
-
-Note that as shown above you should also **handle failure cases** with [JsonHttpResponseHandler](http://loopj.com/android-async-http/doc/com/loopj/android/http/JsonHttpResponseHandler.html#onFailure\(java.lang.Throwable, org.json.JSONObject\)) using the `onFailure` method so your application is robust to "losing internet" and user doesn't become confused with unexpected results.
-
 ### Sending an HTTP Request (The "Hard" Way)
 
 Sending an HTTP Request involves the following conceptual steps:
