@@ -116,7 +116,7 @@ You can start the `IntentService` from any Activity or Fragment at any time duri
 The next step is to be able to communicate data from the `IntentService` back to the Application. This allows the application to act based on the results of the `IntentService`. This is done using one of two approaches:
 
  * [ResultReceiver](http://developer.android.com/reference/android/os/ResultReceiver.html) - Generic callback interface for sending results between service and activity. If your service **only needs to connect with its parent application** in a single place, use this approach.
- * [BroadcastReceiver](http://developer.android.com/reference/android/content/BroadcastReceiver.html) - Used to create a generic broadcast event which can then be picked up by any application. If your service **needs to communicate with multiple components** that will to listen for communication, use this approach.
+ * [BroadcastReceiver](http://developer.android.com/reference/android/content/BroadcastReceiver.html) - Used to create a generic broadcast event which can then be picked up by any application. If your service **needs to communicate with multiple components** that want to listen for communication, use this approach.
 
 ### Communicating with a ResultReceiver
 
