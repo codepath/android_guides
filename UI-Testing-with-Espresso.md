@@ -133,11 +133,11 @@ We've included several test recipes below for scenarios you might encounter when
 
 ### Interacting with a ListView
 
-[`AdapterView's`] (`ListView` is an example of an `AdapterView`) present a problem when doing UI testing. Since an `AdapterView` doesn't load all of it's items upfront (only as the user scrolls through the items), `AdapterView`'s don't work well with `onView(...)` since the particular view might not be part of the view hierarchy yet.
+ListView is an `AdapterView`. AdapterViews present a problem when doing UI testing. Since an AdapterView doesn't load all of it's items upfront (only as the user scrolls through the items), AdapterView's don't work well with `onView(...)` since the particular view might not be part of the view hierarchy yet.
 
-Fortunately, Espresso provides an `onData(...)` entry point that makes sure to load the `AdapterView` item before performing any operations on it.
+Fortunately, Espresso provides an `onData(...)` entry point that makes sure to load the AdapterView item before performing any operations on it.
 
-Let's run through an example of how you might interact with a `ListView` in Espresso. Our `ListView` will be a simple list of text strings.
+Let's run through an example of how you might interact with a ListView in Espresso. Our ListView will be a simple list of text strings.
 
 ```java
 @Test
@@ -164,9 +164,32 @@ public void clickOnItemWithTextEqualToTwo() {
 
 ### Interacting with a RecyclerView
 
-Unfortunately, `RecyclerView` is not an `AdapterView` so `onData(...)` will not work for us here.
+Unfortunately, RecyclerView is not an `AdapterView` so we can't use `onData(...)` for a RecyclerView, but Espresso does support RecyclerView in the [`android.support.test.espresso.contrib`](http://developer.android.com/reference/android/support/test/espresso/contrib/package-summary.html) package. 
 
-TODO...
+Let's first pull the package into our **_app_** build.gradle:
+
+```gradle
+// build.gradle
+dependencies {
+    ...
+    androidTestCompile('com.android.support.test.espresso:espresso-contrib:2.2') {
+        // Necessary depending on the target SDK of your app
+        exclude group: 'com.android.support', module: 'appcompat'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude module: 'recyclerview-v7'
+    }
+}
+```
+
+Now we can use [RecyclerViewActions](http://developer.android.com/reference/android/support/test/espresso/contrib/RecyclerViewActions.html) to interact with our RecyclerView:
+
+```java
+// Click on the RecyclerView item at position 2
+onView(withId(R.id.rvItems)).perform(RecyclerViewActions.actionOnItemAtPosition(2, click()));
+```
+
+You can see all the supported RecyclerViewActions (including how to interact with views inside of the RecyclerView item) [here](http://developer.android.com/reference/android/support/test/espresso/contrib/RecyclerViewActions.html).
 
 ### Stubbing out the Camera using Intent Stubbing
 
@@ -177,3 +200,4 @@ TODO...
 * <https://code.google.com/p/android-test-kit>
 * <https://developer.android.com/training/testing/ui-testing/espresso-testing.html>
 * <https://github.com/vgrec/EspressoExamples>
+* <https://github.com/designatednerd/Wino>
