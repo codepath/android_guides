@@ -179,7 +179,7 @@ private void setupMessagePosting() {
             @Override
             public void onClick(View v) {
                 String data = etMessage.getText().toString();
-                ParseObject message = new ParseObject("Message");
+                ParseObject message = ParseObject.create("Message");
                 message.put(USER_ID_KEY, sUserId);
                 message.put("body", data);
                 message.saveInBackground(new SaveCallback() {
@@ -423,6 +423,8 @@ Next, we will setup the ListView and bind our custom adapter to this ListView wi
 private ListView lvChat;
 private ArrayList<Message> mMessages;
 private ChatListAdapter mAdapter;
+// Keep track of initial load to scroll to the bottom of the ListView
+private boolean mFirstLoad;
 
 ...
 	
@@ -432,6 +434,9 @@ private void setupMessagePosting() {
     	btSend = (Button) findViewById(R.id.btSend);
     	lvChat = (ListView) findViewById(R.id.lvChat);
     	mMessages = new ArrayList<Message>();
+        // Automatically scroll to the bottom when a data set change notification is received and only if the last item is already visible on screen. Don't scroll to the bottom otherwise.
+        lvChat.setTranscriptMode(1);
+        mFirstLoad = true;
     	mAdapter = new ChatListAdapter(ChatActivity.this, sUserId, mMessages);
     	lvChat.setAdapter(mAdapter);
     	btSend.setOnClickListener(new OnClickListener() {
@@ -481,7 +486,11 @@ private void receiveMessage() {
 					mMessages.clear();
 					mMessages.addAll(messages);
 					mAdapter.notifyDataSetChanged(); // update adapter
-					lvChat.invalidate(); // redraw listview
+                                        // Scroll to the bottom of the list on initial load
+					if(mFirstLoad) {
+                                            lvChat.setSelection(mAdapter.getCount() - 1);
+                                            mFirstLoad = false;
+                                        }
 				} else {
 					Log.d("message", "Error: " + e.getMessage());
 				}
