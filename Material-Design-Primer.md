@@ -33,7 +33,7 @@ As of June 2015, Google released the [[Design Support Library]] which helps simp
 
 ### Change the Application Theme
 
-Change your application theme to extend from a `Theme.Appcompat` theme in the `values/styles.xml` file:
+Change your application theme to extend from a `Theme.AppCompat` theme in the `values/styles.xml` file:
 
 ```xml
 <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
