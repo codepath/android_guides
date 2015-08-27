@@ -486,11 +486,11 @@ private void receiveMessage() {
 					mMessages.clear();
 					mMessages.addAll(messages);
 					mAdapter.notifyDataSetChanged(); // update adapter
-                    // Scroll to the bottom of the list on initial load
+                                        // Scroll to the bottom of the list on initial load
 					if(mFirstLoad) {
-                        lvChat.setSelection(mAdapter.getCount() - 1);
-                        mFirstLoad = false;
-                    }
+                                            lvChat.setSelection(mAdapter.getCount() - 1);
+                                            mFirstLoad = false;
+                                        }
 				} else {
 					Log.d("message", "Error: " + e.getMessage());
 				}
