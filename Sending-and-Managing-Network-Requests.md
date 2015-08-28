@@ -44,7 +44,8 @@ There are at least two popular third-party networking libraries you should consi
 
 * See the [[Android Async Http Client guide|Using-Android-Async-Http-Client]] for making basic network calls.
 
-* See the [[Retrofit guide|Consuming-APIs-with-Retrofit]] for making more RESTful API calls.  There can be a bit of a learning curve with using the [[Gson|Leveraging-the-Gson-Library]] library, so your best bet when first learning is to use Android Async Http Client.
+* See the [OkHttp recipes](https://github.com/square/okhttp/wiki/Recipes) for making synchronous and asynchronous calls.  
+    - The [[Retrofit guide|Consuming-APIs-with-Retrofit]], which uses OkHttp, is useful for making more RESTful API calls.  There can be a bit of a learning curve with using the [[Gson|Leveraging-the-Gson-Library]] library, so your best bet when first learning is to use Android Async Http Client.
 
 ### Sending an HTTP Request (The "Hard" Way)
 
