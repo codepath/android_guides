@@ -109,12 +109,10 @@ There are 2 ways to run your tests:
     ![Imgur](http://i.imgur.com/HVntgBc.png)
   * **Note:** If you are presented with two options as in the diagram below, make sure to select the first one (designating to use the Gradle Test Runner instead of the JUnit Test Runner). Android Studio will cache your selection for future runs.
       
-    ![Imgur](https://i.imgur.com/RDmmdI2.png)
-      
+    ![Imgur](https://i.imgur.com/RDmmdI2.png)  
   * View the results in the `Console` output. You may need to enable `Show Passed` as in the diagram below to see the full results.
       
-    ![Imgur](http://i.imgur.com/oCHth1N.png)
-      
+    ![Imgur](http://i.imgur.com/oCHth1N.png)      
 2. Run all the tests through Gradle:
   * Open the Gradle window and find `connectedDebugAndroidTest` under `Tasks` => `verification`.
   * Right click and select `Run`
@@ -124,7 +122,6 @@ There are 2 ways to run your tests:
   * This will generate an html test result report at `app/build/reports/androidTests/connected/index.html`
       
     ![Imgur](http://i.imgur.com/m7KYVYX.png)
-
   * Note: You can also run the tests on the command line using: `./gradlew connectedDebugAndroidTest`
 
 ## Other Espresso Test Scenarios
