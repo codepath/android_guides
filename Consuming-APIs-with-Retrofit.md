@@ -93,7 +93,7 @@ public interface MyApiEndpointInterface {
 }
 ```
 
-Notice that each endpoint specifies an annotation of the HTTP method (GET, POST, etc.) and method that will be used to dispatch the network call.  Note that the parameters of this method can contain either `@Path` or `@Query` annotations on the parameters.  `@Path` is essentially used to do variable substitution for the API endpoint (i.e. `{username}` will correspond to the username parameter.  `@Query` specifies the query key name with the value corresponding to the value of that annotated parameter.
+Notice that each endpoint specifies an annotation of the HTTP method (GET, POST, etc.) and method that will be used to dispatch the network call.  Note that the parameters of this method can contain either `@Path` or `@Query` annotations.  `@Path` is essentially used to do variable substitution for the API endpoint (i.e. `{username}` will correspond to the username parameter.  `@Query` specifies the query key name with the value corresponding to the value of that annotated parameter.
 
 Note also that the last parameter is a `Callback` type.  When this type is specified, Retrofit will dispatch the task asynchronously.  Unlike OkHttp, which is what the library uses, the callback is dispatched on the [main thread](http://stackoverflow.com/questions/21006807/does-retrofit-make-network-calls-on-main-thread/21010181#21010181), allowing updates to the UI.
 
