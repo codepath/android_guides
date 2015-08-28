@@ -129,8 +129,6 @@ There are 2 ways to run your tests:
 
 ## Other Espresso Test Scenarios
 
-We've included several test recipes below for scenarios you might encounter when testing your app.
-
 ### Interacting with a ListView
 
 ListView is an `AdapterView`. AdapterViews present a problem when doing UI testing. Since an AdapterView doesn't load all of it's items upfront (only as the user scrolls through the items), AdapterView's don't work well with `onView(...)` since the particular view might not be part of the view hierarchy yet.
@@ -173,7 +171,7 @@ Let's first pull the package into our **_app_** build.gradle:
 dependencies {
     ...
     androidTestCompile('com.android.support.test.espresso:espresso-contrib:2.2') {
-        // Necessary depending on the target SDK of your app
+        // Necessary to avoid version conflicts
         exclude group: 'com.android.support', module: 'appcompat'
         exclude group: 'com.android.support', module: 'support-v4'
         exclude group: 'com.android.support', module: 'support-annotations'
@@ -191,9 +189,90 @@ onView(withId(R.id.rvItems)).perform(RecyclerViewActions.actionOnItemAtPosition(
 
 You can see all the supported RecyclerViewActions (including how to interact with views inside of the RecyclerView item) [here](http://developer.android.com/reference/android/support/test/espresso/contrib/RecyclerViewActions.html).
 
-### Stubbing out the Camera using Intent Stubbing
+### Stubbing out the Camera
 
-TODO...
+A limitation of Espresso is that it's only able to interact with the single app under test. This means that if your app launches another app, your Espresso test code won't be able to interact with the other app at all. When we think about scenarios where an app will launch the camera (i.e. another app) to take a photo and then return the resulting image to the original app, this becomes problematic.
+
+Fortunately, Espresso provides the [`android.support.test.espresso.intent`](http://developer.android.com/reference/android/support/test/espresso/intent/package-summary.html) package to help us mock out the intent. 
+
+Let's assume we have an activity inside of our app that lets the user take a photo:
+
+```java
+// CameraActivity.java
+static final int REQUEST_IMAGE_CAPTURE = 1;
+
+// Initiate implicit intent to get a photo
+private void dispatchTakePictureIntent() {
+    Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+    if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+        startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+    }
+}
+
+// Get the returned bitmap
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+        Bundle extras = data.getExtras();
+        Bitmap imageBitmap = (Bitmap) extras.get("data");
+
+        // ... do something with the bitmap ...
+    }
+}
+```
+
+Now assume that we want to test this activity and have an actual image "returned" to our app from the Camera. This is where [Espresso-Intents](http://developer.android.com/reference/android/support/test/espresso/intent/package-summary.html) can help. If we didn't have Espresso-Intents, our app would launch the Camera, but have no way of getting any resulting image back from it.
+
+To start using the intent package, let's first add it to our **_app_** build.gradle:
+
+```gradle
+// build.gradle
+dependencies {
+    ...
+    androidTestCompile('com.android.support.test.espresso:espresso-intents:2.2') {
+        // Necessary to avoid version conflicts
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+}
+```
+
+Then, let's build an actual test that shows how to stub out the Camera intent:
+
+```java
+// CameraActivityInstrumentationTest.java
+public class CameraActivityInstrumentationTest {
+
+    // IntentsTestRule is an extension of ActivityTestRule. IntentsTestRule sets up Espresso-Intents
+    // before each Test is executed to allow stubbing and validation of intents.
+    @Rule
+    public IntentsTestRule<CameraActivity> intentsRule = new IntentsTestRule<>(CameraActivity.class);
+
+    @Test
+    public void validateCameraScenario() {
+        // Create a bitmap we can use for our simulated camera image
+        Bitmap icon = BitmapFactory.decodeResource(
+                InstrumentationRegistry.getTargetContext().getResources(),
+                R.mipmap.ic_launcher);
+
+        // Build a result to return from the Camera app
+        Intent resultData = new Intent();
+        resultData.putExtra("data", icon);
+        Instrumentation.ActivityResult result = new Instrumentation.ActivityResult(Activity.RESULT_OK, resultData);
+
+        // Stub out the Camera. When an intent is sent to the Camera, this tells Espresso to respond 
+        // with the ActivityResult we just created
+        intending(toPackage("com.android.camera2")).respondWith(result);
+
+        // Now that we have the stub in place, click on the button in our app that launches into the Camera
+        onView(withId(R.id.btnTakePicture)).perform(click());
+
+        // We can also validate that an intent resolving to the "camera" activity has been sent out by our app
+        intended(toPackage("com.android.camera2"));
+
+        // ... additional test steps and validation ...
+    }
+}
+```
 
 ## References
 
