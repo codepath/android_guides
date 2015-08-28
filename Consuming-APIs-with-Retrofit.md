@@ -5,7 +5,6 @@
 This library makes downloading JSON or XML data from a web API fairly straightforward. Once the data is downloaded then it is parsed into a Plain Old Java Object (POJO) which must be defined for each "resource" in the response.
 
 ### Setup
-a
 Make sure to require Internet permissions in your `AndroidManifest.xml` file:
 
 ```xml
