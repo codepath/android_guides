@@ -127,6 +127,7 @@ Fragment has many methods which can be overridden to plug into the lifecycle (**
 - `onAttach()` is called when a fragment is connected to an activity.
 - `onCreate()` is called to do initial creation of the fragment.
 - `onCreateView()` is called by Android once the Fragment should inflate a view.
+- `onViewCreated()` is called after `onCreateView()` and ensures that the fragment's root view is `non-null`.  Any view setup should happen here.  E.g., view lookups, attaching listeners. 
 - `onActivityCreated()` is called when host activity has completed its `onCreate()` method.
 - `onStart()` is called once the fragment gets visible.
 - `onResume()` - Allocate “expensive” resources such as registering for location, sensor updates, etc.
@@ -167,17 +168,22 @@ public class SomeFragment extends Fragment {
 		adapter = new ThingsAdapter(getActivity(), things);
 	}
 	
-	// This event fires 3rd, and is the first time views are available in the fragment
-	// The onCreateView method is called when Fragment should create its View object hierarchy. 
-	// Use onCreateView to get a handle to views as soon as they are freshly inflated
+	// The onCreateView method is called when Fragment should create its View object hierarchy,
+        // either dynamically or via XML layout inflation. 
 	@Override
-	public View onCreateView(LayoutInflater inf, ViewGroup parent, Bundle savedInstanceState) {
-		View v =  inf.inflate(R.layout.fragment_some, parent, false);
-		ListView lv = (ListView) v.findViewById(R.id.lvSome);
-		lv.setAdapter(adapter);
-		return v;
+	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
+		return inflater.inflate(R.layout.fragment_some, parent, false);
 	}
 	
+	// This event is triggered soon after onCreateView().
+        // onViewCreated() is only called if the view returned from onCreateView() is non-null.
+        // Any view setup should occur here.  E.g., view lookups and attaching view listeners.
+        @Override
+        public void onViewCreated(View view, Bundle savedInstanceState) {
+		ListView lv = (ListView) view.findViewById(R.id.lvSome);
+		lv.setAdapter(adapter);
+        }
+        
 	// This fires 4th, and this is the first time the Activity is fully created.
 	// Accessing the view hierarchy of the parent activity must be done in the onActivityCreated
 	// At this point, it is safe to search for activity View objects by their ID, for example.
