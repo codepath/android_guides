@@ -184,8 +184,8 @@ public class SomeFragment extends Fragment {
 		lv.setAdapter(adapter);
         }
         
-	// This fires 4th, and this is the first time the Activity is fully created.
-	// Accessing the view hierarchy of the parent activity must be done in the onActivityCreated
+	// This method is called after the parent Activity's onCreate() method has completed.
+	// Accessing the view hierarchy of the parent activity must be done in the onActivityCreated.
 	// At this point, it is safe to search for activity View objects by their ID, for example.
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
