@@ -49,7 +49,7 @@ Common properties commonly animated on views include:
 
 To use animations in a way that is **compatible with pre-3.0 Android versions**, we must use the [NineOldAndroids](http://nineoldandroids.com/) for all our property animations. 
 
-If you are an Android Studio user, add the following dependency to your `app/build.gradle` file.
+If you are an Android Studio user, add the following dependency to your `app/build.gradle` file:
 
 ```gradle
 compile 'com.nineoldandroids:library:2.4.0+'
