@@ -277,3 +277,4 @@ public class CameraActivityInstrumentationTest {
 * <https://developer.android.com/training/testing/ui-testing/espresso-testing.html>
 * <https://github.com/vgrec/EspressoExamples>
 * <https://github.com/designatednerd/Wino>
+* <http://chiuki.github.io/advanced-android-espresso/#/>
