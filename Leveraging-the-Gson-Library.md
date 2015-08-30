@@ -1,6 +1,6 @@
 ## Overview
 
-Google's [Gson](https://github.com/google/gson) library provides a powerful framework for converting between JSON strings and Java objects.  This library helps to avoid needing to write boilerplate code to parse JSON responses yourself.   It can be used with any networking library, including the [Android Async HTTP Client](https://github.com/loopj/android-async-http) and [Retrofit](http://square.github.io/retrofit/).
+Google's [Gson](https://github.com/google/gson) library provides a powerful framework for converting between JSON strings and Java objects.  This library helps to avoid needing to write boilerplate code to parse JSON responses yourself.   It can be used with any networking library, including the [Android Async HTTP Client](https://github.com/loopj/android-async-http) and [OkHttp](http://square.github.io/okhttp/).
 
 ### Setup
 
@@ -226,7 +226,7 @@ Gson Gson = gsonBuilder.create();
 
 ### HTTP Client Libraries
 
-We can use any type of HTTP client library with Gson, such as Android Async HTTP Client or Square's Retrofit library.
+We can use any type of HTTP client library with Gson, such as Android Async HTTP Client or Square's OkHttp library.
 
 #### Android Async HTTP Client
 
@@ -258,7 +258,7 @@ AsyncHttpClient client = new AsyncHttpClient();
 
 #### Retrofit
 
-We first need to define an interface file called `RottenTomatoesService.java`.  To ensure that the API call will be made asynchronously, we also define a callback interface.  Note that if this API call required other parameters, we should always make sure that the `Callback` declaration is last.
+Retrofit uses [OkHttp](http://square.github.io/okhttp/) for the underlying networking library and relies on the Gson library by default for decoding on API-based responses.  To use it, we first need to define an interface file called `RottenTomatoesService.java`.  To ensure that the API call will be made asynchronously, we also define a callback interface.  Note that if this API call required other parameters, we should always make sure that the `Callback` declaration is last.
     
 ```java
  public interface RottenTomatoesService {
