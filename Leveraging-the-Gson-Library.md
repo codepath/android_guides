@@ -114,7 +114,7 @@ public class BoxOfficeMovieResponse {
 
 #### Mapping Enums
 
-You can also use this same approach with enums.   Suppose we had an enum of different colors:
+Enums are not necessarily recommended by Google as described in this [section](https://developer.android.com/training/articles/memory.html#Overhead).  However, if you need to use them for decoding JSON responses, you can map them from string names.   Suppose we had an enum of different colors:
 
 ```java
     public ColorTypes colorType;
