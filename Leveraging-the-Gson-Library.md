@@ -159,6 +159,17 @@ GsonBuilder gsonBuilder = new GsonBuilder();
 gsonBuilder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
 Gson gson = gsonBuilder.create();
 ```
+ 
+#### Decoding collections of items
+
+Sometimes our JSON response will be a list of items.  We may also have declared a Java object and want to map the JSON response to a collection of these items.  In this case, we will need to declare a custom type using the `TypeToken` class and use Java reflection to return back this generic type.
+
+```
+Type collectionType = new TypeToken<List<ImageResult>>(){}.getType();
+Gson gson = gsonBuilder.create();
+List<ImageResult> imageResults = gson.fromJson(jsonObject, collectionType);
+```
+
 
 #### Mapping Java Date objects
 
