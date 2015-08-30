@@ -202,7 +202,7 @@ As Toolbar is just a `ViewGroup`, it can be styled and positioned like any other
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-public class MyActivity extends AppCompatActivity{
+public class MyActivity extends AppCompatActivity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
