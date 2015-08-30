@@ -12,7 +12,7 @@ dependencies {
 }
 ```
 
-#### Android Marshmallow Compatibility Issues
+#### Resolving Android Marshmallow Compatibility Issues
 
 Apache HTTP client (a dependency of [android-async-http](http://loopj.com/android-async-http/)) has been [removed from Marshmallow](http://developer.android.com/preview/behavior-changes.html#behavior-apache-http-client). If your app targets API 23, you'll need to add the following to your gradle file until the [library is updated](https://github.com/loopj/android-async-http/issues/830):
 
@@ -34,6 +34,24 @@ The reason is that is a current bug in Android Studio 1.3.1 where it may not rec
   <img src="https://i.imgur.com/jreDUla.png"/>
 
 Assuming you have included the `useLibrary` statement, your build should however compile successfully.  The Gradle configuration will add this library to the Java classpath, but the IDE currently has a bug where it is not recognized as an added dependency.
+
+#### Fixing issues with Garbled JSON Response
+
+If you are noticing garbled data in the responses, it's likely that you have encountered a bug in the Android Async HTTP Client library:
+
+<img src="https://cloud.githubusercontent.com/assets/126405/5264140/d878ea00-7a40-11e4-867f-6515814861a0.png"/>
+
+The current workaround is to disable Gzip compression as described in this [GitHub comment](https://github.com/loopj/android-async-http/issues/932#issuecomment-134549073):
+
+```java
+httpClient.addHeader("Accept-Encoding", "identity"); // disable gzip
+```
+
+You can also downgrade to an earlier version of the library:
+
+```gradle
+compile 'com.loopj.android:android-async-http:1.4.4'
+```
 
 ### Sending a Network Request
 
