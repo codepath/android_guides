@@ -129,7 +129,7 @@ Fragment has many methods which can be overridden to plug into the lifecycle (**
 - `onCreateView()` is called by Android once the Fragment should inflate a view.
 - `onViewCreated()` is called after `onCreateView()` and ensures that the fragment's root view is `non-null`.  Any view setup should happen here.  E.g., view lookups, attaching listeners. 
 - `onActivityCreated()` is called when host activity has completed its `onCreate()` method.
-- `onStart()` is called once the fragment gets visible.
+- `onStart()` is called once the fragment is ready to be displayed on screen.
 - `onResume()` - Allocate “expensive” resources such as registering for location, sensor updates, etc.
 - `onPause()` - Release “expensive” resources. Commit any changes.
 - `onDestroyView()` is called when fragment's view is being destroyed, but the fragment is still kept around.
