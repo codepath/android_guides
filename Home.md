@@ -62,6 +62,7 @@ Exploring the foundations of app development:
 * [[Understanding the Activity Lifecycle|The Activity Lifecycle]] (How does an activity work?)
 * [[Handling Configuration Changes]] (Screen Rotation)
 * [[Migrating to the AppCompat Library]] (Using the Support Libraries)
+* [[App Permissions|Understanding App Permissions]] (How to request the permissions you need) 
 
 ## Views and Layouts
 
