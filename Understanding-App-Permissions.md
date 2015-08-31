@@ -137,10 +137,16 @@ Related permissions are grouped into [one of the permission groups](http://devel
 
 In most of your interaction with the permission API's you'll be working with the individual permissions and not the permission groups, but pay close attention to what the API expects as both permissions and permission groups are Strings.
 
-## Backwards Compatibility
+### Backwards Compatibility
+There are 2 main scenarios to think about when it comes to backwards compatibility:
 
-
-###
+1. Your app is targeting an API less than Marshmallow (`TargetSdkVersion` < `23`), but the emulator / device is Marshmallow:
+  * Your app will continue to use the old permissions model.
+  * All permissions listed in the `AndroidManifest` will be asked for at install time.
+  * Users will be able to revoke permissions after the app is installed. It's important to test this scenario since the results of certain actions without the appropriate permission can be unexpected. 
+2. The emulator / device is running something older than Marshmallow, but you app targets Marshmallow (`TargetSdkVersion` >= `23`):
+  * Your app will continue to use the old permissions model.
+  * All permissions listed in the `AndroidManifest` will be asked for at install time.
 
 ## References
 
