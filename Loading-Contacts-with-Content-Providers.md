@@ -23,6 +23,8 @@ First, setup permissions in the manifest:
 <uses-permission android:name="android.permission.READ_CONTACTS"/>
 ```
 
+**Note:** The permissions model has changed starting in Marshmallow. If your `targetSdkVersion` >= `23` and you are running on a Marshmallow (or later) device / emulator, you'll need to follow this guide on implementing [runtime permissions](http://guides.codepath.com/android/Understanding-App-Permissions#runtime-permissions) in order to get the `READ_CONTACTS` permission.
+
 ### Constructing the SimpleCursorAdapter
 
 The [SimpleCursorAdapter](http://developer.android.com/reference/android/widget/SimpleCursorAdapter.html) is an adapter that binds a `ListView` to a `Cursor` dataset displaying the result set as rows in the list. We can create the adapter before receiving the cursor by constructing as follows:
