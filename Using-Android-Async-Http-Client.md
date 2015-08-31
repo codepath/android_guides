@@ -14,6 +14,8 @@ dependencies {
 
 #### Resolving Android Marshmallow Compatibility Issues
 
+##### Option 1: rely on the `useLibrary` Gradle command
+
 Apache HTTP client (a dependency of [android-async-http](http://loopj.com/android-async-http/)) has been [removed from Marshmallow](http://developer.android.com/preview/behavior-changes.html#behavior-apache-http-client). If your app targets API 23, you'll need to add the following to your gradle file until the [library is updated](https://github.com/loopj/android-async-http/issues/830):
 
   ```gradle
@@ -34,6 +36,18 @@ The reason is that is a current bug in Android Studio 1.3.1 where it may not rec
   <img src="https://i.imgur.com/jreDUla.png"/>
 
 Assuming you have included the `useLibrary` statement, your build should however compile successfully.  The Gradle configuration will add this library to the Java classpath, but the IDE currently has a bug where it is not recognized as an added dependency.
+
+##### Option #2: add the Apache Http library manually
+
+You can copy the `org.apache.http.legacy.jar` file to the `libs/` dir of your app.  This JAR is included with Android 23 in the respective locations:
+
+Mac OS users: `/Users/[username]/Library/Android/sdk/platforms/android-23/optional`
+
+PC users: `C:\Documents and Settings\<user>\AppData\Local\Android\sdk\platforms\android-23\optional`
+
+Copy this JAR file to your `app/libs` dir.  Make sure to `Mark as Library` if the file does not get expanded.  You should see something similar to the following screenshot if the library was added correctly:
+
+<img src="http://i.imgur.com/AtvF9Vm.png">
 
 #### Fixing issues with Garbled JSON Response
 
