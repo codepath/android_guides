@@ -9,7 +9,7 @@ The [camera](http://developer.android.com/guide/topics/media/camera.html) implem
  * The easy way - launch the camera with an intent, designating a file path, and handle the onActivityResult.
  * The hard way - use the Camera API to embed the camera preview within your app, adding your own custom controls.
 
-Make sure to enable access to the external storage first before using the camera:
+Make sure to enable access to the external storage first before using the camera (**Note:** The permissions model has changed starting in Marshmallow. If your `targetSdkVersion` >= `23` and you are running on a Marshmallow (or later) device / emulator, you'll need to follow this guide on implementing [runtime permissions](http://guides.codepath.com/android/Understanding-App-Permissions#runtime-permissions) in order to get these permissions):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -137,7 +137,7 @@ Similar to the camera, the media picker implementation depends on the level of c
  * The easy way - launch the Gallery with an intent, and get the media URI in onActivityResult.
  * The hard way - fetch thumbnail and full-size URIs from the MediaStore ContentProvider.
 
-Make sure to enable access to the external storage first before using the camera:
+Make sure to enable access to the external storage first before using the camera (**Note:** The permissions model has changed starting in Marshmallow. If your `targetSdkVersion` >= `23` and you are running on a Marshmallow (or later) device / emulator, you'll need to follow this guide on implementing [runtime permissions](http://guides.codepath.com/android/Understanding-App-Permissions#runtime-permissions) in order to get these permissions):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
