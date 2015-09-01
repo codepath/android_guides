@@ -35,7 +35,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Converting JSON to Models]]
 * [[Persisting Data to the Device]]
 * [[ActiveAndroid Tips and Q&A|ActiveAndroid Guide]]
-* [[RottenTomatoes Networking Tutorial]]
+* [[Rotten Tomatoes Networking Tutorial]]
 * [[Building Data driven Apps with Parse]]
 * [[Local Databases with SQLiteOpenHelper]]
 * [[Populating a ListView with a CursorAdapter]]
