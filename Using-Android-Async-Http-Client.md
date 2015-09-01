@@ -45,9 +45,9 @@ Mac OS users: `/Users/[username]/Library/Android/sdk/platforms/android-23/option
 
 PC users: `C:\Documents and Settings\<user>\AppData\Local\Android\sdk\platforms\android-23\optional`
 
-Copy this JAR file to your `app/libs` dir.  Make sure to `Mark as Library` if the file does not get expanded.  You should see something similar to the following screenshot if the library was added correctly:
+Copy this JAR file to your `app/libs` dir.  Make sure to `Mark as Library` if the file does not get expanded:
 
-<img src="http://i.imgur.com/AtvF9Vm.png">
+<img src="http://i.imgur.com/hw0FVjk.gif">
 
 #### Fixing issues with Garbled JSON Response
 
