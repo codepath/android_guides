@@ -305,7 +305,7 @@ public class UserListActivity extends AppCompatActivity {
 
 Finally, compile and run the app and you should see something like the screenshot below. If you create enough items and scroll through the list, the views will be recycled and far smoother by default than the `ListView` widget:
 
-<img src="http://imgur.com/vbIL5HA" width="400" alt="Screenshot" />
+<img src="http://i.imgur.com/vbIL5HA.gif" width="400" alt="Screenshot" />
 
 ### Notifying the Adapter
 
