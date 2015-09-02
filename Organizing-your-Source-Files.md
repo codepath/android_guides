@@ -6,7 +6,7 @@ There are several best practices for organising your app's package structure.
 
 #### Organize packages by category
 
-[The way to do this]((http://blog.smartlogic.io/2013/07/09/organizing-your-android-development-code-structure)) is to group things together by their category. Each component goes to the corresponding package:
+[The way to do this](http://blog.smartlogic.io/2013/07/09/organizing-your-android-development-code-structure) is to group things together by their category. Each component goes to the corresponding package:
 
 * `com.example.myapp.activities` - Contains all activities
 * `com.example.myapp.adapters` - Contains all custom adapters
