@@ -48,6 +48,10 @@ If your view is contained within a `LinearLayout`, then you can use the [`androi
 
 To align the contents within a view, you can use the [`android:gravity` property](http://guides.codepath.com/android/Defining-Views-and-their-Attributes#view-gravity). This property can also be used to set the alignment of text in a `TextView` to the `left`, `right`, or `center`. Note that `android:textAlignment` is **essentially useless** replaced by gravity.
 
+#### How do I specify percentage based width, height and margins for my views?
+
+Simple wrap your views inside a [`PercentRelativeLayout`](http://guides.codepath.com/android/Constructing-View-Layouts#percentrelativelayout) or `PercentFrameLayout` and specify attributes with "Percent" suffix. Alternatively, you can also use [`android:layout_weight`](http://guides.codepath.com/android/Constructing-View-Layouts#linearlayout) attribute if you are using a `LinearLayout`.
+
 ### Images
 
 #### How do I load images into an Android app for display?
