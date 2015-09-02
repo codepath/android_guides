@@ -310,7 +310,7 @@ You can write a system with corresponding ID's if you wish to have this function
 > Question: How do I delete all the records from a table?
 
 ```java
-public static void clearAllBunnyData(db) {
+public static void clearAllBunnyData(SQLiteDatabase db) {
     db.execSQL("DELETE FROM " + Bunny.class.getSimpleName());
 }
 ```
