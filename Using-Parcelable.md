@@ -120,7 +120,7 @@ There are a few common gotchas associated to Parcelable to consider below:
 
 ### Creating a Parcelable, The Easier Way (using IntelliJ or Android Studio)
 
-There is a [Parcelable plugin](https://github.com/mcharmas/android-parcelable-intellij-plugin) that can be imported directly into IntelliJ or Android Studio, which enables you to generate the boilerplate code for creating Parcelables.  You can install this plugin by going to `Android Studio` -> `Preferences` -> `Plugins` -> `Browse repositories`:
+There is a [Parcelable plugin](https://github.com/mcharmas/android-parcelable-intellij-plugin) that can be imported directly into IntelliJ or Android Studio, which enables you to generate the boilerplate code for creating Parcelables.  You can install this plugin by going to `Android Studio` -> `File` -> `Settings` -> `Plugins` -> `Browse repositories`:
 
 <a href="https://i.imgur.com/jceThxd.gif" alt="Installing Parcelable"><img src="https://i.imgur.com/jceThxd.gif"></a>
 
