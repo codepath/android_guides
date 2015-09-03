@@ -59,7 +59,7 @@ $ repo init -u https://android.googlesource.com/platform/manifest -b studio-1.4-
 $ repo sync
 ```
 
-When the `repo init` command is run, it will first download code from its own [repository](https://gerrit.googlesource.com/git-repo/+/master).  It uses the manifest repository to determine what Android repositories are available.  You can type `repo help` or check out the [sub commands](https://gerrit.googlesource.com/git-repo/+/master/subcmds/) to see what functions are supported.  
+When the `repo init` command is run, it will first download code from its own [repository](https://gerrit.googlesource.com/git-repo/+/master).  It uses the manifest repository to determine what Android repositories are available.  You can type `repo help` or check out the [sub commands](https://gerrit.googlesource.com/git-repo/+/master/subcmds/) to see what functions are supported.
 
 The [overview page](http://tools.android.com/build) lists all the available branches to use.   Most likely you should pick the current development branch.  Android Studio and Gradle versions are often released at different times, so there are also separate Git tags created.  For instance, if you wish to check out tagged releases for Gradle releases, you can also look through the [list of tagged branches](https://android.googlesource.com/platform/manifest/+refs) and use repo to switch to this branch by typing:
 
@@ -105,7 +105,7 @@ zipStorePath=wrapper/dists
 distributionUrl=https\://services.gradle.org/distributions/gradle-2.2.1-all.zip
 ```
 
-If you forget this step, IntellIJ will likely complain about not having a Gradle Home setup.  
+If you forget this step, IntellIJ will likely complain about not having a Gradle Home setup.
 
 #### Changing the output directory
 
@@ -144,7 +144,7 @@ You can also type the same command at the command-line:
 ./gradlew publishLocal
 ```
 
-If you wish to experiment with the changes made with this new package, you can simply modify your `app/build.gradle`.  You would add an extra `maven` reference to the `out/repo` directory created. Assuming you were experimenting on the `gradle:1.4.0-alpha1` branch, your configuration would look like the following:
+If you wish to experiment with the changes made with this new package, you can simply modify your `app/build.gradle`.  You would add an extra `maven` reference to the `out/repo` directory created. Assuming you were experimenting on the `gradle:1.4.0-beta` branch, your configuration would look like the following:
 
 ```gradle
 buildscript {
@@ -153,7 +153,7 @@ buildscript {
         maven { url '/home/johndoe/projects/android/out/repo/' }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.4.0-alpha1'
+        classpath 'com.android.tools.build:gradle:1.4.0-beta'
 ```
 
 ### Submitting changes
@@ -164,7 +164,7 @@ You must first start a branch using the repo command:
 repo start <branch_name> <project_name>
 ```
 
-The project name can be determined by looking through the [manifest file](https://android.googlesource.com/platform/manifest/+/master/default.xml).  For instance, the Tools project has multiple project names: `platform/tools/base`, `platform/tools/build`, `platform/tools/emulator`, etc.  
+The project name can be determined by looking through the [manifest file](https://android.googlesource.com/platform/manifest/+/master/default.xml).  For instance, the Tools project has multiple project names: `platform/tools/base`, `platform/tools/build`, `platform/tools/emulator`, etc.
 
 The branch name can refer to any name you wish.  It is a name that you will create locally and should refer to the set of changes for a particular improvement or feature change.
 
