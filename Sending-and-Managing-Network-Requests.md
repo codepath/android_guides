@@ -134,6 +134,8 @@ Picasso.with(context).load(imageUri).fit().centerCrop()
     .into(imageView);
 ```
 
+Be sure to use `fit()` to resize the image before loading into the ImageView.  Otherwise, you will consume extra memory, experience sluggish scrolling, or encounter out of memory issues if you render a lot of pictures.
+
 For more details check out the [Picasso](http://square.github.io/picasso/) documentation. 
 
 ### Displaying Remote Images (The "Hard" Way)
