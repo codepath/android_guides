@@ -67,6 +67,19 @@ You can also downgrade to an earlier version of the library:
 compile 'com.loopj.android:android-async-http:1.4.4'
 ```
 
+Another alternative to avoid this issue is to upgrade to the snapshot version.  You should add this entire section to your `app/build.gradle` to include the snapshot repository location.
+
+```gradle
+epositories {
+    maven {
+        url 'https://oss.sonatype.org/content/repositories/snapshots/'
+    }
+}
+dependencies {
+    compile 'com.loopj.android:android-async-http:1.4.9-SNAPSHOT'
+}
+```
+
 ### Sending a Network Request
 
 Now, we just create an `AsyncHttpClient`, and then execute a request specifying an anonymous class as a callback:
