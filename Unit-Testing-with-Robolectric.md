@@ -33,7 +33,6 @@ Note: Robolectric can also be configured with Android Studio 1.1, but the setup 
     <img src="http://robolectric.org/images/android-studio-configure-defaults-4bf48402.png">
 
    If you forget to add this statement, you may see error messages such as `java.io.FileNotFoundException: build/intermediates/bundles/debug/AndroidManifest.xml (No such file or directory)`.
-
 5. Then, we just need to pull in Robolectric to our **_app_** build.gradle.
 
 ```gradle
