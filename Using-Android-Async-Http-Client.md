@@ -70,7 +70,7 @@ compile 'com.loopj.android:android-async-http:1.4.4'
 Another alternative to avoid this issue is to upgrade to the snapshot version.  You should add this entire section to your `app/build.gradle` to include the snapshot repository location.
 
 ```gradle
-epositories {
+repositories {
     maven {
         url 'https://oss.sonatype.org/content/repositories/snapshots/'
     }
