@@ -21,19 +21,32 @@ The ImageView handles all the loading and scaling of the image for you. Note the
 
 ### Sizing ImageView Controls
 
-By default, contents of an ImageView control are of a certain size -- usually the size of the image dimensions. They can also be bounded by their layout_width and layout_height attributes: 
+By default, contents of an ImageView control are of a certain size -- usually the size of the image dimensions. They can also be bounded by their layout_width and layout_height attributes:  
 
 ```xml
 <ImageView
     android:layout_width="50dp"
     android:layout_height="50dp"
     android:scaleType="fitXY"
+    ...
+/>
+```
+
+The `scaleType` above has been set to `fitXY` which sets the height and the width up or down to fit the maximum dimensions specified.  (In this case, `fitXY` is actually redundant but it can be changed to many different options as shown later.)
+
+Fixing the width and height however means that the proportions of the width and height of the original image, known as the aspect ratio, will be altered.  We can take advantage of the [adjustViewBounds](http://developer.android.com/reference/android/widget/ImageView.html#attr_android:adjustViewBounds) parameter to preserve this aspect ratio.  However, we must either allow the height or width to be adjustable (i.e. by using `wrap_content`, `maxWidth`, etc).  Otherwise, the dimensions cannot be readjusted to meet the required aspect ratio.
+
+```xml
+<ImageView
+    android:layout_width="50dp"
+    android:layout_height="wrap_content"
+    android:scaleType="fitXY"
     android:adjustViewBounds="true"
     ...
 />
 ```
 
-In the above we are also  specifying that the ImageView preserve its aspect ratio using the [adjustViewBounds](http://developer.android.com/reference/android/widget/ImageView.html#attr_android:adjustViewBounds) attribute. The `scaleType` above has been set to `fitXY` which scales both the height and the width up or down until it fits within the maximum dimensions specified. By combining these properties together we can control the rough size of the image and still adjust the image according to the proper aspect ratio.
+By combining these properties together we can control the rough size of the image and still adjust the image according to the proper aspect ratio.
 
 We can also size an `ImageView` at runtime within our Java source code by modifying the `width` or `height` inside `getLayoutParams()` for the view: 
 
@@ -190,3 +203,4 @@ See the [official tutorial](https://code.google.com/p/svg-android/wiki/Tutorial)
 * <http://developer.android.com/reference/android/widget/ImageView.html>
 * <http://developer.android.com/guide/practices/screens_support.html>
 * <https://code.google.com/p/svg-android/wiki/Tutorial>
+* <https://github.com/android/platform_frameworks_base/blob/master/core/java/android/widget/ImageView.java#L903-L907>
