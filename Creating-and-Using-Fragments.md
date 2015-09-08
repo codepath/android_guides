@@ -85,6 +85,8 @@ To add the fragment **statically**, simply embed the fragment in the activity's 
 </LinearLayout>
 ```
 
+Note: You will likely need to change the path for FooFragment based on your project setup.
+
 #### Dynamically
 
 The second way is by adding the fragment **dynamically** in Java using the `FragmentManager`. The `FragmentManager` class and the [FragmentTransaction class](http://developer.android.com/reference/android/app/FragmentTransaction.html) allow you to add, remove and replace fragments in the layout of your activity at runtime.
@@ -100,6 +102,7 @@ In this case, you want to add a "placeholder" container (usually a `FrameLayout`
 
   <FrameLayout
        android:id="@+id/your_placeholder"
+       android:layout_width="match_parent"
        android:layout_height="match_parent">
   </FrameLayout>
 
