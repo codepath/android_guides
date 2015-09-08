@@ -1,5 +1,7 @@
 [Parse](https://www.parse.com) is a service that provides one of the easiest ways to get a database and RESTful API up and running. If you want to build a mobile app and don't want to code the back-end, give Parse a try.
 
+<img src="http://i.imgur.com/Xo47jSc.gif" alt="Parse" width="750" />
+
 ## Registration
 
 First, we need to [sign up for a Parse account](https://www.parse.com/#signup) unless we are already registered. 
