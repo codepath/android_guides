@@ -34,7 +34,7 @@ By default, contents of an ImageView control are of a certain size -- usually th
 
 The `scaleType` above has been set to `fitXY` which sets the height and the width up or down to fit the maximum dimensions specified. 
 
-Fixing the width and height however means that the proportions of the width and height of the original image, known as the aspect ratio, will be altered.  We can take advantage of the [adjustViewBounds](http://developer.android.com/reference/android/widget/ImageView.html#attr_android:adjustViewBounds) parameter to preserve this aspect ratio.  However, we must either allow the height or width to be adjustable (i.e. by using `wrap_content`, `maxWidth`, etc).  Otherwise, the dimensions cannot be readjusted to meet the required aspect ratio.
+Fixing the width and height however means that the proportions of the width and height of the original image, known as the aspect ratio, will be altered.  We can take advantage of the [adjustViewBounds](http://developer.android.com/reference/android/widget/ImageView.html#attr_android:adjustViewBounds) parameter to preserve this aspect ratio.  However, we must either allow the height and/or width to be adjustable (i.e. by using `maxWidth` and using `wrap_content` for the dimension).  Otherwise, the dimensions cannot be readjusted to meet the required aspect ratio.
 
 ```xml
 <ImageView
