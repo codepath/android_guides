@@ -15,7 +15,7 @@ Note that the ripples will only show up on devices running Lollipop, and will fa
 In general, ripple effect for regular buttons will work by default in API 21 and for other touchable views, it can be achieved by specifying
 
 ```xml
-android:foreground="?android:attr/selectableItemBackground">
+android:background="?android:attr/selectableItemBackground">
 ```
 
 In code:
