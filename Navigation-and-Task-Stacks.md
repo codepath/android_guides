@@ -32,7 +32,7 @@ If the user were to open another separate application now, that app would have a
 
 ### Multiple Activity Instances
 
-This proces of multiple task stacks is just the beginning. The real point of understanding comes from exploring what happens when we launch the same activity multiple times. Because the activities in the back stack are never rearranged, every time an activity is started via an intent, a brand new instance of that activity is **created and pushed onto the stack**.
+This process of multiple task stacks is just the beginning. The real point of understanding comes from exploring what happens when we launch the same activity multiple times. Because the activities in the back stack are never rearranged, every time an activity is started via an intent, a brand new instance of that activity is **created and pushed onto the stack**.
 
 This means that if you have an activity (say the timeline for twitter), and you launch the timeline activity multiple times using different intents, then **multiple instances of that activity** will be tracked in the stack. 
 
