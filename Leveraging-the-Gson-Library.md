@@ -58,6 +58,8 @@ movies: [
 ]
 ```
 
+### Initializing collections
+
 Because the API returns a list of movies and not just an individual one, we also need to create a class that will map the `movies` key to a list of Movie objects.
 
 ```java
