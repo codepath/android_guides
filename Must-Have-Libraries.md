@@ -13,7 +13,7 @@ This "standard pack" listed below are libraries that are quite popular, widely a
 | [ButterKnife](http://jakewharton.github.io/butterknife/) | Using Java annotations, makes Android development better by simplifying common tasks. |
 | [Parceler](http://parceler.org/) | Android Parcelable made easy through code generation |
 | [IcePick](https://github.com/frankiesardo/icepick) | Android Instance State made easy |
-| [Akatsuki](https://github.com/tom91136/Akatsuki) | Handles instanace state restoration via annotations |
+| [Akatsuki](https://github.com/tom91136/Akatsuki) | Handles instance state restoration via annotations |
 | [Crouton](https://github.com/keyboardsurfer/Crouton) | Context-sensitive, configurable alert notices much better than toasts |
 | [Hugo](https://github.com/JakeWharton/hugo) | Easier logging using annotations |
 | [LeakCanary](https://github.com/square/leakcanary) | Catch memory leaks in your apps | 
@@ -37,7 +37,7 @@ Using the Butterknife library with the Parceler library causes multiple declarat
 
 #### ButterKnife and Custom Views
 
-Often you may find that using Butterknife or Dagger injections defined in your constructor prevent Android Studio to preview your Custom View layout.  You may see an error about needing `isEditMode()` defined.
+Often you may find that using ButterKnife or Dagger injections defined in your constructor prevent Android Studio to preview your Custom View layout.  You may see an error about needing `isEditMode()` defined.
 Essentially this method is used to enable your code to short-circuit before executing a section of code that might be used for run-time but cannot be executed within the preview window.
 
 ```java
