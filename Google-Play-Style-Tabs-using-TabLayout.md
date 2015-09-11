@@ -205,6 +205,10 @@ private int[] imageResId = {
 public CharSequence getPageTitle(int position) {
     // Generate title based on item position
     // return tabTitles[position];
+    
+    // getDrawable(int i) is deprecated, use getDrawable(int i, Theme theme) for min SDK >=21
+    // Drawable image = context.getResources().getDrawable(iconIds[position], context.getTheme());
+
     Drawable image = context.getResources().getDrawable(imageResId[position]);
     image.setBounds(0, 0, image.getIntrinsicWidth(), image.getIntrinsicHeight());
     SpannableString sb = new SpannableString(" ");
