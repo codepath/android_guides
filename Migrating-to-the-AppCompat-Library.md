@@ -10,8 +10,6 @@ dependencies {
 
 Note that the AppCompat library has an implicit dependency on the support-v4 library.  The support-v4 declaration however does not necessarily need to be declared.
 
-#### Marshmallow (API 23) Issues 
-
 Note that once you upgrade to AppCompat v7 v23, you will also be forced to update your Build Tools and `compileSDKVersion` to API 23 too:
 
 ```gradle
