@@ -215,6 +215,14 @@ Now we can call these show and hide methods as needed to show the footer in the 
 
 <img src="https://i.imgur.com/43L4Y0R.gif" width="400" alt="progress in footer" />
 
+## Progress within Dialog
+
+In certain scenarios, a simple solution for displaying a progress bar during a long-running operation is to [[display a modal progress dialog|Using-DialogFragment#displaying-a-progressdialog]] indicating a task is running:
+
+<img src="http://i.imgur.com/apLzWt6.png" width="250" />
+
+Note that this modal display prevents the user from interacting with the app until the task is completed. As a result, the progress indicators above generally provide a better user experience.
+
 ## Third-party Libraries
 
 See this [list of third-party progress bars](https://github.com/wasabeef/awesome-android-ui/blob/master/pages/Progress.md) for alternate styles and animations.
