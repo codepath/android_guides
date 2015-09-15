@@ -214,6 +214,31 @@ public class FragmentDialogDemo extends FragmentActivity implements EditNameDial
 
 Styling a DialogFragment with a custom layout works just the [[same as styling any views|Styles-and-Themes]]. Styling an `AlertDialog` requires changing several key properties in `styles.xml` such as the `android:alertDialogTheme` as shown in this app [here](https://github.com/aliHafizji/Cheddar-Android/blob/master/res/values/styles_cheddar.xml#L15) and defining your own dialog style extending from `@android:style/Theme.Holo.Light.Dialog` as shown [here](https://github.com/aliHafizji/Cheddar-Android/blob/master/res/values/styles_cheddar.xml#L15).
 
+## Sizing Dialogs
+
+In certain situations, you may want to set the height and width of the `DialogFragment` at runtime during creation. This can be done easily with `getDialog().getWindow()` as follows. In the XML simply set the root layout to wrap_content:
+
+```xml
+<!-- fragment_edit_name.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/edit_name"
+    android:layout_width="match_parent" android:layout_height="match_parent" >
+  <!-- ...subviews here... -->
+</LinearLayout>
+```
+
+In the `DialogFragment` java source we can set the width and height `onResume` with:
+
+```java
+public void onResume() {
+    int width = getResources().getDimensionPixelSize(R.dimen.popup_width);
+    int height = getResources().getDimensionPixelSize(R.dimen.popup_height);        
+    getDialog().getWindow().setLayout(width, height);
+}
+```
+
+See [this stackoverflow post](http://stackoverflow.com/questions/12478520/how-to-set-dialogfragments-width-and-height) for more information.
+
 ## Things To Note
 
 * Notice that we are using the support library version of fragments for better compatibility in our code samples. The non-support version works identically.
