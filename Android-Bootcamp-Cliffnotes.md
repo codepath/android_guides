@@ -32,7 +32,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 
 * [[Creating and Executing Async Tasks]]
 * [[Sending and Managing Network Requests]]
-* [[Android Async Http Guide|Using-Android-Async-Http-Client]]
+* [[Android Async Http Client Guide|Using-Android-Async-Http-Client]]
 * [[Converting JSON to Models]]
 * [[Persisting Data to the Device]]
 * [[ActiveAndroid Tips and Q&A|ActiveAndroid Guide]]
