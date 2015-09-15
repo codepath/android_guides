@@ -495,6 +495,24 @@ This creates the following effect:
 
 <img src="https://i.imgur.com/olMUglF.gif" width="400" alt="Screenshot" />
 
+
+#### Attaching Click Listeners with Decorators
+
+An alternate solution for setting up click handlers for each item within a `RecyclerView` is to use a decorator class as [outlined in this article](http://www.littlerobots.nl/blog/Handle-Android-RecyclerView-Clicks/). With [this clever decorator](https://gist.github.com/nesquena/231e356f372f214c4fe6), attaching a click handler is as simple as:
+
+```java
+ItemClickSupport.addTo(mRecyclerView).setOnItemClickListener(
+  new ItemClickSupport.OnItemClickListener() {
+      @Override
+      public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+          // do it
+      }
+  }
+);
+```
+
+Under the covers, this is using the same interface pattern described below.
+
 #### Attaching Click Handlers using Listeners
 
 In certain cases, you'd want to setup click handlers for views within the `RecyclerView` but define the click logic within the containing `Activity` or `Fragment` (i.e bubble up events from the adapter). To achieve this, [[create a custom listener|Creating-Custom-Listeners]] within the adapter and then fire the events upwards to an interface implementation defined within the parent:
