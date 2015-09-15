@@ -239,16 +239,7 @@ public void onResume() {
 
 See [this stackoverflow post](http://stackoverflow.com/questions/12478520/how-to-set-dialogfragments-width-and-height) for more information.
 
-## Things To Note
-
-* Notice that we are using the support library version of fragments for better compatibility in our code samples. The non-support version works identically.
-* Dialogs are just classes that extend `DialogFragment` and define the view to display in the floating content area.
-* `DialogFragment` classes must define an empty constructor as shown in the code samples, otherwise the Android system will raise an exception when it attempts to instantiate the fragment.
-* After loading the initial view, the activity immediately shows the dialog using the show() method which allows the fragment manager to keep track of the state and gives us certain things for free such as the back button dismissing the fragment.
-* In the code snippets above, notice the use of `requestFocus` and input modes to control the appearance of the soft keyboard when the dialog appears.
-* We can dismiss a dialog one of two ways. Here we are calling `dismiss()` within the Dialog class itself. It could also be called from the Activity like the `show()` method.
-
-### Different Dialog Types
+## Specialized Dialog Types
 
 When using the `onCreateDialog` method there are many built-in Dialog types to take advantage of:
 
@@ -257,6 +248,44 @@ When using the `onCreateDialog` method there are many built-in Dialog types to t
 * [TimePickerDialog](http://developer.android.com/reference/android/app/TimePickerDialog.html) - Dialog that allows a user to select a time.
 * [DatePickerDialog](http://developer.android.com/reference/android/app/DatePickerDialog.html) - Dialog that allows a user to select a date.
 * Other dialogs [not](http://developer.android.com/reference/android/text/method/CharacterPickerDialog.html) [worth](http://developer.android.com/reference/android/support/v7/app/MediaRouteChooserDialog.html) discussing here.
+
+### Displaying a ProgressDialog
+
+When running a long running background task, one easy way to notify users the app is loading is to display a [ProgressDialog](http://developer.android.com/intl/es/reference/android/app/ProgressDialog.html).
+
+<img src="http://i.imgur.com/apLzWt6.png" width="250" />
+
+A `ProgressDialog` can be created anytime with the following:
+
+```java
+ProgressDialog pd = new ProgressDialog(context);
+pd.setTitle("Loading...");
+pd.setMessage("Please wait.");
+pd.setCancelable(false);
+```
+
+The dialog can be displayed with:
+
+```java
+pd.show();
+```
+
+and hidden anytime with:
+
+```java
+pd.dismiss();
+```
+
+`ProgressDialog` can be safely paired with an [[AsyncTask|Creating-and-Executing-Async-Tasks]]. Refer to this [ProgressDialog tutorial](http://www.quicktips.in/show-progressdialog-android/) for a code sample. The dialog progress animation can be customized by supplying your own animation drawable [using this tutorial](http://islandofatlas.net/2014/03/29/android-custom-progress-dialog.html).
+
+## Things To Note
+
+* Notice that we are using the support library version of fragments for better compatibility in our code samples. The non-support version works identically.
+* Dialogs are just classes that extend `DialogFragment` and define the view to display in the floating content area.
+* `DialogFragment` classes must define an empty constructor as shown in the code samples, otherwise the Android system will raise an exception when it attempts to instantiate the fragment.
+* After loading the initial view, the activity immediately shows the dialog using the show() method which allows the fragment manager to keep track of the state and gives us certain things for free such as the back button dismissing the fragment.
+* In the code snippets above, notice the use of `requestFocus` and input modes to control the appearance of the soft keyboard when the dialog appears.
+* We can dismiss a dialog one of two ways. Here we are calling `dismiss()` within the Dialog class itself. It could also be called from the Activity like the `show()` method.
 
 ## Libraries
 
