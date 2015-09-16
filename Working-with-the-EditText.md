@@ -123,6 +123,24 @@ which results in:
 
 ![Hints](https://i.imgur.com/b0kKM7g.png)
 
+### Changing the bottom line color
+
+<img src="http://imgur.com/XUWKoju.png"/>
+
+Assuming you are using the AppCompat library, you can override the styles `colorControlNormal`, `colorControlActivated`, and `colorControlHighlight`:
+
+```xml
+<style name="Theme.App.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+    <item name="colorControlNormal">#d32f2f</item>
+    <item name="colorControlActivated">#ff5722</item>
+    <item name="colorControlHighlight">#f44336</item>
+</style>
+```
+
+If you do not see these styles applied within a DialogFragment, there is a [known bug](https://code.google.com/p/android/issues/detail?id=169760#c1) when using the LayoutInflater passed into the [onCreateView()](http://developer.android.com/reference/android/app/Fragment.html#onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)) method. 
+
+The issue has already been fixed in the AppCompat v23 library.  See this [guide](http://guides.codepath.com/android/Migrating-to-the-AppCompat-Library#overview) about how to upgrade.
+
 ### Listening for EditText Input
 
 Check out the [[basic event listeners|Basic-Event-Listeners#edittext-common-listeners]] cliffnotes for a look at how to listen for changes to an EditText and perform an action when those changes occur.
@@ -193,6 +211,7 @@ Here we use the `addTextChangedListener` to watch as the value changes to determ
 ### Providing Auto-complete
 
 Check out the [official text fields](http://developer.android.com/guide/topics/ui/controls/text.html#AutoComplete) guide for a step-by-step on how to setup autocomplete for the entry.
+
 
 ## References
 
