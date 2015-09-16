@@ -43,7 +43,7 @@ Now, we just create an `AsyncHttpClient`, and then execute a request specifying 
 
 ```java
 import com.loopj.android.http.*;
-import org.apache.http.Header;
+import cz.msebera.android.httpclient.Header;
 
 AsyncHttpClient client = new AsyncHttpClient();
 RequestParams params = new RequestParams();
