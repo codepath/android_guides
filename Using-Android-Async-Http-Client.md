@@ -39,7 +39,7 @@ import cz.msebera.android.httpclient.Header;
 
 #### Resolving Android Marshmallow Compatibility Issues
 
-If you are not using the snapshot version, here are the documented workarounds.
+If you are not using the [[snapshot version|Using-Android-Async-Http-Client#setup]], here are the documented workarounds.
 
 ##### Option 1: rely on the `useLibrary` Gradle command
 
