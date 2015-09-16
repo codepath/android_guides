@@ -25,13 +25,13 @@ dependencies {
 }
 ```
 
-If you have previous Apache HTTP header import headers declared, you may need to change them from:
+If you have previous Apache HTTP header import headers declared, you may need to change these import statements:
 
 ```java
 import org.apache.http.Header;
 ```
 
-Change this line to match:
+Change this line to use:
 
 ```java
 import cz.msebera.android.httpclient.Header;
