@@ -40,7 +40,7 @@ import cz.msebera.android.httpclient.Header;
 If you have other import statements that need to be changed, you also need to change their import prefixes from `org.apache.http` to `cz.msebera.android.httpclient`.
 
 Mac users can use the following shortcut:
-```
+```bash
 brew install gnu-sed
 find . -name '*.java' -exec gsed -i 's/org.apache.http/cz.msebera.android.httpclient/g' \{\} +
 ```
