@@ -139,7 +139,13 @@ Assuming you are using the AppCompat library, you can override the styles `color
 
 If you do not see these styles applied within a DialogFragment, there is a [known bug](https://code.google.com/p/android/issues/detail?id=169760#c1) when using the LayoutInflater passed into the [onCreateView()](http://developer.android.com/reference/android/app/Fragment.html#onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)) method. 
 
-The issue has already been fixed in the AppCompat v23 library.  See this [guide](http://guides.codepath.com/android/Migrating-to-the-AppCompat-Library#overview) about how to upgrade.
+The issue has already been fixed in the AppCompat v23 library.  See this [guide](http://guides.codepath.com/android/Migrating-to-the-AppCompat-Library#overview) about how to upgrade. A temporary workaround is to use the Activity's layout inflater instead of the one pssed into the `onCreateView()` method:
+
+```java
+  public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = getActivity().getLayoutInflater().inflate(R.layout.dialog_fragment, container);
+  }
+```
 
 ### Listening for EditText Input
 
