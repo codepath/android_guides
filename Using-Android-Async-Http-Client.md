@@ -31,7 +31,7 @@ If you have previous Apache HTTP header import headers declared, you may need to
 import org.apache.http.Header;
 ```
 
-Change this line to use:
+Replace with this line:
 
 ```java
 import cz.msebera.android.httpclient.Header;
