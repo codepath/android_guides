@@ -37,6 +37,14 @@ Replace with this line:
 import cz.msebera.android.httpclient.Header;
 ```
 
+If you have other import statements that need to be changed, you also need to change their import prefixes from `org.apache.http` to `cz.msebera.android.httpclient`.
+
+Mac users can use the following shortcut:
+```
+brew install gnu-sed
+find . -name '*.java' -exec gsed -i 's/org.apache.http/cz.msebera.android.httpclient/g' \{\} +
+```
+
 ### Sending a Network Request
 
 Now, we just create an `AsyncHttpClient`, and then execute a request specifying an anonymous class as a callback:
