@@ -37,7 +37,7 @@ Replace with this line:
 import cz.msebera.android.httpclient.Header;
 ```
 
-If you have other import statements that need to be changed, you also need to change their import prefixes from `org.apache.http` to `cz.msebera.android.httpclient`.
+If you have other import statements that start with `org.apache.http`, you also need to change them to `cz.msebera.android.httpclient`.
 
 Mac users can use the following shortcut:
 ```bash
