@@ -134,11 +134,10 @@ Notice within the annotation, we specify the Modules that @Provide the component
 Dependencies are used or "injected" through the functions on a `Component`.
 
 There are 3 ways to get a dependency from a component:
-1. Directly by calling `component.thing()`
-2. Annotating a field on an object with `@Inject`, then calling `component.inject(object)`. Oftentimes the object is `this`.
+
+1. Directly by calling `component.thing()`.
+2. Annotating a field on an object with `@Inject`, then calling `component.inject(object)`. Often the object is `this`.
 3. Using constructor injection by annotating your constructor with @Inject, and letting Dagger create your class for you.
-
-
 
 ### Defining custom scopes
 
