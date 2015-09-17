@@ -7,6 +7,17 @@ The Android framework offers several options and strategies for persistence:
  * **SQLite Database** - Persist data in tables within an application specific database.
  * **ORM** - Describe and persist model objects using a higher level query/update syntax.
 
+### Use Cases
+
+Each storage option has typical associated use cases as follows:
+
+ * **Shared Preferences** - Typically used for app preferences, keys and session information.
+ * **Local Files** - Often used for blob data or data file caches (i.e disk image cache)
+ * **SQLite Database** - Used for complex local data manipulation or for raw speed 
+ * **ORM** - Used to store simple relational data locally to reduce SQL boilerplate
+
+Note that a typical app **utilizes all of these storage options** in different ways.
+
 ### Shared Preferences
 
 Settings can be persisted for your application by using [SharedPreferences](http://developer.android.com/reference/android/content/SharedPreferences.html) to persist key-value pairs.  
