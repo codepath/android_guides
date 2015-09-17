@@ -45,7 +45,7 @@ brew install gnu-sed
 find . -name '*.java' -exec gsed -i 's/org.apache.http/cz.msebera.android.httpclient/g' \{\} +
 ```
 
-If you would rather stay with a non-snapshot version, see the [troubleshooting section](#Troubleshooting) for details about how to sidestep many of the issues encountered.
+If you would rather stay with a non-snapshot version, see the [troubleshooting section](#troubleshooting) for details about how to sidestep many of the issues encountered.
 
 ### Sending a Network Request
 
