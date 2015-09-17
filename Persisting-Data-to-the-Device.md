@@ -11,7 +11,7 @@ The Android framework offers several options and strategies for persistence:
 
 Each storage option has typical associated use cases as follows:
 
- * **Shared Preferences** - Typically used for app preferences, keys and session information.
+ * **Shared Preferences** - Used for app preferences, keys and session information.
  * **Local Files** - Often used for blob data or data file caches (i.e disk image cache)
  * **SQLite Database** - Used for complex local data manipulation or for raw speed 
  * **ORM** - Used to store simple relational data locally to reduce SQL boilerplate
