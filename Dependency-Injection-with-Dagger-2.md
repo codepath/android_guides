@@ -141,11 +141,11 @@ There are 3 ways to get a dependency from a component:
 
 ### Defining custom scopes
 
-Defining custom scope(s) is highly recommended as it 
+Defining custom scope(s) is highly recommended as it ????? TODO
 
 ## References
 
-* [Dagger Github Page](http://google.github.io/dagger/)
+* [Dagger 2 Github Page](http://google.github.io/dagger/)
 * [Sample project using Dagger 2](https://github.com/vinc3m1/nowdothis)
 * [Vince Mi's Codepath Meetup Dagger 2 Slides](https://docs.google.com/presentation/d/1bkctcKjbLlpiI0Nj9v0QpCcNIiZBhVsJsJp1dgU5n98/)
 * <http://code.tutsplus.com/tutorials/dependency-injection-with-dagger-2-on-android--cms-23345>
