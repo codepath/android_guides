@@ -160,7 +160,7 @@ The reason is that is a current bug in Android Studio 1.3.1 where it may not rec
 
   <img src="https://i.imgur.com/jreDUla.png"/>
 
-Assuming you have included the `useLibrary` statement, your build should however compile successfully.  The Gradle configuration will add this library to the Java classpath, but the IDE currently has a bug where it is not recognized as an added dependency.
+Assuming you have included the `useLibrary` statement, your build should however compile successfully.  The Gradle configuration will add this library to the Java classpath, but the IDE currently has a bug where it is not recognized as an added dependency.  Use the second option if you would like to avoid these false warnings.
 
 ##### Option #2: add the Apache Http library manually
 
