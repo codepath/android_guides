@@ -45,6 +45,8 @@ brew install gnu-sed
 find . -name '*.java' -exec gsed -i 's/org.apache.http/cz.msebera.android.httpclient/g' \{\} +
 ```
 
+If you would rather stay with a non-snapshot version, see the [troubleshooting section](#Troubleshooting) for details about how to sidestep many of the issues encountered.
+
 ### Sending a Network Request
 
 Now, we just create an `AsyncHttpClient`, and then execute a request specifying an anonymous class as a callback:
