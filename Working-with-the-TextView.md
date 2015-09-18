@@ -305,6 +305,8 @@ Which results in:
 
 The relevant attributes here are `drawableLeft`, `drawableRight`, `drawableTop` and `drawableBottom` along with `drawablePadding`. Check out [this TextView article](http://antonioleiva.com/textview_power_drawables/) for a more detailed look at how to use this functionality. 
 
+Note that if you want to be able to better control the size or scale of the drawables, check out [this handy TextView extension](http://stackoverflow.com/a/31916731/313399) or [this bitmap drawable approach](http://stackoverflow.com/a/29804171/313399). You can also make calls to [setCompoundDrawablesWithIntrinsicBounds](https://groups.google.com/forum/#!topic/android-developers/_Gzbe0KCP_0) on the `TextView`
+
 ## References
 
 * <http://code.tutsplus.com/tutorials/customize-android-fonts--mobile-1601>
