@@ -34,7 +34,7 @@ If you never programmed at all before or if you are interested in starting with 
 * [Free Java Book](http://java2s.com/Book/Java/CatalogJava.htm) - Solid online book
 * [Udemy Free Java Course](https://www.udemy.com/java-tutorial/) - Free videos to learn Java
 * [CodingBat Java Exercises](http://codingbat.com/) - Exercises to practice Java
-* [Best Ways to Learn Java Overview](http://www.onvard.com/tracks/best-way-to-learn-java) - Overview article
+none * [Best Ways to Learn Java Overview](http://www.onvard.com/tracks/best-way-to-learn-java) - Overview article
 * [Java Language Fundamentals](http://en.wikibooks.org/wiki/Java_Programming/Language_Fundamentals)
 * [Java: A Beginners Guide](http://www.amazon.com/Java-Beginners-Guide-Herbert-Schildt/dp/0071809252)
 * [TutorialsPoint Java Guide](http://www.tutorialspoint.com/java/java_basic_syntax.htm)
