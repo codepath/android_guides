@@ -453,7 +453,7 @@ public class MyTestService extends IntentService {
   @Override
   protected void onHandleIntent(Intent intent) {
       // Release the wake lock provided by the WakefulBroadcastReceiver.
-      BootBroadcastReceiver.completeWakefulIntent(intent);
+      WakefulBroadcastReceiver.completeWakefulIntent(intent);
   }
 }
 ```
