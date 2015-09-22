@@ -92,7 +92,7 @@ Entries in the action bar are typically called actions. Use this method to infla
 </menu>
 ```
 
-You also should note that the `xmlns:app` namespace must be defined in order to leverage the `showAsAction` option.  The reason is that a [compatibility library](Migrating-to-the-AppCompat-Library#menu-xml-changes) is used to support the `showAsAction="ifRoom"` option.  This option is needed to show the item appear directly in the action bar as an action button. If there's not enough room for the item in the action bar, it will appear in the action overflow. If `withText` is specified as well (as in the second item), the text will be displayed with the icon.
+You also should note that the `xmlns:app` namespace must be defined in order to leverage the `showAsAction` option.  The reason is that a [compatibility library](Migrating-to-the-AppCompat-Library#menu-xml-changes) is used to support the `showAsAction="ifRoom"` option.  This option is needed to show the item directly in the action bar as an icon. If there's not enough room for the item in the action bar, it will appear in the action overflow. If `withText` is specified as well (as in the second item), the text will be displayed with the icon.
 
 **Note:** The above code refers to the `@drawable/ic_compose` resource which would have to exist for this to compile. To generate ActionBar icons, be sure to use the **Asset Studio** in Android Studio. To create a new Android icon set, right click on a `res\drawable` folder and invoke **New->Image Asset**.
 
