@@ -316,7 +316,7 @@ Unlike ListView, there is no way to add or remove items directly through the `Re
 | `notifyItemChanged(int pos)` | Notify that item at position has changed. |
 | `notifyItemInserted(int pos)` | Notify that item reflected at position has been newly inserted. |
 | `notifyItemRemoved(int pos)` | Notify that items previously located at position has been removed from the data set. |
-| `notifyDataSetChanged()` | Notify that the dataset has changed. |
+| `notifyDataSetChanged()` | Notify that the dataset has changed.  Use only as last resort.|
 
 We can use these from the activity or fragment:
 
