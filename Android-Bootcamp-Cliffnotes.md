@@ -28,6 +28,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Sharing Content with Intents]]
 * [[Creating Custom Listeners]]
 * [[Navigation and Task Stacks]]
+* [[Extended ActionBar Guide]]
 
 ### Week 3 - Networking and Persistence
 
@@ -100,7 +101,6 @@ Cliffnotes are references giving you the "most important" Android topics with br
 
 * [[Handling Configuration Changes]]
 * [[Managing Threads and Custom Services]]
-* [[Extended ActionBar Guide]]
 * [[Menus and Popups]]
 * [[Using DialogFragment]]
 * [[Genymotion 2.0 Emulators with Google Play support]]
