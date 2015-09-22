@@ -141,11 +141,11 @@ sudo mv /System/Library/Java/JavaVirtualMachines/1.6.0.jdk /tmp
 
 ## INSTALL_FAILED_OLDER_SDK error message 
 
-If your `targetSdkVersion` is higher than the Android version you are using (i.e. using an emulator that supports API 19 and your target version is for API 23), then you may see an error message that appears similar to the following:
+If your `minSdkVersion` is higher than the Android version you are using (i.e. using an emulator that supports API 19 and your target version is for API 23), then you may see an error message that appears similar to the following:
 
 <img src="http://imgur.com/RKlXMGV.png"/>
 
-You will need to either lower the `targetSDKVersion` or upgrade to an Android emulator or device that supports the minimum SDK version required.
+You will need to either lower the `minSdkVersion` or upgrade to an Android emulator or device that supports the minimum SDK version required.
 
 ## Eclipse ADT Issues
 
