@@ -331,11 +331,18 @@ Every time we want to add or remove items from the RecyclerView, we will need to
 
 ### Scrolling to newly created items
 
-If we are adding items to the end of the RecyclerView and wish to show newly created items being added, we can notify the adapter that an additional element has been added and can call `smoothScrollToPosition()` on the RecyclerView:
+If we are inserting elements to the front of the list and wish to maintain the position at the top, we can set the scroll position to the 1st element:
+
+```java
+adapter.notifyItemInserted(0);  // notify adapter
+adapter.scrollToPosition(0);  
+```
+
+If we are adding items to the end and wish to scroll to the bottom as items are added, we can notify the adapter that an additional element has been added and can call `smoothScrollToPosition()` on the RecyclerView:
 
 ```java
 mAdapter.notifyItemInserted(contacts.size() - 1);  // notify adapter that an additional element has been added
-rvContacts.smoothScrollToPosition(mAdapter.getItemCount() - 1); // index 0 position
+rvContacts.scrollToPosition(mAdapter.getItemCount() - 1); // index 0 position
 ```
 
 ## Configuring the RecyclerView
