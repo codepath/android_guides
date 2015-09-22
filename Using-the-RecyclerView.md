@@ -335,13 +335,13 @@ If we are inserting elements to the front of the list and wish to maintain the p
 
 ```java
 adapter.notifyItemInserted(0);  
-adapter.scrollToPosition(0);   // index 0 position
+rvContacts.scrollToPosition(0);   // index 0 position
 ```
 
 If we are adding items to the end and wish to scroll to the bottom as items are added, we can notify the adapter that an additional element has been added and can call `smoothScrollToPosition()` on the RecyclerView:
 
 ```java
-mAdapter.notifyItemInserted(contacts.size() - 1);  // contacts.size() - 1 is the last element position
+adapter.notifyItemInserted(contacts.size() - 1);  // contacts.size() - 1 is the last element position
 rvContacts.scrollToPosition(mAdapter.getItemCount() - 1); // update based on adapter 
 ```
 
