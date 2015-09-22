@@ -309,7 +309,7 @@ Finally, compile and run the app and you should see something like the screensho
 
 ### Notifying the Adapter
 
-With `RecyclerView` as the data source changes, we need to keep the adapter notified of any changes. There are many method available to use when notifying the adapter of different changes:
+Unlike ListView, there is no way to add or remove items directly through the `RecyclerView` adapter.  You need to make changes to the data source directly and notify the adapter of any changes. There are many method available to use when notifying the adapter of different changes:
 
 | Method | Description |
 | ------ | ----------  |
