@@ -313,10 +313,10 @@ Unlike ListView, there is no way to add or remove items directly through the `Re
 
 | Method | Description |
 | ------ | ----------  |
-| `notifyDataSetChanged()` | Notify that the dataset has changed. |
 | `notifyItemChanged(int pos)` | Notify that item at position has changed. |
 | `notifyItemInserted(int pos)` | Notify that item reflected at position has been newly inserted. |
 | `notifyItemRemoved(int pos)` | Notify that items previously located at position has been removed from the data set. |
+| `notifyDataSetChanged()` | Notify that the dataset has changed. |
 
 We can use these from the activity or fragment:
 
@@ -327,7 +327,7 @@ users.set(0, new User(...));
 adapter.notifyItemInserted(0);
 ```
 
-Every time we want to add or remove items from the RecyclerView, we will need to explicitly inform to the adapter of the event.  Unlike the ListView adapter, RecyclerView adapters should not rely on `notifyDataSetChanged()` since the more granular actions should be used.  See the [API documentation](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.Adapter.html) for more details.
+Every time we want to add or remove items from the RecyclerView, we will need to explicitly inform to the adapter of the event.  Unlike the ListView adapter, a RecyclerView adapter should not rely on `notifyDataSetChanged()` since the more granular actions should be used.  See the [API documentation](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.Adapter.html) for more details.
 
 ### Scrolling to newly created items
 
