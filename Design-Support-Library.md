@@ -33,8 +33,8 @@ There is a new support design library that must be included.   This library also
 
 ```gradle
 dependencies {
-    compile 'com.android.support:appcompat-v7:22.2.1'
-    compile 'com.android.support:design:22.2.1'
+    compile 'com.android.support:appcompat-v7:23.0.0'
+    compile 'com.android.support:design:23.0.0'
 }
 ```
 
@@ -50,7 +50,7 @@ To add the percent support library, you need to add this statement:
 
 ```gradle
 dependencies {
-    compile 'com.android.support:percent:22.2.0'
+    compile 'com.android.support:percent:23.0.0'
 }
 ```
 
@@ -69,6 +69,10 @@ If you want to see how to use the various components, check out this [sample cod
 The source code for this library can be found [here](https://android.googlesource.com/platform/frameworks/support.git/+/master/design/).  For instance, if you are curious about what styles can be overridden for the different components, see this [link](https://android.googlesource.com/platform/frameworks/support.git/+/master/design/res/values/styles.xml).
 
 Currently, the source code for CoordinatorLayout and AppBarLayout do not appear to be publicly available.  Assuming you are using Android Studio v1.2 or higher, the decompiler code should enable you to understand better what's happening.
+
+### Changes in Support Library v23
+
+Note that `Resources.getColor()` has been deprecated.  You must now use `ContextCompat.getColor()` instead.  See this [Stack Overflow article](http://stackoverflow.com/questions/31590714/getcolorint-id-deprecated-on-android-6-0-marshmallow-api-23) or the official [API documentation](http://developer.android.com/reference/android/content/res/Resources.html).
 
 ## References
 
