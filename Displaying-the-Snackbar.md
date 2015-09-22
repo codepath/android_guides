@@ -4,7 +4,7 @@ Snackbars are shown on the bottom of the screen and contain text with an optiona
 
 <img src="https://i.imgur.com/JSdKnP2.png" width="200" />
 
-Note the snackbar at the bottom with an embedded "ACTION" text on the right side. See [this design guide](http://www.google.com/design/spec/components/snackbars-toasts.html) or more details.
+Note the snackbar at the bottom with an embedded **ACTION** text on the right side. See [this design guide](http://www.google.com/design/spec/components/snackbars-toasts.html) or more details.
 
 ### Simple Snackbar
 
