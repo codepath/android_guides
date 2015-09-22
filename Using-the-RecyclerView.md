@@ -329,7 +329,7 @@ adapter.notifyItemInserted(0);
 
 Every time we want to add or remove items from the RecyclerView, we will need to explicitly inform to the adapter of the event.  Unlike the ListView adapter, RecyclerView adapters should not rely on `notifyDataSetChanged()` since the more granular actions should be used.  See the [API documentation](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.Adapter.html) for more details.
 
-### Scrolling to newly created events
+### Scrolling to newly created items
 
 If we are adding items to the end of the RecyclerView and wish to show newly created items being added, we can notify the adapter that an additional element has been added and can call `smoothScrollToPosition()` on the RecyclerView:
 
