@@ -9,13 +9,14 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Using String Resources]]
 * [[Constructing View Layouts]]
 * [[Defining Views and their Attributes]] 
-* [[Using Context]]
-* [[Understanding the Activity Lifecycle|The Activity Lifecycle]]
+* [[Using an ArrayAdapter with ListView]]
 * [[Working with the TextView]]
 * [[Working with the EditText]]
 * [[Working with the ImageView]]
 * [[Working with the Soft Keyboard]]
-* [[Using an ArrayAdapter with ListView]]
+* [[Organizing your Source Files]]
+* [[Using Context]]
+* [[Understanding the Activity Lifecycle|The Activity Lifecycle]]
 
 ### Week 2 - Interaction and Navigation
 
