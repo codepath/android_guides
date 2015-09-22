@@ -329,6 +329,14 @@ adapter.notifyItemInserted(0);
 
 Every time we want to add or remove items from the recyclerview, we will need to explicitly inform to the adapter of the event. 
 
+### Scrolling to newly created events
+
+If we are adding items to the end of the RecyclerView and wish to show newly created items being added, we can call `scrolltoPosition()` on the RecyclerView:
+
+```java
+rvContacts.scrollToPosition(mAdapter.getItemCount() - 1); // index 0 position
+```
+
 ## Configuring the RecyclerView
 
 The `RecyclerView` is quite flexible and customizable. Several of the options available are shown below.
