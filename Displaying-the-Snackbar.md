@@ -13,7 +13,7 @@ Make sure to follow the [[Design Support Library]] setup instructions first.
 Create a snackbar using `make`, setting an optional action and then call `.show()`: 
 
 ```java
-Snackbar.make(parentLayout, R.string.snackbar_text, Snackbar.LENGTH_LONG)
+Snackbar.make(parentView, R.string.snackbar_text, Snackbar.LENGTH_LONG)
   .setAction(R.string.snackbar_action, myOnClickListener)
   .show(); // Don’t forget to show!
 ```
@@ -23,7 +23,7 @@ Note the use of a `View` as the first parameter to `make()` which the snackbar u
 In a [recent update](https://plus.google.com/+AndroidDevelopers/posts/XTtNCPviwpj) of the support library, you can now specify `LENGTH_INDEFINITE` that will continue to show the Snackbar until it is dismissed or another one is shown:
 
 ```java
-Snackbar.make(parentLayout, R.string.snackbar_text, Snackbar.LENGTH_INDEFINITE).show();
+Snackbar.make(parentView, R.string.snackbar_text, Snackbar.LENGTH_INDEFINITE).show();
 ```
 
 ### Configuration Options
@@ -31,7 +31,7 @@ Snackbar.make(parentLayout, R.string.snackbar_text, Snackbar.LENGTH_INDEFINITE).
 Additional options can be used to configure the snackbar such a `setActionTextColor` and `setDuration`:
 
 ```java
-Snackbar.make(parentLayout, R.string.snackbar_text, Snackbar.LENGTH_LONG)
+Snackbar.make(parentView, R.string.snackbar_text, Snackbar.LENGTH_LONG)
  .setAction(R.string.snackbar_action, myOnClickListener)
  .setActionTextColor(R.color.green)
  .setDuration(3000).show();
