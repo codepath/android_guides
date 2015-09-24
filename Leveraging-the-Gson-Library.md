@@ -315,7 +315,7 @@ We then simply need to create a service class that will enable us to make API ca
 RottenTomatoesService service = restAdapter.create(RottenTomatoesService.class);
 
 Call<BoxOfficeMovies> call = service.listRepos();
-call.execute(new Callback<BoxOfficeMovies>() {
+call.enqueue(new Callback<BoxOfficeMovies>() {
             @Override
             public void success(BoxOfficeMovies boxOfficeMovies, Response response) {
                 // handle response here
