@@ -4,7 +4,7 @@ A popular third-party library called [android-async-http](http://loopj.com/andro
 
 ### Setup
 
-Add the library to our `app/build.gradle` file:
+Add this library to our `app/build.gradle` file:
 
 ```gradle
 dependencies {
