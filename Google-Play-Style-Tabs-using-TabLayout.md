@@ -337,7 +337,7 @@ Next, we can save and restore the last known tab position by implementing method
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        viewPager.setCurrentItem(savedInstanceState.getInt(POSITION);
+        viewPager.setCurrentItem(savedInstanceState.getInt(POSITION));
     }
 ```
 
