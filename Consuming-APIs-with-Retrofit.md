@@ -25,7 +25,7 @@ dependencies {
 }
 ```
 
-In the past, Retrofit relied on the [Gson](https://github.com/google/gson) library to parse JSON data. Retrofit 2 now supports many different parsers for processing network response data.  If you are not sure which one to use, you should use the Gson converter.  
+In the past, Retrofit relied on the [Gson](https://github.com/google/gson) library to parse JSON data. Retrofit 2 now supports many different parsers for processing network response data.  If you are not sure which one to choose, use the Gson converter for now.  
  
 |Converter  | Library             
 |-----------|------------------------------------------------
