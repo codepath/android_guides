@@ -99,7 +99,7 @@ public class Contact {
     private static int lastContactId = 0;
 
     public static List<Contact> createContactsList(int numContacts) {
-        List<Contact> contacts = new ArrayList<>();
+        List<Contact> contacts = new ArrayList<Contact>();
 
         for (int i = 1; i <= numContacts; i++) {
             contacts.add(new Contact("Person " + ++lastContactId, i <= numContacts / 2));
