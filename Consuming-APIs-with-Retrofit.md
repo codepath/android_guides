@@ -115,7 +115,7 @@ Notice that each endpoint specifies an annotation of the HTTP method (GET, POST,
 
 #### Changing the base URL
 
-Normally, the base URL is defined when you instantiated your [REST adapter](#creating-the-restadapter). Retrofit 2 allows you to override the base URL specified by changing it in the annotation (i.e. if you need to keep one specific endpoint using an older API endpoint)
+Normally, the base URL is defined when you instantiated the [RestAdapter](#creating-the-restadapter). Retrofit 2 allows you to override the base URL specified by changing it in the annotation (i.e. if you need to keep one specific endpoint using an older API endpoint)
 
 ```java
 @POST("https://api.github.com/api/v3")
@@ -202,6 +202,8 @@ RestAdapter restAdapter = new RestAdapter.Builder()
   .client(client)
   .build();
 ```
+
+Notice that in Retrofit 2 the interceptor has to be added to a custom `OkHttpClient`.  In Retrofit 1, it could be set directly with the RestAdapter.
 
 ### Using OAuth
 
