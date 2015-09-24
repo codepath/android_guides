@@ -74,13 +74,26 @@ dependencies {
 
 ### Creating the RestAdapter
 
-To send out network requests to an API, we need to construct a [RestAdapter](http://square.github.io/retrofit/javadoc/retrofit/RestAdapter.html) by specifying the base URL for the service:
+To send out network requests to an API, we need to construct a [RestAdapter](http://square.github.io/retrofit/javadoc/retrofit/RestAdapter.html) by specifying the base URL for the service. 
 
 ```java
 public static final String BASE_URL = "http://api.myservice.com";
 RestAdapter restAdapter = new RestAdapter.Builder()
     .setEndpoint(BASE_URL)
     .addConverterFactory(GsonConverterFactory.create())
+    .build();
+```
+
+Note also that we need to specify a factory for deserializing the response using the Gson library.  The order in which the converters are added will be the sequence in which they are attempted to be processed as discussed in this [video talk](https://youtu.be/KIAoQbAu3eA?t=35m8s).  If we wish to pass in a custom Gson parser instance, it can be specified too:
+
+```java
+Gson gson = new GsonBuilder()
+        .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
+        .create();
+
+RestAdapter restAdapter = new RestAdapter.Builder()
+    .setEndpoint(BASE_URL)
+    .addConverterFactory(GsonConverterFactory.create(gson))
     .build();
 ```
 
@@ -251,5 +264,6 @@ Several other Android OAuth libraries can be explored instead of signpost:
  * <http://engineering.meetme.com/2014/03/best-practices-for-consuming-apis-on-android/>
  * <https://github.com/MeetMe/TwitchTvClient>
  * <http://themakeinfo.com/2015/04/android-retrofit-images-tutorial/>
- * <https://speakerdeck.com/jakewharton/simple-http-with-retrofit-2-droidcon-nyc-2015>
  * <https://github.com/square/retrofit/issues/297>
+ * <https://speakerdeck.com/jakewharton/simple-http-with-retrofit-2-droidcon-nyc-2015>
+ * <http://inthecheesefactory.com/blog/retrofit-2.0/en>
