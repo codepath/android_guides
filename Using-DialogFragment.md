@@ -212,7 +212,38 @@ public class FragmentDialogDemo extends FragmentActivity implements EditNameDial
 
 ## Styling Dialogs
 
-Styling a DialogFragment with a custom layout works just the [[same as styling any views|Styles-and-Themes]]. Styling an `AlertDialog` requires changing several key properties in `styles.xml` such as the `android:alertDialogTheme` as shown in this app [here](https://github.com/aliHafizji/Cheddar-Android/blob/master/res/values/styles_cheddar.xml#L15) and defining your own dialog style extending from `@android:style/Theme.Holo.Light.Dialog` as shown [here](https://github.com/aliHafizji/Cheddar-Android/blob/master/res/values/styles_cheddar.xml#L15).
+Styling a DialogFragment with a custom layout works just the [[same as styling any views|Styles-and-Themes]]. Styling a dialog or `AlertDialog` requires changing several key properties in `styles.xml` such as the `dialogTheme` and `alertDialogTheme` as shown in this app [here](https://github.com/irccloud/android/blob/master/res/values/styles.xml) and shown below in `res/values/styles.xml`:
+
+```xml
+<style name="AppTheme" parent="Theme.AppCompat.Light">
+    <!-- Apply default style for dialogs -->
+    <item name="dialogTheme">@style/AppDialogTheme</item>
+    <!-- Apply default style for alert dialogs -->
+    <item name="alertDialogTheme">@style/AppAlertTheme</item>
+</style>
+
+<!-- Define your custom dialog theme here extending from base -->
+<style name="AppDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+    <item name="colorPrimary">@color/dark_blue</item>
+    <item name="colorPrimaryDark">#000</item>
+    <item name="colorAccent">@color/dark_blue</item>
+    <item name="colorControlNormal">@color/dark_blue</item>
+    <item name="android:windowBackground">@android:color/transparent</item>
+    <item name="android:background">#4CAF50</item>
+    <item name="android:textColorHighlight">@color/light_blue</item>
+</style>
+
+<!-- Define your custom alert theme here extending from base -->
+<style name="AppAlertTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+    <item name="colorPrimary">@color/dark_blue</item>
+    <item name="colorAccent">@color/dark_blue</item>
+    <item name="colorPrimaryDark">#000</item>
+    <item name="colorControlNormal">@color/dark_blue</item>
+    <item name="android:textColorHighlight">@color/light_blue</item>
+</style>
+```
+
+Note that [third party libraries](https://github.com/afollestad/material-dialogs) can be used to simplify and improve styling as well.
 
 ## Sizing Dialogs
 
