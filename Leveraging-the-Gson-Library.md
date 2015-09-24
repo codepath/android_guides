@@ -314,15 +314,16 @@ We then simply need to create a service class that will enable us to make API ca
 ```java
 RottenTomatoesService service = restAdapter.create(RottenTomatoesService.class);
 
-Call<BoxOfficeMovies> call = service.listRepos();
-call.enqueue(new Callback<BoxOfficeMovies>() {
+Call<BoxOfficeMovieResponse> call = service.listRepos();
+call.enqueue(new Callback<BoxOfficeMovieResponse>() {
             @Override
-            public void success(BoxOfficeMovies boxOfficeMovies, Response response) {
+            public void onResponse(Response response) {
                 // handle response here
+                BoxOfficeMovieResponse boxOfficeMoveiResponse = response.body();
             }
 
             @Override
-            public void failure(RetrofitError error) {
+            public void onFailure(Throwable t) {
 
             }
         });
