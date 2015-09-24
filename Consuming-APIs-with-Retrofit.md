@@ -192,10 +192,14 @@ RequestInterceptor requestInterceptor = new RequestInterceptor() {
   }
 };
 
-// Add interceptor when building adapter
+// Add the interceptor to OkHttpClient 
+OkHttpClient client = new OkHttpClient();
+client.interceptors().add(requestInterceptor);
+
+// Set the custom client when building adapter
 RestAdapter restAdapter = new RestAdapter.Builder()
   .setEndpoint("https://api.github.com")
-  .setRequestInterceptor(requestInterceptor)
+  .client(client)
   .build();
 ```
 
