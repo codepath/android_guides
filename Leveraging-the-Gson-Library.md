@@ -299,8 +299,12 @@ RequestInterceptor requestInterceptor = new RequestInterceptor() {
 Next, we need to create a `RestAdapter` and making sure to associate the adapter to this `RequestInterceptor`:
 
 ```java 
+// Add the interceptor to OkHttpClient 
+OkHttpClient client = new OkHttpClient();
+client.interceptors().add(requestInterceptor);
+
 RestAdapter restAdapter = new RestAdapter.Builder()
-               .setRequestInterceptor(requestInterceptor)
+               .client(client)
                .setEndpoint("http://api.rottentomatoes.com/api/public/v1.0")
                .build();
 ```
