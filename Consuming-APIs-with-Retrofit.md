@@ -113,6 +113,16 @@ Notice that each endpoint specifies an annotation of the HTTP method (GET, POST,
 | `@Query`  | specifies the query key name with the value corresponding to the value of that annotated parameter.
 | `@Body`   | payload for the POST call
 
+#### Changing the base URL
+
+Normally, the base URL is defined when you instantiated your [REST adapter](#creating-the-restadapter). Retrofit 2 allows you to override the base URL specified by changing it in the annotation (i.e. if you need to keep one specific endpoint using an older API endpoint)
+
+```java
+@POST("https://api.github.com/api/v3")
+```
+
+There are also others that allow you to modify the base URL using relative paths (and not the fully qualified URL) as discussed in this [blog article](http://inthecheesefactory.com/blog/retrofit-2.0/en).
+
 #### Upgrading from Retrofit 1
 
 If you are trying to upgrade from Retrofit 1, you may remember that the last parameter had to be a `Callback` type if you wanted to define the API call to run asynchronously instead of synchronously:
