@@ -120,46 +120,11 @@ You get the `Drawable` from the `ImageView`.  You get the `Bitmap` from the `Dra
 
 ### ShareActionProvider
 
-This is how you can easily use an ActionBar share icon to activate a ShareIntent. We need to add an ActionBar menu item in `res/menu/` in the XML specifying the `ShareActionProvider` class.
+This is how you can easily use an ActionBar share icon to activate a ShareIntent. The below focuses on the **support ShareActionProvider** for use with `AppCompatActivity`.
 
 **Note:** This is **an alternative to using a sharing intent** as described in the previous section. You either can use a sharing intent **or** the provider as described below. 
 
-#### Without Support Library
-
-**Note:** `ShareActionProvider` is only available in API 14 or above unless the supportv7 library is included in which case you must follow the next section instead.
-
-```xml
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/menu_item_share"
-        android:showAsAction="ifRoom"
-        android:title="Share"
-        android:actionProviderClass="android.widget.ShareActionProvider" />
-    ...
-</menu>
-```
-
-Get access to share provider menu item in Java so you can attach the share intent later:
-
-```java
-private ShareActionProvider miShareAction;
-
-@Override
-public boolean onCreateOptionsMenu(Menu menu) {
-    // Inflate menu resource file.
-    getMenuInflater().inflate(R.menu.second_activity, menu);
-    // Locate MenuItem with ShareActionProvider
-    MenuItem item = menu.findItem(R.id.menu_item_share);
-    // Fetch reference to the share action provider
-    miShareAction = (ShareActionProvider) item.getActionProvider();
-    // Return true to display menu
-    return true;
-}
-```
-
-#### With Support v7 Library
-
-**Note: This section requires the `supportv7` compatibility library to be included**
+First, we need to add an ActionBar menu item in `res/menu/` in the XML specifying the `ShareActionProvider` class. 
 
 ```xml
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
@@ -174,7 +139,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
 </menu>
 ```
 
-Get access to share provider menu item in Java so you can attach the share intent later:
+Next, get access to share provider menu item in the Activity so we can attach the share intent later:
 
 ```java
 private ShareActionProvider miShareAction;
@@ -194,7 +159,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
 
 #### Attach Share Intent for Content
 
-Now, once you've setup the ShareActionProvider menu item (either for supportv7 or standard), construct and attach the share intent for the provider but only **after image has been loaded** as shown below using the `Callback` for `Picasso`.
+Now, once you've setup the ShareActionProvider menu item, construct and attach the share intent for the provider but only **after image has been loaded** as shown below using the `Callback` for `Picasso`.
 
 **Note:** The following requires a **recent release** of the third-party image library `Picasso` which supports completion callbacks. Make sure to use an updated the version of the library used by downloading [this Picasso jar](http://repo1.maven.org/maven2/com/squareup/picasso/picasso/2.3.4/picasso-2.3.4.jar).
 
@@ -242,8 +207,6 @@ Make sure to add the appropriate permissions to your `AndroidManifest.xml`:
 ```
 
 Check out the [official guide for easy sharing](http://developer.android.com/training/sharing/shareaction.html) for more information.
-
-
 
 ## References
 
