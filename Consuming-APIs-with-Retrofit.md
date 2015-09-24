@@ -5,6 +5,7 @@
 This library makes downloading JSON or XML data from a web API fairly straightforward. Once the data is downloaded then it is parsed into a Plain Old Java Object (POJO) which must be defined for each "resource" in the response.
 
 ### Setup
+
 Make sure to require Internet permissions in your `AndroidManifest.xml` file:
 
 ```xml
@@ -17,27 +18,39 @@ Add the following to your `app/build.gradle` file:
 
 ```gradle
 dependencies {
-  compile 'com.squareup.okhttp:okhttp:2.4.0'
-  compile 'com.squareup.retrofit:retrofit:1.9.0'
-  compile 'com.google.code.gson:gson:2.3'
+    compile 'com.squareup.retrofit:retrofit:2.0.0-beta1'
+    compile 'com.squareup.retrofit:converter-gson:2.0.0-beta1'  // Gson converter
+    compile 'com.squareup.okhttp:okhttp:2.4.0'
 }
 ```
 
+In the past, Retrofit relied on the [Gson](https://github.com/google/gson) library to parse JSON data. Retrofit 2 now supports many different parsers for processing network response data.  If you are not sure which one to use, you should use the Gson converter.  
+ 
+|Converter  | Library             
+|-----------|------------------------------------------------
+|Gson       | com.squareup.retrofit:converter-gson:2.0.0-beta1           
+|Jackson    | com.squareup.retrofit:converter-jackson:2.0.0-beta1          
+|Moshi      | com.squareup.retrofit:converter-moshi:2.0.0-beta1            
+|Protobuf   | com.squareup.retrofit:converter-protobuf:2.0.0-beta1         
+|Wire       | com.squareup.retrofit:converter-wire:2.0.0-beta1             
+|Simple XML | com.squareup.retrofit:converter-simplexml:2.0.0-beta1        
+
 ### Create Java Objects for Resources
 
-You can also create them manually, but you will need to create your own Java classes and learn how to use the [Gson](https://github.com/google/gson) library that is used by default with Retrofit.  You can also auto-generate the Java objects you need by capturing the JSON output and using [jsonschema2pojo](http://www.jsonschema2pojo.org/).   We encourage you to follow the first way to best understand how the auto-generated code approach works.
+There are two approaches discussed in this guide.  The first way is the manual approach, which requires you to learn how to use the [Gson](https://github.com/google/gson) library.  The second approach is you can also auto-generate the Java objects you need by capturing the JSON output and using [jsonschema2pojo](http://www.jsonschema2pojo.org/).   We encourage you to follow the manual way to best understand how the auto-generated code approach works.
 
 #### Creating Java objects manually
 
-Retrofit by default relies on the Gson library to parse JSON.  See [[this guide|Leveraging-the-Gson-Library]] for more information about how to create your own Java objects for use with Retrofit.
+See [[this guide|Leveraging-the-Gson-Library]] for more information about how to create your own Java objects for use with Retrofit.   The guide shows how to use Gson to ingest data from the Rotten Tomatoes API, but it can be used in the same way for any RESTful web service.
 
 #### Auto-generating the Java objects
 
+Assuming you have the JSON response already, go to [jsonschema2pojo](http://www.jsonschema2pojo.org/).
 Make sure to select `JSON` as the Source Type:
 
 <img src="http://imgur.com/3DRH984.png"/>
 
-If you happen to be creating Java models using the previous step, you therefore won't need to do anything else and select `None` as the Annotation type.
+You can select the Annotation style to `Gson`, but it's not entirely necessary since the Java file created will work without it.  For now, select `None` as the Annotation type.
 
 <img src="http://imgur.com/aTrRfpu.png"/>
 
@@ -58,8 +71,6 @@ dependencies {
   provided 'org.glassfish:javax.annotation:10.0-b28'
 ```
 
-Note: if you are trying to use Java models that you may have already created, see [this section](Consuming-APIs-with-Retrofit#migrating-previously-defined-java-objects).
-
 ### Creating the RestAdapter
 
 To send out network requests to an API, we need to construct a [RestAdapter](http://square.github.io/retrofit/javadoc/retrofit/RestAdapter.html) by specifying the base url for the service:
@@ -68,14 +79,37 @@ To send out network requests to an API, we need to construct a [RestAdapter](htt
 public static final String BASE_URL = "http://api.myservice.com";
 RestAdapter restAdapter = new RestAdapter.Builder()
     .setEndpoint(BASE_URL)
+    .addConverterFactory(GsonConverterFactory.create())
     .build();
 ```
 
 ### Define the Endpoints
 
-With Retrofit, endpoints are defined inside of an interface using special retrofit annotations to encode details about the parameters and request method. 
+With Retrofit 2, endpoints are defined inside of an interface using special retrofit annotations to encode details about the parameters and request method.   In addition, the return value is always a parameterized `Call<T>` object such as `Call<User>`. 
 
 The interface defines each endpoint in the following way:
+
+```java
+public interface MyApiEndpointInterface {
+    // Request method and URL specified in the annotation
+    // Callback for the parsed response is the last parameter
+
+    @GET("/users/{username}")
+    Call<User> getUser(@Path("username") String username);
+
+    @GET("/group/{id}/users")
+    Call<List<User>> groupList(@Path("id") int groupId, @Query("sort") String sort);
+
+    @POST("/users/new")
+    Call<User> createUser(@Body User user);
+}
+```
+
+Notice that each endpoint specifies an annotation of the HTTP method (GET, POST, etc.) and method that will be used to dispatch the network call.  Note that the parameters of this method can contain either `@Path` or `@Query` annotations.  `@Path` is essentially used to do variable substitution for the API endpoint (i.e. username will be swapped for `{username}` in the URL endpoint).  `@Query` specifies the query key name with the value corresponding to the value of that annotated parameter.
+
+#### Upgrading from Retrofit 1
+
+If you are trying to upgrade from Retrofit 1, you may remember that the last parameter had to be a `Callback` type:
 
 ```java
 public interface MyApiEndpointInterface {
@@ -93,13 +127,9 @@ public interface MyApiEndpointInterface {
 }
 ```
 
-Notice that each endpoint specifies an annotation of the HTTP method (GET, POST, etc.) and method that will be used to dispatch the network call.  Note that the parameters of this method can contain either `@Path` or `@Query` annotations.  `@Path` is essentially used to do variable substitution for the API endpoint (i.e. username will be swapped for `{username}` in the URL endpoint).  `@Query` specifies the query key name with the value corresponding to the value of that annotated parameter.
+When this `Callback` type is provided as a last parameter, Retrofit 1 would dispatch the task asynchronously instead of synchronously.   To avoid having different calling patterns for synchronous and asynchronous calls, this interface was consolidated in Retrofit 2.  You now simply define the return value with a parameterized `Call<T>`, as shown in the previous section.
 
-Note also that the last parameter is a `Callback` type.  When this type is specified, Retrofit will dispatch the task asynchronously.  Unlike OkHttp, which dispatches the callback on the worker thread, callbacks in Retrofit are dispatched on the [main thread](http://stackoverflow.com/questions/21006807/does-retrofit-make-network-calls-on-main-thread/21010181#21010181).  Because UI updates can only be done on the main thread, the approach used by Retrofit can make it easier to make changes to your views.
-
-Check out the [retrofit docs](http://square.github.io/retrofit/) for additional features available while defining the endpoints.
-
-### Accessing the API
+#### Accessing the API
 
 We can bring this all together by constructing a service through the `RestAdapter` leveraging the `MyApiEndpointInterface` interface with the defined endpoints:
 
@@ -108,27 +138,26 @@ MyApiEndpointInterface apiService =
     restAdapter.create(MyApiEndpointInterface.class);
 ```
 
-We can now consume our API using the service created above:
+If we want to consume the API asynchronously, we call the service as follows:
 
 ```java
 String username = "sarahjean";
-apiService.getUser(username, new Callback<User>() {
+Call<User> call = apiService.getUser(username);
+call.enqueue(new Callback<User>() {
     @Override
-    public void success(User user, Response response) {
-        // Access user here after response is parsed
+    public void onResponse(Response<User> response) {
+        int statusCode = response.code();
+        User user = response.body();  
     }
 
     @Override
-    public void failure(RetrofitError retrofitError) {
+    public void onFailure(Throwable t) {
         // Log error here since request failed
     }
 });
 ```
 
-Shown above, Retrofit will download and parse the API data on a background thread, and then deliver the results back to the UI thread via the success or failure method.
-
-Be sure to check out a [sample TwitchTvClient](https://github.com/MeetMe/TwitchTvClient) for a working sample and the [retrofit docs](http://square.github.io/retrofit/) for additional details about how to use the library.
-
+Shown above, Retrofit will download and parse the API data on a background thread, and then deliver the results back to the UI thread via the `onResponse` or `onFailure` method.
 
 ## Retrofit and Authentication
 
@@ -176,5 +205,5 @@ Several other Android OAuth libraries can be explored instead of signpost:
  * <http://engineering.meetme.com/2014/03/best-practices-for-consuming-apis-on-android/>
  * <https://github.com/MeetMe/TwitchTvClient>
  * <http://themakeinfo.com/2015/04/android-retrofit-images-tutorial/>
-
-**Attribution:** This guide has been adapted from [this external guide](http://engineering.meetme.com/2014/03/best-practices-for-consuming-apis-on-android/) authored by [MeetMe](http://www.meetme.com/).
+ * <https://speakerdeck.com/jakewharton/simple-http-with-retrofit-2-droidcon-nyc-2015>
+ * <https://github.com/square/retrofit/issues/297>
