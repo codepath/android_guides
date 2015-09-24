@@ -12,19 +12,19 @@ dependencies {
 }
 ```
 
-If you have previous Apache HTTP header import headers declared, you may need to change these import statements:
+If you are upgrading from previous versions, you need to change these import statements for the `Header` class from:
 
 ```java
 import org.apache.http.Header;
 ```
 
-Replace with this line:
+Replaced with this line:
 
 ```java
 import cz.msebera.android.httpclient.Header;
 ```
 
-If you have other import statements that start with `org.apache.http`, you also need to change them to `cz.msebera.android.httpclient`.
+If you have any other import statements that start with `org.apache.http`, you also need to change them to `cz.msebera.android.httpclient`.
 
 Mac users can use the following shortcut:
 ```bash
