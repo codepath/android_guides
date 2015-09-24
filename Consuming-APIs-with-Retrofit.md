@@ -73,7 +73,7 @@ dependencies {
 
 ### Creating the RestAdapter
 
-To send out network requests to an API, we need to construct a [RestAdapter](http://square.github.io/retrofit/javadoc/retrofit/RestAdapter.html) by specifying the base url for the service:
+To send out network requests to an API, we need to construct a [RestAdapter](http://square.github.io/retrofit/javadoc/retrofit/RestAdapter.html) by specifying the base URL for the service:
 
 ```java
 public static final String BASE_URL = "http://api.myservice.com";
@@ -85,9 +85,9 @@ RestAdapter restAdapter = new RestAdapter.Builder()
 
 ### Define the Endpoints
 
-With Retrofit 2, endpoints are defined inside of an interface using special retrofit annotations to encode details about the parameters and request method.   In addition, the return value is always a parameterized `Call<T>` object such as `Call<User>`. 
+With Retrofit 2, endpoints are defined inside of an interface using special retrofit annotations to encode details about the parameters and request method.   In addition, the return value is always a parameterized `Call<T>` object such as `Call<User>`.   If you do not need any type-specific response, you can specify return value as simply `Call<Response>`.
 
-The interface defines each endpoint in the following way:
+For instance, the interface defines each endpoint in the following way:
 
 ```java
 public interface MyApiEndpointInterface {
@@ -105,11 +105,17 @@ public interface MyApiEndpointInterface {
 }
 ```
 
-Notice that each endpoint specifies an annotation of the HTTP method (GET, POST, etc.) and method that will be used to dispatch the network call.  Note that the parameters of this method can contain either `@Path` or `@Query` annotations.  `@Path` is essentially used to do variable substitution for the API endpoint (i.e. username will be swapped for `{username}` in the URL endpoint).  `@Query` specifies the query key name with the value corresponding to the value of that annotated parameter.
+Notice that each endpoint specifies an annotation of the HTTP method (GET, POST, etc.) and method that will be used to dispatch the network call.  Note that the parameters of this method can also have special annotations:
+
+| Annotation| Description
+------------|-------------------
+|`@Path`    | variable substitution for the API endpoint (i.e. username will be swapped for `{username}` in the URL endpoint). 
+| `@Query`  | specifies the query key name with the value corresponding to the value of that annotated parameter.
+| `@Body`   | payload for the POST call
 
 #### Upgrading from Retrofit 1
 
-If you are trying to upgrade from Retrofit 1, you may remember that the last parameter had to be a `Callback` type:
+If you are trying to upgrade from Retrofit 1, you may remember that the last parameter had to be a `Callback` type if you wanted to define the API call to run asynchronously instead of synchronously:
 
 ```java
 public interface MyApiEndpointInterface {
@@ -127,7 +133,7 @@ public interface MyApiEndpointInterface {
 }
 ```
 
-When this `Callback` type is provided as a last parameter, Retrofit 1 would dispatch the task asynchronously instead of synchronously.   To avoid having different calling patterns for synchronous and asynchronous calls, this interface was consolidated in Retrofit 2.  You now simply define the return value with a parameterized `Call<T>`, as shown in the previous section.
+Retrofit 1 relied on this `Callback` type as a last parameter to determine whether the API call would be dispatched asynchronously instead of synchronously.   To avoid having two different calling patterns, this interface was consolidated in Retrofit 2.  You now simply define the return value with a parameterized `Call<T>`, as shown in the previous section.  
 
 #### Accessing the API
 
