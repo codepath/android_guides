@@ -161,8 +161,6 @@ public boolean onCreateOptionsMenu(Menu menu) {
 
 Now, once you've setup the ShareActionProvider menu item, construct and attach the share intent for the provider but only **after image has been loaded** as shown below using the `Callback` for `Picasso`.
 
-**Note:** The following requires a **recent release** of the third-party image library `Picasso` which supports completion callbacks. Make sure to use an updated the version of the library used by downloading [this Picasso jar](http://repo1.maven.org/maven2/com/squareup/picasso/picasso/2.3.4/picasso-2.3.4.jar).
-
 ```java
 @Override
 protected void onCreate(Bundle savedInstanceState) {
