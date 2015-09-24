@@ -272,14 +272,14 @@ AsyncHttpClient client = new AsyncHttpClient();
 }
 ```
 
-#### Retrofit
+#### Retrofit 2
 
 Retrofit uses [OkHttp](http://square.github.io/okhttp/) for the underlying networking library and relies on the Gson library by default for decoding on API-based responses.  To use it, we first need to define an interface file called `RottenTomatoesService.java`.  To ensure that the API call will be made asynchronously, we also define a callback interface.  Note that if this API call required other parameters, we should always make sure that the `Callback` declaration is last.
     
 ```java
  public interface RottenTomatoesService {
         @GET("/lists/movies/box_office.json")
-        public void listRepos(Callback<BoxOfficeMovieResponse> responseCallback);
+        public Call<BoxOfficeMovieResponse> listRepos();
     }
 ```
 
@@ -314,7 +314,8 @@ We then simply need to create a service class that will enable us to make API ca
 ```java
 RottenTomatoesService service = restAdapter.create(RottenTomatoesService.class);
 
-service.listRepos(new Callback<BoxOfficeMovies>() {
+Call<BoxOfficeMovies> call = service.listRepos();
+call.execute(new Callback<BoxOfficeMovies>() {
             @Override
             public void success(BoxOfficeMovies boxOfficeMovies, Response response) {
                 // handle response here
