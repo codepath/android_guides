@@ -109,9 +109,10 @@ Notice that each endpoint specifies an annotation of the HTTP method (GET, POST,
 
 | Annotation| Description
 ------------|-------------------
-|`@Path`    | variable substitution for the API endpoint (i.e. username will be swapped for `{username}` in the URL endpoint). 
+| `@Headers`   | variable substitution for the API endpoint (i.e. username will be swapped for `{username}` in the URL endpoint). 
 | `@Query`  | specifies the query key name with the value corresponding to the value of that annotated parameter.
 | `@Body`   | payload for the POST call
+
 
 #### Changing the base URL
 
@@ -122,6 +123,26 @@ Normally, the base URL is defined when you instantiated the [RestAdapter](#creat
 ```
 
 There are also others that allow you to modify the base URL using relative paths (and not the fully qualified URL) as discussed in this [blog article](http://inthecheesefactory.com/blog/retrofit-2.0/en).
+
+#### Multipart forms
+ 
+If we wish to POST multi-part form data, we can use the `@Multipart` and `@Part` annotations:
+
+```java
+@Multipart
+@POST("/some/endpoint")
+Call<SomeResponse> someEndpoint(@Part("name1") String name1, @Part("name2") String name2)
+```
+
+#### Form URL encoding
+
+If we wish to POST form-encoded name/value pairs, we can use the @FormUrlEncoded and @FieldMap annotations:
+
+```java
+@FormUrlEncoded
+@POST("/some/endpoint")
+Call<SomeResponse> someEndpoint(@FieldMap Map<String, String> names);
+```
 
 #### Upgrading from Retrofit 1
 
