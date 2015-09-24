@@ -4,24 +4,11 @@ A popular third-party library called [android-async-http](http://loopj.com/andro
 
 ### Setup
 
-Normally, we would simply need to add the library to our `app/build.gradle` file:
+Add the library to our `app/build.gradle` file:
 
 ```gradle
 dependencies {
-  compile 'com.loopj.android:android-async-http:1.4.8'
-}
-```
-
-However, because of issues related to [Android M](https://github.com/loopj/android-async-http/issues/830) and [Gzip decoding](https://github.com/loopj/android-async-http/issues/932), we strongly recommend using the snapshot version instead of v1.4.8.
-
-```gradle
-repositories {
-    maven {
-        url 'https://oss.sonatype.org/content/repositories/snapshots/'
-    }
-}
-dependencies {
-    compile 'com.loopj.android:android-async-http:1.4.9-SNAPSHOT'
+  compile 'com.loopj.android:android-async-http:1.4.9'
 }
 ```
 
@@ -44,8 +31,6 @@ Mac users can use the following shortcut:
 brew install gnu-sed
 find . -name '*.java' -exec gsed -i 's/org.apache.http/cz.msebera.android.httpclient/g' \{\} +
 ```
-
-If you would rather stay with a non-snapshot version, see the [troubleshooting section](#troubleshooting) for details about how to sidestep many of the issues encountered.
 
 ### Sending a Network Request
 
@@ -132,56 +117,3 @@ client.getHomeTimeline(1, new JsonHttpResponseHandler() {
 ```
 
 Note that as shown above you should also **handle failure cases** with [JsonHttpResponseHandler](http://loopj.com/android-async-http/doc/com/loopj/android/http/JsonHttpResponseHandler.html#onFailure\(java.lang.Throwable, org.json.JSONObject\)) using the `onFailure` method so your application is robust to "losing internet" and user doesn't become confused with unexpected results.
-
-### Troubleshooting
-
-#### Resolving Android Marshmallow Compatibility Issues
-
-If you are not using the [[snapshot version|Using-Android-Async-Http-Client#setup]], here are the documented workarounds.
-
-##### Option 1: rely on the `useLibrary` Gradle command
-
-Apache HTTP client (a dependency of [android-async-http](http://loopj.com/android-async-http/)) has been [removed from Marshmallow](http://developer.android.com/preview/behavior-changes.html#behavior-apache-http-client). If your app targets API 23, you'll need to add the following to your gradle file until the [library is updated](https://github.com/loopj/android-async-http/issues/830):
-
-  ```gradle
-  android {
-      compileSdkVersion 23
-      useLibrary 'org.apache.http.legacy'   // required if compileSdkVersion >= 23
-  }
-  ```
-
-You may also need to add the import statement manually to your Java file wherever you make network calls with this library:
-
-```java
-import org.apache.http.Header;
-```
-
-The reason is that is a current bug in Android Studio 1.3.1 where it may not recognized this added library.  You will notice that Android Studio will not recognized the module:
-
-  <img src="https://i.imgur.com/jreDUla.png"/>
-
-Assuming you have included the `useLibrary` statement, your build should however compile successfully.  The Gradle configuration will add this library to the Java classpath, but the IDE currently has a bug where it is not recognized as an added dependency.  Use the second option if you would like to avoid these false warnings.
-
-##### Option #2: add the Apache Http library manually
-
-You can copy the `org.apache.http.legacy.jar` file to the `libs/` dir of your app.  This JAR is included with Android 23 in the respective locations:
-
-Mac OS users: `/Users/[username]/Library/Android/sdk/platforms/android-23/optional`
-
-PC users: `C:\Documents and Settings\<user>\AppData\Local\Android\sdk\platforms\android-23\optional`
-
-Copy this JAR file to your `app/libs` dir.  Make sure to `Mark as Library` if the file does not get expanded:
-
-<img src="http://i.imgur.com/hw0FVjk.gif">
-
-#### Fixing issues with Garbled JSON Response
-
-If you are noticing garbled data in the responses, it's likely that you have encountered a bug in the Android Async HTTP Client library that started appearing in the v1.4.4 version:
-
-<img src="https://cloud.githubusercontent.com/assets/126405/5264140/d878ea00-7a40-11e4-867f-6515814861a0.png"/>
-
-If you are not using the snapshot version, the current workaround is to disable Gzip compression as described in this [GitHub comment](https://github.com/loopj/android-async-http/issues/932#issuecomment-134549073):
-
-```java
-httpClient.addHeader("Accept-Encoding", "identity"); // disable gzip
-```
