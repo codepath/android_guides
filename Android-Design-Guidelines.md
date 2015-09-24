@@ -36,6 +36,8 @@ Check out the [UI Overview](http://developer.android.com/design/get-started/ui-o
 
 Check out the [color scheme guide](http://www.google.com/design/spec/style/color.html) and the [android colors](http://developer.android.com/design/style/color.html) which includes common color palettes for Android apps. For nice color schemes check out:
 
+  * [Material Palette](https://www.materialpalette.com/) and [Material Colors](http://www.materialui.co/colors)
+  * [Coolors generator](https://coolors.co/) - Handy color scheme generator
   * [ColourLovers](http://www.colourlovers.com/palettes/new/past-month/meta?page=1) for color scheme 
   * [adobe kuler](https://kuler.adobe.com) color wheel for color selection
   * [Colors library](https://github.com/MatthewYork/Colours) - Android library with pre-defined colors
