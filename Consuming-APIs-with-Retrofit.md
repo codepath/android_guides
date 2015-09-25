@@ -42,7 +42,7 @@ There are two approaches discussed in this guide.  The first way is the manual a
 
 #### Manual approach - Creating Java objects by hand
 
-See [[this guide|Leveraging-the-Gson-Library]] for more information about how to create your own Java objects for use with Retrofit.   The guide shows how to use Gson to ingest data from the Rotten Tomatoes API, but it can be used in the same way for any RESTful web service.
+See [[this guide about leveraging the Gson library|Leveraging-the-Gson-Library]] for more information about how to create your own Java objects for use with Retrofit.   The guide shows how to use Gson to ingest data from the Rotten Tomatoes API, but it can be used in the same way for any RESTful web service.
 
 #### Automated approach - Auto-generating the Java objects
 
