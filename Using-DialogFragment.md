@@ -46,7 +46,9 @@ public class EditNameDialog extends DialogFragment {
 	private EditText mEditText;
 
 	public EditNameDialog() {
-		// Empty constructor required for DialogFragment
+		// Empty constructor is required for DialogFragment
+                // Make sure not to add arguments to the constructor
+                // Use `newInstance` instead as shown below
 	}
 	
 	public static EditNameDialog newInstance(String title) {
@@ -60,15 +62,21 @@ public class EditNameDialog extends DialogFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.fragment_edit_name, container);
-		mEditText = (EditText) view.findViewById(R.id.txt_your_name);
+		return inflater.inflate(R.layout.fragment_edit_name, container);
+	}
+
+	@Override
+	public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        	super.onViewCreated(view, savedInstanceState);
+                // Get field from view
+                mEditText = (EditText) view.findViewById(R.id.txt_your_name);
+                // Fetch arguments from bundle and set title
 		String title = getArguments().getString("title", "Enter Name");
 		getDialog().setTitle(title);
-		// Show soft keyboard automatically
+		// Show soft keyboard automatically and request focus to field
 		mEditText.requestFocus();
 		getDialog().getWindow().setSoftInputMode(
-				WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
-		return view;
+		    WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
 	}
 }
 ```
@@ -212,6 +220,8 @@ public class FragmentDialogDemo extends FragmentActivity implements EditNameDial
 
 ## Styling Dialogs
 
+### Styling Custom Dialog
+
 Styling a DialogFragment with a custom layout works just the [[same as styling any views|Styles-and-Themes]]. Styling a dialog or `AlertDialog` requires changing several key properties in `styles.xml` such as the `dialogTheme` and `alertDialogTheme` as shown in this app [here](https://github.com/irccloud/android/blob/master/res/values/styles.xml) and shown below in `res/values/styles.xml`:
 
 ```xml
@@ -240,6 +250,42 @@ Styling a DialogFragment with a custom layout works just the [[same as styling a
     <item name="colorPrimaryDark">#000</item>
     <item name="colorControlNormal">@color/dark_blue</item>
     <item name="android:textColorHighlight">@color/light_blue</item>
+</style>
+```
+
+### Styling Titlebar of Dialog
+
+The titlebar can be styled using the "android:windowTitleStyle" as follows:
+
+```xml
+<style name="AppTheme" parent="Theme.AppCompat.Light">
+    <!-- Apply default style for dialogs -->
+    <item name="dialogTheme">@style/AppDialogTheme</item>
+    <!-- Apply default style for alert dialogs -->
+    <item name="alertDialogTheme">@style/AppAlertTheme</item>
+</style>
+
+<style name="AppDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+    <item name="android:windowTitleStyle">@style/DialogTitleTextStyle</item>
+    <!-- ...other stuff here... -->
+</style>
+
+
+<style name="AppAlertTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+    <item name="android:windowTitleStyle">@style/DialogWindowTitle</item>
+    <!-- ...other stuff here... -->
+</style>
+
+<style name="DialogWindowTitle" parent="Base.DialogWindowTitle.AppCompat">
+    <item name="android:background">@android:color/transparent</item>
+    <item name="android:gravity">center</item>
+    <item name="android:textAppearance">@style/TextAppearance.DialogWindowTitle</item>
+</style>
+
+<style name="TextAppearance.DialogWindowTitle">
+    <item name="android:textSize">18sp</item>
+    <item name="android:textStyle">normal</item>
+    <item name="android:textColor">?textColorPrimary</item>
 </style>
 ```
 
