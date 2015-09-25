@@ -234,9 +234,9 @@ Styling a DialogFragment with a custom layout works just the [[same as styling a
 <!-- In res/values/styles.xml -->
 <style name="AppTheme" parent="Theme.AppCompat.Light">
     <!-- Apply default style for dialogs -->
-    <item name="dialogTheme">@style/AppDialogTheme</item>
+    <item name="android:dialogTheme">@style/AppDialogTheme</item>
     <!-- Apply default style for alert dialogs -->
-    <item name="alertDialogTheme">@style/AppAlertTheme</item>
+    <item name="android:alertDialogTheme">@style/AppAlertTheme</item>
 </style>
 
 <!-- Define your custom dialog theme here extending from base -->
