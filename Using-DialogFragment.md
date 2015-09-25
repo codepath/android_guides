@@ -313,7 +313,7 @@ We can make the dialog (or the title of the dialog) translucent using the `andro
 
 Note that this removes the [default background image](https://github.com/android/platform_frameworks_support/blob/master/v7/appcompat/res/drawable/abc_dialog_material_background_light.xml) from the dialog `@drawable/abc_dialog_material_background_light` and as a result the shadow and border is removed.
 
-To complete the transparent effect, make sure to **set the alpha channel of the color** as [outlined here](http://stackoverflow.com/a/16890937) to make any colors semi-transparent.
+To complete the transparent effect, make sure to **set the alpha channel of the background colors** as [outlined here](http://stackoverflow.com/a/16890937) to make any background colors semi-transparent.
 
 ### Styling with Third-Party Libraries
 
