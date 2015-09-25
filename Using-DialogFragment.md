@@ -225,6 +225,13 @@ public class FragmentDialogDemo extends FragmentActivity implements EditNameDial
 Styling a DialogFragment with a custom layout works just the [[same as styling any views|Styles-and-Themes]]. Styling a dialog or `AlertDialog` requires changing several key properties in `styles.xml` such as the `dialogTheme` and `alertDialogTheme` as shown in this app [here](https://github.com/irccloud/android/blob/master/res/values/styles.xml) and shown below in `res/values/styles.xml`:
 
 ```xml
+<!-- In res/values/colors.xml -->
+<color name="dark_blue">#180065</color>
+<color name="light_blue">#334ee9ff</color>
+<color name="medium_green">#3d853e</color>
+<color name="light_green">#3c2ae668</color>
+
+<!-- In res/values/styles.xml -->
 <style name="AppTheme" parent="Theme.AppCompat.Light">
     <!-- Apply default style for dialogs -->
     <item name="dialogTheme">@style/AppDialogTheme</item>
@@ -234,13 +241,18 @@ Styling a DialogFragment with a custom layout works just the [[same as styling a
 
 <!-- Define your custom dialog theme here extending from base -->
 <style name="AppDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+    <!-- Define color properties as desired -->
     <item name="colorPrimary">@color/dark_blue</item>
     <item name="colorPrimaryDark">#000</item>
+    <item name="android:textColorHighlight">@color/light_blue</item>
     <item name="colorAccent">@color/dark_blue</item>
     <item name="colorControlNormal">@color/dark_blue</item>
-    <item name="android:windowBackground">@android:color/transparent</item>
-    <item name="android:background">#4CAF50</item>
-    <item name="android:textColorHighlight">@color/light_blue</item>
+    <!-- Define window properties as desired -->
+    <item name="android:windowNoTitle">false</item>
+    <item name="android:windowFullscreen">false</item>
+    <item name="android:windowBackground">@color/medium_green</item>
+    <item name="android:windowIsFloating">true</item>
+    <item name="android:windowCloseOnTouchOutside">true</item>
 </style>
 
 <!-- Define your custom alert theme here extending from base -->
@@ -260,13 +272,13 @@ The titlebar can be styled using the "android:windowTitleStyle" as follows:
 ```xml
 <style name="AppTheme" parent="Theme.AppCompat.Light">
     <!-- Apply default style for dialogs -->
-    <item name="dialogTheme">@style/AppDialogTheme</item>
+    <item name="android:dialogTheme">@style/AppDialogTheme</item>
     <!-- Apply default style for alert dialogs -->
-    <item name="alertDialogTheme">@style/AppAlertTheme</item>
+    <item name="android:alertDialogTheme">@style/AppAlertTheme</item>
 </style>
 
 <style name="AppDialogTheme" parent="Theme.AppCompat.Light.Dialog">
-    <item name="android:windowTitleStyle">@style/DialogTitleTextStyle</item>
+    <item name="android:windowTitleStyle">@style/DialogWindowTitle</item>
     <!-- ...other stuff here... -->
 </style>
 
@@ -277,15 +289,13 @@ The titlebar can be styled using the "android:windowTitleStyle" as follows:
 </style>
 
 <style name="DialogWindowTitle" parent="Base.DialogWindowTitle.AppCompat">
-    <item name="android:background">@android:color/transparent</item>
+    <item name="android:background">@color/light_green</item>
     <item name="android:gravity">center</item>
-    <item name="android:textAppearance">@style/TextAppearance.DialogWindowTitle</item>
+    <item name="android:textAppearance">@style/DialogWindowTitleText</item>
 </style>
 
-<style name="TextAppearance.DialogWindowTitle">
-    <item name="android:textSize">18sp</item>
-    <item name="android:textStyle">normal</item>
-    <item name="android:textColor">?textColorPrimary</item>
+<style name="DialogWindowTitleText" parent="@android:style/TextAppearance.DialogWindowTitle">
+    <item name="android:textSize">24sp</item>
 </style>
 ```
 
