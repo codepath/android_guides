@@ -40,11 +40,11 @@ In the past, Retrofit relied on the [Gson](https://github.com/google/gson) libra
 
 There are two approaches discussed in this guide.  The first way is the manual approach, which requires you to learn how to use the [Gson](https://github.com/google/gson) library.  The second approach is you can also auto-generate the Java objects you need by capturing the JSON output and using [jsonschema2pojo](http://www.jsonschema2pojo.org/).   We encourage you to follow the manual way to best understand how the auto-generated code approach works.
 
-#### Creating Java objects manually
+#### Manual approach - Creating Java objects by hand
 
 See [[this guide|Leveraging-the-Gson-Library]] for more information about how to create your own Java objects for use with Retrofit.   The guide shows how to use Gson to ingest data from the Rotten Tomatoes API, but it can be used in the same way for any RESTful web service.
 
-#### Auto-generating the Java objects
+#### Automated approach - Auto-generating the Java objects
 
 Assuming you have the JSON response already, go to [jsonschema2pojo](http://www.jsonschema2pojo.org/).
 Make sure to select `JSON` as the Source Type:
