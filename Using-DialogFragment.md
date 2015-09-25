@@ -299,6 +299,24 @@ The titlebar can be styled using the "android:windowTitleStyle" as follows:
 </style>
 ```
 
+### Transparent Dialogs
+
+We can make the dialog (or the title of the dialog) translucent using the `android:windowBackground` property:
+
+```xml
+<style name="AppDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+    <item name="android:windowIsTranslucent">true</item>
+    <item name="android:windowBackground">@android:color/transparent</item>
+    <!-- ...other stuff here... -->
+</style>
+```
+
+Note that this removes the [default background image](https://github.com/android/platform_frameworks_support/blob/master/v7/appcompat/res/drawable/abc_dialog_material_background_light.xml) from the dialog `@drawable/abc_dialog_material_background_light` and as a result the shadow and border is removed.
+
+To complete the transparent effect, make sure to **set the alpha channel of the color** as [outlined here](http://stackoverflow.com/a/16890937) to make any colors semi-transparent.
+
+### Styling with Third-Party Libraries
+
 Note that [third party libraries](https://github.com/afollestad/material-dialogs) can be used to simplify and improve styling as well.
 
 ## Sizing Dialogs
