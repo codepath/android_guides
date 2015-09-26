@@ -319,6 +319,8 @@ To complete the transparent effect, make sure to **set the alpha channel of the 
 
 Note that [third party libraries](https://github.com/afollestad/material-dialogs) can be used to simplify and improve styling as well.
 
+In order to use this library, you will need to add in maven repository to your build.gradle file. Your gradle file should look [something like this].(https://github.com/afollestad/impression/blob/master/app/build.gradle#L38-L46)
+
 ## Sizing Dialogs
 
 In certain situations, you may want to set the height and width of the `DialogFragment` at runtime during creation. This can be done easily with `getDialog().getWindow()` as follows. In the XML simply set the root layout to wrap_content:
