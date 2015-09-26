@@ -118,7 +118,7 @@ return uri;
 
 You get the `Drawable` from the `ImageView`.  You get the `Bitmap` from the `Drawable`.  Put that bitmap into the Media image store.  That gives you a path which can be used instead of a file path or URL.  Note the original webpage had an additional problem with immutable bitmaps, solved by drawing the bitmap into a canvas (never shown on screen).  See linked page above for details.
 
-**Note:** There is a [bug with Android](https://code.google.com/p/android/issues/detail?id=75447) that will cause this to fail with `E/MediaStore﹕ Failed to insert image` unless the media directory is initialized as described in the link.
+**Note:** There is a [common bug on emulators](https://code.google.com/p/android/issues/detail?id=75447) that will cause `MediaStore.Images.Media.insertImage` to fail with `E/MediaStore﹕ Failed to insert image` unless the media directory is first initialized as described in the link.
 
 ### ShareActionProvider
 
