@@ -216,24 +216,27 @@ Note also that OkHttp, which dispatches the callback on the worker thread, callb
 
 ### Using Authentication Headers
 
-Headers can be added to a request using a `RequestInterceptor`. To send requests to an authenticated API, add headers to your requests using an interceptor as outlined below:
+Headers can be added to a request using an `Interceptor`. To send requests to an authenticated API, add headers to your requests using an interceptor as outlined below:
 
 ```java
 // Define the interceptor, add authentication headers
-RequestInterceptor requestInterceptor = new RequestInterceptor() {
+Interceptor interceptor = new Interceptor() {
   @Override
-  public void intercept(RequestFacade request) {
-    request.addHeader("User-Agent", "Retrofit-Sample-App");
+  public void intercept(Chain chain) throws IOException {
+    Request newRequest = chain.request();
+    newRequest.newBuilder().addHeader("User-Agent", "Retrofit-Sample-App");
+    return chain.proceed(newRequest);
   }
 };
 
 // Add the interceptor to OkHttpClient 
 OkHttpClient client = new OkHttpClient();
-client.interceptors().add(requestInterceptor);
+client.interceptors().add(interceptor);
 
 // Set the custom client when building adapter
 Retrofit retrofit = new Retrofit.Builder()
   .setEndpoint("https://api.github.com")
+  .addConverterFactory(GsonConverterFactory.create())
   .client(client)
   .build();
 ```
