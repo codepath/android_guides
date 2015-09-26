@@ -328,14 +328,14 @@ RequestInterceptor requestInterceptor = new RequestInterceptor() {
 };
 ```
 
-Next, we need to create a `RestAdapter` and making sure to associate the adapter to this `RequestInterceptor`:
+Next, we need to create a `Retrofit` instance and making sure to associate the adapter to this `RequestInterceptor`:
 
 ```java 
 // Add the interceptor to OkHttpClient 
 OkHttpClient client = new OkHttpClient();
 client.interceptors().add(requestInterceptor);
 
-RestAdapter restAdapter = new RestAdapter.Builder()
+Retrofit retrofit = new Retrofit.Builder()
                .client(client)
                .setEndpoint("http://api.rottentomatoes.com/api/public/v1.0")
                .build();
@@ -344,14 +344,14 @@ RestAdapter restAdapter = new RestAdapter.Builder()
 We then simply need to create a service class that will enable us to make API calls:
 
 ```java
-RottenTomatoesService service = restAdapter.create(RottenTomatoesService.class);
+RottenTomatoesService service = retrofit.create(RottenTomatoesService.class);
 
 Call<BoxOfficeMovieResponse> call = service.listRepos();
 call.enqueue(new Callback<BoxOfficeMovieResponse>() {
             @Override
             public void onResponse(Response response) {
                 // handle response here
-                BoxOfficeMovieResponse boxOfficeMoveiResponse = response.body();
+                BoxOfficeMovieResponse boxOfficeMovieResponse = response.body();
             }
 
             @Override
