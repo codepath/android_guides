@@ -48,9 +48,9 @@ There are at least two popular third-party networking libraries you should consi
 
     - Be aware that callbacks occur on a separate thread.  If you need to update the UI after an asynchronous call, you need to posting back to the main thread as discussed in this [Stack Overflow article](http://stackoverflow.com/questions/24246783/okhttp-response-callbacks-on-the-main-thread).
 
-    - See also the [[Retrofit guide|Consuming-APIs-with-Retrofit]], which uses OkHttp and makes it easier to make more RESTful API calls.  
+    - See also the [[Retrofit guide|Consuming-APIs-with-Retrofit]], which uses OkHttp and makes it easier to make more RESTful API calls.  Read through [[this guide|Leveraging-the-Gson-Library]] to understand how the Gson library works.
 
-There can be a bit of a learning curve with using OkHttp and the [[Gson|Leveraging-the-Gson-Library]] library, so your best bet when first learning is to use Android Async Http Client.
+There can be a bit of a learning curve when using these libraries, so your best bet when first learning is to use Android Async Http Client.
 
 ### Sending an HTTP Request (The "Hard" Way)
 
