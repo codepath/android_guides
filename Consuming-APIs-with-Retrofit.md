@@ -238,7 +238,7 @@ Retrofit retrofit = new Retrofit.Builder()
   .build();
 ```
 
-Notice that in Retrofit 2 the interceptor has to be added to a custom `OkHttpClient`.  In Retrofit 1, it could be set directly with the RestAdapter.
+Notice that in Retrofit 2 the interceptor has to be added to a custom `OkHttpClient`.  In Retrofit 1, it could be set directly by the builder class.
 
 ### Using OAuth
 
