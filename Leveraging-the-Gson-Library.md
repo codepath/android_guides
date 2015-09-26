@@ -189,6 +189,7 @@ Gson gson = gsonBuilder.create();
 ```
 
 Similarly, the date format could also be used for parsing standard ISO format time directly into a Date object:
+
 ```java
 public String ISO_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";
 GsonBuilder gsonBuilder = new GsonBuilder();
@@ -196,18 +197,7 @@ gsonBuilder.setDateFormat(ISO_FORMAT);
 Gson gson = gsonBuilder.create();
 ```
 
-To enable the library to build a map what keys in the JSON data should match your internal variables, you can add annotations to provide the actual corresponding JSON name.  An example of a previously defined Java model using the based on GitHub's [User](https://developer.github.com/v3/users/) model is shown below.  Note how the `@SerializedName` annotation is used.
-
-```java
-@SerializedName("login")
-private String mLogin;
-
-@SerializedName("id")
-private Integer mId;
-
-@SerializedName("avatarUrl")
-private String mAvatarUrl;
-```
+In the event that Date fields need to mapped depending on the format, you are likely to need to need to use the custom deserializer approach described in the next section.
 
 #### Mapping custom Java types
 
@@ -238,6 +228,48 @@ Then we simply need to register this new type adapter and enable the Gson librar
 GsonBuilder gsonBuilder = new GsonBuilder();
 gsonBuilder.registerTypeAdapter(Timestamp.class, new TimestampDeserializer());
 Gson Gson = gsonBuilder.create();
+```
+
+#### Mapping multiple Date formats
+
+If an API uses different Date formats, then a custom type adapter can be used to make parsing more robust.  To use this approach, a default date policy should not be set by calling the method `setDateFormat()` as described in the [earlier section](#mapping-java-date-objects).  In addition, a custom deserializer should be registered and created:
+
+```java
+GsonBuilder gsonBuilder = new GsonBuilder();
+gsonBuilder.registerTypeAdapter(Date.class, new DateDeserializer());
+Gson Gson = gsonBuilder.create();
+```
+
+Leveraging the `DateUtils` class in the Apache Commons Language library, we can try multiple formats when attempting to parse a value to a Date field:
+
+Add this line to your Gradle file:
+
+```gradle
+    compile 'org.apache.commons:commons-lang3:3.3.2'
+```
+
+We can then use the [parseDate()](https://commons.apache.org/proper/commons-lang/javadocs/api-3.1/org/apache/commons/lang3/time/DateUtils.html#parseDate) method to try multiple date formats:
+
+```java
+final class DateAdapter implements JsonDeserializer<Date> {
+
+    DateAdapter() {
+    }
+
+    public static Date convertISO8601ToDate(String date) throws ParseException {
+        return DateUtils.parseDate(date, Locale.getDefault(),
+                DateFormatUtils.ISO_DATETIME_FORMAT.getPattern(),
+                DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern());
+    }
+
+    private Date deserializeToDate(JsonElement json) {
+        try {
+            return convertISO8601ToDate(json.getAsString());
+        } catch (ParseException e) {
+            throw new JsonSyntaxException(json.getAsString(), e);
+        }
+    }
+}
 ```
 
 ### HTTP Client Libraries
