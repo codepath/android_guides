@@ -319,6 +319,8 @@ To complete the transparent effect, make sure to **set the alpha channel of the 
 
 Note that [third party libraries](https://github.com/afollestad/material-dialogs) can be used to simplify and improve styling as well.
 
+![Material Dialog](https://i.imgur.com/U4mr2BB.jpg)
+
 In order to use this library, you will need to add in maven repository to your build.gradle file. Your gradle file should look [something like this](https://github.com/afollestad/impression/blob/master/app/build.gradle#L38-L46).
 
 ## Sizing Dialogs
