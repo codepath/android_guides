@@ -72,13 +72,13 @@ dependencies {
   provided 'org.glassfish:javax.annotation:10.0-b28'
 ```
 
-### Creating the RestAdapter
+### Creating the Retrofit instance
 
-To send out network requests to an API, we need to construct a [RestAdapter](http://square.github.io/retrofit/javadoc/retrofit/RestAdapter.html) by specifying the base URL for the service. 
+To send out network requests to an API, we need to construct a [Retrofit] instance (http://square.github.io/retrofit/javadoc/retrofit/Retrofit.html) by specifying the base URL for the service. 
 
 ```java
 public static final String BASE_URL = "http://api.myservice.com";
-RestAdapter restAdapter = new RestAdapter.Builder()
+Retrofit retrofit = new Retrofit.Builder()
     .setEndpoint(BASE_URL)
     .addConverterFactory(GsonConverterFactory.create())
     .build();
@@ -91,7 +91,7 @@ Gson gson = new GsonBuilder()
         .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
         .create();
 
-RestAdapter restAdapter = new RestAdapter.Builder()
+Retrofit retrofit = new Retrofit.Builder()
     .setEndpoint(BASE_URL)
     .addConverterFactory(GsonConverterFactory.create(gson))
     .build();
@@ -130,7 +130,7 @@ Notice that each endpoint specifies an annotation of the HTTP method (GET, POST,
 
 #### Changing the base URL
 
-Normally, the base URL is defined when you instantiated the [RestAdapter](#creating-the-restadapter). Retrofit 2 allows you to override the base URL specified by changing it in the annotation (i.e. if you need to keep one specific endpoint using an older API endpoint)
+Normally, the base URL is defined when you instantiated an [Retrofit instance](#creating-the-retrofit-instance). Retrofit 2 allows you to override the base URL specified by changing it in the annotation (i.e. if you need to keep one specific endpoint using an older API endpoint)
 
 ```java
 @POST("https://api.github.com/api/v3")
@@ -182,11 +182,11 @@ Retrofit 1 relied on this `Callback` type as a last parameter to determine wheth
 
 #### Accessing the API
 
-We can bring this all together by constructing a service through the `RestAdapter` leveraging the `MyApiEndpointInterface` interface with the defined endpoints:
+We can bring this all together by constructing a service leveraging the `MyApiEndpointInterface` interface with the defined endpoints:
 
 ```java
 MyApiEndpointInterface apiService =
-    restAdapter.create(MyApiEndpointInterface.class);
+    retrofit.create(MyApiEndpointInterface.class);
 ```
 
 If we want to consume the API asynchronously, we call the service as follows:
@@ -232,7 +232,7 @@ OkHttpClient client = new OkHttpClient();
 client.interceptors().add(requestInterceptor);
 
 // Set the custom client when building adapter
-RestAdapter restAdapter = new RestAdapter.Builder()
+Retrofit retrofit = new Retrofit.Builder()
   .setEndpoint("https://api.github.com")
   .client(client)
   .build();
