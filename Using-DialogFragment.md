@@ -317,11 +317,11 @@ To complete the transparent effect, make sure to **set the alpha channel of the 
 
 ### Styling with Third-Party Libraries
 
-Note that [third party libraries](https://github.com/afollestad/material-dialogs) can be used to simplify and improve styling as well.
+Note that [third party material libraries](http://guides.codepath.com/android/Material-Design-Primer#dialog-styles) such as [material-dialogs](https://github.com/afollestad/material-dialogs) can be used to simplify and improve dialog styling as well.
 
 ![Material Dialog](https://i.imgur.com/U4mr2BB.jpg)
 
-In order to use this library, you will need to add in maven repository to your build.gradle file. Your gradle file should look [something like this](https://github.com/afollestad/impression/blob/master/app/build.gradle#L38-L46).
+In order to use the "material-dialogs" library, you will need to add in maven repository to your build.gradle file. Your gradle file should look [something like this](https://github.com/afollestad/impression/blob/master/app/build.gradle#L38-L47).
 
 ## Sizing Dialogs
 
@@ -387,6 +387,8 @@ pd.dismiss();
 
 `ProgressDialog` can be safely paired with an [[AsyncTask|Creating-and-Executing-Async-Tasks]]. Refer to this [ProgressDialog tutorial](http://www.quicktips.in/show-progressdialog-android/) for a code sample. The dialog progress animation can be customized by supplying your own animation drawable [using this tutorial](http://islandofatlas.net/2014/03/29/android-custom-progress-dialog.html).
 
+Check out the CodePath [android-view-helpers](https://github.com/codepath/android-view-helpers) library for an easier way to create simple alert and progress modals.
+
 ## Things To Note
 
 * Notice that we are using the support library version of fragments for better compatibility in our code samples. The non-support version works identically.
@@ -395,10 +397,6 @@ pd.dismiss();
 * After loading the initial view, the activity immediately shows the dialog using the show() method which allows the fragment manager to keep track of the state and gives us certain things for free such as the back button dismissing the fragment.
 * In the code snippets above, notice the use of `requestFocus` and input modes to control the appearance of the soft keyboard when the dialog appears.
 * We can dismiss a dialog one of two ways. Here we are calling `dismiss()` within the Dialog class itself. It could also be called from the Activity like the `show()` method.
-
-## Libraries
-
-* CodePath [android-view-helpers](https://github.com/codepath/android-view-helpers) for an easier way to create simple alert and progress modals.
 
 ## References
 
