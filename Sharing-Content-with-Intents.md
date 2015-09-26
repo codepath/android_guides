@@ -102,7 +102,7 @@ and setup the "SD Card" within the emulator device settings:
 
 ### Sharing Remote Images (without explicit file IO)
 
-The second way to share an Image does not require you to write the image into a file.  This code can safely be executed on the UI thread.    The approach was suggested on this webpage http://www.nurne.com/2012/07/android-how-to-attach-image-file-from.html .
+The second way to share an Image does not require you to write the image into a file.  This code can safely be executed on the UI thread. The approach was suggested on this webpage http://www.nurne.com/2012/07/android-how-to-attach-image-file-from.html. 
 
 ```java
 ImageView siv = (ImageView) findViewById(R.id.ivResult);
@@ -117,6 +117,8 @@ return uri;
 ```
 
 You get the `Drawable` from the `ImageView`.  You get the `Bitmap` from the `Drawable`.  Put that bitmap into the Media image store.  That gives you a path which can be used instead of a file path or URL.  Note the original webpage had an additional problem with immutable bitmaps, solved by drawing the bitmap into a canvas (never shown on screen).  See linked page above for details.
+
+**Note:** There is a [bug with Android](https://code.google.com/p/android/issues/detail?id=75447) that will cause this to fail with `E/MediaStore﹕ Failed to insert image` unless the media directory is initialized as described in the link.
 
 ### ShareActionProvider
 
