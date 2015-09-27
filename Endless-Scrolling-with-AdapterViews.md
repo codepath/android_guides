@@ -5,7 +5,9 @@ A common application feature is to have an `AdapterView` (such as a `ListView` o
 Every `AdapterView` has support for binding to the `OnScrollListener` events which are triggered whenever a user scrolls through the collection. Using this system, we can define a basic `EndlessScrollListener` which supports most use cases by creating our own class that extends `OnScrollListener`:
 
 ```java
-public abstract class EndlessScrollListener implements OnScrollListener {
+import android.widget.AbsListView;
+
+public abstract class EndlessScrollListener implements AbsListView.OnScrollListener {
 	// The minimum amount of items to have below your current scroll position
 	// before loading more.
 	private int visibleThreshold = 5;
@@ -63,7 +65,8 @@ public abstract class EndlessScrollListener implements OnScrollListener {
 	}
 
 	// Defines the process for actually loading more data based on page
-	public abstract void onLoadMore(int page, int totalItemsCount);
+	// Returns true if more data is being loaded; returns false if there is no more data to load.
+	public abstract boolean onLoadMore(int page, int totalItemsCount);
 
 	@Override
 	public void onScrollStateChanged(AbsListView view, int scrollState) {
@@ -88,6 +91,7 @@ public class MainActivity extends Activity {
                 // Add whatever code is needed to append new items to your AdapterView
 	        customLoadMoreDataFromApi(page); 
                 // or customLoadMoreDataFromApi(totalItemsCount); 
+                return true; // ONLY if more data can still be loaded; false otherwise.
 	    }
         });
     }
