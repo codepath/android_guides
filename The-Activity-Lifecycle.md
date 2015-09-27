@@ -1,4 +1,4 @@
-# Background
+## Background
 
 As a user navigates throughout an app, Android maintains the visited activities in a stack, with the currently visible activity always placed at the top of the stack. 
 
@@ -11,7 +11,7 @@ At any point in time a particular activity can be in one of the following 4 stat
 | Stopped | Activity is no longer visible |
 | Killed | Activity has been killed by the system (low memory) or its `finish()` method has been called |
 
-# Activity Lifecycle
+## Activity Lifecycle
 
 The following diagram shows the important state paths of an Activity. The square rectangles represent callback methods you can implement to perform operations when the Activity moves between states. These are described further in the table below the diagram.
 
@@ -27,7 +27,7 @@ The following diagram shows the important state paths of an Activity. The square
 | `onDestroy()` | Counterpart to `onCreate(...)`. This can be triggered because `finish()` was called on the activity or the system needed to free up some memory. |  It's common to do any cleanup here. For example, if the activity has a thread running in the background to download data from the network, it may create that thread in onCreate() and then stop the thread here in onDestroy() |
 | `onRestart()` | Called when the activity has been stopped, before it is started again | It isn't very common to need to implement this callback.    |
 
-## Calling the super class
+### Calling the super class
 
 When overriding any of the methods, you may need to call the superclass implementation.  The rule of thumb is that during initialization, you should always call the superclass first:
 
@@ -53,6 +53,6 @@ public void onPause() {
 
 See this [Stack Overflow article](http://stackoverflow.com/questions/16925579/android-implementation-of-lifecycle-methods-can-call-the-superclass-implementati) for more context.
 
-# References
-* http://developer.android.com/training/basics/activity-lifecycle/index.html
+## References
 
+* http://developer.android.com/training/basics/activity-lifecycle/index.html
