@@ -9,7 +9,7 @@ The [camera](http://developer.android.com/guide/topics/media/camera.html) implem
  * The easy way - launch the camera with an intent, designating a file path, and handle the onActivityResult.
  * The hard way - use the Camera API to embed the camera preview within your app, adding your own custom controls.
 
-Make sure to enable access to the external storage first before using the camera (**Note:** The permissions model has changed starting in Marshmallow. If your `targetSdkVersion` >= `23` and you are running on a Marshmallow (or later) device / emulator, you'll need to follow this guide on implementing [runtime permissions](http://guides.codepath.com/android/Understanding-App-Permissions#runtime-permissions) in order to get these permissions):
+Make sure to enable access to the external storage first before using the camera:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -23,6 +23,10 @@ Make sure to enable access to the external storage first before using the camera
     <!- ... -->
 </manifest>
 ```
+
+**Note:** The permissions model has changed starting in Marshmallow. If your `targetSdkVersion` >= `23` and you are running on a Marshmallow (or later) device / emulator, you'll need to follow this guide on [implementing runtime permissions](http://guides.codepath.com/android/Understanding-App-Permissions#runtime-permissions) in order to get these permissions.
+
+### Using Capture Intent
 
 Easy way works in most cases, using the intent to [launch the camera](http://developer.android.com/guide/topics/media/camera.html):
 
@@ -129,6 +133,17 @@ public Bitmap rotateBitmapOrientation(String photoFilePath) {
 ```
 
 See [this guide](http://stackoverflow.com/a/12933632/313399) for the source for this answer. Be aware that on certain devices even the EXIF data isn't set properly, in which case you should [checkout this workaround](http://stackoverflow.com/a/8864367/313399) for a fix.
+
+### Building a Custom Camera
+
+Instead of using the capture intent to capture photos "the easy way", a custom camera can be used within your app directly leveraging the [Camera2 API](https://developer.android.com/reference/android/hardware/camera2/package-summary.html). This custom camera is much more complicated to implement but [sample code can be found here](https://github.com/googlesamples/android-Camera2Basic). However, there are a number of third-party libraries available to make custom camera easier:
+
+ * [CWAC-Cam2](https://github.com/commonsguy/cwac-cam2)
+ * [EasyCamera](https://github.com/Glamdring/EasyCamera)
+ * [SquareCamera](https://github.com/boxme/SquareCamera)
+ * [Many other libraries](http://android-arsenal.com/tag/141)
+
+Leveraging `Camera2` or the libraries above, apps can develop a camera that functions in anyway required including custom overlays for depositing checks, taking pictures with a particular form factor, or scanning custom barcodes.
 
 ## Accessing Stored Media
 
