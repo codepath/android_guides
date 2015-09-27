@@ -12,8 +12,6 @@ We have Android guides for everyone whether you are a **beginner, intermediate o
 
 Ever been **frustrated finding information on outdated one-off blog posts and tutorials** that have long since become irrelevant? How many times have you been googling to find your answer only exists on an obscure **2 year old StackOverflow post**? We believe there's got to be a better way. Why not have the community work together to create useful and detailed documentation for every aspect of Android (or any platform)? There's absolutely no reason that we should have to make do with vague and outdated content anymore.
 
-Read about our [[mission to change the way engineers learn new technologies|CodePath-Goal]] and check out how you can [[get involved|CodePath-Goal#how-do-i-help-]]! In addition, we are at present a fledgling startup so if you like this guide and what we are trying to do, please consider following us on twitter [@codepath](https://twitter.com/codepath)! 
-
 ## Overview
 
 The cliffnotes below are **categorized by their topic**, so you can easily find guides on related topics whether that is views, styling, testing, or using sensors. If you see an error, incorrect explanation or deprecated solution, **why not contribute back** and make these cliffnotes better for the next person? That in a nutshell is the core spirit of this initiative. Check out the [list of contributors](https://github.com/codepath/android_guides/blob/master/README.md#contributors) to this project.
