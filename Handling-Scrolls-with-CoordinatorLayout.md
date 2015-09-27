@@ -57,7 +57,7 @@ So long as the CoordinatorLayout is used as the primary layout, this animation e
 
 <img src="http://imgur.com/X5AIH0P.gif" width="350"/>
 
-The first step is to make sure you are not using the deprecated ActionBar.  Make sure to follow the [Using the ToolBar as ActionBar](http://guides.codepath.com/android/Defining-The-ActionBar#using-toolbar-as-actionbar) guide.  Also make sure that the CoordinatorLayout is the main layout container.
+The first step is to make sure you are not using the deprecated ActionBar.  Make sure to follow the [[Using the ToolBar as ActionBar|Defining-The-ActionBar#using-toolbar-as-actionbar]] guide.  Also make sure that the CoordinatorLayout is the main layout container.
 
 ```xml
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -215,7 +215,7 @@ To create this effect, we add an ImageView and declare an `app:layout_collapseMo
 
 ## Custom Behaviors
 
-One example of a custom behavior is discussed in using [CoordinatorLayout with Floating Action Buttons](http://guides.codepath.com/android/Floating-Action-Buttons#using-coordinatorlayout).  
+One example of a custom behavior is discussed in using [[CoordinatorLayout with Floating Action Buttons|Floating-Action-Buttons#using-coordinatorlayout]].  
 
 CoordinatorLayout works by searching through any child view that has a [CoordinatorLayout Behavior](http://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html) defined either statically as XML with a `app:layout_behavior` tag or programmatically with the View class annotated with the `@DefaultBehavior` decorator.  When a scroll event happens, CoordinatorLayout attempts to trigger other child views that are declared as dependencies.
 
@@ -240,7 +240,7 @@ The best way to understand how to implement these custom behaviors is by studyin
 
 ## Third-Party Scrolling and Parallax
 
-In addition to using the `CoordinatorLayout` as outlined above, be sure to check out [these popular third-party libraries](https://guides.codepath.com/android/Must-Have-Libraries#scrolling-and-parallax) for scrolling and parallax effects across `ScrollView`, `ListView`, `ViewPager` and `RecyclerView`.
+In addition to using the `CoordinatorLayout` as outlined above, be sure to check out [[these popular third-party libraries|Must-Have-Libraries#scrolling-and-parallax]] for scrolling and parallax effects across `ScrollView`, `ListView`, `ViewPager` and `RecyclerView`.
 
 ## References
 
