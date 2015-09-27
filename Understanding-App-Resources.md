@@ -149,12 +149,12 @@ Android supports several configuration qualifiers and you can add multiple quali
 | Configuration       | Examples              | Description                                           |
 | ------------        | ------                | ----------------------------------------------------- |
 | Language            | `en`, `fr`            | Language code selected on the device                  |
-| Screen size         | `sw480dp`, `sw600dp`  | Minimum width of the screen's height or width.        |
+| Screen size         | `sw480dp`,`sw600dp`   | Minimum width of the screen's height or width.        |
 | Screen orientation  | `port`, `land`        | Screen is in portrait or landscape mode.              |
-| Screen density      | `hdpi`, `xhdpi`        | Screen density often used for alternate images.       |
+| Screen density      | `hdpi`, `xhdpi`       | Screen density often used for alternate images.       |
 | Platform version    | `v7`, `v11`, `v21`    | Platform version often used for styles.               |
 
-You can specify multiple qualifiers for a single set of resources, separated by dashes. For example, drawable-en-sw600dp-land applies to English tablets in landscape orientation. Note that if you use multiple qualifiers for a resource directory, you must add them to the directory name **in the order they are listed** in the table above. See the official docs for the [complete set of qualifiers available](http://developer.android.com/guide/topics/resources/providing-resources.html#AlternativeResources).
+You can specify multiple qualifiers for a single set of resources, separated by dashes. For example, `drawable-en-sw600dp-land` applies to English tablets in landscape orientation. Note that if you use multiple qualifiers for a resource directory, you must add them to the directory name **in the order they are listed** in the table above. See the official docs for the [complete set of qualifiers available](http://developer.android.com/guide/topics/resources/providing-resources.html#AlternativeResources).
 
 ### Alternate Layout Files
 
