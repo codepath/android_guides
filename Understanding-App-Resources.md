@@ -178,7 +178,7 @@ Generally speaking phones and phablets are between `sw240` and `sw480`. 7" table
 
 <img src="http://i.imgur.com/KS5xs0n.png" width="600" />
 
-Review this [article on UI design best practices](http://www.evoketechnologies.com/blog/effective-ui-design-tips-android-devices/) and [this official doc on resources](http://developer.android.com/guide/topics/resources/providing-resources.html) for more details.
+For a detailed tutorial on how to manage responsive layouts for tablets, review our [[Flexible User Interfaces]] guide. You can also review this [article on UI design best practices](http://www.evoketechnologies.com/blog/effective-ui-design-tips-android-devices/) and [this official doc on resources](http://developer.android.com/guide/topics/resources/providing-resources.html) for more details.
 
 ### Layout Best Practices
 
