@@ -156,14 +156,6 @@ Android supports several configuration qualifiers and you can add multiple quali
 
 You can specify multiple qualifiers for a single set of resources, separated by dashes. For example, drawable-en-sw600dp-land applies to English tablets in landscape orientation. Note that if you use multiple qualifiers for a resource directory, you must add them to the directory name **in the order they are listed** in the table above. See the official docs for the [complete set of qualifiers available](http://developer.android.com/guide/topics/resources/providing-resources.html#AlternativeResources).
 
-### Alias Resources
-
-When you have a resource that you'd like to use for more than one device configuration, you do not need to put the same resource in more than one alternative resource directory. Instead, you can [create an alternative resource](http://developer.android.com/guide/topics/resources/providing-resources.html#AliasResources) that acts as an alias for a resource saved in your default resource directory.
-
-### Best Resource Match
-
-When you request a resource for which you provide alternatives, Android selects which alternative resource to use at runtime, depending on the current device configuration. Read the [official resource guide](http://developer.android.com/guide/topics/resources/providing-resources.html#BestMatch) for a detailed overview of how the match is selected.
-
 ### Alternate Layout Files
 
 Often alternative resources are used to specify different layout files for phones and tablets. This can be done using the "smallest width" qualifer of `sw`. The folder structure might be setup as the following:
@@ -187,6 +179,14 @@ Generally speaking phones and phablets are between `sw240` and `sw480`. 7" table
 <img src="http://i.imgur.com/KS5xs0n.png" width="600" />
 
 Review this [article on UI design best practices](http://www.evoketechnologies.com/blog/effective-ui-design-tips-android-devices/) and [this official doc on resources](http://developer.android.com/guide/topics/resources/providing-resources.html) for more details.
+
+### Alias Resources
+
+When you have a resource that you'd like to use for more than one device configuration, you do not need to put the same resource in more than one alternative resource directory. Instead, you can [create an alternative resource](http://developer.android.com/guide/topics/resources/providing-resources.html#AliasResources) that acts as an alias for a resource saved in your default resource directory.
+
+### Best Resource Match
+
+When you request a resource for which you provide alternatives, Android selects which alternative resource to use at runtime, depending on the current device configuration. Read the [official resource guide](http://developer.android.com/guide/topics/resources/providing-resources.html#BestMatch) for a detailed overview of how the match is selected.
 
 ## References
 
