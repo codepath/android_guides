@@ -1,6 +1,6 @@
 We are a startup called [CodePath](http://codepath.com) founded by [Nathan Esquenazi](https://github.com/nesquena) and [Tim Lee](https://twitter.com/timothy1ee). We are a very small company with a vision of changing the way developers learn and play with new technologies and platforms.
 
-As software engineers, we all have a strong need to "keep up" with the rapidly changing field of software development. Have you ever wanted to play with a new technology and wished that you had **other engineers to learn and collaborate with**, **mentors to save you countless hours** and guide your learning as well as **high-quality curriculum and projects** to make learning more efficient and fun?
+As software engineers, we all have a strong need to keep up with the rapidly changing field of software development. Have you ever wanted to play with a new technology and wished that you had **other engineers to learn and collaborate with**, **mentors to save you countless hours** and guide your learning as well as **high-quality curriculum and projects** to make learning more efficient and fun?
 
 **Yeah, we did too**. This is in large part why we founded [CodePath](http://codepath.com). We are engineers and founders and we wanted a better way for engineers to learn exciting new languages and platforms. We learned mobile on our own (by ourselves) using books and blog posts and we want to take the time to make it easier for everyone else.
 
