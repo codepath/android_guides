@@ -1,5 +1,3 @@
-# Creating Flexible UIs
-
 ## Overview
 
 Flexible User Interfaces is a key part of proper Android app development. We need to ensure that our apps work across a wide variety of devices, versions, orientations and locales. Thankfully, Android has several powerful constructs that make responsive, flexible user interfaces fairly easy.
