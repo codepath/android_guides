@@ -180,6 +180,17 @@ Generally speaking phones and phablets are between `sw240` and `sw480`. 7" table
 
 Review this [article on UI design best practices](http://www.evoketechnologies.com/blog/effective-ui-design-tips-android-devices/) and [this official doc on resources](http://developer.android.com/guide/topics/resources/providing-resources.html) for more details.
 
+### Layout Best Practices
+
+Here is a quick checklist about how you can ensure that your application displays properly on different screens:
+
+* Avoid use hard coded pixel values in your application code
+* Use `RelativeLayout` properly and never use `AbsoluteLayout` 
+* Use `wrap_content`, `match_parent`, or `dp` units when specifying dimensions
+* Use alternate layouts and drawables to ensure a responsive design when needed
+
+Review the rest of the [best practices for screen independence](http://developer.android.com/guide/practices/screens_support.html#screen-independence) on the official guide.
+
 ### Alias Resources
 
 When you have a resource that you'd like to use for more than one device configuration, you do not need to put the same resource in more than one alternative resource directory. Instead, you can [create an alternative resource](http://developer.android.com/guide/topics/resources/providing-resources.html#AliasResources) that acts as an alias for a resource saved in your default resource directory.
