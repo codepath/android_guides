@@ -32,7 +32,6 @@ The following diagram shows the important state paths of an Activity. The square
 When overriding any of the methods, you may need to call the superclass implementation.  The rule of thumb is that during initialization, you should always call the superclass first:
 
 ```java
-
 public void onCreate() {
    super.onCreate();
    // do work after super class function
@@ -43,7 +42,6 @@ public void onCreate() {
 During de-initialization, you should do the work first before calling the super class:
 
 ```java
-
 public void onPause() {
    // do work here first before super class function
    // LocalBroadcastManager.getInstance(this).unregisterReceiver(mMessageReceiver);
