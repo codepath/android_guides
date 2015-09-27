@@ -82,7 +82,7 @@ Bottom row (l-r): fitCenter, fitStart, fitEnd, fitXY.
 
 ### Supporting Multiple Densities
 
-Since Android has so many different screen sizes, resolutions and densities, there is a [[powerful system for selecting the correct image asset|Understanding App Resources#introducing-alternate- resources]] for the correct device. There are specific drawable folders for each device density category including: ldpi (low), mdpi (medium), hdpi (high), and xhdpi (extra high). Notice that every app has folders for image drawables such as `drawable-mdpi` which is for "medium dots per inch". 
+Since Android has so many different screen sizes, resolutions and densities, there is a [[powerful system for selecting the correct image asset|Understanding-App-Resources#introducing-alternate- resources]] for the correct device. There are specific drawable folders for each device density category including: ldpi (low), mdpi (medium), hdpi (high), and xhdpi (extra high). Notice that every app has folders for image drawables such as `drawable-mdpi` which is for "medium dots per inch". 
 
 To create alternative bitmap drawables for different densities, you should follow the 3:4:6:8 scaling ratio between the four generalized densities. Refer to the chart below:
 
