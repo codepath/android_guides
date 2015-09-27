@@ -205,4 +205,5 @@ When you request a resource for which you provide alternatives, Android selects 
  * <http://developer.android.com/guide/topics/resources/accessing-resources.html>
  * <http://mobile.tutsplus.com/tutorials/android/android-string/>
  * <http://developer.android.com/guide/topics/resources/providing-resources.html>
+ * <http://developer.android.com/training/multiscreen/screendensities.html>
  * <http://www.evoketechnologies.com/blog/effective-ui-design-tips-android-devices/>
