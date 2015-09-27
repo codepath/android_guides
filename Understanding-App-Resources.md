@@ -104,9 +104,94 @@ public View getViewByStringId(String id) {
 
 Check out the [getResources](http://developer.android.com/reference/android/content/res/Resources.html) object and <a href="http://developer.android.com/reference/android/content/res/Resources.html#getIdentifier(java.lang.String, java.lang.String, java.lang.String)">getIdentifier</a> for more details.
 
+## Providing Alternate Resources
+
+### Responsive Design
+
+In order to create an outstanding UI design, it is essential for app developers to create apps that work properly across a wide variety of devices. To do this, we first divide android mobile devices into various categories (buckets) based on screen size and display as shown below:
+
+<img src="http://i.imgur.com/bLOO9e3.png" width="600" />
+
+Apps must be designed to work across any different screen densities as well as screen sizes.
+
+### Introducing Alternate Resources
+
+One of the most powerful tools available to developers is the option to provide "alternate resources" based on specific qualifiers such as phone size, language, density, and others. Common uses for alternate resources include:
+
+ * Alternative layout files for different form factors (i.e phone vs tablet)
+ * Alternative string resources for different languages (i.e English vs Italian)
+ * Alternative drawable resources for different screen densities  (shown below)
+ * Alternate style resources for different platform versions (Holo vs Material)
+ * Alternate layout files for different screen orientations (i.e portrait vs landscape)
+
+To specify configuration-specific alternatives for a set of resources, we create a new directory in `res` in the form of `[resource]-[qualifiers]`. For example, one best practice is to ensure that all images are provided for [[multiple screen densities|Working-with-the-ImageView#supporting-multiple-densities]]. 
+
+![Densities](http://developer.android.com/images/screens_support/screens-densities.png)
+
+This is achieved by having  `res/drawable-hdpi`, `res/drawable-xhdpi`, and `res/drawable-xxhdpi` folders with different versions of the same image. The correct resource is then selected automatically by the system based on the device density. The directory listing might look like the following:
+
+```
+res/
+    drawable/   
+        icon.png
+        background.png    
+    drawable-hdpi/  
+        icon.png
+        background.png
+```
+
+Note the resource files need to all have the same name within the different folders. This system works for **any type of resource** with a wide variety of qualifiers.
+
+### Understanding Qualifiers
+
+Android supports several configuration qualifiers and you can add multiple qualifiers to one directory name, by separating each qualifier with a dash. The most common qualifiers are listed below:
+
+| Configuration       | Examples              | Description                                           |
+| ------------        | ------                | ----------------------------------------------------- |
+| Language            | `en`, `fr`            | Language code selected on the device                  |
+| Screen size         | `sw480dp`, `sw600dp`  | Minimum width of the screen's height or width.        |
+| Screen orientation  | `port`, `land`        | Screen is in portrait or landscape mode.              |
+| Screen density      | `hdpi`, `xhdpi`        | Screen density often used for alternate images.       |
+| Platform version    | `v7`, `v11`, `v21`    | Platform version often used for styles.               |
+
+You can specify multiple qualifiers for a single set of resources, separated by dashes. For example, drawable-en-sw600dp-land applies to English tablets in landscape orientation. Note that if you use multiple qualifiers for a resource directory, you must add them to the directory name **in the order they are listed** in the table above. See the official docs for the [complete set of qualifiers available](http://developer.android.com/guide/topics/resources/providing-resources.html#AlternativeResources).
+
+### Alias Resources
+
+When you have a resource that you'd like to use for more than one device configuration, you do not need to put the same resource in more than one alternative resource directory. Instead, you can [create an alternative resource](http://developer.android.com/guide/topics/resources/providing-resources.html#AliasResources) that acts as an alias for a resource saved in your default resource directory.
+
+### Best Resource Match
+
+When you request a resource for which you provide alternatives, Android selects which alternative resource to use at runtime, depending on the current device configuration. Read the [official resource guide](http://developer.android.com/guide/topics/resources/providing-resources.html#BestMatch) for a detailed overview of how the match is selected.
+
+### Alternate Layout Files
+
+Often alternative resources are used to specify different layout files for phones and tablets. This can be done using the "smallest width" qualifer of `sw`. The folder structure might be setup as the following:
+
+```
+res/
+    layout/   
+        activity_main.xml
+        item_photo.xml    
+    layout-sw600dp/ 
+        activity_main.xml
+    layout-sw600dp-land/
+        activity_main.xml 
+    layout-sw720dp/ 
+        activity_main.xml
+        item_photo.xml
+```
+
+Generally speaking phones and phablets are between `sw240` and `sw480`. 7" tablets are `sw600` and 10" tablets are `sw720`. Here’s an illustrated example of the above procedure:
+
+<img src="http://i.imgur.com/KS5xs0n.png" width="600" />
+
+Review this [article on UI design best practices](http://www.evoketechnologies.com/blog/effective-ui-design-tips-android-devices/) and [this official doc on resources](http://developer.android.com/guide/topics/resources/providing-resources.html) for more details.
+
 ## References
 
  * <http://developer.android.com/guide/topics/resources/string-resource.html>
  * <http://developer.android.com/guide/topics/resources/accessing-resources.html>
  * <http://mobile.tutsplus.com/tutorials/android/android-string/>
  * <http://developer.android.com/guide/topics/resources/providing-resources.html>
+ * <http://www.evoketechnologies.com/blog/effective-ui-design-tips-android-devices/>
