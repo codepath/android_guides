@@ -90,8 +90,8 @@ public String myStringValue = getStringValue(myKey); // Returns string text
 This can be done similarly for other types of resources as well. For example, for dynamically retrieving a view by a string ID:
 
 ```java
-// getViewByStringId("tvTest");
-public View getViewByStringId(String id) {
+// getViewById("tvTest");
+public View getViewById(String id) {
     // Retrieve the resource id
     String packageName = getBaseContext().getPackageName();
     Resources resources = getBaseContext().getResources();
@@ -102,7 +102,7 @@ public View getViewByStringId(String id) {
 }
 ```
 
-Check out the [getResources](http://developer.android.com/reference/android/content/res/Resources.html) object and <a href="http://developer.android.com/reference/android/content/res/Resources.html#getIdentifier(java.lang.String, java.lang.String, java.lang.String)">getIdentifier</a> for more details.
+Check out the [getResources](http://developer.android.com/reference/android/content/res/Resources.html) object and <a href="http://developer.android.com/reference/android/content/res/Resources.html#getIdentifier\(java.lang.String, java.lang.String, java.lang.String\)">getIdentifier</a> for more details.
 
 ## Providing Alternate Resources
 
