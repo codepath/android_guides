@@ -59,7 +59,7 @@ Exploring the foundations of app development:
 * [[Android Directory Structure]] (Files and Folders for Android apps)
 * [[Organizing your Source Files]] (Cleaning up source of your apps)
 * [[Understanding App Resources]] (Understanding Strings and Resources)
-* [[Understanding the Activity Lifecycle|The Activity Lifecycle]] (How does an activity work?)
+* [[Understanding the Activity Lifecycle|Activity Lifecycle]] (How does an activity work?)
 * [[Handling Configuration Changes]] (Screen Rotation)
 * [[Migrating to the AppCompat Library]] (Using the Support Libraries)
 * [[App Permissions|Understanding App Permissions]] (How to request the permissions you need) 
