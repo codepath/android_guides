@@ -112,7 +112,7 @@ In order to create an outstanding UI design, it is essential for app developers 
 
 <img src="http://i.imgur.com/bLOO9e3.png" width="600" />
 
-Apps must be designed to work across any different screen densities as well as screen sizes.
+Apps must be designed to work across any different screen densities as well as screen sizes. This can be done leveraging a variety of systems provided by the Android framework.
 
 ### Introducing Alternate Resources
 
