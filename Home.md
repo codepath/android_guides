@@ -58,7 +58,7 @@ Exploring the foundations of app development:
 * [[Using Context]] (What is context and how is it used?)
 * [[Android Directory Structure]] (Files and Folders for Android apps)
 * [[Organizing your Source Files]] (Cleaning up source of your apps)
-* [[Using Resource Files|Using String Resources]] (Understanding String Resources)
+* [[Understanding App Resources]] (Understanding Strings and Resources)
 * [[Understanding the Activity Lifecycle|The Activity Lifecycle]] (How does an activity work?)
 * [[Handling Configuration Changes]] (Screen Rotation)
 * [[Migrating to the AppCompat Library]] (Using the Support Libraries)
