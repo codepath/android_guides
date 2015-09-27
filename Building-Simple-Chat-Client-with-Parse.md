@@ -95,7 +95,7 @@ Let's create an XML layout which allows us to post messages by typing into a tex
 </RelativeLayout>
 ```
 
-The imeOptions attribute is used to control the icon in the [Soft Keyboard](https://guides.codepath.com/android/Working-with-the-Soft-Keyboard).  The gravity attribute will center the button vertically AND right horizontally.
+The imeOptions attribute is used to control the icon in the [[Soft Keyboard|Working-with-the-Soft-Keyboard]].  The gravity attribute will center the button vertically AND right horizontally.
 
 * Add the following values to `res-->values-->strings.xml` file.
 
@@ -503,7 +503,7 @@ Now, we should be able to see the messages in the list after posting but we won'
 
 ## 12. Refreshing Messages
 
-Finally, let's periodically refresh the ListView with latest messages [using a handler](http://guides.codepath.com/android/Repeating-Periodic-Tasks#handler). The handler will call a runnable to fetch new messages every 100ms. This is a primitive "polling" rather than "push" technique for loading new messages but will work for the purposes of this simple project.
+Finally, let's periodically refresh the ListView with latest messages [[using a handler|Repeating-Periodic-Tasks#handler]]. The handler will call a runnable to fetch new messages every 100ms. This is a primitive "polling" rather than "push" technique for loading new messages but will work for the purposes of this simple project.
 
 ```java
 ...
@@ -540,7 +540,7 @@ private void refreshMessages() {
 }
 ```
 
-See the [repeating periodic tasks](http://guides.codepath.com/android/Repeating-Periodic-Tasks#handler) guide to learn more about the handler.
+See the [[repeating periodic tasks|Repeating-Periodic-Tasks#handler]] guide to learn more about the handler.
 
 ## 13. SimpleChatManifest.xml
 
