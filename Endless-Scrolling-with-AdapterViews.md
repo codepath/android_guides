@@ -88,7 +88,7 @@ public class MainActivity extends Activity {
 	    public boolean onLoadMore(int page, int totalItemsCount) {
                 // Triggered only when new data needs to be appended to the list
                 // Add whatever code is needed to append new items to your AdapterView
-	        customLoadMoreDataFromApi(page); 
+                customLoadMoreDataFromApi(page); 
                 // or customLoadMoreDataFromApi(totalItemsCount); 
                 return true; // ONLY if more data is actually being loaded; false otherwise.
 	    }
