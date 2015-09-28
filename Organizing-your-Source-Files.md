@@ -11,11 +11,12 @@ There are several best practices for organising your app's package structure.
 * `com.example.myapp.activities` - Contains all activities
 * `com.example.myapp.adapters` - Contains all custom adapters
 * `com.example.myapp.models`   - Contains all our data models
+* `com.example.myapp.network` - Contains all networking code
 * `com.example.myapp.fragments` - Contains all fragments
-* `com.example.myapp.helpers` - Contains all helpers (custom code that supports the app).
+* `com.example.myapp.utils` - Contains all helpers supporting code.
 * `com.example.myapp.interfaces` - Contains all interfaces
 
-Keeping these folders in each app means that code is logically organized and scanning the code is a pleasant experience.
+Keeping these folders in each app means that code is logically organized and scanning the code is a pleasant experience. You can see a slight variation on this structure as suggested by [Futurice on their best-practices repo](https://github.com/futurice/android-best-practices#java-packages-architecture).
 
 #### Organize packages by application features
 
