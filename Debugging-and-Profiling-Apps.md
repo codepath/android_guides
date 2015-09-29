@@ -22,7 +22,7 @@ In addition, this should include:
 
 ## Optimizing Performance
 
-Check out the following related links:
+Check out the following links regarding optimizing performance:
 
 * [[Layout Performance|Constructing-View-Layouts#optimizing-layout-performance]]
 * [[ViewHolder with ListView|Using-an-ArrayAdapter-with-ListView#improving-performance-with-the-viewholder-pattern]]
