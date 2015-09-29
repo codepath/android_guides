@@ -62,6 +62,35 @@ export ANDROID_HOME=~/android-sdks
 set ANDROID_HOME=C:\android-sdks
 ```
 
+### Analyzing Dependencies with Gradle Wrapper
+
+Once your Gradle wrapper is set up, you can use its `androidDependencies` command to generate a diagram of your app's dependencies on the SDK and support SDK, broken out by each library that you use.
+
+```
+$ ./gradlew androidDependencies
+
+:app:androidDependencies
+alpha
++--- LOCAL: KISSmetricsSDK.jar
++--- com.android.support:support-v4:23.0.1
++--- com.android.support:recyclerview-v7:23.0.1
+|    \--- com.android.support:support-v4:23.0.1
++--- net.danlew:android.joda:2.3.3
++--- com.google.android.gms:play-services-ads:7.5.0
+|    +--- com.google.android.gms:play-services-base:7.5.0
+|    |    \--- com.android.support:support-v4:23.0.1
+|    \--- com.google.android.gms:play-services-analytics:7.5.0
+|         \--- com.google.android.gms:play-services-base:7.5.0
+|              \--- com.android.support:support-v4:23.0.1
++--- com.facebook.android:facebook:3.20.0
+|    \--- com.android.support:support-v4:23.0.1
++--- com.couchbase.lite:couchbase-lite-android:1.0.3.1
++--- com.android.support:appcompat-v7:22.1.1
+|    \--- com.android.support:support-v4:23.0.1
++--- com.getbase:floatingactionbutton:1.8.0
+\--- com.android.support:multidex:1.0.0
+``` 
+
 ## Testing Gradle
 
 Finally, you can check your working installation by running:
