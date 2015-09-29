@@ -9,7 +9,7 @@
 * [Profiling Android Apps - Performance Turning](https://www.youtube.com/watch?v=88nwiiVTh5w)
 * [Vogella Android Analysis Tools](http://www.vogella.com/tutorials/AndroidTools/article.html)
 * [Performance Course on Udacity](https://www.udacity.com/course/ud825)
-* [Performance Doc](https://docs.google.com/document/d/1EKVq2FzcLVJFbwUtaC3QRddSwtzs0BSKZahkQyeGyHo/pub?embedded=true)
+* [Performance Doc from Udacity](https://docs.google.com/document/d/1EKVq2FzcLVJFbwUtaC3QRddSwtzs0BSKZahkQyeGyHo/pub?embedded=true)
 
 In addition, this should include:
 
