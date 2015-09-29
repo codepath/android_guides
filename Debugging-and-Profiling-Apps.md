@@ -19,3 +19,14 @@ In addition, this should include:
 * LeakCanary for finding memory leaks easily
 * Allocation Tracker - Finding the places in your code that may contribute to memory trashing.
 * Batterystats - Shows where and how processes are drawing current from the battery.
+
+## Optimizing Performance
+
+Check out the following related links:
+
+* [[Layout Performance|Constructing-View-Layouts#optimizing-layout-performance]]
+* [[ViewHolder with ListView|Using-an-ArrayAdapter-with-ListView#improving-performance-with-the-viewholder-pattern]]
+* [Displaying Bitmaps Effectively](http://developer.android.com/training/displaying-bitmaps/index.html)
+* [Android Performance Tips](http://developer.android.com/training/articles/perf-tips.html)
+* [Managing App Memory](http://developer.android.com/training/articles/memory.html#YourApp)
+* [Layout Performance Guide](http://developer.android.com/training/improving-layouts/index.html)
