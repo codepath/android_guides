@@ -29,7 +29,7 @@ In the past, Retrofit relied on the [Gson](https://github.com/google/gson) libra
  
 |Converter  | Library             
 |-----------|------------------------------------------------
-|Gson       | com.squareup.retrofit:converter-gson:2.0.0-beta1           
+|Gson       | com.squareup.retrofit:converter-gson:2.0.0-beta2           
 |Jackson    | com.squareup.retrofit:converter-jackson:2.0.0-beta1          
 |Moshi      | com.squareup.retrofit:converter-moshi:2.0.0-beta1            
 |Protobuf   | com.squareup.retrofit:converter-protobuf:2.0.0-beta1         
