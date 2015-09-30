@@ -31,8 +31,7 @@ Once you have included the library and synced with Gradle, we can use the `Pager
         app:pstsShouldExpand="true"
         app:pstsTextAllCaps="true"
         android:layout_width="match_parent"
-        android:layout_height="48dp">
-    </com.astuetz.PagerSlidingTabStrip>
+        android:layout_height="48dp" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
