@@ -8,14 +8,14 @@ Resources are used for anything from defining colors, images, layouts, menus, an
 
 The following are the most common types of resources within Android apps:
 
-| Name                 | Folder    | Description                                     |
-| ----                 | ------    | -----------                                     |
-| Property Animations  | animator/ | XML files that define property animations.      |
-| Tween Animations     | anim/     | XML files that define tween animations.         |
-| Drawables            | drawable/ | Bitmap files or XML files that act as graphics  | 
-| Layout               | layout/   | XML files that define a user interface layout   |
-| Menu                 | menu/     | XML files that define menus or action bar items |
-| Values               | values/   | XML files with values such as strings, integers, and colors. |
+| Name                 | Folder   | Description                                     |
+| ----                 | ------   | -----------                                     |
+| Property Animations  | animator | XML files that define property animations.      |
+| Tween Animations     | anim     | XML files that define tween animations.         |
+| Drawables            | drawable | Bitmap files or XML files that act as graphics  | 
+| Layout               | layout   | XML files that define a user interface layout   |
+| Menu                 | menu     | XML files that define menus or action bar items |
+| Values               | values   | XML files with values such as strings, integers, and colors. |
 
 For the full list, check out the [Providing a Resource](http://developer.android.com/guide/topics/resources/providing-resources.html) guide.
 
