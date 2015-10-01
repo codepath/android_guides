@@ -222,9 +222,8 @@ Headers can be added to a request using an `Interceptor`. To send requests to an
 // Define the interceptor, add authentication headers
 Interceptor interceptor = new Interceptor() {
   @Override
-  public void intercept(Chain chain) throws IOException {
-    Request newRequest = chain.request();
-    newRequest.newBuilder().addHeader("User-Agent", "Retrofit-Sample-App");
+  public Response intercept(Chain chain) throws IOException {
+    Request newRequest = chain.request().newBuilder().addHeader("User-Agent", "Retrofit-Sample-App").build();
     return chain.proceed(newRequest);
   }
 };
