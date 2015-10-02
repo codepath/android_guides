@@ -139,13 +139,17 @@ On OS X machines, you can remove the JDK from being noticed.  You can move it th
 sudo mv /System/Library/Java/JavaVirtualMachines/1.6.0.jdk /tmp
 ```
 
-## INSTALL_FAILED_OLDER_SDK error message 
+### INSTALL_FAILED_OLDER_SDK error message 
 
 If your `minSdkVersion` is higher than the Android version you are using (i.e. using an emulator that supports API 19 and your target version is for API 23), then you may see an error message that appears similar to the following:
 
 <img src="http://imgur.com/RKlXMGV.png"/>
 
 You will need to either lower the `minSdkVersion` or upgrade to an Android emulator or device that supports the minimum SDK version required.
+
+### Seeing `java.lang.IllegalAccessError: Class ref in pre-verified class resolved to unexpected implementation`
+
+You have a third-party library reference defined twice.  Check your `app/build.gradle` for duplicate libraries (i.e. commons-io library defined for 1.3 and another one using 2.4).
 
 ## Eclipse ADT Issues
 
