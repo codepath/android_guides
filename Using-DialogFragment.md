@@ -299,6 +299,23 @@ The titlebar can be styled using the "android:windowTitleStyle" as follows:
 </style>
 ```
 
+### Removing the Title bar on the Dialog
+Another way to remove the title bar in your dialog fragment is to override the onCreateDialog method.
+
+```java
+@Override
+public Dialog onCreateDialog(Bundle savedInstanceState) {
+  Dialog dialog = super.onCreateDialog(savedInstanceState);
+
+  // request a window without the title
+  dialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+  return dialog;
+}
+```
+
+This will give you a dialog box with no title bar. Read more in this StackOverflow post: 
+http://stackoverflow.com/questions/15277460/how-to-create-a-dialogfragment-without-title
+
 ### Transparent Dialogs
 
 We can make the dialog (or the title of the dialog) translucent using the `android:windowBackground` property:
