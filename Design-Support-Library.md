@@ -54,6 +54,14 @@ dependencies {
 }
 ```
 
+To leverage the [annotations library](http://tools.android.com/tech-docs/support-annotations), you can also explicitly add it to your Gradle file.  Adding the [[AppCompat|Migrating-to-the-AppCompat-Library]] or support design library implicitly adds it:
+
+```gradle
+dependencies {
+    compile 'com.android.support:support-annotations:23.0.0'
+}
+```
+
 You normally need to open the [SDK Manager](https://developer.android.com/tools/support-library/setup.html) and make sure to download the `Android Support Repository` as well as the latest `Android Support Library`.   However, Android Studio will also show at the bottom any missing libraries and you can click on the `Install repository and sync project`.  The process will only succeed if you specify a valid library and version, but it enables you to upgrade without needing to open the SDK Manager.
 
 <img src="http://imgur.com/GQw6IHt.png"/>
