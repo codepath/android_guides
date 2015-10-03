@@ -1,8 +1,8 @@
 # Overview
 
-Robolectric is a unit testing framework that allows Android applications to be tested on the JVM (no emulator or device needed!). If you've ever tried to run Android tests on the JVM without Robolectric, you probably ran into an exception similar to `java.lang.RuntimeException: Method getWindow in android.app.Activity not mocked...` This is because the `android.jar` that your code is compiled against only contains stub implementations of the Android classes. The actual implementations only exist when running on a device or emulator. 
+Robolectric is a unit testing framework that allows Android applications to be tested on the JVM without an emulator or device.  Running Android tests on the JVM usually fails because the Android core libraries included with the SDK, specifically the `android.jar` file, only contain stub implementations of the Android classes.  If you attempted to run a test without Roboelectric, you probably ran into an exception similar to `java.lang.RuntimeException: Method getWindow in android.app.Activity not mocked`. The actual implementations of the core libraries are built directly for a device or emulator, so running tests usually requires launching a device or emulator.
 
-So for all of us that want faster executing tests on the JVM (either for our Continuous Integration Server or just for faster iteration during development), Robolectric saves the day. Robolectric provides implementations of the Android SDK by rewriting the Android classes as they are being loaded (replacing the stubs for "actual" implementations). This gives us the ability to execute our tests on the JVM and achieve must faster test execution times than if we were running on a device or emulator.
+So for all of us that want faster executing tests on the JVM (either for our Continuous Integration Server or just for faster iteration during development), Robolectric saves the day. Robolectric provides implementations of the Android SDK by rewriting the Android core libraries using "shadow classes". This gives us the ability to execute our tests on the JVM and achieve must faster test execution times than if we were running on a device or emulator.
  
 ## Setup
 
@@ -13,7 +13,7 @@ Recent versions of Android Studio have made setup much easier. We'll walk throug
 * Android Gradle Plugin 1.2.3+
 * Gradle 2.2.1+
 
-Note: Robolectric can also be configured with Android Studio 1.1, but the setup requires the [robolectric gradle plugin](https://github.com/robolectric/robolectric-gradle-plugin/) and some additional configuration. Keep in mind that unit testing was still considered an [experimental feature](http://tools.android.com/tech-docs/unit-testing-support) in Android Studio 1.1.
+Note: Robolectric can also be configured with Android Studio 1.1, but the setup requires the [robolectric gradle plugin](https://github.com/robolectric/robolectric-gradle-plugin/) and some additional configuration.  Unit testing in Android Studio has been supported since v1.2.
 
 ### Android Studio Configuration
 1. The first thing we should do is change to the `Project` perspective in the `Project Window`. This will show us a full view of everything contained in the project. The default setting (the `Android` perspective) hides certain directories (including the unit tests!):
@@ -274,3 +274,5 @@ You can read more about Robolectric's support for qualified resources [here](htt
 * <https://github.com/mutexkid/android-studio-robolectric-example>
 * <http://blog.nikhaldimann.com/2013/10/10/robolectric-2-2-some-pages-from-the-missing-manual>
 * <https://corner.squareup.com/2013/04/the-resurrection-of-testing-for-android.html>
+* <http://simpleprogrammer.com/2010/07/27/the-best-way-to-unit-test-in-android/>
+* <https://youtu.be/f7ihSQ44WO0?t=15m11s>
