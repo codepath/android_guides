@@ -181,7 +181,7 @@ BitmapScaler.scaleToFitWidth(bitmap, screenWidth);
 
 Check out [this source](http://androidsnippets.wordpress.com/2012/10/25/how-to-scale-a-bitmap-as-per-device-width-and-height/) for more information on how to scale a bitmap based instead on relative device width and height.
 
-**Note**: Doing any type of scaling of images results in the loss of [EXIF](https://en.wikipedia.org/wiki/Exchangeable_image_file_format) metadata that includes info such as camera, rotation, date/time of the photo taken.  While there are workarounds to transfer the [EXIF information](https://bricolsoftconsulting.com/copying-exif-metadata-using-sanselan/) after the image has been copied, there are current limitations.   If you needing this info at all, you should send the original file.
+**Note**: Doing any type of scaling of images results in the loss of [EXIF](https://en.wikipedia.org/wiki/Exchangeable_image_file_format) metadata that includes info such as camera, rotation, date/time of the photo taken.  While there are [workarounds](https://bricolsoftconsulting.com/copying-exif-metadata-using-sanselan/) to transfer this data after the image has been copied, there are current limitations.   If you need this info or wish to upload it to some site, you should send the original file and not the downsampled version.
 
 ### Displaying SVG Images
 
