@@ -13,7 +13,7 @@ Recent versions of Android Studio have made setup much easier. We'll walk throug
 * Android Gradle Plugin 1.2.3+
 * Gradle 2.2.1+
 
-Note: Robolectric can also be configured with Android Studio 1.1, but the setup requires the [robolectric gradle plugin](https://github.com/robolectric/robolectric-gradle-plugin/) and some additional configuration.  Unit testing in Android Studio has been supported since v1.2.
+Note: Robolectric can also be configured with Android Studio 1.1, but the setup requires the [robolectric gradle plugin](https://github.com/robolectric/robolectric-gradle-plugin/) and some additional configuration.  Unit testing in Android Studio has been supported since v1.2, so it is highly recommended you upgrade to a newer version to use Roboelectric.
 
 ### Android Studio Configuration
 1. The first thing we should do is change to the `Project` perspective in the `Project Window`. This will show us a full view of everything contained in the project. The default setting (the `Android` perspective) hides certain directories (including the unit tests!):
