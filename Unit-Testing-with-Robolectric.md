@@ -266,6 +266,10 @@ public void localizedFrenchHelloWorld() {
 
 You can read more about Robolectric's support for qualified resources [here](http://robolectric.org/using-qualifiers/).
 
+## Limitations
+
+Roboelectric 3.0 currently does not have the ability to support loading of native libraries when executing tests (noted as an [issue](https://github.com/robolectric/robolectric/issues/1516)).
+
 ## References
 
 * <http://robolectric.org>
