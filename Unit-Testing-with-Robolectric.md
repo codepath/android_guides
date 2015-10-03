@@ -116,7 +116,7 @@ There are 2 ways to run your tests:
 
 ## Using Shadows
 
-Robolectric has an important concept called shadows. Shadows are classes that modify or extend the behavior of classes in the Android SDK.   Most of the Android core views are built with shadow classes to avoid needing the device or an emulator to run.  For a list of all the components that are implicitly mocked when using Roboelectric, see [this link](https://github.com/robolectric/robolectric/tree/master/robolectric-shadows/shadows-core/src/main/java/org/robolectric/shadows).  
+Robolectric has an important concept called shadows. Shadows are classes that modify or extend the behavior of classes in the Android SDK.   Most of the Android core views are built with shadow classes to avoid needing the device or an emulator to run.  For a list of all the components that are implicitly mocked when using Roboelectric, see [this link](https://github.com/robolectric/robolectric/tree/master/robolectric-shadows/shadows-core/src/main/java/org/robolectric/shadows).  You can read more about Robolectric's shadows [here](http://robolectric.org/extending/).  
 
 When an Android class is instantiated, Robolectric first looks to see if it has a corresponding shadow class implementation (i.e. a [ShadowTextView](https://github.com/robolectric/robolectric/blob/master/robolectric-shadows/shadows-core/src/main/java/org/robolectric/shadows/ShadowTextView.java) for a TextView), and if it finds one it creates a shadow object to associate with the Android class. Every time a method is invoked on the Android class, Robolectric first invokes the shadow class' corresponding method (if there is one). This gives the shadow classes a chance to maintain and expose extra state that wouldn't be available from just the Android classes. 
 
@@ -149,8 +149,18 @@ public void secondActivityStartedOnClick() {
 }
 ```
 
-You can read more about Robolectric's shadows [here](http://robolectric.org/extending/). 
+### Other Shadow packages
 
+While Roboelectric provides a base set of shadow classes, there are others that need to be explicitly defined if any of your unit tests depend on them to run.
+
+|Package                             | Shadow equivalent   
+|------------------------------------|-------------------------------------
+|com.android.support.support-v4      |org.robolectric:shadows-support-v4   
+|com.android.support.multidex        |org.robolectric:shadows-multidex     
+|com.google.android.gms:play-services|org.robolectric:shadows-play-services
+|com.google.android.maps:maps	     |org.robolectric:shadows-maps         
+|org.apache.httpcomponents:httpclient|org.robolectric:shadows-httpclient 
+  
 ## Testing the Activity Lifecycle
 
 Dealing with the activity lifecycle is a common source of bugs in Android. Fortunately, Robolectric allows you to test the activity lifecycle. Below you'll see how we've added some activity lifecycle tests to our `MainActivityTest` class.
