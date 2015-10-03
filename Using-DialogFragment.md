@@ -299,22 +299,21 @@ The titlebar can be styled using the "android:windowTitleStyle" as follows:
 </style>
 ```
 
-### Removing the Title bar on the Dialog
-Another way to remove the title bar in your dialog fragment is to override the onCreateDialog method.
+### Removing the TitleBar from the Dialog
+
+The TitleBar can be easily removed from your `DialogFragment` by overriding the `onCreateDialog` method:
 
 ```java
 @Override
 public Dialog onCreateDialog(Bundle savedInstanceState) {
-  Dialog dialog = super.onCreateDialog(savedInstanceState);
-
-  // request a window without the title
-  dialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-  return dialog;
+    Dialog dialog = super.onCreateDialog(savedInstanceState);
+    // request a window without the title
+    dialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+    return dialog;
 }
 ```
 
-This will give you a dialog box with no title bar. Read more in this StackOverflow post: 
-http://stackoverflow.com/questions/15277460/how-to-create-a-dialogfragment-without-title
+This will give you a dialog box without a title bar. Read more [in this StackOverflow post](http://stackoverflow.com/questions/15277460/how-to-create-a-dialogfragment-without-title)
 
 ### Transparent Dialogs
 
@@ -342,13 +341,15 @@ In order to use the "material-dialogs" library, you will need to add in maven re
 
 ## Sizing Dialogs
 
-In certain situations, you may want to set the height and width of the `DialogFragment` at runtime during creation. This can be done easily with `getDialog().getWindow()` as follows. In the XML simply set the root layout to wrap_content:
+### Runtime Dimensions
+
+In certain situations, you may want to set the height and width of the `DialogFragment` at runtime during creation. This can be done easily with `getDialog().getWindow()` as follows. In the XML simply set the root layout to `wrap_content` with:
 
 ```xml
 <!-- fragment_edit_name.xml -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/edit_name"
-    android:layout_width="match_parent" android:layout_height="match_parent" >
+    android:layout_width="wrap_content" android:layout_height="wrap_content" >
   <!-- ...subviews here... -->
 </LinearLayout>
 ```
@@ -364,6 +365,37 @@ public void onResume() {
 ```
 
 See [this stackoverflow post](http://stackoverflow.com/questions/12478520/how-to-set-dialogfragments-width-and-height) for more information.
+
+### Full-Screen Dialog
+
+In other cases, we want the dialog to fill the entire screen. First, in the XML layout for the dialog simply set the root layout to `match_parent` with:
+
+```xml
+<!-- fragment_edit_name.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/edit_name"
+    android:layout_width="wrap_content" android:layout_height="wrap_content" >
+  <!-- ...subviews here... -->
+</LinearLayout>
+```
+
+Next, within the `onResume` method of the `DialogFragment` we need to set the rules on the `getDialog().getWindow()` object to `WindowManager.LayoutParams.MATCH_PARENT` with:
+
+```
+@Override
+public void onResume() {
+    // Get existing layout params for the window
+    ViewGroup.LayoutParams params = getDialog().getWindow().getAttributes();
+    // Assign window properties to fill the parent
+    params.width = WindowManager.LayoutParams.MATCH_PARENT;
+    params.height = WindowManager.LayoutParams.MATCH_PARENT;
+    getDialog().getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
+    // Call super onResume after sizing
+    super.onResume();
+}
+```
+
+See [this stackoverflow post](http://stackoverflow.com/questions/27202382/android-dialog-fragment-width-keeps-on-matching-parent) for more details.
 
 ## Specialized Dialog Types
 
