@@ -1,6 +1,6 @@
 # Overview
 
-Robolectric is a unit testing framework that allows Android applications to be tested on the JVM without an emulator or device.  Running Android tests on the JVM usually fails because the Android core libraries included with the SDK, specifically the `android.jar` file, only contain stub implementations of the Android classes.  The actual implementations of the core libraries are built directly for a device or emulator, so running tests usually requires launching a device or emulator.
+Robolectric is a unit testing framework that allows Android applications to be tested on the JVM without an emulator or device.  Running Android tests on the JVM usually fails because the Android core libraries included with the SDK, specifically the `android.jar` file, only contain stub implementations of the Android classes.  The actual implementations of the core libraries are built directly on the device or emulator, so running tests usually requires one to be active in order to execute.
 
 So for all of us that want faster executing tests on the JVM (either for our Continuous Integration Server or just for faster iteration during development), Robolectric saves the day. Robolectric provides implementations of the Android SDK by rewriting the Android core libraries using "shadow classes". This gives us the ability to execute our tests on the JVM and achieve must faster test execution times than if we were running on a device or emulator.
  
