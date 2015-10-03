@@ -116,7 +116,7 @@ There are 2 ways to run your tests:
 
 ## Using Shadows
 
-Robolectric has an important concept called shadows. Shadows are classes that modify or extend the behavior of classes in the Android SDK. When an Android class is instantiated, Robolectric first looks to see if it has a corresponding shadow class implementation (i.e. a ShadowTextView for a TextView), and if it finds one it creates a shadow object to associate with the Android class. Every time a method is invoked on the Android class, Robolectric first invokes the shadow class' corresponding method (if there is one). This gives the shadow classes a chance to maintain and expose extra state that wouldn't be available from just the Android classes. 
+Robolectric has an important concept called shadows. Shadows are classes that modify or extend the behavior of classes in the Android SDK. When an Android class is instantiated, Robolectric first looks to see if it has a corresponding shadow class implementation (i.e. a [ShadowTextView](https://github.com/robolectric/robolectric/blob/master/robolectric-shadows/shadows-core/src/main/java/org/robolectric/shadows/ShadowTextView.java) for a TextView), and if it finds one it creates a shadow object to associate with the Android class. Every time a method is invoked on the Android class, Robolectric first invokes the shadow class' corresponding method (if there is one). This gives the shadow classes a chance to maintain and expose extra state that wouldn't be available from just the Android classes. 
 
 Let's assume our MainActivity has a `Button` that launches a `SecondActivity`. We'd like to validate that clicking on the button launches the correct activity with an automated test.  
 
