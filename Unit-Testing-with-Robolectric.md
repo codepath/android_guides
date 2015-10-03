@@ -149,6 +149,20 @@ public void secondActivityStartedOnClick() {
 }
 ```
 
+### Custom Shadows
+
+The best way to understand how shadows work is to understand how one is implemented.  Let's use the Bitmap class as an example.  There is an equivalent [ShadowBitmap](https://github.com/robolectric/robolectric/blob/master/robolectric-shadows/shadows-core/src/main/java/org/robolectric/shadows/ShadowBitmap.java) defined in Roboelectric.  Supposed we tried to create a Bitmap image using the `Bitmap.createBitmap`:
+
+```java
+  @RunWith(RobolectricGradleTestRunner.class)
+  @Config(constants=BuildConfig.class)
+  @Test
+  public void testBitmapScaling() {
+       Bitmap bitmap = Bitmap.createBitmap(200, 200, Bitmap.Config.ARGB_8888);
+```
+
+Instead of calling the [actual implementation](https://github.com/android/platform_frameworks_base/blob/master/graphics/java/android/graphics/Bitmap.java#L661-L744), ShadowBitmap's [createBitmap()](https://github.com/robolectric/robolectric/blob/master/robolectric-shadows/shadows-core/src/main/java/org/robolectric/shadows/ShadowBitmap.java#L189-L206) is called instead.  By doing so, the normal routines that depend on Canvas painting are not performed.  
+
 ### Other Shadow packages
 
 While Roboelectric provides a base set of shadow classes, there are others that need to be explicitly defined if any of your unit tests depend on them to run.
