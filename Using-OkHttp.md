@@ -45,7 +45,7 @@ Response response = client.newCall(request).execute();
 
 Because Android disallows network calls on the main thread, you can only make synchronous calls if you do so on a separate thread or a background service.  You can use also use [[AsyncTask|Creating-and-Executing-Async-Tasks]] for lightweight network calls.
 
-Assuming the response returns, we can check whether it was successful and parse the response headers and body:
+Assuming the response returns, we can check whether it was successful and parse the response headers and body. Calling `string()` on the response will retrieve the entire data into memory, so only make this call for small payloads.
 
 ```java
 if (!response.isSuccessful()) {
@@ -54,10 +54,10 @@ if (!response.isSuccessful()) {
 
 Headers responseHeaders = response.headers();
 for (int i = 0; i < responseHeaders.size(); i++) {
-  System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
+  Log.d("DEBUG", responseHeaders.name(i) + ": " + responseHeaders.value(i));
 }
 
-System.out.println(response.body().string());
+Log.d("DEBUG", response.body().string());
 }
 ```
 
