@@ -98,7 +98,7 @@ MainActivity.this.runOnUiThread(new Runnable() {
   @Override
   public void run() {
     try {
-       TextView myTextView = ((TextView) (findViewById(R.id.myTextView)));
+       TextView myTextView = (TextView) findViewById(R.id.myTextView);
        myTextView.setText(response.body().string());
     } catch (IOException e) {
       e.printStackTrace();
