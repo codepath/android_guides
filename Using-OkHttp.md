@@ -40,7 +40,7 @@ Request request = new Request.Builder()
 We can create a `Call` object and dispatch the network request synchronously:
 
 ```java
-  Response response = client.newCall(request).execute();
+Response response = client.newCall(request).execute();
 ```
 
 Because Android disallows network calls on the main thread, you can only make synchronous calls if you do so on a separate thread or a background service.  You can use also use [[AsyncTask|Creating-and-Executing-Async-Tasks]] for lightweight network calls.
@@ -48,14 +48,16 @@ Because Android disallows network calls on the main thread, you can only make sy
 Assuming the response returns, we can check whether it was successful and parse the response headers and body:
 
 ```java
-  if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
+if (!response.isSuccessful()) {
+  throw new IOException("Unexpected code " + response);
+} 
 
-  Headers responseHeaders = response.headers();
-  for (int i = 0; i < responseHeaders.size(); i++) {
-    System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
-  }
+Headers responseHeaders = response.headers();
+for (int i = 0; i < responseHeaders.size(); i++) {
+  System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
+}
 
-  System.out.println(response.body().string());
+System.out.println(response.body().string());
 }
 ```
 
@@ -66,18 +68,19 @@ passing an anonymous `Callback` object that implements both `onFailure()` and `o
 
 ```java
 // Get a handler that can be used to post to the main thread
-        client.newCall(request).enqueue(new Callback() {
+client.newCall(request).enqueue(new Callback() {
 
-            @Override
-            public void onFailure(Request request, IOException e) {
-                e.printStackTrace();
-            }
+@Override
+public void onFailure(Request request, IOException e) {
+  e.printStackTrace();
+}
 
-            @Override
-            public void onResponse(final Response response) throws IOException {
-                if (!response.isSuccessful()) {
-                    throw new IOException("Unexpected code " + response);
-                }
+@Override
+public void onResponse(final Response response) throws IOException {
+  if (!response.isSuccessful()) {
+     throw new IOException("Unexpected code " + response);
+  }
+}
 ```
 
 OkHttp normally creates a new worker thread to dispatch the network request and uses the same thread
@@ -85,25 +88,23 @@ to handle the response.  Note that if you need to update any views, you can only
 on the main UI thread.  Therefore, you will need to use `runOnUiThread()` or post the result back on the main thread:
 
 ```java
-            @Override
-            public void onResponse(final Response response) throws IOException {
-                if (!response.isSuccessful()) {
-                    throw new IOException("Unexpected code " + response);
-                }
+@Override
+public void onResponse(final Response response) throws IOException {
+if (!response.isSuccessful()) {
+  throw new IOException("Unexpected code " + response);
+}
 
-                MainActivity.this.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            ((TextView) (findViewById(R.id.myTextView)))
-                                    .setText(response.body().string());
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
-            }
-        });
+MainActivity.this.runOnUiThread(new Runnable() {
+  @Override
+  public void run() {
+    try {
+       TextView myTextView = ((TextView) (findViewById(R.id.myTextView)));
+       myTextView.setText(response.body().string());
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+});
 ```
 
 Check out Square's official [recipe guide](https://github.com/square/okhttp/wiki/Recipes) for other examples.
