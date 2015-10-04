@@ -110,7 +110,7 @@ Check out Square's official [recipe guide](https://github.com/square/okhttp/wiki
 
 ## References
 
-* [Android’s HTTP Clients - Android Developers blog, September 29, 2011](hhttp://android-developers.blogspot.com/2011/09/androids-http-clients.html)
+* [Android’s HTTP Clients - Android Developers blog, September 29, 2011](http://android-developers.blogspot.com/2011/09/androids-http-clients.html)
 * <https://www.reddit.com/r/androiddev/comments/29p3zz/til_okhttp_engine_is_backing_httpurlconnection_as/>
 * <https://github.com/square/okhttp/blob/master/okhttp-urlconnection/src/main/java/com/squareup/okhttp/internal/huc/HttpURLConnectionImpl.java>
 * <https://speakerdeck.com/jakewharton/a-few-ok-libraries-droidcon-mtl-2015>
