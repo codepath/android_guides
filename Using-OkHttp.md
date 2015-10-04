@@ -4,7 +4,7 @@ OkHttp is a third-party library developed by Square for sending and receive HTTP
 the standard Java I/O libraries by creating a [shared memory pool](https://www.youtube.com/watch?v=WvyScM_S88c&feature=youtu.be).
 
 The OkHttp library actually provides an implementation of the [[HttpUrlConnection|Sending-and-Managing-Network-Requests#sending-an-http-request-the-hard-way]]
-interface. Android 4.4 and later versions now use this implementation, so the [[hard way |Sending-and-Managing-Network-Requests#sending-an-http-request-the-hard-way]] of sending network requests will actually use the OkHttp library.
+interface. Android 4.4 and later versions now use this [implementation](https://github.com/square/okhttp/blob/master/okhttp-urlconnection/src/main/java/com/squareup/okhttp/internal/huc/HttpURLConnectionImpl.java), so the [[hard way |Sending-and-Managing-Network-Requests#sending-an-http-request-the-hard-way]] of sending network requests will actually use the OkHttp library.
 However, there is a separate API provided by OkHttp that makes it easier to send and receive network requests, which is described in this guide.  
 
 In addition, [OkHttp v2.4](https://corner.squareup.com/2015/05/okhttp-2-4.html) also provides a more updated way of managing URLs internally.  Instead of the `java.net.URL`, `java.net.URI`, or `android.net.Uri` classes, it provides a new `HttpUrl` class that makes it easier to get an HTTP port, parse URLs, and canonicalizing URL strings.
@@ -118,3 +118,4 @@ Check out Square's official [recipe guide](https://github.com/square/okhttp/wiki
 * <https://github.com/square/okio#sources-and-sink>
 * <http://stackoverflow.com/questions/24246783/okhttp-response-callbacks-on-the-main-thread>
 * <https://github.com/square/okhttp/wiki/Recipes>
+* <https://twitter.com/jakewharton/status/482563299511250944>
