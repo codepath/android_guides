@@ -116,7 +116,7 @@ MainActivity.this.runOnUiThread(new Runnable() {
 
 Assuming the request is not cancelled and there are no connectivity issues, the `onResponse()` method will be fired.
 It passes a `Response` object that can be used to check the status code, the response body, and any headers that were returned:
-Calling `inSuccessful()` for instance if the code returned a status code of 2X:
+Calling `inSuccessful()` for instance if the code returned a status code of 2XX:
 
 ```java
 if (!response.isSuccessful()) {
