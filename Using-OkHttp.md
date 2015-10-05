@@ -52,9 +52,9 @@ If there are any authenticated query parameters, headers can be added to the req
 
 ```java
 Request request = new Request.Builder()
-.header("Authorization", "token abcd")
-.url("https://api.github.com/users/codepath")
-.build();
+    .header("Authorization", "token abcd")
+    .url("https://api.github.com/users/codepath")
+    .build();
 ```
 
 ### Synchronous Network Calls
@@ -76,46 +76,47 @@ passing an anonymous `Callback` object that implements both `onFailure()` and `o
 // Get a handler that can be used to post to the main thread
 client.newCall(request).enqueue(new Callback() {
 
-@Override
-public void onFailure(Request request, IOException e) {
-  e.printStackTrace();
-}
+    @Override
+    public void onFailure(Request request, IOException e) {
+        e.printStackTrace();
+    }
 
-@Override
-public void onResponse(final Response response) throws IOException {
-  if (!response.isSuccessful()) {
-     throw new IOException("Unexpected code " + response);
-  }
+    @Override
+    public void onResponse(final Response response) throws IOException {
+        if (!response.isSuccessful()) {
+            throw new IOException("Unexpected code " + response);
+        }
+    }
 }
 ```
 
 OkHttp normally creates a new worker thread to dispatch the network request and uses the same thread to handle the response.  It is built [primarily as a Java library](http://stackoverflow.com/questions/24246783/okhttp-response-callbacks-on-the-main-thread#comment45410547_24248963) so does not handle the Android framework limitations that only permit views to be updated on the main UI thread.  If you need to update any views, you will need to use `runOnUiThread()` or post the result back on the main thread.  See [[this guide|Managing-Threads-and-Custom-Services#handler-and-loopers]] for more context.
 
 ```java
-@Override
-public void onResponse(final Response response) throws IOException {
-if (!response.isSuccessful()) {
-  throw new IOException("Unexpected code " + response);
-}
-
-MainActivity.this.runOnUiThread(new Runnable() {
-  @Override
-  public void run() {
-    try {
-       TextView myTextView = (TextView) findViewById(R.id.myTextView);
-       myTextView.setText(response.body().string());
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-  }
+client.newCall(request).enqueue(new Callback() {
+    @Override
+    public void onResponse(final Response response) throws IOException {
+        if (!response.isSuccessful()) {
+            throw new IOException("Unexpected code " + response);
+        }
+        // Run any view-related code back on the main thread
+        MainActivity.this.runOnUiThread(new Runnable() {
+        @Override
+        public void run() {
+            try {
+                TextView myTextView = (TextView) findViewById(R.id.myTextView);
+                myTextView.setText(response.body().string());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+   }
 });
 ```
 
-## Processing network responses
+## Processing Network Responses
 
-Assuming the request is not cancelled and there are no connectivity issues, the `onResponse()` method will be fired.
-It passes a `Response` object that can be used to check the status code, the response body, and any headers that were returned:
-Calling `inSuccessful()` for instance if the code returned a status code of 2XX (i.e. 200, 201, etc.)
+Assuming the request is not cancelled and there are no connectivity issues, the `onResponse()` method will be fired. It passes a `Response` object that can be used to check the status code, the response body, and any headers that were returned. Calling `isSuccessful()` for instance if the code returned a status code of 2XX (i.e. 200, 201, etc.)
 
 ```java
 if (!response.isSuccessful()) {
@@ -158,17 +159,18 @@ Request request = new Request.Builder()
 We can also decode the data by converting it to a `JSONObject` or `JSONArray`, depending on the response data:
 
 ```java
-@Override
-public void onResponse(final Response response) throws IOException {  
+client.newCall(request).enqueue(new Callback() {
+    @Override
+    public void onResponse(final Response response) throws IOException {  
+        try {
+            String responseData = response.body().string();
+            JSONObject json = new JSONObject(responseData);
+            final String owner = json.getString("name");
+        } catch (JSONException e) {
 
-  try {
-    String responseData = response.body().string();
-    JSONObject json = new JSONObject(responseData);
-    final String owner = json.getString("name");
-  }
-  catch (JSONException e) {
-
-}
+        }
+    }
+});
 ```
 
 ### Processing JSON data with Gson
@@ -178,7 +180,6 @@ Note that the `string()` method on the response body will load the entire data i
 To use the Gson library, we first must declare a class that maps directly to the JSON response:
 
 ```java
-
 static class GitUser {
        String name;
        String url;
@@ -194,13 +195,11 @@ final Gson gson = new Gson();
 // Get a handler that can be used to post to the main thread
 client.newCall(request).enqueue(new Callback() {
 
-  @Override
-  public void onResponse(final Response response) throws IOException {
-
-    GitUser user = gson.fromJson(response.body().charStream(), GitUser.class);
-    Log.d("DEBUG", user.name);
-
-  }
+    @Override
+    public void onResponse(final Response response) throws IOException {
+        GitUser user = gson.fromJson(response.body().charStream(), GitUser.class);
+        Log.d("DEBUG", user.name);
+    }
 }
 ```
 
