@@ -8,7 +8,7 @@ Add the following line to your Gradle configuration:
 
 ```gradle
 dependencies {
-  compile 'com.google.code.gson:gson:2.3'
+  compile 'com.google.code.gson:gson:2.4'
 }
 ```
 
