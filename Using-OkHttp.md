@@ -198,6 +198,7 @@ client.newCall(request).enqueue(new Callback() {
     // Parse response using gson deserializer
     @Override
     public void onResponse(final Response response) throws IOException {
+        // Process the data on the worker thread
         GitUser user = gson.fromJson(response.body().charStream(), GitUser.class);
         // Access deserialized user object here
     }
