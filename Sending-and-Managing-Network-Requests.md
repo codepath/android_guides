@@ -44,7 +44,7 @@ There are at least two popular third-party networking libraries you should consi
 
 * See the [[Android Async Http Client guide|Using-Android-Async-Http-Client]] for making basic network calls.
 
-* See the [OkHttp guide|Using-OkHttp] for making synchronous and asynchronous calls.  
+* See the [[OkHttp guide|Using-OkHttp]] for making synchronous and asynchronous calls.  
 
     - See also the [[Retrofit guide|Consuming-APIs-with-Retrofit]], which uses OkHttp and makes it easier to make more RESTful API calls.  Read through [[this guide|Leveraging-the-Gson-Library]] to understand how the Gson library works with Retrofit.
 
