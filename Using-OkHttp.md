@@ -95,21 +95,20 @@ OkHttp normally creates a new worker thread to dispatch the network request and 
 client.newCall(request).enqueue(new Callback() {
     @Override
     public void onResponse(final Response response) throws IOException {
-        if (!response.isSuccessful()) {
-            throw new IOException("Unexpected code " + response);
-        }
-        // Run any view-related code back on the main thread
+        // ... check for failure using `isSuccessful` before proceeding
+        // Run view-related code back on the main thread
         MainActivity.this.runOnUiThread(new Runnable() {
-        @Override
-        public void run() {
-            try {
-                TextView myTextView = (TextView) findViewById(R.id.myTextView);
-                myTextView.setText(response.body().string());
-            } catch (IOException e) {
-                e.printStackTrace();
+            @Override
+            public void run() {
+                try {
+                    TextView myTextView = (TextView) findViewById(R.id.myTextView);
+                    myTextView.setText(response.body().string());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
-        }
-   }
+       }
+    }
 });
 ```
 
