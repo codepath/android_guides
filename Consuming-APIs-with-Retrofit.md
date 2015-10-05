@@ -25,7 +25,7 @@ dependencies {
 }
 ```
 
-In the past, Retrofit relied on the [Gson](https://github.com/google/gson) library to parse JSON data. Retrofit 2 now supports many different parsers for processing network response data, including [Moshi](https://github.com/square/moshi), a library build by Square for efficient JSON parsing.  However, T=there are a few [limitations](https://github.com/square/moshi#borrows-from-gson), so if you are not sure which one to choose, use the Gson converter for now.  
+In the past, Retrofit relied on the [Gson](https://github.com/google/gson) library to parse JSON data. Retrofit 2 now supports many different parsers for processing network response data, including [Moshi](https://github.com/square/moshi), a library build by Square for efficient JSON parsing.  However, there are a few [limitations](https://github.com/square/moshi#borrows-from-gson), so if you are not sure which one to choose, use the Gson converter for now.  
  
 |Converter  | Library             
 |-----------|------------------------------------------------
