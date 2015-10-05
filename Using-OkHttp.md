@@ -49,8 +49,6 @@ Request request = new Request.Builder()
                      .build();
 ```
 
-### Sending authenticated headers
-
 If there are any authenticated query parameters, headers can be added to the request too:
 
 ```java
