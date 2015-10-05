@@ -60,7 +60,7 @@ Request request = new Request.Builder()
 .build();
 ```
 
-### Sending Synchronous Network Calls
+### Synchronous Network Calls
 
 We can create a `Call` object and dispatch the network request synchronously:
 
@@ -70,7 +70,7 @@ Response response = client.newCall(request).execute();
 
 Because Android disallows network calls on the main thread, you can only make synchronous calls if you do so on a separate thread or a background service.  You can use also use [[AsyncTask|Creating-and-Executing-Async-Tasks]] for lightweight network calls.
 
-### Sending Asynchronous Network Calls
+### Asynchronous Network Calls
 
 We can also make asynchronous network calls too by creating a `Call` object, using the `enqueue()` method, and
 passing an anonymous `Callback` object that implements both `onFailure()` and `onResponse()`.  
