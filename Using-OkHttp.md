@@ -90,7 +90,7 @@ public void onResponse(final Response response) throws IOException {
 }
 ```
 
-OkHttp normally creates a new worker thread to dispatch the network request and uses the same thread to handle the response.  It is built primarily for Java libraries so does not handle the Android framework limitations that only permit views to be updated on the main UI thread.  If you need to update any views, you will need to use `runOnUiThread()` or post the result back on the main thread.  See [][this guide|Managing-Threads-and-Custom-Services]] for more context.
+OkHttp normally creates a new worker thread to dispatch the network request and uses the same thread to handle the response.  It is built primarily as a Java library so does not handle the Android framework limitations that only permit views to be updated on the main UI thread.  If you need to update any views, you will need to use `runOnUiThread()` or post the result back on the main thread.  See [this guide|Managing-Threads-and-Custom-Services]] for more context.
 
 ```java
 @Override
