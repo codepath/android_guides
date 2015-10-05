@@ -75,7 +75,6 @@ passing an anonymous `Callback` object that implements both `onFailure()` and `o
 ```java
 // Get a handler that can be used to post to the main thread
 client.newCall(request).enqueue(new Callback() {
-
     @Override
     public void onFailure(Request request, IOException e) {
         e.printStackTrace();
