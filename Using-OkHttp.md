@@ -199,7 +199,7 @@ client.newCall(request).enqueue(new Callback() {
   public void onResponse(final Response response) throws IOException {
 
     GitUser user = gson.fromJson(response.body().charStream(), GitUser.class);
-    Log.d("Debug", user.name);
+    Log.d("DEBUG", user.name);
 
   }
 }
