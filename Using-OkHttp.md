@@ -47,7 +47,7 @@ String url = urlBuilder.build().toString();
 Request request = new Request.Builder()
                      .url(url)
                      .build();
-```java
+```
 
 ### Sending authenticated headers
 
