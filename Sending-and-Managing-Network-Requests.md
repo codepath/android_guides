@@ -48,7 +48,7 @@ There are at least two popular third-party networking libraries you should consi
 
     - See also the [[Retrofit guide|Consuming-APIs-with-Retrofit]], which uses OkHttp and makes it easier to make more RESTful API calls.  Read through [[this guide|Leveraging-the-Gson-Library]] to understand how the Gson library works with Retrofit.
 
-There can be a bit of a learning curve when using these libraries, so your best bet when first learning is to use Android Async Http Client.
+There can be a bit of a learning curve when using these libraries, so your best bet when first learning is to use Android Async Http Client.  With OkHttp you also have to deal with the complexity of whether your callbacks need to be run on the main thread to update the UI, as explained in the guide.
 
 ### Sending an HTTP Request (The "Hard" Way)
 
