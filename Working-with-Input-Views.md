@@ -26,8 +26,8 @@ There are many input fields available, use the handy chart below to determine wh
 | Type            | Inputs                                |
 | --------------- | ----------------------------------    |
 | Single Action   | [Button](http://developer.android.com/guide/topics/ui/controls/button.html), [ImageButton](https://developer.android.com/reference/android/widget/ImageButton.html) |
-| Free Text       | [EditText](http://developer.android.com/reference/android/widget/EditText.html), [AutoCompleteTextView](https://developer.android.com/reference/android/widget/AutoCompleteTextView.html) |
-| Integer         | [EditText](http://developer.android.com/reference/android/widget/EditText.html), [[NumberPicker|Working-with-Input-Views#numberpicker]], [SeekBar](http://developer.android.com/reference/android/widget/SeekBar.html) |
+| Free Text       | [EditText](http://guides.codepath.com/android/Working-with-the-EditText), [AutoCompleteTextView](https://developer.android.com/reference/android/widget/AutoCompleteTextView.html) |
+| Integer         | [EditText](http://guides.codepath.com/android/Working-with-the-EditText), [[NumberPicker|Working-with-Input-Views#numberpicker]], [SeekBar](http://developer.android.com/reference/android/widget/SeekBar.html) |
 | Boolean         | [[Checkboxes|Working-with-Input-Views#checkboxes]],  [Switch](http://developer.android.com/reference/android/widget/Switch.html) |
 | Single Choice    | [[Spinner|Working-with-Input-Views#spinners]], [[Radio Buttons|Working-with-Input-Views#radio-buttons]], [AutoCompleteTextView](https://developer.android.com/reference/android/widget/AutoCompleteTextView.html) |
 | Multiple Choice | [[Checkboxes|Working-with-Input-Views#checkboxes]] |
