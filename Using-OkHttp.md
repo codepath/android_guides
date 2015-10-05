@@ -96,13 +96,17 @@ client.newCall(request).enqueue(new Callback() {
     @Override
     public void onResponse(final Response response) throws IOException {
         // ... check for failure using `isSuccessful` before proceeding
+
+        // Read data on the worker thread
+        final String responseData = response.body().string();
+
         // Run view-related code back on the main thread
         MainActivity.this.runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 try {
                     TextView myTextView = (TextView) findViewById(R.id.myTextView);
-                    myTextView.setText(response.body().string());
+                    myTextView.setText(responseData);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -137,7 +141,7 @@ The headers can also be access directly using `response.header()`:
 String header = response.header("Date");
 ```
 
-We can also get the response data by calling `response.body()` and then calling `string()` to read the entire payload.
+We can also get the response data by calling `response.body()` and then calling `string()` to read the entire payload.  Note that `response.body()` can only be run once and should be done on a background thread.
 
 ```java
 Log.d("DEBUG", response.body().string());
