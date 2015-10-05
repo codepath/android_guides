@@ -119,7 +119,7 @@ Assuming the request is not cancelled and there are no connectivity issues, the 
 
 ```java
 if (!response.isSuccessful()) {
-  throw new IOException("Unexpected code " + response);
+    throw new IOException("Unexpected code " + response);
 }
 ```
 
@@ -142,7 +142,6 @@ We can also get the response data by calling `response.body()` and then calling 
 
 ```java
 Log.d("DEBUG", response.body().string());
-}
 ```
 
 ### Processing JSON data
@@ -180,24 +179,24 @@ To use the Gson library, we first must declare a class that maps directly to the
 
 ```java
 static class GitUser {
-       String name;
-       String url;
-       int id;
+    String name;
+    String url;
+    int id;
 }
 ```
 
 We can then use the Gson parser to convert the data directly to a Java model:
 
 ```java
+// Create new gson object
 final Gson gson = new Gson();
-
 // Get a handler that can be used to post to the main thread
 client.newCall(request).enqueue(new Callback() {
-
+    // Parse response using gson deserializer
     @Override
     public void onResponse(final Response response) throws IOException {
         GitUser user = gson.fromJson(response.body().charStream(), GitUser.class);
-        Log.d("DEBUG", user.name);
+        // Access deserialized user object here
     }
 }
 ```
