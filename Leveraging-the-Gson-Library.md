@@ -286,13 +286,13 @@ AsyncHttpClient client = new AsyncHttpClient();
          "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=" + apiKey,
          new TextHttpResponseHandler() {
              @Override
-             public void onFailure(int i, org.apache.http.Header[] headers, String s,
+             public void onFailure(int i, Header[] headers, String s,
                      Throwable throwable) {
 
              }
 
              @Override
-             public void onSuccess(int i, org.apache.http.Header[] headers, String s) {
+             public void onSuccess(int i, Header[] headers, String s) {
                  Response response = Response.fromJson(s);
              }
          });
