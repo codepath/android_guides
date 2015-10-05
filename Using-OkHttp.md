@@ -215,7 +215,9 @@ consumer.setTokenWithSecret(token, secret);
 okHttpClient.interceptors().add(new SigningInterceptor(consumer));
 ```
 
-Check out Square's official [recipe guide](https://github.com/square/okhttp/wiki/Recipes) for other examples.
+### Recipe guide
+
+Check out Square's official [recipe guide](https://github.com/square/okhttp/wiki/Recipes) for other examples of using OkHttp.
 
 ## References
 
