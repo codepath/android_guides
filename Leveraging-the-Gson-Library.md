@@ -73,7 +73,7 @@ public class BoxOfficeMovieResponse {
     }
 ```
 
-Note below that a public constructor may be needed to initialize the list.  Without this constructor, the Gson library will be unable to parse the response correctly for collection types.
+Note below that a public constructor may be needed to initialize the list.  Without this constructor, the Gson library may be unable to parse the response correctly for collection types.
 
 ### Parsing the response
 
