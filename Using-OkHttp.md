@@ -208,7 +208,7 @@ client.newCall(request).enqueue(new Callback() {
 ### Sending Authenticated Requests
 
 OkHttp has a mechanism to modify outbound requests using [interceptors](https://github.com/square/okhttp/wiki/Interceptors).
-A common example is the OAuth protocol, which requires requests to be signed using a private key.  The [OkHttp signpost library](https://github.com/pakerfeldt/okhttp-signpost) works with the [SignPost library](https://github.com/mttkay/signpost) to use an interceptor to sign each request.  This way, the caller does not need to remember to sign each request:
+A common use case is the OAuth protocol, which requires requests to be signed using a private key.  The [OkHttp signpost library](https://github.com/pakerfeldt/okhttp-signpost) works with the [SignPost library](https://github.com/mttkay/signpost) to use an interceptor to sign each request.  This way, the caller does not need to remember to sign each request:
 
 ```java
 OkHttpOAuthConsumer consumer = new OkHttpOAuthConsumer(CONSUMER_KEY, CONSUMER_SECRET);
