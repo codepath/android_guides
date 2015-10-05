@@ -173,7 +173,7 @@ public void onResponse(final Response response) throws IOException {
 
 ### Processing JSON data with Gson
 
-Note that the `string()` method on the response body will load the entire data into memory.  To make more efficient use of memory, it is recommended that the response be processed as a stream by using `charStream()` instead.  This approach however requires using the Gson library.  See [[this guide|Leveraging-the-Gson-Library]] for setup instructions.
+Note that the `string()` method on the response body will load the entire data into memory.  To make more efficient use of memory, it is recommended that the response be processed as a stream by using `charStream()` instead.  This approach however requires using the [Gson](https://github.com/google/gson) library.  See [[this guide|Leveraging-the-Gson-Library]] for setup instructions.
 
 To use the Gson library, we first must declare a class that maps directly to the JSON response:
 
