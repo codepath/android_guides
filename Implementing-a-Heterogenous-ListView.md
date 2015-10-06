@@ -150,7 +150,7 @@ As with any list within a production application, we will want to apply the [[Vi
 
 ### RecyclerView and Multiple Types
 
-`RecyclerView` is a [newer alternative](http://guides.codepath.com/android/Using-the-RecyclerView) to the `ListView` and has a separate adapter system that works differently then the content described above. Refer to the [[Heterogenous-Layouts-inside-RecyclerView]] to learn more about how to render multiple item types within the `RecyclerView`
+`RecyclerView` is a [newer alternative](http://guides.codepath.com/android/Using-the-RecyclerView) to the `ListView` and has a separate adapter system that works differently then the content described above. Refer to the [[Heterogenous Layouts Inside RecyclerView]] to learn more about how to render multiple item types within the `RecyclerView`
 
 ## References
 
