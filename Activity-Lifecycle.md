@@ -29,7 +29,7 @@ The following diagram shows the important state paths of an Activity. The square
 
 ### Handling Configuration Changes
 
-The Activity lifecycle is especially important because whenever an activity leaves the screen, **the activity can be destroyed**. When an activity is destroyed, when the user returns to the activity, the activity will be re-created and the lifecycle methods will be called again. Activities are also re-created whenever the orientation changes (i.e the screen is rotated). In order to ensure your application is robust to recreation amongst a wide variety of situations, be sure to review the [[handling configuration changes|Handling-Configuration-Changes]].
+The Activity lifecycle is especially important because whenever an activity leaves the screen, **the activity can be destroyed**. When an activity is destroyed, when the user returns to the activity, the activity will be re-created and the lifecycle methods will be called again. Activities are also **re-created whenever the orientation changes** (i.e the screen is rotated). In order to ensure your application is robust to recreation amongst a wide variety of situations, be sure to review the [[handling configuration changes|Handling-Configuration-Changes]].
 
 ### Calling the super class
 
