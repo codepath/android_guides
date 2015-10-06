@@ -197,7 +197,7 @@ public class SomeFragment extends Fragment {
 }
 ```
 
-[This chart](http://developer.android.com/images/fragment_lifecycle.png) has the lifecycle displayed visually.
+Refer to [this detailed lifecycle chart](http://developer.android.com/images/fragment_lifecycle.png) to view the lifecycle of a fragment more visually.
 
 ### Looking Up a Fragment Instance
 
