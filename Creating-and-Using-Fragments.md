@@ -379,20 +379,21 @@ public class MyListFragment extends Fragment {
 }
 ```
 
-and then in the activity:
+and then in the activity we have to implement the `OnItemSelectedListener` listener:
 
 ```java
 import android.support.v4.app.FragmentActivity;
 
-public class RssfeedActivity extends FragmentActivity implements
-  MyListFragment.OnItemSelectedListener {
+// Activity implements the fragment listener to handle events
+public class RssfeedActivity extends FragmentActivity implements MyListFragment.OnItemSelectedListener {
     DetailFragment fragment;
 
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-      super.onCreate(savedInstanceState);
-      setContentView(R.layout.activity_rssfeed);
-      fragment = (DetailFragment) getSupportFragmentManager()
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_rssfeed);
+        // Get access to the fragment by id
+        fragment = (DetailFragment) getSupportFragmentManager()
             .findFragmentById(R.id.detailFragment);
   }
   
@@ -407,6 +408,21 @@ public class RssfeedActivity extends FragmentActivity implements
 ```
 
 in order to keep the fragment as re-usable as possible. For more details about this pattern, check out our detailed [[Creating Custom Listeners]] guide.
+
+### Understanding the FragmentManager
+
+The [FragmentManager](http://developer.android.com/intl/es/reference/android/support/v4/app/FragmentManager.html) is responsible for all runtime management of fragments including adding, removing, hiding, showing, or otherwise navigating between fragments. As shown above, the fragment manager is also responsible for finding fragments within an activity. Important available methods are outlined below:
+
+| Method                          | Description    |
+| -----------------------------   | ---------------------------------------------------------- |
+| `addOnBackStackChangedListener` | Add a new listener for changes to the fragment back stack. |
+| `beginTransaction()`            | Starts a new transaction to change fragments at runtime.   |
+| `findFragmentById(int id)`      | Finds a fragment by id usually inflated from activity XML layout.   |
+| `findFragmentByTag(String tag)` | Finds a fragment by tag usually for a runtime added fragment.       |
+| `popBackStack()`                | Remove a fragment from the backstack.                               |
+| `executePendingTransactions()`  | Forces committed transactions to be applied.                        |
+
+See the [official documentation](http://developer.android.com/intl/es/reference/android/support/v4/app/FragmentManager.html) for more information.
 
 ### ActionBar Menu Items and Fragments
 
