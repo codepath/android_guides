@@ -584,8 +584,7 @@ public class ParentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
         Bundle savedInstanceState) {
-      View view = (View) inflater.inflate(R.layout.fragment_parent, container, false);
-      return view;
+       return inflater.inflate(R.layout.fragment_parent, container, false);
    }
 }
 
@@ -595,8 +594,7 @@ public class ChildFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
         Bundle savedInstanceState) {
        // Need to define the child fragment layout
-       View view = (View) inflater.inflate(R.layout.fragment_child, container, false);
-       return view;
+       return inflater.inflate(R.layout.fragment_child, container, false);
    }
 }
 ```
@@ -609,16 +607,22 @@ public class ParentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
         Bundle savedInstanceState) {
-      View view = (View) inflater.inflate(R.layout.fragment_parent, container, false);
-      insertNestedFragment();
-      return view;
-   }
+        return inflater.inflate(R.layout.fragment_parent, container, false);
+    }
+
+   // This event is triggered soon after onCreateView().
+   // onViewCreated() is only called if the view returned from onCreateView() is non-null.
+   // Any view setup should occur here.  E.g., view lookups and attaching view listeners.
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        insertNestedFragment();
+    }
   
    // Embeds the child fragment dynamically
    private void insertNestedFragment() {
-      Fragment childFragment = new ChildFragment();
-      FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-      transaction.replace(R.id.child_fragment_container, childFragment).commit();
+       Fragment childFragment = new ChildFragment();
+       FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+       transaction.replace(R.id.child_fragment_container, childFragment).commit();
    }
 }
 ```
