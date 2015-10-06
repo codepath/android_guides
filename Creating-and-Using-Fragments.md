@@ -416,13 +416,13 @@ The [FragmentManager](http://developer.android.com/intl/es/reference/android/sup
 | Method                          | Description    |
 | -----------------------------   | ---------------------------------------------------------- |
 | `addOnBackStackChangedListener` | Add a new listener for changes to the fragment back stack. |
-| `beginTransaction()`            | Starts a new transaction to change fragments at runtime.   |
+| `beginTransaction()`            | Creates a new transaction to change fragments at runtime.   |
 | `findFragmentById(int id)`      | Finds a fragment by id usually inflated from activity XML layout.   |
 | `findFragmentByTag(String tag)` | Finds a fragment by tag usually for a runtime added fragment.       |
 | `popBackStack()`                | Remove a fragment from the backstack.                               |
 | `executePendingTransactions()`  | Forces committed transactions to be applied.                        |
 
-See the [official documentation](http://developer.android.com/intl/es/reference/android/support/v4/app/FragmentManager.html) for more information.
+See the [official documentation](http://developer.android.com/intl/es/reference/android/support/v4/app/FragmentManager.html) for more information. You can also review the [FragmentTransaction](http://developer.android.com/intl/es/reference/android/app/FragmentTransaction.html) to take a closer look at what modifications can be made at run-time through the manager.
 
 ### ActionBar Menu Items and Fragments
 
