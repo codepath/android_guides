@@ -148,6 +148,10 @@ This is a simple example for demonstration purposes. See [this article](https://
 
 As with any list within a production application, we will want to apply the [[ViewHolder Pattern|Using-an-ArrayAdapter-with-ListView#improving-performance-with-the-viewholder-pattern]] for smooth scrolling by caching the subview lookups. In this case, you'll need multiple ViewHolder classes (one per type) as [outlined in this stackoverflow post](http://stackoverflow.com/a/3515221/313399).
 
+### RecyclerView and Multiple Types
+
+`RecyclerView` is a [newer alternative](http://guides.codepath.com/android/Using-the-RecyclerView) to the `ListView` and has a separate adapter system that works differently then the content described above. Refer to the [[Heterogenous-Layouts-inside-RecyclerView]] to learn more about how to render multiple item types within the `RecyclerView`
+
 ## References
 
  * <https://edisonthk.wordpress.com/2014/06/12/constraints-of-multiple-layouts-listview-for-android/>
