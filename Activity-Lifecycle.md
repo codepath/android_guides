@@ -27,6 +27,10 @@ The following diagram shows the important state paths of an Activity. The square
 | `onDestroy()` | Counterpart to `onCreate(...)`. This can be triggered because `finish()` was called on the activity or the system needed to free up some memory. |  It's common to do any cleanup here. For example, if the activity has a thread running in the background to download data from the network, it may create that thread in onCreate() and then stop the thread here in onDestroy() |
 | `onRestart()` | Called when the activity has been stopped, before it is started again | It isn't very common to need to implement this callback.    |
 
+### Handling Configuration Changes
+
+The Activity lifecycle is especially important because whenever an activity leaves the screen, **the activity can be destroyed**. When an activity is destroyed, when the user returns to the activity, the activity will be re-created and the lifecycle methods will be called again. Activities are also re-created whenever the orientation changes (i.e the screen is rotated). In order to ensure your application is robust to recreation amongst a wide variety of situations, be sure to review the [[handling configuration changes|Handling-Configuration-Changes]].
+
 ### Calling the super class
 
 When overriding any of the methods, you may need to call the superclass implementation.  The rule of thumb is that during initialization, you should always call the superclass first:
