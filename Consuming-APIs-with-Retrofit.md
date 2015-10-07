@@ -79,7 +79,7 @@ To send out network requests to an API, we need to use the [Retrofit builder] (h
 ```java
 public static final String BASE_URL = "http://api.myservice.com";
 Retrofit retrofit = new Retrofit.Builder()
-    .setEndpoint(BASE_URL)
+    .baseUrl(BASE_URL)
     .addConverterFactory(GsonConverterFactory.create())
     .build();
 ```
