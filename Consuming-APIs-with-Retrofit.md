@@ -92,7 +92,7 @@ Gson gson = new GsonBuilder()
         .create();
 
 Retrofit retrofit = new Retrofit.Builder()
-    .setEndpoint(BASE_URL)
+    .baseUrl(BASE_URL)
     .addConverterFactory(GsonConverterFactory.create(gson))
     .build();
 ```
@@ -234,7 +234,7 @@ client.interceptors().add(interceptor);
 
 // Set the custom client when building adapter
 Retrofit retrofit = new Retrofit.Builder()
-  .setEndpoint("https://api.github.com")
+  .baseUrl("https://api.github.com")
   .addConverterFactory(GsonConverterFactory.create())
   .client(client)
   .build();
