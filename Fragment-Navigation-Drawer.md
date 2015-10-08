@@ -166,6 +166,8 @@ compile 'com.android.support:design:22.2.0'
 
 Now, let's setup the drawer in our activity.  We can also setup the menu icon too.
 
+Note: Make sure you implement the correct onPostCreate method. There are 2 of them one of which does not show the hamburger icon.
+
 ```java
 public class MainActivity extends AppCompatActivity {
 	private DrawerLayout mDrawer;
