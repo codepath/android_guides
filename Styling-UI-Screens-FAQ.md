@@ -50,7 +50,7 @@ To align the contents within a view, you can use the [`android:gravity` property
 
 #### How do I specify percentage based width, height and margins for my views?
 
-Simple wrap your views inside a [`PercentRelativeLayout`](http://guides.codepath.com/android/Constructing-View-Layouts#percentrelativelayout) or `PercentFrameLayout` and specify attributes with "Percent" suffix. Alternatively, you can also use [`android:layout_weight`](http://guides.codepath.com/android/Constructing-View-Layouts#linearlayout) attribute if you are using a `LinearLayout`.
+Simply wrap your views inside a [`PercentRelativeLayout`](http://guides.codepath.com/android/Constructing-View-Layouts#percentrelativelayout) or `PercentFrameLayout` and specify attributes with "Percent" suffix. Alternatively, you can also use [`android:layout_weight`](http://guides.codepath.com/android/Constructing-View-Layouts#linearlayout) attribute if you are using a `LinearLayout`.
 
 ### Images
 
