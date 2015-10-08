@@ -207,9 +207,11 @@ public CharSequence getPageTitle(int position) {
     // return tabTitles[position];
     
     // getDrawable(int i) is deprecated, use getDrawable(int i, Theme theme) for min SDK >=21
+    // or ContextCompat.getDrawable(Context context, int id) if you want support for older versions.
     // Drawable image = context.getResources().getDrawable(iconIds[position], context.getTheme());
+    // Drawable image = context.getResources().getDrawable(imageResId[position]);
 
-    Drawable image = context.getResources().getDrawable(imageResId[position]);
+    Drawable image = ContextCompat.getDrawable(context, imageResId[position]);
     image.setBounds(0, 0, image.getIntrinsicWidth(), image.getIntrinsicHeight());
     SpannableString sb = new SpannableString(" ");
     ImageSpan imageSpan = new ImageSpan(image, ImageSpan.ALIGN_BOTTOM);
