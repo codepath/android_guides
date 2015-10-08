@@ -262,7 +262,7 @@ Setup a handler to respond to click events on the navigation elements and swap o
         }
 
         // Insert the fragment by replacing any existing fragment
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
 
         // Highlight the selected item, update the title, and close the drawer
