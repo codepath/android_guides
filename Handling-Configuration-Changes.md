@@ -35,7 +35,8 @@ public void onRestoreInstanceState(Bundle savedInstanceState) {
     someStringValue = savedInstanceState.getString(SOME_OTHER_VALUE);
 }
 ```
-But we should notices that "onSaveInstanceState" and "onRestoreInstanceState" are not always called in pair. Android calls onSaveInstanceState() before the activity becomes vulnerable to being destroyed by the system.So it exists the possibility that the onSaveInstanceState is called but finally the activity is not destroy,in fact.in such case, "onRestoreInstanceState" will not be called later
+
+Note that `onSaveInstanceState` and `onRestoreInstanceState` are not guaranteed to be called together. Android invokes `onSaveInstanceState()` when there's a chance the activity might be destroyed. However, there are cases where `onSaveInstanceState` is called but the activity is not destroyed and as a result `onRestoreInstanceState` is not invoked.
 
 Read more on the [Recreating an Activity](http://developer.android.com/training/basics/activity-lifecycle/recreating.html) guide.
 
