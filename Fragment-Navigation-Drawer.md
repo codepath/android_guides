@@ -148,6 +148,7 @@ Next, let's setup a basic navigation drawer based on the following layout file w
     </LinearLayout>
 
     <!-- The navigation drawer that comes from the left -->
+    <!-- Note that `android:layout_gravity` needs to be set to 'start' -->
     <android.support.design.widget.NavigationView
         android:id="@+id/nvView"
         android:layout_width="wrap_content"
