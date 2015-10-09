@@ -70,6 +70,7 @@ Paste the generated class into your project under a `models` sub-package.  Renam
 ```gradle
 dependencies {
   provided 'org.glassfish:javax.annotation:10.0-b28'
+}
 ```
 
 ### Creating the Retrofit instance
