@@ -87,7 +87,7 @@ Retrofit retrofit = new Retrofit.Builder()
 
 Note also that we need to specify a factory for deserializing the response using the Gson library.  The order in which the converters are added will be the sequence in which they are attempted to be processed as discussed in this [video talk](https://youtu.be/KIAoQbAu3eA?t=35m8s).  If we wish to pass in a custom Gson parser instance, it can be specified too:
 
-``java
+```java
 Gson gson = new GsonBuilder()
         .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
         .create();
