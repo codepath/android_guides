@@ -33,7 +33,7 @@ In order to use GCM, we need to go through the following steps:
 
    A server key will be generated for you.  Record this data.
 
-      <img src="http://imgur.com/FBxF8V8.png" height="250">
+   <img src="http://imgur.com/FBxF8V8.png" height="250"/>
 
 ### Alternate instructions
 
