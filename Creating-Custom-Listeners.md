@@ -161,6 +161,91 @@ public class MyCustomObject {
 
 Notice that we fire the listener event `listener.onDataLoaded(data)` when the asynchronous network request has completed. Whichever callback has been passed by the parent (shown in the previous step) will be fired.
 
+### Callback Approaches
+
+There are several different ways to pass a listener callback into the child object:
+
+1. Pass the callback through a method call
+2. Pass the callback through the constructor
+3. Pass the callback through a lifecycle event
+
+### 1. Passing via Method
+
+The code earlier demonstrated passing the callback through a method call like this:
+
+```java
+// Inside the parent object
+childObject.setCustomObjectListener(new MyCustomObjectListener() {
+    @Override
+    public void onObjectReady(String title) {
+        // Code to handle object ready
+    }
+});
+```
+
+which is defined in the child object as follows:
+
+```java
+// Inside the child object
+private MyCustomObjectListener listener;
+
+// Assign the listener implementing events interface that will receive the events
+public void setCustomObjectListener(MyCustomObjectListener listener) {
+    this.listener = listener;
+}
+```
+
+#### 2. Passing via Constructor
+
+If the callback is critical to the object's function, we can pass the callback directly into the constructor of the child object as an argument:
+
+```java
+// Inside the child object
+private MyCustomObjectListener listener;
+
+// Passing in the listener directly into the constructor
+public MyCustomObject(MyCustomObjectListener listener) {
+    this.listener = listener; 
+}
+```
+
+and then when we can create the child object from the parent we can do the following:
+
+```java
+// Inside the parent object
+MyCustomObject object = new MyCustomObject(new MyCustomObjectListener() {
+    @Override
+    public void onObjectReady(String title) {
+        // Code to handle object ready
+    });
+});
+```
+
+### 3. Pass via Lifecycle Event
+
+The third case is most common with fragments or other android components that need to communicate upward to a parent. In this case, we can leverage existing Android lifecycle events to get access to the listener. In the case below, a fragment being attached to an activity:
+
+```java
+public class MyListFragment extends Fragment {
+  // Member variable storing the listener
+  private MyCustomObjectListener listener;
+
+  // Store the listener that will have events fired once the fragment is attached
+  @Override
+  public void onAttach(Activity activity) {
+    super.onAttach(activity);
+      if (activity instanceof MyCustomObjectListener) {
+        listener = (MyCustomObjectListener) activity;
+      } else {
+        throw new ClassCastException(activity.toString()
+            + " must implement MyListFragment.MyCustomObjectListener");
+      }
+  }
+}
+```
+
+For the full details on this approach, check out the [[fragments guide|Creating-and-Using-Fragments#fragment-listener]].
+
 ### Conclusion
 
 The "listener pattern" is a very powerful Java pattern that can be used to emit events to a single parent in order to communicate important information asynchronously. This can be used to **move complex logic out of adapters**, **create useful abstractions for your code** or **communicate from a fragment to your activities**. 
