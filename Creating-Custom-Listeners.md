@@ -161,7 +161,7 @@ public class MyCustomObject {
 
 Notice that we fire the listener event `listener.onDataLoaded(data)` when the asynchronous network request has completed. Whichever callback has been passed by the parent (shown in the previous step) will be fired.
 
-### Callback Approaches
+## Callback Approaches
 
 There are several different ways to pass a listener callback into the child object:
 
