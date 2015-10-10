@@ -161,6 +161,10 @@ public class MyCustomObject {
 
 Notice that we fire the listener event `listener.onDataLoaded(data)` when the asynchronous network request has completed. Whichever callback has been passed by the parent (shown in the previous step) will be fired.
 
+### Conclusion
+
+The "listener pattern" is a very powerful Java pattern that can be used to emit events to a single parent in order to communicate important information asynchronously. This can be used to **move complex logic out of adapters**, **create useful abstractions for your code** or **communicate from a fragment to your activities**. 
+
 ## Callback Approaches
 
 There are several different ways to pass a listener callback into the child object:
@@ -245,10 +249,6 @@ public class MyListFragment extends Fragment {
 ```
 
 For the full details on this approach, check out the [[fragments guide|Creating-and-Using-Fragments#fragment-listener]].
-
-### Conclusion
-
-The "listener pattern" is a very powerful Java pattern that can be used to emit events to a single parent in order to communicate important information asynchronously. This can be used to **move complex logic out of adapters**, **create useful abstractions for your code** or **communicate from a fragment to your activities**. 
 
 ## References 
 
