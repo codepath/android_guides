@@ -70,7 +70,6 @@ Add the following to your Gradle file:
 ```
 dependencies {
   compile "com.google.android.gms:play-services-gcm:8.1.0"
-  compile 'com.android.support:support-v4:22.2.1'
 }
 ```
 
