@@ -20,7 +20,7 @@ Push notifications can be received assuming your app has registered to listen fo
 
 <img src="http://imgur.com/adiFo8w.png" height=300/>
 
-In other words, in order to implement GCM, your app will need to involve both a Google server and your own server.  The only information exchanged between your app and your server is the token.  This token will need to be recorded by your server so that it can send messages to the Google server, which in turn relays this data to your app.  With this approach, the responsibility of queuing and relaying messages is all handled by Google's servers.
+In other words, in order to implement GCM, your app will need to involve both a Google server and your own server.  The only information exchanged between your app and your server is the token, which in turn should be saved by the server so that it can send messages to the Google server.  With this approach, the responsibility of queuing and relaying messages is all handled by Google's servers. 
 
 ### Setup
 
