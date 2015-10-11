@@ -8,9 +8,17 @@ Google Cloud Messaging for Android (GCM) is a service that allows you to send da
 
 Much of the heavy lifting in supporting push notifications on Android is facilitated by Google-powered [connection servers](https://developers.google.com/cloud-messaging/server.html).  These Google servers provide an API for messages to be sent from your server and relay these messages to any Android/iOS devices authorized to receive them.
 
-An Android device with Google Play Services will already have GCM client support available.  For push notifications to be received, an app must first obtain a token from a Google server.  This token then must be passed along to your server so that it can be used to send subsequent push notifications.  Push notifications can be received assuming your app has registered to listen for GCM-based messages.
+An Android device with Google Play Services will already have GCM client support available.  For push notifications to be received, an app must first obtain a token from a Google server:
 
-In other words, in order to implement GCM, your app will need to involve both a Google server and your own server.  The only information exchanged between your app and your server is the token.  This token will need to be recorded by your server so that it can send messages to the Google server, which in turn relays this data to your app.  With this approach, the responsibility of queuing and relaying messages are all handled by Google's servers.
+<img src="http://imgur.com/5UPxP3n.png" height=300/>
+
+This token then must be passed along to your server so that it can be used to send subsequent push notifications:
+
+<img src="http://imgur.com/ItRPQ7N.png" height=300/>
+
+Push notifications can be received assuming your app has registered to listen for GCM-based messages.
+
+In other words, in order to implement GCM, your app will need to involve both a Google server and your own server.  The only information exchanged between your app and your server is the token.  This token will need to be recorded by your server so that it can send messages to the Google server, which in turn relays this data to your app.  With this approach, the responsibility of queuing and relaying messages is all handled by Google's servers.
 
 ### Setup
 
