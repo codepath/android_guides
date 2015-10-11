@@ -184,7 +184,7 @@ You will want to record whether the token was sent to the server and may wish to
      }
 ```
 
-See the [sample code](https://github.com/googlesamples/google-services/blob/master/android/gcm/app/src/main/java/gcm/play/android/samples/com/gcmquickstart/RegistrationIntentService.java) provided by Google. 
+For more details, see the [sample code](https://github.com/googlesamples/google-services/blob/master/android/gcm/app/src/main/java/gcm/play/android/samples/com/gcmquickstart/RegistrationIntentService.java) provided by Google. 
 
 ### Create a InstanceID ListenerService
 
