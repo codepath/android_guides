@@ -23,6 +23,7 @@ In order to use GCM, we need to go through the following steps:
     - Register in app for a GCM Registration ID
     - Transmit the Registration ID (Device ID) to our web server
     - Register a GCM Receiver to handle incoming messages
+    - Register an InstanceID Listener Service to handle updated tokens
  3. Develop HTTP Server with GCM endpoints
     - Endpoint for registering a user with a device ID
     - Endpoint for sending a push notification to a specified set of device IDs
@@ -81,6 +82,14 @@ dependencies {
 }
 ```
 
+### Setup Project ID
+
+Add your project number to your strings.xml, which should correspond to the project ID:
+
+```xml
+<string name="gcm_defaultSenderId">1234</string>
+```
+
 ### Add GCM Permissions
 
 Your app will need to have the ability to make Internet connection and request wake locks.  Wake locks are needed so that the receiving GCM service that you will implement will be able to receive the full payload before the devices goes to sleep.
@@ -104,42 +113,74 @@ To prevent other broadcast receivers from receiving the message, there is a spec
 
 For a more detailed explanation of why these permissions are needed, see [Google's guide](https://developers.google.com/cloud-messaging/android/client#manifest).
 
-### Copy over `GCMClientManager.java`
+### Implement a Registration IntentService
 
-Copy source of [GCMClientManager.java](https://gist.github.com/rogerhu/dfdf83c58e7022839256) to your Android project. Use in your first Activity with the following:
+You will want to implement an [Intent Service](http://guides.codepath.com/android/Starting-Background-Services#creating-an-intentservice), which will execute as a background thread instead of being tied to the lifecycle of an Activity.   In this way, you can ensure that push notifications can be received by your app even though a user may navigate away from the activity.
+
+First, you will need to request an [instance ID](https://developers.google.com/instance-id/reference/) from Google that will be a way to uniquely identify the device and app.  Assuming this request is successful, a token that can be used to send notifications to the app should be generated too.  
 
 ```java
-public class FirstActivity extends Activity {
-    private GCMClientManager pushClientManager;
-       String PROJECT_NUMBER = "<YOUR PROJECT NUMBER HERE>";
+
+// abbreviated tag name
+public class RegistrationIntentService extends IntentService {
+
+    // abbreviated tag name
+    private static final String TAG = "RegIntentService";
+
+    public RegistrationIntentService() {
+        super(TAG);
+    } 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        pushClientManager = new GCMClientManager(this, PROJECT_NUMBER);
-        pushClientManager.registerIfNeeded(new GCMClientManager.RegistrationCompletedHandler() {
-           @Override
-           public void onSuccess(String registrationId, boolean isNewRegistration) {
-    	       Toast.makeText(FirstActivity.this, registrationId, 
-    	          Toast.LENGTH_SHORT).show();
-    	       // SEND async device registration to your back-end server 
-    	       // linking user with device registration id
-    	       // POST https://my-back-end.com/devices/register?user_id=123&device_id=abc
-           }
+    protected void onHandleIntent(Intent intent) {
+        // Make a call to Instance API
+        InstanceID instanceID = InstanceID.getInstance(this);
+        String senderId = getResources().getString(R.string.gcm_defaultSenderId);
+        try {
+            // request token that will be used by the server to send push notifications
+            String token = instanceID.getToken(senderId, GoogleCloudMessaging.INSTANCE_ID_SCOPE);
+            Log.d(TAG, "GCM Registration Token: " + token);
 
-           @Override
-           public void onFailure(String ex) {
-             super.onFailure(ex);
-             // If there is an error registering, don't just keep trying to register.
-             // Require the user to click a button again, or perform
-             // exponential back-off when retrying.
-           }
-        });
+            // pass along this data
+            sendRegistrationToServer(token);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+     private void sendRegistrationToServer(String token) {
+        // Add custom implementation, as needed.
+     }
+
+``` 
+
+You will want to record whether the token was sent to the server and may wish to store the token in your [[Shared Preferences|Storing-and-Accessing-SharedPreferences]]:
+
+```java
+    public static final String SENT_TOKEN_TO_SERVER = "sentTokenToServer";
+    public static final String GCM_TOKEN = "gcmToken";
+
+    @Override
+    protected void onHandleIntent(Intent intent) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        // Fetch token here
+ 
+        // save token
+        sharedPreferences.edit().putString(GCM_TOKEN, token).apply();
+        // pass along this data
+        sendRegistrationToServer(token);
     }
-}
+
+    private void sendRegistrationToServer(String token) {
+        // send network request
+
+        // if registration sent was successful, store a boolean that indicates whether the generated token has been sent to server
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        sharedPreferences.edit().putBoolean(SENT_TOKEN_TO_SERVER, true).apply();
+     }
 ```
-	 
+
+See the [sample code](https://github.com/googlesamples/google-services/blob/master/android/gcm/app/src/main/java/gcm/play/android/samples/com/gcmquickstart/RegistrationIntentService.java) provided by Google. 
 
 ## Create Broadcast Receiver and Message Handler
 
