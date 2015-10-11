@@ -329,4 +329,4 @@ This will send messages to the devices specified.
 - <https://developers.google.com/cloud-messaging/android/client/>
 - <http://hmkcode.com/android-google-cloud-messaging-tutorial/>
 - <https://developer.android.com/google/gcm/client.html>
-- https://www.youtube.com/watch?v=gJatfdattno
+- <https://www.youtube.com/watch?v=gJatfdattno>
