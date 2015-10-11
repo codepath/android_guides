@@ -72,8 +72,6 @@ First, let's download and setup the Google Play Services SDK. Open `Tools`->`And
 
 ### Import Google Play Services
 
-**Android Studio Users:** 
-
 Add the following to your Gradle file:
 
 ```
@@ -113,7 +111,7 @@ To prevent other broadcast receivers from receiving the message, there is a spec
 
 For a more detailed explanation of why these permissions are needed, see [Google's guide](https://developers.google.com/cloud-messaging/android/client#manifest).
 
-### Implement a Registration IntentService
+### Implement a Registration Intent Service
 
 You will want to implement an [Intent Service](http://guides.codepath.com/android/Starting-Background-Services#creating-an-intentservice), which will execute as a background thread instead of being tied to the lifecycle of an Activity.   In this way, you can ensure that push notifications can be received by your app even though a user may navigate away from the activity.
 
