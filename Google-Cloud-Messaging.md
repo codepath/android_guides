@@ -8,7 +8,8 @@ Google Cloud Messaging for Android (GCM) is a service that allows you to send da
 
 Much of the heavy lifting in supporting push notifications on Android is facilitated by Google-powered [connection servers](https://developers.google.com/cloud-messaging/server.html).  These Google servers provide an API for messages to be sent from your server and relay these messages to any Android/iOS devices authorized to receive them.
 
-An Android device with Google Play Services will already have GCM client support available.  For push notifications to be received, an app must first request an [instance ID](https://developers.google.com/instance-id/reference/) and request a token from a Google server.  This token then must be passed along to your server so that it can be used to send subsequent push notifications.  Push notifications can be received assuming your app has registered to listen for messages by implementing a service that extends [GcmListenerService](https://developers.google.com/android/reference/com/google/android/gms/gcm/GcmListenerService).
+An Android device with Google Play Services will already have GCM client support available.  For push notifications to be received, an app must first obtain a token from a Google server.  This token then must be passed along to your server so that it can be used to send subsequent push notifications.  Push notifications can be received assuming your app has registered to listen for messages by implementing a service that extends [GcmListenerService](https://developers.google.com/android/reference/com/google/android/gms/gcm/GcmListenerService).
+
 ### Setup
 
 In order to use GCM, we need to go through the following steps:
