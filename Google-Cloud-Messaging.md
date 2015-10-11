@@ -83,12 +83,13 @@ dependencies {
 
 ### Add GCM Permissions
 
-For an explanation of why these permissions are needed, see [Google's guide](https://developers.google.com/cloud-messaging/android/client#manifest).
+Your app will need to have the ability to make Internet connection and request wake locks.  Wake locks are needed so that the receiving GCM service that you will implement will be able to receive the full payload before the devices goes to sleep.
+
+To prevent other broadcast receivers from receiving the message, there is a special custom `C2D_MESSAGE` permission that should be defined.  This permission may be an [artifact of the C2DM technology]([https://youtu.be/51F5LWzJqjg?t=44m11s]) and to provide backwards compatibility for older devices.  The permission should correspond to your package name (i.e. `com.codepath.gcmexample.permission.C2D_MESSAGE`).
 
 ```xml
 <manifest package="com.example.gcm" ...>
   <uses-permission android:name="android.permission.INTERNET" />
-  <uses-permission android:name="android.permission.GET_ACCOUNTS" />
   <uses-permission android:name="android.permission.WAKE_LOCK" />
   <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
   <permission android:name="com.example.gcm.permission.C2D_MESSAGE"
@@ -100,6 +101,8 @@ For an explanation of why these permissions are needed, see [Google's guide](htt
   />
 </manifest>
 ```
+
+For a more detailed explanation of why these permissions are needed, see [Google's guide](https://developers.google.com/cloud-messaging/android/client#manifest).
 
 ### Copy over `GCMClientManager.java`
 
