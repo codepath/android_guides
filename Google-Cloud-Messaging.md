@@ -117,7 +117,13 @@ For a more detailed explanation of why these permissions are needed, see [Google
 
 You will want to implement an [Intent Service](http://guides.codepath.com/android/Starting-Background-Services#creating-an-intentservice), which will execute as a background thread instead of being tied to the lifecycle of an Activity.   In this way, you can ensure that push notifications can be received by your app even though a user may navigate away from the activity.
 
-First, you will need to request an [instance ID](https://developers.google.com/instance-id/reference/) from Google that will be a way to uniquely identify the device and app.  Assuming this request is successful, a token that can be used to send notifications to the app should be generated too.  
+First, you will need to create a `RegistrationIntentService` class and make sure it is declared in your `AndroidManifest.xml` file:
+
+```java
+<service android:name=".RegistrationIntentService" android:exported="false"/>
+```
+
+Inside this class, you will need to request an [instance ID](https://developers.google.com/instance-id/reference/) from Google that will be a way to uniquely identify the device and app.  Assuming this request is successful, a token that can be used to send notifications to the app should be generated too.  
 
 ```java
 
