@@ -186,6 +186,22 @@ You will want to record whether the token was sent to the server and may wish to
 
 See the [sample code](https://github.com/googlesamples/google-services/blob/master/android/gcm/app/src/main/java/gcm/play/android/samples/com/gcmquickstart/RegistrationIntentService.java) provided by Google. 
 
+### Create a InstanceID ListenerService
+
+According to this Google official [documentation](https://developers.google.com/instance-id/guides/android-implementation), the instance ID server issues callbacks periodically (i.e. 6 months) to request apps to refresh their tokens.  To support this possibility, we need to extend from `InstanceIDListenerService` to handle token refresh changes.  We should override this base method and launch an intent service for `RegistrationIntentService` to fetch the token:
+
+```java
+public class MyInstanceIDListenerService extends InstanceIDListenerService {
+
+    @Override
+    public void onTokenRefresh() {
+        // Fetch updated Instance ID token and notify of changes
+        Intent intent = new Intent(this, RegistrationIntentService.class);
+        startService(intent);
+    }
+}
+```
+
 ## Create Broadcast Receiver and Message Handler
 
 In the past, Google required implementing a [WakefulBroadcastReceiver](https://developer.android.com/training/scheduling/wakelock.html) that would launch a service that would process this GCM message.  It now provides `com.google.android.gms.gcm.GcmReceiver` that simply needs to be defined in your `AndroidManifest.xml` file:
