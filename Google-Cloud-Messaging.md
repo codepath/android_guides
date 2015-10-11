@@ -1,10 +1,17 @@
 ## Overview
 
-Google Cloud Messaging for Android (GCM) is a service that allows you to send data from your server to your users' Android-powered device, and also to receive messages from devices on the same connection. 
-
-A GCM implementation includes a Google-provided connection server, a 3rd-party app server that interacts with the connection server, and a GCM-enabled client app running on an Android device:
+Google Cloud Messaging for Android (GCM) is a service that allows you to send data from your server to your users' Android-powered device and also to receive messages from devices on the same connection. 
 
 ![GCM Arch](https://i.imgur.com/9XzwPqc.png)
+
+### How it works
+
+Much of the heavy lifting in supporting push notifications on Android is facilitated by Google-powered [connection servers](https://developers.google.com/cloud-messaging/server.html).  These Google servers provide an API for messages to be sent from your server and relay these messages to any Android/iOS devices authorized to receive them.
+
+An Android device with Google Play Services will already have GCM client support available.  
+For push notifications to be received, an app must first request an [instance ID](https://developers.google.com/instance-id/reference/) and request a token from a Google server.  This token then must be passed along to your server so that it can be used to send subsequent push notifications.  
+
+### Setup
 
 In order to use GCM, we need to go through the following steps:
 
@@ -325,8 +332,8 @@ This will send messages to the devices specified.
 
 ## References
 
-- <https://developers.google.com/cloud-messaging/android/start/>
-- <https://developers.google.com/cloud-messaging/android/client/>
-- <http://hmkcode.com/android-google-cloud-messaging-tutorial/>
-- <https://developer.android.com/google/gcm/client.html>
-- <https://www.youtube.com/watch?v=gJatfdattno>
+- <https://developers.google.com/cloud-messaging/gcm>
+- <https://www.youtube.com/watch?v=YoaP6hcDctM> (Google I/O 2012 talk)
+- <https://www.youtube.com/watch?v=y76rjidm8cU> (Google I/O 2013 talk)
+- <https://www.youtube.com/watch?v=gJatfdattno> (Google I/O 2015 talk)
+- <http://android-developers.blogspot.com/2015/05/a-closer-look-at-google-play-services-75.html>
