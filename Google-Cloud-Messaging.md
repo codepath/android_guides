@@ -251,7 +251,7 @@ We need an endpoint for **registering a user id to a device id**:
 We need code for **sending data to specified device ids**:
 
   - To send GCM pushes, send a POST request to GCM send endpoint with data and registered ids
-    - `POST https://android.googleapis.com/gcm/send`
+    - `POST https://gcm-http.googleapis.com/gcm/send`
   - Request requires two headers:
     - `Authorization: key=<YOUR SERVER API KEY>`
     - `Content-Type: application/json`
@@ -307,7 +307,7 @@ def send_gcm_message(title, body, reg_ids)
     }
   }
   # Send the request with JSON args and headers
-  RestClient.post 'https://android.googleapis.com/gcm/send', post_args.to_json, 
+  RestClient.post 'https://gcm-http.googleapis.com/gcm/send', post_args.to_json, 
     :Authorization => 'key=' + settings.AUTHORIZE_KEY, :content_type => :json, :accept => :json
 end
 ```
