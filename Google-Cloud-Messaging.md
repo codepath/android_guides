@@ -119,7 +119,7 @@ To prevent other broadcast receivers from receiving the message, there is a spec
 </manifest>
 ```
 
-For a more detailed explanation of why these permissions are needed, see [Google's guide](https://developers.google.com/cloud-messaging/android/client#manifest).
+For a more detailed explanation of why these permissions are needed, see [Google's guide](https://developers.google.com/cloud-messaging/android/client#manifest).  The `com.google.android.c2dm.intent.REGISTRATION` permission in particular is needed for devices below Android 4.4 (KitKat) versions.  
 
 ### Implement a Registration Intent Service
 
