@@ -224,15 +224,15 @@ public class MyInstanceIDListenerService extends InstanceIDListenerService {
 In the past, Google required implementing a [WakefulBroadcastReceiver](https://developer.android.com/training/scheduling/wakelock.html) that would launch a service that would process this GCM message.  It now provides `com.google.android.gms.gcm.GcmReceiver` that simply needs to be defined in your `AndroidManifest.xml` file:
 
 ```xml
-        <receiver
-            android:name="com.google.android.gms.gcm.GcmReceiver"
-            android:exported="true"
-            android:permission="com.google.android.c2dm.permission.SEND" >
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <category android:name="com.codepath.gcmquickstart" />
-            </intent-filter>
-        </receiver>
+<receiver
+  android:name="com.google.android.gms.gcm.GcmReceiver"
+  android:exported="true"
+  android:permission="com.google.android.c2dm.permission.SEND" >
+  <intent-filter>
+     <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+     <category android:name="com.codepath.gcmquickstart" />
+  </intent-filter>
+</receiver>
 ```
 
 Let's define `GCMMessageHandler.java` that extends from `GcmListenerService` that will process the message received: 
