@@ -345,7 +345,17 @@ We need code for **sending data to specified registration tokens**:
       }
       ```
   
-This sending code can be exposed as an endpoint or utilized on the server-side to notify users when new items are created or available.
+This sending code can be exposed as an endpoint or utilized on the server-side to notify users when new items are created or available.  Note that the `registration_ids` parameter is synonymous with device tokens.  if you only need to send a message to one device, you can use `to` instead of `registration_ids`:
+
+   ```json
+      { 
+        "data": {
+          "title": "Test Title",
+          "body": "Test Body"
+        },
+        "to": "token1"
+      }
+      ```
 
 ### Sample Ruby Server Implementation
 
