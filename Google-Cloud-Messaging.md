@@ -30,8 +30,8 @@ In order to use GCM, we need to go through the following steps:
     - Obtain Sender ID (Project Number)
     - Obtain Server API Key
  2. Integrate GCM into our Android app
-    - Register in app for a GCM Registration ID
-    - Transmit the Registration ID (Device ID) to our web server
+    - Register for an instance ID and generate a token
+    - Transmit the token to our web server
     - Register a GCM Receiver to handle incoming messages
     - Register an InstanceID Listener Service to handle updated tokens
  3. Develop HTTP Server with GCM endpoints
