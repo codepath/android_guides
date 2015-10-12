@@ -484,6 +484,20 @@ protected void onHandleIntent(Intent intent) {
 }
 ```
 
+Inside your custom `GcmListenerService`, you will also need to check for these topic-based messages by checking the `from` String:
+
+```java
+@Override
+public void onMessageReceived(String from, Bundle data) {
+   String message = data.getString("message");
+
+   if (from.startsWith("/topics/dogs")) {
+      Log.d(TAG, "got here");
+   } else {
+      // normal downstream message.
+   }
+```
+
 Sending to subscribers simply involves changing the `to:` to be prefaced with `/topics/[topic_name]`:
 
 ```bash
