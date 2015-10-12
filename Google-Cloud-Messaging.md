@@ -429,7 +429,7 @@ curl http://localhost:4567/send -d "user_id=123&title=hello&body=message"
 
 ## Easy Local Testing with Curl
 
-We can quickly test our API calls at the command line with curl:
+To verify that API calls to Google servers are working currently, We can quickly test by sending commands with curl:
 
 ```bash
 curl -s "https://android.googleapis.com/gcm/send" -H "Authorization: key=[API_KEY_HERE]" -H "Content-Type: application/json" -d '{"to": "[REG_TOKEN_HERE]", "data": {"score": 123}}'
