@@ -455,6 +455,25 @@ response = gcm.send(reg_tokens, options)
 
 This will send messages to the devices specified.
 
+## Subscribing clients to Topic-Based Messages
+
+GCM also supports opt-in topic-based subscriptions for clients, which does not require passing along the device token to your server.  On the client side, we can also subscribe to this topic simply with two lines.  The `getInstance()` call automatically makes a call to grab an Instance ID, so if we do not wish to pass along our device token, our `RegistrationIntentService` class can look like the following:
+
+```java
+@Override
+protected void onHandleIntent(Intent intent) {
+  GcmPubSub pubSub = GcmPubSub.getInstance(this);
+  pubSub.subscribe(token, "/topics/" + "dogs", null);
+}
+```
+
+Sending to subscribers simply involves changing the `to:` to be prefaced with `/topics/[topic_name]`:
+
+```bash
+curl -s "https://gcm-http.googleapis.com/gcm/send" -H "Authorization: key=[AUTHORIZATION_KEY]" -H "Content-Type: application/json" -d '{"to": "/topics/hello", "data": {"score": 123}}'
+
+```
+
 ## References
 
 - <https://developers.google.com/cloud-messaging/gcm>
