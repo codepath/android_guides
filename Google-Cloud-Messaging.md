@@ -306,20 +306,20 @@ Note we also register the `GcmMessageHandler` as a service and setup the play se
 
 Your HTTP web server needs two features:
 
-- 1. Endpoint for mapping a `user_id` to an android `device_id`
-- 2. Logic for sending specified `data` messages to sets of android `device_ids`
+- 1. Endpoint for mapping a `user_id` to an android `reg_token`
+- 2. Logic for sending specified `data` messages to sets of android `reg_tokens`
 
 ### 1. Implement Registration Endpoint
 
 We need an endpoint for **registering a user id to a device token**:
 
   - Probably requires a database table for user to device mappings
-  - Create a device_id linked to a registered user for later access
-  - Sample endpoint: `POST /register?user_id=123&device_id=abc`
+  - Create a reg_token linked to a registered user for later access
+  - Sample endpoint: `POST /register?user_id=123&reg_token=abc`
 
 ### 2. Implement Sending Logic
 
-We need code for **sending data to specified device tokens**:
+We need code for **sending data to specified registration tokens**:
 
   - To send GCM pushes, send a POST request to GCM send endpoint with data and registered ids
     - `POST https://gcm-http.googleapis.com/gcm/send`
@@ -375,7 +375,7 @@ end
 
 Device = DB[:Device]  # create the dataset                                                                                                                                                                                                                                                                                 
 
-# Registration endpoint mapping device_id to user_id                                                                                                                                                                                                                                                                       
+# Registration endpoint mapping reg_token to user_id                                                                                                                                                                                                                                                                       
 # POST /register?reg_token=abc&user_id=123                                                                                                                                                                                                                                                                                 
 post '/register' do
   if Device.filter(:reg_token => params[:reg_token]).count == 0
