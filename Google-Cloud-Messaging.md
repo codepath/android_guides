@@ -35,8 +35,8 @@ In order to use GCM, we need to go through the following steps:
     - Register a GCM Receiver to handle incoming messages
     - Register an InstanceID Listener Service to handle updated tokens
  3. Develop HTTP Server with GCM endpoints
-    - Endpoint for registering a user with a device ID
-    - Endpoint for sending a push notification to a specified set of device IDs
+    - Endpoint for registering a user with a registration token
+    - Endpoint for sending a push notification to a specified set of registration tokens
 
 ## Step 1: Register with Google Developers Console
 
@@ -298,7 +298,7 @@ Finally we need to register the receiver class with GCM in the `AndroidManifest.
 </manifest>
 ```
 
-Note we also register the `GcmMessageHandler` as a service and setup the play services meta-data required for push messaging to work. Now we just need a web server to keep track of the different device IDs and manage the pushing of messages to different devices.
+Note we also register the `GcmMessageHandler` as a service and setup the play services meta-data required for push messaging to work. Now we just need a web server to keep track of the different device tokens and manage the pushing of messages to different devices.
 
 ## Step 3: Setup Web Server
 
@@ -319,7 +319,7 @@ We need an endpoint for **registering a user id to a device token**:
 
 ### 2. Implement Sending Logic
 
-We need code for **sending data to specified device ids**:
+We need code for **sending data to specified device tokens**:
 
   - To send GCM pushes, send a POST request to GCM send endpoint with data and registered ids
     - `POST https://gcm-http.googleapis.com/gcm/send`
@@ -334,7 +334,7 @@ We need code for **sending data to specified device ids**:
           "title": "Test Title",
           "body": "Test Body"
         },
-        "registration_ids": ["abc", "def"] 
+        "registration_ids": ["token1", "token2"] 
       }
       ```
   
