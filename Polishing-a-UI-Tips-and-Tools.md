@@ -34,7 +34,7 @@ Simple guide for improving the UI for any application including links to tools:
 5. **Styling with Generators**
   * **Style ActionBar** - Customize the ActionBar with [this generator](http://jgilfelt.github.io/android-actionbarstylegenerator/), copy over the files, and apply the theme. 
   * **Style Views** - Customize the View control colors using the [Holo Colors Generator](http://android-holo-colors.com/)
-  * **Style Buttons** - Customize the buttons using the [Button Style Generator](http://angrytools.com/android/button/)
+  * **Style Drawables** - Customize drawables using the [Drawable Style Generator](http://hateum.github.io/AndroidDrawableGenerator/)
 
 ## Further Reading
 
