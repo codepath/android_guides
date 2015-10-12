@@ -311,7 +311,7 @@ Your HTTP web server needs two features:
 
 ### 1. Implement Registration Endpoint
 
-We need an endpoint for **registering a user id to a device id**:
+We need an endpoint for **registering a user id to a device token**:
 
   - Probably requires a database table for user to device mappings
   - Create a device_id linked to a registered user for later access
@@ -349,25 +349,25 @@ A simple Sinatra-based ruby application that supports these endpoints might look
 class Device
     include Mongoid::Document
     
-    field :reg_id, :type => String
+    field :reg_token, :type => String
     field :user_id, :type => String
     field :os, :type => String, :default => 'android'    
 end
 
 # Registration endpoint mapping device_id to user_id
-# POST /register?reg_id=abc&user_id=123
+# POST /register?reg_token=abc&user_id=123
 post '/register' do
-  if Device.where(reg_id: params[:reg_id]).count == 0
-    device = Device.new(:reg_id => params[:reg_id], :user => params[:user_id], :os => 'android')
+  if Device.where(reg_token: params[:reg_token]).count == 0
+    device = Device.new(:reg_token => params[:reg_token], :user => params[:user_id], :os => 'android')
     device.save!
   end
 end
 
 # Sending logic
 # send_gcm_message(["abc", "cdf"])
-def send_gcm_message(title, body, reg_ids)
-  # Find devices with the corresponding reg_ids
-  devices = Device.where(:reg_id => reg_ids)
+def send_gcm_message(title, body, reg_token)
+  # Find devices with the corresponding reg_tokens
+  devices = Device.where(:reg_token => reg_token)
   # Construct JSON payload
   post_args = {
     :registration_ids => registration_ids,
