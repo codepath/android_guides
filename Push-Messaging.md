@@ -112,24 +112,7 @@ A few quick things to help make implementing push notifications easier:
 
 Second approach is the more manual one using GCM. Google Cloud Messaging for Android (GCM) is a service that allows you to send data from your server to your users' Android-powered device, and also to receive messages from devices on the same connection. 
 
-A GCM implementation includes a Google-provided connection server, a 3rd-party app server that interacts with the connection server, and a GCM-enabled client app running on an Android device:
-
-![GCM Arch](https://i.imgur.com/9XzwPqc.png)
-
-In order to use GCM, we need to go through the following steps:
-
- 1. Register with Google Console and enable GCM
-    - Obtain Sender ID (Project Number)
-    - Obtain Server API Key
- 2. Integrate GCM into our Android app
-    - Register in app for a GCM Registration ID
-    - Transmit the Registration ID (Device ID) to our web server
-    - Register a GCM Receiver to handle incoming messages
- 3. Develop HTTP Server with GCM endpoints
-    - Endpoint for registering a user with a device ID
-    - Endpoint for sending a push notification to a specified set of device IDs
-
-Read our [[Google Cloud Messaging]] cliffnotes for specific implementation details. Check out these external links below for reference:
+Read our [[Google Cloud Messaging]] guides for specific implementation details. Check out these external links below for reference:
 
  * [Google GCM Overview](http://developer.android.com/google/gcm/gs.html)
     * [Implementing GCM Server](http://developer.android.com/google/gcm/server.html)
