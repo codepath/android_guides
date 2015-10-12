@@ -355,7 +355,7 @@ This sending code can be exposed as an endpoint or utilized on the server-side t
         },
         "to": "token1"
       }
-      ```
+   ```
 
 ### Sample Ruby Server Implementation
 
