@@ -398,9 +398,9 @@ and send test pushes by running `irb` in the command-line:
 ```ruby
 require 'gcm'
 gcm = GCM.new("YOUR-SERVER-KEY-HERE")
-registration_ids= ["YOUR-DEVICE-ID", "ANOTHER-DEVICE-ID"]
+reg_tokens = ["YOUR-DEVICE-ID", "ANOTHER-DEVICE-ID"]
 options = { :data => { :title =>"foobar", :body => "this is a longer message" } }
-response = gcm.send(registration_ids, options)
+response = gcm.send(reg_tokens, options)
 ```
 
 This will send messages to the devices specified.
