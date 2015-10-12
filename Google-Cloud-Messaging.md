@@ -426,9 +426,18 @@ If we wish to send a message, we would simply type:
 ```bash
 curl http://localhost:4567/send -d "user_id=123&title=hello&body=message"
 ```
+
+## Easy Local Testing with Curl
+
+We can quickly test our API calls at the command line with curl:
+
+```bash
+curl -s "https://android.googleapis.com/gcm/send" -H "Authorization: key=[API_KEY_HERE]" -H "Content-Type: application/json" -d '{"to": "[REG_TOKEN_HERE]", "data": {"score": 123}}'
+```
+
 ## Easy Local Testing with Ruby
 
-We can easily send messages to GCM registered devices using the  ruby [GCM gem](https://github.com/spacialdb/gcm). First we must have [ruby installed](https://www.ruby-lang.org/en/installation/) (default on OSX) and then we can install GCM with:
+We can also easily send messages to GCM registered devices using the  ruby [GCM gem](https://github.com/spacialdb/gcm). First we must have [ruby installed](https://www.ruby-lang.org/en/installation/) (default on OSX) and then we can install GCM with:
 
 ```
 gem install gcm
@@ -439,7 +448,7 @@ and send test pushes by running `irb` in the command-line:
 ```ruby
 require 'gcm'
 gcm = GCM.new("YOUR-SERVER-KEY-HERE")
-reg_tokens = ["YOUR-DEVICE-ID", "ANOTHER-DEVICE-ID"]
+reg_tokens = ["YOUR-DEVICE-TOKEN", "ANOTHER-DEVICE-TOKEN"]
 options = { :data => { :title =>"foobar", :body => "this is a longer message" } }
 response = gcm.send(reg_tokens, options)
 ```
