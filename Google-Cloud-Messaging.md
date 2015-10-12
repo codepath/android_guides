@@ -6,7 +6,7 @@ Google Cloud Messaging for Android (GCM) is a service that allows you to send da
 
 ### How it works
 
-Much of the heavy lifting in supporting push notifications on Android is facilitated by Google-powered [connection servers](https://developers.google.com/cloud-messaging/server.html).  These Google servers provide an API for messages to be sent from your server and will relay these messages to any Android/iOS devices authorized to receive them.
+Much of the heavy lifting in supporting push notifications on Android is facilitated by Google-powered [connection servers](https://developers.google.com/cloud-messaging/server.html).  These Google servers provide an API for messages to be sent from your server and relay these messages to any Android/iOS devices authorized to receive them.
 
 An Android device with Google Play Services will already have GCM client support available.  For push notifications to be received, an app must first obtain a token by registering with a Google server:
 
@@ -20,7 +20,7 @@ Push notifications can be received assuming your app has registered to listen fo
 
 <img src="http://imgur.com/adiFo8w.png" height=300/>
 
-In other words, in order to implement GCM, your app will need both a Google server and your own server.  The only information exchanged between your app and your server is the token, which in turn should be saved on your backend so that it can be used to send messages to the Google server.  With this approach, the responsibility of queuing and relaying messages is all handled by Google's servers. 
+In other words, in order to implement GCM, your app will need both a Google server and your own server.  When your app gets a token from Google, it needs to forward this token to your server.  This token should be persisted by the server so that it can be used to make API calls to the Google server.  With this approach, your server and the Android device do not need to create a persistent connection and the responsibility of queuing and relaying messages is all handled by Google's servers. 
 
 ### Setup
 
