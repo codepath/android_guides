@@ -342,49 +342,90 @@ This sending code can be exposed as an endpoint or utilized on the server-side t
 
 ### Sample Ruby Server Implementation
 
-A simple Sinatra-based ruby application that supports these endpoints might look like:
+A simple Sinatra-based ruby application that supports these endpoints is included below.  The key point is that there is a `/register` endpoint, which is needed to record the registration token for a particular example.  In a production environment, these POST requests should be sent with user authentication, so the token can be associated with the user.  In this example, the `user_id` must be specified.
+
+#### Setup
+
+First, let's install a few packages that will be used for this sample application.
+
+```bash
+gem install sinatra
+gem install rest-client
+gem install sequel
+```
+
+#### Sample web server
 
 ```ruby
-# Device table with three fields (registration id, user id and platform)
-class Device
-    include Mongoid::Document
-    
-    field :reg_token, :type => String
-    field :user_id, :type => String
-    field :os, :type => String, :default => 'android'    
+require 'sinatra'
+require 'rest-client'
+require 'sequel'
+
+# Create a SQLite3 database
+
+DB = Sequel.connect('sqlite://gcm-test.db')
+
+# Create a Device table if it doesn't exist                                                                                                                                                                                                                                                                                
+DB.create_table? :Device do
+  primary_key :reg_id
+  String :user_id
+  String :reg_token
+  String :os, :default => 'android'
 end
 
-# Registration endpoint mapping device_id to user_id
-# POST /register?reg_token=abc&user_id=123
+Device = DB[:Device]  # create the dataset                                                                                                                                                                                                                                                                                 
+
+# Registration endpoint mapping device_id to user_id                                                                                                                                                                                                                                                                       
+# POST /register?reg_token=abc&user_id=123                                                                                                                                                                                                                                                                                 
 post '/register' do
-  if Device.where(reg_token: params[:reg_token]).count == 0
-    device = Device.new(:reg_token => params[:reg_token], :user => params[:user_id], :os => 'android')
-    device.save!
+  if Device.filter(:reg_token => params[:reg_token]).count == 0
+    device = Device.insert(:reg_token => params[:reg_token], :user_id => params[:user_id], :os => 'android')
   end
 end
 
-# Sending logic
-# send_gcm_message(["abc", "cdf"])
-def send_gcm_message(title, body, reg_token)
-  # Find devices with the corresponding reg_tokens
-  devices = Device.where(:reg_token => reg_token)
-  # Construct JSON payload
+# Ennpoint for sending a message to a user                                                                                                                                                                                                                                                                                 
+# POST /send?user_id=123&title=hello&body=message                                                                                                                                                                                                                                                                          
+post '/send' do
+  # Find devices with the corresponding reg_tokens                                                                                                                                                                                                                                                                         
+  reg_tokens = Device.filter(:user_id => params[:user_id]).map(:reg_token).to_a
+  if reg_tokens.count != 0
+    send_gcm_message(params[:title], params[:body], reg_tokens)
+  end
+end
+
+# Sending logic                                                                                                                                                                                                                                                                                                            
+# send_gcm_message(["abc", "cdf"])                                                                                                                                                                                                                                                                                         
+def send_gcm_message(title, body, reg_tokens)
+  # Construct JSON payload                                                                                                                                                                                                                                                                                                 
   post_args = {
-    :registration_ids => registration_ids,
+    # :to field can also be used if there is only 1 reg token to send                                                                                                                                                                                                                                                                      
+    :registration_ids => reg_tokens,
     :data => {
       :title  => title,
       :body => body,
       :anything => "foobar"
     }
   }
-  # Send the request with JSON args and headers
-  RestClient.post 'https://gcm-http.googleapis.com/gcm/send', post_args.to_json, 
-    :Authorization => 'key=' + settings.AUTHORIZE_KEY, :content_type => :json, :accept => :json
+
+  # Send the request with JSON args and headers                                                                                                                                                                                                                                                                            
+  RestClient.post 'https://gcm-http.googleapis.com/gcm/send', post_args.to_json,
+    :Authorization => 'key=' + AUTHORIZE_KEY, :content_type => :json, :accept => :json
 end
 ```
 
-Now we can register users with device ids and send messages to them when necessary.
+#### Testing
 
+We can startup this Sinatra server and register the token granted to our Android client with it:
+
+```bash
+curl http://localhost:4567/register -d "reg_token=<REG TOKEN>&user_id=123"
+```
+
+If we wish to send a message, we would simply type:
+
+```bash
+curl http://localhost:4567/send -d "user_id=123&title=hello&body=message"
+```
 ## Easy Local Testing with Ruby
 
 We can easily send messages to GCM registered devices using the  ruby [GCM gem](https://github.com/spacialdb/gcm). First we must have [ruby installed](https://www.ruby-lang.org/en/installation/) (default on OSX) and then we can install GCM with:
