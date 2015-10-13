@@ -84,7 +84,7 @@ First, let's download and setup the Google Play Services SDK. Open `Tools`->`And
 
 Add the following to your Gradle file:
 
-```
+```gradle
 dependencies {
   compile "com.google.android.gms:play-services-gcm:8.1.0"
 }
