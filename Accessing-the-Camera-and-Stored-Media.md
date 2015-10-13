@@ -63,18 +63,17 @@ public void onActivityResult(int requestCode, int resultCode, Intent data) {
 public Uri getPhotoFileUri(String fileName) {
     // Only continue if the SD Card is mounted
     if (isExternalStorageAvailable()) {
+        // Get safe storage directory for photos
+        File mediaStorageDir = new File(
+            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), APP_TAG);
 
-    // Get safe storage directory for photos
-    File mediaStorageDir = new File(
-        Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), APP_TAG);
+        // Create the storage directory if it does not exist
+        if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()){
+            Log.d(APP_TAG, "failed to create directory");
+        }
 
-    // Create the storage directory if it does not exist
-    if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()){
-        Log.d(APP_TAG, "failed to create directory");
-    }
-
-    // Return the file target for the photo based on filename
-    return Uri.fromFile(new File(mediaStorageDir.getPath() + File.separator + fileName));
+        // Return the file target for the photo based on filename
+        return Uri.fromFile(new File(mediaStorageDir.getPath() + File.separator + fileName));
     }
     return null;
 }
