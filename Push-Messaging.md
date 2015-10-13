@@ -110,16 +110,9 @@ A few quick things to help make implementing push notifications easier:
 
 ## Google Cloud Messaging
 
-Second approach is the more manual one using GCM. Google Cloud Messaging for Android (GCM) is a service that allows you to send data from your server to your users' Android-powered device, and also to receive messages from devices on the same connection. 
+Second approach is the more manual way using GCM. Google Cloud Messaging for Android (GCM) is a service that allows you to send data from your server to your users' Android-powered device and also to receive messages from devices on the same connection.  Beneath the surface, Parse implements push notifications for Android with GCM.
 
-Read our [[Google Cloud Messaging]] guides for specific implementation details. Check out these external links below for reference:
-
- * [Google GCM Overview](http://developer.android.com/google/gcm/gs.html)
-    * [Implementing GCM Server](http://developer.android.com/google/gcm/server.html)
- * [AndroidHive GCM Tutorial](http://www.androidhive.info/2012/10/android-push-notifications-using-google-cloud-messaging-gcm-php-and-mysql/)
- * <https://developers.google.com/cloud/samples/mbs/android/enable_push>
- * <http://javapapers.com/android/google-cloud-messaging-gcm-for-android-and-push-notifications/>
- * <http://hmkcode.com/android-google-cloud-messaging-tutorial/>
+Read our [[Google Cloud Messaging]] guide for specific implementation details. 
 
 ## References
 
