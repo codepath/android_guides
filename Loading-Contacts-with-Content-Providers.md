@@ -102,7 +102,7 @@ public class SampleActivity extends FragmentActivity {
     		// Construct the loader
     		CursorLoader cursorLoader = new CursorLoader(SampleActivity.this,
     				ContactsContract.Contacts.CONTENT_URI, // URI
-    				projectionFields,  // projection fields
+    				projectionFields, // projection fields
     				null, // the selection criteria
     				null, // the selection args
     				null // the sort order
