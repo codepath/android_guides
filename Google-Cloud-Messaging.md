@@ -4,6 +4,8 @@ Google Cloud Messaging for Android (GCM) is a service that allows you to send da
 
 ![GCM Arch](https://i.imgur.com/9XzwPqc.png)
 
+Google's initial push notification system was known as Cloud Device to Messages (C2DM).  Now that C2DM has been [deprecated](https://developers.google.com/cloud-messaging/c2dm), GCM is now the recommended way of implementing push notifications. 
+
 ### How it works
 
 Much of the heavy lifting in supporting push notifications on Android is facilitated by Google-powered [connection servers](https://developers.google.com/cloud-messaging/server.html).  These Google servers provide an API for messages to be sent from your server and relay these messages to any Android/iOS devices authorized to receive them.
@@ -102,7 +104,7 @@ Add your project number to your strings.xml, which should correspond to the proj
 
 Your app will need to have the ability to make Internet connection and request wake locks.  Wake locks are needed so that the receiving GCM service that you will implement will be able to receive the full payload before the devices goes to sleep.
 
-To prevent other broadcast receivers from receiving the message, there is a special custom `C2D_MESSAGE` permission that should be defined.  This permission may be an [artifact of the C2DM technology](https://youtu.be/51F5LWzJqjg?t=44m11s) and to provide backwards compatibility for older devices.  The permission should correspond to your package name (i.e. `com.codepath.gcmexample.permission.C2D_MESSAGE`).
+To prevent other broadcast receivers from receiving the message, there is a special custom `C2D_MESSAGE` permission that should be defined.  This permission may be an [artifact of the C2DM technology](https://youtu.be/51F5LWzJqjg?t=44m11s) and to provide backwards compatibility for older devices.  The permission should correspond to your package name (i.e. `com.codepath.gcmexample.permission.C2D_MESSAGE`).   Some of the permissions in general still used reference C2DM for backwards compatibility with older Android devices.
 
 ```xml
 <manifest package="com.example.gcm" ...>
