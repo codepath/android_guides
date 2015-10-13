@@ -96,7 +96,7 @@ public class SampleActivity extends FragmentActivity {
     	@Override
     	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
     		// Define the columns to retrieve
-    		String[] projectionFields =  new String[] { ContactsContract.Contacts._ID, 
+    		String[] projectionFields = new String[] { ContactsContract.Contacts._ID, 
     	               ContactsContract.Contacts.DISPLAY_NAME, 
                        ContactsContract.Contacts.PHOTO_URI };
     		// Construct the loader
