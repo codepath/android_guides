@@ -505,6 +505,10 @@ curl -s "https://gcm-http.googleapis.com/gcm/send" -H "Authorization: key=[AUTHO
 
 ```
 
+## Rate Limits
+
+GCM is free to use.  In Jan. 2015, Google announced new rate limits in this [blog post](https://plus.google.com/+AndroidDevelopers/posts/Kc2whqR66zt) for GCM.  There is a per minute / per device limit that can be sent.  More technical details are included in this Stack Overflow [posting](http://stackoverflow.com/questions/26790810/rate-limit-exceeded-error-when-using-google-cloud-messaging-api/26790811#26790811).
+ 
 ## References
 
 - <https://developers.google.com/cloud-messaging/gcm>
