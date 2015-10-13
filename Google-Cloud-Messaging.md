@@ -359,7 +359,7 @@ This sending code can be exposed as an endpoint or utilized on the server-side t
 
 ### Sample Ruby Server Implementation
 
-A simple Sinatra-based ruby application that supports these endpoints is included below.  The key point is that there is a `/register` endpoint, which is needed to record the registration token for a particular example.  In a production environment, these POST requests should be sent with user authentication, so the token can be associated with the user.  In this example, the `user_id` must be specified.
+A simple Sinatra-based ruby application that supports these endpoints is included below.  The key point is that there is a `/register` endpoint, which is needed to record the registration token for a particular example.  In a production environment, these POST requests should be sent by an authenticated user, so the token can be associated with that individual.  In this example, the `user_id` must be specified.
 
 #### Setup
 
