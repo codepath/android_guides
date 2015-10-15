@@ -214,7 +214,7 @@ Each method is outlined in more detail below.
 If the fragment was statically embedded in the XML within an activity and given an `android:id` such as `fragmentDemo` then we can lookup this fragment by id by calling `findFragmentById` on the `FragmentManager`:
 
 ```java
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -231,7 +231,7 @@ public class MainActivity extends FragmentActivity {
 If the fragment was dynamically added at runtime within an activity then we can lookup this fragment by tag by calling `findFragmentByTag` on the `FragmentManager`:
 
 ```java
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -329,7 +329,7 @@ public class DemoFragment extends Fragment {
 and then in the activity, get access to the fragment using the fragment manager and call the method:
 
 ```java
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -382,10 +382,10 @@ public class MyListFragment extends Fragment {
 and then in the activity we have to implement the `OnItemSelectedListener` listener:
 
 ```java
-import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 
 // Activity implements the fragment listener to handle events
-public class RssfeedActivity extends FragmentActivity implements MyListFragment.OnItemSelectedListener {
+public class RssfeedActivity extends AppCompatActivity implements MyListFragment.OnItemSelectedListener {
     DetailFragment fragment;
 
     @Override

@@ -91,7 +91,7 @@ public class FirstFragment extends Fragment {
 Now we need to define the adapter that will properly determine how many pages exist and which fragment to display for each page of the adapter by creating a [FragmentPagerAdapter](http://developer.android.com/reference/android/support/v4/app/FragmentPagerAdapter.html):
 
 ```java
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends AppCompatActivity {
 	// ...
 	
     public static class MyPagerAdapter extends FragmentPagerAdapter {
@@ -140,7 +140,7 @@ For more complex cases with many pages, check out the [[more dynamic approach|Vi
 Finally, let's associate the `ViewPager` with a new instance of our adapter:
 
 ```java
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends AppCompatActivity {
 	FragmentPagerAdapter adapterViewPager;
 
 	@Override
@@ -227,7 +227,7 @@ First, copy in the [SmartFragmentStatePagerAdapter.java](https://gist.github.com
 Now, we want to extend from `SmartFragmentStatePagerAdapter` copied above when declaring our adapter so we can take advantage of the better memory management of the state pager:
 
 ```java
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends AppCompatActivity {
     // ...
     private SmartFragmentStatePagerAdapter adapterViewPager;
     

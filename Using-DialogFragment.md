@@ -80,7 +80,7 @@ public class EditNameDialog extends DialogFragment {
 	}
 }
 ```
-and showing the dialog in an Activity (extending FragmentActivity or AppCompatActivity):
+and showing the dialog in an Activity extending `AppCompatActivity`:
 
 ```java
 // Note: `FragmentActivity` works here as well
@@ -145,11 +145,10 @@ class MyAlertDialogFragment extends DialogFragment {
 }
 ```
 
-and to display the alert dialog in an activity (extending `FragmentActivity` or `AppCompatActivity`):
+and to display the alert dialog in an activity extending `AppCompatActivity`:
 
 ```java
-// Note: `AppCompatActivity` works here as well
-public class FragmentDialogDemo extends FragmentActivity {
+public class FragmentDialogDemo extends AppCompatActivity {
   @Override
   public void onCreate(Bundle savedInstanceState) {
   	super.onCreate(savedInstanceState);
@@ -206,7 +205,7 @@ public class EditNameDialog extends DialogFragment implements OnEditorActionList
 and have the activity define the action to take when the dialog has the information:
 
 ```java
-public class FragmentDialogDemo extends FragmentActivity implements EditNameDialogListener {
+public class FragmentDialogDemo extends AppCompatActivity implements EditNameDialogListener {
   // ...
   
   @Override

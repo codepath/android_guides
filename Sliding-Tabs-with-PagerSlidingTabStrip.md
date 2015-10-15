@@ -143,7 +143,7 @@ Finally, we need to attach our `ViewPager` to the `SampleFragmentPagerAdapter` a
 * Set the `ViewPager` on the `PagerSlidingTabStrip` to connect the pager with the tabs.
 
 ```java
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

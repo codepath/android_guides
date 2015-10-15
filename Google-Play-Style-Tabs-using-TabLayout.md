@@ -123,7 +123,7 @@ Finally, we need to attach our `ViewPager` to the `SampleFragmentPagerAdapter` a
 * Set the `ViewPager` on the `TabLayout` to connect the pager with the tabs.
 
 ```java
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -263,7 +263,7 @@ Note the additional spaces that are added before the tab title while instantiati
 In certain cases, instead of the default tab view we may want to apply a custom XML layout for each tab. To achieve this, iterate over all the `TabLayout.Tab`s after attaching the sliding tabs to the pager:
 
 ```java
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

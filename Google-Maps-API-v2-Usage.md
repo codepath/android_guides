@@ -173,7 +173,7 @@ First, we need to create a new xml file in `res/layout/message_item.xml` which w
 If we want to setup a long click listener, we need to implement the `OnMapLongClickListener` in our Activity and setup the listener for the map:
 
 ```java
-public class MapDemoActivity extends FragmentActivity implements
+public class MapDemoActivity extends AppCompatActivity implements
   GoogleApiClient.ConnectionCallbacks,
   GoogleApiClient.OnConnectionFailedListener,
   LocationListener,

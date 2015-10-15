@@ -30,7 +30,7 @@ First, setup permissions in the manifest:
 The [SimpleCursorAdapter](http://developer.android.com/reference/android/widget/SimpleCursorAdapter.html) is an adapter that binds a `ListView` to a `Cursor` dataset displaying the result set as rows in the list. We can create the adapter before receiving the cursor by constructing as follows:
 
 ```java
-public class SampleActivity extends FragmentActivity {
+public class SampleActivity extends AppCompatActivity {
     // ... existing code ...
     private SimpleCursorAdapter adapter;
 
@@ -64,7 +64,7 @@ Note that if you want to use a more complex custom layout, you should construct 
 Once we've defined our cursor adapter, we can add a `ListView` to our activity called `R.id.lvContacts` which will contain the list of contacts loaded from the content provider. Once we've **defined the ListView in our layout XML**, we can bind the list to our adapter:
 
 ```java
-public class SampleActivity extends FragmentActivity {
+public class SampleActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
        // ...
@@ -86,7 +86,7 @@ To execute the request to our contacts provider, we need to define the callbacks
 
 
 ```java
-public class SampleActivity extends FragmentActivity {
+public class SampleActivity extends AppCompatActivity {
    // ... existing code
 
     // Defines the asynchronous callback for the contacts data loader
@@ -134,7 +134,7 @@ public class SampleActivity extends FragmentActivity {
 Now when a result comes back to the callback defined, the adapter will be bound to the cursor. With the loader callbacks specified, we can now setup our loader and execute the asynchronous request to the content provider:
 
 ```java
-public class SampleActivity extends FragmentActivity {
+public class SampleActivity extends AppCompatActivity {
     // ... existing code
     // Defines the id of the loader for later reference
     public static final int CONTACT_LOADER_ID = 78; // From docs: A unique identifier for this loader. Can be whatever you want.
