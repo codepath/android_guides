@@ -47,7 +47,7 @@ The reason is that the [[Design Support Library]] must be downloaded from the [[
 
 ### Google Play Services
 
-If you intend to use Google Play Services, you will also want to add this component too:
+If you intend to use Google Play Services with Travis, you will also want to add the `extra-google-m2repository` too:
 
 ```yaml
 language: android
