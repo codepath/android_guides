@@ -68,7 +68,7 @@ public class BoxOfficeMovieResponse {
     List<Movie> movies;
 
     // public constructor is necessary for collections
-    public Movies() {
+    public BoxOfficeMovieResponse() {
         movies = new ArrayList<Movie>();
     }
 ```
