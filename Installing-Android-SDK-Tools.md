@@ -1,4 +1,4 @@
-The Android SDK can be installed automatically using [Jake Wharton's SDK Plugin](https://github.com/JakeWharton/sdk-manager-plugin) or downloading the Android SDK manually. Below is an overview of all different approaches.
+The Android SDK can be installed automatically using [Jake Wharton's SDK Plugin](https://github.com/JakeWharton/sdk-manager-plugin) or downloading the Android SDK manually in several different ways. Below is an overview of all different approaches.
 
 ## Installing the Android SDK (Automated Way)
 
