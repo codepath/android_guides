@@ -26,7 +26,7 @@ apply plugin: 'com.android.application'
 ```
 
 If you wish to also download a specific emulator, add this section too:
-```
+```gradle
 // optionally including an emulator
 sdkManager {
   emulatorVersion 'android-19'
