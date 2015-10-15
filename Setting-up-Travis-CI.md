@@ -45,7 +45,7 @@ Searched in the following locations:
 
 The reason is that the [[Design Support Library]] must be downloaded from the [[SDK Manager|https://developer.android.com/tools/help/sdk-manager.html]], which looks in the [repository manifest](https://dl-ssl.google.com/android/repository/addon.xml) for the `Local Maven repository for Support Libraries` package.  The support library is currently not yet available on a public Maven repository.
 
-### Google Play Services
+#### Google Play Services
 
 If you intend to use Google Play Services with Travis, you will also want to add the `extra-google-m2repository` too:
 
