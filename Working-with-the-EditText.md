@@ -214,6 +214,44 @@ private void setupFloatingLabelError() {
 
 Here we use the `addTextChangedListener` to watch as the value changes to determine when to display the error message or revert to the hint.
 
+### Adding Character Counting
+
+`TextInputLayout` since the [announcement of support design library v23.1](http://android-developers.blogspot.com/2015/10/android-support-library-231.html?linkId=17977963)  also supports providing a character counter for an `EditText` defined within it.  The counter will be rendered below the `EditText` and can change colors if the maximum number of characters has been exceeded:
+
+<img src="http://imgur.com/eEYwIO3.png"/>
+
+The `TextInputLayout` simply needs to define `app:counterEnabled` and `app:CounterMaxLength` in the XML attributes.  These settings can also be defined dynamically through `setCounterEnabled()` and `setCounterMaxLength()`:
+
+```xml
+<android.support.design.widget.TextInputLayout
+    android:layout_width="match_parent"
+    app:counterEnabled="true"
+    app:counterMaxLength="10"
+    app:counterTextAppearance="@style/counterText"
+    app:counterOverflowTextAppearance="@style/counterOverride"
+    <EditText
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:hint="Username"/>
+       android:layout_centerHorizontal="true"
+       android:layout_centerVertical="true"
+       android:ems="10"
+       android:hint="Username" />
+</android.support.design.widget.TextInputLayout>
+```
+
+The counter text and overflow text can also have their own text styles by defining `app:counterTextAppearance` and `app:counterOverflowTextAppearance`.  We can use `textColor`, `textSize`, and `fontFamily` to help change the color, size, or font:
+
+```xml
+<style name="counterText">
+  <item name="android:textColor">#aa5353cc</item>
+</style>
+
+<style name="counterOverride">
+  <item name="android:textColor">#ff0000</item>
+</style>
+```
+
 ### Providing Auto-complete
 
 Check out the [official text fields](http://developer.android.com/guide/topics/ui/controls/text.html#AutoComplete) guide for a step-by-step on how to setup autocomplete for the entry.
