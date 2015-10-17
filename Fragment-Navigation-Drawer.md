@@ -379,7 +379,7 @@ We also need to change the `onOptionsItemSelected()` method and allow the Action
 The ActionBarToggle will perform the same function done previously but adds a bit more checks and allows mouse clicks on the icon to open and close the drawer.  See the [source code](https://github.com/android/platform_frameworks_support/blob/master/v7/appcompat/src/android/support/v7/app/ActionBarDrawerToggle.java#L285-291) for more context.
 
 One thing to note is that the ActionBarDrawerToggle renders a custom [DrawerArrowDrawable](
-https://github.com/android/platform_frameworks_support/blob/master/v7/appcompat/src/android/support/v7/app/DrawerArrowDrawable.java) for you for the hamburger icon.
+https://github.com/android/platform_frameworks_support/blob/master/v7/appcompat/src/android/support/v7/graphics/drawable/DrawerArrowDrawable.java) for you for the hamburger icon.
 
 ## Making Status Bar Translucent
 
