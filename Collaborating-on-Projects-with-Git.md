@@ -59,3 +59,68 @@ The simplest fix is described in detail within [this stackoverflow post](http://
 ## SDK Manager
 
 When working with different teammates that may have different Android Build Tools or SDK versions installed, you might might find it convenient to use Jake Wharton's [SDK Manager plugin](https://github.com/JakeWharton/sdk-manager-plugin) to download these packages automatically. Follow these [[installation instructions|Installing-Android-SDK-Tools#installing-the-android-sdk-automated-way]] for more info.  
+
+## Git Workflow
+
+### Pulling Updates
+
+The following outlines how to collaborate with others using git. When first starting a session working on a project, we need to pull any updates pushed by other collaborators:
+
+```
+git checkout master
+git pull origin master
+```
+
+### Adding New Features
+
+New features should be added in special [feature branches](https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is) that allow changes to be made in isolation. First, we can create a new branch to work on:
+
+```
+git checkout -b my_branch_name
+```
+
+Now changes can be locally committed to the branch:
+
+```
+git add .
+git commit -am "Initial commit"
+```
+
+You can check your current branch:
+
+```
+git branch
+```
+
+and push changes back to github in a branch with:
+
+```
+git push -u origin new_branch_name
+```
+
+While working on the branch, be sure to rebase with master to pull in mainline changes:
+
+```
+git checkout master
+git pull origin master
+git checkout your_branch
+git rebase master
+```
+
+If there are conflicts, they have to be resolved in the files and then you need to run:
+
+```
+git rebase --continue
+```
+
+until all conflicts have been resolved.
+
+### Creating Pull Requests
+
+When a branch is ready to be merged, a pull request should be opened. Make sure your branch is up to data with master with the rebasing steps above. Then push branch to github with `git push -u origin new_branch_name`.
+
+Go the repository on github and look for:
+
+![](http://i.imgur.com/hae8B6L.jpg)
+
+Tag your team members so they can take a look at your PR. When you get thumbs up from your team members, then merge the pull request.
