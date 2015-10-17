@@ -232,7 +232,7 @@ The `TextInputLayout` simply needs to define `app:counterEnabled` and `app:Count
     <EditText
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:hint="Username"/>
+       android:hint="Username"
        android:layout_centerHorizontal="true"
        android:layout_centerVertical="true"
        android:ems="10"
