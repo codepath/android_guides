@@ -264,3 +264,4 @@ Check out the [official text fields](http://developer.android.com/guide/topics/u
 * <http://www.codeofaninja.com/2012/01/android-edittext-example.html>
 * <http://www.tutorialspoint.com/android/android_edittext_control.htm>
 * <http://developer.android.com/reference/android/widget/EditText.html>
+* <http://android-developers.blogspot.com/2015/10/android-support-library-231.html?linkId=17977963>
