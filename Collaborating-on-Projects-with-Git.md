@@ -50,16 +50,6 @@ Project -> Clean
 
 Then review this detailed [[import troubleshooting guide|Troubleshooting-Common-Issues#imported-project-wont-compile]] if you are still running into problems while compiling. This likely involves having to cleanup the dependencies for the project.
 
-## Google Maps Access Across Computers
-
-Often when collaborating on a project with others, you need to have **maps work across multiple computers**. The problem is that the map key fingerprint is different from computer to computer and thus by default maps will only work on the computer that was used to generate the key.
-
-The simplest fix is described in detail within [this stackoverflow post](http://stackoverflow.com/a/9653946/313399) but in short you can get the `debug.keystore` from one of the team members, check that into git and then instruct other team members to replace their `debug.keystore` file with the one from repository. See also [this link](http://groups.google.com/group/android-developers/browse_thread/thread/c9051635ab37f252) and [this guide](http://developer.android.com/guide/publishing/app-signing.html#debugmode). 
-
-## SDK Manager
-
-When working with different teammates that may have different Android Build Tools or SDK versions installed, you might might find it convenient to use Jake Wharton's [SDK Manager plugin](https://github.com/JakeWharton/sdk-manager-plugin) to download these packages automatically. Follow these [[installation instructions|Installing-Android-SDK-Tools#installing-the-android-sdk-automated-way]] for more info.  
-
 ## Git Workflow
 
 ### Pulling Updates
@@ -126,3 +116,13 @@ Go the repository on github and look for:
 Press "Create Pull Request" and then if there's an associated issue then in the **description part of the PR** list the issue number you are closing like this: `closes #23` to automatically close the related issue when this is merged.
 
 Tag your team members so they can review your pull request. When you get approval from your team members then merge the pull request back into the mainline.
+
+## Google Maps Access Across Computers
+
+Often when collaborating on a project with others, you need to have **maps work across multiple computers**. The problem is that the map key fingerprint is different from computer to computer and thus by default maps will only work on the computer that was used to generate the key.
+
+The simplest fix is described in detail within [this stackoverflow post](http://stackoverflow.com/a/9653946/313399) but in short you can get the `debug.keystore` from one of the team members, check that into git and then instruct other team members to replace their `debug.keystore` file with the one from repository. See also [this link](http://groups.google.com/group/android-developers/browse_thread/thread/c9051635ab37f252) and [this guide](http://developer.android.com/guide/publishing/app-signing.html#debugmode). 
+
+## SDK Manager
+
+When working with different teammates that may have different Android Build Tools or SDK versions installed, you might might find it convenient to use Jake Wharton's [SDK Manager plugin](https://github.com/JakeWharton/sdk-manager-plugin) to download these packages automatically. Follow these [[installation instructions|Installing-Android-SDK-Tools#installing-the-android-sdk-automated-way]] for more info.  
