@@ -401,6 +401,31 @@ In `res/values-v19/styles.xml` we can add the following:
 
 Now if you run your app, you should see the navigation drawer and be able to select between your fragments.
 
+## Persistent Navigation Drawer
+
+In certain situations, especially on tablets, the navigation drawer should be a permanent fixture on the activity acting as a sidebar:
+
+![Persistent](http://i.imgur.com/9f7nyrA.png)
+
+To achieve this effect, review the following links which describe one approach:
+
+ * [Static Nav Drawer](http://derekrwoods.com/2013/09/creating-a-static-navigation-drawer-in-android/)
+ * [Related Stackoverflow Question](http://stackoverflow.com/a/18095111)
+ * [Sample Code](https://github.com/samerzmd/Navigation-Drawer-set-as-always-opened-on-tablets)
+
+Third-party libraries may also make this easier to achieve.
+
+## Third-Party Libraries
+
+There are a few third-party libraries that are still relevant as possible alternatives to using the `DrawerLayout` directly which provide certain material design elements automatically:
+
+<img src="http://i.imgur.com/6WHIEX5.jpg" width="350" />
+
+ * [MaterialDrawer](https://github.com/mikepenz/MaterialDrawer)
+ * [NavigationDrawerMaterial](https://github.com/rudsonlive/NavigationDrawer-MaterialDesign)
+
+Often these are unnecessary but check them out to see the functionality they provide.
+
 ## Limitations
 
 The current version of the design support library does come with its limitations. The main issue is with the system that highlights the current item in the navigation menu. The itemBackground attribute for the NavigationView does not handle the checked state of the item correctly: somehow either all items are highlighted or none of them are. This makes this attribute basically unusable for most apps. While working with submenu's in the navigation items, once again the highlighting refused to work as expected: updating the selected item in a submenu makes the highlight overlay disappear altogether. In the end it seems that managing the selected item is still a chore that has to be solved manually in the app itself.
