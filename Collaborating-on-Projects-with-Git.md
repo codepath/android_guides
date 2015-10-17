@@ -123,4 +123,6 @@ Go the repository on github and look for:
 
 ![](http://i.imgur.com/hae8B6L.jpg)
 
-Tag your team members so they can take a look at your PR. When you get thumbs up from your team members, then merge the pull request.
+Press "Create Pull Request" and then if there's an associated issue then in the **description part of the PR** list the issue number you are closing like this: `closes #23` to automatically close the related issue when this is merged.
+
+Tag your team members so they can review your pull request. When you get approval from your team members then merge the pull request back into the mainline.
