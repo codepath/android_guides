@@ -216,7 +216,7 @@ Here we use the `addTextChangedListener` to watch as the value changes to determ
 
 ### Adding Character Counting
 
-`TextInputLayout` since the [announcement of support design library v23.1](http://android-developers.blogspot.com/2015/10/android-support-library-231.html?linkId=17977963)  also supports providing a character counter for an `EditText` defined within it.  The counter will be rendered below the `EditText` and can change colors if the maximum number of characters has been exceeded:
+`TextInputLayout` since the [announcement of support design library v23.1](http://android-developers.blogspot.com/2015/10/android-support-library-231.html?linkId=17977963) also can expose a  character counter for an `EditText` defined within it.  The counter will be rendered below the `EditText` and can change colors of both the line and character counter if the maximum number of characters has been exceeded:
 
 <img src="http://imgur.com/eEYwIO3.png"/>
 
