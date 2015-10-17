@@ -34,7 +34,7 @@ There is a new support design library that must be included.   This library also
 ```gradle
 dependencies {
     compile 'com.android.support:appcompat-v7:23.0.0'
-    compile 'com.android.support:design:23.0.0'
+    compile 'com.android.support:design:23.1.0'
 }
 ```
 
