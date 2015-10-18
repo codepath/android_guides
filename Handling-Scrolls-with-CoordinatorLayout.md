@@ -132,7 +132,14 @@ Scroll events in the RecyclerView trigger changes inside views declared within `
 
 The `scroll` flag used within the attribute `app:layout_scrollFlags` must be enabled for any scroll effects to take into effect.  This flag must be enabled along with any of the following:
 
-  * `enterAlways`: The view will become visible when scrolling up.
+  * `enterAlways`: The view will become visible when scrolling up.  This flag is useful in cases when scrolling from the bottom of a list and wanting to expose the `Toolbar` as soon as scrolling up takes place.  
+ 
+    <img src="http://imgur.com/sGltNwr.png"/>
+    
+  Normally, the `Toolbar` only appears when the list is scrolled to the top as shown below:
+    
+    <img src="http://i.imgur.com/IZzcL1C.png"/>
+
     * `enterAlwaysCollapsed`: Assuming `enterAlways` is declared and you have specified a `minHeight`, your view will only appear at its minimum height and expand to the full height when the scrolling view reaches to the top.
   * `exitUntilCollapsed`: Assuming you have declared a `minHeight`, the view will disappear once the minimum height is reached.
 
