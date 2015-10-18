@@ -130,11 +130,12 @@ Scroll events in the RecyclerView trigger changes inside views declared within `
  </android.support.design.widget.AppBarLayout>
 ```
 
-The `scroll` flag used within the attribute `app:layout_scrollFlags` must be enabled in order for the View to scroll off the screen.  Otherwise, it will remain pinned to the top.    Other flags that can be used include:
- 
-   * `enterAlways`: The view will become visible when scrolling up.
-     * `enterAlwaysCollapsed`: Assuming you have declared a minHeight and `enterAlways` is declared, your view will only appear at its minimum height and expand to the full height when the scrolling view reaches to the top.
-   * `exitUntilCollapsed`: Assuming you have declared a minHeight, the view will disappear once the minimum height is reached.
+The `scroll` flag used within the attribute `app:layout_scrollFlags` must be enabled for any scroll effects to take into effect.  This flag must be enabled along with any of the following:
+
+     * `enterAlways`: The view will become visible when scrolling up.
+       * `enterAlwaysCollapsed`: Assuming you have declared a minHeight and `enterAlways` is declared, your view will only appear at its minimum height and expand to the full height when the scrolling view reaches to the top.
+     * `exitUntilCollapsed`: Assuming you have declared a minHeight, the view will disappear once the minimum height is reached.
+     * `snap`: If scrolling ends and the view is only partially shown, this option provides a "snap-back" effect.
 
 Keep in mind to order all your views with the scroll flag first.  This way, the views that collapse will exit first while leaving the pinned elements at the top.
 
