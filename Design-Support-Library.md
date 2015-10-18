@@ -58,7 +58,7 @@ To leverage the [annotations library](http://tools.android.com/tech-docs/support
 
 ```gradle
 dependencies {
-    compile 'com.android.support:support-annotations:23.0.0'
+    compile 'com.android.support:support-annotations:23.1.0'
 }
 ```
 
