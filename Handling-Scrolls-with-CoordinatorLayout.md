@@ -135,7 +135,7 @@ The `scroll` flag used within the attribute `app:layout_scrollFlags` must be ena
   * `enterAlways`: The view will become visible when scrolling up.
     * `enterAlwaysCollapsed`: Assuming you have declared a minHeight and `enterAlways` is declared, your view will only appear at its minimum height and expand to the full height when the scrolling view reaches to the top.
   * `exitUntilCollapsed`: Assuming you have declared a minHeight, the view will disappear once the minimum height is reached.
-  * `snap`: If scrolling ends and the view is only partially shown, this option provides a "snap-back" effect.
+  * `snap`: Using this option will determine what to do when a view only has been partially reduced.  If scrolling ends and the view size has been reduced to less than 50% of its original, then this view to return to its original size.  If the size is greater than 50% of its sized, it will disappear completely.  
 
 Keep in mind to order all your views with the scroll flag first.  This way, the views that collapse will exit first while leaving the pinned elements at the top.
 
