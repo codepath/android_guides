@@ -33,7 +33,7 @@ There is a new support design library that must be included.   This library also
 
 ```gradle
 dependencies {
-    compile 'com.android.support:appcompat-v7:23.0.0'
+    compile 'com.android.support:appcompat-v7:23.1.0'
     compile 'com.android.support:design:23.1.0'
 }
 ```
@@ -42,7 +42,7 @@ If you are using the [[RecyclerView|Using the RecyclerView]], [[CardView|Using t
 
 ```gradle
 dependencies {
-    compile 'com.android.support:recyclerview-v7:23.0.0'
+    compile 'com.android.support:recyclerview-v7:23.1.0'
 }
 ```
 
@@ -50,7 +50,7 @@ To add the percent support library, you need to add this statement:
 
 ```gradle
 dependencies {
-    compile 'com.android.support:percent:23.0.0'
+    compile 'com.android.support:percent:23.1.0'
 }
 ```
 
