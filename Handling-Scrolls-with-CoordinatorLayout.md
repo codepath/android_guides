@@ -140,7 +140,8 @@ The `scroll` flag used within the attribute `app:layout_scrollFlags` must be ena
     
     <img src="http://i.imgur.com/IZzcL1C.png"/>
 
-    * `enterAlwaysCollapsed`: Assuming `enterAlways` is declared and you have specified a `minHeight`, your view will only appear at its minimum height and expand to the full height when the scrolling view reaches to the top.
+  Assuming `enterAlways` is declared and you have specified a `minHeight`, you can also specify `enterAlwaysCollapsed`.  When this setting is used, your view will only appear at this minimum height. Only when scrolling reaches to the top will the view expand to its full height.
+
   * `exitUntilCollapsed`: Assuming you have declared a `minHeight`, the view will disappear once the minimum height is reached.
 
   * `snap`: Using this option will determine what to do when a view only has been partially reduced.  If scrolling ends and the view size has been reduced to less than 50% of its original, then this view to return to its original size.  If the size is greater than 50% of its sized, it will disappear completely.  
