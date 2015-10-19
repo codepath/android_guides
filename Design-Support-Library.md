@@ -78,7 +78,7 @@ The source code for this library can be found [here](https://android.googlesourc
 
 Currently, the source code for CoordinatorLayout and AppBarLayout do not appear to be publicly available.  Assuming you are using Android Studio v1.2 or higher, the decompiler code should enable you to understand better what's happening.
 
-### ChangeLog
+### Change Log
 
 #### Changes in Support Library v23
 
