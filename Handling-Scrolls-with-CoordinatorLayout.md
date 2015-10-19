@@ -267,7 +267,7 @@ In addition to using the `CoordinatorLayout` as outlined above, be sure to check
 
 ## Embedding Google Maps in AppBarLayout
 
-There is currently no way of supporting Google Maps fragment within an `AppBarLayout` as confirmed in this [issue](https://code.google.com/p/android/issues/detail?id=188487).  Changes in the support design library v23.1.0 now exposes a `setOnDragListener()` method, which is useful if [drag and drop effects](http://guides.codepath.com/android/Gestures-and-Touch-Events#dragging-and-dropping) are needed within this layout.
+There is currently no way of supporting Google Maps fragment within an `AppBarLayout` as confirmed in this [issue](https://code.google.com/p/android/issues/detail?id=188487).  Changes in the support design library v23.1.0 now provide a `setOnDragListener()` method, which is useful if [drag and drop effects](http://guides.codepath.com/android/Gestures-and-Touch-Events#dragging-and-dropping) are needed within this layout.  However, it does not appear to impact scrolling as stated in this [blog article](http://android-developers.blogspot.com/2015/10/android-support-library-231.html?linkId=17977963).
 
 ## References
 
