@@ -1,12 +1,11 @@
 ## Overview
 
-The ActionBar is a consistent navigation element that is standard throughout modern Android applications. The ActionBar can consist of:
+The ActionBar, now known in the Material Design world as the [App Bar](https://www.google.com/design/spec/layout/structure.html#structure-toolbars), is a consistent navigation element that is standard throughout modern Android applications. The ActionBar can consist of:
 
  * An application icon
  * An application or activity-specific title
  * Primary action buttons for an activity
  * Consistent navigation (including tabbed UI)
-
 
 Important to note that prior to 3.0, there was no ActionBar. In 2013, Google announced a [support library](http://android-developers.blogspot.com/2013/08/actionbarcompat-and-io-2013-app-source.html) that provides much better compatibility for older versions and support for tabbed interfaces.  Since most of the examples below depend on this support library, make sure to include the [[AppCompat library|Migrating-to-the-AppCompat-Library]].  
 
