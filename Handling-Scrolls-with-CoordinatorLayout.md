@@ -136,7 +136,7 @@ The `scroll` flag used within the attribute `app:layout_scrollFlags` must be ena
  
     <img src="http://imgur.com/sGltNwr.png"/>
     
-  Normally, the `Toolbar` only appears when the list is scrolled to the top as shown below:
+    Normally, the `Toolbar` only appears when the list is scrolled to the top as shown below:
     
     <img src="http://i.imgur.com/IZzcL1C.png"/>
 
