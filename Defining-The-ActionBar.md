@@ -1,6 +1,6 @@
 ## Overview
 
-The ActionBar, now known in the Material Design world as the [App Bar](https://www.google.com/design/spec/layout/structure.html#structure-app-bar), is a consistent navigation element that is standard throughout modern Android applications. The ActionBar can consist of:
+The ActionBar, now known as the [App Bar](https://www.google.com/design/spec/layout/structure.html#structure-app-bar), is a consistent navigation element that is standard throughout modern Android applications. The ActionBar can consist of:
 
  * An application icon
  * An application or activity-specific title
