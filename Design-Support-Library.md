@@ -90,6 +90,8 @@ Currently, the source code for CoordinatorLayout and AppBarLayout do not appear 
  
 - A `snap` flag can also be added to the list of scrolling effects declared in `AppBarLayout`.  See [this guide](http://guides.codepath.com/android/Handling-Scrolls-with-CoordinatorLayout#responding-to-scroll-events) for an explanation.
 
+- A `setOnDragListener()` method has been added to `AppBarLayout`.  See [this section](http://guides.codepath.com/android/Gestures-and-Touch-Events#dragging-and-dropping) for more details.
+
 ## References
 
 * <https://medium.com/android-bites/first-steps-with-the-design-support-library-8dcf06230ddd>
