@@ -78,9 +78,17 @@ The source code for this library can be found [here](https://android.googlesourc
 
 Currently, the source code for CoordinatorLayout and AppBarLayout do not appear to be publicly available.  Assuming you are using Android Studio v1.2 or higher, the decompiler code should enable you to understand better what's happening.
 
-### Changes in Support Library v23
+### ChangeLog
 
-Note that `Resources.getColor()` has been deprecated.  You must now use `ContextCompat.getColor()` instead.  See this [Stack Overflow article](http://stackoverflow.com/questions/31590714/getcolorint-id-deprecated-on-android-6-0-marshmallow-api-23) or the official [API documentation](http://developer.android.com/reference/android/content/res/Resources.html).
+#### Changes in Support Library v23
+
+- `Resources.getColor()` has been deprecated.  You must now use `ContextCompat.getColor()` instead.  See this [Stack Overflow article](http://stackoverflow.com/questions/31590714/getcolorint-id-deprecated-on-android-6-0-marshmallow-api-23) or the official [API documentation](http://developer.android.com/reference/android/content/res/Resources.html).
+
+#### Changes in Support Library v23.1
+
+- `TextInputLayout` and `EditText` now includes the ability to add a character counter.   See [this section](http://guides.codepath.com/android/Working-with-the-EditText#adding-character-counting) of the guide.
+ 
+- A `snap` flag can also be added to the list of scrolling effects declared in `AppBarLayout`.  See [this guide](http://guides.codepath.com/android/Handling-Scrolls-with-CoordinatorLayout#responding-to-scroll-events) for an explanation.
 
 ## References
 
