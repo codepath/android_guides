@@ -4,7 +4,7 @@ We're going to create our own implementation of a determinate progress bar by cr
 
 ![](https://i.imgur.com/rMW3K4A.gif)
 
-Review the [creating a custom view](http://guides.codepath.com/android/Defining-Custom-Views) cliffnotes for a broader overview of what is required in building custom views.
+Review the [[creating a custom view|Defining-Custom-Views]] cliffnotes for a broader overview of what is required in building custom views.
 
 ### Prepare app skeleton
 

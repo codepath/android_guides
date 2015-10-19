@@ -306,7 +306,7 @@ To implement the falling pin animation, add a marker to the desired position in 
     }
 ```
 
-Review the [repeating periodic tasks guide](http://guides.codepath.com/android/Repeating-Periodic-Tasks#handler) for a better understanding of the `Handler` pattern used above to animate the marker over time.
+Review the [[repeating periodic tasks guide|Repeating-Periodic-Tasks#handler]] for a better understanding of the `Handler` pattern used above to animate the marker over time.
 
 Next, in `private void showAlertDialogForPoint` add the call to `dropPinEffect(marker);` at the end to animate the placement of the marker:
 

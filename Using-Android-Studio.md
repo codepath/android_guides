@@ -78,7 +78,7 @@ each test run:
 
   ![https://i.imgur.com/UoFj1XY.gif](https://i.imgur.com/UoFj1XY.gif | height=200px)
 
-* If you're adding libraries that also define R.java resource files (such as a [PullToRefresh library](http://guides.codepath.com/android/Implementing-Pull-to-Refresh) or Google Play Services), you cannot add them as .jar files.  They must be included as dependencies.  If you try to include them as .jar files, you may encounter R definitions not found during execution time.
+* If you're adding libraries that also define R.java resource files (such as a [[PullToRefresh library|Implementing-Pull-to-Refresh]] or Google Play Services), you cannot add them as .jar files.  They must be included as dependencies.  If you try to include them as .jar files, you may encounter R definitions not found during execution time.
 
 * Get familiar with the Code->Generate, Code->Reformat, and Code->Optimize Imports options.  The first one will allow you to help generate getter and setter methods on your classes, saving you time from having to write boilerplate code.  The other two options help to tidy up your code.
 

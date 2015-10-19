@@ -96,7 +96,7 @@ With that, the remote file will start streaming once preparation is completed an
 
 You can record audio using the [MediaRecorder APIs](http://developer.android.com/reference/android/media/MediaRecorder.html) if supported by the device hardware. 
 
-First, let's add the correct permissions to our `AndroidManifest.xml` (**Note:** The permissions model has changed starting in Marshmallow. If your `targetSdkVersion` >= `23` and you are running on a Marshmallow (or later) device / emulator, you'll need to follow this guide on implementing [runtime permissions](http://guides.codepath.com/android/Understanding-App-Permissions#runtime-permissions) in order to get these permissions):
+First, let's add the correct permissions to our `AndroidManifest.xml` (**Note:** The permissions model has changed starting in Marshmallow. If your `targetSdkVersion` >= `23` and you are running on a Marshmallow (or later) device / emulator, you'll need to follow this guide on implementing [[runtime permissions|Understanding-App-Permissions#runtime-permissions]] in order to get these permissions):
 
 ```xml
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -227,7 +227,7 @@ You can see a more complete example of remote streaming with [this androidbegin 
 
 ### Capturing Video
 
-Capturing video can be done using intents to capture video using the camera. First, let's setup the necessary permissions in `AndroidManifest.xml` (**Note:** The permissions model has changed starting in Marshmallow. If your `targetSdkVersion` >= `23` and you are running on a Marshmallow (or later) device / emulator, you'll need to follow this guide on implementing [runtime permissions](http://guides.codepath.com/android/Understanding-App-Permissions#runtime-permissions) in order to get this permission):
+Capturing video can be done using intents to capture video using the camera. First, let's setup the necessary permissions in `AndroidManifest.xml` (**Note:** The permissions model has changed starting in Marshmallow. If your `targetSdkVersion` >= `23` and you are running on a Marshmallow (or later) device / emulator, you'll need to follow this guide on implementing [[runtime permissions|Understanding-App-Permissions#runtime-permissions]] in order to get this permission):
 
 ```xml
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />

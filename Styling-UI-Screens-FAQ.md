@@ -46,11 +46,11 @@ To align the **position of your view itself** in the layout, you need to use a d
 
 If your view is contained within a `LinearLayout`, then you can use the [`android:layoutGravity`](http://developer.android.com/reference/android/widget/LinearLayout.LayoutParams.html#attr_android:layout_gravity) to determine the alignment of the view.
 
-To align the contents within a view, you can use the [`android:gravity` property](http://guides.codepath.com/android/Defining-Views-and-their-Attributes#view-gravity). This property can also be used to set the alignment of text in a `TextView` to the `left`, `right`, or `center`. Note that `android:textAlignment` is **essentially useless** replaced by gravity.
+To align the contents within a view, you can use the [[`android:gravity` property|Defining-Views-and-their-Attributes#view-gravity]]. This property can also be used to set the alignment of text in a `TextView` to the `left`, `right`, or `center`. Note that `android:textAlignment` is **essentially useless** replaced by gravity.
 
 #### How do I specify percentage based width, height and margins for my views?
 
-Simply wrap your views inside a [`PercentRelativeLayout`](http://guides.codepath.com/android/Constructing-View-Layouts#percentrelativelayout) or `PercentFrameLayout` and specify attributes with "Percent" suffix. Alternatively, you can also use [`android:layout_weight`](http://guides.codepath.com/android/Constructing-View-Layouts#linearlayout) attribute if you are using a `LinearLayout`.
+Simply wrap your views inside a [[`PercentRelativeLayout`|Constructing-View-Layouts#percentrelativelayout]] or `PercentFrameLayout` and specify attributes with "Percent" suffix. Alternatively, you can also use [[`android:layout_weight`|Constructing-View-Layouts#linearlayout]] attribute if you are using a `LinearLayout`.
 
 ### Images
 
@@ -60,7 +60,7 @@ If you simply want the image to be loaded in the easiest way possible then **jus
 
 Note that you need to make sure the image filename only contains **lowercase letters, numbers and underscores** (i.e my_image_file.png). After renaming the image to a valid resource name, **copy the image into the drawable-mdpi folder** as [[shown here|Cloning-a-Login-Screen-Layout-Guide#cutting-assets]]. Unless you want the image to be a small standard icon size, **do not** use the icon generator (i.e `New Image Asset`) when creating the images. 
 
-Instead to generate resized images that work at all densities, check out [this image guide](http://guides.codepath.com/android/Working-with-the-ImageView#supporting-multiple-densities) which allows us to select our resources directory, choose an extra high density image and the tool will automatically generate the corresponding lower density image sizes.
+Instead to generate resized images that work at all densities, check out [[this image guide|Working-with-the-ImageView#supporting-multiple-densities]] which allows us to select our resources directory, choose an extra high density image and the tool will automatically generate the corresponding lower density image sizes.
 
 #### How do I control the way images are displayed or scaled within an ImageView?
 
@@ -118,7 +118,7 @@ Review the [[Displaying Toasts]] guide for more details on how to display a toas
 
 #### How do I setup click handlers for my views or buttons?
 
-Any view can have a click handler setup by [following this event handler guide](http://guides.codepath.com/android/Basic-Event-Listeners) which triggers an action when the click occurs. 
+Any view can have a click handler setup by [[following this event handler guide|Basic-Event-Listeners]] which triggers an action when the click occurs. 
 
 #### How do I control the capitalization of text in views?
 
@@ -299,7 +299,7 @@ You can use `View.INVISIBLE` to hide the element or `View.GONE` to collapse the 
 
 #### How would I dynamically color text or a view based on the color palette of an image?
 
-We can use the new [Palette system](http://guides.codepath.com/android/Dynamic-Color-using-Palettes) to easily color any text or backgrounds based on the color scheme of an image at runtime.
+We can use the new [[Palette system|Dynamic-Color-using-Palettes]] to easily color any text or backgrounds based on the color scheme of an image at runtime.
 
 ### ActionBar
 

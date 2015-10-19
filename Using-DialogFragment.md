@@ -332,7 +332,7 @@ To complete the transparent effect, make sure to **set the alpha channel of the 
 
 ### Styling with Third-Party Libraries
 
-Note that [third party material libraries](http://guides.codepath.com/android/Material-Design-Primer#dialog-styles) such as [material-dialogs](https://github.com/afollestad/material-dialogs) can be used to simplify and improve dialog styling as well.
+Note that [[third party material libraries|Material-Design-Primer#dialog-styles]] such as [material-dialogs](https://github.com/afollestad/material-dialogs) can be used to simplify and improve dialog styling as well.
 
 ![Material Dialog](https://i.imgur.com/U4mr2BB.jpg)
 

@@ -72,8 +72,8 @@ To animate this part, you will need to take advantage of [CoordinatorLayout](htt
 
 #### Converting from ListView to RecyclerView
 
-Currently, you need to convert your ListViews to use [RecyclerView](http://developer.android.com/reference/android/support/v7/widget/RecyclerView.html). RecyclerView is the successor to ListView as described in [this section](http://guides.codepath.com/android/Using-the-RecyclerView#compared-to-listview).  There is no support built-in for CoordinatorLayout to work with ListView according to [this Google post](https://plus.google.com/101784949561498190574/posts/KPbsTY4NANx). You can review 
-this [guide](http://guides.codepath.com/android/Using-the-RecyclerView) to help make the transition.
+Currently, you need to convert your ListViews to use [RecyclerView](http://developer.android.com/reference/android/support/v7/widget/RecyclerView.html). RecyclerView is the successor to ListView as described in [[this section|Using-the-RecyclerView#compared-to-listview]].  There is no support built-in for CoordinatorLayout to work with ListView according to [this Google post](https://plus.google.com/101784949561498190574/posts/KPbsTY4NANx). You can review 
+this [[guide|Using-the-RecyclerView]] to help make the transition.
 
 ```xml
 <android.support.v7.widget.RecyclerView

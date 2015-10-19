@@ -9,7 +9,7 @@ If you want to use a `RecyclerView`, you will need to work with the following:
 
 <img src="https://developer.android.com/training/material/images/RecyclerView.png" width="500" alt="RecyclerView" />
 
-Furthermore, it provides animation support for `ListView` items whenever they are added or removed, which had been extremely difficult to do in the current implementation.  `RecyclerView` also begins to enforce the [ViewHolder pattern](http://guides.codepath.com/android/Using-an-ArrayAdapter-with-ListView#improving-performance-with-the-viewholder-pattern) too, which was already a recommended practice but now deeply integrated with this new framework.
+Furthermore, it provides animation support for `ListView` items whenever they are added or removed, which had been extremely difficult to do in the current implementation.  `RecyclerView` also begins to enforce the [[ViewHolder pattern|Using-an-ArrayAdapter-with-ListView#improving-performance-with-the-viewholder-pattern]] too, which was already a recommended practice but now deeply integrated with this new framework.
 
 For more details, see [this detailed overview](http://www.grokkingandroid.com/first-glance-androids-recyclerview/).
 
@@ -592,7 +592,7 @@ See [this detailed stackoverflow post](http://stackoverflow.com/a/24933117/31339
 
 ## Implementing Pull to Refresh
 
-The `SwipeRefreshLayout` should be used to refresh the contents of a `RecyclerView` via a vertical swipe gesture. See our detailed [RecyclerView with SwipeRefreshLayout](http://guides.codepath.com/android/Implementing-Pull-to-Refresh-Guide#recyclerview-with-swiperefreshlayout) guide for a step-by-step tutorial on implementing pull to refresh.
+The `SwipeRefreshLayout` should be used to refresh the contents of a `RecyclerView` via a vertical swipe gesture. See our detailed [[RecyclerView with SwipeRefreshLayout|Implementing-Pull-to-Refresh-Guide#recyclerview-with-swiperefreshlayout]] guide for a step-by-step tutorial on implementing pull to refresh.
 
 ## References
 

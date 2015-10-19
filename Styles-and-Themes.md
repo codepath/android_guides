@@ -136,7 +136,7 @@ Having trouble figuring out which style attributes you can use when defining a t
  * [themes.xml](http://omapzoom.org/?p=platform/frameworks/base.git;a=blob;f=core/res/res/values/themes.xml;hb=master) for the complete list of the thousands of default styles for an app. 
  * [R.attr](http://developer.android.com/reference/android/R.attr.html) documentation for a full rundown as well. 
  * [Useful holo theme generator tool](http://android-holo-colors.com/) for creating a theme that has a modified base color for certain widgets by default.  
- * [Customizing Action Bar styles guide](http://guides.codepath.com/android/Extended-ActionBar-Guide#custom-actionbar-styles) and [sample code](https://github.com/codepath/android-actionbar-style-demo) for theming the Action Bar.
+ * [[Customizing Action Bar styles guide|Extended-ActionBar-Guide#custom-actionbar-styles]] and [sample code](https://github.com/codepath/android-actionbar-style-demo) for theming the Action Bar.
 
 #### Applying a Theme
 

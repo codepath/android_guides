@@ -94,7 +94,7 @@ Details of setting up custom push notifications can be [found in this guide](htt
 
 ##### Launching an Activity
 
-When working with push messages, often the notification will launch an activity or the activity may even be launched by the broadcast receiver directly. In these cases, we might want to ensure that the activity launched is the same activity that is already running rather a new instance. To achieve this, we can use [launch modes or intent flags](http://guides.codepath.com/android/Navigation-and-Task-Stacks#launch-modes) such as `singleTop` to ensure the same activity instance is presented.
+When working with push messages, often the notification will launch an activity or the activity may even be launched by the broadcast receiver directly. In these cases, we might want to ensure that the activity launched is the same activity that is already running rather a new instance. To achieve this, we can use [[launch modes or intent flags|Navigation-and-Task-Stacks#launch-modes]] such as `singleTop` to ensure the same activity instance is presented.
 
 ### Source Code
 

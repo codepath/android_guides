@@ -162,7 +162,7 @@ public void shareBitmap(Bitmap bitmap) {
    mContext.startActivity(Intent.createChooser(shareIntent, "Share Image"));
 }
 ```
-See the [guide on sharing](http://guides.codepath.com/android/Sharing-Content-with-Intents) if you want to read more about the different sharing options.
+See the [[guide on sharing|Sharing-Content-with-Intents]] if you want to read more about the different sharing options.
 
 ## Gotchas
 Make sure you review the list of [[gotchas|http://frescolib.org/docs/gotchas.html]] in the Fresco documentation. The most notable one is to avoid `ImageView` methods and properties when dealing with a `DraweeView` (even though `DraweeView` extends `ImageView`).

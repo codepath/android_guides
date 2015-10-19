@@ -9,7 +9,7 @@ This is typically used for long running tasks that cannot be done on UIThread, s
 3. **Updates** - Display progress updates during the task (optional)
 4. **Post** - Execute code on UI thread following completion of the task (e.g show data)
 
-See [Displaying Remote Images the Hard Way](http://guides.codepath.com/android/Sending-and-Managing-Network-Requests#displaying-remote-images-the-hard-way) for an example of how AsyncTask can be used for retrieving a remote image.
+See [[Displaying Remote Images the Hard Way|Sending-and-Managing-Network-Requests#displaying-remote-images-the-hard-way]] for an example of how AsyncTask can be used for retrieving a remote image.
 
 ### Defining an AsyncTask
 

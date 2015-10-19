@@ -86,9 +86,9 @@ Currently, the source code for CoordinatorLayout and AppBarLayout do not appear 
 
 #### Changes in Support Library v23.1
 
-- `TextInputLayout` and `EditText` now includes the ability to add a character counter.   See [this section](http://guides.codepath.com/android/Working-with-the-EditText#adding-character-counting) of the guide.
+- `TextInputLayout` and `EditText` now includes the ability to add a character counter.   See [[this section|Working-with-the-EditText#adding-character-counting]] of the guide.
  
-- A `snap` flag can also be added to the list of scrolling effects declared in `AppBarLayout`.  See [this guide](http://guides.codepath.com/android/Handling-Scrolls-with-CoordinatorLayout#responding-to-scroll-events) for an explanation.
+- A `snap` flag can also be added to the list of scrolling effects declared in `AppBarLayout`.  See [[this guide|Handling-Scrolls-with-CoordinatorLayout#responding-to-scroll-events]] for an explanation.
 
 - A `setOnDragListener()` method has been added to `AppBarLayout`.  See [[this section|Handling-Scrolls-with-CoordinatorLayout#embedding-google-maps-in-appbarlayout]] for more details.
 
