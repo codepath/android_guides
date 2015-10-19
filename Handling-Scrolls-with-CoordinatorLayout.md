@@ -148,8 +148,14 @@ The `scroll` flag used within the attribute `app:layout_scrollFlags` must be ena
 
     <img src="http://imgur.com/HqR8Nx5.png">
 
-  * `exitUntilCollapsed`: Assuming you have declared a `minHeight`, the view will disappear once the minimum height is reached.
+  * `exitUntilCollapsed`: When the `scroll` flag is set, scrolling down will normally cause the entire content to move:
 
+    <img src="http://imgur.com/qpEr4x5.png"/>
+
+    By specifying a `minHeight` and `exitUntilCollapsed`, the minimum height of the `Toolbar` will be reached before the rest of the content begins to scroll and exit from the screen:
+
+    <img src="http://imgur.com/dTDPztp.png"/>
+     
   * `snap`: Using this option will determine what to do when a view only has been partially reduced.  If scrolling ends and the view size has been reduced to less than 50% of its original, then this view to return to its original size.  If the size is greater than 50% of its sized, it will disappear completely.  
        <img src="http://i.imgur.com/9hnupWJ.png"/>
 
