@@ -33,7 +33,7 @@ This means there are a couple more things to consider when working with permissi
 
 ### Normal Permissions
 
-When you need to add a new permission, first check [this page](http://developer.android.com/preview/features/runtime-permissions.html#normal) to see if the permission is considered a [`PROTECTION_NORMAL`](http://developer.android.com/reference/android/content/pm/PermissionInfo.html#PROTECTION_NORMAL) permission. In Marshmallow, Google has designated certain permissions to be "safe" and called these "Normal Permissions". These are things like `ACCESS_NETWORK_STATE`, `INTERNET`, etc. which can't do much harm. Normal permissions are automatically granted at install time and **never** prompt the user asking for permission.
+When you need to add a new permission, first check [this page](http://developer.android.com/guide/topics/security/normal-permissions.html) to see if the permission is considered a [`PROTECTION_NORMAL`](http://developer.android.com/reference/android/content/pm/PermissionInfo.html#PROTECTION_NORMAL) permission. In Marshmallow, Google has designated certain permissions to be "safe" and called these "Normal Permissions". These are things like `ACCESS_NETWORK_STATE`, `INTERNET`, etc. which can't do much harm. Normal permissions are automatically granted at install time and **never** prompt the user asking for permission.
 
 **Important:** Normal Permissions must be added to the `AndroidManifest`:
 
