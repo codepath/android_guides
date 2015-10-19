@@ -265,7 +265,7 @@ The best way to understand how to implement these custom behaviors is by studyin
 
 In addition to using the `CoordinatorLayout` as outlined above, be sure to check out [[these popular third-party libraries|Must-Have-Libraries#scrolling-and-parallax]] for scrolling and parallax effects across `ScrollView`, `ListView`, `ViewPager` and `RecyclerView`.
 
-## Embedding Google Maps in `AppBarLayout`
+## Embedding Google Maps in AppBarLayout
 
 There is currently no way of supporting Google Maps fragment within an `AppBarLayout` as confirmed in this [issue](https://code.google.com/p/android/issues/detail?id=188487).  Changes in the support design library v23.1.0 now exposes a `setOnDragListener()` method, which is useful if [drag and drop effects](http://guides.codepath.com/android/Gestures-and-Touch-Events#dragging-and-dropping) are needed within this layout.
 
