@@ -209,6 +209,8 @@ This can be achieved by use CoordinatorLayout as the root view. We need to speci
 </android.support.design.widget.CoordinatorLayout>
 ```
 
+For details check out [this stackoverflow post](http://stackoverflow.com/questions/24459352/how-can-i-add-the-new-floating-action-button-between-two-widgets-layouts). See the [[CoordinatorLayout guide|Handling-Scrolls-with-CoordinatorLayout]] for more details on that layout.
+
 ### With Third-Party FloatingActionButton
 
 Using [makovkastar/FloatingActionButton](https://github.com/makovkastar/FloatingActionButton) library makes floating buttons quite simple to setup. See the [library readme](https://github.com/makovkastar/FloatingActionButton/blob/master/README.md) and the [sample code](https://github.com/makovkastar/FloatingActionButton/tree/master/sample/src/main/java/com/melnykov/fab/sample) for reference.
