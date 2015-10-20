@@ -130,7 +130,7 @@ Scroll events in the RecyclerView trigger changes inside views declared within `
  </android.support.design.widget.AppBarLayout>
 ```
 
-The `scroll` flag used within the attribute `app:layout_scrollFlags` must be enabled for any scroll effects to take into effect.  This flag must be enabled along with any of the following:
+The `scroll` flag used within the attribute `app:layout_scrollFlags` must be enabled for any scroll effects to take into effect.  This flag must be enabled along with `enterAlways`, `enterAlwaysCollapsed`, `exitUntilCollapsed`, or `snap`:
 
   * `enterAlways`: The view will become visible when scrolling up.  This flag is useful in cases when scrolling from the bottom of a list and wanting to expose the `Toolbar` as soon as scrolling up takes place.  
  
