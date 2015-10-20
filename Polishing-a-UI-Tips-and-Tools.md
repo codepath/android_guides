@@ -49,4 +49,4 @@ Additional reading:
 
 ## References
 
-* [original gist here](https://gist.github.com/nesquena/6c567083aec13d868017).
+* [original gist here](https://gist.github.com/nesquena/6c567083aec13d868017)
