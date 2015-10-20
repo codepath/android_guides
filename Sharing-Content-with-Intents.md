@@ -29,6 +29,34 @@ shareIntent.putExtra(Intent.EXTRA_STREAM, uri.toString());
 startActivity(Intent.createChooser(shareIntent, "Share image using"));
 ```
 
+#### Sharing Multiple Types
+
+In certain cases, we might want to send an image along with text. This can be done with:
+
+```
+String text = "Look at my awesome picture";
+Uri pictureUri = Uri.parse("file://my_picture");
+Intent shareIntent = new Intent();
+shareIntent.setAction(Intent.ACTION_SEND);
+shareIntent.putExtra(Intent.EXTRA_TEXT, text);
+shareIntent.putExtra(Intent.EXTRA_STREAM, imageUri);
+shareIntent.setType("image/*");
+shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+startActivity(Intent.createChooser(shareIntent, "Share images..."));
+```
+
+Sharing multiple images can be done with:
+
+```
+Intent shareIntent = new Intent(Intent.ACTION_SEND_MULTIPLE);
+shareIntent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, imageUris);
+shareIntent.setType("image/*");
+```
+
+See this [stackoverflow post](http://stackoverflow.com/a/27501666) for more details. 
+
+**Note:** Facebook does not properly recognize multiple shared elements. See [this facebook specific bug for more details](https://developers.facebook.com/x/bugs/332619626816423/) and share using their SDK.
+
 ### Sharing Remote Images
 
 You may want to send an image that were loaded from a remote URL. Assuming you are using a third party library like `Picasso`, here is how you might share an image that came from the network and was loaded into an ImageView.  There are two ways to accomplish this.   The first way, shown below, takes the bitmap from the view and loads it into a file.  
