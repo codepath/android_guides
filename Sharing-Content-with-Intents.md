@@ -47,7 +47,7 @@ startActivity(Intent.createChooser(shareIntent, "Share images..."));
 
 Sharing multiple images can be done with:
 
-``java`
+```java
 Intent shareIntent = new Intent(Intent.ACTION_SEND_MULTIPLE);
 shareIntent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, imageUris);
 shareIntent.setType("image/*");
