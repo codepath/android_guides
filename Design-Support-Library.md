@@ -50,7 +50,7 @@ dependencies {
 }
 ```
 
-#### Percent Support Library
+#### Adding Percent Support Library
 
 To add the percent support library, you need to add this statement:  
 
@@ -60,7 +60,7 @@ dependencies {
 }
 ```
 
-#### Annotations
+#### Adding Annotations Library
 
 To leverage the [annotations library](http://tools.android.com/tech-docs/support-annotations), you can also explicitly add it to your Gradle file.  Adding the [[AppCompat|Migrating-to-the-AppCompat-Library]] or support design library implicitly adds it:
 
@@ -69,6 +69,8 @@ dependencies {
     compile 'com.android.support:support-annotations:23.1.0'
 }
 ```
+
+#### Installing the Library
 
 You normally need to open the [SDK Manager](https://developer.android.com/tools/support-library/setup.html) and make sure to download the `Android Support Repository` as well as the latest `Android Support Library`.   However, Android Studio will also show at the bottom any missing libraries and you can click on the `Install repository and sync project`.  The process will only succeed if you specify a valid library and version, but it enables you to upgrade without needing to open the SDK Manager.
 
