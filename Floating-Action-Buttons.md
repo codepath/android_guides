@@ -159,6 +159,56 @@ If you forget to implement this last step, you will see `Could not inflate Behav
 
 *Note*: Normally when implementing `CoordinatorLayout` behaviors, we need to implement [layoutDependsOn()](https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html#layoutDependsOn(android.support.design.widget.CoordinatorLayout, V, android.view.View)) and [onDependentViewChanged()](https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onDependentViewChanged(android.support.design.widget.CoordinatorLayout, V, android.view.View)), which are used to track changes in other views contained within the CoordinatorLayout.  Since we only need to monitor scroll changes, we use the existing behavior defined for the Floating Action Button, which is currently implemented to track changes for Snackbars and AppBarLayout as discussed in this [blog post](http://android-developers.blogspot.com/2015/05/android-design-support-library.html).
 
+#### Embedding FloatingActionButton in Header
+
+A common effect is embedding the FAB near the header like this:
+
+<img src="http://s1.postimg.org/xrfwqpqgf/x_Cx_E0.png" width="200" />
+
+This can be achieved by use CoordinatorLayout as the root view. We need to specify `layout_anchor` for the FAB to the top view and `layout_anchorGravity` to to `bottom|right|end` like this:
+
+```xml
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/viewA"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.6"
+            android:background="@android:color/holo_purple"
+            android:orientation="horizontal"/>
+
+        <LinearLayout
+            android:id="@+id/viewB"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.4"
+            android:background="@android:color/holo_orange_light"
+            android:orientation="horizontal"/>
+
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        android:src="@drawable/ic_done"
+        app:layout_anchor="@id/viewA"
+        app:layout_anchorGravity="bottom|right|end"/>
+
+</android.support.design.widget.CoordinatorLayout>
+```
+
 ### With FloatingActionButton (Third-Party)
 
 Using [makovkastar/FloatingActionButton](https://github.com/makovkastar/FloatingActionButton) library makes floating buttons quite simple to setup. See the [library readme](https://github.com/makovkastar/FloatingActionButton/blob/master/README.md) and the [sample code](https://github.com/makovkastar/FloatingActionButton/tree/master/sample/src/main/java/com/melnykov/fab/sample) for reference.
