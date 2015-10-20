@@ -198,7 +198,7 @@ The only way to fulfill this requirement is to expand the height of the second b
 
 <img src="http://imgur.com/CmMsIgp.png"/>
 
-To use, follow the [[setup guide|Design-Support-Library#percent-support-library]] and make sure the Gradle dependency is defined:
+To use, follow the [[setup guide|Design-Support-Library#setup]] and make sure the Gradle dependency is defined:
 
 ```gradle
 dependencies {
