@@ -50,7 +50,7 @@ dependencies {
 }
 ```
 
-### Percent Support Library
+#### Percent Support Library
 
 To add the percent support library, you need to add this statement:  
 
@@ -60,7 +60,7 @@ dependencies {
 }
 ```
 
-### Annotations
+#### Annotations
 
 To leverage the [annotations library](http://tools.android.com/tech-docs/support-annotations), you can also explicitly add it to your Gradle file.  Adding the [[AppCompat|Migrating-to-the-AppCompat-Library]] or support design library implicitly adds it:
 
