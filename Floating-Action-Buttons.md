@@ -159,7 +159,7 @@ If you forget to implement this last step, you will see `Could not inflate Behav
 
 *Note*: Normally when implementing `CoordinatorLayout` behaviors, we need to implement [layoutDependsOn()](https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html#layoutDependsOn(android.support.design.widget.CoordinatorLayout, V, android.view.View)) and [onDependentViewChanged()](https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.Behavior.html#onDependentViewChanged(android.support.design.widget.CoordinatorLayout, V, android.view.View)), which are used to track changes in other views contained within the CoordinatorLayout.  Since we only need to monitor scroll changes, we use the existing behavior defined for the Floating Action Button, which is currently implemented to track changes for Snackbars and AppBarLayout as discussed in this [blog post](http://android-developers.blogspot.com/2015/05/android-design-support-library.html).
 
-#### Embedding FloatingActionButton in Header
+### Embedding FloatingActionButton in Header
 
 A common effect is embedding the FAB near the header like this:
 
@@ -209,7 +209,7 @@ This can be achieved by use CoordinatorLayout as the root view. We need to speci
 </android.support.design.widget.CoordinatorLayout>
 ```
 
-### With FloatingActionButton (Third-Party)
+### With Third-Party FloatingActionButton
 
 Using [makovkastar/FloatingActionButton](https://github.com/makovkastar/FloatingActionButton) library makes floating buttons quite simple to setup. See the [library readme](https://github.com/makovkastar/FloatingActionButton/blob/master/README.md) and the [sample code](https://github.com/makovkastar/FloatingActionButton/tree/master/sample/src/main/java/com/melnykov/fab/sample) for reference.
 
