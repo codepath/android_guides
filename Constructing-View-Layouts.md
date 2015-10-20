@@ -259,7 +259,7 @@ We can also define `app:layout_marginPercent` that will be to all four values ab
 
 #### Aspect Ratio
 
-Similar to how [[ImageView|Working-with-the-ImageView#sizing-imageview-controls|]]'s `adjustViewBounds:true` can be used to scale the image according to its aspect ratio, we can also use `PercentRelativeLayout` to define an aspect ratio for a layout.  If one dimension is set to `0dp`, setting a percentage on the `app:layout_aspectRatio` attribute can scale the other to meet the ratio:
+Similar to how [[ImageView|Working-with-the-ImageView#sizing-imageview-controls|]]'s `adjustViewBounds:true` can be used to scale the image according to its aspect ratio, we can also use `PercentRelativeLayout` to define an aspect ratio for a layout.  If one dimension is set to `0dp` and no percent scaling is associated with it, setting a percentage on the `app:layout_aspectRatio` attribute can scale the other to meet the ratio:
 
 ```xml
 <android.support.percent.PercentRelativeLayout
