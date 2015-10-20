@@ -246,6 +246,42 @@ An example of a layout used to describe the image above is shown below (taken fr
 </android.support.percent.PercentRelativeLayout>
 ```
 
+#### Aspect Ratio
+
+Similar to how [[ImageView|Working-with-the-ImageView#sizing-imageview-controls|]]'s `adjustViewBounds:true` can be used to scale the image according to its aspect ratio, we can also use `PercentRelativeLayout` to define an aspect ratio for a layout.  If one dimension is set to `0dp`, setting a percentage on the `app:layout_aspectRatio` attribute can scale the other to meet the ratio:
+
+```xml
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#ff00ff22"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- not using aspectRatio here -->
+    <View
+        android:id="@+id/view1"
+        android:background="#ff44aacc"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:layout_heightPercent="50%"/>
+
+    <!-- using aspectRatio here -->
+    <View
+        android:layout_below="@id/view1"
+        android:background="#ffe40000"
+        android:layout_width="300dp"
+        android:layout_height="0dp"
+        app:layout_aspectRatio="160%"/>
+
+</android.support.percent.PercentRelativeLayout>
+
+```
+
+The resulting layout appears as follows:
+
+<img src="http://imgur.com/jBj47AS.png"/>
+
 
 ## FrameLayout
 
@@ -303,3 +339,4 @@ To optimize layout performance, minimize the number of instantiated layouts and 
  * <http://www.androidhive.info/2011/07/android-layouts-linear-layout-relative-layout-and-table-layout/>
  * <http://logc.at/2011/10/18/when-to-use-linearlayout-vs-relativelayout/>
  * <http://developer.android.com/reference/android/widget/FrameLayout.html>
+ * <https://plus.google.com/+AndroidDevelopers/posts/C8oaLunpEEj>
