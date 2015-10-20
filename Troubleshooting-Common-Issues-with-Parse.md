@@ -1,3 +1,5 @@
+This guide is about troubleshooting common Parse issues that people encounter.
+
 ## Common Issues 
 
 > Can't save object, I get "com.parse.ParseException: object not found for update"
