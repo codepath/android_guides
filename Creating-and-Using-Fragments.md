@@ -352,11 +352,12 @@ import android.support.v4.app.Fragment;
 public class MyListFragment extends Fragment {
   // ...
   // Define the listener of the interface type
-  // listener is the activity itself
+  // listener will the activity instance containing fragment
   private OnItemSelectedListener listener;
   
   // Define the events that the fragment will use to communicate
   public interface OnItemSelectedListener {
+    // This can be any number of events to be sent to the activity
     public void onRssItemSelected(String link);
   }
   
@@ -386,18 +387,20 @@ import android.support.v7.app.AppCompatActivity;
 
 // Activity implements the fragment listener to handle events
 public class RssfeedActivity extends AppCompatActivity implements MyListFragment.OnItemSelectedListener {
+    // Can be any fragment, `DetailFragment` is just an example
     DetailFragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rssfeed);
-        // Get access to the fragment by id
+        // Get access to the detail view fragment by id
         fragment = (DetailFragment) getSupportFragmentManager()
             .findFragmentById(R.id.detailFragment);
   }
   
   // Now we can define the action to take in the activity when the fragment event fires
+  // This is implementing the `OnItemSelectedListener` interface methods
   @Override
   public void onRssItemSelected(String link) {
       if (fragment != null && fragment.isInLayout()) {
