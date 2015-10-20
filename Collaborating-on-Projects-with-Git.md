@@ -54,7 +54,18 @@ git pull origin master
 
 A merge conflict occurs when two branches have changed the same part of the same file, and then those branches are merged together. For example, if you make a change on a particular line in a file, and your colleague working in a repository makes a change on the exact same line, a merge conflict occurs. 
 
-In this case, Git has trouble understanding which change should be used, so it asks you to help out. Refer to [this excellent github guide](https://help.github.com/articles/resolving-a-merge-conflict-from-the-command-line/) to resolve these edit merge conflicts.
+When this sort of conflict occurs, Git writes a special block into the file that contains the contents of both versions where the conflict occurred:
+
+```
+the number of planets are
+<<<<<<< HEAD
+nine
+=======
+eight
+>>>>>>> branch-a
+```
+
+To complete this type of merge, use your text editor to resolve the conflict, then add the file and commit it to complete the merge. In this case, Git has trouble understanding which change should be used, so it asks you to help out. Refer to [this excellent github guide](https://help.github.com/articles/resolving-a-merge-conflict-from-the-command-line/) to resolve these edit merge conflicts.
 
 ### Adding New Features
 
