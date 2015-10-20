@@ -55,7 +55,7 @@ shareIntent.setType("image/*");
 
 See this [stackoverflow post](http://stackoverflow.com/a/27501666) for more details. 
 
-**Note:** Facebook does not properly recognize multiple shared elements. See [this facebook specific bug for more details](https://developers.facebook.com/x/bugs/332619626816423/) and share using their SDK.
+**Note:** Facebook does not properly recognize multiple shared elements. See [this facebook specific bug for more details](https://developers.facebook.com/x/bugs/332619626816423/) and share using their SDK. See [this post for a workaround](http://grishma102.blogspot.com/2015/04/sharing-of-single-multiple-images-text.html).
 
 ### Sharing Remote Images
 
