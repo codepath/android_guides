@@ -33,7 +33,7 @@ startActivity(Intent.createChooser(shareIntent, "Share image using"));
 
 In certain cases, we might want to send an image along with text. This can be done with:
 
-```
+```java
 String text = "Look at my awesome picture";
 Uri pictureUri = Uri.parse("file://my_picture");
 Intent shareIntent = new Intent();
@@ -47,7 +47,7 @@ startActivity(Intent.createChooser(shareIntent, "Share images..."));
 
 Sharing multiple images can be done with:
 
-```
+``java`
 Intent shareIntent = new Intent(Intent.ACTION_SEND_MULTIPLE);
 shareIntent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, imageUris);
 shareIntent.setType("image/*");
