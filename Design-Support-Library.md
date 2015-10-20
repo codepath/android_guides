@@ -95,6 +95,9 @@ Currently, the source code for CoordinatorLayout and AppBarLayout do not appear 
 - A `snap` flag can also be added to the list of scrolling effects declared in `AppBarLayout`.  ([[view guide|Handling-Scrolls-with-CoordinatorLayout#responding-to-scroll-events]])
 
 - A `setOnDragListener()` method has been added to `AppBarLayout`.  ([[view guide|Handling-Scrolls-with-CoordinatorLayout#embedding-google-maps-in-appbarlayout]])
+
+- An `aspectRatio` attribute is now supported in `PercentRelativeLayout`.  ([[view guide|Constructing-View-Layouts#aspect-ratio]])
+
 ## References
 
 * <https://medium.com/android-bites/first-steps-with-the-design-support-library-8dcf06230ddd>
