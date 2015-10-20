@@ -246,6 +246,17 @@ An example of a layout used to describe the image above is shown below (taken fr
 </android.support.percent.PercentRelativeLayout>
 ```
 
+#### Margin Percentages
+
+The margins can also be set to a percentage of the total widths as well:
+
+  * `app:layout_marginStartPercent`
+  * `app:layout_marginEndPercent`
+  * `app:layout_marginTopPercent`
+  * `app:layout_marginBottomPercent`
+
+We can also define `app:layout_marginPercent` that will be to all four values above.
+
 #### Aspect Ratio
 
 Similar to how [[ImageView|Working-with-the-ImageView#sizing-imageview-controls|]]'s `adjustViewBounds:true` can be used to scale the image according to its aspect ratio, we can also use `PercentRelativeLayout` to define an aspect ratio for a layout.  If one dimension is set to `0dp`, setting a percentage on the `app:layout_aspectRatio` attribute can scale the other to meet the ratio:
@@ -281,7 +292,6 @@ Similar to how [[ImageView|Working-with-the-ImageView#sizing-imageview-controls|
 The resulting layout appears as follows:
 
 <img src="http://imgur.com/jBj47AS.png"/>
-
 
 ## FrameLayout
 
