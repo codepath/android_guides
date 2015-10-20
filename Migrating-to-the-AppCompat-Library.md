@@ -141,7 +141,7 @@ In addition, setting the `targetSdkVersion` to the latest SDK version ensures th
 
 ```gradle
 android {
-    targetSdkVersion 21
+    targetSdkVersion 23
 ```
 
 ### Known issues
