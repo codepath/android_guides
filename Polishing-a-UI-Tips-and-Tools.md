@@ -47,4 +47,6 @@ Additional reading:
   * Review our [[styling the ActionBar guide|Extended-ActionBar-Guide#custom-actionbar-styles]]
   * Review our [[styling tabs guide|Sliding-Tabs-with-PagerSlidingTabStrip#customize-tab-styles]] 
 
-The original gist source for the page can be found [here](https://gist.github.com/nesquena/6c567083aec13d868017).
+## References
+
+* [original gist here](https://gist.github.com/nesquena/6c567083aec13d868017).
