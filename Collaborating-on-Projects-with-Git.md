@@ -50,6 +50,12 @@ git checkout master
 git pull origin master
 ```
 
+### Resolving Merge Conflicts
+
+A merge conflict occurs when two branches have changed the same part of the same file, and then those branches are merged together. For example, if you make a change on a particular line in a file, and your colleague working in a repository makes a change on the exact same line, a merge conflict occurs. 
+
+In this case, Git has trouble understanding which change should be used, so it asks you to help out. Refer to [this excellent github guide](https://help.github.com/articles/resolving-a-merge-conflict-from-the-command-line/) to resolve these edit merge conflicts.
+
 ### Adding New Features
 
 New features should be added in special [feature branches](https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is) that allow changes to be made in isolation. First, we can create a new branch to work on:
