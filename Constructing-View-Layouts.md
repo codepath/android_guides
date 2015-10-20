@@ -202,7 +202,7 @@ To use, you need to add this library to your Gradle dependency list:
 
 ```gradle
 dependencies {
-    compile 'com.android.support:percent:22.2.0'
+    compile 'com.android.support:percent:23.1.0'
 }
 ```
 
