@@ -194,7 +194,7 @@ The only way to fulfill this requirement is to expand the height of the second b
 
 ## PercentRelativeLayout
 
-PercentRelativeLayout, a recent undocumented addition to the [[Design Support Library]], enables the ability to specify not only elements relative to each other but also the total percentage of available space.   
+`PercentRelativeLayout`, a recent addition to the [[Design Support Library]], enables the ability to specify not only elements relative to each other but also the total percentage of available space.  In the past, in order to position two elements next to each other with equal height, you would normally have to create a `LinearLayout` within a `RelativeLayout`.  `PercentRelativeLayout` helps solves this issue.
 
 <img src="http://imgur.com/CmMsIgp.png"/>
 
@@ -245,6 +245,7 @@ An example of a layout used to describe the image above is shown below (taken fr
         app:layout_heightPercent="80%" />
 </android.support.percent.PercentRelativeLayout>
 ```
+
 
 ## FrameLayout
 
