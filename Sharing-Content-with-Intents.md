@@ -234,6 +234,29 @@ public void setupShareIntent() {
 }
 ```
 
+### Share in Facebook
+
+1. Create a new Facebook app here: https://developers.facebook.com/apps/ (follow the instructions)
+2. Add the Facebook SDK to your project.
+3. Post with this code snippet:
+
+```java
+   public void setupFacebookShareIntent() {
+        ShareDialog shareDialog;
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        shareDialog = new ShareDialog(this);
+
+        ShareLinkContent linkContent = new ShareLinkContent.Builder()
+                .setContentTitle("CODEPATH")
+                .setContentDescription(
+                        "\"Title Of Test Post\"")
+                .setContentUrl(Uri.parse("http://codepath.com/about"))
+                .build();
+        
+        shareDialog.show(linkContent);
+    }
+```
+
 Check out the [official guide for easy sharing](http://developer.android.com/training/sharing/shareaction.html) for more information.
 
 ## References
