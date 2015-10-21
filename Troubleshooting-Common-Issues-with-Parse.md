@@ -42,6 +42,31 @@ Steps to import [ParseUI](https://github.com/ParsePlatform/ParseUI-Android) into
 3. Clean and rebuild newly created eclipse project.
 4. Run project
 
+## Extending ParseUser
+
+A common use case that comes up is trying to **extend the ParseUser class** to create your own custom `ParseUser` subclass. This causes issues with Parse and [is not recommended](https://github.com/ParsePlatform/ParseUI-Android/issues/2). Instead you can explore using a delegate pattern like this instead:
+
+```java
+public class CustomUser {
+  private ParseUser user;
+
+  void CustomUser(ParseUser obj) {
+    user = obj;
+  }
+
+  void setSomeField(int someField) {
+    user.put("some_field", 56);
+    user.saveInBackground();
+  }
+
+  Date getCreatedAt() {
+    return user.getCreatedAt();
+  }
+}
+```  
+
+While this isn't as convenient, it works more reliably.
+
 ## Local Datastore and Public Read Access
 
 It looks like public read access to data is necessary for local datastore to work. Local datastore returned no results when role-specific read access was setup.
