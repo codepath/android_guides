@@ -234,6 +234,8 @@ public void setupShareIntent() {
 }
 ```
 
+Check out the [official guide for easy sharing](http://developer.android.com/training/sharing/shareaction.html) for more information.
+
 ### Share in Facebook
 
 1. Create a new Facebook app here: https://developers.facebook.com/apps/ (follow the instructions)
@@ -256,8 +258,6 @@ public void setupShareIntent() {
         shareDialog.show(linkContent);
     }
 ```
-
-Check out the [official guide for easy sharing](http://developer.android.com/training/sharing/shareaction.html) for more information.
 
 ## References
 
