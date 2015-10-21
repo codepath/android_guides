@@ -45,6 +45,8 @@ task copyToS3(type: Exec) {
 copyToS3.dependsOn uploadArchives
 ```
 
+Currently the Gradle/Amazon S3 integration does not support IAM roles.  You will need to provide an access key or secret.   To circumvent this issue, you can output the repository to a private repo and use the AWS command-line client to copy the snapshot dirs.
+
 #### Reference the private Maven repository
 
 For the app, add the entry to your `build.gradle` file:
@@ -63,8 +65,6 @@ allprojects {
         }
     }
 ```
-
-*Note*: Currently the Gradle/Amazon S3 integration does not support IAM roles.  You will need to provide an access key or secret.  
 
 #### Handling `AWS authentication requires a valid Date or x-amz-date header` errors.
 
