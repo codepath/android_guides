@@ -1,5 +1,10 @@
 ## Overview
 
+Normally, Android application use the `com.android.application` library.  Android libraries should use the `com.android.library` plugin:
+
+```gradle
+apply plugin: 'com.android.library'
+```
 ### Setting up a private Amazon S3 Maven repository
 
 #### Add a task for Maven publishing
