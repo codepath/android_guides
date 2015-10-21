@@ -47,11 +47,26 @@ The reason is that the [[Design Support Library]] must be downloaded from the [[
 
 #### Google Play Services
 
-If you intend to use Google Play Services with Travis, you will also want to add the `extra-google-m2repository` too:
+If you intend to use Google Play Services with Travis, you will also want to add the `extra-google-m2repository` for similar reasons:
 
 ```yaml
 language: android
 android:
   components:
      - extra-google-m2repository
+```
+
+### Troubleshooting
+
+If you see an error code 137, chances are that the Travis build has ran out of memory trying to load all your dependencies.
+
+```bash
+com.android.ide.common.process.ProcessException: org.gradle.process.internal.ExecException: Process 'command '/usr/lib/jvm/java-7-oracle/bin/java'' finished with non-zero exit value 137
+```
+
+If you are using [Google Play Services](https://developers.google.com/android/guides/setup), try to be more selective about the modules you import.  In prior versions before 6.5, you had to include all packages which often caused the 65K method limit to be reached.  If you only wish to use the Google Cloud Messaging package and not Google Fitness or Google Wear, you do not need to import 
+`com.google.android.gms:play-services:8.1.0`.  Instead, you can simply specify the libraries explicitly:
+
+```gradle
+compile 'com.google.android.gms:play-services-gcm:8.1.0'
 ```
