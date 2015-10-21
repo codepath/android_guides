@@ -55,7 +55,32 @@ shareIntent.setType("image/*");
 
 See this [stackoverflow post](http://stackoverflow.com/a/27501666) for more details. 
 
-**Note:** Facebook does not properly recognize multiple shared elements. See [this facebook specific bug for more details](https://developers.facebook.com/x/bugs/332619626816423/) and share using their SDK. See [this post for a workaround](http://grishma102.blogspot.com/2015/04/sharing-of-single-multiple-images-text.html).
+**Note:** Facebook does not properly recognize multiple shared elements. See [this facebook specific bug for more details](https://developers.facebook.com/x/bugs/332619626816423/) and share using their SDK. 
+
+#### Share in Facebook
+
+Facebook doesn't work well with normal sharing intents when sharing multiple content elements as [discussed in this bug](https://developers.facebook.com/x/bugs/332619626816423/). To share posts with facebook, we need to:
+
+1. Create a [new Facebook app here](https://developers.facebook.com/apps/) (follow the instructions)
+2. Add the Facebook SDK to your Android project
+3. Share using this code snippet:
+
+```java
+   public void setupFacebookShareIntent() {
+        ShareDialog shareDialog;
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        shareDialog = new ShareDialog(this);
+
+        ShareLinkContent linkContent = new ShareLinkContent.Builder()
+                .setContentTitle("Title")
+                .setContentDescription(
+                        "\"Body Of Test Post\"")
+                .setContentUrl(Uri.parse("http://someurl.com/here"))
+                .build();
+        
+        shareDialog.show(linkContent);
+    }
+```
 
 ### Sharing Remote Images
 
@@ -235,29 +260,6 @@ public void setupShareIntent() {
 ```
 
 Check out the [official guide for easy sharing](http://developer.android.com/training/sharing/shareaction.html) for more information.
-
-### Share in Facebook
-
-1. Create a new Facebook app here: https://developers.facebook.com/apps/ (follow the instructions)
-2. Add the Facebook SDK to your project.
-3. Post with this code snippet:
-
-```java
-   public void setupFacebookShareIntent() {
-        ShareDialog shareDialog;
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        shareDialog = new ShareDialog(this);
-
-        ShareLinkContent linkContent = new ShareLinkContent.Builder()
-                .setContentTitle("CODEPATH")
-                .setContentDescription(
-                        "\"Title Of Test Post\"")
-                .setContentUrl(Uri.parse("http://codepath.com/about"))
-                .build();
-        
-        shareDialog.show(linkContent);
-    }
-```
 
 ## References
 
