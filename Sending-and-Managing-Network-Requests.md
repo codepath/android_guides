@@ -132,6 +132,35 @@ Picasso.with(context).load(imageUri).fit().centerCrop()
     .into(imageView);
 ```
 
+We can resize an image with respect to the aspect ratio using `resize` and specifying 0 for the other dimension as [outlined here](https://github.com/square/picasso/pull/663):
+
+```
+// Resize to the width specified maintaining aspect ratio
+Picasso.with(this).load(imageUrl).resize(someWidth, 0)
+```
+
+We can add a progress bar or otherwise handle callbacks while an image is loading with:
+
+```java
+// Show progress bar
+progressBar.setVisibility(View.VISIBLE);
+// Hide progress bar on successful load
+Picasso.with(this).load(imageUrl)
+  .into(imageView, new com.squareup.picasso.Callback() {
+      @Override
+      public void onSuccess() {
+          if (progressBar != null) {
+              progressBar.setVisibility(View.GONE);
+          }
+      }
+
+      @Override
+      public void onError() {
+
+      }
+});
+```
+
 Be sure to use `fit()` to resize the image before loading into the ImageView.  Otherwise, you will consume extra memory, experience sluggish scrolling, or encounter out of memory issues if you render a lot of pictures.
 
 For more details check out the [Picasso](http://square.github.io/picasso/) documentation. 
