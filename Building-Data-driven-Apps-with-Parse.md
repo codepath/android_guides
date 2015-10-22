@@ -555,7 +555,11 @@ query.getInBackground("aFuEsvjoHt", new GetCallback<TodoItem>() {
 });
 ```
 
-## Creating Data Classes
+### Further Details
+
+For the full summary of how to utilize the offline mode for Parse, be sure to review the [official local store guide](https://parse.com/docs/android_guide#localdatastore) in the Parse docs.
+
+## Using the Data Browser
 
 Suppose we had a simple todo application with user accounts and items persisted to Parse. The next step is to create our models using the [dashboard](https://www.parse.com/apps) to manage your new app. Visit the "Data Browser" for the correct application and let's create our `User` and `TodoItem` objects for our app.
 
@@ -581,23 +585,45 @@ Once you've finished adding your columns to the class, you can create as many ad
 
 We are now ready to access these classes within our application.
 
-### Further Details
-
-For the full summary of how to utilize the offline mode for Parse, be sure to review the [official local store guide](https://parse.com/docs/android_guide#localdatastore) in the Parse docs.
-
 ## Troubleshooting
 
 Check out our [[Troubleshooting Common Issues with Parse]] guide for a detailed look at common issues encountered and related solutions.
 
 ## Additional Features
 
-Parse has many powerful features in addition to the core functionality listed above:
+Parse has many powerful features in addition to the core functionality listed above.
 
-* [Parse Push](https://parse.com/tutorials/android-push-notifications) - Super easy push notifications
-* [Integrating with Facebook SDK](https://parse.com/tutorials/integrating-facebook-in-android) - Step by step for Facebook account integration
-* [Using Parse Files](https://parse.com/docs/android_guide#files-classes) - Reference for how to store files (i.e images) to Parse
-* [Mealspotting Tutorial](https://parse.com/tutorials/mealspotting) - Tutorial including how to store images associated to a record.
+### Uploading Photos
+
+Parse has full support for storing images uploaded by an application. Photos are stored using the `ParseFile` construct [described in more detail here](https://parse.com/docs/android/guide#files). Refer to the following resources for more details: 
+
+ * [Parse Image Upload Tutorial](http://www.androidbegin.com/tutorial/android-parse-com-image-upload-tutorial) - Tutorial on using `ParseFile` to upload images.
+ * [Mealspotting Tutorial](https://parse.com/tutorials/mealspotting) - Detailed guide on how to store images associated to a record.
+ * [[CodePath Camera and Gallery Guide|Accessing-the-Camera-and-Stored-Media]] - Guide on capturing photos with the camera.
+
+### Geo Location
+
+Parse has support for geolocation services and querying:
+
 * [AnyWall Tutorial](https://parse.com/tutorials/anywall-android) - Tutorial including how to read geolocation and use this data within your app.
+
+### Push Notifications
+
+Parse supports push notifications made easy:
+
+* [[Parse Push Messaging|Push-Messaging]] - CodePath Guide
+* [Parse Push](https://parse.com/tutorials/android-push-notifications) - Super easy push notifications
+
+### Facebook SDK
+
+Signing in with Facebook:
+
+* [Integrating with Facebook SDK](https://parse.com/tutorials/integrating-facebook-in-android) - Step by step for Facebook account integration
+
+### Server Code
+
+Running server-side code on Parse:
+
 * [CloudCode Guide](https://parse.com/docs/cloud_code_guide#cloud_code) - Guide on how to write cloud-based code that adds error checking, validation or triggers "server-side" 
 
 ## References
