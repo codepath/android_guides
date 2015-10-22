@@ -143,7 +143,7 @@ Be sure to use `fit()` to resize the image before loading into the ImageView.  O
 
 We can resize an image with respect to the aspect ratio using `resize` and specifying 0 for the other dimension as [outlined here](https://github.com/square/picasso/pull/663):
 
-```
+```java
 // Resize to the width specified maintaining aspect ratio
 Picasso.with(this).load(imageUrl).
   resize(someWidth, 0).into(imageView);
