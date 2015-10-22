@@ -42,7 +42,11 @@ Steps to import [ParseUI](https://github.com/ParsePlatform/ParseUI-Android) into
 3. Clean and rebuild newly created eclipse project.
 4. Run project
 
-## Extending ParseUser
+## Exploring Parse
+
+Parse has quirks. Several are outlined below.
+
+### Extending ParseUser
 
 A common use case that comes up is trying to **extend the ParseUser class** to create your own custom `ParseUser` subclass. This causes issues with Parse and [is not recommended](https://github.com/ParsePlatform/ParseUI-Android/issues/2). Instead you can explore using a delegate pattern like this instead:
 
@@ -67,11 +71,38 @@ public class CustomUser {
 
 While this isn't as convenient, it works more reliably.
 
+### Passing ParseObject through Intent
+
+Often with Android development, you need to pass an object from one `Activity` to another. This is done using the Intent system and passing objects as extras within a bundle. Unfortunately, `ParseObject` does not currently implement `Parcelable` or `Serializable`. See [[the available workarounds here|Building-Data-driven-Apps-with-Parse#passing-objects-between-activities]].
+
+### Batch Save with Parse
+
+In certain cases, there are many objects that need to be created and saved at once. In this case, we can use batch inserts to significantly speed up posting objects to parse with the [`saveAllInBackground`](https://parse.com/docs/android/api/com/parse/ParseObject.html#saveAllInBackground\(java.util.List\)) static method on `ParseObject`:
+
+```java
+List<ParseObject> objList = new ArrayList<ParseObject>();
+// Add new ParseObject instances to the list
+objList.add(...);
+// Save all created ParseObject instances at once
+ParseObject.saveAllInBackground(objList, new SaveCallback() {
+   @Override
+   public void done(ParseException e) {
+       if (e == null) {
+           Toast.makeText(getApplicationContext(), "saved", Toast.LENGTH_LONG).show();
+       } else {
+           Toast.makeText(getApplicationContext(), e.getMessage().toString(), Toast.LENGTH_LONG).show();
+       }
+   }
+});
+```
+
+Avoid ever calling save on multiple `ParseObject` instances in quick succession.
+
 ## Local Datastore and Public Read Access
 
 It looks like public read access to data is necessary for local datastore to work. Local datastore returned no results when role-specific read access was setup.
 
-## Caching vs. Pinning
+### Caching vs. Pinning
 
 Even though it may not be apparent from Parse documentation, [caching](https://parse.com/docs/android_guide#queries-caching) and [pinning](https://parse.com/docs/android_guide#localdatastore-pin) are different concepts. Mixing the two results in an exception like so:
 
@@ -84,7 +115,6 @@ Caused by: java.lang.IllegalStateException: Method not allowed when Pinning is e
 With caching, hasCachedResult() determines whether a specific result is in the cache.
 
 But there doesn't seem to be a way to determine if a set of objects has been pinned. 
-
 
 ## Providing Complete Offline Support
 
