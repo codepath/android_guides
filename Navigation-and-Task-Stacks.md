@@ -177,3 +177,4 @@ Check out the excellent [Providing Back Navigation](http://developer.android.com
  * <http://blog.akquinet.de/2011/02/25/android-activities-and-tasks-series-%E2%80%93-activity%C2%A0attributes/> 
  * <http://www.sitepoint.com/activities-tasks-and-intents-oh-my/>
  * <https://www.inkling.com/read/programming-android-mednieks-1st/chapter-11/a-flowing-and-intuitive-user>
+ * <http://inthecheesefactory.com/blog/understand-android-activity-launchmode/en>
