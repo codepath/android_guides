@@ -20,7 +20,7 @@ When you click Next, a directory with the module name will be generated along wi
 
 <img src="http://imgur.com/tllGHUh.png"/>
 
-In addition, a `build.gradle` file will be created.  One major different is that  Android applications use the `com.android.application` plugin.  Android libraries will use the `com.android.library` plugin.  This statement at the top signals to the [Android Gradle plug-in](http://developer.android.com/tools/building/plugin-for-gradle.html) to generate an `.aar` file instead of an `.apk` file normally installed on Android devices.
+In addition, a `build.gradle` file will be created.  One major difference is that Android applications use the `com.android.application` plugin.  Android libraries will use the `com.android.library` plugin.  This statement at the top signals to the [Android Gradle plug-in](http://developer.android.com/tools/building/plugin-for-gradle.html) to generate an `.aar` file instead of an `.apk` file normally installed on Android devices.
 
 ```gradle
 // Android library
