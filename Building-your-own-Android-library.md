@@ -39,9 +39,10 @@ Android applications usually have a build and debug variation.  The `buildTypes`
 android {
   buildTypes {
     release {
-        minifyEnabled false
+        minifyEnabled true
     } 
     debug {
+        minifyEnabled false         
     }
 }
 ```
