@@ -1,6 +1,6 @@
 ## Overview
 
-Building your own Android library (an `.aar` file) enables other developers to take advantage of code that you've written.  You can share existing activities, services, images, drawables, resource strings, and layout files that enable other people to leverage your work such as those documented in the [[must have libraries|Must-Have-Libraries]] guide.  Also, if your code base begins to take longer times to compile and/or run, creating a library also enables you to iterate faster by working on a more smaller component.  
+Building your own Android library (an [`.aar` file](http://tools.android.com/tech-docs/new-build-system/aar-format)) enables other developers to take advantage of code that you've written.  You can share existing activities, services, images, drawables, resource strings, and layout files that enable other people to leverage your work such as those documented in the [[must have libraries|Must-Have-Libraries]] guide.  Also, if your code base begins to take longer times to compile and/or run, creating a library also enables you to iterate faster by working on a more smaller component.  
 
 ### Creating a new Android Library
 
@@ -8,7 +8,7 @@ When you create a new Android project, a new application is always created.  You
 
 <img src="http://imgur.com/hbv3Eo4.png"/>
 
-Select `Android Library`.  There is the option to choose `Java library`, but there is a major difference in that an Android library, which compiles to an [.AAR file](http://tools.android.com/tech-docs/new-build-system/aar-format), will include not only the Java classes but the resource files, image files, and Android manifest file normally associated with Android.
+Select `Android Library`.  There is the option to choose `Java library`, but there is a major difference in that an Android library will include not only the Java classes but the resource files, image files, and Android manifest file normally associated with Android.  
 
 <img src="http://imgur.com/xDUBjYg.png"/>
 
