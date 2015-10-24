@@ -193,7 +193,7 @@ dependencies {
 }
 ```
 
-#### Handling `AWS authentication requires a valid Date or x-amz-date header` errors.
+#### Issues with JDK 8u60 
 
 If you are trying to access a private Amazon S3 repository, you may see an `AWS authentication requires a valid Date or x-amz-date header` error.  It is a known issue with [Gradle](https://issues.gradle.org/browse/GRADLE-3338) and Java versions.  
 
@@ -201,6 +201,8 @@ To fix this issue, you will need to upgrade to Gradle v2.8 by editing your `grad
 ```gradle
 distributionUrl=https\://services.gradle.org/distributions/gradle-2.8-all.zip
 ```
+
+Even though the default Gradle version used in Android projects is 2.4, the build should compile without needing to make any changes.
 
 ### References
 
