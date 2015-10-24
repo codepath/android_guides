@@ -25,7 +25,7 @@ dependencies {
 }
 ```
 
-In the past, Retrofit relied on the [Gson](https://github.com/google/gson) library to parse JSON data. Retrofit 2 now supports many different parsers for processing network response data, including [Moshi](https://github.com/square/moshi), a library build by Square for efficient JSON parsing.  However, there are a few [limitations](https://github.com/square/moshi#borrows-from-gson), so if you are not sure which one to choose, use the Gson converter for now.  
+In the past, Retrofit relied on the [Gson](https://github.com/google/gson) library to serialize and deserialize JSON data. Retrofit 2 now supports many different parsers for processing network response data, including [Moshi](https://github.com/square/moshi), a library build by Square for efficient JSON parsing.  However, there are a few [limitations](https://github.com/square/moshi#borrows-from-gson), so if you are not sure which one to choose, use the Gson converter for now.  
  
 |Converter  | Library             
 |-----------|------------------------------------------------
@@ -196,6 +196,57 @@ If we wish to POST form-encoded name/value pairs, we can use the @FormUrlEncoded
 @FormUrlEncoded
 @POST("/some/endpoint")
 Call<SomeResponse> someEndpoint(@FieldMap Map<String, String> names);
+```
+
+#### POSTing JSON data
+
+Retrofit 2 will use the converter library chosen to handle the deserialization of data from a Java object.  If you annotate the parameter with a `@Body` parameter, this work will be done automatically.  If you are using the Gson library for instance, any field belonging to the class will be serialized for you.  You can change this name using the `@SerializedName` decorator:
+
+```java
+public class User {
+
+  @SerializedName("id")
+  int mId;
+
+  @SerializedName("name")
+  String mName;
+
+  public User(int id, String name ) {
+    this.mId = id;
+    this.mName = name;
+  }
+}
+```
+
+Our endpoint would look like the following:
+
+```java
+@POST("/users/new")
+Call<User> createUser(@Body User user);
+```
+
+We could invoke this API call as follows:
+
+```java
+User user = new User(123, "John Doe");
+Call<User> call = apiService.createuser(user);
+call.enqueue(new Callback<User>() {
+  @Override
+  public void onResponse(Response<User> response,
+          Retrofit retrofit) {
+
+  }
+
+  @Override
+  public void onFailure(Throwable t) {
+
+  }
+```
+
+The resulting network call would POST this data:
+
+```javascript
+{"name":"John Doe","id":123}
 ```
 
 #### Upgrading from Retrofit 1
