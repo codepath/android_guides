@@ -191,6 +191,7 @@ dependencies {
     transitive=true
   }
 }
+```
 
 #### Handling `AWS authentication requires a valid Date or x-amz-date header` errors.
 
