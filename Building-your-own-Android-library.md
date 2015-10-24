@@ -29,7 +29,7 @@ apply plugin: 'com.android.library'
 
 ### Compiling a Library
 
-You can compile the library with Android Studio, or type `./gradlew build` at the command line.  The output will be stored under `mylibrary/build/outputs/aar` directory.   Unlike Android applications in which `debug` or `release` versions can be generated, only release versions by default are published as documented [here](http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Referencing-a-Library).  
+You can compile the library with Android Studio, or type `./gradlew build` at the command line.  The output will be stored under the library's subdirectory under `build/outputs/aar`.   Unlike Android applications in which `debug` or `release` versions can be generated, only release versions by default are published as documented [here](http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Referencing-a-Library).  
 
 #### Building different versions
 
