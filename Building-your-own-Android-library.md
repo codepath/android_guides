@@ -33,7 +33,20 @@ You can compile the library with Android Studio, or type `./gradlew build` at th
 
 #### Building different versions
 
-If you wish to have debug and release versions built, you will need to add this to your library `build.gradle` file:
+Android applications usually have a build and debug variation.  The `buildTypes` parameter designates the settings for each type:
+
+```gradle
+android {
+  buildTypes {
+    release {
+        minifyEnabled false
+    } 
+    debug {
+    }
+}
+```
+
+When building Android libraries, only the release version is built as mentioned in this [documentation](http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Library-Publication).  If you wish to build multiple variations, you will need to add this statement to your library `build.gradle` file:
 
 ```gradle
 android {
@@ -41,7 +54,17 @@ android {
 }
 ```
 
-When using this statement, different `.aar` packages are generates for each build type specified.  To reference them, see [[this section|Building-your-own-Android-library#add-the-gradle-dependency]].
+When using this statement, different `.aar` packages are generates for each build type specified.  To reference them once they are published, see [[this section|Building-your-own-Android-library#add-the-gradle-dependency]].
+
+If you wish to reference the library from your demo application within the same Android project, you will need to explicitly specify which library to use with the `configuration` parameter.    You need to add this statement to your `app/build.gradle`:
+
+```gradle
+dependencies {
+    // colon needs to prefixed with the library path
+    debugCompile project(path: ':mylibrary', configuration: 'debug')
+    releaseCompile project(path: ':mylibrary', configuration: 'release')
+}
+```
 
 #### Using with ButterKnife
 
