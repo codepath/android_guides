@@ -255,6 +255,16 @@ Shown above, Retrofit will download and parse the API data on a background threa
 
 Note also that OkHttp, which dispatches the callback on the worker thread, callbacks in Retrofit are dispatched on the [main thread](http://stackoverflow.com/questions/21006807/does-retrofit-make-network-calls-on-main-thread/21010181#21010181).  Because UI updates can only be done on the main thread, the approach used by Retrofit can make it easier to make changes to your views.
 
+If you are using Retrofit in a [[Background Service|Starting-Background-Services]] instead of an Activity or Fragment, you can run the network call synchronously within the same thread by using the `execute()` method.
+
+```java
+try {
+  Response<User> response = call.execute();
+} catch (IOException e ){
+   // handle error
+}
+```
+
 ## Retrofit and Authentication
 
 ### Using Authentication Headers
