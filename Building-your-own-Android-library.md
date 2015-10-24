@@ -41,6 +41,8 @@ android {
 }
 ```
 
+When using this statement, different `.aar` packages are generates for each build type specified.  To reference them, see [[this section|Building-your-own-Android-library#add-the-gradle-dependency]].
+
 #### Using with ButterKnife
 
 If you intend use the library with [ButterKnife](https://github.com/JakeWharton/butterknife/issues/45), you will have to that it does not work with Android libraries.  There are specific reasons for not supporting it as stated [here](https://github.com/JakeWharton/butterknife/issues/100).  For any existing code, you will have to convert your `@InjectView` annotations back to `findViewById()` calls.  
