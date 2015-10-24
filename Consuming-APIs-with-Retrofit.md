@@ -177,7 +177,7 @@ RequestBody requestBody = RequestBody.create(MEDIA_TYPE_PNG, file);
 Call<Response> call = apiService.uploadImage("test", requestBody);
 ```
 
-If you need to specify a unique filename for your multipart upload, there is currently an issue in Retrofit 2 tracked in this [ticket](https://github.com/square/retrofit/issues/1063).  Alternatively, you can create a multi-part RequestBody according to [this OkHttp recipe guide](https://github.com/square/okhttp/wiki/Recipes#posting-a-multipart-request):
+If you need to specify a unique filename for your multipart upload, there is currently an issue in Retrofit 2 tracked in this [ticket](https://github.com/square/retrofit/issues/1063).  Alternatively, you can create a multi-part RequestBody according to this [OkHttp recipe guide](https://github.com/square/okhttp/wiki/Recipes#posting-a-multipart-request):
 
 ```java
 RequestBody requestBody = new MultipartBuilder()
