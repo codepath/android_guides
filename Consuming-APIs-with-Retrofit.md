@@ -125,8 +125,10 @@ Notice that each endpoint specifies an annotation of the HTTP method (GET, POST,
 | Annotation| Description
 ------------|-------------------
 | `@Path`   | variable substitution for the API endpoint (i.e. username will be swapped for `{username}` in the URL endpoint). 
-| `@Query`  | specifies the query key name with the value corresponding to the value of that annotated parameter.
+| `@Query`  | specifies the query key name with the value of the annotated parameter.
 | `@Body`   | payload for the POST call (serialized from a Java object to a JSON string)
+| `@Headers`| specifies the list of headers for an API call
+| `@Header` | specifies the header with the value of the annotated parameter
 
 
 #### Changing the base URL
@@ -138,6 +140,23 @@ Normally, the base URL is defined when you instantiated an [Retrofit instance](#
 ```
 
 There are also others that allow you to modify the base URL using relative paths (and not the fully qualified URL) as discussed in this [blog article](http://inthecheesefactory.com/blog/retrofit-2.0/en).
+
+#### Adding headers
+
+Notice that there is a `@Headers` and `@Header` annotation.  The `Headers` can be used to provide pre-defined ones:
+
+```java
+@Headers({"Cache-Control: max-age=640000", "User-Agent: My-App-Name"})
+@GET("/some/endpoint")
+```
+
+We can also add headers as a parameter to the endpoint:
+
+```java
+@Multipart
+@POST("/some/endpoint")
+Call<SomeResponse> someEndpoint(@Header("Cache-Control") int maxAge)
+```
 
 #### Multipart forms
  
@@ -270,3 +289,4 @@ Several other Android OAuth libraries can be explored instead of signpost:
  * <https://github.com/square/retrofit/issues/297>
  * <https://speakerdeck.com/jakewharton/simple-http-with-retrofit-2-droidcon-nyc-2015>
  * <http://inthecheesefactory.com/blog/retrofit-2.0/en>
+ * <https://futurestud.io/blog/retrofit-add-custom-request-header/>
