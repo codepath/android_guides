@@ -158,6 +158,7 @@ task copyToS3(type: Exec) {
 }
 
 copyToS3.dependsOn uploadArchives
+```
 
 To publish and execute the task to copy the build to S3, the command to enter is `./gradlew copyToS3`.
 
