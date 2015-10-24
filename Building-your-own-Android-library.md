@@ -1,6 +1,6 @@
 ## Overview
 
-Building your own Android library enables other developers to take advantage of code that you've written for Android.  You can share existing activities, services, images, drawables, resource strings, and layout files that enable other people to leverage your work such as those documented in the [[Must Have Libraries|Must-Have-Libraries]] guide.  Also, if your code base begins to take longer times to compile and/or run, creating a library also enables you to iterate faster by working on a more smaller component.  
+Building your own Android library enables other developers to take advantage of code that you've written for Android.  You can share existing activities, services, images, drawables, resource strings, and layout files that enable other people to leverage your work such as those documented in the [[must have libraries|Must-Have-Libraries]] guide.  Also, if your code base begins to take longer times to compile and/or run, creating a library also enables you to iterate faster by working on a more smaller component.  
 
 ### Creating a new Android Library
 
