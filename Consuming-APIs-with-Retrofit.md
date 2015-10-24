@@ -19,8 +19,8 @@ Add the following to your `app/build.gradle` file:
 ```gradle
 dependencies {
     compile 'com.google.code.gson:gson:2.4'
-    compile 'com.squareup.retrofit:retrofit:2.0.0-beta1'
-    compile 'com.squareup.retrofit:converter-gson:2.0.0-beta1'  
+    compile 'com.squareup.retrofit:retrofit:2.0.0-beta2'
+    compile 'com.squareup.retrofit:converter-gson:2.0.0-beta2'  
     compile 'com.squareup.okhttp:okhttp:2.4.0'
 }
 ```
@@ -30,11 +30,11 @@ In the past, Retrofit relied on the [Gson](https://github.com/google/gson) libra
 |Converter  | Library             
 |-----------|------------------------------------------------
 |Gson       | com.squareup.retrofit:converter-gson:2.0.0-beta2           
-|Jackson    | com.squareup.retrofit:converter-jackson:2.0.0-beta1          
-|Moshi      | com.squareup.retrofit:converter-moshi:2.0.0-beta1            
-|Protobuf   | com.squareup.retrofit:converter-protobuf:2.0.0-beta1         
-|Wire       | com.squareup.retrofit:converter-wire:2.0.0-beta1             
-|Simple XML | com.squareup.retrofit:converter-simplexml:2.0.0-beta1        
+|Jackson    | com.squareup.retrofit:converter-jackson:2.0.0-beta2         
+|Moshi      | com.squareup.retrofit:converter-moshi:2.0.0-beta2            
+|Protobuf   | com.squareup.retrofit:converter-protobuf:2.0.0-beta2        
+|Wire       | com.squareup.retrofit:converter-wire:2.0.0-beta2            
+|Simple XML | com.squareup.retrofit:converter-simplexml:2.0.0-beta2        
 
 ### Create Java Objects for Resources
 
@@ -216,7 +216,7 @@ String username = "sarahjean";
 Call<User> call = apiService.getUser(username);
 call.enqueue(new Callback<User>() {
     @Override
-    public void onResponse(Response<User> response) {
+    public void onResponse(Response<User> response, Retrofit retrofit) {
         int statusCode = response.code();
         User user = response.body();  
     }
