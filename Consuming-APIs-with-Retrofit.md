@@ -311,6 +311,31 @@ Several other Android OAuth libraries can be explored instead of signpost:
  * [Android OAuth Client](https://github.com/wuman/android-oauth-client)
  * [OAuth for Android](https://github.com/novoda/oauth_for_android)
 
+## Issues
+
+There is a known issue currently with Retrofit 2 passing Lint tests tracked in this [ticket](https://github.com/square/okio/issues/58).  In particular, you may see `package reference in library; not included in Android: java.nio.file. Referenced from okio.Okio.` or `Invalid package reference in library; not included in Android: java.lang.invoke. Referenced from retrofit.Platform.Java8.`.  
+
+To bypass this issue, create a `gradle/lint.xml` in your root project:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="InvalidPackage">
+        <ignore regexp=".*okio.*" />
+        <ignore regexp=".*retrofit.*" />
+    </issue>
+</lint>
+```
+
+Add this line to your `app/build.gradle` file:
+
+```gradle
+    lintOptions {
+        lintConfig rootProject.file('gradle/lint.xml')
+    }
+```
+
+The lint errors should be suppressed and not trigger any additional errors for now.
 ## References
 
  * <http://engineering.meetme.com/2014/03/best-practices-for-consuming-apis-on-android/>
