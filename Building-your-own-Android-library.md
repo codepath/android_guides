@@ -113,6 +113,12 @@ uploadArchives {
           pom.groupId = GROUP
           pom.artifactId = POM_ARTIFACT_ID
           pom.version = VERSION_NAME
+
+          pom.project {
+             name POM_NAME
+             packaging POM_PACKAGING
+             description POM_DESCRIPTION
+          }
         }
     }
 }
