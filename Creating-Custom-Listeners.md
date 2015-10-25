@@ -212,7 +212,7 @@ public void setCustomObjectListener(MyCustomObjectListener listener) {
 }
 ```
 
-#### 2. Passing via Constructor
+### 2. Passing via Constructor
 
 If the callback is critical to the object's function, we can pass the callback directly into the constructor of the child object as an argument:
 
