@@ -51,7 +51,7 @@ In the past, the way to use animations in **compatible with pre-3.0 Android vers
 
 ```gradle
 compile 'com.nineoldandroids:library:2.4.0'
- ```
+```
 
 One library that simplifies common animations is called [AndroidViewAnimations](https://github.com/daimajia/AndroidViewAnimations) and makes certain common animations on views much easier to achieve. This library is definitely worth a look.
 
