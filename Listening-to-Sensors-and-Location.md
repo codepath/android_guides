@@ -93,16 +93,16 @@ See [this sensors in the background](http://code.tutsplus.com/tutorials/android-
 
 ## Location Sensor
 
-Location requires the use of the Google Play SDK. You must include `com.google.android.gms:play-services` in your `app/build.gradle` file.  You can use [this site](http://gradleplease.appspot.com/) to find the latest version to use, or you can refer to the [official SDK setup instructions](http://developer.android.com/google/play-services/setup.html).
+Fused location requires the use of the Google Play SDK. You must include `com.google.android.gms:play-services` in your `app/build.gradle` file.  You can use [this site](http://gradleplease.appspot.com/) to find the latest version to use, or you can refer to the [official SDK setup instructions](http://developer.android.com/google/play-services/setup.html).
 
 In addition, if you are using Genymotion emulator, you must [[install a Google Play Services APK file|Genymotion-2.0-Emulators-with-Google-Play-support#setup-google-play-services]] too.
 
-The [Location API](http://www.vogella.com/articles/AndroidLocationAPI/article.html) is a higher-level API that wraps the underlying location sensor. You can accomplish tasks like:
+The [Fused Location API](http://developer.android.com/intl/es/training/location/retrieve-current.html) is a higher-level Google Play Services API that wraps the underlying location sensors like GPS. You can accomplish tasks like:
 
+ * Register for location connection events
  * Connect to the location sensor
  * Register for updates or accuracy changes
  * Get last location
- * Register for sensor connection events
 
 ```java
 private GoogleApiClient mGoogleApiClient;
@@ -170,7 +170,9 @@ public void onLocationChanged(Location location) {
 }
 ```
 
-For using maps check out the [[Cliffnotes for Maps|Google Maps Fragment Guide]] or the [Android Maps Tutorial](http://www.vogella.com/articles/AndroidGoogleMaps/article.html).  See a [working source code example](https://github.com/codepath/android-google-maps-demo).
+For more information on the Fused Location API, refer to [this Google guide](http://developer.android.com/intl/es/training/location/retrieve-current.html).
+
+For using maps check out the [[Cliffnotes for Maps|Google Maps Fragment Guide]] or the [Android Maps Tutorial](http://www.vogella.com/articles/AndroidGoogleMaps/article.html).  See a [working source code example](https://github.com/codepath/android-google-maps-demo). 
 
 ## References
 
@@ -179,3 +181,4 @@ For using maps check out the [[Cliffnotes for Maps|Google Maps Fragment Guide]] 
 * <http://www.vogella.com/articles/AndroidGoogleMaps/article.html>
 * <https://developer.android.com/training/location/receive-location-updates.html>
 * <https://www.youtube.com/watch?v=Rd_UrSB1MAY>
+* <http://developer.android.com/intl/es/training/location/retrieve-current.html>
