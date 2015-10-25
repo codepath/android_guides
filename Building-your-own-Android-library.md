@@ -29,10 +29,6 @@ apply plugin: 'com.android.library'
 
 ### Compiling a Library
 
-You can compile the library with Android Studio, or type `./gradlew build` at the command line.  The output will be stored under the library's subdirectory under `build/outputs/aar`.   Unlike Android applications in which `debug` or `release` versions can be generated, only release versions by default are published as documented [here](http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Referencing-a-Library).  
-
-#### Building different versions
-
 Android applications usually have a build and debug variation.  The `buildTypes` parameter designates the settings for each type:
 
 ```gradle
@@ -47,7 +43,9 @@ android {
 }
 ```
 
-When building Android libraries, only the release version is built as mentioned in this [documentation](http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Library-Publication).  If you wish to build multiple variations, you will need to add this statement to your library `build.gradle` file:
+You can compile the library with Android Studio, or type `./gradlew build` at the command line.  The output will be stored under the library's subdirectory under `build/outputs/aar`.   Unlike Android applications in which `debug` or `release` versions can be generated, only release versions by default are published as documented [here](http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Referencing-a-Library).  
+
+If you wish to build multiple variations, you will need to add this statement to your library `build.gradle` file:
 
 ```gradle
 android {
