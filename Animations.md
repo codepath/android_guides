@@ -197,14 +197,14 @@ See the [Property Animation](http://developer.android.com/guide/topics/graphics/
 
 We can also do property animations in an even simpler way using the `ViewPropertyAnimator` system which is built on top of the `ObjectAnimator`.  It also enables faster performance as described in this [blog post](http://android-developers.blogspot.com/2011/05/introducing-viewpropertyanimator.html) and provides a convenient way of doing animations.
 
-We can run concurrent animations by chaining the animations:
+Assuming we are using the support v4 library, we can run concurrent animations by chaining the animations:
 
 ```java
 Button btnExample = (Button) findViewById(R.id.btnExample);
 ViewCompat.animate(btnExample).alpha(0.2f).xBy(-100).yBy(100);
 ```
 
-Now we can execute property animations on our views. For example, suppose we want to fade out a button on screen. All we need to do is pass the button view into the `ViewCompat.animate` method and then invoke the `alpha` property:
+If we only want to fade out a button on screen, all we need to do is pass the button view into the `ViewCompat.animate` method and then invoke the `alpha` property:
 
 ```java
 Button btnExample = (Button) findViewById(R.id.btnExample);
