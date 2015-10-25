@@ -47,7 +47,7 @@ Common properties commonly animated on views include:
 | `x`, `y`, `z`                                                    | Position             |
 | `translationX`, `translationY`, **`translationZ` (API 21+)**     | Offset from Position |
 
-In the past, the way to use animations in **compatible with pre-3.0 Android versions**, was to use  [NineOldAndroids](http://nineoldandroids.com/) for all our property animations.  Nine Old Androids has now been deprecated in lieu of the support v4 library according to this [blog post](https://plus.google.com/+JakeWharton/posts/hPZYyEXaSqk).
+In the past, the way to use animations in **compatible with pre-3.0 Android versions**, was to use  [NineOldAndroids](http://nineoldandroids.com/) for all our property animations.  Nine Old Androids has now been deprecated and no longer being supported but can still be used. 
 
 If you are an Android Studio user, add the following dependency to your `app/build.gradle` file:
 
@@ -719,3 +719,5 @@ Precisely because its main use is games, all engines have support for particle s
  * <http://java.dzone.com/articles/using-view-animations-android>
  * <http://mobile.dzone.com/articles/android-ui-action-layout>
  * <http://www.google.com/design/spec/animation/authentic-motion.html> 
+ * <https://plus.google.com/+JakeWharton/posts/hPZYyEXaSqk>
+ * <https://twitter.com/jakewharton/status/486346048755884034>
