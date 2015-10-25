@@ -59,7 +59,7 @@ One library that simplifies common animations is called [AndroidViewAnimations](
 
 ### Using ObjectAnimator in Java
 
-Once we have setup the support v4, we can use the [ObjectAnimator](http://developer.android.com/reference/android/animation/ObjectAnimator.html) method to execute simple animations for a particular property on a specified object:
+We can use the [ObjectAnimator](http://developer.android.com/reference/android/animation/ObjectAnimator.html) method to execute simple animations for a particular property on a specified object:
 
 ```java
 ObjectAnimator fadeAnim = ObjectAnimator.ofFloat(tvLabel, "alpha", 0.2f);
