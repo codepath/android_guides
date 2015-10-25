@@ -405,7 +405,7 @@ We can build [our own custom layout managers](http://wiresareobsolete.com/2014/0
 
 ### Animators 
 
-RecyclerView supports custom animations for items as they enter, move, or get deleted.  We can create our own animators by implementing the `ItemAnimator` interface and overriding the method for handling the removal or addition of a row.  
+RecyclerView supports custom animations for items as they enter, move, or get deleted.  We can create our own animators by implementing the `ItemAnimator` interface and overriding the method for handling the removal or addition of a row.  There is also a new interface for the [ItemAnimator](https://developer.android.com/intl/ko/reference/android/support/v7/widget/RecyclerView.ItemAnimator.html#pubmethods) interface since the [support v23.1.0 release](https://developer.android.com/intl/ko/tools/support-library/index.html#revisions), which tries to encapsulate state information before and after changes using the [ItemHolderInfo](https://developer.android.com/intl/ko/reference/android/support/v7/widget/RecyclerView.ItemAnimator.ItemHolderInfo.html) class instead of the previously used coordinates.  In addition, there is a change exposes a `canReuseUpdatedViewHolder()` method for deciding whether or not to reuse the viewholder for animations (useful for cross-fading animations).  
 
 For instance, if we want to fade out the row that gets long-pressed clicked, we first add the click handler to call `notifyItemRemoved()`:
 
