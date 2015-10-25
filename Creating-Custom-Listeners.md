@@ -27,7 +27,7 @@ Listeners are a powerful mechanism for properly separating concerns in your code
 | Type            | Called By             | Description |
 | ----            | --------           | --------------------------------------------------            |
 | Intents         | Activity           | Intents should be created and executed within activities.     | 
-| Networking      | Activity, Fragment | Networking code should invoked in an activity or fragemnt.    |
+| Networking      | Activity, Fragment | Networking code should invoked in an activity or fragment.    |
 | FragmentManager | Activity           | Fragment changes should invoked by an activity.               |
 | Persistence     | Activity, Fragment | Writing to disk should be invoked by activity or fragment.    |
 
