@@ -47,19 +47,19 @@ Common properties commonly animated on views include:
 | `x`, `y`, `z`                                                    | Position             |
 | `translationX`, `translationY`, **`translationZ` (API 21+)**     | Offset from Position |
 
-To use animations in a way that is **compatible with pre-3.0 Android versions**, we must use the [NineOldAndroids](http://nineoldandroids.com/) for all our property animations. 
+In the past, the way to use animations in **compatible with pre-3.0 Android versions**, was to use  [NineOldAndroids](http://nineoldandroids.com/) for all our property animations.  Nine Old Androids has now been deprecated in lieu of the support v4 library according to this [blog post](https://plus.google.com/+JakeWharton/posts/hPZYyEXaSqk).
 
 If you are an Android Studio user, add the following dependency to your `app/build.gradle` file:
 
 ```gradle
-compile 'com.nineoldandroids:library:2.4.0+'
+compile 'com.android.support:support-v4:23.1.0'
 ```
 
 One library that simplifies common animations is called [AndroidViewAnimations](https://github.com/daimajia/AndroidViewAnimations) and makes certain common animations on views much easier to achieve. This library is definitely worth a look.
 
 ### Using ObjectAnimator in Java
 
-Once we have setup NineOldAndroids, we can use the [ObjectAnimator](http://developer.android.com/reference/android/animation/ObjectAnimator.html) method to execute simple animations for a particular property on a specified object:
+Once we have setup the support v4, we can use the [ObjectAnimator](http://developer.android.com/reference/android/animation/ObjectAnimator.html) method to execute simple animations for a particular property on a specified object:
 
 ```java
 ObjectAnimator fadeAnim = ObjectAnimator.ofFloat(tvLabel, "alpha", 0.2f);
@@ -204,19 +204,11 @@ Button btnExample = (Button) findViewById(R.id.btnExample);
 btnExample.animate().alpha(0.2f).xBy(-100).yBy(100);
 ```
 
-For any activity that uses [NineOldAndroids](https://github.com/JakeWharton/NineOldAndroids), be sure to include a static import to the ViewPropertyAnimator, as shown below:
-
-```java
-import static com.nineoldandroids.view.ViewPropertyAnimator.animate;
-```
-
 Now we can execute property animations on our views. For example, suppose we want to fade out a button on screen. All we need to do is pass the button view into the `animate` method and then invoke the `alpha` property:
 
 ```java
 Button btnExample = (Button) findViewById(R.id.btnExample);
-//  Note: in order to use the ViewPropertyAnimator like this add the following import:
-//  import static com.nineoldandroids.view.ViewPropertyAnimator.animate;
-animate(btnExample).alpha(0);
+ViewCompat.animate(btnExample).alpha(0);
 ```
 
 This will automatically create and execute the animation to fade out the button: 
@@ -226,7 +218,7 @@ This will automatically create and execute the animation to fade out the button:
 The animate method has many properties that mirror the methods from the [ViewPropertyAnimator](http://developer.android.com/reference/android/view/ViewPropertyAnimator.html) class including changing many possible properties such as opacity, rotation, scale, x&y positions, and more. For example, here's a more complex animation being executed:
 
 ```java
-animate(btnExample).alpha(0.5f).rotation(90f).
+ViewCompat.animate(btnExample).alpha(0.5f).rotation(90f).
   scaleX(2).xBy(100).yBy(100).setDuration(1000).setStartDelay(10).
   setListener(new AnimatorListenerAdapter() {
       @Override
