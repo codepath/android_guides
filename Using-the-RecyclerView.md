@@ -405,7 +405,9 @@ We can build [our own custom layout managers](http://wiresareobsolete.com/2014/0
 
 ### Animators 
 
-RecyclerView supports custom animations for items as they enter, move, or get deleted.  We can create our own animators by implementing the `ItemAnimator` interface and overriding the method for handling the removal or addition of a row.  For instance, if we want to fade out the row that gets long-pressed clicked, we first add the click handler to call `notifyItemRemoved()`:
+RecyclerView supports custom animations for items as they enter, move, or get deleted.  We can create our own animators by implementing the `ItemAnimator` interface and overriding the method for handling the removal or addition of a row.  
+
+For instance, if we want to fade out the row that gets long-pressed clicked, we first add the click handler to call `notifyItemRemoved()`:
 
 ```java
 holder.mView.setOnLongClickListener(new View.OnLongClickListener() {
@@ -418,7 +420,7 @@ holder.mView.setOnLongClickListener(new View.OnLongClickListener() {
 });
 ```
 
-We can use [[View Property animations|Animations#using-viewpropertyanimator-in-java]] to create the effect:
+We can override the `animateDisappearance()` method.  Review the [[View Property animations|Animations#using-viewpropertyanimator-in-java]] to understand what types of animation effects can be created.  The `ItemHolderInfo` class typically contains the coordinate locations of the item before or after a change.
 
 ```java
 recyclerView.setItemAnimator(new RecyclerView.ItemAnimator() {
