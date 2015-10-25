@@ -416,6 +416,7 @@ holder.mView.setOnLongClickListener(new View.OnLongClickListener() {
              return true;
     }
 });
+```
 
 We can use [[View Property animations|Animations#using-viewpropertyanimator-in-java]] to create the effect:
 
