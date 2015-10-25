@@ -191,7 +191,7 @@ animatorSet.play(bouncer).before(fadeAnim);
 animatorSet.start();
 ``` 
 
-See the [Property Animation](http://developer.android.com/guide/topics/graphics/prop-animation.html) official docs for more detailed information in addition to the [NineOldAndroids](http://nineoldandroids.com/) website.
+See the [Property Animation](http://developer.android.com/guide/topics/graphics/prop-animation.html) official docs for more detailed information.
 
 ### Using ViewPropertyAnimator in Java
 
@@ -701,7 +701,6 @@ Precisely because its main use is games, all engines have support for particle s
 
 * [AndroidViewAnimations](https://github.com/daimajia/AndroidViewAnimations) - Common property animations made easy.
 * [ListViewAnimations](https://github.com/nhaarman/ListViewAnimations) - List view item animations made simple including insertion and deletion.
-* [NineOldAndroids](http://nineoldandroids.com/) - Compatibility library supporting property animations all the way back to Android 1.0.
 * [Leonids](https://github.com/plattysoft/Leonids) - Simple particle effects for Android.
 
 ## References
