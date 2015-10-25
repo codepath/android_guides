@@ -46,7 +46,7 @@ To create a custom layout manager, extend the [RecyclerView.LayoutManager](https
 
 ### `ItemAnimator`
 
-`RecyclerView.ItemAnimator` will animate `ViewGroup` modifications such as add/delete/select that are notified to adapter. `DefaultItemAnimator` can be used for basic default animations and works quite well.
+`RecyclerView.ItemAnimator` will animate `ViewGroup` modifications such as add/delete/select that are notified to adapter. `DefaultItemAnimator` can be used for basic default animations and works quite well.  If you wish to add your own animations for items that are removed or added, you will need to implement the [ItemAnimator](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.ItemAnimator.html) interface and override the appropriate method for handling the change.
 
 ## Using the RecyclerView
 
@@ -403,9 +403,34 @@ For example, a staggered grid might look like:
 
 We can build [our own custom layout managers](http://wiresareobsolete.com/2014/09/building-a-recyclerview-layoutmanager-part-1/) as outlined there.
 
-### Animators
+### Animators 
 
-RecyclerView supports custom animations for items as they enter, move, or get deleted. If you want to setup custom animations, first load the [third-party recyclerview-animators library](https://github.com/wasabeef/recyclerview-animators) into `app/build.gradle`:
+RecyclerView supports custom animations for items as they enter, move, or get deleted.  We can create our own animators by implementing the `ItemAnimator` interface and overriding the method for handling the removal or addition of a row.  For instance, if we want to fade out the row that gets long-pressed clicked, we first add the click handler to call `notifyItemRemoved()`:
+
+```java
+holder.mView.setOnLongClickListener(new View.OnLongClickListener() {
+    @Override
+    public boolean onLongClick(View v) {
+             mValues.remove(position);
+             notifyItemRemoved(position);
+             return true;
+    }
+});
+
+We can use [[View Property animations|Animations#using-viewpropertyanimator-in-java]] to create the effect:
+
+```java
+recyclerView.setItemAnimator(new RecyclerView.ItemAnimator() {
+    @Override
+    public boolean animateDisappearance(RecyclerView.ViewHolder viewHolder,
+            ItemHolderInfo preLayoutInfo,
+            @Nullable ItemHolderInfo postLayoutInfo) {
+                 ViewCompat.animate(viewHolder.itemView).alpha(0).setDuration(300).setInterpolator(new DecelerateInterpolator()).start();
+                 return true;
+    }
+```
+
+The [third-party recyclerview-animators library](https://github.com/wasabeef/recyclerview-animators) contains a lot of animations that you can use without needing to build your own.  Simply edit your  `app/build.gradle`:
 
 ```gradle
 repositories {
