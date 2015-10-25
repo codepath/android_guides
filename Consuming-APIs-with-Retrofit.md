@@ -127,7 +127,6 @@ Notice that each endpoint specifies an annotation of the HTTP method (GET, POST,
 | `@Path`   | variable substitution for the API endpoint (i.e. username will be swapped for `{username}` in the URL endpoint). 
 | `@Query`  | specifies the query key name with the value of the annotated parameter.
 | `@Body`   | payload for the POST call (serialized from a Java object to a JSON string)
-| `@Headers`| specifies the list of headers for an API call
 | `@Header` | specifies the header with the value of the annotated parameter
 
 
