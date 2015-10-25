@@ -53,7 +53,7 @@ android {
 }
 ```
 
-When using this statement, different `.aar` packages are generates for each build type specified.  To reference them once they are published, see [[this section|Building-your-own-Android-library#add-the-gradle-dependency]].
+When using this statement, different `.aar` packages are generated for each build type specified.  To reference them once they are published, see [[this section|Building-your-own-Android-library#add-the-gradle-dependency]].
 
 If you wish to reference the library from your demo application within the same Android project, you will need to explicitly specify which library to use with the `configuration` parameter.    You need to add this statement to your `app/build.gradle`:
 
