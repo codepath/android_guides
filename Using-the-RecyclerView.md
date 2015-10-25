@@ -540,7 +540,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
     /***** Creating OnItemClickListener *****/
     
     // Define listener member variable    
-    private OnItemClickListener listener;
+    private static OnItemClickListener listener;
     // Define the listener interface
     public interface OnItemClickListener {
         void onItemClick(View itemView, int position);
