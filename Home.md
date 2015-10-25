@@ -244,5 +244,5 @@ Focused on issues like deployment, dependency management, etc:
 ## Contributing 
 
 * [[Contributing back to Android]]
-* [[Building-your-own-Android-library]]
+* [[Building your own Android Library]]
 * [[Open Source projects for Android Development]]
