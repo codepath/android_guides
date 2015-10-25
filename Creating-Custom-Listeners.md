@@ -25,11 +25,11 @@ In short, a listener is useful **anytime a child object** wants to **emit events
 Listeners are a powerful mechanism for properly separating concerns in your code. One of the essential principles around writing maintainable code is to reduce coupling and complexity using proper encapsulation. Listeners are about ensuring that code is properly organized into the correct places. In particular, this table below offers guidelines about where different types of code should be called:
 
 | Type            | Called By             | Description |
-| ----            | --------           | --------------------------------------------------            |
-| Intents         | Activity           | Intents should be created and executed within activities.     | 
-| Networking      | Activity, Fragment | Networking code should invoked in an activity or fragment.    |
-| FragmentManager | Activity           | Fragment changes should invoked by an activity.               |
-| Persistence     | Activity, Fragment | Writing to disk should be invoked by activity or fragment.    |
+| ----            | --------           | --------------------------------------------------              |
+| Intents         | `Activity`           | Intents should be created and executed within activities.     | 
+| Networking    | `Activity`, `Fragment` | Networking code should invoked in an activity or fragment.    |
+| FragmentManager | `Activity`           | Fragment changes should be invoked by an activity.            |
+| Persistence   | `Activity`, `Fragment` | Writing to disk should be invoked by activity or fragment.    |
 
 While there are exceptions, generally speaking this table helps to provide guidelines as to when you need a listener to propagate an event to the appropriate owner. For example, if you are inside an adapter and you **want to launch a new activity**, this is best done by firing an event using a custom listener triggering the parent activity. 
 
