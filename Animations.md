@@ -238,7 +238,7 @@ This applies multiple property animations at once including opacity change, rota
 
 ### Using XML
 
-We can also use NineOldAndroids to load property animations from XML. All we have to do is create an XML file that describes the object property animation we want to run. For example, if we wanted to animate a fade out for a button, we could add this file to `res/animator/fade_out.xml`:
+We can also use property animations from XML. All we have to do is create an XML file that describes the object property animation we want to run. For example, if we wanted to animate a fade out for a button, we could add this file to `res/animator/fade_out.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
