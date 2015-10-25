@@ -238,6 +238,12 @@ btnExample.animate().alpha(0.5f).rotation(90f).
 
 This applies multiple property animations at once including opacity change, rotation, scale and modifying the position of the button. Here we also can modify the duration, introduce a start delay and even execute a listener at the beginning or end of the animation. 
 
+If we wish to use the ViewPropertyAnimator on pre Android v3.0 devices and the deprecated NineOldAndroids project, this import statement should be used:
+
+```java
+import static com.nineoldandroids.view.ViewPropertyAnimator.animate;
+```
+
 ### Using XML
 
 We can also use property animations from XML. All we have to do is create an XML file that describes the object property animation we want to run. For example, if we wanted to animate a fade out for a button, we could add this file to `res/animator/fade_out.xml`:
