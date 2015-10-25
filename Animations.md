@@ -47,13 +47,7 @@ Common properties commonly animated on views include:
 | `x`, `y`, `z`                                                    | Position             |
 | `translationX`, `translationY`, **`translationZ` (API 21+)**     | Offset from Position |
 
-In the past, the way to use animations in **compatible with pre-3.0 Android versions**, was to use  [NineOldAndroids](http://nineoldandroids.com/) for all our property animations.  Nine Old Androids has now been deprecated and no longer being supported but can still be used. 
-
-If you are an Android Studio user, add the following dependency to your `app/build.gradle` file:
-
-```gradle
-compile 'com.android.support:support-v4:23.1.0'
-```
+In the past, the way to use animations in **compatible with pre-3.0 Android versions* is to use  [NineOldAndroids](http://nineoldandroids.com/) for all our property animations.  Nine Old Androids has now been deprecated and no longer being supported but can still be used. 
 
 One library that simplifies common animations is called [AndroidViewAnimations](https://github.com/daimajia/AndroidViewAnimations) and makes certain common animations on views much easier to achieve. This library is definitely worth a look.
 
@@ -197,12 +191,20 @@ See the [Property Animation](http://developer.android.com/guide/topics/graphics/
 
 We can also do property animations in an even simpler way using the `ViewPropertyAnimator` system which is built on top of the `ObjectAnimator`.  It also enables faster performance as described in this [blog post](http://android-developers.blogspot.com/2011/05/introducing-viewpropertyanimator.html) and provides a convenient way of doing animations.
 
-Assuming we are using the support v4 library to support pre-Android v3.0 devices, we can run concurrent animations by chaining the animations:
+If you are an Android Studio user, add the following dependency to your `app/build.gradle` file:
+
+```gradle
+compile 'com.android.support:support-v4:23.1.0'
+```
+
+We can run concurrent animations by chaining the animations:
 
 ```java
 Button btnExample = (Button) findViewById(R.id.btnExample);
 ViewCompat.animate(btnExample).alpha(0.2f).xBy(-100).yBy(100);
 ```
+
+The support v4 library is used to enable devices back to API 14 to execute correctly.  However, the animations are simply NO-OP operations on pre Android v4.0.3 devices according to this [finding](https://twitter.com/jakewharton/status/486346048755884034).
 
 If we do not need the support v4 library, we can invoke `animate()` directly on the Button:
 
@@ -210,11 +212,11 @@ If we do not need the support v4 library, we can invoke `animate()` directly on 
 btn.animate().alpha(0.2f).xBy(-100).yBy(100);
 ```
 
-If we only want to fade out a button on screen, all we need to do is pass the button view into the `ViewCompat.animate` method and then invoke the `alpha` property:
+If we only want to fade out a button on screen, all we need to do is pass the button view and then invoke the `alpha` property:
 
 ```java
 Button btnExample = (Button) findViewById(R.id.btnExample);
-ViewCompat.animate(btnExample).alpha(0);
+btnExample.animate().alpha(0);
 ```
 
 This will automatically create and execute the animation to fade out the button: 
@@ -224,7 +226,7 @@ This will automatically create and execute the animation to fade out the button:
 The animate method has many properties that mirror the methods from the [ViewPropertyAnimator](http://developer.android.com/reference/android/view/ViewPropertyAnimator.html) class including changing many possible properties such as opacity, rotation, scale, x&y positions, and more. For example, here's a more complex animation being executed:
 
 ```java
-ViewCompat.animate(btnExample).alpha(0.5f).rotation(90f).
+btnExample.animate().alpha(0.5f).rotation(90f).
   scaleX(2).xBy(100).yBy(100).setDuration(1000).setStartDelay(10).
   setListener(new AnimatorListenerAdapter() {
       @Override
