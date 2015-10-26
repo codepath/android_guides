@@ -195,32 +195,15 @@ See the [Property Animation](http://developer.android.com/guide/topics/graphics/
 
 We can also do property animations in an even simpler way using the `ViewPropertyAnimator` system which is built on top of the `ObjectAnimator`.  It also enables faster performance as described in this [blog post](http://android-developers.blogspot.com/2011/05/introducing-viewpropertyanimator.html) and provides a convenient way of doing animations.
 
-#### Using the support v4 library
+#### Without Support Library
 
-If you are an Android Studio user, add the following dependency to your `app/build.gradle` file:
-
-```gradle
-compile 'com.android.support:support-v4:23.1.0'
-```
-
-We can run concurrent animations by chaining the animations:
-
-```java
-Button btnExample = (Button) findViewById(R.id.btnExample);
-ViewCompat.animate(btnExample).alpha(0.2f).xBy(-100).yBy(100);
-```
-
-#### Without the support v4 library
-
-The support v4 library is used to enable devices back to API 14 to execute correctly.  However, the animations are simply NO-OP operations on pre Android v4.0.3 devices according to this [finding](https://twitter.com/jakewharton/status/486346048755884034).
-
-If we do not need the rely on the support v4 library and need only to support Android v3.0 devices, we can invoke `animate()` directly on the Button:
+If we do not need the rely on the `ViewCompat#animate` support v4 library and only need to support Android v3.0 devices and above, we can invoke `animate()` directly on any view with:
 
 ```java
 btn.animate().alpha(0.2f).xBy(-100).yBy(100);
 ```
 
-The animate method has many properties that mirror the methods from the [ViewPropertyAnimator](http://developer.android.com/reference/android/view/ViewPropertyAnimator.html) class including changing many possible properties such as opacity, rotation, scale, x&y positions, and more. For example, here's a more complex animation being executed:
+The `animate` method has many properties that mirror the methods from the [ViewPropertyAnimator](http://developer.android.com/reference/android/view/ViewPropertyAnimator.html) class including changing many possible properties such as opacity, rotation, scale, x&y positions, and more. Here's a more complex animation being executed:
 
 ```java
 btnExample.animate().alpha(0.5f).rotation(90f).
@@ -233,17 +216,34 @@ btnExample.animate().alpha(0.5f).rotation(90f).
   });
 ```
 
-This applies multiple property animations at once including opacity change, rotation, scale and modifying the position of the button. Here we also can modify the duration, introduce a start delay and even execute a listener at the beginning or end of the animation. 
+This applies multiple property animations in parallel including opacity change, rotation, scale and modifying the position of the button. Here we also can modify the duration, introduce a start delay and even setup a listener at the beginning or end of the animation.
+
+#### Using the Support Library
+
+If we want to be able to compile the code to run on pre-ICS devices, we can leverage the support library's `ViewCompat.animate` static method instead. If you are an Android Studio user, first add the following dependency to your `app/build.gradle` file:
+
+```gradle
+compile 'com.android.support:support-v4:23.1.0'
+```
+
+We can now run concurrent animations with the following:
+
+```java
+Button btnExample = (Button) findViewById(R.id.btnExample);
+ViewCompat.animate(btnExample).alpha(0.2f).xBy(-100).yBy(100);
+```
+
+The support v4 library is used to enable devices back to API 11 to execute the code.  However, the animations are simply ignored on pre Android v4.0.3 devices according to this [finding](https://twitter.com/jakewharton/status/486346048755884034). To have the animations run, we need to use NineOldAndroids.
 
 #### NineOldAndroids
 
-If we wish to use the ViewPropertyAnimator on pre Android v3.0 devices and the deprecated NineOldAndroids project, this import statement should be used:
+If we wish to use the `ViewPropertyAnimator` and have animations run on Android pre-v3.0 devices using the now deprecated NineOldAndroids project, this import statement should be used:
 
 ```java
 import static com.nineoldandroids.view.ViewPropertyAnimator.animate;
 ```
 
-If we only want to fade out a button on screen, all we need to do is to pass the button view into the `animate()` function and then invoke the `alpha` property:
+If we want to fade out a button on screen, we can pass the button view into the `animate()` static function and then invoke the `alpha` method:
 
 ```java
 Button btnExample = (Button) findViewById(R.id.btnExample);
