@@ -104,6 +104,19 @@ The [Fused Location API](http://developer.android.com/intl/es/training/location/
  * Register for updates or accuracy changes
  * Get last location
 
+### Adding Permissions 
+
+Add the following permissions to the `AndroidManifest.xml`:
+
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+```
+
+This provides the ability to access location information at coarse and fine granularities. You can remove `ACCESS_FINE_LOCATION` this will still work with less precision. 
+
 ### Connecting to the LocationServices API
 
 Inside an Activity, put the following to connect and start receiving location updates:
@@ -112,8 +125,8 @@ Inside an Activity, put the following to connect and start receiving location up
 private GoogleApiClient mGoogleApiClient;
 private LocationRequest mLocationRequest;
 
-private long UPDATE_INTERVAL = 60000;  /* 60 secs */
-private long FASTEST_INTERVAL = 5000; /* 5 secs */
+private long UPDATE_INTERVAL = 10 * 1000;  /* 10 secs */
+private long FASTEST_INTERVAL = 2000; /* 2 sec */
 
 public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -139,11 +152,14 @@ protected void onStop() {
 }
 
 public void onConnected(Bundle dataBundle) {
-    // Get last known recent location. This can be NULL if last location isn't known.
+    // Get last known recent location. 
     Location mCurrentLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-    // Print current location
-    Log.d("DEBUG", "current location: " + mCurrentLocation.toString());
-    LatLng latLng = new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude());
+    // Note that this can be NULL if last location isn't already known.
+    if (mCurrentLocation != null) {
+      // Print current location if not null
+      Log.d("DEBUG", "current location: " + mCurrentLocation.toString());
+      LatLng latLng = new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude());
+    }
     // Begin polling for new location updates.
     startLocationUpdates();
 }
@@ -159,10 +175,12 @@ public void onConnectionSuspended(int i) {
 
 // Trigger new location updates at interval
 protected void startLocationUpdates() {
-    mLocationRequest = new LocationRequest();
-    mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
-    mLocationRequest.setInterval(UPDATE_INTERVAL);
-    mLocationRequest.setFastestInterval(FASTEST_INTERVAL);
+    // Create the location request
+    mLocationRequest = LocationRequest.create()
+        .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
+        .setInterval(UPDATE_INTERVAL)
+        .setFastestInterval(FASTEST_INTERVAL);
+    // Request location updates
     LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient,
         mLocationRequest, this);
 }
@@ -190,6 +208,7 @@ For using maps check out the [[Cliffnotes for Maps|Google Maps Fragment Guide]] 
 
 Location updates should always be done using the `GoogleApiClient` leveraging the `LocationServices.API` as shown above. Do not use the older [Location APIs](https://developer.android.com/intl/es/guide/topics/location/index.html) which are much less reliable. Even when using the correct `FusedLocationApi`, there are a lot of things that can go wrong. Consider the following potential issues:
 
+ * **Did you add the necessary permissions?** Make sure your app has `INTERNET` and `ACCESS_COARSE_LOCATION` permissions to ensure that location can be accessed as illustrated in the guide above.
  * **Are you getting `null` when calling `LocationServices.FusedLocationApi.getLastLocation`**? This is normal since this method only returns if there is already a location recently retrieved by another application. If this returns null, this means you need start receiving location updates with `LocationServices.FusedLocationApi.requestLocationUpdates` before receiving the location as shown above.
  * **Are you trying to get location on the genymotion emulator?** Ensure you've enabled GPS and configured a lat/lng properly. Try restarting the emulator if needed and re-enabling GPS or **trying a device** (or the official emulator) instead to rule out genymotion specific issues.
 
