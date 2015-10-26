@@ -104,6 +104,8 @@ The [Fused Location API](http://developer.android.com/intl/es/training/location/
  * Register for updates or accuracy changes
  * Get last location
 
+Inside an Activity, put the following to connect and start receiving location updates:
+
 ```java
 private GoogleApiClient mGoogleApiClient;
 
@@ -133,9 +135,12 @@ protected void onStop() {
 }
 
 public void onConnected(Bundle dataBundle) {
+    // Get last known recent location. This can be NULL if last location isn't known.
     Location mCurrentLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+    // Print current location
     Log.d("DEBUG", "current location: " + mCurrentLocation.toString());
     LatLng latLng = new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude());
+    // Begin polling for new location updates.
     startLocationUpdates();
 }
 
@@ -148,14 +153,15 @@ public void onConnectionSuspended(int i) {
     }
 }
 
- protected void startLocationUpdates() {
-        mLocationRequest = new LocationRequest();
-        mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
-        mLocationRequest.setInterval(UPDATE_INTERVAL);
-        mLocationRequest.setFastestInterval(FASTEST_INTERVAL);
-        LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient,
-                mLocationRequest, this);
-    }
+// Trigger new location updates at interval
+protected void startLocationUpdates() {
+    mLocationRequest = new LocationRequest();
+    mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
+    mLocationRequest.setInterval(UPDATE_INTERVAL);
+    mLocationRequest.setFastestInterval(FASTEST_INTERVAL);
+    LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient,
+        mLocationRequest, this);
+}
 ```
 
 and register for location updates with `onLocationChanged`:
@@ -173,6 +179,21 @@ public void onLocationChanged(Location location) {
 For more information on the Fused Location API, refer to [this Google guide](http://developer.android.com/intl/es/training/location/retrieve-current.html).
 
 For using maps check out the [[Cliffnotes for Maps|Google Maps Fragment Guide]] or the [Android Maps Tutorial](http://www.vogella.com/articles/AndroidGoogleMaps/article.html).  See a [working source code example](https://github.com/codepath/android-google-maps-demo). 
+
+### Troubleshooting Location Updates
+
+Location updates should always be done using the `GoogleApiClient` leveraging the `LocationServices.API` as shown above. Do not use the older [Location APIs](https://developer.android.com/intl/es/guide/topics/location/index.html) which are much less reliable. Even when using the correct `FusedLocationApi`, there are a lot of things that can go wrong. Consider the following potential issues:
+
+ * Are you getting null when calling `LocationServices.FusedLocationApi.getLastLocation`? This is normal since this method only returns if there is already a location recently retrieved by another application. If this returns null, this means you need start receiving location updates with `LocationServices.FusedLocationApi.requestLocationUpdates` before receiving the location as shown above.
+ * Are you trying to get location on the genymotion emulator? Ensure you've enabled GPS and configured a lat/lng properly. Try restarting the emulator if needed and re-enabling GPS or trying a device or the official emulator instead to rule out genymotion specific issues.
+
+You can also review the following troubleshooting resources:
+
+ * [FusedLocationApi.getLastLocation null](http://stackoverflow.com/questions/29796436/why-is-fusedlocationapi-getlastlocation-null)
+ * [Beginner's Guide to Location](http://blog.teamtreehouse.com/beginners-guide-location-android)
+ * [Sample Treehouse Source Code](https://github.com/treehouse/android-location-example-refactored/tree/master/app/src/main/java/teamtreehouse/com/iamhere)
+
+With this, you should have location updates working as expected.
 
 ## References
 
