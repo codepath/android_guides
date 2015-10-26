@@ -184,8 +184,8 @@ For using maps check out the [[Cliffnotes for Maps|Google Maps Fragment Guide]] 
 
 Location updates should always be done using the `GoogleApiClient` leveraging the `LocationServices.API` as shown above. Do not use the older [Location APIs](https://developer.android.com/intl/es/guide/topics/location/index.html) which are much less reliable. Even when using the correct `FusedLocationApi`, there are a lot of things that can go wrong. Consider the following potential issues:
 
- * Are you getting null when calling `LocationServices.FusedLocationApi.getLastLocation`? This is normal since this method only returns if there is already a location recently retrieved by another application. If this returns null, this means you need start receiving location updates with `LocationServices.FusedLocationApi.requestLocationUpdates` before receiving the location as shown above.
- * Are you trying to get location on the genymotion emulator? Ensure you've enabled GPS and configured a lat/lng properly. Try restarting the emulator if needed and re-enabling GPS or trying a device or the official emulator instead to rule out genymotion specific issues.
+ * **Are you getting `null` when calling `LocationServices.FusedLocationApi.getLastLocation`**? This is normal since this method only returns if there is already a location recently retrieved by another application. If this returns null, this means you need start receiving location updates with `LocationServices.FusedLocationApi.requestLocationUpdates` before receiving the location as shown above.
+ * **Are you trying to get location on the genymotion emulator?** Ensure you've enabled GPS and configured a lat/lng properly. Try restarting the emulator if needed and re-enabling GPS or **trying a device** (or the official emulator) instead to rule out genymotion specific issues.
 
 You can also review the following troubleshooting resources:
 
