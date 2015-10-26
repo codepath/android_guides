@@ -104,6 +104,8 @@ The [Fused Location API](http://developer.android.com/intl/es/training/location/
  * Register for updates or accuracy changes
  * Get last location
 
+### Connecting to the LocationServices API
+
 Inside an Activity, put the following to connect and start receiving location updates:
 
 ```java
@@ -164,15 +166,17 @@ protected void startLocationUpdates() {
 }
 ```
 
-and register for location updates with `onLocationChanged`:
+and then register for location updates with `onLocationChanged`:
 
 ```java
 public void onLocationChanged(Location location) {
-    // Report to the UI that the location was updated
+    // New location has now been determined
     String msg = "Updated Location: " +
         Double.toString(location.getLatitude()) + "," +
         Double.toString(location.getLongitude());
     Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    // You can now create a LatLng Object for use with maps
+    LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
 }
 ```
 
