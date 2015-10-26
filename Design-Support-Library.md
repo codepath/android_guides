@@ -104,6 +104,8 @@ Currently, the source code for CoordinatorLayout and AppBarLayout do not appear 
 
 - An `aspectRatio` attribute is now supported in `PercentRelativeLayout`.  ([[view guide|Constructing-View-Layouts#aspect-ratio]])
 
+- A new item animation interface for the `RecyclerView`.  ([[view guide|Using-the-RecyclerView#new-itemanimator-interface]])
+
 ## References
 
 * <https://medium.com/android-bites/first-steps-with-the-design-support-library-8dcf06230ddd>
