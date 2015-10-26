@@ -110,6 +110,7 @@ Inside an Activity, put the following to connect and start receiving location up
 
 ```java
 private GoogleApiClient mGoogleApiClient;
+private LocationRequest mLocationRequest;
 
 private long UPDATE_INTERVAL = 60000;  /* 60 secs */
 private long FASTEST_INTERVAL = 5000; /* 5 secs */
@@ -132,6 +133,7 @@ protected void onStart() {
 
 protected void onStop() {
     // Disconnecting the client invalidates it.
+    LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
     mGoogleApiClient.disconnect();
     super.onStop();
 }
