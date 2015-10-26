@@ -200,7 +200,8 @@ We can also do property animations in an even simpler way using the `ViewPropert
 If we do not need the rely on the `ViewCompat#animate` support v4 library and only need to support Android v3.0 devices and above, we can invoke `animate()` directly on any view with:
 
 ```java
-btn.animate().alpha(0.2f).xBy(-100).yBy(100);
+Button btnExample = (Button) findViewById(R.id.btnExample);
+btnExample.animate().alpha(0.2f).xBy(-100).yBy(100);
 ```
 
 The `animate` method has many properties that mirror the methods from the [ViewPropertyAnimator](http://developer.android.com/reference/android/view/ViewPropertyAnimator.html) class including changing many possible properties such as opacity, rotation, scale, x&y positions, and more. Here's a more complex animation being executed:
