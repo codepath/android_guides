@@ -46,7 +46,7 @@ To create a custom layout manager, extend the [RecyclerView.LayoutManager](https
 
 ### `ItemAnimator`
 
-`RecyclerView.ItemAnimator` will animate `ViewGroup` modifications such as add/delete/select that are notified to adapter. `DefaultItemAnimator` can be used for basic default animations and works quite well.  See the [[animations section|Using-the-RecyclerView#animations]] of this guide for more information.
+`RecyclerView.ItemAnimator` will animate `ViewGroup` modifications such as add/delete/select that are notified to adapter. `DefaultItemAnimator` can be used for basic default animations and works quite well.  See the [[section|Using-the-RecyclerView#animators]] of this guide for more information.
 
 ## Using the RecyclerView
 
