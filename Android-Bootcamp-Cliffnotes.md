@@ -17,6 +17,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Organizing your Source Files]]
 * [[Using Context]]
 * [[Understanding the Activity Lifecycle|Activity Lifecycle]]
+* [[Displaying Images with the Picasso Library]]
 
 ### Week 2 - Interaction and Navigation
 
