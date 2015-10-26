@@ -197,7 +197,8 @@ Understanding how to build powerful and flexible views using Fragments:
 Exploring sensors and components available via the Android SDK:
 
 * [[Accessing the Camera and Stored Media]] (Camera, Photo Roll)
-* [[Listening to Sensors and Location]] (Light, Accelerometer, Location)
+* [[Listening to Sensors and Location]] (Light, Accelerometer)
+* [[Retrieving Location with LocationServices API]] (Location)
 * [[Video and Audio Playback and Recording]] (MediaPlayer, VideoView)
 * [[Google Maps Setup Guide|Google Maps Fragment Guide]] (and [[Setup Genymotion|Google-Maps-Fragment-Guide#installing-genymotion]])
 * [[Google Maps API v2 Usage]] (Markers, InfoWindow)
