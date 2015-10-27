@@ -90,6 +90,8 @@ Marker mapMarker = mapFragment.addMarker(new MarkerOptions()
     .icon(defaultMarker));
 ```
 
+#### Attaching Click Handler to Markers
+
 We can attach a click handler to a marker once the map is loaded with:
 
 ```java
@@ -105,6 +107,12 @@ protected void loadMap(GoogleMap googleMap) {
     }
 }
 ```
+
+#### Associating Markers to Models
+
+Markers have limited information and associating a marker to the underlying data model can be difficult without creating an associated hash map to track the mappings between a marker's id and the associated data model. Refer to [this stackoverflow post](http://stackoverflow.com/a/13750858) for specifics.
+
+#### Custom Marker Drawables
 
 We can also use custom markers based on any arbitrary drawable with:
 
