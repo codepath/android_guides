@@ -1,15 +1,25 @@
 ## Usage
 
-Fused location requires the use of the Google Play SDK. You must include `com.google.android.gms:play-services` in your `app/build.gradle` file.  You can use [this site](http://gradleplease.appspot.com/) to find the latest version to use, or you can refer to the [official SDK setup instructions](http://developer.android.com/google/play-services/setup.html).
-
-In addition, if you are using Genymotion emulator, you must [[install a Google Play Services APK file|Genymotion-2.0-Emulators-with-Google-Play-support#setup-google-play-services]] too.
-
 The [Fused Location API](http://developer.android.com/intl/es/training/location/retrieve-current.html) is a higher-level Google Play Services API that wraps the underlying location sensors like GPS. You can accomplish tasks like:
 
  * Register for location connection events
  * Connect to the location sensor
  * Register for updates or accuracy changes
  * Get last location
+
+### Installation
+
+Fused location requires the use of the Google Play SDK. You must include the library in your  `app/build.gradle` file: 
+
+```gradle
+dependencies {
+    compile 'com.google.android.gms:play-services-location:8.1.0'
+}
+```
+
+You can use [this site](http://gradleplease.appspot.com/) to find the latest version to use, or you can refer to the [official SDK setup instructions](http://developer.android.com/google/play-services/setup.html).
+
+In addition, if you are using Genymotion emulator, you must [[install a Google Play Services APK file|Genymotion-2.0-Emulators-with-Google-Play-support#setup-google-play-services]] too.
 
 ### Adding Permissions 
 
