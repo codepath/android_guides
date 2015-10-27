@@ -64,7 +64,8 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Populating a ListView with a CursorAdapter]]
 * [[Accessing the Camera and Stored Media]]
 * [[Video and Audio Playback and Recording]]
-* [[Listening to Sensors and Location]]
+* [[Retrieving Location with LocationServices API]]
+* [[Listening to Sensors using SensorManager]]
 * [[Google Maps Setup Guide|Google Maps Fragment Guide]]
 * [[Google Maps API v2 Usage]]
 * [[Push Messaging]] (with Parse)
