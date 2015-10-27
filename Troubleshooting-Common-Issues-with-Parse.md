@@ -82,19 +82,19 @@ public class Stove extends ParseObject {
 }
 
 @ParseClassName("ElectricStove")
-public class ElectricStove extends Stove{
+public class ElectricStove extends Stove {
   public ElectricStove() {
   }
 
   public ElectricStove(String url, String brandName) {
-    super(url, brandName);
+     super(url, brandName);
   }
 
-  // ...
+    // ...
 }
 ```
 
-It's just not possible at this point, as Parse Android SDK does not support this. Rather, as a suggestion, use an identifier to specify what type of "Stove" a particular stove object is. Refer to this [stackoverflow example](http://stackoverflow.com/a/31682925) for specifics. 
+This doesn't appear to be possible at this point as Parse Android SDK does not support this. Rather, we can use an identifier to specify what type of "Stove" a particular stove object is. Refer to this [stackoverflow example](http://stackoverflow.com/a/31682925) for specifics. 
 
 ### Passing ParseObject through Intent
 
