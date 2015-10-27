@@ -525,6 +525,8 @@ This results in the following:
 
 ![Activity Transition](https://i.imgur.com/lRU3wrn.gif)
 
+#### Transition Samples
+
 You can see several complete examples of activity transitions in the following resources:
 
  * [Card Flip Animation](http://developer.android.com/training/animation/cardflip.html)
@@ -533,6 +535,27 @@ You can see several complete examples of activity transitions in the following r
  * [Sliding Drawer Animation](http://blog.blundell-apps.com/animate-an-activity/)
 
 Check out these above to get a deeper understanding of how to create custom and unique transitions. In **Android 5.0 and above** the ability for activities to "share elements" was introduced allowing an element in on activity to morph into an element within the child activity. Check out our [[Shared Element Activity Transition]] guide for more details.
+
+#### Changing Default Transitions
+
+The default entrance and exit animations for activities can be customized as part of the theme by modifying the theme in `res/styles.xml` with a custom `Animation.Activity` stylw:
+
+```xml
+<!-- Customize `android:windowAnimationStyle` for theme -->
+<style name="AppTheme" parent="AppBaseTheme">
+    <!-- ... -->
+    <item name="android:windowAnimationStyle">@style/CustomAnimation.Activity</item>
+</style>
+
+<style name="CustomAnimation.Activity" parent="@android:style/Animation.Activity"> 
+    <item name="android:activityOpenEnterAnimation">@anim/slide_in_right</item>
+    <item name="android:activityOpenExitAnimation">@anim/slide_out_left</item>
+    <item name="android:activityCloseEnterAnimation">@android:anim/slide_in_left</item>
+    <item name="android:activityCloseExitAnimation">@android:anim/slide_out_right</item>
+</style>
+```
+
+Refer to this [stackoverflow post](http://stackoverflow.com/a/5018385) for additional details. 
 
 ### Fragment Transitions
 
