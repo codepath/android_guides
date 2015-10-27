@@ -110,7 +110,7 @@ Creation screens usually require the following tasks:
 * Option to capture a photo or select from photo gallery 
   * See: [[camera and media|Accessing the Camera and Stored Media]]
 * Option to capture current location of device 
-  * See: [[location|Listening to Sensors and Location]]
+  * See: [[location|Retrieving Location with LocationServices API]]
 * Option to share or include friends related to the item 
   * See: [[parse sdk|Building Data driven Apps with Parse]]
 
