@@ -525,7 +525,7 @@ This results in the following:
 
 ![Activity Transition](https://i.imgur.com/lRU3wrn.gif)
 
-#### Transition Samples
+#### Browsing Transition Samples
 
 You can see several complete examples of activity transitions in the following resources:
 
@@ -536,9 +536,9 @@ You can see several complete examples of activity transitions in the following r
 
 Check out these above to get a deeper understanding of how to create custom and unique transitions. In **Android 5.0 and above** the ability for activities to "share elements" was introduced allowing an element in on activity to morph into an element within the child activity. Check out our [[Shared Element Activity Transition]] guide for more details.
 
-#### Changing Default Transitions
+#### Modifying the Default Transitions
 
-The default entrance and exit animations for activities can be customized as part of the theme by modifying the theme in `res/styles.xml` with a custom `Animation.Activity` stylw:
+The default entrance and exit animations for activities can be customized as part of a theme by modifying `res/styles.xml` with a custom `Animation.Activity` style as shown below:
 
 ```xml
 <!-- Customize `android:windowAnimationStyle` for theme -->
@@ -555,7 +555,7 @@ The default entrance and exit animations for activities can be customized as par
 </style>
 ```
 
-Refer to this [stackoverflow post](http://stackoverflow.com/a/5018385) for additional details. 
+Refer to this [stackoverflow post](http://stackoverflow.com/a/5018385) for more details. 
 
 ### Fragment Transitions
 
