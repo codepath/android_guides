@@ -139,5 +139,7 @@ With this, you should have location updates working as expected.
 
 ## References
 
-* <http://developer.android.com/intl/es/training/location/retrieve-current.html>
+* <http://developer.android.com/training/location/retrieve-current.html>
 * <https://developer.android.com/training/location/receive-location-updates.html>
+* <http://www.vogella.com/articles/AndroidLocationAPI/article.html>
+* <http://www.vogella.com/articles/AndroidGoogleMaps/article.html>
