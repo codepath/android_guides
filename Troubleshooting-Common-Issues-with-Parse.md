@@ -71,6 +71,31 @@ public class CustomUser {
 
 While this isn't as convenient, it works more reliably.
 
+### Subclassing a ParseObject Subclass
+
+In certain cases, you may find yourself subclassing a Parse subclass to try to follow a single type inheritance pattern with parse. For example:
+
+```java
+@ParseClassName("Stove")
+public class Stove extends ParseObject {
+   // ...
+}
+
+@ParseClassName("ElectricStove")
+public class ElectricStove extends Stove{
+  public ElectricStove() {
+  }
+
+  public ElectricStove(String url, String brandName) {
+    super(url, brandName);
+  }
+
+  // ...
+}
+```
+
+It's just not possible at this point, as Parse Android SDK does not support this. Rather, as a suggestion, use an identifier to specify what type of "Stove" a particular stove object is. Refer to this [stackoverflow example](http://stackoverflow.com/a/31682925) for specifics. 
+
 ### Passing ParseObject through Intent
 
 Often with Android development, you need to pass an object from one `Activity` to another. This is done using the Intent system and passing objects as extras within a bundle. Unfortunately, `ParseObject` does not currently implement `Parcelable` or `Serializable`. See [[the available workarounds here|Building-Data-driven-Apps-with-Parse#passing-objects-between-activities]].
