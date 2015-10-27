@@ -8,7 +8,7 @@ In this guide, we will walk you through the step by step process of getting an e
 
 First, let's download and setup the Google Play Services and Google Repository SDKs. Open `Android Studio` ⇒ `Tools` ⇒ `Android` ⇒ `Android SDK Manager` and check whether you have already downloaded "Google Play services" and "Google Repository" or not under Extras section. If not, select "Google Play services" and "Google Repository" to install the missing packages.
 
-![Play Services and Repository](https://i.imgur.com/d37zzjg.png)
+<img src="https://i.imgur.com/d37zzjg.png" width="500" />
 
 ### Retrieve your SHA-1 Fingerprint
 
