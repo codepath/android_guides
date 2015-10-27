@@ -1,13 +1,5 @@
 ## Overview
 
-With Android, there is a lot of access to hardware features using built-in Android libraries and the Google Play SDK. A few examples of things you might need to access:
-
- * Accessing hardware sensors like accelerometers, light sensors, etc.
- * Using the Locations API.
- * Using the Maps API.
-
-## Accessing Sensors
-
 Different devices have a [variety of sensors](http://developer.android.com/guide/topics/sensors/sensors_overview.html) that can be accessed via the Sensor framework. Possible tasks related to sensors include:
 
  * List available sensors
@@ -91,22 +83,6 @@ In certain cases, an app wants to be listening to sensors in the background even
 
 See [this sensors in the background](http://code.tutsplus.com/tutorials/android-barometer-logger-acquiring-sensor-data--mobile-10558). To get sensor readings while the phone is asleep, we can implement a [partial wake lock as described here](http://nosemaj.org/android-persistent-sensors). Here's [working sample code](https://github.com/AndroidExamples/android-sensor-example) for this as well.
 
-## Location Sensor
-
-The [Fused Location API](http://developer.android.com/intl/es/training/location/retrieve-current.html) is a higher-level Google Play Services API that wraps the underlying location sensors like GPS. You can accomplish tasks like:
-
- * Register for location connection events
- * Connect to the location sensor
- * Register for updates or accuracy changes
- * Get last location
-
-Refer to our [[retrieving location with LocationServices API]] guide for a detailed overview of usage.
-
 ## References
 
 * <http://developer.android.com/guide/topics/sensors/sensors_overview.html>
-* <http://www.vogella.com/articles/AndroidLocationAPI/article.html>
-* <http://www.vogella.com/articles/AndroidGoogleMaps/article.html>
-* <https://developer.android.com/training/location/receive-location-updates.html>
-* <https://www.youtube.com/watch?v=Rd_UrSB1MAY>
-* <http://developer.android.com/intl/es/training/location/retrieve-current.html>
