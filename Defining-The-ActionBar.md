@@ -3,21 +3,22 @@
 The ActionBar, now known as the [App Bar](https://www.google.com/design/spec/layout/structure.html#structure-app-bar), is a consistent navigation element that is standard throughout modern Android applications. The ActionBar can consist of:
 
  * An application icon
+ * An "upward" navigation to logical parent
  * An application or activity-specific title
- * Primary action buttons for an activity
- * Consistent navigation (including tabbed UI)
+ * Primary action icons for an activity
+ * Consistent navigation (including navigation drawer)
 
-Important to note that prior to 3.0, there was no ActionBar. In 2013, Google announced a [support library](http://android-developers.blogspot.com/2013/08/actionbarcompat-and-io-2013-app-source.html) that provides much better compatibility for older versions and support for tabbed interfaces.  Since most of the examples below depend on this support library, make sure to include the [[AppCompat library|Migrating-to-the-AppCompat-Library]].  
+Important to note is that prior to 3.0, there was no ActionBar. In 2013, Google announced a [support library](http://android-developers.blogspot.com/2013/08/actionbarcompat-and-io-2013-app-source.html) that provides much better compatibility for older versions and support for tabbed interfaces.  Since most of the examples below depend on this support library, make sure to include the [[AppCompat library|Migrating-to-the-AppCompat-Library]].  
 
 ## ActionBar Basics
 
-Every application unless otherwise specified has an ActionBar by default. The ActionBar by default just has the application icon and an activity title.
+Every application unless otherwise specified has an ActionBar by default. The ActionBar by default now has just the title for the current activity.
 
-![ActionBar](https://i.imgur.com/DighSEo.png)
+![ActionBar](http://i.imgur.com/vAoRWEF.png)
 
-### Changing the ActionBar Icon or Title
+### Changing the ActionBar Title
 
-The ActionBar icon and title displayed at the top of the screen is governed by the `AndroidManifest.xml` file within the `activity` nodes. In the example below, the activity "FirstActivity" will have an ActionBar with the string value of the resource identified by `@string/activity_name`. If the value of that resource is "Foo," the string displayed in the ActionBar for this activity will be "Foo." Note that the `application` node can supply a `android:label` that acts as the default for activities and components with no other specified label.
+The ActionBar title displayed at the top of the screen is governed by the `AndroidManifest.xml` file within the `activity` nodes. In the example below, the activity "FirstActivity" will have an ActionBar with the string value of the resource identified by `@string/activity_name`. If the value of that resource is "Foo," the string displayed in the ActionBar for this activity will be "Foo." Note that the `application` node can supply a `android:label` that acts as the default for activities and components with no other specified label.
 
 ```xml
 <application
@@ -31,7 +32,7 @@ The ActionBar icon and title displayed at the top of the screen is governed by t
 </application>
 ```
 
-Change the `android:label` or `android:icon` to modify the ActionBar icon or title for a given activity or for the application as a whole. In any Java activity, you can also call `getSupportActionBar()` to retrieve a reference to the [ActionBar](http://developer.android.com/reference/android/support/v7/app/ActionBar.html) and modify or access any properties of the ActionBar at runtime:
+Change the `android:label` or `android:icon` to modify the ActionBar title or icon for a given activity or for the application as a whole. In any Java activity, you can also call `getSupportActionBar()` to retrieve a reference to the [ActionBar](http://developer.android.com/reference/android/support/v7/app/ActionBar.html) and modify or access any properties of the ActionBar at runtime:
 
 ```java
 ActionBar actionBar = getSupportActionBar(); // or getActionBar();
@@ -48,17 +49,21 @@ In the new Android 5.0 material design guidelines, the style guidelines have cha
 
 ```java
 getSupportActionBar().setDisplayShowHomeEnabled(true);
-getSupportActionBar().setLogo(R.drawable.ic_launcher);
+getSupportActionBar().setLogo(R.mipmap.ic_launcher);
 getSupportActionBar().setDisplayUseLogoEnabled(true);
 ```
+
+The above code results in:
+
+<img src="http://i.imgur.com/gBPAIFu.png" width="400" />
 
 You can read more about this on the [material design guidelines](https://developer.android.com/reference/android/support/v7/widget/Toolbar.html) which state: "The use of application icon plus title as a standard layout is discouraged on API 21 devices and newer." 
 
 ### Adding Action Items
 
-When you want to add primary actions to the ActionBar, you add the items to the activity context menu and if properly specified, they will automatically appear at the top.
+When you want to add primary actions to the ActionBar, you add the items to the activity context menu and if properly specified, they will automatically appear at the top right as icons in the ActionBar.
 
-An activity populates the action bar in its `onCreateOptionsMenu()` method:
+An activity populates the ActionBar from within the `onCreateOptionsMenu()` method:
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -93,7 +98,11 @@ Entries in the action bar are typically called actions. Use this method to infla
 
 You also should note that the `xmlns:app` namespace must be defined in order to leverage the `showAsAction` option.  The reason is that a [compatibility library](Migrating-to-the-AppCompat-Library#menu-xml-changes) is used to support the `showAsAction="ifRoom"` option.  This option is needed to show the item directly in the action bar as an icon. If there's not enough room for the item in the action bar, it will appear in the action overflow. If `withText` is specified as well (as in the second item), the text will be displayed with the icon.
 
-**Note:** The above code refers to the `@drawable/ic_compose` resource which would have to exist for this to compile. To generate ActionBar icons, be sure to use the **Asset Studio** in Android Studio. To create a new Android icon set, right click on a `res\drawable` folder and invoke **New->Image Asset**.
+The above code results in two action icons being displayed:
+
+<img src="http://i.imgur.com/yI4akxQ.png" width="400" />
+
+**Note:** The above code refers to the `@drawable/ic_compose` and `@drawable/ic_profile` resources which would have to exist for this to compile. To generate ActionBar icons, be sure to use the **Asset Studio** in Android Studio. To create a new Android icon set, right click on a `res/drawable` folder and invoke **New -> Image Asset**.
 
 ### Handling ActionBar Clicks
 
@@ -144,13 +153,17 @@ public boolean onOptionsItemSelected(MenuItem item) {
 and then you can handle all the action buttons in this single method.
 
 ## ToolBar Basics
-ToolBar was introduced in Android Lollipop, API 21 release and is a complete replacement to ActionBar. It's a ViewGroup so you can place it anywhere in your layout. ToolBar also provides greater control to customize its appearance for the same reason.
+
+`ToolBar` was introduced in Android Lollipop, API 21 release and is the spiritual successor of the ActionBar. It's a `ViewGroup` that can be placed anywhere in your layout. ToolBar's appearance can be more easily customized than the ActionBar. 
+
+<img src="http://i.imgur.com/0auGknf.png" width="500" />
 
 ToolBar works well with apps targeted to API 21 and above. However, Android has updated the AppCompat support libraries so the ToolBar can be used on lower Android OS devices as well. In AppCompat, ToolBar is implemented in the `android.support.v7.widget.Toolbar` class.
 
 There are two ways to use Toolbar:
- * Use a Toolbar as an Action Bar when you want to use the existing Action Bar facilities (such as menu inflation and selection, ActionBarDrawerToggle, and so on) but want to have more control over its appearance.
- * Use a standalone Toolbar when you want to use the pattern in your app for situations that an Action Bar would not support; for example, showing multiple toolbars on the screen, spanning only part of the width, and so on.
+
+ 1. Use a `Toolbar` as an Action Bar when you want to use the existing Action Bar facilities (such as menu inflation and selection, `ActionBarDrawerToggle`, and so on) but want to have more control over its appearance.
+ 2. Use a standalone `Toolbar` when you want to use the pattern in your app for situations that an Action Bar would not support; for example, showing multiple toolbars on the screen, spanning only part of the width, and so on.
 
 ### Using ToolBar as ActionBar
 
@@ -158,12 +171,12 @@ To use Toolbar as an ActionBar, first ensure the AppCompat-v7 support library is
 
 ```gradle
 dependencies {
-  compile fileTree(dir: 'libs', include: ['*.jar'])
-  compile 'com.android.support:appcompat-v7:22.2.1+'
+  ...
+  compile 'com.android.support:appcompat-v7:23.1.0+'
 }
 ```
 
-Second, let's disable the theme-provided ActionBar. The easiest way is to have your theme extend from `Theme.AppCompat.NoActionBar` (or its light variant) in `styles.xml` file.
+Second, let's disable the theme-provided ActionBar. The easiest way is to have your theme extend from `Theme.AppCompat.NoActionBar` (or the light variant) within the `res/styles.xml` file:
 
 ```xml
 <resources>
@@ -173,7 +186,7 @@ Second, let's disable the theme-provided ActionBar. The easiest way is to have y
 </resources>
 ```
 
-Now you need to add `Toolbar` to your Activity layout file. One of the biggest advantages of using the Toolbar widget is that you can place the view anywhere in your layout. Below it's placed at the top of the LinearLayout, like the standard ActionBar, but it can be contained in any other type of layout as well.
+Now you need to add a `Toolbar` to your Activity layout file. One of the biggest advantages of using the Toolbar widget is that you can place the view anywhere within your layout. Below we place the toolbar at the top of a LinearLayout like the standard ActionBar:
 
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -186,6 +199,7 @@ Now you need to add `Toolbar` to your Activity layout file. One of the biggest a
       android:minHeight="?attr/actionBarSize"  
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
+      app:titleTextColor="@android:color/white"
       android:background="?attr/colorPrimary">
     </android.support.v7.widget.Toolbar>
 
@@ -193,9 +207,13 @@ Now you need to add `Toolbar` to your Activity layout file. One of the biggest a
 
 </LinearLayout>
 ```
-As Toolbar is just a `ViewGroup`, it can be styled and positioned like any other view. Then in your Activity or Fragment, set the Toolbar to act as your ActionBar by using the `setSupportActionBar(Toolbar)` method.  
 
-*Note:* When using the support library, make sure that you are importing `android.support.v7.widget.Toolbar` and not `android.widget.Toolbar`.
+As Toolbar is just a `ViewGroup` and can be **styled and positioned like any other view**. Note that this means if you are in a `RelativeLayout`, you need to ensure that all other views are positioned below the toolbar explicitly. The toolbar is not given any special treatment as a view.
+
+
+Next, in your Activity or Fragment, set the Toolbar to act as the ActionBar by calling the  `setSupportActionBar(Toolbar)` method:
+
+**Note:** When using the support library, make sure that you are importing `android.support.v7.widget.Toolbar` and not `android.widget.Toolbar`.
 
 ```java
 import android.support.v7.app.AppCompatActivity;
@@ -213,8 +231,20 @@ public class MyActivity extends AppCompatActivity {
         // Make sure the toolbar exists in the activity and is not null
         setSupportActionBar(toolbar);
     }
+
+    // Menu icons are inflated just as they were with actionbar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
 }
 ```
+
+The above code results in the toolbar fully replacing the ActionBar at the top:
+
+<img src="http://i.imgur.com/lucP1wY.png" width="400" />
 
 From this point on, all menu items are displayed in your Toolbar, populated via the standard options menu callbacks.
 
