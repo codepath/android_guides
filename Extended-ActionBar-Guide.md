@@ -351,7 +351,11 @@ You can learn about this provider in the [[Sharing Content with Intents]] guide.
 
 ### Navigating Up with the App Icon
 
-To enable the app icon as an Up button, call [setDisplayHomeAsUpEnabled](http://developer.android.com/reference/android/support/v7/app/ActionBar.html#setDisplayHomeAsUpEnabled(boolean)). "Up" in contrast to  Back" takes the user to the logical parent screen of the current screen. This is not based on the navigation history but rather on the relationship between screens. For example, in a mail client "Back" might take the user to a previous email but "Up" would always take the user to the list of mail in the inbox.
+To enable the app icon as an Up button, call [setDisplayHomeAsUpEnabled](http://developer.android.com/reference/android/support/v7/app/ActionBar.html#setDisplayHomeAsUpEnabled(boolean)). 
+
+![Up Button](http://i.imgur.com/hcRqMHj.png)
+
+"Up" in contrast to  Back" takes the user to the logical parent screen of the current screen. This is not based on the navigation history but rather on the relationship between screens. For example, in a mail client "Back" might take the user to a previous email but "Up" would always take the user to the list of mail in the inbox.
 
 First, specify that the home icon should be used as "Up":
 
