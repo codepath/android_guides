@@ -84,8 +84,6 @@ Once a `BroadcastReceiver` is listening for messages, there are a few actions th
 
 You can review examples of these [outlined in this more elaborate code sample](https://github.com/codepath/ParsePushNotificationExample/blob/master/app/src/main/java/com/test/MyCustomReceiver.java). 
 
-In certain cases when receiving a push, you want to **update an activity only if the activity is on the screen**. Otherwise, you want to raise a notification. The solutions to this are [outlined in this post](http://stackoverflow.com/a/18311830/313399) with a [code sample here](http://stackoverflow.com/a/15949723/313399).
-
 #### Creating Dashboard Notifications
 
 By default, Parse will create dashboard notifications based on certain details of the push message that are sent if you specify the "alert" and "title" properties in the notification. In the event that you want to manually manage the notifications, all you have to do is avoid sending the `alert` or `title` so parse doesn't create the notification for you. 
@@ -95,6 +93,12 @@ Details of setting up custom push notifications can be [found in this guide](htt
 ##### Launching an Activity
 
 When working with push messages, often the notification will launch an activity or the activity may even be launched by the broadcast receiver directly. In these cases, we might want to ensure that the activity launched is the same activity that is already running rather a new instance. To achieve this, we can use [[launch modes or intent flags|Navigation-and-Task-Stacks#launch-modes]] such as `singleTop` to ensure the same activity instance is presented.
+
+##### Checking App State when Receiving a Broadcast
+
+In certain cases when receiving a push, you want to **update an activity only if the activity is on the screen**. Otherwise, if the activity is not on screen then you want to [[create a notification|Notifications]]. 
+
+There are two approaches to this: either use `ActivityManager` to check if the activity is running or use ordered broadcasts to override the receiver when the activity is running. Both possible solutions to this are [outlined in this post](http://stackoverflow.com/a/18311830/313399) with a [code sample here](http://stackoverflow.com/a/15949723/313399).
 
 ### Source Code
 
