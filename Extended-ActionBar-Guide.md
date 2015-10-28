@@ -13,9 +13,11 @@ This is typically used for displaying the title of the application and providing
 In the [[Defining ActionBar|Defining-The-ActionBar#actionbar-basics]] cliffnotes we looked at the basics of adding items to the ActionBar and handling clicks. In this section, we take a look at how to use `AppCompatActivity` to support all Android versions and also at several powerful and extensible ActionBar features:
 
  * Using the split action bar to have a top and bottom menu
- * Adding an Action View (`app:action_layout`) and `SearchView`
+ * Adding ActionView (`app:action_layout`) and `SearchView` widgets
+ * Configuring icon order within ActionBar
  * Using `ActionProvider` and `ShareActionProvider` to enable richer functions
  * Configuring Home Icon to navigate "Up"
+ * Inflating menu icons from fragments within the ActionBar
 
 ### Setting up AppCompatActivity
 
