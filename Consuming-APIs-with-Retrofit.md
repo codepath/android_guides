@@ -386,6 +386,49 @@ Add this line to your `app/build.gradle` file:
 ```
 
 The lint errors should be suppressed and not trigger any additional errors for now.
+
+## Troubleshooting
+
+Retrofit and OkHttp can be hard to troubleshoot.  Facebook's [Stetho](http://facebook.github.io/stetho/) project enables you to use Chrome to inspect all network traffic.
+
+<img src="http://facebook.github.io/stetho/static/images/inspector-network.png"/>
+
+### Setup
+
+Setup your `app/build.gradle` file:
+
+```gradle
+// Gradle dependency on Stetho 
+  dependencies { 
+    compile 'com.facebook.stetho:stetho:1.2.0' 
+    compile 'com.facebook.stetho:stetho-okhttp:1.2.0' 
+  } 
+```
+
+Initialize Stetho inside your Application object:
+```
+public class MyApplication extends Application {
+  public void onCreate() {
+    super.onCreate();
+    Stetho.initializeWithDefaults(this);
+  }
+}
+```
+
+Enable network inspection.  Note that you must use `networkInterceptors()` and not `interceptors()`.
+
+```
+OkHttpClient client = new OkHttpClient();
+client.networkInterceptors().add(new StethoInterceptor());
+```
+
+Start your emulator or device.  Then visit `http://inspect` on your Chrome desktop and your emulator device should appear.  Click on `Inspect` to launch a new window.  
+
+<img src="http://facebook.github.io/stetho/static/images/inspector-discovery.png"/>
+
+Click on the `Network` tab.  Now you can start watching network traffic between your emulator or device in real-time!
+
+
 ## References
 
  * <http://engineering.meetme.com/2014/03/best-practices-for-consuming-apis-on-android/>
