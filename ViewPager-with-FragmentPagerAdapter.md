@@ -400,6 +400,48 @@ The first step is to define a custom `ViewPager` [subclass called LockableViewPa
 ```
 
 Now, just call `setSwipeable(false)` to disable swiping to change the page. 
+
+## Launching an Activity with Tab Selected
+
+Often when launching a tabbed activity, there needs to be a way to select a particular tab to be displayed once the activity loads. For example, an activity has three tabs with one tab being a list of created posts. After a user creates a post on a separate activity, the user needs to be returned to the main activity with the "new posts" tab displayed. This can be done through the use of intent extras and the `ViewPager#setCurrentItem` method. First, when launching the tabbed activity, we need to pass in the selected tab as an extra:
+
+```java
+/* In creation activity that wants to launch a tabbed activity */
+Intent intent = new Intent(this, MyTabbedActivity.class);
+// Pass in tab to be displayed
+i.putExtra(MyTabbedActivity.SELECTED_TAB_EXTRA_KEY, MyTabbedActivity.NEW_POSTS_TAB);
+// Start the activity
+startActivity(i);
+```
+
+If the activity needs to return a result, we can also [[return this as an activity result|Using-Intents-to-Create-Flows#returning-data-result-to-parent-activity]]. Next, we can read this information from the intent within the tabbed activity:
+
+```java
+/* In tabbed activity */
+public final static int SELECTED_TAB_EXTRA_KEY = "selectedTabIndex";
+public final static int HOME_TAB = 0;
+public final static int FAVORITES_TAB = 1;
+public final static int NEW_POSTS_TAB = 2;
+
+@Override
+public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.main_activity);
+    // Set the selected tab
+    setSelectedTab();
+}
+
+// Reads selected tab from launching intent and 
+// sets page accordingly
+public void setSelectedTab() {
+   // Fetch the selected tab index with default
+   int selectedTabIndex = getIntent().getIntExtra(SELECTED_TAB_EXTRA_KEY, HOME_TAB); 
+   // Switch to page based on index
+   vpPager.setCurrentItem(selectedTabIndex);
+}
+```
+
+With that, any activity can launch the tabbed activity with the ability to configure the selected tab.
  
 ## References
 
