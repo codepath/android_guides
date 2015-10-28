@@ -428,6 +428,7 @@ Start your emulator or device.  Then visit `http://inspect` on your Chrome deskt
 
 Click on the `Network` tab.  Now you can start watching network traffic between your emulator or device in real-time!
 
+<img src="http://imgur.com/qlFJ0Yd.png"/>
 
 ## References
 
