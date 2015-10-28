@@ -2,9 +2,9 @@
 
 An ActionBar is located at the top of an activity and it can display any number of status or navigation related elements such as title, icon, buttons, or arbitrary action-related views.
 
-Older Android devices have a hardware Option button to open the menu. The ActionBar replaces that concept in modern Android apps.
+This is typically used for displaying the title of the application and providing a primary navigation for the app. The ActionBar can contain primary action buttons as well as a drawer toggle icon for displaying the navigation drawer.
 
-This is typically used for displaying the title of the application and providing a primary navigation for the app. The ActionBar can contain primary action buttons as well as tabs to control navigation within any app.
+<img src="http://i.imgur.com/EA42s2Q.png" width="500" />
 
 **Note** that we will be using the support library and `AppCompatActivity` for these examples since the library provides maximum compatibility with pre-3.0 Android versions. The APIs and usage are the same with the standard ActionBar just with small changes to the imported classes and class names.  If you are not currently using the support library, check out this [[migration guide|Migrating to the AppCompat Library]].
 
@@ -13,8 +13,8 @@ This is typically used for displaying the title of the application and providing
 In the [[Defining ActionBar|Defining-The-ActionBar#actionbar-basics]] cliffnotes we looked at the basics of adding items to the ActionBar and handling clicks. In this section, we take a look at how to use `AppCompatActivity` to support all Android versions and also at several powerful and extensible ActionBar features:
 
  * Using the split action bar to have a top and bottom menu
- * Adding an Action View (action_layout) and SearchView
- * Using ActionProvider and ShareActionProvider to enable richer functions
+ * Adding an Action View (`app:action_layout`) and `SearchView`
+ * Using `ActionProvider` and `ShareActionProvider` to enable richer functions
  * Configuring Home Icon to navigate "Up"
 
 ### Setting up AppCompatActivity
@@ -100,21 +100,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
 See the [[Defining the ActionBar|Defining-The-ActionBar#actionbar-basics]] cliffnotes
 for the basic details of adding items and handling clicks.
 
-
-### Configuring a Split-Action Bar
-
-Split action bar provides a separate bar at the bottom of the screen to display all action items when the activity is running on a narrow screen (such as a portrait-oriented handset). This is helpful when you want to display a top and bottom row of actions for a context.
-
-To add support for the split-action bar, just add the option to the manifest for that activity:
-
-```xml
-<manifest ...>
-    <activity android:uiOptions="splitActionBarWhenNarrow" ... >
-        <meta-data android:name="android.support.UI_OPTIONS"
-                   android:value="splitActionBarWhenNarrow" />
-    </activity>
-</manifest>
-```
+### Configuring ActionBar Icon Order
 
 You can control the order of items within the ActionBar using `orderinCategory` where each menu item has an integer specified and lower integers are displayed with a higher priority:
 
@@ -132,29 +118,11 @@ You can control the order of items within the ActionBar using `orderinCategory` 
    android:title="Important" />
 ```
 
-Using split action bar also allows navigation tabs to collapse into the main action bar if you remove the icon and title leaving only tabs at the top and all the actions on the bottom with:
-
-```java
-public class MainActivity extends AppCompatActivity {
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-	    super.onCreate(savedInstanceState);
-	    setContentView(R.layout.activity_main);
-	    setupTabs();
-	}
-
-	private void setupTabs() {
-	    ActionBar actionBar = getSupportActionBar();
-	    actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-	    actionBar.setDisplayShowHomeEnabled(false);
-	    actionBar.setDisplayShowTitleEnabled(false);
-	}
-}
-```
+This can be useful to be explicit with the desired order based on importance of actions.
 
 ### Custom ActionBar Styles
 
-We can tweak the ActionBar styles and properties by customizing our own ActionBar theme styles. For example, we could add the following to `res/values/styles.xml`:
+We can configure the ActionBar styles and properties by creating our own ActionBar theme styles. For example, we could add the following to `res/values/styles.xml`:
 
 ```xml
 <resources>
@@ -206,7 +174,11 @@ Now verify the theme for the application or activity within the `AndroidManifest
 </manifest>
 ```
 
-Now your properties and styles will take affect within the ActionBar. See the [actionbar styling demo code](https://github.com/codepath/android-actionbar-style-demo) for a working example. If you want to style the tabs for the ActionBar, see our [[Tabs Styling Cliffnotes|ActionBar-Tabs-with-Fragments#styling-tabs]]. 
+Now your properties and styles will take affect within the ActionBar. This results in the following:
+
+<img src="http://i.imgur.com/B7OBUhO.png" width="500" />
+
+See the [actionbar styling demo code](https://github.com/codepath/android-actionbar-style-demo) for a working example. If you want to style the tabs for the ActionBar, see our [[Tabs Styling Cliffnotes|ActionBar-Tabs-with-Fragments#styling-tabs]]. 
 
 Check out this [styling the ActionBar](http://developer.android.com/guide/topics/ui/actionbar.html#Style) section for more details. For an easier way to skin the ActionBar, check out the [ActionBar Style Generator](http://jgilfelt.github.com/android-actionbarstylegenerator) tool for easy styling.
 
@@ -219,6 +191,7 @@ In certain cases, you might want to change the styling of the ActionBar title mo
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical" >
     <TextView
         android:layout_width="wrap_content"
@@ -234,12 +207,18 @@ In certain cases, you might want to change the styling of the ActionBar title mo
 Now we've defined the XML layout desired and we need to load this custom XML file and replace the ActionBar title with our customized XML inside the Activity by calling [setCustomView](http://developer.android.com/reference/android/app/ActionBar.html#setCustomView\(int\)):
 
 ```java
-// in onCreate
+import android.support.v7.app.ActionBar;
+// in Activity#onCreate
 getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM); 
 getSupportActionBar().setCustomView(R.layout.actionbar_title);
 ```
 
-At this point, we now have replaced the default ActionBar with our preferred layout and have complete control over it's appearance. If you want to **include the app icon with the custom layout** you need to append `DISPLAY_SHOW_HOME` as well:
+At this point, we now have replaced the default ActionBar with our preferred layout and have complete control over it's appearance. The above code results in:
+
+<img src="http://i.imgur.com/N5Bvoej.png" width="500" />
+
+
+If you want to **include the app icon with the custom layout** you need to append `DISPLAY_SHOW_HOME` as well:
 
 ```java
 getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM | ActionBar.DISPLAY_SHOW_HOME); 
@@ -279,7 +258,11 @@ Next, we can attach that layout to any item by specifying the `app:action_layout
 </menu>
 ```
 
-and now the views specified in the layout are embedded in the ActionBar. We can access a reference to the embedded ActionView in the Activity by overriding the `onPrepareOptionsMenu` method:
+and now the views specified in the layout are embedded in the ActionBar. The above code results in:
+
+<img src="http://i.imgur.com/YhuRH56.png" width="500" />
+
+We can access a reference to the embedded ActionView in the Activity by overriding the `onPrepareOptionsMenu` method:
 
 ```java
 @Override
@@ -298,7 +281,7 @@ Using `ActionView` can help you add any custom views you'd like to your ActionBa
 
 ### Adding SearchView to ActionBar
 
-One common example of an ActionView is the built-in `SearchView` which provides a simple search control within your application located in the ActionBar. First, we need to add the `SearchView` action item in the menu xml:
+One common example of an `ActionView` is the built-in `SearchView` which provides a simple search control within your application located in the ActionBar. First, we need to add the `SearchView` action item in the menu xml:
 
 ```xml
 <!-- res/menu/menu.xml -->
@@ -312,7 +295,11 @@ One common example of an ActionView is the built-in `SearchView` which provides 
 </menu>
 ```
 
-Notice that the showAsAction attribute also includes the "collapseActionView" value which collapses the search into an icon until clicked. Now we need to hook up a listener for when a search is performed:
+Notice that the `app:showAsAction` attribute also includes the "collapseActionView" value which collapses the search into an icon until clicked. The above code results in the search view in the action bar:
+ 
+<img src="http://i.imgur.com/zW9vfCf.gif" width="500" />
+
+Now we need to hook up a listener for when a search is performed:
 
 ```java
 @Override
@@ -339,7 +326,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
 
 See [this writeup](http://antonioleiva.com/actionbarcompat-action-views/) for details on the compatibility action views outlined above. For more advanced searching functionality, check out the [Creating a Search Interface](http://developer.android.com/guide/topics/search/search-dialog.html) guide.
 
-See [this tutorial](http://ramannanda.blogspot.com/2014/10/android-searchview-integration-with.html) for a guide on how to add autocomplete to your searchview in the actionbar.
+Refer to [this tutorial](http://ramannanda.blogspot.com/2014/10/android-searchview-integration-with.html) for a guide on how to **add autocomplete to your searchview** in the actionbar.
 
 ### Using ActionProvider and ShareActionProvider
 
@@ -347,13 +334,15 @@ Similar to an action view, an action provider replaces an action button with a c
 
 You can build your own action provider by extending the ActionProvider class, but Android provides some pre-built action providers such as [ShareActionProvider](http://developer.android.com/reference/android/support/v7/widget/ShareActionProvider.html) which facilitates a "share" action by showing a list of possible apps for sharing. 
 
+<img src="http://i.imgur.com/MLuaXES.png" />
+
 You can learn about this provider in the [[Sharing Content with Intents]] guide. You can also see the [ActionProvider section](http://developer.android.com/guide/topics/ui/actionbar.html#ActionProvider) of the ActionBar guide for more details.
 
 ### Navigating Up with the App Icon
 
 To enable the app icon as an Up button, call [setDisplayHomeAsUpEnabled](http://developer.android.com/reference/android/support/v7/app/ActionBar.html#setDisplayHomeAsUpEnabled(boolean)). 
 
-![Up Button](http://i.imgur.com/hcRqMHj.png)
+![Up Button](http://i.imgur.com/yEXdmG2.png)
 
 "Up" in contrast to  Back" takes the user to the logical parent screen of the current screen. This is not based on the navigation history but rather on the relationship between screens. For example, in a mail client "Back" might take the user to a previous email but "Up" would always take the user to the list of mail in the inbox.
 
@@ -364,9 +353,8 @@ First, specify that the home icon should be used as "Up":
 protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_details);
-
-    ActionBar actionBar = getSupportActionBar();
-    actionBar.setDisplayHomeAsUpEnabled(true);
+    // Enable up icon
+    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     ...
 }
 ```
@@ -471,6 +459,23 @@ public boolean onOptionsItemSelected(MenuItem item) {
    }
 }
 ```
+
+### Configuring a Split-Action Bar
+
+Split action bar provides a separate bar at the bottom of the screen to display all action items when the activity is running on a narrow screen (such as a portrait-oriented handset). This is helpful when you want to display a top and bottom row of actions for a context.
+
+For **Holo-based themes**, to add support for the split-action bar, just add the option to the manifest for that activity:
+
+```xml
+<manifest ...>
+    <activity android:uiOptions="splitActionBarWhenNarrow" ... >
+        <meta-data android:name="android.support.UI_OPTIONS"
+                   android:value="splitActionBarWhenNarrow" />
+    </activity>
+</manifest>
+```
+
+**Note:** Split action bar **only works with Holo-based themes. `splitActionBarWhenNarrow` is **not supported** by `Theme.Material` or the `appcompat-v7` actionbar backport. If you wish to use either Theme.Material or appcompat-v7, you will **need to create your own** "split action bar", by having a [[Toolbar at the bottom|Defining-The-ActionBar#toolbar-basics]] of the screen that you populate separately. See the [sample code for a split toolbar](https://github.com/commonsguy/cw-omnibus/tree/master/Toolbar/SplitActionBar2) here.
 
 ## Libraries
 
