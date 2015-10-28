@@ -190,6 +190,7 @@ Now you need to add a `Toolbar` to your Activity layout file. One of the biggest
 
 ```xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
