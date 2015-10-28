@@ -380,9 +380,9 @@ To bypass this issue, create a `gradle/lint.xml` in your root project:
 Add this line to your `app/build.gradle` file:
 
 ```gradle
-    lintOptions {
-        lintConfig rootProject.file('gradle/lint.xml')
-    }
+lintOptions {
+    lintConfig rootProject.file('gradle/lint.xml')
+}
 ```
 
 The lint errors should be suppressed and not trigger any additional errors for now.
