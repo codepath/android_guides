@@ -29,19 +29,6 @@ query.whereNotEqualTo("key", "valueB");
 query.whereNotContainedIn("key", ImmutableList.of("valueA", "valueB"));
 ```
 
-> Parse LoginUI library’s sample projects are using Gradle and will not work with Eclipse.
-
-Steps to import [ParseUI](https://github.com/ParsePlatform/ParseUI-Android) into Eclipse:
-
-1. Create a new Eclipse project without any activity. (In wizard don’t select main activity).
-2. Copy following from sample project to newly created eclipse project.
-   * `AndroidManifest.xml`
-   * `src` directory
-   * `res` directory
-   * Update `strings.xml` with your parse/facebook/twitter keys.
-3. Clean and rebuild newly created eclipse project.
-4. Run project
-
 ## Exploring Parse
 
 Parse has quirks. Several are outlined below.
@@ -99,6 +86,12 @@ This doesn't appear to be possible at this point as Parse Android SDK does not s
 ### Passing ParseObject through Intent
 
 Often with Android development, you need to pass an object from one `Activity` to another. This is done using the Intent system and passing objects as extras within a bundle. Unfortunately, `ParseObject` does not currently implement `Parcelable` or `Serializable`. See [[the available workarounds here|Building-Data-driven-Apps-with-Parse#passing-objects-between-activities]].
+
+### Minimizing Number of Queries
+
+When using Parse, you can often have many different relations between models causing your app to send multiple queries out to get back all the required information. Whenever possible try to reduce the queries sent using "include" statements. Refer to the [relational queries](https://parse.com/docs/android/guide#queries-relational-queries) guide for more details. One caveat is that include only works for pointers to objects and as such does not work with [many-to-many relational data with ParseRelation](https://parse.com/docs/android/guide#objects-relational-data). See [this parse support post](https://www.parse.com/questions/can-i-use-include-in-a-query-to-include-all-members-of-a-parserelation-error-102) for further clarification.
+
+In addition, in certain situations making multiple queries to get all the required data for a screen is unavoidable. In these cases, encapsulating all the separate requests into a single object fetching java object can make data retrieval much more manageable in your activity. See [this android guides issue for a rough example](https://github.com/codepath/android_guides/issues/50). The idea here is to wrap all the queries to Parse in a container object which aggregates all the data and fires a listener once all callbacks have returned.
 
 ### Batch Save with Parse
 
