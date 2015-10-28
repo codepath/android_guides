@@ -406,7 +406,7 @@ Setup your `app/build.gradle` file:
 ```
 
 Initialize Stetho inside your Application object:
-```
+```java
 public class MyApplication extends Application {
   public void onCreate() {
     super.onCreate();
@@ -417,7 +417,7 @@ public class MyApplication extends Application {
 
 Enable network inspection.  Note that you must use `networkInterceptors()` and not `interceptors()`.
 
-```
+```java
 OkHttpClient client = new OkHttpClient();
 client.networkInterceptors().add(new StethoInterceptor());
 ```
