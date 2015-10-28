@@ -387,7 +387,7 @@ Add this line to your `app/build.gradle` file:
 
 The lint errors should be suppressed and not trigger any additional errors for now.
 
-## Troubleshooting
+## Troubleshooting 
 
 Retrofit and OkHttp can be hard to troubleshoot.  Facebook's [Stetho](http://facebook.github.io/stetho/) project enables you to use Chrome to inspect all network traffic.
 
