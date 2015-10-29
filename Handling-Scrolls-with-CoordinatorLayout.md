@@ -15,7 +15,15 @@
 
   <img src="http://imgur.com/1JHP0cP.gif"/>
 
-## Setup
+### Code Samples
+
+Chris Banes from Google has put together a beautiful demo of the `CoordinatorLayout` and other [[design support library]] features.
+
+<a href="https://github.com/chrisbanes/cheesesquare"><img src="http://i.imgur.com/aA8aGSg.png" width="500" /></a>
+
+The [full source code](https://github.com/chrisbanes/cheesesquare) can be found on github. This project is one of the easiest ways to understand `CoordinatorLayout`.
+
+### Setup
 
 Make sure to follow the [[Design Support Library]] instructions first.
 
