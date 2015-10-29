@@ -25,7 +25,7 @@ The "advanced pack" listed below are additional libraries that are more advanced
 | [Dagger 2](http://google.github.io/dagger/)   | A fast dependency injector for managing objects.           |
 | [RxAndroid](https://github.com/ReactiveX/RxAndroid) | Develop fully reactive components for Android.       |
 | [Otto](https://github.com/square/otto) | Android event bus for easier component communication.             |
-| [AndroidAnnotations](https://github.com/excilys/androidannotations) | Powerful annotations to reduce code. |
+| [AndroidAnnotations](https://github.com/excilys/androidannotations) | Powerful annotations to reduce boilerplate code. |
 
 Keep in mind that the combination of these libraries may not always play nicely with each other.  The following section highlights some of these issues.
 
