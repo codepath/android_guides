@@ -102,7 +102,7 @@ This probably means that the drawable image being used is a large resolution. Th
 
 #### How would I create a toggle button that alternates between two images?
 
-For this, we'd use a custom [ToggleButton as described here](http://mirhoseini.info/how-to-create-a-toggle-button-with-custom-image-and-no-text-in-android/) which has a different image applied for the checked and unchecked states.
+For this, we'd use a custom [ToggleButton as described here](http://mirhoseini.com/how-to-create-a-toggle-button-with-custom-image-and-no-text-in-android/) which has a different image applied for the checked and unchecked states.
 
 ### Views
 
