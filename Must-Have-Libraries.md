@@ -13,10 +13,17 @@ This "standard pack" listed below are libraries that are quite popular, widely a
 | [ButterKnife](http://jakewharton.github.io/butterknife/) | Using Java annotations, makes Android development better by simplifying common tasks. |
 | [Parceler](http://parceler.org/) | Android Parcelable made easy through code generation |
 | [IcePick](https://github.com/frankiesardo/icepick) | Android Instance State made easy |
-| [Akatsuki](https://github.com/tom91136/Akatsuki) | Handles instance state restoration via annotations |
 | [Crouton](https://github.com/keyboardsurfer/Crouton) | Context-sensitive, configurable alert notices much better than toasts |
 | [Hugo](https://github.com/JakeWharton/hugo) | Easier logging using annotations |
 | [LeakCanary](https://github.com/square/leakcanary) | Catch memory leaks in your apps | 
+| [[Espresso|UI-Testing-with-Espresso]] | Powerful DSL for Android integration testing. |
+
+The "advanced pack" listed below are additional libraries that are more advanced to integrate but are popular amongst the best Android teams. Note that these libraries may not be suitable for your first app! These include:
+
+| Name            | Description                                                 |  
+| ----            | ------------                                                |
+| [Dagger 2](http://google.github.io/dagger/)   | A fast dependency injector for managing objects. |
+| [RxAndroid](https://github.com/ReactiveX/RxAndroid) | Develop fully reactive components for Android.   |
 
 Keep in mind that the combination of these libraries may not always play nicely with each other.  The following section highlights some of these issues.
 
@@ -61,6 +68,7 @@ Essentially this method is used to enable your code to short-circuit before exec
 
  * [Dagger](http://square.github.io/dagger/) - A fast dependency injector for Android and Java.  See this [video intro](http://www.infoq.com/presentations/Dagger) from Square.
  * [AutoParcel](https://github.com/frankiesardo/auto-parcel) - Port of Google AutoValue for Android with Parcelable generation goodies.
+ * [Akatsuki](https://github.com/tom91136/Akatsuki) - Handles instance state restoration via annotations
  * [Hugo](https://github.com/JakeWharton/hugo) - Easier logging within your app
  * [Logger](https://github.com/orhanobut/logger) - Much cleaner and easier logcat trace messages
  * [Trikita Log](https://github.com/zserge/log) - Tiny logger backwards compatible with android.util.Log, but supporting format strings, comma-separated values, non-android JVMs, optional tags etc
