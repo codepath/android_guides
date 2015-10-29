@@ -405,7 +405,7 @@ We can build [our own custom layout managers](http://wiresareobsolete.com/2014/0
 
 ### Animators 
 
-RecyclerView supports custom animations for items as they enter, move, or get deleted.  The default animation effects is defined by [DefaultItemAnimator](https://developer.android.com/intl/ko/reference/android/support/v7/widget/DefaultItemAnimator.html), and the complex implementation (see [source code)](https://android.googlesource.com/platform/frameworks/support/+/refs/heads/master/v7/recyclerview/src/android/support/v7/widget/DefaultItemAnimator.java) shows that the logic necessary to ensure that animation effects are performed in a specific sequence (remove, move, and add).
+RecyclerView supports custom animations for items as they enter, move, or get deleted using [ItemAnimator](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.ItemAnimator.html).  The default animation effects is defined by [DefaultItemAnimator](https://developer.android.com/intl/ko/reference/android/support/v7/widget/DefaultItemAnimator.html), and the complex implementation (see [source code)](https://android.googlesource.com/platform/frameworks/support/+/refs/heads/master/v7/recyclerview/src/android/support/v7/widget/DefaultItemAnimator.java) shows that the logic necessary to ensure that animation effects are performed in a specific sequence (remove, move, and add).
 
 Currently, the fastest way to implement animations with RecyclerView is to use third-party libraries.  The [third-party recyclerview-animators library](https://github.com/wasabeef/recyclerview-animators) contains a lot of animations that you can use without needing to build your own.  Simply edit your  `app/build.gradle`:
 
