@@ -66,7 +66,7 @@ private Target target = new Target() {
 
 Next, we can use the `Target` with a Picasso call with:
 
-```
+```java
 Picasso.with(this).load("url").into(target);
 ```
 
