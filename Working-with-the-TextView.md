@@ -182,7 +182,7 @@ We can actually use any custom font that we'd like within our applications. Chec
 
 Fonts are stored in the "assets" folder. In Android Studio, `File > New > folder > Assets Folder`. Now download any font and **place the TTF file in the `assets/fonts` directory**:
 
-![](http://i.imgur.com/vZanruc.png)
+![](http://i.imgur.com/2dxTeGY.png)
 
 We're going to use a basic layout file with a `TextView`, marked with an id of "custom_font" so we can access it in our code.
 
