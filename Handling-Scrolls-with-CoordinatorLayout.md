@@ -65,7 +65,7 @@ So long as the CoordinatorLayout is used as the primary layout, this animation e
 
 <img src="http://imgur.com/X5AIH0P.gif" width="350"/>
 
-The first step is to make sure you are not using the deprecated ActionBar.  Make sure to follow the [[Using the ToolBar as ActionBar|Defining-The-ActionBar#using-toolbar-as-actionbar]] guide.  Also make sure that the CoordinatorLayout is the main layout container.
+The first step is to make sure you are not using the deprecated ActionBar.  Make sure to follow the [[Using the ToolBar as ActionBar|Using-the-App-Toolbar#using-toolbar-as-actionbar]] guide.  Also make sure that the CoordinatorLayout is the main layout container.
 
 ```xml
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
