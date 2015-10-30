@@ -72,6 +72,8 @@ Picasso.with(this).load("url").into(target);
 
 You can still use all normal Picasso options like `resize`, `fit`, etc.
 
+**Note:** The `Target` object must be **stored as a member field or method and cannot be an anonymous class otherwise this won't work as expected. In other words, you are not allowed to do `Picasso.with(this).load("url").into(new Target() { ... })`.
+
 ### Showing ProgressBar with Picasso
 
 We can add a progress bar or otherwise handle callbacks for an image that is loading with:
