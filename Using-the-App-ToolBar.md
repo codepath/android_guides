@@ -107,6 +107,13 @@ The above code results in the toolbar fully replacing the ActionBar at the top:
 
 From this point on, all menu items are displayed in your Toolbar, populated via the standard options menu callbacks.
 
+## Reacting to Scroll
+
+We can configure the `ToolBar` to react and change as the page scrolls:
+
+![](http://i.imgur.com/TpiuygV.gif)
+
+Refer to the [[guide on CoordinatorLayout and AppBarLayout|Handling-Scrolls-with-CoordinatorLayout#expanding-and-collapsing-toolbars]] for the specifics.
 ### Styling the Toolbar
 
 The Toolbar can be customized in many ways leveraging various style properties including `android:theme`, `app:titleTextAppearance`, `app:popupTheme`. Each of these can be mapped to a style. Start with:
@@ -201,11 +208,3 @@ TextView mTitle = (TextView) toolbar.findViewById(R.id.toolbar_title);
 This results in:
 
 <img src="http://i.imgur.com/2Lu7Eru.png" width="450" />
-
-## Reacting to Scroll
-
-We can configure the `ToolBar` to react and change as the page scrolls:
-
-![](http://i.imgur.com/TpiuygV.gif)
-
-Refer to the [[guide on CoordinatorLayout and AppBarLayout|Handling-Scrolls-with-CoordinatorLayout#expanding-and-collapsing-toolbars]] for the specifics.
