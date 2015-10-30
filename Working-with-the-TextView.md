@@ -2,7 +2,7 @@
 
 Every Android device comes with a collection of standard fonts: Droid Sans, Droid Sans Mono and Droid Serif. They were designed to be optimal for mobile displays, so these are the three fonts you will be working with most of the time and they can be styled using a handful of XML attributes. You might, however, see the need to use custom fonts for special purposes. 
 
-This guide will take a look at the [TextView](http://developer.android.com/reference/android/widget/TextView.html) and discuss common properties associated with this view as well as how to setup custom typefaces.
+This guide will take a look at the [TextView](http://developer.android.com/reference/androcuid/widget/TextView.html) and discuss common properties associated with this view as well as how to setup custom typefaces.
 
 ## Text Attributes
 
@@ -178,9 +178,13 @@ In addition, review [this stackoverflow post](http://stackoverflow.com/questions
 
 ## Using Custom Fonts
 
-We can actually use any custom font that we'd like within our applications. Check out [fontsquirrel](http://www.fontsquirrel.com/) for an easy source of free fonts. For example, we can download [Chantelli Antiqua](http://www.fontsquirrel.com/fonts/Chantelli-Antiqua) as an example. Download it and **place the TTF file in the ./assets/fonts directory**.
+We can actually use any custom font that we'd like within our applications. Check out [fontsquirrel](http://www.fontsquirrel.com/) for an easy source of free fonts. For example, we can download [Chantelli Antiqua](http://www.fontsquirrel.com/fonts/Chantelli-Antiqua) as an example. 
 
-We're going to use a basic layout file with a TextView, marked with an id of "custom_font" so we can access it in our code.
+Fonts are stored in the "assets" folder. In Android Studio, `File > New > folder > Assets Folder`. Now download any font and **place the TTF file in the `assets/fonts` directory**:
+
+![](http://i.imgur.com/vZanruc.png)
+
+We're going to use a basic layout file with a `TextView`, marked with an id of "custom_font" so we can access it in our code.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
