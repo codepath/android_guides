@@ -21,7 +21,7 @@ As stated in the overview, there are three different default typefaces which are
 
 Here's how they look:
 
-![Fonts](https://i.imgur.com/or5z86M.png)
+<img alt="fonts" src="http://i.imgur.com/BES7g98.png" width="400" />
 
 In addition to the above, there is another attribute value named "normal" which defaults to the sans typeface.
 
@@ -38,6 +38,10 @@ The `android:textStyle` attribute can be used to put emphasis on the text. The p
 />
 ```
 
+A sampling of styles can be seen below:
+
+<img alt="style" src="http://i.imgur.com/BcX2r9O.png" width="400" />
+
 ### Text Size
 
 `android:textSize` specifies the font size. Its value must consist of two parts: a floating-point number followed by a unit. It is generally a good practice to use the `sp` unit so the size can scale depending on user settings.
@@ -46,10 +50,16 @@ The `android:textStyle` attribute can be used to put emphasis on the text. The p
 <TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="15sp is the 'normal' size."
-    android:textSize="15sp"
+    android:text="14sp is the 'normal' size."
+    android:textSize="14sp"
 />
 ```
+
+A sampling of styles can be seen below:
+
+<img alt="style" src="http://i.imgur.com/4pimMzN.png" width="400" />
+
+Too many type sizes and styles at once can wreck any layout. The basic set of styles are based on a typographic scale of 12, 14, 16, 20, and 34. Refer to this [typography styles guide](https://www.google.com/design/spec/style/typography.html#typography-styles) for more details. 
 
 ### Text Truncation
 
@@ -60,7 +70,7 @@ There are a few ways to truncate text within a `TextView`. First, to restrict th
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minLines="1"
-    android:maxLines="3"
+    android:maxLines="2"
 />
 ```
 
@@ -68,14 +78,17 @@ In addition, we can use `android:ellipsize` to begin truncating text
 
 ```xml
 <TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    ...
     android:ellipsize="end"
     android:singleLine="true"
 />
 ```
 
-Following values are available for `ellipsize`: `start` for `...bccc`, `end` for `aaab...`, `middle` for `aa...cc`, and `marquee` for `aaabbbccc` sliding from left to right. There is a known issue with **ellipsize and multi-line text**, see [this MultiplelineEllipsizeTextView library](https://github.com/IPL/MultiplelineEllipsizeTextView) for an alternative.
+Following values are available for `ellipsize`: `start` for `...bccc`, `end` for `aaab...`, `middle` for `aa...cc`, and `marquee` for `aaabbbccc` sliding from left to right. Example:
+
+<img alt="style" src="http://i.imgur.com/NoKo7Ou.png" width="400" />
+
+There is a known issue with **ellipsize and multi-line text**, see [this MultiplelineEllipsizeTextView library](https://github.com/IPL/MultiplelineEllipsizeTextView) for an alternative.
 
 ### Text Shadow
 
@@ -202,7 +215,7 @@ We're going to use a basic layout file with a `TextView`, marked with an id of "
 </LinearLayout>
 ```
 
-Open your main activity file and insert this into the `onCreate()` method:
+To set the custom font manually, open your activity file and insert this into the `onCreate()` method:
 
 ```java
 // Get access to our TextView
@@ -213,11 +226,17 @@ Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Chantelli_Antiqua.t
 txt.setTypeface(font);
 ```
 
-And this will result in:
+Alternatively, you can use the third-party [calligraphy library](https://github.com/chrisjenx/Calligraphy):
 
-![Custom](https://i.imgur.com/WW2QWpe.png)
+```
+<TextView fontPath="fonts/Chantelli_Antiqua.ttf"/>
+```
 
-You'll also want to keep an eye on the total size of your custom fonts, as this can grow quite large if you're using a lot of different typefaces.
+Either method will will result in:
+
+<img alt="custom" src="http://i.imgur.com/jlTQpEY.png" width="400" />
+
+You'll also want to keep an eye on the total size of your custom fonts, as this can grow quite large if you're using a lot of different typefaces. 
 
 ## Using Spans to Style Sections of Text
 
