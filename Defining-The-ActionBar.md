@@ -204,7 +204,7 @@ Now you need to add a `Toolbar` to your Activity layout file. One of the biggest
       android:background="?attr/colorPrimary">
     </android.support.v7.widget.Toolbar>
 
-    ...
+    <!-- Layout for content is here. This can be a RelativeLayout  -->
 
 </LinearLayout>
 ```
@@ -248,6 +248,101 @@ The above code results in the toolbar fully replacing the ActionBar at the top:
 <img src="http://i.imgur.com/lucP1wY.png" width="400" />
 
 From this point on, all menu items are displayed in your Toolbar, populated via the standard options menu callbacks.
+
+### Styling the Toolbar
+
+The Toolbar can be customized in many ways leveraging various style properties including `android:theme`, `app:titleTextAppearance`, `app:popupTheme`. Each of these can be mapped to a style. Start with:
+
+```xml
+<android.support.v7.widget.Toolbar
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="?attr/actionBarSize"  
+    android:theme="@style/ToolbarTheme"
+    app:titleTextAppearance="@style/Toolbar.TitleText"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+/>
+```
+
+Now, we need to create the custom styles in `res/styles.xml` with:
+
+```xml
+<!-- Base application theme. -->
+<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+  <!-- Customize your theme here. -->
+  <item name="colorPrimary">@color/colorPrimary</item>
+  <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+  <item name="colorAccent">@color/colorAccent</item>
+</style>
+
+<style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+  <!-- This would set the toolbar's background color -->
+  <item name="android:background">@color/colorPrimary</item>
+  <!-- android:textColorPrimary is the color of the title text in the Toolbar  -->
+  <item name="android:textColorPrimary">@android:color/holo_blue_light</item>
+  <!-- android:actionMenuTextColor is the color of the text of action (menu) items  -->
+  <item name="actionMenuTextColor">@android:color/holo_green_light</item>
+  <!-- Enable these below if you want clicking icons to trigger a ripple effect -->
+  <!-- 
+  <item name="selectableItemBackground">?android:selectableItemBackground</item>
+  <item name="selectableItemBackgroundBorderless">?android:selectableItemBackground</item> 
+  -->
+</style>
+
+<!-- This configures the styles for the title within the Toolbar  -->
+<style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+    <item name="android:textSize">21sp</item>
+    <item name="android:textStyle">italic</item>
+</style>
+```
+
+This results in:
+
+<img src="http://i.imgur.com/uLWp8Rl.png" width="450" />
+
+### Custom Title View
+
+A `Toolbar` is just a decorated `ViewGroup` and as a result, the title contained within can be completely customized by embedding a view within the Toolbar such as:
+
+```xml
+<android.support.v7.widget.Toolbar
+    android:id="@+id/toolbar"
+    android:minHeight="?attr/actionBarSize"  
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:titleTextColor="@android:color/white"
+    android:background="?attr/colorPrimary">
+
+     <TextView
+        android:id="@+id/toolbar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Toolbar Title"
+        android:textColor="@android:color/white"
+        style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+        android:layout_gravity="center"
+     />
+
+</android.support.v7.widget.Toolbar>
+```
+
+This means that you can style the `TextView` like any other. You can access the `TextView` inside your activity with:
+
+```java
+/* Inside the activity */
+// Sets the Toolbar to act as the ActionBar for this Activity window.
+Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+setSupportActionBar(toolbar);
+// Remove default title text
+getSupportActionBar().setDisplayShowTitleEnabled(false);
+// Get access to the custom title view
+TextView mTitle = (TextView) toolbar.findViewById(R.id.toolbar_title);
+```
+
+This results in:
+
+<img src="http://i.imgur.com/2Lu7Eru.png" width="450" />
 
 ## References
 
