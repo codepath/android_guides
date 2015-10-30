@@ -206,6 +206,6 @@ getSupportActionBar().setDisplayShowTitleEnabled(false);
 TextView mTitle = (TextView) toolbar.findViewById(R.id.toolbar_title);
 ```
 
-This results in:
+Note that you **must hide the default title using `setDisplayShowTitleEnabled`**. This results in:
 
 <img src="http://i.imgur.com/2Lu7Eru.png" width="450" />
