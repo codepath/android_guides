@@ -74,7 +74,7 @@ Next, you need to define your fragments that will be displayed within the drawer
 
 ### Setup Toolbar
 
-In order to slide our navigation drawer over the ActionBar, we need to use the new [[Toolbar|Defining-The-ActionBar#toolbar-basics]] widget as defined in the AppCompat v21 library. The `Toolbar` can be embedded into your view hierarchy which makes sure that the drawer slides over the `ActionBar`.
+In order to slide our navigation drawer over the ActionBar, we need to use the new [[Toolbar|Using-the-App-ToolBar]] widget as defined in the AppCompat v21 library. The `Toolbar` can be embedded into your view hierarchy which makes sure that the drawer slides over the `ActionBar`.
 
 Create a new layout file `res/layout/toolbar.xml` with the following code:
 

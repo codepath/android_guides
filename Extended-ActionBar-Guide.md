@@ -477,7 +477,7 @@ For **Holo-based themes**, to add support for the split-action bar, just add the
 </manifest>
 ```
 
-**Note:** Split action bar **only works with Holo-based themes. `splitActionBarWhenNarrow` is **not supported** by `Theme.Material` or the `appcompat-v7` actionbar backport. If you wish to use either Theme.Material or appcompat-v7, you will **need to create your own** "split action bar", by having a [[Toolbar at the bottom|Defining-The-ActionBar#toolbar-basics]] of the screen that you populate separately. See the [sample code for a split toolbar](https://github.com/commonsguy/cw-omnibus/tree/master/Toolbar/SplitActionBar2) here.
+**Note:** Split action bar **only works with Holo-based themes. `splitActionBarWhenNarrow` is **not supported** by `Theme.Material` or the `appcompat-v7` actionbar backport. If you wish to use either Theme.Material or appcompat-v7, you will **need to create your own** "split action bar", by having a [[Toolbar at the bottom|Using-the-App-ToolBar]] of the screen that you populate separately. See the [sample code for a split toolbar](https://github.com/commonsguy/cw-omnibus/tree/master/Toolbar/SplitActionBar2) here.
 
 ## Libraries
 

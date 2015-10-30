@@ -88,7 +88,7 @@ Take a look at the [Material Design Checklist](http://android-developers.blogspo
 
 <img src="https://i.imgur.com/hPOFJUf.gif" width="250" alt="drawer" />
 
-Check out our [[Material Navigation Drawer|Fragment-Navigation-Drawer#usage]] guide for a step-by-step tutorial for setting up the updated material navigation drawer behavior. Note that to do this properly, you'll need to [[replace your ActionBar with a Toolbar|Defining-The-ActionBar#using-toolbar-as-actionbar]].
+Check out our [[Material Navigation Drawer|Fragment-Navigation-Drawer#usage]] guide for a step-by-step tutorial for setting up the updated material navigation drawer behavior. Note that to do this properly, you'll need to [[replace your ActionBar with a Toolbar|Using-the-App-ToolBar#using-toolbar-as-actionbar]].
 
 ## Material Views
 
@@ -110,7 +110,7 @@ Android 5.0 introduces a [[new widget called CardView|Using-the-CardView]] which
 
 ### Toolbar
 
-With our material themes, there is now a spiritual successor to the `ActionBar` called the [[Toolbar|Defining-The-ActionBar#toolbar-basics]]. 
+With our material themes, there is now a spiritual successor to the `ActionBar` called the [[Toolbar|Using-the-App-ToolBar]]. 
 
 ![Toolbar](https://i.imgur.com/dGzDoDSm.png)
 
