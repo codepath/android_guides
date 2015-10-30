@@ -45,9 +45,36 @@ Picasso.with(this).load(imageUrl).
   resize(someWidth, 0).into(imageView);
 ```
 
+### Using Target for Custom Loading
+
+In more sophisticated situations, you might want to handle the bitmap manually after the image is available. To do this, we first define a `Target` object that governs how the Bitmap is handled:
+
+```java
+private Target target = new Target() {
+    @Override
+    public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {  
+       // Bitmap is loaded, use image here
+       imageView.setImageBitmap(bitmap);
+    }
+
+    @Override
+    public void onBitmapFailed() {
+        // Fires if bitmap couldn't be loaded.
+    }
+}
+```
+
+Next, we can use the `Target` with a Picasso call with:
+
+```
+Picasso.with(this).load("url").into(target);
+```
+
+You can still use all normal Picasso options like `resize`, `fit`, etc.
+
 ### Showing ProgressBar with Picasso
 
-We can add a progress bar or otherwise handle callbacks while an image is loading with:
+We can add a progress bar or otherwise handle callbacks for an image that is loading with:
 
 ```java
 // Show progress bar
