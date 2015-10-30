@@ -90,6 +90,24 @@ Following values are available for `ellipsize`: `start` for `...bccc`, `end` for
 
 There is a known issue with **ellipsize and multi-line text**, see [this MultiplelineEllipsizeTextView library](https://github.com/IPL/MultiplelineEllipsizeTextView) for an alternative.
 
+### Text Color
+
+The `android:textColor` and `android:textColorLink` attribute values are hexadecimal RGB values with an optional alpha channel, similar to what's found in CSS:
+
+```xml
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="A light blue color."
+    android:textColor="#00ccff"
+    android:textColorLink="#8DE67F"
+/>
+```
+
+The `android:textColorLink` attribute controls the highlighting for [[hyperlinks embedded within the TextView|Working-with-the-TextView#inserting-html-formatting]]. This results in:
+
+![](http://i.imgur.com/UlLSrEG.png)
+
 ### Text Shadow
 
 You can use three different attributes to customize the appearance of your text shadow:
@@ -107,40 +125,15 @@ The floating point numbers don't have a specific unit - they are merely arbitrar
     android:layout_height="wrap_content"
     android:text="A light blue shadow."
     android:shadowColor="#00ccff"
-    android:shadowRadius="1.5"
+    android:shadowRadius="2"
     android:shadowDx="1"
     android:shadowDy="1"
 />
 ```
 
-### Text Color
+This results in:
 
-The `android:textColor` attribute's value is a hexadecimal RGB value with an optional alpha channel, similar to what's found in CSS:
-
-```xml
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="A light blue color."
-    android:textColor="#00ccff"
-/>
-```
-
-### Related Text Colors
-
-There are several related text color properties in addition such as `android:textColorHighlight`, `android:textColorHint`, and `android:textColorLink` which affect the properties for highlighting, hint, and link color respectively:
-
-```xml
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textColorHighlight="#7C82D2"
-    android:textColorHint="#2DC942"
-    android:textColorLink="#8DE67F"
-/>
-```
-
-In cases where we want to change the TextView colors within the theme itself, we need to [modify the styles.xml](http://stackoverflow.com/a/21984419) in these cases.
+![](http://i.imgur.com/blFEHxX.png)
 
 ## Inserting HTML Formatting
 
@@ -148,10 +141,14 @@ TextView natively supports [HTML](http://developer.android.com/reference/android
 
 ```java
 TextView view = (TextView)findViewById(R.id.sampleText);
-String formattedText = "This <i>is</i> a <b>test</b>";
+String formattedText = "This <i>is</i> a <b>test</b> of <a href='http://foo.com'>html</a>";
 // or getString(R.string.htmlFormattedText);
 view.setText(Html.fromHtml(formattedText));
 ```
+
+This results in:
+
+![](http://i.imgur.com/PEl2EKl.png)
 
 Note that all tags are not supported. See [this article](http://javatechig.com/android/display-html-in-android-textview) for a more detailed look at supported tags and usages. If you want to store your HTML text within `res/values/strings.xml`, you have to use CDATA to escape such as:
 
@@ -182,6 +179,10 @@ TextView has [native support](http://developer.android.com/reference/android/wid
      android:linksClickable="true"
 />
 ```
+
+This results in:
+
+![](http://i.imgur.com/73bwaRm.png)
 
 ### Issues with ListView
 
