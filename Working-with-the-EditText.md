@@ -228,7 +228,7 @@ The `TextInputLayout` simply needs to define `app:counterEnabled` and `app:Count
     app:counterEnabled="true"
     app:counterMaxLength="10"
     app:counterTextAppearance="@style/counterText"
-    app:counterOverflowTextAppearance="@style/counterOverride"
+    app:counterOverflowTextAppearance="@style/counterOverride">
     <EditText
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
