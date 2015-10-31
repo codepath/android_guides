@@ -13,6 +13,12 @@ This guide explains how to setup a basic material design style drawer filled wit
 
 Make sure to setup the Google [[Design Support Library]] before using Google's new [NavigationView](https://developer.android.com/reference/android/support/design/widget/NavigationView.html), announced as part of the Android M release.  The NavigationView should be backwards compatible with all versions down to Android 2.1.
 
+Make sure you have this Gradle dependency added:
+
+```gradle
+compile 'com.android.support:design:23.1.0'
+```
+
 ### Download Nav Drawer Item icons
 
 Download the following icons and add them to your drawable folders by copying and pasting them into the drawable folder or using the `New Image Asset` dialog to create versions for each density.  
@@ -157,12 +163,6 @@ Next, let's setup a basic navigation drawer based on the following layout file w
         android:background="@android:color/white"
         app:menu="@menu/drawer_view" />
 </android.support.v4.widget.DrawerLayout>
-```
-
-Follow the [[setup guide|Design-Support-Library#setup]] for the Design Support library and make sure you have this Gradle dependency added:
-
-```gradle
-compile 'com.android.support:design:23.1.0'
 ```
 
 Now, let's setup the drawer in our activity.  We can also setup the menu icon too.
