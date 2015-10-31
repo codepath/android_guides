@@ -204,8 +204,9 @@ Note you can **still define an `onCreateOptionsMenu` method** in your Activity t
 
 ### Adding ActionView Items
 
-Unlike regular menu items, an action view is a widget that appears in the action bar as a substitute for an action button. ActionView is a full fledged 
-view that is constructed via a layout XML file which is embedded into the ActionBar. First, you need to create the XML layout that will be embedded in the ActionBar in `res/layout/action_view_button.xml`:
+If you want to provide a menu item beyond simply icon or text, such as providing a more interactive widget, an Action View enables you to do so.  The most common Action View is the `SearchView`, which collapses to show only the search icon and expands to show an `EditText` when the user has clicked an icon. You can also use an Action View to create a custom layout too.
+
+An ActionView is a full fledged view that is constructed via a layout XML file which is embedded into the ActionBar. First, you need to create the XML layout that will be embedded in the ActionBar in `res/layout/action_view_button.xml`:
 
 ```xml
 <!-- res/layout/action_view_button.xml -->
