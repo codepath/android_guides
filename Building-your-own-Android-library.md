@@ -208,12 +208,34 @@ If you published multiple versions of your package as described [[here|Building-
 
 ```gradle
 dependencies {
-  releaseCompile('com.codepath:mylibrary:0.4-SNAPSHOT:release@aar') {
+  releaseCompile('com.codepath:mylibrary:0.4:release@aar') {
     transitive=true
   }
   debugCompile('com.codepath:mylibrary:0.4-SNAPSHOT:debug@aar') {
     transitive=true
   }
+}
+```
+
+#### Prevent caching
+
+If you are making constant changes to your snapshot versions and wish to have the latest updates pulled each time, you can mark the dependency as a **changing module** in Gradle:
+
+```gradle
+dependencies {
+  debugCompile('com.codepath:mylibrary:0.4-SNAPSHOT:debug@aar') {
+    transitive=true
+    changing=true
+  }
+}
+```
+  
+Gradle will normally cache the module for 24 hours for those marked as changing, but you can lower this setting:
+
+```gradle
+configurations.all {
+    // check for updates every build
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
 }
 ```
 
