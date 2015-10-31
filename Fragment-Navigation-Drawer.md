@@ -159,10 +159,10 @@ Next, let's setup a basic navigation drawer based on the following layout file w
 </android.support.v4.widget.DrawerLayout>
 ```
 
-Add Gradle dependency support, and sync with gradle:
+Follow the [[setup guide|Design-Support-Library#setup]] for the Design Support library and make sure you have this Gradle dependency added:
 
-```
-compile 'com.android.support:design:22.2.0'
+```gradle
+compile 'com.android.support:design:23.1.0'
 ```
 
 Now, let's setup the drawer in our activity.  We can also setup the menu icon too.
