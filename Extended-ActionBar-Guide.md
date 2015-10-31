@@ -21,35 +21,9 @@ In the [[Defining ActionBar|Defining-The-ActionBar#actionbar-basics]] cliffnotes
 
 ### Setting up AppCompatActivity
 
-In order to ensure that the ActionBar works on all Android versions, we are going to use [AppCompatActivity](https://developer.android.com/reference/android/support/v7/app/AppCompatActivity.html) to setup our support ActionBar.
+In order to ensure that the ActionBar works on all Android versions, we are going to use [AppCompatActivity](https://developer.android.com/reference/android/support/v7/app/AppCompatActivity.html) to setup our support ActionBar.  Follow the [[AppCompat setup guide|Migrating-to-the-AppCompat-Library]] to make sure you're including the library.  
 
-First, add the following line to your `app/build.gradle` file:
-
-```gradle
-apply plugin: 'com.android.application'
-
-//...
-
-dependencies {
-    // ...
-    compile 'com.android.support:appcompat-v7:22.2.1' 
-    // or if not compiling to SDK 21 see note below and use:
-    // compile 'com.android.support:appcompat-v7:22.2.1'  
-}
-```
-
-Make sure to bump your `compileSdkVersion` to API version 21.  Otherwise the AppCompat library will not assume the Material Design themes should be included.
-
-```gradle
-android {
-
-   compileSdkVersion 21
-   buildToolsVersion "22.0.1" 
- 
-}
-```
-
-Once it's added, be sure to sync your project with the gradle file (`Tools => Android => Sync Project with Gradle Files`) and make sure any applicable activities are now extending from `AppCompatActivity` in order to enable
+Once the library has been added, be sure to sync your project with the gradle file (`Tools => Android => Sync Project with Gradle Files`) and make sure any applicable activities are now extending from `AppCompatActivity` in order to enable
 the compatibility fragments and action bar:
 
 ```java
