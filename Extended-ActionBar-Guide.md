@@ -251,7 +251,7 @@ view that is constructed via a layout XML file which is embedded into the Action
 Next, we can attach that layout to any item by specifying the `app:action_layout` property:
 
 ```xml
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/miActionButton"
         app:showAsAction="ifRoom"
