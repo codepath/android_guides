@@ -442,13 +442,10 @@ but can also be left blank:
 
 ```xml
 <menu xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
-
- <group>
-   <item android:id="@+id/nav_switch"
-         app:actionLayout="@layout/action_view_switch"
-         android:title="Downloaded only" />
-   </item>
- </group>
+  <item android:id="@+id/nav_switch"
+        app:actionLayout="@layout/action_view_switch"
+        android:title="Downloaded only" />
+  </item>
 </menu>
 ```
 
