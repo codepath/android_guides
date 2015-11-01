@@ -438,7 +438,7 @@ The approach is the same as adding [[ActionView items|Extended-ActionBar-Guide#a
 ```
 
 We then reference this layout using the `app:actionLayout` attribute.  A title must be provided
-but can also be left blank:
+but can also be set to blank:
 
 ```xml
 <menu xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
