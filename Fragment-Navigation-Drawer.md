@@ -437,7 +437,7 @@ The approach is the same as adding [[ActionView items|Extended-ActionBar-Guide#a
 </LinearLayout>
 ```
 
-We then reference this layout using the `actionLayout` reference.  A title must be provided
+We then reference this layout using the `app:actionLayout` attribute.  A title must be provided
 but can also be left blank:
 
 ```xml
