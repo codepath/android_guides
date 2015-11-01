@@ -309,6 +309,19 @@ You would then reference this in the layout `res/layout/activity_main.xml` in th
     </android.support.design.widget.NavigationView>
 ```
 
+This `app:headerLayout` inflates the specified layout into the header automatically. This can alternatively be done at runtime with:
+
+```java
+// Lookup navigation view
+NavigationView navigationView = (NavigationView) findViewById(R.id.nav_draw);
+// Inflate the header view at runtime
+View headerLayout = navigationView.inflateHeaderView(R.layout.nav_header);
+// We can now look up items within the header if needed
+ImageView ivHeaderPhoto = headerLayout.findViewById(R.id.imageView);
+```
+
+**Note:** Version `23.1.0` of the design support library switches `NavigationView` to using a `RecyclerView` and causes NPE (null exceptions) on header lookups unless the header is added at runtime. See [this bug](https://code.google.com/p/android/issues/detail?id=190226) and [this stackoverflow post](http://stackoverflow.com/a/33194816/313399) for more details. Remove this note once the latest version has been corrected this issue.
+
 ## Animate the Hamburger Icon
 
 <img src="http://imgur.com/ekmWl7q.gif"/>
