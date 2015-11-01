@@ -297,7 +297,7 @@ The resulting layout appears as follows:
 
 In a frame layout, the children are displayed with a z-index in the order of how they appear.  Put simply, the last child added to a `FrameLayout` will be drawn on top of all the previous children.  Think of it like a stack of items, the item last put on the stack will be drawn on top of the items below it.  This layout makes it very easy to draw on top of other layouts, especially for tasks such as button placement. 
 
-To arrange the children inside of a `FrameLayout` use the `android:gravity` attribute along with whatever `android:padding` and `android:margin` you need. 
+To arrange the children inside of a `FrameLayout` use the `android:layout_gravity` attribute along with whatever `android:padding` and `android:margin` you need. 
 
 Example of FrameLayout snippet:
 ```xml
