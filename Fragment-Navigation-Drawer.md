@@ -416,6 +416,44 @@ In `res/values-v19/styles.xml` we can add the following:
 
 Now if you run your app, you should see the navigation drawer and be able to select between your fragments.
 
+## Adding custom views to navigation drawer
+
+One improvement made to the design support library 23.1.0 is the addition of support for custom views for the navigation drawer items.  For instance, we can create a custom switch like the navigation drawer from Google Play Movies for one of the rows:
+
+<img src="http://i.imgur.com/gCgB5PQ.png"/>
+ 
+The approach is the same as adding [[ActionView items|Extended-ActionBar-Guide#adding-actionview-items]] to the ActionBar.  We simply need to define a separate layout such as the following snippet.  We will call this file `action_view_switch.xml`:
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.SwitchCompat
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:text="Switch"/>
+</LinearLayout>
+```
+
+We then reference this layout using the `actionLayout` reference.  A title must be provided
+but can also be left blank:
+
+```xml
+<menu xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:android="http://schemas.android.com/apk/res/android">
+
+ <group>
+   <item android:id="@+id/nav_switch"
+         app:actionLayout="@layout/action_view_switch"
+         android:title="Downloaded only" />
+   </item>
+ </group>
+</menu>
+```
+
+Custom widgets using `app:actionViewClass` can also be used too for menu items as well now too.  For more details about how Action Views, see adding the [[SearchView to ActionBar|Extended-ActionBar-Guide#adding-searchview-to-actionbar]] guide. 
+
 ## Persistent Navigation Drawer
 
 In certain situations, especially on tablets, the navigation drawer should be a permanent fixture on the activity acting as a sidebar:
