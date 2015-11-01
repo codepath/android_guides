@@ -231,7 +231,7 @@ You also need to add the service to your `AndroidManifest.xml` file:
 </service>
 ```
 
-## Create Broadcast Receiver and Message Handler
+### Create Broadcast Receiver and Message Handler
 
 In the past, Google required implementing a [WakefulBroadcastReceiver](https://developer.android.com/training/scheduling/wakelock.html) that would launch a service that would process this GCM message.  It now provides `com.google.android.gms.gcm.GcmReceiver` that simply needs to be defined in your `AndroidManifest.xml` file:
 
