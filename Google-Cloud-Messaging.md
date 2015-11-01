@@ -221,7 +221,7 @@ public class MyInstanceIDListenerService extends InstanceIDListenerService {
 
 You also need to add the service to your `AndroidManifest.xml` file:
 
-```java
+```xml
 <service
   android:name="com.example.MyInstanceIDListenerService"
   android:exported="false">
@@ -229,6 +229,7 @@ You also need to add the service to your `AndroidManifest.xml` file:
      <action android:name="com.google.android.gms.iid.InstanceID"/>
   </intent-filter>
 </service>
+```
 
 ## Create Broadcast Receiver and Message Handler
 
