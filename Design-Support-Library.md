@@ -106,6 +106,8 @@ Currently, the source code for CoordinatorLayout and AppBarLayout do not appear 
 
 - A new item animation interface for the `RecyclerView`.  ([[view guide|Using-the-RecyclerView#new-itemanimator-interface]])
 
+- Custom views can be provided for `NavigationView` rows.  ([[view guide|Fragment-Navigation-Drawer#adding-custom-views-to-navigation-drawer]])
+
 ## References
 
 * <https://medium.com/android-bites/first-steps-with-the-design-support-library-8dcf06230ddd>
