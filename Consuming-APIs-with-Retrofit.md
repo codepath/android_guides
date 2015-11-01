@@ -389,7 +389,7 @@ The lint errors should be suppressed and not trigger any additional errors for n
 
 ## Troubleshooting 
 
-Retrofit and OkHttp can be hard to troubleshoot.  Facebook's [Stetho](http://facebook.github.io/stetho/) project enables you to use Chrome to inspect all network traffic.
+Retrofit and OkHttp can be hard to troubleshoot when trying to step through the various layers of abstraction in the libraries.  Facebook's [Stetho](http://facebook.github.io/stetho/) project enables you to use Chrome to inspect all network traffic.
 
 <img src="http://facebook.github.io/stetho/static/images/inspector-network.png"/>
 
