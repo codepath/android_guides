@@ -424,7 +424,7 @@ One improvement made to the design support library 23.1.0 is the addition of sup
  
 The approach is the same as adding [[ActionView items|Extended-ActionBar-Guide#adding-actionview-items]] to the ActionBar.  We simply need to define a separate layout such as the following snippet.  We will call this file `action_view_switch.xml`:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
