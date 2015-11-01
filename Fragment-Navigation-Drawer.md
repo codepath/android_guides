@@ -13,10 +13,12 @@ This guide explains how to setup a basic material design style drawer filled wit
 
 Make sure to setup the Google [[Design Support Library]] before using Google's new [NavigationView](https://developer.android.com/reference/android/support/design/widget/NavigationView.html), announced as part of the Android M release.  The NavigationView should be backwards compatible with all versions down to Android 2.1.
 
-Make sure you have this Gradle dependency added:
+Make sure you have this Gradle dependency added to your `app/build.gradle` file:
 
 ```gradle
-compile 'com.android.support:design:23.1.0'
+dependencies {
+  compile 'com.android.support:design:23.1.0'
+}
 ```
 
 ### Download Nav Drawer Item icons
