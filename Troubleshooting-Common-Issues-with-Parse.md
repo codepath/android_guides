@@ -281,3 +281,37 @@ roleACL.setRoleReadAccess("Engineer", true);
 roleACL.setRoleWriteAccess("Engineer", true);
 myObj.setACL(reportACL);
 ```
+
+## Troubleshooting network issues
+
+There are several different ways for inspecting the network traffic between Parse and your emulator or device.  You can send all network calls through LogCat, or you can leverage Facebook's [Stetho](https://code.facebook.com/posts/393927910787513/stetho-a-new-debugging-platform-for-android/) project to monitor the traffic using Chrome's network inspector.  Also see the [blog posting](http://blog.parse.com/announcements/parse-debugging-tools-identify-client-side-issues-faster/) for more details.
+
+<img src="http://blog.parse.com/wp-content/uploads/2015/09/image-1024x585.png"/>
+
+Add this dependency to your `app/build.gradle` file:
+
+```gradle
+dependencies {
+  compile 'com.parse:parseinterceptors:0.0.1'
+}
+```
+
+### Sending all network calls to LogCat
+
+Before you initialize Parse, add the network interceptor:
+
+```java
+Parse.addParseNetworkInterceptor(new ParseLogInterceptor());
+Parse.initialize(context, parseAppId, parseClientKey);
+```
+
+### Monitoring all network calls through Chrome
+
+You can add the `ParseStethoInterceptor` before initializing Parse: 
+
+```java
+Parse.addParseNetworkInterceptor(new ParseStethoInterceptor());
+Parse.initialize(context, parseAppId, parseClientKey);
+```
+
+Open Chrome and type `chrome://inspect`.  You should find a list of devices that you can track.  Click on the `inspect` and then click on the `Network` tab.
