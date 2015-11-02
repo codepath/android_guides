@@ -224,7 +224,7 @@ Note that when using `CollapsingToolbarLayout`, the status bar should be made tr
 </style>
 ```
 
-By enabling translucent system bars as shown above, your layout will fill the area behind the system bars, so you must also enable `android:fitsSystemWindow` for the portions of your layout that should not be covered by the system bars.
+By enabling translucent system bars as shown above, your layout will fill the area behind the system bars, so you must also enable `android:fitsSystemWindow` for the portions of your layout that should not be covered by the system bars. An additional workaround for API 19 which adds padding to avoid the status bar clipping views [can be found here](http://blog.raffaeu.com/archive/2015/04/11/android-and-the-transparent-status-bar.aspx).
 
 ### Creating Parallax Animations
 
