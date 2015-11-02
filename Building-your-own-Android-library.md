@@ -67,7 +67,7 @@ dependencies {
 
 #### Using with ButterKnife
 
-If you intend use the library with [ButterKnife](https://github.com/JakeWharton/butterknife/issues/45), you will have to that it does not work with Android libraries.  There are specific reasons for not supporting it as stated [here](https://github.com/JakeWharton/butterknife/issues/100).  For any existing code, you will have to convert your `@InjectView` annotations back to `findViewById()` calls.  
+If you intend use the library with [ButterKnife](https://github.com/JakeWharton/butterknife/issues/45), you will find that it does not work with Android libraries.  There are specific reasons for not supporting it as stated [here](https://github.com/JakeWharton/butterknife/issues/100).  For any existing code, you will have to convert your `@InjectView` annotations back to `findViewById()` calls.  
 
 ### Publishing
 
