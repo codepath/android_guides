@@ -193,7 +193,8 @@ If we want to create the collapsing toolbar effect, we must wrap the Toolbar ins
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_scrollFlags="scroll|enterAlways"></android.support.v7.widget.Toolbar>
-        </android.support.design.widget.CollapsingToolbarLayout>
+
+</android.support.design.widget.CollapsingToolbarLayout>
 ```
 
 Your result should now appears as:
