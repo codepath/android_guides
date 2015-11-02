@@ -16,7 +16,7 @@ callIntent.setData(Uri.parse("tel:0377778888"));
 startActivity(callIntent);
 ```
 
-## Send Email
+## Send Email (to Phone Email Client)
 
 Compose an email in the phone email client:
 
@@ -27,6 +27,23 @@ intent.putExtra(Intent.EXTRA_EMAIL, new String[] { "some@email.address" });
 intent.putExtra(Intent.EXTRA_SUBJECT, "subject");
 intent.putExtra(Intent.EXTRA_TEXT, "mail body");
 startActivity(Intent.createChooser(intent, ""));
+```
+
+## Send Email (to Gmail)
+
+Gmail does not examine the extra Intent fields, so in order to use this intent, you need to use the `Intent.ACTION_SENDTO` and pass a `mailto:` URI with the subject and body URL encoded.
+
+```java
+String uriText =
+    "mailto:youremail@gmail.com" + 
+    "?subject=" + Uri.encode("some subject text here") + 
+    "&body=" + Uri.encode("some text here");
+
+Uri uri = Uri.parse(uriText);
+
+Intent sendIntent = new Intent(Intent.ACTION_SENDTO);
+sendIntent.setData(uri);
+startActivity(Intent.createChooser(sendIntent, "Send email")); 
 ```
 
 ## Launch Website
