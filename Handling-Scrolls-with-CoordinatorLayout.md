@@ -205,8 +205,25 @@ Normally, we set the title of the Toolbar. Now, we need to set the title on the 
 ```java
    CollapsingToolbarLayout collapsingToolbar =
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        collapsingToolbar.setTitle("Title");
+   collapsingToolbar.setTitle("Title");
 ```
+
+Note that when using `CollapsingToolbarLayout`, the status bar should be made translucent (API 19) or transparent (API 21) as [shown in this file](https://github.com/chrisbanes/cheesesquare/blob/master/app/src/main/res/values-v21/styles.xml). In particular, the following styles should be set in `res/values-xx/styles.xml` as illustrated:
+
+```xml
+<!-- res/values-v19/styles.xml -->
+<style name="AppTheme" parent="Base.AppTheme">
+    <item name="android:windowTranslucentStatus">true</item>
+</style>
+
+<!-- res/values-v21/styles.xml -->
+<style name="AppTheme" parent="Base.AppTheme">
+    <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+    <item name="android:statusBarColor">@android:color/transparent</item>
+</style>
+```
+
+By enabling translucent system bars as shown above, your layout will fill the area behind the system bars, so you must also enable `android:fitsSystemWindow` for the portions of your layout that should not be covered by the system bars.
 
 ### Creating Parallax Animations
 
