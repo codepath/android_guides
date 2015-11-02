@@ -336,6 +336,23 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
+We can also explicitly override the "Up" button by :
+
+```java
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+        // This is the up button
+        case android.R.id.home:
+            NavUtils.navigateUpFromSameTask(this);
+            // overridePendingTransition(R.animator.anim_left, R.animator.anim_right);
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
+        }
+    }
+```
+
 #### Compile-time Configuration
 
 To specify the "up" activity at compile-time we can set the logical parent of an activity in the `AndroidManifest.xml`:
