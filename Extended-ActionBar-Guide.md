@@ -336,7 +336,7 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-We can also explicitly override the "Up" button by :
+We can also explicitly override the "Up" button in the AppBar in the `onOptionsItemSelected` by checking for the  `android.R.id.home` id being selected:
 
 ```java
     @Override
@@ -352,6 +352,8 @@ We can also explicitly override the "Up" button by :
         }
     }
 ```
+
+This allows us to configure the transition or otherwise handle behavior when the "up" button is pressed.
 
 #### Compile-time Configuration
 
