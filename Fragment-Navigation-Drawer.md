@@ -449,6 +449,20 @@ but can also be set to blank:
 </menu>
 ```
 
+You can attach events directly in XML so long as your Activity will implement the method.  To add an event handling to the toggle switch programmatically through Java, you will need to first get the menu instance and get access to the corresponding ActionView:
+
+```java
+Menu menu = navigationView.getMenu();
+MenuItem menuItem = menu.findItem(R.id.nav_switch);
+View actionView = MenuItemCompat.getActionView(menuItem);
+actionView.setOnClickListener(new View.OnClickListener() {
+  @Override
+  public void onClick(View v) {
+                
+  }
+});
+```
+
 Custom widgets using `app:actionViewClass` can also be used too for menu items as well now too.  For more details about how Action Views, see adding the [[SearchView to ActionBar|Extended-ActionBar-Guide#adding-searchview-to-actionbar]] guide. 
 
 ## Persistent Navigation Drawer
