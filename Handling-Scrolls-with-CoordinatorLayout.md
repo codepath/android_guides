@@ -234,15 +234,15 @@ The CollapsingToolbarLayout also enables us to do more advanced animations, such
 To create this effect, we add an ImageView and declare an `app:layout_collapseMode="parallax"` attribute to the tag.
 
 ```xml
-    <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/collapsing_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorPrimary"
-            app:expandedTitleMarginEnd="64dp"
-            app:expandedTitleMarginStart="48dp"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+<android.support.design.widget.CollapsingToolbarLayout
+    android:id="@+id/collapsing_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    app:contentScrim="?attr/colorPrimary"
+    app:expandedTitleMarginEnd="64dp"
+    app:expandedTitleMarginStart="48dp"
+    app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -258,7 +258,7 @@ To create this effect, we add an ImageView and declare an `app:layout_collapseMo
                 app:layout_collapseMode="parallax"
                 android:minHeight="100dp"/>
 
-        </android.support.design.widget.CollapsingToolbarLayout>
+</android.support.design.widget.CollapsingToolbarLayout>
 ```
 
 ## Custom Behaviors
