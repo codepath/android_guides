@@ -94,7 +94,7 @@ Currently, the source code for CoordinatorLayout and AppBarLayout do not appear 
 
 - `Resources.getColor()` has been deprecated.  You must now use `ContextCompat.getColor()` instead.  See this [Stack Overflow article](http://stackoverflow.com/questions/31590714/getcolorint-id-deprecated-on-android-6-0-marshmallow-api-23) or the official [API documentation](http://developer.android.com/reference/android/content/res/Resources.html).
 
-#### Changes in Support Library v23.1
+#### Changes in Support Library v23.1 
 
 - `TextInputLayout` and `EditText` now includes the ability to add a character counter.  ([[view guide |Working-with-the-EditText#adding-character-counting]])
  
@@ -117,3 +117,4 @@ Currently, the source code for CoordinatorLayout and AppBarLayout do not appear 
 * <https://medium.com/ribot-labs/exploring-the-new-android-design-support-library-b7cda56d2c32>
 * <https://plus.google.com/+AndroidDevelopers/posts/XTtNCPviwpj>
 * <https://code.google.com/p/android/issues/list?can=1&q=label%3AVersion-22.2.1>
+* <https://plus.google.com/+AndroidDevelopers/posts/RZutBRWN6sH?linkId=17978076>
