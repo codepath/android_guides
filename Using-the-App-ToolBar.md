@@ -1,6 +1,6 @@
 ## Overview
 
-`ToolBar` was introduced in Android Lollipop, API 21 release and is the spiritual successor of the ActionBar. It's a `ViewGroup` that can be placed anywhere in your layout. ToolBar's appearance can be more easily customized than the ActionBar. 
+`ToolBar` was introduced in Android Lollipop, API 21 release and is the spiritual successor of the [[ActionBar|Defining-The-ActionBar]]. It's a `ViewGroup` that can be placed anywhere in your XML layouts. ToolBar's appearance and behavior can be more easily customized than the ActionBar. 
 
 <img src="http://i.imgur.com/0auGknf.png" width="500" />
 
@@ -8,18 +8,18 @@ ToolBar works well with apps targeted to API 21 and above. However, Android has 
 
 There are two ways to use Toolbar:
 
- 1. Use a `Toolbar` as an Action Bar when you want to use the existing Action Bar facilities (such as menu inflation and selection, `ActionBarDrawerToggle`, and so on) but want to have more control over its appearance.
+ 1. Use a `Toolbar` as an Action Bar when you want to use the existing ActionBar facilities (such as menu inflation and selection, `ActionBarDrawerToggle`, and so on) but want to have more control over its appearance.
  2. Use a standalone `Toolbar` when you want to use the pattern in your app for situations that an Action Bar would not support; for example, showing multiple toolbars on the screen, spanning only part of the width, and so on.
 
 ### ToolBar vs ActionBar
 
-The ToolBar is a generalization of the ActionBar pattern. The key differences that distinguish the `ToolBar` from `ActionBar` are:
+The ToolBar is a generalization of the [[ActionBar system|Defining-The-ActionBar]]. The key differences that distinguish the `ToolBar` from the `ActionBar` include:
 
- * `ToolBar` is a `View` in the layout like any other view
+ * `ToolBar` is a `View` included in a layout like any other `View`
  * As a regular `View`, the toolbar is easier to position, animate and control 
- * Multiple different `ToolBar` can be defined within a single activity
+ * Multiple distinct `ToolBar` elements can be defined within a single activity
 
-Keep in that you can also set any `ToolBar` as your Activity’s action bar, meaning that your standard options menu actions will be display within.
+Keep in that you can also configure any `ToolBar` as an Activity’s ActionBar, meaning that your standard options menu actions will be display within.
 
 Note that the ActionBar continues to work and if **all you need is a static bar at the top** that can host icons and a back button, then you can safely continue to use `ActionBar`.
 
