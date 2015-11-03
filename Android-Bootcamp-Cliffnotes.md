@@ -96,6 +96,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Flexible User Interfaces]]
 * [[Starting Background Services]]
 * [[Notifications]]
+* [[Managing Threads and Custom Services]]
 * [[Android Testing Options]]
 * [Publishing to the Play Store](http://goo.gl/mUlGL1)
 * [[Popular External Tools]]
@@ -104,7 +105,6 @@ Cliffnotes are references giving you the "most important" Android topics with br
 ### Recommended
 
 * [[Handling Configuration Changes]]
-* [[Managing Threads and Custom Services]]
 * [[Menus and Popups]]
 * [[Using DialogFragment]]
 * [[Genymotion 2.0 Emulators with Google Play support]]
