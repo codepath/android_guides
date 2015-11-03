@@ -152,3 +152,6 @@ Defining custom scope(s) is highly recommended as it ????? TODO
 * [Jake Wharton's Devoxx Dagger 2 Slides](https://speakerdeck.com/jakewharton/dependency-injection-with-dagger-2-devoxx-2014)
 * [Dagger 2 Google Developers Talk](https://www.youtube.com/watch?v=oK_XtfXPkqw)
 * [Dagger 1 to Dagger 2](http://frogermcs.github.io/dagger-1-to-2-migration/)
+* [Testing Dagger 2 on Android](http://fernandocejas.com/2015/04/11/tasting-dagger-2-on-android/)
+* [Dazgger 2 Testing with Mockito](http://blog.sqisland.com/2015/04/dagger-2-espresso-2-mockito.html#sthash.IMzjLiVu.dpuf)
+
