@@ -8,9 +8,9 @@ Create a simple class for drawing that extends View called `SimpleDrawingView`:
 
 ```java
 public class SimpleDrawingView extends View {
-  public SimpleDrawingView(Context context, AttributeSet attrs) {
-    super(context, attrs);
-  }
+    public SimpleDrawingView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
 }
 ```
 
