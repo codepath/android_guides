@@ -8,7 +8,7 @@ This "standard pack" listed below are libraries that are quite popular, widely a
 
 | Name            | Description                                                 |  
 | ----            | ------------                                                |
-| [Retrofit](http://square.github.io/retrofit/) | A type-safe REST client for Android which intelligently maps an API into a client interface using annotations.            |
+| [Retrofit](http://square.github.io/retrofit/) | A type-safe [REST client for Android](http://guides.codepath.com/android/Consuming-APIs-with-Retrofit) which intelligently maps an API into a client interface using annotations.            |
 | [Picasso](http://square.github.io/picasso/) | A powerful image downloading and caching library for Android. |
 | [ButterKnife](http://jakewharton.github.io/butterknife/) | Using Java annotations, makes Android development better by simplifying common tasks. |
 | [Parceler](http://parceler.org/) | Android Parcelable made easy through code generation |
