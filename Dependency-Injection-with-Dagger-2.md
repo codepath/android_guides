@@ -1,6 +1,6 @@
 ## Overview
 
-This guide covers dependency injection using [Dagger 2](http://google.github.io/dagger/).
+This guide covers dependency injection using [Dagger 2](http://google.github.io/dagger/).  For an intro, we strongly recommend taking a look at this [guide](https://github.com/konmik/konmik.github.io/wiki/Snorkeling-with-Dagger-2).
 
 ### What is Dependency Injection?
 
