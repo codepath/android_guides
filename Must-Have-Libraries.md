@@ -17,7 +17,7 @@ This "standard pack" listed below are libraries that are quite popular, widely a
 | [Hugo](https://github.com/JakeWharton/hugo) | Easier logging using annotations |
 | [LeakCanary](https://github.com/square/leakcanary) | Catch memory leaks in your apps | 
 | [[Espresso|UI-Testing-with-Espresso]] | Powerful DSL for Android integration testing |
-| [[Robolectric|Unit-Testing-with-Robolectric]] | Unit testing for Android |
+| [[Robolectric|Unit-Testing-with-Robolectric]] | Efficient unit testing for Android |
 
 The "advanced pack" listed below are additional libraries that are more advanced to use but are popular amongst some of the best Android teams. Note that these libraries may not be suitable for your first app. These advanced libraries include:
 
