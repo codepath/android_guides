@@ -6,7 +6,7 @@ One of the purposes of this class is to provide a surface in which a secondary t
 
 ## Usage
 
-A [SurfaceView Demo](https://github.com/anaredmond/surfaceviewdemo) for rocket burst and page curl
+A [SurfaceView Demo](https://github.com/anaredmond/surfaceviewdemo) for rocket burst and page curl by [Infinut](http://www.infinut.com)
 
 [Droidcon NYC 2015 talk](https://www.youtube.com/watch?v=KBklJ76dD8I) that explains the above demo step-by-step
 
