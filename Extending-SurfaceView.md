@@ -6,9 +6,9 @@ One of the purposes of this class is to provide a surface in which a secondary t
 
 ## Usage
 
-A sample SurfaceView app to start with - https://github.com/anaredmond/surfaceviewdemo
+A [SurfaceView Demo](https://github.com/anaredmond/surfaceviewdemo) for rocket burst and page curl
 
-Droidcon NYC 2015 talk that explains the above - https://www.youtube.com/watch?v=KBklJ76dD8I
+[Droidcon NYC 2015 talk](https://www.youtube.com/watch?v=KBklJ76dD8I) that explains the above demo step-by-step
 
 ## References
 
