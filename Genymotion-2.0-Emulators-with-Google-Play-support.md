@@ -65,6 +65,8 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 
 7. Make sure to update to the latest version of Google Play Services by opening the "Play Store" app and then the "Maps" app to verify play services is running correctly.
 
+NO CONNECTION FOR GOOGLE PLAY : After installed google play if you have got problem like no connection, you need to be carefull to install right version that will match emulator version. For example Android 4.3 is API 18. If you install Samsung Galaxy S4 API 18 - 1080 x 1920 for genymotion emulator and install Google Services APK for Android 4.3, google play will work without any issue. The important point is google play API version and genymotion emulator device version.
+
 ### Enable GPS on Emulator
 
 Next, if you **don't have the emulator started yet**, be sure to boot the genymotion emulator from **within the Android Studio plugin**:
