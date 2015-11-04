@@ -6,7 +6,8 @@ One of the purposes of this class is to provide a surface in which a secondary t
 
 ## Usage
 
-**Incomplete: Fill this in with a relevant example**
+A sample SurfaceView app to start with - https://github.com/anaredmond/surfaceviewdemo
+Droidcon NYC 2015 talk that explains the above - https://www.youtube.com/watch?v=KBklJ76dD8I
 
 ## References
 
