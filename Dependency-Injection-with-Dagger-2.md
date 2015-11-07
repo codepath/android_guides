@@ -3,7 +3,7 @@
 As mentioned in this 
 [overview](https://github.com/konmik/konmik.github.io/wiki/Snorkeling-with-Dagger-2), there are several benefits for using dependency injection libraries such as [Dagger 2](http://google.github.io/dagger/):
 
- * **Simplifies access to singletons**.  Often times code to obtain references to singletons must be created manually.  Just as the [ButterKnife](http://jakewharton.github.io/butterknife/) library makes it easier to define references to Views and event handlers, Dagger 2 provides a simply way for obtaining references to singletons.  Once we define how this singleton will be created in Dagger, we simply need declare which singletons are needed with a simple `@Inject` annotation:
+ * **Simplifies access to singletons**.  Often times code to obtain references to singletons must be done manually.  Just as the [ButterKnife](http://jakewharton.github.io/butterknife/) library makes it easier to define references to Views and event handlers, Dagger 2 provides a simply way for obtaining references to singletons.  Once we define how this singleton will be created in Dagger, we simply need declare which singletons are needed with a simple `@Inject` annotation:
 
  ```java
  public class MainActivity extends Activity {
