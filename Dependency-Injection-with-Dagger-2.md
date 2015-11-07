@@ -3,7 +3,7 @@
 As mentioned in this 
 [overview](https://github.com/konmik/konmik.github.io/wiki/Snorkeling-with-Dagger-2), there are several benefits for using dependency injection libraries such as [Dagger 2](http://google.github.io/dagger/):
 
- * **Simplifies access to singletons**.  Just as the [ButterKnife](http://jakewharton.github.io/butterknife/) library makes it easier to define references to Views and event handlers, Dagger 2 provides a simply way for obtaining references to singletons.  Once we define how this singleton will be created in Dagger, we simply need declare which singletons are needed with a simple `@Inject` annotation:
+ * **Simplifies access to singletons**.  Often times code to obtain references to singletons must be created manually.  Just as the [ButterKnife](http://jakewharton.github.io/butterknife/) library makes it easier to define references to Views and event handlers, Dagger 2 provides a simply way for obtaining references to singletons.  Once we define how this singleton will be created in Dagger, we simply need declare which singletons are needed with a simple `@Inject` annotation:
 
  ```java
  public class MainActivity extends Activity {
@@ -36,7 +36,9 @@ As mentioned in this
    Picasso picasso = Picasso.Builder(this).downloader(okHttpDownloader).build();
    ```
 
-   Dagger 2 handles figuring out this dependency order for you by analyzing the Java annotations and analyzing what classes are compiled to generate factory methods used to create singletons.
+   Dagger 2 handles figuring out this dependency chain for you and generates code to help instantiate these modules.  This generated code helps simplify having to rework any implicit dependency chain yourself.  
+
+ * **Easier unit and integration testing**  Because the dependency graph is created for us, we can easily swap out modules that make network responses that mock out this behavior.
 
 ### What is Dependency Injection?
 
