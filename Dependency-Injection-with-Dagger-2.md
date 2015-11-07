@@ -3,43 +3,40 @@
 As mentioned in this 
 [overview](https://github.com/konmik/konmik.github.io/wiki/Snorkeling-with-Dagger-2), there are several benefits for using dependency injection libraries such as [Dagger 2](http://google.github.io/dagger/):
 
- * **Simplifies access to singletons**.  Just as the [ButterKnife](http://jakewharton.github.io/butterknife/) library makes it easier to define references to Views and event handlers, Dagger 2 provides a simply way for getting references to singletons.  To get a reference in your activity, you normally have to store these singletons in a separate class that will live throughout the entire lifecycle of the application:
-
-  ```java
-  public class MainActivity extends Activity {
-      @Override
-      protected void onCreate(Bundle savedInstanceState) {
-          MyTwitterApiClient client = MyTwitterApiClient.getInstance();
-      }
-  ```
- 
-  If your API client also needs access to a [Gson](Leveraging-the-Gson-Library) or Shared Preferences singleton, getting references to all of these singleton can be somewhat tedious.  With Dagger 2, assuming we declare these singletons correctly using the framework provided, we can simply declare which singletons are needed with a simple `@Inject` annotation:
+ * **Simplifies access to singletons**.  Just as the [ButterKnife](http://jakewharton.github.io/butterknife/) library makes it easier to define references to Views and event handlers, Dagger 2 provides a simply way for obtaining references to singletons.  Once we define how this singleton will be created in Dagger, we simply need declare which singletons are needed with a simple `@Inject` annotation:
 
  ```java
  public class MainActivity extends Activity {
-         @Inject MyTwitterApiClient mTwitterApiClient;
-         @Inject SharedPreferences sharedPreferences;
+    @Inject MyTwitterApiClient mTwitterApiClient;
+    @Inject SharedPreferences sharedPreferences;
+
+    public void onCreate(Bundle savedInstance) {
+        InjectorClass.inject(this);
+    } 
  ```
 
- * **Order of instantiation is automatically managed for you**. There is an implicit order in which your modules are often created and refactoring often requires reworking this dependency chain.  Your Twitter API client may built using the [Retrofit](http://square.github.io/retrofit/) library. To create a Retrofit instance, you would also need to create an `OkHttpClient` and `Gson` instance.  If you wanted to add the [Picasso](https://github.com/square/picasso) library in our app and share the same `OkHttpClient` singleton, you will need instantiate Picasso after OkHttpClient is created.  Dagger 2 handles figuring out this dependency chain for you.
+ * **Order of instantiation is automatically managed for you**. There is an implicit order in which your modules are often created.  Your Twitter API client may built using the [Retrofit](http://square.github.io/retrofit/) library. To create a Retrofit instance, you would also need to create an `OkHttpClient`, `Gson`, and `GsonConverterFactory` instance.  If you wanted to add the [Picasso](https://github.com/square/picasso) library in our app and share the same `OkHttpClient` singleton, you will need instantiate Picasso after OkHttpClient is created.  
 
    ```java
-        OkHttpClient client;
+   OkHttpClient client = new OkHttpClient();
  
-        client = new OkHttpClient();
+   // Instantiate Gson
+   Gson gson = new GsonBuilder().create();
+   GsonConverterFactory converterFactory = GsonConverterFactory.create(Gson);
 
-        // Set the custom client when building adapter
-        GsonConverterFactory converterFactory = GsonConverterFactory.create();
-        Retrofit retrofit = new Retrofit.Builder()
-                                        .baseUrl("https://api.github.com")
-                                        .addConverterFactory(converterFactory)
-                                        .client(client)
-                                        .build();
+   // Build Retrofit
+   Retrofit retrofit = new Retrofit.Builder()
+                                   .baseUrl("https://api.github.com")
+                                   .addConverterFactory(converterFactory)
+                                   .client(client)  // custom client
+                                   .build();
  
-         // Add Picasso library
-         OkHttpDownloader okHttpDownloader = OkHttpDownloader(client); 
-         Picasso picasso = Picasso.Builder(this).downloader(okHttpDownloader).build();
+   // Add Picasso library
+   OkHttpDownloader okHttpDownloader = OkHttpDownloader(client); 
+   Picasso picasso = Picasso.Builder(this).downloader(okHttpDownloader).build();
    ```
+
+   Dagger 2 handles figuring out this dependency order for you by analyzing the Java annotations and analyzing what classes are compiled to generate factory methods used to create singletons.
 
 ### What is Dependency Injection?
 
