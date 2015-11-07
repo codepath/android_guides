@@ -1,6 +1,45 @@
 ## Overview
 
-This guide covers dependency injection using [Dagger 2](http://google.github.io/dagger/).  For an intro, we strongly recommend taking a look at this [guide](https://github.com/konmik/konmik.github.io/wiki/Snorkeling-with-Dagger-2).
+As mentioned in this 
+[overview](https://github.com/konmik/konmik.github.io/wiki/Snorkeling-with-Dagger-2), there are several benefits for using dependency injection libraries such as [Dagger 2](http://google.github.io/dagger/):
+
+ * **Simplifies access to singletons**.  Just as the [ButterKnife](http://jakewharton.github.io/butterknife/) library makes it easier to define references to Views and event handlers, Dagger 2 provides a simply way for getting references to singletons.  To get a reference in your activity, you normally have to store these singletons in a separate class that will live throughout the entire lifecycle of the application:
+
+  ```java
+  public class MainActivity extends Activity {
+      @Override
+      protected void onCreate(Bundle savedInstanceState) {
+          MyTwitterApiClient client = MyTwitterApiClient.getInstance();
+      }
+  ```
+ 
+  If our API client also needs access to a [Gson](Leveraging-the-Gson-Library) or Shared Preferences singleton, getting references to all of these singleton can be somewhat tedious.  With Dagger 2, assuming we declare these singletons correctly using the framework provided, we can simply declare which singletons are needed with a simple `@Inject` annotation:
+
+ ```java
+ public class MainActivity extends Activity {
+         @Inject MyTwitterApiClient mTwitterApiClient;
+         @Inject SharedPreferences sharedPreferences;
+ ```
+
+ * **Order of instantiation is automatically managed for you**. There is an implicit order in which your modules are often created and refactoring often requires reworking this dependency chain.  Your Twitter API client may built using the [Retrofit](http://square.github.io/retrofit/) library. To create a Retrofit instance, you would also need to create an `OkHttpClient` and `Gson` instance.  If you wanted to add the [Picasso](https://github.com/square/picasso) library in our app and share the same `OkHttpClient` singleton, you will need instantiate Picasso after OkHttpClient is created.  Dagger 2 handles figuring out this dependency chain for you.
+
+   ```java
+        OkHttpClient client;
+ 
+        client = new OkHttpClient();
+
+        // Set the custom client when building adapter
+        GsonConverterFactory converterFactory = GsonConverterFactory.create();
+        Retrofit retrofit = new Retrofit.Builder()
+                                        .baseUrl("https://api.github.com")
+                                        .addConverterFactory(converterFactory)
+                                        .client(client)
+                                        .build();
+ 
+         // Add Picasso library
+         OkHttpDownloader okHttpDownloader = OkHttpDownloader(client); 
+         Picasso picasso = Picasso.Builder(this).downloader(okHttpDownloader).build();
+   ```
 
 ### What is Dependency Injection?
 
@@ -154,4 +193,3 @@ Defining custom scope(s) is highly recommended as it ????? TODO
 * [Dagger 1 to Dagger 2](http://frogermcs.github.io/dagger-1-to-2-migration/)
 * [Testing Dagger 2 on Android](http://fernandocejas.com/2015/04/11/tasting-dagger-2-on-android/)
 * [Dazgger 2 Testing with Mockito](http://blog.sqisland.com/2015/04/dagger-2-espresso-2-mockito.html#sthash.IMzjLiVu.dpuf)
-
