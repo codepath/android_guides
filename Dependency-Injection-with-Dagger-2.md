@@ -13,7 +13,7 @@ As mentioned in this
       }
   ```
  
-  If our API client also needs access to a [Gson](Leveraging-the-Gson-Library) or Shared Preferences singleton, getting references to all of these singleton can be somewhat tedious.  With Dagger 2, assuming we declare these singletons correctly using the framework provided, we can simply declare which singletons are needed with a simple `@Inject` annotation:
+  If your API client also needs access to a [Gson](Leveraging-the-Gson-Library) or Shared Preferences singleton, getting references to all of these singleton can be somewhat tedious.  With Dagger 2, assuming we declare these singletons correctly using the framework provided, we can simply declare which singletons are needed with a simple `@Inject` annotation:
 
  ```java
  public class MainActivity extends Activity {
