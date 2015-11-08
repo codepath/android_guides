@@ -36,6 +36,8 @@ public void onRestoreInstanceState(Bundle savedInstanceState) {
 }
 ```
 
+Instance state can also be restored in the standard `Activity#onCreate` method but but it is convenient to do it in `onRestoreInstanceState` which ensures all of the initialization has been done and allows subclasses to decide whether to use the default implementation. Read [this stackoverflow post](http://stackoverflow.com/a/14676555/313399) for details.
+
 Note that `onSaveInstanceState` and `onRestoreInstanceState` are not guaranteed to be called together. Android invokes `onSaveInstanceState()` when there's a chance the activity might be destroyed. However, there are cases where `onSaveInstanceState` is called but the activity is not destroyed and as a result `onRestoreInstanceState` is not invoked.
 
 Read more on the [Recreating an Activity](http://developer.android.com/training/basics/activity-lifecycle/recreating.html) guide.
