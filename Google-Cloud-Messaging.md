@@ -1,6 +1,6 @@
 ## Overview
 
-Google Cloud Messaging for Android (GCM) is a service that allows you to send data from your server to your users' Android-powered device and also to receive messages from devices on the same connection. 
+Google Cloud Messaging for Android (GCM) is a service that allows you to send data from your server to your users' Android-powered device and also to receive messages from devices on the same connection.
 
 ![GCM Arch](https://i.imgur.com/9XzwPqc.png)
 
@@ -20,7 +20,7 @@ Push notifications can be received assuming your app has registered to listen fo
 
 <img src="http://imgur.com/adiFo8w.png" height=300/>
 
-In other words, in order to implement GCM, your app will need both a Google server and your own server.  When your app gets a token from Google, it needs to forward this token to your server.  This token should be persisted by the server so that it can be used to make API calls to the Google server.  With this approach, your server and the Android device do not need to create a persistent connection and the responsibility of queuing and relaying messages is all handled by Google's servers. 
+In other words, in order to implement GCM, your app will need both a Google server and your own server.  When your app gets a token from Google, it needs to forward this token to your server.  This token should be persisted by the server so that it can be used to make API calls to the Google server.  With this approach, your server and the Android device do not need to create a persistent connection and the responsibility of queuing and relaying messages is all handled by Google's servers.
 
 ### Setup
 
@@ -46,7 +46,7 @@ In order to use GCM, we need to go through the following steps:
 
    <img src="http://imgur.com/kaB26fE.png" height="250"/>
 
- - You will want to make sure to click the `Enable Google Cloud Messaging` button:  
+ - You will want to make sure to click the `Enable Google Cloud Messaging` button:
 
    <img src="http://imgur.com/QyJq7TT.png" height="250"/>
 
@@ -71,7 +71,7 @@ Before continuing make sure:
  - Stored your "Server Key" as listed in developer console in Credentials
 
 Now let's setup our Android client.
- 
+
 ## Step 2: Setup Android Client
 
 ### Download Google Play Services
@@ -86,7 +86,7 @@ Add the following to your Gradle file:
 
 ```gradle
 dependencies {
-  compile "com.google.android.gms:play-services-gcm:8.1.0"
+  compile "com.google.android.gms:play-services-gcm:8.3.0"
 }
 ```
 
@@ -110,16 +110,16 @@ Your app will need to have the ability to make Internet connection and request w
   <permission android:name="com.example.gcm.permission.C2D_MESSAGE"
       android:protectionLevel="signature" />
   <uses-permission android:name="com.example.gcm.permission.C2D_MESSAGE" />
-  
-  <application 
+
+  <application
      ...
   />
 </manifest>
 ```
 
-To prevent other broadcast receivers from receiving the message, there is a special custom `C2D_MESSAGE` permission that should be defined.  This permission may be an [artifact of the C2DM technology](https://youtu.be/51F5LWzJqjg?t=44m11s) and to provide backwards compatibility for older devices.  The permission should correspond to your package name (i.e. `com.codepath.gcmexample.permission.C2D_MESSAGE`).   Some of the permissions in general still used reference C2DM for backwards compatibility with older Android devices.  C2DM, which was Google's first push notification system, has been [deprecated](https://developers.google.com/cloud-messaging/c2dm), and GCM is now the recommended way of implementing push notifications. 
+To prevent other broadcast receivers from receiving the message, there is a special custom `C2D_MESSAGE` permission that should be defined.  This permission may be an [artifact of the C2DM technology](https://youtu.be/51F5LWzJqjg?t=44m11s) and to provide backwards compatibility for older devices.  The permission should correspond to your package name (i.e. `com.codepath.gcmexample.permission.C2D_MESSAGE`).   Some of the permissions in general still used reference C2DM for backwards compatibility with older Android devices.  C2DM, which was Google's first push notification system, has been [deprecated](https://developers.google.com/cloud-messaging/c2dm), and GCM is now the recommended way of implementing push notifications.
 
-For a more detailed explanation of why these permissions are needed, see [Google's guide](https://developers.google.com/cloud-messaging/android/client#manifest).  The `com.google.android.c2dm.intent.REGISTRATION` permission in particular is needed for devices below Android 4.4 (KitKat) versions.  
+For a more detailed explanation of why these permissions are needed, see [Google's guide](https://developers.google.com/cloud-messaging/android/client#manifest).  The `com.google.android.c2dm.intent.REGISTRATION` permission in particular is needed for devices below Android 4.4 (KitKat) versions.
 
 ### Implement a Registration Intent Service
 
@@ -131,7 +131,7 @@ First, you will need to create a `RegistrationIntentService` class and make sure
 <service android:name=".RegistrationIntentService" android:exported="false"/>
 ```
 
-Inside this class, you will need to request an [instance ID](https://developers.google.com/instance-id/reference/) from Google that will be a way to uniquely identify the device and app.  Assuming this request is successful, a token that can be used to send notifications to the app should be generated too.  
+Inside this class, you will need to request an [instance ID](https://developers.google.com/instance-id/reference/) from Google that will be a way to uniquely identify the device and app.  Assuming this request is successful, a token that can be used to send notifications to the app should be generated too.
 
 ```java
 
@@ -143,7 +143,7 @@ public class RegistrationIntentService extends IntentService {
 
     public RegistrationIntentService() {
         super(TAG);
-    } 
+    }
 
     @Override
     protected void onHandleIntent(Intent intent) {
@@ -165,7 +165,7 @@ public class RegistrationIntentService extends IntentService {
         // Add custom implementation, as needed.
      }
 
-``` 
+```
 
 You will want to record whether the token was sent to the server and may wish to store the token in your [[Shared Preferences|Storing-and-Accessing-SharedPreferences]]:
 
@@ -179,13 +179,13 @@ You will want to record whether the token was sent to the server and may wish to
 
         // Fetch token here
         try {
-  
+
         } catch (IOException e) {
             Log.d(TAG, "Failed to complete token refresh", e);
             // If an exception happens while fetching the new token or updating our registration data
             // on a third-party server, this ensures that we'll attempt the update at a later time.
             sharedPreferences.edit().putBoolean(SENT_TOKEN_TO_SERVER, false).apply();
-        }      
+        }
         // save token
         sharedPreferences.edit().putString(GCM_TOKEN, token).apply();
         // pass along this data
@@ -201,7 +201,7 @@ You will want to record whether the token was sent to the server and may wish to
      }
 ```
 
-For more details, see the [sample code](https://github.com/googlesamples/google-services/blob/master/android/gcm/app/src/main/java/gcm/play/android/samples/com/gcmquickstart/RegistrationIntentService.java) provided by Google. 
+For more details, see the [sample code](https://github.com/googlesamples/google-services/blob/master/android/gcm/app/src/main/java/gcm/play/android/samples/com/gcmquickstart/RegistrationIntentService.java) provided by Google.
 
 ### Create a InstanceID ListenerService
 
@@ -247,7 +247,7 @@ In the past, Google required implementing a [WakefulBroadcastReceiver](https://d
 </receiver>
 ```
 
-Let's define `GCMMessageHandler.java` that extends from `GcmListenerService` that will process the message received: 
+Let's define `GCMMessageHandler.java` that extends from `GcmListenerService` that will process the message received:
 
 ```java
 import com.google.android.gms.gcm.GcmListenerService;
@@ -287,7 +287,7 @@ Note that above the push message is handled by creating a notification. There ar
  * [[Update an Activity|Starting-Background-Services#communicating-from-a-service-to-an-application]]
  * [Launch new activity](https://github.com/codepath/ParsePushNotificationExample/blob/master/app/src/main/java/com/test/MyCustomReceiver.java#L69)
 
-You can review examples of these [outlined in this more elaborate code sample](https://github.com/codepath/ParsePushNotificationExample/blob/master/app/src/main/java/com/test/MyCustomReceiver.java). 
+You can review examples of these [outlined in this more elaborate code sample](https://github.com/codepath/ParsePushNotificationExample/blob/master/app/src/main/java/com/test/MyCustomReceiver.java).
 
 In certain cases when receiving a push, you want to update an activity if the activity is on the screen. Otherwise, you want to raise a notification. The solutions to this are [outlined in this post](http://stackoverflow.com/a/18311830/313399) with a [code sample here](http://stackoverflow.com/a/15949723/313399).
 
@@ -299,11 +299,11 @@ Finally we need to register the receiver class with GCM in the `AndroidManifest.
  <application
      ...>
          <!-- ... -->
-         
+
          <activity
              ...>
          </activity>
-                  
+
          <service
             android:name=".GcmMessageHandler"
             android:exported="false" >
@@ -311,9 +311,9 @@ Finally we need to register the receiver class with GCM in the `AndroidManifest.
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
          </service>
-         
+
      </application>
- 
+
 </manifest>
 ```
 
@@ -346,21 +346,21 @@ We need code for **sending data to specified registration tokens**:
     - `Authorization: key=<YOUR SERVER API KEY>`
     - `Content-Type: application/json`
   - HTTP POST body can be in JSON. Below is an example of the body of the request to GCM.
-    
+
       ```json
-      { 
+      {
         "data": {
           "title": "Test Title",
           "body": "Test Body"
         },
-        "registration_ids": ["token1", "token2"] 
+        "registration_ids": ["token1", "token2"]
       }
       ```
-  
+
 This sending code can be exposed as an endpoint or utilized on the server-side to notify users when new items are created or available.  Note that the `registration_ids` parameter is synonymous with device tokens.  if you only need to send a message to one device, you can use `to` instead of `registration_ids`:
 
    ```json
-      { 
+      {
         "data": {
           "title": "Test Title",
           "body": "Test Body"
@@ -394,7 +394,7 @@ require 'sequel'
 
 DB = Sequel.connect('sqlite://gcm-test.db')
 
-# Create a Device table if it doesn't exist                                                                                                                                                                                                                                                                                
+# Create a Device table if it doesn't exist
 DB.create_table? :Device do
   primary_key :reg_id
   String :user_id
@@ -402,32 +402,32 @@ DB.create_table? :Device do
   String :os, :default => 'android'
 end
 
-Device = DB[:Device]  # create the dataset                                                                                                                                                                                                                                                                                 
+Device = DB[:Device]  # create the dataset
 
-# Registration endpoint mapping reg_token to user_id                                                                                                                                                                                                                                                                       
-# POST /register?reg_token=abc&user_id=123                                                                                                                                                                                                                                                                                 
+# Registration endpoint mapping reg_token to user_id
+# POST /register?reg_token=abc&user_id=123
 post '/register' do
   if Device.filter(:reg_token => params[:reg_token]).count == 0
     device = Device.insert(:reg_token => params[:reg_token], :user_id => params[:user_id], :os => 'android')
   end
 end
 
-# Ennpoint for sending a message to a user                                                                                                                                                                                                                                                                                 
-# POST /send?user_id=123&title=hello&body=message                                                                                                                                                                                                                                                                          
+# Ennpoint for sending a message to a user
+# POST /send?user_id=123&title=hello&body=message
 post '/send' do
-  # Find devices with the corresponding reg_tokens                                                                                                                                                                                                                                                                         
+  # Find devices with the corresponding reg_tokens
   reg_tokens = Device.filter(:user_id => params[:user_id]).map(:reg_token).to_a
   if reg_tokens.count != 0
     send_gcm_message(params[:title], params[:body], reg_tokens)
   end
 end
 
-# Sending logic                                                                                                                                                                                                                                                                                                            
-# send_gcm_message(["abc", "cdf"])                                                                                                                                                                                                                                                                                         
+# Sending logic
+# send_gcm_message(["abc", "cdf"])
 def send_gcm_message(title, body, reg_tokens)
-  # Construct JSON payload                                                                                                                                                                                                                                                                                                 
+  # Construct JSON payload
   post_args = {
-    # :to field can also be used if there is only 1 reg token to send                                                                                                                                                                                                                                                                      
+    # :to field can also be used if there is only 1 reg token to send
     :registration_ids => reg_tokens,
     :data => {
       :title  => title,
@@ -436,7 +436,7 @@ def send_gcm_message(title, body, reg_tokens)
     }
   }
 
-  # Send the request with JSON args and headers                                                                                                                                                                                                                                                                            
+  # Send the request with JSON args and headers
   RestClient.post 'https://gcm-http.googleapis.com/gcm/send', post_args.to_json,
     :Authorization => 'key=' + AUTHORIZE_KEY, :content_type => :json, :accept => :json
 end
@@ -520,7 +520,7 @@ curl -s "https://gcm-http.googleapis.com/gcm/send" -H "Authorization: key=[AUTHO
 ## Rate Limits
 
 GCM is free to use.  In Jan. 2015, Google announced new rate limits in this [blog post](https://plus.google.com/+AndroidDevelopers/posts/Kc2whqR66zt) for GCM.  There is a per minute / per device limit that can be sent.  More technical details are included in this Stack Overflow [posting](http://stackoverflow.com/questions/26790810/rate-limit-exceeded-error-when-using-google-cloud-messaging-api/26790811#26790811).
- 
+
 ## References
 
 - <https://developers.google.com/cloud-messaging/gcm>
