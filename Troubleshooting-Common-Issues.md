@@ -45,7 +45,16 @@ and then uninstall Android Studio and re-install the latest stable version. This
 
 This might also show up as `Too many field references: 131000; max is 65536.` or `com.android.dex.DexIndexOverflowException: method ID not in [0, 0xffff]: 65536` in newer build systems. This error occurs when the total number of references within a single bytecode file exceeds the 65,536 method limit. This usually means you have a substantial amount of code or are loading a large number of libraries.
 
-After crossing that limit, we need to adjust our project to use a multidex configuration. To enable this, please review the [official multidex guide](https://developer.android.com/tools/building/multidex.html#mdex-gradle) to adjust your gradle files.
+If you've crossed this limit, this means you've loaded too many classes usually due to third-party libraries. Often the culprit is the Google Play Services library. Open up your app gradle file and look for this line `compile 'com.google.android.gms:play-services:X.X.X'`. Remove that line and instead [include the services selectively](https://developers.google.com/android/guides/setup#split) as outlined there. For example:
+
+```gradle
+dependencies {
+   compile 'com.google.android.gms:play-services-maps:8.3.0'
+   compile 'com.google.android.gms:play-services-location:8.3.0'
+}
+``` 
+
+This can greatly reduce the number of classes loaded. If you've crossed the limit even with this change, we need to adjust our project to [use a multidex configuration](https://developer.android.com/tools/building/multidex.html#mdex-gradle) by enabling `multiDexEnabled true` in your gradle configuration and updating the application to extend from `android.support.multidex.MultiDexApplication`.
 
 ### Seeing `java.lang.OutOfMemoryError : GC overhead limit` when compiling
 
