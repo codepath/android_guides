@@ -13,6 +13,16 @@ The floating action button represents **the primary action** within a particular
 
 Google made available during Google I/O 2015 a support library to create floating action buttons library.  In the past, third-party libraries such as [makovkastar/FloatingActionButton](https://github.com/makovkastar/FloatingActionButton) and [futuresimple/android-floating-action-button](https://github.com/futuresimple/android-floating-action-button) had to be used.
 
+### Floating Action Icons
+
+The floating action button uses the **same menu icons** used for the App Bar at the top of the screen. This means the image should be single color and fit the material design guidelines. The best source for these icons is the [material design icons site](https://materialdesignicons.com/) or the official [google material icons](https://www.google.com/design/icons/):
+
+[<img src="http://i.imgur.com/XXoaV5g.png" height="300" />](https://materialdesignicons.com/)
+&nbsp;
+[<img src="http://i.imgur.com/Oznsogy.png" height="300" />](https://materialdesignicons.com/)
+
+Once you've selected the icon to use, download the image by selecting the icon and then "Icon Package" and choose the "Android" package. Note that Mac users may need to use the [Unarchiver](http://wakaba.c3.cx/s/apps/unarchiver.html) to properly unzip the icon package. Bring the various drawables into the `drawable` folders within your Android app.
+
 ### Design Support Library
 
 Make sure to follow the [[Design Support Library]] setup instructions first.  
@@ -29,7 +39,7 @@ You should now be able to add the `android.support.design.widget.FloatingActionB
 
 In addition, assuming `xmlns:app="http://schemas.android.com/apk/res-auto` is declared as namespace the top of your layout, you can also define a custom attribute [`fabSize`](http://developer.android.com/reference/android/support/design/widget/FloatingActionButton.html#attr_android.support.design:fabSize) that can reference whether the button should be `normal` or `mini`. 
 
-To place the floating action button, you will use [CoordinatorLayout](http://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.html).   A CoordinatorLayout helps facilitate interactions between views contained within it, which will be useful later to describe how to animate the button depending on scroll changes.  For now we can take advantage of a feature in CoordinatorLayout that allows us to hover one element over another.  We simply need to have the ListView and FloatingActionButton contained within the CoordinatorLayout and use the `layout_anchor` and `layout_anchorGravity` attributes. 
+To place the floating action button, we will use [CoordinatorLayout](http://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.html).   A CoordinatorLayout helps facilitate interactions between views contained within it, which will be useful later to describe how to animate the button depending on scroll changes.  For now we can take advantage of a feature in CoordinatorLayout that allows us to hover one element over another.  We simply need to have the `ListView` and `FloatingActionButton` contained within the `CoordinatorLayout` and use the `layout_anchor` and `layout_anchorGravity` attributes. 
 
 ```xml
 <android.support.design.widget.CoordinatorLayout
