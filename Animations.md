@@ -42,7 +42,7 @@ Common properties commonly animated on views include:
 | Property                                                         | Description          | 
 |--------------------------------------------------------------    | ------------         |
 | `alpha`                                                          | Fade in or out       |
-| `rotation`, `rotationX`, `rotationY`                             | Spinning             |
+| `rotation`, `rotationX`, `rotationY`                             | Spin or flip         |
 | `scaleX`, `scaleY`                                               | Grow or shrink       |
 | `x`, `y`, `z`                                                    | Position             |
 | `translationX`, `translationY`, **`translationZ` (API 21+)**     | Offset from Position |
@@ -529,7 +529,7 @@ This results in the following:
 
 You can see several complete examples of activity transitions in the following resources:
 
- * [Card Flip Animation](http://developer.android.com/training/animation/cardflip.html)
+ * [Card Flip Animation](http://stackoverflow.com/a/19959933/313399)
  * [Vine Activity Transition](http://blog.quent.in/index.php/2013/06/activity-transition-animations-like-the-vine-android-application/)
  * [Sliding In From Left Animation](http://android-er.blogspot.com/2013/04/custom-animation-while-switching.html)
  * [Sliding Drawer Animation](http://blog.blundell-apps.com/animate-an-activity/)
@@ -611,7 +611,7 @@ fts.replace(R.id.fragment_container, newFragment, "fragment");
 fts.commit();
 ```
 
-Read more about Fragment Transitions in this [detailed article](http://android-er.blogspot.com/2013/04/implement-animation-in.html). You can even [check out the source code](http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android/4.4_r1/frameworks/base/core/res/res/anim/slide_in_right.xml?av=f) of those animations. For a step-by-step example on how to implement a "flip" animation, check out the official [Fragment Flip Tutorial](http://developer.android.com/training/animation/cardflip.html). 
+Read more about Fragment Transitions in this [detailed article](http://android-er.blogspot.com/2013/04/implement-animation-in.html). You can even [check out the source code](http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android/4.4_r1/frameworks/base/core/res/res/anim/slide_in_right.xml?av=f) of those animations. 
 
 **Extended Note:** Check out [this stackoverflow post](http://stackoverflow.com/a/15816189/313399) if you are looking to animate the appearance of a DialogFragment.
 
