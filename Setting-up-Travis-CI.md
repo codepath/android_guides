@@ -68,5 +68,5 @@ If you are using [Google Play Services](https://developers.google.com/android/gu
 `com.google.android.gms:play-services:8.1.0`.  Instead, you can simply specify the libraries explicitly:
 
 ```gradle
-compile 'com.google.android.gms:play-services-gcm:8.1.0'
+compile 'com.google.android.gms:play-services-gcm:8.3.0'
 ```
