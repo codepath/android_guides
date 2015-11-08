@@ -382,8 +382,8 @@ For example, a value animation XML file might look like this for fading in an ob
     android:fillAfter="true" >
     <alpha
         android:duration="1000"
-        android:fromAlpha="1.0"
         android:interpolator="@android:anim/accelerate_interpolator"
+        android:fromAlpha="1.0"
         android:toAlpha="0.0" />
 </set>
 ```
