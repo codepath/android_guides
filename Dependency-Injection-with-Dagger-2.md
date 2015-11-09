@@ -1,27 +1,8 @@
 ## Overview
 
-Invariably, many complex apps end up following some type of an implicit dependency chain.  For instance, a Twitter API client for instance may built using the [Retrofit](http://square.github.io/retrofit/) library. To create a Retrofit instance, you would also need to create an `OkHttpClient`, `Gson`, and `GsonConverterFactory` instance.  If you wanted to add the [Picasso](https://github.com/square/picasso) library in our app and share the same `OkHttpClient` singleton, you will need instantiate Picasso after OkHttpClient is created. 
+Invariably, many complex apps end up following some type of an implicit dependency chain.  For instance, a Twitter API client for instance may be built using the [Retrofit](http://square.github.io/retrofit/) library. To create a Retrofit instance, you would also need to create an `OkHttpClient`, `Gson`, and `GsonConverterFactory` instance.  In addition, classes that implement the Twitter API and libraries such as [Picasso](https://github.com/square/picasso) needed to be added, which create an additional chain of dependencies.
 
-   ```java
-   OkHttpClient client = new OkHttpClient();
- 
-   // Instantiate Gson
-   Gson gson = new GsonBuilder().create();
-   GsonConverterFactory converterFactory = GsonConverterFactory.create(Gson);
-
-   // Build Retrofit
-   Retrofit retrofit = new Retrofit.Builder()
-                                   .baseUrl("https://api.github.com")
-                                   .addConverterFactory(converterFactory)
-                                   .client(client)  // custom client
-                                   .build();
- 
-   // Add Picasso library
-   OkHttpDownloader okHttpDownloader = OkHttpDownloader(client); 
-   Picasso picasso = Picasso.Builder(this).downloader(okHttpDownloader).build();
-   ```
-
-   Dagger 2 handles figuring out this dependency chain for you and generates code to help instantiate these modules.  This generated code helps simplify having to rework any implicit dependency chain yourself when refactoring code.   Past Java dependency injection frameworks in the past have been developed to solve these issues, but they suffered a limitations in relying on XML or only could validate dependency chains at run-time.   [Dagger 2](http://google.github.io/dagger/) takes the next step in relying on purely using Java [annotation processors](https://www.youtube.com/watch?v=dOcs-NKK-RA) and compile-time checks to analyze and verify dependencies.
+Dagger 2 handles figuring out these dependencies for you and generates code to help instantiate these modules.  This generated code helps simplify having to rework any implicit dependency chain yourself when refactoring code.   Past Java dependency injection frameworks in the past have been developed to solve these issues, but they suffered a limitations in relying on XML or only could validate dependency chains at run-time.   [Dagger 2](http://google.github.io/dagger/) takes the next step in relying on purely using Java [annotation processors](https://www.youtube.com/watch?v=dOcs-NKK-RA) and compile-time checks to analyze and verify dependencies.
 
 Here is a list of advantages of using Dagger 2:
 
