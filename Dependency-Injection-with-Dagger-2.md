@@ -1,8 +1,8 @@
 ## Overview
 
-Invariably, many complex apps end up following some type of an implicit dependency chain.  For instance, a Twitter API client for instance may be built using the [Retrofit](http://square.github.io/retrofit/) library. To create a Retrofit instance, you would also need to create a network client such as [[OkHttp|Using-OkHttp]] and serialization libraries such as [[Gson|Leveraging-the-Gson-Library]].  In addition, classes that implement authentication may require accessing shared preferences and libraries to help fetch images from the network such as [Picasso](https://github.com/square/picasso) may also create another set of dependencies.
+Many Android apps end up with some type of inherent implicit dependency chain in the source code.  For instance, a Twitter API client for instance may be built using the [Retrofit](http://square.github.io/retrofit/) library. To create a Retrofit instance, you would also need to create a network client such as [[OkHttp|Using-OkHttp]] and serialization libraries such as [[Gson|Leveraging-the-Gson-Library]].  In addition, classes that implement authentication or caching may require accessing shared preferences or other shared storage will also create another set of inter-related dependencies.
 
-Dagger 2 handles figuring out these dependencies for you and generates code to help instantiate these modules.  This generated code helps simplify having to rework any implicit dependency chain yourself when refactoring code.   While there have been past Java dependency injection frameworks in the past developed to solve these issues, many of them suffered limitations in relying on XML or only could validate dependency chains at run-time.   [Dagger 2](http://google.github.io/dagger/) takes the next step in relying on purely using Java [annotation processors](https://www.youtube.com/watch?v=dOcs-NKK-RA) and compile-time checks to analyze and verify dependencies.
+Dagger 2 analyzes these dependencies for you and generates code to help instantiate these modules.  This generated code helps simplify having to rework any implicit dependency chain yourself when refactoring code.   While there have been past Java dependency injection frameworks in the past developed to solve these issues, many of them suffered limitations in relying on XML or only could validate dependency chains at run-time.   [Dagger 2](http://google.github.io/dagger/) takes the next step in relying on purely using Java [annotation processors](https://www.youtube.com/watch?v=dOcs-NKK-RA) and compile-time checks to analyze and verify dependencies.
 
 Here is a list of advantages of using Dagger 2:
 
@@ -19,9 +19,91 @@ Here is a list of advantages of using Dagger 2:
     } 
  ```
 
- * **Order of instantiation is automatically managed for you**. There is an implicit order in which your modules are often created.   Dagger 2 walks through the dependency graph and generates code that is both easy to understand and trace, reducing the amount of boilerplate code you normally need to write.  It also helps simplify refactoring, since the developer is freed from needing to adjust the ordering in which the modules are instantiated.
+ * **Order of instantiation is automatically managed for you**. There is an implicit order in which your modules are often created.   Dagger 2 walks through the dependency graph and generates code that is both easy to understand and trace, while also reducing the amount of boilerplate code you would normally need to write by hand to accomplish the same goal.  It also helps simplify refactoring, since you can be focused on what modules to support rather than focusing on the order in which they should be supported.
 
  * **Easier unit and integration testing**  Because the dependency graph is created for us, we can easily swap out modules that make network responses that mock out this behavior.
+
+### Setup
+
+Add these three lines to your `app/build.gradle` file:
+
+```gradle
+dependencies {
+    compile 'com.google.dagger:dagger:2.0'
+    provided 'com.google.dagger:dagger-compiler:2.0'
+    provided 'org.glassfish:javax.annotation:10.0-b28'
+}
+```
+
+Note that the `provided` keyword refers to dependencies that are only needed at compilation but not at run-time.  The Dagger compiler and Java annotation libraries are used to generate code that are used to create the dependency graph of the classes defined in your source code.
+
+### Using Dagger 2  
+
+#### Creating singletons
+
+The simplest example is to show how to centralize all your singleton creation with Dagger 2.  Suppose you weren't using Dagger 2 and wrote code in your Twitter client similar to the following defined in different places of your code:
+
+```java
+OkHttpClient client = new OkHttpClient();
+ 
+// Instantiate Gson
+Gson gson = new GsonBuilder().create();
+GsonConverterFactory converterFactory = GsonConverterFactory.create(Gson);
+
+// Build Retrofit
+Retrofit retrofit = new Retrofit.Builder()
+                                .baseUrl("https://api.github.com")
+                                .addConverterFactory(converterFactory)
+                                .client(client)  // custom client
+                                .build();
+```
+
+To start using Dagger 2, you need to define what should be instantiated as singletons.  For instance, if we wish to make a single Retrofit instance tied to the application lifecycle and available to all our activities and fragments, we first need to make Dagger aware that one can be provided.   By annotating a class with `@Module`, Dagger will start searching the methods to see which of them will be used as providers of these singletons:
+
+```java
+@Module
+public class NetModule { // Dagger will look in here 
+
+}
+```
+
+The methods must also be annotated with `@Provides` to declare that these return types are available for use.  The `Singleton` annotation also signals to Dagger that the instance should be bound to the entire lifecycle of the application.  In the following example, we are specifying the `Gson` instance can be reused:
+
+```java
+@Module
+public class NetModule {
+
+   @Provides
+   @Singleton
+   Gson provideGson() {
+       GsonBuilder gsonBuilder = new GsonBuilder();
+       gsonBuilder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
+       return gsonBuilder.create();
+   }
+```
+
+We also declare a provider for a `Retrofit` instance by following a similar approach.  Notice that we pass in :
+
+```java
+
+   @Provides
+   @Singleton
+   Retrofit provideRetrofit(Gson gson, OkHttpClient okHttpClient) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .baseUrl(baseUrl)
+                .client(okHttpClient)
+                .build();
+        return retrofit;
+    }
+```
+
+// Add Picasso library
+OkHttpDownloader okHttpDownloader = OkHttpDownloader(client); 
+Picasso picasso = Picasso.Builder(this).downloader(okHttpDownloader).build();
+
+Remember that Dagger 2 relies on annotation processing to analyzes your source to figure out the dependency graph.  
+
 
 ### What is Dependency Injection?
 
