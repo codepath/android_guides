@@ -1,6 +1,6 @@
 ## Overview
 
-Invariably, many complex apps end up following some type of an implicit dependency chain.  A lot of boilerplate code is often written instantiating or getting references to instances that depend on other modules.  Refactoring often requires knowing how the order in which these modules are instantiated.  Java dependency injection frameworks in the past have been developed to solve these issues, but they suffered a limitations in reliance on XML or could only validate dependency chains at run-time.   [Dagger 2](http://google.github.io/dagger/) takes the next step in relying on purely using Java annotation processors and compile-time checks to analyze and verify dependencies.
+Invariably, many complex apps end up following some type of an implicit dependency chain.  A lot of boilerplate code is often written instantiating or getting references to instances that depend on other modules.  Refactoring often requires knowing how the order in which these modules are instantiated.  Java dependency injection frameworks in the past have been developed to solve these issues, but they suffered a limitations in reliance on XML or could only validate dependency chains at run-time.   [Dagger 2](http://google.github.io/dagger/) takes the next step in relying on purely using Java [annotation processors](https://www.youtube.com/watch?v=dOcs-NKK-RA) and compile-time checks to analyze and verify dependencies.
 
 Here is a list of advantages of using Dagger 2:
 
