@@ -6,7 +6,7 @@ Dagger 2 handles figuring out these dependencies for you and generates code to h
 
 Here is a list of advantages of using Dagger 2:
 
- * **Simplifies access to singletons**. Just as the [ButterKnife](http://jakewharton.github.io/butterknife/) library makes it easier to define references to Views and event handlers, Dagger 2 provides a simply way for obtaining references to singletons.  Once we define how `MyTwitterApiClient` or `SharedPreferences` should be created in Dagger, we simply need declare which singletons are needed with a simple `@Inject` annotation:
+ * **Simplifies access to singletons**. Just as the [ButterKnife](http://jakewharton.github.io/butterknife/) library makes it easier to define references to Views and event handlers, Dagger 2 provides a simply way to obtain references to singletons.  Once we define how `MyTwitterApiClient` or `SharedPreferences` should be created in Dagger, we simply need declare which singletons are needed with a simple `@Inject` annotation:
 
  ```java
  public class MainActivity extends Activity {
@@ -18,7 +18,7 @@ Here is a list of advantages of using Dagger 2:
     } 
  ```
 
- * **Order of instantiation is automatically managed for you**. There is an implicit order in which your modules are often created.   Dagger 2 helps figure this aspect, walking through the dependency graph and generating code that helps manage this aspect.
+ * **Order of instantiation is automatically managed for you**. There is an implicit order in which your modules are often created.   Dagger 2 walks through the dependency graph and generates code that is both easy to understand and trace, reducing the amount of boilerplate code you normally need to write to handle this aspect.
 
  * **Easier unit and integration testing**  Because the dependency graph is created for us, we can easily swap out modules that make network responses that mock out this behavior.
 
