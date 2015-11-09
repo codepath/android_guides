@@ -1,7 +1,8 @@
 ## Overview
 
-As mentioned in this 
-[overview](https://github.com/konmik/konmik.github.io/wiki/Snorkeling-with-Dagger-2), there are several benefits for using dependency injection libraries such as [Dagger 2](http://google.github.io/dagger/):
+Invariably, many complex apps end up following some type of an implicit dependency chain.  A lot of boilerplate code is often written instantiating or getting references to instances that depend on other modules.  Refactoring often requires knowing how the order in which these modules are instantiated.  Java dependency injection frameworks in the past have been developed to solve these issues, but [Dagger 2](http://google.github.io/dagger/) takes the next step in relying on purely using Java annotation processors and compile-time checks to analyze and verify dependencies.
+
+Here is a list of advantages of using Dagger 2:
 
  * **Simplifies access to singletons**.  Often times code to obtain references to singletons must be done manually.  Just as the [ButterKnife](http://jakewharton.github.io/butterknife/) library makes it easier to define references to Views and event handlers, Dagger 2 provides a simply way for obtaining references to singletons.  Once we define how this singleton will be created in Dagger, we simply need declare which singletons are needed with a simple `@Inject` annotation:
 
@@ -191,4 +192,5 @@ Defining custom scope(s) is highly recommended as it ????? TODO
 * [Dagger 2 Google Developers Talk](https://www.youtube.com/watch?v=oK_XtfXPkqw)
 * [Dagger 1 to Dagger 2](http://frogermcs.github.io/dagger-1-to-2-migration/)
 * [Testing Dagger 2 on Android](http://fernandocejas.com/2015/04/11/tasting-dagger-2-on-android/)
-* [Dazgger 2 Testing with Mockito](http://blog.sqisland.com/2015/04/dagger-2-espresso-2-mockito.html#sthash.IMzjLiVu.dpuf)
+* [Dagger 2 Testing with Mockito](http://blog.sqisland.com/2015/04/dagger-2-espresso-2-mockito.html#sthash.IMzjLiVu.dpuf)
+* [Snorkeling with Dagger 2](https://github.com/konmik/konmik.github.io/wiki/Snorkeling-with-Dagger-2) 
