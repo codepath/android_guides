@@ -37,7 +37,7 @@ Here is a list of advantages of using Dagger 2:
     } 
  ```
 
-  * **Order of instantiation is automatically managed for you**. There is an implicit order in which your modules are often created.   Dagger 2 helps figure this aspect, walking through the dependency graph and generating code that helps manage this aspect.
+ * **Order of instantiation is automatically managed for you**. There is an implicit order in which your modules are often created.   Dagger 2 helps figure this aspect, walking through the dependency graph and generating code that helps manage this aspect.
 
  * **Easier unit and integration testing**  Because the dependency graph is created for us, we can easily swap out modules that make network responses that mock out this behavior.
 
