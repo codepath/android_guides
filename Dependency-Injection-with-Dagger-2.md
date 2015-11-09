@@ -1,22 +1,6 @@
 ## Overview
 
-Invariably, many complex apps end up following some type of an implicit dependency chain.  A lot of boilerplate code is often written instantiating or getting references to instances that depend on other modules.  Refactoring often requires knowing how the order in which these modules are instantiated.  Java dependency injection frameworks in the past have been developed to solve these issues, but they suffered a limitations in reliance on XML or could only validate dependency chains at run-time.   [Dagger 2](http://google.github.io/dagger/) takes the next step in relying on purely using Java [annotation processors](https://www.youtube.com/watch?v=dOcs-NKK-RA) and compile-time checks to analyze and verify dependencies.
-
-Here is a list of advantages of using Dagger 2:
-
- * **Simplifies access to singletons**.  Often times code to obtain references to singletons must be done manually.  Just as the [ButterKnife](http://jakewharton.github.io/butterknife/) library makes it easier to define references to Views and event handlers, Dagger 2 provides a simply way for obtaining references to singletons.  Once we define how this singleton will be created in Dagger, we simply need declare which singletons are needed with a simple `@Inject` annotation:
-
- ```java
- public class MainActivity extends Activity {
-    @Inject MyTwitterApiClient mTwitterApiClient;
-    @Inject SharedPreferences sharedPreferences;
-
-    public void onCreate(Bundle savedInstance) {
-        InjectorClass.inject(this);
-    } 
- ```
-
- * **Order of instantiation is automatically managed for you**. There is an implicit order in which your modules are often created.  Your Twitter API client may built using the [Retrofit](http://square.github.io/retrofit/) library. To create a Retrofit instance, you would also need to create an `OkHttpClient`, `Gson`, and `GsonConverterFactory` instance.  If you wanted to add the [Picasso](https://github.com/square/picasso) library in our app and share the same `OkHttpClient` singleton, you will need instantiate Picasso after OkHttpClient is created.  
+Invariably, many complex apps end up following some type of an implicit dependency chain.  For instance, a Twitter API client for instance may built using the [Retrofit](http://square.github.io/retrofit/) library. To create a Retrofit instance, you would also need to create an `OkHttpClient`, `Gson`, and `GsonConverterFactory` instance.  If you wanted to add the [Picasso](https://github.com/square/picasso) library in our app and share the same `OkHttpClient` singleton, you will need instantiate Picasso after OkHttpClient is created. 
 
    ```java
    OkHttpClient client = new OkHttpClient();
@@ -37,7 +21,23 @@ Here is a list of advantages of using Dagger 2:
    Picasso picasso = Picasso.Builder(this).downloader(okHttpDownloader).build();
    ```
 
-   Dagger 2 handles figuring out this dependency chain for you and generates code to help instantiate these modules.  This generated code helps simplify having to rework any implicit dependency chain yourself.  
+   Dagger 2 handles figuring out this dependency chain for you and generates code to help instantiate these modules.  This generated code helps simplify having to rework any implicit dependency chain yourself when refactoring code.   Past Java dependency injection frameworks in the past have been developed to solve these issues, but they suffered a limitations in relying on XML or only could validate dependency chains at run-time.   [Dagger 2](http://google.github.io/dagger/) takes the next step in relying on purely using Java [annotation processors](https://www.youtube.com/watch?v=dOcs-NKK-RA) and compile-time checks to analyze and verify dependencies.
+
+Here is a list of advantages of using Dagger 2:
+
+  * **Simplifies access to singletons**. Just as the [ButterKnife](http://jakewharton.github.io/butterknife/) library makes it easier to define references to Views and event handlers, Dagger 2 provides a simply way for obtaining references to singletons.  Once we define how `MyTwitterApiClient` or `SharedPreferences` should be created in Dagger, we simply need declare which singletons are needed with a simple `@Inject` annotation:
+
+ ```java
+ public class MainActivity extends Activity {
+    @Inject MyTwitterApiClient mTwitterApiClient;
+    @Inject SharedPreferences sharedPreferences;
+
+    public void onCreate(Bundle savedInstance) {
+        InjectorClass.inject(this);
+    } 
+ ```
+
+  * **Order of instantiation is automatically managed for you**. There is an implicit order in which your modules are often created.   Dagger 2 helps figure this aspect, walking through the dependency graph and generating code that helps manage this aspect.
 
  * **Easier unit and integration testing**  Because the dependency graph is created for us, we can easily swap out modules that make network responses that mock out this behavior.
 
