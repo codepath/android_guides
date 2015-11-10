@@ -48,7 +48,7 @@ Often within an app you will need the user to select a time or date for an event
  * [BetterPickers](https://github.com/derekbrameyer/android-betterpickers) - DialogFragments modeled after the AOSP Clock and Calendar apps to improve UX for picking time, date, numbers, and other things.
  * [MaterialDateTimePicker](https://github.com/wdullaer/MaterialDateTimePicker) - Material Design styled DatePicker and TimePicker.
 
-DateTimerPicker and MaterialDateTimePicker are both forks from the original Android open source datetime picker located [here](https://android.googlesource.com/platform/frameworks/opt/datetimepicker/).  MaterialDateTimePicker however does not use the Support Fragment Manager for reasons stated [here](https://github.com/wdullaer/MaterialDateTimePicker#why-not-use-supportdialogfragment), so if you need it in your project, you will need to download the original source and modify the import statements.
+DateTimerPicker and MaterialDateTimePicker are both forks from the original Android open source datetime picker located [here](https://android.googlesource.com/platform/frameworks/opt/datetimepicker/).  MaterialDateTimePicker however does not use the Support Fragment Manager for reasons stated [here](https://github.com/wdullaer/MaterialDateTimePicker#why-not-use-supportdialogfragment), so if you need it in your project, you will need to download the original source, create a separate project, and modify the [import statements](https://android.googlesource.com/platform/frameworks/opt/datetimepicker/+/master/src/com/android/datetimepicker/date/DatePickerDialog.java#21).
 
 Using one of these should make selecting dates and times much easier. See [this list of picker libraries](https://android-arsenal.com/tag/27) for alternatives. 
 
