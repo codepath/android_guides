@@ -58,9 +58,9 @@ Retrofit retrofit = new Retrofit.Builder()
                                 .build();
 ```
 
-#### Declare your dependencies
+#### Declare your singletons
 
-You need to define what should be included as part of the dependency chain.  For instance, if we wish to make a single `Retrofit` instance tied to the application lifecycle and available to all our activities and fragments, we first need to make Dagger aware that a `Retrofit` instance can be provided.   We create a class called `NetModule.java` and annotate it with `@Module` to signal to Dagger to search within the available methods for possible instance providers:
+You need to define what modules should be included as part of the dependency chain.  For instance, if we wish to make a single `Retrofit` instance tied to the application lifecycle and available to all our activities and fragments, we first need to make Dagger aware that a `Retrofit` instance can be provided.   We create a class called `NetModule.java` and annotate it with `@Module` to signal to Dagger to search within the available methods for possible instance providers:
 
 ```java
 @Module
@@ -110,7 +110,7 @@ Retrofit provideRetrofit(Gson gson, OkHttpClient okHttpClient) {
     }
 ```
 
-### Define injection targets
+#### Define injection targets
 
 Dagger provides a way for the fields in your activities, fragments, or services to be assigned references to these singletons by delegating this work to an injector class that will handle this work.  The fields need to be annotated with `@Inject` and calling an `inject()` method with this class, Dagger 2 will search its dependency graph to try to find references to these instances.
 
