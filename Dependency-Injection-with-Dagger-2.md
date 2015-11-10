@@ -21,7 +21,7 @@ public class MainActivity extends Activity {
    } 
 ```
 
- * **Order of instantiation is automatically managed for you**. There is an implicit order in which your modules are often created.   Dagger 2 walks through the dependency graph and generates code that is both easy to understand and trace, while also saving you from writing the large amount of of boilerplate code you would normally need to write by hand to obtain references and pass them to other objects as dependencies.  It also helps simplify refactoring, since you can focus on what modules to build rather then focusing on the order in which they need to be created.
+ * **Easy configuration of complex dependencies**. There is an implicit order in which your modules are often created.   Dagger 2 walks through the dependency graph and generates code that is both easy to understand and trace, while also saving you from writing the large amount of of boilerplate code you would normally need to write by hand to obtain references and pass them to other objects as dependencies.  It also helps simplify refactoring, since you can focus on what modules to build rather then focusing on the order in which they need to be created.
 
  * **Easier unit and integration testing**  Because the dependency graph is created for us, we can easily swap out modules that make network responses that mock out this behavior.
 
@@ -179,58 +179,19 @@ Within our activity, we simply need to get access to these component and call `i
 public class MyActivity extends Activity {
   @Inject MyTwitterApiClient mTwitterApiClient;
   @Inject SharedPreferences sharedPreferences;
+
   public void onCreate(Bundle savedInstance) {
         // assign singleton instances to fields
         getApplication().getAppComponent()).inject(this);
     } 
 ```
 
-### What is Dependency Injection?
+### Custom Scopes
 
-Dependency injection is a way to separate concerns between **configuration** and **usage**
-
-![Configuration vs Usage](http://imgur.com/WsKXyM9.jpg)
-
-For the Usage side (e.g. Activities, Fragments, Views) you only need to worry about:
-
-1. Getting the object you need (simply annotating with `@Inject`)
-2. Using it.
-
-On the configuration side you get:
-* Less duplicated code
-* Easy singleton management
-* Easier mocking for testing and variants
-* Easy configuration of complex dependencies
-
-### Dagger Vocabulary
-
-Dagger 2 exposes a number of special annotations:
-
-* `@Module` for the classes whose methods provide dependencies
-* `@Provides` for the specific methods within `@Module` classes
-* `@Component` is a collection of modules that can perform injection
-* `@Inject` to request a dependency (a constructor argument, or a field)
-* `@Singleton` and custom scopes to define singletons within specific scopes. (We recommend using custom scopes like `@PerApp` or `@PerActivity` for clarity of how long a "singleton" lives for)
-
-Let's take a look at the Dagger workflow within an app.
-
-### Dagger Workflow Overview
-
-Dagger 2 is composed mainly 3 main parts:
-
-1. [Modules](#1-modules)
-2. [Components](#2-components)
-3. [Injection](#3-injection)
-
-#### 1. Modules
-
-Modules are responsible for creating and configuring the objects in your "dependency graph" through a set of **`@Provides`** annotated functions. Examples modules might include:
-  * An `ApplicationModule` that provides your base `Application` context.
-  * A `NetworkModule` that has your http client, http cache, cookie store, image loader, and configures timeouts.
-  * A `StorageModule` that has your database, sharedPreferences, and key value store.
-  * An `ActivityModule` for a specific Activity that provides local data shared by its child `Fragment`s
+The example above showed that we used `@Singleton`.  There is also another way to define how long the singleton can live (i.e. per activity, per user).
 
 Here is an example module:
+
 ```java
 @Module
 public class SampleAppModule {
@@ -263,7 +224,7 @@ public class SampleAppModule {
 
 Notice the `@Module` annotation on the class and the `@Provides` annotations on the functions. Functions in modules annotated with @Provides are called when the dependency is injected or used by another dependency. If the function is annotated with a **scope**, in this case `@PerApp`, it is only created once for that scope.
 
-#### 2. Components
+### Components
 
 Components are used to group together and build Modules into an object we can use to **get dependencies from**, and/or **inject fields with**. Basically, it's the glue between the Module and the injection points, first by configuring what modules and other components it depends on, then by listing the explicit classes it can be used to inject.
 
@@ -305,14 +266,7 @@ public interface SampleAppComponent {
 
 ```
 
-Notice within the annotation, we specify the Modules that @Provide the component and any other full components this component might depend on.
-
-`inject(Class thing)` methods are used to explicitly define classes that have fields annotated with `@Inject` to be injected.
-
-`Class thing()` methods are used to expose dependencies either to direct consumers or to dependent components to consume.
-
-
-#### 3. Injection
+### Other ways for injection
 
 Dependencies are used or "injected" through the functions on a `Component`.
 
@@ -321,10 +275,6 @@ There are 3 ways to get a dependency from a component:
 1. Directly by calling `component.thing()`.
 2. Annotating a field on an object with `@Inject`, then calling `component.inject(object)`. Often the object is `this`.
 3. Using constructor injection by annotating your constructor with `@Inject`, and letting Dagger create your class for you.
-
-### Defining custom scopes
-
-Defining custom scope(s) is highly recommended as it ????? TODO
 
 ## References
 
