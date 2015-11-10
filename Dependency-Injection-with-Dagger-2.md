@@ -21,7 +21,7 @@ public class MainActivity extends Activity {
    } 
 ```
 
- * **Order of instantiation is automatically managed for you**. There is an implicit order in which your modules are often created.   Dagger 2 walks through the dependency graph and generates code that is both easy to understand and trace, while also reducing the amount of boilerplate code you would normally need to write by hand to accomplish the same goal.  It also helps simplify refactoring, since you can focus on what modules to support rather than focusing on the order in which they should be supported.
+ * **Order of instantiation is automatically managed for you**. There is an implicit order in which your modules are often created.   Dagger 2 walks through the dependency graph and generates code that is both easy to understand and trace, while also saving you from writing the large amount of of boilerplate code you would normally need to write by hand to obtain references and pass them to other objects as dependencies.  It also helps simplify refactoring, since you can focus on what modules to build rather then focusing on the order in which they need to be created.
 
  * **Easier unit and integration testing**  Because the dependency graph is created for us, we can easily swap out modules that make network responses that mock out this behavior.
 
