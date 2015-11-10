@@ -141,7 +141,9 @@ public interface AppComponent {
 
 **Note** that base classes are not be sufficient as injection targets.  Dagger 2 relies on strongly typed classes, so you must specify explicitly which ones should be defined.   (There are [suggestions](https://blog.gouline.net/2015/05/04/dagger-2-even-sharper-less-square/) to workaround the issue, but the code to do so may be more complicated to trace than simply defining them.)
 
-One important point to note is that Dagger 2 performs a lot of code generation for classes annotated with the `@Component` interface.  Dagger will generate a factory class prefixed with `Dagger_` (i.e. `Dagger_TwitterApiComponent.java` that will be responsible for assigning values to fields annotated with `@Inject`.  We need to use this factory class to instantiate a component with all its related dependencies.  
+#### Code generation
+
+An important aspect of Dagger 2 is that generates code for classes annotated with the `@Component` interface.  You can use a a class prefixed with `Dagger_` (i.e. `Dagger_TwitterApiComponent.java`) that will be responsible for instantiating an instance of our dependency graph and using it to perform the injection work for fields annotated with `@Inject`.  
 
 We should do all this work within an `Application` class since these instances should be declared only once throughout the entire lifespan of the application:
 
