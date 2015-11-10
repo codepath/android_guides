@@ -38,6 +38,14 @@ When the SDK Manager plug-in runs, it will look at the `local.properties` file t
 
 If you are having any issues with this -plugin, you can run `gradlew build -d` to help see the verbose logging messages.  
 
+### Installing for Ubuntu Linux 
+
+If you are using Ubuntu 15.04 or 15.10, make sure to install the following packages.  Otherwise, you may notice `No such file or directory` when running trying to execute the `aapt` program that is part of the Android SDK toolset:
+
+```bash
+sudo apt-get install libc6-dev-i386 lib32z1 default-jdk
+```
+
 ## Installing the Android SDK (via Homebrew)
 
 Assuming you have OS X running, you can use Homebrew to install the Android SDK.
