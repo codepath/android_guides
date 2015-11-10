@@ -1,6 +1,14 @@
 The Android system shows an on-screen keyboard, known as a soft input method, when a text field in your UI receives focus. To provide the best user experience, you can specify characteristics about the type of input you expect (such as whether it's a phone number or email address) and how the input method should behave (such as whether it performs auto-correct for spelling mistakes).
 
-**Note:** By default, the soft keyboard may not appear on the emulator. If you want to test with the soft keyboard, be sure to open up AVD (Window => Android Virtual Device Manager) and set "Hardware Keyboard Present" to **false** for your emulator. See [this screenshot](http://imgur.com/a/kf1s9) for a visual reference.
+<img src="http://i.imgur.com/vIMWbX9.png" width="400" />
+
+## Displaying the Soft Keyboard
+
+By default, the soft keyboard may not appear on the emulator. If you want to test with the soft keyboard, be sure to open up the Android Virtual Device Manager (`Tools => Android => AVD Manager`) and **uncheck** "Enable Keyboard Input" for your emulator. 
+
+<img src="http://i.imgur.com/hlPAVYG.png" width="500" /> 
+
+Now restart the emulator. See [these screenshots](http://imgur.com/a/kf1s9) for a visual reference.
 
 ## Showing Soft Keyboard Programmatically 
 
