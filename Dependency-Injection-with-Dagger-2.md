@@ -84,7 +84,9 @@ public class NetModule {
    }
 ```
 
-Note that the method name `provideGson()` itself does not matter and can be named anything.  Only the return type, the `@Provides` annotation, and `@Singleton` annotation cause Dagger to understand that this method is used to construct a `Gson` singleton instance.   We also declare a provider for an `OkHttpClient` instance using the same approach:
+Note that the method name `provideGson()` itself does not matter and can be named anything.  The return type annotated with a `@Provides` decorator is used to associate this instantiation with any other modules of the same time.  The `@Singleton` annotation is used to declare to the Java annotations compiler to mark it to be initialized only once for the entire application.  
+
+We also declare a provider for an `OkHttpClient` instance using the same approach:
 
 ```java
 @Provides
