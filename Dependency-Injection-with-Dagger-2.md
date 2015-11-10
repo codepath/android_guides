@@ -2,7 +2,7 @@
 
 Many Android apps end up with some type of inherent implicit dependency chain in the source code.  For instance, a Twitter API client for instance may be built using a networking library such as [Retrofit](http://square.github.io/retrofit/). To use this library, you might also need to add parsing libraries such as [[Gson|Leveraging-the-Gson-Library]].  In addition, classes that implement authentication or caching may require accessing shared preferences or other common storage, creating another set of inter-related dependencies.
 
-Dagger 2 analyzes these dependencies for you and generates code to help wire them together.  While there have been past Java dependency injection frameworks in the past, many of them suffered limitations in relying on XML, validating dependency issues at run-time, or incurring performance penalties during startup. [Dagger 2](http://google.github.io/dagger/) relies on purely using Java [annotation processors](https://www.youtube.com/watch?v=dOcs-NKK-RA) and compile-time checks to analyze and verify dependencies, while also being the most performant dependency injection framework built to date.
+Dagger 2 analyzes these dependencies for you and generates code to help wire them together.  While there have been other Java dependency injection frameworks in the past, many of them suffered limitations in relying on XML, validating dependency issues at run-time, or incurring performance penalties during startup. [Dagger 2](http://google.github.io/dagger/) relies on purely using Java [annotation processors](https://www.youtube.com/watch?v=dOcs-NKK-RA) and compile-time checks to analyze and verify dependencies, while also being the most performant dependency injection framework built to date.
 
 ### Advantages
 
