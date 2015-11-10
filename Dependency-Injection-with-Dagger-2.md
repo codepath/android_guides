@@ -6,7 +6,7 @@ Dagger 2 analyzes these dependencies for you and generates code to help wire the
 
 ### Advantages
 
-Here is a list of advantages of using Dagger 2:
+Here is a list of other advantages for using Dagger 2:
 
  * **Simplifies access to singletons**. Just as the [ButterKnife](http://jakewharton.github.io/butterknife/) library makes it easier to define references to Views and event handlers, Dagger 2 provides a simply way to obtain references to shared instances.  For instance,  once we declare our singleton instances such as  `MyTwitterApiClient` or `SharedPreferences` in Dagger, we can declare fields with a simple `@Inject` annotation:
 
