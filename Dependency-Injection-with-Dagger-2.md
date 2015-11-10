@@ -114,8 +114,7 @@ Retrofit provideRetrofit(Gson gson, OkHttpClient okHttpClient) {
 
 #### Define injection targets
 
-Dagger provides a way for the fields in your activities, fragments, or services to be assigned references to these singletons by delegating this work to an injector class that will handle this work.  The fields need to be annotated with `@Inject` and calling an `inject()` method with this class, Dagger 2 will search its dependency graph to try to find references to these instances.
-
+Dagger provides a way for the fields in your activities, fragments, or services to be assigned references to these singletons by delegating this work to an injector class that will handle this work.  The fields need to be annotated with `@Inject` and call an `inject()` method with this class.  In this way, Dagger 2 will search its dependency graph to try to find matching return types to use.  For instance, in the example below, it will attempt to find a provider that returns `MyTwitterApiClient` and a `SharedPreference` type:
 
 ```java
 public class MainActivity extends Activity {
@@ -128,7 +127,7 @@ public class MainActivity extends Activity {
    } 
 ```
 
-The injector class in Dagger 2 must be defined with a `@Component` decorator.  The activities, services, or fragments that it will support should be defined as individual `inject()` methods: 
+The injector class in Dagger 2 must be defined with a `@Component` decorator.  The activities, services, or fragments that will can be added should be declared in this class with individual `inject()` methods: 
 
 ```java
 @Singleton
@@ -140,9 +139,11 @@ public interface AppComponent {
 }
 ```
 
-Note that base classes are not be sufficient as injection targets.  Dagger 2 relies on strongly typed classes, so you must specify explicitly which ones should be defined.   (There are [suggestions](https://blog.gouline.net/2015/05/04/dagger-2-even-sharper-less-square/) to workaround the issue, but the code to do so may be more complicated to trace than simply defining them.)
+**Note** that base classes are not be sufficient as injection targets.  Dagger 2 relies on strongly typed classes, so you must specify explicitly which ones should be defined.   (There are [suggestions](https://blog.gouline.net/2015/05/04/dagger-2-even-sharper-less-square/) to workaround the issue, but the code to do so may be more complicated to trace than simply defining them.)
 
-The `@Component` interface causes Dagger to generate a factory class prefixed with `Dagger_` (i.e. `Dagger_TwitterApiComponent.java` that will be responsible for assigning values to fields annotated with `@Inject`.  We need to use this factory class to instantiate a component with all its related dependencies.  We should do all this work within an `Application` class since these instances should be declared only once throughout the entire lifespan of the application:
+One important point to note is that Dagger 2 performs a lot of code generation for classes annotated with the `@Component` interface.  Dagger will generate a factory class prefixed with `Dagger_` (i.e. `Dagger_TwitterApiComponent.java` that will be responsible for assigning values to fields annotated with `@Inject`.  We need to use this factory class to instantiate a component with all its related dependencies.  
+
+We should do all this work within an `Application` class since these instances should be declared only once throughout the entire lifespan of the application:
 
 ```java
 public class MyApp extends Application {
