@@ -442,7 +442,64 @@ public void setSelectedTab() {
 ```
 
 With that, any activity can launch the tabbed activity with the ability to configure the selected tab.
+
+## Custom Pages without Fragments
+
+While a `ViewPager` is often coupled with a `Fragment` for each page using the `FragmentPagerAdapter`, there are cases where the pages are better off as plain views. 
+
+<img src="http://i.imgur.com/VaCvAm5.png" width="300" />
+
+A good example is an image gallery, where the user can swipe between different pictures. To achieve this, we can extend from `PagerAdapter`:
+
+```java
+// Custom pager adapter not using fragments
+class CustomPagerAdapter extends PagerAdapter {
  
+    Context mContext;
+    LayoutInflater mLayoutInflater;
+    ArrayList<Page> pages = new ArrayList<>();
+ 
+    public CustomPagerAdapter(Context context) {
+        mContext = context;
+        mLayoutInflater = LayoutInflater.from(mContext);
+    }
+ 
+    // Returns the number of pages to be displayed in the ViewPager.
+    @Override
+    public int getCount() {
+        return pages.size();
+    }
+ 
+    // Returns true if a particular object (page) is from a particular page
+    @Override
+    public boolean isViewFromObject(View view, Object object) {
+        return view == object;
+    }
+ 
+    // This method should create the page for the given position passed to it as an argument. 
+    @Override
+    public Object instantiateItem(ViewGroup container, int position) {
+        // Inflate the layout for the page
+        View itemView = mLayoutInflater.inflate(R.layout.pager_item, container, false);
+        // Find and populate data into the page (i.e set the image)
+        ImageView imageView = (ImageView) itemView.findViewById(R.id.imageView);
+        // ...
+        // Add the page to the container
+        container.addView(itemView);
+        // Return the page
+        return itemView;
+    }
+ 
+    // Removes the page from the container for the given position.
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
+        container.removeView((View) object);
+    }
+}
+```
+
+This is most commonly used for image slideshows or galleries. See [this image gallery tutorial](http://codetheory.in/android-image-slideshow-using-viewpager-pageradapter/) or this [viewpager without fragments](https://www.bignerdranch.com/blog/viewpager-without-fragments/) guide for more detailed steps.
+
 ## References
 
 * <http://architects.dzone.com/articles/android-tutorial-using>
