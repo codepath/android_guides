@@ -447,7 +447,7 @@ With that, any activity can launch the tabbed activity with the ability to confi
 
 While a `ViewPager` is often coupled with a `Fragment` for each page using the `FragmentPagerAdapter`, there are cases where the pages are better off as plain views. 
 
-<img src="http://i.imgur.com/VaCvAm5.png" width="300" />
+<img src="http://i.imgur.com/VaCvAm5.png" width="200" />
 
 A good example is an image gallery, where the user can swipe between different pictures. To achieve this, we can extend from `PagerAdapter`:
 
