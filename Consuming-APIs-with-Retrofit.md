@@ -422,7 +422,7 @@ OkHttpClient client = new OkHttpClient();
 client.networkInterceptors().add(new StethoInterceptor());
 ```
 
-Start your emulator or device.  Then visit `http://inspect` on your Chrome desktop and your emulator device should appear.  Click on `Inspect` to launch a new window.  
+Start your emulator or device.  Then visit `chrome://inspect` on your Chrome desktop and your emulator device should appear.  Click on `Inspect` to launch a new window.  
 
 <img src="http://facebook.github.io/stetho/static/images/inspector-discovery.png"/>
 
