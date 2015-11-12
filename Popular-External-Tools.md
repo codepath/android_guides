@@ -55,6 +55,7 @@ These are the best A/B testing services:
 These are the best resources for testing your app across multiple real and emulated devices. 
 
 * [TestObject](http://testobject.com) - New site for scheduled or manual black box testing of Android apps or mobile web sites. Allows testing on real devices.
+* [SauceLabs](https://saucelabs.com/) - Test native mobile apps on a variety of iOS & Android emulator configurations.
 * [Monkop](http://monkop.com) - Android Tuning Advisor. Test-drive applications on multiple devices with one click. 
 
 ### Performance
