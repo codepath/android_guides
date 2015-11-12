@@ -111,7 +111,7 @@ Once your Jenkins job has been created, give it a go. Click **Build Now** on the
 
 When the build has succeeded, Gradle will put your new APK in `/Users/ciandroid/ci/your_project_name/build/` on the build machine. 
 
-From here, you can configure Jenkins to build on push, run tests automatically, and upload APKs to a deployment system such as [Hockey](hockeyapp.net).
+From here, you can configure Jenkins to build on push, run tests automatically, and upload APKs to a deployment system such as [Hockey](http://hockeyapp.net).
 
 Congratulations on building your Android project! 
 
