@@ -210,6 +210,24 @@ public class MyActivity extends Activity {
 
 The example above showed that we used singletons that lasted the entire lifecycle of the application.  If we wish to create instances that are tied to the lifespan of an activity or fragment, Dagger 2 also enables the ability to create scoped instances.  Dagger 2 itself does not know about an activity or fragment so the responsibility lies on you to be consistent about keeping references.
 
+The `@Singleton` annotation is provided as part of the Java annotation library.  We need to define our own `PerActivity` interface:
+
+```java
+import java.lang.annotation.Retention;
+import javax.inject.Scope;
+
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
+
+/**
+ * A scoping annotation to permit objects whose lifetime should
+ * conform to the life of the activity to be memoized in the
+ * correct component.
+ */
+@Scope
+@Retention(RUNTIME)
+public @interface PerActivity {
+}
+```
 See this [example code](https://github.com/google/dagger/tree/master/examples/android-activity-graphs) and Stack Overflow [discussion](http://stackoverflow.com/questions/28411352/what-determines-the-lifecycle-of-a-component-object-graph-in-dagger-2?rq=1).
 
 ### Components
