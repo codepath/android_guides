@@ -127,7 +127,7 @@ public class MainActivity extends Activity {
    } 
 ```
 
-The injector class in Dagger 2 must be defined with a `@Component` decorator. A component in the Dagger world is what enables activities, services, or fragments to have access to singletons we earlier defined.  The activities, services, or fragments that will can be added should be declared in this class with individual `inject()` methods: 
+The injector class in Dagger 2 must be defined with a `@Component` decorator. A **component** in the Dagger world is what enables activities, services, or fragments to have access to singletons we earlier defined.  The activities, services, or fragments that will can be added should be declared in this class with individual `inject()` methods: 
 
 ```java
 @Singleton
@@ -143,7 +143,7 @@ public interface AppComponent {
 
 #### Code generation
 
-An important aspect of Dagger 2 is that the library generates code for classes annotated with the `@Component` interface.  You can use a a class prefixed with `Dagger_` (i.e. `Dagger_TwitterApiComponent.java`) that will be responsible for instantiating an instance of our dependency graph and using it to perform the injection work for fields annotated with `@Inject`.  Android Studio by default will not recognize this generated code as legitimate classes, but adding the `android-apt` plugin will enable you to have more visibility:
+An important aspect of Dagger 2 is that the library generates code for classes annotated with the `@Component` interface.  You can use a a class prefixed with `Dagger_` (i.e. `Dagger_TwitterApiComponent.java`) that will be responsible for instantiating an instance of our dependency graph and using it to perform the injection work for fields annotated with `@Inject`.  Android Studio by default will not recognize this generated code as legitimate classes, but adding the `android-apt` plugin will add these files into the IDE classpath and enable you to have more visibility:
 
 Add this line to your root `build.gradle:
 
@@ -160,6 +160,8 @@ Then make sure to apply the plugin in your `app/build.gradle`:
 // add after applying plugin: 'com.android.application'  
 apply plugin: 'com.neenbedankt.android-apt'
 ```
+
+### Instantiating the component
 
 We should do all this work within an `Application` class since these instances should be declared only once throughout the entire lifespan of the application:
 
