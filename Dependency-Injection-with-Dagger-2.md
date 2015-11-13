@@ -143,7 +143,7 @@ public interface AppComponent {
 
 #### Code generation
 
-An important aspect of Dagger 2 is that the library generates code for classes annotated with the `@Component` interface.  You can use a a class prefixed with `Dagger_` (i.e. `Dagger_TwitterApiComponent.java`) that will be responsible for instantiating an instance of our dependency graph and using it to perform the injection work for fields annotated with `@Inject`.  Android Studio by default will not recognize this generated code as legitimate classes, but adding the `android-apt` plugin will add these files into the IDE classpath and enable you to have more visibility:
+An important aspect of Dagger 2 is that the library generates code for classes annotated with the `@Component` interface.  You can use a class prefixed with `Dagger_` (i.e. `Dagger_TwitterApiComponent.java`) that will be responsible for instantiating an instance of our dependency graph and using it to perform the injection work for fields annotated with `@Inject`.  Android Studio by default will not recognize this generated code as legitimate classes, but adding the `android-apt` plugin will add these files into the IDE class path and enable you to have more visibility:
 
 Add this line to your root `build.gradle:
 
