@@ -58,9 +58,9 @@ Retrofit retrofit = new Retrofit.Builder()
                                 .build();
 ```
 
-#### Declare your singletons
+#### Declare your singletons 
 
-You need to define what modules should be included as part of the dependency chain.  For instance, if we wish to make a single `Retrofit` instance tied to the application lifecycle and available to all our activities and fragments, we first need to make Dagger aware that a `Retrofit` instance can be provided.   We create a class called `NetModule.java` and annotate it with `@Module` to signal to Dagger to search within the available methods for possible instance providers:
+You need to define what objects should be included as part of the dependency chain by creating a Dagger 2 **module**.  For instance, if we wish to make a single `Retrofit` instance tied to the application lifecycle and available to all our activities and fragments, we first need to make Dagger aware that a `Retrofit` instance can be provided.   We create a class called `NetModule.java` and annotate it with `@Module` to signal to Dagger to search within the available methods for possible instance providers.  
 
 ```java
 @Module
