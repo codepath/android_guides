@@ -37,7 +37,7 @@ dependencies {
 }
 ```
 
-Note that the `provided` keyword refers to dependencies that are only needed at compilation but not at run-time.  The Dagger compiler and Java annotation libraries are used to generate code that are used to create the dependency graph of the classes defined in your source code.
+Note that the `provided` keyword refers to dependencies that are only needed at compilation.  The Dagger compiler generates code that are used to create the dependency graph of the classes defined in your source code.  These classes are added to the IDE class path during compilation.  
 
 ### Using Dagger 2
 
