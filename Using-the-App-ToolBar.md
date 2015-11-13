@@ -214,7 +214,7 @@ Note that you **must hide the default title using `setDisplayShowTitleEnabled`**
 
 One common behavior seen in many modern apps is to hide or show the toolbar or make other changes as the user scrolls through a list:
 
-<img src="http://i.imgur.com/DW2Y8qU.gif" width="360" />
+<img src="http://i.imgur.com/DW2Y8qU.gif" width="250" />
 
 The proper way of reacting to scroll behavior is leveraging the [[CoordinatorLayout|Handling-Scrolls-with-CoordinatorLayout#responding-to-scroll-events]] built into the [[Design Support Library]]. There are a few other relevant resources around reacting to scrolling events:
 
