@@ -334,7 +334,12 @@ fab.attachToListView(list, new ScrollDirectionListener() {
 
 ### Manual Implementations
 
-Instead of using a library we can also develop the floating action buttons manually. For manual implementations of the floating action button, see this [big nerd ranch guide](http://www.bignerdranch.com/blog/floating-action-buttons-in-android-l/) and the [survivingwithandroid walkthrough](http://www.survivingwithandroid.com/2014/09/android-floating-action-button.html).
+Instead of using a library we can also develop the floating action buttons manually. For manual implementations of the floating action button, see the following resources:
+
+ * [Big Nerd Ranch FAB guide](http://www.bignerdranch.com/blog/floating-action-buttons-in-android-l/)
+ * [SurvivingwithAndroid FAB Walkthrough](http://www.survivingwithandroid.com/2014/09/android-floating-action-button.html)
+
+In most cases, the FAB is much easier to implement using the [[Design Support Library]] as outlined earlier in this guide.
 
 ## References
 
