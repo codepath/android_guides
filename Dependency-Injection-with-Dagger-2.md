@@ -127,7 +127,7 @@ public class MainActivity extends Activity {
    } 
 ```
 
-The injector class in Dagger 2 must be defined with a `@Component` decorator. A **component** in the Dagger world is what enables activities, services, or fragments to have access to singletons we earlier defined.  The activities, services, or fragments that will can be added should be declared in this class with individual `inject()` methods: 
+ A **component** in the Dagger 2 world is the injector class.  It provides the ability for our activities, services, or fragments to have access to singletons we earlier defined.  We can annotate this class with a `@Component` declaration.  The activities, services, or fragments that will can be added should be declared in this class with individual `inject()` methods: 
 
 ```java
 @Singleton
