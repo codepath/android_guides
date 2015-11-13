@@ -208,41 +208,9 @@ public class MyActivity extends Activity {
 
 ### Custom Scopes
 
-The example above showed that we used `@Singleton`.  There is also another way to define how long the singleton can live (i.e. per activity, per user).
+The example above showed that we used singletons that lasted the entire lifecycle of the application.  If we wish to create instances that are tied to the lifespan of an activity or fragment, Dagger 2 also enables the ability to create scoped instances.  Dagger 2 itself does not know about an activity or fragment so the responsibility lies on you to be consistent about keeping references.
 
-Here is an example module:
-
-```java
-@Module
-public class SampleAppModule {
-
-  static final String PREFS_DEFAULT = "myapp";
-
-  final SampleApp app;
-
-  public AppModule(SampleApp app) {
-    this.app = app;
-  }
-
-  @Provides @PerApp SampleApp provideSampleApp() {
-    return app;
-  }
-
-  @Provides @PerApp Application provideApplication(SampleApp app) {
-    return app;
-  }
-
-  @Provides @PerApp SharedPreferences provideSharedPrefs(Application app) {
-    return app.getSharedPreferences(PREFS_DEFAULT, Context.MODE_PRIVATE);
-  }
-
-  @Provides @PerApp Gson provideGson() {
-    return new Gson();
-  }
-}
-```
-
-Notice the `@Module` annotation on the class and the `@Provides` annotations on the functions. Functions in modules annotated with @Provides are called when the dependency is injected or used by another dependency. If the function is annotated with a **scope**, in this case `@PerApp`, it is only created once for that scope.
+See this [example code](https://github.com/google/dagger/tree/master/examples/android-activity-graphs) and Stack Overflow [discussion](http://stackoverflow.com/questions/28411352/what-determines-the-lifecycle-of-a-component-object-graph-in-dagger-2?rq=1).
 
 ### Components
 
