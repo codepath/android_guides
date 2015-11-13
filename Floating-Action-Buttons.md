@@ -5,7 +5,7 @@
 For example, if we are using an email app and we are listing the inbox folder, the promoted action might be composing a new message.
 
 <img src="http://i.imgur.com/BE7c4xy.gif" width="185" alt="FAB1" />&nbsp;
-<img src="http://i.imgur.com/qij0f3K.gif" width="200" alt="FAB2" />
+<img src="http://i.imgur.com/qij0f3K.gif" width="185" alt="FAB2" />
 
 The floating action button represents **the primary action** within a particular screen. More info and use cases of the FAB button from Google’s official [design specs can be found here](http://www.google.com/design/spec/components/buttons.html#buttons-floating-action-button).
 
