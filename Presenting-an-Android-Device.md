@@ -81,7 +81,7 @@ Mobizen can connect to your device using either **USB** or **WiFi** connections.
 2. Ensure `USB Debugging` mode is active by checking the notifications screen.
 3. Go to `Settings => Developer options` and enable "Stay awake"
 4. Go to `Settings => Display => Screen Timeout` and change to "5 minutes"
-5. Sign in to [mobizen](https://www.mobizen.com/?locale=en) with the email and password configured in earlier steps. 
+5. Sign in to [Mobizen](https://www.mobizen.com/?locale=en) with the email and password configured in earlier steps. 
 6. Wait until the present dialog appears on the device
 7. Tap "Start Now" on the device to display screen on the computer
 8. Select "FullScreen" on the menu sidebar
