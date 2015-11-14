@@ -64,7 +64,7 @@ Essentially this method is used to enable your code to short-circuit before exec
             return;
         }
 
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 ```
 
 ### Convenience
