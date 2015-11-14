@@ -244,6 +244,7 @@ Focused on issues like deployment, dependency management, etc:
 * [[Dependency Injection with Dagger 2]] (**Needs Attention**)
 * [Android Best Practices](https://github.com/futurice/android-best-practices)
 * [[Presenting an Android Device]] (Cast Device to Laptop)
+* [[Recording Video of an Android Device]] 
 
 ## Contributing 
 
