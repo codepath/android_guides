@@ -38,7 +38,7 @@ There are three steps to using Mobizen:
 2. Download and install Mobizen PC to your desktop
 3. Connect to your Android Device from Computer
 
-## 1. Download and Configure Mobizen onto Android Device
+### 1. Download and Configure Mobizen onto Android Device
 
 First, we need to download and configure Mobizen on our device. Go to the "Play Store" and install one of these Android apps:
 
@@ -59,7 +59,7 @@ You should see the following on your device:
 
 Now, let's setup mobizen on our computer.
 
-## 2. Download and install Mobizen PC to your desktop
+### 2. Download and install Mobizen PC to your desktop
 
 Visit the [Mobizen Site](https://www.mobizen.com) to download the plug-in onto your computer:
 
@@ -73,7 +73,7 @@ You should see the following on your computer:
 
 Now, let's connect your device to your computer using mobizen.
 
-## 3. Connect to your Android Device from Computer
+### 3. Connect to your Android Device from Computer
 
 Mobizen can connect to your device using either **USB** or **WiFi** connections. Connecting with USB allows for a **much smoother framerate** and is strongly recommended. Follow these steps: 
 
