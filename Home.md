@@ -243,6 +243,7 @@ Focused on issues like deployment, dependency management, etc:
 * [[Debugging and Profiling Apps]] (**Needs Attention**)
 * [[Dependency Injection with Dagger 2]] (**Needs Attention**)
 * [Android Best Practices](https://github.com/futurice/android-best-practices)
+* [[Presenting an Android Device]]
 
 ## Contributing 
 
