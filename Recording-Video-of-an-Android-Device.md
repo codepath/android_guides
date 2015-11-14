@@ -52,3 +52,10 @@ Additional resources and options can be reviewed:
  * [Copying Files to Computer](http://www.herongyang.com/Android/adb-push-and-pull-Command.html)
 
 With this, you can now easily record videos directly on an Android device.
+
+## References
+
+* <http://stackoverflow.com/a/31547690/313399>
+* <https://www.webniraj.com/2013/11/07/screen-recording-on-nexus-5-using-android-4-4-kitkat-and-android-sdk/>
+* <http://www.cnet.com/how-to/how-to-record-your-screen-on-android-4-4-kitkat/>
+* <http://www.herongyang.com/Android/adb-push-and-pull-Command.html>
