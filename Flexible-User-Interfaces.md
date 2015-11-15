@@ -8,7 +8,7 @@ This is typically used for creating robust applications that work across differe
 
 The core features that make responsive, robust and flexible layouts possible are:
 
- * [[RelativeLayout|Constructing-View-Layouts#relativelayout]] - While `LinearLayout` has uses, the most responsive layout is the Relative which allows you to specify your layout in terms of the spatial relationships.
+ * [[RelativeLayout|Constructing-View-Layouts#relativelayout]] - While `LinearLayout` has uses, the most responsive layout is the Relative which allows you to specify your layout in terms of the spatial relationships. For more flexibility, the [[PercentRelativeLayout|Constructing-View-Layouts#percentrelativelayout]] can be used for elastic percentage based dimensions in conjunction with `RelativeLayout`.
  * [[Alternative Resources|Understanding-App-Resources#responsive-design]] - The ability to have multiple resource files (XML, images, etc) that will be automatically selected based on specified qualifiers (screen size, time of day, locale, etc). Using [size qualifiers](http://developer.android.com/training/multiscreen/screensizes.html#TaskUseSizeQuali) is the best way to create flexible applications.
  * [[Fragments|Creating-and-Using-Fragments]] - Reusable modular components that Activities can be composed from. This allows us to have alternate activity layouts all using the same fragments.
  * [[Drawables and Nine-Patch|Drawables#stretchable-nine-patch-image]] - Drawable XML shapes are inherently responsive but if we need to use images for buttons, we need to make sure that the images are setup to scale properly using the 9-patch system.
