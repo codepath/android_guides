@@ -146,6 +146,7 @@ The following event listeners are supported out of the box: `OnClick`, `OnLongCl
 
 Eliminate resource lookups in your Java code by using resource annotations on fields:
 
+```java
 class ExampleActivity extends Activity {
   @BindString(R.string.title) String title;
   @BindDrawable(R.drawable.graphic) Drawable graphic;
@@ -153,6 +154,7 @@ class ExampleActivity extends Activity {
   @BindDimen(R.dimen.spacer) Float spacer; // int (for pixel size) or float (for exact value) field
   // ...
 }
+```
 
 The following resource types are available: `BindArray`, `BindBitmap`, `BindBool`,`BindColor`,`BindDimen`,`BindDrawable`,`BindInt`,`BindString`.
 
