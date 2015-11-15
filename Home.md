@@ -239,10 +239,10 @@ Covers usage of more advanced third-party libraries and SDKs that save time and 
 
 Covers guides specifically related to developing and publishing robust Android applications:
 
-* [[Debugging and Profiling Apps]] (**Needs Attention**)
-* [Android Best Practices](https://github.com/futurice/android-best-practices)
 * [Publishing to the Play Store](http://goo.gl/mUlGL1) (Slides)
 * [[Publishing with Android Studio|Publishing-to-the-Play-Store]]
+* [[Debugging and Profiling Apps]] (**Needs Attention**)
+* [Android Best Practices](https://github.com/futurice/android-best-practices)
 
 ## Workflow
 
