@@ -133,9 +133,9 @@ public class MainActivity extends Activity {
 @Singleton
 @Component(modules={NetModule.class})
 public interface AppComponent {
-   void inject(MyActivity activity);
-   void inject(MyFragment fragment);
-   void inject(MyService service);
+   void inject(MainActivity activity);
+   // void inject(MyFragment fragment);
+   // void inject(MyService service);
 }
 ```
 
