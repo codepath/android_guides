@@ -33,7 +33,7 @@ If you are an experienced engineer (2+ years of professional experience in softw
 **Totally new to Android?** Start here.
 
 * [Getting Started as a Developer](http://courses.codepath.com/snippets/intro_to_android/non_coders) (New to programming?)
-* [[Beginning Android Resources]] (Detailed Post With Many Links)
+* [[Getting Started with Android|Beginning Android Resources]] (Detailed Post With Many Links)
 * [Setting up Android Studio](http://goo.gl/X2SVFR) (Installation Slides) or [[Setting up IntelliJ IDEA]]
 * [[Installing a Faster Emulator|Genymotion-2.0-Emulators-with-Google-Play-support]] (Genymotion Guide)
 * [Architecture of Mobile Apps](http://goo.gl/AAsGLx) (Concept Slides)
