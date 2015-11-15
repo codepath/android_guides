@@ -22,7 +22,7 @@ The cliffnotes below are **categorized by their topic**, so you can easily find 
 
 Read more about [[us and our vision for CodePath|CodePath-Goal]]. If you want to **contribute to this guide**, please read the [[Contributing Guidelines]].
 
-## Live in San Francisco?
+## Live in the Bay Area?
 
 Located in the San Francisco Bay Area and interested in learning with others in a more structured program? Check out our local [Android](http://www.meetup.com/Learning-Android-Development) or [iOS](http://www.meetup.com/Learning-iOS-Development-SF/) meetup events. We have free evening events and at-cost 1-day workshops to make learning social and connect you with others passionate about mobile.
 
