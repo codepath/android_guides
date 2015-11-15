@@ -289,6 +289,7 @@ There are 3 ways to get a dependency from a component:
 * [Vince Mi's Codepath Meetup Dagger 2 Slides](https://docs.google.com/presentation/d/1bkctcKjbLlpiI0Nj9v0QpCcNIiZBhVsJsJp1dgU5n98/)
 * <http://code.tutsplus.com/tutorials/dependency-injection-with-dagger-2-on-android--cms-23345>
 * [Jake Wharton's Devoxx Dagger 2 Slides](https://speakerdeck.com/jakewharton/dependency-injection-with-dagger-2-devoxx-2014)
+* [Jake Wharton's Devoxx Dagger 2 Talk](https://www.parleys.com/tutorial/5471cdd1e4b065ebcfa1d557/)
 * [Dagger 2 Google Developers Talk](https://www.youtube.com/watch?v=oK_XtfXPkqw)
 * [Dagger 1 to Dagger 2](http://frogermcs.github.io/dagger-1-to-2-migration/)
 * [Testing Dagger 2 on Android](http://fernandocejas.com/2015/04/11/tasting-dagger-2-on-android/)
