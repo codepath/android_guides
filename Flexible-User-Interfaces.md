@@ -12,12 +12,7 @@ The core features that make responsive, robust and flexible layouts possible are
  * [[Alternative Resources|Understanding-App-Resources#responsive-design]] - The ability to have multiple resource files (XML, images, etc) that will be automatically selected based on specified qualifiers (screen size, time of day, locale, etc). Using [size qualifiers](http://developer.android.com/training/multiscreen/screensizes.html#TaskUseSizeQuali) is the best way to create flexible applications.
  * [[Fragments|Creating-and-Using-Fragments]] - Reusable modular components that Activities can be composed from. This allows us to have alternate activity layouts all using the same fragments.
  * [[Drawables and Nine-Patch|Drawables#stretchable-nine-patch-image]] - Drawable XML shapes are inherently responsive but if we need to use images for buttons, we need to make sure that the images are setup to scale properly using the 9-patch system.
-
-To be covered:
-
- * Managing screen sizes, orientations
- * onSaveInstanceState to store state across rotation
- * Localization, using different language XML files
+ * [Handling Configuration Changes](http://guides.codepath.com/android/Handling-Configuration-Changes) - Properly persisting view state across configuration changes such as screen rotation.
 
 ### Supporting Different Screens and Densities
 
