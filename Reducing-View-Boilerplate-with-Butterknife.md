@@ -4,14 +4,6 @@
 
 <img src="http://i.imgur.com/8QU88W8.png" width="250" />
 
-In particular, Butterknife addresses these common use cases:
-
- * Eliminate `findViewById` calls by using `@Bind` on fields.
- * Eliminate anonymous inner-classes for listeners by annotating methods with `@OnClick` and others.
- * Group multiple views in a list or array. Operate on all of them at once with actions,
-   setters, or properties.
- * Eliminate resource lookups by using resource annotations on fields.
-
 This guide covers the most common usages of the library.
 
 ### Performance
