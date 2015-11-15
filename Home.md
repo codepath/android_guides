@@ -143,7 +143,6 @@ Exploring how to allow user interaction and navigation within an app:
 * [[Sharing Content with Intents]] (and ShareActionProvider)
 * [[Using Parcelable]] (Pass data fast between activities)
 * [[Book Search Tutorial]] (Toolbar with SearchView and sharing content)
-* [[Communicating with an Event Bus]] (Using Otto to publish and receive events)
 
 ## Networking and Models
 
@@ -225,8 +224,26 @@ Covering automated testing frameworks and tools for Android:
 * [[UI Testing with Robotium]] (**Needs Attention**)
 * [[Android Testing Framework]] (**Needs Attention**)
 
+## Libraries
 
-## Workflow Guides
+Covers usage of more advanced third-party libraries and SDKs that save time and improve the maintainability of your code:
+
+* [[Must Have Libraries]] (Networking, Persistence, Compatibility, Convenience, etc)
+* [[Popular External Tools]] (Analytics, Crash Reporting)
+* [[Dependency Injection with Dagger 2]] (**Needs Attention**)
+* [[Reducing View Boilerplate with Butterknife]] (View Annotations)
+* [[Communicating with an Event Bus]] (Using Otto to publish and receive events)
+
+## Production
+
+Covers guides specifically related to developing and publishing robust Android applications:
+
+* [[Debugging and Profiling Apps]] (**Needs Attention**)
+* [Android Best Practices](https://github.com/futurice/android-best-practices)
+* [Publishing to the Play Store](http://goo.gl/mUlGL1) (Slides)
+* [[Publishing with Android Studio|Publishing-to-the-Play-Store]]
+
+## Workflow
 
 Focused on issues like deployment, dependency management, etc:
 
@@ -235,15 +252,7 @@ Focused on issues like deployment, dependency management, etc:
 * [[Installing Android SDK Tools]]
 * [[Building Gradle Projects with Jenkins CI]]
 * [[Setting up Travis CI]]
-* [[Must Have Libraries]] (Networking, Persistence, Compatibility, Convenience, etc)
-* [Publishing to the Play Store](http://goo.gl/mUlGL1) (Slides)
-* [[Publishing with Android Studio|Publishing-to-the-Play-Store]]
-* [[Popular External Tools]] (Analytics, Crash Reporting)
 * [[Collaborating on Projects with Git]] (Git, Team)
-* [[Debugging and Profiling Apps]] (**Needs Attention**)
-* [[Dependency Injection with Dagger 2]] (**Needs Attention**)
-* [[Reducing View Boilerplate with Butterknife]] (View Annotations)
-* [Android Best Practices](https://github.com/futurice/android-best-practices)
 * [[Presenting an Android Device]] (Cast Device to Laptop)
 * [[Recording Video of an Android Device]] 
 
