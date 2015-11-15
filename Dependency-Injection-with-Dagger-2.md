@@ -114,7 +114,7 @@ Retrofit provideRetrofit(Gson gson, OkHttpClient okHttpClient) {
 
 #### Define injection targets
 
-Dagger provides a way for the fields in your activities, fragments, or services to be assigned references to these singletons by delegating to a class to handle this work.  The fields need to be annotated with `@Inject` and call an `inject()` method within instantiation of `onCreate()`.  In this way, Dagger 2 will search its dependency graph to try to find matching return types to use.  For instance, in the example below, it will attempt to find a provider that returns `MyTwitterApiClient` and a `SharedPreference` type:
+Dagger provides a way for the fields in your activities, fragments, or services to be assigned references simply by annotating the fields with an `@Inject` annotation.  Call an `inject()` method within instantiation of `onCreate()` will cause Dagger 2 to locate the singletons in the dependency graph to try to find a matching return type.  If it finds one, it assigns the references to the respective fields. For instance, in the example below, it will attempt to find a provider that returns `MyTwitterApiClient` and a `SharedPreference` type:
 
 ```java
 public class MainActivity extends Activity {
