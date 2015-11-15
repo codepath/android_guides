@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-Entries in the action bar are typically called actions. Use this method to inflate a menu resource that defines all the action items within a `res/menu` xml file, for example:
+Entries in the action bar are typically called actions. Use this method to inflate a menu resource that defines all the action items within a `res/menu.xml` file, for example:
 
 ```xml
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
