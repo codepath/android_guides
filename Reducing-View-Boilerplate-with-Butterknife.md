@@ -214,7 +214,7 @@ TextView lastName = ButterKnife.findById(view, R.id.last_name);
 ImageView photo = ButterKnife.findById(view, R.id.photo);
 ```
 
-Add a static import for ButterKnife.findById and enjoy even more fun.
+Add a static import for `ButterKnife.findById` and enjoy even more fun.
 
 ## References
 
