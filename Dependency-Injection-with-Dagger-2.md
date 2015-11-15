@@ -114,7 +114,7 @@ Retrofit provideRetrofit(Gson gson, OkHttpClient okHttpClient) {
 
 #### Define injection targets
 
-Dagger provides a way for the fields in your activities, fragments, or services to be assigned references simply by annotating the fields with an `@Inject` annotation.  Call an `inject()` method within instantiation of `onCreate()` will cause Dagger 2 to locate the singletons in the dependency graph to try to find a matching return type.  If it finds one, it assigns the references to the respective fields. For instance, in the example below, it will attempt to find a provider that returns `MyTwitterApiClient` and a `SharedPreference` type:
+Dagger provides a way for the fields in your activities, fragments, or services to be assigned references simply by annotating the fields with an `@Inject` annotation and calling an `inject()` method.  Calling `inject()` will cause Dagger 2 to locate the singletons in the dependency graph to try to find a matching return type.  If it finds one, it assigns the references to the respective fields. For instance, in the example below, it will attempt to find a provider that returns `MyTwitterApiClient` and a `SharedPreference` type:
 
 ```java
 public class MainActivity extends Activity {
@@ -127,7 +127,8 @@ public class MainActivity extends Activity {
    } 
 ```
 
- A **component** in the Dagger 2 world is the injector class.  It provides the ability for our activities, services, or fragments to have access to singletons we earlier defined.  We can annotate this class with a `@Component` declaration.  The activities, services, or fragments that will can be added should be declared in this class with individual `inject()` methods: 
+The injector class used in Dagger 2 is called a **component**.  It assigns references in our activities, services, or fragments to have access to singletons we earlier defined.  We will need to annotate this class with a `@Component` declaration. Note that the activities, services, or fragments that will can be added should be declared in this class with individual `inject()` methods: 
+
 
 ```java
 @Singleton
