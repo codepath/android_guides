@@ -297,3 +297,4 @@ There are 3 ways to get a dependency from a component:
 * [Dagger 2 Testing with Mockito](http://blog.sqisland.com/2015/04/dagger-2-espresso-2-mockito.html#sthash.IMzjLiVu.dpuf)
 * [Snorkeling with Dagger 2](https://github.com/konmik/konmik.github.io/wiki/Snorkeling-with-Dagger-2) 
 * [Dependency Injection in Java](https://www.objc.io/issues/11-android/dependency-injection-in-java/)
+* [Component Dependency vs. Submodules in Dagger 2](http://jellybeanssir.blogspot.de/2015/05/component-dependency-vs-submodules-in.html)
