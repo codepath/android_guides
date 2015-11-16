@@ -87,7 +87,7 @@ Retrofit retrofit = new Retrofit.Builder()
 
 You need to define what objects should be included as part of the dependency chain by creating a Dagger 2 **module**.  For instance, if we wish to make a single `Retrofit` instance tied to the application lifecycle and available to all our activities and fragments, we first need to make Dagger aware that a `Retrofit` instance can be provided.   
 
-Because we wish to setup caching, we need an Application context.  Our first Dagger module, `AppModule.java`, will be used to provide this reference, as well as access to the default Shared Preferences:
+Because we wish to setup caching, we need an Application context.  Our first Dagger module, `AppModule.java`, will be used to provide this reference.  We will define a method annotated with `@Provides` that denotes to Dagger that this method is the constructor for the `Application` return type:
 
 ```java
 @Module
