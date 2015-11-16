@@ -176,6 +176,7 @@ public class MyApp extends Application {
         // specify the full namespace of the component
         // Dagger_xxxx (where xxxx = component name)
         mAppComponent = com.codepath.dagger.components.DaggerAppComponent.builder()
+                // list of modules that are part of this component need to be created here too
                 .netModule(new NetModule("https://api.github.com"))
                 .build();
     }
