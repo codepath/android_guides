@@ -169,7 +169,8 @@ public class MyApp extends Application {
         // specify the full namespace of the component
         // Dagger_xxxx (where xxxx = component name)
         mAppComponent = com.codepath.dagger.components.DaggerAppComponent.builder()
-                .netModule(new NetModule());
+                .netModule(new NetModule())
+                .build();
     }
 
     public AppComponent getAppComponent() {
