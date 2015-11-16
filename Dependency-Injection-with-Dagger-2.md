@@ -122,6 +122,7 @@ public class NetModule {
         this.mBaseUrl = baseUrl;
     }
 
+    // Dagger will only look for methods annotated with @Provides
     @Provides
     @Singleton
     // Application reference must come from AppModule.class
@@ -137,7 +138,7 @@ public class NetModule {
         return cache;
     }
 
-   @Provides  // Dagger will only look for methods annotated with @Provides
+   @Provides 
    @Singleton
    Gson provideGson() {  
        GsonBuilder gsonBuilder = new GsonBuilder();
