@@ -147,8 +147,9 @@ public class NetModule {
 
    @Provides
    @Singleton
-   OkHttpClient provideOkHttpClient() {
-      return new OkHttpClient();
+   OkHttpClient provideOkHttpClient(Cache cache) {
+      OkHttpClient client = new OkHttpClient();
+      client.setCache(cache);
    }
 
    @Provides
@@ -253,6 +254,31 @@ public class MyActivity extends Activity {
         // assign singleton instances to fields
         ((MyApp) getApplication()).getNetComponent()).inject(this);
     } 
+```
+ 
+### Named return types
+
+If we need two different objects of the same return type, we can use the `@Named` annotation.  You will define it both it where you provide the singletons (`@Provides` annotation), and where you inject them (`@Inject` annotations):
+
+```java
+@Provides @Named("cached")
+@Singleton
+OkHttpClient provideOkHttpClient(Cache cache) {
+    OkHttpClient client = new OkHttpClient();
+    client.setCache(cache);
+}
+
+@Provides @Named("non_cached") @Singleton
+OkHttpClient provideOkHttpClient() {
+    OkHttpClient client = new OkHttpClient();
+    return client;
+}
+
+Injection will also require these named annotations too:
+
+```java
+@Inject @Named("cached") OkHttpClient client;
+@Inject @Named("non_cached") OkHttpClient client2;
 ```
 
 ### Custom Scopes
