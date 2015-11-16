@@ -41,7 +41,7 @@ dependencies {
 
 Note that the `provided` keyword refers to dependencies that are only needed at compilation.  The Dagger compiler generates code that are used to create the dependency graph of the classes defined in your source code.  These classes are added to the IDE class path during compilation.  
 
-Android Studio by default will not recognize a lot of generated code as legitimate classes, but adding the `android-apt` plugin will add these files into the IDE class path and enable you to have more visibility:
+Android Studio by default will not recognize a lot of generated Dagger 2 code as legitimate classes, but adding the `android-apt` plugin will add these files into the IDE class path and enable you to have more visibility:
 
 Add this line to your root `build.gradle`:
 
