@@ -15,7 +15,7 @@ We can use a [Handler](http://developer.android.com/reference/android/os/Handler
 
 <img src="https://i.imgur.com/2vg53fk.png" alt="handler" width="450" />
 
-Using a handler to execute a periodic runnable task is demonstrated below:
+Using a `Handler` to execute arbitrary code once with a delay:
 
 ```java
 // We need to use this Handler package
@@ -29,7 +29,27 @@ private Runnable runnableCode = new Runnable() {
     public void run() {
       // Do something here on the main thread
       Log.e("Handlers", "Called");
-      // Repeat this runnable code again every 2 seconds
+    }
+};
+// Repeat this runnable code again every 2 seconds
+handler.postDelayed(runnableCode, 2000);
+```
+
+We can also use a handler to execute a periodic runnable task as demonstrated below:
+
+```java
+// We need to use this Handler package
+import android.os.Handler;
+
+// Create the Handler object (on the main thread by default)
+Handler handler = new Handler();
+// Define the task to be run here
+private Runnable runnableCode = new Runnable() {
+    @Override
+    public void run() {
+      // Do something here on the main thread
+      Log.e("Handlers", "Called");
+      // Repeat this same runnable code again every 2 seconds
       handler.postDelayed(runnableCode, 2000);
     }
 };
