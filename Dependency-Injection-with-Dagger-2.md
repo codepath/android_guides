@@ -257,79 +257,78 @@ public class MyActivity extends Activity {
 
 ### Custom Scopes
 
-The example above showed that we used singletons that lasted the entire lifecycle of the application.  If we wish to create instances that are tied to the lifespan of an activity or fragment, Dagger 2 also enables the ability to create scoped instances.  Dagger 2 itself does not know about an activity or fragment so the responsibility lies on you to be consistent about keeping references.
+The example above showed that we used singletons that lasted the entire lifecycle of the application. We also relied on one major Dagger component.  If we wish to have multiple components that do not need to remain in memory all the time (i.e. components that are tied to the lifecycle of an activity or fragment, or even tied to when a user is signed-in), we can create dependent components.  There are several considerations when using dependent components:
 
-The `@Singleton` annotation is provided as part of the Java annotation library.  We need to define our own `PerActivity` interface:
+ * **Two components cannot share the same scope.**  For instance, two scopes cannot both be scoped to a `@Singleton` annotation.  This restriction is imposed because of reasons described [here](https://github.com/google/dagger/issues/107#issuecomment-71073298).  Dependent components need to define their own scope.
+
+ * **While Dagger 2 also enables the ability to create scoped instances, the responsibility rests on you on you to be consistent about creating references that is consistent.**  Dagger 2 does not know anything about the underlying implementation.  See this Stack Overflow [discussion](http://stackoverflow.com/questions/28411352/what-determines-the-lifecycle-of-a-component-object-graph-in-dagger-2) for more details.
+
+ * **When creating dependent components, the parent component needs to explicitly expose the objects to downstream objects.**  For instance, if a downstream component needed access to the `Retrofit` instance,
+it would need to explicitly with the corresponding return type:
+
+ ```java
+  @Singleton
+  @Component(modules={AppModule.class, NetModule.class})
+  public interface NetComponent {
+      // downstream components need these exposed with the return type
+      // method name does not really matter
+      Retrofit retrofit();
+  }
+ ```
+
+For instance, if we wish to use a dependent component created for the entire lifecycle of a user session signed into the application, we can define our own `UserScope` interface:
 
 ```java
 import java.lang.annotation.Retention;
 import javax.inject.Scope;
 
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
-
-/**
- * A scoping annotation to permit objects whose lifetime should
- * conform to the life of the activity to be memoized in the
- * correct component.
- */
 @Scope
-@Retention(RUNTIME)
-public @interface PerActivity {
+public @interface UserScope {
 }
 ```
-See this [example code](https://github.com/google/dagger/tree/master/examples/android-activity-graphs) and Stack Overflow [discussion](http://stackoverflow.com/questions/28411352/what-determines-the-lifecycle-of-a-component-object-graph-in-dagger-2?rq=1).
 
-### Components
+We can then define a child component:
 
-Components are used to group together and build Modules into an object we can use to **get dependencies from**, and/or **inject fields with**. Basically, it's the glue between the Module and the injection points, first by configuring what modules and other components it depends on, then by listing the explicit classes it can be used to inject.
-
-A Component must:
-
-* Define the modules it is composed of as an argument in the `@Component` annotation
-* Define any dependencies on other `Component`s it has.
-* Define functions to inject explicit types with dependencies. TODO: Link to details
-* Expose any internal dependencies to be accessed externally or by other Components.
-
-Example Component:
 ```java
-@PerApp
-@Component(
-    modules = {
-        SampleAppModule.class,
-        DataModule.class,
-        NetworkModule.class
-    }
-    dependencies = {
-        OtherComponent.class
-    }
-)
-public interface SampleAppComponent {
-  public void inject(SomeActivity someActivity);
-
-  public void inject(SomeFragment someFragment);
-
-  public void inject(SomeOtherFragment someOtherFragment);
-
-  Application application();
-
-  Picasso picasso();
-
-  Gson gson();
-
-  OkHttpClient okHttpClient();
+@UserScope // using the previously defined scope, note that @Singleton will not work
+@Component(dependencies = NetComponent.class, modules = GitHubModule.class)
+public interface GitHubComponent {
+    void inject(MainActivity activity);
 }
-
 ```
 
-### Other ways for injection
+Let's assume this GitHub module simply returns back an API interface to the GitHub API:
 
-Dependencies are used or "injected" through the functions on a `Component`.
+```java
 
-There are 3 ways to get a dependency from a component:
+@Module
+public class GitHubModule {
 
-1. Directly by calling `component.thing()`.
-2. Annotating a field on an object with `@Inject`, then calling `component.inject(object)`. Often the object is `this`.
-3. Using constructor injection by annotating your constructor with `@Inject`, and letting Dagger create your class for you.
+    public interface GitHubApiInterface {
+      @GET("/org/{orgName}/repos")
+      Call<ArrayList<Repository>> getRepository(@Path("orgName") String orgName);
+    }
+
+    @Provides
+    @UserScope // needs to be consistent with the component scope
+    public GitHubApiInterface providesGitHubInterface(Retrofit retrofit) {
+        return retrofit.create(GitHubApiInterface.class);
+    }
+}
+```
+
+In order for this `GitHubModule.java` to get access to the `Retrofit` instance, we need explicitly define them in the upstream component:
+
+```java
+@Singleton
+@Component(modules={AppModule.class, NetModule.class})
+public interface NetComponent {
+    // downstream components need these exposed
+    Retrofit retrofit();
+    OkHttpClient okHttpClient();
+    SharedPreferences sharedPreferences();
+}
+```
 
 ## References
 
@@ -346,3 +345,4 @@ There are 3 ways to get a dependency from a component:
 * [Snorkeling with Dagger 2](https://github.com/konmik/konmik.github.io/wiki/Snorkeling-with-Dagger-2) 
 * [Dependency Injection in Java](https://www.objc.io/issues/11-android/dependency-injection-in-java/)
 * [Component Dependency vs. Submodules in Dagger 2](http://jellybeanssir.blogspot.de/2015/05/component-dependency-vs-submodules-in.html)
+* [Dagger 2 Component Scopes Test](https://github.com/joesteele/dagger2-component-scopes-test)
