@@ -246,7 +246,7 @@ Within our activity, we simply need to get access to these component and call `i
 
 ```java
 public class MyActivity extends Activity {
-  @Inject MyTwitterApiClient mTwitterApiClient;
+  @Inject OkHttpClient mOkHttpClient;
   @Inject SharedPreferences sharedPreferences;
 
   public void onCreate(Bundle savedInstance) {
