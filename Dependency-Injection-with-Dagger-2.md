@@ -109,7 +109,7 @@ public class AppModule {
 
 We create a class called `NetModule.java` and annotate it with `@Module` to signal to Dagger to search within the available methods for possible instance providers.  
 
-The methods that will actually expose available return types should also be annotated with `@Provides` decorator.  The `Singleton` annotation also signals to the Dagger compiler that the instance should be created only once in the application.  In the following example, we are specifying the `Gson` return type that can be used as part of the dependency list.  
+The methods that will actually expose available return types should also be annotated with `@Provides` decorator.  The `Singleton` annotation also signals to the Dagger compiler that the instance should be created only once in the application.  In the following example, we are specifying `SharedPreferences`, `Gson`, `Cache`, `OkHttpClient`, and 'Retrofit` as the return types that can be used as part of the dependency list.  
 
 ```java
 @Module
@@ -166,7 +166,7 @@ public class NetModule {
 }
 ```
 
-Note that the method name `provideGson()` itself does not matter and can be named anything.  The return type annotated with a `@Provides` decorator is used to associate this instantiation with any other modules of the same time.  The `@Singleton` annotation is used to declare to Dagger to be only initialized only once during the entire lifecycle of the application.  
+Note that the method names (i.e. `provideGson()`, `provideRetrofit()`, etc) do not matter and can be named anything.  The return type annotated with a `@Provides` decorator is used to associate this instantiation with any other modules of the same time.  The `@Singleton` annotation is used to declare to Dagger to be only initialized only once during the entire lifecycle of the application.  
 
 A `Retrofit` instance depends both on a `Gson` and `OkHttpClient` instance, so we can define another method within the same class that takes these two types.  The `@Provides` annotation and these two parameters in the method will cause Dagger to recognize that there is a dependency on `Gson` and `OkHttpClient` to build a `Retrofit` instance.
 
