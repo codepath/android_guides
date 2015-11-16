@@ -15,7 +15,7 @@ We can use a [Handler](http://developer.android.com/reference/android/os/Handler
 
 <img src="https://i.imgur.com/2vg53fk.png" alt="handler" width="450" />
 
-Using a `Handler` to execute arbitrary code once with a delay:
+Using a `Handler` to execute arbitrary code once after a delay:
 
 ```java
 // We need to use this Handler package
@@ -28,7 +28,7 @@ private Runnable runnableCode = new Runnable() {
     @Override
     public void run() {
       // Do something here on the main thread
-      Log.e("Handlers", "Called");
+      Log.d("Handlers", "Called on main thread");
     }
 };
 // Repeat this runnable code again every 2 seconds
@@ -48,7 +48,7 @@ private Runnable runnableCode = new Runnable() {
     @Override
     public void run() {
       // Do something here on the main thread
-      Log.e("Handlers", "Called");
+      Log.d("Handlers", "Called on main thread");
       // Repeat this same runnable code again every 2 seconds
       handler.postDelayed(runnableCode, 2000);
     }
