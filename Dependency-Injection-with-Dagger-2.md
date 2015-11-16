@@ -8,7 +8,7 @@ Dagger 2 analyzes these dependencies for you and generates code to help wire the
 
 Here is a list of other advantages for using Dagger 2:
 
- * **Simplifies access to shared instances**. Just as the [ButterKnife](http://jakewharton.github.io/butterknife/) library makes it easier to define references to Views and event handlers, Dagger 2 provides a simply way to obtain references to shared instances.  For instance,  once we declare in Dagger our singleton instances such as  `MyTwitterApiClient` or `SharedPreferences`, we can declare fields with a simple `@Inject` annotation:
+ * **Simplifies access to shared instances**. Just as the [[ButterKnife|Reducing-View-Boilerplate-with-Butterknife]] library makes it easier to define references to Views and event handlers, Dagger 2 provides a simply way to obtain references to shared instances.  For instance,  once we declare in Dagger our singleton instances such as  `MyTwitterApiClient` or `SharedPreferences`, we can declare fields with a simple `@Inject` annotation:
 
 ```java
 public class MainActivity extends Activity {
