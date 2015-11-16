@@ -41,6 +41,24 @@ dependencies {
 
 Note that the `provided` keyword refers to dependencies that are only needed at compilation.  The Dagger compiler generates code that are used to create the dependency graph of the classes defined in your source code.  These classes are added to the IDE class path during compilation.  
 
+Android Studio by default will not recognize a lot of generated code as legitimate classes, but adding the `android-apt` plugin will add these files into the IDE class path and enable you to have more visibility:
+
+Add this line to your root `build.gradle`:
+
+```gradle
+ dependencies {
+     // other classpath definitions here
+     classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+ }
+```
+
+Then make sure to apply the plugin in your `app/build.gradle`:
+
+```gradle
+// add after applying plugin: 'com.android.application'  
+apply plugin: 'com.neenbedankt.android-apt'
+```
+
 ### Creating Singletons
 
 The simplest example is to show how to centralize all your singleton creation with Dagger 2.  Suppose you weren't using any type of dependency injection framework and wrote code in your Twitter client similar to the following:
@@ -146,23 +164,7 @@ public interface AppComponent {
 
 #### Code generation
 
-An important aspect of Dagger 2 is that the library generates code for classes annotated with the `@Component` interface.  You can use a class prefixed with `Dagger_` (i.e. `Dagger_TwitterApiComponent.java`) that will be responsible for instantiating an instance of our dependency graph and using it to perform the injection work for fields annotated with `@Inject`.  Android Studio by default will not recognize this generated code as legitimate classes, but adding the `android-apt` plugin will add these files into the IDE class path and enable you to have more visibility:
-
-Add this line to your root `build.gradle:
-
-```gradle
- dependencies {
-     // other classpath definitions here
-     classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
- }
-```
-
-Then make sure to apply the plugin in your `app/build.gradle`:
-
-```gradle
-// add after applying plugin: 'com.android.application'  
-apply plugin: 'com.neenbedankt.android-apt'
-```
+An important aspect of Dagger 2 is that the library generates code for classes annotated with the `@Component` interface.  You can use a class prefixed with `Dagger_` (i.e. `Dagger_TwitterApiComponent.java`) that will be responsible for instantiating an instance of our dependency graph and using it to perform the injection work for fields annotated with `@Inject`.  See the [[setup guide|Dependency-Injection-with-Dagger-2#setup]] and make sure you've included the `android-apt` plugin.
 
 ### Instantiating the component
 
