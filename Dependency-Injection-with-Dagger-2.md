@@ -101,6 +101,7 @@ public class NetModule {
    OkHttpClient provideOkHttpClient() {
       return new OkHttpClient();
    }
+}
 ```
 
 Note that the method name `provideGson()` itself does not matter and can be named anything.  The return type annotated with a `@Provides` decorator is used to associate this instantiation with any other modules of the same time.  The `@Singleton` annotation is used to declare to Dagger to be only initialized only once.  
