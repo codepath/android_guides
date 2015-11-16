@@ -273,6 +273,7 @@ OkHttpClient provideOkHttpClient() {
     OkHttpClient client = new OkHttpClient();
     return client;
 }
+```
 
 Injection will also require these named annotations too:
 
