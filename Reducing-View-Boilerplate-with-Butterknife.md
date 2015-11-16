@@ -19,7 +19,9 @@ Butterknife is about reducing view boilerplate. [[Dagger 2|Dependency-Injection-
 Using Gradle, add the following line to `app/build.gradle` file:
 
 ```gradle
-compile 'com.jakewharton:butterknife:7.0.1'
+dependencies {
+  compile 'com.jakewharton:butterknife:7.0.1'
+}
 ```
 
 Use [gradleplease](http://gradleplease.appspot.com/#butterknife) to get the latest version. See [this page](https://github.com/JakeWharton/butterknife/blob/master/README.md#download) for alternate installation methods.
