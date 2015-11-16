@@ -101,26 +101,23 @@ public class NetModule {
    OkHttpClient provideOkHttpClient() {
       return new OkHttpClient();
    }
-}
-```
 
-Note that the method name `provideGson()` itself does not matter and can be named anything.  The return type annotated with a `@Provides` decorator is used to associate this instantiation with any other modules of the same time.  The `@Singleton` annotation is used to declare to Dagger to be only initialized only once.  
-
-A `Retrofit` instance depends both on a `Gson` and `OkHttpClient` instance, so we can define another method within the same class that takes these two types.  The `@Provides` annotation and these two parameters in the method will cause Dagger to recognize that there is a dependency on `Gson` and `OkHttpClient` to build a `Retrofit` instance:
-
-```java
-
-@Provides
-@Singleton
-Retrofit provideRetrofit(Gson gson, OkHttpClient okHttpClient) {
-   Retrofit retrofit = new Retrofit.Builder()
+   @Provides
+   @Singleton
+   Retrofit provideRetrofit(Gson gson, OkHttpClient okHttpClient) {
+      Retrofit retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .baseUrl(baseUrl)
                 .client(okHttpClient)
                 .build();
         return retrofit;
     }
+}
 ```
+
+Note that the method name `provideGson()` itself does not matter and can be named anything.  The return type annotated with a `@Provides` decorator is used to associate this instantiation with any other modules of the same time.  The `@Singleton` annotation is used to declare to Dagger to be only initialized only once.  
+
+A `Retrofit` instance depends both on a `Gson` and `OkHttpClient` instance, so we can define another method within the same class that takes these two types.  The `@Provides` annotation and these two parameters in the method will cause Dagger to recognize that there is a dependency on `Gson` and `OkHttpClient` to build a `Retrofit` instance.
 
 #### Define injection targets
 
