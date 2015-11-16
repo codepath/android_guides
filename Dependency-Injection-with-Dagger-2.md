@@ -179,12 +179,12 @@ public class MyApp extends Application {
 }
 ```
 
-Because we are overriding the default `Application` class, we also modify the app name `label` to correspond to `MyApp`.  This way your application will use this application class to handle the initial instantiation.
+Because we are overriding the default `Application` class, we also modify the appplication  `name` to launch `MyApp`.  This way your application will use this application class to handle the initial instantiation.
 
 ```xml
   <application
         android:allowBackup="true"
-        android:label="MyApp">
+        android:name=".MyApp">
 ```
 
 Within our activity, we simply need to get access to these component and call `inject()`.  
