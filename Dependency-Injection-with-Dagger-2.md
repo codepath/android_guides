@@ -88,6 +88,13 @@ The methods that will actually expose available return types should also be anno
 @Module
 public class NetModule {
 
+    String mBaseUrl;
+    
+    // Constructor needs one parameter to instantiate.  
+    public NetModule(String baseUrl) {
+        this.mBaseUrl = baseUrl;
+    }
+
    @Provides  // Dagger will only look for methods annotated with @Provides
    @Singleton
    Gson provideGson() {  
@@ -169,7 +176,7 @@ public class MyApp extends Application {
         // specify the full namespace of the component
         // Dagger_xxxx (where xxxx = component name)
         mAppComponent = com.codepath.dagger.components.DaggerAppComponent.builder()
-                .netModule(new NetModule())
+                .netModule(new NetModule("https://api.github.com"))
                 .build();
     }
 
