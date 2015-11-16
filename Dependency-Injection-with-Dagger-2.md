@@ -175,6 +175,7 @@ public class MyApp extends Application {
     public AppComponent getAppComponent() {
        return mAppComponent;
     }
+}
 ```
 
 Because we are overriding the default `Application` class, we also modify the app name `label` to correspond to `MyApp`.  This way your application will use this application class to handle the initial instantiation.
