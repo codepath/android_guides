@@ -101,6 +101,12 @@ public class AppModule {
 
     @Provides
     @Singleton
+    Application providesApplication() {
+        return mApplication;
+    }
+
+    @Provides
+    @Singleton
     SharedPreferences providesSharedPreferences(Application application) {
         return PreferenceManager.getDefaultSharedPreferences(application);
     }
