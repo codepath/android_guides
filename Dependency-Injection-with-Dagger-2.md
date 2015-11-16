@@ -289,7 +289,7 @@ The example above showed that we used singletons that lasted the entire lifecycl
 
  * **Two components cannot share the same scope.**  For instance, two scopes cannot both be scoped to a `@Singleton` annotation.  This restriction is imposed because of reasons described [here](https://github.com/google/dagger/issues/107#issuecomment-71073298).  Dependent components need to define their own scope.
 
- * **While Dagger 2 also enables the ability to create scoped instances, the responsibility rests on you on you to be consistent about creating references that is consistent.**  Dagger 2 does not know anything about the underlying implementation.  See this Stack Overflow [discussion](http://stackoverflow.com/questions/28411352/what-determines-the-lifecycle-of-a-component-object-graph-in-dagger-2) for more details.
+ * **While Dagger 2 also enables the ability to create scoped instances, the responsibility rests on you on you to create and delete references that is consistent with the intended behavior.**  Dagger 2 does not know anything about the underlying implementation.  See this Stack Overflow [discussion](http://stackoverflow.com/questions/28411352/what-determines-the-lifecycle-of-a-component-object-graph-in-dagger-2) for more details.
 
  * **When creating dependent components, the parent component needs to explicitly expose the objects to downstream objects.**  For instance, if a downstream component needed access to the `Retrofit` instance,
 it would need to explicitly with the corresponding return type:
