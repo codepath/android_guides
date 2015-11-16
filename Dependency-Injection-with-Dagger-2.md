@@ -65,7 +65,12 @@ The simplest example is to show how to centralize all your singleton creation wi
 
 ```java
 OkHttpClient client = new OkHttpClient();
- 
+
+// Enable caching for OkHttp
+int cacheSize = 10 * 1024 * 1024; // 10 MiB
+Cache cache = new Cache(getApplication().getCacheDir(), cacheSize);
+client.setCache(cache);
+
 // Instantiate Gson
 Gson gson = new GsonBuilder().create();
 GsonConverterFactory converterFactory = GsonConverterFactory.create(Gson);
@@ -80,7 +85,28 @@ Retrofit retrofit = new Retrofit.Builder()
 
 #### Declare your singletons 
 
-You need to define what objects should be included as part of the dependency chain by creating a Dagger 2 **module**.  For instance, if we wish to make a single `Retrofit` instance tied to the application lifecycle and available to all our activities and fragments, we first need to make Dagger aware that a `Retrofit` instance can be provided.   We create a class called `NetModule.java` and annotate it with `@Module` to signal to Dagger to search within the available methods for possible instance providers.  
+You need to define what objects should be included as part of the dependency chain by creating a Dagger 2 **module**.  For instance, if we wish to make a single `Retrofit` instance tied to the application lifecycle and available to all our activities and fragments, we first need to make Dagger aware that a `Retrofit` instance can be provided.   
+
+Because we wish to setup caching, we need an Application context.  Our first module will be used to provide this reference:
+
+```java
+@Module
+public class AppModule {
+
+    Application mApplication;
+
+    public AppModule(Application application) {
+        mApplication = application;
+    }
+
+    @Provides
+    Application providesApplication() {
+        return mApplication;
+    }
+}
+```
+
+We create a class called `NetModule.java` and annotate it with `@Module` to signal to Dagger to search within the available methods for possible instance providers.  
 
 The methods that will actually expose available return types should also be annotated with `@Provides` decorator.  The `Singleton` annotation also signals to the Dagger compiler that the instance should be created only once in the application.  In the following example, we are specifying the `Gson` return type that can be used as part of the dependency list.  
 
@@ -93,6 +119,15 @@ public class NetModule {
     // Constructor needs one parameter to instantiate.  
     public NetModule(String baseUrl) {
         this.mBaseUrl = baseUrl;
+    }
+
+    @Provides
+    @Singleton
+    // Application reference must come from AppModule.class
+    Cache provideOkHttpCache(Application application) { 
+        int cacheSize = 10 * 1024 * 1024; // 10 MiB
+        Cache cache = new Cache(application.getCacheDir(), cacheSize);
+        return cache;
     }
 
    @Provides  // Dagger will only look for methods annotated with @Provides
@@ -146,8 +181,8 @@ The injector class used in Dagger 2 is called a **component**.  It assigns refer
 
 ```java
 @Singleton
-@Component(modules={NetModule.class})
-public interface AppComponent {
+@Component(modules={AppModule.class, NetModule.class})
+public interface NetComponent {
    void inject(MainActivity activity);
    // void inject(MyFragment fragment);
    // void inject(MyService service);
@@ -167,7 +202,7 @@ We should do all this work within an `Application` class since these instances s
 ```java
 public class MyApp extends Application {
 
-    private AppComponent mAppComponent;
+    private NetComponent mNetComponent;
 
     @Override
     public void onCreate() {
@@ -175,18 +210,19 @@ public class MyApp extends Application {
         
         // specify the full namespace of the component
         // Dagger_xxxx (where xxxx = component name)
-        mAppComponent = com.codepath.dagger.components.DaggerAppComponent.builder()
+        mNetComponent = com.codepath.dagger.components.DaggerNetComponent.builder()
                 // list of modules that are part of this component need to be created here too
+                .appModule(new AppModule(this))
                 .netModule(new NetModule("https://api.github.com"))
                 .build();
 
         // If a Dagger 2 component does not have any constructor arguments for any of its modules,
         // then we can use .create() as a shortcut instead:
-        //  mAppComponent = com.codepath.dagger.components.DaggerAppComponent.create();
+        //  mAppComponent = com.codepath.dagger.components.DaggerNetComponent.create();
     }
 
-    public AppComponent getAppComponent() {
-       return mAppComponent;
+    public NetComponent getNetComponent() {
+       return mNetComponent;
     }
 }
 ```
@@ -208,7 +244,7 @@ public class MyActivity extends Activity {
 
   public void onCreate(Bundle savedInstance) {
         // assign singleton instances to fields
-        getApplication().getAppComponent()).inject(this);
+        ((MyApp) getApplication()).getNetComponent()).inject(this);
     } 
 ```
 
