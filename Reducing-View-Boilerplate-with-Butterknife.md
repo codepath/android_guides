@@ -10,6 +10,10 @@ This guide covers the most common usages of the library.
 
 Butterknife uses **compile-time annotations** which means there is no additional cost at run-time. Instead of slow reflection, code is generated ahead of time. Calling bind delegates to this generated code that you can see and debug. This means that **Butterknife does not slow down your app at all!**
 
+### Compared to Dagger?
+
+Butterknife is about reducing view boilerplate. [[Dagger 2|Dependency-Injection-with-Dagger-2]] is dependency injection for arbitrary components. Dagger is very flexible but is not intended for view injection. Think of Butter Knife as a means of binding views rather than injection. In other words, **Butterknife and Dagger 2 are complementary** and many projects include both for different purposes.
+
 ## Setup
 
 Using Gradle, add the following line to `app/build.gradle` file:
