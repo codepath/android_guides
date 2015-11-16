@@ -344,12 +344,14 @@ public class GitHubModule {
 }
 ```
 
-In order for this `GitHubModule.java` to get access to the `Retrofit` instance, we need explicitly define them in the upstream component:
+In order for this `GitHubModule.java` to get access to the `Retrofit` instance, we need explicitly define them in the upstream component.  If the downstream modules will be performing the injection, they should also be removed from the upstream components too:
 
 ```java
 @Singleton
 @Component(modules={AppModule.class, NetModule.class})
 public interface NetComponent {
+    // remove injection methods if downstream modules will perform injection
+
     // downstream components need these exposed
     Retrofit retrofit();
     OkHttpClient okHttpClient();
