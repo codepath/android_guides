@@ -4,13 +4,17 @@ The Android system shows an on-screen keyboard, known as a soft input method, wh
 
 ## Displaying the Soft Keyboard
 
+### AVD Manager
+
 By default, the soft keyboard may not appear on the emulator. If you want to test with the soft keyboard, be sure to open up the Android Virtual Device Manager (`Tools => Android => AVD Manager`) and **uncheck** "Enable Keyboard Input" for your emulator. 
 
 <img src="http://i.imgur.com/hlPAVYG.png" width="500" /> 
 
 Now restart the emulator. See [these screenshots](http://imgur.com/a/kf1s9) for a visual reference.
 
-If you are using Genymotion, you need to click on the gear icon on the emulator image and check `Use virtual keyboard for text input` before starting the emulator.
+### Genymotion
+
+If you are using Genymotion, you need to click on the gear icon (<img src="https://imgur.com/HRxr9Sm.png"/>) on the emulator image and check `Use virtual keyboard for text input` before starting the emulator.
 
 <img src="http://imgur.com/xNxupXW.png"/>
 
