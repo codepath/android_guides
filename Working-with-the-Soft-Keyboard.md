@@ -16,7 +16,7 @@ Now restart the emulator. See [these screenshots](http://imgur.com/a/kf1s9) for 
 
 <img src="http://imgur.com/SIIyVMc.png">
 
-If you are using [[Genymotion|Genymotion-2.0-Emulators-with-Google-Play-support]], you need to click on the gear icon (<img src="https://imgur.com/HRxr9Sm.png"/>) on the emulator image and check `Use virtual keyboard for text input` before starting the emulator.
+If you are using [[Genymotion|Genymotion-2.0-Emulators-with-Google-Play-support]], you need to click on the wrench icon (<img src="https://imgur.com/HRxr9Sm.png"/>) on the emulator image and check `Use virtual keyboard for text input` before starting the emulator.
 
 <img src="http://imgur.com/xNxupXW.png"/>
 
