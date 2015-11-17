@@ -53,6 +53,17 @@ Additional resources and options can be reviewed:
 
 With this, you can now easily record videos directly on an Android device.
 
+## Recording with an Emulator
+
+Alternatively, apps can be recorded using the official or [genymotion emulators](Genymotion-2.0-Emulators-with-Google-Play-support). The easiest way to record your screen on OSX is to use the Quicktime Player:
+
+1. Launch Quicktime Player
+2. Select `File => New Screen Recording`
+3. Click "Down Arrow" next to Record to Configure Microphone
+4. Drag to Select Emulator Bounds
+5. When done, hit "Stop" icon in Status Bar at the Top
+6. Download and use [Handbrake](https://handbrake.fr/) to compress the video.
+
 ## References
 
 * <http://stackoverflow.com/a/31547690/313399>
