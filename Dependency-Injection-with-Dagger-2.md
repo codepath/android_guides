@@ -71,6 +71,9 @@ int cacheSize = 10 * 1024 * 1024; // 10 MiB
 Cache cache = new Cache(getApplication().getCacheDir(), cacheSize);
 client.setCache(cache);
 
+// Used for caching authentication tokens
+SharedPreferences sharedPrefeences = PreferenceManager.getDefaultSharedPreferences(this);
+
 // Instantiate Gson
 Gson gson = new GsonBuilder().create();
 GsonConverterFactory converterFactory = GsonConverterFactory.create(Gson);
