@@ -203,8 +203,29 @@ public class MainActivity extends AppCompatActivity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState)
     ((MyApp) getApplication()).getAppComponent().inject(this);
 
+    // do other stuff here 
+  }
+```
+
+You can also remove the unnecessary `getInstance()` calls previously when registering and unregistering the bus:
+
+```java
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mBus.unregister(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mBus.register(this);
+    }
 ```
 
 ### Installing the Otto plugin
