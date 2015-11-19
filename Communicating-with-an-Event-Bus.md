@@ -208,6 +208,7 @@ public class MainActivity extends AppCompatActivity {
 
     // do other stuff here 
   }
+}
 ```
 
 You can also remove the unnecessary `getInstance()` calls previously when registering and unregistering the bus:
@@ -228,6 +229,7 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         mBus.register(this);
     }
+}
 ```
 
 ### Installing the Otto plugin
