@@ -17,7 +17,7 @@ Make sure you have this Gradle dependency added to your `app/build.gradle` file:
 
 ```gradle
 dependencies {
-  compile 'com.android.support:design:23.1.0'
+  compile 'com.android.support:design:23.1.1'
 }
 ```
 
@@ -322,7 +322,12 @@ View headerLayout = navigationView.inflateHeaderView(R.layout.nav_header);
 ImageView ivHeaderPhoto = headerLayout.findViewById(R.id.imageView);
 ```
 
-**Note:** Version `23.1.0` of the design support library switches `NavigationView` to using a `RecyclerView` and causes NPE (null exceptions) on header lookups unless the header is added at runtime. See [this bug](https://code.google.com/p/android/issues/detail?id=190226) and [this stackoverflow post](http://stackoverflow.com/a/33194816/313399) for more details. Remove this note once the latest version has been corrected this issue.
+**Note:** Version `23.1.0` of the design support library switches `NavigationView` to using a `RecyclerView` and causes NPE (null exceptions) on header lookups unless the header is added at runtime. 
+If you need to get a reference to the header, you need to use the new `getHeaderView()` method introduced in the latest v23.1.1 update:
+
+```java
+View headerLayout = navigationView.getHeaderView(0);
+```
 
 ## Animate the Hamburger Icon
 
