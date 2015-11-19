@@ -326,6 +326,7 @@ ImageView ivHeaderPhoto = headerLayout.findViewById(R.id.imageView);
 If you need to get a reference to the header, you need to use the new `getHeaderView()` method introduced in the latest `v23.1.1` update:
 
 ```java
+// There is usually only 1 header view.  Multiple header views can technically be added at runtime.
 View headerLayout = navigationView.getHeaderView(0);
 ```
 
