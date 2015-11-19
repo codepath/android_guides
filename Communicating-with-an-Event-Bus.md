@@ -215,6 +215,8 @@ You can also remove the unnecessary `getInstance()` calls previously when regist
 ```java
 public class MainActivity extends AppCompatActivity {
 
+    // injection code here
+  
     @Override
     protected void onPause() {
         super.onPause();
