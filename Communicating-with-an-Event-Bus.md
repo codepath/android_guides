@@ -63,6 +63,9 @@ public final class BusProvider {
 Since services normally run on separate threads from the main UI thread, we must also ensure that the events are published on the main thread by subscribers to handle especially if they update the screen.  We expose some extra functionality to provide the ability for services to explicitly publish on the main thread:
 
 ```java
+public final class BusProvider {
+    // other methods here
+
     private static final Handler mainThread = new Handler(Looper.getMainLooper());
 
     public static void postOnMain(final Object event) {
@@ -78,6 +81,7 @@ Since services normally run on separate threads from the main UI thread, we must
             });
         }
     }
+}
 ```
 
 ### Registering on the Bus
