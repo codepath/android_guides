@@ -186,12 +186,10 @@ public class EventBus extends Bus {
 We simply need to declare in our Dagger module a singleton that provides an Otto `Bus` object in `AppModule.java` file:
 
 ```java
-import com.squareup.otto.Bus;
-
 @Provides
 @Singleton
 EventBus provideBus() {
-   return new Bus();
+   return new EventBus();
 }
 ```
 
