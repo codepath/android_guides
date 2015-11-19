@@ -108,6 +108,10 @@ Currently, the source code for CoordinatorLayout and AppBarLayout do not appear 
 
 - Custom views can be provided for `NavigationView` rows.  ([[view guide|Fragment-Navigation-Drawer#adding-custom-views-to-navigation-drawer]])
 
+### Changes in Support Library v23.1.1
+
+- NavigationView now contains a `getHeaderView()` method ([[view guide|Fragment-Navigation-Drawer#add-navigation-header]])
+
 ## References
 
 * <https://medium.com/android-bites/first-steps-with-the-design-support-library-8dcf06230ddd>
