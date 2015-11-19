@@ -182,11 +182,25 @@ public class EventBus extends Bus {
 We simply need to declare in our Dagger module a singleton that provides an Otto `Bus` object in `AppModule.java` file:
 
 ```java
+import com.squareup.otto.Bus;
+
 @Provides
 @Singleton
 EventBus provideBus() {
-   return new EventBus();
+   return new Bus();
 }
+```
+
+Inside your activity, fragment, or service, you would simply need to define the field that will be assigned this reference and call the injection class to bind the field to the singleton instance:
+
+```java
+public class MainActivity extends AppCompatActivity {
+  @Inject EventBus mBus;
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    ((MyApp) getApplication()).getAppComponent().inject(this);
+
 ```
 
 ### Installing the Otto plugin
