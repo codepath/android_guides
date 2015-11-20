@@ -283,6 +283,8 @@ First, you define a class within your application that extends `Service` and def
 import android.app.Service;
 
 public class MyCustomService extends Service {
+
+    @Override
     public void onCreate() {
         super.onCreate();
         // Fires when a service is first initialized
