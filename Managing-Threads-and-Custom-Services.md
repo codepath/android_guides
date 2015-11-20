@@ -158,6 +158,8 @@ ThreadPoolExecutor executor = new ThreadPoolExecutor(
 );
 ```
 
+If you are initializing `ThreadPoolExecutor` within a service, make sure to create it within `onStartCommand()`.  Putting it in `onCreate()` will likely trigger `RequestRejectedException` errors.
+
 See additional options for control by reviewing [this advanced guide](http://thegreyblog.blogspot.com/2011/12/using-threadpoolexecutor-to-parallelize.html).
 
 #### Executing Runnables on ThreadPoolExecutor
