@@ -337,7 +337,7 @@ Notice that we specify this in the manifest file with the `name` and `exported` 
 If you create a custom `Service`, then you will **need to manage the background threading** yourself using the [[threading management options|Managing-Threads-and-Custom-Services#thread-management]] outlined in the earlier part of this guide. In particular, there are two options readily available:
 
 * **Sequential:** If you want the service to run a **single worker thread** sequentially processing tasks, [[use a HandlerThread|Managing-Threads-and-Custom-Services#using-a-handlerthread]].
-* **Concurrent:** If you want the service to run tasks concurrently within a thread pool, [[use a ThreadPoolExecute|Managing-Threads-and-Custom-Services#using-a-threadpoolexecutor]].
+* **Concurrent:** If you want the service to run tasks concurrently within a thread pool, [[use a ThreadPoolExecutor|Managing-Threads-and-Custom-Services#using-a-threadpoolexecutor]].
 
 For example, we are going to use a `HandlerThread` below to process the tasks in the background of the service:
 
