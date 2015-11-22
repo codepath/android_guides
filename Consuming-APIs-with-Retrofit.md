@@ -347,7 +347,7 @@ Consistent with the RxJava framework, we need to create a subscriber to handle t
 ```java
 String username = "sarahjean";
 Call<User> call = apiService.getUser(username);
-call.observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<User>() {
+Subscription subscription = call.observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<User>() {
   @Override
   public void onCompleted() {
    
@@ -365,6 +365,24 @@ call.observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<User>() 
   @Override
   public void onNext(User user) {
   }
+```
+
+Note that if you are running any API calls in an activity or fragment, you will need to unsubscribe on the `onDestroy()` method.  The reasons are explained in this [Wiki article](https://github.com/ReactiveX/RxJava/wiki/The-RxJava-Android-Module#fragment-and-activity-life-cycle):
+
+```java
+// MyActivity
+private Subscription subscription;
+
+protected void onCreate(Bundle savedInstanceState) {
+    this.subscription = observable.subscribe(this);
+}
+
+...
+
+protected void onDestroy() {
+    this.subscription.unsubscribe();
+    super.onDestroy();
+}
 ```
 
 ## Retrofit and Authentication
