@@ -365,6 +365,7 @@ Subscription subscription = call.observeOn(AndroidSchedulers.mainThread()).subsc
   @Override
   public void onNext(User user) {
   }
+});
 ```
 
 Note that if you are running any API calls in an activity or fragment, you will need to unsubscribe on the `onDestroy()` method.  The reasons are explained in this [Wiki article](https://github.com/ReactiveX/RxJava/wiki/The-RxJava-Android-Module#fragment-and-activity-life-cycle):
