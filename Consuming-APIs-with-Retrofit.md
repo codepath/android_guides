@@ -25,6 +25,16 @@ dependencies {
 }
 ```
 
+If you intend to use [[RxJava]] with Retrofit 2, you will also need to include the RxJava adapter:
+
+```gradle
+dependencies {
+  compile 'io.reactivex:rxjava:1.0.16'
+  compile 'io.reactivex:rxandroid:1.0.1'
+  compile 'com.squareup.retrofit:adapter-rxjava:2.0.0-beta1'
+}
+```
+
 In the past, Retrofit relied on the [Gson](https://github.com/google/gson) library to serialize and deserialize JSON data. Retrofit 2 now supports many different parsers for processing network response data, including [Moshi](https://github.com/square/moshi), a library build by Square for efficient JSON parsing.  However, there are a few [limitations](https://github.com/square/moshi#borrows-from-gson), so if you are not sure which one to choose, use the Gson converter for now.  
  
 |Converter  | Library             
@@ -312,6 +322,51 @@ try {
 }
 ```
 
+## RxJava
+
+Retrofit 2 also supports [[RxJava]] extensions.  Instead of creating `Call` objects, we will use `Observable` types.   
+
+```java
+public interface MyApiEndpointInterface {
+    // Request method and URL specified in the annotation
+    // Callback for the parsed response is the last parameter
+
+    @GET("/users/{username}")
+    Observable<User> getUser(@Path("username") String username);
+
+    @GET("/group/{id}/users")
+    Observable<List<User>> groupList(@Path("id") int groupId, @Query("sort") String sort);
+
+    @POST("/users/new")
+    Observable<User> createUser(@Body User user);
+}
+```
+
+Consistent with the RxJava framework, we need to create a subscriber to handle the response.  The methods `onCompleted()`, `onError()`, and `onNext()` need to be added.  Using the Android RxJava library, we can also designate that we will handle this event on the UI main thread.   We do not need `subscribeOn()` according to this [ticket](https://github.com/square/retrofit/issues/430).
+
+```java
+String username = "sarahjean";
+Call<User> call = apiService.getUser(username);
+call.observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<User>() {
+  @Override
+  public void onCompleted() {
+   
+  }
+
+  @Override
+  public void onError(Throwable e) {
+    // cast to retrofit.HttpException to get the response code
+    if (e instanceof HttpException) {
+       HttpException response;
+       int code = response.code();
+    }
+  }
+
+  @Override
+  public void onNext(User user) {
+  }
+```
+
 ## Retrofit and Authentication
 
 ### Using Authentication Headers
@@ -360,6 +415,7 @@ Several other Android OAuth libraries can be explored instead of signpost:
 
  * [Android OAuth Client](https://github.com/wuman/android-oauth-client)
  * [OAuth for Android](https://github.com/novoda/oauth_for_android)
+
 
 ## Issues
 
