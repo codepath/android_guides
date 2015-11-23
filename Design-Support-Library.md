@@ -22,13 +22,14 @@ The support design library has the following key features:
 
 ### Setup
 
-Make sure that you have at least the Android Gradle plugin v1.2.3 supported.  There are several issues with using older versions including some support library widgets fail to render correctly (see [issue](https://code.google.com/p/android/issues/detail?id=170841)).  
+Make sure that you have at least the Android Gradle plugin v1.2.3 supported:
 
 ```gradle
-    dependencies {
-        classpath 'com.android.tools.build:gradle:1.3.1'
-    }
+dependencies {
+    classpath 'com.android.tools.build:gradle:1.3.1'
+}
 ```
+
 There is a new support design library that must be included.   This library also depends on updated versions of the [AppCompat](http://android-developers.blogspot.com/2014/10/appcompat-v21-material-design-for-pre.html) library to be included.  If you are not currently using this library, check out this [[migration guide|Migrating-to-the-AppCompat-Library]].  In addition, make sure these versions have been updated.  
 
 ```gradle
@@ -36,9 +37,14 @@ android {
    compileSdkVersion 23  // needs to be consistent with support libs used
 }
 
+ext {
+  supportLibVersion = '22.2.1'
+}
+```
+
 dependencies {
-    compile 'com.android.support:appcompat-v7:23.1.0'
-    compile 'com.android.support:design:23.1.0'
+    compile 'com.android.support:appcompat-v7:${supportLibVersion}'
+    compile 'com.android.support:design:{supportLibVersion}'
 }
 ```
 
@@ -46,7 +52,7 @@ If you are using the [[RecyclerView|Using the RecyclerView]], [[CardView|Using t
 
 ```gradle
 dependencies {
-    compile 'com.android.support:recyclerview-v7:23.1.0'
+    compile 'com.android.support:recyclerview-v7:{supportLibVersion}'
 }
 ```
 
@@ -56,7 +62,7 @@ To add the percent support library, you need to add this statement:
 
 ```gradle
 dependencies {
-    compile 'com.android.support:percent:23.1.0'
+    compile 'com.android.support:percent:{supportLibVersion}'
 }
 ```
 
@@ -66,7 +72,7 @@ To leverage the [annotations library](http://tools.android.com/tech-docs/support
 
 ```gradle
 dependencies {
-    compile 'com.android.support:support-annotations:23.1.0'
+    compile 'com.android.support:support-annotations:{supportLibVersion}'
 }
 ```
 
