@@ -1,4 +1,4 @@
-## Overview222
+## Overview
 
 In Android development, any time you want to show a vertical list of items you will want to use a ListView which is populated using an Adapter to a data source. When we want the data for the list to be sourced directly from a [[SQLite database|Persisting-Data-to-the-Device#sqlite]] query we can use a [CursorAdapter](http://developer.android.com/reference/android/widget/CursorAdapter.html).
 
