@@ -48,8 +48,8 @@ Add these dependencies to your `app/build.gradle` file:
 
 ```gradle
 dependencies {
-    compile 'com.android.support:appcompat-v7:${supportLibVersion}'
-    compile 'com.android.support:design:${supportLibVersion}'
+    compile "com.android.support:appcompat-v7:${supportLibVersion}"
+    compile "com.android.support:design:${supportLibVersion}"
 }
 ```
 
@@ -57,7 +57,7 @@ If you are using the [[RecyclerView|Using the RecyclerView]], [[CardView|Using t
 
 ```gradle
 dependencies {
-    compile 'com.android.support:recyclerview-v7:${supportLibVersion}'
+    compile "com.android.support:recyclerview-v7:${supportLibVersion}"
 }
 ```
 
@@ -67,7 +67,7 @@ To add the percent support library, you need to add this statement:
 
 ```gradle
 dependencies {
-    compile 'com.android.support:percent:${supportLibVersion}'
+    compile "com.android.support:percent:${supportLibVersion}"
 }
 ```
 
@@ -77,7 +77,7 @@ To leverage the [annotations library](http://tools.android.com/tech-docs/support
 
 ```gradle
 dependencies {
-    compile 'com.android.support:support-annotations:${supportLibVersion}'
+    compile "com.android.support:support-annotations:${supportLibVersion}"
 }
 ```
 
