@@ -32,9 +32,11 @@ dependencies {
 
 There is a new support design library that must be included.   This library also depends on updated versions of the [AppCompat](http://android-developers.blogspot.com/2014/10/appcompat-v21-material-design-for-pre.html) library to be included.  If you are not currently using this library, check out this [[migration guide|Migrating-to-the-AppCompat-Library]].  In addition, make sure these versions have been updated.  
 
+Update your root `build.gradle` file
+
 ```gradle
 android {
-   compileSdkVersion 23  // needs to be consistent with support libs used
+   compileSdkVersion 23  // needs to be consistent with major support libs used
 }
 
 ext {
@@ -42,6 +44,9 @@ ext {
 }
 ```
 
+Add these dependencies to your `app/build.gradle` file:
+
+```gradle
 dependencies {
     compile 'com.android.support:appcompat-v7:${supportLibVersion}'
     compile 'com.android.support:design:{supportLibVersion}'
