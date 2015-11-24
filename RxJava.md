@@ -12,3 +12,4 @@ dependencies {
 ## References
 
 * <https://github.com/ReactiveX/RxJava/wiki/The-RxJava-Android-Module>
+* <http://saulmm.github.io/when-Iron-Man-becomes-Reactive-Avengers2/>
