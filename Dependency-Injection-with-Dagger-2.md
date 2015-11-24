@@ -154,6 +154,7 @@ public class NetModule {
    OkHttpClient provideOkHttpClient(Cache cache) {
       OkHttpClient client = new OkHttpClient();
       client.setCache(cache);
+      return client;
    }
 
    @Provides
