@@ -8,14 +8,14 @@ Login to [Travis CI](https://travis-ci.com/) and sign-in with your GitHub creden
 
 ### Setup
 
-You simply need to create a `.travis.yml` file in the root directory.  The simplest configuration to install the Build Tools and Android SDK 21.   You can launch the [[Gradle wrapper|Getting Started with Gradle]] to build and run emulator tests.
+You simply need to create a `.travis.yml` file in the root directory.  The simplest configuration to install the Build Tools and Android SDK 23.   You can launch the [[Gradle wrapper|Getting Started with Gradle]] to build and run emulator tests.
 
 ```yaml
 language: android
 android:
   components:
-    - build-tools-22.0.1
-    - android-21
+    - build-tools-23.0.1
+    - android-23
 
 script:
    - ./gradlew build connectedCheck
@@ -65,7 +65,7 @@ com.android.ide.common.process.ProcessException: org.gradle.process.internal.Exe
 ```
 
 If you are using [Google Play Services](https://developers.google.com/android/guides/setup), try to be more selective about the modules you import.  In prior versions before 6.5, you had to include all packages which often caused the 65K method limit to be reached.  If you only wish to use the Google Cloud Messaging package and not Google Fitness or Google Wear, you do not need to import 
-`com.google.android.gms:play-services:8.1.0`.  Instead, you can simply specify the libraries explicitly:
+`com.google.android.gms:play-services:8.3.0`.  Instead, you can simply specify the libraries explicitly:
 
 ```gradle
 compile 'com.google.android.gms:play-services-gcm:8.3.0'
