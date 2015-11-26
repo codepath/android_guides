@@ -1,4 +1,4 @@
-## Overview
+## Overview 
 
 Many Android apps rely on instantiating objects that often require other dependencies.  For instance, a Twitter API client for instance may be built using a networking library such as [[Retrofit|Consuming-APIs-with-Retrofit]]. To use this library, you might also need to add parsing libraries such as [[Gson|Leveraging-the-Gson-Library]].  In addition, classes that implement authentication or caching may require accessing [[shared preferences|Storing-and-Accessing-SharedPreferences]] or other common storage, requiring instantiating them first and creating an inherent dependency chain.
 
