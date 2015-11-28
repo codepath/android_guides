@@ -6,6 +6,13 @@ Imagine trying to perform a series of chained tasks using [[AsyncTask|Creating-a
 
 Reactive programming also provides an abstraction layer to combine, create, or filter them in a way that is easier to understand and maintain for the developer.  
 
+### Advantages
+
+Advantages of using RxJava:
+
+ * Powerful constructs for manipulating streams of data. 
+ * Helps control the threading on which the work happens and when the callbacks are fired.
+
 ## Setup
 
 Setup your `app/build.gradle`:
@@ -23,3 +30,4 @@ dependencies {
 * <http://saulmm.github.io/when-Iron-Man-becomes-Reactive-Avengers2/>
 * <http://blog.stablekernel.com/replace-asynctask-asynctaskloader-rx-observable-rxjava-android-patterns/>
 * <https://www.youtube.com/watch?v=_t06LRX0DV0/>
+* <https://vimeo.com/144812843>
