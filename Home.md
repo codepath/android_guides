@@ -1,10 +1,12 @@
-Welcome to the open-source [Codepath](http://codepath.com) Android Cliffnotes! Our goal is to become the **central crowdsourced resource** for complete and up-to-date Android content and tutorials. [Just take me to the notes](https://github.com/codepath/android_guides/wiki#getting-started)!
+# CodePath Android Cliffnotes
 
-[![CodePath](http://i.imgur.com/XgxWfyF.png)](http://codepath.com)
+Welcome to the open-source [CodePath](http://codepath.com) Android Cliffnotes! Our goal is to become the **central crowdsourced resource** for complete and up-to-date practical Android developer guides for any topic. [[Just take me to the notes|Home#getting-started]]!
 
-We have guides for everyone whether you are **beginner, intermediate or advanced**. Want to learn how to [use the ActionBar](https://github.com/codepath/android_guides/wiki/Defining-The-ActionBar) or the [ins and outs of fragments](https://github.com/codepath/android_guides/wiki/Creating-and-Using-Fragments)? We got that. Want to learn [about testing](https://github.com/codepath/android_guides/wiki/Android-Unit-and-Integration-testing) or how to [build flexible user interfaces for multiple devices](https://github.com/codepath/android_guides/wiki/Flexible-User-Interfaces)? We got you covered. We don't waste time with the "theoretical approach" from a book. We cover **exactly the things we use every day** as we are developing apps for contracts.
+[![CodePath](https://i.imgur.com/XgxWfyF.png)](http://codepath.com)
 
-**Need Help?** Please join the [google groups](https://groups.google.com/forum/#!forum/codepath-android-guides) for these guides where you can post related questions.
+We have Android guides for everyone whether you are a **beginner, intermediate or expert**. Want to learn how to [[use the ActionBar|Defining the ActionBar]] or the [[ins and outs of fragments|Creating and Using Fragments]]? We got that. Want to learn [[about automated unit testing|Unit Testing with Robolectric]] or how to [[build flexible user interfaces for multiple devices|Flexible User Interfaces]]? We got you covered. We don't waste time with the "theoretical approach" you might get from a book. We cover **exactly the things we use every day** as we are developing apps for contracts.
+
+**Need Help?** Please join this [gitter real-time chat](https://gitter.im/thecodepath/public) or the [google groups](https://groups.google.com/forum/#!forum/codepath-android-guides) for these guides where you can post related questions. You can also [get 1:1 mentorship online](https://www.codementor.io/android-experts) through codementor.
 
 ## Motivation
 
