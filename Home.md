@@ -5,7 +5,7 @@ open-source [CodePath](http://codepath.com) Android Cliffnotes에 오신 것을 
 [![CodePath](https://i.imgur.com/XgxWfyF.png)](http://codepath.com)
 
 우리는 당신이 **초보자이던, 중급자이던 혹은 숙련자**이건 상관없이 모두에게 도움이되는 안드로이드 개발 가이드를 제공합니다.  
-[[ActionBar를 사용하는법|Defining the ActionBar]] 혹은 [[Fragment를 다루는법|Creating and Using Fragments]]에 대하여 궁금하신가요? 이러한 내용은 당연히 제공합니다. 
+[[ActionBar를 사용하는법|Defining the ActionBar]] 혹은 [[Fragment를 다루는법|Creating and Using Fragments]]에 대하여 궁금하신가요? 이러한 내용은 당연히 제공하지요.  
 혹시 [[테스트를 자동화하는 작업|Unit Testing with Robolectric]]이나 [[다양한 디바이스를 지원하는 유연한 유저 인터페이스를 만드는법|Flexible User Interfaces]]에 대해서도 궁금하신가요? 우리는 그런 수준에 대해서도 자료를 제공합니다.
 
 우리는 책으로부터 얻게되는 "이론적인 접근법"에 대해서 여러분들이 시간을 낭비하게 하지않습니다.  
