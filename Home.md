@@ -5,9 +5,13 @@ open-source [CodePath](http://codepath.com) Android Cliffnotes에 오신 것을 
 [![CodePath](https://i.imgur.com/XgxWfyF.png)](http://codepath.com)
 
 우리는 당신이 **초보자이던, 중급자이던 혹은 숙련자**이건 상관없이 모두에게 도움이되는 안드로이드 개발 가이드를 제공합니다.  
-[[ActionBar를 사용하는법|Defining the ActionBar]] 혹은 [[Fragment를 다루는법|Creating and Using Fragments]]에 대하여 궁금하신가요? 우리는 이러한 내용을 제공합니다. Want to learn [[about automated unit testing|Unit Testing with Robolectric]] or how to [[build flexible user interfaces for multiple devices|Flexible User Interfaces]]? We got you covered. We don't waste time with the "theoretical approach" you might get from a book. We cover **exactly the things we use every day** as we are developing apps for contracts.
+[[ActionBar를 사용하는법|Defining the ActionBar]] 혹은 [[Fragment를 다루는법|Creating and Using Fragments]]에 대하여 궁금하신가요? 이러한 내용은 당연히 제공합니다. 
+혹시 [[테스트를 자동화하는 작업|Unit Testing with Robolectric]]이나 [[다양한 디바이스를 지원하는 유연한 유저 인터페이스를 만드는법|Flexible User Interfaces]]에 대해서도 궁금하신가요? 우리는 그런 수준에 대해서도 자료를 제공합니다.
 
-**Need Help?** Please join this [gitter real-time chat](https://gitter.im/thecodepath/public) or the [google groups](https://groups.google.com/forum/#!forum/codepath-android-guides) for these guides where you can post related questions. You can also [get 1:1 mentorship online](https://www.codementor.io/android-experts) through codementor.
+우리는 책으로부터 얻게되는 "이론적인 접근법"에 대해서 여러분들이 시간을 낭비하게 하지않습니다.  
+우리는 우리가 앱을 개발하면서 직면하는 **우리가 자주 다뤄야하는 것들**에 대해서 다룹니다.
+
+**도움이 필요하신가요?** [gitter 실시간 채팅](https://gitter.im/thecodepath/public) 이나 [구글 그룹스](https://groups.google.com/forum/#!forum/codepath-android-guides)에 가입하세요, 그곳에서는 여러분들이 이 가이드와 관련하여 관련있는 질문들을 게시 할 수 있습니다. 여러분들은 또한 [1:1 온라인 멘토링](https://www.codementor.io/android-experts)을 통해서 코딩 멘토를 구할수도 있습니다.
 
 ## Motivation
 
