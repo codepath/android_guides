@@ -25,6 +25,35 @@ dependencies {
 }
 ```
 
+## Replacing AsyncTask
+
+```java
+public Observable<Bitmap> getImageNetworkCall() {
+    // Insert network call here!
+}
+
+Subscription subscription = getImageNetworkCall()
+    .subscribeOn(Schedulers.io())
+    .observeOn(AndroidSchedulers.mainThread())
+    .subscribe(new Observer<Bitmap>() {
+
+        @Override
+        public void onCompleted() {
+             // Update user interface if needed
+        }
+
+        @Override
+        public void onError() {
+             // Update user interface to handle error
+        }
+
+        @Override
+        public void onNext(Bitmap bitmap) {
+             // Handle result of network request
+        }
+});
+```
+
 ## References
 
 * <https://github.com/ReactiveX/RxJava/wiki/The-RxJava-Android-Module>
@@ -32,3 +61,4 @@ dependencies {
 * <http://blog.stablekernel.com/replace-asynctask-asynctaskloader-rx-observable-rxjava-android-patterns/>
 * <https://www.youtube.com/watch?v=_t06LRX0DV0/>
 * <https://vimeo.com/144812843>
+* <http://code.hootsuite.com/asynchronous-android-programming-the-good-the-bad-and-the-ugly/>
