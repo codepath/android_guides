@@ -4,7 +4,8 @@ open-source [CodePath](http://codepath.com) Android Cliffnotes에 오신 것을 
 
 [![CodePath](https://i.imgur.com/XgxWfyF.png)](http://codepath.com)
 
-We have Android guides for everyone whether you are a **beginner, intermediate or expert**. Want to learn how to [[use the ActionBar|Defining the ActionBar]] or the [[ins and outs of fragments|Creating and Using Fragments]]? We got that. Want to learn [[about automated unit testing|Unit Testing with Robolectric]] or how to [[build flexible user interfaces for multiple devices|Flexible User Interfaces]]? We got you covered. We don't waste time with the "theoretical approach" you might get from a book. We cover **exactly the things we use every day** as we are developing apps for contracts.
+우리는 당신이 **초보자이던, 중급자이던 혹은 숙련자**이건 상관없이 모두에게 도움이되는 안드로이드 개발 가이드를 제공합니다.  
+[[ActionBar를 사용하는법|Defining the ActionBar]] 혹은 [[Fragment를 다루는법|Creating and Using Fragments]]에 대하여 궁금하신가요? 우리는 이러한 내용을 제공합니다. Want to learn [[about automated unit testing|Unit Testing with Robolectric]] or how to [[build flexible user interfaces for multiple devices|Flexible User Interfaces]]? We got you covered. We don't waste time with the "theoretical approach" you might get from a book. We cover **exactly the things we use every day** as we are developing apps for contracts.
 
 **Need Help?** Please join this [gitter real-time chat](https://gitter.im/thecodepath/public) or the [google groups](https://groups.google.com/forum/#!forum/codepath-android-guides) for these guides where you can post related questions. You can also [get 1:1 mentorship online](https://www.codementor.io/android-experts) through codementor.
 
