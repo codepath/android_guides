@@ -59,7 +59,7 @@ $ repo init -u https://android.googlesource.com/platform/manifest -b studio-1.4-
 $ repo sync
 ```
 
-When the `repo init` command is run, it will first download code from its own [repository](https://gerrit.googlesource.com/git-repo/+/master).  It uses the manifest repository to determine what Android repositories are available.  You can type `repo help` or check out the [sub commands](https://gerrit.googlesource.com/git-repo/+/master/subcmds/) to see what functions are supported.
+When the `repo init` command is run, it will first download code from its own [repository](https://gerrit.googlesource.com/git-repo/+/master).  It uses the [manifest repository](https://android.googlesource.com/platform/manifest/+/master/default.xml) to determine what Android repositories are available.  You can type `repo help` or check out the [sub commands](https://gerrit.googlesource.com/git-repo/+/master/subcmds/) to see what functions are supported.
 
 The [overview page](http://tools.android.com/build) lists all the available branches to use.   Most likely you should pick the current development branch.  Android Studio and Gradle versions are often released at different times, so there are also separate Git tags created.  For instance, if you wish to check out tagged releases for Gradle releases, you can also look through the [list of tagged branches](https://android.googlesource.com/platform/manifest/+refs) and use repo to switch to this branch by typing:
 
