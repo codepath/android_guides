@@ -1,17 +1,12 @@
 # CodePath Android Cliffnotes
 
-open-source [CodePath](http://codepath.com) Android Cliffnotes에 오신 것을 환영합니다! 이 프로젝트의 목적은 완성도 높고, 최신의 내용을 담은 안드로이드 개발자를 위한 예제를 담은 주제를 가지고 크라우드소싱 방식으로 자료를 제공하는 것이 목표입니다. [[본문으로 바로가기 |Home#getting-started]]!
+Welcome to the open-source [Codepath](http://codepath.com) Android Cliffnotes! Our goal is to become the **central crowdsourced resource** for complete and up-to-date Android content and tutorials. [Just take me to the notes](https://github.com/codepath/android_guides/wiki#getting-started)!
 
-[![CodePath](https://i.imgur.com/XgxWfyF.png)](http://codepath.com)
+[![CodePath](http://i.imgur.com/XgxWfyF.png)](http://codepath.com)
 
-우리는 당신이 **초보자이던, 중급자이던 혹은 숙련자**이건 상관없이 모두에게 도움이되는 안드로이드 개발 가이드를 제공합니다.  
-[[ActionBar를 사용하는법|Defining the ActionBar]] 혹은 [[Fragment를 다루는법|Creating and Using Fragments]]에 대하여 궁금하신가요?  
-이러한 내용은 당연히 제공하지요. 혹시 [[테스트를 자동화하는 작업|Unit Testing with Robolectric]]이나 [[다양한 디바이스를 지원하는 유연한 유저 인터페이스를 만드는법|Flexible User Interfaces]]에 대해서도 궁금하신가요? 우리는 그런 수준에 대해서도 자료를 제공합니다.
+We have guides for everyone whether you are **beginner, intermediate or advanced**. Want to learn how to [use the ActionBar](https://github.com/codepath/android_guides/wiki/Defining-The-ActionBar) or the [ins and outs of fragments](https://github.com/codepath/android_guides/wiki/Creating-and-Using-Fragments)? We got that. Want to learn [about testing](https://github.com/codepath/android_guides/wiki/Android-Unit-and-Integration-testing) or how to [build flexible user interfaces for multiple devices](https://github.com/codepath/android_guides/wiki/Flexible-User-Interfaces)? We got you covered. We don't waste time with the "theoretical approach" from a book. We cover **exactly the things we use every day** as we are developing apps for contracts.
 
-우리는 책으로부터 얻게되는 "이론적인 접근법"에 대해서 여러분들이 시간을 낭비하게 하지않습니다.  
-우리는 우리가 앱을 개발하면서 직면하는 **우리가 자주 다뤄야하는 것들**에 대해서 다룹니다.
-
-**도움이 필요하신가요?** [gitter 실시간 채팅](https://gitter.im/thecodepath/public) 이나 [구글 그룹스](https://groups.google.com/forum/#!forum/codepath-android-guides)에 가입하세요, 그곳에서는 여러분들이 이 가이드와 관련하여 관련있는 질문들을 게시 할 수 있습니다. 여러분들은 또한 [1:1 온라인 멘토링](https://www.codementor.io/android-experts)을 통해서 코딩 멘토를 구할수도 있습니다.
+**Need Help?** Please join the [google groups](https://groups.google.com/forum/#!forum/codepath-android-guides) for these guides where you can post related questions.
 
 ## Motivation
 
