@@ -63,7 +63,7 @@ When the `repo init` command is run, it will first download code from its own [r
 
 The [overview page](http://tools.android.com/build) lists all the available branches to use.   Most likely you should pick the current development branch.  Android Studio and Gradle versions are often released at different times, so there are also separate Git tags created.  For instance, if you wish to check out tagged releases for Gradle releases, you can also look through the [list of tagged branches](https://android.googlesource.com/platform/manifest/+refs) and use repo to switch to this branch by typing:
 
- ```bash
+```bash
 repo init -b gradle_1.3.1
 repo sync
 ```
