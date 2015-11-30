@@ -97,7 +97,7 @@ If you want to see how to use the various components, check out this [sample cod
 
 The Android Open Source Project (AOSP) hosts the major release versions for this library, which can be found [here](https://android.googlesource.com/platform/frameworks/support.git/+/master/design/).  For instance, if you are curious about what styles can be overridden for the different components, see this [link](https://android.googlesource.com/platform/frameworks/support.git/+/master/design/res/values/styles.xml).
 
-However, if you want to understand the latest changes, the source code updates for the support library are now included since v23.1.0 in your SDK directory (i.e. `Library/Android/sdk/extras/android/m2repository/com/android/support/design` for Mac OS X).
+The latest source code updates for the support library are now always included since v23.1.0 in your SDK directory (i.e. `Library/Android/sdk/extras/android/m2repository/com/android/support/design` for Mac OS X).
 
 ### Change Log
 
