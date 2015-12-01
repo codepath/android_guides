@@ -107,13 +107,89 @@ The above code results in the toolbar fully replacing the ActionBar at the top:
 
 From this point on, all menu items are displayed in your Toolbar, populated via the standard options menu callbacks.
 
+### Reusing the Toolbar
+
+In many apps, the same toolbar can be used across multiple activities or in [[alternative layout resources|Understanding-App-Resources#providing-alternate-resources]] for the same activity. In order to easily reuse the toolbar, we can leverage the [layout include tag](http://developer.android.com/training/improving-layouts/reusing-layouts.html) as follows. First, define your toolbar in a layout file in `res/layout/toolbar_main.xml`:
+
+```xml
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/colorPrimary"/>
+```
+
+Next, we can use the `<include />` tag to load the toolbar into our activity layout XML:
+
+```xml
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Load the toolbar here -->
+    <include
+        layout="@layout/toolbar_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/> 
+
+    <!-- Rest of content for the activity -->
+
+</LinearLayout>
+```
+
+This allows us to create a consistent navigation experience across activities or configuration changes.
+
 ### Reacting to Scroll
 
 We can configure the `ToolBar` to react and change as the page scrolls:
 
 ![](http://i.imgur.com/TpiuygV.gif)
 
-Refer to the [[guide on CoordinatorLayout and AppBarLayout|Handling-Scrolls-with-CoordinatorLayout#expanding-and-collapsing-toolbars]] for the specifics.
+For example, we can have the toolbar hide when the user scrolls down on a list or expand as the user scrolls to the header. There are many effects that can be configured by using the [[CoordinatorLayout|Handling-Scrolls-with-CoordinatorLayout#expanding-and-collapsing-toolbars]] inside the activity layout XML such as `res/layout/activity_main.xml`:
+
+```xml
+<!-- CoordinatorLayout is used to create scrolling and "floating" effects within a layout -->
+<!-- This is typically the root layout which wraps the app bar and content -->
+<android.support.design.widget.CoordinatorLayout
+    android:id="@+id/main_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- AppBarLayout is a wrapper for a Toolbar in order to apply scrolling effects. -->
+    <!-- Note that AppBarLayout expects to be the first child nested within a CoordinatorLayout -->
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+        <!-- Toolbar is the actual app bar with text and the action items --> 
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|enterAlways" />
+    </android.support.design.widget.AppBarLayout>
+    
+    <!-- FrameLayout can be used to insert fragments to display the content of the screen -->
+    <!-- `app:layout_behavior` is set to a pre-defined behavior for scrolling -->
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    />
+</android.support.design.widget.CoordinatorLayout>
+```
+
+Refer to the [[guide on CoordinatorLayout and AppBarLayout|Handling-Scrolls-with-CoordinatorLayout#expanding-and-collapsing-toolbars]] for additional explanation and specifics.
 
 ### Styling the Toolbar
 
