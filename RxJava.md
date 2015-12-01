@@ -1,18 +1,36 @@
 ## Overview
 
-RxJava is a library used to help write in a style known as **_reactive programming_**.  Reactive programming often requires thinking of everything in the context of processing asynchronous data streams, whether they are network calls, button clicks, or search text changes.  By defining the relationship of these data streams should be computed instead of specifying how the values should be calculated, this approach marks a huge departure from traditional [imperative programming models](https://www.reddit.com/r/learnprogramming/comments/3rduau/eli5_functional_vs_declarative_vs_imperative_vs/).
+One of the challenges in writing robust Android apps is the dynamic nature of changing inputs.   In traditional imperative programming models, values have to be explicitly set on variables for them to be updated.  If one dependent value changes, the value will not be updated without adding another line of code.   Consider the following example:
 
-One of the best introductions about reactive programming is described [here]  (https://gist.github.com/staltz/868e7e9bc2a7b8c1f754).   There is a mental shift that must be made in thinking about how asynchronous data streams can be used to transform into other data streams, filtered into a new stream, or used to create new streams.    It sometimes is helpful to imagine these data streams along a time continuum whereby certain producers emit values and downstream subscribers respond to these changes.
+```java
+// init variables
+int i, j, k; 
+
+// Init inputs
+i = 1;
+j = 2;
+
+// Set output value
+k = i + j;
+
+// Update a dependent value
+j = 4;
+k = ?  // What should k be?
+```
+
+Traditional asynchronous programming approaches tend to rely on callbacks to update these changes, but layering callbacks upon callbacks leads to a problem known as [callback hell](http://callbackhell.com/).  **_Reactive programming_** (see intro [here](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754)) addresses these issues by providing a framework to describe outputs to reflect their changing inputs.  RxJava, which is a port of the [Reactive Extensions](https://msdn.microsoft.com/en-us/data/gg577609.aspx) library from .NET, enables Android apps to be built in this style.
 
 ### Advantages
 
 Here are a few advantages of using RxJava on Android:
 
- * **Simplifies the ability to chain async operations.**  If you need to make an API call that depends on another API call, you will likely end up implementing this call in the callback of the first one, as well as the logic needed to check whether the first API call succeeded and whether to dispatch the next one.  RxJava provides a way to avoid [callback hell](https://www.bignerdranch.com/blog/what-is-functional-reactive-programming/).  For this reason, RxJava became [popular within Netflix](http://www.infoq.com/presentations/rx-service-architecture) in 2014 for abstracting away the complexities of performing dependent API calls.
+ * **Simplifies the ability to chain async operations.**  If you need to make an API call that depends on another API call, you will likely end up implementing this call in the callback of the first one.  RxJava provides a way to avoid needing to creating [layers of callbacks](https://www.bignerdranch.com/blog/what-is-functional-reactive-programming/) to address this issue.  For this reason, RxJava became [popular within Netflix](http://www.infoq.com/presentations/rx-service-architecture) in 2014 for abstracting away the complexities of performing dependent API calls.
 
- * **Exposes a more flexible way for declaring how concurrent operations should operate.**  One issue with [[AsyncTask|Creating-and-Executing-Async-Tasks]] is that errors that occur on the background thread are hard to pass along when updating the UI thread using the `onPostExecute()` method.  In addition, there are limitations in how many AsyncTasks can be dispatched concurrently as described in this [blog post](http://blog.danlew.net/2014/06/21/the-hidden-pitfalls-of-asynctask/).  Not only can RxJava enables errors to be propagated, but the library also allows for what type of threading model can be used for both background and callback tasks.
+ * **Exposes a more explicit way for declaring how concurrent operations should operate.**  Although RxJava is  single-threaded by default, RxJava helps enable you to define more explicitly what type of threading models should be used for both background and callback tasks.  Since Android only allows UI updates on the main thread, using RxJava helps make the code more clear about what operations will be done to update the views. 
 
- * **Provides powerful constructs for manipulating streams of data.**  With only a few lines of code, we can write code to aggregate data from different web service calls and filter, merge, or sort them with only a few lines of code.
+ * **Surfaces errors sooner.** One issue with [[AsyncTask|Creating-and-Executing-Async-Tasks]] is that errors that occur on the background thread are hard to pass along when updating the UI thread using the `onPostExecute()` method.  In addition, there are limitations in how many AsyncTasks can be dispatched concurrently as described in this [blog post](http://blog.danlew.net/2014/06/21/the-hidden-pitfalls-of-asynctask/).  RxJava provides a way to enable these errors to be surfaced.
+
+ * **Provides powerful constructs for manipulating streams of data.**  With only a few lines of code, we can write code to aggregate data from different web service calls and filter, merge, or sort them.
 
 ## Setup
 
@@ -62,3 +80,6 @@ Subscription subscription = getImageNetworkCall()
 * <https://www.youtube.com/watch?v=_t06LRX0DV0/>
 * <https://vimeo.com/144812843>
 * <http://code.hootsuite.com/asynchronous-android-programming-the-good-the-bad-and-the-ugly/>
+* <https://www.youtube.com/watch?v=va1d4MqLUGY&feature=youtu.be/>
+* <http://www.slideshare.net/TimoTuominen1/rxjava-architectures-on-android-android-livecode-berlin/>
+* <https://www.youtube.com/watch?v=va1d4MqLUGY&feature=youtu.be/>
