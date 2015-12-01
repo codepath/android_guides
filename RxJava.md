@@ -101,6 +101,12 @@ Observable.just("a", "b", "c").subscribe(new Observer<String>() {
                                             });
 ```
 
+### Chaining Observables
+
+For a better understanding about how subscriptions can be chained and how RxJava works in general, it's best to first to understand what happens beneath the surfaces when this `subscribe()` call is made.   Beneath the covers `Subscriber` objects are created.  If we wish to chain the input, there are various **operators** that are available that map one `Subscriber` type to another.  
+
+For more context, watch this [video talk](https://vimeo.com/144812843).
+
 ## Replacing AsyncTask
 
 ```java
