@@ -84,21 +84,21 @@ Note that an `Observer` is a generic type.  It must be represent the type of val
 
 ```java
 Observable.just("a", "b", "c").subscribe(new Observer<String>() {
-                                             @Override
-                                             public void onCompleted() {
+    @Override
+    public void onCompleted() {
                                                          
-                                             }
+    }
 
-                                             @Override
-                                             public void onError(Throwable e) {
+    @Override
+    public void onError(Throwable e) {
 
-                                             }
+    }
 
-                                             @Override
-                                             public void onNext(String s) {
+    @Override
+    public void onNext(String s) {
 
-                                              }
-                                            });
+     }
+});
 ```
 
 ### Chaining Observables
