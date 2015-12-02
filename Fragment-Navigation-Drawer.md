@@ -330,8 +330,10 @@ If you need to get a reference to the header, you need to use the new `getHeader
 ```java
 // There is usually only 1 header view.  
 // Multiple header views can technically be added at runtime.
+// We can use navigationView.getHeaderCount() to determine the total number.
 View headerLayout = navigationView.getHeaderView(0);
 ```
+
 
 ## Animate the Hamburger Icon
 
