@@ -121,7 +121,7 @@ The latest source code updates for the support library are now always included s
 
 ### Changes in Support Library v23.1.1
 
-- NavigationView now contains a `getHeaderView()` method ([[view guide|Fragment-Navigation-Drawer#add-navigation-header]])
+- NavigationView now contains a `getHeaderView()` method ([[view guide|Fragment-Navigation-Drawer#getting-references-to-the-header]])
 
 ## References
 
