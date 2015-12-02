@@ -214,6 +214,19 @@ ImageView photo = ButterKnife.findById(view, R.id.photo);
 
 Add a static import for `ButterKnife.findById` and enjoy even more fun.
 
+## Workarounds
+
+If you are using the [[Navigation Drawer|Fragment-Navigation-Drawer]] from the latest version of the [[support library|Design-Support-Library]], you cannot use `@InjectView` on elements defined in the header layout because a RecyclerView is used instead of ListView in the newer versions, causing the header not be available immediately when the view is first created.  To get a reference, you need to first get a reference to the header view and use the `ButterKnife.findById` call once a reference to the header is obtained:
+
+```java
+View headerView = navigationView.getHeaderView(0);
+TextView textView = ButterKnife.findById(headerView, R.id.tvName);
+```
+
+## Limitations
+
+* ButterKnife cannot be used when creating your own Android libraries.  This limitation is described in [[this section|Building-your-own-Android-library#using-with-butterknife]] of the guide.
+
 ## References
 
 * <http://jakewharton.github.io/butterknife/>
