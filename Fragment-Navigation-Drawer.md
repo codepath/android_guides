@@ -322,6 +322,8 @@ View headerLayout = navigationView.inflateHeaderView(R.layout.nav_header);
 ImageView ivHeaderPhoto = headerLayout.findViewById(R.id.imageView);
 ```
 
+### Getting references to the header
+
 **Note:** Version `23.1.0` of the design support library switches `NavigationView` to using a `RecyclerView` and causes NPE (null exceptions) on header lookups unless the header is added at runtime. 
 If you need to get a reference to the header, you need to use the new `getHeaderView()` method introduced in the latest `v23.1.1` update:
 
