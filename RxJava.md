@@ -18,7 +18,7 @@ j = 4;
 k = ?  // What should k be?
 ```
 
-Traditional asynchronous programming approaches tend to rely on callbacks to update these changes, but layering callbacks upon callbacks leads to a problem known as [callback hell](http://callbackhell.com/).  **_Reactive programming_** (see an intro [here](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754)) addresses these issues by providing a framework to describe outputs to reflect their changing inputs.  RxJava, which is a port of the [Reactive Extensions](https://msdn.microsoft.com/en-us/data/gg577609.aspx) library from .NET, enables Android apps to be built in this style.
+Traditional asynchronous programming approaches tend to rely on callbacks to update these changes, but this way can lead to a problem known as [callback hell](http://callbackhell.com/).  **_Reactive programming_** (see an intro [here](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754)) addresses these issues by providing a framework to describe outputs to reflect their changing inputs.  RxJava, which is a port of the [Reactive Extensions](https://msdn.microsoft.com/en-us/data/gg577609.aspx) library from .NET, enables Android apps to be built in this style.
 
 ### Advantages
 
@@ -43,11 +43,11 @@ dependencies {
 }
 ```
 
-## Observables and Observers 
+## Creating Asynchronous Streams
 
-RxJava defines the concept of an **Observable** and an **Observer**.  An **Observer** watches for result values  emitted by the **Observable** .  When these events occur, the role of the observer is to respond to these events.  
+RxJava defines the concept of an **Observable** and an **Observer**.  An Observable is emitting values over time, either as finite or infinite duration of time.  In the Android world, most of the time we are working with finite streams of data.
 
-An Observable can be created from just any type of input.  For instance, it can a set of strings that should be iterated:
+An **Observer** watches for result values emitted by the **Observable** .  When these events occur, the role of the observer is to respond to these events.  An Observable can be created from just any type of input.  For instance, it can a set of strings that should be iterated:
 
 ```java
 Observable.just("a", "b", "c")  // generate an observable
@@ -100,6 +100,27 @@ Observable.just("a", "b", "c").subscribe(new Observer<String>() {
      }
 });
 ```
+
+### Schedulers
+
+RxJava is synchronous by default, but work can be defined asynchronously using schedulers.  For instance, we can define that the network call should be done on a background thread, but the callback should be done on the main UI thread.  To define where the work is done, we can use `observeOn()` with Retrofit:
+
+```java
+Observable<User> call = apiService.getUser(username);
+call.observeOn(AndroidSchedulers.mainThread())
+```
+
+The RxAndroid library also includes `AndroidSchedulers.mainThread()` for allowing callbacks to be fired on the main UI thread. 
+
+Using schedulers relies on queuing the work through bounded or unbounded thread pools.  Here are a few options available that come with RxJava.  See [this link](http://reactivex.io/RxJava/javadoc/rx/schedulers/Schedulers.html) for all the possible options.  
+
+|  Name                      | Description                                            |
+|:--------------------------:|:------------------------------------------------------:|
+| Schedulers.computation()   | fixed number of threads (= to # CPU's)                 |                          
+| Schedulers.immediate()     | current thread                                         |                          
+| Schedulers.io()            | backed by a current                                    |          
+| Schedulers.newThread()     | create a new thread                                    | 
+| Schedulers.tramponline()   | schedule work on the current thread but put on a queue |
 
 ### Chaining Observables
 
