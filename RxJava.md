@@ -53,14 +53,18 @@ An **Observer** watches for result values emitted by the **Observable** .  When 
 Observable.just("a", "b", "c")  // generate an observable
 ```
 
-It can also be the network response from an API call, such as those exposed in [[Retrofit|https://github.com/codepath/android_guides/wiki/Consuming-APIs-with-Retrofit#rxjava]].
+Similar to the above example, the [[Retrofit|https://github.com/codepath/android_guides/wiki/Consuming-APIs-with-Retrofit#rxjava]] library simply [wraps a synchronous network call](https://github.com/square/retrofit/blob/master/retrofit-adapters/rxjava/src/main/java/retrofit/RxJavaCallAdapterFactory.java##L152-L163) as an `Observable` type for use with RxJava.   Declaring the endpoints as `Observable` automatically does this work.
 
 ```java
 public interface MyApiEndpointInterface {
   @GET("/users/{username}")
   Observable<User> getUser(@Path("username") String username);
 }
+```
 
+We can then instantiate an instance of this interface and get back an `Observable` type:
+
+```java
 MyApiEndpointInterface apiService =
     retrofit.create(MyApiEndpointInterface.class);
 
