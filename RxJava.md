@@ -174,3 +174,4 @@ Subscription subscription = getImageNetworkCall()
 * <https://www.youtube.com/watch?v=va1d4MqLUGY&feature=youtu.be/>
 * <https://speakerdeck.com/benjchristensen/reactive-streams-with-rx-at-javaone-2014>
 * <http://www.philosophicalhacker.com/2015/06/12/an-introduction-to-rxjava-for-android/>
+* <http://www.oreilly.com/programming/free/files/rxjava-for-android-app-development.pdf>
