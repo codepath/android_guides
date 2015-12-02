@@ -11,11 +11,11 @@ Recommended methods are outlined below.
 
 ### Handler
 
-We can use a [Handler](http://developer.android.com/reference/android/os/Handler.html) to repeat code at an interval by constructing a `Handler` and then "posting" `Runnable` code to the event message queue on the thread to be processed.
+We can use a [Handler](http://developer.android.com/reference/android/os/Handler.html) to run code on a given thread after a delay or repeat tasks periodically on a thread. This is done by constructing a `Handler` and then "posting" `Runnable` code to the event message queue on the thread to be processed.
 
 <img src="https://i.imgur.com/2vg53fk.png" alt="handler" width="450" />
 
-Using a `Handler` to execute arbitrary code once after a delay:
+Using a `Handler`, we can execute arbitrary code a single time after a specified delay:
 
 ```java
 // We need to use this Handler package
@@ -23,7 +23,7 @@ import android.os.Handler;
 
 // Create the Handler object (on the main thread by default)
 Handler handler = new Handler();
-// Define the task to be run here
+// Define the code block to be executed
 private Runnable runnableCode = new Runnable() {
     @Override
     public void run() {
@@ -31,11 +31,11 @@ private Runnable runnableCode = new Runnable() {
       Log.d("Handlers", "Called on main thread");
     }
 };
-// Repeat this runnable code again every 2 seconds
+// Run the above code block on the main thread after 2 seconds
 handler.postDelayed(runnableCode, 2000);
 ```
 
-We can also use a handler to execute a periodic runnable task as demonstrated below:
+Using a similar technique, we can also use a handler to execute a periodic runnable task as demonstrated below:
 
 ```java
 // We need to use this Handler package
@@ -43,21 +43,21 @@ import android.os.Handler;
 
 // Create the Handler object (on the main thread by default)
 Handler handler = new Handler();
-// Define the task to be run here
+// Define the code block to be executed
 private Runnable runnableCode = new Runnable() {
     @Override
     public void run() {
       // Do something here on the main thread
       Log.d("Handlers", "Called on main thread");
-      // Repeat this same runnable code again every 2 seconds
+      // Repeat this the same runnable code block again another 2 seconds
       handler.postDelayed(runnableCode, 2000);
     }
 };
-// Kick off the first runnable task right away
+// Start the initial runnable task by posting through the handler
 handler.post(runnableCode);
 ```
 
-Remove the scheduled execution of a runnable with:
+We can remove the scheduled execution of a runnable with:
 
 ```java
 // Removes pending code execution
