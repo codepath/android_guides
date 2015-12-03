@@ -264,7 +264,7 @@ switch (indicatorType) {
     canvas.drawCircle(indicatorPosition, 
                       goalIndicatorHeight / 2, 
                       goalIndicatorHeight / 2, 
-                      progressPaint);
+                      progressPaint);//minus the paint stroke width,otherwise your will get a uncomplete circle
     break;
   case Square:
     canvas.drawRect(indicatorPosition - (goalIndicatorHeight / 2), 
