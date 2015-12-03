@@ -4,6 +4,7 @@ If you want to contribute to these guides, start by cloning the guides repo loca
 
 ```bash
 git clone git@github.com:codepath/android_guides.git
+cd android_guides
 git submodule init
 git submodule update
 cd guides
