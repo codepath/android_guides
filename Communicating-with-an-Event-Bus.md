@@ -174,7 +174,7 @@ public class EventBus extends Bus {
         } else {
             this.mainThread.post(new Runnable() {
                 public void run() {
-                    AndroidBus.this.post(event);
+                    EventBus.this.post(event);
                 }
             });
         }
