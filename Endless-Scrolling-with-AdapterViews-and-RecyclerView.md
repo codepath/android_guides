@@ -2,7 +2,7 @@
 
 A common application feature is to load automatically more items as the user scrolls through the items (aka infinite scroll). This is done by triggering a request for more data once the user crosses a threshold of remaining items before they've hit the end. 
 
-The approaches for ListView and [[RecyclerView|Using-the-RecyclerView]] (the successor to ListView) are documented here.  Both are similar in code except that the [LayoutManager](http://developer.android.com/reference/android/support/v7/widget/RecyclerView.LayoutManager.html) in the RecyclerView needs to be passed in to provide the necessary information to implement infinite scrolling.
+The approaches for ListView and [[RecyclerView|Using-the-RecyclerView]] (the successor to ListView) are documented here.  Both are similar in code except that the [LayoutManager](http://developer.android.com/reference/android/support/v7/widget/RecyclerView.LayoutManager.html) in the RecyclerView needs to be passed in to provide the necessary information to implement infinite scrolling.  In both cases, the information needed to implement the scrolling include the index of the first item within the list, the total number of visible items, and the threshold before fetching more data.
 
 <a href="http://imgur.com/nag2lJ5.png" target="_blank"><img src="http://imgur.com/nag2lJ5.png"/></a>
 
