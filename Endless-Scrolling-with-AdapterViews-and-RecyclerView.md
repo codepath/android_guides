@@ -217,7 +217,7 @@ If you are running into problems, please carefully consider the following sugges
 
 * For the ListView, make sure to setup the `setOnScrollListener` listener in the `onCreate` method of the `Activity` or `onCreateView` in a Fragment and not much later otherwise you may encounter unexpected issues. 
 
-* In order for the pagination system to continue working reliably, you should make sure to **clear the adapter** of items (or notify adapter after clearing the array) before appending new items to the list.  For RecyclerView, it is highly recommended for RecyclerView to make more granular updates.  See this [video talk] (https://youtu.be/imsr8NrIAMs?t=8m27s) for more context.
+* In order for the pagination system to continue working reliably, you should make sure to **clear the adapter** of items (or notify adapter after clearing the array) before appending new items to the list.  For RecyclerView, it is highly recommended to make more granular updates when notifying the adapter.  See this [video talk] (https://youtu.be/imsr8NrIAMs?t=8m27s) for more context.
 
 * In order for this pagination system to trigger, keep in mind that as `customLoadMoreDataFromApi` is called, new data needs to be **appended to the existing data source**. In other words, only clear items from the list when on the initial "page". Subsequent "pages" of data should be appended to the existing data.
 
