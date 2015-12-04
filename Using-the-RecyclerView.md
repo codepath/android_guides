@@ -347,7 +347,7 @@ rvContacts.scrollToPosition(mAdapter.getItemCount() - 1); // update based on ada
 
 ### Implementing endless scrolling
 
-To implement fetching more data and appending to the end of the list as the user scrolls towards the bottom,  use the `addOnScrollListener()` from the `RecyclerView` and implmeent the `onLoadMore` method that comes with EndlessScrollViewScrollListener that is included in [[this section|Endless-Scrolling-with-AdapterViews#implementing-with-recyclerview]] of the guide.
+To implement fetching more data and appending to the end of the list as the user scrolls towards the bottom,  use the `addOnScrollListener()` from the `RecyclerView` and add an `onLoadMore` method that comes with EndlessScrollViewScrollListener that is documented in [[this section|Endless-Scrolling-with-AdapterViews#implementing-with-recyclerview]] of the guide.
 
 ```java
 // add scroll listener
