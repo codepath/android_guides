@@ -4,7 +4,7 @@ A common application feature is to load automatically more items as the user scr
 
 The approaches for ListView and [[RecyclerView|Using-the-RecyclerView]] (the successor to ListView) are documented here.  Both are similar in code except that the [LayoutManager](http://developer.android.com/reference/android/support/v7/widget/RecyclerView.LayoutManager.html) in the RecyclerView needs to be passed in to provide the necessary information to implement infinite scrolling.
 
-<a href="http://imgur.com/nag2lJ5.png"><img src="http://imgur.com/nag2lJ5.png"/></a>
+<a href="http://imgur.com/nag2lJ5.png" target="_blank"><img src="http://imgur.com/nag2lJ5.png"/></a>
 
 ## Implementing with ListView 
 
