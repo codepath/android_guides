@@ -4,7 +4,7 @@ A common application feature is to load automatically more items as the user scr
 
 The approaches for ListView and [[RecyclerView|Using-the-RecyclerView]] (the successor to ListView) are documented here.  Both are similar in code except that the [LayoutManager](http://developer.android.com/reference/android/support/v7/widget/RecyclerView.LayoutManager.html) in the RecyclerView needs to be passed in to provide the necessary information to implement infinite scrolling.
 
-### Implementing with ListView 
+## Implementing with ListView 
 
 Every `AdapterView` has support for binding to the `OnScrollListener` events which are triggered whenever a user scrolls through the collection. Using this system, we can define a basic `EndlessScrollListener` which supports most use cases by creating our own class that extends `OnScrollListener`:
 
@@ -110,7 +110,7 @@ public class MainActivity extends Activity {
 
 Now as you scroll, items will be automatically filling in because the `onLoadMore` method will be triggered once the user crosses the `visibleThreshold`. This approach works equally well for a `GridView` and the listener gives access to both the `page` as well as the `totalItemsCount` to support both pagination and offset based fetching.
 
-### Implementing with RecyclerView
+## Implementing with RecyclerView
 
 We can also use a similar approach with the RecyclerView by defining an interface `EndlessRecyclerViewScrollListener` that requires an `onLoadMore()` method to be implemented.  The [LayoutManager](http://developer.android.com/reference/android/support/v7/widget/RecyclerView.LayoutManager.html), which is responsible in the RecyclerView for rendering where items should be positioned and manages scrolling, provides information about the current scroll position relative to the adapter.  For this reason, we need to pass an instance of what LayoutManager is being used to collect the necessary information to ascertain when to load more data:
 
