@@ -186,19 +186,8 @@ Assuming we are using a `LinearLayoutManager`, we simply need to use the `addOnS
 protected void onCreate(Bundle savedInstanceState) {
    RecyclerView rvItems = (RecyclerView) findViewById(R.id.rvContacts);
 
-    // setup original list of items here
-    final List<Item> items = Contact.createContactsList(10);
-
-    // setup adapter
-    final ContactsAdapter adapter = new ContactsAdapter(items);
-    rvItems.setAdapter(adapter);
-
-    // setup layout manager    
-    final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-    rvItems.setLayoutManager(linearLayoutManager);
-
-    // add scroll listener
-    rvItems.addOnScrollListener(new EndlessRecyclerViewScrollListener(linearLayoutManager) {
+   // add scroll listener
+   rvItems.addOnScrollListener(new EndlessRecyclerViewScrollListener(linearLayoutManager) {
        @Override
        public void onLoadMore(int page, int totalItemsCount) {
           // fetch data here
@@ -215,6 +204,8 @@ protected void onCreate(Bundle savedInstanceState) {
   });
 }
 ```
+
+See this [gist](https://gist.github.com/rogerhu/17aca6ad4dbdb3fa5892) more a more concrete example.
 
 ## Troubleshooting
 
