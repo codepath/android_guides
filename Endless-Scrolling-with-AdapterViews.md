@@ -186,12 +186,14 @@ Assuming we are using a `LinearLayoutManager`, we simply need to use the `addOnS
 protected void onCreate(Bundle savedInstanceState) {
    RecyclerView rvItems = (RecyclerView) findViewById(R.id.rvContacts);
 
-    // fetch data here
+    // setup original list of items here
     final List<Item> items = Contact.createContactsList(10);
-    final ContactsAdapter adapter = new ContactsAdapter(items);
 
-    // set adapter
+    // setup adapter
+    final ContactsAdapter adapter = new ContactsAdapter(items);
     rvItems.setAdapter(adapter);
+
+    // setup layout manager    
     final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
     rvItems.setLayoutManager(linearLayoutManager);
 
