@@ -345,6 +345,29 @@ adapter.notifyItemInserted(contacts.size() - 1);  // contacts.size() - 1 is the 
 rvContacts.scrollToPosition(mAdapter.getItemCount() - 1); // update based on adapter 
 ```
 
+### Endless Scrolling
+
+To implement fetching more data and appending to the end of the list as the user scrolls towards the bottom,  use the `addOnScrollListener()` from the `RecyclerView` and implmeent the `onLoadMore` method that comes with EndlessScrollViewScrollListener that is included in [[this section|Endless-Scrolling-with-AdapterViews#implementing-with-recyclerview]] of the guide.
+
+```java
+// add scroll listener
+rvItems.addOnScrollListener(new EndlessRecyclerViewScrollListener(linearLayoutManager) {
+  @Override
+  public void onLoadMore(int page, int totalItemsCount) {
+     // fetch data here
+     customLoadMoreDataFromApi(page); 
+
+     // update the adapter, saving the last known size
+     int curSize = adapter.getItemCount(); 
+     items.addAll(moreContacts);
+
+     // for efficiency purposes, only notify the adapter of what elements that got changed
+     // curSize will equal to the index of the first element inserted because the list is 0-indexed
+     adapter.notifyItemRangeInserted(curSize, items.size() - 1);
+   }
+});
+```
+
 ## Configuring the RecyclerView
 
 The `RecyclerView` is quite flexible and customizable. Several of the options available are shown below.
