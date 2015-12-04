@@ -200,6 +200,7 @@ protected void onCreate(Bundle savedInstanceState) {
        @Override
        public void onLoadMore(int page, int totalItemsCount) {
           // fetch data here
+          customLoadMoreDataFromApi(page); 
 
           // update the adapter, saving the last known size
           int curSize = adapter.getItemCount(); 
