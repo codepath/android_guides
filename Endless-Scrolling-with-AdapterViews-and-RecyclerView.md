@@ -194,18 +194,23 @@ protected void onCreate(Bundle savedInstanceState) {
    rvItems.addOnScrollListener(new EndlessRecyclerViewScrollListener(linearLayoutManager) {
        @Override
        public void onLoadMore(int page, int totalItemsCount) {
-          // fetch data here
+          // fetch data asynchronously here
           customLoadMoreDataFromApi(page); 
-
-          // update the adapter, saving the last known size
-          int curSize = adapter.getItemCount(); 
-          items.addAll(moreContacts);
-    
-          // for efficiency purposes, only notify the adapter of what elements that got changed
-          // curSize will equal to the index of the first element inserted because the list is 0-indexed
-          adapter.notifyItemRangeInserted(curSize, items.size() - 1);
      }
   });
+}
+
+// Append more data into the adapter
+// This method probably sends out a network request and appends new data items to your adapter. 
+public void customLoadMoreDataFromApi(int offset) {
+    // Use the offset value and add it as a parameter to your API request to retrieve appropriate data.
+    // Deserialize API response and then construct new objects to append to the adapter
+    // Add new objects to the data source for the adapter
+    int curSize = adapter.getItemCount(); 
+    items.addAll(moreContacts);
+    // For efficiency purposes, notify the adapter of only the elements that got changed
+    // curSize will equal to the index of the first element inserted because the list is 0-indexed
+    adapter.notifyItemRangeInserted(curSize, items.size() - 1);
 }
 ```
 
