@@ -329,7 +329,7 @@ adapter.notifyItemInserted(0);
 
 Every time we want to add or remove items from the RecyclerView, we will need to explicitly inform to the adapter of the event.  Unlike the ListView adapter, a RecyclerView adapter should not rely on `notifyDataSetChanged()` since the more granular actions should be used.  See the [API documentation](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.Adapter.html) for more details.
 
-### Scrolling to newly created items
+### Scrolling to New Items
 
 If we are inserting elements to the front of the list and wish to maintain the position at the top, we can set the scroll position to the 1st element:
 
@@ -345,7 +345,7 @@ adapter.notifyItemInserted(contacts.size() - 1);  // contacts.size() - 1 is the 
 rvContacts.scrollToPosition(mAdapter.getItemCount() - 1); // update based on adapter 
 ```
 
-### Implementing endless scrolling
+### Implementing Endless Scrolling
 
 To implement fetching more data and appending to the end of the list as the user scrolls towards the bottom,  use the `addOnScrollListener()` from the `RecyclerView` and add an `onLoadMore` method that comes with EndlessScrollViewScrollListener that is documented in [[this section|Endless-Scrolling-with-AdapterViews-and-RecyclerView#implementing-with-recyclerview]] of the guide.
 
