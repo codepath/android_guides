@@ -83,7 +83,7 @@ public class PracticeDatabaseHelper extends SQLiteOpenHelper {
 After this, somewhere in your app(most likely your Application class or your Main Activity), you will have to instantiate your DatabaseHelper. 
 ```java
 PracticeDatabaseHelper dbHelper = new PracticeDatabaseHelper(this);
-db = dbHelper.getWritableDatabase();
+SQLiteDatabase db = dbHelper.getWritableDatabase();
 ```
 
 Now, with your database instantiated, you are ready to use Cupboard.
