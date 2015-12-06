@@ -1,8 +1,40 @@
 ## Overview
 
-Android applications should always be neatly organized with a clear folder structure that makes your code easy to read. 
+Android applications should always be neatly organized with a clear folder structure that makes your code easy to read. In addition, proper naming conventions for code and classes are important to ensure your code is clean and maintainable.
 
-There are several best practices for organising your app's package structure.
+### Naming Conventions
+
+#### For Java Code
+
+The following naming and casing conventions are important for your Java code:
+
+| Type        | Example                | Description                   | Link |
+| ----------- | ------------           | ----------------------------- | ------
+| Variable    | `incomeTaxRate`        | All variables should be camel case | [Read More](https://www.cwu.edu/~gellenbe/javastyle/variable.html) |
+| Constant    | `DAYS_IN_WEEK`         | All constants should be all uppercase | [Read More](https://www.cwu.edu/~gellenbe/javastyle/constant.html) |
+| Method      | `convertToEuroDollars` | All methods should be camel case | [Read More](https://www.cwu.edu/~gellenbe/javastyle/method.html) |
+| Parameter   | `depositAmount`        | All parameter names should be camel case | [Read More](https://www.cwu.edu/~gellenbe/javastyle/parameter.html) |
+
+See [this naming guide](https://www.cwu.edu/~gellenbe/javastyle/naming.html) for more details.
+
+#### For Android Classes
+
+Android classes should be named with a particular convention that makes their purpose clear in the name. For example all activities should end with `Activity` as in `MoviesActivity`. The following are the most important naming conventions:
+
+| Name            | Convention                | Inherits            |
+| ----------      | ------------------        | ------------        | 
+| Activity        | `CreateTodoItemActivity`  | `AppCompatActivity`, `Activity` |
+| List Adapter    | `TodoItemsAdapter`        | `BaseAdapter`, `ArrayAdapter`   |
+| Database Helper | `TodoItemsDbHelper`       | `SQLiteOpenHelper`  |
+| Network Client  | `TodoItemsClient`         | N/A                 |
+| Fragment        | `TodoItemDetailFragment`  | `Fragment`          |
+| Service         | `FetchTodoItemService`    | `Service`, `IntentService`  |
+
+Use your best judgement for other types of files. The goal is for any Android-specific classes to be identifiable by the suffix. 
+
+### Android Folder Structure
+
+There are several best practices for organizing your app's package structure.
 
 #### Organize packages by category
 
@@ -33,8 +65,7 @@ This feature allows you to place `DetailsActivity`, `DetailsFragment`, `DetailsL
 
 This can make object creation really simple and intuitive, while objects remain immutable outside the package.
 
-
-##Conclusion
+## Conclusion
 
 It is up to you to decide which of the aforementioned approaches suits your project best. 
 
