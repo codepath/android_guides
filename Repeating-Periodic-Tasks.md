@@ -15,6 +15,8 @@ We can use a [Handler](http://developer.android.com/reference/android/os/Handler
 
 <img src="https://i.imgur.com/2vg53fk.png" alt="handler" width="450" />
 
+#### Executing Code After Delay
+
 Using a `Handler`, we can execute arbitrary code a single time after a specified delay:
 
 ```java
@@ -34,6 +36,8 @@ private Runnable runnableCode = new Runnable() {
 // Run the above code block on the main thread after 2 seconds
 handler.postDelayed(runnableCode, 2000);
 ```
+
+#### Execute Recurring Code with Specified Interval
 
 Using a similar technique, we can also use a handler to execute a periodic runnable task as demonstrated below:
 
