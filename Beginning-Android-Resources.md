@@ -98,7 +98,7 @@ There are various guides that provide insight into the design principles for And
 
  * [Android Design Principles](http://developer.android.com/design/get-started/principles.html)
  * [Common Mistakes while Porting](http://www.androiduipatterns.com/2012/05/common-mistakes-in-porting-ios-apps-to.html) - Highlights some common mistakes people make while porting their iOS app to Android.
- * [Material Design Primer](http://guides.codepath.com/android/Material-Design-Primer) - Walks you through the various elements of a modern material design for Android. "Material Design" is the latest approach to designing beautiful Android apps. 
+ * [[Material Design Primer|Material-Design-Primer]] - Walks you through the various elements of a modern material design for Android. "Material Design" is the latest approach to designing beautiful Android apps. 
 
 ### Inspiration
 
@@ -110,46 +110,66 @@ There are various sites that provide inspiration by showcasing beautiful modern 
   
 ## Beginning Android Resources
 
-With the basics in mind, it is time to start coding your first Android app. To begin, download and install the [Android Developer Tools] (http://developer.android.com/sdk/index.html). The Android SDK is actually a bundle of helpful tools consisting of Android libraries, an emulator, a debugger, and documentation. It also gives you a framework of Java classes and methods that all Android devices are able to use, the core Android library. You'll have to update this library as new versions come out, but more on that later. The whole SDK is neatly packaged inside Android Studio or Eclipse, allowing you to only worry about your code and how devices implement it.
+With the basics in mind, it is time to start coding your first Android app. To begin you need to [setup Android Studio and the Android SDK](http://goo.gl/X2SVFR). The Android SDK is actually a bundle of helpful tools consisting of Android libraries, an emulator, a debugger, and documentation. It also gives you a framework of Java classes and methods that all Android devices are able to use, the core Android library. You'll have to update this library as new versions come out, but more on that later. The whole SDK is packaged inside Android Studio, allowing you to only worry about your code and how devices implement it.
 
-When learning Android it’s not about learning how to code, it’s more about understanding the way Android works. That means that you’ll spend the majority of the time learning about Activity lifecycles, Fragments, ListViews, Intents, and other important Android specific concepts as opposed to complex algorithmic structures. 
+When learning Android it’s not about learning how to code, it’s more about understanding the way that Android works. That means that you’ll spend the majority of the time learning about [[Activity Lifecycle|Activity-Lifecycle]], [[Fragments|Creating-and-Using-Fragments]], [[ListViews|Using-an-ArrayAdapter-with-ListView]], [[Intents|Using-Intents-to-Create-Flows]], and other important Android specific concepts as opposed to algorithms or data structures. 
 
-Consider starting with the following tutorials and resources:
+### Courses
 
-* [The Android official training guides](http://developer.android.com/training/index.html) are a good place to start. The [Building Your First App](http://developer.android.com/training/basics/firstapp/index.html) lesson is very easy to follow  and already gives you a good understanding of some key concepts of the Android SDK.
-
-* [The Android Development Tutorial](http://www.youtube.com/watch?v=Z149x12sXsw) by Derek Banas is great for those who prefer video lessons. It has 25 video lessons in total ranging from 10 to 30 minutes each. Note that he teaches in Eclipse instead of Android Studio.
-
-* [CodePath Android Cliffnotes](https://guides.codepath.com) are what you are reading right now! Keep reading and hopefully you'll walk away feeling like you know more about Android than when you started.
-
-* [Vogella Android Tutorials](http://www.vogella.com/tutorials/Android/article.html) - These are awesome free tutorials for most common Android topics. Great as a supplementary resource on top of the [Android Cliffnotes](http://guides.codepath.com/android).
+The following online courses teach Android through structured lessons and quizzes:
 
 * [Udacity Android Development for Beginners](https://www.udacity.com/course/android-development-for-beginners--ud837) (Beginner) - This course is designed for students who are new to programming, and want to learn how to build Android apps. You don’t need any programming experience to take this course. 
 
 * [Developing Android Apps by Google](https://www.udacity.com/course/ud853) (Intermediate) - Udacity course created by Google that teaches the core concepts involved in developing Android apps through videos and course work. 
 
+* [Programming Android Applications on Coursera](https://www.coursera.org/course/android) - Coursera online course from the University of Maryland.
+
+* [Building Mobile Applications Course](http://cs76.tv/2012/spring/#about,lectures) - Courseware including videos and slides with high-level overview of Android development.
+
+### Guides
+
+The following guides act as excellent references while exploring Android:
+
+* [CodePath Android Cliffnotes](http://guides.codepath.com/android#getting-started) are the guides that you are reading right now! Check out the link to see the various "getting started" resources and hopefully you'll find them as an invaluable resource.
+
+* [The Android official training guides](http://developer.android.com/training/index.html) are a good place to start. The [Building Your First App](http://developer.android.com/training/basics/firstapp/index.html) lesson is very easy to follow  and already gives you a good understanding of some key concepts of the Android SDK.
+
+* [Vogella Android Tutorials](http://www.vogella.com/tutorials/Android/article.html) - These are awesome free tutorials for most common Android topics. 
+
 * [Google Android Glossary](https://developers.google.com/android/for-all/vocab-words/) - Common Android terms defined in a glossary site with visual diagrams to help reinforce concepts.
 
-* [Programming Android Applications on Coursera](https://www.coursera.org/course/android) - Coursera online course from the University of Maryland.
+* [Common tasks](http://developer.android.com/guide/faq/commontasks.html) is a useful list from Google of typical things you can do in your app with links to explanations on how to do them. 
+
+### Tutorials
+
+The following tutorials attempt to explain aspects of Android development step-by-step:
 
 * [CodeLearn Android Tutorial](http://www.codelearn.org/android-tutorial) - Interesting interactive tutorial for learning Android step-by-step. Definitely worth a look as you build a twitter client step-by-step.
 
 * [Android UI Tutorial: Layouts and Animations](https://www.codementor.io/android/tutorial/android-ui-layouts-animations-mirror)a quick live coding of Android UI creations and shows how to use the different layouts, Views (TextView, ListView, ImageView, GridView, RecyclerView) and Motions (Property Animation, drawable Animation) by live coding. 
-  
-* [Common tasks](http://developer.android.com/guide/faq/commontasks.html) is a useful list from Google of typical things you can do in your app with links to explanations on how to do them. 
-  
-* [Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm&hl=en) is a great app available on the Google Play Store. This app won't teach you anything about how to develop Android apps but it will show you the many possibilities available to you in terms of what you can control on your device with an Android App. This app has A LOT of functionalities.
 
-* [Building Mobile Applications Course](http://cs76.tv/2012/spring/#about,lectures) - Courseware including videos and slides with high-level overview of Android development.
-  
+### Video Resources
+
+The following video lessons present on the basics of Android development:
+
+* [The Android Development Tutorial](http://www.youtube.com/watch?v=Z149x12sXsw) by Derek Banas is great for those who prefer video lessons. It has 25 video lessons in total ranging from 10 to 30 minutes each. Note that he teaches in Eclipse instead of Android Studio.
+
+### Apps
+
+The following apps can be a useful examples when getting started:
+
+* [[Open-source Apps|Sample-Android-Apps]] provides a list of the open-source sample apps that can be used as a resource when first getting started on Android. These sample apps can be a great help in understanding how all the pieces fit together.
+
 * [DevAppsDirect](https://play.google.com/store/apps/details?id=com.inappsquared.devappsdirect&hl=en) is another great app you can get from the Play Store. While it also won't teach you how to develop an app, it will show you what is available out there. The app maintains a list of open source libraries you can use in your project for a variety of purposes. Knowing what you can reuse will save you a lot of time in the future.
+
+### Books
+
+The following books can act as a complement to the resources above:
 
 * [Android Programming: Pushing the Limits](http://www.amazon.com/Android-Programming-Pushing-Erik-Hellman/dp/1118717376) is a fairly good book to check out.
 
 * [The Busy Coder's Guide to Android Development](http://commonsware.com/Android/) is comprehensive with its over 2,400 pages but starts with the basics. It also has "do-it-yourself" tutorials to help you retain what you are learning. The book is a bit expensive but it comes with a one-year subscription to keep it updated during the period, as the author is constantly adding to the text. 
-    All code examples are free and [can be found here](https://github.com/commonsguy/cw-omnibus/). Even if you don't buy the book, consider browsing through some of the examples there to learn how other programmers do things. Finally, Mark Murphy, the author of the book, is helpful whether you contact him by e-mail or on the [StackOverflow website](http://stackoverflow.com/). Check out [his profile](http://stackoverflow.com/users/115145/commonsware).
-
-If you run into issues as you are learning, you can check out [codementor for online help](https://www.codementor.io/android-experts).
+    * All code examples are free and [can be found here](https://github.com/commonsguy/cw-omnibus/). Even if you don't buy the book, consider browsing through some of the examples there to learn how other programmers do things. Finally, Mark Murphy, the author of the book, is helpful whether you contact him by e-mail or on the [StackOverflow website](http://stackoverflow.com/). Check out [his profile](http://stackoverflow.com/users/115145/commonsware).
 
 ## Key Concepts
 
