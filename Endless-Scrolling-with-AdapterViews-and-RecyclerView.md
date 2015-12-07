@@ -6,7 +6,8 @@ The approaches for ListView and [[RecyclerView|Using-the-RecyclerView]] (the suc
 
 In both cases, the information needed to implement the scrolling include the index of the first item within the list, the total number of visible items, and the threshold before fetching more data.  This data can be used to ascertain when the end of the list has been reached and to load more data from an external source:
 
-<a href="http://imgur.com/nag2lJ5.png" target="_blank"><img src="http://imgur.com/nag2lJ5.png"/></a>
+<a href="http://i.imgur.com/2d62G3R.png" target="_blank"><img src="http://i.imgur.com/2d62G3R.png"/></a>
+<a href="http://i.imgur.com/OHHvamr.png" target="_blank"><img src="http://i.imgur.com/OHHvamr.png"/></a>
 
 ## Implementing with ListView 
 
