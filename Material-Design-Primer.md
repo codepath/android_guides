@@ -157,8 +157,7 @@ This animation is often times used in conjunction with a floating action button 
 
 [[Scroll effects|Handling-Scrolls-with-CoordinatorLayout]] can also be created to shrink or expand the Toolbar or Header to make room for the main content area as a user scrolls.
 
-![scroll-effects](http://imgur.com/ah4l5oj.gif)
-
+<img src="http://imgur.com/ah4l5oj.gif" alt="scrolling effects" width="300" />
 
 ## Material Styles
 
