@@ -342,7 +342,7 @@ public interface MyApiEndpointInterface {
 }
 ```
 
-Consistent with the RxJava framework, we need to create a subscriber to handle the response.  The methods `onCompleted()`, `onError()`, and `onNext()` need to be added.  Using the Android RxJava library, we can also designate that we will handle this event on the UI main thread.   We do not need `subscribeOn()` according to this [ticket](https://github.com/square/retrofit/issues/430).
+Consistent with the RxJava framework, we need to create a subscriber to handle the response.  The methods `onCompleted()`, `onError()`, and `onNext()` need to be added.  Using the Android RxJava library, we can also designate that we will handle this event on the UI main thread.   We are not allowed to specify what thread the actual HTTP is made using `subscribeOn()` according to this [ticket](https://github.com/square/retrofit/issues/430).
 
 ```java
 String username = "sarahjean";
