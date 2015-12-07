@@ -25,7 +25,7 @@ To send images or binary data:
 final Intent shareIntent = new Intent(Intent.ACTION_SEND);
 shareIntent.setType("image/jpg");
 final File photoFile = new File(getFilesDir(), "foo.jpg");
-shareIntent.putExtra(Intent.EXTRA_STREAM, photoFile);
+shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(photoFile));
 startActivity(Intent.createChooser(shareIntent, "Share image using"));
 ```
 
