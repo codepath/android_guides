@@ -120,8 +120,8 @@ The toolbar operates as a replacement for the original `ActionBar` but is added 
 
 [[Floating action buttons|Floating-Action-Buttons]] (or FAB) are a special "promoted action" within an activity or fragment that is moved from the `ActionBar` to a round icon floating above the UI in the bottom right corner.
 
-<img src="https://github.com/makovkastar/FloatingActionButton/raw/master/art/demo.gif" width="185" alt="FAB1" />&nbsp;
-<img src="https://i.imgur.com/SBbLXo2.png" width="200" alt="FAB2" />
+<img src="http://i.imgur.com/BE7c4xy.gif" height="350" alt="FAB1" />&nbsp;
+<img src="http://i.imgur.com/qij0f3K.gif" height="350" alt="FAB2" />
 
 The floating action button should represent **the primary action** within a screen. More info and use cases of the FAB button can be found in Google’s official [design specs found here](http://www.google.com/design/spec/components/buttons.html#buttons-floating-action-button).
 
