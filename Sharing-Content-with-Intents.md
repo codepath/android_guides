@@ -22,10 +22,10 @@ startActivity(Intent.createChooser(sharingIntent,"Share using"));
 To send images or binary data:
 
 ```java
-Intent shareIntent = new Intent(Intent.ACTION_SEND);
+final Intent shareIntent = new Intent(Intent.ACTION_SEND);
 shareIntent.setType("image/jpg");
-Uri uri = Uri.fromFile(new File(getFilesDir(), "foo.jpg"));
-shareIntent.putExtra(Intent.EXTRA_STREAM, uri.toString());
+final File photoFile = new File(getFilesDir(), "foo.jpg");
+shareIntent.putExtra(Intent.EXTRA_STREAM, photoFile);
 startActivity(Intent.createChooser(shareIntent, "Share image using"));
 ```
 
