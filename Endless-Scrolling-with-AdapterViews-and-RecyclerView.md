@@ -8,7 +8,7 @@ In both cases, the information needed to implement the scrolling include the ind
 
 <a href="http://imgur.com/6E7X1pr.png" target="_blank"><img src="http://imgur.com/6E7X1pr.png"/></a>
 
-To provide the appearance of endless scrolling, it's important to fetch data before the user gets to the end of the list.  Adding a threshold value therefore helps anticipate the need to append more data to the end of the list:
+To provide the appearance of endless scrolling, it's important to fetch data before the user gets to the end of the list.  Adding a threshold value therefore helps anticipate the need to append more data:
 
 <a href="http://imgur.com/NRr6dHK.png" target="_blank"><img src="http://imgur.com/NRr6dHK.png"/></a>
 
