@@ -1,6 +1,6 @@
 ## Prerequisite
 
-Make sure you are familiar with [RecyclerView] (https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html) by going through the following guide for [[basic usage of a `RecyclerView`|Using-the-RecyclerView]]. We will be building on top of the classes from the above guide so it is very important that you have the basic `RecyclerView` up and running.
+Make sure you are familiar with [RecyclerView] (https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html) by going through the following guide for [[basic usage of a RecyclerView|Using-the-RecyclerView]]. We will be building on top of the classes from the above guide so it is very important that you have the basic `RecyclerView` up and running.
 
 ## Overview
 
