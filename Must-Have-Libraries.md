@@ -161,6 +161,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [dialogplus](https://github.com/orhanobut/dialogplus) - Simple, easy dialogs
  * [Iconify](https://github.com/JoanZapata/android-iconify) - Easily embed icons into your app
  * [Android StepsView](https://github.com/anton46/Android-StepsView) - A library to create StepsView for Android
+* [PhotoView](https://github.com/chrisbanes/PhotoView) - A library to pinch zoom in and zoom out and double tap zoom for Android
 
 ### Drawing
 
