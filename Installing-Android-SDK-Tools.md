@@ -2,18 +2,19 @@ The Android SDK can be installed automatically using [Jake Wharton's SDK Plugin]
 
 ## Installing the Android SDK (Automated Way)
 
-You can use [Jake Wharton's SDK Manager](https://github.com/JakeWharton/sdk-manager-plugin) to manage all missing SDK dependencies.  It is particularly useful for simplifying the steps of retrieving the Build Tools, SDK version, or support libraries used in your project.    
+You can use [Jake Wharton's SDK Manager](https://github.com/JakeWharton/sdk-manager-plugin) to manage all missing SDK dependencies.  It is particularly useful for simplifying the steps of retrieving the Build Tools, SDK version, or support libraries used in your project.      
 
-Edit your root `build.gradle` file to include the `com.jakewharton.sdkmanager:gradle-plugin` plugin.
+Edit your root `build.gradle` file to include the `com.jakewharton.sdkmanager:gradle-plugin` plugin.  Because the latest plugin version has not been released to a Maven repository in awhile, we can use Jitpack to grab the latest version as described [here](https://github.com/JakeWharton/sdk-manager-plugin/issues/73#issuecomment-106747867).
 
 ```gradle
 buildscript {
   repositories {
     jcenter()
+    maven { url 'https://jitpack.io' }
   }
   dependencies {
     classpath 'com.android.tools.build:gradle:1.3.1'
-    classpath 'com.jakewharton.sdkmanager:gradle-plugin:0.12.+'
+    classpath 'com.github.JakeWharton:sdk-manager-plugin:220bf7a88a7072df3ed16dc8466fb144f2817070'
   }
 }
 ```
