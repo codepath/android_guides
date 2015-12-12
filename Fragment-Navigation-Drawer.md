@@ -211,11 +211,14 @@ public class MainActivity extends AppCompatActivity {
 
 ### Navigating between Menu Items
 
-Setup a handler to respond to click events on the navigation elements and swap out the fragment.
+Setup a handler to respond to click events on the navigation elements and swap out the fragment. This can be put into the activity directly:
 
 ```java
+public class MainActivity extends AppCompatActivity {
+   
+    // ...
 
-@Override
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
 
          // Find our drawer view
@@ -270,6 +273,9 @@ Setup a handler to respond to click events on the navigation elements and swap o
         setTitle(menuItem.getTitle());
         mDrawer.closeDrawers();
     }
+
+    // ...
+}
 ```
 
 ### Add Navigation Header
