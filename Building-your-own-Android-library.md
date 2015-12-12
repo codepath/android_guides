@@ -265,7 +265,9 @@ buildTypes {
 If you use the default configuration, ProGuard will obfuscate and alter the name of your library classes, making it impossible for Android projects to reference them.  The most basic example of ensuring your library classes are exported is shown below:
 
 ```
--printmapping out.map
+-dontobfuscate
+# See https://speakerdeck.com/chalup/proguard 
+-optimizations !code/allocation/variable
 
 -keep public class * {
     public protected *;
