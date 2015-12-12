@@ -250,6 +250,30 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-2.8-all.zip
 
 Even though the default Gradle version used in Android projects is 2.4, the build should compile without needing to make any changes.
 
+### Using with ProGuard
+
+If you intend to export your release with ProGuard to help reduce the total number of methods exported to avoid the [64K method limit](http://developer.android.com/tools/building/multidex.html), modify your library `build.gradle` file to enable ProGuard.  You will need to enable `minifyEnabled` and specify the configuration file for ProGuard to use:
+
+```gradle
+buildTypes {
+         release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+         }
+```
+
+If you use the default configuration, ProGuard will obfuscate and alter the name of your library classes, making it impossible for Android projects to reference them.  The most basic example of ensuring your library classes are exported is shown below:
+
+```
+-printmapping out.map
+
+-keep public class * {
+    public protected *;
+}
+```
+
+See the [ProGuard documentation](http://proguard.sourceforge.net/manual/usage.html) for more information about the syntax of this file.  See [this example](https://stuff.mit.edu/afs/sipb/project/android/sdk/android-sdk-linux/tools/proguard/docs/index.html#manual/examples.html) of an Android library definition.
+
 ### References
 
 * <http://ryanharter.com/blog/2015/06/18/hosting-a-private-maven-repo-on-amazon-s3/>
