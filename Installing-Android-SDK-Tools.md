@@ -4,7 +4,7 @@ The Android SDK can be installed automatically using [Jake Wharton's SDK Plugin]
 
 You can use [Jake Wharton's SDK Manager](https://github.com/JakeWharton/sdk-manager-plugin) to manage all missing SDK dependencies.  It is particularly useful for simplifying the steps of retrieving the Build Tools, SDK version, or support libraries used in your project.      
 
-Edit your root `build.gradle` file to include the `com.jakewharton.sdkmanager:gradle-plugin` plugin.  Because the latest plugin version has not been released to a Maven repository in awhile, we can use [Jitpack](https://jitpack.io/) to grab the latest version as described [here](https://github.com/JakeWharton/sdk-manager-plugin/issues/73#issuecomment-106747867).  The old version attempts to download an Android SDK Manager that does not include ProGuard as noted in this [issue](https://github.com/JakeWharton/sdk-manager-plugin/issues/57).
+Edit your root `build.gradle` file to include this plugin.  Because the latest plugin version has not been released to a Maven repository in awhile, we can use [Jitpack](https://jitpack.io/) to grab the latest version as described [here](https://github.com/JakeWharton/sdk-manager-plugin/issues/73#issuecomment-106747867).  The old version attempts to download an Android SDK Manager that does not include ProGuard as noted in this [issue](https://github.com/JakeWharton/sdk-manager-plugin/issues/57).
 
 ```gradle
 buildscript {
