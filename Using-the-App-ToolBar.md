@@ -119,7 +119,8 @@ Next, we need to make sure we have the action items listed within a menu resourc
     </item>
 </menu>
 ```
-The above code results in the toolbar fully replacing the ActionBar at the top:
+
+For more details about action items in the `Toolbar` including how to setup click handling, refer to our [[ActionBar guide|Defining-The-ActionBar#adding-action-items]]. The above code results in the toolbar fully replacing the ActionBar at the top:
 
 <img src="http://i.imgur.com/lucP1wY.png" width="400" />
 
