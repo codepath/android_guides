@@ -69,7 +69,6 @@ Now you need to add a `Toolbar` to your Activity layout file. One of the biggest
 
 As Toolbar is just a `ViewGroup` and can be **styled and positioned like any other view**. Note that this means if you are in a `RelativeLayout`, you need to ensure that all other views are positioned below the toolbar explicitly. The toolbar is not given any special treatment as a view.
 
-
 Next, in your Activity or Fragment, set the Toolbar to act as the ActionBar by calling the  `setSupportActionBar(Toolbar)` method:
 
 **Note:** When using the support library, make sure that you are importing `android.support.v7.widget.Toolbar` and not `android.widget.Toolbar`.
@@ -101,6 +100,25 @@ public class MyActivity extends AppCompatActivity {
 }
 ```
 
+Next, we need to make sure we have the action items listed within a menu resource file such as  `res/menu/menu_main.xml` which is inflated above in `onCreateOptionsMenu`:
+
+```xml
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/miCompose"
+        android:icon="@drawable/ic_compose"
+        app:showAsAction="ifRoom"
+        android:title="Compose">
+    </item>
+    <item
+        android:id="@+id/miProfile"
+        android:icon="@drawable/ic_profile"
+        app:showAsAction="ifRoom|withText"
+        android:title="Profile">
+    </item>
+</menu>
+```
 The above code results in the toolbar fully replacing the ActionBar at the top:
 
 <img src="http://i.imgur.com/lucP1wY.png" width="400" />
