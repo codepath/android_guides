@@ -197,7 +197,7 @@ If a context is needed outside of the `onCreateViewHolder()` method, as long as 
 
 ### Avoiding memory leaks
 
-The Application Context is typically used when singleton instances need to be created, such as a custom manager class that requires Context information to gain access to system services but gets reused across multiple Activities.  Since retaining a reference to the Activity context would cause memory not to be reclaimed after it is no long running, it's important to use the Application Context instead.
+The Application Context is typically used when singleton instances need to be created, such as a custom manager class that requires Context information to gain access to system services but gets reused across multiple Activities.  Since retaining a reference to the Activity context would cause memory not to be reclaimed after it is no longer running, it's important to use the Application Context instead.
 
 In the example below, if the context being stored is an Activity or Service and it's destroyed by the Android system, it won't be able to be garbage collected because the CustomManager class holds a static reference to it.
 
