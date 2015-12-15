@@ -19,7 +19,7 @@ Makes sure to enable the use of the Internet permission in your `AndroidManifest
 Simply add this line to your `app/build.gradle` file:
 
 ```gradle
-compile 'com.squareup.okhttp:okhttp:2.5.0'
+compile 'com.squareup.okhttp:okhttp:2.7.0'
 ```
 
 ## Sending and Receiving Network Requests
