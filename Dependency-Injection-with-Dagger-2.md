@@ -60,7 +60,7 @@ apply plugin: 'com.neenbedankt.android-apt'
 ```
 
 ### Creating Singletons
-![Dagger Injections Overview](https://raw.githubusercontent.com/ppiech/android_guides/master/images/dagger_general.png)
+![Dagger Injections Overview](https://raw.githubusercontent.com/codepath/android_guides/master/images/dagger_general.png)
 
 The simplest example is to show how to centralize all your singleton creation with Dagger 2.  Suppose you weren't using any type of dependency injection framework and wrote code in your Twitter client similar to the following:
 
@@ -264,7 +264,7 @@ public class MyActivity extends Activity {
 ```
  
 ### Qualified types
-![Dagger Qualifiers](https://raw.githubusercontent.com/ppiech/android_guides/master/images/dagger_qualifiers.png)
+![Dagger Qualifiers](https://raw.githubusercontent.com/codepath/android_guides/master/images/dagger_qualifiers.png)
 
 If we need two different objects of the same return type, we can use the `@Named` qualifier annotation.  You will define it both it where you provide the singletons (`@Provides` annotation), and where you inject them (`@Inject` annotations):
 
@@ -301,7 +301,7 @@ public @interface DefaultPreferences {
 ```
 
 ### Scopes
-![Dagger Scopes](https://raw.githubusercontent.com/ppiech/android_guides/master/images/dagger_scopes.png)
+![Dagger Scopes](https://raw.githubusercontent.com/codepath/android_guides/master/images/dagger_scopes.png)
 
 Scope annotations cause dagger to hold a single instance of the provided object in a given component.  Provider methods which do not have a scope specified will be called to create a new object every time that the given type is injected.  
 
@@ -314,7 +314,7 @@ public @interface MyActivityScope
 ```
 
 ### Component Dependencies
-![Dagger Component Dependencies](https://raw.githubusercontent.com/ppiech/android_guides/master/images/dagger_dependency.png)
+![Dagger Component Dependencies](https://raw.githubusercontent.com/codepath/android_guides/master/images/dagger_dependency.png)
 
 The example above showed that we used singletons that lasted the entire lifecycle of the application. We also relied on one major Dagger component.  If we wish to have multiple components that do not need to remain in memory all the time (i.e. components that are tied to the lifecycle of an activity or fragment, or even tied to when a user is signed-in), we can create dependent components.  There are several considerations when using dependent components:
 
@@ -408,7 +408,7 @@ GitHubComponent gitHubComponent = DaggerGitHubComponent.builder()
 See [this example code](https://github.com/codepath/dagger2-example) for a working example.
 
 ## Subcomponents
-![Dagger subcomponents](https://raw.githubusercontent.com/ppiech/android_guides/master/images/dagger_subcomponent.png)
+![Dagger subcomponents](https://raw.githubusercontent.com/codepath/android_guides/master/images/dagger_subcomponent.png)
 
 Using Subcomponents is another way to extend the object graph of a component.  Like components with dependencies, subcomponents have their own life-cycle and can be garbage collected when all references to the component are gone, and have the same scope restrictions.  
 
