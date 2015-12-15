@@ -84,7 +84,23 @@ client.get(url, params, new JsonHttpResponseHandler() {
 });
 ```
 
-The request will be sent out with the appropriate parameters passed in the query string and then the response will be parsed as JSON and made available within `onSuccess`. Check the [[Converting JSON to Models]] guide for more details on parsing a JSON response.
+Assuming the callback uses `JsonHttpResponseHandler`, the request will be sent out with the appropriate parameters passed in the query string and then the response can be parsed as JSON and made available within `onSuccess`. Check the [[Converting JSON to Models]] guide for more details on parsing a JSON response manually.
+
+#### Decoding with GSON library
+
+If you wish to convert the JSON model directly to a Java object that corresponds directly to the field names, you can use a `TextHttpResponseHandler` instead of a `JsonhttpResponseHandler` and follow the [[Leveraging the Gson Library]] guide.  This approach works also for nested JSON objects too.
+
+```java
+client.get(url, params, new TextHttpResponseHandler() {
+
+    @Override
+    public void onSuccess(int statusCode, Header[] headers, String r
+        Gson gson = new GsonBuilder().create();
+        // Define Response class to correspond to the JSON response returned
+        gson.fromJson(responseString, Response.class);
+    }
+});
+```
 
 #### Sending an Authenticated API Request
 
