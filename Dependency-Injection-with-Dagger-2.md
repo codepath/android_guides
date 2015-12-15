@@ -262,9 +262,9 @@ public class MyActivity extends Activity {
     } 
 ```
  
-### Named return types
+### Qualified types
 
-If we need two different objects of the same return type, we can use the `@Named` annotation.  You will define it both it where you provide the singletons (`@Provides` annotation), and where you inject them (`@Inject` annotations):
+If we need two different objects of the same return type, we can use the `@Named` qualifier annotation.  You will define it both it where you provide the singletons (`@Provides` annotation), and where you inject them (`@Inject` annotations):
 
 ```java
 @Provides @Named("cached")
@@ -288,11 +288,20 @@ Injection will also require these named annotations too:
 @Inject @Named("non_cached") OkHttpClient client2;
 ```
 
-### Custom Scopes
+@Named is a qualifier that is pre-defined by dagger, but you can create your own qualifier annotations as well:
+
+```java
+@Qualifier
+@Documented
+@Retention(RUNTIME)
+public @interface DefaultPreferences {
+}```
+
+### Component Dependencies
 
 The example above showed that we used singletons that lasted the entire lifecycle of the application. We also relied on one major Dagger component.  If we wish to have multiple components that do not need to remain in memory all the time (i.e. components that are tied to the lifecycle of an activity or fragment, or even tied to when a user is signed-in), we can create dependent components.  There are several considerations when using dependent components:
 
- * **Two components cannot share the same scope.**  For instance, two scopes cannot both be scoped to a `@Singleton` annotation.  This restriction is imposed because of reasons described [here](https://github.com/google/dagger/issues/107#issuecomment-71073298).  Dependent components need to define their own scope.
+ * **Two dependent components cannot share the same scope.**  For instance, two scopes cannot both be scoped to a `@Singleton` annotation.  This restriction is imposed because of reasons described [here](https://github.com/google/dagger/issues/107#issuecomment-71073298).  Dependent components need to define their own scope.
 
  * **While Dagger 2 also enables the ability to create scoped instances, the responsibility rests on you on you to create and delete references that is consistent with the intended behavior.**  Dagger 2 does not know anything about the underlying implementation.  See this Stack Overflow [discussion](http://stackoverflow.com/questions/28411352/what-determines-the-lifecycle-of-a-component-object-graph-in-dagger-2) for more details.
 
@@ -380,6 +389,56 @@ GitHubComponent gitHubComponent = DaggerGitHubComponent.builder()
 ```
 
 See [this example code](https://github.com/codepath/dagger2-example) for a working example.
+
+## Subcomponents
+Using Subcomponents is another way to extend the object graph of a component.  Like components with dependencies, subcomponents have their own life-cycle and can be garbage collected when all references to the component are gone, and have the same scope restrictions.  
+
+The main differences from dependencies are that subcomponents:
+* Need to be declared in the interface of the parent component.
+* Can access all elements of the parent component's graph (not just ones declared in its interface).
+
+Here's an example of using a sub-component for an activity:
+```java
+@Module
+public class MyActivityModule {
+    private final MyActivity activity;
+    public MyActivityModule(MyActivity activity) { this.activity = activity; }
+   
+    @Provides @MyActivityScope @Named("my_list")
+    public ArrayAdapter providesMyListAdapter() {
+        return new ArrayAdapter<String>(activity, android.R.layout.my_list);
+    }
+    ...
+}
+
+@MyActivityScope
+@Subcomponent(modules={ MyActivityModule.class })
+public interface MyActivitySubComponent {
+    @Named("my_list") ArrayAdapter myListAdapter();
+}
+
+@Singleton
+@Component(modules={ ... })
+public interface MyApplicationComponent {
+    MyActivitySubComponent newMyActivitySubcomponent(MyActivityModule activityModule);
+}
+```
+
+In the above example, a new instance of the subcomponent will be created every time that the `newMyActivitySubcomponent()` is called.  To use the submodule to inject an activity:
+
+```java
+public class MyActivity extends Activity {
+  @Inject ArrayAdapter arrayAdapter;
+
+  public void onCreate(Bundle savedInstance) {
+        // assign singleton instances to fields
+        // We need to cast to `MyApp` in order to get the right method
+        ((MyApp) getApplication()).getApplicationComponent())
+            .newMyActivitySubcomponent(new MyActivityModule(this))
+            .inject(this);
+    } 
+}
+```
 
 ## References
 
