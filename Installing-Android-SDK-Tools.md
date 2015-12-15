@@ -14,6 +14,7 @@ buildscript {
   }
   dependencies {
     classpath 'com.android.tools.build:gradle:1.3.1'
+    // download commit hash 220bf7
     classpath 'com.github.JakeWharton:sdk-manager-plugin:220bf7a88a7072df3ed16dc8466fb144f2817070'
   }
 }
