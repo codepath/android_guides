@@ -290,7 +290,7 @@ Injection will also require these named annotations too:
 @Inject @Named("non_cached") OkHttpClient client2;
 ```
 
-@Named is a qualifier that is pre-defined by dagger, but you can create your own qualifier annotations as well:
+`@Named` is a qualifier that is pre-defined by dagger, but you can create your own qualifier annotations as well:
 
 ```java
 @Qualifier
@@ -410,7 +410,7 @@ See [this example code](https://github.com/codepath/dagger2-example) for a worki
 ## Subcomponents
 ![Dagger subcomponents](https://raw.githubusercontent.com/codepath/android_guides/master/images/dagger_subcomponent.png)
 
-Using Subcomponents is another way to extend the object graph of a component.  Like components with dependencies, subcomponents have their own life-cycle and can be garbage collected when all references to the component are gone, and have the same scope restrictions.  
+Using Subcomponents is another way to extend the object graph of a component.  Like components with dependencies, subcomponents have their own life-cycle and can be garbage collected when all references to the subcomponent are gone, and have the same scope restrictions.  
 
 The main differences from dependencies are that subcomponents:
 * Need to be declared in the interface of the parent component.
