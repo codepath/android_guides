@@ -295,7 +295,8 @@ Injection will also require these named annotations too:
 @Documented
 @Retention(RUNTIME)
 public @interface DefaultPreferences {
-}```
+}
+```
 
 ### Component Dependencies
 
