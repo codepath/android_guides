@@ -148,7 +148,7 @@ call.observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<User>() 
 
 ### Hot vs. Cold Observables
 
-By default, Observables start to execute after the first subscriber is attached.  Retrofit, for instance, by default operate in this way, which are known as **hot** observables.    You can take a look at the Retrofit [source code](https://github.com/square/retrofit/blob/master/retrofit-adapters/rxjava/src/main/java/retrofit2/RxJavaCallAdapterFactory.java#L88) to see that the network request is made on the first subscription.
+When creating Observables, they are usually initialized to begin executing after the first subscriber is attached.  Retrofit, for instance, by default operates in this way, which are known as **hot** observables.    You can take a look at the Retrofit [source code](https://github.com/square/retrofit/blob/master/retrofit-adapters/rxjava/src/main/java/retrofit2/RxJavaCallAdapterFactory.java#L88) to see that the network request is made on the first subscription.
 
 If you wish to change it so that multiple subscribers are attached before executing the request, you need to convert the `Observable` to an `ConnectableObservable`.  To initiate the request, you need to call `connect()` on the observable:
 
