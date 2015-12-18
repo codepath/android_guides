@@ -386,6 +386,8 @@ protected void onDestroy() {
 }
 ```
 
+Note also that subscribing an observer to the observable is what triggers the network request.  For more information about how to attach multiple observers before dispatching the network requests, see [this section](RxJava#hot-vs-cold-observables).
+
 ## Retrofit and Authentication
 
 ### Using Authentication Headers
