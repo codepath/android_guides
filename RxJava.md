@@ -52,25 +52,6 @@ An **Observer** watches for result values emitted by the **Observable** .  When 
 ```java
 Observable.just("a", "b", "c")  // generate an observable
 ```
-
-Similar to the above example, the [[Retrofit|https://github.com/codepath/android_guides/wiki/Consuming-APIs-with-Retrofit#rxjava]] library simply [wraps a synchronous network call](https://github.com/square/retrofit/blob/master/retrofit-adapters/rxjava/src/main/java/retrofit/RxJavaCallAdapterFactory.java##L152-L163) as an `Observable` type for use with RxJava.   Declaring the endpoints as `Observable` automatically does this work.
-
-```java
-public interface MyApiEndpointInterface {
-  @GET("/users/{username}")
-  Observable<User> getUser(@Path("username") String username);
-}
-```
-
-We can then instantiate an instance of this interface and get back an `Observable` type:
-
-```java
-MyApiEndpointInterface apiService =
-    retrofit.create(MyApiEndpointInterface.class);
-
-Observable<User> call = apiService.getUser(username);
-```
-
 To implement an observer, the following interface must be defined:
 
 ```java
@@ -125,6 +106,26 @@ Using schedulers relies on queuing the work through bounded or unbounded thread 
 | Schedulers.io()            | backed by a current                                    |          
 | Schedulers.newThread()     | create a new thread                                    | 
 | Schedulers.tramponline()   | schedule work on the current thread but put on a queue |
+
+### Retrofit
+
+The [[Retrofit|https://github.com/codepath/android_guides/wiki/Consuming-APIs-with-Retrofit#rxjava]] library simply [wraps a synchronous network call](https://github.com/square/retrofit/blob/master/retrofit-adapters/rxjava/src/main/java/retrofit/RxJavaCallAdapterFactory.java##L152-L163) as an `Observable` type for use with RxJava.   Declaring the endpoints as `Observable` automatically does this work.
+
+```java
+public interface MyApiEndpointInterface {
+  @GET("/users/{username}")
+  Observable<User> getUser(@Path("username") String username);
+}
+```
+
+We can then instantiate an instance of this interface and get back an `Observable` type:
+
+```java
+MyApiEndpointInterface apiService =
+    retrofit.create(MyApiEndpointInterface.class);
+
+Observable<User> call = apiService.getUser(username);
+```
 
 ### Hot vs. Cold Observables
 
