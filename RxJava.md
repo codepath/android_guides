@@ -126,6 +126,39 @@ Using schedulers relies on queuing the work through bounded or unbounded thread 
 | Schedulers.newThread()     | create a new thread                                    | 
 | Schedulers.tramponline()   | schedule work on the current thread but put on a queue |
 
+### Hot vs. Cold Observables
+
+By default, Observables start to execute after the first subscriber is attached.  Retrofit, for instance, by default operate in this way, which are known as **hot** observables.    You can take a look at the Retrofit [source code](https://github.com/square/retrofit/blob/master/retrofit-adapters/rxjava/src/main/java/retrofit2/RxJavaCallAdapterFactory.java#L88) to see that the network request is made on the first subscription.
+
+If you wish to change it so that multiple subscribers are attached before executing the request, you need to convert the `Observable` to an `ConnectableObservable`.  To initiate the request, you need to call `connect()` on the observable:
+
+```java
+Observable<User> call = apiService.getUser(username);
+ConnectableObservable<User> connectedObservable = call.publish();
+
+Observer<User> observer = new Observer<User>() {
+   @Override
+   public void onCompleted() {
+
+   }
+
+   @Override
+   public void onError(Throwable e) {
+
+   }
+
+   @Override
+   public void onNext(User user) {
+      // do work here
+   }
+};        
+
+// observer is subscribing
+connectedObservable.observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
+// initiate the network request
+connectedObservable.connect();
+```
+
 ### Chaining Observables
 
 For a better understanding about how subscriptions can be chained and how RxJava works in general, it's best to first to understand what happens beneath the surfaces when this `subscribe()` call is made.   Beneath the covers `Subscriber` objects are created.  If we wish to chain the input, there are various **operators** that are available that map one `Subscriber` type to another.  
