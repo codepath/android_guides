@@ -72,7 +72,7 @@ com.android.ide.common.process.ProcessException: org.gradle.process.internal.Exe
   compile 'com.google.android.gms:play-services-gcm:8.3.0'
   ```
 
-- If you are still having issues, you will likely need to disable predexing, which compiles each dependency individually into Android bytecode and turns each module into a `.dex` file.  The problem is that this process is more memory intensive and takes longer and provides benefits only when doing incremental builds.  See  [this section](http://tools.android.com/tech-docs/new-build-system/tips#TOC-Improving-Build-Server-performance) for more information.
+- If you are still having issues, you will likely need to disable predexing, which compiles each dependency individually into Android bytecode and turns each module into a `.dex` file.  The problem is that this process is more memory intensive and takes longer and provides benefits only when doing incremental builds.  See  [this section](http://tools.android.com/tech-docs/new-build-system/tips#TOC-Improving-Build-Server-performance.) for more information.
 
   To disable pre-dexing, add this line to your root `build.gradle` to detect whether Travis is currently running:
 
