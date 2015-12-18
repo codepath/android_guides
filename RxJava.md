@@ -158,6 +158,7 @@ Observable<User> call = apiService.getUser(username);
 // convert Observable to ConnectedObservable, get a reference so we can call connect() later
 ConnectableObservable<User> connectedObservable = call.publish();
 
+// define 1st observer
 Observer<User> observer1 = new Observer<User>() {
    @Override
    public void onCompleted() {
