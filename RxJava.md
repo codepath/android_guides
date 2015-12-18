@@ -135,7 +135,7 @@ If you wish to change it so that multiple subscribers are attached before execut
 ```java
 Observable<User> call = apiService.getUser(username);
 
-// convert Observable to ConnectedObservable
+// convert Observable to ConnectedObservable, get a reference so we can call connect() later
 ConnectableObservable<User> connectedObservable = call.publish();
 
 Observer<User> observer = new Observer<User>() {
