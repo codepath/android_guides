@@ -65,30 +65,32 @@ If you see an error code 137, chances are that the Travis build has ran out of m
 com.android.ide.common.process.ProcessException: org.gradle.process.internal.ExecException: Process 'command '/usr/lib/jvm/java-7-oracle/bin/java'' finished with non-zero exit value 137
 ```
 
-If you are using [Google Play Services](https://developers.google.com/android/guides/setup), try to be more selective about the modules you import.  In prior versions before 6.5, you had to include all packages which often caused the 65K method limit to be reached.  If you only wish to use the Google Cloud Messaging package and not Google Fitness or Google Wear, you do not need to import 
+- If you are using [Google Play Services](https://developers.google.com/android/guides/setup), try to be more selective about the modules you import.  In prior versions before 6.5, you had to include all packages which often caused the 65K method limit to be reached.  If you only wish to use the Google Cloud Messaging package and not Google Fitness or Google Wear, you do not need to import 
 `com.google.android.gms:play-services:8.3.0`.  Instead, you can simply specify the libraries explicitly:
 
-```gradle
-compile 'com.google.android.gms:play-services-gcm:8.3.0'
-```
+  ```gradle
+  compile 'com.google.android.gms:play-services-gcm:8.3.0'
+  ```
 
-If you are still having issues, you will likely need to disable predexing, which compiles each dependency individually into Android bytecode and turns each module into a `.dex` file.  The problem is that this process is more memory intensive and takes longer and provides benefits only when doing incremental builds.  See  [this section](http://tools.android.com/tech-docs/new-build-system/tips#TOC-Improving-Build-Server-performance) for more information.
+- If you are still having issues, you will likely need to disable predexing, which compiles each dependency individually into Android bytecode and turns each module into a `.dex` file.  The problem is that this process is more memory intensive and takes longer and provides benefits only when doing incremental builds.  See  [this section](http://tools.android.com/tech-docs/new-build-system/tips#TOC-Improving-Build-Server-performance) for more information.
 
-To disable pre-dexing, add this line to your root `build.gradle` to detect whether Travis is currently running:
+  To disable pre-dexing, add this line to your root `build.gradle` to detect whether Travis is currently running:
 
-```java
-ext {
-    travisBuild = System.getenv("TRAVIS") == "true"
-    // allows for -Dpre-dex=false to be set
-    preDexEnabled = "true".equals(System.getProperty("pre-dex", "true"))
-}
+  ```java
+  ext {
+      travisBuild = System.getenv("TRAVIS") == "true"
+      // allows for -Dpre-dex=false to be set
+      preDexEnabled = "true".equals(System.getProperty("pre-dex", "true"))
+  }
+  ```
 
-Then add this line to your `app/build.gradle`:
+  Then add this line to your `app/build.gradle`:
 
-```gradle
-android {
-  dexOptions {
+   ```gradle
+   android {
+     dexOptions {
         // Skip pre-dexing when running on Travis CI or when disabled via -Dpre-dex=false.
-        preDexLibraries = preDexEnabled && !travisBuild
+          preDexLibraries = preDexEnabled && !travisBuild
+      }
     }
-}
+   ```
