@@ -170,6 +170,8 @@ For more context, watch this [video talk](https://vimeo.com/144812843).
 
 ## Replacing AsyncTask
 
+We can replace all `AsyncTask` with RxJava calls.  Similar to how `AsyncTask` performs the task in the background and then calls `onPostExecute()` on the main thread on the UI, RxJava can accomplish this same function by defining which thread to perform the task with `subscribeOn()`, and where to define the callback thread with `observeOn()`:
+
 ```java
 public Observable<Bitmap> getImageNetworkCall() {
     // Insert network call here!
