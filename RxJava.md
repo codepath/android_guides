@@ -158,7 +158,7 @@ Observable<User> call = apiService.getUser(username);
 // convert Observable to ConnectedObservable, get a reference so we can call connect() later
 ConnectableObservable<User> connectedObservable = call.publish();
 
-Observer<User> observer = new Observer<User>() {
+Observer<User> observer1 = new Observer<User>() {
    @Override
    public void onCompleted() {
 
@@ -175,8 +175,14 @@ Observer<User> observer = new Observer<User>() {
    }
 };        
 
+// define 2nd observer here
+Observer<User> observer2 = new Observer<User>() { 
+}
+
 // observer is subscribing
-connectedObservable.observeOn(AndroidSchedulers.mainThread()).subscribe(observer);
+connectedObservable.observeOn(AndroidSchedulers.mainThread()).subscribe(observer1);
+connectedObservable.observeOn(AndroidSchedulers.mainThread()).subscribe(observer2);
+
 // initiate the network request
 connectedObservable.connect();
 ```
