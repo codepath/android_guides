@@ -125,6 +125,25 @@ MyApiEndpointInterface apiService =
     retrofit.create(MyApiEndpointInterface.class);
 
 Observable<User> call = apiService.getUser(username);
+call.observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<User>() {
+  @Override
+  public void onCompleted() {
+   
+  }
+
+  @Override
+  public void onError(Throwable e) {
+    // cast to retrofit.HttpException to get the response code
+    if (e instanceof HttpException) {
+       HttpException response;
+       int code = response.code();
+    }
+  }
+
+  @Override
+  public void onNext(User user) {
+  }
+});
 ```
 
 ### Hot vs. Cold Observables
