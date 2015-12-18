@@ -241,3 +241,4 @@ Subscription subscription = getImageNetworkCall()
 * <http://www.oreilly.com/programming/free/files/rxjava-for-android-app-development.pdf>
 * <https://medium.com/@LiudasSurvila/droidcon-2015-london-part-1-698a6b750f30#.tvinpqa2q>
 * <https://speakerdeck.com/passsy/get-reactive>
+* <http://www.grokkingandroid.com/rxjavas-side-effect-methods/>
