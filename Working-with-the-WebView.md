@@ -88,7 +88,10 @@ public class MainActivity extends Activity {
 }
 ```
 
+### Sharing cookies between WebViews and networking clients
 
+WebViews currently use their own cookie manager, which means that any network requests you make outside of these web views are usually stored separately.  This can cause problems when trying to retain the same cookies (i.e. for authentication or cross-site script forgery (CSRF) headers).  The simplest approach as proposed in this [Stack Overflow article](http://stackoverflow.com/questions/18057624/two-way-sync-for-cookies-between-httpurlconnection-java-net-cookiemanager-and) is to implement a cookie handler that forwards all requests to the WebView cookie store.  See this [gist](https://gist.github.com/rogerhu/5e2fa5725487d3ce0529) for an example.
+ 
 ## References
 
 * <http://developer.android.com/guide/webapps/webview.html>
