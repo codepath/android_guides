@@ -148,9 +148,9 @@ call.observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<User>() 
 
 ### Hot vs. Cold Observables
 
-By default (see this [source code](https://github.com/ReactiveX/RxJava/blob/1.x/src/main/java/rx/Observable.java#L66-L67)), Observables are initialized to begin executing after the first subscriber is attached.  Retrofit, for instance, by default operates in this way, which are known as **hot** observables.    You can take a look at the Retrofit [source code](https://github.com/square/retrofit/blob/master/retrofit-adapters/rxjava/src/main/java/retrofit2/RxJavaCallAdapterFactory.java#L88) to see that the network request is made on the first subscription.
+By [default](https://github.com/ReactiveX/RxJava/blob/1.x/src/main/java/rx/Observable.java#L66-L67), Observables are initialized to begin executing after the first subscriber is attached.  Retrofit, for instance, by default operates in this way, which are known as **hot** observables.    You can take a look at the Retrofit [source code](https://github.com/square/retrofit/blob/master/retrofit-adapters/rxjava/src/main/java/retrofit2/RxJavaCallAdapterFactory.java#L88) to see that the network request is made on the first subscription.
 
-If you wish to change it so that multiple subscribers are attached before executing the request, you need to convert the `Observable` to an `ConnectableObservable`.  To initiate the request, you need to call `connect()` on the observable:
+If you wish to change it so that multiple subscribers are attached before executing the request, otherwise known as converting to a **cold** observable, you need to convert the `Observable` to an `ConnectableObservable`.  To initiate the network request, you need to call `connect()` on the observable:
 
 ```java
 Observable<User> call = apiService.getUser(username);
