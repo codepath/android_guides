@@ -151,6 +151,14 @@ The final step is to associate this CoordinatorLayout Behavior to the Floating A
     app:layout_behavior="com.codepath.floatingactionbuttontest.ScrollAwareFABBehavior" />
 ```
 
+Replace the layout file's root element with a Coordinator Layout. This will ensure our ScrollAwareFABBehavior Class will call onNestedScroll().
+```xml
+<android.support.design.widget.CoordinatorLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    ... 
+```
+
 Because we are defining this behavior statically within the XML, we must also implement a constructor to enable layout inflation to work correctly. 
 
 ```java
