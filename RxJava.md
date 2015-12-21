@@ -38,8 +38,8 @@ Setup your `app/build.gradle`:
 
 ```gradle
 dependencies {
-  compile 'io.reactivex:rxjava:1.0.16'
-  compile 'io.reactivex:rxandroid:1.0.1'
+  compile 'io.reactivex:rxjava:1.1.0'
+  compile 'io.reactivex:rxandroid:1.1.0'
 }
 ```
 
