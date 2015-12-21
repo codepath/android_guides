@@ -190,6 +190,66 @@ connectedObservable.observeOn(AndroidSchedulers.mainThread()).subscribe(observer
 connectedObservable.connect();
 ```
 
+### Avoiding Memory Leaks
+
+The flexibility in being able to schedule observables on different threads and have them operate as long-running tasks can make it easy to contribute the memory leaks.  One of the reasons is that observers are often created with anonymous classes.  In Java, creating anonymous classes requires the inner class retaining an instance to the containing class as discussed in this [Stack Overflow article](http://stackoverflow.com/questions/5054360/do-anonymous-classes-always-maintain-a-reference-to-their-enclosing-instance).  
+
+An observer that is created within an Activity or Fragment therefore can hold a reference that will be unable to be garbage collected if the observable is still running.  There are several different approaches suggested.  Both approaches attempt to manage the subscriptions created from attaching an observer to an observable and canceling them when a lifecycle event occurs.
+
+#### CompositeSubscriptions
+
+One of the simplest approach is to simply instantiate a CompositeSubscription object inside your Activity or Fragment.  To avoid issues with determining when the object is created during life cycle events, it should be defined outside any of these related methods:
+ 
+```java
+public class MainActivity extends AppCompatActivity {
+
+    private CompositeSubscription subscriptions = new CompositeSubscription();
+}
+```
+
+We can then use `CompositeSubscription` to track any subscriptions created by using the `add()` method:
+
+```java
+subscriptions.add(connectedObservable.observeOn(AndroidSchedulers.mainThread()).subscribe(observer1))
+subscriptions.add(connectedObservable.observeOn(AndroidSchedulers.mainThread()).subscribe(observer1));
+```
+
+Canceling these subscriptions should occur during the `onPause()` method when the Activity or Fragment is suspended:
+
+```java
+@Override
+public void onPause() {
+   super.onPause();
+
+   if (subscriptions != null) {
+      subscriptions.unsubscribe();
+   }
+}
+```
+Once an `unsubscribe()` call is made, the `CompositeSubscription` cannot be reused.  The reason is that RxJava is intended to have a termination state as discussed in [this GitHub issue](https://github.com/ReactiveX/RxJava/issues/2959):
+
+```java
+@Override
+public void onResume() {
+    super.onResume();
+    subscriptions = new CompositeSubscription();
+}
+```
+
+#### RxLifecycle
+
+There is also a library called [RxLifecycle](https://github.com/trello/RxLifecycle) which provides support for managing the lifecycle of activities and fragments.  In the past [RxAndroid](https://github.com/ReactiveX/RxAndroid/wiki) provided this support with `AndroidObservables`, but a decision was made to simplify the library.  See this [release note](https://github.com/ReactiveX/RxAndroid/releases/tag/v1.0.0) for more context.
+
+To setup, these Gradle lines must be added:
+
+```gradle
+compile 'com.trello:rxlifecycle:0.4.0'
+compile 'com.trello:rxlifecycle-components:0.4.0'
+```
+
+RxLifecycle requires subclassing all activities with [RxActivity](https://github.com/trello/RxLifecycle/blob/master/rxlifecycle-components/src/main/java/com/trello/rxlifecycle/components/RxActivity.java).  One issue is that it does not directly from `AppCompatActivity` so you may need to create a similar class that performs this same behavior.
+See [this guide](https://github.com/trello/RxLifecycle#rxlifecycle) for more details.
+
 ### Chaining Observables
 
 For a better understanding about how subscriptions can be chained and how RxJava works in general, it's best to first to understand what happens beneath the surfaces when this `subscribe()` call is made.   Beneath the covers `Subscriber` objects are created.  If we wish to chain the input, there are various **operators** that are available that map one `Subscriber` type to another.  
