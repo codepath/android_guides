@@ -196,7 +196,7 @@ The flexibility in being able to schedule observables on different threads and h
 
 An observer that is created within an Activity or Fragment therefore can hold a reference that will be unable to be garbage collected if the observable is still running.  There are several different approaches suggested.  Both approaches attempt to manage the subscriptions created from attaching an observer to an observable and canceling them when a lifecycle event occurs.
 
-#### CompositeSubscriptions
+#### Composite Subscriptions
 
 One of the simplest approach is to simply instantiate a CompositeSubscription object inside your Activity or Fragment.  To avoid issues with determining when the object is created during life cycle events, it should be defined outside any of these related methods:
  
