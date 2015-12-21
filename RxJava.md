@@ -88,14 +88,7 @@ Observable.just("a", "b", "c").subscribe(new Observer<String>() {
 
 ### Schedulers
 
-RxJava is synchronous by default, but work can be defined asynchronously using schedulers.  For instance, we can define that the network call should be done on a background thread, but the callback should be done on the main UI thread.  To define where the work is done, we can use `observeOn()` with Retrofit:
-
-```java
-Observable<User> call = apiService.getUser(username);
-call.observeOn(AndroidSchedulers.mainThread())
-```
-
-The RxAndroid library also includes `AndroidSchedulers.mainThread()` for allowing callbacks to be fired on the main UI thread. 
+RxJava is synchronous by default, but work can be defined asynchronously using schedulers.  For instance, we can define that the network call should be done on a background thread, but the callback should be done on the main UI thread. 
 
 Using schedulers relies on queuing the work through bounded or unbounded thread pools.  Here are a few options available that come with RxJava.  See [this link](http://reactivex.io/RxJava/javadoc/rx/schedulers/Schedulers.html) for all the possible options.  
 
@@ -145,6 +138,15 @@ call.observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<User>() 
   }
 });
 ```
+
+To define where the work is done, we can use `observeOn()` with Retrofit:
+
+```java
+Observable<User> call = apiService.getUser(username);
+call.observeOn(AndroidSchedulers.mainThread())
+```
+
+The RxAndroid library also includes `AndroidSchedulers.mainThread()` for allowing callbacks to be fired on the main UI thread. 
 
 ### Hot vs. Cold Observables
 
