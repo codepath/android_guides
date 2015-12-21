@@ -15,7 +15,7 @@ A [SurfaceView Demo](https://github.com/anaredmond/surfaceviewdemo) for rocket b
 * <http://infinut.com/2013/10/10/to-opengl-or-to-surfaceview/>
 * <http://developer.android.com/reference/android/view/SurfaceView.html>
 * <http://javandroidevelop.blogspot.com/2012/09/all-about-surfaceview-android-lessons.html>
-* <http://blog.wisecells.com/2012/06/04/surface-view-android/> 
+* <http://blog.wisecells.com/surface-view-android//> 
 * <http://blog.lemberg.co.uk/surface-view-playing-video>
 * <https://github.com/google/grafika/blob/master/src/com/android/grafika/PlayMovieSurfaceActivity.java>
 * <https://gist.github.com/ErikHellman/5840101>
