@@ -40,7 +40,7 @@ public class MainActivity extends Activity {
       setContentView(R.layout.activity_main);
       myWebView = (WebView) findViewById(R.id.webview);
       // Configure related browser settings
-     myWebView.getSettings().setLoadsImagesAutomatically(true);
+      myWebView.getSettings().setLoadsImagesAutomatically(true);
       myWebView.getSettings().setJavaScriptEnabled(true);
       myWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
       // Configure the client to use when opening URLs
