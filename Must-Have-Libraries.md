@@ -231,6 +231,9 @@ Check out the following resources for finding libraries:
  * <http://androidweekly.net/toolbox>
  * <http://android-arsenal.com>
 
+## URL for specific data
+* [To get the current location of device] (http://ip-api.com/docs/api:json)
+
 ## References
 
  * <http://www.vogella.com/tutorials/AndroidUsefulLibraries/article.html>
