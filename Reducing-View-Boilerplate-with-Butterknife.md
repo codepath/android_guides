@@ -36,7 +36,7 @@ There are three major features of ButterKnife:
 
 ### 1. Improved View Lookups 
 
-### Activity View Lookups
+#### Activity View Lookups
 
 Eliminate `findViewById` calls by using `@Bind` on fields:
 
@@ -56,7 +56,7 @@ class ExampleActivity extends Activity {
 }
 ```
 
-### Fragment View Lookups
+#### Fragment View Lookups
 
 This can be done within `Activity`, `Fragment`, or `Adapter` classes. For example, fragment usage would look like:
 
@@ -81,7 +81,7 @@ public class FancyFragment extends Fragment {
 }
 ```
 
-### Adapter View Lookups
+#### Adapter View Lookups
 
 Within a `ViewHolder` inside of a `ListView` adapter:
 
