@@ -18,6 +18,10 @@ android {
 
 The Android SDK comes with ProGuard included as well as default settings file, which are specified as [proguard-android.txt](https://android.googlesource.com/platform/sdk/+/master/files/proguard-android.txt).  It is important to include this file since it explicitly includes configuration settings such as explicitly stating that all View getter and setter methods should not be removed.   The `proguard-rules.pro` file is the file that you will use to configure.
 
+### Caveats
+
+Proguard can slow down test builds in general and can add a few minutes.  If you can avoid using ProGuard in development, you should continue to do so.  Once you begin to include enough libraries that causes the 64K method limit to be reached, you either need to remove extraneous dependencies or need to consider following the instructions for supporting a higher limit by using the [multidex mode](http://developer.android.com/tools/building/multidex.html).  Multidex compilation also takes additional time and requires extra work to support pre-Lollipop Android versions, so the recommendation is often to use ProGuard before using Multidex.
+
 ### Development
 
 When using in development/debug testing, you may wish to turn on a few settings that may add to compile time as well as make it harder to troubleshoot.  For instance, to ensure that no code optimizations or obfuscation is done, the following options should be declared in your ProGuard config:
