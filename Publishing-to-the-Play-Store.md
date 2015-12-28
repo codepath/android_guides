@@ -9,7 +9,7 @@
 ### Disable Log calls
 
 To avoid deleting all the log calls manually, Android Studio provides tools to do so easily. 
-By configuring [Proguard](http://developer.android.com/tools/help/proguard.html), statements to strip calls to any of the Log methods can be added.
+By configuring [[Proguard|Configuring-Proguard]], statements to strip calls to any of the Log methods can be added.
 
 Firstly, Proguard needs to be enabled in the module's `build.gradle` file. Also, change the standard default proguard settings file to `proguard-android-optimize.txt`, which is better suited for optimizing the apk file.
 
