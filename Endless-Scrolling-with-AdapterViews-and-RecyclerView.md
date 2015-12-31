@@ -120,7 +120,9 @@ Now as you scroll, items will be automatically filling in because the `onLoadMor
 
 ## Implementing with RecyclerView
 
-We can also use a similar approach with the [[RecyclerView|Using-the-RecyclerView]] by defining an interface `EndlessRecyclerViewScrollListener` that requires an `onLoadMore()` method to be implemented.  The [LayoutManager](http://developer.android.com/reference/android/support/v7/widget/RecyclerView.LayoutManager.html), which is responsible in the RecyclerView for rendering where items should be positioned and manages scrolling, provides information about the current scroll position relative to the adapter.  For this reason, we need to pass an instance of what LayoutManager is being used to collect the necessary information to ascertain when to load more data:
+We can also use a similar approach with the [[RecyclerView|Using-the-RecyclerView]] by defining an interface `EndlessRecyclerViewScrollListener` that requires an `onLoadMore()` method to be implemented.  The [LayoutManager](http://developer.android.com/reference/android/support/v7/widget/RecyclerView.LayoutManager.html), which is responsible in the RecyclerView for rendering where items should be positioned and manages scrolling, provides information about the current scroll position relative to the adapter.  For this reason, we need to pass an instance of what LayoutManager is being used to collect the necessary information to ascertain when to load more data.  
+
+### Using with LinearLayoutManager
 
 ```java
 import android.support.v7.widget.LinearLayoutManager;
@@ -188,7 +190,7 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
 
 One slight difference is that the `RecyclerView` layout manager includes the last visible item on the screen, so we can use this info to decide whether to fetch more data.
 
-Assuming we are using a `LinearLayoutManager`, we simply need to use the `addOnScrollListener()` method and pass in an instance of the `EndlessRecyclerViewScrollListener` with the layout manager:
+To connect up scroll events to the `RecyclerView`, we simply need to use the `addOnScrollListener()` method and pass in an instance of the `EndlessRecyclerViewScrollListener` with the layout manager:
 
 ```java
 public class MainActivity extends Activity {
