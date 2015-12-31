@@ -80,7 +80,7 @@ An ImageView can display an image differently based on the `scaleType` provided.
 Top row (l-r) center, centerCrop, centerInside.<br/>
 Bottom row (l-r): fitCenter, fitStart, fitEnd, fitXY.
 
-Remember that if you wish to match the aspect ratio of the actual drawable, `adjustViewBounds=true` must be declared too!
+**Remember** that if you wish to match the aspect ratio of the actual drawable, `adjustViewBounds=true` must be declared along with not defining an explicit width and/or height.
 
 ### Supporting Multiple Densities
 
