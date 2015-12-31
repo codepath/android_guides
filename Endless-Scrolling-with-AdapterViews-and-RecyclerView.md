@@ -263,6 +263,8 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
         lastVisibleItemPosition = getLastVisibleItem(lastVisibleItemPositions);
         int visibleItemCount = view.getChildCount();
         int totalItemCount = mStaggeredGridLayoutManager.getItemCount();
+
+        // same code as before
     }
 }
 ```
