@@ -45,9 +45,9 @@ Picasso.with(this).load(imageUrl).
   resize(someWidth, 0).into(imageView);
 ```
 
-### Using Target for Custom Loading
+### Adjusting the image size dynamically
 
-In more sophisticated situations, you might want to handle the bitmap manually after the image is available. To do this, we first define a `Target` object that governs how the Bitmap is handled:
+If we wish to readjust the ImageView size after the image has been retrieved, we first define a `Target` object that governs how the Bitmap is handled:
 
 ```java
 private Target target = new Target() {
@@ -74,7 +74,33 @@ You can still use all normal Picasso options like `resize`, `fit`, etc.
 
 **Note:** The `Target` object must be **stored as a member field or method** and cannot be an anonymous class otherwise this won't work as expected.  The reason is that Picasso accepts this parameter as a weak memory reference.  Because anonymous classes are eligible for garbage collection when there are no more references, the network request to fetch the image may finish after this anonymous class has already been reclaimed.  See this [Stack Overflow](http://stackoverflow.com/questions/24180805/onbitmaploaded-of-target-object-not-called-on-first-load#answers) discussion for more details.
 
-In other words, you are not allowed to do `Picasso.with(this).load("url").into(new Target() { ... })`.
+In other words, you are not allowed to do `Picasso.with(this).load("url").into(new Target() { ... })`.   
+
+#### Creating staggered grid images with RecyclerView
+
+We can use this custom Target approach to create a staggered image view using `RecyclerView`.
+
+<img src="https://i.imgur.com/gsp1prk.png" width="300"/>
+
+We first need to use  [DynamicHeightImageView.java](https://github.com/etsy/AndroidStaggeredGrid/blob/master/library/src/main/java/com/etsy/android/grid/util/DynamicHeightImageView.java) that enables us to update the ImageView width and height while still preserving the aspect ratio when new images are replaced with old recycled views.
+
+To avoid using an anonymous class, we will implement the `Target` interface on the ViewHolder class itself for RecyclerView.   When the callback is fired, we will calculate and update the image aspect ratio.
+
+```java
+public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, Target {
+
+    DynamicHeightImageView ivImage;
+
+    // implement ViewHolder methods here
+
+    @Override
+    public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+        float ratio = (float) bitmap.getHeight() / (float) bitmap.getWidth();
+        ivImage.setHeightRatio(ratio);
+        ivImage.setImageBitmap(bitmap);
+    }
+}
+```
 
 ### Showing ProgressBar with Picasso
 
