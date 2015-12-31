@@ -150,8 +150,7 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
     // but first we check if we are waiting for the previous load to finish.
     @Override
     public void onScrolled(RecyclerView view, int dx, int dy) {
-        int firstVisibleItem = mLinearLayoutManager.findFirstVisibleItemPosition();
-        int visibleItemCount = view.getChildCount();
+        int lastVisibleItem = mLinearLayoutManager.findLastVisibleItemPosition();
         int totalItemCount = mLinearLayoutManager.getItemCount();
 
         // If the total item count is zero and the previous isn't, assume the
@@ -174,7 +173,7 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
         // If it isn’t currently loading, we check to see if we have breached
         // the visibleThreshold and need to reload more data.
         // If we do need to reload some more data, we execute onLoadMore to fetch the data.
-        if (!loading && (totalItemCount - visibleItemCount) <= (firstVisibleItem + visibleThreshold)) {
+        if (!loading && (totalItemCount) <= (lastVisibleItem + visibleThreshold)) {
             currentPage++;
             onLoadMore(currentPage, totalItemCount);
             loading = true;
@@ -186,6 +185,8 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
 
 }
 ```
+
+One slight difference is that the `RecyclerView` layout manager includes the last visible item on the screen, so we can use this info to decide whether to fetch more data.
 
 Assuming we are using a `LinearLayoutManager`, we simply need to use the `addOnScrollListener()` method and pass in an instance of the `EndlessRecyclerViewScrollListener` with the layout manager:
 
