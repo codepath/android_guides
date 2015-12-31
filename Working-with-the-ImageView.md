@@ -59,7 +59,7 @@ In certain cases, the image needs to be scaled to fit the parent view's width an
 
 ### Scale Types
 
-An ImageView can display an image differently based on the `scaleType` provided. Above we discussed the `fitXY` type along with `adjustViewBounds`. The following is a list of all the most common types:
+An ImageView can display an image differently based on the `scaleType` provided. Above we discussed the `fitXY` type along with `adjustViewBounds` to match the aspect ratio of the drawable. The following is a list of all the most common types:
 
 | Scale Type | Description |
 | ---------- | ----------- |
@@ -79,6 +79,8 @@ An ImageView can display an image differently based on the `scaleType` provided.
 **Pictured**: Examples of `android:scaleType` attribute.<br/>
 Top row (l-r) center, centerCrop, centerInside.<br/>
 Bottom row (l-r): fitCenter, fitStart, fitEnd, fitXY.
+
+Remember that if you wish to match the aspect ratio of the actual drawable, `adjustViewBounds=true` must be declared too!
 
 ### Supporting Multiple Densities
 
