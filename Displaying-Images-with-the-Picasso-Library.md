@@ -72,7 +72,9 @@ Picasso.with(this).load("url").into(target);
 
 You can still use all normal Picasso options like `resize`, `fit`, etc.
 
-**Note:** The `Target` object must be **stored as a member field or method** and cannot be an anonymous class otherwise this won't work as expected. In other words, you are not allowed to do `Picasso.with(this).load("url").into(new Target() { ... })`.
+**Note:** The `Target` object must be **stored as a member field or method** and cannot be an anonymous class otherwise this won't work as expected.  The reason is that Picasso accepts this parameter as a weak memory reference.  Because anonymous classes are eligible for garbage collection when there are no more references, the network request to fetch the image may finish after this anonymous class has already been reclaimed.  See this [Stack Overflow](http://stackoverflow.com/questions/24180805/onbitmaploaded-of-target-object-not-called-on-first-load#answers) discussion for more details.
+
+In other words, you are not allowed to do `Picasso.with(this).load("url").into(new Target() { ... })`.
 
 ### Showing ProgressBar with Picasso
 
