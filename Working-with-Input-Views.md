@@ -57,8 +57,6 @@ If you intend to support older Android devices, the better options for date and 
 
 DateTimerPicker and MaterialDateTimePicker are both forks from the original Android open source datetime picker located [here](https://android.googlesource.com/platform/frameworks/opt/datetimepicker/).  MaterialDateTimePicker however does not use the Support Fragment Manager for reasons stated [here](https://github.com/wdullaer/MaterialDateTimePicker#why-not-use-supportdialogfragment), so if you need it in your project, you will need to download the original source, create a separate project, and modify the [import statements](https://android.googlesource.com/platform/frameworks/opt/datetimepicker/+/master/src/com/android/datetimepicker/date/DatePickerDialog.java#21).
 
-Using one of these should make selecting dates and times much easier. See [this list of picker libraries](https://android-arsenal.com/tag/27) for alternatives. 
-
 
 ### Checkboxes
 
