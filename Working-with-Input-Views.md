@@ -47,7 +47,7 @@ Often within an app you will need the user to select a time or date for an event
 | Description | Pre-Android 5.0 (API 20 and lower)        | Android 5.0 (API 21+)  |                                           
 | ------------| -----------------------------|---------------------------------------------------------|
 | Date Picker | <img src="http://imgur.com/PBSFVeb.png" width="300"/>  | <img src="http://imgur.com/8YqcxA7.png" width="300"/>   |  
-| Time Picker | <img src="http://imgur.com/13yNQPA.png"/> | <img src="http://imgur.com/s358M0K.png"/>
+| Time Picker | <img src="http://imgur.com/13yNQPA.png" width="300"/> | <img src="http://imgur.com/s358M0K.png" width="300"/>
                 
 If you intend to support older Android devices, the better options for date and time picking are below:
 
