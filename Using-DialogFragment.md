@@ -439,7 +439,12 @@ Check out the CodePath [android-view-helpers](https://github.com/codepath/androi
 
 ### Displaying Date or Time Picker Dialogs
 
-The native date and time pickers for Android are another example of specialized dialog fragments.  If you wish for the containing activity to receive the date or time selected by the dialog, you should ensure that the Activity implements the respective interface.  For instance, for a date picker fragment, you will want to ensure that the Activity implements the `OnDateSetListener` interface:
+The native date and time pickers for Android are another example of specialized dialog fragments.  Please note that the date/time pickers that comes with the Android SDK differ depending on the Android device version.  See [this section](https://github.com/codepath/android_guides/wiki/Working-with-Input-Views#date-and-time-pickers) for more information.
+
+<img src="http://imgur.com/8YqcxA7.png" width="300"/>
+<img src="http://imgur.com/s358M0K.png" width="300"/>
+
+If you wish for the containing activity to receive the date or time selected by the dialog, you should ensure that the Activity implements the respective interface.  For instance, for a date picker fragment, you will want to ensure that the Activity implements the `OnDateSetListener` interface:
 
 ```java
 public class DatePickerFragment extends DialogFragment {
