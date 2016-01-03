@@ -437,6 +437,90 @@ pd.dismiss();
 
 Check out the CodePath [android-view-helpers](https://github.com/codepath/android-view-helpers) library for an easier way to create simple alert and progress modals.
 
+### Displaying Date or Time Picker Dialogs
+
+The native date and time pickers for Android are another example of specialized dialog fragments.  If you wish for the containing activity to receive the date or time selected by the dialog, you should ensure that the Activity implements the respective interface.  For instance, for a date picker fragment, you will want to ensure that the Activity implements the `OnDateSetListener` interface:
+
+```java
+public class DatePickerFragment extends DialogFragment {
+
+    DatePickerDialog.OnDateSetListener mActivity;
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+ 
+        // if the Activity does not implement this interface, it will crash
+        mActivity = (DatePickerDialog.OnDateSetListener) activity;
+    }
+
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        // Use the current time as the default values for the picker
+        final Calendar c = Calendar.getInstance();
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH);
+        int day = c.get(Calendar.DAY_OF_MONTH);
+
+        // Create a new instance of TimePickerDialog and return it
+        // mActivity is the callback interface instance
+        return new DatePickerDialog(getActivity(), mActivity, year, month, day);
+    }
+```
+
+The Activity, which also is responsible for instantiating this dialog fragment, simply needs to implement the `onDateSet` method of this interface.
+
+```java
+public class MyActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
+
+  // attach to an onclick handler to show the date picker
+  public void showTimePickerDialog(View v) {
+     DatePickerFragment newFragment = new DatePickerFragment();
+     newFragment.show(getSupportFragmentManager(), "datePicker");
+  }
+
+  // handle the date selected
+  @Override
+  public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+    // store the values selected into a Calendar instance
+    final Calendar c = Calendar.getInstance();
+    c.set(Calendar.YEAR, year);
+    c.set(Calendar.MONTH, monthOfYear);
+    c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+  }
+```
+
+A similar approach can be done with the time picker too:
+
+```java
+public class TimePickerFragment extends DialogFragment {
+
+    DatePickerDialog.OnDateSetListener mActivity;
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        mActivity = (DatePickerDialog.OnDateSetListener) activity;
+    }
+
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        // Use the current time as the default values for the picker
+        final Calendar c = Calendar.getInstance();
+        int hour = c.get(Calendar.HOUR_OF_DAY);
+        int minute = c.get(Calendar.MINUTE);
+
+        // Create a new instance of TimePickerDialog and return it
+        return new TimePickerDialog(getActivity(), mActivity, hour, minute,
+                DateFormat.is24HourFormat(getActivity()));
+    }
+
+    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+        // Do something with the time chosen by the user
+    }
+}
+
+
 ## Things To Note
 
 * Notice that we are using the support library version of fragments for better compatibility in our code samples. The non-support version works identically.
