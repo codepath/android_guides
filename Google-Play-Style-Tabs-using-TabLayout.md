@@ -2,7 +2,7 @@ Tabs are now best implemented by leveraging the [[ViewPager|ViewPager-with-Fragm
 
 Prior to Android "M", the easiest way to setup tabs with Fragments was to use ActionBar Tabs as described in [[ActionBar Tabs with Fragments|ActionBar-Tabs-with-Fragments]] guide. However, all methods related to navigation modes in the ActionBar class (such as `setNavigationMode()`, `addTab()`, `selectTab()`, etc.) are now deprecated.
 
-### Design Support Librarys
+### Design Support Library
 
 To implement Google Play style sliding tabs, make sure to follow the Design Support Library [[setup instructions|Design-Support-Library#setup]] first.
 
