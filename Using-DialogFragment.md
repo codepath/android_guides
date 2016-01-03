@@ -524,7 +524,7 @@ public class TimePickerFragment extends DialogFragment {
         // Do something with the time chosen by the user
     }
 }
-
+```
 
 ## Things To Note
 
