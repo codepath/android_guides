@@ -268,6 +268,48 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
     }
 }
 ```
+
+### Supporting different Layout Managers
+
+See [this gist](https://gist.github.com/rogerhu/d041b6467536842aa986) for supporting different `RecyclerView` layout managers.  We simply implement checks to determine which layout manager is being used:
+
+```java
+   public EndlessRecyclerViewScrollListener(LinearLayoutManager layoutManager) {
+        this.mLayoutManager = layoutManager;
+    }
+
+    public EndlessRecyclerViewScrollListener(GridLayoutManager layoutManager) {
+        this.mLayoutManager = layoutManager;
+    }
+
+    public EndlessRecyclerViewScrollListener(StaggeredGridLayoutManager layoutManager) {
+        this.mLayoutManager = layoutManager;
+        visibleThreshold = visibleThreshold * layoutManager.getSpanCount();
+    }
+```
+
+We can then calculate the last visible position depending on the layout manager:
+
+```java
+@Override
+public void onScrolled(RecyclerView view, int dx, int dy) {
+  int lastVisibleItemPosition = 0;
+  int totalItemCount = mLayoutManager.getItemCount();
+
+  if (mLayoutManager instanceof StaggeredGridLayoutManager) {
+     int[] lastVisibleItemPositions = ((StaggeredGridLayoutManager) mLayoutManager).findLastVisibleItemPositions(null);
+     // get maximum element within the list
+     lastVisibleItemPosition = getLastVisibleItem(lastVisibleItemPositions);
+  } else if (mLayoutManager instanceof LinearLayoutManager) {
+     lastVisibleItemPosition = ((LinearLayoutManager) mLayoutManager).findLastVisibleItemPosition();
+  } else if (mLayoutManager instanceof GridLayoutManager) {
+     lastVisibleItemPosition = ((GridLayoutManager) mLayoutManager).findLastVisibleItemPosition();
+  }
+
+  // remaining scroll logic here
+}
+```
+
 ## Troubleshooting
 
 If you are running into problems, please carefully consider the following suggestions:
