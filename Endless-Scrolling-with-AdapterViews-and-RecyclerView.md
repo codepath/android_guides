@@ -229,7 +229,7 @@ See this [gist](https://gist.github.com/rogerhu/17aca6ad4dbdb3fa5892) more a mor
 
 ### Using with StaggeredGridLayoutManager
 
-Because the `StaggeredGridLayoutManager` enables elements to be placed in different columns, determining whether more items need to be loaded must be calculated by looking at the last visible positions across each row.  We can implement endless scrolling by checking across each row and determining the highest value to determine whether more items need to be fetched.  Note also that the threshold value has to be increased since more items can be displayed on the screen, so we use a multiplier by calling [`getSpanCount()`](http://developer.android.com/reference/android/support/v7/widget/StaggeredGridLayoutManager.html#getSpanCount()) on the layout manager:
+Because the `StaggeredGridLayoutManager` enables elements to be placed in different columns, determining whether more items need to be loaded must be calculated by looking at the last visible positions across each row.  We can implement endless scrolling by determining the highest value in the row to determine whether more items need to be fetched.  Note also that the threshold value has to be increased since more items can be displayed on the screen, so we use a multiplier by calling [`getSpanCount()`](http://developer.android.com/reference/android/support/v7/widget/StaggeredGridLayoutManager.html#getSpanCount()) on the layout manager:
 
 ```java
 public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnScrollListener {
