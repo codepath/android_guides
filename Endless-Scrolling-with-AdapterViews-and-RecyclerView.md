@@ -274,18 +274,18 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
 See [this gist](https://gist.github.com/rogerhu/d041b6467536842aa986) for supporting different `RecyclerView` layout managers.  We simply implement checks to determine which layout manager is being used:
 
 ```java
-   public EndlessRecyclerViewScrollListener(LinearLayoutManager layoutManager) {
-        this.mLayoutManager = layoutManager;
-    }
+public EndlessRecyclerViewScrollListener(LinearLayoutManager layoutManager) {
+    this.mLayoutManager = layoutManager;
+}
 
-    public EndlessRecyclerViewScrollListener(GridLayoutManager layoutManager) {
-        this.mLayoutManager = layoutManager;
-    }
+public EndlessRecyclerViewScrollListener(GridLayoutManager layoutManager) {
+    this.mLayoutManager = layoutManager;
+}
 
-    public EndlessRecyclerViewScrollListener(StaggeredGridLayoutManager layoutManager) {
-        this.mLayoutManager = layoutManager;
-        visibleThreshold = visibleThreshold * layoutManager.getSpanCount();
-    }
+public EndlessRecyclerViewScrollListener(StaggeredGridLayoutManager layoutManager) {
+    this.mLayoutManager = layoutManager;
+    visibleThreshold = visibleThreshold * layoutManager.getSpanCount();
+}
 ```
 
 We can then calculate the last visible position depending on the layout manager:
