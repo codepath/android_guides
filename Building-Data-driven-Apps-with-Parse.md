@@ -8,15 +8,20 @@ First, we need to [sign up for a Parse account](https://www.parse.com/#signup) u
 
 ## Setup
 
-Make sure you have an app prepared that you would like to integrate with Parse. Follow the steps on the [existing app page](https://www.parse.com/apps/quickstart#parse_data/mobile/android/native/existing) starting with [downloading the Parse SDK](https://parse.com/downloads/android/Parse/latest).  Make sure to edit the `app/build.gradle` file to make any changes (not the top-level `build.gradle` file).  You must also unzip the Parse SDK .ZIP file too.
+Make sure you have an app prepared that you would like to integrate with Parse. Follow the steps on the [existing app page](https://www.parse.com/apps/quickstart#parse_data/mobile/android/native/existing) and make sure to edit the `app/build.gradle` file to make any changes (not the top-level `build.gradle` file). 
 
-<a target="_blank" href="https://www.parse.com/apps/quickstart#parse_data/mobile/android/native/existing"><img src="https://i.imgur.com/ldLJfil.png" alt="screen_1" width="500" /></a>
+<a target="_blank" href="https://www.parse.com/apps/quickstart#parse_data/mobile/android/native/existing"><img src="http://i.imgur.com/tCJeWnk.png" alt="screen_1" width="500" /></a>
 
-Inside the Parse SDK .zip file should be a  `Parse-X.X.X.jar` file.  Drag this JAR file (not the .ZIP file) into the "libs" folder of your Android app. See these [instructions for how to reveal the libs folder](http://stackoverflow.com/a/28020621/313399) in Android Studio.
+Open the `app/build.gradle` in your project and add the following dependencies:
 
-<img src="https://i.imgur.com/EO6vp5S.png" alt="screen_2" width="400" />
+```gradle
+dependencies {
+    compile 'com.parse.bolts:bolts-android:1.+'
+    compile 'com.parse:parse-android:1.+'
+}
+```
 
-Next, we need to create an `Application` class and initialize Parse. Be sure to replace the initialization line below with **your correct Parse keys**:
+Select `Tools -> Android -> Sync Project with Gradle Files` to load the libraries through Gradle. Next, we need to create an `Application` class and initialize Parse. Be sure to replace the initialization line below with **your correct Parse keys**:
 
 ```java
 public class ParseApplication extends Application {
