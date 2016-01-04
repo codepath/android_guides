@@ -17,7 +17,8 @@ Let's setup Parse into a brand new Android app following the steps below.
     
     ```gradle
     dependencies {
-      compile 'com.parse:parse-android:1.12.0'
+      compile 'com.parse.bolts:bolts-android:1.+'
+      compile 'com.parse:parse-android:1.+'
     }
     ```
   * Make sure you have added these lines before the `<application>` tag in your `AndroidManifest.xml`.
