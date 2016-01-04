@@ -284,13 +284,13 @@ public boolean onCreateOptionsMenu(Menu menu) {
     MenuInflater inflater = getMenuInflater();
     inflater.inflate(R.menu.main, menu);
     MenuItem searchItem = menu.findItem(R.id.action_search);
-    SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+    final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
     searchView.setOnQueryTextListener(new OnQueryTextListener() {
        @Override
        public boolean onQueryTextSubmit(String query) {
             // perform query here
       
-            // workaround to avoid issues with some emulators and keyboard devices firing twice if a keyboard enter is hit twice
+            // workaround to avoid issues with some emulators and keyboard devices firing twice if a keyboard enter is used
             // see https://code.google.com/p/android/issues/detail?id=24599
             searchView.clearFocus();
 
