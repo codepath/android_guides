@@ -289,6 +289,11 @@ public boolean onCreateOptionsMenu(Menu menu) {
        @Override
        public boolean onQueryTextSubmit(String query) {
             // perform query here
+      
+            // workaround to avoid issues with some emulators and keyboard devices firing twice if a keyboard enter is hit twice
+            // see https://code.google.com/p/android/issues/detail?id=24599
+            searchView.clearFocus();
+
             return true;
        }
 
