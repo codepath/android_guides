@@ -225,7 +225,7 @@ public class MainActivity extends Activity {
 }
 ```
 
-See this [gist](https://gist.github.com/rogerhu/17aca6ad4dbdb3fa5892) more a more concrete example.
+See this [gist](https://gist.github.com/rogerhu/17aca6ad4dbdb3fa5892) for a more concrete example.
 
 ### Using with StaggeredGridLayoutManager
 
