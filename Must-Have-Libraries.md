@@ -139,6 +139,7 @@ Essentially this method is used to enable your code to short-circuit before exec
 
 ### UI Components
 
+ * [IntlPhoneInput](https://github.com/Rimoto/IntlPhoneInput) - A custom view that allows the user to enter his phone number in an elegant and friendly way.
  * [Crouton](https://github.com/keyboardsurfer/Crouton) - Context-sensitive, configurable alert notices much better than toasts. Download jar [from here](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22de.keyboardsurfer.android.widget%22). See [working sample code](https://github.com/codepath/android-crouton-sample)
  * [BetterPickers](https://github.com/derekbrameyer/android-betterpickers) - BetterPickers for easy input selection
  * [android-shape-imageview](https://github.com/siyamed/android-shape-imageview) - Custom shaped android imageview components including bubble, star, heart, diamond.
