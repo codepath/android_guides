@@ -50,7 +50,6 @@ Next, we need to configure the `application` node with the `name` property of `c
 
         <activity
             android:name="com.codepath.apps.activities.MainActivity"
-            android:noHistory="true"
             android:label="@string/app_name" >
             <!- ... ->
         </activity>
