@@ -122,6 +122,8 @@ Essentially this method is used to enable your code to short-circuit before exec
 * [UltimateRecyclerView](https://github.com/cymcsg/UltimateRecyclerView) - Augmented RecyclerView with refreshing, loading more, animation and many other features.
 * [android-parallax-recyclerview](https://github.com/kanytu/android-parallax-recyclerview) - An adapter which could be used to achieve a parallax effect on RecyclerView.
 * [sticky-headers-recyclerview](https://github.com/timehop/sticky-headers-recyclerview) - Sticky Headers decorator for Android's RecyclerView.
+* [FastAdater](https://github.com/mikepenz/FastAdapter) - Simplify and speed up the process of filling your RecyclerView with data
+* [ItemAnimators](https://github.com/mikepenz/ItemAnimators) - RecyclerView animators to animate item add/remove/add/move
 
 ### Easy Navigation 
 
@@ -137,6 +139,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [ArcMenu](https://github.com/daCapricorn/ArcMenu) - Alternate radial menu modeled after the "Path" menu style.
  * [AndroidSlidingUpPanel](https://github.com/umano/AndroidSlidingUpPanel) - Sliding Up Panel 
  * [DraggablePanel](https://github.com/pedrovgs/DraggablePanel) - Panels that can be dragged
+ * [MaterialDrawer](https://github.com/mikepenz/MaterialDrawer/) - Easily add a Navigation Drawer with Material style and AccountSwitcher
 
 ### UI Components
 
@@ -160,7 +163,8 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [dialogplus](https://github.com/orhanobut/dialogplus) - Simple, easy dialogs
  * [Iconify](https://github.com/JoanZapata/android-iconify) - Easily embed icons into your app
  * [Android StepsView](https://github.com/anton46/Android-StepsView) - A library to create StepsView for Android
-* [PhotoView](https://github.com/chrisbanes/PhotoView) - A library to pinch zoom in and zoom out and double tap zoom for Android
+ * [PhotoView](https://github.com/chrisbanes/PhotoView) - A library to pinch zoom in and zoom out and double tap zoom for Android
+ * [Android-Iconics](https://github.com/mikepenz/Android-Iconics) - Add many scalable and styleable icons into your app
 
 ### Drawing
 
@@ -216,6 +220,12 @@ This is a list of popular scrolling and parallax libraries:
 * [Scrollable](https://github.com/noties/Scrollable) - Automatic scrolling logic when implementing scrolling tabs
 * [ParallaxPager](https://github.com/prolificinteractive/ParallaxPager) - ViewPager with Parallax scrolling effects
 * [android-parallax-recyclerview](https://github.com/kanytu/android-parallax-recyclerview) - An adapter which could be used to achieve a parallax effect on RecyclerView.
+
+### About this app
+
+This is a list of popular libraries providing "About this app" or "Licenses" sections
+
+* [AboutLibraries](https://github.com/mikepenz/AboutLibraries) - Automatically generates an *About this app* section, with a list of used libraries 
  
 ## Resources
 
