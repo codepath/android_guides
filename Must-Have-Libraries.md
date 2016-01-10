@@ -80,6 +80,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [Calligraphy](https://github.com/chrisjenx/Calligraphy) - Custom fonts made easy
  * [EasyFonts](https://github.com/vsvankhede/easyfonts) - Easy preloaded custom fonts in your app
  * [AndroidViewAnimations](https://github.com/daimajia/AndroidViewAnimations) - Common property animations made easy
+ * [AboutLibraries](https://github.com/mikepenz/AboutLibraries) - Automatically generates an *About this app* section, with a list of used libraries 
  * [SDK Manager Plugin](https://github.com/JakeWharton/sdk-manager-plugin) - Helpful plugin especially for group projects if you're missing an SDK version, haven't downloaded an API version, or your support library is updated.  
 
 ### Extensions 
@@ -122,7 +123,7 @@ Essentially this method is used to enable your code to short-circuit before exec
 * [UltimateRecyclerView](https://github.com/cymcsg/UltimateRecyclerView) - Augmented RecyclerView with refreshing, loading more, animation and many other features.
 * [android-parallax-recyclerview](https://github.com/kanytu/android-parallax-recyclerview) - An adapter which could be used to achieve a parallax effect on RecyclerView.
 * [sticky-headers-recyclerview](https://github.com/timehop/sticky-headers-recyclerview) - Sticky Headers decorator for Android's RecyclerView.
-* [FastAdater](https://github.com/mikepenz/FastAdapter) - Simplify and speed up the process of filling your RecyclerView with data
+* [FastAdapter](https://github.com/mikepenz/FastAdapter) - Simplify and speed up the process of filling your RecyclerView with data
 * [ItemAnimators](https://github.com/mikepenz/ItemAnimators) - RecyclerView animators to animate item add/remove/add/move
 
 ### Easy Navigation 
@@ -220,12 +221,6 @@ This is a list of popular scrolling and parallax libraries:
 * [Scrollable](https://github.com/noties/Scrollable) - Automatic scrolling logic when implementing scrolling tabs
 * [ParallaxPager](https://github.com/prolificinteractive/ParallaxPager) - ViewPager with Parallax scrolling effects
 * [android-parallax-recyclerview](https://github.com/kanytu/android-parallax-recyclerview) - An adapter which could be used to achieve a parallax effect on RecyclerView.
-
-### About this app
-
-This is a list of popular libraries providing "About this app" or "Licenses" sections
-
-* [AboutLibraries](https://github.com/mikepenz/AboutLibraries) - Automatically generates an *About this app* section, with a list of used libraries 
  
 ## Resources
 
