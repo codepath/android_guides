@@ -166,6 +166,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [Android StepsView](https://github.com/anton46/Android-StepsView) - A library to create StepsView for Android
  * [PhotoView](https://github.com/chrisbanes/PhotoView) - A library to pinch zoom in and zoom out and double tap zoom for Android
  * [Android-Iconics](https://github.com/mikepenz/Android-Iconics) - Add many scalable and styleable icons into your app
+ * [Scissors](https://github.com/lyft/scissors) - An easy image cropping library developed by Lyft.
 
 ### Drawing
 
@@ -180,7 +181,6 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [WilliamChart](https://github.com/diogobernardino/WilliamChart) - Flexible charting library with useful motion capabilities.
  * [HelloCharts](https://github.com/lecho/hellocharts-android) - Charts/graphs library for Android with support for scaling, scrolling and animations.
  * [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart)-A powerful Android chart view / graph view library, supporting line- bar- pie- radar- bubble- and candlestick charts as well as scaling, dragging and animations.
- * [Scissors](https://github.com/lyft/scissors) - An easy image cropping library developed by Lyft.
 
 
 ### Scanning
