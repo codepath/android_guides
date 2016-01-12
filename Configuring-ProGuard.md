@@ -22,6 +22,22 @@ The Android SDK comes with ProGuard included as well as default settings file, w
 
 Proguard can add a few minutes to your build cycle.  If you can avoid using ProGuard in development, you should continue to do so.  Once you begin to include enough libraries that causes the 64K method limit to be reached, you either need to remove extraneous dependencies or need to consider following the instructions for supporting a higher limit by using the [multidex mode](http://developer.android.com/tools/building/multidex.html).  Multidex compilation also takes additional time and requires extra work to support pre-Lollipop Android versions, so the recommendation is often to use ProGuard before using Multidex.
 
+#### Checking method limit
+
+If you wish to check how close you are to the 64k limit, fork a copy of the [dex-method-counts](https://github.com/mihaip/dex-method-counts) library.  Inside this repo, type:
+
+```bash
+./gradlew assemble
+```
+
+Once this project compiles successfully, you can point this program to any of your `.apk` files (normally located in `app/build/outputs/apk`:
+
+```bash
+./dex-method-counts build/outputs/debug//myapp.apk # or .zip or .dex or directory
+```
+
+The program will generate a breakdown of the methods used across each library.
+
 ### Development
 
 When using in development/debug testing, you may wish to turn on a few settings that may add to compile time as well as make it harder to troubleshoot.  For instance, to ensure that no code optimizations or obfuscation is done, the following options should be declared in your ProGuard config:
