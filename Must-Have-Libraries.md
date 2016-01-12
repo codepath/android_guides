@@ -29,10 +29,6 @@ The "advanced pack" listed below are additional libraries that are more advanced
 
 Keep in mind that the combination of these libraries may not always play nicely with each other.  The following section highlights some of these issues.
 
-#### Parceler and IcePick
-
-Note that you cannot use IcePick at the current time to save state of Parceler objects.  See this [GitHub issue](https://github.com/frankiesardo/icepick/issues/36) for more context.  You will need to use Parcelable objects with IcePick. Akatsuki on the other hand supports Parceler and custom code generation templates.
-
 #### ButterKnife and Parceler
 
 Using the Butterknife library with the Parceler library causes multiple declarations of javax.annotation.processing.Processor.  In this case, you have to exclude this conflict in your `app/build.gradle` file:
