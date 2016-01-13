@@ -115,7 +115,7 @@ keep class * implements android.os.Parcelable {
 
 ### Troubleshooting
 
-If you wish to confirm whether ProGuard is preserving certain annotations or classes, you can review the `.apk` package that gets created and check.  The first step is to unpackage the `classes.dex` contained inside the `.apk` file, which is normally located in the `app/build/outputs/apk` dir.
+If you wish to confirm whether ProGuard is preserving certain annotations or classes, you can review the `.apk` package that gets created to check.  The first step is to unpackage the `classes.dex` contained inside the `.apk` file, which is normally located in the `app/build/outputs/apk` dir.
 
 ```bash
 unzip `app/build/outputs/apk/<app name>.apk classes.dex`
