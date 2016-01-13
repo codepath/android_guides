@@ -115,9 +115,7 @@ keep class * implements android.os.Parcelable {
 
 ### Troubleshooting
 
-If you wish to confirm whether ProGuard is preserving certain annotations or classes, you can review the `.apk` package that gets created to check.  The first step is to unpackage the `classes.dex` contained inside the `.apk` file, which is normally located in the `app/build/outputs/apk` dir.
-
-You should then download the [dex2jar](http://sourceforge.net/projects/dex2jar/files/) program and use it to decompile the Dalvik code (`.dex` file) to a `.jar` file.  Converting it to a `.jar` file allows other reverse engineering tools to inspect the code:
+If you wish to confirm whether ProGuard is preserving certain annotations or classes, you can review the `.apk` package that gets created to check.  The first step is to download the [dex2jar](http://sourceforge.net/projects/dex2jar/files/) program and use it to decompile the Dalvik code (`.dex` file) to a `.jar` file.  Converting it to a `.jar` file allows other reverse engineering tools to inspect the code:
 
 ```bash
 wget http://sourceforge.net/projects/dex2jar/files/dex2jar-2.0.zip/download -O dex2jar-2.0.zip
