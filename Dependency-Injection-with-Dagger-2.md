@@ -39,7 +39,7 @@ dependencies {
 }
 ```
 
-Note that the `provided` keyword refers to dependencies that are only needed at compilation.  The Dagger compiler generates code that are used to create the dependency graph of the classes defined in your source code.  These classes are added to the IDE class path during compilation.  
+Note that the `provided` keyword refers to dependencies that are only needed at compilation.  The Dagger compiler generates code that is used to create the dependency graph of the classes defined in your source code.  These classes are added to the IDE class path during compilation.  
 
 Android Studio by default will not recognize a lot of generated Dagger 2 code as legitimate classes, but adding the `android-apt` plugin will add these files into the IDE class path and enable you to have more visibility:
 
@@ -303,7 +303,7 @@ public @interface DefaultPreferences {
 ### Scopes
 ![Dagger Scopes](https://raw.githubusercontent.com/codepath/android_guides/master/images/dagger_scopes.png)
 
-Scope annotations cause dagger to hold a single instance of the provided object in a given component.  Provider methods which do not have a scope specified will be called to create a new object every time that the given type is injected.  
+Scope annotations cause dagger to hold a single instance of the provided object in a given component.  Provider methods that do not have a scope specified will be called to create a new object every time that the given type is injected.  
 
 `@Singleton` is a scope annotation that is defined by Dagger, but you can define any number of scope annotations in your application:
 ```java
@@ -320,7 +320,7 @@ The example above showed that we used singletons that lasted the entire lifecycl
 
  * **Two dependent components cannot share the same scope.**  For instance, two components cannot both be scoped to a `@Singleton` annotation.  This restriction is imposed because of reasons described [here](https://github.com/google/dagger/issues/107#issuecomment-71073298).  Dependent components need to define their own scope.
 
- * **While Dagger 2 also enables the ability to create scoped instances, the responsibility rests on you to create and delete references that is consistent with the intended behavior.**  Dagger 2 does not know anything about the underlying implementation.  See this Stack Overflow [discussion](http://stackoverflow.com/questions/28411352/what-determines-the-lifecycle-of-a-component-object-graph-in-dagger-2) for more details.
+ * **While Dagger 2 also enables the ability to create scoped instances, the responsibility rests on you to create and delete references that are consistent with the intended behavior.**  Dagger 2 does not know anything about the underlying implementation.  See this Stack Overflow [discussion](http://stackoverflow.com/questions/28411352/what-determines-the-lifecycle-of-a-component-object-graph-in-dagger-2) for more details.
 
  * **When creating dependent components, the parent component needs to explicitly expose the objects to downstream objects.**  For instance, if a downstream component needed access to the `Retrofit` instance,
 it would need to explicitly with the corresponding return type:
