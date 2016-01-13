@@ -113,6 +113,32 @@ keep class * implements android.os.Parcelable {
 -keep class org.parceler.Parceler$$Parcels
 ```
 
+### Troubleshooting
+
+If you wish to confirm whether ProGuard is preserving certain annotations or classes, you can review the `.apk` package that gets created and check.  The first step is to unpackage the `classes.dex` contained inside the `.apk` file, which is normally located in the `app/build/outputs/apk` dir.
+
+```bash
+unzip `app/build/outputs/apk/<app name>.apk classes.dex`
+```
+
+You should then download the [dex2jar](http://sourceforge.net/projects/dex2jar/files/) program and use it to decompile the Dalvik code (`.dex` file) to a `.jar` file.  Converting it to a `.jar` file allows other reverse engineering tools to inspect the code:
+
+```bash
+wget http://sourceforge.net/projects/dex2jar/files/dex2jar-2.0.zip/download -O dex2jar-2.0.zip
+unzip dex2jar-2.0.zip
+chmod u+x ~/projects/dex2jar-2.0/*.sh
+./d2j-dex2jar.sh classes.dex
+```
+
+You can also use `d2j-dex2jar.bat` if using a Windows machine:
+
+```dos
+> d2j-dex2jar.bat classes.dex
+```
+
+Finally, you can download [JD-GUI](http://jd.benow.ca/) and open the `.jar` file to review the Java class files.  You can double-check whether certain annotations were removed and whether certain classes were kept in the final compilation.
+
+
 ### References
 
 * <https://github.com/krschultz/android-proguard-snippets/tree/master/libraries/>
