@@ -115,7 +115,7 @@ keep class * implements android.os.Parcelable {
 
 ### Troubleshooting
 
-If you wish to confirm whether ProGuard is preserving certain annotations or classes, you can review the `.apk` package that gets created to check.  The first step is to download the [dex2jar](http://sourceforge.net/projects/dex2jar/files/) program and use it to decompile the Dalvik code (`.dex` file) to a `.jar` file.  Converting it to a `.jar` file allows other reverse engineering tools to inspect the code:
+If you wish to confirm whether ProGuard is preserving certain annotations or classes, you can review the `.apk` package that gets created to check.  The first step is to download the [dex2jar](http://sourceforge.net/projects/dex2jar/files/) program and use it to decompile the Dalvik code (`.dex` file) to a Java archive file (`.jar` file).  
 
 ```bash
 wget http://sourceforge.net/projects/dex2jar/files/dex2jar-2.0.zip/download -O dex2jar-2.0.zip
@@ -130,7 +130,7 @@ You can also use `d2j-dex2jar.bat` if using a Windows machine:
 > d2j-dex2jar.bat <.apk file>
 ```
 
-Running the `dex2jar` file directly on an APK file should convert it to a `.jar` file. You can download [JD-GUI](http://jd.benow.ca/) and open this newly created `.jar` file to review the Java class files and use the UI double-check whether certain annotations were removed and whether certain classes were kept in the final compilation.
+Running the `dex2jar` file directly on an APK file should convert it to a `.jar` file.  You can download [JD-GUI](http://jd.benow.ca/) and open this newly created file to review the Java class files.  The UI allows you to double-check whether certain annotations were removed and whether certain classes were kept in the final compilation.
 
 
 ### References
