@@ -58,6 +58,8 @@ See [this link](https://github.com/krschultz/android-proguard-snippets/tree/mast
 
 #### ButterKnife
 
+**Note**: The following ProGuard lines apply to ButterKnife v7.0.  If you are using an older version of ButterKnife, the Proguard rules may be slightly different.
+
 ```
 -keep class butterknife.** { *; }
 -dontwarn butterknife.internal.**
