@@ -449,8 +449,6 @@ If you wish for the containing activity to receive the date or time selected by 
 ```java
 public class DatePickerFragment extends DialogFragment {
 
-    DatePickerDialog.OnDateSetListener mActivity;
-
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the current time as the default values for the picker
@@ -459,11 +457,11 @@ public class DatePickerFragment extends DialogFragment {
         int month = c.get(Calendar.MONTH);
         int day = c.get(Calendar.DAY_OF_MONTH);
 
-        // Create a new instance of TimePickerDialog and return it
-        // mActivity is the callback interface instance
+        // Activity needs to implement this interface
         DatePickerDialog.OnDateSetListener listener = (DatePickerDialog.OnDateSetListener) getActivity();
 
-        return new DatePickerDialog(getActivity(), mActivity, year, month, day);
+        // Create a new instance of TimePickerDialog and return it
+        return new DatePickerDialog(getActivity(), listener, year, month, day);
     }
 ```
 
@@ -495,19 +493,16 @@ A similar approach can be done with the time picker too:
 public class TimePickerFragment extends DialogFragment {
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-    }
-
-    @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the current time as the default values for the picker
         final Calendar c = Calendar.getInstance();
         int hour = c.get(Calendar.HOUR_OF_DAY);
         int minute = c.get(Calendar.MINUTE);
 
-        // Create a new instance of TimePickerDialog and return it
+        // Activity has to implement this interface
         TimePickerDialog.OnTimeSetListener listener = (TimePickerDialog.OnTimeSetListener) getActivity();
+
+        // Create a new instance of TimePickerDialog and return it
         return new TimePickerDialog(getActivity(), listener, hour, minute,
                 DateFormat.is24HourFormat(getActivity()));
     }
