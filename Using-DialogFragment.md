@@ -452,14 +452,6 @@ public class DatePickerFragment extends DialogFragment {
     DatePickerDialog.OnDateSetListener mActivity;
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
- 
-        // if the Activity does not implement this interface, it will crash
-        mActivity = (DatePickerDialog.OnDateSetListener) activity;
-    }
-
-    @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the current time as the default values for the picker
         final Calendar c = Calendar.getInstance();
@@ -469,6 +461,8 @@ public class DatePickerFragment extends DialogFragment {
 
         // Create a new instance of TimePickerDialog and return it
         // mActivity is the callback interface instance
+        DatePickerDialog.OnDateSetListener listener = (DatePickerDialog.OnDateSetListener) getActivity();
+
         return new DatePickerDialog(getActivity(), mActivity, year, month, day);
     }
 ```
@@ -500,12 +494,9 @@ A similar approach can be done with the time picker too:
 ```java
 public class TimePickerFragment extends DialogFragment {
 
-    DatePickerDialog.OnDateSetListener mActivity;
-
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        mActivity = (DatePickerDialog.OnDateSetListener) activity;
     }
 
     @Override
@@ -516,7 +507,8 @@ public class TimePickerFragment extends DialogFragment {
         int minute = c.get(Calendar.MINUTE);
 
         // Create a new instance of TimePickerDialog and return it
-        return new TimePickerDialog(getActivity(), mActivity, hour, minute,
+        TimePickerDialog.OnTimeSetListener listener = (TimePickerDialog.OnTimeSetListener) getActivity();
+        return new TimePickerDialog(getActivity(), listener, hour, minute,
                 DateFormat.is24HourFormat(getActivity()));
     }
 
