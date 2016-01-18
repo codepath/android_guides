@@ -324,7 +324,7 @@ try {
 
 ## RxJava
 
-Retrofit 2 also supports [[RxJava]] extensions.You need add [[RxJava]] in Restrofit like this:
+Retrofit 2 also supports [[RxJava]] extensions.You need add [[RxJava]] Adapter in Restrofit like this:
 ```java
 Retrofit retrofit=new Retrofit.Builder()
 
@@ -332,7 +332,7 @@ Retrofit retrofit=new Retrofit.Builder()
                         .addConverterFactory(GsonConverterFactory.create())
                         .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                         .build();
-
+```
   Instead of creating `Call` objects, we will use `Observable` types.   
 
 ```java
