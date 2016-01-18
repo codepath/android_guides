@@ -450,9 +450,11 @@ public class BookListActivity extends AppCompatActivity {
 Now let's make the call to the book search API from the activity using our client:
 
 ```java
+...
+import cz.msebera.android.httpclient.Header;
+...
 public class BookListActivity extends AppCompatActivity {
   ...
-  import cz.msebera.android.httpclient.Header;
   private BookClient client;
 
   @Override
