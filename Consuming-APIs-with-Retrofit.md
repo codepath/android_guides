@@ -356,7 +356,9 @@ Consistent with the RxJava framework, we need to create a subscriber to handle t
 ```java
 String username = "sarahjean";
 Observable<User> call = apiService.getUser(username);
-Subscription subscription = call.observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<User>() {
+Subscription subscription = call
+.subscribeOn(Schedulers.io())
+.observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<User>() {
   @Override
   public void onCompleted() {
    
