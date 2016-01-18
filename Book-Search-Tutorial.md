@@ -39,7 +39,7 @@ repositories {
 }
 dependencies {
   // ...
-  compile 'com.loopj.android:android-async-http:1.4.6'
+  compile 'com.loopj.android:android-async-http:1.4.9'
   compile 'com.squareup.picasso:picasso:2.5.2'
 }
 ```
@@ -452,6 +452,7 @@ Now let's make the call to the book search API from the activity using our clien
 ```java
 public class BookListActivity extends AppCompatActivity {
   ...
+  import cz.msebera.android.httpclient.Header;
   private BookClient client;
 
   @Override
