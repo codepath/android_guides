@@ -100,7 +100,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [Glide](https://github.com/bumptech/glide) - Picasso image loading alternative endorsed by Google 
  * [IceNet] (https://github.com/anton46/IceNet) -  Android networking wrapper consisting of a combination of Volley, OkHttp and Gson
  * [Android Universal Image Loader](https://github.com/nostra13/Android-Universal-Image-Loader) - Popular alternative for image loading that can replace Picasso or Glide.
- * [Fresco](http://frescolib.org/) - An image management library from **Facebook**.
+ * [Fresco](http://frescolib.org/) - An image management library from Facebook.
 
 ### ListView
 
