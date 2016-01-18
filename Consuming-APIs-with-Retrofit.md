@@ -324,7 +324,16 @@ try {
 
 ## RxJava
 
-Retrofit 2 also supports [[RxJava]] extensions.  Instead of creating `Call` objects, we will use `Observable` types.   
+Retrofit 2 also supports [[RxJava]] extensions.You need add [[RxJava]] in Restrofit like this:
+```java
+Retrofit retrofit=new Retrofit.Builder()
+
+                        .baseUrl("https://api.bmob.cn")
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                        .build();
+
+  Instead of creating `Call` objects, we will use `Observable` types.   
 
 ```java
 public interface MyApiEndpointInterface {
