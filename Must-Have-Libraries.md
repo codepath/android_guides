@@ -153,6 +153,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [AndroidViewAnimations](https://github.com/daimajia/AndroidViewAnimations) - Easily apply common animations
  * [ProgressWheel](https://github.com/Todd-Davies/ProgressWheel) - Better progress bar
  * [SmoothProgressBar](https://github.com/castorflex/SmoothProgressBar) - Horizontal indeterminate progress
+ * [CircularFillableLoaders](https://github.com/lopspower/CircularFillableLoaders) - Beautiful animated fillable loaders
  * [Rebound](http://facebook.github.io/rebound/) - Easy spring dynamics
  * [AndroidImageSlider](https://github.com/daimajia/AndroidImageSlider) - Animated image transitions
  * [FloatingActionButton](https://github.com/makovkastar/FloatingActionButton) - Material design floating buttons made easy
