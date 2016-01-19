@@ -19,7 +19,6 @@ The support design library has the following key features:
      * [AppBarLayout](http://developer.android.com/reference/android/support/design/widget/AppBarLayout.html) allows your toolbar and other views to react to scroll events. 
      * [CollapsingToolbarLayout](http://developer.android.com/reference/android/support/design/widget/CollapsingToolbarLayout.html) extend this to allow the toolbar to collapse as the user scrolls through a view.  
 7. [[PercentRelativeLayout|Constructing-View-Layouts#percentrelativelayout]] and PercentFrameLayout to enable views to occupy [percentage-based dimensions](https://juliengenoud.github.io/android-percent-support-lib-sample/).  
-8. [[CircularFillableLoaders]] Realize a beautiful circular fillable loaders to be used for splashscreen (http://geekonjava.blogspot.com/2016/01/circular-fillable-loaders-library.html).  
 
 ### Setup
 
