@@ -434,3 +434,7 @@ There are many libraries for Android that contain custom views such as:
  * <http://staticallytyped.wordpress.com/2011/04/16/android-custom-xml-attributes-and-views/>
  * <http://www.jayway.com/2012/12/12/creating-custom-android-views-part-4-measuring-and-how-to-force-a-view-to-be-square/>
  * <https://www.dropbox.com/s/1l55125fnuhdvti/Custom%20Views%20-%20Arun.pdf?dl=0>
+
+## Videos
+
+ * [Custom Views by Eric Petzel (Engineering @ Airbnb)](https://vimeo.com/127799187)
