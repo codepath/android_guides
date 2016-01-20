@@ -5,12 +5,8 @@ ProGuard is normally only enabled for release builds and setup in your `app/buil
 ```gradle
 android {
    buildTypes {
-      release {
-          minifyEnabled true
-          proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-      }
       dev {
-          minifyEnabled true
+          minifyEnabled true  // enables ProGuard
           proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
       }
 }
