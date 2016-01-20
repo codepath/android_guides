@@ -256,6 +256,7 @@ Focused on issues like deployment, dependency management, etc:
 * [[Collaborating on Projects with Git]] (Git, Team)
 * [[Presenting an Android Device]] (Cast Device to Laptop)
 * [[Recording Video of an Android Device]] 
+* [[Configuring ProGuard]]
 
 ## Contributing 
 
