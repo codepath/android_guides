@@ -52,19 +52,19 @@ When using in development/debug testing, you may wish to turn on a few settings 
 
 ### Third-Party Libraries
 
-One limitation in ProGuard is that dynamically generated classes such as those used in Butterknife, Otto, or Dagger 2 need to be explicitly declared.  In many cases, compilation will not continue until these issues are resolved.  In other cases, if you do not specify it, ProGuard will often strip these methods from being used and your app will often crash at run-time.   
-
-#### ProGuard definition files in library projects
-
-Before you start adding any ProGuard rules, you should also check whether any of the libraries you use already come packaged with a `consumer-proguard-rules.pro` file.  This file gets added to the ProGuard definition list automatically.  For instance, for the [LeakCanary](https://github.com/square/leakcanary) project, the definition listings are located [here](https://github.com/square/leakcanary/blob/master/leakcanary-android/consumer-proguard-rules.pro) whenever you use this library.
+Before you start adding any ProGuard rules, you should also check whether any of the libraries you use already come packaged with a `consumer-proguard-rules.pro` file.  This file gets added to the ProGuard definition list automatically.  For instance, for the [LeakCanary](https://github.com/square/leakcanary) project, the definition listings are located [here](https://github.com/square/leakcanary/blob/master/leakcanary-android/consumer-proguard-rules.pro) and added whenever you use this library with ProGuard enabled.
 
 In addition, you can either check the GitHub source to see if this file exists, or you can navigate through Android Studio by clicking on the `Project` tab and navigating to `app` -> `build` -> `intermediates` -> `exploded-aar` and looking for the `proguard.txt` definition. 
 
 <img src="http://imgur.com/2ZY2aSG.png"/>
 
+#### Common ProGuard configs
+
+One limitation in ProGuard is that dynamically generated classes such as those used in Butterknife, Otto, or Dagger 2 need to be explicitly declared.  In many cases, compilation will not continue until these issues are resolved.  In other cases, if you do not specify it, ProGuard will often strip these methods from being used and your app will often crash at run-time.   
+
 See [this link](https://github.com/krschultz/android-proguard-snippets/tree/master/libraries) for the standard set of library configs.  It's important to check the documentation of each third-party library to see the most updated settings.  You can often try to experiment too by incrementally adding the necessary lines to best understand the impact of each line configuration.
 
-Here is an example of some of the ProGuard definitions for various popular libraries.
+Here is an example of some of the ProGuard definitions for various popular libraries.  
 
 #### ButterKnife
 
