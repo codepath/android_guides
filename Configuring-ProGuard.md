@@ -16,7 +16,7 @@ The Android SDK comes with ProGuard included as well as default settings file, w
 
 ### Caveats
 
-Proguard can add a few minutes to your build cycle.  If you can avoid using ProGuard in development, you should continue to do so.  Once you begin to include enough libraries that causes the 64K method limit to be reached, you either need to remove extraneous dependencies or need to consider following the instructions for supporting a higher limit by using the [multidex mode](http://developer.android.com/tools/building/multidex.html).  Multidex compilation also takes additional time and requires extra work to support pre-Lollipop Android versions, so the recommendation is often to use ProGuard before using Multidex.
+Proguard can add a few minutes to your build cycle.  If you can avoid using ProGuard in development, you should try to do so.  Once you begin to include enough libraries that causes the 64K method limit to be reached, you either need to remove extraneous dependencies or need to consider following the instructions for supporting a higher limit by using the [multidex mode](http://developer.android.com/tools/building/multidex.html).  Multidex compilation also takes additional time and requires extra work to support pre-Lollipop Android versions, so the recommendation is often to use ProGuard before using Multidex.
 
 #### Checking method limit
 
