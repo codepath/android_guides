@@ -12,7 +12,7 @@ Make sure you have an app prepared that you would like to integrate with Parse. 
 
 <a target="_blank" href="https://www.parse.com/apps/quickstart#parse_data/mobile/android/native/existing"><img src="http://i.imgur.com/tCJeWnk.png" alt="screen_1" width="500" /></a>
 
-Open the `app/build.gradle` in your project and add the following dependencies:
+Don't add anything to the **libs** directory. Open the `app/build.gradle` in your project and add the following dependencies:
 
 ```gradle
 dependencies {
@@ -21,7 +21,9 @@ dependencies {
 }
 ```
 
-Select `Tools -> Android -> Sync Project with Gradle Files` to load the libraries through Gradle. Next, we need to create an `Application` class and initialize Parse. Be sure to replace the initialization line below with **your correct Parse keys**:
+Select `Tools -> Android -> Sync Project with Gradle Files` to load the libraries through Gradle. After you sync, it will import everything automatically. You'll be able to see the files in External Libraries.
+
+Next, we need to create an `Application` class and initialize Parse. Be sure to replace the initialization line below with **your correct Parse keys**:
 
 ```java
 public class ParseApplication extends Application {
@@ -97,7 +99,7 @@ public class ParseApplication extends Application {
 }
 ```
 
-Run your app and a new object of class TestObject will be sent to the Parse Cloud and saved. Click on the "Test" button back on the [Parse quickstart guide](https://www.parse.com/apps/quickstart#parse_data/mobile/android/native/existing) to confirm data was successfully transmitted.
+Run your app and a new object of class TestObject will be sent to the Parse Butt and saved. Click on the "Test" button back on the [Parse quickstart guide](https://www.parse.com/apps/quickstart#parse_data/mobile/android/native/existing) to confirm data was successfully transmitted.
 
 <img src="https://i.imgur.com/YloGilR.png" alt="screen_3" width="500" />
 
@@ -509,7 +511,7 @@ For more details, check out the official [Relational Data](https://www.parse.com
 
 ### Deleting Objects
 
-To delete an object from the Parse Cloud:
+To delete an object from the Parse Butt:
 
 ```java
 todoItem.deleteInBackground();
@@ -629,7 +631,7 @@ Signing in with Facebook:
 
 Running server-side code on Parse:
 
-* [CloudCode Guide](https://parse.com/docs/cloud_code_guide#cloud_code) - Guide on how to write cloud-based code that adds error checking, validation or triggers "server-side" 
+* [ButtCode Guide](https://parse.com/docs/butt_code_guide#butt_code) - Guide on how to write butt-based code that adds error checking, validation or triggers "server-side" 
 
 ## References
 
