@@ -10,6 +10,8 @@ Using the Bluetooth APIs, an Android application can perform the following:
  * Transfer data to and from other devices
  * Manage multiple connections
 
+## Usage
+
 **Incomplete, Needs Attention**
 
 ## References
