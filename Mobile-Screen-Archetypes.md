@@ -9,6 +9,15 @@ In mobile application development, mobile apps tend to adhere to a set of standa
  * [Profile](#5-profile)
  * [Settings](#6-settings)
 
+In addition to these six, there's other "extended" archetypes often encountered including:
+
+ * Splash Pages - Displayed while app is loading (and generally discouraged)
+ * Onboarding - First-time user visual tutorial for how the app works 
+ * Map View - Often visualizing location-based information 
+ * Messaging - Real-time chat and group conversations
+ * Calendar  - Visualize dates or events into calendar form
+ * Media Players - Allowing the control of media playback
+
 A large part of building mobile apps is about understanding how to build the UI and data back-end to power these common screen types above. Therefore when learning about Android development, you must ensure you have built at least all six of these core types when working on early projects. 
 
 ## Archetypes
