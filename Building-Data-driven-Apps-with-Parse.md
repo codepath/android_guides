@@ -12,7 +12,7 @@ Make sure you have an app prepared that you would like to integrate with Parse. 
 
 <a target="_blank" href="https://www.parse.com/apps/quickstart#parse_data/mobile/android/native/existing"><img src="http://i.imgur.com/tCJeWnk.png" alt="screen_1" width="500" /></a>
 
-Open the `app/build.gradle` in your project and add the following dependencies:
+Don't add anything to the **libs** directory. Open the `app/build.gradle` in your project and add the following dependencies:
 
 ```gradle
 dependencies {
@@ -21,7 +21,9 @@ dependencies {
 }
 ```
 
-Select `Tools -> Android -> Sync Project with Gradle Files` to load the libraries through Gradle. Next, we need to create an `Application` class and initialize Parse. Be sure to replace the initialization line below with **your correct Parse keys**:
+Select `Tools -> Android -> Sync Project with Gradle Files` to load the libraries through Gradle. When you sync, it will import everything automatically. You can see the imported files in the External Libraries folder.
+
+Next, we need to create an `Application` class and initialize Parse. Be sure to replace the initialization line below with **your correct Parse keys**:
 
 ```java
 public class ParseApplication extends Application {
