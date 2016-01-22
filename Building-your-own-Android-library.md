@@ -252,15 +252,17 @@ Even though the default Gradle version used in Android projects is 2.4, the buil
 
 ### Using with ProGuard
 
-If you intend to export your release with ProGuard to help reduce the total number of methods exported to avoid the [64K method limit](http://developer.android.com/tools/building/multidex.html), modify your library `build.gradle` file to enable ProGuard.  You will need to enable `minifyEnabled` and specify the configuration file for ProGuard to use:
+If you intend to export your release, you should also include any configurations in case ProGuard is applied to your library.  If you specify `consumerProguardFiles` in your library config, the ProGuard rules will be added  during the compilation.  
 
 ```gradle
-buildTypes {
-         release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-         }
+android {
+   defaultConfig {
+      consumerProguardFiles 'consumer-proguard-rules.pro'
+   }
+}
 ```
+
+Make sure to create a `consumer-proguard-rules.pro` file.  See [[Configuring ProGuard]] for more details.
 
 If you use the default configuration, ProGuard will obfuscate and alter the name of your library classes, making it impossible for Android projects to reference them.  The most basic example of ensuring your library classes are exported is shown below:
 
