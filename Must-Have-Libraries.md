@@ -35,7 +35,6 @@ Using the Butterknife library with the Parceler library causes multiple declarat
 
 ```gradle
    packagingOptions {
-
         exclude 'META-INF/services/javax.annotation.processing.Processor'  // butterknife
     }
 ```
