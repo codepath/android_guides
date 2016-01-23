@@ -124,6 +124,10 @@ We can also use a similar approach with the [[RecyclerView|Using-the-RecyclerVie
 
 Start by referring to this [code sample for usage](https://gist.github.com/rogerhu/17aca6ad4dbdb3fa5892) and [this code sample](https://gist.github.com/nesquena/d09dc68ff07e845cc622) for the full listener source code. In short endless pagination requires the following steps:
 
+1. Copy over the [EndlessRecyclerViewScrollListener.java](https://gist.github.com/nesquena/d09dc68ff07e845cc622) into your application.
+2. Call `addOnScrollListener(...)` on a `RecyclerView` to enable endless pagination. Pass in an instance of `EndlessRecyclerViewScrollListener` and implement the `onLoadMore` which fires whenever a new page needs to be loaded to fill up the list.
+3. Inside the aforementioned `onLoadMore` method, load additional items into the adapter either by sending out a network request or by loading from another source. 
+
 ### Using with LinearLayoutManager
 
 The code below demonstrates how to do endless pagination for a linear layout based RecyclerView. Note that this simplified code only works for **RecyclerViews using the LinearLayoutManager** and displaying a simple linear list. This will not necessarily work for other layout types. For that, you need to read the next section. 
