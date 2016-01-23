@@ -10,7 +10,7 @@ First, we create a new Android project with **minimum SDK 14** named `SimpleTodo
 
 ### Configuring Android Studio
 
-Go into Preferences for Android Studio. On a Mac through `Android Studio => Preferences` or on Windows with `File -> Settings`. Then find `Editor -> Auto Import` and for Java we need to:
+Go into Preferences for Android Studio. On a Mac through `Android Studio => Preferences` or on Windows with `File -> Settings`. Then find `Editor -> General -> Auto Import` and for Java we need to:
 
  * Change `Insert imports on paste` to `All`
  * Check `Add unambigious imports on the fly` option
