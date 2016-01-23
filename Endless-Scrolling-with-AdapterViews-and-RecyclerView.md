@@ -130,7 +130,7 @@ Start by referring to this [code sample for usage](https://gist.github.com/roger
 
 ### Using with LinearLayoutManager
 
-The code below demonstrates how to do endless pagination for a linear layout based RecyclerView. Note that this simplified code only works for **RecyclerViews using the LinearLayoutManager** and displaying a simple linear list. This will not necessarily work for other layout types. For that, you need to read the next section. 
+The code below demonstrates how to do endless pagination for a linear layout based RecyclerView. Note that this simplified code only works for **RecyclerViews using the LinearLayoutManager** and displaying a simple linear list. This will not necessarily work for other layout types. For that, you need to read the next section. For lists using a `LinearLayoutManager`, copy over the following class as `EndlessRecyclerViewScrollListener.java` in your application:
 
 ```java
 import android.support.v7.widget.LinearLayoutManager;
