@@ -4,6 +4,23 @@ With the release of Android 5.0, there are updated guidelines for modern Android
 <img src="https://i.imgur.com/yMlrtTp.png" width="200" alt="screen 2" />
 <img src="https://i.imgur.com/JZRCVkh.png" width="203" alt="screen 3" />
 
+## What is Material Design?
+
+What exactly is "Material Design"? This can be difficult to answer because of the broad scope of the updates. The concrete highlights of a material-designed app would include the following elements:
+
+ 1. [Vibrant Color Schemes](https://www.materialpalette.com)
+ 2. [[Updated Iconography|Material-Design-Primer#material-design-icons]]
+ 3. [[RecyclerView for Lists|Using-the-RecyclerView]] with items as [[CardViews|Using-the-CardView]]
+ 4. [[Leveraging the new App Toolbar|Using-the-App-ToolBar]] 
+ 5. [[Dynamic Scolling Behavior with CoordinatorLayout|Handling-Scrolls-with-CoordinatorLayout]]
+ 6. [[Floating Action Buttons]] for important actions
+ 7. [[Ripple Animations for Touch Feedback|Ripple-Animation]]
+ 8. [[Shared Element Morph Transitions|Shared Element Activity Transition]] during navigation
+ 9. [[View Elevation and Shadows|Material-Design-Primer#elevation-and-shadows]] 
+ 10. [[Updated Dialog Themes|Material-Design-Primer#dialog-styles]]
+
+This represents just a few of the highlights that represent the implementation of Material design.
+
 ## Design Guidelines
 
 This new framework encompasses several changes to the interface of Android apps and Google strongly encourages the adoption of these new principles outlined below:
