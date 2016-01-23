@@ -122,7 +122,11 @@ Now as you scroll, items will be automatically filling in because the `onLoadMor
 
 We can also use a similar approach with the [[RecyclerView|Using-the-RecyclerView]] by defining an interface `EndlessRecyclerViewScrollListener` that requires an `onLoadMore()` method to be implemented.  The [LayoutManager](http://developer.android.com/reference/android/support/v7/widget/RecyclerView.LayoutManager.html), which is responsible in the RecyclerView for rendering where items should be positioned and manages scrolling, provides information about the current scroll position relative to the adapter.  For this reason, we need to pass an instance of what LayoutManager is being used to collect the necessary information to ascertain when to load more data.  
 
+Start by referring to this [code sample for usage](https://gist.github.com/rogerhu/17aca6ad4dbdb3fa5892) and [this code sample](https://gist.github.com/nesquena/d09dc68ff07e845cc622) for the full listener source code. In short endless pagination requires the following steps:
+
 ### Using with LinearLayoutManager
+
+The code below demonstrates how to do endless pagination for a linear layout based RecyclerView. Note that this simplified code only works for **RecyclerViews using the LinearLayoutManager** and displaying a simple linear list. This will not necessarily work for other layout types. For that, you need to read the next section. 
 
 ```java
 import android.support.v7.widget.LinearLayoutManager;
@@ -190,7 +194,7 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
 
 One slight difference is that the `RecyclerView` layout manager includes the last visible item on the screen, so we can use this info to decide whether to fetch more data.
 
-To start handling for scroll events, we simply need to use the `addOnScrollListener()` method and pass in an instance of the `EndlessRecyclerViewScrollListener` with the layout manager:
+To start handling the scroll events, we need to use the `addOnScrollListener()` method in our Activity or Fragment and pass in an instance of the `EndlessRecyclerViewScrollListener` with the layout manager:
 
 ```java
 public class MainActivity extends Activity {
@@ -225,7 +229,7 @@ public class MainActivity extends Activity {
 }
 ```
 
-See this [gist](https://gist.github.com/rogerhu/17aca6ad4dbdb3fa5892) for a more concrete example.
+See this [code sample](https://gist.github.com/rogerhu/17aca6ad4dbdb3fa5892) for a more concrete example of usage.
 
 ### Using with StaggeredGridLayoutManager
 
@@ -263,15 +267,14 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
         lastVisibleItemPosition = getLastVisibleItem(lastVisibleItemPositions);
         int visibleItemCount = view.getChildCount();
         int totalItemCount = mStaggeredGridLayoutManager.getItemCount();
-
         // same code as before
     }
 }
 ```
 
-### Supporting different Layout Managers
+### Supporting Arbitrary Layout Managers
 
-See [this gist](https://gist.github.com/rogerhu/d041b6467536842aa986) for supporting different `RecyclerView` layout managers.  We simply implement checks to determine which layout manager is being used:
+See [this code sample](https://gist.github.com/nesquena/d09dc68ff07e845cc622) for sample code supporting several different `RecyclerView` layout managers.  To achieve this, we implement checks to determine which layout manager is being used:
 
 ```java
 public EndlessRecyclerViewScrollListener(LinearLayoutManager layoutManager) {
@@ -309,6 +312,8 @@ public void onScrolled(RecyclerView view, int dx, int dy) {
   // remaining scroll logic here
 }
 ```
+
+See [the full implementation of EndlessRecyclerViewScrollListener here](https://gist.github.com/nesquena/d09dc68ff07e845cc622).
 
 ## Troubleshooting
 
