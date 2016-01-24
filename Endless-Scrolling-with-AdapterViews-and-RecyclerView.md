@@ -184,6 +184,8 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
 }
 ```
 
+#### Supporting Arbitrary Layout Managers
+
 The code used for the endless scrolling implements checks to determine which layout manager is being used:
 
 ```java
