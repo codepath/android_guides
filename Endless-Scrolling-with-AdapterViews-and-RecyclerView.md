@@ -128,22 +128,7 @@ Start by referring to this [code sample for usage](https://gist.github.com/roger
 2. Call `addOnScrollListener(...)` on a `RecyclerView` to enable endless pagination. Pass in an instance of `EndlessRecyclerViewScrollListener` and implement the `onLoadMore` which fires whenever a new page needs to be loaded to fill up the list.
 3. Inside the aforementioned `onLoadMore` method, load additional items into the adapter either by sending out a network request or by loading from another source. 
 
-To understand how the endless scrolling logic is implemented for the different layout managers for RecyclerView, see the next section.  All of the code is already incorporated in the `EndlessRecyclerViewScrollListener.java` code snippet.  However, if you wish to understand how the endless scrolling is calculated, the explanation is included below.
-
-#### Using with LinearLayoutManager
-
-The logic for RecyclerView for `LinearLayoutManager` is implemented basically the same as what is used for the `ListView`. One slight difference from the `ListView` is that that the `RecyclerView` layout managers include the position of the last visible item on the screen, so we can use this info directly instead of needing to calculate it:
-
-```java
-// This happens many times a second during a scroll, so be wary of the code you place here.
-// We are given a few useful parameters to help us work out if we need to load some more data,
-// but first we check if we are waiting for the previous load to finish.
-@Override
-public void onScrolled(RecyclerView view, int dx, int dy) {
-   int lastVisibleItemPosition = mLinearLayoutManager.findLastVisibleItemPosition();
-```
-
-To start handling the scroll events, we need to use the `addOnScrollListener()` method in our Activity or Fragment and pass in an instance of the `EndlessRecyclerViewScrollListener` with the layout manager:
+To start handling the scroll events for steps 2 and 3, we need to use the `addOnScrollListener()` method in our `Activity` or `Fragment` and pass in the instance of the `EndlessRecyclerViewScrollListener` with the layout manager as shown below:
 
 ```java
 public class MainActivity extends Activity {
@@ -157,7 +142,8 @@ public class MainActivity extends Activity {
        rvItems.addOnScrollListener(new EndlessRecyclerViewScrollListener(linearLayoutManager) {
            @Override
            public void onLoadMore(int page, int totalItemsCount) {
-               // fetch data asynchronously here
+               // Triggered only when new data needs to be appended to the list
+               // Add whatever code is needed to append new items to the bottom of the list
                customLoadMoreDataFromApi(page); 
            }
       });
@@ -166,17 +152,35 @@ public class MainActivity extends Activity {
   // Append more data into the adapter
   // This method probably sends out a network request and appends new data items to your adapter. 
   public void customLoadMoreDataFromApi(int offset) {
-      // Use the offset value and add it as a parameter to your API request to retrieve appropriate data.
+      // Send an API request to retrieve appropriate data using the offset value as a parameter.
       // Deserialize API response and then construct new objects to append to the adapter
-      // Add new objects to the data source for the adapter
-      int curSize = adapter.getItemCount(); 
-      items.addAll(moreContacts);
+      // Add the new objects to the data source for the adapter
+      items.addAll(moreItems);
       // For efficiency purposes, notify the adapter of only the elements that got changed
       // curSize will equal to the index of the first element inserted because the list is 0-indexed
+      int curSize = adapter.getItemCount(); 
       adapter.notifyItemRangeInserted(curSize, items.size() - 1);
   }
 }
 ```
+
+All of the code needed is already incorporated in the `EndlessRecyclerViewScrollListener.java` code snippet above. However, if you wish to understand how the endless scrolling is calculated, the explanation is included in the sections below.
+
+#### Using with LinearLayoutManager
+
+The logic for RecyclerView for `LinearLayoutManager` is implemented basically the same as what is used for the `ListView`. One slight difference from the `ListView` is that that the `RecyclerView` layout managers include the position of the last visible item on the screen, so we can use this info directly instead of needing to calculate it:
+
+```java
+// This happens many times a second during a scroll, so be wary of the code you place here.
+// We are given a few useful parameters to help us work out if we need to load some more data,
+// but first we check if we are waiting for the previous load to finish.
+@Override
+public void onScrolled(RecyclerView view, int dx, int dy) {
+   int lastVisibleItemPosition = mLinearLayoutManager.findLastVisibleItemPosition();
+   // ...
+```
+
+This position can the be used to calculate when new items need to be loaded by comparing the last visible position and the total number of items.
 
 #### Using with StaggeredGridLayoutManager
 
@@ -184,7 +188,6 @@ Because the `StaggeredGridLayoutManager` enables elements to be placed in differ
 
 ```java
 public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnScrollListener {
- 
     StaggeredGridLayoutManager mStaggeredGridLayoutManager;
 
     public EndlessRecyclerViewScrollListener(StaggeredGridLayoutManager layoutManager) {
@@ -246,6 +249,7 @@ public void onScrolled(RecyclerView view, int dx, int dy) {
   int lastVisibleItemPosition = 0;
   int totalItemCount = mLayoutManager.getItemCount();
 
+  // Check the layout manager type in order to determine the last visible position
   if (mLayoutManager instanceof StaggeredGridLayoutManager) {
      int[] lastVisibleItemPositions = ((StaggeredGridLayoutManager) mLayoutManager).findLastVisibleItemPositions(null);
      // get maximum element within the list
@@ -256,10 +260,9 @@ public void onScrolled(RecyclerView view, int dx, int dy) {
      lastVisibleItemPosition = ((GridLayoutManager) mLayoutManager).findLastVisibleItemPosition();
   }
 
-  // remaining scroll logic here
+  // Remaining scroll logic is here
 }
 ```
-
 
 ## Troubleshooting
 
