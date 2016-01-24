@@ -85,7 +85,7 @@ dependencies {
 
 ### Creating the Retrofit instance
 
-To send out network requests to an API, we need to use the [Retrofit builder] (http://square.github.io/retrofit/javadoc/retrofit/Retrofit.Builder.html) class and specify the base URL for the service. 
+To send out network requests to an API, we need to use the [Retrofit builder] (http://square.github.io/retrofit/2.x/retrofit/retrofit2/Retrofit.Builder.html) class and specify the base URL for the service. 
 
 ```java
 public static final String BASE_URL = "http://api.myservice.com";
