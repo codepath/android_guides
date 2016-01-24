@@ -132,7 +132,7 @@ To understand how the endless scrolling logic is implemented for the different l
 
 #### Using with LinearLayoutManager
 
-One slight difference from the `ListView` is that that the `RecyclerView` layout manager includes the last visible item on the screen, so we can use this info to decide whether to fetch more data:
+The logic for RecyclerView for `LinearLayoutManager` is implemented basically the same as what is used for the `ListView`. One slight difference from the `ListView` is that that the `RecyclerView` layout manager includes the last visible item on the screen, so we can use this info to decide whether to fetch more data:
 
 ```java
 // This happens many times a second during a scroll, so be wary of the code you place here.
