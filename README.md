@@ -20,6 +20,18 @@ Located in the San Francisco Bay Area and interested in learning with others in 
 
 If you are an experienced engineer (2+ years of professional experience in software development) and serious about learning Android, check out our [free evening 8-week Android bootcamp](http://codepath.com/androidbootcamp). Learn how to build mobile apps while collaborating with other engineers and designers. Work on solving important problems for non-profits with our free 8-week accelerated evening mobile bootcamp. [Learn more and apply here](http://courses.codepath.com/snippets/intro_to_android/about_bootcamp).
 
+## We Need Your Help!
+
+We need your help making the guides even better. In particular, here are the easiest ways to contribute:
+
+1. **Update Guides.** Review existing guides and update outdated content, add troubleshooting tips or add/update images
+2. **Fill Out Guides.** Find guides that are [simply stubs](https://github.com/codepath/android_guides/issues/2) and fill them out with content.
+3. **Create New Guides.** Review the [missing topics list](https://github.com/codepath/android_guides/issues/2) and create new topic guides.
+
+We [maintain a master missing topics list](https://github.com/codepath/android_guides/issues/2) that contains the most important missing topics. Also look for items in the cliffnotes with the **Needs Attention** mark which indicates the guide needs some love. If you see a topic you'd like added, please check the [issues](https://github.com/codepath/android_guides/issues) for this repository to let us know.
+
+If you are interested in contributing to our guides, please check out our [contribution guidelines](https://github.com/codepath/android_guides/wiki/Contributing-Guidelines) first.
+
 ## Contributors
 
 These guides were originally created and adapted by [Nathan Esquenazi](http://github.com/nesquena) 
@@ -38,15 +50,3 @@ community members including:
  * [Trevor Elkins](https://github.com/trevor-e)
  * [Adrian Romero](https://github.com/romeroadrian)
  * [Aaron Fleshner](https://github.com/adfleshner)
-
-## We Need Your Help!
-
-We need your help making the guides even better. In particular, here are the easiest ways to contribute:
-
-1. **Update Guides.** Review existing guides and update outdated content, add troubleshooting tips or add/update images
-2. **Fill Out Guides.** Find guides that are [simply stubs](https://github.com/codepath/android_guides/issues/2) and fill them out with content.
-3. **Create New Guides.** Review the [missing topics list](https://github.com/codepath/android_guides/issues/2) and create new topic guides.
-
-We [maintain a master missing topics list](https://github.com/codepath/android_guides/issues/2) that contains the most important missing topics. Also look for items in the cliffnotes with the **Needs Attention** mark which indicates the guide needs some love. If you see a topic you'd like added, please check the [issues](https://github.com/codepath/android_guides/issues) for this repository to let us know.
-
-If you are interested in contributing to our guides, please check out our [contribution guidelines](https://github.com/codepath/android_guides/wiki/Contributing-Guidelines) first.
