@@ -143,6 +143,41 @@ public void onScrolled(RecyclerView view, int dx, int dy) {
    int lastVisibleItemPosition = mLinearLayoutManager.findLastVisibleItemPosition();
 ```
 
+To start handling the scroll events, we need to use the `addOnScrollListener()` method in our Activity or Fragment and pass in an instance of the `EndlessRecyclerViewScrollListener` with the layout manager:
+
+```java
+public class MainActivity extends Activity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+       // Configure the RecyclerView
+       RecyclerView rvItems = (RecyclerView) findViewById(R.id.rvContacts);
+       LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+       recyclerView.setLayoutManager(linearLayoutManager);
+       // Add the scroll listener
+       rvItems.addOnScrollListener(new EndlessRecyclerViewScrollListener(linearLayoutManager) {
+           @Override
+           public void onLoadMore(int page, int totalItemsCount) {
+               // fetch data asynchronously here
+               customLoadMoreDataFromApi(page); 
+           }
+      });
+  }
+
+  // Append more data into the adapter
+  // This method probably sends out a network request and appends new data items to your adapter. 
+  public void customLoadMoreDataFromApi(int offset) {
+      // Use the offset value and add it as a parameter to your API request to retrieve appropriate data.
+      // Deserialize API response and then construct new objects to append to the adapter
+      // Add new objects to the data source for the adapter
+      int curSize = adapter.getItemCount(); 
+      items.addAll(moreContacts);
+      // For efficiency purposes, notify the adapter of only the elements that got changed
+      // curSize will equal to the index of the first element inserted because the list is 0-indexed
+      adapter.notifyItemRangeInserted(curSize, items.size() - 1);
+  }
+}
+```
+
 #### Using with StaggeredGridLayoutManager
 
 Because the `StaggeredGridLayoutManager` enables elements to be placed in different columns, determining whether more items need to be loaded must be calculated by looking at the last visible positions across each row.  We can implement endless scrolling by determining the highest value in the row to determine whether more items need to be fetched.  Note also that the threshold value has to be increased since more items can be displayed on the screen, so we use a multiplier by calling [`getSpanCount()`](http://developer.android.com/reference/android/support/v7/widget/StaggeredGridLayoutManager.html#getSpanCount()) on the layout manager:
