@@ -128,114 +128,22 @@ Start by referring to this [code sample for usage](https://gist.github.com/roger
 2. Call `addOnScrollListener(...)` on a `RecyclerView` to enable endless pagination. Pass in an instance of `EndlessRecyclerViewScrollListener` and implement the `onLoadMore` which fires whenever a new page needs to be loaded to fill up the list.
 3. Inside the aforementioned `onLoadMore` method, load additional items into the adapter either by sending out a network request or by loading from another source. 
 
-### Using with LinearLayoutManager
+To understand how the endless scrolling logic is implemented for the different layout managers for RecyclerView, see the next section.  All of the code is already incorporated in the `EndlessRecyclerViewScrollListener.java` code snippet.  However, if you wish to understand how the endless scrolling is calculated, the explanation is included below.
 
-The code below demonstrates how to do endless pagination for a linear layout based RecyclerView. Note that this simplified code only works for **RecyclerViews using the LinearLayoutManager** and displaying a simple linear list. This will not necessarily work for other layout types. For that, you need to read the next section. For lists using a `LinearLayoutManager`, copy over the following class as `EndlessRecyclerViewScrollListener.java` in your application:
+#### Using with LinearLayoutManager
 
-```java
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-
-public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnScrollListener {
-    // The minimum amount of items to have below your current scroll position
-    // before loading more.
-    private int visibleThreshold = 5;
-    // The current offset index of data you have loaded
-    private int currentPage = 0;
-    // The total number of items in the dataset after the last load
-    private int previousTotalItemCount = 0;
-    // True if we are still waiting for the last set of data to load.
-    private boolean loading = true;
-    // Sets the starting page index
-    private int startingPageIndex = 0;
-
-    private LinearLayoutManager mLinearLayoutManager;
-
-    public EndlessRecyclerViewScrollListener(LinearLayoutManager layoutManager) {
-        this.mLinearLayoutManager = layoutManager;
-    }
-
-    // This happens many times a second during a scroll, so be wary of the code you place here.
-    // We are given a few useful parameters to help us work out if we need to load some more data,
-    // but first we check if we are waiting for the previous load to finish.
-    @Override
-    public void onScrolled(RecyclerView view, int dx, int dy) {
-        int lastVisibleItemPosition = mLinearLayoutManager.findLastVisibleItemPosition();
-        int totalItemCount = mLinearLayoutManager.getItemCount();
-
-        // If the total item count is zero and the previous isn't, assume the
-        // list is invalidated and should be reset back to initial state
-        if (totalItemCount < previousTotalItemCount) {
-            this.currentPage = this.startingPageIndex;
-            this.previousTotalItemCount = totalItemCount;
-            if (totalItemCount == 0) {
-                this.loading = true;
-            }
-        }
-        // If it’s still loading, we check to see if the dataset count has
-        // changed, if so we conclude it has finished loading and update the current page
-        // number and total item count.
-        if (loading && (totalItemCount > previousTotalItemCount)) {
-            loading = false;
-            previousTotalItemCount = totalItemCount;
-        }
-
-        // If it isn’t currently loading, we check to see if we have breached
-        // the visibleThreshold and need to reload more data.
-        // If we do need to reload some more data, we execute onLoadMore to fetch the data.
-        if (!loading && (lastVisibleItemPosition + visibleThreshold) >= totalItemCount) {
-            currentPage++;
-            onLoadMore(currentPage, totalItemCount);
-            loading = true;
-        }
-    }
-
-    // Defines the process for actually loading more data based on page
-    public abstract void onLoadMore(int page, int totalItemsCount);
-
-}
-```
-
-One slight difference is that the `RecyclerView` layout manager includes the last visible item on the screen, so we can use this info to decide whether to fetch more data.
-
-To start handling the scroll events, we need to use the `addOnScrollListener()` method in our Activity or Fragment and pass in an instance of the `EndlessRecyclerViewScrollListener` with the layout manager:
+One slight difference from the `ListView` is that that the `RecyclerView` layout manager includes the last visible item on the screen, so we can use this info to decide whether to fetch more data:
 
 ```java
-public class MainActivity extends Activity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-       // Configure the RecyclerView
-       RecyclerView rvItems = (RecyclerView) findViewById(R.id.rvContacts);
-       LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-       recyclerView.setLayoutManager(linearLayoutManager);
-       // Add the scroll listener
-       rvItems.addOnScrollListener(new EndlessRecyclerViewScrollListener(linearLayoutManager) {
-           @Override
-           public void onLoadMore(int page, int totalItemsCount) {
-               // fetch data asynchronously here
-               customLoadMoreDataFromApi(page); 
-           }
-      });
-  }
-
-  // Append more data into the adapter
-  // This method probably sends out a network request and appends new data items to your adapter. 
-  public void customLoadMoreDataFromApi(int offset) {
-      // Use the offset value and add it as a parameter to your API request to retrieve appropriate data.
-      // Deserialize API response and then construct new objects to append to the adapter
-      // Add new objects to the data source for the adapter
-      int curSize = adapter.getItemCount(); 
-      items.addAll(moreContacts);
-      // For efficiency purposes, notify the adapter of only the elements that got changed
-      // curSize will equal to the index of the first element inserted because the list is 0-indexed
-      adapter.notifyItemRangeInserted(curSize, items.size() - 1);
-  }
-}
+// This happens many times a second during a scroll, so be wary of the code you place here.
+// We are given a few useful parameters to help us work out if we need to load some more data,
+// but first we check if we are waiting for the previous load to finish.
+@Override
+public void onScrolled(RecyclerView view, int dx, int dy) {
+   int lastVisibleItemPosition = mLinearLayoutManager.findLastVisibleItemPosition();
 ```
 
-See this [code sample](https://gist.github.com/rogerhu/17aca6ad4dbdb3fa5892) for a more concrete example of usage.
-
-### Using with StaggeredGridLayoutManager
+#### Using with StaggeredGridLayoutManager
 
 Because the `StaggeredGridLayoutManager` enables elements to be placed in different columns, determining whether more items need to be loaded must be calculated by looking at the last visible positions across each row.  We can implement endless scrolling by determining the highest value in the row to determine whether more items need to be fetched.  Note also that the threshold value has to be increased since more items can be displayed on the screen, so we use a multiplier by calling [`getSpanCount()`](http://developer.android.com/reference/android/support/v7/widget/StaggeredGridLayoutManager.html#getSpanCount()) on the layout manager:
 
@@ -276,9 +184,7 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
 }
 ```
 
-### Supporting Arbitrary Layout Managers
-
-See [this code sample](https://gist.github.com/nesquena/d09dc68ff07e845cc622) for sample code supporting several different `RecyclerView` layout managers.  To achieve this, we implement checks to determine which layout manager is being used:
+The code used for the endless scrolling implements checks to determine which layout manager is being used:
 
 ```java
 public EndlessRecyclerViewScrollListener(LinearLayoutManager layoutManager) {
@@ -317,7 +223,6 @@ public void onScrolled(RecyclerView view, int dx, int dy) {
 }
 ```
 
-See [the full implementation of EndlessRecyclerViewScrollListener here](https://gist.github.com/nesquena/d09dc68ff07e845cc622).
 
 ## Troubleshooting
 
