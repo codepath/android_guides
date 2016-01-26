@@ -27,6 +27,7 @@ This new framework encompasses several changes to the interface of Android apps 
 
  * [Material Design Guidelines](http://www.google.com/design/spec/material-design/introduction.html) - Principles that guide material design
  * [Material Design Docs](https://developer.android.com/design/material/index.html) - Overview of material design
+* [Highly Simplified Material Design For Developers](http://www.materialdoc.com/components/) - Document aimed at bridging the "disconnect between google material design guidelines and developers docs"
  * [Material Design for Developers](https://developer.android.com/training/material/index.html) - Developer guides for material 
  * [Material Design Examples](http://www.materialup.com/) - Blog posting beautiful material designs
  * [Material Palette](http://www.materialpalette.com/) - Easy material color selection
