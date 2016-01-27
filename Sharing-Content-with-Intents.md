@@ -208,6 +208,8 @@ public boolean onCreateOptionsMenu(Menu menu) {
 }
 ```
 
+**Note**: `ShareActionProvider` does not respond to `onOptionsItemSelected()` events, so you set the share action provider as soon as it is possible. 
+
 #### Attach Share Intent for Content
 
 Now, once you've setup the ShareActionProvider menu item, construct and attach the share intent for the provider but only **after image has been loaded** as shown below using the `Callback` for `Picasso`.
