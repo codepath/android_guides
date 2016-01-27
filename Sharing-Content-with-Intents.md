@@ -29,6 +29,14 @@ shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(photoFile));
 startActivity(Intent.createChooser(shareIntent, "Share image using"));
 ```
 
+#### Sending Links
+
+```java
+Intent shareIntent = new Intent(Intent.ACTION_SEND);
+shareIntent.setType("text/plain"); 
+shareIntent.putExtra(Intent.EXTRA_TEXT, "http://codepath.com");
+```
+
 #### Sharing Multiple Types
 
 In certain cases, we might want to send an image along with text. This can be done with:
