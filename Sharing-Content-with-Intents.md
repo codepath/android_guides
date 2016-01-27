@@ -128,8 +128,10 @@ public Uri getLocalBitmapUri(ImageView imageView) {
     // Store image to default external storage directory
     Uri bmpUri = null;
     try {
-        File file =  new File(Environment.getExternalStoragePublicDirectory(  
-	        Environment.DIRECTORY_DOWNLOADS), "share_image_" + System.currentTimeMillis() + ".png");
+        // Use methods on Context to access package-specific directories on external storage.
+        // This way, you don't need to request external read/write permission.
+        // See https://youtu.be/5xVh-7ywKpE?t=25m45s
+        File file =  new File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), "share_image_" + System.currentTimeMillis() + ".png");
         file.getParentFile().mkdirs();
         FileOutputStream out = new FileOutputStream(file);
         bmp.compress(Bitmap.CompressFormat.PNG, 90, out);
@@ -142,14 +144,7 @@ public Uri getLocalBitmapUri(ImageView imageView) {
 }
 ```
 
-Make sure to add the appropriate permissions to your `AndroidManifest.xml`:
-
-```xml
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-```
-
-and setup the "SD Card" within the emulator device settings:
+Make sure to setup the "SD Card" within the emulator device settings:
 
 <img src="https://i.imgur.com/nvA2ZKz.png" width="300" />
 
