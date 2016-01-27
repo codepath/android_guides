@@ -14,7 +14,7 @@ You can send content by invoking an implicit intent with `ACTION_SEND`.
 Intent sharingIntent = new Intent(Intent.ACTION_SEND);
 sharingIntent.setType("text/html");
 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, Html.fromHtml("<p>This is the text shared.</p>"));
-startActivity(Intent.createChooser(sharingIntent,"Share using"));
+startActivity(Intent.createChooser(sharingIntent, "Share using"));
 ```
 
 #### Sending Images
