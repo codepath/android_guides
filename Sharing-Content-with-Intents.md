@@ -37,6 +37,7 @@ Sending URL links should simply use `text/plain` type:
 Intent shareIntent = new Intent(Intent.ACTION_SEND);
 shareIntent.setType("text/plain"); 
 shareIntent.putExtra(Intent.EXTRA_TEXT, "http://codepath.com");
+startActivity(Intent.createChooser(shareIntent, "Share link using"));
 ```
 
 #### Sharing Multiple Types
