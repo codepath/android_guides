@@ -210,7 +210,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
 
 **Note**: `ShareActionProvider` does not respond to `onOptionsItemSelected()` events, so you set the share action provider as soon as it is possible. 
 
-#### Attach Share Intent for Content
+#### Attach Share Intent for Remote Image
 
 Now, once you've setup the ShareActionProvider menu item, construct and attach the share intent for the provider but only **after image has been loaded** as shown below using the `Callback` for `Picasso`.
 
@@ -247,6 +247,27 @@ public void setupShareIntent() {
     shareIntent.setType("image/*");
     // Attach share event to the menu item provider
     miShareAction.setShareIntent(shareIntent);
+}
+```
+
+#### Attach Share for a WebView URL
+
+We can use a similar approach if we wish to create a share action for the current URL that is being loaded in a [[WebView|Working-with-the-WebView]]:
+
+```java
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+  MenuInflater inflater = getMenuInflater();
+  inflater.inflate(R.menu.menu_article, menu);
+
+  MenuItem item = menu.findItem(R.id.menu_item_share);
+  ShareActionProvider miShare = (ShareActionProvider) MenuItemCompat.getActionProvider(item);
+  Intent shareIntent = new Intent(Intent.ACTION_SEND);
+  shareIntent.setType("text/plain"); 
+  // pass in the URL currently being used by the WebView
+  shareIntent.putExtra(Intent.EXTRA_TEXT, wvArticle.getUrl());
+  miShare.setShareIntent(shareIntent);
+  return super.onCreateOptionsMenu(menu);
 }
 ```
 
