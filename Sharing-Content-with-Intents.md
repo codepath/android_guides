@@ -226,6 +226,9 @@ public boolean onCreateOptionsMenu(Menu menu) {
 Now, once you've setup the ShareActionProvider menu item, construct and attach the share intent for the provider but only **after image has been loaded** as shown below using the `Callback` for `Picasso`.
 
 ```java
+
+private Intent shareIntent;
+
 @Override
 protected void onCreate(Bundle savedInstanceState) {
     // ...
@@ -252,12 +255,24 @@ public void setupShareIntent() {
     ImageView ivImage = (ImageView) findViewById(R.id.ivResult);
     Uri bmpUri = getLocalBitmapUri(ivImage); // see previous remote images section
     // Create share intent as described above
-    Intent shareIntent = new Intent();
+    shareIntent = new Intent();
     shareIntent.setAction(Intent.ACTION_SEND);
     shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
-    shareIntent.setType("image/*");
+    shareIntent.setType("image/*");   
+}
+
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+    // Inflate menu resource file.
+    getMenuInflater().inflate(R.menu.second_activity, menu);
+    // Locate MenuItem with ShareActionProvider
+    MenuItem item = menu.findItem(R.id.menu_item_share);
+    // Fetch reference to the share action provider
+    miShareAction = (ShareActionProvider) MenuItemCompat.getActionProvider(item);
     // Attach share event to the menu item provider
     miShareAction.setShareIntent(shareIntent);
+    // Return true to display menu
+    return true;
 }
 ```
 
