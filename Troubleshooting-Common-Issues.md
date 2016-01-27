@@ -8,6 +8,12 @@ Android v1.2 and higher also provides a [built-in decompiler](http://www.android
 
 <img src="https://imgur.com/shKOtyh.png"/>
 
+## Network Inspection
+
+If you are using [[OkHttp|Using-OkHttp]] or [[Retrofit|Consuming-APIs-with-Retrofit]], make sure to include the [Stetho](http://facebook.github.io/stetho/) project.  You can also use Stetho project for inspecting your network traffic through Chrome.  There is no current support with Stetho with [[Android Async Http Client|Using-Android-Async-Http-Client]] as noted in this [issue](https://github.com/facebook/stetho/issues/116).
+
+<img src="http://facebook.github.io/stetho/static/images/inspector-network.png"/>
+
 ## LogCat
 
 Android Studio contains a panel to receive logging messages from the emulator, known as [LogCat](http://developer.android.com/tools/help/logcat.html). If you are not seeing any log messages, click on the Restart icon ![http://imgur.com/kQKr1zv.png](http://imgur.com/kQKr1zv.png).  
