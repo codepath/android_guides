@@ -255,10 +255,7 @@ public class ShapeSelectorView extends View {
   public boolean onTouchEvent(MotionEvent event) {
     boolean result = super.onTouchEvent(event);
     if (event.getAction() == MotionEvent.ACTION_DOWN) {
-      currentShapeIndex ++;
-      if (currentShapeIndex > (shapeValues.length - 1)) {
-        currentShapeIndex = 0;
-      }
+      currentShapeIndex =  (currentShapeIndex ++) % shapeValues.length;
       postInvalidate();
       return true;
     }
