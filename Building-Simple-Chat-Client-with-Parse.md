@@ -30,19 +30,31 @@ Let's setup Parse into a brand new Android app following the steps below.
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     ```
 
+* Add the following lines to your `AndroidManifest.xml` inside the `application` tag
+
+```xml
+<meta-data
+    android:name="com.parse.APPLICATION_ID"
+    android:value="{APPLICATION_ID}" />
+<meta-data
+    android:name="com.parse.CLIENT_KEY"
+    android:value="{CLIENT_KEY}" />
+```
+
+> **Note:** Make sure you replace `{APPLICATION_ID}` and `{CLIENT_KEY}` with your application ID and client key respectively from Parse.
+
 * Create a class called `ChatApplication` which extends from `android.app.Application`
-  * In the application, initialize parse with your application id and client key
-  * Your application class should look like this after you have performed the above steps:
+  * In the application, initialize parse
 
     ```java
     public class ChatApplication extends Application {
-        public static final String YOUR_APPLICATION_ID = "AERqqIXGvzH7Nmg45xa5T8zWRRjqT8UmbFQeeI";
-        public static final String YOUR_CLIENT_KEY = "8bXPznF5eSLWq0sY9gTUrEF5BJlia7ltmLQFRh";
         @Override
         public void onCreate() {
             super.onCreate();
+            // [Optional] Power your app with Local Datastore. For more info, go to
+            // https://parse.com/docs/android/guide#local-datastore
             Parse.enableLocalDatastore(this);
-            Parse.initialize(this, YOUR_APPLICATION_ID, YOUR_CLIENT_KEY);
+            Parse.initialize(this);
         }
     }
     ```
@@ -66,6 +78,7 @@ Let's setup Parse into a brand new Android app following the steps below.
 Let's create an XML layout which allows us to post messages by typing into a text field. Open your layout file `activity_chat.xml`, add an `EditText` and a `Button` to compose and send text messages.
 
 ```xml
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -112,8 +125,7 @@ Open your main activity class (`ChatActivity.java`) and make the  following chan
 
 ```java
 public class ChatActivity extends Activity {
-    private static final String TAG = ChatActivity.class.getName();
-    private static String sUserId;
+    static final String TAG = ChatActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,17 +140,17 @@ public class ChatActivity extends Activity {
     }
     
     // Get the userId from the cached currentUser object
-    private void startWithCurrentUser() {
-        sUserId = ParseUser.getCurrentUser().getObjectId();		
+    void startWithCurrentUser() {
+        // TODO:
     }
     
     // Create an anonymous user using ParseAnonymousUtils and set sUserId 
-    private void login() {
+    void login() {
         ParseAnonymousUtils.logIn(new LogInCallback() {
 	    @Override
 	    public void done(ParseUser user, ParseException e) {
                 if (e != null) {
-                    Log.d(TAG, "Anonymous login failed: " + e.toString());
+                    Log.e(TAG, "Anonymous login failed: ", e);
                 } else {
                     startWithCurrentUser();
                 }
@@ -153,45 +165,46 @@ public class ChatActivity extends Activity {
 Next, we will setup UI views in `ChatActivity.java`. On click of 'Send' button, we'll save the message object to Parse. This is done by constructing a new `ParseObject` and then calling `saveInBackground()` to persist data to the database.
 
 ```java
+public class ChatActivity extends AppCompatActivity {
+...
+    static final String USER_ID_KEY = "userId";
+    static final String BODY_KEY = "body";
+
+    EditText etMessage;
+    Button btSend;
+
 ...
 
-public static final String USER_ID_KEY = "userId";
+    // Get the userId from the cached currentUser object
+    void startWithCurrentUser() {
+        setupMessagePosting();
+    }
 
-private EditText etMessage;
-private Button btSend;
-
-...
-
-// Get the userId from the cached currentUser object
-private void startWithCurrentUser() {
-    sUserId = ParseUser.getCurrentUser().getObjectId();  
-    setupMessagePosting();
-}
-
-// Setup button event handler which posts the entered message to Parse
-private void setupMessagePosting() {
+    // Setup button event handler which posts the entered message to Parse
+    void setupMessagePosting() {
         // Find the text field and button
         etMessage = (EditText) findViewById(R.id.etMessage);
         btSend = (Button) findViewById(R.id.btSend);
         // When send button is clicked, create message object on Parse
         btSend.setOnClickListener(new OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 String data = etMessage.getText().toString();
                 ParseObject message = ParseObject.create("Message");
-                message.put(USER_ID_KEY, sUserId);
-                message.put("body", data);
+                message.put(USER_ID_KEY, ParseUser.getCurrentUser().getObjectId());
+                message.put(BODY_KEY, data);
                 message.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {
+                        if (!isValid()) return;
                     	Toast.makeText(ChatActivity.this, "Successfully created message on Parse",
                              Toast.LENGTH_SHORT).show();
                     }
                 });
-                etMessage.setText("");
+                etMessage.setText(null);
             }
         });
+    }
 }
 ```
 
@@ -207,7 +220,7 @@ Now that we have verified that messages are successfully being saved to your par
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" 
   android:orientation="vertical"
-  android:background="#ffffff"
+  android:background="@android:color/white"
   android:layout_width="match_parent"
   android:layout_height="match_parent">
     <ListView
@@ -223,7 +236,6 @@ Now that we have verified that messages are successfully being saved to your par
       android:id="@+id/llSend"
       android:layout_alignParentBottom="true"
       android:layout_width="match_parent"
-      android:background="#ffffff"
       android:paddingTop="5dp"
       android:paddingBottom="10dp"
       android:paddingLeft="0dp"
@@ -263,7 +275,7 @@ We will be showing the logged in user's gravatar and messages on the right and t
     android:layout_height="match_parent"
     android:orientation="horizontal" >
     <ImageView
-        android:id="@+id/ivProfileLeft"
+        android:id="@+id/ivProfileOther"
         android:contentDescription="@string/profile_other"
         android:layout_width="64dp"
         android:layout_height="64dp"
@@ -273,14 +285,14 @@ We will be showing the logged in user's gravatar and messages on the right and t
         android:id="@+id/tvBody"
         android:padding="20dp"
         android:lines="3"
-        android:layout_marginRight="64dp"
+        android:layout_marginEnd="64dp"
         android:layout_width="match_parent"
         android:layout_height="64dp">
     </TextView>
     <ImageView
-        android:id="@+id/ivProfileRight"
+        android:id="@+id/ivProfileMe"
         android:contentDescription="@string/profile_me"
-        android:layout_marginLeft="-64dp"
+        android:layout_marginStart="-64dp"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:src="@mipmap/ic_launcher" />
@@ -301,22 +313,25 @@ Now let's create a `Message.java` class which will extend from `ParseObject`. Th
 ```java
 @ParseClassName("Message")
 public class Message extends ParseObject {
+    public static final String USER_ID_KEY = "userId";
+    public static final String BODY_KEY = "body";
+
     public String getUserId() {
-    	return getString("userId");
+        return getString(USER_ID_KEY);
     }
-    
+
     public String getBody() {
-    	return getString("body");
+        return getString(BODY_KEY);
     }
-    
+
     public void setUserId(String userId) {
-        put("userId", userId);	
+        put(USER_ID_KEY, userId);
     }
-    
+
     public void setBody(String body) {
-    	put("body", body);
+        put(BODY_KEY, body);
     }
-}
+}}
 ```
 
 We also need to make sure to register this class with Parse before we call Parse.initialize within the `ChatApplication.java` file:
@@ -332,6 +347,36 @@ public class ChatApplication extends Application {
 		Parse.initialize(this, YOUR_APPLICATION_ID, YOUR_CLIENT_KEY);
 	}
 }
+```
+
+Finally, we refactor `ChatActivity` and rename the references to the model keys
+
+```java
+...
+void setupMessagePosting() {
+        // Find the text field and button
+        etMessage = (EditText) findViewById(R.id.etMessage);
+        btSend = (Button) findViewById(R.id.btSend);
+        // When send button is clicked, create message object on Parse
+        btSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String data = etMessage.getText().toString();
+                ParseObject message = ParseObject.create("Message");
+                message.put(**Message.USER_ID_KEY**, ParseUser.getCurrentUser().getObjectId());
+                message.put(**Message.BODY_KEY**, data);
+                message.saveInBackground(new SaveCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        Toast.makeText(ChatActivity.this, "Successfully created message on Parse",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
+                etMessage.setText(null);
+            }
+        });
+    }
+...
 ```
 
 With our model defined with Parse and properly registered, we can now use this model to store and retrieve message data.
@@ -350,65 +395,64 @@ dependencies {
 ```
 
 ```java
-public class ChatListAdapter extends ArrayAdapter<Message> {	
-	private String mUserId;
-	
-	public ChatListAdapter(Context context, String userId, List<Message> messages) {
-	        super(context, 0, messages);
-	        this.mUserId = userId;
-	}
+public class ChatListAdapter extends ArrayAdapter<Message> {
+    private String mUserId;
 
-	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
-		if (convertView == null) {
-			convertView = LayoutInflater.from(getContext()).
-			    inflate(R.layout.chat_item, parent, false);
-			final ViewHolder holder = new ViewHolder();
-			holder.imageLeft = (ImageView)convertView.findViewById(R.id.ivProfileLeft);
-			holder.imageRight = (ImageView)convertView.findViewById(R.id.ivProfileRight);
-			holder.body = (TextView)convertView.findViewById(R.id.tvBody);
-			convertView.setTag(holder);
-		}
-		final Message message = (Message)getItem(position);
-		final ViewHolder holder = (ViewHolder)convertView.getTag();
-		final boolean isMe = message.getUserId().equals(mUserId);
-		// Show-hide image based on the logged-in user. 
-                // Display the profile image to the right for our user, left for other users.
-		if (isMe) {
-			holder.imageRight.setVisibility(View.VISIBLE);
-			holder.imageLeft.setVisibility(View.GONE);
-			holder.body.setGravity(Gravity.CENTER_VERTICAL | Gravity.RIGHT);
-		} else {
-			holder.imageLeft.setVisibility(View.VISIBLE);
-			holder.imageRight.setVisibility(View.GONE);
-			holder.body.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
-		}
-		final ImageView profileView = isMe ? holder.imageRight : holder.imageLeft;
-		Picasso.with(getContext()).load(getProfileUrl(message.getUserId())).into(profileView);
-		holder.body.setText(message.getBody());
-		return convertView;
-	}
-	
-	// Create a gravatar image based on the hash value obtained from userId
-	private static String getProfileUrl(final String userId) {
-		String hex = "";
-		try {
-			final MessageDigest digest = MessageDigest.getInstance("MD5");
-			final byte[] hash = digest.digest(userId.getBytes());
-			final BigInteger bigInt = new BigInteger(hash);
-			hex = bigInt.abs().toString(16);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return "http://www.gravatar.com/avatar/" + hex + "?d=identicon";
-	}
-	
-	final class ViewHolder {
-		public ImageView imageLeft;
-		public ImageView imageRight;
-		public TextView body;
-	}
+    public ChatListAdapter(Context context, String userId, List<Message> messages) {
+        super(context, 0, messages);
+        this.mUserId = userId;
+    }
 
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        if (convertView == null) {
+            convertView = LayoutInflater.from(getContext()).
+                    inflate(R.layout.chat_item, parent, false);
+            final ViewHolder holder = new ViewHolder();
+            holder.imageOther = (ImageView)convertView.findViewById(R.id.ivProfileOther);
+            holder.imageMe = (ImageView)convertView.findViewById(R.id.ivProfileMe);
+            holder.body = (TextView)convertView.findViewById(R.id.tvBody);
+            convertView.setTag(holder);
+        }
+        final Message message = getItem(position);
+        final ViewHolder holder = (ViewHolder)convertView.getTag();
+        final boolean isMe = message.getUserId().equals(mUserId);
+        // Show-hide image based on the logged-in user.
+        // Display the profile image to the right for our user, left for other users.
+        if (isMe) {
+            holder.imageMe.setVisibility(View.VISIBLE);
+            holder.imageOther.setVisibility(View.GONE);
+            holder.body.setGravity(Gravity.CENTER_VERTICAL | Gravity.RIGHT);
+        } else {
+            holder.imageOther.setVisibility(View.VISIBLE);
+            holder.imageMe.setVisibility(View.GONE);
+            holder.body.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
+        }
+        final ImageView profileView = isMe ? holder.imageMe : holder.imageOther;
+        Picasso.with(getContext()).load(getProfileUrl(message.getUserId())).into(profileView);
+        holder.body.setText(message.getBody());
+        return convertView;
+    }
+
+    // Create a gravatar image based on the hash value obtained from userId
+    private static String getProfileUrl(final String userId) {
+        String hex = "";
+        try {
+            final MessageDigest digest = MessageDigest.getInstance("MD5");
+            final byte[] hash = digest.digest(userId.getBytes());
+            final BigInteger bigInt = new BigInteger(hash);
+            hex = bigInt.abs().toString(16);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "http://www.gravatar.com/avatar/" + hex + "?d=identicon";
+    }
+
+    final class ViewHolder {
+        public ImageView imageOther;
+        public ImageView imageMe;
+        public TextView body;
+    }
 }
 ```
 
@@ -417,46 +461,53 @@ public class ChatListAdapter extends ArrayAdapter<Message> {
 Next, we will setup the ListView and bind our custom adapter to this ListView within the `ChatActivity.java` source file:
 
 ```java
+public class ChatActivity extends AppCompatActivity {
 ...
-...
-
-private ListView lvChat;
-private ArrayList<Message> mMessages;
-private ChatListAdapter mAdapter;
-// Keep track of initial load to scroll to the bottom of the ListView
-private boolean mFirstLoad;
-
-...
+    ListView lvChat;
+    ArrayList<Message> mMessages;
+    ChatListAdapter mAdapter;
+    // Keep track of initial load to scroll to the bottom of the ListView
+    boolean mFirstLoad;
 	
-// Setup message field and posting
-private void setupMessagePosting() {
-    	etMessage = (EditText) findViewById(R.id.etMessage);
-    	btSend = (Button) findViewById(R.id.btSend);
-    	lvChat = (ListView) findViewById(R.id.lvChat);
-    	mMessages = new ArrayList<Message>();
+    // Setup message field and posting
+    void setupMessagePosting() {
+        // Find the text field and button
+        etMessage = (EditText) findViewById(R.id.etMessage);
+        btSend = (Button) findViewById(R.id.btSend);
+        lvChat = (ListView) findViewById(R.id.lvChat);
+        mMessages = new ArrayList<>();
         // Automatically scroll to the bottom when a data set change notification is received and only if the last item is already visible on screen. Don't scroll to the bottom otherwise.
         lvChat.setTranscriptMode(1);
         mFirstLoad = true;
-    	mAdapter = new ChatListAdapter(ChatActivity.this, sUserId, mMessages);
-    	lvChat.setAdapter(mAdapter);
-    	btSend.setOnClickListener(new OnClickListener() {
+        final String userId = ParseUser.getCurrentUser().getObjectId();
+        mAdapter = new ChatListAdapter(ChatActivity.this, userId, mMessages);
+        lvChat.setAdapter(mAdapter);
+        // When send button is clicked, create message object on Parse
+        btSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String data = etMessage.getText().toString();
+                ParseObject message = ParseObject.create("Message");
+                message.put(Message.USER_ID_KEY, userId);
+                message.put(Message.BODY_KEY, data);
+                message.saveInBackground(new SaveCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        Toast.makeText(ChatActivity.this, "Successfully created message on Parse",
+                                Toast.LENGTH_SHORT).show();
+                        refreshMessages();
+                    }
+                });
+                etMessage.setText(null);
+            }
+        });
+    }
 
-			@Override
-			public void onClick(View v) {
-				String body = etMessage.getText().toString();
-				// Use Message model to create new messages now      
-				Message message = new Message();
-				message.setUserId(sUserId);
-				message.setBody(body);
-				message.saveInBackground(new SaveCallback() {
-					@Override
-					public void done(ParseException e) {
-						receiveMessage();
-					}
-				});
-				etMessage.setText("");
-			}
-	});
+    // Query messages from Parse so we can load them into the chat adapter
+    void refreshMessages() {
+        // TODO:
+    }
+...
 }
 ```
 
@@ -465,37 +516,36 @@ private void setupMessagePosting() {
 Now we can fetch last 50 messages from parse and bind them to the ListView with the use of our custom messages adapter within `ChatActivity.java`:
 
 ```java
+public class ChatActivity extends AppCompatActivity {
 ...
-
-private static final int MAX_CHAT_MESSAGES_TO_SHOW = 50;
-
+    static final int MAX_CHAT_MESSAGES_TO_SHOW = 50;
 ...
-
-// Query messages from Parse so we can load them into the chat adapter
-private void receiveMessage() {
-                // Construct query to execute
-		ParseQuery<Message> query = ParseQuery.getQuery(Message.class);
-                // Configure limit and sort order
-		query.setLimit(MAX_CHAT_MESSAGES_TO_SHOW);
-		query.orderByAscending("createdAt");
-		// Execute query to fetch all messages from Parse asynchronously
-                // This is equivalent to a SELECT query with SQL
-		query.findInBackground(new FindCallback<Message>() {
-			public void done(List<Message> messages, ParseException e) {
-				if (e == null) {					
-					mMessages.clear();
-					mMessages.addAll(messages);
-					mAdapter.notifyDataSetChanged(); // update adapter
-                                        // Scroll to the bottom of the list on initial load
-					if(mFirstLoad) {
-                                            lvChat.setSelection(mAdapter.getCount() - 1);
-                                            mFirstLoad = false;
-                                        }
-				} else {
-					Log.d("message", "Error: " + e.getMessage());
-				}
-			}
-		});
+    // Query messages from Parse so we can load them into the chat adapter
+    void refreshMessages() {
+        // Construct query to execute
+        ParseQuery<Message> query = ParseQuery.getQuery(Message.class);
+        // Configure limit and sort order
+        query.setLimit(MAX_CHAT_MESSAGES_TO_SHOW);
+        query.orderByAscending("createdAt");
+        // Execute query to fetch all messages from Parse asynchronously
+        // This is equivalent to a SELECT query with SQL
+        query.findInBackground(new FindCallback<Message>() {
+            public void done(List<Message> messages, ParseException e) {
+                if (e == null) {
+                    mMessages.clear();
+                    mMessages.addAll(messages);
+                    mAdapter.notifyDataSetChanged(); // update adapter
+                    // Scroll to the bottom of the list on initial load
+                    if (mFirstLoad) {
+                        lvChat.setSelection(mAdapter.getCount() - 1);
+                        mFirstLoad = false;
+                    }
+                } else {
+                    Log.e("message", "Error Loading Messages" + e);
+                }
+            }
+        });
+    }
 }
 ```
 
@@ -503,13 +553,21 @@ Now, we should be able to see the messages in the list after posting but we won'
 
 ## 12. Refreshing Messages
 
-Finally, let's periodically refresh the ListView with latest messages [[using a handler|Repeating-Periodic-Tasks#handler]]. The handler will call a runnable to fetch new messages every 100ms. This is a primitive "polling" rather than "push" technique for loading new messages but will work for the purposes of this simple project.
+Finally, let's periodically refresh the ListView with latest messages [[using a handler|Repeating-Periodic-Tasks#handler]]. The handler will call a runnable to fetch new messages every 100ms. This is a primitive "polling" rather than the more efficient "push" technique for refreshing new messages - but will work for the purposes of this simple project.
 
 ```java
 ...
 
 // Create a handler which can run code periodically
-private Handler handler = new Handler();
+static final int POLL_INTERVAL = 100; // milliseconds
+Handler mHandler = new Handler();  // android.os.Handler
+Runnable mRefreshMessagesRunnable = new Runnable() {
+    @Override
+    public void run() {
+       refreshMessages();
+       mHandler.postDelayed(this, POLL_INTERVAL);
+    }
+};
 
 ...
 
@@ -522,57 +580,45 @@ protected void onCreate(Bundle savedInstanceState) {
     } else {
     	login();
     }
-    // Run the runnable object defined every 100ms
-    handler.postDelayed(runnable, 100);
+    mHandler.postDelayed(mRefreshMessagesRunnable, POLL_INTERVAL);
 }
 
-// Defines a runnable which is run every 100ms
-private Runnable runnable = new Runnable() {
-    @Override
-    public void run() {
-       refreshMessages();
-       handler.postDelayed(this, 100);
-    }
-};
-
-private void refreshMessages() {
-    receiveMessage();		
-}
 ```
 
 See the [[repeating periodic tasks|Repeating-Periodic-Tasks#handler]] guide to learn more about the handler.
 
-## 13. SimpleChatManifest.xml
+## 13. Final AndroidManifest.xml
 
 The final manifest for this chat application looks like:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.codepath.simplechat"
-    android:versionCode="1"
-    android:versionName="1.0" >
-    
+    package="com.codepath.android.simplechat">
+
     <uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name="com.codepath.simplechat.ChatApplication"
+        android:name=".ChatApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
-        <activity
-            android:name=".ChatActivity"
-            android:label="@string/app_name" >
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".ChatActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="com.parse.APPLICATION_ID"
+            android:value="{APPLICATION_ID}" />
+        <meta-data
+            android:name="com.parse.CLIENT_KEY"
+            android:value="{CLIENT_KEY}" />
     </application>
-
 </manifest>
 ```
 
