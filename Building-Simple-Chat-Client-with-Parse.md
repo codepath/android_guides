@@ -1,5 +1,7 @@
 The following tutorial explains how to build a very simple chat application in Android using Parse backend-as-a-service. 
 
+>**Note:** This chat application is by no means fully-featured or production ready. It's merely an illustration on quickly building a fully connected application using [Parse](https://www.parse.com)
+
 ## 1. Parse Registration
 
 First, we need to [sign up for a Parse account](https://www.parse.com/#signup) unless we are already registered. 
