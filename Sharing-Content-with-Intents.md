@@ -169,6 +169,8 @@ You get the `Drawable` from the `ImageView`.  You get the `Bitmap` from the `Dra
 
 ### ShareActionProvider
 
+<img src="https://imgur.com/B8hEYut.png"/>
+
 This is how you can easily use an ActionBar share icon to activate a ShareIntent. The below focuses on the **support ShareActionProvider** for use with `AppCompatActivity`.
 
 **Note:** This is **an alternative to using a sharing intent** as described in the previous section. You either can use a sharing intent **or** the provider as described below. 
