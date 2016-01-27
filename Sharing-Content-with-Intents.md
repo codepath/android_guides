@@ -31,6 +31,8 @@ startActivity(Intent.createChooser(shareIntent, "Share image using"));
 
 #### Sending Links
 
+Sending URL links should simply use `text/plain` type:
+
 ```java
 Intent shareIntent = new Intent(Intent.ACTION_SEND);
 shareIntent.setType("text/plain"); 
