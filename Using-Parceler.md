@@ -4,7 +4,7 @@ Although creating Android [Parcelables](http://developer.android.com/reference/a
 
 ### Setup
 
-To setup, we need to add the [android-apt](https://bitbucket.org/hvisser/android-apt) plugin to our classpath in our root `build.gradle` file:
+To setup, we need to add the [android-apt](https://bitbucket.org/hvisser/android-apt) plugin to our classpath in our root `build.gradle` file.  This plugin enables the Parceler library to be used for annotation processing but not added to the final build.
 
 ```gradle
 dependencies {
