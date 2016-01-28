@@ -26,7 +26,7 @@ Make sure that you have at least the Android Gradle plugin v1.2.3 supported:
 
 ```gradle
 dependencies {
-    classpath 'com.android.tools.build:gradle:1.3.1'
+    classpath 'com.android.tools.build:gradle:1.5.0'
 }
 ```
 
