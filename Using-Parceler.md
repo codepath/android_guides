@@ -79,7 +79,7 @@ The Parceler library works by using the `@Parcel` annotation to generate the wra
 Suppose you had another Java object that required a list of these User objects and wished to also convert this class containing these collection of items into a `Parcelable` object:
 
 ```java
-public Repository {
+public class Repository {
   List<User> participants;
 }
 ```
@@ -88,27 +88,20 @@ While Parceler supports generating serialized items of standard Java types, it d
 
 ```java
 @Parcel
-public Repository {
-  @ParcelPropertyConverter(UserListParcelConverter.class)
-  List<User> participants;
+public class Repository {
+    @ParcelPropertyConverter(UserListParcelConverter.class)
+    List<User> participants;
 }
 ```
 
-We then need to implement this `ParcelConverter` class.  We first will define a custom object that extends from an `ArrayList` of User objects:
-
-```java
-public class UserList extends ArrayList<User> {
-}
-```
-
-We then pass this type as a templated type:
+We then need to implement this `ParcelConverter` class:
 
 ```java
 
-public class UserListParcelConverter implements ParcelConverter<UserList> {
+public class UserListParcelConverter implements ParcelConverter<List<User>> {
 
     @Override
-    public void toParcel(UserList input, Parcel parcel) {
+    public void toParcel(List<User> input, Parcel parcel) {
         if (input == null) {
             parcel.writeInt(-1);
         } else {
@@ -120,12 +113,12 @@ public class UserListParcelConverter implements ParcelConverter<UserList> {
     }
 
     @Override
-    public UserList fromParcel(Parcel parcel) {
+    public List<User> fromParcel(Parcel parcel) {
         int size = parcel.readInt();
         if (size < 0) {
             return null;
         }
-        UserList items = new UserList();
+        ArrayList<User> items = new ArrayList<>();
         for (int i = 0; i < size; ++i) {
             items.add((User) Parcels.unwrap(parcel.readParcelable(User.class.getClassLoader())));
         }
