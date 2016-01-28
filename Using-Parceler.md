@@ -29,8 +29,8 @@ Suppose we have an User object that implements the `Serializable` interface:
 
 ```java
 public class User implements Serializable {
-    String firstName;
-    String lastName;
+    private String firstName;
+    private String lastName;
 
     public User(String firstName, String lastName) {
        this.firstName = firstName;
@@ -39,11 +39,17 @@ public class User implements Serializable {
 }
 ```
 
-Simply remove this interface back to its original form and annotate the class with the `@Parcel` decorator.  You also need to create a public constructor with no arguments for the annotation lbirary to 
+There are several requirements to convert this object to one that can be used by this library:
+
+1. Remove the `Serializable interface` back to its original form.
+2. Annotate the class with the `@Parcel` decorator.  
+3. Use only public fields (private fields cannot be detected during annotation)
+4. Create a public constructor with no arguments for the annotation library too.
 
 ```java
 @Parcel
 public class User implements Serializable {
+    // fields must be public
     String firstName;
     String lastName;
 
@@ -74,59 +80,6 @@ User user = (User) Parcels.unwrap(getIntent().getParcelableExtra("user"));
 ```
 
 The Parceler library works by using the `@Parcel` annotation to generate the wrapper classes for you.  It works with many of the most standard Java types, including the ones defined [here](https://github.com/johncarl81/parceler#parcel-attribute-types).
-
-### Serializing for a collection of Java objects
-
-Suppose you had another Java object that required a list of these User objects and wished to also convert this class containing these collection of items into a `Parcelable` object:
-
-```java
-public class Repository {
-  List<User> participants;
-}
-```
-
-While Parceler supports generating serialized items of standard Java types, it does not know how to serialize/deserialize this list.  For this reason, you may need to create a custom serializer and deserializer for this purpose.  We need to first add the `@Parcel` annotation but should also specify an explicit class that will handle the work of managing this list using the `ParcelPropertyConverter`:
-
-```java
-@Parcel
-public class Repository {
-    @ParcelPropertyConverter(UserListParcelConverter.class)
-    List<User> participants;
-}
-```
-
-We then need to implement this `ParcelConverter` class:
-
-```java
-
-public class UserListParcelConverter implements ParcelConverter<List<User>> {
-
-    @Override
-    public void toParcel(List<User> input, Parcel parcel) {
-        if (input == null) {
-            parcel.writeInt(-1);
-        } else {
-            parcel.writeInt(input.size());
-            for (User item : input) {
-                parcel.writeParcelable(Parcels.wrap(item), 0);
-            }
-        }
-    }
-
-    @Override
-    public List<User> fromParcel(Parcel parcel) {
-        int size = parcel.readInt();
-        if (size < 0) {
-            return null;
-        }
-        ArrayList<User> items = new ArrayList<>();
-        for (int i = 0; i < size; ++i) {
-            items.add((User) Parcels.unwrap(parcel.readParcelable(User.class.getClassLoader())));
-        }
-        return items;
-    }
-}
-```
 
 ### References
 
