@@ -81,6 +81,12 @@ User user = (User) Parcels.unwrap(getIntent().getParcelableExtra("user"));
 
 The Parceler library works by using the `@Parcel` annotation to generate the wrapper classes for you.  It works with many of the most standard Java types, including the ones defined [here](https://github.com/johncarl81/parceler#parcel-attribute-types).
 
+### How it works
+
+You can also look at your `app/build/generated/source/apt` directory to see how it generates these wrapper classes:
+
+<img src="http://imgur.com/1iv1Xzq.png"> 
+
 ### References
 
 * <http://parceler.org/>
