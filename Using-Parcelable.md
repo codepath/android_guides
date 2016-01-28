@@ -118,7 +118,11 @@ There are a few common gotchas associated to Parcelable to consider below:
 
 * Where is `boolean`!?  For whatever odd reason there is no simple way to write a boolean to a Parcel.  To do so, you can instead write a `byte` with the corresponding value with `out.writeByte((byte) (myBoolean ? 1 : 0));` and retrieve it similarly with `myBoolean = in.readByte() != 0;`
 
-### Creating a Parcelable, The Easier Way (using IntelliJ or Android Studio)
+### Creating a Parcelable, The Easiest Way (using Third Party Library)
+
+The simplest way to create a Parcelable is to use a third-party library called Parceler.  See [this guide|Using-Parceler]] to see how to leverage it.  By annotating your classes that you intend to convert, the library is able to create much of this code for you.  
+
+### Creating a Parcelable, The Easier but Manual Way (using IntelliJ or Android Studio)
 
 There is a [Parcelable plugin](https://github.com/mcharmas/android-parcelable-intellij-plugin) that can be imported directly into IntelliJ or Android Studio, which enables you to generate the boilerplate code for creating Parcelables.  You can install this plugin by going to `Android Studio` -> `File` -> `Settings` -> `Plugins` -> `Browse repositories`:
 
@@ -138,7 +142,7 @@ Here are all the Java types it supports:
 
 <img src="https://github.com/mcharmas/android-parcelable-intellij-plugin/raw/master/screenshot.png"/>
 
-### Creating a Parcelable, The Easier Way (using Eclipse)
+### Creating a Parcelable, The Easier But Still Manual Way (using Eclipse)
 
 Generate your normal class like so:
 
@@ -268,6 +272,7 @@ public class MyCustomObject implements Parcelable {
 ```
 A very pretty Parcelable object that you can copy and paste back into your project.
 The site is also able to handle all of the primitives and Java object I didn't include in this tutorial. On top of that it also can handle your own custom parcelable objects and objects that extend other objects that you have already created. This is a util that I stumbled upon searching for a easier way to create Parcelable objects that I can use in my projects. Hope you enjoy.
+
 
 ## References
 
