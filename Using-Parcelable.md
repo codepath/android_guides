@@ -4,6 +4,14 @@ Due to Android's memory management scheme, you will often find yourself needing 
 
 Android uses Binder to facilitate such communication in a highly optimized way.  The Binder communicates with Parcels, which is a message container.  The Binder marshals the Parcel to be sent, sends and receives it, and then unmarshals it on the other side to reconstruct a copy of the original Parcel.  
 
+### Creating a Parcelable, The Easiest Way (using Third Party Library)
+
+The simplest way to create a Parcelable is to use a third-party library called Parceler.  See [[this guide|Using-Parceler]] to see how to use it.  By annotating your Java classes that you intend to use, the library is able to create much of the boilerplate code needed as shown below.  You can also look at your `app/build/generated/source/apt` directory to see how it generates these wrapper classes:
+
+<img src="http://imgur.com/1iv1Xzq.png"> 
+
+### Creating a Parcelable, The Manual Way
+
 To allow for your class instances to be sent as a Parcel you must implement the `Parcelable` interface along with a static field called `CREATOR`, which itself requires a special constructor in your class.
 
 ### Defining a Parcelable Object
@@ -118,11 +126,7 @@ There are a few common gotchas associated to Parcelable to consider below:
 
 * Where is `boolean`!?  For whatever odd reason there is no simple way to write a boolean to a Parcel.  To do so, you can instead write a `byte` with the corresponding value with `out.writeByte((byte) (myBoolean ? 1 : 0));` and retrieve it similarly with `myBoolean = in.readByte() != 0;`
 
-### Creating a Parcelable, The Easiest Way (using Third Party Library)
-
-The simplest way to create a Parcelable is to use a third-party library called Parceler.  See [[this guide|Using-Parceler]] to see how to leverage it.  By annotating your classes that you intend to convert, the library is able to create much of this code for you.  
-
-### Creating a Parcelable, The Easier but Manual Way (using IntelliJ or Android Studio)
+### Creating a Parcelable, The Easier but Still Manual Way (using IntelliJ or Android Studio)
 
 There is a [Parcelable plugin](https://github.com/mcharmas/android-parcelable-intellij-plugin) that can be imported directly into IntelliJ or Android Studio, which enables you to generate the boilerplate code for creating Parcelables.  You can install this plugin by going to `Android Studio` -> `File` -> `Settings` -> `Plugins` -> `Browse repositories`:
 
@@ -141,137 +145,6 @@ Here are all the Java types it supports:
  * List type of any object (**Warning: validation is not performed**)
 
 <img src="https://github.com/mcharmas/android-parcelable-intellij-plugin/raw/master/screenshot.png"/>
-
-### Creating a Parcelable, The Easier But Still Manual Way (using Eclipse)
-
-Generate your normal class like so:
-
-```java
-public class MyCustomObject {
-	
-	private int num1;
-	private String string1;
-	private boolean bool1;
-	
-	public MyCustomObject() {
-		
-	}
-
-	public MyCustomObject(int num1, String string1, boolean bool1) {
-		super();
-		this.num1 = num1;
-		this.string1 = string1;
-		this.bool1 = bool1;
-	}
-
-	public int getNum1() {
-		return num1;
-	}
-
-	public void setNum1(int num1) {
-		this.num1 = num1;
-	}
-
-	public String getString1() {
-		return string1;
-	}
-
-	public void setString1(String string1) {
-		this.string1 = string1;
-	}
-
-	public boolean isBool1() {
-		return bool1;
-	}
-
-	public void setBool1(boolean bool1) {
-		this.bool1 = bool1;
-	}
-	
-}
-```
-
-Then go to the site [Parcelabler](http://devk.it/proj/parcelabler/) designed by Dallas Gutauckis.
-Paste your object into the "Code" text box provided.
-Then watch the magic happen as this site turns your once plain and non-passable object into.
-
-```java 
-public class MyCustomObject implements Parcelable {
-	
-	private int num1;
-	private String string1;
-	private boolean bool1;
-	
-	public MyCustomObject() {
-		
-	}
-
-	public MyCustomObject(int num1, String string1, boolean bool1) {
-		super();
-		this.num1 = num1;
-		this.string1 = string1;
-		this.bool1 = bool1;
-	}
-
-	public int getNum1() {
-		return num1;
-	}
-
-	public void setNum1(int num1) {
-		this.num1 = num1;
-	}
-
-	public String getString1() {
-		return string1;
-	}
-
-	public void setString1(String string1) {
-		this.string1 = string1;
-	}
-
-	public boolean isBool1() {
-		return bool1;
-	}
-
-	public void setBool1(boolean bool1) {
-		this.bool1 = bool1;
-	}
-	
-
-    protected MyCustomObject(Parcel in) {
-        num1 = in.readInt();
-        string1 = in.readString();
-        bool1 = in.readByte() != 0x00;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(num1);
-        dest.writeString(string1);
-        dest.writeByte((byte) (bool1 ? 0x01 : 0x00));
-    }
-
-    @SuppressWarnings("unused")
-    public static final Parcelable.Creator<MyCustomObject> CREATOR = new Parcelable.Creator<MyCustomObject>() {
-        @Override
-        public MyCustomObject createFromParcel(Parcel in) {
-            return new MyCustomObject(in);
-        }
-
-        @Override
-        public MyCustomObject[] newArray(int size) {
-            return new MyCustomObject[size];
-        }
-    };
-}
-```
-A very pretty Parcelable object that you can copy and paste back into your project.
-The site is also able to handle all of the primitives and Java object I didn't include in this tutorial. On top of that it also can handle your own custom parcelable objects and objects that extend other objects that you have already created. This is a util that I stumbled upon searching for a easier way to create Parcelable objects that I can use in my projects. Hope you enjoy.
 
 
 ## References
