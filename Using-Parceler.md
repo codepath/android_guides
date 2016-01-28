@@ -44,7 +44,7 @@ There are several requirements to convert this object to one that can be used by
 1. Remove the `Serializable interface` back to its original form.
 2. Annotate the class with the `@Parcel` decorator.  
 3. Use only public fields (private fields cannot be detected during annotation) that need to be serialized.
-4. Create a public constructor with no arguments for the annotation library too.
+4. Create a public constructor with no arguments for the annotation library.
 
 ```java
 @Parcel
