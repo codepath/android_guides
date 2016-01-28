@@ -120,7 +120,7 @@ There are a few common gotchas associated to Parcelable to consider below:
 
 ### Creating a Parcelable, The Easiest Way (using Third Party Library)
 
-The simplest way to create a Parcelable is to use a third-party library called Parceler.  See [this guide|Using-Parceler]] to see how to leverage it.  By annotating your classes that you intend to convert, the library is able to create much of this code for you.  
+The simplest way to create a Parcelable is to use a third-party library called Parceler.  See [[this guide|Using-Parceler]] to see how to leverage it.  By annotating your classes that you intend to convert, the library is able to create much of this code for you.  
 
 ### Creating a Parcelable, The Easier but Manual Way (using IntelliJ or Android Studio)
 
