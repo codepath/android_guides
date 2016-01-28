@@ -291,6 +291,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
   Intent shareIntent = new Intent(Intent.ACTION_SEND);
   shareIntent.setType("text/plain"); 
   // pass in the URL currently being used by the WebView
+  WebView wvArticle = (WebView) findViewById(R.id.wvArticle);
   shareIntent.putExtra(Intent.EXTRA_TEXT, wvArticle.getUrl());
   miShare.setShareIntent(shareIntent);
   return super.onCreateOptionsMenu(menu);
