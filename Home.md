@@ -232,9 +232,10 @@ Covers usage of more advanced third-party libraries and SDKs that save time and 
 
 * [[Must Have Libraries]] (Networking, Persistence, Compatibility, Convenience, etc)
 * [[Popular External Tools]] (Analytics, Crash Reporting)
-* [[Dependency Injection with Dagger 2]] (**Needs Attention**)
+* [[Dependency Injection with Dagger 2]] 
 * [[Reducing View Boilerplate with Butterknife]] (View Annotations)
 * [[Communicating with an Event Bus]] (Using Otto to publish and receive events)
+* [[Using Parceler]] (Creating Parcelable objects)
 
 ## Production
 
