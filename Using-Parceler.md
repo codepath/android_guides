@@ -64,6 +64,7 @@ Next, simply wrap your objects with `Parcel.wrap()`:
 User user = new User("John", "Doe");
 Intent intent = new Intent(this, MyActivity.class);
 intent.putExtra("user", Parcels.wrap(user));
+startActivity(intent);
 ```
 
 On the receiving side, we simply need to unwrap the object:
