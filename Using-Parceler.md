@@ -61,7 +61,7 @@ public class User implements Serializable {
 Next, simply wrap your objects with `Parcel.wrap()`:
 
 ```java
-User = new User("John", "Doe");
+User user = new User("John", "Doe");
 Intent intent = new Intent(this, MyActivity.class);
 intent.putExtra("user", Parcels.wrap(user));
 ```
