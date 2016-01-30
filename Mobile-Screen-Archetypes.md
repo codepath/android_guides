@@ -6,10 +6,10 @@ In mobile application development, mobile apps tend to adhere to a set of standa
  * [Stream](#2-stream) - User can scroll through important resources in a list
  * [Detail](#3-detail) - User can view the specifics of a particular resource
  * [Creation](#4-creation) - User can create a new resource
- * [Profile](#5-profile) - User can view their identify and stats
+ * [Profile](#5-profile) - User can view their identity and stats
  * [Settings](#6-settings) - User can configure app options
 
-In addition to these six, there's other "extended" archetypes often encountered including:
+In addition to these six, there's other "extended" archetypes often encountered, including:
 
  * **Splash Pages** - Displayed while app is loading (and generally discouraged)
  * **Onboarding** - First-time user visual tutorial for how the app works 
