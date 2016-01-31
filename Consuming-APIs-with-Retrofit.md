@@ -19,13 +19,11 @@ Add the following to your `app/build.gradle` file:
 ```gradle
 dependencies {
     compile 'com.google.code.gson:gson:2.4'
-    compile 'com.squareup.retrofit2:retrofit:2.0.0-beta3'
-    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta3'  
-    compile 'com.squareup.okhttp:okhttp3:3.0.1'
+    compile 'com.squareup.retrofit:retrofit:2.0.0-beta2'
+    compile 'com.squareup.retrofit:converter-gson:2.0.0-beta2'  
+    compile 'com.squareup.okhttp:okhttp:2.7.0'
 }
 ```
-
-**Note**: if you are upgrading from Retrofit 2 beta 1 or beta2, your package imports will need to be changed from `import retrofit.XXXX` to `import retrofit2.XXXX`.  You will also need to update your `OkHttp` imports from `import okhttp.XXXX` to `import okhttp3.XXXX` because of the new OkHttp3 dependency.
 
 If you intend to use [[RxJava]] with Retrofit 2, you will also need to include the RxJava adapter:
 
@@ -33,7 +31,7 @@ If you intend to use [[RxJava]] with Retrofit 2, you will also need to include t
 dependencies {
   compile 'io.reactivex:rxjava:1.0.16'
   compile 'io.reactivex:rxandroid:1.0.1'
-  compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta3'
+  compile 'com.squareup.retrofit:adapter-rxjava:2.0.0-beta2'
 }
 ```
 
@@ -41,12 +39,12 @@ In the past, Retrofit relied on the [Gson](https://github.com/google/gson) libra
  
 |Converter  | Library             
 |-----------|------------------------------------------------
-|Gson       | com.squareup.retrofit2:converter-gson:2.0.0-beta3           
-|Jackson    | com.squareup.retrofit2:converter-jackson:2.0.0-beta3         
-|Moshi      | com.squareup.retrofit2:converter-moshi:2.0.0-beta3           
-|Protobuf   | com.squareup.retrofit2:converter-protobuf:2.0.0-beta3       
-|Wire       | com.squareup.retrofit2:converter-wire:2.0.0-beta3            
-|Simple XML | com.squareup.retrofit2:converter-simplexml:2.0.0-beta3       
+|Gson       | com.squareup.retrofit:converter-gson:2.0.0-beta2           
+|Jackson    | com.squareup.retrofit:converter-jackson:2.0.0-beta2         
+|Moshi      | com.squareup.retrofit:converter-moshi:2.0.0-beta2            
+|Protobuf   | com.squareup.retrofit:converter-protobuf:2.0.0-beta2        
+|Wire       | com.squareup.retrofit:converter-wire:2.0.0-beta2            
+|Simple XML | com.squareup.retrofit:converter-simplexml:2.0.0-beta2        
 
 ### Create Java Objects for Resources
 
@@ -112,7 +110,7 @@ Retrofit retrofit = new Retrofit.Builder()
 
 ### Define the Endpoints
 
-With Retrofit 2, endpoints are defined inside of an interface using special retrofit annotations to encode details about the parameters and request method.   In addition, the return value is always a parameterized `Call<T>` object such as `Call<User>`.   If you do not need any type-specific response, you can specify return value as simply `Call<ResponseBody>`.
+With Retrofit 2, endpoints are defined inside of an interface using special retrofit annotations to encode details about the parameters and request method.   In addition, the return value is always a parameterized `Call<T>` object such as `Call<User>`.   If you do not need any type-specific response, you can specify return value as simply `Call<Response>`.
 
 For instance, the interface defines each endpoint in the following way:
 
@@ -243,7 +241,8 @@ User user = new User(123, "John Doe");
 Call<User> call = apiService.createuser(user);
 call.enqueue(new Callback<User>() {
   @Override
-  public void onResponse(Response<User> response) {
+  public void onResponse(Response<User> response,
+          Retrofit retrofit) {
 
   }
 
@@ -418,9 +417,8 @@ Interceptor interceptor = new Interceptor() {
 };
 
 // Add the interceptor to OkHttpClient 
-OkHttpClient.Builder builder = new OkHttpClient.Builder();
-builder.interceptors().add(interceptor);
-OkHttpClient client = builder.build();
+OkHttpClient client = new OkHttpClient();
+client.interceptors().add(interceptor);
 
 // Set the custom client when building adapter
 Retrofit retrofit = new Retrofit.Builder()
