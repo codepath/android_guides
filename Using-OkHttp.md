@@ -233,6 +233,59 @@ consumer.setTokenWithSecret(token, secret);
 okHttpClient.interceptors().add(new SigningInterceptor(consumer));
 ```
 
+### Caching Network Responses
+
+We can setup network caching by passing in a cache when building the `OkHttpClient`:
+
+```java
+int cacheSize = 10 * 1024 * 1024; // 10 MiB
+Cache cache = new Cache(getApplication().getCacheDir(), cacheSize);
+OkHttpClient client = new OkHttpClient.Builder().cache(cache).build();
+```
+
+We can control whether to retrieve a cached response by setting the `cacheControl` property on the request.  For instance, if we wish to only retrieve the request if data is cached, we could construct the `Request` object as follows:
+
+```java
+Request request = new Request.Builder()
+                .url("http://publicobject.com/helloworld.txt")
+                .cacheControl(new CacheControl.Builder().onlyIfCached().build())
+                .build();
+```
+
+We can also force a network response by using `noCache()` for the request:
+
+```java
+  .cacheControl(new CacheControl.Builder().noCache().build())        
+```
+
+We can also specify a maximum staleness age for the cached response:
+
+```java
+   .cacheControl(new CacheControl.Builder().maxStale(365, TimeUnit.DAYS).build())
+```
+
+To retrieve the cached response, we can simply call `cacheResponse()` on the Response object:
+
+```java
+Call call = client.newCall(request);
+call.enqueue(new Callback() {
+  @Override
+  public void onFailure(Call call, IOException e) {
+
+  }
+
+  @Override
+  public void onResponse(Call call, final Response response) throws IOException
+  {
+     final Response text = response.cacheResponse();
+     // if no cached object, result will be null
+     if (text != null) {
+        Log.d("here", text.toString());
+     }
+  }
+});
+```
+
 ### Recipe guide
 
 Check out Square's official [recipe guide](https://github.com/square/okhttp/wiki/Recipes) for other examples of using OkHttp.
