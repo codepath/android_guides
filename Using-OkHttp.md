@@ -290,6 +290,39 @@ call.enqueue(new Callback() {
 });
 ```
 
+### Troubleshooting
+
+Use Facebook's [Stetho](http://facebook.github.io/stetho/) plugin to monitor network calls with Chrome:
+
+<img src="http://facebook.github.io/stetho/static/images/inspector-network.png"/>
+
+Add this line to your Gradle configuration:
+
+```gradle
+dependencies { 
+    compile 'com.facebook.stetho:stetho-okhttp3:1.3.0' 
+} 
+```
+
+When instantiating `OkHttp`, make sure to pass in the `StethoInterceptor`.
+
+```java
+OkHttpClient client = new OkHttpClient.Builder()
+    .addNetworkInterceptor(new StethoInterceptor())
+    .build();
+```
+
+Finally, make sure to initialize Stetho in your Application:
+
+```java
+public class MyApplication extends Application {
+  public void onCreate() {
+    super.onCreate();
+    Stetho.initializeWithDefaults(this);
+  }
+}
+```
+
 ### Recipe guide
 
 Check out Square's official [recipe guide](https://github.com/square/okhttp/wiki/Recipes) for other examples of using OkHttp.
