@@ -44,12 +44,16 @@ Picasso picasso = new Picasso.Builder(context).downloader(new OkHttp3Downloader(
 First, we must instantiate an OkHttpClient and create a `Request` object:
 
 ```java
+// should be a singleton because of changes in OkHttp3 no longer requires a global conection pool
+// see https://github.com/square/okhttp/blob/master/CHANGELOG.md#version-300-rc1
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
                      .url("http://publicobject.com/helloworld.txt")
                      .build();
 ```
+
+
 
 If there are any query parameters that need to be added, the `HttpUrl` class provided by OkHttp can be leveraged to construct the URL:
 
