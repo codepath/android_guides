@@ -19,7 +19,7 @@ Makes sure to enable the use of the Internet permission in your `AndroidManifest
 Simply add this line to your `app/build.gradle` file:
 
 ```gradle
-compile 'com.squareup.okhttp:okhttp:2.7.0'
+compile 'com.squareup.okhttp3:okhttp:3.0.1'
 ```
 
 ## Sending and Receiving Network Requests
@@ -76,12 +76,12 @@ passing an anonymous `Callback` object that implements both `onFailure()` and `o
 // Get a handler that can be used to post to the main thread
 client.newCall(request).enqueue(new Callback() {
     @Override
-    public void onFailure(Request request, IOException e) {
+    public void onFailure(Call call, IOException e) {
         e.printStackTrace();
     }
 
     @Override
-    public void onResponse(final Response response) throws IOException {
+    public void onResponse(Call call, final Response response) throws IOException {
         if (!response.isSuccessful()) {
             throw new IOException("Unexpected code " + response);
         }
@@ -94,7 +94,7 @@ OkHttp normally creates a new worker thread to dispatch the network request and 
 ```java
 client.newCall(request).enqueue(new Callback() {
     @Override
-    public void onResponse(final Response response) throws IOException {
+    public void onResponse(Call call, final Response response) throws IOException {
         // ... check for failure using `isSuccessful` before proceeding
 
         // Read data on the worker thread
@@ -162,7 +162,7 @@ We can also decode the data by converting it to a `JSONObject` or `JSONArray`, d
 ```java
 client.newCall(request).enqueue(new Callback() {
     @Override
-    public void onResponse(final Response response) throws IOException {  
+    public void onResponse(Call call, final Response response) throws IOException {  
         try {
             String responseData = response.body().string();
             JSONObject json = new JSONObject(responseData);
@@ -197,7 +197,7 @@ final Gson gson = new Gson();
 client.newCall(request).enqueue(new Callback() {
     // Parse response using gson deserializer
     @Override
-    public void onResponse(final Response response) throws IOException {
+    public void onResponse(Call call, final Response response) throws IOException {
         // Process the data on the worker thread
         GitUser user = gson.fromJson(response.body().charStream(), GitUser.class);
         // Access deserialized user object here
