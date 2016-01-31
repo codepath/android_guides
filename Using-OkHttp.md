@@ -22,6 +22,8 @@ Simply add this line to your `app/build.gradle` file:
 compile 'com.squareup.okhttp3:okhttp:3.0.1'
 ```
 
+**Note**: If you are upgrading from an older version of OkHttp, your imports will also need to be changed from `import com.squareup.okhttp.XXXX` to `import okhttp3.XXXX`.
+
 ## Sending and Receiving Network Requests
 
 First, we must instantiate an OkHttpClient and create a `Request` object:
