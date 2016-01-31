@@ -29,21 +29,7 @@ public class MainActivity extends Activity {
 
 ### Setup
 
-Add these three lines to your `app/build.gradle` file:
-
-```gradle
-dependencies {
-    apt 'com.google.dagger:dagger-compiler:2.0.2'
-    compile 'com.google.dagger:dagger:2.0.2'
-    provided 'org.glassfish:javax.annotation:10.0-b28'
-}
-```
-
-Note that the `provided` keyword refers to dependencies that are only needed at compilation.  The Dagger compiler generates code that is used to create the dependency graph of the classes defined in your source code.  These classes are added to the IDE class path during compilation. The `apt` keyword does not add these classes to the class path, they are used only for annotation processing, which prevents accidentally referencing them.
-
-Android Studio by default will not recognize a lot of generated Dagger 2 code as legitimate classes, but adding the `android-apt` plugin will add these files into the IDE class path and enable you to have more visibility:
-
-Add this line to your root `build.gradle`:
+Android Studio by default will not recognize a lot of generated Dagger 2 code as legitimate classes, but adding the `android-apt` plugin will add these files into the IDE class path and enable you to have more visibility.  Add this line to your root `build.gradle`:
 
 ```gradle
  dependencies {
@@ -58,6 +44,19 @@ Then make sure to apply the plugin in your `app/build.gradle`:
 // add after applying plugin: 'com.android.application'  
 apply plugin: 'com.neenbedankt.android-apt'
 ```
+
+Add these three lines to your `app/build.gradle` file:
+
+```gradle
+dependencies {
+    // apt command comes from the android-apt plugin
+    apt 'com.google.dagger:dagger-compiler:2.0.2'
+    compile 'com.google.dagger:dagger:2.0.2'
+    provided 'org.glassfish:javax.annotation:10.0-b28'
+}
+```
+
+Note that the `provided` keyword refers to dependencies that are only needed at compilation.  The Dagger compiler generates code that is used to create the dependency graph of the classes defined in your source code.  These classes are added to the IDE class path during compilation. The `apt` keyword, which is provided with the android-apt plugin, does not add these classes to the class path, they are used only for annotation processing, which prevents accidentally referencing them.
 
 ### Creating Singletons
 ![Dagger Injections Overview](https://raw.githubusercontent.com/codepath/android_guides/master/images/dagger_general.png)
