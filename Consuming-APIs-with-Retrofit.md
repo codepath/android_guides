@@ -489,8 +489,8 @@ Setup your `app/build.gradle` file:
 ```gradle
 // Gradle dependency on Stetho 
   dependencies { 
-    compile 'com.facebook.stetho:stetho:1.2.0' 
-    compile 'com.facebook.stetho:stetho-okhttp:1.2.0' 
+    compile 'com.facebook.stetho:stetho:1.3.0' 
+    compile 'com.facebook.stetho:stetho-okhttp:1.3.0' 
   } 
 ```
 
