@@ -45,7 +45,7 @@ Then make sure to apply the plugin in your `app/build.gradle`:
 apply plugin: 'com.neenbedankt.android-apt'
 ```
 
-Add these three lines to your `app/build.gradle` file:
+Add these three lines to your `app/build.gradle` file after this apply statement:
 
 ```gradle
 dependencies {
