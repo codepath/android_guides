@@ -4,7 +4,7 @@ One of the issues with existing SQL object relational mapping (ORM) libraries is
 
 ### Setup
 
-The section below describes how to setup using DBFlow v3, which is currently in beta.  If you are upgrading from an older version of DBFlow, read this [migration guide](https://github.com/Raizlabs/DBFlow/blob/master/usage/Migration3Guide.md).  One of the major changes is the library used to generate Java code from annotation now relies on [JavaPoet](https://github.com/square/javapoet).  The generated database and table classes now use '_' instead of '$' as the separator, which may require small adjustments to your code when upgrading.
+The section below describes how to setup using DBFlow v3, which is currently in beta but still very much ready for production use.  If you are upgrading from an older version of DBFlow, read this [migration guide](https://github.com/Raizlabs/DBFlow/blob/master/usage/Migration3Guide.md).  One of the major changes is the library used to generate Java code from annotation now relies on [JavaPoet](https://github.com/square/javapoet).  The generated database and table classes now use '_' instead of '$' as the separator, which may require small adjustments to your code when upgrading.
 
 #### Gradle configuration
 
@@ -252,6 +252,8 @@ The final step is for the Content Provider to be exposed.  If you wish for other
 ```
 
 ### Troubleshooting
+
+Because DBFlow requires on annotation processing, sometimes you may need to click `Build` -> `New Project` to rebuild the source code generated.  
 
 #### ProGuard issues
 
