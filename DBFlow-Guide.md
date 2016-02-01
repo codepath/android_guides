@@ -278,8 +278,10 @@ Type `.schema` to see how the table definitions are created:
 
 ```
 sqlite> .schema
+sqlite> .schema
 CREATE TABLE android_metadata (locale TEXT);
-CREATE TABLE `User`(`id` INTEGER, PRIMARY KEY(`id`));
+CREATE TABLE `Organization`(`id` INTEGER,`name` TEXT, PRIMARY KEY(`id`));
+CREATE TABLE `User`(`id` INTEGER,`name` TEXT,`organization_id` INTEGER, PRIMARY KEY(`id`), FOREIGN KEY(`organization_id`) REFERENCES `Organization`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION);
 ```
 
 ### References
