@@ -1,6 +1,6 @@
 ### Overview
 
-One of the issues with existing SQL object relational mapping (ORM) libraries is that they rely on Java reflection to define database models, table schemas, and column relationships.   DBFlow is one of the few that relies strictly on annotation processing to generate Java code based on the [[SQLiteOpenHelper|Local-Databases-with-SQLiteOpenHelper]] framework that avoids the use of reflection.   This approach results in reducing run-time performance while also saving you from having to write a lot boilerplate code normally needed.   It also includes additional features such as helping manage table migrations and exposing your tables as content providers for other apps.
+One of the issues with existing SQL object relational mapping (ORM) libraries is that they rely on Java reflection to define database models, table schemas, and column relationships.   DBFlow is one of the few that relies strictly on annotation processing to generate Java code based on the [[SQLiteOpenHelper|Local-Databases-with-SQLiteOpenHelper]] framework that avoids the use of reflection.   This approach results in reducing run-time performance while also saving you from having to write a lot boilerplate code normally needed to define your database tables, manage their schema changes, and performing queries.
 
 ### Setup
 
