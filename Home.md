@@ -170,6 +170,7 @@ Exploring the strategies for data persistence:
 
 * [[Persisting Data to the Device]] (Preferences, Files, SQLite, ORMs)
 * [[ActiveAndroid ORM Guide|ActiveAndroid Guide]] (and Q&A)
+* [[DBFLow ORM Guide|DBFlow-Guide]]
 * [[Storing and Accessing SharedPreferences]]
 * [[Local Databases with SQLiteOpenHelper]]
 * [[Populating a ListView with a CursorAdapter]]
