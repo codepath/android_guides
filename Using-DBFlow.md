@@ -101,14 +101,14 @@ public class User extends BaseModel {
 
 #### Using with the Parceler library
 
-If you are using DBFlow with the [Parceler|Using Parceler] library, make sure to annotate the class with the `@Parcel(analyze={}` decorator.  Otherwise, the Parceler library will try to serialize the fields that are associated with the `BaseModel` class.  To avoid this issue, specify to Parceler exactly which class in the inheritance chain should be examined (see this [disucssion](https://github.com/johncarl81/parceler/issues/73#issuecomment-167131080) for more details):
+If you are using DBFlow with the [[Parceler|Using Parceler]] library, make sure to annotate the class with the `@Parcel(analyze={}` decorator.  Otherwise, the Parceler library will try to serialize the fields that are associated with the `BaseModel` class.  To avoid this issue, specify to Parceler exactly which class in the inheritance chain should be examined (see this [disucssion](https://github.com/johncarl81/parceler/issues/73#issuecomment-167131080) for more details):
 
 ```java
 @Table(database = MyDatabase.class)
 @Parcel(analyze={User.class})   // add Parceler annotation here
 public class User extends BaseModel {
 }
-```java
+```
 
 #### Instantiating DBFlow
 
@@ -137,7 +137,7 @@ Modify your `AndroidManifest.xml` file to call this Application object:
 
 #### ProGuard issues
 
-If you are using DBFlow with [ProGuard|Configuring ProGuard]], and see `Table is not registered with a Database. Did you forget the @Table annotation?`, make sure to include this line in your ProGuard configuration:
+If you are using DBFlow with [[ProGuard|Configuring ProGuard]], and see `Table is not registered with a Database. Did you forget the @Table annotation?`, make sure to include this line in your ProGuard configuration:
 
 ```
 -keep class * extends com.raizlabs.android.dbflow.config.DatabaseHolder { *; }
