@@ -133,6 +133,68 @@ Modify your `AndroidManifest.xml` file to call this Application object:
         android:name=".MyApplication"
 ```
 
+### Exposing Content Providers
+
+One of the side benefits of using DBFlow is that you can expose tables easily as Android [Content Providers|Creating-Content-Providers]], which enables other apps to query this data.    
+
+The first step is to declare these Content Providers in the same place where your database is declared to help centralize all the declarations.  We also need to expose a URL for other apps to query, which will be declared as `content://com.codepath.myappname.provider` in this example.
+
+```java
+@ContentProvider(authority = MyDatabase.AUTHORITY,
+        database = MyDatabase.class,
+        baseContentUri = MyDatabase.BASE_CONTENT_URI)
+@Database(name = MyDatabase.NAME, version = MyDatabase.VERSION)
+public class MyDatabase {
+
+    public static final String NAME = "MyDatabase";
+
+    public static final int VERSION = 1;
+
+    public static final String AUTHORITY = "com.codepath.myappname.provider";
+
+    public static final String BASE_CONTENT_URI = "content://";
+
+    private static Uri buildUri(String... paths) {
+        Uri.Builder builder = Uri.parse(AppDatabase.BASE_CONTENT_URI + AppDatabase.AUTHORITY).buildUpon();
+        for (String path : paths) {
+            builder.appendPath(path);
+        }
+        return builder.build();
+    }
+}
+```
+
+Next, within this same class, we will declare a `User` endpoint (i.e. content://com.codepath.myappname.provider/User) that can be declared:
+
+```java
+public class MyDatabase {
+
+    // ...
+
+    // Declare endpoints here
+    @TableEndpoint(name = UserProviderModel.ENDPOINT)
+    public static class UserProviderModel {
+
+        public static final String ENDPOINT = "User";
+
+        @ContentUri(path = IdentityProviderModel.ENDPOINT,
+                type = ContentUri.ContentType.VND_MULTIPLE + ENDPOINT)
+        public static final Uri CONTENT_URI = buildUri(ENDPOINT);
+    }
+}
+```
+
+#### Adding to Manifest file
+
+The final step is for the Content Provider to be exposed.  If you wish for other apps to be able to view this data, set `android:exported` to be true.  Otherwise, if you only wish the existing application to query this content provider, set the value to be false.
+
+```xml
+<provider
+            android:authorities="com.codepath.myapp.provider"
+            android:exported="true|false"
+            android:name=".provider.TestContentProvider_Provider"/>
+```
+
 ### Troubleshooting
 
 #### ProGuard issues
