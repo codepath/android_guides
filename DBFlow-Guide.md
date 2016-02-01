@@ -189,6 +189,19 @@ We can simply call `.delete()` on the respective object:
 user.delete();
 ```
 
+### Database Transactions
+
+See [this guide](https://github.com/Raizlabs/DBFlow/blob/master/usage/Transactions.md) about how to perform transactions.  You can batch save a list of `User` objects by using the `ProcessModelInfo` class:
+
+```java
+
+ArrayList<User> users = new ArrayList<>();
+
+// fetch users from the network
+
+// save rows
+TransactionManager.getInstance().addTransaction(new SaveModelTransaction<>(ProcessModelInfo.withModels(users)));
+```
 ### Exposing Content Providers
 
 One of the side benefits of using DBFlow is that you can expose tables easily as Android [[Content Providers|Creating-Content-Providers]], which enables other apps to query this data.    
