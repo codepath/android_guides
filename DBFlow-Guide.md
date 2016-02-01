@@ -191,7 +191,7 @@ user.delete();
 
 ### Exposing Content Providers
 
-One of the side benefits of using DBFlow is that you can expose tables easily as Android [Content Providers|Creating-Content-Providers]], which enables other apps to query this data.    
+One of the side benefits of using DBFlow is that you can expose tables easily as Android [[Content Providers|Creating-Content-Providers]], which enables other apps to query this data.    
 
 The first step is to declare these Content Providers in the same place where your database is declared to help centralize all the declarations.  We also need to expose a URL for other apps to query, which will be declared as `content://com.codepath.myappname.provider` in this example.
 
