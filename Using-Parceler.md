@@ -81,6 +81,19 @@ User user = (User) Parcels.unwrap(getIntent().getParcelableExtra("user"));
 
 The Parceler library works by using the `@Parcel` annotation to generate the wrapper classes for you.  It works with many of the most standard Java types, including the ones defined [here](https://github.com/johncarl81/parceler#parcel-attribute-types).
 
+### Using with ORM libraries
+
+Some ORM libraries require extending the Java object with fields that Parceler is unable to serialize or deserialize.  In these cases, you should limit what fields should be analyzed in the inheritance using the `@Parcel(analyze={})` decorator:
+
+```java
+@Parcel(analyze={User.class})   // add Parceler annotation here
+public class User extends BaseModel {
+}
+```
+
+* [[DBFlow|DBFlow-Guide#using-with-the-parceler-library]]
+* [Realm.IO](https://github.com/johncarl81/parceler/issues/57)
+
 ### How it works
 
 You can also look at your `app/build/generated/source/apt` directory to see how it generates these wrapper classes.  Parceler essentially handles the steps described in [[this section|Using-Parcelable#creating-a-parcelable-the-manual-way]].
