@@ -199,7 +199,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [NexusData](https://github.com/dkharrat/NexusData)
  * [Hawk](https://github.com/orhanobut/hawk) - Persistent secure key/value store
  * [Poetry](https://github.com/elastique/poetry) - Persist JSON directly into SQLite
- * [DbFlow] (https://github.com/Raizlabs/DBFlow) - A robust, powerful, and very simple ORM android database library with annotation processing.
+ * [[DBFlow|DBFlow Guide]] - A robust, powerful, and very simple ORM android database library with annotation processing.
 
 ### Compatibility
 
