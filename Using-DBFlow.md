@@ -186,7 +186,7 @@ public class MyDatabase {
 
 #### Adding to Manifest file
 
-The final step is for the Content Provider to be exposed.  If you wish for other apps to be able to view this data, set `android:exported` to be true.  Otherwise, if you only wish the existing application to query this content provider, set the value to be false.
+The final step is for the Content Provider to be exposed.  If you wish for other apps to be able to view this data, set `android:exported` to be true.  Otherwise, if you only wish the existing application to query this content provider, set the value to be false.  Note that DBFlow3 uses underscore (`_`) instead of the dollar sign (`$`) as the separator:
 
 ```xml
 <provider
