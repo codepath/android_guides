@@ -69,7 +69,7 @@ This can make object creation really simple and intuitive, while objects remain 
 
 Often there are questions about organizing not just the source files but also the [application resources](http://guides.codepath.com/android/Understanding-App-Resources). In a modern app, there are often hundreds of different layout files, drawables, styles, etc and by default these are all grouped together in a flat list within a single subdirectory (i.e `res/layout`).
 
-In order to further organize or group your various resources, the best way is to install the third-party [folding-plugin](https://plugins.jetbrains.com/plugin/7876) for Android Studio to create virtual folders
+In order to further organize or group your various resources, the best way is to [install the third-party folding-plugin](https://plugins.jetbrains.com/plugin/7876) for Android Studio to create virtual folders
 
 <a href="https://github.com/dmytrodanylyk/folding-plugin"><img src="http://i.imgur.com/fOir80H.jpg" width="600" /></a>
 
