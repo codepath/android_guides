@@ -263,8 +263,7 @@ If you are using DBFlow with [[ProGuard|Configuring ProGuard]], and see `Table i
 -keep class * extends com.raizlabs.android.dbflow.config.DatabaseHolder { *; }
 ```
 
-You can go into your `app/build/intermediate/classes/com/raizlabs/android/dbflow/config` and look for the `GeneratedDatabaseHolder.class` to understand what code is generated.  You can also set a breakpoint inside this class to understand how DBFlow works under the covers.
-
+You can go into your `app/build/intermediate/classes/com/raizlabs/android/dbflow/config` and look for the `GeneratedDatabaseHolder.class` to understand what code is generated.  
 #### Database schema
 
 You can also download and inspect the local database using ADB:
