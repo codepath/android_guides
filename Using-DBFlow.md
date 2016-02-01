@@ -89,13 +89,24 @@ We can define a `ForeignKey` relation easily.  The `saveForeignKeyModel` denotes
 @Table(database = MyDatabase.class)
 public class User extends BaseModel {
 
-  @Column
-  @PrimaryKey
-  int id;
+    @Column
+    @PrimaryKey
+    int id;
 
-  @Column
-  @ForeignKey(saveForeignKeyModel = false)
-  Organization organization;
+    @Column
+    String name;
+
+    @Column
+    @ForeignKey(saveForeignKeyModel = false)
+    Organization organization;
+
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
 ```
 
@@ -131,6 +142,49 @@ Modify your `AndroidManifest.xml` file to call this Application object:
 ```xml
 <application
         android:name=".MyApplication"
+
+</application>
+```
+
+### Basic CRUD operations
+
+Basic creation, read, update, and delete (CRUD) statements are fairly straightfroward to do.  DBFlow generates a Table class for each your annotated models (i.e. User_Table, Organization_Table).  Each field is defined as a `Property` object and ensures type-safety when evaluating it against in a SELECT statement or a raw value.
+
+#### Creating rows
+
+We can simply call `.save()` on the annotated class to save the row into the table:
+
+```java
+// Create organization
+Organization organization = new Organization();
+organization.setId(1);
+organization.setName("CodePath");
+organization.save();
+
+// Create user
+User user = new User();
+user.setName("John Doe");
+user.setOrganization(organization);
+user.save();
+```
+
+#### Reading rows
+
+```java
+List<Organization> organizationList = new Select().from(Organization.class).queryList();
+List<User> users = new Select().from(User.class).where(Organization_Table.name.is("CodePath")).queryList();
+```
+
+#### Updating rows
+
+Calling `save()` on the object will automatically update if the record has already been saved and there is a primary key that matches.
+
+#### Deleting rows
+
+We can simply call `.delete()` on the respective object:
+
+```java
+user.delete();
 ```
 
 ### Exposing Content Providers
