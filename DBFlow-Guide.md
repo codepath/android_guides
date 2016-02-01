@@ -270,14 +270,13 @@ You can go into your `app/build/intermediate/classes/com/raizlabs/android/dbflow
 You can also download and inspect the local database using ADB:
 
 ```bash
-adb pull /data/data/com.codepath.yourappname/databases/AppDatabase*.db
-sqlite3 AppDatabase_xxxx_NN.db (xxxx = debug/release/unsignedRelease, NN = version code)
+adb pull /data/data/com.codepath.yourappname/databases/MyDatabase*.db
+sqlite3 MyDatabase.db 
 ```
 
 Type `.schema` to see how the table definitions are created:
 
 ```
-sqlite> .schema
 sqlite> .schema
 CREATE TABLE android_metadata (locale TEXT);
 CREATE TABLE `Organization`(`id` INTEGER,`name` TEXT, PRIMARY KEY(`id`));
