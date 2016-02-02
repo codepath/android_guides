@@ -13,12 +13,12 @@
 
 In addition, the following concepts need to be included:
 
-* Profiling GPU Rendering - quick visual representation of how much time it takes to render the frames of a UI window relative to the 16-ms-per-frame benchmark.
-* Visualizing Overdraw - Shows on the device where an app might be doing more rendering work than necessary. Helping you see where you might be able to reduce rendering overhead.
-* Heap Viewer - Identifying memory leaks
-* LeakCanary for finding memory leaks easily
-* Allocation Tracker - Finding the places in your code that may contribute to memory trashing.
-* Batterystats - Shows where and how processes are drawing current from the battery.
+* [Profiling GPU Rendering](http://developer.android.com/tools/performance/profile-gpu-rendering/index.html) - quick visual representation of how much time it takes to render the frames of a UI window relative to the 16-ms-per-frame benchmark.
+* [Visualizing Overdraw](http://developer.android.com/tools/performance/debug-gpu-overdraw/index.html) - Shows on the device where an app might be doing more rendering work than necessary. Helping you see where you might be able to reduce rendering overhead.
+* [Heap Viewer](http://developer.android.com/tools/performance/heap-viewer/index.html) - Identifying memory leaks
+* [LeakCanary](https://corner.squareup.com/2015/05/leak-canary.html) for finding memory leaks easily
+* [Allocation Tracker](http://developer.android.com/tools/performance/allocation-tracker/index.html) - Finding the places in your code that may contribute to memory trashing.
+* [Batterystats](http://developer.android.com/tools/performance/batterystats-battery-historian/index.html) - Shows where and how processes are drawing current from the battery.
 * [Batteryhistorian](https://github.com/google/battery-historian) - Visualize system and application level events on a timeline. [Guide to getting started](https://docs.google.com/document/d/1CSTRAaCtbjTe2rs2vzra6-PViMkfPJC9DVWg7NbXqYk)
 
 ## Optimizing Performance
