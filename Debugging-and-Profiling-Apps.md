@@ -11,7 +11,7 @@
 * [Performance Course on Udacity](https://www.udacity.com/course/ud825)
 * [Performance Doc from Udacity](https://docs.google.com/document/d/1EKVq2FzcLVJFbwUtaC3QRddSwtzs0BSKZahkQyeGyHo/pub?embedded=true)
 
-In addition, this should include:
+In addition, the following concepts need to be included:
 
 * Profiling GPU Rendering - quick visual representation of how much time it takes to render the frames of a UI window relative to the 16-ms-per-frame benchmark.
 * Visualizing Overdraw - Shows on the device where an app might be doing more rendering work than necessary. Helping you see where you might be able to reduce rendering overhead.
