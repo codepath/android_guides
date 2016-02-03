@@ -105,6 +105,8 @@ public class TimelineActivity extends Activity {
 
 **Note** that upon successful reload, we must also signal that the refresh has completed by calling `setRefreshing(false)`. Also note that you should **clear out old items** before appending the new ones during a refresh.
 
+**Having issues?** Be sure to check out the [[troubleshooting tips|Implementing-Pull-to-Refresh-Guide#troubleshooting]] if you are running into issues with swipe to refresh.
+
 ## RecyclerView with SwipeRefreshLayout
 
 ### Step 1: Wrap RecyclerView
@@ -163,6 +165,8 @@ If you aren't able to get the swipe to refresh working, check the following tips
 * **Did you accidentally call `setContentView` twice?** Ensure that inside your activity, you've only called [`setContentView`](http://developer.android.com/reference/android/app/Activity.html#setContentView\(android.view.View\)) once as the 2nd line of your `onCreate` method. 
 
 * **Did you invoke `setRefreshing(false)` after data finished loading?** With the swipe to refresh control, you are responsible for notifying the system once the new data has been loaded into the list. You must make sure to invoke [setRefreshing](http://developer.android.com/reference/android/support/v4/widget/SwipeRefreshLayout.html#setRefreshing\(boolean\)) only **after** the data has come back and not before. This means if you are loading data from the network, calling this within the `onSuccess` method.
+
+* **Did you clear out the old items before updating the list?** Make sure that in order for the new items to be displayed that you **clear the list of any old items if needed**. In other words, if you are replacing items in the list with new versions, be sure to remove the old versions from the adapter first with `adapter.clear();`
 
 
 ## References
