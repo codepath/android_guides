@@ -82,6 +82,8 @@ public class TimelineActivity extends Activity {
     }
 
     public void fetchTimelineAsync(int page) {
+        // This is where you would send the network request to fetch the updated data
+        // `client` here is an instance of Android Async HTTP
         client.getHomeTimeline(0, new JsonHttpResponseHandler() {
             public void onSuccess(JSONArray json) {
                 // Remember to CLEAR OUT old items before appending in the new ones
