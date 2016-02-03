@@ -61,8 +61,9 @@ public class TimelineActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Only ever call `setContentView` once right at the top
         setContentView(R.layout.activity_main);
-
+        // Lookup the swipe container view
         swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
         // Setup refresh listener which triggers new data loading
         swipeContainer.setOnRefreshListener(new OnRefreshListener() {
@@ -154,6 +155,15 @@ Next, we need to configure the `SwipeRefreshLayout` during view initialization i
 The `SwipeRefreshLayout` will notify the listener each and every time the gesture is completed again; the listener is responsible for correctly determining when to actually initiate a refresh of its content. 
 
 You can do this the same way you can configure the `SwipeRefreshLayout` for a `ListView` as shown in [Setup SwipeRefreshLayout](#step-2-setup-swiperefreshlayout) section.
+
+## Troubleshooting
+
+If you aren't able to get the swipe to refresh working, check the following tips:
+
+* **Did you accidentally call `setContentView` twice?** Ensure that inside your activity, you've only called [`setContentView`](http://developer.android.com/reference/android/app/Activity.html#setContentView\(android.view.View\)) once as the 2nd line of your `onCreate` method. 
+
+* **Did you invoke `setRefreshing(false)` after data finished loading?** With the swipe to refresh control, you are responsible for notifying the system once the new data has been loaded into the list. You must make sure to invoke [setRefreshing](http://developer.android.com/reference/android/support/v4/widget/SwipeRefreshLayout.html#setRefreshing\(boolean\)) only **after** the data has come back and not before. This means if you are loading data from the network, calling this within the `onSuccess` method.
+
 
 ## References
 
