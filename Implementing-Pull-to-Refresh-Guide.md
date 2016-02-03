@@ -2,6 +2,9 @@
 
 In Android, the common "pull to refresh" UX concept is not built in to a ListView. However, many Android applications would like to make use of this concept for their feeds. This is useful for all sorts of feeds such as a Twitter timeline. This effect can be achieved using either the `SwipeRefreshLayout` from the [support library](http://developer.android.com/tools/support-library/index.html), which was recently introduced and back-ported to all versions down to Android API level 4.
 
+<img src="http://i.imgur.com/6BecRWd.gif" height="400" />&nbsp;
+<img src="http://i.imgur.com/PtY0Ju1.gif" height="400" />
+
 ## Using SwipeRefreshLayout
 
 [SwipeRefreshLayout](https://developer.android.com/reference/android/support/v4/widget/SwipeRefreshLayout.html) is a ViewGroup that can hold only one scrollable view as a child. This can be either a `ScrollView` or an `AdapterView` such as a `ListView` or a `RecyclerView`. 
