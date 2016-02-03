@@ -18,16 +18,16 @@ apply plugin: 'com.android.application'
 
 dependencies {
     // ...
-    compile 'com.android.support:support-v4:22.2.1'
+    compile 'com.android.support:support-v4:23.1.1'
 }
 ```
 
-You must download and use a [recent jar](https://dl-ssl.google.com/android/repository/support_r20.zip) of the support library for this to work or install the support library via the Android Studio SDK Manager:
+Make sure your support library is up to date through the Android Studio SDK Manager:
 
 1. Open the SDK Manager from Android Studio with Tools -> Android -> SDK Manager
 2. The support library is under "Extras"
 
-Once you have a recent version support library installed, we can continue.
+Once you have a recent version support library installed (v22 or higher), then we can safely continue.
 
 ## ListView with SwipeRefreshLayout
 
