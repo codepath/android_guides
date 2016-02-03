@@ -168,7 +168,6 @@ If you aren't able to get the swipe to refresh working, check the following tips
 
 * **Did you clear out the old items before updating the list?** Make sure that in order for the new items to be displayed that you **clear the list of any old items if needed**. In other words, if you are replacing items in the list with new versions, be sure to remove the old versions from the adapter first with `adapter.clear();`
 
-
 ## References
 
 * <http://antonioleiva.com/swiperefreshlayout/>
