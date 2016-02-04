@@ -2,7 +2,7 @@
 
 By default, an Android app starts with zero permissions granted to it. When the app needs to use any of the protected features of the device (sending network requests, accessing the camera, sending an SMS, etc) it must obtain the appropriate permission from the user to do so.
 
-Before Marshmallow, permissions were handled at install-time and specified in the `AndroidManifest.xml` within the project. Full list of permissions can be [found here](http://developer.android.com/reference/android/Manifest.permission.html). After Marshmallow, permissions must now be **request at runtime** before being used. There are a [number of libraries available](https://gist.github.com/dlew/2a21b06ee8715e0f7338) to make runtime permissions easier. If you to get started quickly, check out our guide on [[Managing Runtime Permissions with PermissionsDispatcher]].
+Before Marshmallow, permissions were handled at install-time and specified in the `AndroidManifest.xml` within the project. Full list of permissions can be [found here](http://developer.android.com/reference/android/Manifest.permission.html). After Marshmallow, permissions must now be **request at runtime** before being used. There are a [number of libraries available](https://gist.github.com/dlew/2a21b06ee8715e0f7338) to make runtime permissions easier. If you to get started quickly, check out our guide on [[managing runtime permissions with PermissionsDispatcher]].
 
 ## Permissions before Marshmallow
 
