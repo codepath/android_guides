@@ -295,6 +295,37 @@ CREATE TABLE `Organization`(`id` INTEGER,`name` TEXT, PRIMARY KEY(`id`));
 CREATE TABLE `User`(`id` INTEGER,`name` TEXT,`organization_id` INTEGER, PRIMARY KEY(`id`), FOREIGN KEY(`organization_id`) REFERENCES `Organization`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION);
 ```
 
+#### Using with Gson Library
+
+If you intend to use DBFlow with the [[Gson|Leveraging-the-Gson-Library]] library, you may get `StackOverflow` errors when trying to use Java objects that extend from `BaseModel`.  In order to avoid these issues, you need to exclude the `ModelAdapter` class, which is a field included with [BaseModel](https://github.com/Raizlabs/DBFlow/blob/master/dbflow/src/main/java/com/raizlabs/android/dbflow/structure/BaseModel.java#L45):
+
+```java
+
+public class DBFlowExclusionStrategy implements ExclusionStrategy {
+
+    // Otherwise, Gson will go through base classes of DBFlow models
+    // and hang forever.
+    @Override
+    public boolean shouldSkipField(FieldAttributes f) {
+        return f.getDeclaredClass().equals(ModelAdapter.class);
+    }
+
+    @Override
+    public boolean shouldSkipClass(Class<?> clazz) {
+        return false;
+    }
+}
+```
+
+You then need to create a custom Gson builder to exclude this class:
+ 
+```java
+GsonBuilder gsonBuilder = new GsonBuilder();
+gsonBuilder.setExclusionStrategies(new ExclusionStrategy[]{new DBFlowExclusionStrategy()});
+```
+
+See [this issue](https://github.com/Raizlabs/DBFlow/issues/121) for more information.
+
 ### References
 
 * <https://github.com/Raizlabs/DBFlow#usage-docs>
