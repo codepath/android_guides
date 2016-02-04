@@ -935,8 +935,8 @@ public class BookDetailActivity extends AppCompatActivity {
     // Store image to default external storage directory
     Uri bmpUri = null;
     try {
-      File file =  new File(Environment.getExternalStoragePublicDirectory(
-      Environment.DIRECTORY_DOWNLOADS), "share_image_" + System.currentTimeMillis() + ".png");
+      File file =  new File(getExternalFilesDir(Environment.DIRECTORY_PICTURES),
+         "share_image_" + System.currentTimeMillis() + ".png");
       file.getParentFile().mkdirs();
       FileOutputStream out = new FileOutputStream(file);
       bmp.compress(Bitmap.CompressFormat.PNG, 90, out);

@@ -24,7 +24,7 @@ Make sure to enable access to the external storage first before using the camera
 </manifest>
 ```
 
-**Note:** The permissions model has changed starting in Marshmallow. If your `targetSdkVersion` >= `23` and you are running on a Marshmallow (or later) device / emulator, you may need to follow this guide on [[implementing runtime permissions|Understanding-App-Permissions#runtime-permissions]] in order to get these permissions.
+**Note:** The permissions model has changed starting in Marshmallow. If your `targetSdkVersion` >= `23` and you are running on a Marshmallow (or later) device, you may need to [[enable runtime permissions|Managing-Runtime-Permissions-with-PermissionsDispatcher]]. You should also read more about the [[runtime permissions changes|Understanding-App-Permissions#runtime-permissions]].
 
 ### Using Capture Intent
 
@@ -156,7 +156,7 @@ Similar to the camera, the media picker implementation depends on the level of c
  * The easy way - launch the Gallery with an intent, and get the media URI in onActivityResult.
  * The hard way - fetch thumbnail and full-size URIs from the MediaStore ContentProvider.
 
-Make sure to enable access to the external storage first before using the camera (**Note:** The permissions model has changed starting in Marshmallow. If your `targetSdkVersion` >= `23` and you are running on a Marshmallow (or later) device / emulator, you'll need to follow this guide on implementing [[runtime permissions|Understanding-App-Permissions#runtime-permissions]] in order to get these permissions):
+Make sure to enable access to the external storage first before using the camera (**Note:** The permissions model has changed starting in Marshmallow. If your `targetSdkVersion` >= `23` and you are running on a Marshmallow (or later) device, you may need to [[enable runtime permissions|Managing-Runtime-Permissions-with-PermissionsDispatcher]]. You should also read more about the [[runtime permissions changes|Understanding-App-Permissions#runtime-permissions]]):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -209,4 +209,4 @@ Note that there is a try-catch block required around the `MediaStore.Images.Medi
 ## References
 
  * <http://developer.android.com/guide/topics/media/camera.html>
- * <http://developer.android.com/reference/android/hardware/Camera.html> 
+ * <http://developer.android.com/reference/android/hardware/Camera.html>

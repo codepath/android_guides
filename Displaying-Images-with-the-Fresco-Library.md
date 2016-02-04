@@ -1,12 +1,12 @@
 ## Overview
-[[Fresco|http://frescolib.org]] is a powerful library for displaying images in Android, supporting applications all the way back to GingerBread (API 9). It downloads and caches remote images in a memory efficient manner, using a special region of non-garbage collected memory on Android called `ashmem`. 
+[[Fresco|http://frescolib.org]] is a powerful library for displaying images in Android, supporting applications all the way back to GingerBread (API 9). It downloads and caches remote images in a memory efficient manner, using a special region of non-garbage collected memory on Android called `ashmem`.
 
 ## Terms
 When working with Fresco, it's helpful to be familiar with the following terms:
 * ImagePipeline - Responsible for getting you the image. It fetches from the network, a local file, a content provider, or a local resource. It keeps a cache of compressed images in local storage, and a second cache of decompressed images in memory.
 * Drawee - Drawees deal with rendering images on screen and are made up of 3 parts.
   * DraweeView - The view that shows the image. It extends from `ImageView`, but only for convenience (see the [[gotchas|Displaying-Images-with-the-Fresco-Library#gotchas]] below for more info on this). Most of the time you'll be using a `SimpleDraweeView` in your code.
-  * DraweeHierarchy - Fresco provides a lot of customization. You can add a placeholderImage, a retryImage, a failureImage, a backgroundImage, etc. The hierarchy is what keeps track of all these drawables and when they should be shown. 
+  * DraweeHierarchy - Fresco provides a lot of customization. You can add a placeholderImage, a retryImage, a failureImage, a backgroundImage, etc. The hierarchy is what keeps track of all these drawables and when they should be shown.
   * DraweeController - This is the class responsible for dealing with the image loader. Fresco allows you to customize the image loader if you don't want to use the provided `ImagePipeline`.
 
 ## Getting Started
@@ -33,7 +33,7 @@ And then include it in your layout:
 <com.facebook.drawee.view.SimpleDraweeView
     android:id="@+id/sdvImage"
     android:layout_width="130dp"
-    android:layout_height="130dp" 
+    android:layout_height="130dp"
     fresco:placeholderImage="@drawable/myPlaceholderImage" />
 ```
 **Note:** If you want to use any Fresco defined properties, you'll need to add a custom namespace definition:
@@ -115,10 +115,10 @@ try {
                Log.d(TAG, "Bitmap data source returned success, but bitmap null.");
                return;
            }
-           // The bitmap provided to this method is only guaranteed to be around 
+           // The bitmap provided to this method is only guaranteed to be around
            // for the lifespan of this method. The image pipeline frees the
            // bitmap's memory after this method has completed.
-           // 
+           //
            // This is fine when passing the bitmap to a system process as
            // Android automatically creates a copy.
            //
@@ -146,7 +146,8 @@ Make sure to add the following permissions to your `AndroidManifest.xml`:
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 ```
-**Note:** For Marshmallow devices, you'll need to [get these permissions at runtime](http://developer.android.com/preview/features/runtime-permissions.html#coding).
+
+**Note:** The permissions model has changed starting in Marshmallow. If your `targetSdkVersion` >= `23` and you are running on a Marshmallow (or later) device, you may need to [[enable runtime permissions|Managing-Runtime-Permissions-with-PermissionsDispatcher]]. You can also read more about the [[runtime permissions changes here|Understanding-App-Permissions#runtime-permissions]].
 
 To share an image from Fresco, you first need to [get the bitmap](#getting-the-underlying-bitmap-out-of-a-draweeview) from the `ImagePipeline`. Then you can use the following code to save the bitmap to the Media image store and pass the path into a share intent.
 

@@ -1,10 +1,10 @@
 ## Overview
 
-The way to access data from content providers is to use the `LoaderManager` to execute query and bind cursor result to list using `SimpleCursorAdapter`.  The loader manager is used to fetch the cursor asynchronously and the cursor is loaded directly into a `SimpleCursorAdapter`. 
+The way to access data from content providers is to use the `LoaderManager` to execute query and bind cursor result to list using `SimpleCursorAdapter`.  The loader manager is used to fetch the cursor asynchronously and the cursor is loaded directly into a `SimpleCursorAdapter`.
 
 ## Using CursorLoader and SimpleCursorAdapter
 
-In this example, we load the data directly from the ContentProvider using a [CursorLoader](https://developer.android.com/training/load-data-background/setup-loader.html) and then plugging the resulting dataset directly into a [SimpleCursorAdapter](http://developer.android.com/reference/android/widget/SimpleCursorAdapter.html). 
+In this example, we load the data directly from the ContentProvider using a [CursorLoader](https://developer.android.com/training/load-data-background/setup-loader.html) and then plugging the resulting dataset directly into a [SimpleCursorAdapter](http://developer.android.com/reference/android/widget/SimpleCursorAdapter.html).
 
 Let's define a few terms used below so we understand how this example fits together:
 
@@ -23,7 +23,7 @@ First, setup permissions in the manifest:
 <uses-permission android:name="android.permission.READ_CONTACTS"/>
 ```
 
-**Note:** The permissions model has changed starting in Marshmallow. If your `targetSdkVersion` >= `23` and you are running on a Marshmallow (or later) device / emulator, you'll need to follow this guide on implementing [[runtime permissions|Understanding-App-Permissions#runtime-permissions]] in order to get the `READ_CONTACTS` permission.
+**Note:** The permissions model has changed starting in Marshmallow. If your `targetSdkVersion` >= `23` and you are running on a Marshmallow (or later) device, you may need to [[enable runtime permissions|Managing-Runtime-Permissions-with-PermissionsDispatcher]] in order to get the `READ_CONTACTS` permission. You can also read more about the [[runtime permissions changes here|Understanding-App-Permissions#runtime-permissions]].
 
 ### Constructing the SimpleCursorAdapter
 
@@ -39,10 +39,10 @@ public class SampleActivity extends AppCompatActivity {
        // ...
        setupCursorAdapter();
     }
-    
+
     // Create simple cursor adapter to connect the cursor dataset we load with a ListView
     private void setupCursorAdapter() {
-        // Column data from cursor to bind views from	
+        // Column data from cursor to bind views from
       	String[] uiBindFrom = { ContactsContract.Contacts.DISPLAY_NAME,
             ContactsContract.Contacts.PHOTO_URI };
       	// View IDs which will have the respective column data inserted
@@ -90,14 +90,14 @@ public class SampleActivity extends AppCompatActivity {
    // ... existing code
 
     // Defines the asynchronous callback for the contacts data loader
-    private LoaderManager.LoaderCallbacks<Cursor> contactsLoader = 
+    private LoaderManager.LoaderCallbacks<Cursor> contactsLoader =
         new LoaderManager.LoaderCallbacks<Cursor>() {
     	// Create and return the actual cursor loader for the contacts data
     	@Override
     	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
     		// Define the columns to retrieve
-    		String[] projectionFields = new String[] { ContactsContract.Contacts._ID, 
-    	               ContactsContract.Contacts.DISPLAY_NAME, 
+    		String[] projectionFields = new String[] { ContactsContract.Contacts._ID,
+    	               ContactsContract.Contacts.DISPLAY_NAME,
                        ContactsContract.Contacts.PHOTO_URI };
     		// Construct the loader
     		CursorLoader cursorLoader = new CursorLoader(SampleActivity.this,
@@ -111,16 +111,16 @@ public class SampleActivity extends AppCompatActivity {
     		return cursorLoader;
     	}
 
-    	// When the system finishes retrieving the Cursor through the CursorLoader, 
-        // a call to the onLoadFinished() method takes place. 
+    	// When the system finishes retrieving the Cursor through the CursorLoader,
+        // a call to the onLoadFinished() method takes place.
     	@Override
     	public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
     		// The swapCursor() method assigns the new Cursor to the adapter
     		adapter.swapCursor(cursor);  
     	}
 
-    	// This method is triggered when the loader is being reset 
-        // and the loader data is no longer available. Called if the data 
+    	// This method is triggered when the loader is being reset
+        // and the loader data is no longer available. Called if the data
         // in the provider changes and the Cursor becomes stale.
     	@Override
     	public void onLoaderReset(Loader<Cursor> loader) {
@@ -144,7 +144,7 @@ public class SampleActivity extends AppCompatActivity {
         // Bind adapter to list
         setupCursorAdapter();
         // Initialize the loader with a special ID and the defined callbacks from above
-        getSupportLoaderManager().initLoader(CONTACT_LOADER_ID, 
+        getSupportLoaderManager().initLoader(CONTACT_LOADER_ID,
             new Bundle(), contactsLoader);
     }
 }
@@ -166,7 +166,7 @@ There is yet to be a standard place to find what data is exposed by various Cont
 
 ## References
 
- * <http://www.androiddesignpatterns.com/2012/07/loaders-and-loadermanager-background.html> 
+ * <http://www.androiddesignpatterns.com/2012/07/loaders-and-loadermanager-background.html>
  * <http://code.tutsplus.com/tutorials/android-sdk_loading-data_cursorloader--mobile-5673>
  * <http://www.app-solut.com/blog/2011/03/working-with-the-contactscontract-to-query-contacts-in-android/>
  * <https://developer.android.com/training/load-data-background/setup-loader.html>

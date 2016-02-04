@@ -1,6 +1,6 @@
 ## Overview
 
-In Android apps, there are often cases where we need to play audio or video files. Checking the [Supported Media Formats](http://developer.android.com/guide/appendix/media-formats.html) we can see that several audio formats (MP3, AAC, FLAC, Vorbis) and several video formats (H.264, MPEG-4) are playable by default. Let's take a look at how to play media within an app using [MediaPlayer](http://developer.android.com/reference/android/media/MediaPlayer.html) and [VideoView](http://developer.android.com/reference/android/widget/VideoView.html). We will also look at how to record or capture media with the [MediaRecorder](http://developer.android.com/reference/android/media/MediaRecorder.html). 
+In Android apps, there are often cases where we need to play audio or video files. Checking the [Supported Media Formats](http://developer.android.com/guide/appendix/media-formats.html) we can see that several audio formats (MP3, AAC, FLAC, Vorbis) and several video formats (H.264, MPEG-4) are playable by default. Let's take a look at how to play media within an app using [MediaPlayer](http://developer.android.com/reference/android/media/MediaPlayer.html) and [VideoView](http://developer.android.com/reference/android/widget/VideoView.html). We will also look at how to record or capture media with the [MediaRecorder](http://developer.android.com/reference/android/media/MediaRecorder.html).
 
 ## Audio Playback and Capture
 
@@ -51,7 +51,7 @@ mediaPlayer.getCurrentDuration(); // current position of song in milliseconds
 mediaPlayer.getDuration();        // total time duration of song in milliseconds
 ```
 
-Check the [MediaPlayer](http://developer.android.com/reference/android/media/MediaPlayer.html) docs for a full list of methods. These are the basics for playing audio but check out [this androidhive](http://www.androidhive.info/2012/03/android-building-audio-player-tutorial/) and [this tutorial](http://www.tutorialspoint.com/android/android_mediaplayer.htm) if you want to understand how to hook up a graphical interface for managing the audio playback. 
+Check the [MediaPlayer](http://developer.android.com/reference/android/media/MediaPlayer.html) docs for a full list of methods. These are the basics for playing audio but check out [this androidhive](http://www.androidhive.info/2012/03/android-building-audio-player-tutorial/) and [this tutorial](http://www.tutorialspoint.com/android/android_mediaplayer.htm) if you want to understand how to hook up a graphical interface for managing the audio playback.
 
 ### Playing Streaming Audio
 
@@ -64,7 +64,7 @@ If you are using MediaPlayer to stream network-based content, your application m
 Now we can stream remote audio files in the [supported formats](http://developer.android.com/guide/appendix/media-formats.html) with:
 
 ```java
-String url = "https://dl.dropboxusercontent.com/u/10281242/sample_audio.mp3"; 
+String url = "https://dl.dropboxusercontent.com/u/10281242/sample_audio.mp3";
 final MediaPlayer mediaPlayer = new MediaPlayer();
 // Set type to streaming
 mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
@@ -87,16 +87,16 @@ mediaPlayer.setOnPreparedListener(new OnPreparedListener() {
 // Set the data source to the remote URL
 mediaPlayer.setDataSource(url);
 // Trigger an async preparation which will file listener when completed
-mediaPlayer.prepareAsync(); 
+mediaPlayer.prepareAsync();
 ```
 
 With that, the remote file will start streaming once preparation is completed and loading the audio file won't block the UI thread. For more details, see the official [MediaPlayer](http://developer.android.com/guide/topics/media/mediaplayer.html) playback guide.
 
 ### Capturing Audio
 
-You can record audio using the [MediaRecorder APIs](http://developer.android.com/reference/android/media/MediaRecorder.html) if supported by the device hardware. 
+You can record audio using the [MediaRecorder APIs](http://developer.android.com/reference/android/media/MediaRecorder.html) if supported by the device hardware.
 
-First, let's add the correct permissions to our `AndroidManifest.xml` (**Note:** The permissions model has changed starting in Marshmallow. If your `targetSdkVersion` >= `23` and you are running on a Marshmallow (or later) device / emulator, you'll need to follow this guide on implementing [[runtime permissions|Understanding-App-Permissions#runtime-permissions]] in order to get these permissions):
+First, let's add the correct permissions to our `AndroidManifest.xml` (**Note:** The permissions model has changed starting in Marshmallow. If your `targetSdkVersion` >= `23` and you are running on a Marshmallow (or later) device, you may need to [[enable runtime permissions|Managing-Runtime-Permissions-with-PermissionsDispatcher]]. You should also read more about the [[runtime permissions changes|Understanding-App-Permissions#runtime-permissions]]):
 
 ```xml
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -106,7 +106,7 @@ First, let's add the correct permissions to our `AndroidManifest.xml` (**Note:**
 Recording audio is as simple as starting and stopping the `MediaRecorder`:
 
 ```java
-// File path of recorded audio 
+// File path of recorded audio
 private String mFileName;
 // Verify that the device has a mic first
 PackageManager pmanager = this.getPackageManager();
@@ -170,7 +170,7 @@ Toast.makeText(this, "Added File " + newUri, Toast.LENGTH_LONG).show();
 
 For more details, check out this [tutorialspoint article](http://www.tutorialspoint.com/android/android_audio_capture.htm) and the official [Audio Capture](http://developer.android.com/guide/topics/media/audio-capture.html) guide.
 
-## Video Playback and Capture 
+## Video Playback and Capture
 
 In this section we will take a look at how to play video content using the [VideoView](http://developer.android.com/reference/android/widget/VideoView.html) and capture video with the [MediaRecorder](http://developer.android.com/reference/android/media/MediaRecorder.html).
 
@@ -196,7 +196,7 @@ mVideoView.start();
 ```
 
 
-See [this tutorial](https://mobiarch.wordpress.com/2014/02/18/showing-fullscreen-video-in-android/) for playing a video full-screen with a `VideoView`. See [this other edumobile tutorial](http://www.edumobile.org/android/android-beginner-tutorials/how-to-play-a-video-file/) for a more detailed look at using [VideoView](http://developer.android.com/reference/android/widget/VideoView.html). 
+See [this tutorial](https://mobiarch.wordpress.com/2014/02/18/showing-fullscreen-video-in-android/) for playing a video full-screen with a `VideoView`. See [this other edumobile tutorial](http://www.edumobile.org/android/android-beginner-tutorials/how-to-play-a-video-file/) for a more detailed look at using [VideoView](http://developer.android.com/reference/android/widget/VideoView.html).
 
 ### Playing Streaming Video
 
@@ -227,7 +227,7 @@ You can see a more complete example of remote streaming with [this androidbegin 
 
 ### Capturing Video
 
-Capturing video can be done using intents to capture video using the camera. First, let's setup the necessary permissions in `AndroidManifest.xml` (**Note:** The permissions model has changed starting in Marshmallow. If your `targetSdkVersion` >= `23` and you are running on a Marshmallow (or later) device / emulator, you'll need to follow this guide on implementing [[runtime permissions|Understanding-App-Permissions#runtime-permissions]] in order to get this permission):
+Capturing video can be done using intents to capture video using the camera. First, let's setup the necessary permissions in `AndroidManifest.xml` (**Note:** The permissions model has changed starting in Marshmallow. If your `targetSdkVersion` >= `23` and you are running on a Marshmallow (or later) device, you may need to [[enable runtime permissions|Managing-Runtime-Permissions-with-PermissionsDispatcher]]. You should also read more about the [[runtime permissions changes|Understanding-App-Permissions#runtime-permissions]]):
 
 ```xml
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -273,7 +273,7 @@ public void playbackRecordedVideo() {
     mVideoView.setVideoURI(videoUri);
     mVideoView.setMediaController(new MediaController(this));
     mVideoView.requestFocus();
-    mVideoView.start(); 
+    mVideoView.start();
 }
 ```
 
