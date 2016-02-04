@@ -305,11 +305,44 @@ You can use `View.INVISIBLE` to hide the element or `View.GONE` to collapse the 
 
 We can use the new [[Palette system|Dynamic-Color-using-Palettes]] to easily color any text or backgrounds based on the color scheme of an image at runtime.
 
+#### How would I create responsive views with different spacing or heights based on device?
+
+Rather than hardcoding units such as `10dp` or `21sp` into the XML layouts, we can use a `dimens.xml` file to declare our dimensions instead. In `res/values/dimens.xml`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="navigation_drawer_width">360dp</dimen>
+</resources>
+```
+
+and then we can use these in our layout files with `@dimen/activity_horizontal_margin` such as:
+
+```xml
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingLeft="@dimen/activity_horizontal_margin">
+</RelativeLayout>
+```
+
+Using the powerful [[alternative resources feature|Understanding-App-Resources#providing-alternate-resources]], we can easily create alternate `dimens.xml` files for different device types. 
+
+#### What is the difference between `sp` and `dp` units?
+
+`dp` are density-indenpendant pixels and they correspond to pixels depending on the physical density. `sp` is a scale-independant pixel which is scaled when the `Large Text` option is turned on in the device's settings. In short: Use `sp` for Text sizes. Use `dp` for padding, heights, and everything else.
+
 ### ActionBar
 
-#### How do I change the background color of the ActionBar?
+#### How do I change the background color of the ActionBar or Toolbar?
 
-Customize the theme of the ActionBar in your app using the `res/values/styles.xml` as detailed in the [[Advanced ActionBar|Extended-ActionBar-Guide#custom-actionbar-styles]] to adjust the color of the ActionBar. 
+Customize the theme of the ActionBar in your app using the `res/values/styles.xml` as detailed in the [[Advanced ActionBar|Extended-ActionBar-Guide#custom-actionbar-styles]] to adjust the color of the ActionBar. If your app is using the `Toolbar` instead, then customize that using the [[styling the Toolbar guide|Using-the-App-ToolBar#styling-the-toolbar]].
+
+#### How do I change the text color of the ActionBar or Toolbar?
+
+Customize the theme of the ActionBar in your app using the `res/values/styles.xml` as detailed in the [[Advanced ActionBar|Extended-ActionBar-Guide#custom-actionbar-styles]] to adjust the color of the ActionBar. If your app is using the `Toolbar` instead, then customize that using the [[styling the Toolbar guide|Using-the-App-ToolBar#styling-the-toolbar]].
 
 #### How do I add the icon to my ActionBar in API 21 or above?
 
