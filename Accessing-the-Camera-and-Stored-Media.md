@@ -24,7 +24,7 @@ Make sure to enable access to the external storage first before using the camera
 </manifest>
 ```
 
-**Note:** The permissions model has changed starting in Marshmallow. If your `targetSdkVersion` >= `23` and you are running on a Marshmallow (or later) device / emulator, you'll need to follow this guide on [[implementing runtime permissions|Understanding-App-Permissions#runtime-permissions]] in order to get these permissions.
+**Note:** The permissions model has changed starting in Marshmallow. If your `targetSdkVersion` >= `23` and you are running on a Marshmallow (or later) device / emulator, you may need to follow this guide on [[implementing runtime permissions|Understanding-App-Permissions#runtime-permissions]] in order to get these permissions.
 
 ### Using Capture Intent
 
@@ -69,8 +69,10 @@ public Uri getPhotoFileUri(String fileName) {
     // Only continue if the SD Card is mounted
     if (isExternalStorageAvailable()) {
         // Get safe storage directory for photos
+        // Use `getExternalFilesDir` on Context to access package-specific directories.
+        // This way, we don't need to request external read/write runtime permissions.
         File mediaStorageDir = new File(
-            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), APP_TAG);
+            getExternalFilesDir(Environment.DIRECTORY_PICTURES), APP_TAG);
 
         // Create the storage directory if it does not exist
         if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()){
@@ -83,13 +85,11 @@ public Uri getPhotoFileUri(String fileName) {
     return null;
 }
 
+// Returns true if external storage for photos is available
 private boolean isExternalStorageAvailable() {
-			String state = Environment.getExternalStorageState();
-			if (state.equals(Environment.MEDIA_MOUNTED)) {
-				return true;
-			}
-			return false;
-		}
+    String state = Environment.getExternalStorageState();
+    return state.equals(Environment.MEDIA_MOUNTED);
+}
 ```
 
 Check out the official [Photo Basics](http://developer.android.com/training/camera/photobasics.html) guide for more details.
