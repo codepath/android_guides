@@ -34,7 +34,7 @@ Add the following permissions to the `AndroidManifest.xml`:
 
 This provides the ability to access location information at coarse and fine granularities. You can remove `ACCESS_FINE_LOCATION` this will still work with less precision. 
 
-**Note:** The permissions model has changed starting in Marshmallow. If your `targetSdkVersion` >= `23` and you are running on a Marshmallow (or later) device, you may need to [[enable runtime permissions|Managing-Runtime-Permissions-with-PermissionsDispatcher]]. You can also read more about the [[runtime permissions changes here|Understanding-App-Permissions#runtime-permissions]]
+**Note:** The permissions model has changed starting in Marshmallow. If your `targetSdkVersion` >= `23` and you are running on a Marshmallow (or later) device, you may need to [[enable runtime permissions|Managing-Runtime-Permissions-with-PermissionsDispatcher]]. You can also read more about the [[runtime permissions changes here|Understanding-App-Permissions#runtime-permissions]].
 
 ### Connecting to the LocationServices API
 
