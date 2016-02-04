@@ -104,6 +104,10 @@ This probably means that the drawable image being used is a large resolution. Th
 
 For this, we'd use a custom [ToggleButton as described here](http://mirhoseini.com/how-to-create-a-toggle-button-with-custom-image-and-no-text-in-android/) which has a different image applied for the checked and unchecked states.
 
+#### How would I display an animated GIF image?
+
+To display animated GIFs, we can't use Picasso. Instead, we can use the alternative image loading library called [[Glide from Bumptech|http://guides.codepath.com/android/Animations#animated-images]].
+
 ### Views
 
 #### How do I display a "toast" to display text on an activity?
