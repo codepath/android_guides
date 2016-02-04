@@ -64,6 +64,7 @@ Exploring the foundations of app development:
 * [[Handling Configuration Changes]] (Screen Rotation)
 * [[Migrating to the AppCompat Library]] (Using the Support Libraries)
 * [[App Permissions|Understanding App Permissions]] (How to request the permissions you need) 
+* [[Managing Runtime Permissions with PermissionsDispatcher]]
 
 ## Views and Layouts
 
