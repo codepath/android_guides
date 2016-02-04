@@ -2,9 +2,11 @@
 
 By default, an Android app starts with zero permissions granted to it. When the app needs to use any of the protected features of the device (sending network requests, accessing the camera, sending an SMS, etc) it must obtain the appropriate permission from the user to do so.
 
+Before Marshmallow, permissions were handled at install-time and specified in the `AndroidManifest.xml` within the project. Full list of permissions can be [found here](http://developer.android.com/reference/android/Manifest.permission.html). After Marshmallow, permissions must now be **request at runtime** before being used. There are a [number of libraries available](https://gist.github.com/dlew/2a21b06ee8715e0f7338) to make runtime permissions easier. If you to get started quickly, check out our guide on [[Managing Runtime Permissions with PermissionsDispatcher]].
+
 ## Permissions before Marshmallow
 
-Permissions were much simpler before Marshmallow. All permissions were handled at install time. When a user went to install an app from the [Google Play Store](https://play.google.com/store), the user was presented a list of permissions that the app required (some people referred to this as a "wall of permissions". The user could either accept **all** the permissions and continue to install the app or decide not to install the app. It was an all or nothing approach. There was no way to grant only certain permissions to the app and no way for the user to revoke certain permissions after the app was installed. 
+Permissions were much simpler before Marshmallow (API 23). All permissions were handled at install-time. When a user went to install an app from the [Google Play Store](https://play.google.com/store), the user was presented a list of permissions that the app required (some people referred to this as a "wall of permissions". The user could either accept **all** the permissions and continue to install the app or decide not to install the app. It was an all or nothing approach. There was no way to grant only certain permissions to the app and no way for the user to revoke certain permissions after the app was installed. 
 
 Example of pre-Marshmallow permissions requested by the Dropbox app: 
 
@@ -138,6 +140,7 @@ Related permissions are grouped into [one of the permission groups](http://devel
 In most of your interaction with the permission API's you'll be working with the individual permissions and not the permission groups, but pay close attention to what the API expects as both permissions and permission groups are Strings.
 
 ### Backwards Compatibility
+
 There are 2 main scenarios to think about when it comes to backwards compatibility:
 
 1. Your app is targeting an API less than Marshmallow (`TargetSdkVersion` < `23`), but the emulator / device is Marshmallow:
