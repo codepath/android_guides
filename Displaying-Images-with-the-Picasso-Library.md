@@ -45,7 +45,7 @@ Picasso.with(this).load(imageUrl).
   resize(someWidth, 0).into(imageView);
 ```
 
-### Adjusting the image size dynamically
+### Adjusting Image Size Dynamically
 
 If we wish to readjust the ImageView size after the image has been retrieved, we first define a `Target` object that governs how the Bitmap is handled:
 
@@ -82,11 +82,10 @@ We can use this custom Target approach to create a staggered image view using `R
 
 <img src="https://i.imgur.com/gsp1prk.png" width="300"/>
 
-We first need to use [DynamicHeightImageView.java](https://github.com/etsy/AndroidStaggeredGrid/blob/master/library/src/main/java/com/etsy/android/grid/util/DynamicHeightImageView.java) that enables us to update the ImageView width and height while still preserving the aspect ratio when new images are replaced with old recycled views. We can set the ratio **before the image is loaded** if we already know the height:width ratio using `onBindViewHolder` as shown below:
+We first need to use [DynamicHeightImageView.java](https://github.com/etsy/AndroidStaggeredGrid/blob/master/library/src/main/java/com/etsy/android/grid/util/DynamicHeightImageView.java) that enables us to update the ImageView width and height while still preserving the aspect ratio when new images are replaced with old recycled views. We can set the ratio before the image has loaded if we already know the height:width ratio using `onBindViewHolder` as shown below:
 
 ```java
 public class PhotosAdapter extends RecyclerView.Adapter<PhotoViewHolder> {
-
     // implement other methods here
 
     @Override
@@ -101,11 +100,10 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotoViewHolder> {
 }
 ```
 
-Alternatively, we can set the ratio after the bitmap has loaded if we don't know the ratio ahead of time. To avoid using an anonymous class, we will implement the `Target` interface on the ViewHolder class itself for RecyclerView.   When the callback is fired, we will calculate and update the image aspect ratio:
+Alternatively, we can set the ratio after the bitmap has loaded if we don't know that ratio ahead of time. To avoid using an anonymous class, we will implement the `Target` interface on the ViewHolder class itself for RecyclerView. When the callback is fired, we will calculate and update the image aspect ratio:
 
 ```java
 public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, Target {
-
     DynamicHeightImageView ivImage;
 
     // implement ViewHolder methods here
