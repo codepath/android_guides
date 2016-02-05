@@ -90,8 +90,8 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotoViewHolder> {
     // implement other methods here
 
     @Override
-    public void onBindViewHolder(PopularPhotoViewHolder holder, int position) {
-        PopularPhoto photo = mPhotos.get(position);
+    public void onBindViewHolder(PhotoViewHolder holder, int position) {
+        Photo photo = mPhotos.get(position);
         holder.ivPhoto.setHeightRatio(((double)photo.getHeight())/photo.getWidth());
         Picasso.with(mContext).load(photo.getUrl()).into(holder.ivPhoto);
     }
