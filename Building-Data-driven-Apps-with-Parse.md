@@ -4,7 +4,7 @@
 
 ## Shutdown: Alternatives to Parse
 
-Parse is shutting down on January 28, 2017 and new accounts can no longer be created. There are a number of alternatives but the best options are included below:
+Parse is **shutting down on January 28, 2017** and new accounts can no longer be created. There are a number of alternatives but the best options are included below:
 
  * [Cloudboost](https://tutorials.cloudboost.io/en/gettingstarted/yourfirstapp)
  * [Kinvey](http://devcenter.kinvey.com/android/guides/getting-started)
