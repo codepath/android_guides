@@ -84,6 +84,20 @@ We can use this custom Target approach to create a staggered image view using `R
 
 We first need to use  [DynamicHeightImageView.java](https://github.com/etsy/AndroidStaggeredGrid/blob/master/library/src/main/java/com/etsy/android/grid/util/DynamicHeightImageView.java) that enables us to update the ImageView width and height while still preserving the aspect ratio when new images are replaced with old recycled views.
 
+```java
+public class PhotosAdapter extends RecyclerView.Adapter<PhotoViewHolder> {
+
+    // implement other methods here
+
+    @Override
+    public void onBindViewHolder(PopularPhotoViewHolder holder, int position) {
+        PopularPhoto photo = mPhotos.get(position);
+        holder.ivPhoto.setHeightRatio(((double)photo.getHeight())/photo.getWidth());
+        Picasso.with(mContext).load(photo.getUrl()).into(holder.ivPhoto);
+    }
+
+}
+```
 To avoid using an anonymous class, we will implement the `Target` interface on the ViewHolder class itself for RecyclerView.   When the callback is fired, we will calculate and update the image aspect ratio.
 
 ```java
