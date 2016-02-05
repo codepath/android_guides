@@ -114,11 +114,15 @@ public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickL
     public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
         // Calculate the image ratio of the loaded bitmap
         float ratio = (float) bitmap.getHeight() / (float) bitmap.getWidth();
+        // Set the ratio for the image 
         ivImage.setHeightRatio(ratio);
+        // Load the image into the view
         ivImage.setImageBitmap(bitmap);
     }
 }
 ```
+
+Now the staggered grid of images should render as expected.
 
 ### Showing ProgressBar with Picasso
 
