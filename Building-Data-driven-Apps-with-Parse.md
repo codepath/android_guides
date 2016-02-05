@@ -2,6 +2,17 @@
 
 <img src="http://i.imgur.com/Xo47jSc.gif" alt="Parse" width="750" />
 
+## Shutdown: Alternatives to Parse
+
+Parse is shutting down on January 28, 2017 and new accounts can no longer be created. There are a number of alternatives but the best options are included below:
+
+ * [Cloudboost](https://tutorials.cloudboost.io/en/gettingstarted/yourfirstapp)
+ * [Kinvey](http://devcenter.kinvey.com/android/guides/getting-started)
+ * [Backendless](https://backendless.com/products/documentation/)
+ * [Restdb](https://restdb.io/docs/)
+
+A comprehensive list of alternatives can be [reviewed here](https://github.com/relatedcode/ParseAlternatives). You can also review [Parse migration tools](http://blog.parse.com/announcements/introducing-parse-server-and-the-database-migration-tool/). 
+
 ## Registration
 
 First, we need to [sign up for a Parse account](https://www.parse.com/#signup) unless we are already registered. 
