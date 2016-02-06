@@ -68,6 +68,8 @@ Before continuing make sure:
 
  - `Google Cloud Messaging for Android` is enabled in APIs
  - Stored your "Project Number" as listed in developer console in APIs
+
+   <img src="https://imgur.com/eyx2aw6.png"/>
  - Stored your "Server Key" as listed in developer console in Credentials
 
 Now let's setup our Android client.
