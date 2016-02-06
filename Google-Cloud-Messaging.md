@@ -137,7 +137,6 @@ First, you will need to create a `RegistrationIntentService` class and make sure
 Inside this class, you will need to request an [instance ID](https://developers.google.com/instance-id/reference/) from Google that will be a way to uniquely identify the device and app.  Assuming this request is successful, a token that can be used to send notifications to the app should be generated too.
 
 ```java
-
 // abbreviated tag name
 public class RegistrationIntentService extends IntentService {
 
@@ -163,11 +162,12 @@ public class RegistrationIntentService extends IntentService {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
-     private void sendRegistrationToServer(String token) {
+    private void sendRegistrationToServer(String token) {
         // Add custom implementation, as needed.
-     }
-
+    }
+}
 ```
 
 You will want to record whether the token was sent to the server and may wish to store the token in your [[Shared Preferences|Storing-and-Accessing-SharedPreferences]]:
