@@ -207,7 +207,7 @@ For more details, see the [sample code](https://github.com/googlesamples/google-
 
 ### Create a InstanceID ListenerService
 
-According to this Google official [documentation](https://developers.google.com/instance-id/guides/android-implementation), the instance ID server issues callbacks periodically (i.e. 6 months) to request apps to refresh their tokens.  To support this possibility, we need to extend from `InstanceIDListenerService` to handle token refresh changes.  We should override this base method and launch an intent service for `RegistrationIntentService` to fetch the token:
+According to this Google official [documentation](https://developers.google.com/instance-id/guides/android-implementation), the instance ID server issues callbacks periodically (i.e. 6 months) to request apps to refresh their tokens.  To support this possibility, we need to extend from `InstanceIDListenerService` to handle token refresh changes.  We should create a file called `MyInstanceIDListenerService.java` that will override this base method and launch an intent service for `RegistrationIntentService` to fetch the token:
 
 ```java
 public class MyInstanceIDListenerService extends InstanceIDListenerService {
