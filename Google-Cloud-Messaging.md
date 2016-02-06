@@ -249,7 +249,9 @@ In the past, Google required implementing a [WakefulBroadcastReceiver](https://d
 </receiver>
 ```
 
-Let's define `GCMMessageHandler.java` that extends from `GcmListenerService` that will process the message received:
+### Listening for push notifications
+
+Let's define `GcmMessageHandler.java` that extends from `GcmListenerService` that will process the message received:
 
 ```java
 import com.google.android.gms.gcm.GcmListenerService;
@@ -283,19 +285,7 @@ public class GcmMessageHandler extends GcmListenerService {
 }
 ```
 
-Note that above the push message is handled by creating a notification. There are a few actions that are commonly taken when a push is received:
-
- * [[Create a notification|Notifications#creating-a-notification]]
- * [[Update an Activity|Starting-Background-Services#communicating-from-a-service-to-an-application]]
- * [Launch new activity](https://github.com/codepath/ParsePushNotificationExample/blob/master/app/src/main/java/com/test/MyCustomReceiver.java#L69)
-
-You can review examples of these [outlined in this more elaborate code sample](https://github.com/codepath/ParsePushNotificationExample/blob/master/app/src/main/java/com/test/MyCustomReceiver.java).
-
-In certain cases when receiving a push, you want to update an activity if the activity is on the screen. Otherwise, you want to raise a notification. The solutions to this are [outlined in this post](http://stackoverflow.com/a/18311830/313399) with a [code sample here](http://stackoverflow.com/a/15949723/313399).
-
-### Register with Manifest
-
-Finally we need to register the receiver class with GCM in the `AndroidManifest.xml` tagging the type of request (category) of the push:
+We need to register the receiver class with GCM in the `AndroidManifest.xml` tagging the type of request (category) of the push:
 
 ```xml
  <application
@@ -319,9 +309,19 @@ Finally we need to register the receiver class with GCM in the `AndroidManifest.
 </manifest>
 ```
 
-Note we also register the `GcmMessageHandler` as a service and setup the play services meta-data required for push messaging to work. Now we just need a web server to keep track of the different device tokens and manage the pushing of messages to different devices.
+Note that above the push message is handled by creating a notification. There are a few actions that are commonly taken when a push is received:
+
+ * [[Create a notification|Notifications#creating-a-notification]]
+ * [[Update an Activity|Starting-Background-Services#communicating-from-a-service-to-an-application]]
+ * [Launch new activity](https://github.com/codepath/ParsePushNotificationExample/blob/master/app/src/main/java/com/test/MyCustomReceiver.java#L69)
+
+You can review examples of these [outlined in this more elaborate code sample](https://github.com/codepath/ParsePushNotificationExample/blob/master/app/src/main/java/com/test/MyCustomReceiver.java).
+
+In certain cases when receiving a push, you want to update an activity if the activity is on the screen. Otherwise, you want to raise a notification. The solutions to this are [outlined in this post](http://stackoverflow.com/a/18311830/313399) with a [code sample here](http://stackoverflow.com/a/15949723/313399).
 
 ## Step 3: Setup Web Server
+
+Now we just need a web server to keep track of the different device tokens and manage the pushing of messages to different devices.
 
 ### Overview
 
