@@ -86,7 +86,7 @@ Add the following to your Gradle file:
 
 ```gradle
 dependencies {
-  compile "com.google.android.gms:play-services-gcm:8.3.0"
+  compile "com.google.android.gms:play-services-gcm:8.4.0"
 }
 ```
 
