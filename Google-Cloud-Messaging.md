@@ -40,7 +40,7 @@ In order to use GCM, we need to go through the following steps:
 
 ## Step 1: Register with Google Developers Console
 
-### Quickstart
+### Creating a new project
 
  - Use the new [creation page](https://developers.google.com/mobile/add?platform=android&cntapi=gcm).  You can either select an existing project or create a new one.  The Android package name is required but not necessarily used for GCM configuration.  Proceed to the next step by selecting `Choose and configure services`.
 
@@ -54,7 +54,7 @@ In order to use GCM, we need to go through the following steps:
 
    <img src="http://imgur.com/FBxF8V8.png" height="250"/>
 
-### Alternate instructions
+### Using an existing project 
 
  - Go to the [Google Developers Console](https://cloud.google.com/console)
  - If this is the first time you visit Google Developer Console, you need to create a Project.
