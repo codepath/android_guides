@@ -40,6 +40,8 @@ In order to use GCM, we need to go through the following steps:
 
 ## Step 1: Register with Google Developers Console
 
+If you have used the Google Developers Console and wish to enable GCM on an existing project, skip to the [[using existing setup|Google Cloud Messaging#Using an existing project]] step.  Otherwise, proceed to creating a new project.
+
 ### Creating a new project
 
  - Use the new [creation page](https://developers.google.com/mobile/add?platform=android&cntapi=gcm).  You can either select an existing project or create a new one.  The Android package name is required but not necessarily used for GCM configuration.  Proceed to the next step by selecting `Choose and configure services`.
