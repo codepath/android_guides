@@ -182,17 +182,16 @@ You will want to record whether the token was sent to the server and may wish to
 
         // Fetch token here
         try {
-
+          // save token
+          sharedPreferences.edit().putString(GCM_TOKEN, token).apply();
+          // pass along this data
+          sendRegistrationToServer(token);
         } catch (IOException e) {
             Log.d(TAG, "Failed to complete token refresh", e);
             // If an exception happens while fetching the new token or updating our registration data
             // on a third-party server, this ensures that we'll attempt the update at a later time.
             sharedPreferences.edit().putBoolean(SENT_TOKEN_TO_SERVER, false).apply();
         }
-        // save token
-        sharedPreferences.edit().putString(GCM_TOKEN, token).apply();
-        // pass along this data
-        sendRegistrationToServer(token);
     }
 
     private void sendRegistrationToServer(String token) {
