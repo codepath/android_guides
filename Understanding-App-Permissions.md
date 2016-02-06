@@ -151,25 +151,34 @@ There are 2 main scenarios to think about when it comes to backwards compatibili
   * Your app will continue to use the old permissions model.
   * All permissions listed in the `AndroidManifest` will be asked for at install time.
 
-### Manage permissions from the command line
+### Managing Permissions using ADB
+
+Permissions can also be managed on the command-line using `adb` with the following commands.
 
 * Show all Android permissions:
 
-$adb shell pm list permissions -d -g
+```bash
+$ adb shell pm list permissions -d -g
+```
 
 * Dumping app permission state:
 
+```bash
 $adb shell dumpsys package com.PackageName.enterprise
+```
 
 * Granting and revoking runtime permissions:
 
-$adb shell pm grant/revoke com.PackageName.enterprise some.permission.NAME
-
+```bash
+$adb shell pm grant com.PackageName.enterprise some.permission.NAME
 $adb shell pm revoke com.PackageName.enterprise android.permission.READ_CONTACTS
+```
 
 * Installing an app with all permissions granted:
 
+```
 $adb install -g myAPP.apk
+```
 
 ## References
 
