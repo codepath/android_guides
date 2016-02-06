@@ -151,6 +151,26 @@ There are 2 main scenarios to think about when it comes to backwards compatibili
   * Your app will continue to use the old permissions model.
   * All permissions listed in the `AndroidManifest` will be asked for at install time.
 
+### Manage permissions from the command line
+
+1. Show all Android permissions:
+
+$adb shell pm list permissions -d -g
+
+2. Dumping Go90 app permission state:
+
+$adb shell dumpsys package com.PackageName.enterprise
+
+3. Granting and revoking runtime permissions:
+
+$adb shell pm grant/revoke com.PackageName.enterprise some.permission.NAME
+
+$adb shell pm revoke com.PackageName.enterprise android.permission.READ_CONTACTS
+
+4. Installing an app with all permissions granted:
+
+$adb install -g myAPP.apk
+
 ## References
 
 * <http://developer.android.com/guide/topics/security/permissions.html>
