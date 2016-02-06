@@ -95,7 +95,7 @@ dependencies {
 
 ### Setup Sender ID
 
-Add your project number to your strings.xml, which should correspond to the sender ID:
+Add your project number to your `strings.xml`, which should correspond to the sender ID:
 
 ```xml
 <string name="gcm_defaultSenderId">1234</string>
