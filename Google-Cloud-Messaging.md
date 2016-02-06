@@ -64,12 +64,13 @@ In order to use GCM, we need to go through the following steps:
  - Under `APIs & Auth` -> Credentials, select "Create New Key" => "Server Key".  Record key for later
      <img src="http://imgur.com/WEWaUBj.png"/>
 
+ - Go back to the `Dashboard` view and record the "Project Number" under the Project Name:
+     <img src="https://imgur.com/eyx2aw6.png"/>
+
 Before continuing make sure:
 
  - `Google Cloud Messaging for Android` is enabled in APIs
- - Stored your "Project Number" as listed in developer console in APIs
-
-   <img src="https://imgur.com/eyx2aw6.png"/>
+ - Recorded your "Project Number" as listed in developer console in APIs
  - Stored your "Server Key" as listed in developer console in Credentials
 
 Now let's setup our Android client.
