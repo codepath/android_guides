@@ -120,9 +120,9 @@ Your app will need to have the ability to make Internet connection and request w
 </manifest>
 ```
 
-To prevent other broadcast receivers from receiving the message, there is a special custom `C2D_MESSAGE` permission that should be defined.  This permission may be an [artifact of the C2DM technology](https://youtu.be/51F5LWzJqjg?t=44m11s) and to provide backwards compatibility for older devices.  The permission should correspond to your package name (i.e. `com.codepath.gcmexample.permission.C2D_MESSAGE`).   Some of the permissions in general still used reference C2DM for backwards compatibility with older Android devices.  C2DM, which was Google's first push notification system, has been [deprecated](https://developers.google.com/cloud-messaging/c2dm), and GCM is now the recommended way of implementing push notifications.
+**Why these permissions are needed**: To prevent other broadcast receivers from receiving the message, there is a special custom `C2D_MESSAGE` permission that should be defined.  This permission may be an [artifact of the C2DM technology](https://youtu.be/51F5LWzJqjg?t=44m11s) and to provide backwards compatibility for older devices.  The permission should correspond to your package name (i.e. `com.codepath.gcmexample.permission.C2D_MESSAGE`).   Some of the permissions in general still used reference C2DM for backwards compatibility with older Android devices.  C2DM, which was Google's first push notification system, has been [deprecated](https://developers.google.com/cloud-messaging/c2dm), and GCM is now the recommended way of implementing push notifications.
 
-For a more detailed explanation of why these permissions are needed, see [Google's guide](https://developers.google.com/cloud-messaging/android/client#manifest).  The `com.google.android.c2dm.intent.REGISTRATION` permission in particular is needed for devices below Android 4.4 (KitKat) versions.
+For a more detailed explanation, see [Google's guide](https://developers.google.com/cloud-messaging/android/client#manifest).  The `com.google.android.c2dm.intent.REGISTRATION` permission in particular is needed for devices below Android 4.4 (KitKat) versions.
 
 ### Implement a Registration Intent Service
 
