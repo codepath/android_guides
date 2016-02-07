@@ -14,12 +14,11 @@ The steps described [this guide](https://devcenter.heroku.com/articles/deploying
 3. Fork a copy of the [Parse server example](https://github.com/ParsePlatform/parse-server-example). 
 4. Create a new Heroku app, pointing to this repository that was created.
 5. Add the MongoDB instance as an Add-On.
-6. Setup environment variables in the app settings: `https://dashboard.heroku.com/apps/<app name>/settings`.
-      a. Set a `MASTER_KEY`.  Otherwise, the server will not load properly.  
-      b. Set a `APP_ID`.  If you do not set one, the default is set as `myAppId` (see [the source code]
+6. Setup environment variables in the app settings: `https://dashboard.heroku.com/apps/<app name>/settings`
+    * Set `MASTER_KEY` to be the master key used to read data.  Otherwise, the server will not load properly.  
+    * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId` (see [the source code]
 (https://github.com/ParsePlatform/parse-server-example/blob/master/index.js#L14-L18).
-      c. Set `PARSE_MOUNT` to '/`.  This setting is needed to enable Client SDK's to talk to your Parse instance.
-7. Deploy the Heroku app.  The app should be hosted at `https://<app name>.herokuapp.com`.
+    * Set `PARSE_MOUNT` to '/`.  This setting is needed to enable Client SDK's to talk to your Parse instance.  7. Deploy the Heroku app.  The app should be hosted at `https://<app name>.herokuapp.com`.
 
 ### Testing Deployment
 
@@ -70,21 +69,27 @@ public class ChatApplication extends Application {
 ```
 ### Troubleshooting
 
-#### Heroku Toolbelt
+* If you have issues, remove the `PARSE_MOUNT` environment variable temporarily.  You should see `I dream of being a web site.` if the site loaded correctly.   
 
-Download the Heroku Toolbelt app [here](https://toolbelt.heroku.com/). 
+* If you see `Application Error` or `An error occurred in the application and your page could not be served. Please try again in a few moments.`, double-check that you set a `MASTER_KEY` in the Heroku environment settings for that app.
 
-<img src="http://imgur.com/Ch0mZOK.png"/>
+  <img src="http://imgur.com/uMYwPmS.png">
 
-You can use this tool to view the system logs.  First, you must login with your Heroku login and password:
+* Download the Heroku Toolbelt app [here](https://toolbelt.heroku.com/) to help view system logs. 
 
-```bash
-heroku login
-```
+  <img src="http://imgur.com/Ch0mZOK.png"/>
 
-You can then view the system logs by specifying the app name:
-```bash
-heroku logs -app <app name>
-```
+  First, you must login with your Heroku login and password:
 
+  ```bash
+  heroku login
+  ```
 
+   You can then view the system logs by specifying the app name:
+   ```bash
+   heroku logs -app <app name>
+   ```
+
+   The logs should show the response from any types of network requests made to the site.  Check the `status` code.  If you see that it's 404, then double-check that you have set the `PARSE_MOUNT` to '/'.
+
+   ```2016-02-07T08:28:14.292475+00:00 heroku[router]: at=info method=POST path="/classes/Message" host=parse-testing-port.herokuapp.com request_id=804c2533-ac56-4107-ad05-962d287537e9 fwd="101.12.34.12" dyno=web.1 connect=1ms service=2ms status=404 bytes=179```
