@@ -174,12 +174,12 @@ Exploring the strategies for data persistence:
 * [[Storing and Accessing SharedPreferences]]
 * [[Local Databases with SQLiteOpenHelper]]
 * [[Populating a ListView with a CursorAdapter]]
-* [[Clean Persistence with Sugar ORM]] (Installation, Queries, Migrations)
 * [[Settings with PreferenceFragment]]
 * [[Loading Contacts with Content Providers]] (CursorLoader, LoaderManager)
 * [[Interacting with the Calendar]] (CalendarProvider)
 * [[Creating Content Providers]] (**Needs Attention**)
-* [[DBFlow ORM Guide|DBFlow-Guide]]
+* [[Clean Persistence with Sugar ORM]] (Installation, Queries, Migrations)
+* [[DBFlow ORM Guide|DBFlow-Guide]] (Installation, Queries)
 * [[Easier SQL with Cupboard]]
 
 ## Fragments
