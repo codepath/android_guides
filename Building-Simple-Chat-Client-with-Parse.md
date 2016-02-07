@@ -56,7 +56,12 @@ Let's setup Parse into a brand new Android app following the steps below.
             // [Optional] Power your app with Local Datastore. For more info, go to
             // https://parse.com/docs/android/guide#local-datastore
             Parse.enableLocalDatastore(this);
-            Parse.initialize(this);
+            Parse.initialize(new Parse.Configuration.Builder(this)
+                 .applicationId(YOUR_APPLICATION_ID)
+                 .clientKey(YOUR_CLIENT_KEY)
+                 .server("https://myappname.herokuapp.com")
+                 .build());
+
         }
     }
     ```
@@ -346,13 +351,12 @@ public class ChatApplication extends Application {
 		// Register your parse models here
 		ParseObject.registerSubclass(Message.class);
 		// Existing initialization happens after all classes are registered
-		Parse.initialize(this, YOUR_APPLICATION_ID, YOUR_CLIENT_KEY);
-  
-                // For open-source Parse backends, use:
+	
+                // For open-source Parse backend
                 Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId(YOUR_APPLICATION_ID)
                 .clientKey(YOUR_CLIENT_KEY)
-                .server("https://myappname.herokuapp.com/parse")
+                .server("https://myappname.herokuapp.com")
                 .build());
 	}
 }
