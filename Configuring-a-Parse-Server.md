@@ -18,10 +18,10 @@ The steps described [this guide](https://devcenter.heroku.com/articles/deploying
 5. Add the MongoDB instance as an Add-On.
 6. Setup environment variables in the app settings (`https://dashboard.heroku.com/apps/<app name>/settings`):
 
-    <img src="http://imgur.com/n2xvg53.png"/>
+    <img src="http://imgur.com/shCWGQX.png"/>
     * Set `MASTER_KEY` to be the master key used to read data.  Otherwise, the server will not load properly.  
-    * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId` (see [the source code]
-(https://github.com/ParsePlatform/parse-server-example/blob/master/index.js#L14-L18). 
+    * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId` (see [the source code](https://github.com/ParsePlatform/parse-server-example/blob/master/index.js#L14-L18)). 
+    * Verify the MONGOLAB_URI has been added.  It should be there if the MongoDB add-on was added. 
 7. Deploy the Heroku app.  The app should be hosted at `https://<app name>.herokuapp.com`.
 
 The important file to review for the Parse server example is [here](https://github.com/ParsePlatform/parse-server-example/blob/master/index.js).  You can see that it takes a few environment variables to run.
