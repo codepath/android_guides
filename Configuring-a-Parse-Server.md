@@ -20,7 +20,7 @@ The steps described [this guide](https://devcenter.heroku.com/articles/deploying
     * Set `MASTER_KEY` to be the master key used to read data.  Otherwise, the server will not load properly.  
     * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId` (see [the source code]
 (https://github.com/ParsePlatform/parse-server-example/blob/master/index.js#L14-L18).
-    * Set `PARSE_MOUNT` to '/`.  This setting is needed to enable Client SDK's to talk to your Parse instance.  7. Deploy the Heroku app.  The app should be hosted at `https://<app name>.herokuapp.com`.
+    * Set `PARSE_MOUNT` to `/`.  This setting is needed to enable Client SDK's to talk to your Parse instance.  7. Deploy the Heroku app.  The app should be hosted at `https://<app name>.herokuapp.com`.
 
 The important file to review for the Parse server example is [here](https://github.com/ParsePlatform/parse-server-example/blob/master/index.js).  You can see that it takes a few environment variables to run.
 
