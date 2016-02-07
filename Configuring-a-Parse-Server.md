@@ -84,6 +84,9 @@ public class ChatApplication extends Application {
     }
 }
 ```
+
+**Note**: there appears to be a [bug](https://github.com/ParsePlatform/Parse-SDK-Android/issues/393) in the Android SDK that only allows base URL's to be added with the `.server()` call.
+
 ### Troubleshooting
 
 * If you have issues, remove the `PARSE_MOUNT` environment variable temporarily.  You should see `I dream of being a web site.` if the site loaded correctly.   
@@ -127,4 +130,3 @@ public class ChatApplication extends Application {
   Parse.initialize(new Parse.Configuration.Builder(this)
        .addNetworkInterceptor(new ParseStethoInterceptor())
   ```
-
