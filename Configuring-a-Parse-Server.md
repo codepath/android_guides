@@ -56,6 +56,8 @@ Make sure you have the latest Parse-Android SDK in your `app/build.gradle` file.
 ```gradle
 dependencies {
     compile 'com.parse:parse-android:1.13.0'
+    compile 'com.parse:parseinterceptors:0.0.2' // for logging API calls to LogCat
+    
 }
 ```
 
@@ -67,10 +69,13 @@ public class ChatApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
+        // Stetho.initializeWithDefaults(this);
+
         // set applicationId, clientKey, and server based on the values in the Heroku settings.
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId("myAppId")
                 .clientKey("clientKey")
+                .addNetworkInterceptor(new ParseLogInterceptor())
                 .server("https://parse-testing-port.herokuapp.com").build());
     }
 }
@@ -103,3 +108,19 @@ public class ChatApplication extends Application {
    ```
    2016-02-07T08:28:14.292475+00:00 heroku[router]: at=info method=POST path="/classes/Message" host=parse-testing-port.herokuapp.com request_id=804c2533-ac56-4107-ad05-962d287537e9 fwd="101.12.34.12" dyno=web.1 connect=1ms service=2ms status=404 bytes=179
    ```
+
+* You can also use Facebook's [Stetho](http://facebook.github.io/stetho/) interceptor to watch network logs with Chrome:
+
+  ```gradle
+  dependencies {
+    compile 'com.facebook.stetho:stetho:1.3.0'
+  }
+  ```
+
+  And add this network interceptor as well:
+
+  ```java
+  Parse.initialize(new Parse.Configuration.Builder(this)
+       .addNetworkInterceptor(new ParseStethoInterceptor())
+  ```
+
