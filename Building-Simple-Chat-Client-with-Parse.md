@@ -2,13 +2,13 @@ The following tutorial explains how to build a very simple chat application in A
 
 >**Note:** This chat application is by no means fully-featured or production ready. It's merely an illustration on quickly building a fully connected application using [Parse](https://www.parse.com)
 
-## 1. Parse Registration
+## 1. Setup Parse server
 
 Parse is shutting down in a year on **January 28, 2017**.  New accounts are no longer being accepted, and existing apps are being requested to migrate to their own backend by **April 28, 2016**. 
 
-If you wish to use the existing Parse SDK, you can do so but need to setup your open source version.  See [this guide](https://devcenter.heroku.com/articles/deploying-a-parse-server-to-heroku) for doing so.  
+If you wish to still use Parse as your backend, you will need to setup your open source version. See  [[this guide|Configuring-a-Parse-Server]] for the steps needed.
 
-## 2. Setup Parse
+## 2. Setup Parse client
 
 Let's setup Parse into a brand new Android app following the steps below.
 
@@ -347,6 +347,13 @@ public class ChatApplication extends Application {
 		ParseObject.registerSubclass(Message.class);
 		// Existing initialization happens after all classes are registered
 		Parse.initialize(this, YOUR_APPLICATION_ID, YOUR_CLIENT_KEY);
+  
+                // For open-source Parse backends, use:
+                Parse.initialize(new Parse.Configuration.Builder(this)
+                .applicationId(YOUR_APPLICATION_ID)
+                .clientKey(YOUR_CLIENT_KEY)
+                .server("https://myappname.herokuapp.com/parse")
+                .build());
 	}
 }
 ```
