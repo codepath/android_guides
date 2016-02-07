@@ -15,7 +15,6 @@ The steps described [this guide](https://devcenter.heroku.com/articles/deploying
 2. Establish a credit card through [Account Settings](https://dashboard.heroku.com/account) in order to add a free MongoDB sandbox instance.
 3. Fork a copy of the [Parse server example](https://github.com/ParsePlatform/parse-server-example). 
 4. Create a new Heroku app, pointing to this repository that was created.
-   <img src="https://s3.amazonaws.com/heroku-devcenter-files/article-images/1454616997-parse-create.png"/>
 5. Add the MongoDB instance as an Add-On.
 6. Setup environment variables in the app settings: `https://dashboard.heroku.com/apps/<app name>/settings`
     * Set `MASTER_KEY` to be the master key used to read data.  Otherwise, the server will not load properly.  
