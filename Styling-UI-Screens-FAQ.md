@@ -360,10 +360,6 @@ You can read more about this on the [material design guidelines](https://develop
 
 ActionBar title can be styled or centered only if you opt to customize the XML view being inflated to display in the ActionBar. Instead of using the default ActionBar text you can specify your own to use instead that is styled as desired. Check out the [[Advanced ActionBar|Extended-ActionBar-Guide#custom-actionbar-layout]] cliffnotes for details.
 
-#### How do I style tabs in the ActionBar?
-
-Easiest way is to use the [ActionBar Style Generator](http://jgilfelt.github.io/android-actionbarstylegenerator/) to customize the appearance. Check out this [[ActionBar Tabs|ActionBar-Tabs-with-Fragments#styling-tabs]] guide for more details.
-
 #### How would I hide the top ActionBar?
 
 You can hide the top bar in any Activity by modifying the "theme" of an Activity in the `AndroidManifest.xml` such as:
