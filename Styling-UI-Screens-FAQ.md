@@ -52,6 +52,10 @@ To align the contents within a view, you can use the [[`android:gravity` propert
 
 Simply wrap your views inside a [[PercentRelativeLayout|Constructing-View-Layouts#percentrelativelayout]] or `PercentFrameLayout` and specify attributes with "Percent" suffix. Alternatively, you can also use [[`android:layout_weight`|Constructing-View-Layouts#linearlayout]] attribute if you are using a `LinearLayout`.
 
+#### How do I add tabs to my activity to switch between views?
+
+Tabs used to swap the content displayed on screen can be added to an Activity using a number of methods. The [[recommended method using a TabLayout|Google-Play-Style-Tabs-using-TabLayout]] involves splitting up the contents of each tab into a "Fragment" (modular piece of an activity) and then using a "ViewPager" which enables us to easily swap the contents of different fragments onto the screen. 
+
 ### Images
 
 #### How do I load images into an Android app for display?
