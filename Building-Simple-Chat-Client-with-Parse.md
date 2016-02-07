@@ -124,7 +124,7 @@ For the sake of simplicity, we will use an anonymous user to log into our simple
 Open your main activity class (`ChatActivity.java`) and make the  following changes:
 
 ```java
-public class ChatActivity extends Activity {
+public class ChatActivity extends AppCompatActivity {
     static final String TAG = ChatActivity.class.getSimpleName();
 
     @Override
