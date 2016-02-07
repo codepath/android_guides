@@ -4,7 +4,9 @@ The following tutorial explains how to build a very simple chat application in A
 
 ## 1. Parse Registration
 
-First, we need to [sign up for a Parse account](https://www.parse.com/#signup) unless we are already registered. 
+Parse is shutting down in a year on **January 28, 2017**.  New accounts are no longer being accepted, and existing apps are being requested to migrate to their own backend by **April 28, 2016**. 
+
+If you wish to use the existing Parse SDK, you can do so but need to setup your open source version.  See [this guide](https://devcenter.heroku.com/articles/deploying-a-parse-server-to-heroku) for doing so.  
 
 ## 2. Setup Parse
 
