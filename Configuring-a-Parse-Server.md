@@ -55,10 +55,11 @@ Make sure you have the latest Parse-Android SDK in your `app/build.gradle` file.
 dependencies {
     compile 'com.parse:parse-android:1.13.0'
 }
-```java
+```
 
 Modify your `Parse.initialize()` command to point to this Heroku server.  You must be on the latest Parse Android SDK to have these options:
 
+```java
 public class ChatApplication extends Application {
     @Override
     public void onCreate() {
