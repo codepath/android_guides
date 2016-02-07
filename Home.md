@@ -171,7 +171,6 @@ Exploring the strategies for data persistence:
 
 * [[Persisting Data to the Device]] (Preferences, Files, SQLite, ORMs)
 * [[ActiveAndroid ORM Guide|ActiveAndroid Guide]] (and Q&A)
-* [[DBFlow ORM Guide|DBFlow-Guide]]
 * [[Storing and Accessing SharedPreferences]]
 * [[Local Databases with SQLiteOpenHelper]]
 * [[Populating a ListView with a CursorAdapter]]
@@ -180,6 +179,7 @@ Exploring the strategies for data persistence:
 * [[Loading Contacts with Content Providers]] (CursorLoader, LoaderManager)
 * [[Interacting with the Calendar]] (CalendarProvider)
 * [[Creating Content Providers]] (**Needs Attention**)
+* [[DBFlow ORM Guide|DBFlow-Guide]]
 * [[Easier SQL with Cupboard]]
 
 ## Fragments
