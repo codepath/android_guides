@@ -37,13 +37,13 @@ After deployment, try to connect to the site.  If you see `{error: "unauthorized
 Next, make sure you can create Parse objects.  You do not need a client Key to write new data:
 
 ```bash
-curl -X POST   -H "X-Parse-Application-Id: myAppId"   -H "Content-Type: application/json"   -d '{"score":1337,"playerName":"Sean Plott","cheatMode":false}'   https://yourappname.herokuapp.com/parse/classes/GameScore
+curl -X POST -H "X-Parse-Application-Id: myAppId" -H "Content-Type: application/json" -d '{"score":1337,"playerName":"Sean Plott","cheatMode":false}'   https://yourappname.herokuapp.com/parse/classes/GameScore
 ```
 
 To read data back, you will need to specify the master key:
 
 ```bash
-curl -X GET  -H "X-Parse-Application-Id: myAppId"   -H "X-Parse-Master-Key: abc"    https://yourappname.herokuapp.com/parse/classes/GameScore
+curl -X GET -H "X-Parse-Application-Id: myAppId" -H "X-Parse-Master-Key: abc"    https://yourappname.herokuapp.com/parse/classes/GameScore
 ```
 
 You can also verify whether the objects were created by clicking on the MongoDB instance in the Heroku panel:
