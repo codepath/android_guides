@@ -5,6 +5,8 @@ Parse provides a cloud-based backend service to build data-driven mobile apps qu
 While there are many 
 [alternate options to Parse](https://github.com/relatedcode/ParseAlternatives), most of them lack either the functionality, documentation, or sample code to enable quick prototyping.  For this reason, the open source Parse version is a good option to use with minimal deployment/configuration needed.
 
+You can review this [Wiki](https://github.com/ParsePlatform/parse-server/wiki) to understand the current development progress of this app.  Push notifications, for instance, are currently not implemented but appears to be supported soon.
+
 ### Setting a new Parse Server
 
 The steps described [this guide](https://devcenter.heroku.com/articles/deploying-a-parse-server-to-heroku) walk through most of the process of setting an open source version with Parse.  There are obviously many other hosting options, but deploying with Heroku is probably the simplest.  The instructions basically entail the following steps:
@@ -19,6 +21,8 @@ The steps described [this guide](https://devcenter.heroku.com/articles/deploying
     * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId` (see [the source code]
 (https://github.com/ParsePlatform/parse-server-example/blob/master/index.js#L14-L18).
     * Set `PARSE_MOUNT` to '/`.  This setting is needed to enable Client SDK's to talk to your Parse instance.  7. Deploy the Heroku app.  The app should be hosted at `https://<app name>.herokuapp.com`.
+
+The important file to review for the Parse server example is [here](https://github.com/ParsePlatform/parse-server-example/blob/master/index.js).  You can see that it takes a few environment variables to run.
 
 ### Testing Deployment
 
