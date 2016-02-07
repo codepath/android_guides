@@ -106,7 +106,7 @@ Check out our [[managing databases with SQLiteOpenHelper|Local-Databases-with-SQ
 
 Instead of accessing the SQLite database directly, there is no shortage of higher-level wrappers for managing SQL persistence. There are many popular ORMs for Android, but one of the easiest to use is [ActiveAndroid](https://github.com/pardom/ActiveAndroid/wiki/Getting-started) ([[cliffnotes|ActiveAndroid-Guide]]). Here's a few alternatives as well:
 
- * [DBFlow](https://github.com/Raizlabs/DBFlow) - Newer, light syntax, fast ([[cliffnotes|DBFlow-Guide]]))
+ * [DBFlow](https://github.com/Raizlabs/DBFlow) - Newer, light syntax, fast ([[cliffnotes|DBFlow-Guide]])
  * [SugarORM](http://satyan.github.io/sugar/index.html) - Very easy syntax, uses reflection to infer data ([[cliffnotes|Clean-Persistence-with-Sugar-ORM]])
  * [Siminov](http://siminov.github.io/android-orm/) - Another viable alternative syntax
  * [greenDAO](http://greendao-orm.com/) - Slightly different take (DAO vs ORM)
