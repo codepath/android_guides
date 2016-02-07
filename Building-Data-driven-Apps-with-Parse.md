@@ -11,7 +11,7 @@ Parse is **shutting down on January 28, 2017** and new accounts can no longer be
  * [Backendless](https://backendless.com/products/documentation/)
  * [Restdb](https://restdb.io/docs/)
 
-A comprehensive list of alternatives can be [reviewed here](https://github.com/relatedcode/ParseAlternatives). You can also review [Parse migration tools](http://blog.parse.com/announcements/introducing-parse-server-and-the-database-migration-tool/). 
+A comprehensive list of alternatives can be [reviewed here](https://github.com/relatedcode/ParseAlternatives). You can also review [Parse migration tools](http://blog.parse.com/announcements/introducing-parse-server-and-the-database-migration-tool/) and setup your own MongoDb/NodeJS server and leverage the existing Parse client SDK's.
 
 ## Registration
 
