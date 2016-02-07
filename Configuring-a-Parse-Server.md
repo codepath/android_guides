@@ -14,6 +14,7 @@ The steps described [this guide](https://devcenter.heroku.com/articles/deploying
 1. [Register](https://id.heroku.com/signup/login) for a free Heroku account.
 2. Establish a credit card through [Account Settings](https://dashboard.heroku.com/account) in order to add a free MongoDB sandbox instance.
 3. Fork a copy of the [Parse server example](https://github.com/ParsePlatform/parse-server-example). 
+    * Modify index.js to include `CLIENT_KEY`.  See (https://github.com/ParsePlatform/parse-server-example/pull/46).  Push to this branch.
 4. Create a new Heroku app, pointing to this repository that was created.
 5. Add the MongoDB instance as an Add-On.
 6. Setup environment variables in the app settings (`https://dashboard.heroku.com/apps/<app name>/settings`):
@@ -23,6 +24,7 @@ The steps described [this guide](https://devcenter.heroku.com/articles/deploying
     * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId` (see [the source code](https://github.com/ParsePlatform/parse-server-example/blob/master/index.js#L14-L18)). 
     * Verify the MONGOLAB_URI has been added.  It should be there if the MongoDB add-on was added. 
     * Set `PARSE_MOUNT` to be '/`.  This enables the Parse Client SDK's to be able to connect correctly.
+    * Set `CLIENT_KEY` to be your client key.  You will use this info later for the Client SDK setup.
 7. Deploy the Heroku app.  The app should be hosted at `https://<app name>.herokuapp.com`.
 
 The important file to review for the Parse server example is [here](https://github.com/ParsePlatform/parse-server-example/blob/master/index.js).  You can see that it takes a few environment variables to run.
@@ -74,8 +76,8 @@ public class ChatApplication extends Application {
         // set applicationId, clientKey, and server based on the values in the Heroku settings.
         // any network interceptors must be added with the Configuration Builder given this syntax
         Parse.initialize(new Parse.Configuration.Builder(this)
-                .applicationId("myAppId")
-                .clientKey("clientKey")
+                .applicationId("myAppId") // should correspond to APP_ID env variable
+                .clientKey("clientKey")  // should correspond to CLIENT_KEY env variable
                 .addNetworkInterceptor(new ParseLogInterceptor())
                 .server("https://parse-testing-port.herokuapp.com").build());
     }
