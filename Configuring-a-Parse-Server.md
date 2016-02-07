@@ -72,6 +72,7 @@ public class ChatApplication extends Application {
         // Stetho.initializeWithDefaults(this);
 
         // set applicationId, clientKey, and server based on the values in the Heroku settings.
+        // any network interceptors must be added with the Configuration Builder given this syntax
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId("myAppId")
                 .clientKey("clientKey")
