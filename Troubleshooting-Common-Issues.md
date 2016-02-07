@@ -8,6 +8,8 @@ Android v1.2 and higher also provides a [built-in decompiler](http://www.android
 
 <img src="https://imgur.com/shKOtyh.png"/>
 
+If the debugger isn't working, check the [[guide section below|Troubleshooting-Common-Issues#debugger-isnt-working-disconnected-or-client-not-ready-yet]] to get things running again.
+
 ### Network Traffic Inspection
 
 If you are using [[OkHttp|Using-OkHttp]] or [[Retrofit|Consuming-APIs-with-Retrofit]], make sure to include the [Stetho](http://facebook.github.io/stetho/) project.  You can also use Stetho project for inspecting your network traffic through Chrome.  There is no current support with Stetho with [[Android Async Http Client|Using-Android-Async-Http-Client]] as noted in this [issue](https://github.com/facebook/stetho/issues/116).
