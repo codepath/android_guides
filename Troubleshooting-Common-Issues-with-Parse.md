@@ -292,7 +292,7 @@ Add this dependency to your `app/build.gradle` file:
 
 ```gradle
 dependencies {
-  compile 'com.parse:parseinterceptors:0.0.1'
+  compile 'com.parse:parseinterceptors:0.0.2'
 }
 ```
 
