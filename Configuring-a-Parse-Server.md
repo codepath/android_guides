@@ -64,7 +64,7 @@ dependencies {
 }
 ```
 
-Modify your `Parse.initialize()` command to point to this Heroku server.  You must be on the latest Parse Android SDK to have these options.  Note that the `/parse` endpoint must be added since the `PARSE_MOUNT` environment set by the server uses this value by default.
+Modify your `Parse.initialize()` command to point to this Heroku server.  You must be on the latest Parse Android SDK to have these options.  
 
 ```java
 public class ChatApplication extends Application {
@@ -85,7 +85,7 @@ public class ChatApplication extends Application {
 }
 ```
 
-**Note**: there appears to be a [bug](https://github.com/ParsePlatform/Parse-SDK-Android/issues/393) in the Android SDK that only allows base URL's to be added with the `.server()` call.
+**Note**: there appears to be a [bug](https://github.com/ParsePlatform/Parse-SDK-Android/issues/393) in the Android SDK that only allows base URL's to be added with the `.server()` call.  Therefore, the instructions in the official migration guide that suggests using `/parse` as part of the URL does not work.
 
 ### Troubleshooting
 
