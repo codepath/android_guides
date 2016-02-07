@@ -16,7 +16,7 @@ The steps described [this guide](https://devcenter.heroku.com/articles/deploying
 3. Fork a copy of the [Parse server example](https://github.com/ParsePlatform/parse-server-example). 
 4. Create a new Heroku app, pointing to this repository that was created.
 5. Add the MongoDB instance as an Add-On.
-6. Setup environment variables in the app settings: `https://dashboard.heroku.com/apps/<app name>/settings`
+6. Setup environment variables in the app settings (`https://dashboard.heroku.com/apps/<app name>/settings`):
     * Set `MASTER_KEY` to be the master key used to read data.  Otherwise, the server will not load properly.  
     * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId` (see [the source code]
 (https://github.com/ParsePlatform/parse-server-example/blob/master/index.js#L14-L18). 
