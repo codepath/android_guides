@@ -22,13 +22,14 @@ The steps described [this guide](https://devcenter.heroku.com/articles/deploying
     * Set `MASTER_KEY` to be the master key used to read data.  Otherwise, the server will not load properly.  
     * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId` (see [the source code](https://github.com/ParsePlatform/parse-server-example/blob/master/index.js#L14-L18)). 
     * Verify the MONGOLAB_URI has been added.  It should be there if the MongoDB add-on was added. 
+    * Set `PARSE_MOUNT` to be '/`.  This enables the Parse Client SDK's to be able to connect correctly.
 7. Deploy the Heroku app.  The app should be hosted at `https://<app name>.herokuapp.com`.
 
 The important file to review for the Parse server example is [here](https://github.com/ParsePlatform/parse-server-example/blob/master/index.js).  You can see that it takes a few environment variables to run.
 
 ### Testing Deployment
 
-After deployment, try to connect to the site.  If you see `I dream of being a web site.`, the basic configuration is successful. 
+After deployment, try to connect to the site.  If you see `{error: "unauthorized"}`, the basic configuration is successful. 
 
 Next, make sure you can create Parse objects.  You do not need a client Key to write new data:
 
@@ -70,7 +71,7 @@ public class ChatApplication extends Application {
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId("myAppId")
                 .clientKey("clientKey")
-                .server("https://parse-testing-port.herokuapp.com/parse").build());
+                .server("https://parse-testing-port.herokuapp.com").build());
     }
 }
 ```
@@ -97,8 +98,8 @@ public class ChatApplication extends Application {
    heroku logs -app <app name>
    ```
 
-   The logs should show the response from any types of network requests made to the site.  Check the `status` code.  If you see that it's 404, then double-check that you have set the client SDK to include `/parse` in the URL:
+   The logs should show the response from any types of network requests made to the site.  Check the `status` code.  If you see that it's 404, then double-check that you have set the `PARSE_MOUNT` environment variable is set to `/`:
 
    ```
-   2016-02-07T08:28:14.292475+00:00 heroku[router]: at=info method=POST path="/parse/classes/Message" host=parse-testing-port.herokuapp.com request_id=804c2533-ac56-4107-ad05-962d287537e9 fwd="101.12.34.12" dyno=web.1 connect=1ms service=2ms status=404 bytes=179
+   2016-02-07T08:28:14.292475+00:00 heroku[router]: at=info method=POST path="/classes/Message" host=parse-testing-port.herokuapp.com request_id=804c2533-ac56-4107-ad05-962d287537e9 fwd="101.12.34.12" dyno=web.1 connect=1ms service=2ms status=404 bytes=179
    ```
