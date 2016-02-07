@@ -172,6 +172,18 @@ You will need to either lower the `minSdkVersion` or upgrade to an Android emula
 
 You have a third-party library reference defined twice.  Check your `app/build.gradle` for duplicate libraries (i.e. commons-io library defined for 1.3 and another one using 2.4).
 
+### Debugger Isn't Working: `Disconnected` or `Client not ready yet`
+
+This is usually a signal that the emulator instance is not properly connected with ADB and Android Studio. There are a few steps to try:
+
+1. First, try uninstalling the app from within the emulator and then restarting the emulator completely. Try debugging again now. 
+
+2. Next, close the emulator again and also restart Android Studio. Start Android Studio and reload the emulator. Then try debugging again. 
+
+3. If you are using official emulator, try using [[Genymotion|Genymotion-2.0-Emulators-with-Google-Play-support]] or vice-versa. Then try debugging again.
+
+4. Open up `Tools => Android => Android SDK Manager` and see if there are any updates to the platform or SDK tools. Update any suggested changes within the manager and then restart your emulator and Android Studio. Then try debugging again.
+
 ## Eclipse ADT Issues
 
 For common issues experienced with Eclipse, check the [[Troubleshooting Eclipse Issues]] page instead for a detailed list of common problems.
