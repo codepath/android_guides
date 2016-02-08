@@ -17,7 +17,16 @@ The following are the most common types of resources within Android apps:
 | Menu                 | menu     | XML files that define menus or action bar items |
 | Values               | values   | XML files with values such as strings, integers, and colors. |
 
-For the full list, check out the [Providing a Resource](http://developer.android.com/guide/topics/resources/providing-resources.html) guide.
+In addition, note the following key files stored within the `values` folder mentioned above:
+
+| Name         | File                      | Description                    |
+| ----                 | ------   | -----------                                     |
+| Colors       | `res/values/colors.xml`   | This is where we put [color definitions](http://developer.android.com/guide/topics/resources/more-resources.html#Color). |
+| Dimensions   | `res/values/dimens.xml`   | This is where we put [dimension values](http://developer.android.com/guide/topics/resources/more-resources.html#Dimension). | 
+| Strings      | `res/values/strings.xml`  | This is where we put strings.           |
+| Styles       | `res/values/styles.xml`   | This is where we put style values.      |
+
+For the full list of resource types, check out the [Providing a Resource](http://developer.android.com/guide/topics/resources/providing-resources.html) guide.
 
 ### Defining a String Resource
 
