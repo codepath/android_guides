@@ -195,7 +195,6 @@ mVideoView.requestFocus();
 mVideoView.start();
 ```
 
-
 See [this tutorial](https://mobiarch.wordpress.com/2014/02/18/showing-fullscreen-video-in-android/) for playing a video full-screen with a `VideoView`. See [this other edumobile tutorial](http://www.edumobile.org/android/android-beginner-tutorials/how-to-play-a-video-file/) for a more detailed look at using [VideoView](http://developer.android.com/reference/android/widget/VideoView.html).
 
 ### Playing Streaming Video
@@ -224,6 +223,30 @@ mVideoView.setOnPreparedListener(new OnPreparedListener() {
 ```
 
 You can see a more complete example of remote streaming with [this androidbegin tutorial](http://www.androidbegin.com/tutorial/android-video-streaming-videoview-tutorial/).
+
+### VideoView Controls
+
+We can remove the `VideoView` media controls with:
+
+```java
+mVideoView.setMediaController(null)
+```
+
+We can hide or show the media UI controls at runtime with:
+
+```java
+// Get instance to media controller
+MediaController controller = new MediaController(this);
+videoHolder.setMediaController(controller);
+// Hide the controller
+controller.setVisibility(View.GONE);
+// Show the controller 
+controller.setVisibility(View.VISIBLE);
+```
+
+### VideoView Limitations and Improved Libraries
+
+`VideoView` should not be embedded in a `ListView` or any scrolling view due to a [known bug with Android](https://code.google.com/p/android/issues/detail?id=37229). Instead of using a `VideoView` which extends `SurfaceView`, in order to enable scrolling we need to use a [TextureView instead](https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/surface-view-play-video.md). The easiest workaround is to use a library such as [fenster](https://github.com/malmstein/fenster) or [VideoPlayerManager](https://github.com/danylovolokh/VideoPlayerManager). You can read about [how fenster was developed](http://www.malmstein.com/blog/2014/08/09/how-to-use-a-textureview-to-display-a-video-with-custom-media-player-controls/) as well. 
 
 ### Capturing Video
 
