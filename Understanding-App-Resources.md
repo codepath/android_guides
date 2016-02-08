@@ -21,10 +21,10 @@ In addition, note the following key files stored within the `values` folder ment
 
 | Name         | File                      | Description                    |
 | ----                 | ------   | -----------                                     |
-| Colors       | `res/values/colors.xml`   | This is where we put [color definitions](http://developer.android.com/guide/topics/resources/more-resources.html#Color). |
-| Dimensions   | `res/values/dimens.xml`   | This is where we put [dimension values](http://developer.android.com/guide/topics/resources/more-resources.html#Dimension). | 
-| Strings      | `res/values/strings.xml`  | This is where we put strings.           |
-| Styles       | `res/values/styles.xml`   | This is where we put style values.      |
+| Colors       | `res/values/colors.xml`   | This is where we put [color definitions](http://developer.android.com/guide/topics/resources/more-resources.html#Color) |
+| Dimensions   | `res/values/dimens.xml`   | This is where we put [dimension values](http://developer.android.com/guide/topics/resources/more-resources.html#Dimension) | 
+| Strings      | `res/values/strings.xml`  | This is where we put [string values](http://developer.android.com/guide/topics/resources/string-resource.html)     |
+| Styles       | `res/values/styles.xml`   | This is where we put [style values](http://developer.android.com/guide/topics/resources/style-resource.html)      |
 
 For the full list of resource types, check out the [Providing a Resource](http://developer.android.com/guide/topics/resources/providing-resources.html) guide.
 
