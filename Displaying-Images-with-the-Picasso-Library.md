@@ -47,9 +47,9 @@ Picasso.with(this).load(imageUrl).
 
 We can combine resizing with certain transforms to make the image appear differently. For example, we can do a center cropping with:
 
-```
-Picasso.with(context).load(url).resize(50, 50)
-  .centerCrop().into(imageView);
+```java
+Picasso.with(context).load(url).resize(50, 50).
+  centerCrop().into(imageView);
 ```
 
 Transform options include `centerCrop()` (Crops an image inside of the bounds), `centerInside()` (Centers an image inside of the bounds), `fit()` (Attempt to resize the image to fit exactly into the target).
