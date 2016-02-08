@@ -45,6 +45,15 @@ Picasso.with(this).load(imageUrl).
   resize(someWidth, 0).into(imageView);
 ```
 
+We can combine resizing with certain transforms to make the image appear differently. For example, we can do a center cropping with:
+
+```
+Picasso.with(context).load(url).resize(50, 50)
+  .centerCrop().into(imageView);
+```
+
+Transform options include `centerCrop()` (Crops an image inside of the bounds), `centerInside()` (Centers an image inside of the bounds), `fit()` (Attempt to resize the image to fit exactly into the target).
+
 ### Adjusting Image Size Dynamically
 
 If we wish to readjust the ImageView size after the image has been retrieved, we first define a `Target` object that governs how the Bitmap is handled:
