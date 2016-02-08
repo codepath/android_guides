@@ -24,7 +24,6 @@ The steps described [this guide](https://devcenter.heroku.com/articles/deploying
     * Set `MASTER_KEY` to be the master key used to read data.  Otherwise, the server will not load properly.  
     * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId` (see [the source code](https://github.com/ParsePlatform/parse-server-example/blob/master/index.js#L14-L18)). 
     * Verify the MONGOLAB_URI has been added.  It should be there if the MongoDB add-on was added. 
-    * Set `PARSE_MOUNT` to be '/`.  This enables the Parse Client SDK's to be able to connect correctly.
     * Set `CLIENT_KEY` to be your client key.  You will use this info later for the Client SDK setup.
 7. Deploy the Heroku app.  The app should be hosted at `https://<app name>.herokuapp.com`.
 
@@ -32,7 +31,7 @@ The important file to review for the Parse server example is [here](https://gith
 
 ### Testing Deployment
 
-After deployment, try to connect to the site.  If you see `{error: "unauthorized"}`, the basic configuration is successful. 
+After deployment, try to connect to the site.  You should see `I dream of being a web site.` if the site loaded correctly.   If you try to connect to the `/parse` endpoint, you should see `{error: "unauthorized"}`.  If both tests pass, the basic configuration is successful. 
 
 Next, make sure you can create Parse objects.  You do not need a client Key to write new data:
 
@@ -80,16 +79,16 @@ public class ChatApplication extends Application {
                 .applicationId("myAppId") // should correspond to APP_ID env variable
                 .clientKey("clientKey")  // should correspond to CLIENT_KEY env variable
                 .addNetworkInterceptor(new ParseLogInterceptor())
-                .server("https://parse-testing-port.herokuapp.com").build());
+                .server("https://parse-testing-port.herokuapp.com/parse/").build());
     }
 }
 ```
 
-**Note**: there appears to be a [bug](https://github.com/ParsePlatform/Parse-SDK-Android/issues/393) in the Android SDK that only allows base URL's to be added with the `.server()` call.  Therefore, the instructions in the official migration guide that suggests using `/parse` as part of the URL does not work.
+**Note**: make sure to use the extra trailing `/` when using the `.server() call.  There appears to be a [bug](https://github.com/ParsePlatform/Parse-SDK-Android/issues/393) in the Android SDK that strips the URL without this trailing slash.
+
+The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which is set to this value by default.
 
 ### Troubleshooting
-
-* If you have issues, remove the `PARSE_MOUNT` environment variable temporarily.  You should see `I dream of being a web site.` if the site loaded correctly.   
 
 * If you see `Application Error` or `An error occurred in the application and your page could not be served. Please try again in a few moments.`, double-check that you set a `MASTER_KEY` in the Heroku environment settings for that app.
 
@@ -110,10 +109,9 @@ public class ChatApplication extends Application {
    heroku logs -app <app name>
    ```
 
-   The logs should show the response from any types of network requests made to the site.  Check the `status` code.  If you see that it's 404, then double-check that you have set the `PARSE_MOUNT` environment variable is set to `/`:
-
+   The logs should show the response from any types of network requests made to the site.  Check the `status` code.  
    ```
-   2016-02-07T08:28:14.292475+00:00 heroku[router]: at=info method=POST path="/classes/Message" host=parse-testing-port.herokuapp.com request_id=804c2533-ac56-4107-ad05-962d287537e9 fwd="101.12.34.12" dyno=web.1 connect=1ms service=2ms status=404 bytes=179
+   2016-02-07T08:28:14.292475+00:00 heroku[router]: at=info method=POST path="/parse/classes/Message" host=parse-testing-port.herokuapp.com request_id=804c2533-ac56-4107-ad05-962d287537e9 fwd="101.12.34.12" dyno=web.1 connect=1ms service=2ms status=404 bytes=179
    ```
 
 * You can also use Facebook's [Stetho](http://facebook.github.io/stetho/) interceptor to watch network logs with Chrome:
