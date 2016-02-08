@@ -54,6 +54,8 @@ Now if I ever reference the string resource for `submit_label`, the default will
 </resources>
 ```
 
+For more details on defining string resources, [check this guide](http://developer.android.com/guide/topics/resources/string-resource.html). You can also refer to [this guide for style resources](http://developer.android.com/guide/topics/resources/style-resource.html) and [this guide for other types](http://developer.android.com/guide/topics/resources/more-resources.html).
+
 ### Referencing a Resource
 
 Now that we have defined our string resource, we can access that resource in either our Java code or our XML layouts at any time. To access, the resource in the XML Layout file, simply use the `@` syntax used to access any resource:
