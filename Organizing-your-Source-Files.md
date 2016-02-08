@@ -67,7 +67,29 @@ This can make object creation really simple and intuitive, while objects remain 
 
 ## Organizing Resources
 
-Often there are questions about organizing not just the source files but also the [application resources](http://guides.codepath.com/android/Understanding-App-Resources). In a modern app, there are often hundreds of different layout files, drawables, styles, etc and by default these are all grouped together in a flat list within a single subdirectory (i.e `res/layout`).
+Resources should be split up into the following key files and folders:
+
+| Name         | Path                      | Description |
+| --------     | -----------               | ----------- |
+| XML Layouts  | `res/layout/`             | This is where we put our XML layout files.     |
+| XML Menus    | `res/menu/`               | This is where we put our AppBar menu actions.  |
+| Drawables    | `res/drawable`            | This is where we put images and XML drawables. | 
+| Colors       | `res/values/colors.xml`   | This is where we put [color definitions](http://developer.android.com/guide/topics/resources/more-resources.html#Color). |
+| Dimensions   | `res/values/dimens.xml`   | This is where we put [dimension values](http://developer.android.com/guide/topics/resources/more-resources.html#Dimension). | 
+| Strings      | `res/values/strings.xml`  | This is where we put strings.           |
+| Styles       | `res/values/styles.xml`   | This is where we put style values.      |
+
+See the [full list of resources here](http://developer.android.com/guide/topics/resources/providing-resources.html#ResourceTypes) and note the following:
+
+ * **Don't hardcode color hex values in the layout**. Instead of hardcoding these values, be sure to [move all colors](http://developer.android.com/guide/topics/resources/more-resources.html#Color) into `res/values/colors.xml` and reference the colors in layouts with `@color/royal_blue`.
+ * **Don't hardcode margin / padding dimensions in the layout**. Instead of hardcoding these values, be sure to [move all dimension values](http://developer.android.com/guide/topics/resources/more-resources.html#Dimension) into `res/values/dimens.xml` and reference these in layouts with `@dimen/item_padding_left`.
+ * To support multiple devices, we can then use the [alternative resources system](http://guides.codepath.com/android/Understanding-App-Resources#providing-alternate-resources) to provide different colors, strings, dimens, styles, etc based on the device type, screen size, API version and much more. 
+
+Be sure to start properly organizing your resources early on in the development of an application.
+
+### Organizing Resources into Subfolders
+
+Often there are questions about organizing not just the source files but also better organizing the [application resources](http://guides.codepath.com/android/Understanding-App-Resources). In a modern app, there are often hundreds of different layout files, drawables, styles, etc and by default these are all grouped together in a flat list within a single subdirectory (i.e `res/layout`).
 
 In order to further organize or group your various resources, the best way is to [install the third-party folding-plugin](https://plugins.jetbrains.com/plugin/7876) for Android Studio to create virtual folders
 
