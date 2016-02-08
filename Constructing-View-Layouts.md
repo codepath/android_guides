@@ -99,9 +99,9 @@ An example of a RelativeLayout:
 </RelativeLayout>
 ```
 
-You can see more about this layout by inspecting the [RelativeLayout.LayoutParams](http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html) docs and the official [RelativeLayout guide](http://developer.android.com/guide/topics/ui/layout/relative.html).
+Read [this RelativeLayout tutorial](http://code.tutsplus.com/tutorials/android-user-interface-design-relative-layouts--mobile-4301) for a more detailed overview. You can also see more about this layout by inspecting the [RelativeLayout.LayoutParams docs](http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html) and the official [RelativeLayout guide](http://developer.android.com/guide/topics/ui/layout/relative.html).
 
-### Using alignment to control width or height
+### Using Alignment to Control Width or Height
 
 A less understood aspect of RelativeLayout is how the use of alignment can determine width or height.  It may seem counterintuitive at first about how this works, so we'll walkthrough a few examples in this section.   Using this approach is especially useful in matching the widths or heights relative to other elements.
 
