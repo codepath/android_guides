@@ -27,13 +27,13 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Displaying Toasts]]
 * [[Using Intents to Create Flows]]
 * [[Common Implicit Intents]]
+* [[Using the RecyclerView]]
 * [[Endless Scrolling with AdapterViews and RecyclerView]]
 * [[Sharing Content with Intents]]
 * [[Creating Custom Listeners]]
 * [[Navigation and Task Stacks]]
 * [[Extended ActionBar Guide]]
 * [[Using the App ToolBar]]
-* [[Using the RecyclerView]]
 * [[Displaying the Snackbar]]
 
 ### Week 3 - Networking and Persistence
