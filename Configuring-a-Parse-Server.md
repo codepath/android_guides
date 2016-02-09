@@ -113,7 +113,7 @@ There are a few steps to make this process work.  **Note**: that Push Notificati
 1. Obtain a Sender ID and API Key.
       * Follow only step 1 of [this guide](http://guides.codepath.com/android/Google-Cloud-Messaging#step-1-register-with-google-developers-console) to obtain the Sender ID and API Key.  You do not need to follow the other steps because Parse provides much of code to handle GCM registration for you.
 
-2. Set `GCM_SENDER_ID` and `GCM_API_KEY` in your Heroku environment environment variables.
+2. Set `GCM_SENDER_ID` and `GCM_API_KEY` in your Heroku environment variables.
 
 3. Add a `meta-data` with the Sender ID in your AndroidManifest.xml.  Make sure the `id:` is used as the prefix.  If you forget this step, Parse will register with its own Sender ID but you will see `SenderID` mismatch when trying to issue push notifications.
 
