@@ -87,8 +87,6 @@ public class ChatApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        // Stetho.initializeWithDefaults(this);
-
         // set applicationId, clientKey, and server based on the values in the Heroku settings.
         // any network interceptors must be added with the Configuration Builder given this syntax
         Parse.initialize(new Parse.Configuration.Builder(this)
@@ -221,6 +219,8 @@ response = requests.post("http://yourappname.herokuapp.com/parse/push", headers=
   And add this network interceptor as well:
 
   ```java
-  Parse.initialize(new Parse.Configuration.Builder(this)
+     Stetho.initializeWithDefaults(this); // init Stetho before Parse
+
+     Parse.initialize(new Parse.Configuration.Builder(this)
        .addNetworkInterceptor(new ParseStethoInterceptor())
   ```
