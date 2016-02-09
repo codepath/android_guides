@@ -108,7 +108,7 @@ The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which 
 
 **Note**: Support for push notifications is almost available.  See this [pull request](https://github.com/ParsePlatform/parse-server/pull/311/files) for more details.
 
-There are a few steps to make this process work.  **Note**: that Push Notifications via [Google Cloud Messaging](Google-Cloud-Messaging) (GCM) will only work for devices and emulators that have Google Play installed.
+There are a few steps to make this process work.  **Note**: Push Notifications via [Google Cloud Messaging](Google-Cloud-Messaging) (GCM) will only work for devices and emulators that have Google Play installed.
 
 1. Obtain a Sender ID and API Key.
       * Follow only step 1 of [this guide](http://guides.codepath.com/android/Google-Cloud-Messaging#step-1-register-with-google-developers-console) to obtain the Sender ID and API Key.  You do not need to follow the other steps because Parse provides much of code to handle GCM registration for you.
