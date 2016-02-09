@@ -30,7 +30,6 @@ The steps described [this guide](https://devcenter.heroku.com/articles/deploying
          push: pushConfig
         });
         ```
-
     * Push to this branch with this change.
 4. Create a new Heroku app, pointing to this repository that was created.
 5. Add the MongoDB instance as an Add-On.
