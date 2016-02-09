@@ -14,7 +14,23 @@ The steps described [this guide](https://devcenter.heroku.com/articles/deploying
 1. [Register](https://id.heroku.com/signup/login) for a free Heroku account.
 2. Establish a credit card through [Account Settings](https://dashboard.heroku.com/account) in order to add a free MongoDB sandbox instance.
 3. Fork a copy of the [Parse server example](https://github.com/ParsePlatform/parse-server-example). 
-    * Modify `index.js` to include `CLIENT_KEY`.  See (https://github.com/ParsePlatform/parse-server-example/pull/46/files).  
+    * Modify `index.js`:
+
+        ```javascript
+        // For GCM Push support -- see https://github.com/ParsePlatform/parse-server/pull/311/files
+        var pushConfig = { android: { senderId: process.env.GCM_SENDER_ID || '',
+                                      apiKey: processs.env.GCM_API_KEY || ''}}
+
+        var api = new ParseServer({
+         databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
+         cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
+         appId: process.env.APP_ID || 'myAppId',
+         masterKey: process.env.MASTER_KEY || '', //Add your master key here. Keep it secret!
+         clientKey: process.env.CLIENT_KEY || 'clientKey',
+         push: pushConfig
+        });
+```
+
     * Push to this branch with this change.
 4. Create a new Heroku app, pointing to this repository that was created.
 5. Add the MongoDB instance as an Add-On.
@@ -87,6 +103,86 @@ public class ChatApplication extends Application {
 **Note**: make sure to use the extra trailing `/` when using the `.server()` call.  There appears to be a [bug](https://github.com/ParsePlatform/Parse-SDK-Android/issues/393) in the Android SDK that strips the URL without this trailing slash.
 
 The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which is set to this value by default.
+
+### Support Push Notifications
+
+**Note**: Support for push notifications is almost available.  See this [pull request](https://github.com/ParsePlatform/parse-server/pull/311/files) for more details.
+
+There are a few steps to make this process work.  **Note**: that Push Notifications via [Google Cloud Messaging](Google-Cloud-Messaging) (GCM) will only work for devices and emulators that have Google Play installed. 
+
+1. Obtain a Sender ID and API Key.
+      * Follow only step 1 of [this guide](http://guides.codepath.com/android/Google-Cloud-Messaging#step-1-register-with-google-developers-console) to obtain the Sender ID and API Key.  You do not need to follow the other steps because Parse provides much of code to handle GCM registration for you.
+
+2. Set `GCM_SENDER_ID` and `GCM_API_KEY` in your Heroku environment environment variables.
+
+3. Add a `meta-data` with the Sender ID in your AndroidManifest.xml.  Make sure the `id:` is used as the prefix.  If you forget this step, Parse will register with its own Sender ID but you will see `SenderID` mismatch when trying to issue push notifications.
+
+```xml
+  <meta-data
+            android:name="com.parse.push.gcm_sender_id"
+            android:value="id:SENDER_ID_HERE"/>
+```
+
+4. Add the necessary permissions.  Make sure to change any instances of `com.codepath.parseportpush` to your application package name.  If you forget any of these permissions, it is likely the GCM registration will not succeed.
+
+```java
+
+ <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <!--
+      IMPORTANT: Change "com.codepath.parseportpush.permission.C2D_MESSAGE" in the lines below
+      to match your app's package name + ".permission.C2D_MESSAGE".
+    -->
+    <permission android:protectionLevel="signature"
+        android:name="com.codepath.parseportpush.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.codepath.parseportpush.permission.C2D_MESSAGE" />
+
+ <service android:name="com.parse.PushService" />
+        <receiver android:name="com.parse.ParsePushBroadcastReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.parse.push.intent.RECEIVE" />
+                <action android:name="com.parse.push.intent.DELETE" />
+                <action android:name="com.parse.push.intent.OPEN" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.parse.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <!--
+                  IMPORTANT: Change "com.codepath.parseportpush" to match your app's package name.
+                -->
+                <category android:name="com.codepath.parseportpush" />
+            </intent-filter>
+        </receiver>
+```
+
+5. Test out push notifications using the [Parse Notifications API](https://parse.com/docs/rest/guide/#push-sending):
+
+```python
+import json
+import requests
+
+headers = {'X-Parse-Application-Id': 'myAppId', "X-Parse-Master-Key": "abc", "Content-Type": "application/json"}
+
+data = {'where': {'deviceType': 'android'},
+        "data": {
+            "action": "com.example.UPDATE_STATUS",
+            "alert": "Ricky Vaughn was injured during the game last night!",
+            "name": "Vaughn",
+            "newsItem": "Man bites dog"}
+       }
+
+response = requests.post("http://yourappname.herokuapp.com/parse/push", headers=headers, data=json.dumps(data))
+```
 
 ### Troubleshooting
 
