@@ -33,6 +33,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Navigation and Task Stacks]]
 * [[Extended ActionBar Guide]]
 * [[Using the App ToolBar]]
+* [[Using the RecyclerView]]
 
 ### Week 3 - Networking and Persistence
 
