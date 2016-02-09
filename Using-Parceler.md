@@ -48,7 +48,7 @@ There are several requirements to convert this object to one that can be used by
 
 ```java
 @Parcel
-public class User implements Serializable {
+public class User {
     // fields must be public
     String firstName;
     String lastName;
