@@ -1,12 +1,16 @@
 The following tutorial explains how to build a very simple chat application in Android using Parse backend-as-a-service. 
 
->**Note:** This chat application is by no means fully-featured or production ready. It's merely an illustration on quickly building a fully connected application using [Parse](https://www.parse.com)
+>**Note:** This chat application is by no means a fully-featured or production ready chat function. This tutorial is an illustration of how to quickly build an app using [Parse](https://www.parse.com).
 
 ## 1. Setup Parse server
 
 Parse is shutting down in a year on **January 28, 2017**.  New accounts are no longer being accepted, and existing apps are being requested to migrate to their own backend by **April 28, 2016**. 
 
-If you wish to still use Parse as your backend, you will need to setup your open source version. See  [[this guide|Configuring-a-Parse-Server]] for the steps needed.
+### Parse on Heroku
+
+We can deploy our own Parse data store and push notifications systems to [Heroku](https://www.heroku.com/) leveraging the [server open-sourced by Parse](https://github.com/ParsePlatform/parse-server-example). Parse is built on top of the MongoDB database which can be added to Heroku using MongoLab. 
+
+To follow this guide we need to [[setup our own Parse server|configuring a Parse Server]]. Once the Parse server is configured, we can [initialize Parse within our Android app](http://guides.codepath.com/android/Configuring-a-Parse-Server#enabling-client-sdk-integration) pointing the client to our self-hosted URL. After that, the tutorial demonstrated in this guide works the same as they did before. 
 
 ## 2. Setup Parse client
 
