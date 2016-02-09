@@ -6,7 +6,7 @@ Android uses Binder to facilitate such communication in a highly optimized way. 
 
 ### Creating a Parcelable, The Easiest Way (using Third Party Library)
 
-The simplest way to create a Parcelable is to use a third-party library called Parceler.  See [[this guide|Using-Parceler]] to see how to use it.  By annotating your Java classes that you intend to use, the library is able to create much of the boilerplate code needed as discussed in the manual steps below. 
+The simplest way to create a Parcelable is to use a third-party library called [Parceler](https://github.com/johncarl81/parceler).  See [[this guide on Parceler|Using-Parceler]] to see how to use it.  By annotating your Java classes that you intend to use, the library is able to create much of the boilerplate code needed as discussed in the manual steps below. 
 
 ### Creating a Parcelable, The Manual Way
 
