@@ -14,7 +14,7 @@ The steps described [this guide](https://devcenter.heroku.com/articles/deploying
 1. [Register](https://id.heroku.com/signup/login) for a free Heroku account.
 2. Establish a credit card through [Account Settings](https://dashboard.heroku.com/account) in order to add a free MongoDB sandbox instance.
 3. Fork a copy of the [Parse server example](https://github.com/ParsePlatform/parse-server-example).
-    * Modify `index.js`:
+    * Modify `index.js` to add `clientKey` and push notifications support:
 
         ```javascript
         // For GCM Push support -- see https://github.com/ParsePlatform/parse-server/pull/311/files
