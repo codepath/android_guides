@@ -2,7 +2,7 @@
 
 Parse provides a cloud-based backend service to build data-driven mobile apps quickly.  Facebook, which acquired the company more than 3 years ago, announced that the service would be shutting down on **January 28, 2017**.   An [open source version](https://github.com/ParsePlatform/parse-server) enables developers to continue using their apps was published, along with a [migration guide](https://parse.com/docs/server/guide#migrating).  
 
-While there are many 
+While there are many
 [alternate options to Parse](https://github.com/relatedcode/ParseAlternatives), most of them lack either the functionality, documentation, or sample code to enable quick prototyping.  For this reason, the open source Parse version is a good option to use with minimal deployment/configuration needed.
 
 You can review this [Wiki](https://github.com/ParsePlatform/parse-server/wiki) to understand the current development progress of this app.  Push notifications, for instance, are currently not implemented but appears to be supported soon.
@@ -13,7 +13,7 @@ The steps described [this guide](https://devcenter.heroku.com/articles/deploying
 
 1. [Register](https://id.heroku.com/signup/login) for a free Heroku account.
 2. Establish a credit card through [Account Settings](https://dashboard.heroku.com/account) in order to add a free MongoDB sandbox instance.
-3. Fork a copy of the [Parse server example](https://github.com/ParsePlatform/parse-server-example). 
+3. Fork a copy of the [Parse server example](https://github.com/ParsePlatform/parse-server-example).
     * Modify `index.js`:
 
         ```javascript
@@ -38,8 +38,8 @@ The steps described [this guide](https://devcenter.heroku.com/articles/deploying
 
     <img src="http://imgur.com/shCWGQX.png"/>
     * Set `MASTER_KEY` to be the master key used to read data.  Otherwise, the server will not load properly.  
-    * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId` (see [the source code](https://github.com/ParsePlatform/parse-server-example/blob/master/index.js#L14-L18)). 
-    * Verify the `MONGOLAB_URI` has been added.  It should be there if the MongoDB add-on was added. 
+    * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId` (see [the source code](https://github.com/ParsePlatform/parse-server-example/blob/master/index.js#L14-L18)).
+    * Verify the `MONGOLAB_URI` has been added.  It should be there if the MongoDB add-on was added.
     * Set `CLIENT_KEY` to be your client key.  You will use this info later for the Client SDK setup.
 7. Deploy the Heroku app.  The app should be hosted at `https://<app name>.herokuapp.com`.
 
@@ -47,7 +47,7 @@ The important file to review for the Parse server example is [here](https://gith
 
 ### Testing Deployment
 
-After deployment, try to connect to the site.  You should see `I dream of being a web site.` if the site loaded correctly.   If you try to connect to the `/parse` endpoint, you should see `{error: "unauthorized"}`.  If both tests pass, the basic configuration is successful. 
+After deployment, try to connect to the site.  You should see `I dream of being a web site.` if the site loaded correctly.   If you try to connect to the `/parse` endpoint, you should see `{error: "unauthorized"}`.  If both tests pass, the basic configuration is successful.
 
 Next, make sure you can create Parse objects.  You do not need a client Key to write new data:
 
@@ -75,7 +75,7 @@ Make sure you have the latest Parse-Android SDK in your `app/build.gradle` file.
 dependencies {
     compile 'com.parse:parse-android:1.13.0'
     compile 'com.parse:parseinterceptors:0.0.2' // for logging API calls to LogCat
-    
+
 }
 ```
 
@@ -108,7 +108,7 @@ The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which 
 
 **Note**: Support for push notifications is almost available.  See this [pull request](https://github.com/ParsePlatform/parse-server/pull/311/files) for more details.
 
-There are a few steps to make this process work.  **Note**: that Push Notifications via [Google Cloud Messaging](Google-Cloud-Messaging) (GCM) will only work for devices and emulators that have Google Play installed. 
+There are a few steps to make this process work.  **Note**: that Push Notifications via [Google Cloud Messaging](Google-Cloud-Messaging) (GCM) will only work for devices and emulators that have Google Play installed.
 
 1. Obtain a Sender ID and API Key.
       * Follow only step 1 of [this guide](http://guides.codepath.com/android/Google-Cloud-Messaging#step-1-register-with-google-developers-console) to obtain the Sender ID and API Key.  You do not need to follow the other steps because Parse provides much of code to handle GCM registration for you.
@@ -125,45 +125,45 @@ There are a few steps to make this process work.  **Note**: that Push Notificati
 
 4. Add the necessary permissions.  Make sure to change any instances of `com.codepath.parseportpush` to your application package name.  If you forget any of these permissions, it is likely the GCM registration will not succeed.
 
-```xml
+    ```xml
 
- <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+     <uses-permission android:name="android.permission.INTERNET" />
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+        <uses-permission android:name="android.permission.WAKE_LOCK" />
+        <uses-permission android:name="android.permission.VIBRATE" />
+        <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
-    <!--
-      IMPORTANT: Change "com.codepath.parseportpush.permission.C2D_MESSAGE" in the lines below
-      to match your app's package name + ".permission.C2D_MESSAGE".
-    -->
-    <permission android:protectionLevel="signature"
-        android:name="com.codepath.parseportpush.permission.C2D_MESSAGE" />
-    <uses-permission android:name="com.codepath.parseportpush.permission.C2D_MESSAGE" />
+        <!--
+          IMPORTANT: Change "com.codepath.parseportpush.permission.C2D_MESSAGE" in the lines below
+          to match your app's package name + ".permission.C2D_MESSAGE".
+        -->
+        <permission android:protectionLevel="signature"
+            android:name="com.codepath.parseportpush.permission.C2D_MESSAGE" />
+        <uses-permission android:name="com.codepath.parseportpush.permission.C2D_MESSAGE" />
 
-    <service android:name="com.parse.PushService" />
-        <receiver android:name="com.parse.ParsePushBroadcastReceiver"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.parse.push.intent.RECEIVE" />
-                <action android:name="com.parse.push.intent.DELETE" />
-                <action android:name="com.parse.push.intent.OPEN" />
-            </intent-filter>
-        </receiver>
-        <receiver android:name="com.parse.GcmBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND">
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+        <service android:name="com.parse.PushService" />
+            <receiver android:name="com.parse.ParsePushBroadcastReceiver"
+                android:exported="false">
+                <intent-filter>
+                    <action android:name="com.parse.push.intent.RECEIVE" />
+                    <action android:name="com.parse.push.intent.DELETE" />
+                    <action android:name="com.parse.push.intent.OPEN" />
+                </intent-filter>
+            </receiver>
+            <receiver android:name="com.parse.GcmBroadcastReceiver"
+                android:permission="com.google.android.c2dm.permission.SEND">
+                <intent-filter>
+                    <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                    <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 
-                <!--
-                  IMPORTANT: Change "com.codepath.parseportpush" to match your app's package name.
-                -->
-                <category android:name="com.codepath.parseportpush" />
-            </intent-filter>
-        </receiver>
-```
+                    <!--
+                      IMPORTANT: Change "com.codepath.parseportpush" to match your app's package name.
+                    -->
+                    <category android:name="com.codepath.parseportpush" />
+                </intent-filter>
+            </receiver>
+    ```
 
 5. Test out push notifications using the [Parse Notifications API](https://parse.com/docs/rest/guide/#push-sending):
 
@@ -190,7 +190,7 @@ response = requests.post("http://yourappname.herokuapp.com/parse/push", headers=
 
   <img src="http://imgur.com/uMYwPmS.png">
 
-* Download the Heroku Toolbelt app [here](https://toolbelt.heroku.com/) to help view system logs. 
+* Download the Heroku Toolbelt app [here](https://toolbelt.heroku.com/) to help view system logs.
 
   <img src="http://imgur.com/Ch0mZOK.png"/>
 
