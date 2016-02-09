@@ -84,7 +84,7 @@ public class ChatApplication extends Application {
 }
 ```
 
-**Note**: make sure to use the extra trailing `/` when using the `.server() call.  There appears to be a [bug](https://github.com/ParsePlatform/Parse-SDK-Android/issues/393) in the Android SDK that strips the URL without this trailing slash.
+**Note**: make sure to use the extra trailing `/` when using the `.server()` call.  There appears to be a [bug](https://github.com/ParsePlatform/Parse-SDK-Android/issues/393) in the Android SDK that strips the URL without this trailing slash.
 
 The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which is set to this value by default.
 
