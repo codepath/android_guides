@@ -163,7 +163,7 @@ There are a few steps to make this process work.  **Note**: Push Notifications v
             </receiver>
     ```
 
-5. Test out push notifications using the [Parse Notifications API](https://parse.com/docs/rest/guide/#push-sending):
+5. Test out push notifications using the [Parse Notifications API](https://parse.com/docs/rest/guide/#push-sending) with this Python script:
 
 ```python
 import json
