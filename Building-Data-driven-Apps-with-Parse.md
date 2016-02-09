@@ -2,9 +2,19 @@
 
 <img src="http://i.imgur.com/Xo47jSc.gif" alt="Parse" width="750" />
 
-## Shutdown: Alternatives to Parse
+## Hosted Parse Discontinued
 
-Parse is **shutting down on January 28, 2017** and new accounts can no longer be created. There are a number of alternatives but the best options are included below:
+Parse is **shutting down on January 28, 2017** and new accounts can no longer be created. As a result we can choose to either host our own Parse server or use a hosted alternative. 
+
+### Parse on Heroku
+
+We can deploy our own Parse data store and push notifications systems to [Heroku](https://www.heroku.com/) leveraging the [server open-sourced by Parse](https://github.com/ParsePlatform/parse-server-example). Parse is built on top of the MongoDB database which can be added to Heroku using MongoLab. 
+
+To get started setting up our own Parse backend, check out our [[configuring a Parse Server]] guide. Once the Parse server is configured, we can [initialize Parse within our Android app](http://guides.codepath.com/android/Configuring-a-Parse-Server#enabling-client-sdk-integration) pointing the client to our self-hosted URL. After that, the functions demonstrated in this guide work the same as they did before. 
+
+### Alternatives to Parse
+
+There are a number of alternatives but the best options are included below:
 
  * [Cloudboost](https://tutorials.cloudboost.io/en/gettingstarted/yourfirstapp)
  * [Kinvey](http://devcenter.kinvey.com/android/guides/getting-started)
