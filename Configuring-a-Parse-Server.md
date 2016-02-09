@@ -117,11 +117,11 @@ There are a few steps to make this process work.  **Note**: that Push Notificati
 
 3. Add a `meta-data` with the Sender ID in your AndroidManifest.xml.  Make sure the `id:` is used as the prefix.  If you forget this step, Parse will register with its own Sender ID but you will see `SenderID` mismatch when trying to issue push notifications.
 
-```xml
-  <meta-data
-            android:name="com.parse.push.gcm_sender_id"
-            android:value="id:SENDER_ID_HERE"/>
-```
+   ```xml
+     <meta-data
+              android:name="com.parse.push.gcm_sender_id"
+              android:value="id:SENDER_ID_HERE"/>
+   ```
 
 4. Add the necessary permissions.  Make sure to change any instances of `com.codepath.parseportpush` to your application package name.  If you forget any of these permissions, it is likely the GCM registration will not succeed.
 
