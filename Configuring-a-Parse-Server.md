@@ -125,7 +125,7 @@ There are a few steps to make this process work.  **Note**: that Push Notificati
 
 4. Add the necessary permissions.  Make sure to change any instances of `com.codepath.parseportpush` to your application package name.  If you forget any of these permissions, it is likely the GCM registration will not succeed.
 
-```java
+```xml
 
  <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -142,7 +142,7 @@ There are a few steps to make this process work.  **Note**: that Push Notificati
         android:name="com.codepath.parseportpush.permission.C2D_MESSAGE" />
     <uses-permission android:name="com.codepath.parseportpush.permission.C2D_MESSAGE" />
 
- <service android:name="com.parse.PushService" />
+    <service android:name="com.parse.PushService" />
         <receiver android:name="com.parse.ParsePushBroadcastReceiver"
             android:exported="false">
             <intent-filter>
