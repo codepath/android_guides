@@ -59,7 +59,6 @@ If you have used the Google Developers Console and wish to enable GCM on an exis
 ### Using an existing project 
 
  - Go to the [Google Developers Console](https://cloud.google.com/console)
- - If this is the first time you visit Google Developer Console, you need to create a Project.
  - Under `APIs & Auth` -> `APIs`, find "Google Cloud Messaging for Android".  Click Enable API.
      <img src="http://imgur.com/DhWqzyX.png"/>
  - Under `APIs & Auth` -> Credentials, select "Create New Key" => "Server Key".  Record key for later
