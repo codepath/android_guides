@@ -113,7 +113,7 @@ There are a few steps to make this process work.  **Note**: Push Notifications v
 
 2. Set `GCM_SENDER_ID` and `GCM_API_KEY` in your Heroku environment variables.
 
-3. Add a `meta-data` with the Sender ID in your AndroidManifest.xml.  Make sure the `id:` is used as the prefix.  If you forget this step, Parse will register with its own Sender ID but you will see `SenderID mismatch` errors when trying to issue push notifications.
+3. Add a `meta-data` with the Sender ID in your AndroidManifest.xml.  Make sure the `id:` is used as the prefix (Android treats any metadata value that has a string of digits as an integer so Parse prefixes this value).  If you forget this step, Parse will register with its own Sender ID but you will see `SenderID mismatch` errors when trying to issue push notifications.
 
    ```xml
      <meta-data
