@@ -28,7 +28,7 @@ Use Heroku if you have little or no experience with setting up web sites. Heroku
    <img src="http://imgur.com/vzeqoAV.png"/>
  
     * Leave `PARSE_MOUNT` to be `/parse`.  It does not need to be changed.
-    * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId`.
+    * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId`.  You will need this info for the Client SDK setup.
     * Set `MASTER_KEY` to be the master key used to read all data.  
     * Set `CLIENT_KEY` to be your client key.  You will use this info later for the Client SDK setup.
 
