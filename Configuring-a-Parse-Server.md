@@ -50,7 +50,10 @@ Amazon AWS provides more advanced functionality, such as a load balancer, easy-t
       * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId`.  You will need this info for the Client SDK setup.
       * Set `MASTER_KEY` to be the master key used to read all data.  
       * Leave `PARSE_MOUNT` to be `/parse`.  It does not need to be changed.
+6. Your machine should take a few minutes to spin up.  Once it's ready, you should be able to click on the URL provided:
 
+       <img src="http://imgur.com/OjyvPdc.png"/>
+        
 If you need to get back to the console after the instance has been created, you can click [here](https://console.aws.amazon.com/elasticbeanstalk/home?region=us-west-2).
 
 ### Testing Deployment
