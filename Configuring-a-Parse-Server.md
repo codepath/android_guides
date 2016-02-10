@@ -43,6 +43,13 @@ Amazon AWS provides more advanced functionality, such as a load balancer, easy-t
 2. Create an application name and click on `Review and Launch`.  Clicking on `Next` will take you the more advanced settings.
        <img src="http://imgur.com/yRrmmse.png"/>
 3. The final step is to review your changes.  Click `Launch` when ready.
+4. The machine configuration should begin to start.  Look for the `Software Configuration` panel to appear:
+       <img src="http://imgur.com/YATjJlc.png"/>
+5. Configure the environment variable settings.
+       <img src="http://imgur.com/EdcNda3.png"/>
+      * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId`.  You will need this info for the Client SDK setup.
+      * Set `MASTER_KEY` to be the master key used to read all data.  
+      * Leave `PARSE_MOUNT` to be `/parse`.  It does not need to be changed.
 
 If you need to get back to the console after the instance has been created, you can click [here](https://console.aws.amazon.com/elasticbeanstalk/home?region=us-west-2).
 
