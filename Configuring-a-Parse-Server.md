@@ -9,39 +9,39 @@ You can review this [Wiki](https://github.com/ParsePlatform/parse-server/wiki) t
 
 ### Setting a new Parse Server
 
-The steps described [this guide](https://devcenter.heroku.com/articles/deploying-a-parse-server-to-heroku) walk through most of the process of setting an open source version with Parse.  There are obviously many other hosting options, but deploying with Heroku is probably the simplest.  The instructions basically entail the following steps:
+The steps described [this guide](https://devcenter.heroku.com/articles/deploying-a-parse-server-to-heroku) walk through most of the process of setting an open source version with Parse.  There are obviously many other hosting options, but there are one-click deploys made available with Heroku or Amazon AWS as discussed in [this guide](https://github.com/ParsePlatform/parse-server-example).   The instructions are use a repo customized to work with Android and iOS clients.
 
-1. [Register](https://id.heroku.com/signup/login) for a free Heroku account.
-2. Establish a credit card through [Account Settings](https://dashboard.heroku.com/account) in order to add a free MongoDB sandbox instance.
-3. Fork a copy of the [Parse server example](https://github.com/ParsePlatform/parse-server-example).
-   * Modify `index.js` to add `clientKey` and push notifications support:
-        ```javascript
-        // For GCM Push support -- see https://github.com/ParsePlatform/parse-server/pull/311/files
-        var pushConfig = { android: { senderId: process.env.GCM_SENDER_ID || '',
-                                      apiKey: processs.env.GCM_API_KEY || ''}}
+#### Signing up with Heroku
 
-        var api = new ParseServer({
-         databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
-         cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
-         appId: process.env.APP_ID || 'myAppId',
-         masterKey: process.env.MASTER_KEY || '', //Add your master key here. Keep it secret!
-         clientKey: process.env.CLIENT_KEY || 'clientKey',
-         push: pushConfig
-        });
-        ```
-   * Push to this branch with this change.
-4. Create a new Heroku app, pointing to this repository that was created.
-5. Add the MongoDB instance as an Add-On.
-6. Setup environment variables in the app settings (`https://dashboard.heroku.com/apps/<app name>/settings`):
+Use Heroku if you have little or no experience with setting up web sites. Heroku allows you to manage changes to deploy easily by specifying a GitHub repository to use.  In addition, it comes with a UI-driven data viewer.  
 
-    <img src="http://imgur.com/shCWGQX.png"/>
-    * Set `MASTER_KEY` to be the master key used to read data.  Otherwise, the server will not load properly.
-    * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId` (see [the source code](https://github.com/ParsePlatform/parse-server-example/blob/master/index.js#L14-L18)).
-    * Verify the `MONGOLAB_URI` has been added.  It should be there if the MongoDB add-on was added.
+1. Click on the button below to start the process:
+
+    <a href="https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2Fcodepath%2Fparse-server-example&template=https%3A%2F%2Fgithub.com%2Fcodepath%2Fparse-server-example"><img src="https://camo.githubusercontent.com/c0824806f5221ebb7d25e559568582dd39dd1170/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e706e67" alt="Deploy" data-canonical-src="https://www.herokucdn.com/deploy/button.png" style="max-width:100%;"></a>
+
+2. Make sure to enter an App Name.  Scroll to the bottom of the page.
+
+   <img src="http://imgur.com/0JcJrn5.png">
+
+3. Make sure to change the config values.
+
+   <img src="http://imgur.com/vzeqoAV.png"/>
+ 
+    * Leave `PARSE_MOUNT` to be `/parse`.  It does not need to be changed.
+    * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId`.
+    * Set `MASTER_KEY` to be the master key used to read all data.  
     * Set `CLIENT_KEY` to be your client key.  You will use this info later for the Client SDK setup.
-7. Deploy the Heroku app.  The app should be hosted at `https://<app name>.herokuapp.com`.
 
-The important file to review for the Parse server example is [here](https://github.com/ParsePlatform/parse-server-example/blob/master/index.js).  You can see that it takes a few environment variables to run.
+4. Deploy the Heroku app.  The app should be hosted at `https://<app name>.herokuapp.com`.
+
+If you ever need to change these values later, you can go to (`https://dashboard.heroku.com/apps/<app name>/settings`).
+
+#### Signing up with Amazon
+
+Amazon AWS provides more advanced functionality, such as a load balancer, easy-to-upgrade instances, and auto-scaling groups.  Use only if you are more comfortable with managing servers.  You can create a new Parse instance by clicking on the button:
+
+<a title="Deploy to AWS" href="https://console.aws.amazon.com/elasticbeanstalk/home?region=us-west-2#/newApplication?applicationName=ParseServer&amp;solutionStackName=Node.js&amp;tierName=WebServer&amp;sourceBundleUrl=https://github.com/codepath/parse-server-example/archive/master.zip" target="_blank"><img src="https://camo.githubusercontent.com/f13c4f9254091b2f91ea161e9461491481d0e586/687474703a2f2f64302e6177737374617469632e636f6d2f70726f647563742d6d61726b6574696e672f456c61737469632532304265616e7374616c6b2f6465706c6f792d746f2d6177732e706e67" height="40" data-canonical-src="http://d0.awsstatic.com/product-marketing/Elastic%20Beanstalk/deploy-to-aws.png" style="max-width:100%;"></a>
+
 
 ### Testing Deployment
 
@@ -59,7 +59,7 @@ To read data back, you will need to specify the master key:
 curl -X GET -H "X-Parse-Application-Id: myAppId" -H "X-Parse-Master-Key: abc"    https://yourappname.herokuapp.com/parse/classes/GameScore
 ```
 
-You can also verify whether the objects were created by clicking on the MongoDB instance in the Heroku panel:
+If you are using Heroku, You can also verify whether the objects were created by clicking on the MongoDB instance in the Heroku panel:
 
 <img src="http://imgur.com/bbj2e9N.png"/>
 
@@ -104,12 +104,14 @@ The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which 
 
 **Note**: Support for push notifications is almost available.  See this [pull request](https://github.com/ParsePlatform/parse-server/pull/311/files) for more details.
 
+#### GCM Setup
+
 There are a few steps to make this process work.  **Note**: Push Notifications via [Google Cloud Messaging](Google-Cloud-Messaging) (GCM) will only work for devices and emulators that have Google Play installed.
 
 1. Obtain a Sender ID and API Key.
       * Follow only step 1 of [this guide](http://guides.codepath.com/android/Google-Cloud-Messaging#step-1-register-with-google-developers-console) to obtain the Sender ID (equivalent to the Project Number) and API Key.  You do not need to follow the other steps because Parse provides much of code to handle GCM registration for you.
 
-2. Set `GCM_SENDER_ID` and `GCM_API_KEY` in your Heroku environment variables.
+2. Set `GCM_ENABLE=1` in your environment variables to enable GCM support.  Set `GCM_SENDER_KEY` and `GCM_API_KEY` environment variables to correspond to the Sender ID and API Key in the previous step.  **Note**: this step only works if you are using the [CodePath fork](https://github.com/codepath/parse-server-example/blob/master/index.js#L15-L26) to initialize the Parse server
 
 3. Add a `meta-data` with the Sender ID in your AndroidManifest.xml.  Make sure the `id:` is used as the prefix (Android treats any metadata value that has a string of digits as an integer so Parse prefixes this value).  If you forget this step, Parse will register with its own Sender ID but you will see `SenderID mismatch` errors when trying to issue push notifications.
 
