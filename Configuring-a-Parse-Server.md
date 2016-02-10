@@ -53,6 +53,10 @@ Amazon AWS provides more advanced functionality, such as a load balancer, easy-t
 6. Your machine should take a few minutes to spin up.  Once it's ready, you should be able to click on the URL provided:
 
        <img src="http://imgur.com/OjyvPdc.png"/>
+
+If you need to update the source code, you need to download the `.zip` file and upload it here:
+
+       <img src="http://imgur.com/8XBkbnK.png"/>
         
 If you need to get back to the console after the instance has been created, you can click [here](https://console.aws.amazon.com/elasticbeanstalk/home?region=us-west-2).
 
