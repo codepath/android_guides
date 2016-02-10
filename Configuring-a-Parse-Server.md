@@ -1,6 +1,6 @@
 ### Overview
 
-Parse provides a cloud-based backend service to build data-driven mobile apps quickly.  Facebook, which acquired the company more than 3 years ago, announced that the service would be shutting down on **January 28, 2017**.   An [open source version](https://github.com/ParsePlatform/parse-server) enables developers to continue using their apps was published, along with a [migration guide](https://parse.com/docs/server/guide#migrating).  
+Parse provides a cloud-based backend service to build data-driven mobile apps quickly.  Facebook, which acquired the company more than 3 years ago, announced that the service would be shutting down on **January 28, 2017**.   An [open source version](https://github.com/ParsePlatform/parse-server) enables developers to continue using their apps was published, along with a [migration guide](https://parse.com/docs/server/guide#migrating).
 
 While there are many
 [alternate options to Parse](https://github.com/relatedcode/ParseAlternatives), most of them lack either the functionality, documentation, or sample code to enable quick prototyping.  For this reason, the open source Parse version is a good option to use with minimal deployment/configuration needed.
@@ -36,7 +36,7 @@ The steps described [this guide](https://devcenter.heroku.com/articles/deploying
 6. Setup environment variables in the app settings (`https://dashboard.heroku.com/apps/<app name>/settings`):
 
     <img src="http://imgur.com/shCWGQX.png"/>
-    * Set `MASTER_KEY` to be the master key used to read data.  Otherwise, the server will not load properly.  
+    * Set `MASTER_KEY` to be the master key used to read data.  Otherwise, the server will not load properly.
     * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId` (see [the source code](https://github.com/ParsePlatform/parse-server-example/blob/master/index.js#L14-L18)).
     * Verify the `MONGOLAB_URI` has been added.  It should be there if the MongoDB add-on was added.
     * Set `CLIENT_KEY` to be your client key.  You will use this info later for the Client SDK setup.
@@ -78,7 +78,7 @@ dependencies {
 }
 ```
 
-Modify your `Parse.initialize()` command to point to this Heroku server.  You must be on the latest Parse Android SDK to have these options.  
+Modify your `Parse.initialize()` command to point to this Heroku server.  You must be on the latest Parse Android SDK to have these options.
 
 ```java
 public class ChatApplication extends Application {
@@ -164,22 +164,22 @@ There are a few steps to make this process work.  **Note**: Push Notifications v
 
 5. Test out push notifications using the [Parse Notifications API](https://parse.com/docs/rest/guide/#push-sending) with this Python script:
 
-```python
-import json
-import requests
+  ```python
+  import json
+  import requests
 
-headers = {'X-Parse-Application-Id': 'myAppId', "X-Parse-Master-Key": "abc", "Content-Type": "application/json"}
+  headers = {'X-Parse-Application-Id': 'myAppId', "X-Parse-Master-Key": "abc", "Content-Type": "application/json"}
 
-data = {'where': {'deviceType': 'android'},
-        "data": {
-            "action": "com.example.UPDATE_STATUS",
-            "alert": "Ricky Vaughn was injured during the game last night!",
-            "name": "Vaughn",
-            "newsItem": "Man bites dog"}
-       }
+  data = {'where': {'deviceType': 'android'},
+          "data": {
+              "action": "com.example.UPDATE_STATUS",
+              "alert": "Ricky Vaughn was injured during the game last night!",
+              "name": "Vaughn",
+              "newsItem": "Man bites dog"}
+         }
 
-response = requests.post("http://yourappname.herokuapp.com/parse/push", headers=headers, data=json.dumps(data))
-```
+  response = requests.post("http://yourappname.herokuapp.com/parse/push", headers=headers, data=json.dumps(data))
+  ```
 
 ### Troubleshooting
 
@@ -202,18 +202,18 @@ response = requests.post("http://yourappname.herokuapp.com/parse/push", headers=
    heroku logs -app <app name>
    ```
 
-   The logs should show the response from any types of network requests made to the site.  Check the `status` code.  
+   The logs should show the response from any types of network requests made to the site.  Check the `status` code.
    ```
    2016-02-07T08:28:14.292475+00:00 heroku[router]: at=info method=POST path="/parse/classes/Message" host=parse-testing-port.herokuapp.com request_id=804c2533-ac56-4107-ad05-962d287537e9 fwd="101.12.34.12" dyno=web.1 connect=1ms service=2ms status=404 bytes=179
    ```
 
 * You can also use Facebook's [Stetho](http://facebook.github.io/stetho/) interceptor to watch network logs with Chrome:
 
-  ```gradle
-  dependencies {
-    compile 'com.facebook.stetho:stetho:1.3.0'
-  }
-  ```
+    ```gradle
+    dependencies {
+      compile 'com.facebook.stetho:stetho:1.3.0'
+    }
+    ```
 
   And add this network interceptor as well:
 
