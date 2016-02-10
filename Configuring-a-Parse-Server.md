@@ -35,7 +35,7 @@ If you ever need to change these values later, you can go to (`https://dashboard
 
 #### Signing up with Amazon
 
-Amazon AWS provides more advanced functionality, such as a load balancer, easy-to-upgrade instances, and [auto-scaling groups](https://aws.amazon.com/autoscaling/).  Use only if you are more comfortable with managing servers.  
+Amazon AWS provides more advanced functionality, such as a load balancer, easy-to-upgrade instances, and [auto-scaling groups](https://aws.amazon.com/autoscaling/).  Use only if you are more comfortable with managing servers.  You do not get a UI data viewer out of the box.
 
 1. You can create a new Parse instance by clicking on the button:
 
@@ -54,11 +54,15 @@ Amazon AWS provides more advanced functionality, such as a load balancer, easy-t
 
        <img src="http://imgur.com/OjyvPdc.png"/>
 
-If you need to update the source code, you need to download the `.zip` file and upload it here:
+Other tips:
+
+* If you need to update the source code, you need to go the download the updated `.zip` file and upload to the main dashboard here:
 
        <img src="http://imgur.com/8XBkbnK.png"/>
         
-If you need to get back to the console after the instance has been created, you can click [here](https://console.aws.amazon.com/elasticbeanstalk/home?region=us-west-2).
+* If you need to get back to the console after the instance has been created, you can click [here](https://console.aws.amazon.com/elasticbeanstalk/home?region=us-west-2).
+
+* You mean need to get direct SSH access to this box to view the MongoDB data.  See [this article](http://stackoverflow.com/questions/4742478/ssh-to-elastic-beanstalk-instance) for more information.
 
 ### Testing Deployment
 
