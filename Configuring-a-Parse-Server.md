@@ -136,7 +136,7 @@ The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which 
 
 ### Support Push Notifications
 
-**Note**: Support for push notifications is almost available.  See this [pull request](https://github.com/ParsePlatform/parse-server/pull/311/files) for more details.
+**Note**: Support for push notifications is not yet available.  See this [pull request](https://github.com/ParsePlatform/parse-server/pull/311/files) for more details. 
 
 #### GCM Setup
 
