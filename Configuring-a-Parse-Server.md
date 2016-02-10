@@ -9,7 +9,7 @@ You can review this [Wiki](https://github.com/ParsePlatform/parse-server/wiki) t
 
 ### Setting a new Parse Server
 
-The steps described [this guide](https://devcenter.heroku.com/articles/deploying-a-parse-server-to-heroku) walk through most of the process of setting an open source version with Parse.  There are obviously many other hosting options, but there are one-click deploys made available with Heroku or Amazon AWS as discussed in [this guide](https://github.com/ParsePlatform/parse-server-example).   In both cases, you are likely to need a credit card attached to your account to activate.
+The steps described [this guide](https://devcenter.heroku.com/articles/deploying-a-parse-server-to-heroku) walk through most of the process of setting an open source version with Parse.  There are obviously many other hosting options, but the one-click deploys made available with Heroku or Amazon AWS as discussed in [this guide](https://github.com/ParsePlatform/parse-server-example) are the simplest.   In both cases, you are likely to need a credit card attached to your account to activate.
 
 #### Signing up with Heroku
 
