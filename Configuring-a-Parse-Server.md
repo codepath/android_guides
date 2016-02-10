@@ -44,6 +44,7 @@ Amazon AWS provides more advanced functionality, such as a load balancer, easy-t
        <img src="http://imgur.com/yRrmmse.png"/>
 3. The final step is to review your changes.  Click `Launch` when ready.
 4. The machine configuration should begin to start.  Look for the `Software Configuration` panel to appear:
+
        <img src="http://imgur.com/YATjJlc.png"/>
 5. Configure the environment variable settings.
        <img src="http://imgur.com/EdcNda3.png"/>
