@@ -326,7 +326,7 @@ To enable the app icon as an Up button, call [setDisplayHomeAsUpEnabled](http://
 
 ![Up Button](http://i.imgur.com/yEXdmG2.png)
 
-"Up" in contrast to  Back" takes the user to the logical parent screen of the current screen. This is not based on the navigation history but rather on the relationship between screens. For example, in a mail client "Back" might take the user to a previous email but "Up" would always take the user to the list of mail in the inbox.
+"Up" in contrast to the Back button takes the user to the logical parent screen of the current screen. This is not based on the navigation history but rather on the relationship between screens. For example, in a mail client "Back" might take the user to a previous email but "Up" would always take the user to the list of mail in the inbox.
 
 First, specify that the home icon should be used as "Up":
 
