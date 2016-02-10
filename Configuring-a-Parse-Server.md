@@ -13,7 +13,7 @@ The steps described [this guide](https://devcenter.heroku.com/articles/deploying
 
 #### Signing up with Heroku
 
-Use Heroku if you have little or no experience with setting up web sites. Heroku allows you to manage changes to deploy easily by specifying a GitHub repository to use.  In addition, it comes with a UI-driven data viewer.  
+Use Heroku if you have little or no experience with setting up web sites. Heroku allows you to manage changes to deploy easily by specifying a GitHub repository to use.  In addition, it comes with a UI data viewer from MongoLabs.  
 
 1. Click on the button below to start the process:
 
