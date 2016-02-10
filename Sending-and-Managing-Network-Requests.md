@@ -36,6 +36,8 @@ private Boolean isNetworkAvailable() {
 }
 ```
 
+Note that having an active network interface doesn't guarantee that a particular networked service is available. Network issues, server downtime, low signal, captive portals, content filters and the like can all prevent your app from reaching a server. For instance you can't tell for sure if your app can reach Twitter until you receive a valid response from the Twitter service.
+
 See [this official connectivity guide](http://developer.android.com/training/monitoring-device-state/connectivity-monitoring.html) for more details.
 
 ### Sending an HTTP Request (Third Party)
