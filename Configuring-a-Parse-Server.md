@@ -41,6 +41,7 @@ Amazon AWS provides more advanced functionality, such as a load balancer, easy-t
 
 <a title="Deploy to AWS" href="https://console.aws.amazon.com/elasticbeanstalk/home?region=us-west-2#/newApplication?applicationName=ParseServer&amp;solutionStackName=Node.js&amp;tierName=WebServer&amp;sourceBundleUrl=https://github.com/codepath/parse-server-example/archive/master.zip" target="_blank"><img src="https://camo.githubusercontent.com/f13c4f9254091b2f91ea161e9461491481d0e586/687474703a2f2f64302e6177737374617469632e636f6d2f70726f647563742d6d61726b6574696e672f456c61737469632532304265616e7374616c6b2f6465706c6f792d746f2d6177732e706e67" height="40" data-canonical-src="http://d0.awsstatic.com/product-marketing/Elastic%20Beanstalk/deploy-to-aws.png" style="max-width:100%;"></a>
 
+If you need to get back to the console after the instance has been created, you can click [here](https://console.aws.amazon.com/elasticbeanstalk/home?region=us-west-2).
 
 ### Testing Deployment
 
