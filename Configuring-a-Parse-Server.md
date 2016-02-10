@@ -76,6 +76,19 @@ dependencies {
 }
 ```
 
+If you are migrating from a previous Parse configuration, make sure to delete the `CLIENT_KEY` reference in your `AndroidManifest.xml` file.  You can in fact delete both lines since we will be using a custom config builder in the next step.
+
+```xml
+ <!--- these lines should be deleted in lieu of our custom Parse builder -->
+        <meta-data
+            android:name="com.parse.APPLICATION_ID"
+            android:value="myAppId" />
+        <meta-data
+            android:name="com.parse.CLIENT_KEY"
+            android:value="clientKey" />
+ <!--- end of delete --->
+```
+
 Modify your `Parse.initialize()` command to point to this Heroku server.  You must be on the latest Parse Android SDK to have these options.
 
 ```java
