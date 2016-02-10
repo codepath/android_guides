@@ -37,7 +37,7 @@ If you ever need to change these values later, you can go to (`https://dashboard
 
 #### Signing up with Amazon
 
-Amazon AWS provides more advanced functionality, such as a load balancer, easy-to-upgrade instances, and auto-scaling groups.  Use only if you are more comfortable with managing servers.  
+Amazon AWS provides more advanced functionality, such as a load balancer, easy-to-upgrade instances, and [auto-scaling groups](https://aws.amazon.com/autoscaling/).  Use only if you are more comfortable with managing servers.  
 
 1. You can create a new Parse instance by clicking on the button:
 
