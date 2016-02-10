@@ -112,7 +112,7 @@ If you are migrating from a previous Parse configuration, make sure to delete th
  <!--- end of delete --->
 ```
 
-Modify your `Parse.initialize()` command to point to this Heroku server.  You must be on the latest Parse Android SDK to have these options.
+Modify your `Parse.initialize()` command to point to this newly created server.  You must be on the latest Parse Android SDK to have these options.
 
 ```java
 public class ChatApplication extends Application {
