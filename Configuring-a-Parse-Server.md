@@ -25,9 +25,9 @@ Use Heroku if you have little or no experience with setting up web sites. Heroku
 
 3. Make sure to change the config values.
       <img src="http://imgur.com/vQV0X0S.png"/>
-        - Leave `PARSE_MOUNT` to be `/parse`.  It does not need to be changed.
-        - Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId`.  You will need this info for the Client SDK setup.
-        - Set `MASTER_KEY` to be the master key used to read all data.  
+          * Leave `PARSE_MOUNT` to be `/parse`.  It does not need to be changed.
+          * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId`.  You will need this info for the Client SDK setup.
+          * Set `MASTER_KEY` to be the master key used to read all data.  
 
 4. Deploy the Heroku app.  The app should be hosted at `https://<app name>.herokuapp.com`.
 
