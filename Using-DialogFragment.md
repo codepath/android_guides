@@ -373,7 +373,7 @@ In other cases, we want the dialog to fill the entire screen. First, in the XML 
 <!-- fragment_edit_name.xml -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/edit_name"
-    android:layout_width="wrap_content" android:layout_height="wrap_content" >
+    android:layout_width="match_parent" android:layout_height="match_parent" >
   <!-- ...subviews here... -->
 </LinearLayout>
 ```
