@@ -30,7 +30,6 @@ Use Heroku if you have little or no experience with setting up web sites. Heroku
     * Leave `PARSE_MOUNT` to be `/parse`.  It does not need to be changed.
     * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId`.  You will need this info for the Client SDK setup.
     * Set `MASTER_KEY` to be the master key used to read all data.  
-    * Set `CLIENT_KEY` to be your client key.  You will use this info later for the Client SDK setup.
 
 4. Deploy the Heroku app.  The app should be hosted at `https://<app name>.herokuapp.com`.
 
@@ -89,7 +88,6 @@ public class ChatApplication extends Application {
         // any network interceptors must be added with the Configuration Builder given this syntax
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId("myAppId") // should correspond to APP_ID env variable
-                .clientKey("clientKey")  // should correspond to CLIENT_KEY env variable
                 .addNetworkInterceptor(new ParseLogInterceptor())
                 .server("https://parse-testing-port.herokuapp.com/parse/").build());
     }
