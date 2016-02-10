@@ -17,15 +17,15 @@ Use Heroku if you have little or no experience with setting up web sites. Heroku
 
 1. Click on the button below to start the process:
 
-    <a href="https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FParsePlatform%2Fparse-server-example&template=https%3A%2F%2Fgithub.com%2FParsePlatform%2Fparse-server-example"><img src="https://camo.githubusercontent.com/c0824806f5221ebb7d25e559568582dd39dd1170/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e706e67" alt="Deploy" data-canonical-src="https://www.herokucdn.com/deploy/button.png" style="max-width:100%;"></a>
+      <a href="https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FParsePlatform%2Fparse-server-example&template=https%3A%2F%2Fgithub.com%2FParsePlatform%2Fparse-server-example"><img src="https://camo.githubusercontent.com/c0824806f5221ebb7d25e559568582dd39dd1170/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e706e67" alt="Deploy" data-canonical-src="https://www.herokucdn.com/deploy/button.png" style="max-width:100%;"></a>
 
 2. Make sure to enter an App Name.  Scroll to the bottom of the page.
 
-    <img src="http://imgur.com/0JcJrn5.png">
+      <img src="http://imgur.com/0JcJrn5.png">
 
 3. Make sure to change the config values.
 
-    <img src="http://imgur.com/vQV0X0S.png"/>
+      <img src="http://imgur.com/vQV0X0S.png"/>
 
     * Leave `PARSE_MOUNT` to be `/parse`.  It does not need to be changed.
     * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId`.  You will need this info for the Client SDK setup.
@@ -40,25 +40,25 @@ If you ever need to change these values later, you can go to (`https://dashboard
 Amazon AWS provides more advanced functionality, such as a load balancer, easy-to-upgrade instances, and [auto-scaling groups](https://aws.amazon.com/autoscaling/).  Use only if you are more comfortable with managing servers.  
 
 1. You can create a new Parse instance by clicking on the button:
-     <a title="Deploy to AWS" href="https://console.aws.amazon.com/elasticbeanstalk/home?region=us-west-2#/newApplication?applicationName=ParseServer&amp;solutionStackName=Node.js&amp;tierName=WebServer&amp;sourceBundleUrl=https://s3.amazonaws.com/elasticbeanstalk-samples-us-east-1/eb-parse-server-sample/parse-server-example.zip" target="_blank"><img src="https://camo.githubusercontent.com/f13c4f9254091b2f91ea161e9461491481d0e586/687474703a2f2f64302e6177737374617469632e636f6d2f70726f647563742d6d61726b6574696e672f456c61737469632532304265616e7374616c6b2f6465706c6f792d746f2d6177732e706e67" height="40" data-canonical-src="http://d0.awsstatic.com/product-marketing/Elastic%20Beanstalk/deploy-to-aws.png" style="max-width:100%;"></a>
+       <a title="Deploy to AWS" href="https://console.aws.amazon.com/elasticbeanstalk/home?region=us-west-2#/newApplication?applicationName=ParseServer&amp;solutionStackName=Node.js&amp;tierName=WebServer&amp;sourceBundleUrl=https://s3.amazonaws.com/elasticbeanstalk-samples-us-east-1/eb-parse-server-sample/parse-server-example.zip" target="_blank"><img src="https://camo.githubusercontent.com/f13c4f9254091b2f91ea161e9461491481d0e586/687474703a2f2f64302e6177737374617469632e636f6d2f70726f647563742d6d61726b6574696e672f456c61737469632532304265616e7374616c6b2f6465706c6f792d746f2d6177732e706e67" height="40" data-canonical-src="http://d0.awsstatic.com/product-marketing/Elastic%20Beanstalk/deploy-to-aws.png" style="max-width:100%;"></a>
 2. Create an application name:
-     <img src="http://imgur.com/yRrmmse.png"/>
+       <img src="http://imgur.com/yRrmmse.png"/>
 3. Click on `Create a web server`.
-     <img src="http://imgur.com/oyW7DSG.png"/>
+       <img src="http://imgur.com/oyW7DSG.png"/>
 4. Verify the environment is set to 'Node.js'.  Click `Next`.  
-     <img src="http://imgur.com/nO0ahtK.png"/>
+       <img src="http://imgur.com/nO0ahtK.png"/>
 5. Make sure the `S3 URL` is selected and set to `https://s3.amazonaws.com/elasticbeanstalk-samples-us-east-1/eb-parse-server-sample/parse-server-example.zip`.  Click `Next`.
-     <img src="http://i.imgur.com/IYoY3KK.png"/>
+       <img src="http://i.imgur.com/IYoY3KK.png"/>
 6. You can use the defaults.  Click `Next`.
-     <img src="http://imgur.com/WzuQu0q.png"/>
+       <img src="http://imgur.com/WzuQu0q.png"/>
 7. You can use the defaults.  Click 'Next'
-     <img src="http://imgur.com/jbpV2Du.png"/>
+       <img src="http://imgur.com/jbpV2Du.png"/>
 8. The next step exposes the instance type.  You can keep the default setting unless you wish to increase the CPU power of your machine.  This setting can always be changed later.
-     <img src="http://imgur.com/DYpN7pU.png"/>
+       <img src="http://imgur.com/DYpN7pU.png"/>
 9. You can leave the Environment tags alone.  Click `Next`.
-     <img src="http://imgur.com/tmjcVAF.png"/>
+       <img src="http://imgur.com/tmjcVAF.png"/>
 10. You can leave the Permission settings alone.  Click `Next`.
-    <img src="http://imgur.com/s7vWqnH.png"/>
+       <img src="http://imgur.com/s7vWqnH.png"/>
 11. The last step is to review your changes.  Click `Launch` when ready.
 
 If you need to get back to the console after the instance has been created, you can click [here](https://console.aws.amazon.com/elasticbeanstalk/home?region=us-west-2).
