@@ -218,11 +218,11 @@ There are a few steps to make this process work.  **Note**: Push Notifications v
 
 ### Troubleshooting
 
-* If you see `Application Error` or `An error occurred in the application and your page could not be served. Please try again in a few moments.`, double-check that you set a `MASTER_KEY` in the Heroku environment settings for that app.
+* If you see `Application Error` or `An error occurred in the application and your page could not be served. Please try again in a few moments.`, double-check that you set a `MASTER_KEY` in the environment settings for that app.
 
   <img src="http://imgur.com/uMYwPmS.png">
 
-* Download the Heroku Toolbelt app [here](https://toolbelt.heroku.com/) to help view system logs.
+* If you are using Heroku, download the Heroku Toolbelt app [here](https://toolbelt.heroku.com/) to help view system logs.
 
   <img src="http://imgur.com/Ch0mZOK.png"/>
 
