@@ -64,7 +64,7 @@ public class User {
 }
 ```
 
-Next, simply wrap your objects with `Parcel.wrap()`:
+Next, simply wrap your objects with `Parcels.wrap()`:
 
 ```java
 User user = new User("John", "Doe");
