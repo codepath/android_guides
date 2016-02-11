@@ -369,7 +369,7 @@ Subscription subscription = call
   public void onError(Throwable e) {
     // cast to retrofit.HttpException to get the response code
     if (e instanceof HttpException) {
-       HttpException response;
+       HttpException response = (HttpException)e;
        int code = response.code();
     }
   }
