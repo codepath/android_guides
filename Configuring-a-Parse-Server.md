@@ -134,9 +134,9 @@ public class ChatApplication extends Application {
 
 The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which is set to this value by default.
 
-### Support Push Notifications
+### Enabling Push Notifications
 
-**Note**: Experimental Support for push notifications is now available via v2.0.8.
+**Note**: Experimental Support for push notifications is now available with the open source Parse server as of v2.0.8.
 
 #### GCM Setup
 
