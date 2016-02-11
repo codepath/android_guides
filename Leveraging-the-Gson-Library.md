@@ -86,7 +86,7 @@ public class BoxOfficeMovieResponse {
 .
     public static BoxOfficeMovieResponse parseJSON(String response) {
         Gson gson = new GsonBuilder().create();
-        BoxOfficeMovieResponse boxOfficeMovieResponse = gson.fromJson(response, Response.class);
+        BoxOfficeMovieResponse boxOfficeMovieResponse = gson.fromJson(response, BoxOfficeMovieResponse.class);
         return boxOfficeMovieResponse;
     }
 }
