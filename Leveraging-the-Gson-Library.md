@@ -14,7 +14,7 @@ dependencies {
 
 ### Usage
 
-### Auto-generating your classes
+#### Auto-generating your classes
 
 You can auto-generate many of your code as described in [[this guide|https://github.com/codepath/android_guides/wiki/Consuming-APIs-with-Retrofit#automated-approach---auto-generating-the-java-objects]].   The generator will generated a large number of files that may be a bit overwhelming but the key is to parse the JSON to elements that you need.  You can also see how a class is created for each nested layer in order to understand the manual process.
 
