@@ -14,7 +14,12 @@ dependencies {
 
 ### Usage
 
-You can auto-generate many of your code as described in [[this guide|https://github.com/codepath/android_guides/wiki/Consuming-APIs-with-Retrofit#automated-approach---auto-generating-the-java-objects]], but for now, we'll walk through how you can do so manually.
+### Auto-generating your classes
+
+You can auto-generate many of your code as described in [[this guide|https://github.com/codepath/android_guides/wiki/Consuming-APIs-with-Retrofit#automated-approach---auto-generating-the-java-objects]].   The generator will generated a large number of files that may be a bit overwhelming but the key is to parse the JSON to elements that you need.  You can also see how a class is created for each nested layer in order to understand the manual process.
+
+#### Manual approach
+
 First, we need to know what type of JSON response we will be receiving.    The following example uses the [Rotten Tomatoes API](http://developer.rottentomatoes.com/docs) as an example and show how to create Java objects that will be able to parse the latest [box office movies](http://developer.rottentomatoes.com/docs/read/json/v10/Box_Office_Movies).  Based on the JSON response returned for this API call, let's first define how a basic movie representation should look like:
 
 ```java
