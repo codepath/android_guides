@@ -233,10 +233,13 @@ public EndlessRecyclerViewScrollListener(LinearLayoutManager layoutManager) {
 
 public EndlessRecyclerViewScrollListener(GridLayoutManager layoutManager) {
     this.mLayoutManager = layoutManager;
+    // Increase visible threshold based on number of columns
+    visibleThreshold = visibleThreshold * layoutManager.getSpanCount();
 }
 
 public EndlessRecyclerViewScrollListener(StaggeredGridLayoutManager layoutManager) {
     this.mLayoutManager = layoutManager;
+    // Increase visible threshold based on number of columns
     visibleThreshold = visibleThreshold * layoutManager.getSpanCount();
 }
 ```
