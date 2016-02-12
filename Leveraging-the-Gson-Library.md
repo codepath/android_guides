@@ -265,9 +265,10 @@ Sometimes our JSON response will be a list of items.  We may also have declared 
 Since the Gson library needs to know what type should be used for decoding a string, we want to pass a type that defines a list of these objects.  Because Java normally doesn't retain generic types because of [type erasure](https://docs.oracle.com/javase/tutorial/java/generics/erasure.html), we need to implement a workaround.   This workaround involves  subclassing `TypeToken` with a parameterized type and creating an anonymous class:
 
 ```java
-Type collectionType = new TypeToken<List<ImageResult>>(){}.getType();
+Type collectionType = new TypeToken<List<Article>>(){}.getType();
+GsonBuilder gsonBuilder = new GsonBuilder();
+gsonBuilder.registerTypeAdapter(collectionType, new MultimediaDeserializer());
 Gson gson = gsonBuilder.create();
-List<ImageResult> imageResults = gson.fromJson(jsonObject, collectionType);
 ```
 
 This approach essentially creates a custom type for a list of objects for the Gson library.  See this Stack Overflow [discussion](http://stackoverflow.com/questions/15479724/why-the-typetoken-construction-in-gson-is-so-weird) for more details.
