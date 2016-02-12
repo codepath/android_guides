@@ -10,6 +10,17 @@ First, let's download and setup the Google Play Services and Google Repository S
 
 <img src="https://i.imgur.com/d37zzjg.png" width="500" />
 
+### Setup
+
+Add this configuration to your `build.gradle` file:
+
+```gradle
+dependencies {
+    compile 'com.google.android.gms:play-services-maps:8.4.0'
+    compile 'com.google.android.gms:play-services-location:8.4.0'
+}
+```
+
 ### Retrieve your SHA-1 Fingerprint
 
 Open your terminal and execute the following command to generate SHA-1 fingerprint necessary to get your API key from Google.
