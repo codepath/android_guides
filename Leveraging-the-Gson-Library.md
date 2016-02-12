@@ -272,6 +272,17 @@ final class DateAdapter implements JsonDeserializer<Date> {
 }
 ```
 
+### Mapping collections
+
+For mapping collections, you need to create a custom type:
+
+```java
+GsonBuilder gsonBuilder = new GsonBuilder();
+Type collectionType = new TypeToken<List<ImageResult>>(){}.getType();
+gsonBuilder.registerTypeAdapter(collectionType, new ImageResultDeserializer());
+Gson Gson = gsonBuilder.create();
+```
+
 ### HTTP Client Libraries
 
 We can use any type of HTTP client library with Gson, such as Android Async HTTP Client or Square's OkHttp library.
