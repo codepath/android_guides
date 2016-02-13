@@ -5,7 +5,7 @@ Parse provides a cloud-based backend service to build data-driven mobile apps qu
 While there are many
 [alternate options to Parse](https://github.com/relatedcode/ParseAlternatives), most of them lack either the functionality, documentation, or sample code to enable quick prototyping.  For this reason, the open source Parse version is a good option to use with minimal deployment/configuration needed.
 
-You can review this [Wiki](https://github.com/ParsePlatform/parse-server/wiki) to understand the current development progress of this app.  Push notifications, for instance, are currently not implemented but appears to be supported soon.
+You can review this [Wiki](https://github.com/ParsePlatform/parse-server/wiki) to understand the current development progress of this app.  Push notifications, for instance, has recently been added but still has some outstanding issues to work on Android and iOS.
 
 ### Setting a new Parse Server
 
