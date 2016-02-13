@@ -15,7 +15,9 @@ The steps described [this guide](https://devcenter.heroku.com/articles/deploying
 
 Use Heroku if you have little or no experience with setting up web sites. Heroku allows you to manage changes to deploy easily by specifying a GitHub repository to use.  In addition, it comes with a UI data viewer from MongoLabs.  
 
-1. Click on the button below to start the process:
+1. Sign Up / Sign In at [Heroku](https://www.heroku.com)
+
+2. Click on the button below to create a Parse App
 
       <a href="https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FParsePlatform%2Fparse-server-example&template=https%3A%2F%2Fgithub.com%2FParsePlatform%2Fparse-server-example"><img src="https://camo.githubusercontent.com/c0824806f5221ebb7d25e559568582dd39dd1170/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e706e67" alt="Deploy" data-canonical-src="https://www.herokucdn.com/deploy/button.png" style="max-width:100%;"></a>
 
@@ -39,7 +41,7 @@ Amazon AWS provides more advanced functionality, such as a load balancer, easy-t
 
 1. You can create a new Parse instance by clicking on the button:
 
-     <a title="Deploy to AWS" href="https://console.aws.amazon.com/elasticbeanstalk/home?region=us-west-2#/newApplication?applicationName=ParseServer&amp;solutionStackName=Node.js&amp;tierName=WebServer&amp;sourceBundleUrl=https://s3.amazonaws.com/elasticbeanstalk-samples-us-east-1/eb-parse-server-sample/parse-server-example.zip" target="blank"><img src="https://camo.githubusercontent.com/f13c4f9254091b2f91ea161e9461491481d0e586/687474703a2f2f64302e6177737374617469632e636f6d2f70726f647563742d6d61726b6574696e672f456c61737469632532304265616e7374616c6b2f6465706c6f792d746f2d6177732e706e67" height="40" data-canonical-src="http://d0.awsstatic.com/product-marketing/Elastic%20Beanstalk/deploy-to-aws.png" style="max-width:100%;"></a>
+     <a title="Deploy to AWS" href="https://console.aws.amazon.com/elasticbeanstalk/home?region=us-west-2#/newApplication?applicationName=ParseServer&amp;solutionStackName=Node.js&amp;tierName=WebServer&amp;sourceBundleUrl=https://s3.amazonaws.com/elasticbeanstalk-samples-us-east-1/eb-parse-server-sample/parse-server-example.zip" target="_blank"><img src="https://camo.githubusercontent.com/f13c4f9254091b2f91ea161e9461491481d0e586/687474703a2f2f64302e6177737374617469632e636f6d2f70726f647563742d6d61726b6574696e672f456c61737469632532304265616e7374616c6b2f6465706c6f792d746f2d6177732e706e67" height="40" data-canonical-src="http://d0.awsstatic.com/product-marketing/Elastic%20Beanstalk/deploy-to-aws.png" style="max-width:100%;"></a>
 2. Create an application name and click on `Review and Launch`.  Clicking on `Next` will take you the more advanced settings.
        <img src="http://imgur.com/yRrmmse.png"/>
 3. The final step is to review your changes.  Click `Launch` when ready.
@@ -124,6 +126,7 @@ public class ChatApplication extends Application {
         // any network interceptors must be added with the Configuration Builder given this syntax
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId("myAppId") // should correspond to APP_ID env variable
+                .clientKey("myMasterKey") // should correspond to the master key
                 .addNetworkInterceptor(new ParseLogInterceptor())
                 .server("https://parse-testing-port.herokuapp.com/parse/").build());
     }
