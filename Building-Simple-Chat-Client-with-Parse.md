@@ -25,8 +25,8 @@ Let's setup Parse into a brand new Android app following the steps below.
     
     ```gradle
     dependencies {
-      compile 'com.parse.bolts:bolts-android:1.+'
-      compile 'com.parse:parse-android:1.+'
+      compile 'com.parse:parse-android:1.13.0'
+      compile 'com.parse:parseinterceptors:0.0.2' // for logging API calls to LogCat
     }
     ```
   * Make sure you have added these lines before the `<application>` tag in your `AndroidManifest.xml`.
@@ -36,19 +36,6 @@ Let's setup Parse into a brand new Android app following the steps below.
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     ```
 
-* Add the following lines to your `AndroidManifest.xml` inside the `application` tag
-
-```xml
-<meta-data
-    android:name="com.parse.APPLICATION_ID"
-    android:value="{APPLICATION_ID}" />
-<meta-data
-    android:name="com.parse.CLIENT_KEY"
-    android:value="{CLIENT_KEY}" />
-```
-
-> **Note:** Make sure you replace `{APPLICATION_ID}` and `{CLIENT_KEY}` with your application ID and client key respectively from Parse.
-
 * Create a class called `ChatApplication` which extends from `android.app.Application`
   * In the application, initialize parse
 
@@ -57,14 +44,15 @@ Let's setup Parse into a brand new Android app following the steps below.
         @Override
         public void onCreate() {
             super.onCreate();
-            // [Optional] Power your app with Local Datastore. For more info, go to
-            // https://parse.com/docs/android/guide#local-datastore
+            // [Optional] Power your app with Local Datastore.
             Parse.enableLocalDatastore(this);
+            // set applicationId, clientKey, and server based on the values in the Heroku settings.
+            // any network interceptors must be added with the Configuration Builder given this syntax
             Parse.initialize(new Parse.Configuration.Builder(this)
-                 .applicationId(YOUR_APPLICATION_ID)
-                 .clientKey(YOUR_CLIENT_KEY)
-                 .server("https://myappname.herokuapp.com")
-                 .build());
+                 .applicationId("myAppId") // should correspond to APP_ID env variable
+                 .clientKey("myMasterKey") // should correspond to the master key
+                 .addNetworkInterceptor(new ParseLogInterceptor())
+                 .server("https://myparseapp.herokuapp.com/parse/").build());
 
         }
     }
