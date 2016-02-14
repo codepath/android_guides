@@ -376,7 +376,11 @@ To specify the "up" activity at compile-time we can set the logical parent of an
 </activity>
 ```
 
-And now when the home icon is pressed on the child, the parent activity will always be shown. 
+And now when the home icon is pressed on the child, the parent activity will always be shown.
+If you want to navigate up from current activity to it's Parent activity, but want that Parent activity preserves it's state, also specify <singleTop> launch mode for the parent activity in the `AndroidManifest.xml.
+```xml
+android:launchMode="singleTop"
+```
 
 #### Run-time Configuration
 
