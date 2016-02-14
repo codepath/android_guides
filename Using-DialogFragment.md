@@ -471,7 +471,7 @@ The Activity, which also is responsible for instantiating this dialog fragment, 
 public class MyActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
   // attach to an onclick handler to show the date picker
-  public void showTimePickerDialog(View v) {
+  public void showDatePickerDialog(View v) {
      DatePickerFragment newFragment = new DatePickerFragment();
      newFragment.show(getSupportFragmentManager(), "datePicker");
   }
