@@ -41,12 +41,12 @@ In the past, Retrofit relied on the [Gson](https://github.com/google/gson) libra
 
 |Converter  | Library             
 |-----------|------------------------------------------------
-|Gson       | com.squareup.retrofit2:converter-gson:2.0.0-beta3           
-|Jackson    | com.squareup.retrofit2:converter-jackson:2.0.0-beta3         
-|Moshi      | com.squareup.retrofit2:converter-moshi:2.0.0-beta3           
-|Protobuf   | com.squareup.retrofit2:converter-protobuf:2.0.0-beta3       
-|Wire       | com.squareup.retrofit2:converter-wire:2.0.0-beta3            
-|Simple XML | com.squareup.retrofit2:converter-simplexml:2.0.0-beta3       
+|Gson       | com.squareup.retrofit2:converter-gson:2.0.0-beta4           
+|Jackson    | com.squareup.retrofit2:converter-jackson:2.0.0-beta4         
+|Moshi      | com.squareup.retrofit2:converter-moshi:2.0.0-beta4           
+|Protobuf   | com.squareup.retrofit2:converter-protobuf:2.0.0-beta4       
+|Wire       | com.squareup.retrofit2:converter-wire:2.0.0-beta4           
+|Simple XML | com.squareup.retrofit2:converter-simplexml:2.0.0-beta4      
 
 ### Create Java Objects for Resources
 
