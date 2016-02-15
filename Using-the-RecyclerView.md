@@ -361,20 +361,6 @@ We can also enable optimizations if all item views are of the same height and wi
 recyclerView.setHasFixedSize(true);
 ```
 
-### Decorations
-
-We can decorate the items using various decorators attached to the recycler such as the [DividerItemDecoration](https://gist.githubusercontent.com/alexfu/0f464fc3742f134ccd1e/raw/abe729359e5b3691f2fe56445644baf0e40b35ba/DividerItemDecoration.java):
-
-```java
-RecyclerView.ItemDecoration itemDecoration = new 
-    DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST);
-recyclerView.addItemDecoration(itemDecoration);
-```
-
-This will display dividers between each item within the list as shown below:
-
-<img src="https://i.imgur.com/penvJxw.png" width="400" alt="Screenshot" />
-
 ### Layouts
 
 The positioning of the items is configured using the layout manager. By default, we can choose between `LinearLayoutManager`, `GridLayoutManager`, and `StaggeredGridLayoutManager`. Linear displays items either vertically or horizontally:
@@ -406,6 +392,24 @@ For example, a staggered grid might look like:
 <img src="https://i.imgur.com/AlANFgj.png" width="300" alt="Screenshot" />
 
 We can build [our own custom layout managers](http://wiresareobsolete.com/2014/09/building-a-recyclerview-layoutmanager-part-1/) as outlined there.
+
+### Decorations
+
+We can decorate the items using various decorators attached to the recyclerview such as the [DividerItemDecoration](https://gist.githubusercontent.com/alexfu/0f464fc3742f134ccd1e/raw/abe729359e5b3691f2fe56445644baf0e40b35ba/DividerItemDecoration.java):
+
+```java
+RecyclerView.ItemDecoration itemDecoration = new 
+    DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST);
+recyclerView.addItemDecoration(itemDecoration);
+```
+
+This decorator displays dividers between each item within the list as illustrated below:
+
+<img src="https://i.imgur.com/penvJxw.png" width="400" alt="Screenshot" />
+
+#### Grid Spacing Decorations
+
+Decorators can also be used for adding consistent spacing around items displayed in a grid layout or staggered grid. Copy over this [SpacesItemDecoration.java decorator](https://gist.github.com/nesquena/db922669798eba3e3661) into your project and apply to a `RecyclerView` using the `addItemDecoration` method. Refer to [this staggered grid tutorial](http://blog.grafixartist.com/pinterest-masonry-layout-staggered-grid/) for a more detailed outline. 
 
 ### Animators 
 
