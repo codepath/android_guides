@@ -31,9 +31,9 @@ If you intend to use [[RxJava]] with Retrofit 2, you will also need to include t
 
 ```gradle
 dependencies {
-  compile 'io.reactivex:rxjava:1.0.16'
-  compile 'io.reactivex:rxandroid:1.0.1'
-  compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta3'
+  compile 'io.reactivex:rxjava:1.1.1'
+  compile 'io.reactivex:rxandroid:1.1.0'
+  compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta4'
 }
 ```
 
