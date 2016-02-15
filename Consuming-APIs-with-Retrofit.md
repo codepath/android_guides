@@ -243,12 +243,12 @@ User user = new User(123, "John Doe");
 Call<User> call = apiService.createuser(user);
 call.enqueue(new Callback<User>() {
   @Override
-  public void onResponse(Response<User> response) {
+  public void onResponse(Call<User> call, Response<User> response) {
 
   }
 
   @Override
-  public void onFailure(Throwable t) {
+  public void onFailure(Call<User> call, Throwable t) {
 
   }
 ```
@@ -297,13 +297,13 @@ String username = "sarahjean";
 Call<User> call = apiService.getUser(username);
 call.enqueue(new Callback<User>() {
     @Override
-    public void onResponse(Response<User> response, Retrofit retrofit) {
+    public void onResponse(Call<User> call, Response<User> response) {
         int statusCode = response.code();
         User user = response.body();  
     }
 
     @Override
-    public void onFailure(Throwable t) {
+    public void onFailure(Call<User> call, Throwable t) {
         // Log error here since request failed
     }
 });
