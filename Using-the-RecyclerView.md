@@ -471,6 +471,23 @@ recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
 
 ### Attaching Click Handlers to Items
 
+#### Attaching Click Listeners with Decorators
+
+Then easiest solution for setting up item click handlers within a `RecyclerView` is to use a decorator class as [outlined in this article](http://www.littlerobots.nl/blog/Handle-Android-RecyclerView-Clicks/). With [this clever `ItemClickSupport` decorator](https://gist.github.com/nesquena/231e356f372f214c4fe6), attaching a click handler can be done with:
+
+```java
+ItemClickSupport.addTo(mRecyclerView).setOnItemClickListener(
+  new ItemClickSupport.OnItemClickListener() {
+      @Override
+      public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+          // do it
+      }
+  }
+);
+```
+
+Under the covers, this is wrapping the interface pattern described in detail below.
+
 #### Simple Click Handler within ViewHolder
 
 RecyclerView does not have special provisions for attaching click handlers to items unlike ListView which has the method `setOnItemClickListener`. To achieve a similar effect, we can attach click events within the `ViewHolder` within our adapter:
@@ -524,24 +541,6 @@ If we want the item to show a "selected" effect when pressed, we can set the `an
 This creates the following effect:
 
 <img src="https://i.imgur.com/olMUglF.gif" width="400" alt="Screenshot" />
-
-
-#### Attaching Click Listeners with Decorators
-
-An alternate solution for setting up click handlers for each item within a `RecyclerView` is to use a decorator class as [outlined in this article](http://www.littlerobots.nl/blog/Handle-Android-RecyclerView-Clicks/). With [this clever decorator](https://gist.github.com/nesquena/231e356f372f214c4fe6), attaching a click handler is as simple as:
-
-```java
-ItemClickSupport.addTo(mRecyclerView).setOnItemClickListener(
-  new ItemClickSupport.OnItemClickListener() {
-      @Override
-      public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-          // do it
-      }
-  }
-);
-```
-
-Under the covers, this is using the same interface pattern described below.
 
 #### Attaching Click Handlers using Listeners
 
