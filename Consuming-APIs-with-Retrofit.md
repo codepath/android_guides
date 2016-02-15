@@ -90,7 +90,8 @@ dependencies {
 To send out network requests to an API, we need to use the [Retrofit builder] (http://square.github.io/retrofit/2.x/retrofit/retrofit2/Retrofit.Builder.html) class and specify the base URL for the service.
 
 ```java
-public static final String BASE_URL = "http://api.myservice.com";
+// Trailing slash is needed
+public static final String BASE_URL = "http://api.myservice.com/";
 Retrofit retrofit = new Retrofit.Builder()
     .baseUrl(BASE_URL)
     .addConverterFactory(GsonConverterFactory.create())
@@ -121,13 +122,13 @@ public interface MyApiEndpointInterface {
     // Request method and URL specified in the annotation
     // Callback for the parsed response is the last parameter
 
-    @GET("/users/{username}")
+    @GET("users/{username}")
     Call<User> getUser(@Path("username") String username);
 
-    @GET("/group/{id}/users")
+    @GET("group/{id}/users")
     Call<List<User>> groupList(@Path("id") int groupId, @Query("sort") String sort);
 
-    @POST("/users/new")
+    @POST("users/new")
     Call<User> createUser(@Body User user);
 }
 ```
