@@ -348,6 +348,23 @@ adapter.notifyItemInserted(0);
 
 Every time we want to add or remove items from the RecyclerView, we will need to explicitly inform to the adapter of the event.  Unlike the ListView adapter, a RecyclerView adapter should not rely on `notifyDataSetChanged()` since the more granular actions should be used.  See the [API documentation](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.Adapter.html) for more details.
 
+Also, if you are intending to update an existing list, make sure to get the current count of items before making any changes.  For instance, a `getItemCount()` on the adapter should be called to record the first index that will be changed.
+
+```java
+// record this value before making any changes to the existing list
+int curSize = adapter.getItemCount();
+
+// replace this line with wherever you get new records
+ArrayList<Contact> newItems = Contact.createContactsList(20); 
+
+// update the existing list
+contacts.add(newItems);
+// curSize should represent the first element that got added
+// items.size() - 1 represents the last element index to be added
+adapter.notifyItemRangeInserted(curSize, items.size() - 1);
+```
+
+
 ### Scrolling to New Items
 
 If we are inserting elements to the front of the list and wish to maintain the position at the top, we can set the scroll position to the 1st element:
