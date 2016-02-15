@@ -26,6 +26,7 @@ class Movie {
     String id;
     String title;
     int year;
+    Production production;
 
     public String getId() {
         return id;
@@ -38,12 +39,32 @@ class Movie {
     public int getYear() {
         return year;
     }
+
+    public Production getProduction() {
+        return production;
+    }
 };
 ```
 
+```java
+class Production {
+    String director;
+    String screenplay;
+
+    public String getDirector() {
+        return director;
+    }
+
+    public String getScreenplay() {
+        return screenplay;
+    }
+};
+```
+
+
 By default, the Gson library will map the fields defined in the class to the JSON keys defined in the response.  For instance, the fields `id`, `title`, and `year` will be mapped automatically.   We do not need any special annotations unless the field names and JSON keys are different.
 
-In this specific case, the Movie class will correspond to each individual movie element:
+In this specific case, the Movie class will correspond to each individual movie element and the Production class corresponds to the nested JSON object under production. 
 
 
 ```javascript
@@ -51,11 +72,19 @@ movies: [
   {
     id: "771305050",
     title: "Straight Outta Compton",
+    production: {
+      director: "F. Gary Gray"
+      screenplay: "Jonathan Herman"
+    },
     year: 2015,
   },
   { 
     id: "771357161",
     title: "Mission: Impossible Rogue Nation",
+    production: {
+      director: "Christopher McQuarrie",
+      screenplay: "Christopher McQuarrie"
+    },
     year: 2015
   }
 ]
