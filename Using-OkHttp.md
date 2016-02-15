@@ -19,7 +19,7 @@ Makes sure to enable the use of the Internet permission in your `AndroidManifest
 Simply add this line to your `app/build.gradle` file:
 
 ```gradle
-compile 'com.squareup.okhttp3:okhttp:3.0.1'
+compile 'com.squareup.okhttp3:okhttp:3.1.1'
 ```
 
 **Note**: If you are upgrading from an older version of OkHttp, your imports will also need to be changed from `import com.squareup.okhttp.XXXX` to `import okhttp3.XXXX`.
