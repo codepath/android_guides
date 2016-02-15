@@ -4,7 +4,7 @@ The `RecyclerView` is a new `ViewGroup` that is prepared to render any adapter-b
 
 If you want to use a `RecyclerView`, you will need to work with the following:
 * `RecyclerView.Adapter` - To handle the data collection and bind it to the view
-* `LayoutManager` - anHelps in positioning the items
+* `LayoutManager` - Helps in positioning the items
 * `ItemAnimator` - Helps with animating the items for common operations such as Addition or Removal of item
 
 <img src="https://developer.android.com/training/material/images/RecyclerView.png" width="500" alt="RecyclerView" />
