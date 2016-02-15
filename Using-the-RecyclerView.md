@@ -314,7 +314,7 @@ Finally, compile and run the app and you should see something like the screensho
 
 ### Notifying the Adapter
 
-Unlike ListView, there is no way to add or remove items directly through the `RecyclerView` adapter.  You need to make changes to the data source directly and notify the adapter of any changes.   Also, whenever adding or removing elements, always make changes to the **existing** list.  For instance, reinitializing the list of Contacts  such as the following will not affect the adapter:
+Unlike ListView, there is no way to add or remove items directly through the `RecyclerView` adapter.  You need to make changes to the data source directly and notify the adapter of any changes.   Also, whenever adding or removing elements, always make changes to the **existing** list.  For instance, reinitializing the list of Contacts such as the following will not affect the adapter, since it has a memory reference to the old list: 
 
 ```java
 // do not reinitialize an existing reference used by an adapter
