@@ -4,6 +4,8 @@ Android applications should always be neatly organized with a clear folder struc
 
 ### Naming Conventions
 
+Be sure to check out the [Ribot Code and Style Guidelines](https://github.com/ribot/android-guidelines/blob/master/project_and_code_guidelines.md) for a more extensive breakdown of suggested style and naming guidelines.
+
 #### For Java Code
 
 The following naming and casing conventions are important for your Java code:
@@ -85,7 +87,7 @@ See the [full list of resources here](http://developer.android.com/guide/topics/
  * **Don't hardcode margin / padding dimensions in the layout**. Instead of hardcoding these values, be sure to [move all dimension values](http://developer.android.com/guide/topics/resources/more-resources.html#Dimension) into `res/values/dimens.xml` and reference these in layouts with `@dimen/item_padding_left`.
  * To support multiple devices, we can then use the [alternative resources system](http://guides.codepath.com/android/Understanding-App-Resources#providing-alternate-resources) to provide different colors, strings, dimens, styles, etc based on the device type, screen size, API version and much more. 
 
-Be sure to start properly organizing your resources early on in the development of an application.
+Be sure to start properly organizing your resources early on in the development of an application. Be sure to check out the [Ribot Code and Style Guidelines](https://github.com/ribot/android-guidelines/blob/master/project_and_code_guidelines.md) for a more extensive breakdown of suggested style and naming guidelines.
 
 ### Organizing Resources into Subfolders
 
