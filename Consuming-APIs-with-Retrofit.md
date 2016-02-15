@@ -21,7 +21,7 @@ dependencies {
     compile 'com.google.code.gson:gson:2.6.1'
     compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
     compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'  
-    compile 'com.squareup.okhttp:okhttp3:3.1.2'
+    compile 'com.squareup.okhttp3:okhttp:3.1.2'
 }
 ```
 
