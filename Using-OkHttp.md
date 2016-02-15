@@ -35,17 +35,17 @@ dependencies {
 You will then wrap the `OkHttpClient` with this `OkHttp3Downloader`:
 
 ```java
+// Note: use OkHttpClient singleton
 OkHttpClient client = new OkHttpClient();
 Picasso picasso = new Picasso.Builder(context).downloader(new OkHttp3Downloader(client)).build();
 ```
 
 ## Sending and Receiving Network Requests
 
-First, we must instantiate an OkHttpClient and create a `Request` object:
+First, we must instantiate an OkHttpClient and create a `Request` object.  **Note**: as of `OkHttp3`, it is recommended you declare this object as a singleton because changes in OkHttp3 no long require a global connection pool.  See [this changelog](see https://github.com/square/okhttp/blob/master/CHANGELOG.md#version-300-rc1) for more details.
 
 ```java
-// should be a singleton because of changes in OkHttp3 no longer requires a global conection pool
-// see https://github.com/square/okhttp/blob/master/CHANGELOG.md#version-300-rc1
+// should be a singleton
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
