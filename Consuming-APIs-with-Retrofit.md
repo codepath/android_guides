@@ -18,10 +18,10 @@ Add the following to your `app/build.gradle` file:
 
 ```gradle
 dependencies {
-    compile 'com.google.code.gson:gson:2.4'
-    compile 'com.squareup.retrofit2:retrofit:2.0.0-beta3'
-    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta3'  
-    compile 'com.squareup.okhttp:okhttp3:3.0.1'
+    compile 'com.google.code.gson:gson:2.6.1'
+    compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'  
+    compile 'com.squareup.okhttp:okhttp3:3.1.2'
 }
 ```
 
@@ -38,7 +38,7 @@ dependencies {
 ```
 
 In the past, Retrofit relied on the [Gson](https://github.com/google/gson) library to serialize and deserialize JSON data. Retrofit 2 now supports many different parsers for processing network response data, including [Moshi](https://github.com/square/moshi), a library build by Square for efficient JSON parsing.  However, there are a few [limitations](https://github.com/square/moshi#borrows-from-gson), so if you are not sure which one to choose, use the Gson converter for now.  
- 
+
 |Converter  | Library             
 |-----------|------------------------------------------------
 |Gson       | com.squareup.retrofit2:converter-gson:2.0.0-beta3           
@@ -87,7 +87,7 @@ dependencies {
 
 ### Creating the Retrofit instance
 
-To send out network requests to an API, we need to use the [Retrofit builder] (http://square.github.io/retrofit/2.x/retrofit/retrofit2/Retrofit.Builder.html) class and specify the base URL for the service. 
+To send out network requests to an API, we need to use the [Retrofit builder] (http://square.github.io/retrofit/2.x/retrofit/retrofit2/Retrofit.Builder.html) class and specify the base URL for the service.
 
 ```java
 public static final String BASE_URL = "http://api.myservice.com";
@@ -136,7 +136,7 @@ Notice that each endpoint specifies an annotation of the HTTP method (GET, POST,
 
 | Annotation| Description
 ------------|-------------------
-| `@Path`   | variable substitution for the API endpoint (i.e. username will be swapped for `{username}` in the URL endpoint). 
+| `@Path`   | variable substitution for the API endpoint (i.e. username will be swapped for `{username}` in the URL endpoint).
 | `@Query`  | specifies the query key name with the value of the annotated parameter.
 | `@Body`   | payload for the POST call (serialized from a Java object to a JSON string)
 | `@Header` | specifies the header with the value of the annotated parameter
@@ -170,7 +170,7 @@ Call<SomeResponse> someEndpoint(@Header("Cache-Control") int maxAge)
 ```
 
 #### Multipart forms
- 
+
 If we need to upload images or files, we need to send by using Multipart forms.  We will to mark the endpoint with `@Multipart`, and label at least one parameter with @Part.
 
 ```java
@@ -363,7 +363,7 @@ Subscription subscription = call
 .observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<User>() {
   @Override
   public void onCompleted() {
-   
+
   }
 
   @Override
@@ -417,7 +417,7 @@ Interceptor interceptor = new Interceptor() {
   }
 };
 
-// Add the interceptor to OkHttpClient 
+// Add the interceptor to OkHttpClient
 OkHttpClient.Builder builder = new OkHttpClient.Builder();
 builder.interceptors().add(interceptor);
 OkHttpClient client = builder.build();
@@ -478,7 +478,7 @@ lintOptions {
 
 The lint errors should be suppressed and not trigger any additional errors for now.
 
-## Troubleshooting 
+## Troubleshooting
 
 Retrofit and OkHttp can be hard to troubleshoot when trying to step through the various layers of abstraction in the libraries.  Facebook's [Stetho](http://facebook.github.io/stetho/) project enables you to use Chrome to inspect all network traffic.
 
@@ -489,11 +489,11 @@ Retrofit and OkHttp can be hard to troubleshoot when trying to step through the 
 Setup your `app/build.gradle` file:
 
 ```gradle
-// Gradle dependency on Stetho 
-  dependencies { 
-    compile 'com.facebook.stetho:stetho:1.3.0' 
-    compile 'com.facebook.stetho:stetho-okhttp:1.3.0' 
-  } 
+// Gradle dependency on Stetho
+  dependencies {
+    compile 'com.facebook.stetho:stetho:1.3.0'
+    compile 'com.facebook.stetho:stetho-okhttp:1.3.0'
+  }
 ```
 
 Initialize Stetho inside your Application object:
