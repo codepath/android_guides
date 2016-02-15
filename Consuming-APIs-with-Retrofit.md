@@ -176,7 +176,7 @@ If we need to upload images or files, we need to send by using Multipart forms. 
 
 ```java
 @Multipart
-@POST("/some/endpoint")
+@POST("some/endpoint")
 Call<Response> uploadImage(@Part("description") String description, @Part("image") RequestBody image)
 ```
 
@@ -206,7 +206,7 @@ If we wish to POST form-encoded name/value pairs, we can use the @FormUrlEncoded
 
 ```java
 @FormUrlEncoded
-@POST("/some/endpoint")
+@POST("some/endpoint")
 Call<SomeResponse> someEndpoint(@FieldMap Map<String, String> names);
 ```
 
@@ -269,13 +269,13 @@ public interface MyApiEndpointInterface {
     // Request method and URL specified in the annotation
     // Callback for the parsed response is the last parameter
 
-    @GET("/users/{username}")
+    @GET("users/{username}")
     void getUser(@Path("username") String username, Callback<User> cb);
 
-    @GET("/group/{id}/users")
+    @GET("group/{id}/users")
     void groupList(@Path("id") int groupId, @Query("sort") String sort, Callback<List<User>> cb);
 
-    @POST("/users/new")
+    @POST("users/new")
     void createUser(@Body User user, Callback<User> cb);
 }
 ```
