@@ -98,7 +98,7 @@ public class Contact {
 
     private static int lastContactId = 0;
 
-    public static List<Contact> createContactsList(int numContacts) {
+    public static ArrayList<Contact> createContactsList(int numContacts) {
         List<Contact> contacts = new ArrayList<Contact>();
 
         for (int i = 1; i <= numContacts; i++) {
@@ -287,13 +287,18 @@ In our activity, we will populate a set of sample users which should be displaye
 ```java
 public class UserListActivity extends AppCompatActivity {
 
+     ArrayList<Contact> contacts;
+
      @Override
      protected void onCreate(Bundle savedInstanceState) {
          // ...
          // Lookup the recyclerview in activity layout
          RecyclerView rvContacts = (RecyclerView) findViewById(R.id.rvContacts);
+
+         // Initialize contacts
+         contacts = Contact.createContactsList(20);
          // Create adapter passing in the sample user data
-         ContactsAdapter adapter = new ContactsAdapter(Contact.createContactsList(20));
+         ContactsAdapter adapter = new ContactsAdapter(contacts);
          // Attach the adapter to the recyclerview to populate items
          rvContacts.setAdapter(adapter);
          // Set layout manager to position the items
@@ -309,7 +314,21 @@ Finally, compile and run the app and you should see something like the screensho
 
 ### Notifying the Adapter
 
-Unlike ListView, there is no way to add or remove items directly through the `RecyclerView` adapter.  You need to make changes to the data source directly and notify the adapter of any changes. There are many method available to use when notifying the adapter of different changes:
+Unlike ListView, there is no way to add or remove items directly through the `RecyclerView` adapter.  You need to make changes to the data source directly and notify the adapter of any changes.   Also, whenever adding or removing elements, always make changes to the **existing** list.  For instance, reinitializing the list of Contacts  such as the following will not affect the adapter:
+
+```java
+// do not reinitialize an existing reference used by an adapter
+contacts = Contact.createContactsList(5);
+```
+
+Instead, you need to act directly on the existing reference:
+
+```java
+// add to the existing list
+contacts.addAll(Contact.createContactsList(5));
+```
+
+There are many method available to use when notifying the adapter of different changes:
 
 | Method | Description |
 | ------ | ----------  |
