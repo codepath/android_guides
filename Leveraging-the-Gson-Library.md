@@ -334,14 +334,10 @@ AsyncHttpClient client = new AsyncHttpClient();
 
              @Override
              public void onSuccess(int i, Header[] headers, String s) {
-                 Response response = Response.fromJson(s);
+                 Gson gson = new GsonBuilder().create();
+                 Response movies = gson.fromJson(response, Response.class);
              }
          });
-
-    public static Response fromJson(String response) {
-        Response movies = gson.fromJson(response, Response.class);
-        return movies;
-    }
 }
 ```
 
