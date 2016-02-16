@@ -327,12 +327,6 @@ AsyncHttpClient client = new AsyncHttpClient();
          "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=" + apiKey,
          new TextHttpResponseHandler() {
              @Override
-             public void onFailure(int i, Header[] headers, String s,
-                     Throwable throwable) {
-
-             }
-
-             @Override
              public void onSuccess(int i, Header[] headers, String s) {
                  Gson gson = new GsonBuilder().create();
                  Response movies = gson.fromJson(response, Response.class);
@@ -340,6 +334,8 @@ AsyncHttpClient client = new AsyncHttpClient();
          });
 }
 ```
+
+Be sure to use the `TextHttpResponseHandler` rather than `JsonHttpResponseHandler`. Then you can access the response model to access the parsed data model. 
 
 #### Retrofit 2
 
