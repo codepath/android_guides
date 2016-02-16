@@ -45,7 +45,7 @@ If you are an experienced engineer (2+ years of professional experience in softw
 * [[Free Android Curriculum]] (Additional resources)
 * [Google Android Glossary](https://developers.google.com/android/for-all/vocab-words/) (Defining Common Terms)
 * [Android Learning Resources](https://github.com/CodementorIO/Android-Learning-Resources)
-* [[Keeping Updated on Android]] (Podcasts, blogs, newsletters)
+* [[Keeping Updated with Android]] (Podcasts, blogs, newsletters)
 
 **Using Eclipse?** See below.
 
