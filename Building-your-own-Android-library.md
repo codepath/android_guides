@@ -29,16 +29,16 @@ apply plugin: 'com.android.library'
 
 ### Compiling a Library
 
-Android applications usually have a build and debug variation.  The `buildTypes` parameter designates the settings for each type:
+Android applications usually have a build and debug variation.  The `buildTypes` parameter designates the settings for each type of configuration.
 
 ```gradle
 android {
   buildTypes {
     release {
-        minifyEnabled true
+
     } 
     debug {
-        minifyEnabled false         
+
     }
 }
 ```
@@ -257,6 +257,7 @@ If you intend to export your release, you should also include any configurations
 ```gradle
 android {
    defaultConfig {
+      minifyEnabled true
       consumerProguardFiles 'consumer-proguard-rules.pro'
    }
 }
