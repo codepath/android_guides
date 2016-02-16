@@ -19,7 +19,7 @@ The ToolBar is a generalization of the [[ActionBar system|Defining-The-ActionBar
  * As a regular `View`, the toolbar is easier to position, animate and control 
  * Multiple distinct `ToolBar` elements can be defined within a single activity
 
-Keep in that you can also configure any `ToolBar` as an Activity’s ActionBar, meaning that your standard options menu actions will be display within.
+Keep in mind that you can also configure any `ToolBar` as an Activity’s ActionBar, meaning that your standard options menu actions will be display within.
 
 Note that the ActionBar continues to work and if **all you need is a static bar at the top** that can host icons and a back button, then you can safely continue to use `ActionBar`.
 
