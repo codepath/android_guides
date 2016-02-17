@@ -17,10 +17,7 @@ To follow this guide we need to [[setup our own Parse server|configuring a Parse
 Let's setup Parse into a brand new Android app following the steps below.
 
 * Generate a new android project in your IDE (minSDK 16) and call it `SimpleChat`.
-  * Name the first activity `ChatActivity`.
-* If you are using Parse.com, create an app in Parse and call it `SimpleChat`. Make note of the `Application ID` and `Client Key` values after you have done so.
-* Follow the the steps mentioned under the [[setup|Building-Data-driven-Apps-with-Parse#setup]] guide to create and setup your project. 
-  * Open the [Parse Quickstart Android Guide](https://www.parse.com/apps/quickstart#parse_data/mobile/android/native/existing) for updated instructions.  
+  * Name the first activity `ChatActivity`.  
   * Add the following to your `app/build.gradle`:
     
     ```gradle
