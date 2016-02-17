@@ -20,7 +20,7 @@ Let's setup Parse into a brand new Android app following the steps below.
   * Name the first activity `ChatActivity`.
 * Next, create an app in Parse and call it `SimpleChat`. Make note of the `Application ID` and `Client Key` values after you have done so.
 * Follow the the steps mentioned under the [[setup|Building-Data-driven-Apps-with-Parse#setup]] guide to create and setup your project. 
-  * Open the [Parse Quickstart Android Guide](https://www.parse.com/apps/quickstart#parse_data/mobile/android/native/existing) for updated instructions.
+  * Open the [Parse Quickstart Android Guide](https://www.parse.com/apps/quickstart#parse_data/mobile/android/native/existing) for updated instructions.  
   * Add the following to your `app/build.gradle`:
     
     ```gradle
@@ -50,7 +50,6 @@ Let's setup Parse into a brand new Android app following the steps below.
             // any network interceptors must be added with the Configuration Builder given this syntax
             Parse.initialize(new Parse.Configuration.Builder(this)
                  .applicationId("myAppId") // should correspond to APP_ID env variable
-                 .clientKey("myMasterKey") // should correspond to the master key
                  .addNetworkInterceptor(new ParseLogInterceptor())
                  .server("https://myparseapp.herokuapp.com/parse/").build());
 
