@@ -249,7 +249,7 @@ There are a few steps to make this process work.  **Note**: Push Notifications v
 
 * If you are seeing `Master key is invalid, you should only use master key to send push`, chances are you are trying to send Push notifications without enable client push.  On Parse.com you can simply enable a toggle switch but for hosted parse there is an outstanding [issue](https://github.com/ParsePlatform/parse-server/issues/396) that must be resolved to start supporting it.
 
-* If you intend to use the Parse JavaScript SDK, you will also need to enable the `javaScriptKey` in your hosted `index.js` config.
+* If you intend to use the Parse JavaScript SDK, you will also need to enable the `javaScriptKey` in your hosted `index.js` config.  Take a look at this [example](https://github.com/codepath/parse-server-example/blob/master/index.js#L26) to see where to add it.  Assuming you follow this example, you then should set your `JAVASCRIPT_KEY` environment variable.
 
 * You can also use Facebook's [Stetho](http://facebook.github.io/stetho/) interceptor to watch network logs with Chrome:
 
