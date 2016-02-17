@@ -58,3 +58,4 @@ See this [Stack Overflow article](http://stackoverflow.com/questions/16925579/an
 ## References
 
 * http://developer.android.com/training/basics/activity-lifecycle/index.html
+* https://github.com/xxv/android-lifecycle
