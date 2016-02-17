@@ -46,8 +46,7 @@ Let's setup Parse into a brand new Android app following the steps below.
             Parse.initialize(new Parse.Configuration.Builder(this)
                  .applicationId("YOUR_APPLICATION_ID") // should correspond to APP_ID env variable
                  .addNetworkInterceptor(new ParseLogInterceptor())
-                 .server("https://myparseapp.herokuapp.com/parse/")
-                 .clientKey("YOUR_CLIENT_KEY").build());
+                 .server("https://myparseapp.herokuapp.com/parse/").build());
         }
     }
     ```
@@ -341,8 +340,7 @@ public class ChatApplication extends Application {
                 Parse.initialize(new Parse.Configuration.Builder(this)
                      .applicationId("YOUR_APPLICATION_ID") // should correspond to APP_ID env variable
                      .addNetworkInterceptor(new ParseLogInterceptor())
-                     .server("https://myparseapp.herokuapp.com/parse/")
-                     .clientKey("YOUR_CLIENT_KEY").build());
+                     .server("https://myparseapp.herokuapp.com/parse/").build());
 	}
 }
 ```
