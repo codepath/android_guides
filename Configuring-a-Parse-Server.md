@@ -141,7 +141,7 @@ The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which 
 
 ### Enabling Push Notifications
 
-**Note**: Experimental Support for push notifications is now available with the open source Parse server as of v2.0.8, but there is work to enable it to work fully on Android devices (see this [issue](https://github.com/ParsePlatform/parse-server/issues/396). See the [Wiki article](https://github.com/ParsePlatform/parse-server/wiki/Push) for more information.
+**Note**: Experimental Support for push notifications is now available with the open source Parse server as of v2.0.8, but there is work to enable it to work fully on Android devices (see this [issue](https://github.com/ParsePlatform/parse-server/issues/396)). See the [Wiki article](https://github.com/ParsePlatform/parse-server/wiki/Push) for more information.
 
 #### GCM Setup
 
