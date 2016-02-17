@@ -44,10 +44,10 @@ Let's setup Parse into a brand new Android app following the steps below.
             // set applicationId and server based on the values in the Heroku settings.
             // any network interceptors must be added with the Configuration Builder given this syntax
             Parse.initialize(new Parse.Configuration.Builder(this)
-                 .applicationId("myAppId") // should correspond to APP_ID env variable
+                 .applicationId(YOUR_APPLICATION_ID) // should correspond to APP_ID env variable
                  .addNetworkInterceptor(new ParseLogInterceptor())
-                 .server("https://myparseapp.herokuapp.com/parse/").build());
-
+                 .server("https://myparseapp.herokuapp.com/parse/")
+                 .clientKey("YOUR_CLIENT_KEY").build());
         }
     }
     ```
@@ -339,9 +339,10 @@ public class ChatApplication extends Application {
 	
                 // For open-source Parse backend
                 Parse.initialize(new Parse.Configuration.Builder(this)
-                .applicationId(YOUR_APPLICATION_ID)
-                .server("https://myappname.herokuapp.com")
-                .build());
+                     .applicationId(YOUR_APPLICATION_ID) // should correspond to APP_ID env variable
+                     .addNetworkInterceptor(new ParseLogInterceptor())
+                     .server("https://myparseapp.herokuapp.com/parse/")
+                     .clientKey("YOUR_CLIENT_KEY").build());
 	}
 }
 ```
