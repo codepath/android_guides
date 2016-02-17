@@ -92,6 +92,8 @@ If you are using Heroku, You can also verify whether the objects were created by
 
 <img src="http://imgur.com/snPqYkz.png"/>
 
+You can also setup [Robomongo](https://robomongo.org/) to connect to your remote mongo database hosted on Heroku to get a better data browser and dashboard for your app.
+
 ### Enabling Client SDK integration
 
 Make sure you have the latest Parse-Android SDK in your `app/build.gradle` file.  It should be at least `1.13.0`:
