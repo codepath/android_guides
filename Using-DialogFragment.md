@@ -217,7 +217,7 @@ public class FragmentDialogDemo extends AppCompatActivity implements EditNameDia
 
 **Note:** `setOnEditorActionListener` used above to dismiss requires the use of the soft keyboard in the emulator which [can be enabled through AVD](http://imgur.com/a/kf1s9) or by testing on a device. If you don't want to enable soft keyboard, you may want to dismiss on a button click or on a keypress instead.
 
-#### Passing Data to Parent Fragment
+### Passing Data to Parent Fragment
 
 In certain situations, the a dialog fragment may be invoked **within the context of another fragment**. For example, a screen has tabs with a form contained in a fragment. The form has an input for selecting dates using a date picker in a dialog. In this case, we may want to pass the date back not to the activity but instead to the parent fragment. This data can be passed back directly to the parent fragment:
 
