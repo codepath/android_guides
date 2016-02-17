@@ -46,7 +46,7 @@ Let's setup Parse into a brand new Android app following the steps below.
             super.onCreate();
             // [Optional] Power your app with Local Datastore.
             Parse.enableLocalDatastore(this);
-            // set applicationId, clientKey, and server based on the values in the Heroku settings.
+            // set applicationId and server based on the values in the Heroku settings.
             // any network interceptors must be added with the Configuration Builder given this syntax
             Parse.initialize(new Parse.Configuration.Builder(this)
                  .applicationId("myAppId") // should correspond to APP_ID env variable
@@ -346,7 +346,6 @@ public class ChatApplication extends Application {
                 // For open-source Parse backend
                 Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId(YOUR_APPLICATION_ID)
-                .clientKey(YOUR_CLIENT_KEY)
                 .server("https://myappname.herokuapp.com")
                 .build());
 	}
