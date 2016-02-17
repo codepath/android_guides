@@ -44,8 +44,8 @@ And on your app module in `app/build.gradle`:
 apply plugin: 'android-apt'
 
 dependencies {
-  compile 'com.github.hotchemi:permissionsdispatcher:2.0.5'
-  apt 'com.github.hotchemi:permissionsdispatcher-processor:2.0.5'
+  compile 'com.github.hotchemi:permissionsdispatcher:2.0.7'
+  apt 'com.github.hotchemi:permissionsdispatcher-processor:2.0.7'
 }
 ```
 
