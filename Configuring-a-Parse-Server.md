@@ -29,7 +29,7 @@ Use Heroku if you have little or no experience with setting up web sites. Heroku
       <img src="http://imgur.com/vQV0X0S.png"/>
       * Leave `PARSE_MOUNT` to be `/parse`.  It does not need to be changed.
       * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId`.  You will need this info for the Client SDK setup.
-      * Set `MASTER_KEY` to be the master key used to read all data.  
+      * Set `MASTER_KEY` to be the master key used to read/write all data.  **Note**: in hosted Parse, client keys are not used by default.
       * If you intend to use Facebook authentication, set `FACEBOOK_APP_ID` to be the [FB application ID](https://developers.facebook.com/apps).
       
 4. Deploy the Heroku app.  The app should be hosted at `https://<app name>.herokuapp.com`.
