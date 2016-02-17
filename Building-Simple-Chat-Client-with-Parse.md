@@ -189,7 +189,6 @@ public class ChatActivity extends AppCompatActivity {
                 message.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {
-                        if (!isValid()) return;
                     	Toast.makeText(ChatActivity.this, "Successfully created message on Parse",
                              Toast.LENGTH_SHORT).show();
                     }
