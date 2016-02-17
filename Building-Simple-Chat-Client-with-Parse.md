@@ -202,7 +202,7 @@ public class ChatActivity extends AppCompatActivity {
 
 ## 6. Verify Save
 
-At this point, run your application and try to send a text to parse. If the save was successful, you should see 'Successfully sent message to parse.' toast on your screen. To make sure the data was saved, you can verify whether the objects were created by clicking on the MongoDB instance in the Heroku panel.
+At this point, run your application and try to send a text to parse. If the save was successful, you should see 'Successfully sent message to parse.' toast on your screen. To make sure the data was saved, you can verify whether the objects were created by clicking on the MongoDB instance in the Heroku panel. Refer [testing parse deployment guide](http://guides.codepath.com/android/Configuring-a-Parse-Server#testing-deployment) for more info.
 
 ## 7. Add ListView to Chat Layout
 
