@@ -104,6 +104,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [Publishing to the Play Store](http://goo.gl/mUlGL1)
 * [[Popular External Tools]]
 * [[Getting Started with Gradle]]
+* [[Configuring ProGuard]]
 
 ### Recommended
 
