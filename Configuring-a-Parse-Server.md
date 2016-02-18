@@ -108,7 +108,7 @@ If you are using Heroku, you can verify whether the objects were created by clic
 
 You can also setup [Robomongo](https://robomongo.org/download) to connect to your remote mongo database hosted on Heroku to get a better data browser and dashboard for your app.
 
-<img src="http://i.imgur.com/9Qtt6Xs.png" width="400" />
+<a href="https://robomongo.org/download"><img src="http://i.imgur.com/9Qtt6Xs.png" width="450" /></a>
 
 Using that cross-platform app to access a much better data browser for your Parse MongoDB data. 
 
