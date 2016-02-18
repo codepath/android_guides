@@ -38,6 +38,8 @@ If you ever need to change these values later, you can go to (`https://dashboard
 
 #### Signing up with Amazon
 
+**Note:** You need to setup only Heroku above OR Amazon below but not both in order to use Parse. 
+
 Amazon AWS provides more advanced functionality, such as a load balancer, easy-to-upgrade instances, and [auto-scaling groups](https://aws.amazon.com/autoscaling/).  Use only if you are more comfortable with managing servers.  You do not get a UI data viewer out of the box.
 
 1. You can create a new Parse instance by clicking on the button:
