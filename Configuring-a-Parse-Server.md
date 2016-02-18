@@ -36,6 +36,8 @@ Use Heroku if you have little or no experience with setting up web sites. Heroku
 
 If you ever need to change these values later, you can go to (`https://dashboard.heroku.com/apps/<app name>/settings`). Check out [this guide](https://devcenter.heroku.com/articles/deploying-a-parse-server-to-heroku) for a more detailed set of steps for deploying Parse to Heroku.
 
+Now, we can [[test our deployment|Configuring-a-Parse-Server#testing-deployment]] to verify that the Parse deployment is working as expected!
+
 #### Signing up with Amazon
 
 **Note:** You need to setup only Heroku above OR Amazon below but not both in order to use Parse. 
@@ -71,6 +73,8 @@ Other tips:
 * If you need to get back to the console after the instance has been created, you can click [here](https://console.aws.amazon.com/elasticbeanstalk/home?region=us-west-2).
 
 * You mean need to get direct SSH access to this box to view the MongoDB data.  See [this article](http://stackoverflow.com/questions/4742478/ssh-to-elastic-beanstalk-instance) for more information.
+
+Now, we can [[test our deployment|Configuring-a-Parse-Server#testing-deployment]] to verify that the Parse deployment is working as expected!
 
 ### Testing Deployment
 
