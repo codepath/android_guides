@@ -106,7 +106,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Getting Started with Gradle]]
 * [[Configuring ProGuard]]
 * [[Building your own Android Library]]
-* [[Keeping Updated with with with Android]]
+* [[Keeping Updated with Android]]
 
 ### Recommended
 
