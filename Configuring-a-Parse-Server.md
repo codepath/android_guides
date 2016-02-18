@@ -110,7 +110,7 @@ You can also setup [Robomongo](https://robomongo.org/download) to connect to you
 
 <a href="https://robomongo.org/download"><img src="http://i.imgur.com/9Qtt6Xs.png" width="450" /></a>
 
-Using that cross-platform app to access a much better data browser for your Parse MongoDB data. 
+Using that cross-platform app to easily access and modify the data for your Parse MongoDB data. 
 
 ### Enabling Client SDK integration
 
