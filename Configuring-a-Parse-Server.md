@@ -88,19 +88,29 @@ curl -X POST -H "X-Parse-Application-Id: myAppId" -H "Content-Type: application/
 https://yourappname.herokuapp.com/parse/classes/GameScore
 ```
 
-Be sure to **replace the values** for `myAppId` and the server URL. If you see `Cannot POST` error then be sure both the applicationId and serverUrl are correct. To read data back, you will need to specify your master key as well:
+Be sure to **replace the values** for `myAppId` and the server URL. If you see `Cannot POST` error then be sure both the `X-Parse-Application-Id` and the URL are correct for your application. To read data back, you will need to specify your master key as well:
 
 ```bash
 curl -X GET -H "X-Parse-Application-Id: myAppId" -H "X-Parse-Master-Key: abc"  \  https://yourappname.herokuapp.com/parse/classes/GameScore
 ```
 
-If you are using Heroku, You can also verify whether the objects were created by clicking on the MongoDB instance in the Heroku panel:
+Be sure to **replace the values** for `myAppId` and the server URL. If these commands work as expected, then your Parse instance is now setup and ready to be used!
+
+### Browsing Parse Data
+
+The hosted Parse instance deployed uses [MongoLab](https://mongolab.com/) to store all of your data. MongoLab is a hosted version of [MongoDB](https://www.mongodb.org/) which is a document-store which uses JSON to store your data.
+
+If you are using Heroku, you can verify whether the objects were created by clicking on the MongoDB instance in the Heroku panel:
 
 <img src="http://imgur.com/bbj2e9N.png"/>
 
 <img src="http://imgur.com/snPqYkz.png"/>
 
-You can also setup [Robomongo](https://robomongo.org/) to connect to your remote mongo database hosted on Heroku to get a better data browser and dashboard for your app.
+You can also setup [Robomongo](https://robomongo.org/download) to connect to your remote mongo database hosted on Heroku to get a better data browser and dashboard for your app.
+
+<img src="http://i.imgur.com/9Qtt6Xs.png" width="400" />
+
+Using that cross-platform app to access a much better data browser for your Parse MongoDB data. 
 
 ### Enabling Client SDK integration
 
