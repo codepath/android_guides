@@ -241,7 +241,7 @@ Next, we need to remove the left inset margin that pushes the icon over too far 
 </android.support.v7.widget.Toolbar>
 ```
 
-With that the icon should properly display within the `ToolBar`!
+With that the icon should properly display within the `ToolBar` as expected.
 
 ### Custom Title View
 
