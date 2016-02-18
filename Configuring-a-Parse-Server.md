@@ -79,13 +79,15 @@ After deployment, try to connect to the site.  You should see `I dream of being 
 Next, make sure you can create Parse objects.  You do not need a client Key to write new data:
 
 ```bash
-curl -X POST -H "X-Parse-Application-Id: myAppId" -H "Content-Type: application/json" -d '{"score":1337,"playerName":"Sean Plott","cheatMode":false}'   https://yourappname.herokuapp.com/parse/classes/GameScore
+curl -X POST -H "X-Parse-Application-Id: myAppId" -H "Content-Type: application/json" \
+-d '{"score":1337,"playerName":"Sean Plott","cheatMode":false}' \
+https://yourappname.herokuapp.com/parse/classes/GameScore
 ```
 
-To read data back, you will need to specify the master key:
+Be sure to **replace the values** for `myAppId` and the server URL. If you see `Cannot POST` error then be sure both the applicationId and serverUrl are correct. To read data back, you will need to specify your master key as well:
 
 ```bash
-curl -X GET -H "X-Parse-Application-Id: myAppId" -H "X-Parse-Master-Key: abc"    https://yourappname.herokuapp.com/parse/classes/GameScore
+curl -X GET -H "X-Parse-Application-Id: myAppId" -H "X-Parse-Master-Key: abc"  \  https://yourappname.herokuapp.com/parse/classes/GameScore
 ```
 
 If you are using Heroku, You can also verify whether the objects were created by clicking on the MongoDB instance in the Heroku panel:
