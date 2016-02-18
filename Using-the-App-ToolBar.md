@@ -214,6 +214,35 @@ This results in:
 
 <img src="http://i.imgur.com/uLWp8Rl.png" width="450" />
 
+### Displaying an App Icon
+
+In certain situations, we might want to display an app icon within the `Toolbar`. This can be done by adding this code into the `Activity`
+
+```java
+// Find the toolbar view and set as ActionBar
+Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+setSupportActionBar(toolbar);
+// ...
+// Display icon in the toolbar
+getSupportActionBar().setDisplayShowHomeEnabled(true);
+getSupportActionBar().setLogo(R.mipmap.ic_launcher);
+getSupportActionBar().setDisplayUseLogoEnabled(true);
+```
+
+Next, we need to remove the left inset margin that pushes the icon over too far to the left by adding `app:contentInsetStart` to the `Toolbar`:
+
+```xml
+<android.support.v7.widget.Toolbar
+      android:id="@+id/toolbar"
+      app:contentInsetLeft="0dp"
+      app:contentInsetStart="0dp"
+      ...
+      >
+</android.support.v7.widget.Toolbar>
+```
+
+With that the icon should properly display within the `ToolBar`!
+
 ### Custom Title View
 
 A `Toolbar` is just a decorated `ViewGroup` and as a result, the title contained within can be completely customized by embedding a view within the Toolbar such as:
@@ -256,35 +285,6 @@ TextView mTitle = (TextView) toolbar.findViewById(R.id.toolbar_title);
 Note that you **must hide the default title using `setDisplayShowTitleEnabled`**. This results in:
 
 <img src="http://i.imgur.com/2Lu7Eru.png" width="450" />
-
-### Displaying an App Icon
-
-In certain situations, we might want to display an app icon within the `Toolbar`. This can be done by adding this code into the `Activity`
-
-```java
-// Find the toolbar view and set as ActionBar
-Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-setSupportActionBar(toolbar);
-// ...
-// Display icon in the toolbar
-getSupportActionBar().setDisplayShowHomeEnabled(true);
-getSupportActionBar().setLogo(R.mipmap.ic_launcher);
-getSupportActionBar().setDisplayUseLogoEnabled(true);
-```
-
-Next, we need to remove the left inset margin that pushes the icon over too far to the left by adding `app:contentInsetStart` to the `Toolbar`:
-
-```xml
-<android.support.v7.widget.Toolbar
-      android:id="@+id/toolbar"
-      app:contentInsetLeft="0dp"
-      app:contentInsetStart="0dp"
-      ...
-      >
-</android.support.v7.widget.Toolbar>
-```
-
-With that the icon should properly display within the `ToolBar`!
 
 ## Reacting to Scroll
 
