@@ -1,6 +1,16 @@
 ## Getting Started
 
-If you want to contribute to these guides, start by cloning the guides repo locally on your computer:
+### Creating Topic Drafts Online
+
+For new guide, if you prefer to write your guide drafts online and keep them separate from this wiki, you can use the [hackmd.io](https://hackmd.io) for collaborative markdown drafts.
+
+<a href="https://hackmd.io"><img src="http://i.imgur.com/Pg8BycW.png" width="400" /><a/>
+
+Using collaborative online markdown tools, you can create new guide content. When the guide is ready to be reviewed, you can [submit an issue](https://github.com/codepath/android_guides/issues) to this repo with a link to the guide. Once the guide is ready, we can merge the guide back into the master wiki. 
+
+### Cloning Guides Locally with Git
+
+If you want to contribute to these guides with local offline development, start by cloning the guides repo locally on your computer:
 
 ```bash
 git clone git@github.com:codepath/android_guides.git
@@ -8,6 +18,7 @@ cd android_guides
 git submodule init
 git submodule update
 cd guides
+git checkout master
 ```
 
 You can see all the docs as markdown files in the `guides` directory. Update your local copy periodically with the latest guides using:
@@ -17,9 +28,25 @@ git pull origin master
 git submodule update
 ```
 
-Make your proposed changes locally, then **push them to your own github repository**. Now you can submit a ticket to the [issue tracker](https://github.com/codepath/android_guides/issues) requesting a review of your changes so we can merge them in. Please be sure to **include a link to your repo** and describe what you've changed.
+### Submitting Changes Back through Git
 
-With this approach, submitting changes is as simple as pushing your guides repository which we can review and then sign off on the changes the guides repo. If you want to change the guides more easily, you can [edit the wiki](https://github.com/codepath/android_guides/wiki) directly. The choice is up to your discretion but we recommend for small changes such as correcting typos that you update directly through the wiki.
+Make your proposed changes locally, then commit and **push them to your own github repository** with:
+
+```
+cd /path/to/android_guides/guides
+git add .
+git commit -am "describe changes to the guides"
+git remote add fork <pathtoyourfork>
+git push fork master
+```
+
+Now you can submit a ticket to the [issue tracker](https://github.com/codepath/android_guides/issues) requesting a review of your changes so we can merge them in. Please be sure to **include a link to your repo** and describe what you've changed.
+
+With this approach, submitting changes is as simple as pushing your guides repository which we can review and then sign off on the changes the guides repo. 
+
+### Modifying Guides on Wiki Directly
+
+If you want to change the guides more easily, you can [edit the wiki](https://github.com/codepath/android_guides/wiki) directly. The choice is up to your discretion but we recommend for small changes such as correcting typos that you update directly through the wiki.
 
 ## Guidelines
 
