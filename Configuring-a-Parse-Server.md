@@ -263,9 +263,9 @@ If you wish to store the files in an Amazon S3 bucket, you will need to make sur
 3. Create an Amazon user with access to this S3 bucket.  
 4. Generate an authorized key/secret pair to write to this bucket.
 5. Set the environment variables:
-     a. Set `S3_ENABLE` to be 1.
-     b. Set `AWS_BUCKET_NAME` to be the AWS bucket name.
-     c. Set `AWS_ACCESS_KEY` and ` AWS_SECRET_ACCESS_KEY` to be the user that has access to read/write to this S3 bucket.
+      * Set `S3_ENABLE` to be 1.
+      * Set `AWS_BUCKET_NAME` to be the AWS bucket name.
+      * Set `AWS_ACCESS_KEY` and ` AWS_SECRET_ACCESS_KEY` to be the user that has access to read/write to this S3 bucket.
 
 ### Troubleshooting
 
