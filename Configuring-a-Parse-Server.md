@@ -252,11 +252,11 @@ ParseFile file = new ParseFile("resume.txt", data);
 file.saveInBackground();
 ```
 
-By default, the open source version of Parse leverages the [GridFS specification](https://docs.mongodb.org/manual/core/gridfs/) to store files over 16 megabytes.  There is an alternate option to leverage Amazon's Simple Storage Service (S3) but it should not be needed for basic demos.  
+By default, the open source version of Parse relies on the MongoDB [GridStore](https://mongodb.github.io/node-mongodb-native/api-generated/gridstore.html) adapter to store files at most 16 megabytes.  There is an alternate option to leverage Amazon's Simple Storage Service (S3).
 
 #### Using Amazon S3
 
-If you wish to store the files in an Amazon S3 bucket, you will need to make sure to setup your Parse server to use the S3 adapter instead of the default GridFS adapter:
+If you wish to store the files in an Amazon S3 bucket, you will need to make sure to setup your Parse server to use the S3 adapter instead of the default GridStore adapter:
 
 1. Modify the Parse server to use the S3 adapter.  See [these changes](https://github.com/codepath/parse-server-example/blob/master/index.js#L20-L29) as an example.
 2. Create an Amazon S3 bucket.
