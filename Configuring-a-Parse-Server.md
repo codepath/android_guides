@@ -256,7 +256,7 @@ By default, the open source version of Parse relies on the MongoDB [GridStore](h
 
 #### Using Amazon S3
 
-If you wish to store the files in an Amazon S3 bucket, you will need to make sure to setup your Parse server to use the S3 adapter instead of the default GridStore adapter:
+If you wish to store the files in an Amazon S3 bucket, you will need to make sure to setup your Parse server to use the S3 adapter instead of the default GridStore adapter.  See [this Wiki](https://github.com/ParsePlatform/parse-server/wiki/Storing-Files-in-AWS-S3) for how to configure your setup.  The steps basically include:
 
 1. Modify the Parse server to use the S3 adapter.  See [these changes](https://github.com/codepath/parse-server-example/blob/master/index.js#L20-L29) as an example.
 2. Create an Amazon S3 bucket.
