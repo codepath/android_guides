@@ -267,6 +267,8 @@ If you wish to store the files in an Amazon S3 bucket, you will need to make sur
       * Set `AWS_BUCKET_NAME` to be the AWS bucket name.
       * Set `AWS_ACCESS_KEY` and ` AWS_SECRET_ACCESS_KEY` to be the user that has access to read/write to this S3 bucket.
 
+When testing, try to write a file and use the Amazon S3 console to see if the files were created in the right place.
+
 ### Troubleshooting
 
 * If you see `Application Error` or `An error occurred in the application and your page could not be served. Please try again in a few moments.`, double-check that you set a `MASTER_KEY` in the environment settings for that app.
