@@ -242,6 +242,31 @@ There are a few steps to make this process work.  **Note**: Push Notifications v
   response = requests.post("http://yourappname.herokuapp.com/parse/push", headers=headers, data=json.dumps(data))
   ```
 
+### Supporting Parse Files
+
+You can continue to save large files to Parse using `ParseFile` without any major changes:
+
+```java
+  byte[] data = "Working at Parse is great!".getBytes();
+  ParseFile file = new ParseFile("resume.txt", data);
+  file.saveInBackground();
+```
+
+By default, the open source version of Parse leverages the [GridFS specification](https://docs.mongodb.org/manual/core/gridfs/) to store files over 16 megabytes.  There is an alternate option to leverage Amazon's Simple Storage Service (S3) but it should not be needed for basic demos.  
+
+#### Using Amazon S3
+
+If you wish to store the files in an Amazon S3 bucket, you will need to make sure to setup your Parse server to use the S3 adapter instead of the default GridFS adapter:
+
+1. Modify the Parse server to use the S3 adapter.  See [these changes](https://github.com/codepath/parse-server-example/blob/master/index.js#L20-L29) as an example.
+2. Create an Amazon S3 bucket.
+3. Create an Amazon user with access to this S3 bucket.  
+4. Generate an authorized key/secret pair to write to this bucket.
+5. Set the environment variables:
+     a. Set `S3_ENABLE` to be 1.
+     b. Set `AWS_BUCKET_NAME` to be the AWS bucket name.
+     c. Set `AWS_ACCESS_KEY` and ` AWS_SECRET_ACCESS_KEY` to be the user that has access to read/write to this S3 bucket.
+
 ### Troubleshooting
 
 * If you see `Application Error` or `An error occurred in the application and your page could not be served. Please try again in a few moments.`, double-check that you set a `MASTER_KEY` in the environment settings for that app.
