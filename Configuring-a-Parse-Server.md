@@ -247,9 +247,9 @@ There are a few steps to make this process work.  **Note**: Push Notifications v
 You can continue to save large files to Parse using `ParseFile` without any major changes:
 
 ```java
-  byte[] data = "Working at Parse is great!".getBytes();
-  ParseFile file = new ParseFile("resume.txt", data);
-  file.saveInBackground();
+byte[] data = "Working at Parse is great!".getBytes();
+ParseFile file = new ParseFile("resume.txt", data);
+file.saveInBackground();
 ```
 
 By default, the open source version of Parse leverages the [GridFS specification](https://docs.mongodb.org/manual/core/gridfs/) to store files over 16 megabytes.  There is an alternate option to leverage Amazon's Simple Storage Service (S3) but it should not be needed for basic demos.  
