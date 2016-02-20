@@ -33,7 +33,7 @@ Picasso.with(context).load(imageUri).fit().centerCrop()
     .into(imageView);
 ```
 
-Be sure to use `fit()` to resize the image before loading into the ImageView.  Otherwise, you will consume extra memory, experience sluggish scrolling, or encounter out of memory issues if you render a lot of pictures.
+Be sure to use `fit()` to resize the image before loading into the ImageView.  Otherwise, you will consume extra memory, experience sluggish scrolling, or encounter out of memory issues if you render a lot of pictures. In addition to `placeholder` and `error`, there is also [other configuration options](https://futurestud.io/blog/picasso-placeholders-errors-and-fading) such as `noFade()` and `noPlaceholder()`.
 
 ### Resizing with Picasso
 
@@ -52,7 +52,7 @@ Picasso.with(context).load(url).resize(50, 50).
   centerCrop().into(imageView);
 ```
 
-Transform options include `centerCrop()` (Crops an image inside of the bounds), `centerInside()` (Centers an image inside of the bounds), `fit()` (Attempt to resize the image to fit exactly into the target).
+Transform options include `centerCrop()` (Crops an image inside of the bounds), `centerInside()` (Centers an image inside of the bounds), `fit()` (Attempt to resize the image to fit exactly into the target). See [this post for more details](https://futurestud.io/blog/picasso-image-resizing-scaling-and-fit).
 
 ### Adjusting Image Size Dynamically
 
@@ -154,8 +154,6 @@ Picasso.with(this).load(imageUrl)
       }
 });
 ```
-
-For more details check out the [Picasso](http://square.github.io/picasso/) documentation. 
 
 ## References
 
