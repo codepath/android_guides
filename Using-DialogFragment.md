@@ -123,24 +123,24 @@ class MyAlertDialogFragment extends DialogFragment {
     
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-         String title = getArguments().getString("title");
-         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
-         alertDialogBuilder.setTitle(title);
-         alertDialogBuilder.setMessage("Are you sure?");
-         alertDialogBuilder.setPositiveButton("OK",  new DialogInterface.OnClickListener() {
-             @Override
-             public void onClick(DialogInterface dialog, int which) {
-               	   // on success
-             }
-         });
-         alertDialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-             @Override
-             public void onClick(DialogInterface dialog, int which) {
-                 dialog.dismiss();
-             }
-         });
-         
-         return alertDialogBuilder.create();
+        String title = getArguments().getString("title");
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+        alertDialogBuilder.setTitle(title);
+        alertDialogBuilder.setMessage("Are you sure?");
+        alertDialogBuilder.setPositiveButton("OK",  new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // on success
+            }
+        });
+        alertDialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        return alertDialogBuilder.create();
     }
 }
 ```
@@ -151,15 +151,15 @@ and to display the alert dialog in an activity extending `AppCompatActivity`:
 public class DialogDemoActivity extends AppCompatActivity {
   @Override
   public void onCreate(Bundle savedInstanceState) {
-  	super.onCreate(savedInstanceState);
-  	setContentView(R.layout.main);
-  	showAlertDialog();
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.main);
+      showAlertDialog();
   }
 
   private void showAlertDialog() {
-  	FragmentManager fm = getSupportFragmentManager();
-  	MyAlertDialogFragment alertDialog = MyAlertDialogFragment.newInstance("Some title");
-  	alertDialog.show(fm, "fragment_alert");
+      FragmentManager fm = getSupportFragmentManager();
+      MyAlertDialogFragment alertDialog = MyAlertDialogFragment.newInstance("Some title");
+      alertDialog.show(fm, "fragment_alert");
   }
 }
 ```
