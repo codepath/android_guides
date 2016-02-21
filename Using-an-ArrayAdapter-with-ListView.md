@@ -241,3 +241,8 @@ In this example we also have a private static class called `ViewHolder`.  Making
 
 [Customizing Android ListView Rows by Subclassing](http://www.bignerdranch.com/blog/customizing-android-listview-rows-subclassing/) describes a strategy for obtaining instances of child views using a similar approach as a ViewHolder but without the explicit ViewHolder subclass.
 
+## References
+
+ * <http://lucasr.org/2012/04/05/performance-tips-for-androids-listview/>
+ * <http://www.doubleencore.com/2013/05/layout-inflation-as-intended/>
+ * <http://www.bignerdranch.com/blog/customizing-android-listview-rows-subclassing/>
