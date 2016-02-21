@@ -246,7 +246,7 @@ controller.setVisibility(View.VISIBLE);
 
 ### VideoView Limitations and Improved Libraries
 
-`VideoView` should not be embedded in a `ListView` or any scrolling view due to a [known bug with Android](https://code.google.com/p/android/issues/detail?id=37229). Instead of using a `VideoView` which extends `SurfaceView`, in order to enable scrolling we need to use a [TextureView instead](https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/surface-view-play-video.md). The easiest workaround is to use a library such as [fenster](https://github.com/malmstein/fenster) or [VideoPlayerManager](https://github.com/danylovolokh/VideoPlayerManager). You can read about [how fenster was developed](http://www.malmstein.com/blog/2014/08/09/how-to-use-a-textureview-to-display-a-video-with-custom-media-player-controls/) as well. 
+`VideoView` should not be embedded in a `ListView` or any scrolling view due to a [known bug with Android](https://code.google.com/p/android/issues/detail?id=37229). Instead of using a `VideoView` which extends `SurfaceView`, in order to enable scrolling we need to use a [TextureView instead](https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/surface-view-play-video.md). The easiest workaround is to use a library such as [Android-ScalableVideoView](https://github.com/yqritc/Android-ScalableVideoView), [fenster](https://github.com/malmstein/fenster) or [VideoPlayerManager](https://github.com/danylovolokh/VideoPlayerManager). You can read about [how fenster was developed](http://www.malmstein.com/blog/2014/08/09/how-to-use-a-textureview-to-display-a-video-with-custom-media-player-controls/) as well. 
 
 ### Capturing Video
 
