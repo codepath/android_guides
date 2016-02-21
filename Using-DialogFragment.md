@@ -268,7 +268,7 @@ public class MyParentFragment extends Fragment implements EditNameDialogListener
     // This is called when the dialog is completed and the results have been passed
     @Override
     public void onFinishEditDialog(String inputText) {
-  	Toast.makeText(this, "Hi, " + inputText, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Hi, " + inputText, Toast.LENGTH_SHORT).show();
     }
 }
 ```
