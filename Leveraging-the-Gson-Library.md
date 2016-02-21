@@ -136,7 +136,7 @@ Gson Gson = gsonBuilder.create();
 
 #### Matching variable names to JSON keys
 
-For instance, if our property name matches that of the JSON key, then we do not to annotate the attributes.  However, if we have a different name we wish to
+For instance, if our property name matches that of the JSON key, then we do not need to annotate the attributes.  However, if we have a different name we wish to
 use, we can simply annotate the declaration with `@SerializedName`:
 
 ```java
