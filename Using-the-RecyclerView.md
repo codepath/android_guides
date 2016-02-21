@@ -360,8 +360,8 @@ ArrayList<Contact> newItems = Contact.createContactsList(20);
 // update the existing list
 contacts.add(newItems);
 // curSize should represent the first element that got added
-// items.size() represents the itemCount
-adapter.notifyItemRangeInserted(curSize, items.size());
+// newItems.size() represents the itemCount
+adapter.notifyItemRangeInserted(curSize, newItems.size());
 ```
 
 
