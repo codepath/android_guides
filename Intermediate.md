@@ -17,7 +17,8 @@ Core Topics:
 
 Additional topics:
 
-* [[Video and Audio Playback and Recording]]
+* [[Audio Playback and Recording]]
+* [[Video Playback and Recording]]
 * [[ViewPager with FragmentPagerAdapter]]
 * [[Extending SurfaceView]]
 * [[Push Messaging]]
