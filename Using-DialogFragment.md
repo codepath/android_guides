@@ -170,7 +170,7 @@ To pass data from a dialog to an Activity, use the same approach you would use f
 
 1. Define an interface with methods that can be invoked to pass data result to the activity
 2. Setup a [view event](http://guides.codepath.com/android/Basic-Event-Listeners) which invokes the custom listener passing data through the method
-3. Implement the interface in the parent activity defining the behavior for when the event is triggered
+3. Implement the interface in the Activity defining behavior for when the event is triggered
 
 This example below demonstrates how to pass a data result back to the activity when the "Done" button is pressed on the keyboard but this works similarly for other cases or for the `AlertDialog` (just use the listeners defined for each of the buttons):
 
