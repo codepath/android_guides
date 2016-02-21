@@ -84,7 +84,7 @@ and showing the dialog in an Activity extending `AppCompatActivity`:
 
 ```java
 // Note: `FragmentActivity` works here as well
-public class FragmentDialogDemo extends AppCompatActivity {
+public class DialogDemoActivity extends AppCompatActivity {
   @Override
   public void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
@@ -148,7 +148,7 @@ class MyAlertDialogFragment extends DialogFragment {
 and to display the alert dialog in an activity extending `AppCompatActivity`:
 
 ```java
-public class FragmentDialogDemo extends AppCompatActivity {
+public class DialogDemoActivity extends AppCompatActivity {
   @Override
   public void onCreate(Bundle savedInstanceState) {
   	super.onCreate(savedInstanceState);
@@ -166,13 +166,19 @@ public class FragmentDialogDemo extends AppCompatActivity {
 
 ### Passing Data to Activity
 
-To pass data from a dialog to an Activity, use the same approach you would use for any fragment. This is called the "fragment interface pattern". This is demonstrated for the `onCreateView` approach 
-but works similarly for the AlertDialog (just use the listeners defined for the buttons):
+To pass data from a dialog to an Activity, use the same approach you would use for any fragment which is [creating a custom listener](http://guides.codepath.com/android/Creating-Custom-Listeners). In short, you will need to do the following:
+
+1. Define an interface with methods that can be invoked to pass data result to the activity
+2. Setup a [view event](http://guides.codepath.com/android/Basic-Event-Listeners) which invokes the custom listener passing data through the method
+3. Implement the interface in the parent activity defining the behavior for when the event is triggered
+
+This example below demonstrates how to pass a data result back to the activity when the "Done" button is pressed on the keyboard but this works similarly for other cases or for the `AlertDialog` (just use the listeners defined for each of the buttons):
 
 ```java
 public class EditNameDialog extends DialogFragment implements OnEditorActionListener {
     private EditText mEditText;
 
+    // 1. Defines the listener interface with a method passing back data result.
     public interface EditNameDialogListener {
         void onFinishEditDialog(String inputText);
     }
@@ -182,6 +188,7 @@ public class EditNameDialog extends DialogFragment implements OnEditorActionList
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
         Bundle savedInstanceState) {
         // ...
+        // 2. Setup a callback when the "Done" button is pressed on keyboard
         mEditText.setOnEditorActionListener(this);
     }
 	
@@ -191,9 +198,10 @@ public class EditNameDialog extends DialogFragment implements OnEditorActionList
     @Override
     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
         if (EditorInfo.IME_ACTION_DONE == actionId) {
-            // Return input text to activity
+            // Return input text back to activity through the implemented listener
             EditNameDialogListener listener = (EditNameDialogListener) getActivity();
             listener.onFinishEditDialog(mEditText.getText().toString());
+            // Close the dialog and return back to the parent activity
             dismiss();
             return true;
         }
@@ -205,9 +213,11 @@ public class EditNameDialog extends DialogFragment implements OnEditorActionList
 and have the activity define the action to take when the dialog has the information:
 
 ```java
-public class FragmentDialogDemo extends AppCompatActivity implements EditNameDialogListener {
+public class DialogDemoActivity extends AppCompatActivity implements EditNameDialogListener {
   // ...
   
+  // 3. This method is invoked in the activity when the listener is triggered
+  // Access the data result passed to the activity here
   @Override
   public void onFinishEditDialog(String inputText) {
   	Toast.makeText(this, "Hi, " + inputText, Toast.LENGTH_SHORT).show();
