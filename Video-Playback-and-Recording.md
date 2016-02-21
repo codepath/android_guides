@@ -4,6 +4,8 @@ In Android apps, there are often cases where we need to play video files. Checki
 
 In this guide we will take a look at how to play video content using the [VideoView](http://developer.android.com/reference/android/widget/VideoView.html) and capture video with the [MediaRecorder](http://developer.android.com/reference/android/media/MediaRecorder.html).
 
+## Video Playback
+
 ### Playing Local Video
 
 Playing local video in a [supported format](http://developer.android.com/guide/appendix/media-formats.html) can be done using the `VideoView`. First, setup the `VideoView` in your layout:
@@ -82,7 +84,7 @@ controller.setVisibility(View.VISIBLE);
 
 The easiest workaround is to use a library such as [Android-ScalableVideoView](https://github.com/yqritc/Android-ScalableVideoView), [fenster](https://github.com/malmstein/fenster) or [VideoPlayerManager](https://github.com/danylovolokh/VideoPlayerManager). You can read about [how fenster was developed](http://www.malmstein.com/blog/2014/08/09/how-to-use-a-textureview-to-display-a-video-with-custom-media-player-controls/) as well. 
 
-### Capturing Video
+## Capturing Video
 
 Capturing video can be done using intents to capture video using the camera. First, let's setup the necessary permissions in `AndroidManifest.xml` (**Note:** The permissions model has changed starting in Marshmallow. If your `targetSdkVersion` >= `23` and you are running on a Marshmallow (or later) device, you may need to [[enable runtime permissions|Managing-Runtime-Permissions-with-PermissionsDispatcher]]. You should also read more about the [[runtime permissions changes|Understanding-App-Permissions#runtime-permissions]]):
 
