@@ -400,7 +400,7 @@ In order to use the "material-dialogs" library, you will need to add in maven re
 
 ### Runtime Dimensions
 
-In certain situations, you may want to set the height and width of the `DialogFragment` at runtime during creation. This can be done easily with `getDialog().getWindow()` as follows. In the XML simply set the root layout to `wrap_content` with:
+In certain situations, you may want to explicitly set the height and width of the `DialogFragment` at runtime during creation. This can be done easily with `getDialog().getWindow()` as follows. In the XML simply set the root layout to `wrap_content` with:
 
 ```xml
 <!-- fragment_edit_name.xml -->
@@ -421,7 +421,36 @@ public void onResume() {
 }
 ```
 
-See [this stackoverflow post](http://stackoverflow.com/questions/12478520/how-to-set-dialogfragments-width-and-height) for more information.
+See [this stackoverflow post](http://stackoverflow.com/questions/12478520/how-to-set-dialogfragments-width-and-height) for more information. Using this approach we could set the dialog's width as a percentage of the screen within the `DialogFragment` with:
+
+```java
+public void onResume() {
+    // Store access variables for window and blank point
+    Window window = getDialog().getWindow();
+    Point size = new Point();
+    // Store dimensions of the screen in `size`
+    Display display = window.getWindowManager().getDefaultDisplay();
+    display.getSize(size);
+    // Set the width of the dialog proportional to 75% of the screen width
+    window.setLayout((int) (size.x * 0.75), WindowManager.LayoutParams.WRAP_CONTENT);
+    window.setGravity(Gravity.CENTER);
+}
+```
+
+See [this stackoverflow post](http://stackoverflow.com/a/28596836/313399) for the source reference.
+
+### Sizing Adjustments for Soft Keyboard
+
+When displaying a dialog that is accepting text input, there can often be limited space on screen because the soft keyboard on screen eats up a lot of room. To account for this, you may want to modify the `android:windowSoftInputMode` property for the activity within the `AndroidManifest.xml` file:
+
+```xml
+<!-- Configures the UI to be resized to make room for the keyboard -->
+<activity
+    android:name="com.example.myactivity"
+    android:windowSoftInputMode="adjustResize" />
+```
+
+See the full details in the [[working with the soft keyboard|Working-with-the-Soft-Keyboard#changing-ui-reaction]] guide.
 
 ### Full-Screen Dialog
 
