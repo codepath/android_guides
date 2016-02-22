@@ -174,6 +174,12 @@ You will need to either lower the `minSdkVersion` or upgrade to an Android emula
 
 You have a third-party library reference defined twice.  Check your `app/build.gradle` for duplicate libraries (i.e. commons-io library defined for 1.3 and another one using 2.4).
 
+### Debugger Isn't Working: Breakpoint In Thread is Not Hit
+
+You might notice that the debugger does not always work as expected in background threads such as `AsyncTask` or when using networking libraries to send network requests. The debugger breakpoints are a little bit finicky when configured to stop outside the main thread.
+
+In order for some of these breakpoints in the callbacks to work, you have to set them **after the debugger has been initialized** and not before. If you have already set the breakpoints before, then you have to reset them after the debugger starts. One common strategy is to set the breakpoint on the main thread and then, once that has been hit, add the breakpoint on the background thread. 
+
 ### Debugger Isn't Working: `Disconnected` or `Client not ready yet`
 
 This is usually a signal that the emulator instance is not properly connected with ADB and Android Studio. There are a few steps to try:
