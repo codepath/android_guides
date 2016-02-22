@@ -64,9 +64,13 @@ myEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
 
 See the [EditText documentation](http://developer.android.com/reference/android/widget/TextView.html#attr_android%3aimeActionLabel) for a more detailed look at `imeOptions`.
 
-## Showing the Keyboard when Activity Starts
+## Configuring the Soft Keyboard Mode
 
-Although Android gives focus to the first text field in your layout when the activity starts, it does not show the soft keyboard. To show the keyboard when your activity starts, add the [android:windowSoftInputMode](http://developer.android.com/guide/topics/manifest/activity-element.html#wsoft) attribute to the `<activity>` element with the `"stateVisible"` value within the Android manifest. Check out [this guide](http://developer.android.com/training/keyboard-input/visibility.html#ShowOnStart) for more details.
+The soft keyboard can be configured for each activity within the `AndroidManifest.xml` file using the [android:windowSoftInputMode](http://developer.android.com/guide/topics/manifest/activity-element.html#wsoft) attribute to adjust both default visibility and also how the keyboard affects the UI when displayed. 
+
+### Showing the Keyboard when Activity Starts
+
+Although Android gives focus to the first text field in your layout when the activity starts, it does not show the soft keyboard. To show the keyboard when your activity starts, add the [android:windowSoftInputMode](http://developer.android.com/guide/topics/manifest/activity-element.html#wsoft) attribute to the `<activity>` element with the `"stateVisible"` value within the Android manifest. Check out [this guide](http://developer.android.com/training/keyboard-input/visibility.html#ShowOnStart) for more details. Within the `AndroidManifest.xml` file:
 
 ```xml
 <activity
@@ -74,15 +78,29 @@ Although Android gives focus to the first text field in your layout when the act
     android:windowSoftInputMode="stateVisible" />
 ```
 
-We can also use this to change the way that the soft keyboard displaces the view when it appears as well with:
+The options for the mode include two aspects: visibility of the keyboard and adjustment of the UI. Visibility options include `stateUnchanged`, `stateHidden`, `stateVisible` and [several others]([listed in full here](http://developer.android.com/guide/topics/manifest/activity-element.html#wsoft).
+
+### Changing UI Reaction
+
+The virtual keyboard reduces the amount of space available for your app's UI. We can also use this same `android:windowSoftInputMode` property within the `<activity>` note to change the way that the soft keyboard displaces the view elements when appearing within the `AndroidManifest.xml` file:
 
 ```xml
+<!-- Configures the UI to be resized to make room for the keyboard -->
+<activity
+    android:name="com.example.myactivity"
+    android:windowSoftInputMode="adjustResize" />
+```
+
+The options for the mode include two aspects: visibility and adjustment. Adjustment options include `adjustResize`, `adjustPan`, and `adjustUnspecified` and are [listed in full here]. Both visibility and adjustment can be combined with:
+
+```xml
+<!-- Configures the keyboard to be visible right away and for UI to be resized when shown -->
 <activity
     android:name="com.example.myactivity"
     android:windowSoftInputMode="stateVisible|adjustResize" />
 ```
 
-See the guide on [keyboard visibility](http://developer.android.com/training/keyboard-input/visibility.html) for more details.
+(http://developer.android.com/guide/topics/manifest/activity-element.html#wsoft). See the guide on [keyboard visibility](http://developer.android.com/training/keyboard-input/visibility.html) for more details.
 
 ## References
 
