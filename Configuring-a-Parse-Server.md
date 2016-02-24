@@ -174,16 +174,18 @@ The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which 
 
 ### Enabling Push Notifications
 
-**Note**: Experimental Support for push notifications is now available with the open source Parse server as of v2.0.8, but there is work to enable it to work fully on Android devices (see this [issue](https://github.com/ParsePlatform/parse-server/issues/396)). See the [Wiki article](https://github.com/ParsePlatform/parse-server/wiki/Push) for more information.
+**Note**: Experimental Support for push notifications is now available with the open source Parse server as of v2.0.8.
 
 #### GCM Setup
 
-There are a few steps to make this process work.  **Note**: Push Notifications via [Google Cloud Messaging](Google-Cloud-Messaging) (GCM) will only work for devices and emulators that have Google Play installed.
+There are a few steps to make this process work.  
 
-1. Obtain a Sender ID and API Key.
+1. Make sure you have Google Play installed on the emulator or device, since push Notifications via [Google Cloud Messaging](Google-Cloud-Messaging) (GCM) will only work for devices and emulators that have Google Play installed.
+
+2. Obtain a Sender ID and API Key.
       * Follow only step 1 of [this guide](http://guides.codepath.com/android/Google-Cloud-Messaging#step-1-register-with-google-developers-console) to obtain the Sender ID (equivalent to the Project Number) and API Key.  You do not need to follow the other steps because Parse provides much of code to handle GCM registration for you.
 
-2. Set `GCM_ENABLE=1` in your environment variables to enable GCM support.  Set `GCM_SENDER_KEY` and `GCM_API_KEY` environment variables to correspond to the Sender ID and API Key in the previous step.  **Note**: this step only works if you have setup your Parse server to enable push support.  See the [CodePath fork](https://github.com/codepath/parse-server-example/blob/master/index.js#L15-L26) as an example about how to initialize the Parse server.
+3. Set `GCM_ENABLE=1` in your environment variables to enable GCM support.  Set `GCM_SENDER_KEY` and `GCM_API_KEY` environment variables to correspond to the Sender ID and API Key in the previous step.  **Note**: this step only works if you have setup your Parse server to enable push support.  See the [CodePath fork](https://github.com/codepath/parse-server-example/blob/master/index.js#L15-L26) as an example about how to initialize the Parse server.
 
 3. Add a `meta-data` with the Sender ID in your AndroidManifest.xml.  Make sure the `id:` is used as the prefix (Android treats any metadata value that has a string of digits as an integer so Parse prefixes this value).  If you forget this step, Parse will register with its own Sender ID but you will see `SenderID mismatch` errors when trying to issue push notifications.
 
