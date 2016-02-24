@@ -174,7 +174,7 @@ The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which 
 
 ### Enabling Push Notifications
 
-**Note**: Experimental Support for push notifications is now available with the open source Parse server as of v2.0.8.   Unlike Parse's own service, you cannot implement this type of code on the actual client:
+**Note**: Experimental Support for push notifications is now available with the open source Parse server.   However, unlike Parse's own service, you cannot implement this type of code on the actual client:
 
 ```java
 ParsePush push = new ParsePush();
