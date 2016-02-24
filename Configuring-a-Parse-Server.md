@@ -303,25 +303,6 @@ Open up http://127.0.0.1:8080/?port=5858 locally.  Point your Android client to 
             </receiver>
     ```
 
-5. Test out push notifications using the [Parse Notifications API](https://parse.com/docs/rest/guide/#push-sending) with this Python script:
-
-  ```python
-  import json
-  import requests
-
-  headers = {'X-Parse-Application-Id': 'myAppId', "X-Parse-Master-Key": "abc", "Content-Type": "application/json"}
-
-  data = {'where': {'deviceType': 'android'},
-          "data": {
-              "action": "com.example.UPDATE_STATUS",
-              "alert": "Ricky Vaughn was injured during the game last night!",
-              "name": "Vaughn",
-              "newsItem": "Man bites dog"}
-         }
-
-  response = requests.post("http://yourappname.herokuapp.com/parse/push", headers=headers, data=json.dumps(data))
-  ```
-
 ### Supporting Parse Files
 
 You can continue to save large files to Parse using `ParseFile` without any major changes:
