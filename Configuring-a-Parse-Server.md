@@ -172,6 +172,53 @@ public class ChatApplication extends Application {
 
 The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which is set to this value by default.
 
+### Troubleshooting
+
+* If you see `Application Error` or `An error occurred in the application and your page could not be served. Please try again in a few moments.`, double-check that you set a `MASTER_KEY` in the environment settings for that app.
+
+  <img src="http://imgur.com/uMYwPmS.png">
+
+* If you are using Heroku, download the Heroku Toolbelt app [here](https://toolbelt.heroku.com/) to help view system logs.
+
+  <img src="http://imgur.com/Ch0mZOK.png"/>
+
+  First, you must login with your Heroku login and password:
+
+  ```bash
+  heroku login
+  ```
+
+   You can then view the system logs by specifying the app name:
+   ```bash
+   heroku logs -app <app name>
+   ```
+
+   The logs should show the response from any types of network requests made to the site.  Check the `status` code.
+   ```
+   2016-02-07T08:28:14.292475+00:00 heroku[router]: at=info method=POST path="/parse/classes/Message" host=parse-testing-port.herokuapp.com request_id=804c2533-ac56-4107-ad05-962d287537e9 fwd="101.12.34.12" dyno=web.1 connect=1ms service=2ms status=404 bytes=179
+   ```
+
+* If you are seeing `Master key is invalid, you should only use master key to send push`, chances are you are trying to send Push notifications without enable client push.  On Parse.com you can simply enable a toggle switch but for hosted parse there is an outstanding [issue](https://github.com/ParsePlatform/parse-server/issues/396) that must be resolved to start supporting it.
+
+* If you intend to use the Parse JavaScript SDK, you will also need to enable the `javaScriptKey` in your hosted `index.js` config.  Take a look at this [example](https://github.com/codepath/parse-server-example/blob/master/index.js#L26) to see where to add it.  Assuming you follow this example, you then should set your `JAVASCRIPT_KEY` environment variable.
+
+* You can also use Facebook's [Stetho](http://facebook.github.io/stetho/) interceptor to watch network logs with Chrome:
+
+    ```gradle
+    dependencies {
+      compile 'com.facebook.stetho:stetho:1.3.0'
+    }
+    ```
+
+  And add this network interceptor as well:
+
+  ```java
+     Stetho.initializeWithDefaults(this); // init Stetho before Parse
+
+     Parse.initialize(new Parse.Configuration.Builder(this)
+       .addNetworkInterceptor(new ParseStethoInterceptor())
+  ```
+
 ### Enabling Push Notifications
 
 **Note**: Experimental Support for push notifications is now available with the open source Parse server.   However, unlike Parse's own service, you cannot implement this type of code on the actual client:
@@ -329,50 +376,3 @@ If you wish to store the files in an Amazon S3 bucket, you will need to make sur
       * Set `AWS_ACCESS_KEY` and ` AWS_SECRET_ACCESS_KEY` to be the user that has access to read/write to this S3 bucket.
 
 When testing, try to write a file and use the Amazon S3 console to see if the files were created in the right place.
-
-### Troubleshooting
-
-* If you see `Application Error` or `An error occurred in the application and your page could not be served. Please try again in a few moments.`, double-check that you set a `MASTER_KEY` in the environment settings for that app.
-
-  <img src="http://imgur.com/uMYwPmS.png">
-
-* If you are using Heroku, download the Heroku Toolbelt app [here](https://toolbelt.heroku.com/) to help view system logs.
-
-  <img src="http://imgur.com/Ch0mZOK.png"/>
-
-  First, you must login with your Heroku login and password:
-
-  ```bash
-  heroku login
-  ```
-
-   You can then view the system logs by specifying the app name:
-   ```bash
-   heroku logs -app <app name>
-   ```
-
-   The logs should show the response from any types of network requests made to the site.  Check the `status` code.
-   ```
-   2016-02-07T08:28:14.292475+00:00 heroku[router]: at=info method=POST path="/parse/classes/Message" host=parse-testing-port.herokuapp.com request_id=804c2533-ac56-4107-ad05-962d287537e9 fwd="101.12.34.12" dyno=web.1 connect=1ms service=2ms status=404 bytes=179
-   ```
-
-* If you are seeing `Master key is invalid, you should only use master key to send push`, chances are you are trying to send Push notifications without enable client push.  On Parse.com you can simply enable a toggle switch but for hosted parse there is an outstanding [issue](https://github.com/ParsePlatform/parse-server/issues/396) that must be resolved to start supporting it.
-
-* If you intend to use the Parse JavaScript SDK, you will also need to enable the `javaScriptKey` in your hosted `index.js` config.  Take a look at this [example](https://github.com/codepath/parse-server-example/blob/master/index.js#L26) to see where to add it.  Assuming you follow this example, you then should set your `JAVASCRIPT_KEY` environment variable.
-
-* You can also use Facebook's [Stetho](http://facebook.github.io/stetho/) interceptor to watch network logs with Chrome:
-
-    ```gradle
-    dependencies {
-      compile 'com.facebook.stetho:stetho:1.3.0'
-    }
-    ```
-
-  And add this network interceptor as well:
-
-  ```java
-     Stetho.initializeWithDefaults(this); // init Stetho before Parse
-
-     Parse.initialize(new Parse.Configuration.Builder(this)
-       .addNetworkInterceptor(new ParseStethoInterceptor())
-  ```
