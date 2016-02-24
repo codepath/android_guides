@@ -11,7 +11,7 @@ You can review this [Wiki](https://github.com/ParsePlatform/parse-server/wiki) t
 
 * **Authentication**: By default, only an application ID is needed to authenticate with open source Parse.  The [base configuration](https://github.com/ParsePlatform/parse-server-example/blob/master/index.js#L13-L18) that comes with the one-click deploy options does not require authenticating with any other types of keys.   Therefore, specifying client keys on Android or iOS is not needed. 
 
-* **Push notifications**: Because of the implicit security issues with allowing push notifications to be sent through Android or iOS directly to other devices (otherwise known as "client push"), this feature is disabled.  Normally in Parse.com you can toggle an option to override this security restriction.  For open source Parse, you must implement pre-defined code written in JavaScript that can be called by the clients to execute, otherwise known as [Parse Cloud]( http://blog.parse.com/announcements/pushing-from-the-javascript-sdk-and-cloud-code/).
+* **Push notifications**: Because of the implicit [security issues](https://github.com/ParsePlatform/parse-server/issues/396#issuecomment-183792657) with allowing push notifications to be sent through Android or iOS directly to other devices (otherwise known as "client push"), this feature is disabled.  Normally in Parse.com you can toggle an option to override this security restriction.  For open source Parse, you must implement pre-defined code written in JavaScript that can be called by the clients to execute, otherwise known as [Parse Cloud]( http://blog.parse.com/announcements/pushing-from-the-javascript-sdk-and-cloud-code/).
 
 * **Single app aware**: The current version only supports single app instances.  There is ongoing work to make this version multi-app aware.  However, if you intend to run many different apps with different datastores, you will need to instantiate your own.
 
@@ -174,11 +174,67 @@ The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which 
 
 ### Enabling Push Notifications
 
-**Note**: Experimental Support for push notifications is now available with the open source Parse server as of v2.0.8.
+**Note**: Experimental Support for push notifications is now available with the open source Parse server as of v2.0.8.   Unlike Parse's own service, you cannot implement this type of code on the actual client:
+
+```java
+ParsePush push = new ParsePush();
+push.setChannel("mychannel");
+push.setMessage("this is my message");
+push.sendInBackground();
+```
+
+Instead, you need to write your own server-side Parse code and have the client invoke it.  Fortunately, the process is fairly straightforward:
+
+1. Fork this [repo](https://github.com/codepath/parse-server-example).  This repo is similar to the package that you used for your one-click deploy.  This repo has already have a pre-defined environment variables that help facilitate getting push notifications.
+2. Set `SERVER_URL` to point to your Heroku or Amazon instance (i.e. https://yourappname.herokuapp.com/parse)  
+3. Verify that `cloud/main.js` is the default value of `CLOUD_CODE_MAIN` environment variable.
+4. Modify `cloud/main.js` yourself:
+
+      ```javascript
+      Parse.Cloud.define('pushChannelTest', function(request, response) {
+
+        // request has 2 parameters: params passed by the client and the authorized user
+        var params = request.params;
+        var user = request.user;
+
+        var channel = params.channel;
+        var payload = {"data": {
+            "action": "com.example.UPDATE_STATUS",
+            "alert": "Ricky Vaughn was injured during the game last night!",
+            "name": "Vaughn",
+            "newsItem": "Man bites dog"};
+
+        // for sending to a specify channel
+        // note that useMasterKey is needed
+
+        Parse.Push.send({
+        channels: [ channel ],                                                                                                                                                                                                               
+        data: payload,
+        { success: function() {
+           console.log("#### PUSH OK");
+        }, error: function(error) {
+           console.log("### PUSH ERROR" + error.message);
+        }, useMasterKey: true});
+
+        response.success('success');
+      });
+      ```
+
+4. Redeploy the code.  If you are using Heroku, you need to connect your forked repository instead of Parse's and redeploy.  
+5. Setup GCM below (see [[instructions|Configuring-a-Parse-Server#GCM Setup]] below).
+6. Assuming the function is named `pushChannelTest`, modify your Android code to invoke this function by using the `callFunctionInBackground()` call:
+
+     ```java
+
+     HashMap<String, String> test = new HashMap<>();
+     test.put("channel", "testing");
+         
+     ParseCloud.callFunctionInBackground("pushChannelTest", test);
+      ```
 
 #### GCM Setup
 
-There are a few steps to make this process work.  
+There are a few steps to make this process work.    The first step is to make sure you have Google Cloud Messaging 
 
 1. Make sure you have Google Play installed on the emulator or device, since push Notifications via [Google Cloud Messaging](Google-Cloud-Messaging) (GCM) will only work for devices and emulators that have Google Play installed.
 
