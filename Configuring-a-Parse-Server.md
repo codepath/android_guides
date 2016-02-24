@@ -185,9 +185,9 @@ push.sendInBackground();
 
 Instead, you need to write your own server-side Parse code and have the client invoke it.  Fortunately, the process is fairly straightforward:
 
-1. Fork this [repo](https://github.com/codepath/parse-server-example).  This repo is similar to the package that you used for your one-click deploy.  This repo has already have a pre-defined environment variables that help facilitate getting push notifications.
+1. Fork this [repo](https://github.com/codepath/parse-server-example).  This repo is similar to the package that you used for your one-click deploy.  This repo has some additional environment variables configurations that help facilitate getting push notifications (i.e. `SERVER_URL`, `GCM_SENDER_ID`, and `GCM_API_KEY`)
 2. Set `SERVER_URL` to point to your Heroku or Amazon instance (i.e. https://yourappname.herokuapp.com/parse)  
-3. Verify that `cloud/main.js` is the default value of `CLOUD_CODE_MAIN` environment variable.
+3. Verify that `cloud/main.js` is the default value of `CLOUD_CODE_MAIN` environment variable.  
 4. Modify `cloud/main.js` yourself:
 
       ```javascript
@@ -197,18 +197,20 @@ Instead, you need to write your own server-side Parse code and have the client i
         var params = request.params;
         var user = request.user;
 
+        // extract out the channel to send
         var channel = params.channel;
+
+        // use to custom tweak whatever payload you wish to send
         var payload = {"data": {
             "action": "com.example.UPDATE_STATUS",
             "alert": "Ricky Vaughn was injured during the game last night!",
             "name": "Vaughn",
             "newsItem": "Man bites dog"};
 
-        // for sending to a specify channel
-        // note that useMasterKey is needed
+        // Note that useMasterKey is necessary for Push notifications to succeed.
 
         Parse.Push.send({
-        channels: [ channel ],                                                                                                                                                                                                               
+        channels: [ channel ],      // for sending to a specific channel                                                                                                                                                                                                         
         data: payload,
         { success: function() {
            console.log("#### PUSH OK");
