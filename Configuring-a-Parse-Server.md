@@ -13,7 +13,7 @@ You can review this [Wiki](https://github.com/ParsePlatform/parse-server/wiki) t
 
 * **Push notifications**: Because of the implicit [security issues](https://github.com/ParsePlatform/parse-server/issues/396#issuecomment-183792657) with allowing push notifications to be sent through Android or iOS directly to other devices, this feature is disabled.  Normally in Parse.com you can toggle an option to override this security restriction.  For open source Parse, you must implement pre-defined code written in JavaScript that can be called by the clients to execute, otherwise known as [Parse Cloud]( http://blog.parse.com/announcements/pushing-from-the-javascript-sdk-and-cloud-code/).
 
-* **Single app aware**: The current version only supports single app instances.  There is ongoing work to make this version multi-app aware.  However, if you intend to run many different apps with different datastores, you will need to instantiate your own.
+* **Single app aware**: The current version only supports single app instances.  There is ongoing work to make this version multi-app aware.  However, if you intend to run many different apps with different datastores, you currently would need to instantiate separate instances.
 
 * **File upload limitations**: The backend for open source is backed by MongoDB, and the default storage layer is limited to 16MB files.  If you intend to require larger files, you can configure the server to use Amazon's Simple Storage Service (S3).
 
