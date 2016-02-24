@@ -186,7 +186,7 @@ push.sendInBackground();
 Instead, you need to write your own server-side Parse code and have the client invoke it.  Fortunately, the process is fairly straightforward:
 
 1. Fork this [repo](https://github.com/codepath/parse-server-example).  This repo is similar to the package that you used for your one-click deploy.  This repo has some additional environment variables configurations that help facilitate getting push notifications (i.e. `SERVER_URL`, `GCM_SENDER_ID`, and `GCM_API_KEY`)
-2. Set `SERVER_URL` to point to your Heroku or Amazon instance (i.e. https://yourappname.herokuapp.com/parse)  
+2. In your Heroku or Amazon instance, set the `SERVER_URL` environment variable to point to your currently running instance (i.e. https://yourappname.herokuapp.com/parse).
 3. Verify that `cloud/main.js` is the default value of `CLOUD_CODE_MAIN` environment variable.  
 4. Modify `cloud/main.js` yourself to add custom code to send Push notifications.  See [these examples](https://github.com/ParsePlatform/parse-server/issues/401#issuecomment-183767065) for other ways of sending too.
 
@@ -223,7 +223,7 @@ Instead, you need to write your own server-side Parse code and have the client i
       ```
 
 4. Redeploy the code.  If you are using Heroku, you need to connect your forked repository instead of Parse's and redeploy.  
-5. Setup GCM below (see [[instructions|Configuring-a-Parse-Server#GCM Setup]] below).
+5. Setup GCM for your Android client (see [[instructions|Configuring-a-Parse-Server#GCM Setup]] below).
 6. Assuming the function is named `pushChannelTest`, modify your Android code to invoke this function by using the `callFunctionInBackground()` call:
 
      ```java
