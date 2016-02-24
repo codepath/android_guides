@@ -5,7 +5,19 @@ Parse provides a cloud-based backend service to build data-driven mobile apps qu
 While there are many
 [alternate options to Parse](https://github.com/relatedcode/ParseAlternatives), most of them lack either the functionality, documentation, or sample code to enable quick prototyping.  For this reason, the open source Parse version is a good option to use with minimal deployment/configuration needed.
 
-You can review this [Wiki](https://github.com/ParsePlatform/parse-server/wiki) to understand the current development progress of this app.  Push notifications, for instance, has recently been added but still has some outstanding issues to work on Android and iOS.
+#### Differences with Open Source Parse
+
+You can review this [Wiki](https://github.com/ParsePlatform/parse-server/wiki) to understand the current development progress of this app.  There are a few notable differences in the open source version:
+
+* **Authentication**: By default, only an application ID is needed to authenticate with open source Parse.  The [base configuration](https://github.com/ParsePlatform/parse-server-example/blob/master/index.js#L13-L18) that comes with the one-click deploy options does not require authenticating with any other types of keys.   Therefore, specifying client keys on Android or iOS is not needed. 
+
+* **Push notifications**: Because of the implicit security issues with allowing push notifications to be sent through Android or iOS directly to other devices (otherwise known as "client push"), this feature is disabled.  Normally in Parse.com you can toggle an option to override this security restriction.  For open source Parse, you must implement pre-defined code written in JavaScript that can be called by the clients to execute, otherwise known as [Parse Cloud]( http://blog.parse.com/announcements/pushing-from-the-javascript-sdk-and-cloud-code/).
+
+* **Single app aware**: The current version only supports single app instances.  There is ongoing work to make this version multi-app aware.  However, if you intend to run many different apps with different datastores, you will need to instantiate your own.
+
+* **File upload limitations**: The backend for open source is backed by MongoDB, and the default storage layer is limited to 16MB files.  If you intend to require larger files, you can configure the server to use Amazon's Simple Storage Service (S3).
+
+Many of the options need to be configured by tweaking your own configuration.  You may wish to fork the [code](https://github.com/ParsePlatform/parse-server-example/) that helps instantiate a Parse server and change them based on your own needs.   
 
 ### Setting a new Parse Server
 
