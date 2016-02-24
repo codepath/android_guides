@@ -223,7 +223,7 @@ Instead, you need to write your own server-side Parse code and have the client i
       ```
 
 4. Redeploy the code.  If you are using Heroku, you need to connect your own forked repository and redeploy.  
-5. Setup GCM for your Android client (see [[instructions|Configuring-a-Parse-Server#GCM Setup]] below).
+5. Enable Google Cloud Messaging for your Android client (see [[instructions|Configuring-a-Parse-Server#GCM Setup]] below).
 6. Assuming the function is named `pushChannelTest`, modify your Android code to invoke this function by using the `callFunctionInBackground()` call.  Any parameters should be passed as a `HashMap`:
 
      ```java
@@ -246,9 +246,7 @@ Open up http://127.0.0.1:8080/?port=5858 locally.  Point your Android client to 
 
 #### GCM Setup
 
-There are a few steps to make this process work.    The first step is to make sure you have Google Cloud Messaging 
-
-1. Make sure you have Google Play installed on the emulator or device, since push Notifications via [Google Cloud Messaging](Google-Cloud-Messaging) (GCM) will only work for devices and emulators that have Google Play installed.
+1. Make sure you have Google Play installed on the emulator or device, since push notifications via [Google Cloud Messaging](Google-Cloud-Messaging) (GCM) will only work for devices and emulators that have Google Play installed.
 
 2. Obtain a Sender ID and API Key.
       * Follow only step 1 of [this guide](http://guides.codepath.com/android/Google-Cloud-Messaging#step-1-register-with-google-developers-console) to obtain the Sender ID (equivalent to the Project Number) and API Key.  You do not need to follow the other steps because Parse provides much of code to handle GCM registration for you.
