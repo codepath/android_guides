@@ -332,7 +332,7 @@ For example, we can have the toolbar hide when the user scrolls down on a list o
 </android.support.design.widget.CoordinatorLayout>
 ```
 
-Refer to the [[guide on CoordinatorLayout and AppBarLayout|Handling-Scrolls-with-CoordinatorLayout#expanding-and-collapsing-toolbars]] for additional explanation and specifics. For troubleshooting, refer to this [troubleshooting guide](Handling-Scrolls-with-CoordinatorLayout#troubleshooting-coordinated-layouts).
+Refer to the [[guide on CoordinatorLayout and AppBarLayout|Handling-Scrolls-with-CoordinatorLayout#expanding-and-collapsing-toolbars]] for additional explanation and specifics. For troubleshooting, refer to this [[troubleshooting guide|Handling-Scrolls-with-CoordinatorLayout#troubleshooting-coordinated-layouts]].
 
 ### Animating Toolbar when Scrolling
 
