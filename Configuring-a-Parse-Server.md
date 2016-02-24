@@ -222,7 +222,7 @@ Instead, you need to write your own server-side Parse code and have the client i
       });
       ```
 
-4. Redeploy the code.  If you are using Heroku, you need to connect your forked repository instead of Parse's and redeploy.  
+4. Redeploy the code.  If you are using Heroku, you need to connect your own forked repository and redeploy.  
 5. Setup GCM for your Android client (see [[instructions|Configuring-a-Parse-Server#GCM Setup]] below).
 6. Assuming the function is named `pushChannelTest`, modify your Android code to invoke this function by using the `callFunctionInBackground()` call:
 
