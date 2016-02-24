@@ -82,6 +82,10 @@ In other cases, we want content to horizontally scroll in which case we need to 
 
 and now you have a horizontally scrolling view.
 
+## Nested ScrollViews
+
+Adding a ScrollView within another ScrollView can be difficult. Most of the times it won’t end well. You will end up adding few workarounds. Instead, use the `NestedScrollView` as [outlined here](http://ivankocijan.xyz/android-nestedscrollview/). A working sample [can be found here](https://github.com/chrisbanes/cheesesquare/blob/master/app/src/main/res/layout/activity_detail.xml#L61) as this is very useful when working with [[CoordinatorLayout|Handling-Scrolls-with-CoordinatorLayout]]
+
 ## Resources
 
 * <http://examples.javacodegeeks.com/android/core/ui/scrollview/android-scrollview-example/>
