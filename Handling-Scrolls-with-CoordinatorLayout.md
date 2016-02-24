@@ -270,6 +270,8 @@ To create this effect, we add an ImageView and declare an `app:layout_collapseMo
  * When coordinating between a fragment with a list of items inside of a `ViewPager` and a parent activity, you want to put the `app:layout_behavior` property on the `ViewPager` [as outlined here](https://github.com/chrisbanes/cheesesquare/blob/master/app/src/main/res/layout/include_list_viewpager.xml#L49) so the scrolls within the pager are bubbled up and can be managed by the `CoordinatorLayout`. Note that you **should not** put that `app:layout_behavior` property anywhere within the fragment or the list within. 
  * Keep in min that `ScrollView` **does not work** with `CoordinatorLayout`. You will need to use the `NestedScrollView` instead as shown in [this example](https://github.com/chrisbanes/cheesesquare/blob/master/app/src/main/res/layout/activity_detail.xml#L61). Wrapping your content in the `NestedScrollView` and applying the `app:layout_behavior` property will cause the scrolling behavior to work as expected.
 
+There's a lot of ways coordinating layouts can go wrong. Add tips here as you discover them.
+
 ## Custom Behaviors
 
 One example of a custom behavior is discussed in using [[CoordinatorLayout with Floating Action Buttons|Floating-Action-Buttons#using-coordinatorlayout]].  
