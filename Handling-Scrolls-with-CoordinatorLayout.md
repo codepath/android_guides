@@ -262,6 +262,14 @@ To create this effect, we add an ImageView and declare an `app:layout_collapseMo
 </android.support.design.widget.CollapsingToolbarLayout>
 ```
 
+## Troubleshooting Coordinated Layouts
+
+`CoordinatorLayout` is very powerful but error-prone at first. If you are running into issues with coordinating behavior, check the following tips below:
+
+ * The best example of how to use coordinator layout effectively is to refer carefully to the [source code for cheesesquare](https://github.com/chrisbanes/cheesesquare). This repository is a sample repo kept updated by Google to reflect best practices with coordinating behaviors. In particular, see the [layout for a tabbed ViewPager list](https://github.com/chrisbanes/cheesesquare/blob/master/app/src/main/res/layout/include_list_viewpager.xml) and [this for a layout for a detail view](https://github.com/chrisbanes/cheesesquare/blob/master/app/src/main/res/layout/activity_detail.xml). Compare your code carefully to the cheesesquare source code.
+ * When coordinating between a fragment with a list of items inside of a `ViewPager` and a parent activity, you want to put the `app:layout_behavior` property on the `ViewPager` [as outlined here](https://github.com/chrisbanes/cheesesquare/blob/master/app/src/main/res/layout/include_list_viewpager.xml#L49) so the scrolls within the pager are bubbled up and can be managed by the `CoordinatorLayout`. Note that you **should not** put that `app:layout_behavior` property anywhere within the fragment or the list within. 
+ * Keep in min that `ScrollView` **does not work** with `CoordinatorLayout`. You will need to use the `NestedScrollView` instead as shown in [this example](https://github.com/chrisbanes/cheesesquare/blob/master/app/src/main/res/layout/activity_detail.xml#L61). Wrapping your content in the `NestedScrollView` and applying the `app:layout_behavior` property will cause the scrolling behavior to work as expected.
+
 ## Custom Behaviors
 
 One example of a custom behavior is discussed in using [[CoordinatorLayout with Floating Action Buttons|Floating-Action-Buttons#using-coordinatorlayout]].  
