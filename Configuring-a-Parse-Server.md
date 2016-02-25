@@ -42,6 +42,7 @@ Use Heroku if you have little or no experience with setting up web sites. Heroku
       * Leave `PARSE_MOUNT` to be `/parse`.  It does not need to be changed.
       * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId`.  You will need this info for the Client SDK setup.
       * Set `MASTER_KEY` to be the master key used to read/write all data.  **Note**: in hosted Parse, client keys are not used by default.
+      * Set 'SERVER_URL` to be the server URL and parse mount (i.e. https://myappname.herokuapp.com/parse).
       * If you intend to use Parse's Facebook authentication, set `FACEBOOK_APP_ID` to be the [FB application ID](https://developers.facebook.com/apps).
       
 4. Deploy the Heroku app.  The app should be hosted at `https://<app name>.herokuapp.com`.
@@ -70,6 +71,7 @@ Amazon AWS provides more advanced functionality, such as a load balancer, easy-t
       * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId`.  You will need this info for the Client SDK setup.
       * Set `MASTER_KEY` to be the master key used to read all data.  
       * Leave `PARSE_MOUNT` to be `/parse`.  It does not need to be changed.
+      * Set 'SERVER_URL` to be the server URL and parse mount (i.e. https://xxxx.us-west-2.elasticbeanstalk.com/parse).
       * If you intend to use Facebook authentication, set `FACEBOOK_APP_ID` to be the [FB application ID](https://developers.facebook.com/apps).
 
 6. Your machine should take a few minutes to spin up.  Once it's ready, you should be able to click on the URL provided:
