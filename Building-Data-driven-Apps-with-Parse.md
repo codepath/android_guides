@@ -16,6 +16,7 @@ To get started setting up our own Parse backend, check out our [[configuring a P
 
 There are a number of alternatives but the best options are included below:
 
+ * [GameSparks](https://www.gamesparks.com)
  * [Cloudboost](https://tutorials.cloudboost.io/en/gettingstarted/yourfirstapp)
  * [Kinvey](http://devcenter.kinvey.com/android/guides/getting-started)
  * [Backendless](https://backendless.com/products/documentation/)
