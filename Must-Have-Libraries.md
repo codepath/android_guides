@@ -196,7 +196,8 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [RxCache](https://github.com/VictorAlbertos/RxCache) - Reactive caching library for Android
  * [ORMLite](http://ormlite.com/sqlite_java_android_orm.shtml)
  * [SQLBrite](https://github.com/square/sqlbrite) - Lightweight wrapper around SQLiteOpenHelper
- * [[Cupboard|Easier-SQL-with-Cupboard]]
+ * [[Cupboard|Easier-SQL-with-Cupboard]] - Popular take on SQL wrapper
+ * [StorIO](https://github.com/pushtorefresh/storio) - Fresh take on a light SQL wrapper
  * [Realm](https://github.com/realm/realm-java)
  * [NexusData](https://github.com/dkharrat/NexusData)
  * [Hawk](https://github.com/orhanobut/hawk) - Persistent secure key/value store
@@ -221,8 +222,8 @@ This is a list of popular scrolling and parallax libraries:
 * [android-parallax-recyclerview](https://github.com/kanytu/android-parallax-recyclerview) - An adapter which could be used to achieve a parallax effect on RecyclerView.
  
 ### Debugging
+
 * [Stetho](http://facebook.github.io/stetho/) - A debug bridge for Android applications which could be used for multiple purposes not limited to Network Inspection, Database Inspection and Javascript Console.
- 
 
 ## Resources
 
@@ -237,9 +238,6 @@ Check out the following resources for finding libraries:
  * <http://androidweekly.net/toolbox>
  * <http://android-arsenal.com>
  * <http://www.libtastic.com>
-
-## URL for specific data
-* [To get the current location of device] (http://ip-api.com/docs/api:json)
 
 ## References
 
