@@ -102,6 +102,14 @@ public class TodoItemDatabase extends SQLiteOpenHelper {
 
 Check out our [[managing databases with SQLiteOpenHelper|Local-Databases-with-SQLiteOpenHelper]] guide for a more detailed look at working with SQLite. In many cases, rather than interacting with SQL directly, Android apps can leverage one of the many available higher-level ORMs (object relational mappers) to persist Java models to a database table as shown below. If needed, we can also [[access the SQLite database for debugging|Local-Databases-with-SQLiteOpenHelper#sqlite-database-debugging]].
 
+There are a handful of interesting SQLiteOpenHelper wrappers which reduce the level of code written including the following libraries:
+
+ * [[http://guides.codepath.com/android/Easier-SQL-with-Cupboard]] - Original take on SQL wrapper
+ * [SQLBrite](https://github.com/square/sqlbrite) - Square's take on a SQL wrapper
+ * [StorIO](https://github.com/pushtorefresh/storio) - Popular new take on a light SQL wrapper
+
+Each of these provide a thin layer of abstraction on `SQLiteOpenHelper`. For a more comprehensive abstraction, we can use mapping engines that automatically create model objects based on SQL data as outlined below.
+
 ### Object Relational Mappers
 
 Instead of accessing the SQLite database directly, there is no shortage of higher-level wrappers for managing SQL persistence. There are many popular ORMs for Android, but one of the easiest to use is [ActiveAndroid](https://github.com/pardom/ActiveAndroid/wiki/Getting-started) ([[cliffnotes|ActiveAndroid-Guide]]). Here's a few alternatives as well:
