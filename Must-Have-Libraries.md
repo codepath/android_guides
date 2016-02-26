@@ -120,7 +120,7 @@ Essentially this method is used to enable your code to short-circuit before exec
 * [sticky-headers-recyclerview](https://github.com/timehop/sticky-headers-recyclerview) - Sticky Headers decorator for Android's RecyclerView.
 * [FastAdapter](https://github.com/mikepenz/FastAdapter) - Simplify and speed up the process of filling your RecyclerView with data
 * [ItemAnimators](https://github.com/mikepenz/ItemAnimators) - RecyclerView animators to animate item add/remove/add/move
-* [GreedoLayout](Full aspect ratio grid LayoutManager for Android's RecyclerView)
+* [GreedoLayout](https://github.com/500px/greedo-layout-for-android) - Full aspect ratio grid LayoutManager for Android's RecyclerView
 
 ### Easy Navigation 
 
