@@ -366,15 +366,15 @@ We need to tie the DrawerLayout and Toolbar together:
 		setSupportActionBar(toolbar);
 
 		// Find our drawer view
-		dlDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+		mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 		drawerToggle = setupDrawerToggle();
 
 		// Tie DrawerLayout events to the ActionBarToggle
-		dlDrawer.setDrawerListener(drawerToggle);
+		mDrawer.setDrawerListener(drawerToggle);
    }
 
    private ActionBarDrawerToggle setupDrawerToggle() {
-        return new ActionBarDrawerToggle(this, dlDrawer, toolbar, R.string.drawer_open,  R.string.drawer_close);
+        return new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.drawer_open,  R.string.drawer_close);
    }
 ```
 
