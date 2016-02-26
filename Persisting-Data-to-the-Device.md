@@ -104,7 +104,7 @@ Check out our [[managing databases with SQLiteOpenHelper|Local-Databases-with-SQ
 
 There are a handful of interesting SQLiteOpenHelper wrappers which reduce the level of code written including the following libraries:
 
- * [[http://guides.codepath.com/android/Easier-SQL-with-Cupboard]] - Original take on SQL wrapper
+ * [[Cupboard|Easier-SQL-with-Cupboard]] - Original take on SQL wrapper
  * [SQLBrite](https://github.com/square/sqlbrite) - Square's take on a SQL wrapper
  * [StorIO](https://github.com/pushtorefresh/storio) - Popular new take on a light SQL wrapper
 
