@@ -254,14 +254,15 @@ Instead, you need to write your own server-side Parse code and have the client i
             "action": "com.example.UPDATE_STATUS",
             "alert": "Ricky Vaughn was injured during the game last night!",
             "name": "Vaughn",
-            "newsItem": "Man bites dog"};
+            "newsItem": "Man bites dog"}
+        };
 
         // Note that useMasterKey is necessary for Push notifications to succeed.
 
         Parse.Push.send({
         channels: [ channel ],      // for sending to a specific channel                                                                                                                                                                                                         
         data: payload,
-        { success: function() {
+        }, { success: function() {
            console.log("#### PUSH OK");
         }, error: function(error) {
            console.log("### PUSH ERROR" + error.message);
