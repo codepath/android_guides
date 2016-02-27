@@ -164,6 +164,7 @@ public class ChatApplication extends Application {
         // any network interceptors must be added with the Configuration Builder given this syntax
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId("myAppId") // should correspond to APP_ID env variable
+                .clientKey(null)  // set explicitly unless clientKey is explicitly configured on Parse server
                 .addNetworkInterceptor(new ParseLogInterceptor())
                 .server("https://parse-testing-port.herokuapp.com/parse/").build());
     }
