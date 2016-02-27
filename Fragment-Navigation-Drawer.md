@@ -169,7 +169,7 @@ Next, let's setup a basic navigation drawer based on the following layout file w
 
 Now, let's setup the drawer in our activity.  We can also setup the menu icon too.
 
-Note: Make sure you implement the correct `onPostCreate(Bundle savedInstanceState)` method. There are 2 signatures and only this one shows the hamburger icon.
+Note: Make sure you implement the correct `onPostCreate(Bundle savedInstanceState)` method. There are 2 signatures and only `onPostCreate(Bundle state)` shows the hamburger icon.
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -201,7 +201,8 @@ public class MainActivity extends AppCompatActivity {
             return super.onOptionsItemSelected(item);
 	}
 
-        // Make sure this is the method with just `Bundle` as the signature
+        // Called when activity start-up is complete after `onStart()`
+        // NOTE! Make sure to override the method with only a single `Bundle` argument
 	@Override
 	protected void onPostCreate(Bundle savedInstanceState) {
             super.onPostCreate(savedInstanceState);
