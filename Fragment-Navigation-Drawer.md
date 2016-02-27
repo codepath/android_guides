@@ -196,17 +196,17 @@ public class MainActivity extends AppCompatActivity {
             case android.R.id.home:
                 mDrawer.openDrawer(GravityCompat.START);
                 return true;
-            }
+        }
 
-            return super.onOptionsItemSelected(item);
-	}
+        return super.onOptionsItemSelected(item);
+    }
 
-        // Called when activity start-up is complete after `onStart()`
-        // NOTE! Make sure to override the method with only a single `Bundle` argument
-	@Override
-	protected void onPostCreate(Bundle savedInstanceState) {
-            super.onPostCreate(savedInstanceState);
-	}
+    // `onPostCreate` called when activity start-up is complete after `onStart()`
+    // NOTE! Make sure to override the method with only a single `Bundle` argument
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+    }
 }
 ```
 
@@ -382,6 +382,8 @@ We need to tie the DrawerLayout and Toolbar together:
 Next, we need to make sure we synchronize the state whenever the screen is restored or there is a configuration change (i.e screen rotation):
 
 ```java
+    // `onPostCreate` called when activity start-up is complete after `onStart()`
+    // NOTE! Make sure to override the method with only a single `Bundle` argument
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
