@@ -370,7 +370,7 @@ client.interceptors().add(requestInterceptor);
 
 Retrofit retrofit = new Retrofit.Builder()
                .client(client)
-               .setEndpoint("http://api.rottentomatoes.com/api/public/v1.0")
+               .baseUrl("http://api.rottentomatoes.com/api/public/v1.0")
                .build();
 ```
 
