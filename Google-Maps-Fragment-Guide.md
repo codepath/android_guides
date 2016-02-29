@@ -6,13 +6,17 @@ In this guide, we will walk you through the step by step process of getting an e
 
 ### Download Google Play Services and Google Repository
 
-First, let's download and setup the Google Play Services and Google Repository SDKs. Open `Android Studio` ⇒ `Tools` ⇒ `Android` ⇒ `Android SDK Manager` and check whether you have already downloaded "Google Play services" and "Google Repository" or not under Extras section. If not, select "Google Play services" and "Google Repository" to install the missing packages.
+First, let's download and setup the Google Play Services and Google Repository SDKs. Open `Android Studio` ⇒ `Tools` ⇒ `Android` ⇒ `Android SDK Manager`  and check whether you have already downloaded "Google Play services" and "Google Repository" or not under `SDK Tools` section. If not, select "Google Play services" and "Google Repository" to install the missing packages.
 
-<img src="https://i.imgur.com/d37zzjg.png" width="500" />
+<img src="https://i.imgur.com/fmepWJY.png" width="500" />
 
-### Setup
+### Import Maps Demo
 
-Add this configuration to your `build.gradle` file:
+Once we have our Genymotion emulator properly setup, let's import the [maps demo application](https://github.com/codepath/android-google-maps-demo) so we can use this to verify if maps are showing up correctly. 
+
+1. Download the [Maps Demo](https://github.com/codepath/android-google-maps-demo/archive/master.zip) application and extract the zip file.
+2. Run `File` ⇒ `Open`, select `android-google-maps-demo-master`
+3. Add this configuration to your `build.gradle` file:
 
 ```gradle
 dependencies {
@@ -21,75 +25,55 @@ dependencies {
 }
 ```
 
-### Retrieve your SHA-1 Fingerprint
+### Get API Key
+
+Navigate to [Google Maps Android API](https://developers.google.com/maps/documentation/android-api/) and select `Get A Key`
+
+<img src="https://i.imgur.com/6PhVvQU.png" width="500" />
+
+Select `Continue` and then `Create a new project`
+
+![Fingerprint](https://i.imgur.com/kRJDzk3.png)
+
+At this stage, you need to `Add Package Name and Fingerprint`
 
 Open your terminal and execute the following command to generate SHA-1 fingerprint necessary to get your API key from Google.
 
-On Windows:
+* On Windows:
 
-```
-"C:\Program Files (x86)\Java\jdk1.7.0_60\bin\keytool.exe" -list -v -keystore "%USERPROFILE%\.android\debug.keystore" -alias androiddebugkey -storepass android -keypass android
-```
+  ```
+  "C:\Program Files (x86)\Java\jdk1.7.0_60\bin\keytool.exe" -list -v -keystore "%USERPROFILE%\.android\debug.keystore" -alias androiddebugkey -storepass android -keypass android
+  ```
 
-or, depending on the installation location of your JDK:
+  or, depending on the installation location of your JDK:
 
-```
-"C:\Program Files\Java\jre7\bin\keytool.exe" -list -v -keystore "%USERPROFILE%\.android\debug.keystore" -alias androiddebugkey -storepass android -keypass android
-```
+  ```
+  "C:\Program Files\Java\jre7\bin\keytool.exe" -list -v -keystore "%USERPROFILE%\.android\debug.keystore" -alias androiddebugkey -storepass android -keypass android
+  ```
 
-On Mac or Linux:
+* On Mac or Linux:
 
-```
-keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
-```
+  ```
+  keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
+  ```
 
-In the output you can see SHA 1 finger print:
+In the output you can see SHA 1 fingerprint:
 
 ![Fingerprint](http://www.androidhive.info/wp-content/uploads/2013/08/android-google-maps-sha-1-fingerprint.png)
 
-### Register for an API Key
+Add your package name from your `AndroidManifest.xml` and `SHA1` fingerprint to the `Google Developers Console` page
 
-Now open [Google API Console](https://cloud.google.com/console), **create or select a project**, select "APIs & Auth" on left side, select **Google Maps Android API** and make sure to **enable the Maps Android API** via the toggle switch.
+![Fingerprint](https://i.imgur.com/KofyUk9.png)
 
-![Services](https://i.imgur.com/F6wSs4y.png)
+At this stage you will have your `API Key``
 
-Now select **"Credentials" on left-side** and on the right side click on "Create New Key" =>  **"Android Key"**
-
-![Access](https://i.imgur.com/qYF1o2c.png)
-
-It will popup a window asking the SHA1 and package name. Enter your `SHA 1` and your `android project package name` separated by semicolon ; and click on create. The format is:
-
-`<cert_fingerprint>;<package_name>`
-
-Note that this **must be your actual fingerprint from earlier** and the **package name must match the package name in your AndroidManifest.xml**. For example you might enter:
-
-```
-BE:03:E1:44:39:7B:E8:17:02:9F:7F:B7:98:82:EA:DF:84:D0:FB:6A;com.example.mapdemo
-```
+![API Key](https://i.imgur.com/mGbpWdN.png)
 
 **Note the API Key** for use in the next step while setting up the map demo app:
 
 ![Key](http://www.androidhive.info/wp-content/uploads/2013/08/google-console-android-maps-api-key1.png)
 
 Your API Key to keep should look similar to `AIwaSyDpkYHhw4LLA7WpZRvFs9gnNnRg2BHa18A`.
-
-### Setup x86-based Emulator
-
-**Note:** As of March 6th, 2014, we can download the [Google APIs x86](http://software.intel.com/en-us/blogs/2014/03/06/now-available-android-sdk-x86-system-image-with-google-apis) image to test maps. If you want to set the GPS coordinates of the emulator and you're using Android Studio, go to `Tools`->`Android`->`Android Device Monitor`->`Emulator Control`, then type one in Location Controls and hit "Send". Otherwise, for using the Genymotion emulator, see below. Note that **Genymotion is much harder to setup**, but is a much faster and more powerful Android emulator that more closely mirrors a device.
-
-The first step to getting Google Maps working on your emulator is to download a third-party emulator called [Genymotion](http://www.genymotion.com/). The reason for this is that the official emulator does a terrible job of supporting the Google Play Services. While it is possible to get the Intel HAXM fast emulator working with the Play Services SDK, at the moment it's far more trouble then it's worth. 
-
-### Installing Genymotion
-
-See the instructions to [[setup Genymotion|Genymotion 2.0 Emulators-with-Google-Play-support]].  It includes directions for setting Google Play Services and GPS too.  You will need to setup both in order to setup the map demo in the next section.
-
-### Import Maps Demo
-
-Once we have our Genymotion emulator properly setup, let's import the [maps demo application](https://github.com/codepath/android-google-maps-demo) so we can use this to verify if maps are showing up correctly. 
-
-1. Download the [Maps Demo](https://github.com/codepath/android-google-maps-demo/archive/master.zip) application and extract the zip file.
-2. Run "File...Import Project...", select the root `build.gradle` and hit "Finish". Refer to this [[importing projects guide|Getting-Started-with-Gradle#importing-existing-android-studio-projects]] to load the project properly.
-3. Expand `MapDemo` application and open up the "AndroidManifest.xml"
 
 Fill in your API Key into the meta data for `com.google.android.maps.v2.API_KEY` within the **application node** in the `AndroidManifest.xml`:
 
@@ -108,15 +92,29 @@ Fill in your API Key into the meta data for `com.google.android.maps.v2.API_KEY`
 </application>
 ```
 
-#### Include the Google Play Services Library
+### Setup x86-based Emulator
 
-In Android Studio, you need to install the "Google Repository" through the Android Studio SDK Manager. Gradle will pull the Google Play Services library from there.
+Open `Android Studio` ⇒ `Tools` ⇒ `Android` ⇒ `Android AVD Manager` and `Create a Virtual Device...`
 
-![Google Repository](https://i.imgur.com/azsdjaz.png)
+Select `Nexus 5X` ⇒ `Show downloadable system images` and select `Marshmallow, API Level 23, x86_64, Android 6.0 **(with Google APIs)**
+
+![Emulator](https://i.imgur.com/gfSSoDB.png)
+
+> ***Note:** Make sure to install `HAXM` if Android Studio prompts you to.
+
+This emulator is now configured to run Google Play Services. When you start this emulator, you may notice some loss of crispness, especially on text. This happens because the emulator launches to fill the window and may result in a non-power of 2 scaling. To fix this, you can edit the AVD and select a scale of `2dp = 1px on screen` and go into advanced settings and turn off `Enable Device Frame`.
+
+![FixDisplay](https://i.imgur.com/XOpvoci.png)
+
+### Installing on Genymotion (Optional)
+
+See the instructions to [[setup Genymotion|Genymotion 2.0 Emulators-with-Google-Play-support]].  It includes directions for setting Google Play Services and GPS too.  You will need to setup both in order to setup the map demo.
+
+### Run App
 
 Now we want to run the map demo, and if everything went well we should see:
 
-<img src="https://i.imgur.com/3KFfS9G.png" width="350" />
+![Demo App](http://i.imgur.com/nypUNBK.png)
 
 **Note:** If you don't, you may have not properly installed the Google Play services on the emulator (see instructions in genymotion setup above) or you may need to update the Google Play services on your emulator by following the instructions given in the app.
 
