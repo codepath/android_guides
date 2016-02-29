@@ -12,10 +12,8 @@ First, let's download and setup the Google Play Services and Google Repository S
 
 ### Import Maps Demo
 
-Once we have our Genymotion emulator properly setup, let's import the [maps demo application](https://github.com/codepath/android-google-maps-demo) so we can use this to verify if maps are showing up correctly. 
-
-1. Download the [Maps Demo](https://github.com/codepath/android-google-maps-demo/archive/master.zip) application and extract the zip file.
-2. Run `File` ⇒ `Open`, select `android-google-maps-demo-master`
+1. Clone the [Maps Demo Repo](https://github.com/codepath/android-google-maps-demo)
+2. Run `File` ⇒ `Open`, select `android-google-maps-demo`
 3. Add this configuration to your `build.gradle` file:
 
 ```gradle
@@ -57,23 +55,17 @@ Open your terminal and execute the following command to generate SHA-1 fingerpri
   keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
   ```
 
-In the output you can see SHA 1 fingerprint:
+In the output you can see `SHA1` fingerprint:
 
 ![Fingerprint](http://www.androidhive.info/wp-content/uploads/2013/08/android-google-maps-sha-1-fingerprint.png)
 
-Add your package name from your `AndroidManifest.xml` and `SHA1` fingerprint to the `Google Developers Console` page
+Add your package name from your `AndroidManifest.xml` (the demo project is `com.example.mapdemo`) and the `SHA1` fingerprint to the `Google Developers Console` page
 
 ![Fingerprint](https://i.imgur.com/KofyUk9.png)
 
 At this stage you will have your `API Key``
 
 ![API Key](https://i.imgur.com/mGbpWdN.png)
-
-**Note the API Key** for use in the next step while setting up the map demo app:
-
-![Key](http://www.androidhive.info/wp-content/uploads/2013/08/google-console-android-maps-api-key1.png)
-
-Your API Key to keep should look similar to `AIwaSyDpkYHhw4LLA7WpZRvFs9gnNnRg2BHa18A`.
 
 Fill in your API Key into the meta data for `com.google.android.maps.v2.API_KEY` within the **application node** in the `AndroidManifest.xml`:
 
