@@ -261,13 +261,26 @@ Note that the `ViewPager` loads the fragment instances lazily similar to the a `
 
 ### Communicating with Fragments
 
-Fragments should not directly communicate with each other, only through an activity.  Fragments should be modular and reusable components. Let the activity respond to intents and fragment callbacks in most cases.
+Fragments should generally only communicate with their direct parent activity. Fragments communicate through their parent activity allowing the activity to manage the inputs and outputs of data from that fragment coordinating with other fragments or activities. Think of the Activity as the controller managing all interaction with each of the fragments contained within. 
+
+A few exceptions to this are [[dialog fragments|Using-DialogFragment#passing-data-to-parent-fragment]] presented from within another fragment or [[nested child fragments|Creating-and-Using-Fragments#nesting-fragments-within-fragments]]. Both of these cases are situations where a fragment has nested child fragments and that are therefore allowed to communicate upward to their parent (which is a fragment).
+
+The important thing to keep in mind is that **fragments should not directly communicate with each other** and should generally only **communicate with their parent activity**.  Fragments should be modular, standalone and reusable components. The fragments allow their parent activity to respond to intents and callbacks in most cases.
 
 There are three ways a fragment and an activity can communicate:
 
 1. **Bundle** - Activity can construct a fragment and set arguments
 2. **Methods** - Activity can call methods on a fragment instance
 3. **Listener** - Fragment can fire listener events on an activity via an interface
+
+In other words, communication should generally follow these principles:
+
+ * Activities can initialize fragments with [[data during construction|Creating-and-Using-Fragments#fragment-with-arguments]]
+ * Activities can pass data to fragments [[using methods on the fragment instance|Creating-and-Using-Fragments#fragment-methods]]
+ * Fragments can communicate up to their parent activity [[using an interface and listeners|Creating-and-Using-Fragments#fragment-listener]]
+ * Fragments should pass data to other fragments only routed through their parent activity
+ * Fragments can pass data to and from [[dialog fragments as outlined here|Using-DialogFragment#passing-data-to-parent-fragment]]
+ * Fragments can contain [[nested child fragments as outlined here|Creating-and-Using-Fragments#nesting-fragments-within-fragments]]
 
 #### Fragment with Arguments
 
