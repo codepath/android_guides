@@ -306,6 +306,20 @@ public boolean onCreateOptionsMenu(Menu menu) {
 }
 ```
 
+We can expand the `SearchView` any time programmatically by calling `expandActionView` on the search view: 
+
+```java
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+    // ... lookup the search view
+    MenuItem searchItem = menu.findItem(R.id.action_search);
+    final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+    // Expand the search view and request focus 
+    searchView.expandActionView();
+    searchView.requestFocus();
+}
+```
+
 See [this writeup](http://antonioleiva.com/actionbarcompat-action-views/) for details on the compatibility action views outlined above. For more advanced searching functionality, check out the [Creating a Search Interface](http://developer.android.com/guide/topics/search/search-dialog.html) guide.
 
 Refer to [this tutorial](http://ramannanda.blogspot.com/2014/10/android-searchview-integration-with.html) for a guide on how to **add autocomplete to your searchview** in the actionbar.
