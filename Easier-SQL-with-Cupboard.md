@@ -181,7 +181,7 @@ try {
   }
 } finally {
   // close the cursor
-  itr.close();
+  bunnies.close();
 }
 // Get the first matching Bunny with name Max
 Bunny bunny = cupboard().withDatabase(db).query(Bunny.class).withSelection( "name = ?", "Max").get();
