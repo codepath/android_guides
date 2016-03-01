@@ -249,7 +249,7 @@ Because we are overriding the default `Application` class, we also modify the ap
       android:name=".MyApp">
 ```
 
-Within our activity, we simply need to get access to these component and call `inject()`.  
+Within our activity, we simply need to get access to these components and call `inject()`.  
 
 ```java
 public class MyActivity extends Activity {
