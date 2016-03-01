@@ -201,8 +201,8 @@ However, if you're doing a larger update of items, you can use the `update()` co
 //Let's consider the problem in which we've forgotten to capitalize the 'M' in all bunnies named 'Max'
 ContentValues values = new ContentValues(1);
 values.put("name", "Max")
-// update all books where the title is 'android'
-cupboard().withDatabase(db).update(Book.class, values, "name = ?", "max");
+// update all bunnies where the name is 'max' to 'Max', thus capitalizing the name
+cupboard().withDatabase(db).update(Bunny.class, values, "name = ?", "max");
 ```
 
 #####Delete items
