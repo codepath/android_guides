@@ -135,6 +135,21 @@ This results in:
 
 ![](http://i.imgur.com/blFEHxX.png)
 
+### Various Text Properties
+
+There are many other text properties including `android:lineSpacingMultiplier`, `android:letterSpacing`, `android:textAllCaps`, `android:includeFontPadding` and [many others](http://developer.android.com/reference/android/widget/TextView.html#nestedclasses):
+
+```xml
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:lineSpacingMultiplier="1.1"
+    android:textAllCaps="true"
+/>
+```
+
+`android:includeFontPadding` removes the extra padding around large fonts. `android:lineSpacingMultiplier` governs the spacing between lines with a default of "1".
+
 ## Inserting HTML Formatting
 
 TextView natively supports [HTML](http://developer.android.com/reference/android/text/Html.html) by translating HTML tags to [spannable](http://developer.android.com/reference/android/text/Spannable.html) sections within the view. To apply basic HTML formatting to text, add text to the TextView with:
