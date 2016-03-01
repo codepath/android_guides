@@ -31,7 +31,7 @@ Navigate to [Google Maps Android API](https://developers.google.com/maps/documen
 
 Select `Continue` and then `Create a new project`
 
-![Fingerprint](https://i.imgur.com/kRJDzk3.png)
+<img src="https://i.imgur.com/kRJDzk3.png" width="650" />
 
 At this stage, you need to `Add Package Name and Fingerprint`
 
@@ -61,11 +61,11 @@ In the output you can see `SHA1` fingerprint:
 
 Add your package name from your `AndroidManifest.xml` (the demo project is `com.example.mapdemo`) and the `SHA1` fingerprint to the `Google Developers Console` page
 
-![Fingerprint](https://i.imgur.com/KofyUk9.png)
+<img src="https://i.imgur.com/KofyUk9.png" width="650" />
 
-At this stage you will have your `API Key``
+At this stage you will have your `API Key`
 
-![API Key](https://i.imgur.com/mGbpWdN.png)
+<img src="https://i.imgur.com/mGbpWdN.png" width="650" />
 
 Fill in your API Key into the meta data for `com.google.android.maps.v2.API_KEY` within the **application node** in the `AndroidManifest.xml`:
 
@@ -88,15 +88,15 @@ Fill in your API Key into the meta data for `com.google.android.maps.v2.API_KEY`
 
 Open `Android Studio` ⇒ `Tools` ⇒ `Android` ⇒ `Android AVD Manager` and `Create a Virtual Device...`
 
-Select `Nexus 5X` ⇒ `Show downloadable system images` and select `Marshmallow, API Level 23, x86_64, Android 6.0 **(with Google APIs)**
+Select `Nexus 5X` ⇒ `Show downloadable system images` and select `Marshmallow, API Level 23, x86_64, Android 6.0` **(with Google APIs)**
 
-![Emulator](https://i.imgur.com/gfSSoDB.png)
+<img src="https://i.imgur.com/gfSSoDB.png" width="650" alt="Emulator" />
 
 > ***Note:** Make sure to install `HAXM` if Android Studio prompts you to.
 
 This emulator is now configured to run Google Play Services. When you start this emulator, you may notice some loss of crispness, especially on text. This happens because the emulator launches to fill the window and may result in a non-power of 2 scaling. To fix this, you can edit the AVD and select a scale of `2dp = 1px on screen` and go into advanced settings and turn off `Enable Device Frame`.
 
-![FixDisplay](https://i.imgur.com/XOpvoci.png)
+<img src="https://i.imgur.com/XOpvoci.png" width="650" alt="FixDisplay" />
 
 ### Installing on Genymotion (Optional)
 
@@ -106,9 +106,15 @@ See the instructions to [[setup Genymotion|Genymotion 2.0 Emulators-with-Google-
 
 Now we want to run the map demo, and if everything went well we should see:
 
-![Demo App](http://i.imgur.com/nypUNBK.png)
+<img src="http://i.imgur.com/nypUNBK.png" width="500" alt="Demo app" />
 
 **Note:** If you don't, you may have not properly installed the Google Play services on the emulator (see instructions in genymotion setup above) or you may need to update the Google Play services on your emulator by following the instructions given in the app.
+
+If using **the official Google emulator**, we can update the "current location" for the device using the [Android Device Monitor](http://developer.android.com/tools/help/monitor.html) accessed through `Tools > Android Device Monitor`. Once there, select the emulator on the left-hand side and then switch to the `Emulator Control` tab to enter a GPS [latitude and longitude](http://www.latlong.net/) for a given address:
+
+<img src="http://i.imgur.com/w2uUgrN.png" width="650" alt="Android device monitor" />
+
+After updating the location, you can use the "current location" marker on the app to move the map to your device's configured location.
 
 ### Conclusion
 
