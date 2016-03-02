@@ -4,7 +4,47 @@ A fragment is a reusable class implementing a portion of an activity.  A Fragmen
 
 ![Fragments](http://developer.android.com/images/fundamentals/fragments.png)
 
-A fragment has a separate layout XML file. A Fragment encapsulates functionality so that it is easier to reuse within activities and layouts. Fragments are standalone components that can contain views, events and logic. Within a fragment-oriented architecture, applications become navigation containers that are primarily responsible for navigation to other activities, presenting fragments and passing data.
+### Understanding Fragments
+
+Here are the important things to understand about fragments:
+
+ * A `Fragment` is a combination of an XML layout file and a java class much like an `Activity`
+ * Using the support library, fragments are supported back to all relevant Android versions.
+ * Fragments encapsulate views and logic so that it is easier to reuse within activities.
+ * Fragments are standalone components that can contain views, events and logic. 
+
+Within a fragment-oriented architecture, **applications become navigational containers** that are primarily responsible for navigation to other activities, presenting fragments and passing data. 
+
+### Importance of Fragments
+
+There are many use cases for fragments but the most common use cases include:
+
+ * **Reusing View and Logic Components** - Fragments enable re-use of parts of your screen including views and event logic over and over in different ways across many disparate activities. For example, using the same list across different data sources within an app.
+ * **Tablet Support** - Often within apps, the tablet version of an activity has a substantially different layout from the phone version which is different from the TV version. Fragments enable device-specific activities to reuse shared elements while also having differences.
+ * **Screen Orientation**. Often within apps, the portrait version of an activity has a substantially different layout from the landscape version. Fragments enable both orientations to reuse shared elements while also having differences.
+
+### Organizing your Code
+
+Within a fragment-heavy app, we need to remember to organize our code according to architectural best practices. Inside of an app which uses fragments extensively, we need to remember that the role an activity changes. 
+
+**Activities are navigation controllers** primarily responsible for:
+
+   * Navigation to other activities through intents.
+   * Presenting navigational components such as the [[navigation drawer|Fragment Navigation Drawer]] or the [[viewpager|ViewPager-with-FragmentPagerAdapter]].
+   * Hiding and showing relevant fragments using the fragment manager.
+   * Receiving data from intents and passing data between fragments.
+
+**Fragments are content controllers** and contain most views, layouts, and related event logic including:
+
+   * Layouts and views displaying relevant app content
+   * Event handling logic associated with relevant views
+   * View management logic
+   * Triggering of network request through a client object
+   * Retrieval and storage of data from persistence through model objects
+
+To reiterate, in a fragment-based architecture, the **activities are for navigation** and the **fragments are for views and logic**. 
+
+## Usage
 
 ### Defining a Fragment
 
