@@ -202,9 +202,11 @@ public class SomeFragment extends Fragment {
     // The onAttach method is called when the Fragment instance is associated with an Activity. 
     // This does not mean the Activity is fully initialized.
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        this.listener = (FragmentActivity) activity;
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof Activity){
+            this.listener = (FragmentActivity) context;
+        }
     }
        
     // This event fires 2nd, before views are created for the fragment
@@ -422,12 +424,12 @@ public class MyListFragment extends Fragment {
   
   // Store the listener (activity) that will have events fired once the fragment is attached
   @Override
-  public void onAttach(Activity activity) {
-    super.onAttach(activity);
-      if (activity instanceof OnItemSelectedListener) {
-        listener = (OnItemSelectedListener) activity;
+  public void onAttach(Context context) {
+      super.onAttach(context);
+      if (context instanceof OnItemSelectedListener) {
+        listener = (OnItemSelectedListener) context;
       } else {
-        throw new ClassCastException(activity.toString()
+        throw new ClassCastException(context.toString()
             + " must implement MyListFragment.OnItemSelectedListener");
       }
   }

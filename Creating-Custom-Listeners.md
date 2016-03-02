@@ -249,14 +249,14 @@ public class MyListFragment extends Fragment {
 
   // Store the listener that will have events fired once the fragment is attached
   @Override
-  public void onAttach(Activity activity) {
-    super.onAttach(activity);
-      if (activity instanceof MyCustomObjectListener) {
-        listener = (MyCustomObjectListener) activity;
-      } else {
-        throw new ClassCastException(activity.toString()
+  public void onAttach(Context context) {
+    super.onAttach(context);
+    if (context instanceof MyCustomObjectListener) {
+        listener = (MyCustomObjectListener) context;
+    } else {
+        throw new ClassCastException(context.toString()
             + " must implement MyListFragment.MyCustomObjectListener");
-      }
+    }
   }
 }
 ```
