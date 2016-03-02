@@ -8,7 +8,7 @@ A fragment is a reusable class implementing a portion of an activity.  A Fragmen
 
 Here are the important things to understand about fragments:
 
- * A `Fragment` is a combination of an XML layout file and a java class much like an `Activity`
+ * A `Fragment` is a combination of an XML layout file and a java class much like an `Activity`.
  * Using the support library, fragments are supported back to all relevant Android versions.
  * Fragments encapsulate views and logic so that it is easier to reuse within activities.
  * Fragments are standalone components that can contain views, events and logic. 
@@ -36,9 +36,9 @@ Within a fragment-heavy app, we need to remember to organize our code according 
 
 **Fragments are content controllers** and contain most views, layouts, and related event logic including:
 
-   * Layouts and views displaying relevant app content
-   * Event handling logic associated with relevant views
-   * View management logic
+   * Layouts and views displaying relevant app content.
+   * Event handling logic associated with relevant views.
+   * View state management logic such as visibility or error handling
    * Triggering of network request through a client object
    * Retrieval and storage of data from persistence through model objects
 
