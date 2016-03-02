@@ -364,7 +364,7 @@ ParseFile file = new ParseFile("resume.txt", data);
 file.saveInBackground();
 ```
 
-By default, the open source version of Parse relies on the MongoDB [GridStore](https://mongodb.github.io/node-mongodb-native/api-generated/gridstore.html) adapter to store files at most 16 megabytes.  There is an alternate option to leverage Amazon's Simple Storage Service (S3).
+By default, the open source version of Parse relies on the MongoDB [GridStore](https://mongodb.github.io/node-mongodb-native/api-generated/gridstore.html) adapter to store large files.  There is an alternate option to leverage Amazon's Simple Storage Service (S3) but still should be considered experimental.
 
 #### Using Amazon S3
 
