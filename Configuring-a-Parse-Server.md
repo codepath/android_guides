@@ -222,29 +222,6 @@ The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which 
        .addNetworkInterceptor(new ParseStethoInterceptor())
   ``` 
 
-* If you Stetho logging, you can also verify that GCM tokens are being registered by API calls to the `/parse/classes/_Installation` endpoint:
-
-   ```
-   : Url : http://192.168.3.116:1337/parse/classes/_Installation
-   ```
-
-   You should be able to se the `deviceToken`, `installationId`, and `appName` registered:
-
-   ```
-   03-02 03:17:27.859 9362-9596/com.test I/ParseLogInterceptor: Body : {
-                                                                 "pushType": "gcm",
-                                                                 "localeIdentifier": "en-US",
-                                                                 "deviceToken": XXX,
-                                                                 "appVersion": "1.0",
-                                                                 "deviceType": "android",
-                                                                 "appIdentifier": "com.test",
-                                                                 "installationId": "XXXX",
-                                                                 "parseVersion": "1.13.0",
-                                                                 "appName": "PushNotificationDemo",
-                                                                 "timeZone": "America\/New_York"
-                                                             }
-   ```
-
 ### Enabling Push Notifications
 
 **Note**: Experimental Support for push notifications is now available with the open source Parse server.   However, unlike Parse's own service, you cannot implement this type of code on the actual client:
@@ -292,6 +269,29 @@ Instead, you need to write your own server-side Parse code and have the client i
 	ParseInstallation.getCurrentInstallation().saveInBackground();
  
      ```
+
+If you Stetho logging, you can also verify that GCM tokens are being registered by API calls to the `/parse/classes/_Installation` endpoint:
+
+```
+: Url : http://192.168.3.116:1337/parse/classes/_Installation
+```
+
+You should be able to se the `deviceToken`, `installationId`, and `appName` registered:
+
+```
+   03-02 03:17:27.859 9362-9596/com.test I/ParseLogInterceptor: Body : {
+                                                                 "pushType": "gcm",
+                                                                 "localeIdentifier": "en-US",
+                                                                 "deviceToken": XXX,
+                                                                 "appVersion": "1.0",
+                                                                 "deviceType": "android",
+                                                                 "appIdentifier": "com.test",
+                                                                 "installationId": "XXXX",
+                                                                 "parseVersion": "1.13.0",
+                                                                 "appName": "PushNotificationDemo",
+                                                                 "timeZone": "America\/New_York"
+                                                             }
+```
 
 **Troubleshooting tips for Parse Cloud JavaScript code:** The best way to troubleshoot your Parse JavaScript code is to run the Parse server locally (see [instructions](https://github.com/ParsePlatform/parse-server-example#for-local-development)).  You should also install node-inspector for Node.js, which allows you to use Chrome or Safari to step through the code yourself:
 
