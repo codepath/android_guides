@@ -15,22 +15,54 @@ Check out [this official tutorial](https://parse.com/tutorials/android-push-noti
 
 ### Sending Push Notifications
 
-Check out [this official tutorial](https://parse.com/tutorials/android-push-notifications) for a step-by-step guide to sending simple push notifications.   
+Because of the implicit security issues with allowing push notifications to be sent through Android or iOS directly to other devices, this feature is disabled.  For open source Parse, you must implement pre-defined code written in JavaScript that can be called by the clients to execute, otherwise known as Parse Cloud.
 
-Make sure to go to the `Settings` -> `Push` section and toggle on `Client push enabled`.  Otherwise, you may notice test push notifications work but sending between Android devices doesn't work.
-
-<img src="https://i.imgur.com/2zrp2KB.png"/>
+Your Java client should call this function:
 
 ```java
-ParsePush push = new ParsePush();
-push.setChannel("mychannel");
-push.setMessage("this is my message");
-push.sendInBackground();
+HashMap<String, String> test = new HashMap<>();
+test.put("data", "testing");
+    
+ParseCloud.callFunctionInBackground("pushChannelTest", test);
 ```
 
-For additional details and options, check out the [official parse Push guide](https://parse.com/docs/android/guide#push-notifications-sending-pushes-to-channels). Full source code can be [found on Github](https://github.com/ParsePlatform/PushTutorial). 
+You then need to implement a custom Parse function on your cloud server:
 
-**Running into issues?** Check out the [push troubleshooting guide](https://parse.com/docs/android/guide#push-notifications-troubleshooting). Also compare your app with this [sample reference app](https://github.com/codepath/ParsePushNotificationExample/tree/master/app/src/main/java/com/test).
+```javascript
+Parse.Cloud.define('pushChannelTest', function(request, response) {
+
+  // request has 2 parameters: params passed by the client and the authorized user
+  var params = request.params;
+  var user = request.user;
+
+  var message = params.message;
+  var customData = params.customData;
+
+  // use to custom tweak whatever payload you wish to send
+  var pushQuery = new Parse.Query(Parse.Installation);
+  pushQuery.equalTo("deviceType", "android");
+
+  var payload = {"data": {
+      "alert": message,
+      "action": action,
+      "customdata": customData
+   }
+  };
+
+  // Note that useMasterKey is necessary for Push notifications to succeed.
+
+  Parse.Push.send({
+  where: pushQuery,      // for sending to a specific channel
+  data: payload,
+  }, { success: function() {
+     console.log("#### PUSH OK");
+  }, error: function(error) {
+     console.log("#### PUSH ERROR" + error.message);
+  }, useMasterKey: true});
+
+  response.success('success');
+});
+```
 
 ### Receiving Push Notifications
 
