@@ -14,7 +14,7 @@ First, let's download and setup the Google Play Services and Google Repository S
 
 1. Clone the [Maps Demo Repo](https://github.com/codepath/android-google-maps-demo)
 2. Run `File` ⇒ `Open`, select `android-google-maps-demo`
-3. Add this configuration to your `build.gradle` file:
+3. Make sure you have these dependencies in your `build.gradle` file:
 
 ```gradle
 dependencies {
