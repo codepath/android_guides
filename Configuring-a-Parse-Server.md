@@ -222,6 +222,16 @@ The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which 
        .addNetworkInterceptor(new ParseStethoInterceptor())
   ``` 
 
+* **Troubleshooting tips for Parse Cloud JavaScript code:** The best way to troubleshoot your Parse JavaScript code is to run the Parse server locally (see [instructions](https://github.com/ParsePlatform/parse-server-example#for-local-development)).  You should also install node-inspector for Node.js, which allows you to use Chrome or Safari to step through the code yourself:
+
+```bash
+npm install node-inspector
+node --debug index.js
+node_modules/.bin/node-inspector 
+```
+
+Open up http://127.0.0.1:8080/?port=5858 locally.  Point your Android client to this server and add breakpoints to the code.
+
 ### Enabling Push Notifications
 
 **Note**: Experimental Support for push notifications is now available with the open source Parse server.   However, unlike Parse's own service, you cannot implement this type of code on the actual client:
@@ -293,15 +303,6 @@ You should be able to se the `deviceToken`, `installationId`, and `appName` regi
                                                              }
 ```
 
-**Troubleshooting tips for Parse Cloud JavaScript code:** The best way to troubleshoot your Parse JavaScript code is to run the Parse server locally (see [instructions](https://github.com/ParsePlatform/parse-server-example#for-local-development)).  You should also install node-inspector for Node.js, which allows you to use Chrome or Safari to step through the code yourself:
-
-```bash
-npm install node-inspector
-node --debug index.js
-node_modules/.bin/node-inspector 
-```
-
-Open up http://127.0.0.1:8080/?port=5858 locally.  Point your Android client to this server and add breakpoints to the code.
 
 #### GCM Setup
 
