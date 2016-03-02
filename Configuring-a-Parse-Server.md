@@ -235,7 +235,7 @@ push.sendInBackground();
 
 You will likely see this error in the API response:
 
-```javascript
+```json
 {
     "code": 115,
     "error": "Master key is invalid, you should only use master key to send push"
