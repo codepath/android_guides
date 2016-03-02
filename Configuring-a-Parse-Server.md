@@ -332,15 +332,15 @@ Open up http://127.0.0.1:8080/?port=5858 locally.  Point your Android client to 
         <uses-permission android:name="com.codepath.parseportpush.permission.C2D_MESSAGE" />
 
         <service android:name="com.parse.PushService" />
-            <receiver android:name="com.parse.ParsePushBroadcastReceiver"
-                android:exported="false">
-                <intent-filter>
+        <receiver android:name="com.parse.ParsePushBroadcastReceiver"
+                  android:exported="false">
+              <intent-filter>
                     <action android:name="com.parse.push.intent.RECEIVE" />
                     <action android:name="com.parse.push.intent.DELETE" />
                     <action android:name="com.parse.push.intent.OPEN" />
-                </intent-filter>
-            </receiver>
-            <receiver android:name="com.parse.GcmBroadcastReceiver"
+              </intent-filter>
+         </receiver>
+          <receiver android:name="com.parse.GcmBroadcastReceiver"
                 android:permission="com.google.android.c2dm.permission.SEND">
                 <intent-filter>
                     <action android:name="com.google.android.c2dm.intent.RECEIVE" />
@@ -351,7 +351,7 @@ Open up http://127.0.0.1:8080/?port=5858 locally.  Point your Android client to 
                     -->
                     <category android:name="com.codepath.parseportpush" />
                 </intent-filter>
-            </receiver>
+          </receiver>
     ```
 
 ### Storing Files with Parse
