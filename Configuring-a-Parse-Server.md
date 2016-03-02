@@ -42,7 +42,7 @@ Use Heroku if you have little or no experience with setting up web sites. Heroku
       * Leave `PARSE_MOUNT` to be `/parse`.  It does not need to be changed.
       * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId`.  You will need this info for the Client SDK setup.
       * Set `MASTER_KEY` to be the master key used to read/write all data.  **Note**: in hosted Parse, client keys are not used by default.
-      * Set `SERVER_URL` to be the server URL and `PARSE_MOUNT` value (i.e. https://myappname.herokuapp.com/parse).
+      * Set `SERVER_URL` to be `http://localhost/parse`, assuming you have left `PARSE_MOUNT` to be /parse.  
       * If you intend to use Parse's Facebook authentication, set `FACEBOOK_APP_ID` to be the [FB application ID](https://developers.facebook.com/apps).
       
 4. Deploy the Heroku app.  The app should be hosted at `https://<app name>.herokuapp.com`.
@@ -236,7 +236,7 @@ push.sendInBackground();
 Instead, you need to write your own server-side Parse code and have the client invoke it.  Fortunately, the process is fairly straightforward:
 
 1. Fork this [repo](https://github.com/codepath/parse-server-example).  This repo is similar to the package that you used for your one-click deploy.  This repo has some additional environment variables configurations added that help facilitate getting push notifications (i.e. see `SERVER_URL`, `GCM_SENDER_ID`, and `GCM_API_KEY` in [index.js](https://github.com/codepath/parse-server-example/blob/master/index.js#L37-L40))
-2. In your Heroku or Amazon instance, set the `SERVER_URL` environment variable to point to your currently running instance (i.e. https://yourappname.herokuapp.com/parse).
+2. In your Heroku or Amazon instance, set the `SERVER_URL` environment variable to point to your currently running instance (i.e. `http://localhost/parse`). 
 3. Verify that `cloud/main.js` is the default value of `CLOUD_CODE_MAIN` environment variable.  
 4. Modify `cloud/main.js` yourself to add custom code to send Push notifications.  See [these examples](https://github.com/ParsePlatform/parse-server/issues/401#issuecomment-183767065) for other ways of sending too.
 
