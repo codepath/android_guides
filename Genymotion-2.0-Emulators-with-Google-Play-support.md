@@ -45,7 +45,8 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 1. The Google Play APK package needed is specific to the Android emulator version.  You must use the corresponding Google Play Service package.  Otherwise, you may notice problems with Google Play not having Internet connectivity or other strange issues.
 
 | Version     | APK Link                                                                          |
-|-------------|:---------------------------------------------------------------------------------:| 
+|-------------|:---------------------------------------------------------------------------------:| 406
+|Android 6.0  |[Google Play Services APK](https://www.androidfilehost.com/?fid=96042739161891) - requires Genymotion 2.4.0+ |
 |Android 5.0  |[Google Play Services APK](https://www.androidfilehost.com/?fid=95784891001614559) - requires Genymotion 2.4.0+ |
 |Android 4.4.4|[Google Play Services APK](https://www.androidfilehost.com/?fid=23311191640114013)             |
 |Android 4.3  |[Google Play Services APK](http://www4.zippyshare.com/v/42927675/file.html)     |
