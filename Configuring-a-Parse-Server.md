@@ -270,42 +270,8 @@ Instead, you need to write your own server-side Parse code and have the client i
 1. Fork this [repo](https://github.com/codepath/parse-server-example).  This repo is similar to the package that you used for your one-click deploy.  This repo has some additional environment variables configurations added that help facilitate getting push notifications (i.e. see `SERVER_URL`, `GCM_SENDER_ID`, and `GCM_API_KEY` in [index.js](https://github.com/codepath/parse-server-example/blob/master/index.js#L37-L40))
 2. In your Heroku or Amazon instance, set the `SERVER_URL` environment variable to point to your currently running instance (i.e. `http://localhost/parse`). 
 3. Verify that `cloud/main.js` is the default value of `CLOUD_CODE_MAIN` environment variable.  
-4. Modify `cloud/main.js` yourself to add custom code to send Push notifications.  See [these examples](https://github.com/ParsePlatform/parse-server/issues/401#issuecomment-183767065) for other ways of sending too.
-
-      ```javascript
-      Parse.Cloud.define('pushChannelTest', function(request, response) {
-
-        // request has 2 parameters: params passed by the client and the authorized user
-        var params = request.params;
-        var user = request.user;
-
-        // extract out the channel to send
-        var channel = params.channel;
-
-        // use to custom tweak whatever payload you wish to send
-        var payload = {"data": {
-            "action": "com.example.UPDATE_STATUS",
-            "alert": "Ricky Vaughn was injured during the game last night!",
-            "name": "Vaughn",
-            "newsItem": "Man bites dog"}
-        };
-
-        // Note that useMasterKey is necessary for Push notifications to succeed.
-
-        Parse.Push.send({
-        channels: [ channel ],      // for sending to a specific channel                                                                                                                                                                                                         
-        data: payload,
-        }, { success: function() {
-           console.log("#### PUSH OK");
-        }, error: function(error) {
-           console.log("#### PUSH ERROR" + error.message);
-        }, useMasterKey: true});
-
-        response.success('success');
-      });
-      ```
-
-4. Redeploy the code.  If you are using Heroku, you need to connect your own forked repository and redeploy.  
+4. Modify [cloud/main.js](https://github.com/codepath/parse-server-example/blob/master/cloud/main.js) yourself to add custom code to send Push notifications.  See [these examples](https://github.com/ParsePlatform/parse-server/issues/401#issuecomment-183767065) for other ways of sending too.  
+. Redeploy the code.  If you are using Heroku, you need to connect your own forked repository and redeploy.  
 5. Enable Google Cloud Messaging for your Android client (see [[instructions|Configuring-a-Parse-Server#GCM Setup]] below).
 6. Assuming the function is named `pushChannelTest`, modify your Android code to invoke this function by using the `callFunctionInBackground()` call.  Any parameters should be passed as a `HashMap`:
 
