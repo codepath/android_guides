@@ -228,7 +228,7 @@ The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which 
    : Url : http://192.168.3.116:1337/parse/classes/_Installation
    ```
 
-   You should be able to se the `deviceToken`, `installationId, and `appName` registered:
+   You should be able to se the `deviceToken`, `installationId`, and `appName` registered:
 
    ```
    03-02 03:17:27.859 9362-9596/com.test I/ParseLogInterceptor: Body : {
