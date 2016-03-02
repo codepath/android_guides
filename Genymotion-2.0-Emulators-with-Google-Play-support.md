@@ -46,10 +46,10 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 
 | Version     | APK Link                                                                          |
 |-------------|:---------------------------------------------------------------------------------:| 406
-|Android 6.0  |[Google Play Services APK](https://www.androidfilehost.com/?fid=96042739161891) - requires Genymotion 2.4.0+ |
+|Android 6.0  |[Google Play Services APK](https://www.androidfilehost.com/?fid=24052804347835438) - requires Genymotion 2.4.0+ |
 |Android 5.0  |[Google Play Services APK](https://www.androidfilehost.com/?fid=95784891001614559) - requires Genymotion 2.4.0+ |
-|Android 4.4.4|[Google Play Services APK](https://www.androidfilehost.com/?fid=23311191640114013)             |
-|Android 4.3  |[Google Play Services APK](http://www4.zippyshare.com/v/42927675/file.html)     |
+|Android 4.4.4|[Google Play Services APK](https://www.androidfilehost.com/?fid=23501681358544845)             |
+|Android 4.3  |[Google Play Services APK](https://www.androidfilehost.com/?fid=23060877490000124)     |
 
 2. Drag and drop the zip file onto the running Genymotion emulator device
    ![Installing Google Apps APK](https://i.imgur.com/PvGjlyo.png)
