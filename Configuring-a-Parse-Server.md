@@ -233,6 +233,15 @@ push.setMessage("this is my message");
 push.sendInBackground();
 ```
 
+You will likely see this error in the API response:
+
+```javascript
+{
+    "code": 115,
+    "error": "Master key is invalid, you should only use master key to send push"
+}
+```
+
 Instead, you need to write your own server-side Parse code and have the client invoke it.  Fortunately, the process is fairly straightforward:
 
 1. Fork this [repo](https://github.com/codepath/parse-server-example).  This repo is similar to the package that you used for your one-click deploy.  This repo has some additional environment variables configurations added that help facilitate getting push notifications (i.e. see `SERVER_URL`, `GCM_SENDER_ID`, and `GCM_API_KEY` in [index.js](https://github.com/codepath/parse-server-example/blob/master/index.js#L37-L40))
