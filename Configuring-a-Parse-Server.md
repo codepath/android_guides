@@ -222,7 +222,7 @@ The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which 
        .addNetworkInterceptor(new ParseStethoInterceptor())
   ``` 
 
-* **Troubleshooting tips for Parse Cloud JavaScript code:** The best way to troubleshoot your Parse JavaScript code is to run the Parse server locally (see [instructions](https://github.com/ParsePlatform/parse-server-example#for-local-development)).  You should also install node-inspector for Node.js, which allows you to use Chrome or Safari to step through the code yourself:
+* The best way to troubleshoot your Parse JavaScript code is to run the Parse server locally (see [instructions](https://github.com/ParsePlatform/parse-server-example#for-local-development)).  You should also install node-inspector for Node.js, which allows you to use Chrome or Safari to step through the code yourself:
 
 ```bash
 npm install node-inspector
