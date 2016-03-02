@@ -145,6 +145,7 @@ Instead of using the capture intent to capture photos "the easy way", a custom c
  * [CWAC-Cam2](https://github.com/commonsguy/cwac-cam2)
  * [EasyCamera](https://github.com/Glamdring/EasyCamera)
  * [SquareCamera](https://github.com/boxme/SquareCamera)
+ * [MaterialCamera](https://github.com/afollestad/material-camera)
  * [Many other libraries](http://android-arsenal.com/tag/141)
 
 Leveraging `Camera2` or the libraries above, apps can develop a camera that functions in anyway required including custom overlays for depositing checks, taking pictures with a particular form factor, or scanning custom barcodes.
