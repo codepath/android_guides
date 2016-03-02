@@ -271,9 +271,9 @@ Instead, you need to write your own server-side Parse code and have the client i
 2. In your Heroku or Amazon instance, set the `SERVER_URL` environment variable to point to your currently running instance (i.e. `http://localhost/parse`). 
 3. Verify that `cloud/main.js` is the default value of `CLOUD_CODE_MAIN` environment variable.  
 4. Modify [cloud/main.js](https://github.com/codepath/parse-server-example/blob/master/cloud/main.js) yourself to add custom code to send Push notifications.  See [these examples](https://github.com/ParsePlatform/parse-server/issues/401#issuecomment-183767065) for other ways of sending too.  
-. Redeploy the code.  If you are using Heroku, you need to connect your own forked repository and redeploy.  
-5. Enable Google Cloud Messaging for your Android client (see [[instructions|Configuring-a-Parse-Server#GCM Setup]] below).
-6. Assuming the function is named `pushChannelTest`, modify your Android code to invoke this function by using the `callFunctionInBackground()` call.  Any parameters should be passed as a `HashMap`:
+5. Redeploy the code.  If you are using Heroku, you need to connect your own forked repository and redeploy.  
+6. Enable Google Cloud Messaging for your Android client (see [[instructions|Configuring-a-Parse-Server#GCM Setup]] below).
+7. Assuming the function is named `pushChannelTest`, modify your Android code to invoke this function by using the `callFunctionInBackground()` call.  Any parameters should be passed as a `HashMap`:
 
      ```java
 
@@ -282,7 +282,7 @@ Instead, you need to write your own server-side Parse code and have the client i
          
      ParseCloud.callFunctionInBackground("pushChannelTest", test);
      ```
-7. Make sure to register the GCM token to the server:
+8. Make sure to register the GCM token to the server:
 
      ```java
 
