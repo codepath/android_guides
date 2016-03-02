@@ -243,7 +243,7 @@ The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which 
                                                                  "appName": "PushNotificationDemo",
                                                                  "timeZone": "America\/New_York"
                                                              }
-    ```
+   ```
 
 ### Enabling Push Notifications
 
