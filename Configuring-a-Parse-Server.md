@@ -42,7 +42,7 @@ Use Heroku if you have little or no experience with setting up web sites. Heroku
       * Leave `PARSE_MOUNT` to be `/parse`.  It does not need to be changed.
       * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId`.  You will need this info for the Client SDK setup.
       * Set `MASTER_KEY` to be the master key used to read/write all data.  **Note**: in hosted Parse, client keys are not used by default.
-      * Set `SERVER_URL` to be `http://localhost/parse`.  Assuming you have left `PARSE_MOUNT` to be /parse, this will connect to the web server without needing to go through the public Internet. 
+      * Set `SERVER_URL` to be `http://yourappname.herokuapp.com/parse`.  Assuming you have left `PARSE_MOUNT` to be /parse, this will enable the use of Parse Cloud to work correctly. 
       * If you intend to use Parse's Facebook authentication, set `FACEBOOK_APP_ID` to be the [FB application ID](https://developers.facebook.com/apps).
       
 4. Deploy the Heroku app.  The app should be hosted at `https://<app name>.herokuapp.com`.
@@ -71,7 +71,7 @@ Amazon AWS provides more advanced functionality, such as a load balancer, easy-t
       * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId`.  You will need this info for the Client SDK setup.
       * Set `MASTER_KEY` to be the master key used to read all data.  
       * Leave `PARSE_MOUNT` to be `/parse`.  It does not need to be changed.
-      * Set `SERVER_URL` to be `http://localhost/parse`.  Assuming you have left `PARSE_MOUNT` to be /parse, this will connect to the web server without needing to go through the public Internet. 
+      * Set `SERVER_URL` to be `http://yourappname.herokuapp.com/parse`.  Assuming you have left `PARSE_MOUNT` to be /parse, this will enable the use of Parse Cloud to work correctly. 
       * If you intend to use Facebook authentication, set `FACEBOOK_APP_ID` to be the [FB application ID](https://developers.facebook.com/apps).
 
 6. Your machine should take a few minutes to spin up.  Once it's ready, you should be able to click on the URL provided:
@@ -256,7 +256,7 @@ You will likely see this error in the API response:
 Instead, you need to write your own server-side Parse code and have the client invoke it.  Fortunately, the process is fairly straightforward:
 
 1. Fork this [repo](https://github.com/codepath/parse-server-example).  This repo is similar to the package that you used for your one-click deploy.  This repo has some additional environment variables configurations added that help facilitate getting push notifications (i.e. see `SERVER_URL`, `GCM_SENDER_ID`, and `GCM_API_KEY` in [index.js](https://github.com/codepath/parse-server-example/blob/master/index.js#L37-L40))
-2. In your Heroku or Amazon instance, make sure to confirm the `SERVER_URL` environment variable as `http://localhost/parse`. 
+2. Make sure to confirm the `SERVER_URL` environment variable is set to the URL and Parse mounting location (i.e. `http://yourappname.herokuapp.com/parse`).
 3. Verify that `cloud/main.js` is the default value of `CLOUD_CODE_MAIN` environment variable.  
 4. Modify [cloud/main.js](https://github.com/codepath/parse-server-example/blob/master/cloud/main.js) yourself to add custom code to send Push notifications.  See [these examples](https://github.com/ParsePlatform/parse-server/issues/401#issuecomment-183767065) for other ways of sending too.  
 5. Redeploy the code.  If you are using Heroku, you need to connect your own forked repository and redeploy.  
