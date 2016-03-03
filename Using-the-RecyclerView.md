@@ -99,7 +99,7 @@ public class Contact {
     private static int lastContactId = 0;
 
     public static ArrayList<Contact> createContactsList(int numContacts) {
-        List<Contact> contacts = new ArrayList<Contact>();
+        ArrayList<Contact> contacts = new ArrayList<Contact>();
 
         for (int i = 1; i <= numContacts; i++) {
             contacts.add(new Contact("Person " + ++lastContactId, i <= numContacts / 2));
@@ -340,8 +340,8 @@ There are many method available to use when notifying the adapter of different c
 We can use these from the activity or fragment:
 
 ```java
-// Add a new user
-users.set(0, new User(...));
+// Add a new contact
+mContacts.add(0, new Contact("Barney", true));
 // Notify the adapter
 adapter.notifyItemInserted(0);
 ```
@@ -358,7 +358,7 @@ int curSize = adapter.getItemCount();
 ArrayList<Contact> newItems = Contact.createContactsList(20); 
 
 // update the existing list
-contacts.add(newItems);
+contacts.addAll(newItems);
 // curSize should represent the first element that got added
 // newItems.size() represents the itemCount
 adapter.notifyItemRangeInserted(curSize, newItems.size());
