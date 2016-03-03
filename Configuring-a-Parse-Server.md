@@ -315,7 +315,7 @@ You should be able to se the `deviceToken`, `installationId`, and `appName` regi
 
 * Clear your app cache/uninstall the app and verify an entry in the  `_Installation` table gets added.
 
-* Make sure that your SERVER_URL ends with a trailing '/'.
+* Make sure that your SERVER_URL is set on the client side with a trailing '/'.
 
 * You can use this curl command with your application key and master key to send a push to all Android devices:
 
@@ -324,12 +324,15 @@ You should be able to se the `deviceToken`, `installationId`, and `appName` regi
 -H "Content-Type: application/json" \
 -d '{"where": {"deviceType": "android"}, "data": {"action": "com.example.UPDATE_STATUS", "newsItem": "Man bites dog", "name": "Vaughn", "alert": "Ricky Vaughn was injured during the game last night!"}}' \
 https://parse-testing-port.herokuapp.com/parse/push/
+```
 
 * Use `heroku logs --app <app_name>` to see what is happening:
 
 ```bash
 2016-03-03T09:26:50.032609+00:00 app[web.1]: #### PUSH OK
 ```
+
+* Parse takes care of the GCM registration for you.  Make sure you have **not** included `com.google.android.gms:play-services-gcm:8.4.0` in your Gradle configuration.
 
 #### GCM Setup
 
