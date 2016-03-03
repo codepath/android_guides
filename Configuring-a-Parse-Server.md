@@ -284,7 +284,9 @@ Instead, you need to write your own server-side Parse code and have the client i
  
      ```
 
-If you Stetho logging, you can also verify that GCM tokens are being registered by API calls to the `/parse/classes/_Installation` endpoint:
+#### Troubleshooting
+
+* If you are using Facebook's Stetho, you can also verify that GCM tokens are being registered by API calls to the `/parse/classes/_Installation` endpoint:
 
 ```
 : Url : http://192.168.3.116:1337/parse/classes/_Installation
@@ -307,6 +309,27 @@ You should be able to se the `deviceToken`, `installationId`, and `appName` regi
                                                              }
 ```
 
+* Check your `_Installation` table to verify that the entries were being saved.
+
+* Make sure your gcm_sender_id is "id:xxxx".  Parse needs to begin with an `id:` to work correctly.
+
+* Clear your app cache/uninstall the app and verify an entry in the  `_Installation` table gets added.
+
+* Make sure that your SERVER_URL ends with a trailing '/'.
+
+* You can use this curl command with your application key and master key to send a push to all Android devices:
+
+```bash
+ curl -X POST -H "X-Parse-Application-Id: myAppId" -H "X-Parse-Master-Key: myMasterKey" \
+-H "Content-Type: application/json" \
+-d '{"where": {"deviceType": "android"}, "data": {"action": "com.example.UPDATE_STATUS", "newsItem": "Man bites dog", "name": "Vaughn", "alert": "Ricky Vaughn was injured during the game last night!"}}' \
+https://parse-testing-port.herokuapp.com/parse/push/
+
+* Use `heroku logs --app <app_name>` to see what is happening:
+
+```bash
+2016-03-03T09:26:50.032609+00:00 app[web.1]: #### PUSH OK
+```
 
 #### GCM Setup
 
