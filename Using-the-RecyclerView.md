@@ -339,8 +339,8 @@ We can use these from the activity or fragment:
 
 ```java
 // Add a new contact
-mContacts.add(0, new Contact("Barney", true));
-// Notify the adapter
+contacts.add(0, new Contact("Barney", true));
+// Notify the adapter that an item was inserted at position 0
 adapter.notifyItemInserted(0);
 ```
 
