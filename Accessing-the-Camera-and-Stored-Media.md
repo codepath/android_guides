@@ -140,7 +140,7 @@ See [this guide](http://stackoverflow.com/a/12933632/313399) for the source for 
 
 ### Building a Custom Camera
 
-Instead of using the capture intent to capture photos "the easy way", a custom camera can be used within your app directly leveraging the [Camera2 API](https://developer.android.com/reference/android/hardware/camera2/package-summary.html). This custom camera is much more complicated to implement but [sample code can be found here](https://github.com/googlesamples/android-Camera2Basic). However, there are a number of third-party libraries available to make custom camera easier:
+Instead of using the capture intent to capture photos "the easy way", a custom camera can be used within your app directly leveraging the [Camera2 API](https://developer.android.com/reference/android/hardware/camera2/package-summary.html). This custom camera is much more complicated to implement but [sample code can be found here](https://github.com/googlesamples/android-Camera2Basic). Another tutorial [can be found here](http://inducesmile.com/android/android-camera-api-tutorial/). However, there are a number of third-party libraries available to make custom camera easier:
 
  * [CWAC-Cam2](https://github.com/commonsguy/cwac-cam2)
  * [EasyCamera](https://github.com/Glamdring/EasyCamera)
