@@ -315,7 +315,7 @@ You should be able to se the `deviceToken`, `installationId`, and `appName` regi
 2. Obtain a Sender ID and API Key.
       * Follow only step 1 of [this guide](http://guides.codepath.com/android/Google-Cloud-Messaging#step-1-register-with-google-developers-console) to obtain the Sender ID (equivalent to the Project Number) and API Key.  You do not need to follow the other steps because Parse provides much of code to handle GCM registration for you.
 
-3. Set `GCM_ENABLE=1` in your environment variables to enable GCM support.  Set `GCM_SENDER_KEY` and `GCM_API_KEY` environment variables to correspond to the Sender ID and API Key in the previous step.  **Note**: this step only works if you have setup your Parse server to enable push support.  See the [CodePath fork](https://github.com/codepath/parse-server-example/blob/master/index.js#L15-L26) as an example about how to initialize the Parse server.
+3. Set `GCM_SENDER_KEY` and `GCM_API_KEY` environment variables to correspond to the Sender ID and API Key in the previous step.  **Note**: this step only works if you have setup your Parse server to enable push support.  See the [CodePath fork](https://github.com/codepath/parse-server-example/blob/master/index.js#L15-L26) as an example about how to initialize the Parse server.
 
 3. Add a `meta-data` with the Sender ID in your AndroidManifest.xml.  Make sure the `id:` is used as the prefix (Android treats any metadata value that has a string of digits as an integer so Parse prefixes this value).  If you forget this step, Parse will register with its own Sender ID but you will see `SenderID mismatch` errors when trying to issue push notifications.
 
