@@ -277,10 +277,10 @@ Instead, you need to write your own server-side Parse code and have the client i
 
      ```java
 
-	Parse.initialize(...);
+     Parse.initialize(...);
 
-	// Need to register GCM token
-	ParseInstallation.getCurrentInstallation().saveInBackground();
+     // Need to register GCM token
+     ParseInstallation.getCurrentInstallation().saveInBackground();
  
      ```
 
