@@ -97,7 +97,8 @@ After deployment, try to connect to the site.  You should see `I dream of being 
 Next, make sure you can create Parse objects.  You do not need a client Key to write new data:
 
 ```bash
-curl -X POST -H "X-Parse-Application-Id: myAppId" -H "Content-Type: application/json" \
+curl -X POST -H "X-Parse-Application-Id: myAppId" -H "X-Parse-Master-Key: abc" \
+-H "Content-Type: application/json" \
 -d '{"score":1337,"playerName":"Sean Plott","cheatMode":false}' \
 https://yourappname.herokuapp.com/parse/classes/GameScore
 ```
