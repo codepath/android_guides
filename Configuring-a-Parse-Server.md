@@ -286,7 +286,7 @@ Instead, you need to write your own server-side Parse code and have the client i
 
 #### Troubleshooting
 
-* If you are using Facebook's Stetho, you can also verify that GCM tokens are being registered by API calls to the `/parse/classes/_Installation` endpoint:
+* If you are using Facebook's Stetho debugger, you can see the LogCat statements and verify that GCM tokens are being registered by API calls to the `/parse/classes/_Installation` endpoint:
 
 ```
 : Url : http://192.168.3.116:1337/parse/classes/_Installation
@@ -309,11 +309,9 @@ You should be able to se the `deviceToken`, `installationId`, and `appName` regi
                                                              }
 ```
 
-* Check your `_Installation` table to verify that the entries were being saved.
+* Your app if properly configured should register itself with your Parse server.  Check your `_Installation` table to verify that the entries were being saved. Clear your app cache or uninstall the app if an entry in the  `_Installation` table hasn't been added.
 
-* Make sure your gcm_sender_id is "id:xxxx".  Parse needs to begin with an `id:` to work correctly.
-
-* Clear your app cache/uninstall the app and verify an entry in the  `_Installation` table gets added.
+* Inside your `AndroidManifest.xml` definition, make sure your gcm_sender_id is prefixed with `id:` (i.e. `id:123456`).  Parse needs to begin with an `id:` to work correctly.
 
 * Make sure that your SERVER_URL is set on the client side with a trailing '/'.
 
@@ -326,7 +324,7 @@ You should be able to se the `deviceToken`, `installationId`, and `appName` regi
 https://parse-testing-port.herokuapp.com/parse/push/
 ```
 
-* Use `heroku logs --app <app_name>` to see what is happening:
+* Use `heroku logs --app <app_name>` to see what is happening on the server side:
 
 ```bash
 2016-03-03T09:26:50.032609+00:00 app[web.1]: #### PUSH OK
