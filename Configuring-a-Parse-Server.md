@@ -194,7 +194,7 @@ The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which 
 
    You can then view the system logs by specifying the app name:
    ```bash
-   heroku logs -app <app name>
+   heroku logs --app <app name>
    ```
 
    The logs should show the response from any types of network requests made to the site.  Check the `status` code.
