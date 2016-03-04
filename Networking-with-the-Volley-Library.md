@@ -93,7 +93,7 @@ And that will execute the request to the server and respond back with the result
 
 ## References
 
-* <http://njzk2.wordpress.com/2013/06/03/a-volley-introduction-part-1/>
+* <https://smaspe.github.io/2013/06/03/volley-part1.html>
 * <http://java.dzone.com/articles/android-%E2%80%93-volley-library>
 * <http://arnab.ch/blog/2013/08/asynchronous-http-requests-in-android-using-volley/>
 * <http://files.evancharlton.com/volley-docs/>
