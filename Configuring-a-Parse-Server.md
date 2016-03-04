@@ -343,7 +343,7 @@ https://parse-testing-port.herokuapp.com/parse/push/
 
 If you see `Can not find sender for push type android`, it means you forgot to set the environment variables `GCM_SENDER_ID` and `GCM_API_KEY`.
 
-* Make sure you do **not** have included `com.google.android.gms:play-services-gcm:8.4.0` in your Gradle configuration.  Parse's Android SDK library already includes code to deal with the GCM registration.
+* Make sure you have **not** included `com.google.android.gms:play-services-gcm:8.4.0` in your Gradle configuration.  Parse's Android SDK library already includes code to deal with the GCM registration.
 
 #### GCM Setup
 
