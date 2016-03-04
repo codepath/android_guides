@@ -21,8 +21,8 @@ Your Java client should call this function:
 
 ```java
 HashMap<String, String> test = new HashMap<>();
-test.put("data", "testing");
-    
+test.put("message", "testing");
+test.put("customData", "abc");
 ParseCloud.callFunctionInBackground("pushChannelTest", test);
 ```
 
@@ -42,10 +42,9 @@ Parse.Cloud.define('pushChannelTest', function(request, response) {
   var pushQuery = new Parse.Query(Parse.Installation);
   pushQuery.equalTo("deviceType", "android");
 
-  var payload = {"data": {
-      "alert": message,
-      "customdata": customData
-   }
+  var payload = { "alert": message, 
+                  "customdata": customData
+                };
   };
 
   // Note that useMasterKey is necessary for Push notifications to succeed.
