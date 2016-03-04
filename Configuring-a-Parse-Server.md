@@ -44,6 +44,7 @@ Use Heroku if you have little or no experience with setting up web sites. Heroku
       * Set `MASTER_KEY` to be the master key used to read/write all data.  **Note**: in hosted Parse, client keys are not used by default.
       * Set `SERVER_URL` to be `http://yourappname.herokuapp.com/parse`.  Assuming you have left `PARSE_MOUNT` to be /parse, this will enable the use of Parse Cloud to work correctly. 
       * If you intend to use Parse's Facebook authentication, set `FACEBOOK_APP_ID` to be the [FB application ID](https://developers.facebook.com/apps).
+      * If you intend to setup push notifications, there are additional environment variables that need to be configured.  See [[this section|Configuring-a-Parse-Server#enabling-push-notifications]] for the required steps.
       
 4. Deploy the Heroku app.  The app should be hosted at `https://<app name>.herokuapp.com`.
 
