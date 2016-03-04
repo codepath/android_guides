@@ -224,21 +224,21 @@ The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which 
 
 * If you wish to troubleshoot your Parse JavaScript code is to run the Parse server locally (see [instructions](https://github.com/ParsePlatform/parse-server-example#for-local-development)).  You should also install node-inspector for Node.js, which allows you to use Chrome or Safari to step through the code yourself:
 
-```bash
-npm install node-inspector
-node --debug index.js
-node_modules/.bin/node-inspector 
-```
+   ```bash
+   npm install node-inspector
+   node --debug index.js
+   node_modules/.bin/node-inspector 
+   ```
 
 Open up http://127.0.0.1:8080/?port=5858 locally.   You can use the Chrome debugging tools to set breakpoints in the JavaScript code.
 
 Point your Android client to this server::
 
-```java
-Parse.initialize(new Parse.Configuration.Builder(this)
+   ```java
+   Parse.initialize(new Parse.Configuration.Builder(this)
         .applicationId("myAppId")
         .server("http://192.168.3.116:1337/parse/")  // lookup your IP address of your machine
-```
+   ```
 
 ### Enabling Push Notifications
 
