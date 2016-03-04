@@ -236,7 +236,7 @@ Open up http://127.0.0.1:8080/?port=5858 locally.  Point your Android client to 
 
 ### Enabling Push Notifications
 
-**Note**: Experimental Support for push notifications is now available with the open source Parse server.   However, unlike Parse's own service, **you cannot implement this type of code** on the actual client:
+**Note**: Support for push notifications is now available with the open source Parse server.   However, unlike Parse's own service, **you cannot implement this type of code** on the actual client:
 
 ```java
 // Note: This does NOT work with Parse Server at this time
@@ -257,8 +257,8 @@ You will likely see this error in the API response:
 
 Instead, you need to write your own server-side Parse code and have the client invoke it.  Fortunately, the process is fairly straightforward:
 
-1. Fork this [repo](https://github.com/codepath/parse-server-example).  This repo is similar to the package that you used for your one-click deploy.  This repo has some additional environment variables configurations added that help facilitate sending push notifications (i.e. see `SERVER_URL`, `GCM_SENDER_ID`, and `GCM_API_KEY` in [index.js](https://github.com/codepath/parse-server-example/blob/master/index.js#L37-L40))
-2. Make sure to confirm the `SERVER_URL` environment variable is set to the URL and Parse mounting location (i.e. `http://yourappname.herokuapp.com/parse`).
+1. Fork this [repo](https://github.com/codepath/parse-server-example).  This repo is similar to the package that you used for your one-click deploy.  This repo has some additional environment variables configurations added that help facilitate sending push notifications (i.e. see `GCM_SENDER_ID`, and `GCM_API_KEY` in [index.js](https://github.com/codepath/parse-server-example/blob/master/index.js#L37-L40))
+2. Make sure to confirm the `SERVER_URL` environment variable is set to the URL and Parse mount location (i.e. `http://yourappname.herokuapp.com/parse`).
 3. Verify that `cloud/main.js` is the default value of `CLOUD_CODE_MAIN` environment variable.  
 4. Modify [cloud/main.js](https://github.com/codepath/parse-server-example/blob/master/cloud/main.js) yourself to add custom code to send Push notifications.  See [these examples](https://github.com/ParsePlatform/parse-server/issues/401#issuecomment-183767065) for other ways of sending too.  
 5. Redeploy the code.  If you are using Heroku, you need to connect your own forked repository and redeploy.  
@@ -286,7 +286,7 @@ Instead, you need to write your own server-side Parse code and have the client i
 
 #### Troubleshooting
 
-* If you are using Facebook's Stetho debugger, you can see the LogCat statements and verify that GCM tokens are being registered by API calls to the `/parse/classes/_Installation` endpoint:
+* If you are using Facebook's Stetho library with your Android client, you can see the LogCat statements and verify that GCM tokens are being registered by API calls to the `/parse/classes/_Installation` endpoint:
 
 ```
 : Url : http://192.168.3.116:1337/parse/classes/_Installation
@@ -310,9 +310,11 @@ Body : {
 }
 ```
 
-* Your app if properly configured should register itself with your Parse server.  Check your `_Installation` table to verify that the entries were being saved. Clear your app cache or uninstall the app if an entry in the  `_Installation` table hasn't been added.
+* In your Parse server (`index.js`), make sure you do not have any of optional keys set (i.e. `clientKey`, `javascriptKey`, `restAPIKey` , `dotNetKey`).  If any of them are set, it's very likely you will see a 403 status code on the API response for any Android clients.  The reason is that the open source Parse version will fail if any required keys are needed.
 
-* Inside your `AndroidManifest.xml` definition, make sure your gcm_sender_id is prefixed with `id:` (i.e. `id:123456`).  Parse needs to begin with an `id:` to work correctly.
+* If GCM is fully setup, your app if properly configured should register itself with your Parse server.  Check your `_Installation` table to verify that the entries were being saved. Clear your app cache or uninstall the app if an entry in the  `_Installation` table hasn't been added.
+
+* Inside your `AndroidManifest.xml` definition, make sure your `gcm_sender_id` is prefixed with `id:` (i.e. `id:123456`).  Parse needs to begin with an `id:` to work correctly.
 
 * Make sure that your SERVER_URL is set on the client side with a trailing '/'.
 
@@ -331,7 +333,9 @@ https://parse-testing-port.herokuapp.com/parse/push/
 2016-03-03T09:26:50.032609+00:00 app[web.1]: #### PUSH OK
 ```
 
-* Parse takes care of the GCM registration for you.  Make sure you have **not** included `com.google.android.gms:play-services-gcm:8.4.0` in your Gradle configuration.
+If you see `Can not find sender for push type android`, it means you forgot to set the environment variables `GCM_SENDER_ID` and `GCM_API_KEY`.
+
+* Make sure you do **not** have included `com.google.android.gms:play-services-gcm:8.4.0` in your Gradle configuration.  Parse's Android SDK library already includes code to deal with the GCM registration.
 
 #### GCM Setup
 
