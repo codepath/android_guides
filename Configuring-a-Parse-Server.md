@@ -44,7 +44,7 @@ Use Heroku if you have little or no experience with setting up web sites. Heroku
       * Set `MASTER_KEY` to be the master key used to read/write all data.  **Note**: in hosted Parse, client keys are not used by default.
       * Set `SERVER_URL` to be `http://yourappname.herokuapp.com/parse`.  Assuming you have left `PARSE_MOUNT` to be /parse, this will enable the use of Parse Cloud to work correctly. 
       * If you intend to use Parse's Facebook authentication, set `FACEBOOK_APP_ID` to be the [FB application ID](https://developers.facebook.com/apps).
-      * If you intend to setup push notifications, there are additional environment variables that need to be configured.  See [[this section|Configuring-a-Parse-Server#enabling-push-notifications]] for the required steps.
+      * If you intend to setup push notifications, there are additional environment variables such as `GCM_SENDER_KEY` and `GCM_API_KEY` that will need to be configured.  See [[this section|Configuring-a-Parse-Server#enabling-push-notifications]] for the required steps.
       
 4. Deploy the Heroku app.  The app should be hosted at `https://<app name>.herokuapp.com`.
 
@@ -236,9 +236,10 @@ Open up http://127.0.0.1:8080/?port=5858 locally.  Point your Android client to 
 
 ### Enabling Push Notifications
 
-**Note**: Experimental Support for push notifications is now available with the open source Parse server.   However, unlike Parse's own service, you cannot implement this type of code on the actual client:
+**Note**: Experimental Support for push notifications is now available with the open source Parse server.   However, unlike Parse's own service, **you cannot implement this type of code** on the actual client:
 
 ```java
+// Note: This does NOT work with Parse Server at this time
 ParsePush push = new ParsePush();
 push.setChannel("mychannel");
 push.setMessage("this is my message");
@@ -277,12 +278,10 @@ Instead, you need to write your own server-side Parse code and have the client i
 8. Make sure to register the GCM token to the server:
 
      ```java
-
      Parse.initialize(...);
 
      // Need to register GCM token
      ParseInstallation.getCurrentInstallation().saveInBackground();
- 
      ```
 
 #### Troubleshooting
@@ -296,18 +295,19 @@ Instead, you need to write your own server-side Parse code and have the client i
 You should be able to se the `deviceToken`, `installationId`, and `appName` registered:
 
 ```
-   03-02 03:17:27.859 9362-9596/com.test I/ParseLogInterceptor: Body : {
-                                                                 "pushType": "gcm",
-                                                                 "localeIdentifier": "en-US",
-                                                                 "deviceToken": XXX,
-                                                                 "appVersion": "1.0",
-                                                                 "deviceType": "android",
-                                                                 "appIdentifier": "com.test",
-                                                                 "installationId": "XXXX",
-                                                                 "parseVersion": "1.13.0",
-                                                                 "appName": "PushNotificationDemo",
-                                                                 "timeZone": "America\/New_York"
-                                                             }
+03-02 03:17:27.859 9362-9596/com.test I/ParseLogInterceptor: 
+Body : {
+   "pushType": "gcm",
+   "localeIdentifier": "en-US",
+   "deviceToken": XXX,
+   "appVersion": "1.0",
+   "deviceType": "android",
+   "appIdentifier": "com.test",
+   "installationId": "XXXX",
+   "parseVersion": "1.13.0",
+   "appName": "PushNotificationDemo",
+   "timeZone": "America\/New_York"
+}
 ```
 
 * Your app if properly configured should register itself with your Parse server.  Check your `_Installation` table to verify that the entries were being saved. Clear your app cache or uninstall the app if an entry in the  `_Installation` table hasn't been added.
