@@ -205,8 +205,6 @@ The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which 
 
 * If you are seeing `Master key is invalid, you should only use master key to send push`, chances are you are trying to send Push notifications without enable client push.  On Parse.com you can simply enable a toggle switch but for hosted parse there is an outstanding [issue](https://github.com/ParsePlatform/parse-server/issues/396) that must be resolved to start supporting it.
 
-* If you intend to use the Parse JavaScript SDK, you will also need to enable the `javaScriptKey` in your hosted `index.js` config.  Take a look at this [example](https://github.com/codepath/parse-server-example/blob/master/index.js#L26) to see where to add it.  Assuming you follow this example, you then should set your `JAVASCRIPT_KEY` environment variable.
-
 * You can also use Facebook's [Stetho](http://facebook.github.io/stetho/) interceptor to watch network logs with Chrome:
 
     ```gradle
@@ -261,6 +259,8 @@ Instead, you need to write your own server-side Parse code and have the client i
 2. Make sure to confirm the `SERVER_URL` environment variable is set to the URL and Parse mount location (i.e. `http://yourappname.herokuapp.com/parse`).
 3. Verify that `cloud/main.js` is the default value of `CLOUD_CODE_MAIN` environment variable.  
 4. Modify [cloud/main.js](https://github.com/codepath/parse-server-example/blob/master/cloud/main.js) yourself to add custom code to send Push notifications.  See [these examples](https://github.com/ParsePlatform/parse-server/issues/401#issuecomment-183767065) for other ways of sending too.  
+      * If you use Parse's default [ParsePushBroadcastReceiver](https://github.com/ParsePlatform/Parse-SDK-Android/blob/master/Parse/src/main/java/com/parse/ParsePushBroadcastReceiver.java#L155-L160), using either `alert` or `title` as a key/value pair will trigger a notification message. See [this section](https://parse.com/docs/android/guide#push-notifications-receiving-pushes) of the Parse documentation.
+      * You can also create your own custom receiver as shown in [this example](https://github.com/codepath/ParsePushNotificationExample/blob/master/app/src/main/java/com/test/MyCustomReceiver.java).
 5. Redeploy the code.  If you are using Heroku, you need to connect your own forked repository and redeploy.  
 
      <img src="http://i.imgur.com/OmxXc6s.png"/>
