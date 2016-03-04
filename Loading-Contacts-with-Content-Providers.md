@@ -8,7 +8,7 @@ In this example, we load the data directly from the ContentProvider using a [Cur
 
 Let's define a few terms used below so we understand how this example fits together:
 
- * `CursorLoader` - A loader object that queries a `ContentProvider` for data and returns a `Cursor`.
+ * `CursorLoader` - A loader object that queries a `ContentResolver` for data and returns a `Cursor`.
  * `Cursor` - Provides random read-write access to the result set returned by the `CursorLoader`.
  * `LoaderManager` - Manages background loading operations such as async querying with `CursorLoader`.  
  * `CursorAdapter` - Adapter that exposes data from a Cursor source to a ListView widget.
