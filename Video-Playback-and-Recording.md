@@ -84,7 +84,13 @@ controller.setVisibility(View.VISIBLE);
 
 You can read about [how fenster was developed](http://www.malmstein.com/blog/2014/08/09/how-to-use-a-textureview-to-display-a-video-with-custom-media-player-controls/) as well. 
 
+### Streaming from 3gp Youtube Source
+
+There are a few ways of video playback on the android device. Most of which include downloading the content to the device for playback. If you want to stream a video from a network hosted source. the youtube api gives you the ability to do so using their provided 3gp stream. The provided [YouTube Android Player API](https://developers.google.com/youtube/android/player/) allows you to do so with very little code. Check out [this truiton tutorial](http://www.truiton.com/2013/08/android-youtube-api-tutorial/) to learn more about playing video with YouTube SDK.
+
 ## Capturing Video
+
+### Using Intents
 
 Capturing video can be done using intents to capture video using the camera. First, let's setup the necessary permissions in `AndroidManifest.xml` (**Note:** The permissions model has changed starting in Marshmallow. If your `targetSdkVersion` >= `23` and you are running on a Marshmallow (or later) device, you may need to [[enable runtime permissions|Managing-Runtime-Permissions-with-PermissionsDispatcher]]. You should also read more about the [[runtime permissions changes|Understanding-App-Permissions#runtime-permissions]]):
 
@@ -138,9 +144,15 @@ public void playbackRecordedVideo() {
 
 For a more detailed look, check out the [techtopia tutorial](http://www.techotopia.com/index.php/Video_Recording_and_Image_Capture_on_Android_using_Camera_Intents#Calling_the_Video_Capture_Intent) on video recording.
 
-### Streaming from 3gp Youtube Source
+### Using MediaRecorder
 
-There are a few ways of video playback on the android device. Most of which include downloading the content to the device for playback. If you want to stream a video from a network hosted source. the youtube api gives you the ability to do so using their provided 3gp stream. The provided [YouTube Android Player API](https://developers.google.com/youtube/android/player/) allows you to do so with very little code. Check out [this truiton tutorial](http://www.truiton.com/2013/08/android-youtube-api-tutorial/) to learn more about playing video with YouTube SDK.
+If we want to record video from within an app directly, we'll want to use the [MediaRecorder](http://developer.android.com/reference/android/media/MediaRecorder.html). We can find good references for using the recorder in the following resources below:
+
+ * [Grabbing a video using MediaRecorder](https://androidcookbook.com/Recipe.seam;jsessionid=9ACF6480A5FD9DDFEDE7ED6CD35C97EF?recipeId=1375)
+ * [Recording and Playing Video on Android](http://www.codeproject.com/Articles/107270/Recording-and-Playing-Video-on-Android)
+ * [Google Video Recorder Sample](https://github.com/googlesamples/android-MediaRecorder)
+
+For more advanced usage, see [this video recording and processing guide](http://andrey.chernih.me/2014/06/28/video-recording-and-processing-in-android/).
 
 ## References
 
