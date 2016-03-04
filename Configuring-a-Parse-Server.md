@@ -230,9 +230,9 @@ The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which 
    node_modules/.bin/node-inspector 
    ```
 
-Open up http://127.0.0.1:8080/?port=5858 locally.   You can use the Chrome debugging tools to set breakpoints in the JavaScript code.
+   Open up http://127.0.0.1:8080/?port=5858 locally.   You can use the Chrome debugging tools to set breakpoints in the JavaScript code.
 
-Point your Android client to this server::
+   Point your Android client to this server::
 
    ```java
    Parse.initialize(new Parse.Configuration.Builder(this)
