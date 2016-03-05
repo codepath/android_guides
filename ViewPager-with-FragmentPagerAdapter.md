@@ -180,7 +180,7 @@ If the Activity needs to be able listen for changes to the page selected or othe
 
 ```java
 // Attach the page change listener inside the activity
-vpPager.setOnPageChangeListener(new OnPageChangeListener() {
+vpPager.addOnPageChangeListener(new OnPageChangeListener() {
 	
 	// This method will be invoked when a new page becomes selected.
 	@Override
@@ -203,7 +203,6 @@ vpPager.setOnPageChangeListener(new OnPageChangeListener() {
 	}
 });
 ```
-**Note:** if you're using the PagerSlidingTabStrip library (see below), call `setOnPageChangeListener` on your PagerSlidingTabStrip object instead of on your ViewPager. You must do this because the ViewPager only supports notifying one listener. ViewPager.setOnPageChangeListener is deprecated now. Need to use ViewPager.addOnPageChangeListener instead.
 
 ## Tabbed Interface with Pager
 
