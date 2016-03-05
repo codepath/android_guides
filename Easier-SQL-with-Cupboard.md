@@ -317,8 +317,8 @@ public static void clearAllBunnyData(SQLiteDatabase db) {
 
 ## References
 
-* [Cupboard bitbucket](https://bitbucket.org/qbusict/cupboard)
-* [Cupboard Getting Started](https://bitbucket.org/qbusict/cupboard/wiki/GettingStarted)
-* [Cupboard working with annotations and existing data](https://bitbucket.org/qbusict/cupboard/wiki/existingData)
-* [Cupboard working with databases](https://bitbucket.org/qbusict/cupboard/wiki/withDatabase)
+* [Cupboard bitbucket](https://bitbucket.org/littlerobots/cupboard)
+* [Cupboard Getting Started](https://bitbucket.org/littlerobots/cupboard/wiki/GettingStarted)
+* [Cupboard working with annotations and existing data](https://bitbucket.org/littlerobots/cupboard/wiki/existingData)
+* [Cupboard working with databases](https://bitbucket.org/littlerobots/cupboard/wiki/withDatabase)
 * [Cupboard talk] (https://skillsmatter.com/skillscasts/4806-simple-persistence-with-cupboard)
