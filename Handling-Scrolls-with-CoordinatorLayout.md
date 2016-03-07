@@ -268,7 +268,7 @@ Bottom Sheets are now supported in `v23.2` of the support design library.
 
 <img src="http://imgur.com/3hCTnnC.png">
 
-The easiest way to create them is using a [[RecyclerView|Using-the-RecyclerView]] nested inside a `CoordinatorLayout`:
+The easiest way to create them is using an additional [[RecyclerView|Using-the-RecyclerView]] nested inside a `CoordinatorLayout`.  This `RecyclerView` will be hidden by default if the `layout_behavior` defined is set using the pre-defined `@string/bottom_sheet_behavior` value.  Note also that this `RecyclerView` should be using `wrap_content` instead of `match_parent`, which is a new change that allows the bottom sheet to only occupy the necessary space instead of the entire page:
 
 ```xml
 <CoordinatorLayout>
@@ -281,9 +281,7 @@ The easiest way to create them is using a [[RecyclerView|Using-the-RecyclerView]
 </CoordinatorLayout>
 ```
 
-This `RecyclerView` should be using `wrap_content` instead of `match_parent`, which is a new change that allows the bottom sheet to only occupy the necessary space instead of the entire page.  In addition, this `RecyclerView` should designate `app:layout_behavior` to use the pre-defined behavior that can be specified by using `@string/bottom_sheet_behavior`.
-
-The next step is to create `RecyclerView` elements. We can create a simple `Item` that contains an image and a text:
+The next step is to create `RecyclerView` elements.  We can create a simple `Item` that contains an image and a text and an adapter that can inflate these items.
 
 ```java
 
