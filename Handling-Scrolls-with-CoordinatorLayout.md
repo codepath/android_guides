@@ -262,6 +262,140 @@ To create this effect, we add an ImageView and declare an `app:layout_collapseMo
 </android.support.design.widget.CollapsingToolbarLayout>
 ```
 
+## Bottom Sheets
+
+Bottom Sheets are now supported in `v23.2` of the support design library.  
+
+<img src="http://imgur.com/3hCTnnC.png">
+
+The easiest way to create them is using a [[RecyclerView|Using-the-RecyclerView]] nested inside a `CoordinatorLayout`:
+
+```xml
+<CoordinatorLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/design_bottom_sheet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/bottom_sheet_behavior">
+</CoordinatorLayout>
+```
+
+This `RecyclerView` should be using `wrap_content` instead of `match_parent`, which is a new change that allows the bottom sheet to only occupy the necessary space instead of the entire page.  In addition, this `RecyclerView` should designate `app:layout_behavior` to use the pre-defined behavior that can be specified by using `@string/bottom_sheet_behavior`.
+
+The next step is to create `RecyclerView` elements. We can create a simple `Item` that contains an image and a text:
+
+```java
+
+public class Item {
+
+    private int mDrawableRes;
+
+    private String mTitle;
+
+    public Item(@DrawableRes int drawable, String title) {
+        mDrawableRes = drawable;
+        mTitle = title;
+    }
+
+    public int getDrawableResource() {
+        return mDrawableRes;
+    }
+
+    public String getTitle() {
+        return mTitle;
+    }
+
+}
+```
+
+Next, we create our adapter:
+
+```java
+public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
+
+    private List<Item> mItems;
+
+    public ItemAdapter(List<Item> items, ItemListener listener) {
+        mItems = items;
+        mListener = listener;
+    }
+
+    public void setListener(ItemListener listener) {
+        mListener = listener;
+    }
+
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new ViewHolder(LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.adapter, parent, false));
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        holder.setData(mItems.get(position));
+    }
+
+    @Override
+    public int getItemCount() {
+        return mItems.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+        public ImageView imageView;
+        public TextView textView;
+        public Item item;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            itemView.setOnClickListener(this);
+            imageView = (ImageView) itemView.findViewById(R.id.imageView);
+            textView = (TextView) itemView.findViewById(R.id.textView);
+        }
+
+        public void setData(Item item) {
+            this.item = item;
+            imageView.setImageResource(item.getDrawableResource());
+            textView.setText(item.getTitle());
+        }
+
+        @Override
+        public void onClick(View v) {
+            if (mListener != null) {
+                mListener.onItemClick(item);
+            }
+        }
+    }
+
+    public interface ItemListener {
+        void onItemClick(Item item);
+    }
+}
+```
+
+The bottom sheet should be hidden by default.  We need to use a click event to trigger the show and hide.  
+**Note**: do not try to expand the bottom sheet inside an `OnCreate()` method because of this [known issue](https://code.google.com/p/android/issues/detail?id=202174).
+
+```java
+RecyclerView recyclerView = (RecyclerView) findViewById(R.id.design_bottom_sheet); 
+CoordinatorLayout coordinatorLayout = (CoordinatorLayout) findViewById(R.id.main_content);
+final BottomSheetBehavior behavior = BottomSheetBehavior.from(recyclerView);
+
+fab.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+       if(behavior.getState() == BottomSheetBehavior.STATE_COLLAPSED) {
+         behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+       } else {
+         behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+       }
+    }
+});
+```
+
+You can set a layout attribute `app:behavior_hideable=true` to allow the user to swipe the bottom sheet away too.  There are other states including `STATE_DRAGGING`, `STATE_SETTLING`, and `STATE_HIDDEN`.  
+
 ## Troubleshooting Coordinated Layouts
 
 `CoordinatorLayout` is very powerful but error-prone at first. If you are running into issues with coordinating behavior, check the following tips below:
@@ -309,3 +443,4 @@ There is currently no way of supporting Google Maps fragment within an `AppBarLa
 ## References
 
 * <http://android-developers.blogspot.com/2015/05/android-design-support-library.html>
+* <http://android-developers.blogspot.com/2016/02/android-support-library-232.html>
