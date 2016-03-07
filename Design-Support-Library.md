@@ -18,6 +18,7 @@ The support design library has the following key features:
 6. [[CoordinatorLayout|Handling-Scrolls-with-CoordinatorLayout]] - Provides an additional level of control over scroll and touch events between child views.
      * [AppBarLayout](http://developer.android.com/reference/android/support/design/widget/AppBarLayout.html) allows your toolbar and other views to react to scroll events. 
      * [CollapsingToolbarLayout](http://developer.android.com/reference/android/support/design/widget/CollapsingToolbarLayout.html) extend this to allow the toolbar to collapse as the user scrolls through a view.  
+     * [[Bottom Sheets|Handling-Scrolls-with-CoordinatorLayout#bottom-sheets]] to expose a sheet of material that slides up from the bottom of the screen.
 7. [[PercentRelativeLayout|Constructing-View-Layouts#percentrelativelayout]] and PercentFrameLayout to enable views to occupy [percentage-based dimensions](http://developer.android.com/reference/android/support/percent/PercentRelativeLayout.html).  
 
 ### Setup
@@ -123,6 +124,10 @@ The latest source code updates for the support library are now always included s
 ### Changes in Support Library v23.1.1
 
 - NavigationView now contains a `getHeaderView()` method ([[view guide|Fragment-Navigation-Drawer#getting-references-to-the-header]])
+
+### Changes is Support Library v23.2
+
+- Added support for bottom sheets. ([[view guide|Handling-Scrolls-with-CoordinatorLayout#bottom-sheets]])
 
 ## References
 
