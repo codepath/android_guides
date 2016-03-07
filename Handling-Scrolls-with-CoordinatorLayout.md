@@ -376,6 +376,19 @@ The bottom sheet should be hidden by default.  We need to use a click event to t
 
 ```java
 RecyclerView recyclerView = (RecyclerView) findViewById(R.id.design_bottom_sheet); 
+
+// Create your items
+ArrayList<Item> items = new ArrayList<>();
+items.add(new Item(R.drawable.cheese_1, "Cheese 1"));
+items.add(new Item(R.drawable.cheese_2, "Cheese 2"));
+
+// Instantiate adapter
+ItemAdapter itemAdapter = new ItemAdapter(items, null);
+recyclerView.setAdapter(itemAdapter);
+
+// Set the layout manager
+recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
 CoordinatorLayout coordinatorLayout = (CoordinatorLayout) findViewById(R.id.main_content);
 final BottomSheetBehavior behavior = BottomSheetBehavior.from(recyclerView);
 
