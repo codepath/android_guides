@@ -374,8 +374,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 }
 ```
 
-The bottom sheet should be hidden by default.  We need to use a click event to trigger the show and hide.  
-**Note**: do not try to expand the bottom sheet inside an `OnCreate()` method because of this [known issue](https://code.google.com/p/android/issues/detail?id=202174).
+The bottom sheet should be hidden by default.  We need to use a click event to trigger the show and hide. **Note**: do not try to expand the bottom sheet inside an `OnCreate()` method because of this [known issue](https://code.google.com/p/android/issues/detail?id=202174).
 
 ```java
 RecyclerView recyclerView = (RecyclerView) findViewById(R.id.design_bottom_sheet); 
