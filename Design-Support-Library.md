@@ -22,7 +22,8 @@ The support design library has the following key features:
 
 ### Setup
 
-Make sure that you have at least the Android Gradle plugin v1.2.3 supported:
+Make sure that you have at least the Android Gradle plugin v1.5.0 supported.  The latest support design library has issues with pre-Lollipop devices that triggers an error `Caused by: android.content.res.Resources$NotFoundException: File res/drawable/abc_ic_ab_back_material.xml from drawable resource ID #0x7f020016` if you do not use this minimum version:
+
 
 ```gradle
 dependencies {
@@ -40,7 +41,7 @@ android {
 }
 
 ext {
-  supportLibVersion = '23.1.1'  // variable that can be referenced to keep support libs consistent
+  supportLibVersion = '23.2'  // variable that can be referenced to keep support libs consistent
 }
 ```
 
