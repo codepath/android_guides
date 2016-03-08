@@ -345,6 +345,8 @@ If you see `Can not find sender for push type android`, it means you forgot to s
 
 * Make sure you have **not** included `com.google.android.gms:play-services-gcm:8.4.0` in your Gradle configuration.  Parse's Android SDK library already includes code to deal with the GCM registration.
 
+* Verify that you have all the permissions for GCM setup in your `AndroidManifest.xml` file and that you have the correct receivers configured.
+
 #### GCM Setup
 
 1. Make sure you have Google Play installed on the emulator or device, since push notifications via [Google Cloud Messaging](Google-Cloud-Messaging) (GCM) will only work for devices and emulators that have Google Play installed.
@@ -364,7 +366,7 @@ If you see `Can not find sender for push type android`, it means you forgot to s
               android:value="id:SENDER_ID_HERE"/>
      ```
 
-4. Add the necessary permissions.  Make sure to change any instances of `com.codepath.parseportpush` to your application package name.  If you forget any of these permissions, it is likely the GCM registration will not succeed.
+4. Add the necessary permissions (i.e. `com.google.android.c2dm.permission.WAKE_LOCK`, `com.google.android.c2dm.permission.RECEIVE`, `com.yourpackagename.permission.C2D_MESSAGE`, etc.)  Make sure to change any instances of `com.codepath.parseportpush` to your application package name.  If you forget any of these permissions, it is likely the GCM registration will not succeed.
 
     ```xml
 
