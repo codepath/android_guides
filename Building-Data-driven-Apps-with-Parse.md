@@ -767,7 +767,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
     ParseFacebookUtils.onActivityResult(requestCode, resultCode, data);
 }
-
+```
 
 ### Server Code
 
