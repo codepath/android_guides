@@ -179,6 +179,7 @@ For a simple example, the following layer list draws several shapes in relation 
     <item>
       <shape 
         android:shape="rectangle">
+            <size android:width="280dp" android:height="140dp"/>
             <stroke android:width="1dp" android:color="#585858" />
             <solid android:color="#FF9009" />
             <padding android:bottom="1dp"/>
