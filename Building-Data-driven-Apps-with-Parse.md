@@ -14,14 +14,6 @@ To get started setting up our own Parse backend, check out our [[configuring a P
 
 ### Alternatives to Parse
 
-There are a number of alternatives but the best options are included below:
-
- * [GameSparks](https://www.gamesparks.com)
- * [Cloudboost](https://tutorials.cloudboost.io/en/gettingstarted/yourfirstapp)
- * [Kinvey](http://devcenter.kinvey.com/android/guides/getting-started)
- * [Backendless](https://backendless.com/products/documentation/)
- * [Restdb](https://restdb.io/docs/)
-
 A comprehensive list of alternatives can be [reviewed here](https://github.com/relatedcode/ParseAlternatives). You can also review [Parse migration tools](http://blog.parse.com/announcements/introducing-parse-server-and-the-database-migration-tool/) and setup your own MongoDb/NodeJS server and leverage the existing Parse client SDK's.
 
 ## Registration
