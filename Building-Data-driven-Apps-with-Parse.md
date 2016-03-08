@@ -637,9 +637,137 @@ Parse supports push notifications made easy:
 
 ### Facebook SDK
 
-Signing in with Facebook:
+For a quick way of incorporating Facebook login, check out Parse's [UI Library](https://github.com/ParsePlatform/ParseUI-Android/wiki/Login-Library).  It leverages Parse's [FacebookUtils](https://github.com/ParsePlatform/ParseFacebookUtils-Android/) library, which acts as a wrapper for associating `ParseUser` objects with Facebook users.  
 
-* [Integrating with Facebook SDK](https://parse.com/docs/android/guide#users-facebook-users) - Step by step for Facebook account integration
+The official step by step instructions for integrating Parse with Facebook SDK is located [here](https://parse.com/docs/android/guide#users-facebook-users).  The manual process of integrating with Facebook's SDK is discussed below.
+
+You will first need to create a [Facebook app](https://developers.facebook.com/apps) and get an Application ID. 
+If you are using open source Parse, make sure to set the `FACEBOOK_APP_ID` environment variable too.
+
+You will also need to get access to your keystore hash and make sure to include it:
+
+<img src="https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xaf1/t39.2178-6/851568_627654437290708_1803108402_n.png"/>
+
+OS X:
+
+``bash
+keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore | openssl sha1 -binary | openssl base64
+```
+
+Windows:
+``bash
+keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.keystore | openssl sha1 -binary | openssl
+base64
+```
+
+Next, you will need to include Parse's [FacebookUtils](https://github.com/ParsePlatform/ParseFacebookUtils-Android/) library, which provides an easy-to-use wrapper to work with the Facebook SDK, as well as Facebook's SDK:
+
+```gradle
+dependencies {
+compile 'com.facebook.android:facebook-android-sdk:4.10.0'
+compile 'com.parse:parsefacebookutils-v4-android:1.10.4@aar'
+compile 'com.parse:parse-android:1.13.0'
+}
+```
+
+You will then need to make sure to initialize these libraries by doing so in your `MainApplication.java` file:
+
+```java
+public class MainApplication extends Application {
+
+  @Override
+  public void onCreate() {
+     super.onCreate();
+
+     Parse.initialize(new Parse.Configuration.Builder(this)
+           .applicationId("myAppId")
+           .clientKey(null)
+           .server("https://yourappname.herokupapp.com/parse/").build());
+
+    // ParseFacebookUtils should initialize the Facebook SDK for you
+    ParseFacebookUtils.initialize(this);
+  }
+```
+
+Make sure to reference this `MainApplication` in your `AndroidManifest.xml` file:
+
+```xml
+<application
+android:name=".MainApplication"
+```
+
+Make sure to add the `FacebookActivity` to your manifest file, as well as the application ID and permissions you wish to request.  
+
+```xml
+<activity android:name="com.facebook.FacebookActivity"
+            android:configChanges=
+                "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:label="@string/app_name" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <meta-data
+            android:name="com.facebook.sdk.PERMISSIONS"
+            android:value="email" />
+```
+
+There are two ways to support Facebook login: one is to use your own custom button/icon, or to use Facebook's `LoginButton` class.  If you choose to use the `LoginButton` class, you should not use the `FacebookUtils` library to trigger a login.  The reason is that Facebook's `LoginButton` already has click handlers that will launch a login screen, so using Parse's code triggers two of these screens to appear.  In addition, you have to do more work to associate a `ParseUser` object with a Facebook user.  For this reason, it may be simpler to use the custom button approach.
+
+#### Custom button
+
+For your `LoginActivity.java`, add this code to trigger a login.  If you wish to trigger this login, you may add your own custom button:
+
+```xml
+    <Button
+        android:background="@color/com_facebook_blue"
+        android:text="Log in with Facebook"
+        android:id="@+id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+```
+
+You can then attach a button click handler.
+
+```java
+button.setOnClickListener(new View.OnClickListener() {
+                                      @Override
+                                      public void onClick(View v) {
+
+            ArrayList<String> permissions = new ArrayList();
+            permissions.add("email");
+            ParseFacebookUtils.logInWithReadPermissionsInBackground(MainActivity.this, permissions,
+                    new LogInCallback() {
+                        @Override
+                        public void done(ParseUser user, ParseException err) {
+                            if (err != null) {
+                                Log.d("MyApp", "Uh oh. Error occurred" + err.toString());
+                            } else if (user == null) {
+                                Log.d("MyApp", "Uh oh. The user cancelled the Facebook login.");
+                            } else if (user.isNew()) {
+                                Log.d("MyApp", "User signed up and logged in through Facebook!");
+                            } else {
+                                Toast.makeText(MainActivity.this, "Logged in", Toast.LENGTH_SHORT)
+                                        .show();
+                                Log.d("MyApp", "User logged in through Facebook!");
+                            }
+                        }
+                    });
+        }
+});
+```
+
+You must also override the `onActivityResult()` to capture the result after a user signs into Facebook:
+
+```java
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+    ParseFacebookUtils.onActivityResult(requestCode, resultCode, data);
+}
+
 
 ### Server Code
 
