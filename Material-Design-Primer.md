@@ -12,7 +12,7 @@ What exactly is "Material Design"? This can be difficult to answer because of th
  2. [[Updated Iconography|Material-Design-Primer#material-design-icons]]
  3. [[RecyclerView for Lists|Using-the-RecyclerView]] with items as [[CardViews|Using-the-CardView]]
  4. [[Leveraging the new App Toolbar|Using-the-App-ToolBar]] 
- 5. [[Dynamic Scolling Behavior with CoordinatorLayout|Handling-Scrolls-with-CoordinatorLayout]]
+ 5. [[Dynamic Scrolling Behavior with CoordinatorLayout|Handling-Scrolls-with-CoordinatorLayout]]
  6. [[Floating Action Buttons]] for important actions
  7. [[Ripple Animations for Touch Feedback|Ripple-Animation]]
  8. [[Shared Element Morph Transitions|Shared Element Activity Transition]] during navigation
