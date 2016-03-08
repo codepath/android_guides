@@ -1,13 +1,5 @@
 ## Getting Started
 
-### Creating Topic Drafts Online
-
-For new guide, if you prefer to write your guide drafts online and keep them separate from this wiki, you can use the [hackmd.io](https://hackmd.io) for collaborative markdown drafts.
-
-<a href="https://hackmd.io"><img src="http://i.imgur.com/Pg8BycW.png" width="400" /><a/>
-
-Using collaborative online markdown tools, you can create new guide content. When the guide is ready to be reviewed, you can [submit an issue](https://github.com/codepath/android_guides/issues) to this repo with a link to the guide. Once the guide is ready, we can merge the guide back into the master wiki. 
-
 ### Cloning Guides Locally with Git
 
 If you want to contribute to these guides with local offline development, start by cloning the guides repo locally on your computer:
@@ -28,21 +20,15 @@ git pull origin master
 git submodule update
 ```
 
-### Submitting Changes Back through Git
+After changes have been made, you can post the updated topic drafts online as outlined below.
 
-Make your proposed changes locally, then commit and **push them to your own github repository** with:
+### Creating Topic Drafts Online
 
-```
-cd /path/to/android_guides/guides
-git add .
-git commit -am "describe changes to the guides"
-git remote add fork <pathtoyourfork>
-git push fork master
-```
+For new guide, if you prefer to write your guide drafts online and keep them separate from this wiki, you can use the [hackmd.io](https://hackmd.io) for collaborative markdown drafts.
 
-Now you can submit a ticket to the [issue tracker](https://github.com/codepath/android_guides/issues) requesting a review of your changes so we can merge them in. Please be sure to **include a link to your repo** and describe what you've changed.
+<a href="https://hackmd.io"><img src="http://i.imgur.com/Pg8BycW.png" width="400" /><a/>
 
-With this approach, submitting changes is as simple as pushing your guides repository which we can review and then sign off on the changes the guides repo. 
+Using collaborative online markdown tools, you can create new guide content. When the guide is ready to be reviewed, you can [submit an issue](https://github.com/codepath/android_guides/issues) to this repo with a link to the guide. Once the guide is ready, we can merge the guide back into the master wiki. 
 
 ### Modifying Guides on Wiki Directly
 
