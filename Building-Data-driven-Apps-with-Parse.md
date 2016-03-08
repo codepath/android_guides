@@ -714,7 +714,7 @@ Make sure to add the `FacebookActivity` to your manifest file, as well as the ap
             android:value="email" />
 ```
 
-There are two ways to support Facebook login: one is to use your own custom button/icon, or to use Facebook's `LoginButton` class.  If you choose to use the `LoginButton` class, you should not use the `FacebookUtils` library to trigger a login.  The reason is that Facebook's `LoginButton` already has click handlers that will launch a login screen, so using Parse's code triggers two of these screens to appear.  In addition, you have to do more work to associate a `ParseUser` object with a Facebook user.  For this reason, it may be simpler to use the custom button approach.
+There are two ways to support Facebook login: one is to use your own custom button/icon, or to use Facebook's `LoginButton` class as described in the [walkthrough](https://developers.facebook.com/docs/facebook-login/android).  If you choose to use the `LoginButton` class, you should not use the `FacebookUtils` library to trigger a login.  The reason is that Facebook's `LoginButton` already has click handlers that will launch a login screen, so using Parse's code triggers two of these screens to appear.  In addition, you have to do more work to associate a `ParseUser` object with a Facebook user.  For this reason, it is simpler to use the custom button approach when integrating with Parse.
 
 #### Custom button
 
