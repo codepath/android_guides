@@ -650,12 +650,12 @@ You will also need to get access to your keystore hash and make sure to include 
 
 OS X:
 
-``bash
+```bash
 keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore | openssl sha1 -binary | openssl base64
 ```
 
 Windows:
-``bash
+```bash
 keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.keystore | openssl sha1 -binary | openssl
 base64
 ```
