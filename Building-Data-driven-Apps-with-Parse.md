@@ -647,7 +647,7 @@ Parse supports push notifications made easy:
 
 Signing in with Facebook:
 
-* [Integrating with Facebook SDK](https://parse.com/tutorials/integrating-facebook-in-android) - Step by step for Facebook account integration
+* [Integrating with Facebook SDK](https://parse.com/docs/android/guide#users-facebook-users) - Step by step for Facebook account integration
 
 ### Server Code
 
