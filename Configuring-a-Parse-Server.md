@@ -370,7 +370,7 @@ If you see `Can not find sender for push type android`, it means you forgot to s
 
     ```xml
 
-     <uses-permission android:name="android.permission.INTERNET" />
+        <uses-permission android:name="android.permission.INTERNET" />
         <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
         <uses-permission android:name="android.permission.WAKE_LOCK" />
