@@ -336,7 +336,7 @@ Using the powerful [[alternative resources feature|Understanding-App-Resources#p
 
 #### What is the difference between `sp` and `dp` units?
 
-`dp` are density-indenpendant pixels and they correspond to pixels depending on the physical density. `sp` is a scale-independant pixel which is scaled when the `Large Text` option is turned on in the device's settings. In short: Use `sp` for Text sizes. Use `dp` for padding, heights, and everything else.
+`dp` are density-independent pixels and they correspond to pixels depending on the physical density. `sp` is a scale-independent pixel which is scaled when the `Large Text` option is turned on in the device's settings. In short: Use `sp` for Text sizes. Use `dp` for padding, heights, and everything else.
 
 ### ActionBar
 
