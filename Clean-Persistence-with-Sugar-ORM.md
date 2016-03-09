@@ -148,6 +148,7 @@ Author.deleteAll(Author.class, "age = ?", "31");
 The first operation will, unsurprisingly, delete every `Book` record. The second operation only deletes `Author` records that have an age of `31`. Note that for inserting a value into the where clause, it's necessary to make it a `String`, even though the underlying column is an `int`.
 
 ##### Count (available in v1.3+ only)
+If the table is not initialized return value will be -1. 
 
 ```java
 long numberOfBooks = Book.count(Book.class, null, null);
