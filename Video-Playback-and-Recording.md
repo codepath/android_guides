@@ -154,6 +154,28 @@ If we want to record video from within an app directly, we'll want to use the [M
 
 For more advanced usage, see [this video recording and processing guide](http://andrey.chernih.me/2014/06/28/video-recording-and-processing-in-android/).
 
+#### Configuring Encoding
+
+The `MediaRecorder` can be configured to select the encoding, quality and compression settings:
+
+```java
+// Create MediaRecorder
+recorder.setVideoSize(640, 480);
+recorder.setVideoFrameRate(16); //might be auto-determined due to lighting
+recorder.setVideoEncodingBitRate(3000000);
+recorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);// MPEG_4_SP
+recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+```
+
+You can also configure using preset qualities with `CamcorderProfile`:
+
+```java
+CamcorderProfile cpHigh = CamcorderProfile.get(CamcorderProfile.QUALITY_HIGH);
+recorder.setProfile(cpHigh);
+```
+
+See the [available options here](http://developer.android.com/reference/android/media/CamcorderProfile.html#constants). You can also review [this stackoverflow post](http://stackoverflow.com/a/14581125) for more details.
+
 ## References
 
 * <http://mrbool.com/how-to-play-video-formats-in-android-using-videoview/28299>
