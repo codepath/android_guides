@@ -179,6 +179,13 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [HelloCharts](https://github.com/lecho/hellocharts-android) - Charts/graphs library for Android with support for scaling, scrolling and animations.
  * [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart)-A powerful Android chart view / graph view library, supporting line- bar- pie- radar- bubble- and candlestick charts as well as scaling, dragging and animations.
 
+### Image Processing
+
+* [android-gpuimage](https://github.com/CyberAgent/android-gpuimage) - Popular GPU Image Processing
+* [android-image-filter](https://github.com/ragnraok/android-image-filter) - Older image filtering library
+* [picasso-transformations](https://github.com/wasabeef/picasso-transformations) - Library for processing images via Picasso
+* [glide-transformations](https://github.com/wasabeef/glide-transformations) - Process images via Glide
+* [ImageEffectFilter](https://github.com/mnafian/ImageEffectFilter) - Sample code for processing images.
 
 ### Scanning
 
