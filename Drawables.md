@@ -510,15 +510,13 @@ Note that the shape is accessed as a `GradientDrawable` here even though the sha
 
 ## Vector Drawables
 
-Recent versions of the Android support library, include [compatibility versions](http://android-developers.blogspot.ru/2016/02/android-support-library-232.html) of [Vector Drawables](http://developer.android.com/training/material/drawables.html#VectorDrawables) as [introduced in this video](https://www.youtube.com/watch?v=wlFVIIstKmA). These are XML drawables that can define complex vector-based images which can scale to support all densities automatically. This means using vector-based images, you will need **only one asset file** as opposed to an asset file for each screen density in the case of bitmap images. To create a vector image, you define the details of the shape inside a <vector> XML element:
+Recent versions of the Android support library, include [compatibility versions](http://android-developers.blogspot.ru/2016/02/android-support-library-232.html) of [Vector Drawables](https://blog.stylingandroid.com/vectordrawables-part-1/) as [introduced in this video](https://www.youtube.com/watch?v=wlFVIIstKmA). These are XML drawables that can define complex vector-based images which can scale to support all densities automatically. This means using vector-based images, you will need **only one asset file** as opposed to an asset file for each screen density in the case of bitmap images. To create a vector image, you define the details of the shape inside a <vector> XML element:
 
 ```xml
 <!-- res/drawable/heart.xml -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    <!-- intrinsic size of the drawable -->
     android:height="256dp"
     android:width="256dp"
-    <!-- size of the virtual canvas -->
     android:viewportWidth="32"
     android:viewportHeight="32">
   <!-- draw a path -->
