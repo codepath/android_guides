@@ -508,6 +508,33 @@ outerRect.setColor(Color.parseColor("#2f8f22"));
 
 Note that the shape is accessed as a `GradientDrawable` here even though the shape is a solid color.
 
+## Vector Drawables
+
+Recent versions of the Android support library, include [compatibility versions](http://android-developers.blogspot.ru/2016/02/android-support-library-232.html) of [Vector Drawables](http://developer.android.com/training/material/drawables.html#VectorDrawables) as [introduced in this video](https://www.youtube.com/watch?v=wlFVIIstKmA). These are XML drawables that can define complex vector-based images which can scale to support all densities automatically. This means using vector-based images, you will need **only one asset file** as opposed to an asset file for each screen density in the case of bitmap images. To create a vector image, you define the details of the shape inside a <vector> XML element:
+
+```xml
+<!-- res/drawable/heart.xml -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    <!-- intrinsic size of the drawable -->
+    android:height="256dp"
+    android:width="256dp"
+    <!-- size of the virtual canvas -->
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+  <!-- draw a path -->
+  <path android:fillColor="#8fff"
+      android:pathData="M20.5,9.5
+                        c-1.955,0,-3.83,1.268,-4.5,3
+                        c-0.67,-1.732,-2.547,-3,-4.5,-3
+                        C8.957,9.5,7,11.432,7,14
+                        c0,3.53,3.793,6.257,9,11.5
+                        c5.207,-5.242,9,-7.97,9,-11.5
+                        C25,11.432,23.043,9.5,20.5,9.5z" />
+</vector>
+``` 
+
+Android Studio includes a handy [vector asset studio](http://developer.android.com/tools/help/vector-asset-studio.html) for converting SVG assets into vector assets. You can refer to [this guide for more details](http://developer.android.com/training/material/drawables.html#VectorDrawables). 
+
 ## Additional Drawable Types
 
  * [LevelList](http://developer.android.com/guide/topics/resources/drawable-resource.html#LevelList) - A Drawable that manages a number of alternate Drawables, each assigned a maximum numerical value.
