@@ -467,7 +467,7 @@ In other cases, we want the dialog to fill the entire screen. First, in the XML 
 
 Next, within the `onResume` method of the `DialogFragment` we need to set the rules on the `getDialog().getWindow()` object to `WindowManager.LayoutParams.MATCH_PARENT` with:
 
-```
+```java
 @Override
 public void onResume() {
     // Get existing layout params for the window
