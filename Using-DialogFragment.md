@@ -418,6 +418,8 @@ public void onResume() {
     int width = getResources().getDimensionPixelSize(R.dimen.popup_width);
     int height = getResources().getDimensionPixelSize(R.dimen.popup_height);        
     getDialog().getWindow().setLayout(width, height);
+    // Call super onResume after sizing
+    super.onResume();
 }
 ```
 
@@ -434,6 +436,8 @@ public void onResume() {
     // Set the width of the dialog proportional to 75% of the screen width
     window.setLayout((int) (size.x * 0.75), WindowManager.LayoutParams.WRAP_CONTENT);
     window.setGravity(Gravity.CENTER);
+    // Call super onResume after sizing
+    super.onResume();
 }
 ```
 
