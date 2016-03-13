@@ -61,7 +61,7 @@ So long as the CoordinatorLayout is used as the primary layout, this animation e
  </android.support.design.widget.CoordinatorLayout>
 ```
 
-## Expanding and Collapsing Toolbars
+## Expanding and Collapsing Toolbarsaaaaaaaaaaaa
 
 <img src="http://imgur.com/X5AIH0P.gif" width="350"/>
 
