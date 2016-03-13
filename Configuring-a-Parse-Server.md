@@ -126,6 +126,16 @@ You can also setup [Robomongo](https://robomongo.org/download) to connect to you
 
 <a href="https://robomongo.org/download"><img src="http://i.imgur.com/9Qtt6Xs.png" width="450" /></a>
 
+To access Mongolab databases using Robomongo, be sure to go the MongoDB instance in the Heroku panel as shown above. Look for the following URL: `mongodb://<dbuser>:<dbpassword>@ds017212.mlab.com:11218/heroku_2flx41aa`. Use that to identify the login credentials:
+
+```
+address: ds017212.mlab.com
+port: 11218
+db: heroku_2flx41aa
+user: dbuser
+password: dbpassword
+```
+
 Using that cross-platform app to easily access and modify the data for your Parse MongoDB data. 
 
 ### Enabling Client SDK integration
