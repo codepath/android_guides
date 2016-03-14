@@ -502,7 +502,7 @@ editNameDialog.setStyle(DialogFragment.STYLE_NORMAL, R.style.Dialog_FullScreen);
 editNameDialog.show(getSupportFragmentManager(), "fragment_edit_name");
 ```
 
-See [this stackoverflow post](http://stackoverflow.com/questions/27202382/android-dialog-fragment-width-keeps-on-matching-parent) for more details.
+See [this stackoverflow post](http://stackoverflow.com/questions/27202382/android-dialog-fragment-width-keeps-on-matching-parent) for more details. Refer to [this post](http://stackoverflow.com/questions/7189948/full-screen-dialogfragment-in-android/31597906#31597906) for the customized dialog styles.
 
 ## Specialized Dialog Types
 
