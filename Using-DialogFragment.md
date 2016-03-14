@@ -485,6 +485,23 @@ public void onResume() {
 }
 ```
 
+With this code above, the dialog may still not appear to be entirely full-screen until we configure the background color and padding inside `res/values/styles.xml` with the following:
+
+```xml
+<style name="Dialog.FullScreen" parent="Theme.AppCompat.Dialog">
+    <item name="android:padding">0dp</item>
+    <item name="android:windowBackground">@android:color/white</item>
+</style>
+```
+
+and then this style can be applied when creating the fragment with:
+
+```java
+EditNameDialog editNameDialog = new EditNameDialog();
+editNameDialog.setStyle(DialogFragment.STYLE_NORMAL, R.style.Dialog_FullScreen);
+editNameDialog.show(getSupportFragmentManager(), "fragment_edit_name");
+```
+
 See [this stackoverflow post](http://stackoverflow.com/questions/27202382/android-dialog-fragment-width-keeps-on-matching-parent) for more details.
 
 ## Specialized Dialog Types
