@@ -348,7 +348,34 @@ For more details, you can follow these guides:
 
 ## Animating the Scroll with PageTransformer
 
-We can customize how the pages animate as they are being swiped between using the [PageTransformer](http://developer.android.com/reference/android/support/v4/view/ViewPager.PageTransformer.html). This transformer exists within the support library and is compatible with API 11 or greater. Usage is pretty straightforward, just attach a PageTransformer to the ViewPager:
+We can customize how the pages animate as they are being swiped between using the [PageTransformer](http://developer.android.com/reference/android/support/v4/view/ViewPager.PageTransformer.html). This transformer exists within the support library and is compatible with API 11 or greater. 
+
+### Using a Third-Party Library
+
+The easiest way to leverage transformers is to use this [ViewPagerTransforms](https://github.com/ToxicBakery/ViewPagerTransforms) library:
+
+<a href="https://github.com/ToxicBakery/ViewPagerTransforms"><img src="http://i.imgur.com/qZt0ug9.gif" width="250" /></a>
+
+Loading the library into `app/build.gradle` with:
+
+```gradle
+compile 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar'
+```
+
+and then using the desired effect:
+
+```java
+// Reference (or instantiate) a ViewPager instance and apply a transformer
+pager = (ViewPager) findViewById(R.id.container);
+pager.setAdapter(mAdapter);
+pager.setPageTransformer(true, new RotateUpTransformer());
+```
+
+Other transform types include `AccordionTransformer`, `CubeInTransformer`, `FlipHorizontalTransformer`, `ScaleInOutTransformer`, `ZoomInTransformer`, and [many others](https://github.com/ToxicBakery/ViewPagerTransforms/tree/master/library/src/main/java/com/ToxicBakery/viewpager/transforms).
+
+### Developing Custom Transforms
+
+However, custom usage is pretty straightforward, just attach a PageTransformer to the ViewPager:
 
 ```java
 vpPager.setPageTransformer(false, new ViewPager.PageTransformer() { 
@@ -387,7 +414,9 @@ For more details, check out [the official guide](http://developer.android.com/tr
 
 ## Disabling Swipe Events
 
-In certain situations your app might want to have a `ViewPager` that allows switching pages using an indicator but that **doesn't intercept swipe events**. This is usually because we want to have the swipe events perform another action rather than change the page.
+If we want to **disable swipe in a particular direction**, check out this [custom ViewPager that swipes in only one direction](http://stackoverflow.com/questions/19602369/how-to-disable-viewpager-from-swiping-in-one-direction/34076649#34076649) using a custom class extending `ViewPager` that intercepts the swipe touch events.
+
+In certain situations your app might even want to have a `ViewPager` that allows switching pages using an indicator but that **doesn't intercept swipe events at all**. This is usually because we want to have the swipe events perform another action rather than change the page.
 
 The first step is to define a custom `ViewPager` [subclass called LockableViewPager](https://gist.github.com/nesquena/898db22a38747bd9bc19). The class inherits from ViewPager and includes a new method called `setSwipeable` to control if swipe events are enabled or not. Copy [this class](https://gist.github.com/nesquena/898db22a38747bd9bc19) into your project. Make sure to change your layout file accordingly:
 
@@ -498,6 +527,21 @@ class CustomPagerAdapter extends PagerAdapter {
 ```
 
 This is most commonly used for image slideshows or galleries. See [this image gallery tutorial](http://codetheory.in/android-image-slideshow-using-viewpager-pageradapter/) or this [viewpager without fragments](https://www.bignerdranch.com/blog/viewpager-without-fragments/) guide for more detailed steps.
+
+## Custom ViewPager Indicators
+
+An "indicator" is the UI element that displays the possible pages and the current page such as "tabs". There are a number of other custom indicators for the pager that can be helpful in various contexts. 
+
+<a href="https://github.com/DavidPacioianu/InkPageIndicator"><img src="http://i.imgur.com/SBxPXZZ.gif" height="600" /></a>
+<a href="https://github.com/chenupt/SpringIndicator"><img src="http://i.imgur.com/lCMRaJX.gif" height="600" /></a>
+
+A few of the most interesting ones are listed below:
+
+ * [Spring indicator with animated elastic selection](https://github.com/chenupt/SpringIndicator). Indicator that visually springs between pages as dragged. 
+
+ * [Simple circle "dots" indicator for pages](https://github.com/ongakuer/CircleIndicator). Indicator that displays the typical "dots" associated to pages. 
+
+ * [Custom "Ink" dots indicator for pages](https://github.com/DavidPacioianu/InkPageIndicator). Indicator that displays dots for items and uses "ink" to visualize the current page. 
 
 ## References
 
