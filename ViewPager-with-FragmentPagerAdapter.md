@@ -538,9 +538,7 @@ An "indicator" is the UI element that displays the possible pages and the curren
 A few of the most interesting ones are listed below:
 
  * [Spring indicator with animated elastic selection](https://github.com/chenupt/SpringIndicator). Indicator that visually springs between pages as dragged. 
-
  * [Simple circle "dots" indicator for pages](https://github.com/ongakuer/CircleIndicator). Indicator that displays the typical "dots" associated to pages. 
-
  * [Custom "Ink" dots indicator for pages](https://github.com/DavidPacioianu/InkPageIndicator). Indicator that displays dots for items and uses "ink" to visualize the current page. 
 
 ## References
