@@ -328,7 +328,7 @@ Body : {
 }
 ```
 
-* In your Parse server (`index.js`), make sure you do not have any of optional keys set (i.e. `clientKey`, `javascriptKey`, `restAPIKey` , `dotNetKey`).  If any of them are set, it's very likely you will see a 403 status code on the API response for any Android clients.  The reason is that the open source Parse version will fail if any required keys are needed.
+* Make sure you are on latest open source Parse version: [![npm version](https://img.shields.io/npm/v/parse-server.svg?style=flat)](https://www.npmjs.com/package/parse-server)  You will want to verify what version is set in your `package.json` file (i..e https://github.com/ParsePlatform/parse-server-example/blob/master/package.json#L15).  Make sure to update this file and redeploy.
 
 * If GCM is fully setup, your app if properly configured should register itself with your Parse server.  Check your `_Installation` table to verify that the entries were being saved. Clear your app cache or uninstall the app if an entry in the  `_Installation` table hasn't been added.
 
