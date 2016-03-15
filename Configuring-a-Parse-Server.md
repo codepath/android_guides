@@ -25,7 +25,7 @@ The steps described this guide walk through most of the process of setting an op
 
 #### Signing up with Heroku
 
-Use Heroku if you have little or no experience with setting up web sites. Heroku allows you to manage changes to deploy easily by specifying a GitHub repository to use.  In addition, it comes with a UI data viewer from MongoLabs.  
+Use Heroku if you have little or no experience with setting up web sites. Heroku allows you to manage changes to deploy easily by specifying a GitHub repository to use.  In addition, it comes with a UI data viewer from mLab.  
 
 1. Sign Up / Sign In at [Heroku](https://www.heroku.com)
 
@@ -114,7 +114,7 @@ Be sure to **replace the values** for `myAppId` and the server URL. If these com
 
 ### Browsing Parse Data
 
-The hosted Parse instance deployed uses [MongoLab](https://mongolab.com/) to store all of your data. MongoLab is a hosted version of [MongoDB](https://www.mongodb.org/) which is a document-store which uses JSON to store your data.
+The hosted Parse instance deployed uses [mLab](https://mlab.com/) (previously called MongoLab) to store all of your data. mLab is a hosted version of [MongoDB](https://www.mongodb.org/) which is a document-store which uses JSON to store your data.
 
 If you are using Heroku, you can verify whether the objects were created by clicking on the MongoDB instance in the Heroku panel:
 
