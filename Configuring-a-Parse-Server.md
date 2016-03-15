@@ -368,7 +368,7 @@ If you see `Can not find sender for push type android`, it means you forgot to s
 
    <img src="http://imgur.com/KgU2S2y.png"/>
 
-3. Add a `meta-data` with the Sender ID in your AndroidManifest.xml.  Make sure the `id:` is used as the prefix (Android treats any metadata value that has a string of digits as an integer so Parse prefixes this value).  If you forget this step, Parse will register with its own Sender ID but you will see `SenderID mismatch` errors when trying to issue push notifications.
+4. Add a `meta-data` with the Sender ID in your AndroidManifest.xml.  Make sure the `id:` is used as the prefix (Android treats any metadata value that has a string of digits as an integer so Parse prefixes this value).  If you forget this step, Parse will register with its own Sender ID but you will see `SenderID mismatch` errors when trying to issue push notifications.
 
      ```xml
         <meta-data
@@ -376,7 +376,7 @@ If you see `Can not find sender for push type android`, it means you forgot to s
               android:value="id:SENDER_ID_HERE"/>
      ```
 
-4. Add the necessary permissions (i.e. `com.google.android.c2dm.permission.WAKE_LOCK`, `com.google.android.c2dm.permission.RECEIVE`, `com.yourpackagename.permission.C2D_MESSAGE`, etc.)  Make sure to change any instances of `com.codepath.parseportpush` to your application package name.  If you forget any of these permissions, it is likely the GCM registration will not succeed.
+5. Add the necessary permissions (i.e. `com.google.android.c2dm.permission.WAKE_LOCK`, `com.google.android.c2dm.permission.RECEIVE`, `com.yourpackagename.permission.C2D_MESSAGE`, etc.)  Make sure to change any instances of `com.codepath.parseportpush` to your application package name.  If you forget any of these permissions, it is likely the GCM registration will not succeed.
 
     ```xml
 
