@@ -107,7 +107,8 @@ https://yourappname.herokuapp.com/parse/classes/GameScore
 Be sure to **replace the values** for `myAppId` and the server URL. If you see `Cannot POST` error then be sure both the `X-Parse-Application-Id` and the URL are correct for your application. To read data back, you will need to specify your master key as well:
 
 ```bash
-curl -X GET -H "X-Parse-Application-Id: myAppId" -H "X-Parse-Master-Key: abc"  \  https://yourappname.herokuapp.com/parse/classes/GameScore
+curl -X GET -H "X-Parse-Application-Id: myAppId" -H "X-Parse-Master-Key: abc"  \
+https://yourappname.herokuapp.com/parse/classes/GameScore
 ```
 
 Be sure to **replace the values** for `myAppId` and the server URL. If these commands work as expected, then your Parse instance is now setup and ready to be used!
