@@ -21,7 +21,7 @@ public class MainActivity extends Activity {
    } 
 ```
 
- * **Easy configuration of complex dependencies**. There is an implicit order in which your objects are often created.   Dagger 2 walks through the dependency graph and [[generates code|Dependency-Injection-with-Dagger-2#code-generation]] that is both easy to understand and trace, while also saving you from writing the large amount of of boilerplate code you would normally need to write by hand to obtain references and pass them to other objects as dependencies.  It also helps simplify refactoring, since you can focus on what modules to build rather then focusing on the order in which they need to be created.
+ * **Easy configuration of complex dependencies**. There is an implicit order in which your objects are often created.   Dagger 2 walks through the dependency graph and [[generates code|Dependency-Injection-with-Dagger-2#code-generation]] that is both easy to understand and trace, while also saving you from writing the large amount of boilerplate code you would normally need to write by hand to obtain references and pass them to other objects as dependencies.  It also helps simplify refactoring, since you can focus on what modules to build rather then focusing on the order in which they need to be created.
 
  * **Easier unit and integration testing**  Because the dependency graph is created for us, we can easily swap out modules that make network responses and mock out this behavior.
 
