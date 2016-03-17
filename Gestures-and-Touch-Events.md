@@ -405,12 +405,13 @@ The explanation above has been simplified and abridged for clarity. For addition
 
 ## Libraries
 
+* [AndroidSlidingUpPanel](https://github.com/umano/AndroidSlidingUpPanel) - Sliding panel up from the bottom
+* [PhotoView](https://github.com/chrisbanes/PhotoView) - ImageView for Android that supports zooming, by various touch gestures.
+* [DraggablePanel](https://github.com/pedrovgs/DraggablePanel) - Cool draggable panels like YouTube
 * [AndroidSwipeLayout](https://github.com/daimajia/AndroidSwipeLayout) 
 * [android-swipelistview](https://github.com/47deg/android-swipelistview) - A List View with swipeable cells
 * [gesticulate](https://github.com/aglover/gesticulate) - Android swipe detection made simple
 * [android-gesture-detectors](https://github.com/Almeros/android-gesture-detectors) - small framework for gesture detection
-* [PhotoView](https://github.com/chrisbanes/PhotoView) - ImageView for Android that supports zooming, by various touch gestures.
-* [DraggablePanel](https://github.com/pedrovgs/DraggablePanel) - Cool draggable panels like YouTube
 
 ## References
 
