@@ -141,19 +141,20 @@ Once this is set, that activity will never be a part of the stack even when laun
 
 The other approach to modifying the task stack is to [set flags](http://developer.android.com/reference/android/content/Intent.html#FLAG_ACTIVITY_NEW_TASK) within an intent when starting an Activity.
 
-You can alter the task stack behavior by appending various flags when launching an intent. The flags are added with the following:
+You can alter the task stack behavior by appending various flags when launching an intent. For example, to clear the task stack when starting a new activity, we can do:
 
 ```java
 Intent i = new Intent(this, SecondActivity.this);
 // Add flags into the intent to alter behavior
-i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);                     
-i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);  
+i.intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
+IntentCompat.FLAG_ACTIVITY_CLEAR_TASK);
 // Execute as normal
 startActivity(i);
 ```
 
-The following flags are available to be set on the intent:
+The above can be very useful for login activities. The flags launch a new activity such that when the user presses "back", the previous activity would not show up. The following other flags are available to be set on the intent:
 
+* `FLAG_ACTIVITY_CLEAR_TASK` - Clear any existing tasks on this stack before starting the activity.
 * `FLAG_ACTIVITY_NEW_TASK` - Start the activity in a new task or reuse an existing task tied to that activity.
 * `FLAG_ACTIVITY_SINGLE_TOP` - If the activity being started is the same as the current activity, then reuses the existing instance which receives a call to [onNewIntent()](http://developer.android.com/reference/android/app/Activity.html#onNewIntent\(android.content.Intent\))
 * `FLAG_ACTIVITY_CLEAR_TOP` - If the activity being started is already running in the current task, delivers us back to the existing instance and clears the stack.
