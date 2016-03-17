@@ -241,7 +241,7 @@ public class MyApp extends Application {
 
 Make sure to rebuild the project (in Android Studio, select _Build > Rebuild Project_) if you cannot reference the Dagger component.
 
-Because we are overriding the default `Application` class, we also modify the appplication  `name` to launch `MyApp`.  This way your application will use this application class to handle the initial instantiation.
+Because we are overriding the default `Application` class, we also modify the application  `name` to launch `MyApp`.  This way your application will use this application class to handle the initial instantiation.
 
 ```xml
 <application
