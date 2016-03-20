@@ -52,7 +52,7 @@ dependencies {
     // apt command comes from the android-apt plugin
     apt 'com.google.dagger:dagger-compiler:2.1'
     compile 'com.google.dagger:dagger:2.1'
-    provided 'org.glassfish:javax.annotation:10.0-b28'
+    provided 'javax.annotation:jsr250-api:1.0'
 }
 ```
 
