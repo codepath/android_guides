@@ -493,7 +493,7 @@ Setup your `app/build.gradle` file:
 // Gradle dependency on Stetho
   dependencies {
     compile 'com.facebook.stetho:stetho:1.3.0'
-    compile 'com.facebook.stetho:stetho-okhttp:1.3.0'
+    compile 'com.facebook.stetho:stetho-okhttp3:1.3.0'
   }
 ```
 
@@ -507,11 +507,12 @@ public class MyApplication extends Application {
 }
 ```
 
-Enable network inspection.  Note that you must use `networkInterceptors()` and not `interceptors()`.
+Enable network inspection.  Note that `client.networkInterceptors().add()` can no longer be used as OkHttp3 is immutable.
 
 ```java
-OkHttpClient client = new OkHttpClient();
-client.networkInterceptors().add(new StethoInterceptor());
+OkHttpClient client = new OkHttpClient.Builder()
+    .addNetworkInterceptor(new StethoInterceptor())
+    .build();
 ```
 
 Start your emulator or device.  Then visit `chrome://inspect` on your Chrome desktop and your emulator device should appear.  Click on `Inspect` to launch a new window.  
