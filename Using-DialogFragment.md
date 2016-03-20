@@ -454,7 +454,21 @@ When displaying a dialog that is accepting text input, there can often be limite
     android:windowSoftInputMode="adjustResize" />
 ```
 
-See the full details in the [[working with the soft keyboard|Working-with-the-Soft-Keyboard#changing-ui-reaction]] guide.
+See the full details in the [[working with the soft keyboard|Working-with-the-Soft-Keyboard#changing-ui-reaction]] guide. Alternatively, we could perform the resize directly at runtime within the `onCreateView` method of the fragment:
+
+```java
+public class EditNameDialog extends DialogFragment {
+    // ...
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle bundle) {
+        // Set to adjust screen height automatically, when soft keyboard appears on screen 
+        getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+        return inflater.inflate(R.layout.fragment_edit_name, container);
+    }
+}
+```
+
+See [this stackoverflow post](http://stackoverflow.com/a/26434420) for additional details. Keep in mind that for either of these to work, the layout of the dialog must be configured to resize properly as the height changes. 
 
 ### Full-Screen Dialog
 
