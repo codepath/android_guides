@@ -183,7 +183,7 @@ Call<Response> uploadImage(@Part("description") String description, @Part("image
 Assuming we have a reference to the file, we can create a RequestBody object:
 ```java
 MediaType MEDIA_TYPE_PNG = MediaType.parse("image/png");
-File = new File("/storage/emulated/0/Pictures/MyApp/test.png");
+file = new File("/storage/emulated/0/Pictures/MyApp/test.png");
 RequestBody requestBody = RequestBody.create(MEDIA_TYPE_PNG, file);
 
 Call<Response> call = apiService.uploadImage("test", requestBody);
