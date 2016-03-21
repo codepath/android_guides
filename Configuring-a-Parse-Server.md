@@ -188,7 +188,7 @@ public class ChatApplication extends Application {
 
 The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which is set to this value by default.
 
-### Troubleshooting
+### Troubleshooting Parse Server
 
 * If you see `Application Error` or `An error occurred in the application and your page could not be served. Please try again in a few moments.`, double-check that you set a `MASTER_KEY` in the environment settings for that app.
 
@@ -303,7 +303,7 @@ Instead, you need to write your own server-side Parse code and have the client i
      ParseInstallation.getCurrentInstallation().saveInBackground();
      ```
 
-#### Troubleshooting
+#### Troubleshooting Push Notifications
 
 * If you are using Facebook's Stetho library with your Android client, you can see the LogCat statements and verify that GCM tokens are being registered by API calls to the `/parse/classes/_Installation` endpoint:
 
