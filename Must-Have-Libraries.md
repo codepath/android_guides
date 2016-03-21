@@ -64,6 +64,7 @@ Essentially this method is used to enable your code to short-circuit before exec
 ### Convenience
 
  * [Dagger](http://square.github.io/dagger/) - A fast dependency injector for Android and Java.  See this [video intro](http://www.infoq.com/presentations/Dagger) from Square.
+ * [Spork](https://sporklibrary.github.io) - Spork is an annotation processing library to speed up development on your projects. It allows you to write less boilerplate code to make your code more readable and maintainable.
  * [AutoParcel](https://github.com/frankiesardo/auto-parcel) - Port of Google AutoValue for Android with Parcelable generation goodies.
  * [Akatsuki](https://github.com/tom91136/Akatsuki) - Handles instance state restoration via annotations
  * [Hugo](https://github.com/JakeWharton/hugo) - Easier logging within your app
