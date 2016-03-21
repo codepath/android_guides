@@ -87,7 +87,7 @@ This doesn't appear to be possible at this point as Parse Android SDK does not s
 
 Often with Android development, you need to pass an object from one `Activity` to another. This is done using the Intent system and passing objects as extras within a bundle. Unfortunately, `ParseObject` does not currently implement `Parcelable` or `Serializable`. See [[the available workarounds here|Building-Data-driven-Apps-with-Parse#passing-objects-between-activities]].
 
-### Queries with Joins
+### Leveraging Multi-level Relational Queries
 
 In the case where we want to execute a query with Parse that resembles a complex SQL join query, the best way to achieve this is using inner queries as [outlined briefly here](https://www.parse.com/docs/android/guide#queries-relational-queries). The key to inner queries is constructing a query on an associated object and then using [whereMatchesQuery](https://parse.com/docs/android/api/com/parse/ParseQuery.html#whereMatchesQuery\(java.lang.String,%20com.parse.ParseQuery\)) to form the outer query. 
 
