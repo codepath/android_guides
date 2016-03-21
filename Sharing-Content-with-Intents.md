@@ -259,6 +259,8 @@ public void setupShareIntent() {
     shareIntent.setAction(Intent.ACTION_SEND);
     shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
     shareIntent.setType("image/*");   
+    // Attach share event to the menu item provider
+    miShareAction.setShareIntent(shareIntent);
 }
 
 @Override
@@ -269,8 +271,6 @@ public boolean onCreateOptionsMenu(Menu menu) {
     MenuItem item = menu.findItem(R.id.menu_item_share);
     // Fetch reference to the share action provider
     miShareAction = (ShareActionProvider) MenuItemCompat.getActionProvider(item);
-    // Attach share event to the menu item provider
-    miShareAction.setShareIntent(shareIntent);
     // Return true to display menu
     return true;
 }
