@@ -87,6 +87,38 @@ This doesn't appear to be possible at this point as Parse Android SDK does not s
 
 Often with Android development, you need to pass an object from one `Activity` to another. This is done using the Intent system and passing objects as extras within a bundle. Unfortunately, `ParseObject` does not currently implement `Parcelable` or `Serializable`. See [[the available workarounds here|Building-Data-driven-Apps-with-Parse#passing-objects-between-activities]].
 
+### Queries with Joins
+
+In the case where we want to execute a query with Parse that resembles a complex SQL join query, the best way to achieve this is using inner queries as [outlined briefly here](https://www.parse.com/docs/android/guide#queries-relational-queries). The key to inner queries is constructing a query on an associated object and then using [whereMatchesQuery](https://parse.com/docs/android/api/com/parse/ParseQuery.html#whereMatchesQuery\(java.lang.String,%20com.parse.ParseQuery\)) to form the outer query. 
+
+For example, if we had a Post which had associated entries each of which had a user (`Post => Entry => User`), we could get all posts which have at least one entry belonging to a particular user with the following multi-level query:
+
+```java
+// Get current user object
+User me = (User) User.getCurrentUser();
+/* Equivalent SQL query (to help you to understand):
+ SELECT * FROM Post WHERE Post.entry IN 
+     (SELECT * FROM Entry WHERE Entry.user = me) */
+// Build inner query (finding entries that have the associated user)
+ParseQuery<Entry> innerQuery = ParseQuery.getQuery(Entry.class);
+innerQuery.whereEqualTo("user", me);
+// Build outer query (finding posts with an entry that match the inner query)
+ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
+query.whereMatchesQuery("entry", innerQuery);
+// Include entries and associated users in the results
+query.include("entry");
+query.include("entry.user");
+// Execute the query
+query.findInBackground(new FindCallback<Post>() {
+    @Override
+    public void done(List<Post> postsList, ParseException e) {
+        ...
+    }
+});
+```
+
+With this mechanism of inner queries we can recreate a lot of the relational logic used with SQL databases. Note that there is also a mechanism called [whereMatchesKeyInQuery](https://parse.com/docs/android/api/com/parse/ParseQuery.html#whereMatchesKeyInQuery\(java.lang.String,%20java.lang.String,%20com.parse.ParseQuery\)) which adds a constraint to the query that requires a particular key's value to match a specified value.
+
 ### Minimizing Number of Queries
 
 When using Parse, you can often have many different relations between models causing your app to send multiple queries out to get back all the required information. Whenever possible try to reduce the queries sent using "include" statements. Refer to the [relational queries](https://parse.com/docs/android/guide#queries-relational-queries) guide for more details. One caveat is that include only works for pointers to objects and as such does not work with [many-to-many relational data with ParseRelation](https://parse.com/docs/android/guide#objects-relational-data). See [this parse support post](https://www.parse.com/questions/can-i-use-include-in-a-query-to-include-all-members-of-a-parserelation-error-102) for further clarification.
