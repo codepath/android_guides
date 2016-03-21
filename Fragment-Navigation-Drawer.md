@@ -240,10 +240,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void selectDrawerItem(MenuItem menuItem) {
-        // Create a new fragment and specify the planet to show based on
-        // position
+        // Create a new fragment and specify the fragment to show based on nav item clicked
         Fragment fragment = null;
-
         Class fragmentClass;
         switch(menuItem.getItemId()) {
             case R.id.nav_first_fragment:
@@ -269,10 +267,11 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
 
-        // Highlight the selected item, update the title, and close the drawer
         // Highlight the selected item has been done by NavigationView
-        // menuItem.setChecked(true);
+        menuItem.setChecked(true);
+        // Set action bar title
         setTitle(menuItem.getTitle());
+        // Close the navigation drawer
         mDrawer.closeDrawers();
     }
 
