@@ -642,7 +642,7 @@ public class TimePickerFragment extends DialogFragment {
 * `DialogFragment` classes must define an empty constructor as shown in the code samples, otherwise the Android system will raise an exception when it attempts to instantiate the fragment.
 * After loading the initial view, the activity immediately shows the dialog using the show() method which allows the fragment manager to keep track of the state and gives us certain things for free such as the back button dismissing the fragment.
 * In the code snippets above, notice the use of `requestFocus` and input modes to control the appearance of the soft keyboard when the dialog appears.
-* We can dismiss a dialog one of two ways. Here we are calling `dismiss()` within the Dialog class itself. It could also be called from the Activity like the `show()` method.
+* We can dismiss a dialog one of two ways. Here we are calling `dismiss()` within the Dialog class itself. It could also be called from the Activity like the `show()` method. In API 13, `removeDialog(int id)` and `dismissDialog(int id)` were deprecated. `dismiss()` directly on the dialog is now the recommended approach.
 
 ## References
 
