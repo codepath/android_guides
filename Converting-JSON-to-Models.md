@@ -48,7 +48,7 @@ This `search` method will take care of executing our JSON request to the Yelp AP
 YelpClient client = YelpClientApp.getRestClient();
 client.search("food", "san francisco", new JsonHttpResponseHandler() {
 	@Override
-	public void onSuccess(int code, JSONObject body) {
+        public void onSuccess(int code, Header[] headers, JSONObject body) {
 		try {
 			JSONArray businessesJson = body.getJSONArray("businesses");
                         // Here we now have the json array of businesses!
