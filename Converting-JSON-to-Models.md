@@ -138,10 +138,10 @@ public class Business {
 
   // Decodes array of business json results into business model objects
   public static ArrayList<Business> fromJson(JSONArray jsonArray) {
+      JSONObject businessJson;
       ArrayList<Business> businesses = new ArrayList<Business>(jsonArray.length());
       // Process each result in json array, decode and convert to business object
       for (int i=0; i < jsonArray.length(); i++) {
-          JSONObject businessJson = null;
           try {
           	businessJson = jsonArray.getJSONObject(i);
           } catch (Exception e) {
