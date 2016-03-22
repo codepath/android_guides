@@ -236,8 +236,15 @@ else {
 }
 ```
 
-Note that we need use methods on the exiting fragment such as `setSharedElementReturnTransition` and `setExitTransition`. On the entering fragment, we call `setSharedElementEnterTransition` and `setEnterTransition`. Finally we need to find the instance of the shared element and then call `addSharedElement(view, transitionName)` as part of building the `FragmentTransaction`. See [this stackoverflow post](http://stackoverflow.com/questions/26561579/how-to-start-shared-element-transition-using-fragments/27173907#27173907) for more details.
+Note that we need use methods on the exiting fragment such as `setSharedElementReturnTransition` and `setExitTransition`. On the entering fragment, we call `setSharedElementEnterTransition` and `setEnterTransition`. Finally we need to find the instance of the shared element and then call `addSharedElement(view, transitionName)` as part of building the `FragmentTransaction`. Additional external resources for fragment-to-fragment shared element transitions include:
 
+ * [Android Authority article](http://www.androidauthority.com/using-shared-element-transitions-activities-fragments-631996/) covering the basics
+ * [Medium article on fragment shared element transitions](https://medium.com/@bherbst/fragment-transitions-with-shared-elements-7c7d71d31cbb#.gx3casxjb)
+ * [Useful stackoverflow post](http://stackoverflow.com/questions/26561579/how-to-start-shared-element-transition-using-fragments/27173907#27173907) for more details
+ * [Sample repo with working code](https://github.com/bherbst/FragmentTransitionSample)
+ * [More useful sample code](http://stackoverflow.com/a/31800026/313399)
+
+With that you can apply these handy transitions to fragments as well as to activities. 
 
 ## References
 
