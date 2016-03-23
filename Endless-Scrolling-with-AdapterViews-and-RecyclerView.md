@@ -118,7 +118,53 @@ public class MainActivity extends Activity {
 
 Now as you scroll, items will be automatically filling in because the `onLoadMore` method will be triggered once the user crosses the `visibleThreshold`. This approach works equally well for a `GridView` and the listener gives access to both the `page` as well as the `totalItemsCount` to support both pagination and offset based fetching.
 
-## Implementing with RecyclerView
+## Implementing with RecyclerView1
+Instead of using [EndlessRecyclerViewScrollListener.java](https://gist.github.com/nesquena/d09dc68ff07e845cc622) introduced in the following section. There's more simple and less computational way to implement endless scrolling. Make use of the following code snippet for endless scrolling.
+```java
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+  EndlessScrollListener endlessScrollListener
+  
+  ...
+  public void setEndlessScrollListener(EndlessScrollListener endlessScrollListener) {
+      this.endlessScrollListener = endlessScrollListener;
+  }
+  
+  @Override
+  public void onBindViewHolder(MyAdapter.ViewHolder holder, int position) {
+      final Data data = dataset.get(position);
+
+      // you can cache getItemCount() in a member variable for more performance tuning
+      if(position == getItemCount() - 1) {  
+          if(endlessScrollListener != null) {
+              endlessScrollListener.onLoadMore(position);
+          }
+      }
+
+      ...
+  }
+  
+  @Override
+  public int getItemCount() {
+      if(dataset == null)
+          return 0;
+      else
+          return dataset.size();
+  }
+  ...
+  
+  public interface EndlessScrollListener {
+      /**
+       * Loads more data.
+       * @param position
+       * @return true loads data actually, false otherwise.
+       */
+      boolean onLoadMore(int position);
+  }
+}
+
+```
+
+## Implementing with RecyclerView2
 
 We can also use a similar approach with the [[RecyclerView|Using-the-RecyclerView]] by defining an interface `EndlessRecyclerViewScrollListener` that requires an `onLoadMore()` method to be implemented.  The [LayoutManager](http://developer.android.com/reference/android/support/v7/widget/RecyclerView.LayoutManager.html), which is responsible in the RecyclerView for rendering where items should be positioned and manages scrolling, provides information about the current scroll position relative to the adapter.  For this reason, we need to pass an instance of what LayoutManager is being used to collect the necessary information to ascertain when to load more data.  
 
