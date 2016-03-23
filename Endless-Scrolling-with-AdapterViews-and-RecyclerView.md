@@ -118,53 +118,7 @@ public class MainActivity extends Activity {
 
 Now as you scroll, items will be automatically filling in because the `onLoadMore` method will be triggered once the user crosses the `visibleThreshold`. This approach works equally well for a `GridView` and the listener gives access to both the `page` as well as the `totalItemsCount` to support both pagination and offset based fetching.
 
-## Implementing with RecyclerView1
-Instead of using [EndlessRecyclerViewScrollListener.java](https://gist.github.com/nesquena/d09dc68ff07e845cc622) introduced in the following section. There's more simple and less computational way to implement endless scrolling. Make use of the following code snippet for endless scrolling.
-```java
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
-  EndlessScrollListener endlessScrollListener
-  
-  ...
-  public void setEndlessScrollListener(EndlessScrollListener endlessScrollListener) {
-      this.endlessScrollListener = endlessScrollListener;
-  }
-  
-  @Override
-  public void onBindViewHolder(MyAdapter.ViewHolder holder, int position) {
-      final Data data = dataset.get(position);
-
-      // you can cache getItemCount() in a member variable for more performance tuning
-      if(position == getItemCount() - 1) {  
-          if(endlessScrollListener != null) {
-              endlessScrollListener.onLoadMore(position);
-          }
-      }
-
-      ...
-  }
-  
-  @Override
-  public int getItemCount() {
-      if(dataset == null)
-          return 0;
-      else
-          return dataset.size();
-  }
-  ...
-  
-  public interface EndlessScrollListener {
-      /**
-       * Loads more data.
-       * @param position
-       * @return true loads data actually, false otherwise.
-       */
-      boolean onLoadMore(int position);
-  }
-}
-
-```
-
-## Implementing with RecyclerView2
+## Implementing with RecyclerView
 
 We can also use a similar approach with the [[RecyclerView|Using-the-RecyclerView]] by defining an interface `EndlessRecyclerViewScrollListener` that requires an `onLoadMore()` method to be implemented.  The [LayoutManager](http://developer.android.com/reference/android/support/v7/widget/RecyclerView.LayoutManager.html), which is responsible in the RecyclerView for rendering where items should be positioned and manages scrolling, provides information about the current scroll position relative to the adapter.  For this reason, we need to pass an instance of what LayoutManager is being used to collect the necessary information to ascertain when to load more data.  
 
@@ -212,7 +166,7 @@ public class MainActivity extends Activity {
 
 All of the code needed is already incorporated in the `EndlessRecyclerViewScrollListener.java` code snippet above. However, if you wish to understand how the endless scrolling is calculated, the explanation is included in the sections below.
 
-#### Using with LinearLayoutManager
+### Using with LinearLayoutManager
 
 The logic for RecyclerView for `LinearLayoutManager` is implemented basically the same as what is used for the `ListView`. One slight difference from the `ListView` is that that the `RecyclerView` layout managers include the position of the last visible item on the screen, so we can use this info directly instead of needing to calculate it:
 
@@ -228,7 +182,7 @@ public void onScrolled(RecyclerView view, int dx, int dy) {
 
 This position can the be used to calculate when new items need to be loaded by comparing the last visible position and the total number of items.
 
-#### Using with StaggeredGridLayoutManager
+### Using with StaggeredGridLayoutManager
 
 Because the `StaggeredGridLayoutManager` enables elements to be placed in different columns, determining whether more items need to be loaded must be calculated by looking at the last visible positions across each row.  We can implement endless scrolling by determining the highest value in the row to determine whether more items need to be fetched.  Note also that the threshold value has to be increased since more items can be displayed on the screen, so we use a multiplier by calling [`getSpanCount()`](http://developer.android.com/reference/android/support/v7/widget/StaggeredGridLayoutManager.html#getSpanCount()) on the layout manager:
 
@@ -268,7 +222,7 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
 }
 ```
 
-#### Supporting Arbitrary Layout Managers
+### Supporting Arbitrary Layout Managers
 
 The code used for the endless scrolling implements checks to determine which layout manager is being used:
 
@@ -311,6 +265,55 @@ public void onScrolled(RecyclerView view, int dx, int dy) {
 
   // Remaining scroll logic is here
 }
+```
+
+### Alternative Methods
+
+Instead of using [EndlessRecyclerViewScrollListener.java](https://gist.github.com/nesquena/d09dc68ff07e845cc622) introduced in the following section, we can use a simpler and less computational way to implement endless scrolling. We can make use of the following code snippet to achieve endless scrolling:
+
+```java
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+  EndlessScrollListener endlessScrollListener
+  
+  ...
+  public void setEndlessScrollListener(EndlessScrollListener endlessScrollListener) {
+      this.endlessScrollListener = endlessScrollListener;
+  }
+  
+  @Override
+  public void onBindViewHolder(MyAdapter.ViewHolder holder, int position) {
+      final Data data = dataset.get(position);
+      static final int VISIBLE_THRESHOLD = 5;
+
+      // you can cache getItemCount() in a member variable for more performance tuning
+      if(position == getItemCount() - VISIBLE_THRESHOLD) {  
+          if(endlessScrollListener != null) {
+              endlessScrollListener.onLoadMore(position);
+          }
+      }
+
+      ...
+  }
+  
+  @Override
+  public int getItemCount() {
+      if(dataset == null)
+          return 0;
+      else
+          return dataset.size();
+  }
+  ...
+  
+  public interface EndlessScrollListener {
+      /**
+       * Loads more data.
+       * @param position
+       * @return true loads data actually, false otherwise.
+       */
+      boolean onLoadMore(int position);
+  }
+}
+
 ```
 
 ## Troubleshooting
