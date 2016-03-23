@@ -146,7 +146,7 @@ This layout file can be created in `res/layout/item_contact.xml` and will be ren
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         >
