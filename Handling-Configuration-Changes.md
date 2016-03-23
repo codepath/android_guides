@@ -54,8 +54,8 @@ public class MySimpleFragment extends Fragment {
     // Fires when a configuration change occurs and fragment needs to save state
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
         outState.putInt(SOME_VALUE_KEY, someStateValue);
+        super.onSaveInstanceState(outState);
     }
 }
 ```
