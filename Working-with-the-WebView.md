@@ -62,6 +62,24 @@ public class MainActivity extends Activity {
 
 You can attach javascript functions and use them within the mobile webpages as described [here in the official docs](http://developer.android.com/guide/webapps/webview.html#UsingJavaScript).
 
+#### Handling responsive layouts
+
+By default, the `WebView` does not account for the default scale size if HTML pages include [viewport](http://www.w3schools.com/css/css_rwd_viewport.asp) metadata. If you wish to enable the page to load with responsive layouts, you need to set it explicitly:
+
+```java
+// Enable responsive layout
+myWebView.getSettings().setUseWideViewPort(true);
+// Zoom out if the content width is greater than the width of the veiwport
+myWebView.getSettings().setLoadWithOverviewMode(true);
+```
+
+You can also enable the ability to zoom-in controls on the page:
+
+```java
+myWebView.getSettings().setSupportZoom(true);
+myWebView.getSettings().setBuiltInZoomControls(true); // allow pinch to zooom
+myWebView.getSettings().setDisplayZoomControls(false); // disable the default zoom controls on the page
+```
 ### Loading Local Pages
 
 In case you want to store a copy of a webpage locally to be loaded into a `WebView`, you can put it in the android `assets` folder. If you do not find one under your `main/` directory, then you can create one. Place the html, css, js, etc in this folder. 
