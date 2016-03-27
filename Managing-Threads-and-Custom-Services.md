@@ -273,9 +273,11 @@ Note that the `Handler` supports additional "scheduling" commands to execute run
 
 ### Background Services with IntentService 
 
-In 90% of cases when you need a background service doing a task when your app is closed, you will [[leverage the IntentService|Starting-Background-Services]] as your first tool for the job. However, `IntentService` does have a few limitations. The biggest limitation is that the `IntentService` uses a **single worker thread** to handle start requests **one at a time**. However, as long as you don't require that your service handle multiple requests simultaneously, the `IntentService` is typically the easiest tool for the job.
+One very common use case for services is to generate a background service to process a defined task. Once the task is completed, the background service shuts down. If you want a simple service that fires up, does a job, and then completes, you'll want to [[leverage the IntentService|Starting-Background-Services]] as your first tool for the job. The `IntentService` start up a new service running a `HandlerThread` which processes incoming work until the queue is empty and then shuts down automatically. 
 
-However, in certain specialized cases where you do need background tasks to be processed in parallel using a concurrent thread pool and as such you cannot use `IntentService` and must extend from [Service](http://developer.android.com/reference/android/app/Service.html) directly. The rest of this guide is focused on that particular use case.
+However, `IntentService` does have a few limitations. The biggest limitation is that the `IntentService` uses a **single worker thread** to handle start requests **one at a time** in sequence. As long as you don't require that your service handles multiple requests simultaneously, the `IntentService` should work just fine. One other limitation is that **IntentService** shuts down automatically when the worker queue is empty rather than waiting to be told to stop. 
+
+In specialized cases where you do need background tasks to be processed in parallel using a concurrent thread pool, `IntentService` should not be used and we will extend from [Service](http://developer.android.com/reference/android/app/Service.html) directly. The rest of this guide is focused on the case where we cannot use an `IntentService`.
 
 ### Defining Custom Services
 
