@@ -415,7 +415,7 @@ public class MyCustomService extends Service {
         // Send empty message to background thread
         mServiceHandler.sendEmptyMessageDelayed(0, 500);
         // or run code in background
-        mServiceHandler.post((new Runnable() {
+        mServiceHandler.post(new Runnable() {
             @Override
             public void run() {
                 // Do something here in background!
