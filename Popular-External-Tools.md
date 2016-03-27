@@ -33,8 +33,8 @@ These are the best tools for distributing beta builds for your apps:
 ### Push Messaging
 
 These are the best services for easy push messaging:
-
-* [Parse Push](https://parse.com/tutorials/android-push-notifications)
+  
+* [Parse Push](https://parse.com/tutorials/android-push-notifications) //Parse service, and Parse will be fully retired after a year-long period ending on January 28, 2017
 * [Mixpanel Push](https://mixpanel.com/docs/people-analytics/android-push)
 * [PushBots](https://pushbots.com/)
 * [Pushover](https://pushover.net/)
