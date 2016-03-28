@@ -40,7 +40,7 @@ One primary use case that the event bus model works well is replacing it lieu of
 
 ### Registering on the Bus
 
-If you wish to subscribe Activities and Fragments to the event bus, it should be done with respect to the lifecycle of these objects.  The reason is that when an event is published, Otto will try to find all the registered subscribers.  If there is a subscriber attached to the Activity currently not running, there is likely to be a stale reference that causes your app to crash.
+If you wish to subscribe Activities and Fragments to the event bus, it should be done with respect to the lifecycle of these objects.  The reason is that when an event is published, EventBus will try to find all the registered subscribers.  If there is a subscriber attached to the Activity currently not running, there is likely to be a stale reference that causes your app to crash.
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -120,5 +120,5 @@ public void doThis(IntentServiceResult intentServiceResult) {
 * <http://timnew.me/blog/2014/12/06/typical-eventbus-design-patterns/>
 * <https://github.com/kaushikgopal/Android-RxJava/>
 * <https://gist.github.com/staltz/868e7e9bc2a7b8c1f754/>
-* <https://github.com/square/otto/tree/master/otto-sample/>
 * <http://www.stevenmarkford.com/passing-objects-between-android-activities/>
+* <http://greenrobot.org/eventbus/documentation/>
