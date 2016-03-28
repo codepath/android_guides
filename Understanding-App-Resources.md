@@ -169,7 +169,7 @@ You can specify multiple qualifiers for a single set of resources, separated by 
 
 ### Alternate Layout Files
 
-Often alternative resources are used to specify different layout files for phones and tablets. This can be done using the "smallest width" qualifer of `sw`. The folder structure might be setup as the following:
+Often alternative resources are used to specify different layout files for phones and tablets. This can be done using the "smallest width" qualifier of `sw`. The folder structure might be set up as follows:
 
 ```
 res/
