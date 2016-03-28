@@ -87,6 +87,7 @@ public class ParentActivity extends AppCompatActivity {
     private MySimpleFragment fragmentSimple;
     private final String SIMPLE_FRAGMENT_TAG = "myfragmenttag";
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         if (savedInstanceState != null) { // saved instance state, fragment may exist
            // look up the instance that already exists by tag
@@ -107,6 +108,7 @@ public class ParentActivity extends AppCompatActivity {
     private MySimpleFragment fragmentSimple;
     private final String SIMPLE_FRAGMENT_TAG = "myfragmenttag";
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         // ... fragment lookup or instantation from above...
         // Always add a tag to a fragment being inserted into container
