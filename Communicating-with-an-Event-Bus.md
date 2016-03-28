@@ -24,62 +24,19 @@ Event buses are especially helpful include notifying activities or fragments whe
 
   * *Be wary about publishing events between Fragments.*  Events cannot be published or received when a Fragment is not running.  If you have a Fragment publishing a message to another Fragment that isn't currently executing and then swap one for the other, it's likely the event will not be processed correctly.   The EventBus library has a way to replay this event, but the Otto framework does not.
 
-## Setting up an Event Bus with Otto
+## Setting up an Event Bus with EventBus
 
 Add this Gradle dependency to your `app/build.gradle` file:
 
 ```gradle
 dependencies {
-    compile 'com.squareup:otto:1.3.8'
+    compile 'org.greenrobot:eventbus:3.0.0'
 }
 ```
 
-### Replacing Local Broadcast Managers with Otto
+### Replacing Local Broadcast Managers with EventBus
 
 One primary use case that the event bus model works well is replacing it lieu of the [[LocalBroadcastManager|Starting-Background-Services#communicating-with-a-broadcastreceiver]] when communicating from a service to the application.   One advantage is that you can simplify a lot of code that normally is used to serialize or deserialize the data by avoiding the need to pass Intents.
-
-### Creating a Bus
-
-The first step we need to do is create a Singleton bus class.   This shared bus will be used by your application
-to publish and subscribe to events.  
-
-```java
-public final class BusProvider {
-    private static final Bus BUS = new Bus();
-
-    public static Bus getInstance() {
-        return BUS;
-    }
-
-    private BusProvider() {
-        // No instances.
-    }
-}
-```
-
-Since services normally run on separate threads from the main UI thread, we must also ensure that the events are published on the main thread by subscribers to handle especially if they update the screen.  We expose some extra functionality to provide the ability for services to explicitly publish on the main thread:
-
-```java
-public final class BusProvider {
-    // other methods here
-
-    private static final Handler mainThread = new Handler(Looper.getMainLooper());
-
-    public static void postOnMain(final Object event) {
-        if (Looper.myLooper() == Looper.getMainLooper()) {
-            getInstance().post(event);
-        } else {
-            mainThread.post(new Runnable() {
-                @Override
-                public void run() {
-                    getInstance().post(event);
-
-                }
-            });
-        }
-    }
-}
-```
 
 ### Registering on the Bus
 
@@ -91,13 +48,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        BusProvider.getInstance().unregister(this);
+        EventBus.getDefault().unregister(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        BusProvider.getInstance().register(this);
+        EventBus.getDefault().register(this);
     }
 ```
 
@@ -133,105 +90,27 @@ a message that will be displayed when the event is received on the Activity.
 
 ```java
 @Override
-  protected void onHandleIntent(Intent intent) {
+protected void onHandleIntent(Intent intent) {
 
-      // do some work
-      BusProvider.postOnMain(new IntentServiceResult(Activity.RESULT_OK, "done!!"));
-  }
+    // do some work
+    EventBus.getDefault().post(new IntentServiceResult(Activity.RESULT_OK, "done!!"));
+}
 ```
 
 ### Creating a subscriber
 
 We simply need to annotate a method that has this specific event type with the `@Subscribe` decorator.  The method must also take in the parameter of the event for which it is listening.  In this case, it's `IntentServiceResult`.
 
-Assuming the Activity is registered on the bus, Otto will look for any subscribers when this specific event is published.  We can display the result value to verify that the data passed is correct.
+Because the `IntentService` is executed on a separate thread, the subscribers will normally also execute on the same thread.   If we need to make UI changes on the main thread, we need to be explicit that the actions executed should be done on the main thread.  See [this section](http://greenrobot.org/eventbus/documentation/delivery-threads-threadmode/) for more information. 
 
 ```java
-   public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
-   @Subscribe public void doThis(IntentServiceResult intentServiceResult) {
+@Subscribe(threadMode = ThreadMode.MAIN)
+public void doThis(IntentServiceResult intentServiceResult) {
        Toast.makeText(this, intentServiceResult.getResultValue(), Toast.LENGTH_SHORT).show();
-   }
-```
-
-### Using Otto with dependency injection
-
-The example shown uses a singleton instance and makes a lot of repetitive `BusProvider.getInstance()` calls.  You can also use the [[Dagger 2|Dependency-Injection-with-Dagger-2]] library to help reduce these calls.   If we want to support posting events on the main thread, we can extend the Otto `Bus` and provide an `EventBus` instance instead:
-
-```
-public class EventBus extends Bus {
-    private final Handler mainThread = new Handler(Looper.getMainLooper());
-
-    public EventBus() {
-    }
-
-    public void postOnMain(final Object event) {
-        if(Looper.myLooper() == Looper.getMainLooper()) {
-            super.post(event);
-        } else {
-            this.mainThread.post(new Runnable() {
-                public void run() {
-                    EventBus.this.post(event);
-                }
-            });
-        }
-
-    }
 }
 ```
-
-We simply need to declare in our Dagger module a singleton that provides an Otto `Bus` object in `AppModule.java` file:
-
-```java
-@Provides
-@Singleton
-EventBus provideBus() {
-   return new EventBus();
-}
-```
-
-Inside your activity, fragment, or service, you would simply need to define the field that will be assigned this reference and call the injection class to bind the field to the singleton instance:
-
-```java
-public class MainActivity extends AppCompatActivity {
-  @Inject EventBus mBus;
-
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState)
-    ((MyApp) getApplication()).getAppComponent().inject(this);
-
-    // do other stuff here 
-  }
-}
-```
-
-You can also remove the unnecessary `getInstance()` calls previously when registering and unregistering the bus:
-
-```java
-public class MainActivity extends AppCompatActivity {
-
-    // injection code here
-  
-    @Override
-    protected void onPause() {
-        super.onPause();
-        mBus.unregister(this);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        mBus.register(this);
-    }
-}
-```
-
-### Installing the Otto plugin
-
-Install Jake Wharton's [Otto plugin](https://github.com/square/otto-intellij-plugin) that helps you navigate which elements are dependent on each other.
-
-<img src="https://github.com/square/otto-intellij-plugin/raw/master/images/produce-to-subscribe.gif"/>
 
 ## References
 
