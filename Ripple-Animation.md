@@ -45,7 +45,7 @@ Most buttons are made with several drawables. Usually you’ll have a pressed an
 
 If you have a custom button with selected state, your text color changes depending on the state, etc. So default button background is not going to work for you here. You can add this feedback for your own drawables and for custom buttons by simply wrapping them in a `ripple` element:
 
-`/drawable-21/button.xml`:
+`/drawable-v21/button.xml`:
 
 ```xml
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
