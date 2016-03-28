@@ -12,8 +12,7 @@ Publish/subscribe models try to avoid this tight integration by relying on an ev
 
 One additional benefit of using these pub/sub frameworks is that they help facilitate passing Java objects between Activities, Fragments, or Services.  You don't need to spend time serializing and deserializing data, which can often creates the tight bindings between these components.   It also helps enforce more type-safety across complex Java objects.  
 
-There are many different libraries which attempt to enable the event bus model, including [EventBus](https://github.com/greenrobot/EventBus), [RxJava](https://github.com/ReactiveX/RxJava), and [Otto](https://github.com/square/otto).   Otto is by far the easiest to start using immediately.  EventBus has a few more advanced features than in Otto described in this [comparison chart](http://timnew.me/blog/2014/09/14/otto-and-android-annotations-compatibility-issue-analysis/), and RxJava enables
-a way to declare [sequences of actions](http://www.infoq.com/news/2014/11/android-rxjava-at-soundcloud) to be taken in response to certain events.  
+There are many different libraries which attempt to enable the event bus model, including [EventBus](https://github.com/greenrobot/EventBus), [RxJava](https://github.com/ReactiveX/RxJava), and [Otto](https://github.com/square/otto).   Otto has been deprecated in favor of RxJava/RxAndroid approaches.  EventBus has a few more advanced features than in Otto described in this [comparison chart](https://github.com/greenrobot/EventBus/blob/master/COMPARISON.md) and recently has become the more recommended Java library.
 
 ### Considerations
 
@@ -23,9 +22,7 @@ Event buses are especially helpful include notifying activities or fragments whe
 
   * *If you are using publishing or subscribers within an Activity of Fragment they should be registered and unregistered with their lifecycle.*  Otherwise, it's likely you will encounter memory leaks or dangling references that can cause your app to crash.
 
-  * *Be wary about publishing events between Fragments.*  Events cannot be published or received when a Fragment is not running.  If you have a Fragment publishing a message to another Fragment that isn't currently executing and then swap one for the other, it's likely the event will not be processed correctly.   The EventBus library has a way
-  to replay this event, but the Otto framework does not.
-
+  * *Be wary about publishing events between Fragments.*  Events cannot be published or received when a Fragment is not running.  If you have a Fragment publishing a message to another Fragment that isn't currently executing and then swap one for the other, it's likely the event will not be processed correctly.   The EventBus library has a way to replay this event, but the Otto framework does not.
 
 ## Setting up an Event Bus with Otto
 
