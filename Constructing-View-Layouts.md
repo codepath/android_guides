@@ -65,7 +65,7 @@ If you want to setup a part of your layout, such that, for instance, 3 buttons a
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:background="@color/twitter_light_blue"/>
-    </LinearLayout>
+</LinearLayout>
 ...
 ```
 
