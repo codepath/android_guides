@@ -12,7 +12,7 @@ Publish/subscribe models try to avoid this tight integration by relying on an ev
 
 One additional benefit of using these pub/sub frameworks is that they help facilitate passing Java objects between Activities, Fragments, or Services.  You don't need to spend time serializing and deserializing data, which can often creates the tight bindings between these components.   It also helps enforce more type-safety across complex Java objects.  
 
-There are many different libraries which attempt to enable the event bus model, including [EventBus](https://github.com/greenrobot/EventBus), [RxJava](https://github.com/ReactiveX/RxJava), and [Otto](https://github.com/square/otto).   Otto has been deprecated in favor of RxJava/RxAndroid approaches.  EventBus has a few more advanced features than in Otto described in this [comparison chart](https://github.com/greenrobot/EventBus/blob/master/COMPARISON.md) and recently has become the more recommended Java library.
+There are many different libraries which attempt to enable the event bus model, including [EventBus](https://github.com/greenrobot/EventBus), [RxJava](https://github.com/ReactiveX/RxJava), and [Otto](https://github.com/square/otto).   Otto has been deprecated in favor of RxJava/RxAndroid approaches.  EventBus has a few more advanced features than in Otto described in this [comparison chart](https://github.com/greenrobot/EventBus/blob/master/COMPARISON.md) and recently has become the more supported Java library.
 
 ### Considerations
 
