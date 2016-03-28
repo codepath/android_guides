@@ -1,6 +1,6 @@
 ## Overview
 
-There are various situations such as when the screen orientation is rotated where the Activity can actually be destroyed and removed from memory and then recreated from scratch again. In these situations, the best practice is to prepare for cases where the Activity is re-created by properly saving and restoring the state.
+There are various situations such as when the screen orientation is rotated where the Activity can actually be destroyed and removed from memory and then re-created from scratch again. In these situations, the best practice is to prepare for cases where the Activity is re-created by properly saving and restoring the state.
 
 ## Saving and Restoring Activity State
 
