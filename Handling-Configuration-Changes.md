@@ -14,7 +14,7 @@ public class MainActivity extends Activity {
     static final String SOME_OTHER_VALUE = "string_value";
 
     @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
         // Save custom values into the bundle
         savedInstanceState.putInt(SOME_VALUE, someIntValue);
         savedInstanceState.putString(SOME_OTHER_VALUE, someStringValue);
@@ -28,7 +28,7 @@ The system will call that method before an Activity is destroyed. Then later the
 
 ```java
 @Override
-public void onRestoreInstanceState(Bundle savedInstanceState) {
+protected void onRestoreInstanceState(Bundle savedInstanceState) {
     // Always call the superclass so it can restore the view hierarchy
     super.onRestoreInstanceState(savedInstanceState);
     // Restore state members from saved instance
@@ -54,7 +54,7 @@ public class MySimpleFragment extends Fragment {
    
     // Fires when a configuration change occurs and fragment needs to save state
     @Override
-    public void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(Bundle outState) {
         outState.putInt(SOME_VALUE_KEY, someStateValue);
         super.onSaveInstanceState(outState);
     }
