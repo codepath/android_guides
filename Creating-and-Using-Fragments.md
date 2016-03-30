@@ -34,13 +34,13 @@ Within a fragment-heavy app, we need to remember to organize our code according 
    * Hiding and showing relevant fragments using the fragment manager.
    * Receiving data from intents and passing data between fragments.
 
-**Fragments are content controllers** and contain most views, layouts, and related event logic including:
+**Fragments are content controllers** and contain most views, layouts, and event logic including:
 
    * Layouts and views displaying relevant app content.
    * Event handling logic associated with relevant views.
-   * View state management logic such as visibility or error handling
-   * Triggering of network request through a client object
-   * Retrieval and storage of data from persistence through model objects
+   * View state management logic such as visibility or error handling.
+   * Triggering of network request through a client object.
+   * Retrieval and storage of data from persistence through model objects.
 
 To reiterate, in a fragment-based architecture, the **activities are for navigation** and the **fragments are for views and logic**. 
 
