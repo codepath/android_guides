@@ -25,7 +25,7 @@ There are many use cases for fragments but the most common use cases include:
 
 ### Organizing your Code
 
-Within a fragment-heavy app, we need to remember to organize our code according to architectural best practices. Inside of an app which uses fragments extensively, we need to remember that the role an activity changes. 
+Within a fragment-heavy app, we need to remember to organize our code according to architectural best practices. Inside of an app which uses fragments extensively, we need to keep in mind that the role of an activity shifts. 
 
 **Activities are navigation controllers** primarily responsible for:
 
