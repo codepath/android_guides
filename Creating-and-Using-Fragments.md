@@ -13,7 +13,7 @@ Here are the important things to understand about fragments:
  * Fragments encapsulate views and logic so that it is easier to reuse within activities.
  * Fragments are standalone components that can contain views, events and logic. 
 
-Within a fragment-oriented architecture, **applications become navigational containers** that are primarily responsible for navigation to other activities, presenting fragments and passing data. 
+Within a fragment-oriented architecture, **activities become navigational containers** that are primarily responsible for navigation to other activities, presenting fragments and passing data. 
 
 ### Importance of Fragments
 
