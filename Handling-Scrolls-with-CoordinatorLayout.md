@@ -148,7 +148,7 @@ The `scroll` flag used within the attribute `app:layout_scrollFlags` must be ena
     
     <img src="http://i.imgur.com/IZzcL1C.png"/>
 
-  * `enterAlwaysCollapsed`:   Normally, when only `enterAlways` is used, the `Toolbar` will continue to expand as you scroll up:
+  * `enterAlwaysCollapsed`:   Normally, when only `enterAlways` is used, the `Toolbar` will continue to expand as you scroll down:
 
     <img src="http://imgur.com/nVtheyw.png"/>
 
