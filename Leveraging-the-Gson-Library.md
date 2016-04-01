@@ -8,9 +8,10 @@ Add the following line to your Gradle configuration:
 
 ```gradle
 dependencies {
-  compile 'com.google.code.gson:gson:2.4'
+  compile 'com.google.code.gson:gson:2.6.2'
 }
 ```
+![](http://www.javadoc.io/doc/com.google.code.gson/gson)
 
 ### Auto-generating Model Classes
 
