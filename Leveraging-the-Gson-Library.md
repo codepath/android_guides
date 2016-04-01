@@ -11,7 +11,7 @@ dependencies {
   compile 'com.google.code.gson:gson:2.6.2'
 }
 ```
-![](http://www.javadoc.io/doc/com.google.code.gson/gson)
+[![Javadoc](https://javadoc-emblem.rhcloud.com/doc/com.google.code.gson/gson/badge.svg)](http://www.javadoc.io/doc/com.google.code.gson/gson)
 
 ### Auto-generating Model Classes
 
