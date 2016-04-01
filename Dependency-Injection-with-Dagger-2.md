@@ -274,6 +274,7 @@ If we need two different objects of the same return type, we can use the `@Named
 OkHttpClient provideOkHttpClient(Cache cache) {
     OkHttpClient client = new OkHttpClient();
     client.setCache(cache);
+    return client;
 }
 
 @Provides @Named("non_cached") @Singleton
