@@ -138,7 +138,7 @@ Before we create the adapter, let's define the XML layout file that will be used
 <img src="https://i.imgur.com/wPRTc76.png" width="300" />
 <img src="https://i.imgur.com/fu3FzsV.png" width="300" />
 
-This layout file can be created in `res/layout/item_contact.xml` and will be rendered for each item row.  **Note** that you should be using `wrap_content` for the `layout_height` because `RecyclerView` versions since `23.2.1` because previously ignored layout parameters (such as MATCH_PARENT in the scroll direction) will now be fully respected.  See [this link](http://android-developers.blogspot.com/2016/02/android-support-library-232.html) for more context.
+This layout file can be created in `res/layout/item_contact.xml` and will be rendered for each item row.  **Note** that you should be using `wrap_content` for the `layout_height` because `RecyclerView` versions prior to `23.2.1` previously ignored layout parameters.  See [this link](http://android-developers.blogspot.com/2016/02/android-support-library-232.html) for more context.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
