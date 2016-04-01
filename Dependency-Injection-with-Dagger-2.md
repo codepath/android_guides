@@ -395,7 +395,7 @@ public interface NetComponent {
 The final step is to use the `GitHubComponent` to perform the instantiation.  This time, we first need to build the `NetComponent` and pass it into the constructor of the `DaggerGitHubComponent` builder:
 
 ```java
-NetComponent netComponent = DaggerNetComponent.builder()
+NetComponent mNetComponent = DaggerNetComponent.builder()
                 .appModule(new AppModule(this))
                 .netModule(new NetModule("https://api.github.com"))
                 .build();
