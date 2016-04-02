@@ -76,6 +76,10 @@ Be sure to **replace the values** for `myAppId` and the server URL. If these com
 
 ### Browsing Parse Data
 
+There are several options that allow you to view the data.  First, you can use the `mLab` viewer to examine the store data.  Second, you can setup the open source verson of the Parse Dashboard, which gives you a similar UI used in hosted Parse.  Finally, you can use Robomongo.
+
+#### mLab
+
 The hosted Parse instance deployed uses [mLab](https://mlab.com/) (previously called MongoLab) to store all of your data. mLab is a hosted version of [MongoDB](https://www.mongodb.org/) which is a document-store which uses JSON to store your data.
 
 If you are using Heroku, you can verify whether the objects were created by clicking on the MongoDB instance in the Heroku panel:
@@ -83,6 +87,21 @@ If you are using Heroku, you can verify whether the objects were created by clic
 <img src="http://imgur.com/bbj2e9N.png"/>
 
 <img src="http://imgur.com/snPqYkz.png"/>
+
+#### Parse Dashboard
+
+You can also install Parse's open source dashboard. Download [NodeJS v4.3](https://nodejs.org/en/download/) or higher.  Make sure you have at least Parse server v2.1.3 or higher (later versions include a `/parse/serverInfo` that is needed).
+
+```bash
+npm install -g parse-dashboard
+parse-dashboard --appId myAppId --masterKey myMasterKey --serverURL "https://yourapp.herokuapp.com/parse"
+```
+
+Connect to your dashboard at `http://localhost:4040/apps`. Assuming you have specified the correct application ID, master Key, and server URL, as well as installed a Parse open source version v2.1.3 or higher, you should see the app appear correctly:
+
+<img src="http://imgur.com/Z0Rz5Xs.png"/>
+
+#### Robomongo
 
 You can also setup [Robomongo](https://robomongo.org/download) to connect to your remote mongo database hosted on Heroku to get a better data browser and dashboard for your app.
 
