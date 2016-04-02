@@ -21,7 +21,7 @@ Many of the options need to be configured by tweaking your own configuration.  Y
 
 ### Setting a new Parse Server
 
-The steps described this guide walk through most of the process of setting an open source version with Parse.  There are obviously many other hosting options, but the one-click deploys made available with Heroku or Amazon AWS as discussed in [this guide](https://github.com/ParsePlatform/parse-server-example) are the simplest.   In both cases, you are likely to need a credit card attached to your account to activate.
+The steps described this guide walk through most of the process of setting an open source version with Parse.  There are obviously many other hosting options, but the one-click deploys made available with Heroku as discussed in [this guide](https://github.com/ParsePlatform/parse-server-example) are the simplest.   In both cases, you are likely to need a credit card attached to your account to activate.
 
 #### Signing up with Heroku
 
@@ -49,45 +49,6 @@ Use Heroku if you have little or no experience with setting up web sites. Heroku
 4. Deploy the Heroku app.  The app should be hosted at `https://<app name>.herokuapp.com`.
 
 If you ever need to change these values later, you can go to (`https://dashboard.heroku.com/apps/<app name>/settings`). Check out [this guide](https://devcenter.heroku.com/articles/deploying-a-parse-server-to-heroku) for a more detailed set of steps for deploying Parse to Heroku.
-
-Now, we can [[test our deployment|Configuring-a-Parse-Server#testing-deployment]] to verify that the Parse deployment is working as expected!
-
-#### Signing up with Amazon
-
-**Note:** You need to setup only Heroku above OR Amazon below but not both in order to use Parse. 
-
-Amazon AWS provides more advanced functionality, such as a load balancer, easy-to-upgrade instances, and [auto-scaling groups](https://aws.amazon.com/autoscaling/).  Use only if you are more comfortable with managing servers.  You do not get a UI data viewer out of the box.
-
-1. You can create a new Parse instance by clicking on the button:
-
-     <a title="Deploy to AWS" href="https://console.aws.amazon.com/elasticbeanstalk/home?region=us-west-2#/newApplication?applicationName=ParseServer&amp;solutionStackName=Node.js&amp;tierName=WebServer&amp;sourceBundleUrl=https://s3.amazonaws.com/elasticbeanstalk-samples-us-east-1/eb-parse-server-sample/parse-server-example.zip" target="_blank"><img src="https://camo.githubusercontent.com/f13c4f9254091b2f91ea161e9461491481d0e586/687474703a2f2f64302e6177737374617469632e636f6d2f70726f647563742d6d61726b6574696e672f456c61737469632532304265616e7374616c6b2f6465706c6f792d746f2d6177732e706e67" height="40" data-canonical-src="http://d0.awsstatic.com/product-marketing/Elastic%20Beanstalk/deploy-to-aws.png" style="max-width:100%;"></a>
-2. Create an application name and click on `Review and Launch`.  Clicking on `Next` will take you the more advanced settings.
-       <img src="http://imgur.com/yRrmmse.png"/>
-3. The final step is to review your changes.  Click `Launch` when ready.
-4. The machine configuration should begin to start.  Look for the `Software Configuration` panel to appear:
-
-       <img src="http://imgur.com/YATjJlc.png"/>
-5. Configure the environment variable settings.
-       <img src="http://imgur.com/EdcNda3.png"/>
-      * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId`.  You will need this info for the Client SDK setup.
-      * Set `MASTER_KEY` to be the master key used to read all data.  
-      * Leave `PARSE_MOUNT` to be `/parse`.  It does not need to be changed.
-      * Set `SERVER_URL` to be `http://yourappname.herokuapp.com/parse`.  Assuming you have left `PARSE_MOUNT` to be /parse, this will enable the use of Parse Cloud to work correctly. 
-      * If you intend to use Facebook authentication, set `FACEBOOK_APP_ID` to be the [FB application ID](https://developers.facebook.com/apps).
-
-6. Your machine should take a few minutes to spin up.  Once it's ready, you should be able to click on the URL provided:
-
-       <img src="http://imgur.com/OjyvPdc.png"/>
-
-Other tips:
-
-* If you need to update the source code, you need to go the download the updated `.zip` file and upload to the main dashboard here:
-
-       <img src="http://imgur.com/8XBkbnK.png"/>
-        
-* If you need to get back to the console after the instance has been created, you can click [here](https://console.aws.amazon.com/elasticbeanstalk/home?region=us-west-2).
-
-* You mean need to get direct SSH access to this box to view the MongoDB data.  See [this article](http://stackoverflow.com/questions/4742478/ssh-to-elastic-beanstalk-instance) for more information.
 
 Now, we can [[test our deployment|Configuring-a-Parse-Server#testing-deployment]] to verify that the Parse deployment is working as expected!
 
