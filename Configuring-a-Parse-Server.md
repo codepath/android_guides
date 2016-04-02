@@ -90,7 +90,7 @@ If you are using Heroku, you can verify whether the objects were created by clic
 
 #### Parse Dashboard
 
-You can also install Parse's open source dashboard. Download [NodeJS v4.3](https://nodejs.org/en/download/) or higher.  Make sure you have at least Parse server v2.1.3 or higher (later versions include a `/parse/serverInfo` that is needed).
+You can also install Parse's open source dashboard locally. Download [NodeJS v4.3](https://nodejs.org/en/download/) or higher.  Make sure you have at least Parse server v2.1.3 or higher (later versions include a `/parse/serverInfo` that is needed).
 
 ```bash
 npm install -g parse-dashboard
