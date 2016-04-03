@@ -125,7 +125,7 @@ The latest source code updates for the support library are now always included s
 
 - NavigationView now contains a `getHeaderView()` method ([[view guide|Fragment-Navigation-Drawer#getting-references-to-the-header]])
 
-### Changes is Support Library v23.2
+### Changes in Support Library v23.2
 
 - Added support for bottom sheets. ([[view guide|Handling-Scrolls-with-CoordinatorLayout#bottom-sheets]])
 
