@@ -526,6 +526,7 @@ When using the `onCreateDialog` method there are many built-in Dialog types to t
 * [ProgressDialog](http://developer.android.com/reference/android/app/ProgressDialog.html) - Dialog showing a progress indicator and an optional text message 
 * [TimePickerDialog](http://developer.android.com/reference/android/app/TimePickerDialog.html) - Dialog that allows a user to select a time.
 * [DatePickerDialog](http://developer.android.com/reference/android/app/DatePickerDialog.html) - Dialog that allows a user to select a date.
+* BottomSheetDialog - Dialog that slides from the bottom.
 * Other dialogs [not](http://developer.android.com/reference/android/text/method/CharacterPickerDialog.html) [worth](http://developer.android.com/reference/android/support/v7/app/MediaRouteChooserDialog.html) discussing here.
 
 ### Displaying a ProgressDialog
@@ -633,6 +634,30 @@ public class TimePickerFragment extends DialogFragment {
         // Do something with the time chosen by the user
     }
 }
+```
+
+### Modal Bottom Sheets
+
+With the [[support design library|Design-Support-Library]], it also fairly easy to convert your dialog to use modal bottom sheets.  Instead of `DialogFragment`, you can extend from `BottomSheetDialogFragment`:
+
+```java
+public class MyBottomSheetDialogFragment extends BottomSheetDialogFragment {
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_bottom_sheet, container);
+    }
+}
+```
+
+When you show this fragment, you will notice that it appears from the bottom:
+
+```java
+MyBottomSheetDialogFragment myDialog = new MyBottomSheetDialogFragment();
+
+FragmentManager fm = getSupportFragmentManager();
+myDialog.show(fm, "test");
 ```
 
 ## Things To Note
