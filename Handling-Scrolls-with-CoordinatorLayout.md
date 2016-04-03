@@ -264,9 +264,11 @@ To create this effect, we add an ImageView and declare an `app:layout_collapseMo
 
 ## Bottom Sheets
 
-Bottom Sheets are now supported in `v23.2` of the support design library.  
+Bottom Sheets are now supported in `v23.2` of the support design library.  There are two types of bottom sheets supported: [persistent](https://www.google.com/design/spec/components/bottom-sheets.html?utm_campaign=android_launch_supportlibrary23.2_022216&utm_source=anddev&utm_medium=blog#bottom-sheets-persistent-bottom-sheets) and [modal](https://www.google.com/design/spec/components/bottom-sheets.html?utm_campaign=android_launch_supportlibrary23.2_022216&utm_source=anddev&utm_medium=blog#bottom-sheets-persistent-bottom-sheets).   Persistent bottom sheets show in-app content, while modal sheets expose menus or simple dialogs.
 
 <img src="http://imgur.com/3hCTnnC.png">
+
+### Persistent Modal Sheets
 
 The easiest way to create them is using an additional [[RecyclerView|Using-the-RecyclerView]] nested inside a `CoordinatorLayout`.  This `RecyclerView` will be hidden by default if the `layout_behavior` defined is set using the pre-defined `@string/bottom_sheet_behavior` value.  Note also that this `RecyclerView` should be using `wrap_content` instead of `match_parent`, which is a new change that allows the bottom sheet to only occupy the necessary space instead of the entire page:
 
@@ -405,6 +407,10 @@ fab.setOnClickListener(new View.OnClickListener() {
 ```
 
 You can set a layout attribute `app:behavior_hideable=true` to allow the user to swipe the bottom sheet away too.  There are other states including `STATE_DRAGGING`, `STATE_SETTLING`, and `STATE_HIDDEN`.  
+
+### Modal Sheets
+
+Modal sheets are basically Dialog Fragments that slide from the bottom.  See [[this guide|Using-DialogFragment]] about how to create these types of fragments.  Instead of extending from `DialogFragment`, you would extend from `BottomSheetDialogFragment`.
 
 ## Troubleshooting Coordinated Layouts
 
