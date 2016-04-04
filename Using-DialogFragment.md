@@ -41,18 +41,18 @@ and defining the fragment itself extending from the **support version of dialog 
 import android.support.v4.app.DialogFragment;
 // ...
 
-public class EditNameDialog extends DialogFragment {
+public class EditNameDialogFragment extends DialogFragment {
 
 	private EditText mEditText;
 
-	public EditNameDialog() {
+	public EditNameDialogFragment() {
 		// Empty constructor is required for DialogFragment
                 // Make sure not to add arguments to the constructor
                 // Use `newInstance` instead as shown below
 	}
 	
-	public static EditNameDialog newInstance(String title) {
-		EditNameDialog frag = new EditNameDialog();
+	public static EditNameDialogFragment newInstance(String title) {
+		EditNameDialogFragment frag = new EditNameDialogFragment();
 		Bundle args = new Bundle();
 		args.putString("title", title);
 		frag.setArguments(args);
@@ -94,8 +94,8 @@ public class DialogDemoActivity extends AppCompatActivity {
   
   private void showEditDialog() {
       FragmentManager fm = getSupportFragmentManager();
-      EditNameDialog editNameDialog = EditNameDialog.newInstance("Some Title");
-      editNameDialog.show(fm, "fragment_edit_name");
+      EditNameDialogFragment editNameDialog = EditNameDialogFragment.newInstance("Some Title");
+      EditNameDialogFragment.show(fm, "fragment_edit_name");
   }
 }
 ```
@@ -175,7 +175,7 @@ To pass data from a dialog to an Activity, use the same approach you would use f
 This example below demonstrates how to pass a data result back to the activity when the "Done" button is pressed on the keyboard but this works similarly for other cases or for the `AlertDialog` (just use the listeners defined for each of the buttons):
 
 ```java
-public class EditNameDialog extends DialogFragment implements OnEditorActionListener {
+public class EditNameDialogFragment extends DialogFragment implements OnEditorActionListener {
     private EditText mEditText;
 
     // 1. Defines the listener interface with a method passing back data result.
@@ -234,7 +234,7 @@ In certain situations, the a dialog fragment may be invoked **within the context
 ```java
 import android.support.v4.app.DialogFragment;
 
-public class EditNameDialog extends DialogFragment {
+public class EditNameDialogFragment extends DialogFragment {
     // Defines the listener interface
     public interface EditNameDialogListener {
         void onFinishEditDialog(String inputText);
@@ -259,10 +259,10 @@ public class MyParentFragment extends Fragment implements EditNameDialogListener
     // Call this method to launch the edit dialog
     private void showEditDialog() {
         FragmentManager fm = getSupportFragmentManager();
-        EditNameDialog editNameDialog = EditNameDialog.newInstance("Some Title");
+        EditNameDialogFragment editNameDialogFragment = EditNameDialog.newInstance("Some Title");
         // SETS the target fragment for use later when sending results
-        editNameDialog.setTargetFragment(MyParentFragment.this, 300);
-        editNameDialog.show(fm, "fragment_edit_name");
+        editNameDialogFragment.setTargetFragment(MyParentFragment.this, 300);
+        editNameDialogFragment.show(fm, "fragment_edit_name");
     }
 
     // This is called when the dialog is completed and the results have been passed
@@ -511,9 +511,9 @@ With this code above, the dialog may still not appear to be entirely full-screen
 and then this style can be applied when creating the fragment with:
 
 ```java
-EditNameDialog editNameDialog = new EditNameDialog();
-editNameDialog.setStyle(DialogFragment.STYLE_NORMAL, R.style.Dialog_FullScreen);
-editNameDialog.show(getSupportFragmentManager(), "fragment_edit_name");
+EditNameDialogFragment editNameDialogFragment = new EditNameDialogFragment();
+editNameDialogFragment.setStyle(DialogFragment.STYLE_NORMAL, R.style.Dialog_FullScreen);
+editNameDialogFragment.show(getSupportFragmentManager(), "fragment_edit_name");
 ```
 
 See [this stackoverflow post](http://stackoverflow.com/questions/27202382/android-dialog-fragment-width-keeps-on-matching-parent) for more details. Refer to [this post](http://stackoverflow.com/questions/7189948/full-screen-dialogfragment-in-android/31597906#31597906) for the customized dialog styles.
