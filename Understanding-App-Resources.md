@@ -28,9 +28,9 @@ In addition, note the following key files stored within the `values` folder ment
 
 For the full list of resource types, check out the [Providing a Resource](http://developer.android.com/guide/topics/resources/providing-resources.html) guide.
 
-### Providing App Resources
+## Providing App Resources
 
-#### Defining a String Resource
+### Defining a String Resource
 
 For every piece of text you want to display within your application (i.e the label of a button, or the text inside a TextView), you should first define the text in the `res/values/strings.xml` file. Each entry is a key (representing the id of the text) and a value (the text itself). For example, if I want a button to display "Submit", I might add the following string resource to `res/values/strings.xml`:
 
@@ -58,7 +58,7 @@ Now if I ever reference the string resource for `submit_label`, the default will
 
 For more details on defining string resources, [check this guide](http://developer.android.com/guide/topics/resources/string-resource.html). You can also refer to [this guide for style resources](http://developer.android.com/guide/topics/resources/style-resource.html) and [this guide for other types](http://developer.android.com/guide/topics/resources/more-resources.html).
 
-#### Referencing an App Resource
+### Referencing an App Resource
 
 Now that we have defined our string resource, we can access that resource in either our Java code or our XML layouts at any time. To access, the resource in the XML Layout file, simply use the `@` syntax used to access any resource:
 
@@ -77,7 +77,7 @@ String submitText = getResources().getString(R.string.submit_label)
 
 And the string value will be retrieved. This similar pattern works for almost any resource from images (drawables) to colors. The `getResources()` method returns a [Resources](http://developer.android.com/reference/android/content/res/Resources.html) object with many resource fetching methods. Each resource is defined within different folders and files within the `res` directory depending on their type.
 
-#### Defining Color Resources
+### Defining Color Resources
 
 In addition to string resources shown above, the following common resource types can be found below. First, let's take a look at the colors file which is used to define all colors used within an application. Colors should be defined within `res/values/colors.xml` and the XML file looks like the following:
 
@@ -109,7 +109,7 @@ and referenced within any view in the XML using:
 
 That's all you need for color resources. Be sure to keep hardcoded colors out of your layout files. 
 
-#### Defining Dimension Resources
+### Defining Dimension Resources
 
 Next, let's take a look at the dimensions file which is used to define all size dimensions used within an app. A dimension is specified with a number followed by a unit of measure. For example: `10px`, `5sp`.  Dimensions should be defined within `res/values/dimens.xml` and the XML file looks like the following:
 
@@ -141,7 +141,7 @@ and referenced within any view in the XML layouts using:
 
 That's all you need for dimension resources. Be sure to use this to keep hardcoded font sizes, padding and margin values out of your layout files. There are [many other resource types to explore](http://developer.android.com/guide/topics/resources/more-resources.html#Color). 
 
-### Dynamic Resource Retrieval
+## Dynamic Resource Retrieval
 
 In certain cases, you might want to dynamically retrieve resources using just the key name rather than by "hardcoding" the resource id. For example, suppose I wanted to retrieve the "submit_label" string based on just that key name alone. This can be achieved using the `getIdentifier` method within an Activity:
 
