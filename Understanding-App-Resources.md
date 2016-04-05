@@ -28,7 +28,7 @@ In addition, note the following key files stored within the `values` folder ment
 
 For the full list of resource types, check out the [Providing a Resource](http://developer.android.com/guide/topics/resources/providing-resources.html) guide.
 
-### Managing App Resources
+### Providing App Resources
 
 #### Defining a String Resource
 
