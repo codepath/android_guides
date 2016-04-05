@@ -141,7 +141,7 @@ and referenced within any view in the XML layouts using:
 
 That's all you need for dimension resources. Be sure to use this to keep hardcoded font sizes, padding and margin values out of your layout files. There are [many other resource types to explore](http://developer.android.com/guide/topics/resources/more-resources.html#Color). 
 
-## Dynamic Resource Retrieval
+### Dynamic Resource Retrieval
 
 In certain cases, you might want to dynamically retrieve resources using just the key name rather than by "hardcoding" the resource id. For example, suppose I wanted to retrieve the "submit_label" string based on just that key name alone. This can be achieved using the `getIdentifier` method within an Activity:
 
