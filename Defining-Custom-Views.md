@@ -409,7 +409,7 @@ If you don't want to create a completely customized component, but instead are l
 
 **Incomplete: Fill this in with a relevant example**
 
-Read more about this in the [Custom Compound Components](http://developer.android.com/guide/topics/ui/custom-components.html#compound) guide for more details.
+Check out this [tutorial on Medium](https://medium.com/@Sserra90/android-writing-a-compound-view-1eacbf1957fc) for a detailed overview of developing a compound view. Read more about this in the [Custom Compound Components](http://developer.android.com/guide/topics/ui/custom-components.html#compound) guide for more details.
 
 ## Libraries
 
