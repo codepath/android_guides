@@ -371,7 +371,7 @@ We need to tie the DrawerLayout and Toolbar together:
 		drawerToggle = setupDrawerToggle();
 
 		// Tie DrawerLayout events to the ActionBarToggle
-		mDrawer.setDrawerListener(drawerToggle);
+		mDrawer.addDrawerListener(drawerToggle);
    }
 
    private ActionBarDrawerToggle setupDrawerToggle() {
