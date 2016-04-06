@@ -25,7 +25,12 @@ dependencies {
 }
 ```
 
-**Note**: if you are upgrading from Retrofit 2 beta 1 or beta2, your package imports will need to be changed from `import retrofit.XXXX` to `import retrofit2.XXXX`.  You will also need to update your `OkHttp` imports from `import okhttp.XXXX` to `import okhttp3.XXXX` because of the new OkHttp3 dependency.
+**Note**: if you are upgrading from Retrofit 2 beta 1 or beta2, your package imports will need to be changed from `import retrofit.XXXX` to `import retrofit2.XXXX`.  You will also need to update your `OkHttp` imports from `import okhttp.XXXX` to `import okhttp3.XXXX` because of the new OkHttp3 dependency:
+
+```bash
+find . -name '*.java' -exec gsed -i 's/import retrofit\./import retrofit2./g' \{\} +
+find . -name '*.java' -exec gsed -i 's/import com.squareup.okhttp/import okhttp3/g' \{\} +
+```
 
 If you intend to use [[RxJava]] with Retrofit 2, you will also need to include the RxJava adapter:
 
