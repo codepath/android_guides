@@ -331,7 +331,7 @@ By default, all network calls by default are synchronous:
 
 ```java
 RxJavaCallAdapterFactory rxAdapter = RxJavaCallAdapterFactory.create();
-``
+```
 
 If you wish to default network calls to be asynchronous, you need to use `createWithScheduler()`.  
 
