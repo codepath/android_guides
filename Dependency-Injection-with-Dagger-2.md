@@ -50,8 +50,8 @@ Add these three lines to your `app/build.gradle` file after this apply statement
 ```gradle
 dependencies {
     // apt command comes from the android-apt plugin
-    apt 'com.google.dagger:dagger-compiler:2.1'
-    compile 'com.google.dagger:dagger:2.1'
+    apt 'com.google.dagger:dagger-compiler:2.2'
+    compile 'com.google.dagger:dagger:2.2'
     provided 'javax.annotation:jsr250-api:1.0'
 }
 ```
