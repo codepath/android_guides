@@ -1,6 +1,6 @@
 ## Overview
 
-Automated Testing is an important topic that helps us ensure quality when building Android apps. There are many different testing tools and frameworks we can use while developing Android apps. This guide will take a look at some of the more popular approaches available. For someone first starting with testing, we recommend looking at [[Robolectric|Unit-Testing-with-Robolectric]] for unit testing, [Espresso](https://code.google.com/p/android-test-kit/wiki/Espresso) for UI testing, [Assertj-Android](http://square.github.io/assertj-android/) for better validation support, and [Mockito](http://mockito.org/) for mocking.
+Automated Testing is an important topic that helps us ensure quality when building Android apps. There are many different testing tools and frameworks we can use while developing Android apps. This guide will take a look at some of the more popular approaches available. For someone first starting with testing, we recommend looking at [[Robolectric|Unit-Testing-with-Robolectric]] for unit testing, [Espresso](https://google.github.io/android-testing-support-library/docs/espresso/index.html) for UI testing, [Assertj-Android](http://square.github.io/assertj-android/) for better validation support, and [Mockito](http://mockito.org/) for mocking.
 
 ### Unit Testing
 
