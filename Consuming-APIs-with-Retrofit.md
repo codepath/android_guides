@@ -326,13 +326,26 @@ try {
 
 ## RxJava
 
-Retrofit 2 also supports [[RxJava]] extensions.  You will need to add an [[RxJava]] Adapter like the following:
+Retrofit 2 also supports [[RxJava]] extensions.  You will need to create an [[RxJava]] Adapter.
+By default, all network calls by default are synchronous:
+
+```java
+RxJavaCallAdapterFactory rxAdapter = RxJavaCallAdapterFactory.create();
+``
+
+If you wish to default network calls to be asynchronous, you need to use `createWithScheduler()`.  
+
+```java
+RxJavaCallAdapterFactory rxAdapter = RxJavaCallAdapterFactory.createWithScheduler(Schedulers.io());
+```
+
+You can then instantiate the Retrofit instance:
 
 ```java
 Retrofit retrofit = new Retrofit.Builder()
                                .baseUrl("https://api.github.com")
-                               .addConverterFactory(GsonConverterFactory.create())
-                               .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                               .addConverterFactory(GsonConverterFactory.create());
+                               .addCallAdapterFactory(rxAdapter)
                                .build();
 ```
 
@@ -354,13 +367,13 @@ public interface MyApiEndpointInterface {
 }
 ```
 
-Consistent with the RxJava framework, we need to create a subscriber to handle the response.  The methods `onCompleted()`, `onError()`, and `onNext()` need to be added.  Using the Android RxJava library, we can also designate that we will handle this event on the UI main thread.  **Note**: As of Retrofit 2, you must also specify a `subscribeOn()` if the network call should be performed asynchronously.
+Consistent with the RxJava framework, we need to create a subscriber to handle the response.  The methods `onCompleted()`, `onError()`, and `onNext()` need to be added.  Using the Android RxJava library, we can also designate that we will handle this event on the UI main thread.  **Note**: If you intend to override the default network call behavior, you can specify `subscribeOn()`.  Otherwise, it can omitted.
 
 ```java
 String username = "sarahjean";
 Observable<User> call = apiService.getUser(username);
 Subscription subscription = call
-.subscribeOn(Schedulers.io()) // now required, otherwise the network call will be performed sychronously
+.subscribeOn(Schedulers.io()) // optional if you do not wish to override the default behavior
 .observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<User>() {
   @Override
   public void onCompleted() {
