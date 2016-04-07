@@ -269,7 +269,7 @@ public void onScrolled(RecyclerView view, int dx, int dy) {
 
 ### Alternative Methods
 
-Instead of using [EndlessRecyclerViewScrollListener.java](https://gist.github.com/nesquena/d09dc68ff07e845cc622) introduced in the following section, we can use a simpler and less computational way to implement endless scrolling. We can make use of the following code snippet to achieve endless scrolling:
+Instead of using [EndlessRecyclerViewScrollListener.java](https://gist.github.com/nesquena/d09dc68ff07e845cc622) introduced in the previous section, we can use a simpler and less computational way to implement endless scrolling. We can make use of the following code snippet to achieve endless scrolling:
 
 ```java
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
