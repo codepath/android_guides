@@ -362,16 +362,16 @@ If you see `Can not find sender for push type android`, it means you forgot to s
     * android.permission.ACCESS_NETWORK_STATE
     * android.permission.WAKE_LOCK
     * android.permission.GET_ACCOUNTS
+    * android.permission.VIBRATE (optional)
     * com.google.android.c2dm.permission.RECEIVE
     * context.getPackageName() + .permission.C2D_MESSAGE (i.e. `com.yourpackagename.permission.C2D_MESSAGE`)
-    * android.permission.VIBRATE (optional)
 
     ```xml
 
         <uses-permission android:name="android.permission.INTERNET" />
         <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
         <uses-permission android:name="android.permission.WAKE_LOCK" />
+        <uses-permission android:name="android.permission.GET_ACCOUNTS" />
         <uses-permission android:name="android.permission.VIBRATE" />
         <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
         <!--
