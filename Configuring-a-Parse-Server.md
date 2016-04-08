@@ -357,7 +357,17 @@ If you see `Can not find sender for push type android`, it means you forgot to s
               android:value="id:SENDER_ID_HERE"/>
      ```
 
-5. Add the necessary permissions (i.e. `com.google.android.c2dm.permission.WAKE_LOCK`, `com.google.android.c2dm.permission.RECEIVE`, `com.yourpackagename.permission.C2D_MESSAGE`, etc.)  Make sure to change any instances of `com.codepath.parseportpush` to your application package name.  If you forget any of these permissions, it is likely the GCM registration will not succeed.
+5. Add the necessary permissions:
+    * android.permission.INTERNET
+    * android.permission.ACCESS_NETWORK_STATE
+    * android.permission.WAKE_LOCK
+    * android.permission.GET_ACCOUNTS
+    * com.google.android.c2dm.permission.RECEIVE
+    * context.getPackageName() + .permission.C2D_MESSAGE (i.e. `com.yourpackagename.permission.C2D_MESSAGE`)
+
+   You must also to make sure to have a receiver that can handle `ACTION_PUSH_RECEIVE`, `ACTION_PUSH_OPEN`, and `ACTION_PUSH_DELETE` events.
+
+    If you forget any of these permissions, it is likely the GCM registration will not succeed.
 
     ```xml
 
