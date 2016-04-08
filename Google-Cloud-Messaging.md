@@ -63,8 +63,8 @@ If you have used the Google Developers Console and wish to enable GCM on an exis
      <img src="http://imgur.com/DhWqzyX.png"/>
  - Under `APIs & Auth` -> Credentials, select "Create New Key" => "Server Key".  Record key for later
      <img src="http://imgur.com/WEWaUBj.png"/>
- - Go back to the `Dashboard` view and record the "Project Number" under the Project Name:
-     <img src="https://imgur.com/eyx2aw6.png"/>
+ - Click on the Overflow menu, click on the `Project Information` option, and record the "Project Number":
+     <img src="http://imgur.com/BTrj9CH.png"/>
 
 Before continuing make sure:
 
