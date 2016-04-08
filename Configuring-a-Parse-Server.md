@@ -364,10 +364,7 @@ If you see `Can not find sender for push type android`, it means you forgot to s
     * android.permission.GET_ACCOUNTS
     * com.google.android.c2dm.permission.RECEIVE
     * context.getPackageName() + .permission.C2D_MESSAGE (i.e. `com.yourpackagename.permission.C2D_MESSAGE`)
-
-   You must also to make sure to have a receiver that can handle `ACTION_PUSH_RECEIVE`, `ACTION_PUSH_OPEN`, and `ACTION_PUSH_DELETE` events.
-
-    If you forget any of these permissions, it is likely the GCM registration will not succeed.
+    * android.permission.VIBRATE (optional)
 
     ```xml
 
@@ -377,7 +374,6 @@ If you see `Can not find sender for push type android`, it means you forgot to s
         <uses-permission android:name="android.permission.WAKE_LOCK" />
         <uses-permission android:name="android.permission.VIBRATE" />
         <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-
         <!--
           IMPORTANT: Change "com.codepath.parseportpush.permission.C2D_MESSAGE" in the lines below
           to match your app's package name + ".permission.C2D_MESSAGE".
@@ -385,7 +381,16 @@ If you see `Can not find sender for push type android`, it means you forgot to s
         <permission android:protectionLevel="signature"
             android:name="com.codepath.parseportpush.permission.C2D_MESSAGE" />
         <uses-permission android:name="com.codepath.parseportpush.permission.C2D_MESSAGE" />
+    ```
 
+6. Declare a service, Parse-specific broadcast receiver, and a GCM receiver within the `application` tag of the `AndroidManifest.xml` file:
+     
+     * Add a `PushService` service.
+     * The Parse receiver should can handle `ACTION_PUSH_RECEIVE`, `ACTION_PUSH_OPEN`, and `ACTION_PUSH_DELETE` events.
+     * The GCM broadcast receiver should handle `com.google.android.c2dm.intent.RECEIVE` and `com.google.android.c2dm.intent.REGISTRATION` events.   It also should include a `category` tag that directs GCM registration responses only for your application package name.
+
+    ```xml
+    <application>
         <service android:name="com.parse.PushService" />
         <receiver android:name="com.parse.ParsePushBroadcastReceiver"
                   android:exported="false">
@@ -407,6 +412,7 @@ If you see `Can not find sender for push type android`, it means you forgot to s
                     <category android:name="com.codepath.parseportpush" />
                 </intent-filter>
           </receiver>
+    </application>
     ```
 
 ### Storing Files with Parse
