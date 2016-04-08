@@ -383,7 +383,7 @@ RottenTomatoesService service = retrofit.create(RottenTomatoesService.class);
 Call<BoxOfficeMovieResponse> call = service.listRepos();
 call.enqueue(new Callback<BoxOfficeMovieResponse>() {
             @Override
-            public void onResponse(Response response) {
+            public void onResponse(Call<BoxOfficeMovieresponse> call, Response response) {
                 // handle response here
                 BoxOfficeMovieResponse boxOfficeMovieResponse = response.body();
             }
