@@ -90,7 +90,7 @@ com.android.ide.common.process.ProcessException: org.gradle.process.internal.Exe
    android {
      dexOptions {
         // Skip pre-dexing when running on Travis CI or when disabled via -Dpre-dex=false.
-          preDexLibraries = preDexEnabled && !travisBuild
+        preDexLibraries = preDexEnabled && !travisBuild
       }
     }
    ```
