@@ -161,6 +161,7 @@ Diving into the networking and model layers for data-driven apps:
 * [[Networking with the Volley Library]]
 * [[Displaying Images with the Fresco Library]]
 * [[Building Data-driven Apps with Parse]]
+* [[Configuring a Parse Server]]
 * [[Building Simple Chat Client with Parse]]
 * [[Troubleshooting Common Issues with Parse]]
 * [[Consuming APIs with Retrofit]]
