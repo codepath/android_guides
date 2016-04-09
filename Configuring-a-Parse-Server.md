@@ -386,7 +386,6 @@ If you see `Can not find sender for push type android`, it means you forgot to s
       * Add a `PushService` service.
       * The Parse receiver should can handle `ACTION_PUSH_RECEIVE`, `ACTION_PUSH_OPEN`, and `ACTION_PUSH_DELETE` events.
       * The GCM broadcast receiver should handle `com.google.android.c2dm.intent.RECEIVE` and `com.google.android.c2dm.intent.REGISTRATION` events.   It also should include a `category` tag that directs GCM registration responses only for your application package name.
-
       ```xml
       <application>
           <service android:name="com.parse.PushService" />
