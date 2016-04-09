@@ -383,13 +383,12 @@ If you see `Can not find sender for push type android`, it means you forgot to s
     ```
 
 6. Declare a service, Parse-specific broadcast receiver, and a GCM receiver within the `application` tag of the `AndroidManifest.xml` file:
+      * Add a `PushService` service.
+      * The Parse receiver should can handle `ACTION_PUSH_RECEIVE`, `ACTION_PUSH_OPEN`, and `ACTION_PUSH_DELETE` events.
+      * The GCM broadcast receiver should handle `com.google.android.c2dm.intent.RECEIVE` and `com.google.android.c2dm.intent.REGISTRATION` events.   It also should include a `category` tag that directs GCM registration responses only for your application package name.
 
-     * Add a `PushService` service.
-     * The Parse receiver should can handle `ACTION_PUSH_RECEIVE`, `ACTION_PUSH_OPEN`, and `ACTION_PUSH_DELETE` events.
-     * The GCM broadcast receiver should handle `com.google.android.c2dm.intent.RECEIVE` and `com.google.android.c2dm.intent.REGISTRATION` events.   It also should include a `category` tag that directs GCM registration responses only for your application package name.
-
-     ```xml
-     <application>
+      ```xml
+      <application>
           <service android:name="com.parse.PushService" />
           <receiver android:name="com.parse.ParsePushBroadcastReceiver"
                     android:exported="false">
@@ -411,8 +410,8 @@ If you see `Can not find sender for push type android`, it means you forgot to s
                       <category android:name="com.codepath.parseportpush" />
                   </intent-filter>
             </receiver>
-     </application>
-     ```
+      </application>
+      ```
 
 ### Storing Files with Parse
 
