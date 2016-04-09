@@ -9,7 +9,7 @@ While there are many
 
 You can review this [Wiki](https://github.com/ParsePlatform/parse-server/wiki) to understand the current development progress of this app.  There are a few notable differences in the open source version:
 
-* **Authentication**: By default, only an application ID is needed to authenticate with open source Parse.  The [base configuration](https://github.com/ParsePlatform/parse-server-example/blob/master/index.js#L13-L18) that comes with the one-click deploy options does not require authenticating with any other types of keys.   Therefore, specifying client keys on Android or iOS is not needed. 
+* **Authentication**: By default, only an application ID is needed to authenticate with open source Parse.  The [base configuration](https://github.com/ParsePlatform/parse-server-example/blob/master/index.js#L13-L18) that comes with the one-click deploy options does not require authenticating with any other types of keys.   Therefore, specifying client keys on Android or iOS is not needed.
 
 * **Push notifications**: Because of the implicit [security issues](https://github.com/ParsePlatform/parse-server/issues/396#issuecomment-183792657) with allowing push notifications to be sent through Android or iOS directly to other devices, this feature is disabled.  Normally in Parse.com you can toggle an option to override this security restriction.  For open source Parse, you must implement pre-defined code written in JavaScript that can be called by the clients to execute, otherwise known as [Parse Cloud]( http://blog.parse.com/announcements/pushing-from-the-javascript-sdk-and-cloud-code/).
 
@@ -42,10 +42,10 @@ Use Heroku if you have little or no experience with setting up web sites. Heroku
       * Leave `PARSE_MOUNT` to be `/parse`.  It does not need to be changed.
       * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId`.  You will need this info for the Client SDK setup.
       * Set `MASTER_KEY` to be the master key used to read/write all data.  **Note**: in hosted Parse, client keys are not used by default.
-      * Set `SERVER_URL` to be `http://yourappname.herokuapp.com/parse`.  Assuming you have left `PARSE_MOUNT` to be /parse, this will enable the use of Parse Cloud to work correctly. 
+      * Set `SERVER_URL` to be `http://yourappname.herokuapp.com/parse`.  Assuming you have left `PARSE_MOUNT` to be /parse, this will enable the use of Parse Cloud to work correctly.
       * If you intend to use Parse's Facebook authentication, set `FACEBOOK_APP_ID` to be the [FB application ID](https://developers.facebook.com/apps).
       * If you intend to setup push notifications, there are additional environment variables such as `GCM_SENDER_KEY` and `GCM_API_KEY` that will need to be configured.  See [[this section|Configuring-a-Parse-Server#enabling-push-notifications]] for the required steps.
-      
+
 4. Deploy the Heroku app.  The app should be hosted at `https://<app name>.herokuapp.com`.
 
 If you ever need to change these values later, you can go to (`https://dashboard.heroku.com/apps/<app name>/settings`). Check out [this guide](https://devcenter.heroku.com/articles/deploying-a-parse-server-to-heroku) for a more detailed set of steps for deploying Parse to Heroku.
@@ -117,7 +117,7 @@ user: dbuser
 password: dbpassword
 ```
 
-Using that cross-platform app to easily access and modify the data for your Parse MongoDB data. 
+Using that cross-platform app to easily access and modify the data for your Parse MongoDB data.
 
 ### Enabling Client SDK integration
 
@@ -211,14 +211,14 @@ The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which 
 
      Parse.initialize(new Parse.Configuration.Builder(this)
        .addNetworkInterceptor(new ParseStethoInterceptor())
-  ``` 
+  ```
 
 * If you wish to troubleshoot your Parse JavaScript code is to run the Parse server locally (see [instructions](https://github.com/ParsePlatform/parse-server-example#for-local-development)).  You should also install node-inspector for Node.js, which allows you to use Chrome or Safari to step through the code yourself:
 
    ```bash
    npm install node-inspector
    node --debug index.js
-   node_modules/.bin/node-inspector 
+   node_modules/.bin/node-inspector
    ```
 
    Open up http://127.0.0.1:8080/?port=5858 locally.   You can use the Chrome debugging tools to set breakpoints in the JavaScript code.
@@ -271,7 +271,7 @@ Instead, you need to write your own server-side Parse code and have the client i
 
      HashMap<String, String> test = new HashMap<>();
      test.put("channel", "testing");
-         
+
      ParseCloud.callFunctionInBackground("pushChannelTest", test);
      ```
 8. Make sure to register the GCM token to the server:
@@ -294,7 +294,7 @@ Instead, you need to write your own server-side Parse code and have the client i
 You should be able to se the `deviceToken`, `installationId`, and `appName` registered:
 
 ```
-03-02 03:17:27.859 9362-9596/com.test I/ParseLogInterceptor: 
+03-02 03:17:27.859 9362-9596/com.test I/ParseLogInterceptor:
 Body : {
    "pushType": "gcm",
    "localeIdentifier": "en-US",
@@ -367,7 +367,6 @@ If you see `Can not find sender for push type android`, it means you forgot to s
     * context.getPackageName() + .permission.C2D_MESSAGE (i.e. `com.yourpackagename.permission.C2D_MESSAGE`)
 
     ```xml
-
         <uses-permission android:name="android.permission.INTERNET" />
         <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
         <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -384,36 +383,36 @@ If you see `Can not find sender for push type android`, it means you forgot to s
     ```
 
 6. Declare a service, Parse-specific broadcast receiver, and a GCM receiver within the `application` tag of the `AndroidManifest.xml` file:
-     
+
      * Add a `PushService` service.
      * The Parse receiver should can handle `ACTION_PUSH_RECEIVE`, `ACTION_PUSH_OPEN`, and `ACTION_PUSH_DELETE` events.
      * The GCM broadcast receiver should handle `com.google.android.c2dm.intent.RECEIVE` and `com.google.android.c2dm.intent.REGISTRATION` events.   It also should include a `category` tag that directs GCM registration responses only for your application package name.
 
-    ```xml
-    <application>
-        <service android:name="com.parse.PushService" />
-        <receiver android:name="com.parse.ParsePushBroadcastReceiver"
-                  android:exported="false">
-              <intent-filter>
-                    <action android:name="com.parse.push.intent.RECEIVE" />
-                    <action android:name="com.parse.push.intent.DELETE" />
-                    <action android:name="com.parse.push.intent.OPEN" />
-              </intent-filter>
-         </receiver>
-          <receiver android:name="com.parse.GcmBroadcastReceiver"
-                android:permission="com.google.android.c2dm.permission.SEND">
+     ```xml
+     <application>
+          <service android:name="com.parse.PushService" />
+          <receiver android:name="com.parse.ParsePushBroadcastReceiver"
+                    android:exported="false">
                 <intent-filter>
-                    <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                    <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-
-                    <!--
-                      IMPORTANT: Change "com.codepath.parseportpush" to match your app's package name.
-                    -->
-                    <category android:name="com.codepath.parseportpush" />
+                      <action android:name="com.parse.push.intent.RECEIVE" />
+                      <action android:name="com.parse.push.intent.DELETE" />
+                      <action android:name="com.parse.push.intent.OPEN" />
                 </intent-filter>
-          </receiver>
-    </application>
-    ```
+           </receiver>
+            <receiver android:name="com.parse.GcmBroadcastReceiver"
+                  android:permission="com.google.android.c2dm.permission.SEND">
+                  <intent-filter>
+                      <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                      <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                      <!--
+                        IMPORTANT: Change "com.codepath.parseportpush" to match your app's package name.
+                      -->
+                      <category android:name="com.codepath.parseportpush" />
+                  </intent-filter>
+            </receiver>
+     </application>
+     ```
 
 ### Storing Files with Parse
 
