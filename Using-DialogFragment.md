@@ -94,8 +94,8 @@ public class DialogDemoActivity extends AppCompatActivity {
   
   private void showEditDialog() {
       FragmentManager fm = getSupportFragmentManager();
-      EditNameDialogFragment editNameDialog = EditNameDialogFragment.newInstance("Some Title");
-      EditNameDialogFragment.show(fm, "fragment_edit_name");
+      EditNameDialogFragment editNameDialogFragment = EditNameDialogFragment.newInstance("Some Title");
+      editNameDialogFragment.show(fm, "fragment_edit_name");
   }
 }
 ```
