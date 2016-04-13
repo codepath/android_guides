@@ -53,15 +53,15 @@ In the past, Retrofit relied on the [Gson](https://github.com/google/gson) libra
 |Wire       | com.squareup.retrofit2:converter-wire:2.0.1           
 |Simple XML | com.squareup.retrofit2:converter-simplexml:2.0.1      
 
-### Create Java Objects for Resources
+### Create Java Classes for Resources
 
-There are two approaches discussed in this guide.  The first way is the manual approach, which requires you to learn how to use the [Gson](https://github.com/google/gson) library.  The second approach is you can also auto-generate the Java objects you need by capturing the JSON output and using [jsonschema2pojo](http://www.jsonschema2pojo.org/).   We encourage you to follow the manual way to best understand how the auto-generated code approach works.
+There are two approaches discussed in this guide.  The first way is the manual approach, which requires you to learn how to use the [Gson](https://github.com/google/gson) library.  The second approach is you can also auto-generate the Java classes you need by capturing the JSON output and using [jsonschema2pojo](http://www.jsonschema2pojo.org/).   We encourage you to follow the manual way to best understand how the auto-generated code approach works.
 
-#### Manual approach - Creating Java objects by hand
+#### Manual approach - Creating Java classes by hand
 
-See [[this guide|Leveraging-the-Gson-Library]]  about leveraging the Gson library for more information about how to create your own Java objects for use with Retrofit.   The guide shows how to use Gson to ingest data from the Rotten Tomatoes API, but it can be used in the same way for any RESTful web service.
+See [[this guide|Leveraging-the-Gson-Library]]  about leveraging the Gson library for more information about how to create your own Java classes for use with Retrofit.   The guide shows how to use Gson to ingest data from the Rotten Tomatoes API, but it can be used in the same way for any RESTful web service.
 
-#### Automated approach - Auto-generating the Java objects
+#### Automated approach - Auto-generating the Java classes
 
 Assuming you have the JSON response already, go to [jsonschema2pojo](http://www.jsonschema2pojo.org/).
 Make sure to select `JSON` as the Source Type:
