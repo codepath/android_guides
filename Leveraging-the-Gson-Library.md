@@ -328,9 +328,9 @@ AsyncHttpClient client = new AsyncHttpClient();
          "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=" + apiKey,
          new TextHttpResponseHandler() {
              @Override
-             public void onSuccess(int i, Header[] headers, String s) {
+             public void onSuccess(int statusCode, Header[] headers, String response) {
                  Gson gson = new GsonBuilder().create();
-                 Response movies = gson.fromJson(response, Response.class);
+                 Movie movie = gson.fromJson(response, Movie.class);
              }
          });
 }
