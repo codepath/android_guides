@@ -12,7 +12,7 @@ Every `AdapterView` has support for binding to the `OnScrollListener` events whi
 import android.widget.AbsListView; 
 
 public abstract class EndlessScrollListener implements AbsListView.OnScrollListener {
-	// The minimum amount of items to have below your current scroll position
+	// The minimum number of items to have below your current scroll position
 	// before loading more.
 	private int visibleThreshold = 5;
 	// The current offset index of data you have loaded
