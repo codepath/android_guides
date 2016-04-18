@@ -152,6 +152,7 @@ If you wish to force the video to landscape mode, you can also add the `screenOr
   android:name=".QuickPlayActivity"
   android:screenOrientation="landscape">
 </activity>
+```
 
 ## Capturing Video
 
