@@ -155,6 +155,23 @@ Picasso.with(this).load(imageUrl)
 });
 ```
 
+### Other Transformations
+
+You can also use this [third-party library](https://github.com/wasabeef/picasso-transformations) for other transformations, such as blur, crop, color, and mask.  
+```gradle
+dependencies {
+    compile 'jp.wasabeef:picasso-transformations:2.1.0'
+    // If you want to use the GPU Filters
+    compile 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
+}
+```
+
+To do a rounded corner transformation, you would do the following:
+
+```java
+Picasso.with(mContext).load(R.drawable.demo)
+        .transform(new RoundedCornersTransformation(10, 10)).into((ImageView) findViewById(R.id.image));
+```
 ## References
 
 * <http://square.github.io/picasso/>
