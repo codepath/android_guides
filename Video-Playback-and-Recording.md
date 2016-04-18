@@ -90,7 +90,7 @@ In the past, the YouTube API provided a 3gp link that you could use with VideoVi
 
 First, you will need to create an API key through [https://console.developers.google.com/](https://console.developers.google.com/).  Make sure to enable the `YouTube Data API v3`.  Go to the `Credentials` section and generate an API key.
 
-Next, add the [YouTubeAndroidPlayerApi.jar](https://android.googlesource.com/platform/external/iosched/+/refs/heads/emu-1.4-release/android/libs/YouTubeAndroidPlayerApi.jar) file to your `libs` dir.  It is included in the sample code but this link provides a quick way to download it.
+Next, add the [YouTubeAndroidPlayerApi.jar](https://github.com/google/iosched/blob/master/android/libs/YouTubeAndroidPlayerApi.jar) file to your `libs` dir.  It is included in the sample code but this link provides a quick way to download it.
 
 Instead of the `VideoView`, you should add `YouTubePlayerView`:
 
@@ -145,6 +145,13 @@ youTubePlayer.loadVideo("5xVh-7ywKpE");
 
 If you wish to only load the video but not play, use `cueVideo()` instead of `loadVideo()`.
 
+If you wish to force the video to landscape mode, you can also add the `screenOrientation` flag inside your Activity in the AndroidManifest.xml file:
+
+```xml
+<activity
+  android:name=".QuickPlayActivity"
+  android:screenOrientation="landscape">
+</activity>
 
 ## Capturing Video
 
