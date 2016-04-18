@@ -84,9 +84,67 @@ controller.setVisibility(View.VISIBLE);
 
 You can read about [how fenster was developed](http://www.malmstein.com/blog/2014/08/09/how-to-use-a-textureview-to-display-a-video-with-custom-media-player-controls/) as well. 
 
-### Streaming from 3gp Youtube Source
+### Streaming from YouTube
 
-There are a few ways of video playback on the android device. Most of which include downloading the content to the device for playback. If you want to stream a video from a network hosted source. the youtube api gives you the ability to do so using their provided 3gp stream. The provided [YouTube Android Player API](https://developers.google.com/youtube/android/player/) allows you to do so with very little code. Check out [this truiton tutorial](http://www.truiton.com/2013/08/android-youtube-api-tutorial/) to learn more about playing video with YouTube SDK.
+In the past, the YouTube API provided a 3gp link that you could use with VideoView to play.  However, to play YouTube videos on Android, you now have to use the [YouTube Android Player API] (https://developers.google.com/youtube/android/player/).  
+
+First, you will need to create an API key through [https://console.developers.google.com/](https://console.developers.google.com/).  Make sure to enable the `YouTube Data API v3`.  Go to the `Credentials` section and generate an API key.
+
+Next, add the [YouTubeAndroidPlayerApi.jar](https://android.googlesource.com/platform/external/iosched/+/refs/heads/emu-1.4-release/android/libs/YouTubeAndroidPlayerApi.jar) file to your `libs` dir.  It is included in the sample code but this link provides a quick way to download it.
+
+Instead of the `VideoView`, you should add `YouTubePlayerView`:
+
+```xml
+<com.google.android.youtube.player.YouTubePlayerView
+    android:id="@+id/player"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+
+```
+
+If you intend for your Activity, you will need to extend `YouTubeBaseActivity`.  One current drawback is that this library does not inherit from `AppCompatActivity` so some of your styles may not match those that are defined in `styles.xml`.
+
+```java
+public class QuickPlayActivity extends YouTubeBaseActivity {
+```
+
+You then should initialize the YouTube Player by calling `initialize()` with your API key on the `YouTubePlayerView`:
+
+```java
+    YouTubePlayerView mYouTubePlayerView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_quick_play);
+
+        mYouTubePlayerView = findViewById(R.id.player);
+
+        mYouTubePlayerView.initialize("YOUR API KEY",
+                new YouTubePlayer.OnInitializedListener() {
+                    @Override
+                    public void onInitializationSuccess(YouTubePlayer.Provider provider,
+                            YouTubePlayer youTubePlayer, boolean b) {
+
+                        mYouTubePlayer = youTubePlayer;
+                    }
+                    @Override
+                    public void onInitializationFailure(YouTubePlayer.Provider provider,
+                            YouTubeInitializationResult youTubeInitializationResult) {
+
+                    }
+        });
+}
+```
+
+Playing videos involves passing along the YouTube video key (do not include the full URL): 
+
+```java
+youTubePlayer.loadVideo("5xVh-7ywKpE");
+```
+
+If you wish to only load the video but not play, use `cueVideo()` instead of `loadVideo()`.
+
 
 ## Capturing Video
 
