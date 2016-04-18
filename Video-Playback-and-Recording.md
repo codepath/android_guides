@@ -90,7 +90,7 @@ In the past, the YouTube API provided a 3gp link that you could use with VideoVi
 
 First, you will need to create an API key through [https://console.developers.google.com/](https://console.developers.google.com/).  Make sure to enable the `YouTube Data API v3`.  Go to the `Credentials` section and generate an API key.
 
-Next, add the [YouTubeAndroidPlayerApi.jar](https://github.com/google/iosched/blob/master/android/libs/YouTubeAndroidPlayerApi.jar) file to your `libs` dir.  It is included in the sample code but this link provides a quick way to download it.
+Next, add the [YouTubeAndroidPlayerApi.jar](https://github.com/google/iosched/raw/master/android/libs/YouTubeAndroidPlayerApi.jar) file to your `libs` dir.  It is included in the sample code but this link provides a quick way to download it.
 
 Instead of the `VideoView`, you should add `YouTubePlayerView`:
 
