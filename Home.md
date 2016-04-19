@@ -183,6 +183,7 @@ Exploring the strategies for data persistence:
 * [[Clean Persistence with Sugar ORM]] (Installation, Queries, Migrations)
 * [[DBFlow ORM Guide|DBFlow-Guide]] (Installation, Queries)
 * [[Easier SQL with Cupboard]]
+* [[Powerful Persistence with JDXA ORM]]
 
 ## Fragments
 
