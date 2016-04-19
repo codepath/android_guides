@@ -40,6 +40,8 @@ There are just 3 simple steps to use JDXA:
 
 On top of the core ORM functionality of JDX, we have created many Android platform-specific utility classes to facilitate the easy and speedy development of mobile apps that need on-device access to SQLite relational database.
 
+### [**Download JDXA ORM SDK**](http://softwaretree.com/v1/products/jdxa/download-jdxa.php)
+
 The JDXA SDK ships with plenty of documentation including the JDXA User Manual and Javadocs. The SDK also ships with many readymade sample application projects exemplifying the typicla ORM-related structure of Android applications, ORM specification files, usage of Android-specific utility classes, and JDXA API calls.
 
 The following discussions provide some details about installing and using JDXA ORM SDK for Android app development.
@@ -70,14 +72,14 @@ To use JDXA in your Android project, just add the libraries JDXAndroid-nn.n.jar 
 
 -  **In Eclipse:**
 
-Put the above two jar files (JDXAndroid-nn.n.jar and sqldroid.jar) in your project's Java Build Path ( **Properties**  **→**  **Java Build Path**  **→**  **Libraries**  **→**  **Add External Jars…** ).
+1. Put the above two jar files (JDXAndroid-nn.n.jar and sqldroid.jar) in your project's Java Build Path ( **Properties**  **→**  **Java Build Path**  **→**  **Libraries**  **→**  **Add External Jars…** ).
 
 -  **In Android Studio:**
 
 1. Create, if not already present, a directory named libs under the app directory of your project. Add the above two jar files (JDXAndroid-nn.n.jar and sqldroid.jar) in that libs directory.
 2. Within Android Studio, under the **Project** view, locate the JDXAndroid-nn.n.jar file in the libs directory and **right click** on it and then **click** on the menu item **Add as Library…**. You will see the dependency on this jar file added to your build.gradle file as:
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_compile files('libs/_ _JDXAndroid-nn.n.jar__')_
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_compile files('libs/JDXAndroid-nn.n.jar')_
 
 3. Repeat the above step (2) for the sqldroid.jar file.
 
@@ -109,6 +111,7 @@ public class Employee {
 ```
 _Domain model class file Employee.java_
 
+
 **2. Define a declarative object-relational mapping specification textually**
 
 Here is an example of the mapping specification contained in a text file (say example.jdx), which should be located in the res/raw directory of the Android project.
@@ -128,6 +131,7 @@ CLASS com.mycompany.model.Employee TABLE Employee
 ```
 _Mapping file example.jdx_
 
+
 **3: Develop applications using intuitive and powerful JDXA APIs**
 
 The following code gives an example of how the core and utility JDXA classes described earlier can be used to initialize an on-device SQLite database and the ORM system, and to interact with the database in an intuitive object-oriented way that does not involve writing any complex SQL code. The AppSpecificJDXSetup utility class (code not shown) is used to easily initialize the database (example.db) and the ORM system based on the mapping specification (example.jdx).
@@ -144,13 +148,14 @@ public class JDXAndroidExampleActivity extends Activity {
           useJDXORM(jdxSetup);
        } catch (Exception ex) { // Handle exception
            cleanup();
-            return;
+           return;
        }
-   }
+    }
+
     private void cleanup() {
        AppSpecificJDXSetup._cleanup_();
        jdxSetup = null;
-   }
+    }
 
     private void useJDXORM(JDXSetup jdxSetup) throws Exception {
         JDXHelper jdxHelper = new JDXHelper(jdxSetup);
@@ -178,8 +183,8 @@ public class JDXAndroidExampleActivity extends Activity {
         jdxHelper.update(emp, false);
 
         return;
-       }
-   }
+    }
+}
 ```
 _Android activity programming file JDXAndroidExampleActivity.java_
 
