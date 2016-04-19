@@ -193,7 +193,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [ZXing](https://github.com/zxing/zxing) - Barcode or QR scanner
  * [ZXing Android Embedded](https://github.com/journeyapps/zxing-android-embedded) - Alternative zxing scanner
  * [barcodescanner](https://github.com/dm77/barcodescanner) - Newer alternative
- * [zxscanlib](https://github.com/LivotovLabs/zxscanlib) - ZXing alternative
+ * [CamView](https://github.com/LivotovLabs/CamView) - ZXing alternative
  * [android-quick-response-code](https://code.google.com/p/android-quick-response-code/) - Another alternative
 
 ### Persistence
