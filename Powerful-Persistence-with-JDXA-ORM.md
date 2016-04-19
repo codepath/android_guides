@@ -2,19 +2,19 @@
 
 # An Introduction
 
-**By Damodar Periwal, architect and developer of JDXA ORM**
+**By Damodar Periwal, Architect and Developer of JDXA ORM**
 
 This is a brief introduction to the [JDXA](http://www.softwaretree.com/v1/products/jdxa/jdxa.html) Object Relational Mapping (ORM) product. JDXA (a.k.a. JDX for Android) can be used to easily develop mobile apps that require intuitive object-oriented access to device-local SQLite relational data on the Android platform. This document provides an overview of JDXA followed by brief instructions on how to install and use the product. It also provides a simple code example and descriptions of some Android-specific utility classes to simplify app development with JDXA.
 
 This document also contains links to some illustrative code snippets for different mapping scenarios like one-to-one, one-to-many, and many-to-many relationships, and JSON object persistence.  Finally, there is a list of many sample projects shipped with the product SDK that demonstrate how different features of JDXA may easily be used to simplify object modeling and data integration tasks for Android apps.
 
-[**Download JDXA ORM SDK**](http://softwaretree.com/v1/products/jdxa/download-jdxa.php)
+##### [**Download JDXA ORM SDK**](http://softwaretree.com/v1/products/jdxa/download-jdxa.php)
 
 The SDK comes with a comprehensive user manual, javadocs, and many working sample apps.
 
 **Note:** JDX is the core Object Relational Mapping (ORM) technology developed by Software Tree. This core ORM technology has been adapted for the Android platform and that adaptation is called JDXA. In the context of the Android platform, the terms _JDX_, _JDXA_, and _JDX for Android_ may be used synonymously.
 
-# **Overview**
+## **Overview**
 
 In Object Oriented Programming (OOP) languages (e.g. Java, C++, C#), a class encapsulates the structure and behavior of objects of a certain type.  Business objects are easier to represent as instances of classes.  A domain object model consists of various classes and their relationships comprising an application domain. Integration of domain object model data with relational data is a common need for most object-oriented applications. ORM has become the preferred and most popular paradigm for such integration. Our JDXA ORM product (a.k.a. JDX for Android) increases programmer productivity tremendously by presenting a more intuitive, object-oriented view of relational data and eliminating the need to write endless lines of complex low-level SQL code. Based on some well thought-out [KISS (Keep It Simple and Straightforward) principles](http://www.softwaretree.com/products/njdx/whitepaper/KISSPrinciples.pdf), JDXA provides fast, flexible, lightweight, and easy-to-use ORM functionality.
 
@@ -44,7 +44,7 @@ The JDXA SDK ships with plenty of documentation including the JDXA User Manual a
 
 The following discussions provide some details about installing and using JDXA ORM SDK for Android app development.
 
-# **Installation**
+## **Installation**
 
 Please unzip the JDXA ORM SDK distribution jar file in a new folder (for example, JDXForAndroid). You will see the following directory structure:
 
@@ -64,7 +64,7 @@ The examples directory contains many sample Eclipse projects that exemplify the 
 
 The SQLDroidLocal directory has the JDBC driver (SQLDroid) library (SQLDroid\bin\sqldroid.jar) based on the open-source code available at [GitHub](https://github.com/SQLDroid/SQLDroid). This library is provided under the terms of [The MIT License (MIT)](http://opensource.org/licenses/MIT).
 
-# **Using JDXA in your Android project**
+## **Using JDXA in your Android project**
 
 To use JDXA in your Android project, just add the libraries JDXAndroid-nn.n.jar (shipped in the libs directory of the SDK) and sqldroid.jar (shipped in the SQLDroidLocal\SQLDroid\bin directory of the SDK) as external jars. For example,
 
@@ -83,7 +83,7 @@ Put the above two jar files (JDXAndroid-nn.n.jar and sqldroid.jar) in your proje
 
 After setting up these jar files as external libraries, you can start using JDXA APIs in your Android project.
 
-# **Simple Example Code**
+## **Simple Example Code**
 
 Just to give you a flavor of coding simplicity achieved by using JDXA ORM, this section provides representative example code of an Android application accessing an on-device SQLite database. Any UI and exception handling code is not provided in these code excerpts. There are just 3 simple steps to use JDX:
 
@@ -183,7 +183,7 @@ public class JDXAndroidExampleActivity extends Activity {
 ```
 _Android activity programming file JDXAndroidExampleActivity.java_
 
-# **JDXA Utility Classes**
+## **JDXA Utility Classes**
 
 _JDXA_ is shipped with many convenient utility classes (in the package com.softwaretree.jdxandroid) to simplify development of Android apps.  These utilities interact with the Android platform-specific artifacts and with the JDXA ORM framework to present a convenient application development interface.  An application can use those utilities alone or use those utilities along with JDX Core as per its needs.  Here are brief descriptions of some of those utility classes:
 
@@ -235,7 +235,7 @@ This class serves as a base class for persisting JSONObject instances of a domai
 
 This class has some nifty utility methods that can be used by JDXA apps.
 
-# **Code Snippets**
+## **Code Snippets**
 
 Here are links to some programming snippets to illustrate JDXA ORM mapping specifications and APIs for sample object models (class definitions). Each sample is named to signify a typical modeling or usage pattern.
 
@@ -283,7 +283,7 @@ Although this snippet shows how JDXA can help you with persistence of simple JSO
 
 
 
-# **Sample Projects**
+## **Sample Projects**
 
 The JDXA ORM SDK ships with many sample projects of working Android applications, which use JDXA for data integration.  These projects provide examples of many different features of the JDXA ORM product including how to specify mappings for domain model classes having one-to-one, one-to-many, and many-to-many relationships, how to use sequence generators for unique ids, how to use object-oriented list view classes, how to automatically create the underlying database schema (tables and constraints) as per the mapping specification, and how to leverage various JDX APIs to easily interact with a relational database in an object-oriented way.
 
