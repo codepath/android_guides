@@ -2,7 +2,6 @@
 
 # An Introduction
 
-**By Damodar Periwal, Architect and Developer of JDXA ORM**
 
 This is a brief introduction to the [JDXA](http://www.softwaretree.com/v1/products/jdxa/jdxa.html) Object Relational Mapping (ORM) product. JDXA (a.k.a. JDX for Android) can be used to easily develop mobile apps that require intuitive object-oriented access to device-local SQLite relational data on the Android platform. This document provides an overview of JDXA followed by brief instructions on how to install and use the product. It also provides a simple code example and descriptions of some Android-specific utility classes to simplify app development with JDXA.
 
