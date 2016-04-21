@@ -18,8 +18,8 @@ Inside the `app/build.gradle` file, we should apply the plugin before the Parcel
 apply plugin: 'com.neenbedankt.android-apt'
 
 dependencies {
-  compile 'org.parceler:parceler-api:1.0.4'
-  apt 'org.parceler:parceler:1.0.4'
+  compile 'org.parceler:parceler-api:1.1.1'
+  apt 'org.parceler:parceler:1.1.1'
 }
 ```
 
