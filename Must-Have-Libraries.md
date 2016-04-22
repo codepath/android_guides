@@ -177,7 +177,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [AndroidPlot](http://androidplot.com/docs/quickstart/) - plotting library for Android
  * [WilliamChart](https://github.com/diogobernardino/WilliamChart) - Flexible charting library with useful motion capabilities.
  * [HelloCharts](https://github.com/lecho/hellocharts-android) - Charts/graphs library for Android with support for scaling, scrolling and animations.
- * [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart)-A powerful Android chart view / graph view library, supporting line- bar- pie- radar- bubble- and candlestick charts as well as scaling, dragging and animations.
+ * [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart) - A powerful Android chart view / graph view library, supporting line- bar- pie- radar- bubble- and candlestick charts as well as scaling, dragging and animations.
 
 ### Image Processing
 
