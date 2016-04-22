@@ -169,7 +169,6 @@ Essentially this method is used to enable your code to short-circuit before exec
 ### Drawing
 
  * [Leonids](https://github.com/plattysoft/Leonids) - Simple and easy particle effects ([See Tutorial](http://www.plattysoft.com/2014/05/30/leonids-particle-system-lib/))
- * [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart) - A powerful Android chart view / graph view library
  * [AChartEngine](http://jaxenter.com/effort-free-graphs-on-android-with-achartengine-46199.html) - This is a charting software library for Android applications
  * [HoloGraphLibrary](https://github.com/Androguide/HoloGraphLibrary) - Newer graphing library
  * [EazeGraph](https://github.com/blackfizz/EazeGraph) - Another newer library with potential
