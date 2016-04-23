@@ -406,7 +406,7 @@ fab.setOnClickListener(new View.OnClickListener() {
 });
 ```
 
-You can set a layout attribute `app:behavior_hideable=true` to allow the user to swipe the bottom sheet away too.  There are other states including `STATE_DRAGGING`, `STATE_SETTLING`, and `STATE_HIDDEN`.  
+You can set a layout attribute `app:behavior_hideable=true` to allow the user to swipe the bottom sheet away too.  There are other states including `STATE_DRAGGING`, `STATE_SETTLING`, and `STATE_HIDDEN`. For additional reading, you can see [another tutorial on bottom sheets here](http://code.tutsplus.com/articles/how-to-use-bottom-sheets-with-the-design-support-library--cms-26031).
 
 ### Modal Sheets
 
@@ -460,3 +460,4 @@ There is currently no way of supporting Google Maps fragment within an `AppBarLa
 
 * <http://android-developers.blogspot.com/2015/05/android-design-support-library.html>
 * <http://android-developers.blogspot.com/2016/02/android-support-library-232.html>
+* <http://code.tutsplus.com/articles/how-to-use-bottom-sheets-with-the-design-support-library--cms-26031>
