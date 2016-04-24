@@ -17,6 +17,7 @@ if (callIntent.resolveActivity(getPackageManager()) != null) {
     startActivity(callIntent);
 }
 ```
+
 > **Caution** It's possible that a user won't have any apps that handle the implicit intent you send to *startActivity()*. If that happens, the call will fail and your app will crash. To verify that an activity will receive the intent, call *resolveActivity()* on your *Intent* object. If the result is non-null, then there is at least one app that can handle the intent and it's safe to call *startActivity()*. If the result is null, you should not use the intent and, if possible, you should disable the feature that issue the intent.
 
 ## Send Email (to Phone Email Client)
