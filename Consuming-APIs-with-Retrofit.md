@@ -36,9 +36,9 @@ If you intend to use [[RxJava]] with Retrofit 2, you will also need to include t
 
 ```gradle
 dependencies {
-  compile 'io.reactivex:rxjava:1.1.2'
+  compile 'io.reactivex:rxjava:1.1.3'
   compile 'io.reactivex:rxandroid:1.1.0'
-  compile 'com.squareup.retrofit2:adapter-rxjava:2.0.1'
+  compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
 }
 ```
 
@@ -46,12 +46,12 @@ In the past, Retrofit relied on the [Gson](https://github.com/google/gson) libra
 
 |Converter  | Library             
 |-----------|------------------------------------------------
-|Gson       | com.squareup.retrofit2:converter-gson:2.0.1          
-|Jackson    | com.squareup.retrofit2:converter-jackson:2.0.1         
-|Moshi      | com.squareup.retrofit2:converter-moshi:2.0.1           
-|Protobuf   | com.squareup.retrofit2:converter-protobuf:2.0.1       
-|Wire       | com.squareup.retrofit2:converter-wire:2.0.1           
-|Simple XML | com.squareup.retrofit2:converter-simplexml:2.0.1      
+|Gson       | com.squareup.retrofit2:converter-gson:2.0.2          
+|Jackson    | com.squareup.retrofit2:converter-jackson:2.0.2         
+|Moshi      | com.squareup.retrofit2:converter-moshi:2.0.2           
+|Protobuf   | com.squareup.retrofit2:converter-protobuf:2.0.2       
+|Wire       | com.squareup.retrofit2:converter-wire:2.0.2           
+|Simple XML | com.squareup.retrofit2:converter-simplexml:2.0.2      
 
 ### Create Java Classes for Resources
 
