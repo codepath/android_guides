@@ -82,7 +82,7 @@ Edit your `.bash_profile` file. If you're not using bash, edit the right config 
  
 Save and quit. Reload `.bash_profile`:
 
-    $ source ~./bash_profile
+    $ source ~/.bash_profile
 
 ### Installing via the GUI
  
