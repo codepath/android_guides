@@ -12,15 +12,11 @@ It was first used by the Play Store team in Play Store Application and then they
 * Volley provides powerful customization abilities.
 * Volley provides debugging and tracing tools.
 
-## Getting started
+## Setup Volley
 
-We need to install volley as a [library project](http://imgur.com/a/N8baF). First, download the volley source code:
+Adding Volley to our app/build.gradle file:
 
-```bash
-git clone https://android.googlesource.com/platform/frameworks/volley
-```
-
-and then we need to import the source code into our workspace and then mark it as a library. Now we can add this library as a dependency of any of our apps.
+`compile 'com.android.volley:volley:1.0.0'`
 
 ## How to use Volley?
 
