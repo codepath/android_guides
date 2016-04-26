@@ -308,6 +308,7 @@ Subscription subscription = getImageNetworkCall()
 
 ## References
 
+* <http://blog.danlew.net/2014/09/15/grokking-rxjava-part-1/>
 * <https://github.com/ReactiveX/RxJava/wiki/The-RxJava-Android-Module>
 * <http://saulmm.github.io/when-Iron-Man-becomes-Reactive-Avengers2/>
 * <http://blog.stablekernel.com/replace-asynctask-asynctaskloader-rx-observable-rxjava-android-patterns/>
