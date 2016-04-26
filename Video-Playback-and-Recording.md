@@ -111,22 +111,21 @@ public class QuickPlayActivity extends YouTubeBaseActivity {
 You then should initialize the YouTube Player by calling `initialize()` with your API key on the `YouTubePlayerView`:
 
 ```java
-    YouTubePlayerView mYouTubePlayerView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quick_play);
 
-        mYouTubePlayerView = findViewById(R.id.player);
+        YouTubePlayerView youTubePlayerView = findViewById(R.id.player);
 
-        mYouTubePlayerView.initialize("YOUR API KEY",
+        youTubePlayerView.initialize("YOUR API KEY",
                 new YouTubePlayer.OnInitializedListener() {
                     @Override
                     public void onInitializationSuccess(YouTubePlayer.Provider provider,
                             YouTubePlayer youTubePlayer, boolean b) {
 
-                        mYouTubePlayer = youTubePlayer;
+                        // do any work here to cue video, play video, etc.    
+                        youTubePlayer.cueVideo("5xVh-7ywKpE");
                     }
                     @Override
                     public void onInitializationFailure(YouTubePlayer.Provider provider,
