@@ -226,11 +226,19 @@ We can then instantiate an instance of this interface and get back an `Observabl
 MyApiEndpointInterface apiService =
     retrofit.create(MyApiEndpointInterface.class);
 
+// Get the observable User object
 Observable<User> call = apiService.getUser(username);
+// To define where the work is done, we can use `observeOn()` with Retrofit
+// This means the result is handed to the subscriber on the main thread
 call.observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<User>() {
   @Override
+  public void onNext(User user) {
+     // Called once the `User` object is available
+  }
+
+  @Override
   public void onCompleted() {
-   
+    // Nothing to do here
   }
 
   @Override
@@ -241,21 +249,10 @@ call.observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<User>() 
        int code = response.code();
     }
   }
-
-  @Override
-  public void onNext(User user) {
-  }
 });
 ```
 
-To define where the work is done, we can use `observeOn()` with Retrofit:
-
-```java
-Observable<User> call = apiService.getUser(username);
-call.observeOn(AndroidSchedulers.mainThread())
-```
-
-The RxAndroid library also includes `AndroidSchedulers.mainThread()` for allowing callbacks to be fired on the main UI thread. 
+The RxAndroid library includes `AndroidSchedulers.mainThread()` for allowing callbacks to be fired on the main UI thread. 
 
 ### Hot vs. Cold Observables
 
