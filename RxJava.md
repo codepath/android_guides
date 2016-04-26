@@ -1,5 +1,7 @@
 ## Overview
 
+[RxJava](https://github.com/ReactiveX/RxAndroid) is described officially as "a library for composing asynchronous and event-based programs by using observable sequences". But what does this actually mean? Let's put this library into context.
+
 One of the challenges in writing robust Android apps is the dynamic nature of changing inputs.   In traditional imperative programming models, values have to be explicitly set on variables for them to be updated.  If one dependent value changes, the value will not be updated without adding another line of code.   Consider the following example:
 
 ```java
