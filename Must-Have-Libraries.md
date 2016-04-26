@@ -22,7 +22,7 @@ The "advanced pack" listed below are additional libraries that are more advanced
 | Name            | Description                                                 |  
 | ----            | ------------                                                |
 | [[Dagger 2|Dependency-Injection-with-Dagger-2]]  | A fast dependency injector for managing objects.           |
-| [RxJava](http://guides.codepath.com/android/RxJava) | Develop fully reactive components for Android.       |
+| [[RxJava|RxJava]] | Develop fully reactive components for Android.       |
 | [[EventBus|Communicating-with-an-Event-Bus]] | Android event bus for easier component communication.             |
 | [AndroidAnnotations](https://github.com/excilys/androidannotations) | Powerful annotations to reduce boilerplate code. |
 
