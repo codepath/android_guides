@@ -45,48 +45,113 @@ dependencies {
 }
 ```
 
+## Observables and Subscribers
+
+The basic building blocks of reactive code are `Observables` and `Subscribers`. An `Observable` emits items; a `Subscriber` consumes those items. An `Observable` **may emit any number of items** (including zero items), then it terminates either by successfully completing, or due to an error. 
+
+An `Observable` can then have **any number of subscribers**. For each `Subscriber` attached, an Observable calls `Subscriber.onNext()` for every item, followed by either `Subscriber.onComplete()` or `Subscriber.onError()`. Keep in mind that `Observables` often don't start emitting items until there's at least one subscriber. 
+
+### Defining Observables
+
+Let's take the most basic example to understand how this is structured. First, let's define an `Observable` which is an object that can emit any number of items to be processed:
+
+```java
+// Observables emit any number of items to be processed
+// The type of the item to be processed needs to be specified as a "generic type"
+// In this case, the item type is `String`
+Observable<String> myObservable = Observable.create(
+    new Observable.OnSubscribe<String>() {
+        @Override
+        public void call(Subscriber<? super String> sub) {
+            // "Emit" any data to the subscriber
+            sub.onNext("a");
+            sub.onNext("b");
+            sub.onNext("c");
+            // Trigger the completion of the event
+            sub.onCompleted();
+        }
+    }
+);
+```
+
+This observable event emits the data "a", "b", "c" and then completes. 
+
+### Defining Subscribers
+
+Now let's create a `Subscriber` to consume this emitted data from the `Observable`:
+
+```java
+Subscriber<String> mySubscriber = new Subscriber<String>() {
+    // Triggered for each emitted value
+    @Override
+    public void onNext(String s) { System.out.println("onNext: " + s); }
+
+    // Triggered once the observable is complete
+    @Override
+    public void onCompleted() { System.out.println("done!"); }
+
+    // Triggered if there is any errors during the event
+    @Override
+    public void onError(Throwable e) { }
+};
+```
+
+### Subscribing to Observables
+
+A `Subscriber` can be attached to an `Observable` in order to respond to emitted data with:
+
+```java
+// Attaches the subscriber above to the observable object
+myObservable.subscribe(mySubscriber);
+// Outputs:
+// onNext: "a"
+// onNext: "b"
+// onNext: "c"
+// done!
+```
+
+This example would simply print each emitted item and then exit since each item is invoked with a call to `onNext`. Once all items have been invoked, the `onCompleted` method of the `Subscriber` is called. 
+
 ## Creating Asynchronous Streams
 
-RxJava defines the concept of an **Observable** and an **Observer**.  An Observable is emitting values over time, either as finite or infinite duration of time.  In the Android world, most of the time we are working with finite streams of data.
-
-An **Observer** watches for result values emitted by the **Observable** .  When these events occur, the role of the observer is to respond to these events.  An Observable can be created from just any type of input.  For instance, it can a set of strings that should be iterated:
+As demonstrated above, a `Subscriber` watches for result values emitted by the `Observable`.  When these events occur, the role of the subscriber is to respond to these events.  An `Observable` can be created from any type of input.  For instance, an `Observable` can be a set of string items that should be iterated:
 
 ```java
-Observable.just("a", "b", "c")  // generate an observable
+// `just` generates an observable object that emits each letter
+Observable.just("a", "b", "c")  
 ```
-To implement an observer, the following interface must be defined:
+To implement a subscriber for these events, the following interface must be defined:
 
 ```java
-public interface Observer<T> {
-
+public interface Subscriber<T> {
+    void onNext(T t); // called for each "emitted" item
     void onCompleted(); // will not be called if onError() is called
-
-    void onError(Throwable e); 
-    void onNext(T t);
-
+    void onError(Throwable e); // called if there's an error
 }
 ```
 
-Note that an `Observer` is a generic type.  It must be represent the type of value that the `Observable` will emit.  For an observer to start watching an observable that will generate string types, it must subscribe to it:
+Note that an `Subscriber` is a generic type.  It must be represent the type of value that the `Observable` will emit.  For a subscriber to start watching an observable that will generate string types, it must subscribe to it:
 
 ```java
-Observable.just("a", "b", "c").subscribe(new Observer<String>() {
+Observable.just("a", "b", "c").subscribe(new Subscriber<String>() {
+    // Triggered for each emitted value
+    // Invoked with "a", then "b", then "c"
     @Override
-    public void onCompleted() {
-                                                         
-    }
+    public void onNext(String s) { System.out.println("onNext: " + s); }
 
+    // Triggered once the observable is complete
     @Override
-    public void onError(Throwable e) {
+    public void onCompleted() { System.out.println("done!"); }
 
-    }
-
+    // Triggered if there is any errors during the event
     @Override
-    public void onNext(String s) {
-
-     }
+    public void onError(Throwable e) { }
 });
 ```
+
+This example above would simply print each argument ("a", "b", "c") and then exit since each item is invoked with a call to `onNext`. Once all items have been invoked, the `onCompleted` method is called. 
+
+This might seem contrived and not particularly useful in this example but as layers are built on top of these foundations, we begin to see the power of RxJava.
 
 ### Schedulers
 
@@ -101,6 +166,48 @@ Using schedulers relies on queuing the work through bounded or unbounded thread 
 | Schedulers.io()            | backed by a current                                    |          
 | Schedulers.newThread()     | create a new thread                                    | 
 | Schedulers.tramponline()   | schedule work on the current thread but put on a queue |
+
+These schedulers than then be used to control which thread an observable or the subscriber are operating on using the `subscribeOn()` and `observeOn()`
+
+### Replacing AsyncTask with Observables
+
+We can replace any `AsyncTask` calls with RxJava calls instead using `Observable`.  Similar to how `AsyncTask` performs the task in the background and then calls `onPostExecute()` on the main thread on the UI, RxJava can accomplish this same function by defining which thread to perform the task with `subscribeOn()`, and then where to define the callback thread with `observeOn()`:
+
+```java
+// This constructs an `Observable` to download the image
+public Observable<Bitmap> getImageNetworkCall() {
+    // Insert network call here!
+}
+
+// Construct the observable and use `subscribeOn` and `observeOn`
+// This controls which threads are used for processing and observing
+Subscription subscription = getImageNetworkCall()
+    // Specify the `Scheduler` on which an Observable will operate
+    .subscribeOn(Schedulers.io()) 
+    // Specify the `Scheduler` on which a subscriber will observe this `Observable`
+    .observeOn(AndroidSchedulers.mainThread()) 
+    .subscribe(new Subscriber<Bitmap>() {
+
+        // This replaces `onPostExecute(Bitmap bitmap)`
+        @Override
+        public void onNext(Bitmap bitmap) {
+             // Handle result of network request
+        }
+
+        @Override
+        public void onCompleted() {
+             // Update user interface if needed
+        }
+
+        @Override
+        public void onError() {
+             // Update user interface to handle error
+        }
+
+});
+```
+
+Using this combination of `Observable`, `Subscriber` and thread scheduling, we can see the power of `RxJava`. But there's a lot more that can be done.  
 
 ### Retrofit
 
@@ -275,39 +382,9 @@ For a better understanding about how subscriptions can be chained and how RxJava
 
 For more context, watch this [video talk](https://vimeo.com/144812843).
 
-## Replacing AsyncTask
-
-We can replace all `AsyncTask` with RxJava calls.  Similar to how `AsyncTask` performs the task in the background and then calls `onPostExecute()` on the main thread on the UI, RxJava can accomplish this same function by defining which thread to perform the task with `subscribeOn()`, and where to define the callback thread with `observeOn()`:
-
-```java
-public Observable<Bitmap> getImageNetworkCall() {
-    // Insert network call here!
-}
-
-Subscription subscription = getImageNetworkCall()
-    .subscribeOn(Schedulers.io())
-    .observeOn(AndroidSchedulers.mainThread())
-    .subscribe(new Observer<Bitmap>() {
-
-        @Override
-        public void onCompleted() {
-             // Update user interface if needed
-        }
-
-        @Override
-        public void onError() {
-             // Update user interface to handle error
-        }
-
-        @Override
-        public void onNext(Bitmap bitmap) {
-             // Handle result of network request
-        }
-});
-```
-
 ## References
 
+* <https://www.captechconsulting.com/blogs/getting-started-with-rxjava-and-android>
 * <http://blog.danlew.net/2014/09/15/grokking-rxjava-part-1/>
 * <https://github.com/ReactiveX/RxJava/wiki/The-RxJava-Android-Module>
 * <http://saulmm.github.io/when-Iron-Man-becomes-Reactive-Avengers2/>
