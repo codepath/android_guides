@@ -13,7 +13,6 @@ This "standard pack" listed below are libraries that are quite popular, widely a
 | [[ButterKnife|Reducing-View-Boilerplate-with-Butterknife]] | Using Java annotations, makes Android development better by simplifying common tasks. |
 | [[Parceler|Using-Parceler]] | Android Parcelable made easy through code generation |
 | [IcePick](https://github.com/frankiesardo/icepick) | Android Instance State made easy |
-| [Hugo](https://github.com/JakeWharton/hugo) | Easier logging using annotations |
 | [LeakCanary](https://github.com/square/leakcanary) | Catch memory leaks in your apps | 
 | [[Espresso|UI-Testing-with-Espresso]] | Powerful DSL for Android integration testing |
 | [[Robolectric|Unit-Testing-with-Robolectric]] | Efficient unit testing for Android |
