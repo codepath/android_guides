@@ -20,7 +20,8 @@ Using Gradle, add the following line to `app/build.gradle` file:
 
 ```gradle
 dependencies {
-  compile 'com.jakewharton:butterknife:7.0.1'
+  compile 'com.jakewharton:butterknife:8.0.1'
+  apt 'com.jakewharton:butterknife-compiler:8.0.1'
 }
 ```
 
@@ -38,14 +39,14 @@ There are three major features of ButterKnife:
 
 #### Activity View Lookups
 
-Eliminate `findViewById` calls by using `@Bind` on fields:
+Eliminate `findViewById` calls by using `@BindView` on fields:
 
 ```java
 class ExampleActivity extends Activity {
   // Automatically finds each field by the specified ID.
-  @Bind(R.id.title) TextView title;
-  @Bind(R.id.subtitle) TextView subtitle;
-  @Bind(R.id.footer) TextView footer;
+  @BindView(R.id.title) TextView title;
+  @BindView(R.id.subtitle) TextView subtitle;
+  @BindView(R.id.footer) TextView footer;
 
   @Override public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -62,8 +63,8 @@ This can be done within `Activity`, `Fragment`, or `Adapter` classes. For exampl
 
 ```java
 public class FancyFragment extends Fragment {
-  @Bind(R.id.button1) Button button1;
-  @Bind(R.id.button2) Button button2;
+  @BindView(R.id.button1) Button button1;
+  @BindView(R.id.button2) Button button2;
 
   @Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.fancy_fragment, container, false);
@@ -102,8 +103,8 @@ public class MyAdapter extends BaseAdapter {
   }
 
   static class ViewHolder {
-    @Bind(R.id.title) TextView name;
-    @Bind(R.id.job_title) TextView jobTitle;
+    @BindView(R.id.title) TextView name;
+    @BindView(R.id.job_title) TextView jobTitle;
 
     public ViewHolder(View view) {
       ButterKnife.bind(this, view);
@@ -169,7 +170,7 @@ You can group multiple views into a List and perform actions on them as group:
 
 ```
 // Group the views together
-@Bind({ R.id.first_name, R.id.middle_name, R.id.last_name })
+@BindViews({ R.id.first_name, R.id.middle_name, R.id.last_name })
 List<EditText> nameViews;
 ```
 
@@ -216,7 +217,7 @@ Add a static import for `ButterKnife.findById` and enjoy even more fun.
 
 ## Workarounds
 
-If you are using the [[Navigation Drawer|Fragment-Navigation-Drawer]] from the latest version of the [[support library|Design-Support-Library]], you cannot use `@Bind` on elements defined in the header layout because a RecyclerView is used instead of ListView in the newer versions, causing the header not be available immediately when the view is first created.  To get a reference, you need to first get a reference to the header view and use the `ButterKnife.findById` call once a reference to the header is obtained:
+If you are using the [[Navigation Drawer|Fragment-Navigation-Drawer]] from the latest version of the [[support library|Design-Support-Library]], you cannot use `@BindView` on elements defined in the header layout because a RecyclerView is used instead of ListView in the newer versions, causing the header not be available immediately when the view is first created.  To get a reference, you need to first get a reference to the header view and use the `ButterKnife.findById` call once a reference to the header is obtained:
 
 ```java
 View headerView = navigationView.getHeaderView(0);
