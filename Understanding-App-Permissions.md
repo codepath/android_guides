@@ -12,7 +12,7 @@ Example of pre-Marshmallow permissions requested by the Dropbox app:
 
 ![Imgur](http://i.imgur.com/XeRdzOT.png)
 
-For an app developer, permissions were very simple. To request [one of the many permissions](http://developer.android.com/reference/android/Manifest.permission.html), simplify specify it in the `AndroidManifest.xml`:
+For an app developer, permissions were very simple. To request [one of the many permissions](http://developer.android.com/reference/android/Manifest.permission.html), simply specify it in the `AndroidManifest.xml`:
 
 For example, an application that needs to read the user's contacts would add the following to it's `AndroidManifest.xml`:
 
