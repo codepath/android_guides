@@ -144,4 +144,4 @@ Running the `dex2jar` file directly on an APK file should convert it to a `.jar`
 ### References
 
 * <https://github.com/krschultz/android-proguard-snippets/tree/master/libraries/>
-* <http://developer.android.com/tools/help/proguard.html/>
+* <http://developer.android.com/tools/help/proguard.html>
