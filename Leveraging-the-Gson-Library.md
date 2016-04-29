@@ -394,3 +394,7 @@ call.enqueue(new Callback<BoxOfficeMovieResponse>() {
             }
         });
 ```
+
+### References
+
+* <https://github.com/google/gson/blob/master/UserGuide.md/>
