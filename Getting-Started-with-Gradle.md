@@ -195,7 +195,7 @@ The files below will be generated.  Similarly, Android Studio will create the sa
 
 ## Customizing Android Builds
 
-Gradle provides enormous flexibility in enabling you to customize your builds for paid/unpaid versions, debug/production releases, and use different signing keys.  Take a look at [this guide](http://toastdroid.com/2014/03/28/customizing-your-build-with-gradle/) for more information.
+Gradle provides enormous flexibility in enabling you to customize your builds for paid/unpaid versions, debug/production releases, and use different signing keys.  Take a look at [this guide](http://toastdroid.com/2014/03/28/customizing_your_build_with_gradle-customizing-your-build-with-gradle) for more information.
 
 ## Resources
 
