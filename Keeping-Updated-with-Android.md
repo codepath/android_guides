@@ -12,6 +12,7 @@ Android is changing constantly under our feet. In order to keep up to date with 
 * [Styling Android](http://blog.stylingandroid.com/)
 * [Square Eng Blog](https://corner.squareup.com/)
 * [Android Arsenal Library Tracker](https://android-arsenal.com/?sort=updated)
+* [Android Developers Backstage](http://androidbackstage.blogspot.com/)
 
 ### Secondary Sources
 
