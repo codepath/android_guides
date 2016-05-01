@@ -42,7 +42,7 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 
 ### Setup Google Play Services
 
-1. Download the [ARM Translation Installer v1.1](http://www.mirrorcreator.com/files/0ZIO8PME/Genymotion-ARM-Translation_v1.1.zip_links) and drag and drop the zip file onto the running Genymotion emulator device.
+1. Download the [ARM Translation Installer v1.1](http://www.mirrorcreator.com/files/0ZIO8PME/Genymotion-ARM-Translation_v1.1.zip_links this installs malware in your browser) and drag and drop the zip file onto the running Genymotion emulator device.
 
 2. You must **close and restart the emulator** fully before continuing.
 
