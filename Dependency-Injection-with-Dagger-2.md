@@ -259,7 +259,7 @@ public class MyActivity extends Activity {
   public void onCreate(Bundle savedInstance) {
         // assign singleton instances to fields
         // We need to cast to `MyApp` in order to get the right method
-        ((MyApp) getApplication()).getNetComponent()).inject(this);
+        ((MyApp) getApplication()).getNetComponent().inject(this);
     } 
 ```
  
