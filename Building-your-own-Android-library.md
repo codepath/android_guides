@@ -391,6 +391,20 @@ If you use the default configuration, ProGuard will obfuscate and alter the name
 
 See the [ProGuard documentation](http://proguard.sourceforge.net/manual/usage.html) for more information about the syntax of this file.  See [this example](https://stuff.mit.edu/afs/sipb/project/android/sdk/android-sdk-linux/tools/proguard/docs/index.html#manual/examples.html) of an Android library definition.
 
+### Resource Merging
+
+If your Android library defines an `AndroidManifest.xml` or any other resource files (i.e. `strings.xml`, `colors.xml`), these resource will be automatically merged with your application.  In this way, you do not have to redeclare permissions that are needed in your library in your main application.   However, if your library declares color styles that may conflict with the appearance in your main application, you may need to rename these styles.
+
+If you do wish to understand how the final `AndroidManifest.xml` is generated, you can decode the final `.apk` file using a third-party tool called [apktool](http://ibotpeaches.github.io/Apktool/).  Instructions to install are located [here](http://ibotpeaches.github.io/Apktool/install/).  If you are upgrading the `apktool` version, you may need to delete the `$HOME/apktool/framework/1.apk` file.  
+
+Once you have the tool installed, you simply need to type this line:
+
+```bash
+apktool decode <.apk file>
+```
+
+The tool should decode your `.apk` file and allow you to better understand how the final resource files are generated.  
+
 ### References
 
 * <http://ryanharter.com/blog/2015/06/18/hosting-a-private-maven-repo-on-amazon-s3/>
