@@ -424,6 +424,7 @@ There are many libraries for Android that contain custom views such as:
  * <http://developer.android.com/guide/topics/ui/custom-components.html>
  * <http://developer.android.com/training/custom-views/index.html>
  * <http://www.vogella.com/articles/AndroidCustomViews/article.html>
+ * <http://www.intertech.com/Blog/android-custom-view-tutorial-part-1-combining-existing-views/>
  * <http://danielnadeau.blogspot.com/2013/02/creating-custom-views-on-android.html>
  * <http://mobile.tutsplus.com/tutorials/android/android-sdk-creating-custom-views-2/>
  * <http://arpitonline.com/blog/2012/07/01/creating-custom-layouts-for-android/>
