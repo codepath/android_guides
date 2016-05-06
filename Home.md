@@ -28,7 +28,7 @@ Located in the San Francisco Bay Area and interested in learning with others in 
 
 If you are an experienced engineer (2+ years of professional experience in software development) and serious about learning Android, check out our [free evening 8-week Android bootcamp](http://codepath.com/androidbootcamp). Learn how to build mobile apps while collaborating with other engineers and designers. Work on solving important problems for non-profits with our free 8-week accelerated evening mobile bootcamp. Compete for $10,000 worth of cash prizes. [Learn more and apply here](http://courses.codepath.com/snippets/intro_to_android/about_bootcamp).
 
-## Getting Started
+## Начинаем
 
 **Totally new to Android?** Start here.
 
@@ -47,18 +47,18 @@ If you are an experienced engineer (2+ years of professional experience in softw
 * [Android Learning Resources](https://github.com/CodementorIO/Android-Learning-Resources)
 * [[Keeping Updated with Android]] (Podcasts, blogs, newsletters)
 
-**Using Eclipse?** See below.
+**Используете Eclipse?** Смотрите ниже.
 
-* [Setting up Eclipse ADT](http://goo.gl/Ml9YN) (Detailed Slides)
-* [Developing our First App Using Eclipse ADT](http://goo.gl/pBKfYP) (Step-by-Step Todo App)
+* [Установка Eclipse ADT](http://goo.gl/Ml9YN) (Detailed Slides)
+* [Разработка нашего первого приложения на Eclipse ADT](http://goo.gl/pBKfYP) (Приложение Todo шаг за шагом)
 * [[Troubleshooting Eclipse Issues]] (Running into eclipse problems?)
 
-## Structure
+## Структура
 
 Exploring the foundations of app development:
 
-* [[Using Context]] (What is context and how is it used?)
-* [[Android Directory Structure]] (Files and Folders for Android apps)
+* [[Используем Context]] (Что такое context и как его использовать?)
+* [[Структура папок Андроид]] (Файлы и Папки в Андроид-приложении)
 * [[Organizing your Source Files]] (Cleaning up source of your apps)
 * [[Understanding App Resources]] (Understanding Strings and Resources)
 * [[Understanding the Activity Lifecycle|Activity Lifecycle]] (How does an activity work?)
@@ -67,7 +67,7 @@ Exploring the foundations of app development:
 * [[App Permissions|Understanding App Permissions]] (How to request the permissions you need) 
 * [[Managing Runtime Permissions with PermissionsDispatcher]]
 
-## Views and Layouts
+## Views и Layouts
 
 Exploring the gritty details of views, layout, styling and common UI patterns:
 
