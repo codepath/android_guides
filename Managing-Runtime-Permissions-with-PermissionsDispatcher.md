@@ -150,6 +150,7 @@ With that we can easily handle all of our runtime permission needs.
 
 In addition the the [PermissionsDispatcher](https://github.com/hotchemi/PermissionsDispatcher) outlined above, there are many other popular permissions libraries with various APIs and alternate designs including the following: 
 
+* [Ask](https://github.com/00ec454/Ask)
 * [Dexter](https://github.com/Karumi/Dexter)
 * [easypermissions](https://github.com/googlesamples/easypermissions)
 * [let](https://github.com/canelmas/let)
