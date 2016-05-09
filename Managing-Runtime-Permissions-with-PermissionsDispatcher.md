@@ -150,13 +150,13 @@ With that we can easily handle all of our runtime permission needs.
 
 In addition the the [PermissionsDispatcher](https://github.com/hotchemi/PermissionsDispatcher) outlined above, there are many other popular permissions libraries with various APIs and alternate designs including the following: 
 
-* [Ask](https://github.com/00ec454/Ask)
 * [Dexter](https://github.com/Karumi/Dexter)
 * [easypermissions](https://github.com/googlesamples/easypermissions)
 * [let](https://github.com/canelmas/let)
 * [AndroidPermissions](https://github.com/ZeroBrain/AndroidPermissions)
 * [Grant](https://github.com/anthonycr/Grant)
 * [Assent](https://github.com/afollestad/assent)
+* [Ask](https://github.com/00ec454/Ask)
 
 A full list of permissions libraries [can be found here](https://gist.github.com/dlew/2a21b06ee8715e0f7338).
 
