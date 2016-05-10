@@ -38,6 +38,8 @@ A `RecyclerView` needs to have a layout manager and an adapter to be instantiate
 
 To create a custom layout manager, extend the [RecyclerView.LayoutManager](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.LayoutManager.html) class.
 
+Here is Dave Smith's talk on custom layout manager https://www.youtube.com/watch?v=gs_C1E8HwvE&index=22&list=WL
+
 ### `RecyclerView.Adapter`
 
 `RecyclerView` includes a new kind of adapter. It’s a similar approach to the ones you already used, but with some peculiarities, such as a required `ViewHolder`. You will have to override two main methods: one to inflate the view and its view holder, and another one to bind data to the view. The good thing about this is that first method is called only when we really need to create a new view. No need to check if it’s being recycled.
