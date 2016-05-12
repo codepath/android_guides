@@ -64,12 +64,14 @@ You can also create subheaders too and group elements together:
 ```xml
  <item android:title="Sub items">
         <menu>
-            <item
-                android:icon="@drawable/ic_dashboard"
-                android:title="Sub item 1" />
-            <item
-                android:icon="@drawable/ic_forum"
-                android:title="Sub item 2" />
+            <group android:checkableBehavior="single">
+                <item
+                    android:icon="@drawable/ic_dashboard"
+                    android:title="Sub item 1" />
+                <item
+                    android:icon="@drawable/ic_forum"
+                    android:title="Sub item 2" />
+            </group>
         </menu>
     </item>
 ```
@@ -512,7 +514,7 @@ Often these are unnecessary but check them out to see the functionality they pro
 
 ## Limitations
 
-The current version of the design support library does come with its limitations. The main issue is with the system that highlights the current item in the navigation menu. The itemBackground attribute for the NavigationView does not handle the checked state of the item correctly: somehow either all items are highlighted or none of them are. This makes this attribute basically unusable for most apps. While working with submenu's in the navigation items, once again the highlighting refused to work as expected: updating the selected item in a submenu makes the highlight overlay disappear altogether. In the end it seems that managing the selected item is still a chore that has to be solved manually in the app itself.
+The current version of the design support library does come with its limitations. The main issue is with the system that highlights the current item in the navigation menu. The itemBackground attribute for the NavigationView does not handle the checked state of the item correctly: somehow either all items are highlighted or none of them are. This makes this attribute basically unusable for most apps.
 
 ## Alternative to Fragments
 
