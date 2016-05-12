@@ -256,11 +256,11 @@ The RxAndroid library includes `AndroidSchedulers.mainThread()` for allowing cal
 
 ### Hot vs. Cold Observables
 
-By [default](https://github.com/ReactiveX/RxJava/blob/1.x/src/main/java/rx/Observable.java#L66-L67), Observables are initialized to begin executing after the first subscriber is attached.  Retrofit, for instance, by default operates in this way, which are known as **hot** observables.    You can take a look at the Retrofit [source code](https://github.com/square/retrofit/blob/master/retrofit-adapters/rxjava/src/main/java/retrofit2/RxJavaCallAdapterFactory.java#L88) to see that the network request is made on the first subscription.
+By [default](https://github.com/ReactiveX/RxJava/blob/1.x/src/main/java/rx/Observable.java#L66-L67), Observables are initialized to begin executing after the first subscriber is attached.  Retrofit, for instance, by default operates in this way, which are known as **cold** observables.    You can take a look at the Retrofit [source code](https://github.com/square/retrofit/blob/master/retrofit-adapters/rxjava/src/main/java/retrofit2/RxJavaCallAdapterFactory.java#L88) to see that the network request is made on the first subscription.
 
-#### Hot to Cold Observables
+#### Cold to Hot Observables
 
-If you wish to change it so that multiple subscribers are attached before executing the request, otherwise known as converting to a **cold** observable, you need to convert the `Observable` to an `ConnectableObservable`.  To initiate the network request, you need to call `connect()` on the observable:
+If you wish to change it so that multiple subscribers are attached before executing the request, otherwise known as converting to a **hot** observable, you need to convert the `Observable` to an `ConnectableObservable`.  To initiate the network request, you need to call `connect()` on the observable:
 
 ```java
 Observable<User> call = apiService.getUser(username);
@@ -298,9 +298,9 @@ connectedObservable.observeOn(AndroidSchedulers.mainThread()).subscribe(observer
 connectedObservable.connect();
 ```
 
-#### Cold to Hot Observables
+#### Hot to Cold Observables
 
-You can also turn a cold observable back to a hot observable by using `autoConnect()`.  Instead of needing to call an explicit `connect()` and passing around `ConnectedObservable` types, you can use this approach to enable the next subscriber to trigger a network request upon the next subscription:
+You can also turn a hot observable back to a cold observable by using `autoConnect()`.  Instead of needing to call an explicit `connect()` and passing around `ConnectedObservable` types, you can use this approach to enable the next subscriber to trigger a network request upon the next subscription:
 
 ```java
 // back to hot observable
