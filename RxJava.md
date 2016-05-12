@@ -326,7 +326,11 @@ One of the simplest approach is to simply instantiate a CompositeSubscription ob
 ```java
 public class MainActivity extends AppCompatActivity {
 
-    private CompositeSubscription subscriptions = new CompositeSubscription();
+    private CompositeSubscription subscriptions;
+
+    protected void onCreate(Bundle savedInstanceState) {
+       subscriptions = new CompositeSubscription();
+    }
 }
 ```
 
@@ -345,19 +349,11 @@ public void onPause() {
    super.onPause();
 
    if (subscriptions != null) {
-      subscriptions.unsubscribe();
+      subscriptions.clear();
    }
 }
 ```
-Once an `unsubscribe()` call is made, the `CompositeSubscription` cannot be reused.  The reason is that RxJava is intended to have a termination state as discussed in [this GitHub issue](https://github.com/ReactiveX/RxJava/issues/2959):
-
-```java
-@Override
-public void onResume() {
-    super.onResume();
-    subscriptions = new CompositeSubscription();
-}
-```
+Once a `clear()` call is made, the `CompositeSubscription` [can be reused](https://github.com/ReactiveX/RxJava/commit/4c33811a4de52887d99a44ef7494c121edc69c36).  
 
 #### RxLifecycle
 
