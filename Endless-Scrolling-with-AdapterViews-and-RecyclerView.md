@@ -61,11 +61,23 @@ public abstract class EndlessScrollListener implements AbsListView.OnScrollListe
 		// If it's still loading, we check to see if the dataset count has
 		// changed, if so we conclude it has finished loading and update the current page
 		// number and total item count.
-		if (loading && (totalItemCount > previousTotalItemCount)) {
-			loading = false;
-			previousTotalItemCount = totalItemCount;
-			currentPage++;
-		}
+
+		
+               // Sets the  footerViewType  
+                  int footerViewType = getFooterViewType();
+
+                  RecyclerView.Adapter adapter = view.getAdapter();
+                  int lastViewType = adapter.getItemViewType(adapter.getItemCount() - 1);
+
+                  // check the lastview is footview
+                  boolean isFootView = lastViewType == footerViewType;
+
+                  if (loading && (totalItemCount > previousTotalItemCount)) {
+                  if (!isFootView) {
+                       loading = false;
+                      previousTotalItemCount = totalItemCount;
+                     }
+        }
 		
 		// If it isn't currently loading, we check to see if we have breached
 		// the visibleThreshold and need to reload more data.
@@ -78,6 +90,10 @@ public abstract class EndlessScrollListener implements AbsListView.OnScrollListe
 	// Defines the process for actually loading more data based on page
 	// Returns true if more data is being loaded; returns false if there is no more data to load.
 	public abstract boolean onLoadMore(int page, int totalItemsCount);
+
+        // set FooterView type
+        // if don't use footview loadmore  set: -1
+            public abstract int getFooterViewType();
 
 	@Override
 	public void onScrollStateChanged(AbsListView view, int scrollState) {
