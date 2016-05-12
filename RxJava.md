@@ -45,11 +45,11 @@ dependencies {
 }
 ```
 
-## Observables and Subscribers
+## Observables and Observers
 
-The basic building blocks of reactive code are `Observables` and `Subscribers`. An `Observable` emits items; a `Subscriber` consumes those items. An `Observable` **may emit any number of items** (including zero items), then it terminates either by successfully completing, or due to an error. 
+The basic building blocks of reactive code are `Observables` and `Observers`. An `Observable` emits items; an `Observer` consumes those items. An `Observable` **may emit any number of items** (including zero items), then it terminates either by successfully completing, or due to an error. 
 
-An `Observable` can then have **any number of subscribers**. For each `Subscriber` attached, an Observable calls `Subscriber.onNext()` for every item, followed by either `Subscriber.onComplete()` or `Subscriber.onError()`. Keep in mind that `Observables` often don't start emitting items until there's at least one subscriber. 
+An `Observable` can then have **any number of observers**. For each `Observer` attached, an Observable calls `Observer#onNext()` for every item, followed by either `Observer#onComplete()` or `Observer#onError()`. Keep in mind that `Observables` often don't start emitting items until there's at least one subscriber. 
 
 ### Defining Observables
 
@@ -76,12 +76,12 @@ Observable<String> myObservable = Observable.create(
 
 This observable event emits the data "a", "b", "c" and then completes. 
 
-### Defining Subscribers
+### Defining Observers
 
-Now let's create a `Subscriber` to consume this emitted data from the `Observable`:
+Now let's create a `Observer` to consume this emitted data from the `Observable`:
 
 ```java
-Subscriber<String> mySubscriber = new Subscriber<String>() {
+Observer<String> mySubscriber = new Observer<String>() {
     // Triggered for each emitted value
     @Override
     public void onNext(String s) { System.out.println("onNext: " + s); }
@@ -98,7 +98,7 @@ Subscriber<String> mySubscriber = new Subscriber<String>() {
 
 ### Subscribing to Observables
 
-A `Subscriber` can be attached to an `Observable` in order to respond to emitted data with:
+An `Observer` can be attached to an `Observable` in order to respond to emitted data with:
 
 ```java
 // Attaches the subscriber above to the observable object
@@ -110,30 +110,30 @@ myObservable.subscribe(mySubscriber);
 // done!
 ```
 
-This example would simply print each emitted item and then exit since each item is invoked with a call to `onNext`. Once all items have been invoked, the `onCompleted` method of the `Subscriber` is called. 
+This example would simply print each emitted item and then exit since each item is invoked with a call to `onNext`. Once all items have been invoked, the `onCompleted` method of the `Observer` is called. 
 
 ## Creating Asynchronous Streams
 
-As demonstrated above, a `Subscriber` watches for result values emitted by the `Observable`.  When these events occur, the role of the subscriber is to respond to these events.  An `Observable` can be created from any type of input.  For instance, an `Observable` can be a set of string items that should be iterated:
+As demonstrated above, an `Observer` watches for result values emitted by the `Observable`.  When these events occur, the role of the subscriber is to respond to these events.  An `Observable` can be created from any type of input.  For instance, an `Observable` can be a set of string items that should be iterated:
 
 ```java
 // `just` generates an observable object that emits each letter
 Observable.just("a", "b", "c")  
 ```
-To implement a subscriber for these events, the following interface must be defined:
+To implement an observer for these events, the following interface must be defined:
 
 ```java
-public interface Subscriber<T> {
+public interface Observer<T> {
     void onNext(T t); // called for each "emitted" item
     void onCompleted(); // will not be called if onError() is called
     void onError(Throwable e); // called if there's an error
 }
 ```
 
-Note that an `Subscriber` is a generic type.  It must be represent the type of value that the `Observable` will emit.  For a subscriber to start watching an observable that will generate string types, it must subscribe to it:
+Note that an `Observer` is a generic type.  It must be represent the type of value that the `Observable` will emit.  For a subscriber to start watching an observable that will generate string types, it must subscribe to it:
 
 ```java
-Observable.just("a", "b", "c").subscribe(new Subscriber<String>() {
+Observable.just("a", "b", "c").subscribe(new Observer<String>() {
     // Triggered for each emitted value
     // Invoked with "a", then "b", then "c"
     @Override
