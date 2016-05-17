@@ -41,10 +41,10 @@ editor.putString("username", username);
 editor.putInt("id", id);
 ```
 
-Once you are finished adding data you need to 'commit()' the edits by calling.
+Once you are finished adding data you need to 'apply()' the edits by calling.
 
 ```java
-editor.commit();
+editor.apply();
 ```
 
 That's the last step. Your data is stored and you can then access your data using the method below.
