@@ -258,7 +258,7 @@ import android.support.v4.app.Fragment;
 public class MyParentFragment extends Fragment implements EditNameDialogListener {
     // Call this method to launch the edit dialog
     private void showEditDialog() {
-        FragmentManager fm = getSupportFragmentManager();
+        FragmentManager fm = getFragmentManager();
         EditNameDialogFragment editNameDialogFragment = EditNameDialog.newInstance("Some Title");
         // SETS the target fragment for use later when sending results
         editNameDialogFragment.setTargetFragment(MyParentFragment.this, 300);
