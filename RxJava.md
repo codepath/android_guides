@@ -321,7 +321,7 @@ An observer that is created within an Activity or Fragment therefore can hold a 
 
 #### Composite Subscriptions
 
-One of the simplest approach is to simply instantiate a CompositeSubscription object inside your Activity or Fragment.  To avoid issues with determining when the object is created during life cycle events, it should be defined outside any of these related methods:
+One of the simplest approach is to simply instantiate a CompositeSubscription object inside your Activity or Fragment. 
  
 ```java
 public class MainActivity extends AppCompatActivity {
