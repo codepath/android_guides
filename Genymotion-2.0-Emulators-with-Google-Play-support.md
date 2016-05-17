@@ -42,7 +42,7 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 
 ### Setup Google Play Services
 
-1. Download the [ARM Translation Installer v1.1](http://www.mirrorcreator.com/files/0ZIO8PME/Genymotion-ARM-Translation_v1.1.zip_links) and drag and drop the zip file onto the running Genymotion emulator device.
+1. Download the [ARM Translation Installer v1.1](http://www.mirrorcreator.com/files/0ZIO8PME/Genymotion-ARM-Translation_v1.1.zip_links) and drag and drop the zip file onto the running Genymotion emulator device.  The ARM emulator is only needed for apps that trigger a `INSTALL_FAILED_CPU_ABI_INCOMPATIBLE` error.
 
 2. You must **close and restart the emulator** fully before continuing.
 
@@ -65,6 +65,7 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 
 7. After restart, open the "Play Store" app on your emulator and **sign in** with a google account.
    - If you can't find Google Play, try updating the Google Hangouts app to trigger an update to the Play Store.
+   - You may see messages that the Google+ app needs to be updated.  You will need to go to the Google Play Store and click "Update".
 
 8. **Android 5.0.0 only:** If you are using Android 5.0.0, you will be prompted to update to the latest version of Google+ app.  In addition, make sure to upgrade to at least Genymotion 2.4.0 (there appears to be issues with Genymotion 2.3.1).
 
