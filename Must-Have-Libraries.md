@@ -67,7 +67,6 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [AutoParcel](https://github.com/frankiesardo/auto-parcel) - Port of Google AutoValue for Android with Parcelable generation goodies.
  * [Hugo](https://github.com/JakeWharton/hugo) - Easier logging within your app
  * [Logger](https://github.com/orhanobut/logger) - Much cleaner and easier logcat trace messages
- * [Trikita Log](https://github.com/zserge/log) - Tiny logger backwards compatible with android.util.Log, but supporting format strings, comma-separated values, non-android JVMs, optional tags etc
  * [LeakCanary](https://github.com/square/leakcanary) - Easily catch memory leaks as they occur
  * [AndroidAnnotations](https://github.com/excilys/androidannotations) - Framework that speeds up Android development. It takes care of the plumbing, and lets you concentrate on what's really important. By simplifying your code, it facilitates its maintenance
  * [RoboGuice](https://github.com/roboguice/roboguice) - Powerful extensions to Android using dependency injection.
