@@ -69,7 +69,6 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [Logger](https://github.com/orhanobut/logger) - Much cleaner and easier logcat trace messages
  * [LeakCanary](https://github.com/square/leakcanary) - Easily catch memory leaks as they occur
  * [AndroidAnnotations](https://github.com/excilys/androidannotations) - Framework that speeds up Android development. It takes care of the plumbing, and lets you concentrate on what's really important. By simplifying your code, it facilitates its maintenance
- * [RoboGuice](https://github.com/roboguice/roboguice) - Powerful extensions to Android using dependency injection.
  * [Calligraphy](https://github.com/chrisjenx/Calligraphy) - Custom fonts made easy
  * [EasyFonts](https://github.com/vsvankhede/easyfonts) - Easy preloaded custom fonts in your app
  * [AndroidViewAnimations](https://github.com/daimajia/AndroidViewAnimations) - Common property animations made easy
