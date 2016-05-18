@@ -60,11 +60,16 @@ Tabs used to swap the content displayed on screen can be added to an Activity us
 
 #### How do I load images into an Android app for display?
 
-If you simply want the image to be loaded in the easiest way possible then **just copy and paste** the image from your finder into the Android Studio `res/drawable` folder and select `xxhdpi` as the resolution.
+If you simply want the image to be loaded in the easiest way possible then **just copy and paste** the image from your finder into the Android Studio `res/drawable` folder and select `xxhdpi` as the resolution. Keep in mind that images at `xxhdpi` density (1dp = 3px) should be about **3x the size desired on screen** to appear clear. For example, if you want an image to display as `32x32px` on screen, the image should be `96x96px` in the `drawable-xxhdpi` folder. See [[this page about densities|Working-with-the-ImageView#supporting-multiple-densities]] for more details. 
 
-Note that you need to make sure the image filename only contains **lowercase letters, numbers and underscores** (i.e my_image_file.png). After renaming the image to a valid resource name, **copy the image into the drawable-mdpi folder** as [[shown here|Cloning-a-Login-Screen-Layout-Guide#cutting-assets]]. Unless you want the image to be a small standard icon size, **do not** use the icon generator (i.e `New Image Asset`) when creating the images. 
+In addition, be sure to be aware of the following gotchas:
 
-Instead to generate resized images that work at all densities, check out [[this image guide|Working-with-the-ImageView#supporting-multiple-densities]] which allows us to select our resources directory, choose an extra high density image and the tool will automatically generate the corresponding lower density image sizes.
+ * Images should be resized as needed and should never be larger than `1776 x 1080px`.
+ * Image filenames can only contain **lowercase letters, numbers and underscores** (i.e my_image_file_1.png)
+ * Images must be copied and pasted into the drawable folder and cannot be dragged from the desktop.
+ * Only use the icon generator (i.e `New Image Asset`) when you want a very small icon sized by the system.
+
+To generate images that work well at all densities, check out [[this image guide|Working-with-the-ImageView#supporting-multiple-densities]] which allows us to select our resources directory, choose an extra high density image and the tool will automatically generate the corresponding lower density image sizes.
 
 #### How do I control the way images are displayed or scaled within an ImageView?
 
