@@ -216,7 +216,7 @@ Here we use the `addTextChangedListener` to watch as the value changes to determ
 
 ### Adding Character Counting
 
-`TextInputLayout` since the [announcement of support design library v23.1](http://android-developers.blogspot.com/2015/10/android-support-library-231.html?linkId=17977963) also can expose a  character counter for an `EditText` defined within it.  The counter will be rendered below the `EditText` and can change colors of both the line and character counter if the maximum number of characters has been exceeded:
+`TextInputLayout` since the [announcement of support design library v23.1](http://android-developers.blogspot.com/2015/10/android-support-library-231.html?linkId=17977963) also can expose a character counter for an `EditText` defined within it.  The counter will be rendered below the `EditText` and can change colors of both the line and character counter if the maximum number of characters has been exceeded:
 
 <img src="http://imgur.com/eEYwIO3.png"/>
 
@@ -240,7 +240,11 @@ The `TextInputLayout` simply needs to define `app:counterEnabled` and `app:Count
 </android.support.design.widget.TextInputLayout>
 ```
 
-The counter text and overflow text can also have their own text styles by defining `app:counterTextAppearance` and `app:counterOverflowTextAppearance`.  We can use `textColor`, `textSize`, and `fontFamily` to help change the color, size, or font:
+### Styling TextInputLayout
+
+Make sure you have the `app` namespace (`xmlns:app="http://schemas.android.com/apk/res-auto"` defined in your outer layout.  You can type `appNS` in Android Studio to be declared.
+
+The hint text can be styled by defining `app:hintTextAppearance`, and the error text can be changed with `app:errorTextAppearance.`  The counter text and overflow text can also have their own text styles by defining `app:counterTextAppearance` and `app:counterOverflowTextAppearance`.  We can use `textColor`, `textSize`, and `fontFamily` to help change the color, size, or font:
 
 ```xml
 <style name="counterText">
