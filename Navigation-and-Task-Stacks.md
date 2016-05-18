@@ -10,7 +10,7 @@ This is typically used in cases where we need to exert more fine-tuned control o
 
 While the concept of using intents to launch activities should already be familiar to you, let's take a second to explore how launching new activities works and how this navigation is managed. 
 
-As we navigate around our app (or even between apps), Android is maintaing a **task stack** which tracks each step in the user's history. A **task** is a collection of activities that users interact with when performing a certain job. The activities are arranged in a stack (the "back stack"), in the order in which each activity is opened.
+As we navigate around our app (or even between apps), Android is maintaining a **task stack** which tracks each step in the user's history. A **task** is a collection of activities that users interact with when performing a certain job. The activities are arranged in a stack (the "back stack"), in the order in which each activity is opened.  By default, your activities in your app are organized as part of the same **task affinity group**.
 
 ### Understanding the Task Stack
 
@@ -43,6 +43,21 @@ This gets even more complex when you consider you might launch the same Activity
 By default, if the user navigates backward using the Back button, each instance of the activity is revealed in the order in which they were opened (each with their own UI state). 
 
 See [Tasks and Back Stack](http://developer.android.com/guide/components/tasks-and-back-stack.html) official guide for the source of the above content and additional details.
+
+## Affinity Groups
+
+Activities within your application all belong to the same affinity group unless you define one differently using the `taskAffinity` XML property:
+
+```java
+<activity android:name=".activities.MyActivity"
+android:taskAffinity="com.codepath.myapp">
+```
+
+You can group activities together in this way to dismiss them all at once:
+
+```java
+ActivityCompat.finishAffinity(this); // equivalent to finish(true); 
+```
 
 ## Usage
 
