@@ -46,7 +46,7 @@ To align the **position of your view itself** in the layout, you need to use a d
 
 If your view is contained within a `LinearLayout`, then you can use the [`android:layoutGravity`](http://developer.android.com/reference/android/widget/LinearLayout.LayoutParams.html#attr_android:layout_gravity) to determine the alignment of the view.
 
-To align the contents within a view, you can use the [[`android:gravity`|Defining-Views-and-their-Attributes#view-gravity]] property. This property can also be used to set the alignment of text in a `TextView` to the `left`, `right`, or `center`. Note that `android:textAlignment` is **essentially useless** replaced by gravity.
+To align the contents within a view, you can use the [[android:gravity|Defining-Views-and-their-Attributes#view-gravity]] property. This property can also be used to set the alignment of text in a `TextView` to the `left`, `right`, or `center`. Note that `android:textAlignment` is **essentially useless** replaced by gravity.
 
 #### How do I specify percentage based width, height and margins for my views?
 
