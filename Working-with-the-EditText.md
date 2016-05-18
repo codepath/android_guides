@@ -242,7 +242,7 @@ The `TextInputLayout` simply needs to define `app:counterEnabled` and `app:Count
 
 ### Styling TextInputLayout
 
-Make sure you have the `app` namespace (`xmlns:app="http://schemas.android.com/apk/res-auto"` defined in your outer layout.  You can type `appNS` in Android Studio to be declared.
+Make sure you have the `app` namespace (`xmlns:app="http://schemas.android.com/apk/res-auto"` defined in your outer layout.  You can type `appNS` as a shortcut in Android Studio to be declared.
 
 The hint text can be styled by defining `app:hintTextAppearance`, and the error text can be changed with `app:errorTextAppearance.`  The counter text and overflow text can also have their own text styles by defining `app:counterTextAppearance` and `app:counterOverflowTextAppearance`.  We can use `textColor`, `textSize`, and `fontFamily` to help change the color, size, or font:
 
