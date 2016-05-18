@@ -66,7 +66,11 @@ protected void onStart() {
 protected void onStop() {
     // Disconnecting the client invalidates it.
     LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
-    mGoogleApiClient.disconnect();
+
+    // only stop if it's connected, otherwise we crash
+    if (mGoogleApiClient != null) {
+        mGoogleApiClient.disconnect();
+    }
     super.onStop();
 }
 
