@@ -56,7 +56,7 @@ android:taskAffinity="com.codepath.myapp">
 You can group activities together in this way to dismiss them all at once:
 
 ```java
-ActivityCompat.finishAffinity(this); // equivalent to finish(true); 
+ActivityCompat.finishAffinity(this); // equivalent to finish(true); on Android devices API > 4
 ```
 
 ## Usage
