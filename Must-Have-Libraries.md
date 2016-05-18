@@ -25,6 +25,7 @@ The "advanced pack" listed below are additional libraries that are more advanced
 | [[RxJava|RxJava]] | Develop fully reactive components for Android.       |
 | [[EventBus|Communicating-with-an-Event-Bus]] | Android event bus for easier component communication.             |
 | [AndroidAnnotations](https://github.com/excilys/androidannotations) | Powerful annotations to reduce boilerplate code. |
+| [Retrolambda](https://github.com/evant/gradle-retrolambda) | Bringing lambda block support to Android. |
 
 Keep in mind that the combination of these libraries may not always play nicely with each other.  The following section highlights some of these issues.
 
@@ -77,10 +78,9 @@ Essentially this method is used to enable your code to short-circuit before exec
 
 ### Extensions 
 
- * [Otto](https://github.com/square/otto) - An enhanced Guava-based event bus with emphasis on Android support
+ * [RxJava](https://github.com/ReactiveX/RxJava) - Reactive Extensions for the JVM
  * [EventBus](https://github.com/greenrobot/EventBus) - Android optimized event bus that simplifies communication between components.
  * [Tape](http://square.github.io/tape/) - Tape is a collection of queue-related classes for Android and Java
- * [RxJava](https://github.com/ReactiveX/RxJava) - Reactive Extensions for the JVM
  * [Priority Job Queue](https://github.com/yigit/android-priority-jobqueue) - Easier background tasks
  * [ACRA](http://acra.ch/) - Crash reporting made easy and free. Check the [setup instructions](https://github.com/ACRA/acra/wiki/BasicSetup) and [open-source backend](https://github.com/ACRA/acralyzer).
 
