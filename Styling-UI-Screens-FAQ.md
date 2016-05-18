@@ -184,7 +184,9 @@ Fonts can be customized fairly easily using this [[custom fonts|Working-with-the
 
 #### How do I change the color of the bottom line indicator for an `EditText` text field?
 
-The easiest way to change the bottom line indicator is to use this [holo theme generator](http://android-holo-colors.com/) to change the color. Choose the desired color and select "YES" for EditText and then drag the generated resources into your 'res' folder. See [this stackoverflow post](http://stackoverflow.com/questions/12470487/how-to-change-the-color-of-the-line-in-ics-styled-edittext) for more details.
+The easiest way to change the bottom line indicator is to [[follow this EditText guide|Working-with-the-EditText#changing-the-bottom-line-color]] to modify the `colorControl` properties. 
+
+Alternatively, we can use this [holo theme generator](http://android-holo-colors.com/) to change the color. Choose the desired color and select "YES" for EditText and then drag the generated resources into your 'res' folder. See [this stackoverflow post](http://stackoverflow.com/questions/12470487/how-to-change-the-color-of-the-line-in-ics-styled-edittext) for more details.
 
 #### How can I configure the properties of an `EditText` text field?
 
