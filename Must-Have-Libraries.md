@@ -101,6 +101,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [IceNet] (https://github.com/anton46/IceNet) -  Android networking wrapper consisting of a combination of Volley, OkHttp and Gson
  * [Android Universal Image Loader](https://github.com/nostra13/Android-Universal-Image-Loader) - Popular alternative for image loading that can replace Picasso or Glide.
  * [Fresco](http://frescolib.org/) - An image management library from Facebook.
+ * [CloudRail](https://github.com/CloudRail/cloudrail-si-android-sdk) - Android library which abstracts multiple APIs from different providers into a single and universal interface.
 
 ### ListView
 
