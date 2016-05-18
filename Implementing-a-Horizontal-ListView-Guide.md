@@ -4,7 +4,7 @@ One common challenge on Android that often arises is the need to create a horizo
 
 ![Horizontal ListView](https://i.imgur.com/z3xLN7M.png)
 
-Unfortunately, there is no "canonical" officially supported solution for this. Instead all we have is a series of half-baked unfinished libraries. This can make developing Horizontal ListView more challenging then you would initially suspect.
+Unfortunately, there is no "canonical" officially supported solution for this. Instead all we have is a series of half-baked unfinished libraries. This can make developing Horizontal ListView more challenging than you would initially suspect.
 
 This guide is a step-by-step walkthrough of implementing a Horizontal ListView using the available third-party libraries. 
 
