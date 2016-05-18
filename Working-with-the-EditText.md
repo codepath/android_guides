@@ -225,6 +225,7 @@ The `TextInputLayout` simply needs to define `app:counterEnabled` and `app:Count
 ```xml
 <android.support.design.widget.TextInputLayout
     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     app:counterEnabled="true"
     app:counterMaxLength="10"
     app:counterTextAppearance="@style/counterText"
