@@ -204,6 +204,29 @@ The `stroke` is the border properties and `solid` is the background color of the
 
 See [this stackoverflow post about setting borders](http://stackoverflow.com/a/3264140) for more details.  If you want to have a border on just one edge of a view, this is unfortunately more difficult to do but can be achieved with layer lists as [described in this post about borders on one edge](http://stackoverflow.com/a/4313329).
 
+#### How can I create a radial (circular) gradient background for a view?
+
+Simple radial gradients can be applied as a background to any view using a [shape drawable](http://guides.codepath.com/android/Drawables#gradient-colored-shapes). You should create a drawable in `res/drawable/bg_gradient_1.xml` for example with the following parameters:
+
+```xml
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient android:type="radial" android:gradientRadius="250"
+        android:startColor="#E9E9E9" android:endColor="#D4D4D4" />
+</shape> 
+```
+
+We can then apply that shape drawable to the background of any view or layout with:
+
+```xml
+<SomeView
+    android:background="@drawable/bg_gradient_1"  
+    ...
+/>
+```
+
+Refer to the [gradient drawable section](http://guides.codepath.com/android/Drawables#gradient-colored-shapes) for more details on drawing shapes and applying them to views. 
+
 #### How do I remove the grey border from a Button or ImageButton?
 
 You can remove the border from a `Button` or `ImageButton` by either setting `android:background` to "@null" or setting `style` to "android:attr/borderlessButtonStyle":
@@ -218,7 +241,7 @@ You can remove the border from a `Button` or `ImageButton` by either setting `an
 
 Using this code the border on the button will be removed.
 
-#### How do I customize the style of a button?
+#### How do I customize the style of a button or any view?
 
 Styling a button requires the use of either image assets (see the [ImageButton](http://developer.android.com/reference/android/widget/ImageButton.html)) or alternatively applying the concept of [[custom drawables|Drawables#customizing-a-button]]. For example, to style a button with drawables, you could create a shape at `res/drawable/shape_fancy_button.xml`:
 
