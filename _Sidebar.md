@@ -1,6 +1,8 @@
-Be sure to check these [same guides through our site here](http://guides.codepath.com/android) for a better viewing experience and a better search. 
+**Finding these guides useful so far?**
 
-**Interested in learning Android from experts together with other engineers?**
+Be sure to check these [same guides through our site here](http://guides.codepath.com/android) for a better viewing experience and a better search. Follow us on [twitter @codepath](https://twitter.com/codepath) for access to more useful Android development resources.
+
+**Interested in learning Android together with other engineers?**
 
 If you are an existing engineer with 2+ years of professional experience in software development and are serious about learning Android quickly, be sure to check out our [free evening 8-week Android bootcamp](http://codepath.com/androidbootcamp). 
 
