@@ -177,6 +177,8 @@ Note: Make sure you implement the correct `onPostCreate(Bundle savedInstanceStat
 public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
+    NavigationView nvDrawer;
+    ActionBarDrawerToggle drawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
