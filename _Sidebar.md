@@ -1,6 +1,6 @@
 **Finding these guides useful so far?**
 
-Be sure to check these [same guides through our site here](http://guides.codepath.com/android) for a better viewing experience and a better search. Follow us on [twitter @codepath](https://twitter.com/codepath) for access to more useful Android development resources.
+Be sure to check these [same guides through our improved front-end](http://guides.codepath.com/android) for a better viewing experience and a better search. Follow us on [twitter @codepath](https://twitter.com/codepath) for access to more useful Android development resources.
 
 **Interested in learning Android together with other engineers?**
 
