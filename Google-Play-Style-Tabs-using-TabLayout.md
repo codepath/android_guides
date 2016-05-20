@@ -345,5 +345,6 @@ Next, we can save and restore the last known tab position by implementing method
 
 ## References
 
+* <http://www.truiton.com/2015/06/android-tabs-example-fragments-viewpager/>
 * <https://android.googlesource.com/platform/frameworks/support.git/+/master/design/src/android/support/design/widget/TabLayout.java>
 * <https://android.googlesource.com/platform/frameworks/support.git/+/master/design/res/values/styles.xml>
