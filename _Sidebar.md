@@ -4,4 +4,6 @@ Check these [same guides through our standalone viewer](http://guides.codepath.c
 
 **Interested in ramping up on Android quickly?**
 
-If you are an existing engineer with 2+ years of professional experience in software development and are serious about ramping up on Android quickly, be sure to apply for our [free evening 8-week Android bootcamp](http://codepath.com/androidbootcamp). We've trained over a thousand engineers from top companies including Apple, Twitter, Airbnb, Uber, and many others leveraging this program. The course is taught by Android experts from the industry and is specifically designed for existing engineers. 
+If you are an existing engineer with 2+ years of professional experience in software development and are serious about ramping up on Android quickly, be sure to apply for our [free evening 8-week Android bootcamp](http://codepath.com/androidbootcamp). 
+
+We've trained over a thousand engineers from top companies including Apple, Twitter, Airbnb, Uber, and many others leveraging this program. The course is taught by Android experts from the industry and is specifically designed for existing engineers. 
