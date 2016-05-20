@@ -26,7 +26,7 @@ Read more about [[us and our vision for CodePath|CodePath-Goal]]. If you want to
 
 Located in the San Francisco Bay Area and interested in learning with others in a more structured program? Check out our local [Android](http://www.meetup.com/Learning-Android-Development) or [iOS](http://www.meetup.com/Learning-iOS-Development-SF/) meetup events. We have free evening events and at-cost 1-day workshops to make learning social and connect you with others passionate about mobile.
 
-If you are an experienced engineer with 2+ years of professional experience in software development and are serious about learning Android, check out our [free evening 8-week Android bootcamp](http://codepath.com/androidbootcamp). Learn how to build mobile apps while collaborating with other engineers. Work on solving important problems for non-profits or launch your own app idea to the store with our free 8-week accelerated evening mobile bootcamp.
+If you are an experienced engineer with 2+ years of professional experience in software development and are serious about learning Android, check out our [free evening 8-week Android bootcamp](http://codepath.com/androidbootcamp). Learn how to build mobile apps while collaborating with other engineers. Find a role as an Android developer, work on solving important problems for non-profits, or launch your own app ideas to the store with our free 8-week evening accelerated mobile bootcamp.
 
 ## Getting Started
 
