@@ -5,11 +5,11 @@ The [AppCompat](https://developer.android.com/tools/support-library/features.htm
 ```gradle
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.0"
+    buildToolsVersion "23.0.3"
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:23.1.0'
+    compile 'com.android.support:appcompat-v7:23.3.0'
 }
 ```
 
