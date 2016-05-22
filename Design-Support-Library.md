@@ -20,6 +20,7 @@ The support design library has the following key features:
      * [CollapsingToolbarLayout](http://developer.android.com/reference/android/support/design/widget/CollapsingToolbarLayout.html) extend this to allow the toolbar to collapse as the user scrolls through a view.  
      * [[Bottom Sheets|Handling-Scrolls-with-CoordinatorLayout#bottom-sheets]] to expose a sheet of material that slides up from the bottom of the screen.
 7. [[PercentRelativeLayout|Constructing-View-Layouts#percentrelativelayout]] and [PercentFrameLayout](https://developer.android.com/reference/android/support/percent/PercentFrameLayout.html) to enable views to occupy [percentage-based dimensions](http://developer.android.com/reference/android/support/percent/PercentRelativeLayout.html).  
+8. [VectorDrawableCompat](https://developer.android.com/reference/android/support/graphics/drawable/VectorDrawableCompat.html) and [AnimatedVectorDrawableCompat](https://developer.android.com/reference/android/support/graphics/drawable/AnimatedVectorDrawableCompat.html) allow you to reference vector drawables with ImageViews with pre-Lollipop devices.  VectorDrawableCompat will be compatible back to API 7, while AnimatedVectorDrawable will work back to API 11.
 
 ### Setup
 
@@ -42,7 +43,7 @@ android {
 }
 
 ext {
-  supportLibVersion = '23.2.1'  // variable that can be referenced to keep support libs consistent
+  supportLibVersion = '23.3.0'  // variable that can be referenced to keep support libs consistent
 }
 ```
 
@@ -139,3 +140,4 @@ The latest source code updates for the support library are now always included s
 * <https://plus.google.com/+AndroidDevelopers/posts/XTtNCPviwpj>
 * <https://code.google.com/p/android/issues/list?can=1&q=label%3AVersion-22.2.1>
 * <https://plus.google.com/+AndroidDevelopers/posts/RZutBRWN6sH?linkId=17978076>
+* <https://medium.com/@chrisbanes/appcompat-v23-2-age-of-the-vectors-91cbafa87c88#.dvbsz7sts>
