@@ -28,6 +28,8 @@ Located in the San Francisco Bay Area and interested in learning with others in 
 
 If you are an experienced engineer with 2+ years of professional experience in software development and are serious about learning Android, check out our [free evening 8-week Android bootcamp](http://codepath.com/androidbootcamp). Learn how to build mobile apps while collaborating with other engineers. Find a role as an Android developer, work on solving important problems for non-profits, or launch your own app ideas to the store with our free 8-week evening accelerated mobile bootcamp.
 
+**Not in the United States?** Please [fill out our application of interest form](https://www.surveymonkey.com/r/codepath_interest_intake) and we’ll notify you as classes become available in your area powered by local organizers.
+
 ## Getting Started
 
 **Totally new to Android?** Start here.
