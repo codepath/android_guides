@@ -74,6 +74,29 @@ dependencies {
 }
 ```
 
+#### Adding Vector Drawable Library
+
+Android Studio v1.4 comes with the ability to provide backwards support to pre-Lollipop devices by creating the PNG assets automatically at compile time which couldn't support it.  The support library provides native support for older Android versions, so we need to first disable this auto-generation.    First, you will need to upgrade to Gradle v2.1 or higher.  See [[this guide|Getting-Started-with-Gradle#intro-to-the-gradle-wrapper]] for more information.  
+
+Next, we need to make sure to signal that we will be using the support library for vector drawables:
+
+```gradle
+android {  
+   defaultConfig {  
+     vectorDrawables.useSupportLibrary = true  
+    }  
+ }  
+```
+
+Finally, the libraries need to be added:
+
+```gradle
+dependencies {
+    compile 'com.android.support:support-vector-drawable:23.3.0' // VectorDrawableCompat 
+    compile 'com.android.support:animated-vector-drawable:23.3.0' // AnimatedVectorDrawableCompat
+}
+```
+
 #### Adding Annotations Library
 
 To leverage the [annotations library](http://tools.android.com/tech-docs/support-annotations), you can also explicitly add it to your Gradle file.  Adding the [[AppCompat|Migrating-to-the-AppCompat-Library]] or support design library implicitly adds it:
