@@ -176,7 +176,7 @@ $adb shell pm revoke com.PackageName.enterprise android.permission.READ_CONTACTS
 
 Installing an app with all permissions granted:
 
-```
+```bash
 $adb install -g myAPP.apk
 ```
 
