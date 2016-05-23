@@ -244,7 +244,7 @@ See this [simple guide](http://radleymarx.com/blog/simple-guide-to-9-patch/) for
 
 ### Vector Drawables
 
-Recent versions of the Android support library, include [compatibility versions](http://android-developers.blogspot.com/2016/02/android-support-library-232.html) of [Vector Drawables](https://blog.stylingandroid.com/vectordrawables-part-1/) as [introduced in this video](https://www.youtube.com/watch?v=wlFVIIstKmA).   See the [[setup guide|Design-Support-Library#adding-vector-drawable-library]] in the design support library for more instructions.
+Recent versions of the Android support library, include [compatibility versions](http://android-developers.blogspot.com/2016/02/android-support-library-232.html) of [Vector Drawables](https://blog.stylingandroid.com/vectordrawables-part-1/) as [introduced in this video](https://www.youtube.com/watch?v=wlFVIIstKmA).   See the [[setup guide|Design-Support-Library#adding-vector-drawable-library]] to enable support for vector drawables for pre-Lollipop devices.
 
 These are XML drawables that can define complex vector-based images which can scale to support all densities automatically. This means using vector-based images, you will need **only one asset file** as opposed to an asset file for each screen density in the case of bitmap images. To create a vector image, you define the details of the shape inside a <vector> XML element such as `res/drawable/ic_heart.xml` with:
 
@@ -267,7 +267,7 @@ These are XML drawables that can define complex vector-based images which can sc
 </vector>
 ``` 
 
-After setting the appropriate `app/build.gradle` configuration with `vectorDrawables.useSupportLibrary = true` [as shown here](https://github.com/AndroidDeveloperLB/MaterialPreferenceLibrary/blob/master/app/build.gradle#L8) we can then load vectors using the `app:srcCompat` property:
+We can then load vectors using the `app:srcCompat` property:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
