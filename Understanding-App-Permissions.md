@@ -158,12 +158,11 @@ Google recommends in this [video](https://youtu.be/5xVh-7ywKpE?t=9m15s) that the
 <img src="http://imgur.com/nZ2WX8W.png">
 
 Each pattern dictates a different way of requesting permissions.  For instance, when requesting for critical but unclear permissions, use a warm welcome screen to help understand a permission is requested.  For critical permissions, such as a camera app that needs camera permission, ask up-front for it.  Secondary features 
-can be requested later in context, such as a geotagging app when asking for a location permission.  For permissions that are secondary and unclear, you should include a rationale explanation if you really need them.
+can be requested later in context, such as a geotagging app when asking for a location permission.  For permissions that are secondary and unclear, you should include a rationale explanation if you really need them (setting `shouldShowRequestPermissionRationale() to be true)
 
 ### Storage permissions
 
-Rethink about whether you need read/write storage permissions (i.e. `android.permission.WRITE_EXTERNAL_STORAGE
-` or `android.permission.READ_EXTERNAL_STORAGE`), which give you all files on the SD card.  Instead, you should use methods on Context to access package-specific directories on external storage.  Your app always have access to read/write to these directories,so there is no need to permissions to request it:
+Rethink about whether you need read/write storage permissions (i.e. `android.permission.WRITE_EXTERNAL_STORAGE` or `android.permission.READ_EXTERNAL_STORAGE`), which give you all files on the SD card.  Instead, you should use methods on Context to access package-specific directories on external storage.  Your app always have access to read/write to these directories,so there is no need to permissions to request it:
 
 ```java
 // Application-specific call that doesn't require external storage permissions
