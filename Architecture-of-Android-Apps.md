@@ -11,3 +11,4 @@ There are many different opinions and discussions related to the ideal way to ar
 * <http://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/>
 * <http://fernandocejas.com/2015/07/18/architecting-android-the-evolution/>
 * <https://github.com/android10/Android-CleanArchitecture>
+* <https://github.com/googlesamples/android-architecture>
