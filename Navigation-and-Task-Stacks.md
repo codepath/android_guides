@@ -59,6 +59,14 @@ You can group activities together in this way to dismiss them all at once:
 ActivityCompat.finishAffinity(this); // equivalent to finish(true); on Android devices API > 4
 ```
 
+When using `finishActivity()`, you may notice that the activity can still show up in the [Most Recents](https://developer.android.com/guide/components/recents.html) screen.  You can use the `android:autoRemoveFromRecents` flag to be true to remove it, which is normally set to false by default.  You can also use `finishAndRemoveTask()` to accomplish the same effect.
+
+```xml
+<activity android:name=".MyActivity"
+android:autoRemoveFromRecents="true"
+android:taskAffinity="com.codepath.myapp"/>
+```
+
 ## Usage
 
 The behavior described above works automatically and without any special configuration from the developer. The default behavior is to just place all activities started in succession in the same task and in a "last in, first out" stack.
