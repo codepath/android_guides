@@ -20,7 +20,8 @@ The support design library has the following key features:
      * [CollapsingToolbarLayout](http://developer.android.com/reference/android/support/design/widget/CollapsingToolbarLayout.html) extend this to allow the toolbar to collapse as the user scrolls through a view.  
      * [[Bottom Sheets|Handling-Scrolls-with-CoordinatorLayout#bottom-sheets]] to expose a sheet of material that slides up from the bottom of the screen.
 7. [[PercentRelativeLayout|Constructing-View-Layouts#percentrelativelayout]] and [PercentFrameLayout](https://developer.android.com/reference/android/support/percent/PercentFrameLayout.html) to enable views to occupy [percentage-based dimensions](http://developer.android.com/reference/android/support/percent/PercentRelativeLayout.html).  
-8. [VectorDrawableCompat](https://developer.android.com/reference/android/support/graphics/drawable/VectorDrawableCompat.html) and [AnimatedVectorDrawableCompat](https://developer.android.com/reference/android/support/graphics/drawable/AnimatedVectorDrawableCompat.html) allow you to leverage vector drawables with ImageViews with pre-Lollipop devices. VectorDrawableCompat will be compatible back to Android 2.1 (API 7), while AnimatedVectorDrawable will work back to Android 3.0 (API 11).
+8. [[Vector Drawables|Drawables#vector-drawables]] to reduce the need to include images for every density size.
+  * [VectorDrawableCompat](https://developer.android.com/reference/android/support/graphics/drawable/VectorDrawableCompat.html) and [AnimatedVectorDrawableCompat](https://developer.android.com/reference/android/support/graphics/drawable/AnimatedVectorDrawableCompat.html) allow you to leverage vector drawables with ImageViews with pre-Lollipop devices. VectorDrawableCompat will be compatible back to Android 2.1 (API 7), while AnimatedVectorDrawableCompat will work back to Android 3.0 (API 11).
 
 ### Setup
 
