@@ -20,7 +20,7 @@ The support design library has the following key features:
      * [CollapsingToolbarLayout](http://developer.android.com/reference/android/support/design/widget/CollapsingToolbarLayout.html) extend this to allow the toolbar to collapse as the user scrolls through a view.  
      * [[Bottom Sheets|Handling-Scrolls-with-CoordinatorLayout#bottom-sheets]] to expose a sheet of material that slides up from the bottom of the screen.
 7. [[PercentRelativeLayout|Constructing-View-Layouts#percentrelativelayout]] and [PercentFrameLayout](https://developer.android.com/reference/android/support/percent/PercentFrameLayout.html) to enable views to occupy [percentage-based dimensions](http://developer.android.com/reference/android/support/percent/PercentRelativeLayout.html).  
-8. [VectorDrawableCompat](https://developer.android.com/reference/android/support/graphics/drawable/VectorDrawableCompat.html) and [AnimatedVectorDrawableCompat](https://developer.android.com/reference/android/support/graphics/drawable/AnimatedVectorDrawableCompat.html) allow you to leverage vector drawables with ImageViews with pre-Lollipop devices.  VectorDrawableCompat will be compatible back to API 7, while AnimatedVectorDrawable will work back to API 11.
+8. [VectorDrawableCompat](https://developer.android.com/reference/android/support/graphics/drawable/VectorDrawableCompat.html) and [AnimatedVectorDrawableCompat](https://developer.android.com/reference/android/support/graphics/drawable/AnimatedVectorDrawableCompat.html) allow you to leverage vector drawables with ImageViews with pre-Lollipop devices. VectorDrawableCompat will be compatible back to API 7, while AnimatedVectorDrawable will work back to API 11.
 
 ### Setup
 
@@ -76,7 +76,7 @@ dependencies {
 
 #### Adding Vector Drawable Library
 
-Android Studio v1.4 provides backwards support for vector drawables to pre-Lollipop devices by creating the PNG assets automatically at compile time.  The support library provides native support for older Android versions, so we need to first disable this auto-generation.    First, you will need to upgrade to Gradle v2.1 or higher.  See [[this guide|Getting-Started-with-Gradle#intro-to-the-gradle-wrapper]] for more information.  
+Android Studio v1.4 provides backwards support for vector drawables to pre-Lollipop devices by creating the PNG assets automatically at compile time.  The support library provides native support for older Android versions, so we need to first disable this auto-generation. First, you will need to upgrade to Gradle v2.1 or higher.  See [[this guide|Getting-Started-with-Gradle#intro-to-the-gradle-wrapper]] for more information.  
 
 Next, we need to make sure to signal that we will be using the support library for vector drawables:
 
@@ -96,6 +96,8 @@ dependencies {
     compile 'com.android.support:animated-vector-drawable:23.3.0' // AnimatedVectorDrawableCompat
 }
 ```
+
+Check out the [[vector drawables guide|Drawables#vector-drawables]] for usage details.
 
 #### Adding Annotations Library
 
