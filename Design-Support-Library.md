@@ -76,11 +76,11 @@ dependencies {
 
 #### Adding Vector Drawable Library
 
-Android Studio v1.4 provides backwards support for vector drawables to pre-Lollipop devices by creating the PNG assets automatically at compile time.  The support library eliminates this necessity by providing vector drawable support for older Android versions, but we need to first disable this auto-generation. First, you will need to upgrade to Gradle v2.1 or higher.  See [[this guide|Getting-Started-with-Gradle#upgrading-gradle]] for more information.  
-
-Next, we need to make sure to signal that we will be using the support library for vector drawables:
+Android Studio v1.4 provides backwards support for vector drawables to pre-Lollipop devices by creating the PNG assets automatically at compile time.  The support library eliminates this necessity by providing vector drawable support for older Android versions, but we need to first disable this auto-generation tool by adding these lines to our Gradle configuration:
 
 ```gradle
+
+// This config only works for Android Gradle Plugin v2.1.0 or higher:
 android {  
    defaultConfig {  
      vectorDrawables.useSupportLibrary = true  
