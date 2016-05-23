@@ -54,7 +54,7 @@ Keeping these folders in each app means that code is logically organized and sca
 
 #### Organize packages by application features
 
-Package-by-feature uses packages to [reflect the feature set](http://www.javapractices.com/topic/TopicAction.do?Id=205). Consider the following package structure:
+Alternatively, we can package-by-feature rather than layers. This approach uses packages to [reflect the feature set](http://www.javapractices.com/topic/TopicAction.do?Id=205). Consider the following package structure [as outlined in this post](https://medium.com/@cesarmcferreira/package-by-features-not-layers-2d076df1964d#.f7znkie19):
 
 * `com.example.myapp.service.*` - Is a subpackage for all background related service packages/classes
 * `com.example.myapp.ui.*` - Is a subpackage for all UI-related packages/classes
