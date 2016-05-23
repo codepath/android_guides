@@ -270,7 +270,7 @@ Bottom Sheets are now supported in `v23.2` of the support design library.  There
 
 ### Persistent Modal Sheets
 
-The easiest way to create them is using an additional [[RecyclerView|Using-the-RecyclerView]] nested inside a `CoordinatorLayout`.  This `RecyclerView` will be hidden by default if the `layout_behavior` defined is set using the pre-defined `@string/bottom_sheet_behavior` value.  Note also that this `RecyclerView` should be using `wrap_content` instead of `match_parent`, which is a new change that allows the bottom sheet to only occupy the necessary space instead of the entire page:
+There are two ways you can create persistent modal sheets.  The first way is to use a `NestedScrollView` and simply embed the contents within this view.  The secondary way is to create them is using an additional [[RecyclerView|Using-the-RecyclerView]] nested inside a `CoordinatorLayout`.  This `RecyclerView` will be hidden by default if the `layout_behavior` defined is set using the pre-defined `@string/bottom_sheet_behavior` value.  Note also that this `RecyclerView` should be using `wrap_content` instead of `match_parent`, which is a new change that allows the bottom sheet to only occupy the necessary space instead of the entire page:
 
 ```xml
 <CoordinatorLayout>
