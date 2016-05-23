@@ -155,6 +155,7 @@ The latest source code updates for the support library are now always included s
 ### Changes in Support Library v23.2
 
 - Added support for bottom sheets. ([[view guide|Handling-Scrolls-with-CoordinatorLayout#bottom-sheets]])
+- Added setup instructions for vector drawables. ([[view guide|Drawables#vector-drawables]])
 
 ## References
 
