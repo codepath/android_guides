@@ -96,11 +96,9 @@ With the Lollipop release comes an improved visual design style for icons used t
 
 <a href="http://google.github.io/material-design-icons/"><img width="500" src="https://i.imgur.com/VY4empy.png" alt="icons"></a>
 
-If you are intending to use these icons for the [[Floating Action Buttons]], just make sure to pick one that is **24dp** according to the [[Google specs|Floating-Action-Buttons#dimensions]].
+Be sure to check out the community-source [materialdesignicons](http://materialdesignicons.com/) icon site as well for an even larger selection of material icons.   Thanks to [recent updates](http://android-developers.blogspot.com/2016/02/android-support-library-232.html) in the support design library, you can import these icons as scalable vector graphics (`.svg`) files, which eliminates the need to import different image files for different resolutions.  
 
-Be sure to check out the community-source [materialdesignicons](http://materialdesignicons.com/) icon site as well for an even larger selection of material icons.   If you wish to copy all the various density files to your project, you can use this [source code example](https://gist.github.com/rogerhu/6a56ad8a02159c266531) to help you copy the files through the command line.
-
-Also, assuming your are using at least a [[Gradle|Getting-Started-with-Gradle]] version above 1.4.0 (see this [blog posting](http://android-developers.blogspot.com/2015/09/android-studio-14.html)), you can also import these icons as scalable vector graphics (.svg) files, which eliminates the need to import different image files for different resolutions.  You can right click on the `res/drawable` folder and click the new `Vector Asset` option to import these `.svg` files into a Vector Drawable XML, which can be used the same as any other [[drawable|Drawables]].
+Make sure to add vector drawable support for pre-Lollipop devices by following the [[setup instructions|Design-Support-Library#adding-vector-drawable-library]].    The Material Design icons should already be available in [[Vector Drawable|Drawables#vector-drawables]] XML format, which is a different format from .SVG files.  Alternatively, you can download the .SVG file, right click on the `res/drawable` folder, and click the new `Vector Asset` option to import these `.svg` files into a Vector Drawable XML, which can be used the same as any other [[drawable|Drawables]]. 
 
 <img src="http://imgur.com/yYAI16t.png">
 
