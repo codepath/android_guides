@@ -43,7 +43,7 @@ android {
 }
 
 ext {
-  supportLibVersion = '23.3.0'  // variable that can be referenced to keep support libs consistent
+  supportLibVersion = '23.4.0'  // variable that can be referenced to keep support libs consistent
 }
 ```
 
@@ -167,3 +167,4 @@ The latest source code updates for the support library are now always included s
 * <https://code.google.com/p/android/issues/list?can=1&q=label%3AVersion-22.2.1>
 * <https://plus.google.com/+AndroidDevelopers/posts/RZutBRWN6sH?linkId=17978076>
 * <https://medium.com/@chrisbanes/appcompat-v23-2-age-of-the-vectors-91cbafa87c88#.dvbsz7sts>
+* <https://plus.google.com/+AndroidDevelopers/posts/iTDmFiGrVne>
