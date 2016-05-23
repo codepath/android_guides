@@ -29,9 +29,11 @@ zipStorePath=wrapper/dists
 distributionUrl=http\://services.gradle.org/distributions/gradle-2.10-all.zip
 ```
 
+If you wish to upgrade Gradle versions, you need to update the `distributionUrl` accordingly.  You can check [this link](https://services.gradle.org/distributions) to find the latest version.  Note that the Gradle releases are independent from the Android Gradle plugin, which is defined in your `build.gradle` config.
+
 Gradle will use this configuration to see if the version has already been installed.  If not, it will be downloaded and stored in a separate directory.  (For Unix machines, the various Gradle downloads will live in ~/.gradle/wrapper.)
 
-In addition, you will need to setup the Android Gradle plugin by setting your build.gradle to have a dependency:
+In addition, you will need to setup the Android Gradle plugin by setting your `build.gradle` to have a dependency:
 
 ```gradle
 buildscript {
@@ -44,7 +46,7 @@ buildscript {
 }
 ```
 
-Google maintains this Android plugin and you can find the latest updates at http://tools.android.com/tech-docs/new-build-system.  Both Gradle and the Android Studio plugin are constantly evolving, so you check the site to see what versions of Gradle are supported for which plugin.
+Google maintains this Android plugin and you can find the latest updates at http://tools.android.com/tech-docs/new-build-system.  Both Gradle and the Android Studio plugin are constantly evolving, so you check the site to see what versions of Gradle are supported for which plugin.  
 
 Also, keep in mind that the Android Gradle plugin finds your SDK by what is defined in the local.properties file.  You should already find this local.properties file in your project directory:
 
