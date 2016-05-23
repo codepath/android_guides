@@ -25,18 +25,17 @@ The support design library has the following key features:
 
 ### Setup
 
-Make sure that you have at least the Android Gradle plugin v1.5.0 supported.  The latest support design library has issues with pre-Lollipop devices that triggers an error `Caused by: android.content.res.Resources$NotFoundException: File res/drawable/abc_ic_ab_back_material.xml from drawable resource ID #0x7f020016` if you do not use this minimum version:
-
+Make sure that you have at least the Android Gradle plugin v2.1.0 supported.  
 
 ```gradle
 dependencies {
-    classpath 'com.android.tools.build:gradle:1.5.0'
+    classpath 'com.android.tools.build:gradle:2.1.0'
 }
 ```
 
 There is a new support design library that must be included.   This library also depends on updated versions of the [AppCompat](http://android-developers.blogspot.com/2014/10/appcompat-v21-material-design-for-pre.html) library to be included.  If you are not currently using this library, check out this [[migration guide|Migrating-to-the-AppCompat-Library]].  In addition, make sure these versions have been updated.  
 
-Update your root `build.gradle` file
+Update your root `build.gradle` file:
 
 ```gradle
 android {
