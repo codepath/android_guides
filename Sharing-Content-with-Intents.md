@@ -239,7 +239,8 @@ protected void onCreate(Bundle savedInstanceState) {
         @Override
         public void onSuccess() {
             // Setup share intent now that image has loaded
-            setupShareIntent();
+            prepareShareIntent();
+            attachShareIntentAction();
         }
         
         @Override
@@ -250,18 +251,21 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 
 // Gets the image URI and setup the associated share intent to hook into the provider
-public void setupShareIntent() {
+public void prepareShareIntent() {
     // Fetch Bitmap Uri locally
     ImageView ivImage = (ImageView) findViewById(R.id.ivResult);
     Uri bmpUri = getLocalBitmapUri(ivImage); // see previous remote images section
-    // Create share intent as described above
+    // Construct share intent as described above based on bitmap
     shareIntent = new Intent();
     shareIntent.setAction(Intent.ACTION_SEND);
     shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
     shareIntent.setType("image/*");   
-    // Attach share event to the menu item provider
-    if (miShareAction != null)
-      miShareAction.setShareIntent(shareIntent);
+}
+
+// Attaches the share intent to the share menu item provider
+public void attachShareIntentAction() {
+    if (miShareAction != null && shareIntent != null)
+        miShareAction.setShareIntent(shareIntent);
 }
 
 @Override
@@ -272,6 +276,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
     MenuItem item = menu.findItem(R.id.menu_item_share);
     // Fetch reference to the share action provider
     miShareAction = (ShareActionProvider) MenuItemCompat.getActionProvider(item);
+    attachShareIntentAction(); // call here in case this method fires second
     // Return true to display menu
     return true;
 }
