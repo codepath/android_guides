@@ -78,7 +78,7 @@ Although Android gives focus to the first text field in your layout when the act
     android:windowSoftInputMode="stateVisible" />
 ```
 
-The options for the mode include two aspects: visibility of the keyboard and adjustment of the UI. Visibility options include `stateUnchanged`, `stateHidden`, `stateVisible` and [several others]([listed in full here](http://developer.android.com/guide/topics/manifest/activity-element.html#wsoft).
+The options for the mode include two aspects: visibility of the keyboard and adjustment of the UI. Visibility options include `stateUnchanged`, `stateHidden`, `stateVisible` and [several others listed here](http://developer.android.com/guide/topics/manifest/activity-element.html#wsoft).
 
 ### Changing UI Reaction
 
