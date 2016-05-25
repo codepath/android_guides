@@ -244,7 +244,11 @@ See this [simple guide](http://radleymarx.com/blog/simple-guide-to-9-patch/) for
 
 ### Vector Drawables
 
-These are XML drawables that can define complex vector-based images which can scale to support all densities automatically. This means using vector-based images, you will need **only one asset file** as opposed to an asset file for each screen density in the case of bitmap images. See the [[setup guide|Design-Support-Library#adding-vector-drawable-library]] to enable support for vector drawables for pre-Lollipop devices. 
+These are XML drawables that can define complex vector-based images which can scale to support all densities automatically. This means using vector-based images, you will need **only one asset file** as opposed to an asset file for each screen density in the case of bitmap images. 
+
+First, see the [[setup guide|Design-Support-Library#adding-vector-drawable-library]] to enable support for vector drawables for pre-Lollipop devices. 
+
+#### Creating Vector Drawables
 
 To create a vector image, you need to define pathData syntax which is located [here](https://www.w3.org/TR/SVG11/paths.html#PathData).  This example defines the details of the shape inside a <vector> XML element such as `res/drawable/ic_heart.xml` with:
 
@@ -267,6 +271,8 @@ To create a vector image, you need to define pathData syntax which is located [h
 </vector>
 ``` 
 
+#### Using Vector Drawables
+
 We can then load vectors using the `app:srcCompat` property:
 
 ```xml
@@ -286,13 +292,27 @@ This results in the following image being rendered:
 
 See [the official release blog post](http://android-developers.blogspot.com/2016/02/android-support-library-232.html) for additional compatibility notes and this [video talk](https://www.youtube.com/watch?v=wlFVIIstKmA). 
 
-In addition, there are several easy ways to create vector drawables directly from SVG graphics:
+#### Finding Vector Drawables
 
- * [Vector Asset Studio](http://developer.android.com/tools/help/vector-asset-studio.html) is a utility included in Android Studio for converting SVG assets into vector drawables. 
+Vector drawables can now be found directly within Android Studio and also on many Android resource websites. The first place to check for vector drawables is Android Studio inside the `File => New => Vector Asset` wizard:
+
+<img src="http://i.imgur.com/VkmWDpP.png" height="250" />&nbsp;<img src="http://i.imgur.com/EjI3mm9.png" height="250" />
+
+You can find additional icons on the [material design icons website](https://materialdesignicons.com/) which includes community-contributed icons as well.
+
+<a href="https://materialdesignicons.com/"><img src="http://i.imgur.com/PfulMMj.png" width="400" /></a>
+
+Learn more about [[finding icons here|Material-Design-Primer#material-design-icons]] for use within your app. 
+
+#### Converting to Vector Drawables
+
+In addition, there are several ways to create vector drawables directly from SVG graphics:
+
+ * [Vector Asset Studio](http://developer.android.com/tools/help/vector-asset-studio.html) is a utility included in Android Studio (shown above) for converting SVG assets into vector drawables. 
  * [SVG2Android Online Utility](http://inloop.github.io/svg2android/) converts SVG into vectors right in your browser.
  * [Command-line SVG Converter](https://github.com/a-student/SvgToVectorDrawableConverter) can batch convert SVGs to vectors.
 
-Many icons are already available [here in the vector format](https://materialdesignicons.com/). You can refer to [this VectorDrawables guide for more details](http://developer.android.com/training/material/drawables.html#VectorDrawables). 
+You can refer to [this VectorDrawables guide for more details](http://developer.android.com/training/material/drawables.html#VectorDrawables). 
 
 ## Customizing a Button
 
