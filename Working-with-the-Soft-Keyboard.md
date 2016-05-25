@@ -91,7 +91,8 @@ The virtual keyboard reduces the amount of space available for your app's UI. We
     android:windowSoftInputMode="adjustResize" />
 ```
 
-The options for the mode include two aspects: visibility and adjustment. Adjustment options include `adjustResize`, `adjustPan`, and `adjustUnspecified` and are [listed in full here]. Both visibility and adjustment can be combined with:
+The options for the mode include two aspects: visibility and adjustment. Adjustment options include `adjustResize`, `adjustPan`, and `adjustUnspecified` and are [listed in full here](
+http://developer.android.com/guide/topics/manifest/activity-element.html#wsoft). Both visibility and adjustment can be combined with:
 
 ```xml
 <!-- Configures the keyboard to be visible right away and for UI to be resized when shown -->
@@ -100,7 +101,7 @@ The options for the mode include two aspects: visibility and adjustment. Adjustm
     android:windowSoftInputMode="stateVisible|adjustResize" />
 ```
 
-(http://developer.android.com/guide/topics/manifest/activity-element.html#wsoft). See the guide on [keyboard visibility](http://developer.android.com/training/keyboard-input/visibility.html) for more details.
+See the guide on [keyboard visibility](http://developer.android.com/training/keyboard-input/visibility.html) for more details.
 
 ## References
 
