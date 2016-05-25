@@ -88,7 +88,7 @@ You can read about [how fenster was developed](http://www.malmstein.com/blog/201
 
 In the past, the YouTube API provided a 3gp link that you could use with VideoView to play.  However, to play YouTube videos on Android, you now have to use the [YouTube Android Player API] (https://developers.google.com/youtube/android/player/).  
 
-In order to use this API, you will need to have Google Play installed because the YouTube API interacts with a service that is distributed with the YouTube app.  Either use a device to test or make sure your emulator uses [Google Play Services](https://github.com/codepath/android_guides/wiki/Genymotion-2.0-Emulators-with-Google-Play-support).   Otherwise, you are likely to see "An error has occurred while initializing the YouTube player."
+In order to use this API, you will need to have Google Play installed because the YouTube API interacts with a service that is distributed with the YouTube app.  Either use a device to test or make sure you have followed [[this emulator setup guide|Genymotion-2.0-Emulators-with-Google-Play-support#setup-google-play-services]] to install Google Play services.   Otherwise, you are likely to see "An error has occurred while initializing the YouTube player."
 
 To start, you will need to create an API key through [https://console.developers.google.com/](https://console.developers.google.com/).  Make sure to enable the `YouTube Data API v3`.  Go to the `Credentials` section and generate an API key.
 
