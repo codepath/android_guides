@@ -99,7 +99,7 @@ Next, we can add the `ActionView` to our `ActionBar` in the `res/menu/activity_m
         android:title="Loading..."
         android:visible="false"
         android:orderInCategory="100"
-        app:showAsAction="ifRoom"
+        app:showAsAction="always"
         app:actionLayout="@layout/action_view_progress" />
 </menu>
 ```
