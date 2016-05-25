@@ -536,8 +536,6 @@ Facebook's [Stetho](http://facebook.github.io/stetho/) project enables you to us
 
 <img src="http://facebook.github.io/stetho/static/images/inspector-network.png"/>
 
-### Setup
-
 Setup your `app/build.gradle` file:
 
 ```gradle
