@@ -119,6 +119,7 @@ Instead of accessing the SQLite database directly, there is no shortage of highe
  * [Siminov](http://siminov.github.io/android-orm/) - Another viable alternative syntax
  * [greenDAO](http://greendao-orm.com/) - Slightly different take (DAO vs ORM)
  * [ORMLite](http://ormlite.com/sqlite_java_android_orm.shtml) - Lightweight and speed is prioritized
+ * [JDXA](http://softwaretree.com/v1/products/jdxa/jdxa.html) - Simple, non-intrusive, flexible
 
 For this class, we selected ActiveAndroid. With ActiveAndroid, building models that are SQLite backed is easy and explicit using annotations. Instead of manually creating and updating tables and managing SQL queries, simply annotate your model classes to associate fields with database columns:
 
