@@ -18,13 +18,15 @@ Snackbar.make(parentView, R.string.snackbar_text, Snackbar.LENGTH_LONG)
   .show(); // Don’t forget to show!
 ```
 
-One difference from using [[Toasts|Displaying-Toasts]] from Snackbars is that the first parameter requires a `View` instead of [[Context|Using Context]].  The snackbar uses this parameter to walk up the  parent's hierarchy searching for a CoordinatorLayout, FrameLayout, or the top-most container layout, whichever comes first.  Adding a CoordinatorLayout in the view hierarchy is helpful in cases where the floating action buttons needs to moved to make room for displaying the Snackbar as discussed in [[this guide|Handling-Scrolls-with-CoordinatorLayout#floating-action-buttons-and-snackbars]].
+One difference from using [[Toasts|Displaying-Toasts]] from Snackbars is that the first parameter `parentView` requires a `View` instead of a [[Context|Using Context]].  The snackbar uses this `parentView` parameter to walk up the parent's hierarchy searching for a `CoordinatorLayout`, `FrameLayout`, or the top-most container layout, whichever comes first.  Adding a `CoordinatorLayout` in the view hierarchy is helpful in cases where the floating action buttons needs to moved to make room for displaying the Snackbar as discussed in [[this guide|Handling-Scrolls-with-CoordinatorLayout#floating-action-buttons-and-snackbars]].
 
 In a [recent update](https://plus.google.com/+AndroidDevelopers/posts/XTtNCPviwpj) of the support library, you can now specify `LENGTH_INDEFINITE` that will continue to show the Snackbar until it is dismissed or another one is shown:
 
 ```java
 Snackbar.make(parentView, R.string.snackbar_text, Snackbar.LENGTH_INDEFINITE).show();
 ```
+
+This can be helpful for error messages that should persist on screen until the user performs the action. 
 
 ### Configuration Options
 
