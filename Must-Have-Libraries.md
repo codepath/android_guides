@@ -168,6 +168,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [PhotoView](https://github.com/chrisbanes/PhotoView) - A library to pinch zoom in and zoom out and double tap zoom for Android
  * [Android-Iconics](https://github.com/mikepenz/Android-Iconics) - Add many scalable and styleable icons into your app
  * [Scissors](https://github.com/lyft/scissors) - An easy image cropping library developed by Lyft.
+ * [Material-SearchView](https://github.com/MiguelCatalan/MaterialSearchView) - Beautiful Material SearchView made simple.
 
 ### Drawing
 
