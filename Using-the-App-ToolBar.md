@@ -194,8 +194,18 @@ Now, we need to create the custom styles in `res/styles.xml` with:
   <item name="android:background">@color/colorPrimary</item>
   <!-- android:textColorPrimary is the color of the title text in the Toolbar  -->
   <item name="android:textColorPrimary">@android:color/holo_blue_light</item>
-  <!-- android:actionMenuTextColor is the color of the text of action (menu) items  -->
+  <!-- actionMenuTextColor is the color of the text of action (menu) items  -->
   <item name="actionMenuTextColor">@android:color/holo_green_light</item>
+
+  <!-- Tints the input fields like checkboxes and text fields -->
+  <item name="colorAccent">@color/cursorAccent</item>
+  <!-- Applies to views in their normal state. -->
+  <item name="colorControlNormal">@color/controlNormal</item>
+  <!-- Applies to views in their activated state (i.e checked or switches) -->
+  <item name="colorControlActivated">@color/controlActivated</item>
+  <!-- Applied to framework control highlights (i.e ripples or list selectors) -->
+  <item name="colorControlHighlight">@color/controlActivated</item>
+
   <!-- Enable these below if you want clicking icons to trigger a ripple effect -->
   <!-- 
   <item name="selectableItemBackground">?android:selectableItemBackground</item>
