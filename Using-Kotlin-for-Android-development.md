@@ -179,7 +179,7 @@ Starting from Kotlin version `1.0.2`, action to create new activity in Kotlin ha
 
 ## Attribution
 
-This guide was originally put together by [savekirk](https://github.com/savekirk) as referenced [on this thread](https://github.com/codepath/android_guides/issues/169#issuecomment-222051554).
+This guide was originally put together by [Kirk Saviour](https://github.com/savekirk) as referenced [on this thread](https://github.com/codepath/android_guides/issues/169#issuecomment-222051554).
 
 ## References
 
