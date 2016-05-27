@@ -48,6 +48,7 @@ If you are an experienced engineer with 2+ years of professional experience in s
 * [Google Android Glossary](https://developers.google.com/android/for-all/vocab-words/) (Defining Common Terms)
 * [Android Learning Resources](https://github.com/CodementorIO/Android-Learning-Resources)
 * [[Keeping Updated with Android]] (Podcasts, blogs, newsletters)
+* [[Using the Kotlin language for Android development]]
 
 **Using Eclipse?** See below.
 
