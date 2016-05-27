@@ -208,10 +208,35 @@ You will want to make sure to dispatch this registration intent service when sta
 
 public class MyApplication extends Application {
 
+You may also want to check for Google Play Services befo
+```java
+  /**
+     * Check the device to make sure it has the Google Play Services APK. If
+     * it doesn't, display a dialog that allows users to download the APK from
+     * the Google Play Store or enable it in the device's system settings.
+     */
+    private boolean checkPlayServices() {
+        GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
+        int resultCode = apiAvailability.isGooglePlayServicesAvailable(this);
+        if (resultCode != ConnectionResult.SUCCESS) {
+            if (apiAvailability.isUserResolvableError(resultCode)) {
+                apiAvailability.getErrorDialog(this, resultCode, PLAY_SERVICES_RESOLUTION_REQUEST)
+                        .show();
+            } else {
+                Log.i(TAG, "This device is not supported.");
+                finish();
+            }
+            return false;
+        }
+        return true;
+    }
+
     @Override
     protected void onCreate() {
-        Intent intent = new Intent(this, RegistrationIntentService.class);
-        startService(intent);
+        if(checkPlayServices()) {
+          Intent intent = new Intent(this, RegistrationIntentService.class);
+          startService(intent);
+        }
     }
 ```
 
