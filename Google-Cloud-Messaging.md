@@ -202,8 +202,6 @@ You will want to record whether the token was sent to the server and may wish to
      }
 ```
 
-For more details, see the [sample code](https://github.com/googlesamples/google-services/blob/master/android/gcm/app/src/main/java/gcm/play/android/samples/com/gcmquickstart/RegistrationIntentService.java) provided by Google.
-
 You will want to make sure to dispatch this registration intent service when starting up your application:
 
 ```java
@@ -224,6 +222,7 @@ Make sure to declare this custom Application in your `AndroidManifest.xml` file:
         android:name=".MyApplication"
 ```
 
+For more details, see the [sample code](https://github.com/googlesamples/google-services/blob/master/android/gcm/app/src/main/java/gcm/play/android/samples/com/gcmquickstart/RegistrationIntentService.java) provided by Google.
 
 ### Create a InstanceID ListenerService
 
