@@ -172,7 +172,7 @@ The Toolbar can be customized in many ways leveraging various style properties i
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="?attr/actionBarSize"  
-    android:background=”?attr/colorPrimary”
+    android:background="?attr/colorPrimary"
     android:theme="@style/ToolbarTheme"
     app:titleTextAppearance="@style/Toolbar.TitleText"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
