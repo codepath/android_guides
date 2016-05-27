@@ -202,11 +202,11 @@ You will want to record whether the token was sent to the server and may wish to
      }
 ```
 
-You will want to make sure to dispatch this registration intent service when starting up your application:
+You will want to make sure to dispatch this registration intent service when starting up your main activity.  There is a Google Play Services check that may require your activity to be launched in order to display a dialog error message, which is why it is being initiated in the activity instead of application.
 
 ```java
 
-public class MyApplication extends Application {
+public class MyActivity extends AppCompatActivity {
 
   /**
      * Check the device to make sure it has the Google Play Services APK. If
@@ -236,13 +236,6 @@ public class MyApplication extends Application {
           startService(intent);
         }
     }
-```
-
-Make sure to declare this custom Application in your `AndroidManifest.xml` file:
-
-```xml
-    <application
-        android:name=".MyApplication"
 ```
 
 For more details, see the [sample code](https://github.com/googlesamples/google-services/blob/master/android/gcm/app/src/main/java/gcm/play/android/samples/com/gcmquickstart/RegistrationIntentService.java) provided by Google.
