@@ -304,7 +304,7 @@ public class NetworkedIntentService extends IntentService {
        // Send synchronous request
        aClient.get(this, someUrlHere, new AsyncHttpResponseHandler() {
            // ... onSuccess here
-       }
+       });
     }
 }
 ```
