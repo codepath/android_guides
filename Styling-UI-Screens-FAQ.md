@@ -107,7 +107,7 @@ Note that the **aspect ratio cannot be changed when a drawable is applied as a b
 
 #### My image isn't loading and I am seeing a memory error instead in the logs
 
-This probably means that the drawable image being used is a large resolution. The easiest fix is to simply re-copy the image as `xxhdpi` density when you copy and paste the image into Android Studio. Note that when adding an image you are prompted to select the density. If you select `xxhdpi` the image will likely be able to be loaded. In the event that you still see this error, **resize the image to a maximum of 1776 x 1080px**.
+This probably means that the drawable image being used is a large resolution. The easiest fix is to simply re-copy the image as `xxhdpi` density when you copy and paste the image into Android Studio. Note that when adding an image you are prompted to select the density. If you select `xxhdpi` the image will likely be able to be loaded. In the event that you still see this error, **resize the image to a maximum of 900 x 1600px**.
 
 #### How would I create a toggle button that alternates between two images?
 
