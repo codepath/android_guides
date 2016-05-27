@@ -27,7 +27,7 @@ Powered by these animation frameworks, there are five relevant types of animatio
 With the release of Android 5.0, Google has released detailed [animation design guidelines](http://www.google.com/design/spec/animation) which documents important principles to consider when integrating animations and motion into your application. There are four core principles outlined:
 
  * [Authentic motion](http://www.google.com/design/spec/animation/authentic-motion.html) - Motion in the world of material design is not only beautiful, it builds meaning about the spatial relationships, functionality, and intention of the system.
- * [Responsive interaction](http://www.google.com/design/spec/animation/responsive-interaction.html) - When a user interacts with an app and beautiful yet perfectly logical things happen, the user feels satisfied—even delighted.
+ * [Responsive interaction](http://www.google.com/design/spec/animation/responsive-interaction.html) - When a user interacts with an app; beautiful yet perfectly logical things happen, the user feels satisfied—even delighted.
  * [Meaningful transitions](http://www.google.com/design/spec/animation/meaningful-transitions.html) - Carefully choreographed motion design can effectively guide the user’s attention and focus through multiple steps of a process or procedure and avoid confusion. 
  * [Delightful details](http://www.google.com/design/spec/animation/delightful-details.html) - Animation can exist within all components of an app and at all scales, from finely detailed icons to key transitions and actions. All elements work together to construct a seamless experience and a beautiful, functional app.
 
