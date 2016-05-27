@@ -208,8 +208,6 @@ You will want to make sure to dispatch this registration intent service when sta
 
 public class MyApplication extends Application {
 
-You may also want to check for Google Play Services befo
-```java
   /**
      * Check the device to make sure it has the Google Play Services APK. If
      * it doesn't, display a dialog that allows users to download the APK from
