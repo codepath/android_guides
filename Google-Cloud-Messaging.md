@@ -204,6 +204,27 @@ You will want to record whether the token was sent to the server and may wish to
 
 For more details, see the [sample code](https://github.com/googlesamples/google-services/blob/master/android/gcm/app/src/main/java/gcm/play/android/samples/com/gcmquickstart/RegistrationIntentService.java) provided by Google.
 
+You will want to make sure to dispatch this registration intent service when starting up your application:
+
+```java
+
+public class MyApplication extends Application {
+
+    @Override
+    protected void onCreate() {
+        Intent intent = new Intent(this, RegistrationIntentService.class);
+        startService(intent);
+    }
+```
+
+Make sure to declare this custom Application in your `AndroidManifest.xml` file:
+
+```xml
+    <application
+        android:name=".MyApplication"
+```
+
+
 ### Create a InstanceID ListenerService
 
 According to this Google official [documentation](https://developers.google.com/instance-id/guides/android-implementation), the instance ID server issues callbacks periodically (i.e. 6 months) to request apps to refresh their tokens.  To support this possibility, we need to extend from `InstanceIDListenerService` to handle token refresh changes.  We should create a file called `MyInstanceIDListenerService.java` that will override this base method and launch an intent service for `RegistrationIntentService` to fetch the token:
