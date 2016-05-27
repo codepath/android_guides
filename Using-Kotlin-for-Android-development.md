@@ -1,10 +1,10 @@
-### What is Kotlin?
+## What is Kotlin?
 
 [Kotlin](https://kotlinlang.org) is a language by [JetBrains](https://www.jetbrains.com), the company behind [IntelliJ IDEA](https://www.jetbrains.com/idea), which Android Studio is based on, and other developer tools. Kotlin is purposely built for large scale software projects to improve upon Java with a focus on readability, correctness, and developer productivity.
 
 The language was created in response to limitations in Java which were hindering development of JetBrains' software products and after an evaluation of all other JVM languages proved unsuitable. Since the goal of Kotlin was for use in improving their products, it focuses very strongly on interop with Java code and the Java standard library. 
 
-#### Why Kotlin?
+## Why Kotlin?
 
 - 100% interoperable with Java - Kotlin and Java can co-exist in one project. You can continue to use existing libraries in Java. 
 - Concise - Drastically reduce the amount of boilerplate code you need to write.
@@ -12,9 +12,9 @@ The language was created in response to limitations in Java which were hindering
 - It's functional - Kotlin uses many concepts from functional programming, such as lambda expressions.
 
 
-### Syntax Crash Course
+## Syntax Crash Course
 
-#### Variables
+### Variables
 
 Defining local variables
 
@@ -34,7 +34,8 @@ var x = 5 // `Int` type is inferred
 x += 1
 ```
 
-#### Functions
+### Functions
+
 Function having two Int parameters with Int return type:
 ```Kotlin
 fun sum(a: Int, b: Int) :Int {
@@ -61,7 +62,7 @@ fun printSum(a: Int, b: Int) {
 }
 ```
 
-#### Using collections
+### Using collections
 
 Iterating over a collection:
 
@@ -85,7 +86,7 @@ names
     .forEach { print(it) }
 ```
 
-#### Null Safety
+### Null Safety
 
 ```Kotlin
 val x: String? = "Hi"
@@ -102,7 +103,8 @@ val len = x?.length ?: -1 // This will return -1 if x is null
 ```
 
 
-### Configure your development environment
+## Configure your development environment
+
 To be able to write and compile Kotlin code in your Android application you need to do the following:
 1. Install Android Studio
   First thing you need is to have Android Studio installed.
@@ -158,7 +160,7 @@ repositories {
 }
 ```
 
-### Writing your first Kotlin Code
+## Writing your first Kotlin Code
 
 You can start by converting your existing Java File to Kotlin file. Open your Java File -> Click on `Code` menu item -> select `Convert Java File to Kotlin File`. Your converted file would look like this:
 
@@ -172,9 +174,14 @@ class MainActivity : AppCompatActivity() {
 
 }
 ```
+
 Starting from Kotlin version `1.0.2`, action to create new activity in Kotlin has been added. To create new Android Kotlin activity, Go to `File` -> `New`->`Kotlin Activity`.
 
-# References
+## Attribution
+
+This guide was originally put together by [savekirk](https://github.com/savekirk) as referenced [on this thread](https://github.com/codepath/android_guides/issues/169#issuecomment-222051554).
+
+## References
 
 - http://antonioleiva.com/kotlin-for-android-introduction/
 - http://antonioleiva.com/kotlin-android-create-project/
