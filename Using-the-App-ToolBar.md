@@ -172,6 +172,7 @@ The Toolbar can be customized in many ways leveraging various style properties i
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="?attr/actionBarSize"  
+    android:background=”?attr/colorPrimary”
     android:theme="@style/ToolbarTheme"
     app:titleTextAppearance="@style/Toolbar.TitleText"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
@@ -190,13 +191,10 @@ Now, we need to create the custom styles in `res/styles.xml` with:
 </style>
 
 <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-  <!-- This would set the toolbar's background color -->
-  <item name="android:background">@color/colorPrimary</item>
   <!-- android:textColorPrimary is the color of the title text in the Toolbar  -->
   <item name="android:textColorPrimary">@android:color/holo_blue_light</item>
   <!-- actionMenuTextColor is the color of the text of action (menu) items  -->
   <item name="actionMenuTextColor">@android:color/holo_green_light</item>
-
   <!-- Tints the input fields like checkboxes and text fields -->
   <item name="colorAccent">@color/cursorAccent</item>
   <!-- Applies to views in their normal state. -->
