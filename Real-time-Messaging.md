@@ -43,3 +43,5 @@ Android SDK code is open source and is available on Github:
 * <http://www.pubnub.com/docs/java/android/tutorial/data-push.html>
 * <http://www.pubnub.com/docs/java/android/overview/data-push.html>
 * <http://www.pubnub.com/docs/java/android/api/reference.html>
+* <https://www.applozic.com/docs/android-chat-sdk.html>
+* <https://www.applozic.com>
