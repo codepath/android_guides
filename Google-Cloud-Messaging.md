@@ -236,6 +236,7 @@ public class MyActivity extends AppCompatActivity {
           startService(intent);
         }
     }
+}
 ```
 
 For more details, see the [sample code](https://github.com/googlesamples/google-services/blob/master/android/gcm/app/src/main/java/gcm/play/android/samples/com/gcmquickstart/RegistrationIntentService.java) provided by Google.
