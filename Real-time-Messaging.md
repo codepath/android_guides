@@ -32,9 +32,13 @@ Applozic powers real time chat and messaging on android, iOS, phonegap and web a
 Check out this [detailed instruction](https://www.applozic.com/docs/) for adding a real time chat sdk into your Android, iOS, Phonegap and Web app.
 
 Client SDK code is open source and is available on Github:
+
 [https://github.com/AppLozic/Applozic-Android-SDK](https://github.com/AppLozic/Applozic-Android-SDK)
+
 [https://github.com/AppLozic/Applozic-iOS-SDK](https://github.com/AppLozic/Applozic-iOS-SDK)
+
 [https://github.com/AppLozic/Applozic-PhoneGap-Chat-Plugin](https://github.com/AppLozic/Applozic-PhoneGap-Chat-Plugin)
+
 [https://github.com/AppLozic/Applozic-Web-Plugin](https://github.com/AppLozic/Applozic-Web-Plugin)
 
 ## References
