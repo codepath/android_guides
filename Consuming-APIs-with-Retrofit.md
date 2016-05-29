@@ -506,7 +506,7 @@ Retrofit and OkHttp can be hard to troubleshoot when trying to step through the 
 To use `HttpLogInterceptor`, add this dependency to your Gradle configuration:
 
 ```gradle
-compile 'com.squareup.okhttp3:logging-interceptor:3.2.0'
+compile 'com.squareup.okhttp3:logging-interceptor:3.3.0'
 ```
 
 You will need to add a network interceptor for HttpLogInterceptor.  See [this doc](http://square.github.io/okhttp/3.x/logging-interceptor/) for the different options that can be used.
