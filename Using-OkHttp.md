@@ -290,7 +290,33 @@ call.enqueue(new Callback() {
 });
 ```
 
-### Troubleshooting
+## Troubleshooting
+
+OkHttp can be hard to troubleshoot when trying to step through the various layers of abstraction in the libraries.  You can add the `HttpLogInterceptor` that can be added when using the `OkHttp3` library, which will print HTTP requests/responses through LogCat.  You can also leverage Facebook's [Stetho](http://facebook.github.io/stetho/) project to use Chrome to inspect all network traffic.
+
+### HttpLogInterceptor
+
+To use `HttpLogInterceptor`, add this dependency to your Gradle configuration:
+
+```gradle
+compile 'com.squareup.okhttp3:logging-interceptor:3.3.0'
+```
+
+You will need to add a network interceptor for HttpLogInterceptor.  See [this doc](http://square.github.io/okhttp/3.x/logging-interceptor/) for the different options that can be used.
+
+```java
+OkHttpClient.Builder builder = new OkHttpClient.Builder();
+
+HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
+
+// Can be Level.BASIC, Level.HEADERS, or Level.BODY
+// See http://square.github.io/okhttp/3.x/logging-interceptor/ to see the options.
+httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+builder.networkInterceptors().add(httpLoggingInterceptor);
+builder.build();
+```
+
+### Stetho
 
 Use Facebook's [Stetho](http://facebook.github.io/stetho/) plugin to monitor network calls with Chrome:
 
