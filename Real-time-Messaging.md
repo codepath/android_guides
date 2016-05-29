@@ -24,22 +24,11 @@ If we want to **use PubNub as a service** such that the messages are being recei
 
 Check out this [detailed guide](http://sinch.github.io/android-messaging-tutorial/) for creating a real-time messaging client using [Sinch](http://www.sinch.com/docs/android/user-guide/).
 
-
 ## Applozic
 
-Applozic powers real time chat and messaging on android, iOS, phonegap and web apps. Applozic Chat SDK allows developers to add whatsapp like chat capabilities to their apps including group chat, image, file, location sharing, audio/video messages, contextual chat and a lot more.
+Applozic powers real time chat and messaging on android, iOS, phonegap and web apps. Applozic Chat SDK allows developers to add whatsapp like chat capabilities to their apps including group chat, image, file, location sharing, audio/video messages, contextual chat and a lot more. 
 
-Check out this [detailed instruction](https://www.applozic.com/docs/) for adding a real time chat sdk into your Android, iOS, Phonegap and Web app.
-
-Client SDK code is open source and is available on Github:
-
-[Android Chat SDK](https://github.com/AppLozic/Applozic-Android-SDK)
-
-[iOS Chat SDK](https://github.com/AppLozic/Applozic-iOS-SDK)
-
-[PhoneGap Chat Plugin](https://github.com/AppLozic/Applozic-PhoneGap-Chat-Plugin)
-
-[Javascript Chat Plugin](https://github.com/AppLozic/Applozic-Web-Plugin)
+Refer to the [Android Chat SDK](https://github.com/AppLozic/Applozic-Android-SDK) to get started. Check out this [detailed instruction](https://www.applozic.com/docs/) for adding a real time chat sdk into your Android, iOS, Phonegap and Web app. 
 
 ## References
 
