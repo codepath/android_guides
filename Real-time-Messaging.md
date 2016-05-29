@@ -33,13 +33,13 @@ Check out this [detailed instruction](https://www.applozic.com/docs/) for adding
 
 Client SDK code is open source and is available on Github:
 
-[https://github.com/AppLozic/Applozic-Android-SDK](https://github.com/AppLozic/Applozic-Android-SDK)
+[Android Chat SDK](https://github.com/AppLozic/Applozic-Android-SDK)
 
-[https://github.com/AppLozic/Applozic-iOS-SDK](https://github.com/AppLozic/Applozic-iOS-SDK)
+[iOS Chat SDK](https://github.com/AppLozic/Applozic-iOS-SDK)
 
-[https://github.com/AppLozic/Applozic-PhoneGap-Chat-Plugin](https://github.com/AppLozic/Applozic-PhoneGap-Chat-Plugin)
+[PhoneGap Chat Plugin](https://github.com/AppLozic/Applozic-PhoneGap-Chat-Plugin)
 
-[https://github.com/AppLozic/Applozic-Web-Plugin](https://github.com/AppLozic/Applozic-Web-Plugin)
+[Javascript Chat Plugin](https://github.com/AppLozic/Applozic-Web-Plugin)
 
 ## References
 
