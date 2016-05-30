@@ -126,6 +126,8 @@ The following online courses teach Android through structured lessons and quizze
 
 * [Building Mobile Applications Course](http://cs76.tv/2012/spring/#about,lectures) - Courseware including videos and slides with high-level overview of Android development.
 
+* [Google Android Interactive Codelabs](https://codelabs.developers.google.com/?cat=Android) - Hands-on step-by-step labs supported by Google.
+
 ### Guides
 
 The following guides act as excellent references while exploring Android:
