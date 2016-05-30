@@ -45,6 +45,7 @@ If you are an experienced engineer with 2+ years of professional experience in s
 * [[Todo App Guide|Basic Todo App Tutorial]] (Todo App steps in guide format)
 * [[Sample Android Apps]] (Code repositories)
 * [[Free Android Curriculum]] (Additional resources)
+* [Google Android Interactive Codelabs](https://codelabs.developers.google.com/?cat=Android)
 * [Google Android Glossary](https://developers.google.com/android/for-all/vocab-words/) (Defining Common Terms)
 * [Android Learning Resources](https://github.com/CodementorIO/Android-Learning-Resources)
 * [[Keeping Updated with Android]] (Podcasts, blogs, newsletters)
