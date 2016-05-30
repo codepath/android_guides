@@ -249,6 +249,9 @@ res/
     layout-sw720dp/ 
         activity_main.xml
         item_photo.xml
+    layout-land/
+        activity_main.xml
+        item_photo.xml
 ```
 
 Generally speaking phones and phablets are between `sw240` and `sw480`. 7" tablets are `sw600` and 10" tablets are `sw720`. You can also simply add qualifiers such as `layout-land` to be applied for all devices in landscape mode.  Here’s an illustrated example of the above procedure:
