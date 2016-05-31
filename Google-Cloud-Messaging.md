@@ -1,6 +1,6 @@
 ## Overview
 
-**Google Cloud Messaging** (GCM) for Android is a service that allows you to send data from your server to your users' Android-powered device and also to receive messages from devices on the same connection.  It is now known as **Firebase Cloud Messaging** (FCM) after a new site launched during the Google I/O 2016 to help make it easier for developers to use it. 
+**Google Cloud Messaging** (FCM) for Android is a service that allows you to send data from your server to your users' Android-powered device and also to receive messages from devices on the same connection.  It is now known as **Firebase Cloud Messaging** (FCM) after a new site launched during the Google I/O 2016 to help make it easier for developers to use it.
 
 ![FCM Arch](https://i.imgur.com/9XzwPqc.png)
 
@@ -24,24 +24,24 @@ In other words, in order to implement FCM, your app will need both a Google serv
 
 ### Setup
 
-In order to use GCM, we need to go through the following steps:
+In order to use FCM, we need to go through the following steps:
 
  1. Signup with Firebase console.
     - Associate an existing app or create a new one.
     - Provide the app name and SHA-1 signature of debug key used to sign your app.
     - Download a `google-services.json` configuration file.
- 2. Integrate GCM into our Android app
+ 2. Integrate FCM into our Android app
     - Register for an [instance ID](https://plus.google.com/+AndroidDevelopers/posts/DMshVTyzqcL) and generate a token
     - Transmit the token to our web server
-    - Register a GCM Receiver to handle incoming messages
+    - Register a FCM Receiver to handle incoming messages
     - Register an InstanceID Listener Service to handle updated tokens
- 3. Develop HTTP Server with GCM endpoints
+ 3. Develop HTTP Server with FCM endpoints
     - Endpoint for registering a user with a registration token
     - Endpoint for sending a push notification to a specified set of registration tokens
 
 ## Step 1: Register with Firebase Developers Console
 
-In order to use FCM, you need to login to [https://console.firebase.google.com/](https://console.firebase.google.com/).  You should be given a choice on the right-hand side as to whether to create a new project or import an existing Google app into Firebase. 
+In order to use FCM, you need to login to [https://console.firebase.google.com/](https://console.firebase.google.com/).  You should be given a choice on the right-hand side as to whether to create a new project or import an existing Google app into Firebase.
 
 <img src="http://imgur.com/9uZggGW.png"/>
 
@@ -53,7 +53,7 @@ Click on `Create New Project`.  You should see the window pop up:
 
 ### Using an existing project
 
--  If you have existing app that used to be using GCM, click on `Import Google Project`.   Make sure to click on `Add Firebase` when you're done.
+-  If you have existing app that used to be using FCM, click on `Import Google Project`.   Make sure to click on `Add Firebase` when you're done.
 
 After you've created or imported an existing project into Firebase, you need to add the package name and add the SHA-1 signing certificate (see [link](https://developers.google.com/android/guides/client-auth) to obtain):
 
@@ -87,7 +87,7 @@ apply plugin: 'com.google.gms.google-services'
 
 ## Step 2: Setup Android Client
 
-**Note**: If you need to upgrade your existing GCM libraries to FCM, see [these instructions](https://developers.google.com/cloud-messaging/android/android-migrate-fcm#update_your_instanceidlistenerservice). The instructions below have been updated to reflect the depedencies on the FCM package.
+**Note**: If you need to upgrade your existing FCM libraries to FCM, see [these instructions](https://developers.google.com/cloud-messaging/android/android-migrate-fcm#update_your_instanceidlistenerservice). The instructions below have been updated to reflect the depedencies on the FCM package.
 
 ### Download Google Play Services
 
@@ -132,11 +132,11 @@ public class RegistrationIntentService extends IntentService {
     protected void onHandleIntent(Intent intent) {
         // Make a call to Instance API
         FirebaseInstanceId instanceID = FirebaseInstanceId.getInstance();
-        String senderId = getResources().getString(R.string.gcm_defaultSenderId);
+        String senderId = getResources().getString(R.string.FCM_defaultSenderId);
         try {
             // request token that will be used by the server to send push notifications
             String token = instanceID.getToken();
-            Log.d(TAG, "GCM Registration Token: " + token);
+            Log.d(TAG, "FCM Registration Token: " + token);
 
             // pass along this data
             sendRegistrationToServer(token);
@@ -155,7 +155,7 @@ You will want to record whether the token was sent to the server and may wish to
 
 ```java
     public static final String SENT_TOKEN_TO_SERVER = "sentTokenToServer";
-    public static final String GCM_TOKEN = "gcmToken";
+    public static final String FCM_TOKEN = "FCMToken";
 
     @Override
     protected void onHandleIntent(Intent intent) {
@@ -164,7 +164,7 @@ You will want to record whether the token was sent to the server and may wish to
         // Fetch token here
         try {
           // save token
-          sharedPreferences.edit().putString(GCM_TOKEN, token).apply();
+          sharedPreferences.edit().putString(FCM_TOKEN, token).apply();
           // pass along this data
           sendRegistrationToServer(token);
         } catch (IOException e) {
@@ -251,7 +251,7 @@ You also need to add the service to your `AndroidManifest.xml` file:
 
 ### Listening for push notifications
 
-Let's define `GcmMessageHandler.java` that extends from `FirebaseMessagingService` that will process the message received:
+Let's define `FCMMessageHandler.java` that extends from `FirebaseMessagingService` that will process the message received:
 
 ```java
 import com.google.firebase.messaging.FirebaseMessagingService;
@@ -262,7 +262,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 
-public class GcmMessageHandler extends FirebaseMessagingService {
+public class FCMMessageHandler extends FirebaseMessagingService {
     public static final int MESSAGE_NOTIFICATION_ID = 435345;
 
     @Override
@@ -270,7 +270,7 @@ public class GcmMessageHandler extends FirebaseMessagingService {
         Map<String, String> data = remoteMessage.getData();
         String from = remoteMessage.getFrom();
 
-        createNotification(from, data.get("message"));
+        createNotification(from, remoteMessage.getNotification().getBody());
     }
 
         // Creates notification based on title and body received
@@ -287,7 +287,7 @@ public class GcmMessageHandler extends FirebaseMessagingService {
 }
 ```
 
-We need to register the receiver class with GCM in the `AndroidManifest.xml` tagging the type of request (category) of the push:
+We need to register the receiver class with FCM in the `AndroidManifest.xml` tagging the type of request (category) of the push:
 
 ```xml
  <application
@@ -299,7 +299,7 @@ We need to register the receiver class with GCM in the `AndroidManifest.xml` tag
          </activity>
 
          <service
-            android:name=".GcmMessageHandler"
+            android:name=".FCMMessageHandler"
             android:exported="false" >
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
@@ -476,7 +476,7 @@ curl -s "https://android.googleapis.com/gcm/send" -H "Authorization: key=[API_KE
 
 ## Easy Local Testing with Ruby
 
-We can also easily send messages to GCM registered devices using the  ruby [GCM gem](https://github.com/spacialdb/gcm). First we must have [ruby installed](https://www.ruby-lang.org/en/installation/) (default on OSX) and then we can install GCM with:
+We can also easily send messages to FCM registered devices using the  ruby [FCM gem](https://github.com/spacialdb/GCM). First we must have [ruby installed](https://www.ruby-lang.org/en/installation/) (default on OSX) and then we can install FCM with:
 
 ```
 gem install gcm
@@ -496,23 +496,23 @@ This will send messages to the devices specified.
 
 ## Subscribing clients to Topic-Based Messages
 
-GCM also supports opt-in topic-based subscriptions for clients, which does not require passing along the device token to your server.  On the client side, we can also subscribe to this topic simply with two lines.  The `getInstance()` call automatically makes a call to grab an Instance ID, so if we do not wish to pass along our device token, our `RegistrationIntentService` class can look like the following:
+FCM also supports opt-in topic-based subscriptions for clients, which does not require passing along the device token to your server.  On the client side, we can also subscribe to this topic simply with two lines.  The `getInstance()` call automatically makes a call to grab an Instance ID, so if we do not wish to pass along our device token, our `RegistrationIntentService` class can look like the following:
 
 ```java
 @Override
 protected void onHandleIntent(Intent intent) {
-  GcmPubSub pubSub = GcmPubSub.getInstance(this);
-  pubSub.subscribe(token, "/topics/" + "dogs", null);
+  FirebaseMessaging.getInstance().subscribeToTopic("/topics/" + "dogs");
 }
 ```
 
-Inside your custom `GcmListenerService`, you will also need to check for these topic-based messages by checking the `from` String:
+Inside your custom `FCMListenerService`, you will also need to check for these topic-based messages by checking the `from` String:
 
 ```java
 @Override
-public void onMessageReceived(String from, Bundle data) {
-   String message = data.getString("message");
-
+public void onMessageReceived(RemoteMessage remoteMessage) {
+   String message = remoteMessage.getNotification().getBody();
+   String from = remoteMessage.getFrom()
+   ;
    if (from.startsWith("/topics/dogs")) {
       Log.d(TAG, "got here");
    } else {
@@ -523,13 +523,13 @@ public void onMessageReceived(String from, Bundle data) {
 Sending to subscribers simply involves changing the `to:` to be prefaced with `/topics/[topic_name]`:
 
 ```bash
-curl -s "https://gcm-http.googleapis.com/gcm/send" -H "Authorization: key=[AUTHORIZATION_KEY]" -H "Content-Type: application/json" -d '{"to": "/topics/hello", "data": {"score": 123}}'
+curl -s "https://gcm-http.googleapis.com/GCM/send" -H "Authorization: key=[AUTHORIZATION_KEY]" -H "Content-Type: application/json" -d '{"to": "/topics/hello", "data": {"score": 123}}'
 
 ```
 
 ## Rate Limits
 
-GCM is free to use.  In Jan. 2015, Google announced new rate limits in this [blog post](https://plus.google.com/+AndroidDevelopers/posts/Kc2whqR66zt) for GCM.  There is a per minute / per device limit that can be sent.  More technical details are included in this Stack Overflow [posting](http://stackoverflow.com/questions/26790810/rate-limit-exceeded-error-when-using-google-cloud-messaging-api/26790811#26790811).
+FCM is free to use.  In Jan. 2015, Google announced new rate limits in this [blog post](https://plus.google.com/+AndroidDevelopers/posts/Kc2whqR66zt) for FCM.  There is a per minute / per device limit that can be sent.  More technical details are included in this Stack Overflow [posting](http://stackoverflow.com/questions/26790810/rate-limit-exceeded-error-when-using-google-cloud-messaging-api/26790811#26790811).
 
 ## References
 
