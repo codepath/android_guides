@@ -68,7 +68,6 @@ Click on `Add App` and then copy the `google-services.json` file that will get d
 Finally, add the Google services to your root `build.gradle` file's classpath:
 
 ```gradle
-
 buildscript {
   dependencies {
     // Add this line
@@ -79,7 +78,7 @@ buildscript {
 
 Add to your existing `app/build.gradle` at the end of the file:
 
-```
+```gradle
 // Add to the bottom of the file
 apply plugin: 'com.google.gms.google-services'
 ```
