@@ -510,8 +510,7 @@ Inside your custom `FCMListenerService`, you will also need to check for these t
 @Override
 public void onMessageReceived(RemoteMessage remoteMessage) {
    String message = remoteMessage.getNotification().getBody();
-   String from = remoteMessage.getFrom()
-   ;
+   String from = remoteMessage.getFrom();
    if (from.startsWith("/topics/dogs")) {
       Log.d(TAG, "got here");
    } else {
