@@ -1,14 +1,14 @@
 ## Overview
 
-Google Cloud Messaging for Android (GCM) is a service that allows you to send data from your server to your users' Android-powered device and also to receive messages from devices on the same connection.
+**Google Cloud Messaging** (GCM) for Android is a service that allows you to send data from your server to your users' Android-powered device and also to receive messages from devices on the same connection.  It is now known as **Firebase Cloud Messaging** (FCM) after a new site launched during the Google I/O 2016 to help make it easier for developers to use it. 
 
-![GCM Arch](https://i.imgur.com/9XzwPqc.png)
+![FCM Arch](https://i.imgur.com/9XzwPqc.png)
 
 ### How it works
 
 Much of the heavy lifting in supporting push notifications on Android is facilitated by Google-powered [connection servers](https://developers.google.com/cloud-messaging/server.html).  These Google servers provide an API for messages to be sent from your server and relay these messages to any Android/iOS devices authorized to receive them.
 
-An Android device with Google Play Services will already have GCM client support available.  For push notifications to be received, an app must first obtain a token by registering with a Google server:
+An Android device with Google Play Services will already have FCM client support available.  For push notifications to be received, an app must first obtain a token by registering with a Google server:
 
 <img src="http://imgur.com/5UPxP3n.png" height=300/>
 
@@ -16,19 +16,20 @@ This token then must be passed along to your server so that it can be used to se
 
 <img src="http://imgur.com/ItRPQ7N.png" height=300/>
 
-Push notifications can be received assuming your app has registered to listen for GCM-based messages:
+Push notifications can be received assuming your app has registered to listen for FCM-based messages:
 
 <img src="http://imgur.com/adiFo8w.png" height=300/>
 
-In other words, in order to implement GCM, your app will need both a Google server and your own server.  When your app gets a token from Google, it needs to forward this token to your server.  This token should be persisted by the server so that it can be used to make API calls to the Google server.  With this approach, your server and the Android device do not need to create a persistent connection and the responsibility of queuing and relaying messages is all handled by Google's servers.
+In other words, in order to implement FCM, your app will need both a Google server and your own server.  When your app gets a token from Google, it needs to forward this token to your server.  This token should be persisted by the server so that it can be used to make API calls to the Google server.  With this approach, your server and the Android device do not need to create a persistent connection and the responsibility of queuing and relaying messages is all handled by Google's servers.
 
 ### Setup
 
 In order to use GCM, we need to go through the following steps:
 
- 1. Register with Google Console and enable GCM
-    - Obtain Sender ID (Project Number)
-    - Obtain Server API Key
+ 1. Signup with Firebase console.
+    - Associate an existing app or create a new one.
+    - Provide the app name and SHA-1 signature of debug key used to sign your app.
+    - Download a `google-services.json` configuration file.
  2. Integrate GCM into our Android app
     - Register for an [instance ID](https://plus.google.com/+AndroidDevelopers/posts/DMshVTyzqcL) and generate a token
     - Transmit the token to our web server
@@ -38,49 +39,61 @@ In order to use GCM, we need to go through the following steps:
     - Endpoint for registering a user with a registration token
     - Endpoint for sending a push notification to a specified set of registration tokens
 
-## Step 1: Register with Google Developers Console
+## Step 1: Register with Firebase Developers Console
 
-If you have used the Google Developers Console and wish to enable GCM on an existing project, skip to the [[using existing setup|Google Cloud Messaging#Using an existing project]] step.  Otherwise, proceed to creating a new project.
+In order to use FCM, you need to login to [https://console.firebase.google.com/](https://console.firebase.google.com/).  You should be given a choice on the right-hand side as to whether to create a new project or import an existing Google app into Firebase. 
+
+<img src="http://imgur.com/9uZggGW.png"/>
 
 ### Creating a new project
 
- - Use the new [creation page](https://developers.google.com/mobile/add?platform=android&cntapi=gcm).  You can either select an existing project or create a new one.  The Android package name is required but not necessarily used for GCM configuration.  Proceed to the next step by selecting `Choose and configure services`.
+Click on `Create New Project`.  You should see the window pop up:
 
-   <img src="http://imgur.com/kaB26fE.png" height="250"/>
+<img src="http://imgur.com/b3puXlh.png"/>
 
- - You will want to make sure to click the `Enable Google Cloud Messaging` button:
+### Using an existing project
 
-   <img src="http://imgur.com/QyJq7TT.png" height="250"/>
+-  If you have existing app that used to be using GCM, click on `Import Google Project`.   Make sure to click on `Add Firebase` when you're done.
 
-   A server key will be generated for you.  Record this data.
+After you've created or imported an existing project into Firebase, you need to add the package name and add the SHA-1 signing certificate (see [link](https://developers.google.com/android/guides/client-auth) to obtain):
 
-   <img src="http://imgur.com/FBxF8V8.png" height="250"/>
+![](https://i.imgur.com/CmmqFJ7.png)
 
-### Using an existing project 
+Click on `Add Firebase to your Android app`:
 
- - Go to the [Google Developers Console](https://cloud.google.com/console)
- - Under `APIs & Auth` -> `APIs`, find "Google Cloud Messaging for Android".  Click Enable API.
-     <img src="http://imgur.com/DhWqzyX.png"/>
- - Under `APIs & Auth` -> Credentials, select "Create New Key" => "Server Key".  Record key for later
-     <img src="http://imgur.com/WEWaUBj.png"/>
- - Click on the Overflow menu, click on the `Project Information` option, and record the "Project Number":
-     <img src="http://imgur.com/BTrj9CH.png"/>
+<img src="http://imgur.com/qTWfk3r.png"/>
 
-Before continuing make sure:
+Click on `Add App` and then copy the `google-services.json` file that will get downloaded into your`app/` dir.  This file includes the  project information and API keys needed to connect to Firebsae.  Make sure to preserve the filename, since it will be used in the next step.
 
- - `Google Cloud Messaging for Android` is enabled in APIs.
- - You have recorded the "Project Number" as listed in developer console in APIs.
- - You have recorded the "Server Key" as listed in developer console in Credentials.
+Finally, add the Google services to your root `build.gradle` file's classpath:
 
-Now let's setup our Android client.
+```gradle
+
+buildscript {
+  dependencies {
+    // Add this line
+    classpath 'com.google.gms:google-services:3.0.0'
+  }
+}
+```
+
+Add to your existing `app/build.gradle` at the end of the file:
+
+```
+// Add to the bottom of the file
+apply plugin: 'com.google.gms.google-services'
+```
+
 
 ## Step 2: Setup Android Client
 
+**Note**: If you need to upgrade your existing GCM libraries to FCM, see [these instructions](https://developers.google.com/cloud-messaging/android/android-migrate-fcm#update_your_instanceidlistenerservice). The instructions below have been updated to reflect the depedencies on the FCM package.
+
 ### Download Google Play Services
 
-First, let's download and setup the Google Play Services SDK. Open `Tools`->`Android`->`SDK Manager` and check whether or not you have already downloaded `Google Play services` under the Extras section. If not, install the package.
+First, let's download and setup the Google Play Services SDK. Open `Tools`->`Android`->`SDK Manager` and check whether or not you have already downloaded `Google Play sSrvices` under the Extras section.  Make sure to update to the latest version to ensure the Firebase package is available:
 
-![Play Services](http://imgur.com/RhBjpSE.png)
+![](https://i.imgur.com/VYM0m59.png)
 
 ### Import Google Play Services
 
@@ -88,40 +101,9 @@ Add the following to your Gradle file:
 
 ```gradle
 dependencies {
-  compile "com.google.android.gms:play-services-gcm:8.4.0"
+   compile 'com.google.firebase:firebase-messaging:9.0.0'
 }
 ```
-
-### Setup Sender ID
-
-Add your project number to your `strings.xml`, which should correspond to the sender ID:
-
-```xml
-<string name="gcm_defaultSenderId">1234</string>
-```
-
-### Add GCM Permissions
-
-Your app will need to have the ability to make Internet connection and request wake locks.  Wake locks are needed so that the receiving GCM service that you will implement will be able to receive the full payload before the devices goes to sleep.
-
-```xml
-<manifest package="com.example.gcm" ...>
-  <uses-permission android:name="android.permission.INTERNET" />
-  <uses-permission android:name="android.permission.WAKE_LOCK" />
-  <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-  <permission android:name="com.example.gcm.permission.C2D_MESSAGE"
-      android:protectionLevel="signature" />
-  <uses-permission android:name="com.example.gcm.permission.C2D_MESSAGE" />
-
-  <application
-     ...
-  />
-</manifest>
-```
-
-**Why these permissions are needed**: To prevent other broadcast receivers from receiving the message, there is a special custom `C2D_MESSAGE` permission that should be defined.  This permission may be an [artifact of the C2DM technology](https://youtu.be/51F5LWzJqjg?t=44m11s) and to provide backwards compatibility for older devices.  The permission should correspond to your package name (i.e. `com.codepath.gcmexample.permission.C2D_MESSAGE`).   Some of the permissions in general still used reference C2DM for backwards compatibility with older Android devices.  C2DM, which was Google's first push notification system, has been [deprecated](https://developers.google.com/cloud-messaging/c2dm), and GCM is now the recommended way of implementing push notifications.
-
-For a more detailed explanation, see [Google's guide](https://developers.google.com/cloud-messaging/android/client#manifest).  The `com.google.android.c2dm.intent.REGISTRATION` permission in particular is needed for devices below Android 4.4 (KitKat) versions.
 
 ### Implement a Registration Intent Service
 
@@ -149,11 +131,11 @@ public class RegistrationIntentService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         // Make a call to Instance API
-        InstanceID instanceID = InstanceID.getInstance(this);
+        FirebaseInstanceId instanceID = FirebaseInstanceId.getInstance();
         String senderId = getResources().getString(R.string.gcm_defaultSenderId);
         try {
             // request token that will be used by the server to send push notifications
-            String token = instanceID.getToken(senderId, GoogleCloudMessaging.INSTANCE_ID_SCOPE);
+            String token = instanceID.getToken();
             Log.d(TAG, "GCM Registration Token: " + token);
 
             // pass along this data
@@ -239,8 +221,6 @@ public class MyActivity extends AppCompatActivity {
 }
 ```
 
-For more details, see the [sample code](https://github.com/googlesamples/google-services/blob/master/android/gcm/app/src/main/java/gcm/play/android/samples/com/gcmquickstart/RegistrationIntentService.java) provided by Google.
-
 ### Create a InstanceID ListenerService
 
 According to this Google official [documentation](https://developers.google.com/instance-id/guides/android-implementation), the instance ID server issues callbacks periodically (i.e. 6 months) to request apps to refresh their tokens.  To support this possibility, we need to extend from `InstanceIDListenerService` to handle token refresh changes.  We should create a file called `MyInstanceIDListenerService.java` that will override this base method and launch an intent service for `RegistrationIntentService` to fetch the token:
@@ -264,47 +244,33 @@ You also need to add the service to your `AndroidManifest.xml` file:
   android:name="com.example.MyInstanceIDListenerService"
   android:exported="false">
   <intent-filter>
-     <action android:name="com.google.android.gms.iid.InstanceID"/>
+     <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
   </intent-filter>
 </service>
 ```
 
-### Create Broadcast Receiver and Message Handler
-
-In the past, Google required implementing a [WakefulBroadcastReceiver](https://developer.android.com/training/scheduling/wakelock.html) that would launch a service that would process this GCM message.  It now provides `com.google.android.gms.gcm.GcmReceiver` that simply needs to be defined in your `AndroidManifest.xml` file:
-
-```xml
-<receiver
-  android:name="com.google.android.gms.gcm.GcmReceiver"
-  android:exported="true"
-  android:permission="com.google.android.c2dm.permission.SEND" >
-  <intent-filter>
-     <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-     <category android:name="com.codepath.gcmquickstart" />
-  </intent-filter>
-</receiver>
-```
-
 ### Listening for push notifications
 
-Let's define `GcmMessageHandler.java` that extends from `GcmListenerService` that will process the message received:
+Let's define `GcmMessageHandler.java` that extends from `FirebaseMessagingService` that will process the message received:
 
 ```java
-import com.google.android.gms.gcm.GcmListenerService;
+import com.google.firebase.messaging.FirebaseMessagingService;
+import com.google.firebase.messaging.RemoteMessage;
 
 import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 
-public class GcmMessageHandler extends GcmListenerService {
+public class GcmMessageHandler extends FirebaseMessagingService {
     public static final int MESSAGE_NOTIFICATION_ID = 435345;
 
     @Override
-    public void onMessageReceived(String from, Bundle data) {
-        String message = data.getString("message");
+    public void onMessageReceived(RemoteMessage remoteMessage) {
+        Map<String, String> data = remoteMessage.getData();
+        String from = remoteMessage.getFrom();
 
-        createNotification(from, message);
+        createNotification(from, data.get("message"));
     }
 
         // Creates notification based on title and body received
@@ -336,7 +302,7 @@ We need to register the receiver class with GCM in the `AndroidManifest.xml` tag
             android:name=".GcmMessageHandler"
             android:exported="false" >
             <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
          </service>
 
@@ -354,6 +320,12 @@ Note that above the push message is handled by creating a notification. There ar
 You can review examples of these [outlined in this more elaborate code sample](https://github.com/codepath/ParsePushNotificationExample/blob/master/app/src/main/java/com/test/MyCustomReceiver.java).
 
 In certain cases when receiving a push, you want to update an activity if the activity is on the screen. Otherwise, you want to raise a notification. The solutions to this are [outlined in this post](http://stackoverflow.com/a/18311830/313399) with a [code sample here](http://stackoverflow.com/a/15949723/313399).
+
+### Testing
+
+You can use the `Grow` -> `Notifications` to send test messages to verify that your app is correctly receiving messages.  Select the `User segment` and choose the `app` to receive the notifications.  If you want to pass custom data, you will need to select `Advanced options` to send custom data.  
+
+![](https://i.imgur.com/0BvxwSo.png)
 
 ## Step 3: Setup Web Server
 
