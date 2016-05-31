@@ -269,15 +269,16 @@ public class FCMMessageHandler extends FirebaseMessagingService {
         Map<String, String> data = remoteMessage.getData();
         String from = remoteMessage.getFrom();
 
-        createNotification(from, remoteMessage.getNotification().getBody());
+        Notification notification = remoteMessage.getNotification();
+        createNotification(notification);
     }
 
-        // Creates notification based on title and body received
-    private void createNotification(String title, String body) {
+    // Creates notification based on title and body received
+    private void createNotification(Notification notification) {
         Context context = getBaseContext();
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
-                .setSmallIcon(R.mipmap.ic_launcher).setContentTitle(title)
-                .setContentText(body);
+                .setSmallIcon(R.mipmap.ic_launcher).setContentTitle(notification.getTitle())
+                .setContentText(notification.getBody());
         NotificationManager mNotificationManager = (NotificationManager) context
                 .getSystemService(Context.NOTIFICATION_SERVICE);
         mNotificationManager.notify(MESSAGE_NOTIFICATION_ID, mBuilder.build());
