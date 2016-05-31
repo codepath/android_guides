@@ -169,6 +169,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [Android-Iconics](https://github.com/mikepenz/Android-Iconics) - Add many scalable and styleable icons into your app
  * [Scissors](https://github.com/lyft/scissors) - An easy image cropping library developed by Lyft.
  * [Material-SearchView](https://github.com/MiguelCatalan/MaterialSearchView) - Beautiful Material SearchView made simple.
+ * [PersistentSearchBar](https://github.com/arimorty/floatingsearchview) - Implementation of a persistent search bar.
 
 ### Drawing
 
