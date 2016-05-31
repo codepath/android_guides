@@ -86,11 +86,11 @@ apply plugin: 'com.google.gms.google-services'
 
 ## Step 2: Setup Android Client
 
-**Note**: If you need to upgrade your existing FCM libraries to FCM, see [these instructions](https://developers.google.com/cloud-messaging/android/android-migrate-fcm#update_your_instanceidlistenerservice). The instructions below have been updated to reflect the depedencies on the FCM package.
+**Note**: If you need to upgrade your existing GCM libraries to FCM, see [these instructions](https://developers.google.com/cloud-messaging/android/android-migrate-fcm#update_your_instanceidlistenerservice). The instructions below have been updated to reflect the depedencies on the FCM package.
 
 ### Download Google Play Services
 
-First, let's download and setup the Google Play Services SDK. Open `Tools`->`Android`->`SDK Manager` and check whether or not you have already downloaded `Google Play sSrvices` under the Extras section.  Make sure to update to the latest version to ensure the Firebase package is available:
+First, let's download and setup the Google Play Services SDK. Open `Tools`->`Android`->`SDK Manager` and check whether or not you have already downloaded `Google Play Services` under the Extras section.  Make sure to update to the latest version to ensure the Firebase package is available:
 
 ![](https://i.imgur.com/VYM0m59.png)
 
