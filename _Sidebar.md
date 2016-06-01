@@ -1,6 +1,8 @@
 **Finding these guides helpful?**
 
-Check these [same guides through our standalone viewer](http://guides.codepath.com/android) for a better browsing experience and an improved search. Follow us on [twitter @codepath](https://twitter.com/codepath) for access to more useful Android development resources.
+Check these [same guides through our standalone viewer](http://guides.codepath.com/android) for a better browsing experience and an improved search. Follow us on [twitter @codepath](https://twitter.com/codepath) for access to more useful Android development resources. 
+
+We need the broader community's to help us improve the guides and that might include you. See [our contribution guidelines here](https://github.com/codepath/android_guides/wiki/Contributing-Guidelines) and [our topic issues list](https://github.com/codepath/android_guides/issues) for great ways to help out.
 
 **Interested in ramping up on Android quickly?**
 
