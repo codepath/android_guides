@@ -265,6 +265,7 @@ Instead, you need to write your own server-side Parse code and have the client i
      <img src="http://i.imgur.com/OmxXc6s.png"/>
 
 6. Enable Google Cloud Messaging for your Android client (see [[instructions|Configuring-a-Parse-Server#gcm-setup]] below).
+
 7. Assuming the function is named `pushChannelTest`, modify your Android code to invoke this function by using the `callFunctionInBackground()` call.  Any parameters should be passed as a `HashMap`:
 
      ```java
@@ -340,10 +341,12 @@ If you see `Can not find sender for push type android`, it means you forgot to s
 
 #### GCM Setup
 
-1. Make sure you have Google Play installed on the emulator or device, since push notifications via [Google Cloud Messaging](Google-Cloud-Messaging) (GCM) will only work for devices and emulators that have Google Play installed.
+**Note**: The Parse Android SDK currently does not support Firebase Cloud Messaging, which is the new name for Google Cloud Messaging.   You should follow the steps below to ensure that the older version of GCM is used.  In particular, the permissions in the manifest file that you need to set are checked by the Parse Android SDK, so you should keep the old permissions as shown below.
+
+1. Make sure you have Google Play installed on the emulator or device, since push notifications via [Google Cloud Messaging](Google-Cloud-Messaging) (GCM) will only work for devices and emulators that have Google Play installed.  
 
 2. Obtain a Sender ID and API Key.
-      * Follow only step 1 of [this guide](http://guides.codepath.com/android/Google-Cloud-Messaging#step-1-register-with-google-developers-console) to obtain the Sender ID (equivalent to the Project Number) and API Key.  You do not need to follow the other steps because Parse provides much of code to handle GCM registration for you.
+      * Follow only step 1 of [this guide](https://github.com/codepath/android_guides/wiki/Google-Cloud-Messaging/b7ab0d3329898f147b2fe7a32c731f9ce251893c#step-1-register-with-google-developers-console) to obtain the Sender ID (equivalent to the Project Number) and API Key.  You do not need to follow the other steps because Parse provides much of code to handle GCM registration for you.
 
 3. Set `GCM_SENDER_KEY` and `GCM_API_KEY` environment variables to correspond to the Sender ID and API Key in the previous step.  **Note**: this step only works if you have setup your Parse server to enable push support.  See the [CodePath fork](https://github.com/codepath/parse-server-example/blob/master/index.js#L15-L26) as an example about how to initialize the Parse server.
 
