@@ -71,7 +71,7 @@ Exploring the foundations of app development:
 * [[Migrating to the AppCompat Library]] (Using the Support Libraries)
 * [[App Permissions|Understanding App Permissions]] (How to request the permissions you need) 
 * [[Managing Runtime Permissions with PermissionsDispatcher]]
-* [[Replacing Enums with StringDef]] (How to create validated string types)
+* [[Replacing Enums with Def Annotations]] (StringDef, IntDef, How to create validated string types)
 
 ## Views and Layouts
 
