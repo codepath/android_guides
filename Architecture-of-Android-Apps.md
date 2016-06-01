@@ -30,3 +30,4 @@ MVP Pattern:
 * <http://antonioleiva.com/mvp-android/>
 * <https://github.com/konmik/konmik.github.io/wiki/Introduction-to-Model-View-Presenter-on-Android>
 * <http://thefinestartist.com/android/mvp-pattern>
+* <https://www.youtube.com/watch?v=BlkJzgjzL0c>
