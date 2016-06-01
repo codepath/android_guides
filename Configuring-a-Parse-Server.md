@@ -341,7 +341,7 @@ If you see `Can not find sender for push type android`, it means you forgot to s
 
 #### GCM Setup
 
-**Note**: The Parse Android SDK currently does not support Firebase Cloud Messaging, which is the new name for Google Cloud Messaging.   You should follow the steps below to ensure that the older version of GCM is used.  In particular, the permissions in the manifest file that you need to set are checked by the Parse Android SDK, so you should keep the old permissions as shown below.
+**Note**: The Parse Android SDK currently does not support Firebase Cloud Messaging, which is the new name for Google Cloud Messaging (see [discussion issue](https://github.com/ParsePlatform/Parse-SDK-Android/pull/452)).  You should follow the steps below to ensure that the older version of GCM is used.  In particular, the permissions in the manifest file that you need to set are checked by the Parse Android SDK, so you should keep the old permissions as shown below.
 
 1. Make sure you have Google Play installed on the emulator or device, since push notifications via [Google Cloud Messaging](Google-Cloud-Messaging) (GCM) will only work for devices and emulators that have Google Play installed.  
 
