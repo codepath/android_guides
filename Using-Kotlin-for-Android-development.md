@@ -20,7 +20,7 @@ Defining local variables
 
 Assign-once (read-only) local variable:
 
-```Kotlin
+```kotlin
 val a: Int = 1
 val b = 1   // `Int` type is inferred
 val c: Int  // Type required when no initializer is provided
