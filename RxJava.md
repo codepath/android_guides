@@ -234,7 +234,7 @@ MyApiEndpointInterface apiService =
 Observable<User> call = apiService.getUser(username);
 // To define where the work is done, we can use `observeOn()` with Retrofit
 // This means the result is handed to the subscriber on the main thread
-call.observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<User>() {
+call.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<User>() {
   @Override
   public void onNext(User user) {
      // Called once the `User` object is available
