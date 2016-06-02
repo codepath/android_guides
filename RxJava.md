@@ -163,7 +163,7 @@ Using schedulers relies on queuing the work through bounded or unbounded thread 
 |:--------------------------:|:------------------------------------------------------:|
 | Schedulers.computation()   | fixed number of threads (= to # CPU's)                 |                          
 | Schedulers.immediate()     | current thread                                         |                          
-| Schedulers.io()            | backed by a current                                    |          
+| Schedulers.io()            | backed by a thread pool that can expand as needed      | 
 | Schedulers.newThread()     | create a new thread                                    | 
 | Schedulers.tramponline()   | schedule work on the current thread but put on a queue |
 
