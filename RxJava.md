@@ -211,7 +211,9 @@ Subscription subscription = getImageNetworkCall()
 
 Using this combination of `Observable`, `Subscriber` and thread scheduling, we can see the power of `RxJava`. But there's a lot more that can be done.  
 
-### Retrofit
+### Using RxJava with Retrofit
+
+RxJava can be used with Retrofit to provide the ability to chain multiple network calls.   It also provides a basic abstraction for surfacing errors if one of these network calls should fail.  The section below shows you how to setup Retrofit with RxJava.
 
 The [[Retrofit|https://github.com/codepath/android_guides/wiki/Consuming-APIs-with-Retrofit#rxjava]] library simply [wraps a synchronous network call](https://github.com/square/retrofit/blob/master/retrofit-adapters/rxjava/src/main/java/retrofit/RxJavaCallAdapterFactory.java##L152-L163) as an `Observable` type for use with RxJava.   Declaring the endpoints as `Observable` automatically does this work.
 
