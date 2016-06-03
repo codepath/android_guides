@@ -12,6 +12,14 @@ dependencies {
 }
 ```
 
+**Note**: there is a bug with the current version of Picasso that prevents large images (i.e. 10Mb) from being remotely loaded.   If you are experiencing [this issue](https://github.com/square/picasso/issues/364), you will need to upgrade to the Picasso 2.5.3 snapshot.  See the [[troubleshooting|Displaying Images with the Picasso Library#troubleshooting]] to confirm.
+
+```gradle
+dependencies {
+    compile 'com.squareup.picasso:picasso:2.5.3-SNAPSHOT'
+}
+```
+
 ### Loading an Image from Url
 
 We can then load a remote image into any `ImageView` with:
@@ -171,6 +179,19 @@ To do a rounded corner transformation, you would do the following:
 ```java
 Picasso.with(mContext).load(R.drawable.demo)
         .transform(new RoundedCornersTransformation(10, 10)).into((ImageView) findViewById(R.id.image));
+```
+
+## Troubleshooting
+
+If you experience errors loading images, you can attach a listener to the `Builder` object to print the stack trace.
+
+```java
+Picasso.Builder builder = new Picasso.Builder(getApplicationContext());
+builder.listener(new Picasso.Listener() {
+     @Override
+     public void onImageLoadFailed(Picasso picasso, Uri uri, Exception exception) {
+         exception.printStackTrace();
+    });
 ```
 ## References
 
