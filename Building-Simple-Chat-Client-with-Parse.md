@@ -220,11 +220,11 @@ Now that we have verified that messages are successfully being saved to your par
       android:layout_alignParentTop="true"
       android:layout_alignParentLeft="true"
       android:layout_alignParentRight="true"
-      android:layout_above="@+id/llSend"
+      android:layout_above="@+id/rlSend"
       android:layout_width="wrap_content" 
       android:layout_height="match_parent" />
     <RelativeLayout 
-      android:id="@+id/llSend"
+      android:id="@+id/rlSend"
       android:layout_alignParentBottom="true"
       android:layout_width="match_parent"
       android:paddingTop="5dp"
