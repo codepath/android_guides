@@ -294,7 +294,7 @@ See [the official release blog post](http://android-developers.blogspot.com/2016
 
 #### Finding Vector Drawables
 
-Vector drawables can now be found directly within Android Studio and also on many Android resource websites. The first place to check for vector drawables is Android Studio inside the `File => New => Vector Asset` wizard:
+Vector drawables can now be found directly within Android Studio and also on many Android resource websites. Assuming you have updated to Android Studio v2.2 (currently in [preview release](http://tools.android.com/download/studio/canary/latest)), you can check for vector drawables inside the `File => New => Vector Asset` wizard:
 
 <img src="http://i.imgur.com/VkmWDpP.png" height="250" />&nbsp;<img src="http://i.imgur.com/EjI3mm9.png" height="250" />
 
