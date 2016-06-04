@@ -365,11 +365,20 @@ In order to inspect the persisted data, we need to [[use adb to query or downloa
 
 > Problem: I am getting a "java.lang.NullPointerException at com.activeandroid.Cache.getTableInfo"
 
-You have not properly configured ActiveAndroid. You need to initialize ActiveAndroid within your application. Either by leveraging the ActiveAndroid `Application` class in your manifest:
+**Android API 23+ Users:** Be sure to also check [this exception workaround](http://stackoverflow.com/a/36887411) and applying one of those three options to avoid this exception. 
+
+This usually means that you have not properly configured ActiveAndroid. You need to initialize ActiveAndroid within your application. This can be done either by leveraging the ActiveAndroid `Application` class directly in your manifest:
 
 ```xml
 <application
         android:name="com.activeandroid.app.Application"
+```
+
+OR by extending a custom application class `class MyApplication extends com.activeandroid.app.Application` and then:
+
+```xml
+<application
+        android:name=".MyApplication"
 ```
 
 or by calling `ActiveAndroid.initialize(this);` in your own custom `Application` class as [outlined here](https://github.com/pardom/ActiveAndroid/wiki/Getting-started#configuring-your-project).
