@@ -115,6 +115,7 @@ Exploring the gritty details of views, layout, styling and common UI patterns:
 * [[Using the RecyclerView]] (Android 5.0)
 * [[Heterogenous Layouts inside RecyclerView]] (Android 5.0)
 * [[Using the CardView]] (Android 5.0)
+* [[Using a BaseAdapter with ListView]] (alternate to ArrayAdapter)
 
 ### Custom Views
 
