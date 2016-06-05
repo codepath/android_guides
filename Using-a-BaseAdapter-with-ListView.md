@@ -7,7 +7,9 @@ ListView is a ViewGroup that displays a list of vertically scrollable items. The
 BaseAdapter, as it's name implies, is the base class for so many concrete adapter implementations on Android. It is abstract and therefore, cannot  be directly instantiated.
 
 ## Using the BaseAdapter
+
 To use the BaseAdapter with a ListView, a concrete implementation the `BaseAdepter` class that implements the following methods must be created:
+
 * `int getCount()`
 * `Object getItem(int position)`
 * `long getItemId(int position)`
@@ -16,6 +18,7 @@ To use the BaseAdapter with a ListView, a concrete implementation the `BaseAdept
 Before we create our custom `BaseAdapter` implementation, we need to create the layout for the ListView row and also a model for the items in the ListView.
 
 ### Create model class
+
 Each of our ListView rows will conatain an `Item name` and `Item description`, so our Model class is as follows:
 
 **Item.java**
@@ -31,18 +34,18 @@ public class Item {
     }
 		
     public String getItemName() {
-	return this.itemName;
+        return this.itemName;
     }
 		
     public String getItemDescription() {
-	return itemDescription;
-    }
-		
+        return itemDescription;
+    }	
 }
 ```
 
 ### ListView row layout
-The xml file for the rows of the listview created in the `res/layout` folder is shown below: **layout_list_view_row_items.xml** 
+The xml file for the rows of the listview created in the `res/layout` folder is shown below: 
+**layout_list_view_row_items.xml** 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -95,15 +98,18 @@ public class CustomListAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         // inflate the layout for each list row
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.layout_list_view_row_items, parent, false);
+            convertView = LayoutInflater.from(context).
+                inflate(R.layout.layout_list_view_row_items, parent, false);
         }
 	
         // get current item to be displayed
         Item currentItem = (Item) getItem(position);
   
         // get the TextView for item name and item description
-        TextView textViewItemName = (TextView) convertView.findViewById(R.id.text_view_item_name);
-        TextView textViewItemDescription = (TextView) convertView.findViewById(R.id.text_view_item_description);
+        TextView textViewItemName = (TextView) 
+            convertView.findViewById(R.id.text_view_item_name);
+        TextView textViewItemDescription = (TextView) 
+            convertView.findViewById(R.id.text_view_item_description);
       
         //sets the text for item name and item description from the current item object
         textViewItemName.setText(currentItem.getItemName());
