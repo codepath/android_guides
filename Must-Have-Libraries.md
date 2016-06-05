@@ -104,6 +104,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [Android Universal Image Loader](https://github.com/nostra13/Android-Universal-Image-Loader) - Popular alternative for image loading that can replace Picasso or Glide.
  * [Fresco](http://frescolib.org/) - An image management library from Facebook.
  * [CloudRail](https://github.com/CloudRail/cloudrail-si-android-sdk) - Android library which abstracts multiple APIs from different providers into a single and universal interface.
+* [Android Networking](https://github.com/amitshekhariitbhu/AndroidNetworking) - Android Networking is a powerful library for doing any type of networking in Android applications which is made on top of OkHttp Networking Layer.
 
 ### ListView
 
