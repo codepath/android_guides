@@ -125,19 +125,20 @@ public class CustomListAdapter extends BaseAdapter {
 The adapter can simply be used by instantiating it with the required paramters and set as the listview's adapter.
 
 ```java
-//create the data source
+// Setup the data source
 ArrayList<Item> itemsArrayList = generateItemsList(); // calls function to get items list
 	
-//instantiate the custom list adapter
+// instantiate the custom list adapter
 CustomListAdapter adapter = new CustomListAdapter(this, itemsArrayList);
 	
-//get the ListView and attach the adapter
-ListView itemsListView  = (ListView)findViewById(R.id.list_view_items);
+// get the ListView and attach the adapter
+ListView itemsListView  = (ListView) findViewById(R.id.list_view_items);
 itemsListView.setAdapter(adapter);
 ```
 
 ### ListView Optimization
-To optimize the listview's performance, a new row layout should be inflated only when `convertView == null`. This is because the adapter's `getView` method is called whenever the listview needs to show a new row on the screen. The `convertview` gets recycled in this process. Hence, the row layout should be inflated just once when `convertview == null`, and it contents should be updated on subsequent `getView` calls, instead of inflating a new row on each call which is very expensive.
+
+To optimize the listview's performance, a new row layout should be inflated only when `convertView == null`. This is because the adapter's `getView` method is called whenever the listview needs to show a new row on the screen. The `convertView` gets recycled in this process. Hence, the row layout should be inflated just once when `convertView == null`, and it contents should be updated on subsequent `getView` calls, instead of inflating a new row on each call which is very expensive.
 
 ### Optimization using the ViewHolder pattern
 One of the most common operation in Android is finding an inner view inside an inflated layout. This is usually done using the `findViewById` method. This operation is not trivial especially when the lisview has to frequently call `getView` when the list is scrolling.
