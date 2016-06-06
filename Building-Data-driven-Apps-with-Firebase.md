@@ -12,8 +12,8 @@ For a quick intro to what the new Firebase is about, you can watch [this video](
 
 The new features that are included in this new Firebase include:
 
-1. [Crash Reporting](https://hackmd.io/JwIwhmBmBswBwFoCmSDMAmBAWAjFsCIADFkskcFACbBXTTpVA===).
-2. [Cloud Messaging](https://github.com/codepath/android_guides/wiki/Google-Cloud-Messaging).
+1. [[Crash Reporting|Crash-Reporting-with-Firebase]]
+2. [[Cloud Messaging|Google-Cloud-Messaging]]
 3. Realtime database and storage
 4. Analytics.
 5. Notifications.
