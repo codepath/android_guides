@@ -173,7 +173,7 @@ Diving into the networking and model layers for data-driven apps:
 * [[Troubleshooting Common Issues with Parse]]
 * [[Consuming APIs with Retrofit]]
 * [[Sending and Receiving Data with Sockets]] 
-* [[Building-Data-driven-Apps-with-Firebase]]
+* [[Building Data driven Apps with Firebase]]
 
 ## Persistence
 
