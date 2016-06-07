@@ -50,26 +50,27 @@ and then within the AsyncTask:
 
 ```java
 public class DelayTask extends AsyncTask<Void, Integer, String> {
-	int count = 0;
-	@Override
-	protected void onPreExecute() {
-	  pb.setVisibility(ProgressBar.VISIBLE);
-	}
+    int count = 0;
+    
+    @Override
+    protected void onPreExecute() {
+        pb.setVisibility(ProgressBar.VISIBLE);
+    }
 
-	@Override
-	protected String doInBackground(Void... params) {
-		while (count < 5) {
-			SystemClock.sleep(1000); count++;
-			publishProgress(count * 20);
-		}
-		return "Complete";
-	}
+    @Override
+    protected String doInBackground(Void... params) {
+        while (count < 5) {
+            SystemClock.sleep(1000);
+            count++;
+            publishProgress(count * 20);
+        }
+        return "Complete";
+    }
 
-	@Override
-	protected void onProgressUpdate(Integer... values) {
-		 pb.setProgress(values[0]);
-	}
-	
+    @Override
+    protected void onProgressUpdate(Integer... values) {
+        pb.setProgress(values[0]);
+    }	
 }
 ```
 
