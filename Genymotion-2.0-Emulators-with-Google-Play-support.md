@@ -8,7 +8,7 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 
 1. Sign up for an account on the [Genymotion Website](https://cloud.genymotion.com/page/customer/login/?next=/)
 2. Install [VirtualBox 5.0](https://www.virtualbox.org/wiki/Downloads), a powerful free virtualization software for Genymotion to run.  
-3. [Download Genymotion Emulator v2.5.2 or higher](https://cloud.genymotion.com/page/launchpad/download/) for your platform.  **Note**: There is an incompatibility issue with Genymotion v2.5.1 for VirtualBox 4.3.28 and higher versions.
+3. [Download Genymotion Emulator v2.7.0 or higher](https://cloud.genymotion.com/page/launchpad/download/) for your platform.  
 4. Install the Genymotion Emulator
   * Windows: Run the MSI installer
   * Mac: Open the dmg and drag both apps to Applications directory
@@ -42,7 +42,7 @@ To setup your genymotion emulator [sign up](https://cloud.genymotion.com/page/cu
 
 ### Setup Google Play Services
 
-These steps need to be followed only if you want to be able to use Google services such as maps and push messaging on your Genymotion device. For basic testing, these steps can be safely skipped.
+**NOE**: These steps need to be followed only if you want to be able to use Google services such as maps and push messaging on your Genymotion device. For basic testing, these steps can be safely skipped.
 
 1. Download the [ARM Translation Installer v1.1](http://www14.zippyshare.com/v/44278764/file.html) and drag and drop the zip file onto the running Genymotion emulator device.  The ARM emulator is only needed for apps that trigger a `INSTALL_FAILED_CPU_ABI_INCOMPATIBLE` error.
 
@@ -69,7 +69,7 @@ These steps need to be followed only if you want to be able to use Google servic
    - If you can't find Google Play, try updating the Google Hangouts app to trigger an update to the Play Store.
    - You may see messages that the Google+ app needs to be updated.  You will need to go to the Google Play Store and click "Update".
 
-8. **Android 5.0.0 only:** If you are using Android 5.0.0, you will be prompted to update to the latest version of Google+ app.  In addition, make sure to upgrade to at least Genymotion 2.4.0 (there appears to be issues with Genymotion 2.3.1).
+8. **Android 5.0.0 only:** If you are using Android 5.0.0, you will be prompted to update to the latest version of Google+ app.  In addition, make sure to upgrade to at least Genymotion 2.4.0.
 
 9. Make sure to update to the latest version of Google Play Services by opening the "Play Store" app and then the "Maps" app to verify play services is running correctly.
 
