@@ -233,6 +233,18 @@ Android supports several configuration qualifiers and you can add multiple quali
 
 You can specify multiple qualifiers for a single set of resources, separated by dashes. For example, `drawable-en-sw600dp-land` applies to English tablets in landscape orientation. Note that if you use multiple qualifiers for a resource directory, you must add them to the directory name **in the order they are listed** in the table above. See the official docs for the [complete set of qualifiers available](http://developer.android.com/guide/topics/resources/providing-resources.html#AlternativeResources).
 
+### Creating Alternate Resources
+
+In Android Studio, the easiest way to create alternate resources is to **right-click on a resource subfolder** (i.e `layout`) in the Android project sidebar and then use the `New => Layout resource file` wizard to specify the qualifiers you'd like (i.e `orientation`):
+
+<img src="http://i.imgur.com/cxeH3J1.gif" width="650" />
+
+This will create **two versions of the layout file**, one for "portrait" mode (vertical) and one for "landscape" (horizontal). If you were to [add a different label into the second version of the layout](http://i.imgur.com/5kMibe3.gif) then you would see this effect **automatically** when the screen is rotated:
+
+<img src="http://i.imgur.com/bRUzYLI.gif" width="350" />
+
+To summarize, you can create as many versions of a resource file as is needed for different situations and then the most appropriate version of the resource file is selected automatically by the system. 
+
 ### Alternate Layout Files
 
 Often alternative resources are used to specify different layout files for phones and tablets. This can be done using the "smallest width" qualifier of `sw`. The folder structure might be set up as follows:
