@@ -261,7 +261,7 @@ if (orientation == Configuration.ORIENTATION_PORTRAIT) {
 }
 ```
 
-We can similarly access this within any object by getting access to a [[Context object|Using-Context]]. For example, within an `ArrayAdapter` by using `getContext().getResources().getConfiguration()` to access the configurations. 
+We can similarly access this within any object by getting access to a [[Context object|Using-Context]]. For example, within an `ArrayAdapter` by using `getContext().getResources().getConfiguration()` to access the configurations.
 
 ### Alternate Layout Files
 
