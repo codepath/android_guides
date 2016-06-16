@@ -245,6 +245,24 @@ This will create **two versions of the layout file**, one for "portrait" mode (v
 
 To summarize, you can create as many versions of a resource file as is needed for different situations and then the most appropriate version of the resource file is selected automatically by the system. 
 
+### Determining Configuration at Runtime
+
+When the app is running, we can always check the current configuration (orientation, screen size, etc) by accessing the [Configuration](https://developer.android.com/reference/android/content/res/Configuration.html) object through `getResources().getConfiguration()` within an activity or context object. For example, to determine the orientation (portrait or landscape) inside an activity, we can do:
+
+```java
+String image;
+int orientation = getResources().getConfiguration().orientation;
+if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+   image = "image_portrait.png";
+   // ...
+} else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+   image = "image_landscape.png";
+   // ...
+}
+```
+
+We can similarly access this within any object by getting access to a [[Context object|Using-Context]]. For example, within an `ArrayAdapter` by using `getContext().getResources().getConfiguration()` to access the configurations. 
+
 ### Alternate Layout Files
 
 Often alternative resources are used to specify different layout files for phones and tablets. This can be done using the "smallest width" qualifier of `sw`. The folder structure might be set up as follows:
