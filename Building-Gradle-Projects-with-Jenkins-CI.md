@@ -1,4 +1,4 @@
-Once you've begin to use Gradle to build and test projects (see [[Getting Started with Gradle|Getting-Started-with-Gradle]]), you might like to build automatically, run tests on every push to your repo, and push your builds to a deployment system.
+Once you begin to use Gradle to build and test projects (see [[Getting Started with Gradle|Getting-Started-with-Gradle]]), you might like to build automatically, run tests on every push to your repo, and push your builds to a deployment system.
  
 You may be able to adapt this guide if you are using [Travis CI](http://docs.travis-ci.com/user/languages/java/) or [CircleCI](https://circleci.com/docs/android/).
 
