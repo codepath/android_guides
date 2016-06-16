@@ -63,7 +63,7 @@ Click on `Add Firebase to your Android app`:
 
 <img src="http://imgur.com/qTWfk3r.png"/>
 
-Click on `Add App` and then copy the `google-services.json` file that will get downloaded into your`app/` dir.  This file includes the  project information and API keys needed to connect to Firebsae.  Make sure to preserve the filename, since it will be used in the next step.
+Click on `Add App` and then copy the `google-services.json` file that will get downloaded into your`app/` dir.  This file includes the  project information and API keys needed to connect to Firebase.  Make sure to preserve the filename, since it will be used in the next step.
 
 Finally, add the Google services to your root `build.gradle` file's classpath:
 
