@@ -15,7 +15,6 @@ Any View (Button, TextView, etc) has many event listeners that can be attached u
  * `setOnLongClickListener` - Callback for pressing and holding a view
  * `setOnTouchListener` - Callback for touching down or up on a view
 
-
 **Using Java**
 
 In Java Code, attaching to any event works roughly the same way. Let's take the `OnClickListener` as an example. First, you need a reference to the view and then you need to use the `set` method associated with that listener and pass in a class implementing a [particular interface](http://developer.android.com/reference/android/view/View.OnClickListener.html). For example:
@@ -63,7 +62,21 @@ In addition to the standard View listeners, `AdapterView` descendants have a few
  * `setOnItemLongClickListener` - Callback when an item contained is clicked and held
  * `setOnItemSelectedListener` - Callback when an item is selected
 
-This works similarly to a standard listener, simply implementing [the correct interface](http://developer.android.com/reference/android/widget/AdapterView.OnItemLongClickListener.html):
+
+This works similarly to a standard listener, simply implementing [the correct AdapterView.OnItemClickListener interface](https://developer.android.com/reference/android/widget/AdapterView.OnItemClickListener.html):
+
+```java
+lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+       // Do something here
+       // The position is the index of the item pressed
+       // If the third item in a list was pressed, position is `2`
+    }
+});
+```
+
+This works similarly for the setting up a "long click" where an item is pressed and held down using the [OnItemLongClickListener](http://developer.android.com/reference/android/widget/AdapterView.OnItemLongClickListener.html):
 
 ```java
 lvItems.setOnItemLongClickListener(new OnItemLongClickListener() {
