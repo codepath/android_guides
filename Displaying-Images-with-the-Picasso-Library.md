@@ -100,6 +100,8 @@ builder.listener(new Picasso.Listener() {
     });
 ```
 
+## Advanced Usages
+
 ### Adjusting Image Size Dynamically
 
 If we wish to readjust the ImageView size after the image has been retrieved, we first define a `Target` object that governs how the Bitmap is handled:
