@@ -43,6 +43,8 @@ Picasso.with(context).load(imageUri).fit().centerCrop()
 
 Be sure to use `fit()` to resize the image before loading into the ImageView.  Otherwise, you will consume extra memory, experience sluggish scrolling, or encounter out of memory issues if you render a lot of pictures. In addition to `placeholder` and `error`, there is also [other configuration options](https://futurestud.io/blog/picasso-placeholders-errors-and-fading) such as `noFade()` and `noPlaceholder()`.
 
+**Placeholder Note:** Placeholders and error images are **not resized** and must be fairly small images. Open up your static placeholder or error images in your drawable folders and make sure that the dimensions of the images are relatively small (i.e < 500px width). If not, resize those static images first and save them back to the project.
+
 ### Resizing with Picasso
 
 We can resize an image with respect to the aspect ratio using `resize` and specifying 0 for the other dimension as [outlined here](https://github.com/square/picasso/pull/663):
@@ -73,7 +75,7 @@ First, you have to find which image(s) being loaded are likely causing this erro
 1. Add an explicit width or height to the `ImageView` by setting `layout_width=500dp` in the layout file and then be sure to call `fit()` during your load: `Picasso.with(...).load(imageUri).fit().into(...)`
 1. Call `.resize(width, height)` during the Picasso load and explicitly set a width or height for the image such as: `Picasso.with(...).load(imageUri).resize(500, 0).into(...)`. By passing 0, the correct height is automatically calculated.
 1. Try removing `android:adjustViewBounds="true"` from your `ImageView` if present if you are calling `.fit()` rather than using `.resize(width, 0)`
-1. Open up your static placeholder or error images and make sure their dimensions are relatively small (< 500 width). If not, resize those static images and save them back to your project.
+1. Open up your static placeholder or error images and make sure their dimensions are relatively small (< 500px width). If not, resize those static images and save them back to your project.
 
 Applying these tips to all of your Picasso image loads should resolve any out of memory issues. As a fallback, you might want to open up your `AndroidManifest.xml` and then add `android:largeHeap` to your manifest:
 
