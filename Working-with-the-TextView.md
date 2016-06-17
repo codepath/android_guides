@@ -108,6 +108,17 @@ The `android:textColorLink` attribute controls the highlighting for [[hyperlinks
 
 ![](http://i.imgur.com/UlLSrEG.png)
 
+We can edit the color at runtime with:
+
+```java
+// Based on hex value
+textView.setColor(Color.setTextColor(Color.parseColor("#000000"));
+// based on a color resource file
+textView.setTextColor(ContextCompat.getColor(context, R.color.your_color));
+// based on preset colors
+textView.setColor(Color.setTextColor(Color.RED));
+```
+
 ### Text Shadow
 
 You can use three different attributes to customize the appearance of your text shadow:
