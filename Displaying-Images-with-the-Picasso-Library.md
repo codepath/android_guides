@@ -64,7 +64,7 @@ Transform options include `centerCrop()` (Crops an image inside of the bounds), 
 
 ## Troubleshooting
 
-### OutOfMemoryError
+### OutOfMemoryError Loading Errors
 
 If an image or set of images aren't loading, make sure to check the Android monitor log in Android Studio. There's a good chance you might see an `java.lang.OutOfMemoryError "Failed to allocate a [...] byte allocation with [...] free bytes"` or a `Out of memory on a 51121168-byte allocation.`. This is quite common and means that **you are loading one or more large images** that have not been properly resized.
 
