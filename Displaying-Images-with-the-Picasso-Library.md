@@ -62,6 +62,44 @@ Picasso.with(context).load(url).resize(50, 50).
 
 Transform options include `centerCrop()` (Crops an image inside of the bounds), `centerInside()` (Centers an image inside of the bounds), `fit()` (Attempt to resize the image to fit exactly into the target). See [this post for more details](https://futurestud.io/blog/picasso-image-resizing-scaling-and-fit).
 
+## Troubleshooting
+
+### OutOfMemoryError
+
+If an image or set of images aren't loading, make sure to check the Android monitor log in Android Studio. There's a good chance you might see an `java.lang.OutOfMemoryError "Failed to allocate a [...] byte allocation with [...] free bytes"` or a `Out of memory on a 51121168-byte allocation.`. This is quite common and means that **you are loading one or more large images** that have not been properly resized.
+
+First, you have to find which image(s) being loaded are likely causing this error. For any given `Picasso` call, we can fix this by **one or more of the following approaches**:
+
+1. Add an explicit width or height to the `ImageView` by setting `layout_width=500dp` in the layout file and then be sure to call `fit()` during your load: `Picasso.with(...).load(imageUri).fit().into(...)`
+1. Call `.resize(width, height)` during the Picasso load and explicitly set a width or height for the image such as: `Picasso.with(...).load(imageUri).resize(500, 0).into(...)`. By passing 0, the correct height is automatically calculated.
+1. Try removing `android:adjustViewBounds="true"` from your `ImageView` if present if you are calling `.fit()` rather than using `.resize(width, 0)`
+1. Open up your static placeholder or error images and make sure their dimensions are relatively small (< 500 width). If not, resize those static images and save them back to your project.
+
+Applying these tips to all of your Picasso image loads should resolve any out of memory issues. As a fallback, you might want to open up your `AndroidManifest.xml` and then add `android:largeHeap` to your manifest:
+
+```xml
+<application
+        android:name=".MyApplication"
+        ...
+        android:largeHeap="true"
+        ...
+```
+
+Note that this is not generally a good idea, but can be used temporarily to trigger less out of memory errors.
+
+### Loading Errors
+
+If you experience errors loading images, you can attach a listener to the `Builder` object to print the stack trace.
+
+```java
+Picasso.Builder builder = new Picasso.Builder(getApplicationContext());
+builder.listener(new Picasso.Listener() {
+     @Override
+     public void onImageLoadFailed(Picasso picasso, Uri uri, Exception exception) {
+         exception.printStackTrace();
+    });
+```
+
 ### Adjusting Image Size Dynamically
 
 If we wish to readjust the ImageView size after the image has been retrieved, we first define a `Target` object that governs how the Bitmap is handled:
@@ -181,18 +219,6 @@ Picasso.with(mContext).load(R.drawable.demo)
         .transform(new RoundedCornersTransformation(10, 10)).into((ImageView) findViewById(R.id.image));
 ```
 
-## Troubleshooting
-
-If you experience errors loading images, you can attach a listener to the `Builder` object to print the stack trace.
-
-```java
-Picasso.Builder builder = new Picasso.Builder(getApplicationContext());
-builder.listener(new Picasso.Listener() {
-     @Override
-     public void onImageLoadFailed(Picasso picasso, Uri uri, Exception exception) {
-         exception.printStackTrace();
-    });
-```
 ## References
 
 * <http://square.github.io/picasso/>
