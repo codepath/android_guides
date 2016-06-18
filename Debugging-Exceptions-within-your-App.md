@@ -29,7 +29,7 @@ Now that we filtered our logs for errors. Let's get started fixing our crash! Th
 6. Make fixes based on the issue and re-run the app
 7. Repeat until the crash no longer occurs
 
-First off though when you see the crash dialog, **don't press OK" on the dialog when you see that error until **after you've already went through these steps**.
+First off though when you see the crash dialog, **don't press OK** on the dialog when you see that error until **after you've already went through these steps**.
 
 ### Witnessing the Crash
 
