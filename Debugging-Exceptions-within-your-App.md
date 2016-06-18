@@ -96,7 +96,7 @@ This is a great first step to now solving the problem because we know exactly wh
 
 Next, we need to use the exception type and message to diagnose the problem at that line. The type in this case is `java.lang.NullPointerException` and the message was `Attempt to invoke virtual method 'java.lang.String android.content.Intent.getStringExtra(java.lang.String)' on a null object reference`.
 
-The type is the most important part because there are a limited number of types. If the type is `java.lang.NullPointerException` then we know that **some object is null when it shouldn't be**. In other words, we are calling a method on an object or passing an object that is null (has no value). This usually means **we forget to set the value** or **the value is being set incorrectly**. 
+The type is the most important part because there are a limited number of types. If the type is `java.lang.NullPointerException` then we know that **some object is null when it shouldn't be**. In other words, we are calling a method on an object or passing an object that is null (has no value). This usually means **we forgot to set the value** or **the value is being set incorrectly**. 
 
 The message above gives you the specifics that the method `getStringExtra` is being called on a null object. This tell us that `getIntent()` is actually null since this is the object `getStringExtra` is being called on. That might seem strange, why is the `getIntent()` null here? How do we fix this?
 
