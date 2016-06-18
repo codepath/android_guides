@@ -149,7 +149,7 @@ Sometimes the first fix we try after googling doesn't work. Or it makes things w
 
  * It's normal to have to try 3-4 solutions before one actually works.
  * Try to stick with [stackoverflow](http://stackoverflow.com/) results from Google first
- * Open up multiple stackoverflow answers and **look for answers you see multiple times**
- * Look for stackoverflow answers that have a green check mark and **many upvotes**.
+ * Open up multiple stackoverflow pages and **look for answers you see repeated multiple times**
+ * Look for stackoverflow answers that have a  **green check mark and many upvotes**.
 
 Don't get discouraged! Look through a handful of sites and you are bound to find the solution in 80% of cases as long as you have the **right query**. Try multiple variations of your query until you find the right solution.
