@@ -14,7 +14,7 @@ To start, you will need to create an API key through [https://console.developers
 
 Next, add the [YouTubeAndroidPlayerApi.jar](https://github.com/google/iosched/raw/master/android/libs/YouTubeAndroidPlayerApi.jar) file into Android Studio by [following this GIF](http://i.imgur.com/k9a6WET.gif) to add this to your `libs` dir. Once you've added the JAR, select `Tools => Android => Sync project files with Gradle` in Android Studio to complete installation.
 
-## Usage
+### Usage
 
 Instead of a `VideoView`, you should add `YouTubePlayerView` to your layout file where you'd like the video to be displayed:
 
@@ -78,3 +78,7 @@ If you wish to force the video to landscape mode, you can also add the `screenOr
   android:screenOrientation="landscape">
 </activity>
 ```
+
+## References
+
+* <https://www.sitepoint.com/using-the-youtube-api-to-embed-video-in-an-android-app/>
