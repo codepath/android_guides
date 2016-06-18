@@ -41,7 +41,7 @@ If you are an experienced engineer with 2+ years of professional experience in s
 * [Architecture of Mobile Apps](http://goo.gl/AAsGLx) (Concept Slides)
 * [[Mobile Screen Archetypes]] (Common mobile app screen categories)
 * [[Troubleshooting Common Issues]] (Running into problems?)
-* [[Debugging inside your App]] (App crashing?)
+* [[Debugging Exceptions within your App]] (App crashing?)
 * [Developing our First App Using Android Studio](http://goo.gl/8R7Mty) (Step-by-Step Todo App)
 * [[Todo App Guide|Basic Todo App Tutorial]] (Todo App steps in guide format)
 * [[Sample Android Apps]] (Code repositories)
