@@ -60,13 +60,15 @@ You then should initialize the YouTube Player by calling `initialize()` with you
 }
 ```
 
-Playing videos involves passing along the YouTube video key (do not include the full URL): 
+If you wish to only load the video but not play, use `cueVideo()` instead of `loadVideo()`. Playing videos involves passing along the YouTube video key (do not include the full URL): 
 
 ```java
 youTubePlayer.loadVideo("5xVh-7ywKpE");
 ```
 
-If you wish to only load the video but not play, use `cueVideo()` instead of `loadVideo()`.
+You can review the [working sample code here](https://github.com/codepath/AndroidYoutubeVideoDemo).
+
+### Forcing Landscape Mode
 
 If you wish to force the video to landscape mode, you can also add the `screenOrientation` flag inside your Activity in the AndroidManifest.xml file:
 
