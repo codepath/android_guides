@@ -2,7 +2,7 @@
 
 We can use the [YouTube Android Player API] (https://developers.google.com/youtube/android/player/) to play YouTube videos within an Android app.  
 
-<img src="http://g.recordit.co/xYGct0S1QE.gif" width="600" />
+<img src="http://i.imgur.com/xeVSOyL.gif" width="600" />
 
 ### Setup
 
