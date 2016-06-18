@@ -25,7 +25,7 @@ Now that we filtered our logs for errors. Let's get started fixing our crash! Th
 2. Identify the exception type, message, and file with line number
 3. Open the file within your app and find the line number
 4. Look at the exception type and message to diagnose the problem
-5. If the problem is not familiar or a `NullPointerException`, google for the message
+5. If the problem is not familiar, google around searching for answers
 6. Make fixes based on the issue and re-run the app
 7. Repeat until the crash no longer occurs
 
