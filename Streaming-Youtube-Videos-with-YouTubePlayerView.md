@@ -68,7 +68,7 @@ youTubePlayer.loadVideo("5xVh-7ywKpE");
 
 You can review the [working sample code here](https://github.com/codepath/AndroidYoutubeVideoDemo).
 
-### Forcing Landscape Mode
+#### Forcing Landscape Mode
 
 If you wish to force the video to landscape mode, you can also add the `screenOrientation` flag inside your Activity in the AndroidManifest.xml file:
 
