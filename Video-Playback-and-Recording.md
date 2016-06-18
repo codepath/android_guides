@@ -88,7 +88,7 @@ You can read about [how fenster was developed](http://www.malmstein.com/blog/201
 
 We can use the [YouTube Android Player API] (https://developers.google.com/youtube/android/player/) to play YouTube videos within an Android app.  
 
-<img src="http://g.recordit.co/xYGct0S1QE.gif" width="400" />
+<img src="http://i.imgur.com/xeVSOyL.gif" width="600" />
 
 Refer to the [[Streaming Youtube Videos with YouTubePlayerView]] guide for detailed instructions.
 
