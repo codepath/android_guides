@@ -79,6 +79,13 @@ If you wish to force the video to landscape mode, you can also add the `screenOr
 </activity>
 ```
 
+## Troubleshooting
+
+Common issues with the `YouTubePlayerView` are listed below:
+
+  * **Error DeadObjectException:** If you receive the `java.lang.IllegalStateException: android.os.DeadObjectException` exception, you need to open up the "Play Store" and update the Youtube app on the Android device.
+  * **Error Leaked ServiceConnection:** If you are using an emulator, upgrade to Lollipop (API 21) and open up the "Play Store" to check for updates to the Youtube app.
+
 ## References
 
 * <https://www.sitepoint.com/using-the-youtube-api-to-embed-video-in-an-android-app/>
