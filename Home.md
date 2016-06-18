@@ -218,6 +218,7 @@ Exploring sensors and components available via the Android SDK:
 * [[Google Maps Setup Guide|Google Maps Fragment Guide]] (and [[Setup Genymotion|Google-Maps-Fragment-Guide#installing-genymotion]])
 * [[Google Maps API v2 Usage]] (Markers, InfoWindow)
 * [[Connectivity using the Bluetooth API]] (**Needs Attention**)
+* [[Streaming Youtube Videos with YouTubePlayerView]]
 
 ## Services
 
