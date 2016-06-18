@@ -26,7 +26,7 @@ Now that we filtered our logs for errors. Let's get started fixing our crash! Th
 3. Open the file within your app and find the line number
 4. Look at the exception type and message to diagnose the problem
 5. If the problem is not familiar, google around searching for answers
-6. Make fixes based on the issue and re-run the app
+6. Make fixes based on the proposed solutions and re-run the app
 7. Repeat until the crash no longer occurs
 
 First off though when you see the crash dialog, **don't press OK** on the dialog when you see that error until **after you've already went through these steps**.
