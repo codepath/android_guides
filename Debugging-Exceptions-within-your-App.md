@@ -335,7 +335,7 @@ public void fetchMovies(int videoId) {
     String url = "https://api.themoviedb.org/3/movie/" + // <----- add trailing slash
        movie_id + "/videos?api_key=" + KEY;
     client.get(url, new JsonHttpResponseHandler(){ 
-      ...same as before...
+      // ...same as before...
     });
 }    
 ```
