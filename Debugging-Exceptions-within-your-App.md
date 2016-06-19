@@ -10,7 +10,7 @@ Don't worry! This is normal and there's a specific set of steps you can take to 
 
 As an Android developer, you'll need to cultivate a "debugging mindset" as well as build up defensive programming practices that make writing error-prone code less likely. In addition, you'll often find yourself in the role of a coding investigator in order to understand where and why an app is crashing or not working as expected. A few key principles about debugging are captured below:
 
-* Just because a program runs, doesn’t mean it’s doing what you expected.  This class of issues are known as runtime errors. This is contrast to compile-time errors which prevent an app from running which are usually easier to fix.  
+* Just because a program runs, doesn’t mean it’s doing what you expected.  This class of issues are known as runtime errors. This is contrast to compile-time errors which prevent an app from running and are often easier to fix.  
 * Think of debugging as an opportunity to fill gaps in knowledge. Debugging is an opportunity to understand your app better than you did before and hopefully sharpen your ability to write correct code in the future by programming defensively. 
 * Debugging is a vital part of the software development process. Often you may find yourself on some days spending more time debugging crashes or unexpected behavior then writing new code. This is entirely typical.
 
