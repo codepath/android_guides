@@ -202,7 +202,17 @@ Why doesn't the video launch when you click on the image as expected? Let's inve
 
 ### Notifying Failure with Toasts
 
-The video activity isn't launching when the user presses the image but let's see if we can narrow down the problem. First, let's add a [[toast message|Displaying-Toasts]] to make sure we can begin to understand the issue. In `InfoActivity.java`, we will add the following inside the `onClick` listener method:
+The video activity isn't launching when the user presses the image but let's see if we can narrow down the problem. First, let's add a [[toast message|Displaying-Toasts]] to make sure we can begin to understand the issue. Toasts are messages that popup within the app. For example:
+
+```java
+Toast.makeText(this, "Message saved as draft.", Toast.LENGTH_SHORT).show();
+```
+
+would produce:
+
+![Toast](http://developer.android.com/images/toast.png)
+
+In `InfoActivity.java`, we will add the following toast message inside the `onClick` listener method:
 
 ```java
 public class InfoActivity extends YouTubeBaseActivity {
@@ -221,7 +231,7 @@ public class InfoActivity extends YouTubeBaseActivity {
                     i.putExtra("videoKey", videoKey);
                     startActivity(i);
                 } else {
-                    // ADD A TOAST HERE. This means video key is null
+                    // ----> ADD A TOAST HERE. This means video key is null
                     Toast.makeText(InfoActivity.this, "The key is null!", Toast.LENGTH_SHORT).show();
                 } 
             }
@@ -276,7 +286,7 @@ The [Android logger](https://developer.android.com/reference/android/util/Log.ht
 | Warn    | `Log.w()` |
 | Error   | `Log.e()` |
 
-They are sorted by relevance with Log.i() being the least important one. The first parameter of these methods is the category and the second is the message.
+They are sorted by relevance with `Log.i()` being the least important one. The first parameter of these methods is the category string (can be any label we choose) and the second is the actual message to display. 
 
 We can use the logger by adding the following line inside `onSuccess`:
 
