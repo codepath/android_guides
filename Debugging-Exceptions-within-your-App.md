@@ -26,7 +26,7 @@ Armed with this mindset and the above principles, let's take a look at how to de
 
 ## Debugging Procedure
 
-Let's get started fixing the app's crash! The basic steps for diagnosing and resolving a crash are outlined below:
+When you see your app crash and close, the basic steps for diagnosing and resolving this are outlined below:
 
 1. Find the final exception stack trace within the Android Monitor (logcat)
 2. Identify the exception type, message, and file with line number
@@ -36,7 +36,7 @@ Let's get started fixing the app's crash! The basic steps for diagnosing and res
 6. Make fixes based on the proposed solutions and re-run the app
 7. Repeat until the crash no longer occurs
 
-This process always starts with a crash.
+This process nearly always starts with an unexpected app crash as we'll see below.
 
 ### Witnessing the Crash
 
