@@ -6,6 +6,36 @@ When building Android apps, your app is bound to crash from time to time. You kn
 
 Don't worry! This is normal and there's a specific set of steps you can take to solve this. Refer to the guide below or [these debugging slides](https://docs.google.com/presentation/d/1DUigTm6Uh43vatHkB4rFkVVIt1zf7zB7Z5tpGTy2oFY/edit#slide=id.g38d66bc5a_0175) for more a detailed look at debugging crashes and investigating unexpected problems with your app. 
 
+### Debugging Mindset
+
+As an Android developer, you'll need to cultivate a "debugging mindset" as well as build up "defensive practices" that make writing robust code more likely. In addition, you'll often find yourself in the role of a coding investigator in order to understand where and why an app is crashing or not working as expected. A few key principles about debugging are captured below:
+
+* Just because a program runs, doesn’t mean it’s doing what you expected.  This class of issues are known as runtime errors. This is contrast to compile-time errors which prevent an app from running which are usually easier to fix.  
+* Think of debugging as an opportunity to fill gaps in knowledge. Debugging is an opportunity to understand your app better than you did before and hopefully sharpen your ability to write correct code in the future by programming defensively. 
+* Debugging is a vital part of the software development process. Often you may find yourself on some days spending more time debugging crashes or unexpected behavior then writing new code. This is entirely typical.
+
+### Debugging Principles
+
+The following high-level principles should be applied when faced with an unexpected app behavior during investigation:
+
+* **Replicate**. Convince yourself that there is an issue in the code that can be repeatedly reproduced by following the same steps. Before assuming the code is broken, try restarting the emulator and re-building the app.
+* **Reduce**. Try to isolate or reduce the code surrounding the issue and figure out the simplest way to reproduce what’s occurring. Comment out or remove extraneous code that could be complicating the issue.
+* **Research**. If you are running into a major unexpected issue, you are probably not alone. Search Google for the behavior using any descriptive identifiers. Visit the issue tracker for the component you are seeing issues with. Search [stackoverflow](http://stackoverflow.com/) for posts about the same issue.
+
+## Debugging Procedure
+
+Let's get started fixing the app's crash! The basic steps for diagnosing and resolving a crash are outlined below:
+
+1. Find the final exception stack trace within the Android Monitor (logcat)
+2. Identify the exception type, message, and file with line number
+3. Open the file within your app and find the line number
+4. Look at the exception type and message to diagnose the problem
+5. If the problem is not familiar, google around searching for answers
+6. Make fixes based on the proposed solutions and re-run the app
+7. Repeat until the crash no longer occurs
+
+First off though when you see the crash dialog, **don't press OK** on the dialog when you see that error until **after you've already went through these steps above**.
+
 ### Setting Up Error Filter
 
 First, within Android Studio, be sure to setup your Android Monitor to filter for "Errors" only to reduce noise:
@@ -17,23 +47,9 @@ First, within Android Studio, be sure to setup your Android Monitor to filter fo
 
 This will set you up to see only serious issues as they come up.
 
-## Debugging Procedure
-
-Now that we filtered our logs for errors. Let's get started fixing our app's crash! The basic steps for diagnosing and resolving a crash are outlined below:
-
-1. Find the final exception stack trace within the Android Monitor (logcat)
-2. Identify the exception type, message, and file with line number
-3. Open the file within your app and find the line number
-4. Look at the exception type and message to diagnose the problem
-5. If the problem is not familiar, google around searching for answers
-6. Make fixes based on the proposed solutions and re-run the app
-7. Repeat until the crash no longer occurs
-
-First off though when you see the crash dialog, **don't press OK** on the dialog when you see that error until **after you've already went through these steps**.
-
 ### Witnessing the Crash
 
-First, suppose we were building a simple movie trailer app that lets the users browse new movies and watch trailers from Youtube. Imagine we ran the app, and we wanted to play the trailer and we saw this crash instead:
+Next, suppose we were building a simple movie trailer app that lets the users browse new movies and watch trailers from Youtube. Imagine we ran the app, and we wanted to play the trailer and we saw this crash instead:
 
 <img src="http://i.imgur.com/Z22GWZe.gif" width="300" />
 
