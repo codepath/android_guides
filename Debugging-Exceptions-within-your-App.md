@@ -33,7 +33,7 @@ First off though when you see the crash dialog, **don't press OK** on the dialog
 
 ### Witnessing the Crash
 
-First, suppose we were building a simple movie trailer app that let's the users browse new movies and watch trailers from Youtube. Imagine we ran the app, and we wanted to play the trailer and we saw this crash instead:
+First, suppose we were building a simple movie trailer app that lets the users browse new movies and watch trailers from Youtube. Imagine we ran the app, and we wanted to play the trailer and we saw this crash instead:
 
 <img src="http://i.imgur.com/Z22GWZe.gif" width="300" />
 
