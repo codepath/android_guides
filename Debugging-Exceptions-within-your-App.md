@@ -1,10 +1,10 @@
 ## Overview
 
-When building Android apps, your app is bound to crash from time to time. You know you have experienced a runtime exception when you see this in your emulator or device:
+When building Android apps, your app is bound to crash from time to time or exhibit strange unexpected behavior. You know you have experienced a runtime exception when you see this in your emulator or device:
 
 <img src="http://i.imgur.com/lMTPBfk.png" />
 
-Don't worry! This is normal and there's a specific set of steps you can take to solve this. Refer to the guide below or [these debugging slides](https://docs.google.com/presentation/d/1DUigTm6Uh43vatHkB4rFkVVIt1zf7zB7Z5tpGTy2oFY/edit#slide=id.g38d66bc5a_0175) for more a detailed look at debugging crashes and investigating unexpected problems with your app. 
+Don't worry though! This is totally normal and there's a specific set of steps you can take to solve these. Refer to our guide below and/or [these debugging slides](https://docs.google.com/presentation/d/1DUigTm6Uh43vatHkB4rFkVVIt1zf7zB7Z5tpGTy2oFY/edit#slide=id.g38d66bc5a_0175) for more a detailed look at debugging crashes and investigating unexpected problems with your app. 
 
 ### Debugging Mindset
 
