@@ -44,7 +44,7 @@ Suppose we were building a simple movie trailer app called Flixster that lets th
 
 <img src="http://i.imgur.com/Z22GWZe.gif" width="300" />
 
-First off though when you see the crash dialog, **don't press OK** on the dialog when you see that error until **after you've already went through these steps above**.
+First off though when you see the crash dialog, **don't press OK** on that dialog until **after you've already went through these steps below to identify the stacktrace details**.
 
 ### Setting Up Error Filter
 
