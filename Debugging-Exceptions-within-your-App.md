@@ -158,7 +158,7 @@ In certain cases, we need to investigate the problem further. The methods for in
 
 ## Investigation Methodologies
 
-In addition to finding and googling errors, often additional methods have to be applied to figure out what is going wrong. This usually involves when something isn't as we expected and we need to figure out why. The two most common investigation techniques are:
+In addition to finding and googling errors, often additional methods have to be applied to figure out what is going wrong. This usually becomes helpful when something isn't as we expected in the app and we need to figure out why. The two most common investigation techniques are:
 
 1. **Toasts** - Using toasts to alert us to failures
 2. **Logging** - Using the logging system to print out values
