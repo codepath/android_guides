@@ -288,7 +288,7 @@ The [Android logger](https://developer.android.com/reference/android/util/Log.ht
 
 They are sorted by relevance with `Log.i()` being the least important one. The first parameter of these methods is the category string (can be any label we choose) and the second is the actual message to display. 
 
-We can use the logger by adding the following line inside `onSuccess`:
+We can use the logger by adding two lines to the code: one at the top before the network call and one inside `onSuccess` to see if they both display:
 
 ```java
 Log.e("VIDEOS", "HELLO"); // <------------ LOGGING
