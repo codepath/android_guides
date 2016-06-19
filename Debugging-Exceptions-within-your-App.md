@@ -22,6 +22,8 @@ The following high-level principles should be applied when faced with an unexpec
 * **Reduce**. Try to isolate or reduce the code surrounding the issue and figure out the simplest way to reproduce what’s occurring. Comment out or remove extraneous code that could be complicating the issue.
 * **Research**. If you are running into a major unexpected issue, you are probably not alone. Search Google for the behavior using any descriptive identifiers. Visit the issue tracker for the component you are seeing issues with. Search [stackoverflow](http://stackoverflow.com/) for posts about the same issue.
 
+Armed with this mindset and the above principles, let's take a look at how to debug and investigate issues that arise within our apps.
+
 ## Debugging Procedure
 
 Let's get started fixing the app's crash! The basic steps for diagnosing and resolving a crash are outlined below:
