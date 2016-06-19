@@ -36,13 +36,15 @@ Let's get started fixing the app's crash! The basic steps for diagnosing and res
 6. Make fixes based on the proposed solutions and re-run the app
 7. Repeat until the crash no longer occurs
 
-First off though when you see the crash dialog, **don't press OK** on the dialog when you see that error until **after you've already went through these steps above**.
+This process always starts with a crash.
 
 ### Witnessing the Crash
 
 Next, suppose we were building a simple movie trailer app that lets the users browse new movies and watch trailers from Youtube. Imagine we ran the app, and we wanted to play the trailer and we saw this crash instead:
 
 <img src="http://i.imgur.com/Z22GWZe.gif" width="300" />
+
+First off though when you see the crash dialog, **don't press OK** on the dialog when you see that error until **after you've already went through these steps above**.
 
 ### Setting Up Error Filter
 
@@ -57,7 +59,7 @@ This will set you up to see only serious issues as they come up.
 
 ### Find the Stack Trace
 
-Don't click "OK" on the crash on the device just yet. Instead, go into Android Studio and select open up the "Android Monitor". Expand the monitor so you can read the log messages easily. 
+Now let's go into Android Studio and select open up the "Android Monitor". Expand the monitor so you can read the log messages easily. 
 
 <img src="http://i.imgur.com/1atGM14.gif" width="900" />
 
