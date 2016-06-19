@@ -166,7 +166,7 @@ In addition to finding and googling errors, often additional methods have to be 
 
 Both methods are intended for us to be able to determine why a value isn't as we expect. Let's take a look at how to use each. 
 
-Let's start with the same app from above and suppose we are trying to get the app so that when the image at the top is clicked, the video begins playing.
+Let's start with the same app from above and suppose we are trying to get the app so that when the image at the top of the movie details page is clicked, then the movie trailer begins playing.
 
 ```java
 public class InfoActivity extends YouTubeBaseActivity {
@@ -194,7 +194,7 @@ public class InfoActivity extends YouTubeBaseActivity {
 }
 ```
 
-Unfortunately, the video does not come up as expected when we run the app and click the image:
+Unfortunately when testing, we see that the trailer does not come up as expected when we run the app and click the top image:
 
 <img src="http://i.imgur.com/qLSCwQK.gif" width="300" />
 
