@@ -160,9 +160,9 @@ In certain cases, we need to investigate the problem further. The methods for in
 
 In addition to finding and googling errors, often additional methods have to be applied to figure out what is going wrong. This usually involves when something isn't as we expected and we need to figure out why. The two most common investigation techniques are:
 
-1. Using toasts to alert us to failures
-2. Using the logging system to print out values
-3. Using the breakpoint system to investigate values
+1. **Toasts** - Using toasts to alert us to failures
+2. **Logging** - Using the logging system to print out values
+3. **Breakpoints** - Using the breakpoint system to investigate values
 
 Both methods are intended for us to be able to determine why a value isn't as we expect. Let's take a look at how to use each. 
 
