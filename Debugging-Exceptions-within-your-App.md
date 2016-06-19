@@ -4,7 +4,7 @@ When building Android apps, your app is bound to crash from time to time. You kn
 
 <img src="http://i.imgur.com/lMTPBfk.png" />
 
-Don't worry! This is normal and there's a specific set of steps you can take to solve this. 
+Don't worry! This is normal and there's a specific set of steps you can take to solve this. Refer to the guide below or [these debugging slides](https://docs.google.com/presentation/d/1DUigTm6Uh43vatHkB4rFkVVIt1zf7zB7Z5tpGTy2oFY/edit#slide=id.g38d66bc5a_0175) for more a detailed look at debugging crashes and investigating unexpected problems with your app. 
 
 ### Setting Up Error Filter
 
@@ -19,7 +19,7 @@ This will set you up to see only serious issues as they come up.
 
 ## Debugging Procedure
 
-Now that we filtered our logs for errors. Let's get started fixing our crash! The steps are outlined below:
+Now that we filtered our logs for errors. Let's get started fixing our app's crash! The basic steps for diagnosing and resolving a crash are outlined below:
 
 1. Find the final exception stack trace within the Android Monitor (logcat)
 2. Identify the exception type, message, and file with line number
@@ -43,8 +43,19 @@ Don't click "OK" on the crash. Instead, go into Android Studio and select open u
 
 <img src="http://i.imgur.com/1atGM14.gif" width="900" />
 
-1. Scroll to **the bottom of the error** looking for a line that says `Caused by` all the way at the bottom. The "first cause" is the important part of the error, ignore most of the rest of the stack trace.
-2. Find the first `Caused by` line and also the line that has a blue link with the name of your activity `VideoActivity.java:13`. Copy them onto your clipboard and paste them into a separate text file.
+1. Scroll to **the bottom of the error** looking for a line that says `Caused by` all the way at the bottom of the stack trace block. The "first cause" is the important part of the error, ignore most of the rest of the stack trace.
+2. Find the bottom-most `Caused by` line and also the line that has a blue link with the name of your activity `VideoActivity.java:13`. Copy them onto your clipboard and paste them both into a separate text file for easy review.
+
+In this case the bottom-most "Caused by" line and the adjacent blue file link error copied together looks like:
+
+```
+Caused by: java.lang.NullPointerException: Attempt to invoke virtual method
+ 'java.lang.String android.content.Intent.getStringExtra(java.lang.String)' 
+ on a null object reference 
+      at com.codepath.flixster.VideoActivity.<init>(VideoActivity.java:13)
+```
+
+Note that the top of the stack trace noting `FATAL EXCEPTION` and the first portion with the `java.lang.RuntimeException` are much more generic and are much less useful than that final bottom-most "Caused by" exception captured above which is the real culprit. 
 
 ### Identify the Exception
 
@@ -369,3 +380,4 @@ With these tools and the power of Google, you should be well-equipped to debug a
 ## References
 
 * <https://www.youtube.com/watch?v=2c1L19ZP5Qg>
+* <https://docs.google.com/presentation/d/1DUigTm6Uh43vatHkB4rFkVVIt1zf7zB7Z5tpGTy2oFY/edit?usp=sharing>
