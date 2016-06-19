@@ -153,3 +153,209 @@ Sometimes the first fix we try after googling doesn't work. Or it makes things w
  * Look for stackoverflow answers that have a  **green check mark and many upvotes**.
 
 Don't get discouraged! Look through a handful of sites and you are bound to find the solution in 80% of cases as long as you have the **right query**. Try multiple variations of your query until you find the right solution.
+
+In certain cases, we need to investigate the problem further. The methods for investigating why something is broken are outlined below.
+
+## Investigation Methodologies
+
+In addition to finding and googling errors, often additional methods have to be applied to figure out what is going wrong. This usually involves when something isn't as we expected and we need to figure out why. The two most common investigation techniques are:
+
+1. Using toasts to alert us to failures
+2. Using the logging system to print out values
+3. Using the breakpoint system to investigate values
+
+Both methods are intended for us to be able to determine why a value isn't as we expect. Let's take a look at how to use each. 
+
+Let's start with the same app from above and suppose we are trying to get the app so that when the image at the top is clicked, the video begins playing.
+
+```java
+public class InfoActivity extends YouTubeBaseActivity {
+    private ImageView backdropTrailer;
+    private String videoKey;
+
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_info);
+        // ...
+        backdropTrailer = (ImageView) findViewById(R.id.ivPoster);
+        // Trigger video when image is clicked
+        backdropTrailer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { 
+                // Launch youtube video with key if not null
+                if (videoKey != null) {
+                    Intent i = new Intent(InfoActivity.this, VideoActivity.class);
+                    i.putExtra("videoKey", videoKey);
+                    startActivity(i);
+                }
+            }
+        });
+    }
+}
+```
+
+Unfortunately, the video does not come up as expected when we run the app and click the image:
+
+<img src="http://i.imgur.com/qLSCwQK.gif" width="300" />
+
+Why doesn't the video launch when you click on the image as expected? Let's investigate.
+
+### Notifying Failure with Toasts
+
+The video activity isn't launching when the user presses the image but let's see if we can narrow down the problem. First, let's add a [[toast message|Displaying-Toasts]] to make sure we can begin to understand the issue. In `InfoActivity.java`, we will add the following inside the `onClick` listener method:
+
+```java
+public class InfoActivity extends YouTubeBaseActivity {
+    // ...
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_info);
+        // ...
+        backdropTrailer = (ImageView) findViewById(R.id.ivPoster);
+        backdropTrailer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { 
+                // Launch youtube video with key if not null
+                if (videoKey != null) {
+                    Intent i = new Intent(InfoActivity.this, VideoActivity.class);
+                    i.putExtra("videoKey", videoKey);
+                    startActivity(i);
+                } else {
+                    // ADD A TOAST HERE. This means video key is null
+                    Toast.makeText(InfoActivity.this, "The key is null!", Toast.LENGTH_SHORT).show();
+                } 
+            }
+        });
+    }
+}
+```
+
+With the toast added, running this again, we see the problem is confirmed:
+
+
+<img src="http://i.imgur.com/kXe4fLF.gif" width="300" />
+
+The problem is that the **youtube video key is null** where as it should have a value. We haven't fixed the problem, but we at least know what the initial issue is. 
+
+Using a [[toast message|Displaying-Toasts]] we can easily notify ourselves when something goes wrong in our app. We don't even have to check the logs. Be sure to **add toasts whenever there are failure cases** for networking, intents, persistence, etc so you can easily spot when things go wrong. 
+
+### Investigating using Logging
+
+Next, let's fix the problem the toast clarified for us. We now know the problem is that the **youtube video key is null** where as it should have a value. Let's take a look at the method that fetches the video key for us:
+
+```java
+public void fetchMovies(int videoId) {
+    // URL should be: https://api.themoviedb.org/3/movie/246655/videos?api_key=KEY
+    String url = "https://api.themoviedb.org/3/movie" + movie_id + "/videos?api_key=" + KEY;
+    client.get(url, new JsonHttpResponseHandler(){
+        @Override
+        public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+            JSONArray movieJsonResults = null;
+            try {
+                movieJsonResults = response.getJSONArray("results");
+                JSONObject result = movieJsonResults.getJSONObject(0);
+                // Get the key from the JSON
+                videoKey = result.getString("key");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    });
+}
+```
+
+This method is somehow not fetching the key that we'd expect. Let's start by logging inside the `onSuccess` method to see if we are getting inside there as we expect. 
+
+The [Android logger](https://developer.android.com/reference/android/util/Log.html) is pretty easy to use. The log options are as follows:
+
+| Level   | Method   |
+| -----   | -----    |
+| Verbose | `Log.v()` | 
+| Debug   | `Log.d()` |
+| Info    | `Log.i()` |
+| Warn    | `Log.w()` |
+| Error   | `Log.e()` |
+
+They are sorted by relevance with Log.i() being the least important one. The first parameter of these methods is the category and the second is the message.
+
+We can use the logger by adding the following line inside `onSuccess`:
+
+```java
+Log.e("VIDEOS", "HELLO"); // <------------ LOGGING
+client.get(url, new JsonHttpResponseHandler(){
+    @Override
+    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+        JSONArray movieJsonResults = null;
+        try {
+            // LOG the entire JSON response string below
+            Log.e("VIDEOS", response.toString()); // <------------ LOGGING
+            movieJsonResults = response.getJSONArray("results");
+            JSONObject result = movieJsonResults.getJSONObject(0);
+            videoKey = result.getString("key");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+});
+```
+
+When running the app, the first log does show up as expected but the one inside `onSuccess` does **not show up at all** in the Android monitor:
+
+<img src="http://i.imgur.com/LFOUrf5.gif" width="900" />
+
+Notice that we see `HELLO` but no other line logs. This means that we now know that **the onSuccess method is never called**. This means our network request sent out is failing for some reason. We are one step closer to fixing this issue.
+
+### Investigating using Breakpoints
+
+In order to investigate why the network request sent out is failing, we are going to bring out the most powerful debugging tool we have which is the breakpointing engine in Android Studio which allows us to stop the app and investigate our environment thoroughly.
+
+First, we have to decide at which points we want to stop the app and investigate. This is done by setting breakpoints. Let's set two breakpoints to investigate the network request:
+
+<img src="http://i.imgur.com/63e6ZMI.gif " width="600" />
+
+Now, we need to run the app using the "debugger" rather than the normal run command:
+
+<img src="http://i.imgur.com/A4gqK6r.gif" />
+
+Once the debugger connects, we can click on the movie to trigger the code to run. Once the code hits the spot with a breakpoint, the entire code pauses and let's us inspect everything:
+
+<img src="http://i.imgur.com/TFfpOSi.gif" />
+
+Here we were able to inspect the URL and compare the URL against the expected value. Our actual URL was "https://api.themoviedb.org/3/movie246655/videos?api_key=KEY" while the expected URL was "https://api.themoviedb.org/3/movie/246655/videos?api_key=KEY". Extremely subtle difference. Can you spot it?
+
+Then we can hit "resume" (<img src="http://i.imgur.com/shxFUhJ.png" />) to continue until the next breakpoint or stop debugging (<img src="http://i.imgur.com/PETVfws.png" />) to end the session.
+
+### Fixing the Issue
+
+Now that we know the issue is the URL being incorrectly formed, we can fix that in the original code in `InfoActivity.java`:
+
+```java
+public void fetchMovies(int videoId) {
+    // ADD trailing slash to the URL to fix the issue
+    String url = "https://api.themoviedb.org/3/movie/" + // <----- add trailing slash
+       movie_id + "/videos?api_key=" + KEY;
+    client.get(url, new JsonHttpResponseHandler(){ 
+      ...same as before...
+    });
+}    
+```
+
+and remove any old log statements we don't need. Now, we can try running the app again:
+
+<img src="http://i.imgur.com/qtcxeLA.gif" width="600" />
+
+Great! The video now plays exactly as expected!
+
+### Wrapping Up
+
+In this section, we looked at three important ways to investigate your application:
+
+1. **Toasts** - Display messages inside the app emulator. Good for notifying you of common failure cases.
+2. **Logs** - Display messages in the Android monitor. Good to printing out values and seeing if code is running.
+3. **Breakpoints** - Halt execution of your code with breakpoints and inspect the entire environment to figure out which values are incorrect or what code hasn't run. 
+
+With these tools and the power of Google, you should be well-equipped to debug any errors or issues that come up as you are developing your apps. Good luck!
+
+## References
+
+* <https://www.youtube.com/watch?v=2c1L19ZP5Qg>
