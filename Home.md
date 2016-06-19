@@ -38,19 +38,23 @@ If you are an experienced engineer with 2+ years of professional experience in s
 * [[Getting Started with Android|Beginning Android Resources]] (Detailed Post With Many Links)
 * [Setting up Android Studio](http://goo.gl/X2SVFR) (Installation Slides) or [[Setting up IntelliJ IDEA]]
 * [[Installing a Faster Emulator|Genymotion-2.0-Emulators-with-Google-Play-support]] (Genymotion Guide)
+* [Developing our First App Using Android Studio](http://goo.gl/8R7Mty) (Step-by-Step Todo App)
 * [Architecture of Mobile Apps](http://goo.gl/AAsGLx) (Concept Slides)
 * [[Mobile Screen Archetypes]] (Common mobile app screen categories)
 * [[Troubleshooting Common Issues]] (Running into problems?)
 * [[Debugging Exceptions within your App]] (App crashing?)
-* [Developing our First App Using Android Studio](http://goo.gl/8R7Mty) (Step-by-Step Todo App)
 * [[Todo App Guide|Basic Todo App Tutorial]] (Todo App steps in guide format)
 * [[Sample Android Apps]] (Code repositories)
-* [[Free Android Curriculum]] (Additional resources)
+* [[Keeping Updated with Android]] (Podcasts, blogs, newsletters)
+* [[Using Kotlin for Android development]] (Alternative syntax to Java)
+
+**External Resources**. Great external content to explore.
+
+* [[Android Resources List|Beginning Android Resources]]
 * [Google Android Interactive Codelabs](https://codelabs.developers.google.com/?cat=Android)
 * [Google Android Glossary](https://developers.google.com/android/for-all/vocab-words/) (Defining Common Terms)
 * [Android Learning Resources](https://github.com/CodementorIO/Android-Learning-Resources)
-* [[Keeping Updated with Android]] (Podcasts, blogs, newsletters)
-* [[Using Kotlin for Android development]] (Alternative syntax to Java)
+* [[Free Android Curriculum]] (Additional Android resources and slides)
 
 **Using Eclipse?** See below.
 
@@ -60,7 +64,7 @@ If you are an experienced engineer with 2+ years of professional experience in s
 
 ## Structure
 
-Exploring the foundations of app development:
+Exploring the core of app development:
 
 * [[Using Context]] (What is context and how is it used?)
 * [[Android Directory Structure]] (Files and Folders for Android apps)
