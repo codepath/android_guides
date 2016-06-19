@@ -18,7 +18,7 @@ As an Android developer, you'll need to cultivate a "debugging mindset" as well 
 
 The following high-level principles should be applied when faced with an unexpected app behavior during investigation:
 
-* **Replicate**. Convince yourself that there is an issue in the code that can be repeatedly reproduced by following the same steps. Before assuming the code is broken, try restarting the emulator and re-building the app.
+* **Replicate**. Convince yourself that there is an issue in the code that can be repeatedly reproduced by following the same steps. Before assuming the code is broken, try restarting the emulator, trying the app on a device and/or fully re-building the app.
 * **Reduce**. Try to isolate or reduce the code surrounding the issue and figure out the simplest way to reproduce what’s occurring. Comment out or remove extraneous code that could be complicating the issue.
 * **Research**. If you are running into a major unexpected issue, you are probably not alone. Search Google for the behavior using any descriptive identifiers. Visit the issue tracker for the component you are seeing issues with. Search [stackoverflow](http://stackoverflow.com/) for posts about the same issue.
 
