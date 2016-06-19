@@ -63,10 +63,10 @@ Now let's go into Android Studio and select open up the "Android Monitor". Expan
 
 <img src="http://i.imgur.com/1atGM14.gif" width="900" />
 
-1. Scroll to **the bottom of the error** looking for a line that says `Caused by` all the way at the bottom of the stack trace block. The "first cause" is the important part of the error, ignore most of the rest of the stack trace.
-2. Find the bottom-most `Caused by` line and also the line that has a blue link with the name of your activity `VideoActivity.java:13`. Copy them onto your clipboard and paste them both into a separate text file for easy review.
+1. Scroll to **the bottom of the error** looking for a line that says `Caused by` all the way at the bottom of the stack trace block. The "original cause" towards the bottom of the block is the important part of the error, ignore most of the rest of the stack trace above that.
+2. Locate that bottom-most `Caused by` line as well as the line that has the blue link with the name of your activity i.e `VideoActivity.java:13`. Copy them onto your clipboard and paste them both into a separate text file for easy review.
 
-In this case the bottom-most "Caused by" line and the adjacent blue file link error copied together looks like:
+In this case the bottom-most "Caused by" line and the adjacent blue file link copied together looks like:
 
 ```
 Caused by: java.lang.NullPointerException: Attempt to invoke virtual method
@@ -75,7 +75,7 @@ Caused by: java.lang.NullPointerException: Attempt to invoke virtual method
       at com.codepath.flixster.VideoActivity.<init>(VideoActivity.java:13)
 ```
 
-Note that the top of the stack trace noting `FATAL EXCEPTION` and the first portion with the `java.lang.RuntimeException` are much more generic and are much less useful than that final bottom-most "Caused by" exception captured above which is the real culprit. 
+Note that the top part of the stack trace block above that line noting `FATAL EXCEPTION` and the first portion with the `java.lang.RuntimeException` are much more generic errors and are less useful than that final bottom-most "Caused by" exception captured above which points to the real culprit.
 
 ### Identify the Exception
 
