@@ -399,5 +399,7 @@ With these tools and the power of Google, you should be well-equipped to debug a
 
 ## References
 
+* <https://developer.android.com/studio/debug/index.html>
+* <http://blog.strv.com/debugging-in-android-studio-as/>
 * <https://www.youtube.com/watch?v=2c1L19ZP5Qg>
 * <https://docs.google.com/presentation/d/1DUigTm6Uh43vatHkB4rFkVVIt1zf7zB7Z5tpGTy2oFY/edit?usp=sharing>
