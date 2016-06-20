@@ -38,6 +38,7 @@ If you are an experienced engineer with 2+ years of professional experience in s
 * [[Getting Started with Android|Beginning Android Resources]] (Detailed Post With Many Links)
 * [Setting up Android Studio](http://goo.gl/X2SVFR) (Installation Slides) or [[Setting up IntelliJ IDEA]]
 * [[Installing a Faster Emulator|Genymotion-2.0-Emulators-with-Google-Play-support]] (Genymotion Guide)
+* [[Running Apps on Your Device]] (Hardware device setup)
 * [Developing our First App Using Android Studio](http://goo.gl/8R7Mty) (Step-by-Step Todo App)
 * [Architecture of Mobile Apps](http://goo.gl/AAsGLx) (Concept Slides)
 * [[Mobile Screen Archetypes]] (Common mobile app screen categories)
