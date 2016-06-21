@@ -60,7 +60,7 @@ Copy your API Key into the meta data for `com.google.android.maps.v2.API_KEY` wi
 
 ## Installing on a Device
 
-If you are **using a physical device**, then you skip this section and go directly to "Run the App" below! You only need this section **if you want to run maps on an emulator**. 
+If you want to run the app **using a physical device**, then check out [[this guide on running apps using your device|Running-Apps-on-Your-Device]] and then skip the rest of this section and go directly to "Run the App" section below! You only need this section **if you want to run maps on an emulator**. 
 
 If you are using Genymotion then see the section below to make sure **you've setup Google Play services**. If you want to use the official emulator, see the "Setup x86-based Emulator" section below. 
 
@@ -86,7 +86,7 @@ This emulator is now configured to run Google Play Services. When you start this
 
 ## Enabling Location on Emulator
 
-If you are using a physical device, you can **skip this section**.
+If you are using a physical device, you can **skip this section**. You only need this section **if you want to run maps and location on an emulator**. 
 
 ### Genymotion GPS
 
