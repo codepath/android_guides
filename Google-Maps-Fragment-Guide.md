@@ -114,7 +114,7 @@ Before running our app, let's **open up the "official Maps" app** on the device 
 
 Now we can finally run our own maps app demo, and if everything goes well we should see:
 
-<img src="http://i.imgur.com/nypUNBK.png" width="500" alt="Demo app" />
+<img src="http://i.imgur.com/PQJhTf7.png" width="400" alt="Demo app" />
 
 **Note:** If you don't see the "Maps" app or the map, you may have not properly installed the Google Play services on the emulator (see instructions in genymotion setup above) or you may need to update the Google Play services on your emulator by following the instructions given in the app.
 
@@ -174,7 +174,6 @@ The simplest fix is described in detail within [this stack overflow post](http:/
 
 1.  Clean your project
 2.  Uninstall your app
-
 
 ### Simulating GPS Locations
 
