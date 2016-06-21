@@ -298,7 +298,7 @@ Note that you **must hide the default title using `setDisplayShowTitleEnabled`**
 
 We can configure the `ToolBar` to react and change as the page scrolls:
 
-![](http://i.imgur.com/TpiuygV.gif)
+![](http://imgur.com/sGltNwr.png)
 
 For example, we can have the toolbar hide when the user scrolls down on a list or expand as the user scrolls to the header. There are many effects that can be configured by using the [[CoordinatorLayout|Handling-Scrolls-with-CoordinatorLayout#expanding-and-collapsing-toolbars]] inside the activity layout XML such as `res/layout/activity_main.xml`:
 
