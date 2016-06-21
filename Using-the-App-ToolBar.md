@@ -328,7 +328,28 @@ For example, we can have the toolbar hide when the user scrolls down on a list o
             android:background="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|enterAlways" />
     </android.support.design.widget.AppBarLayout>
-    
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/my_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+</android.support.design.widget.CoordinatorLayout>
+```
+
+Of course, the `RecyclerView` could also be replaced with a `FrameLayout` which could then allow for fragments to be loaded instead:
+
+```xml
+<android.support.design.widget.CoordinatorLayout
+    android:id="@+id/main_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+   <!-- AppBarLayout and Toolbar as outlined in previous snippet! -->
+
     <!-- FrameLayout can be used to insert fragments to display the content of the screen -->
     <!-- `app:layout_behavior` is set to a pre-defined behavior for scrolling -->
     <FrameLayout
@@ -337,6 +358,7 @@ For example, we can have the toolbar hide when the user scrolls down on a list o
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
     />
+
 </android.support.design.widget.CoordinatorLayout>
 ```
 
