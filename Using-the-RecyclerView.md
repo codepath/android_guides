@@ -530,11 +530,11 @@ ItemClickSupport.addTo(mRecyclerView).setOnItemClickListener(
 );
 ```
 
-Under the covers, this is wrapping the interface pattern described in detail below.
+Under the covers, this is wrapping the interface pattern described in detail below. If you apply this code above, you **don't need to any of the manual item click handling below**. 
 
 #### Simple Click Handler within ViewHolder
 
-RecyclerView does not have special provisions for attaching click handlers to items unlike ListView which has the method `setOnItemClickListener`. To achieve a similar effect, we can attach click events within the `ViewHolder` within our adapter:
+RecyclerView does not have special provisions for attaching click handlers to items unlike ListView which has the method `setOnItemClickListener`. To achieve a similar effect manually (instead of using the decorator utility above), we can attach click events within the `ViewHolder` inside our adapter:
 
 ```java
 public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHolder> {
