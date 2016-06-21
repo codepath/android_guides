@@ -12,9 +12,9 @@ First, let's download and setup the Google Play Services and Google Repository S
 
 ### Import Maps Demo
 
-1. Clone the [Maps Demo Repo](https://github.com/codepath/android-google-maps-demo)
-2. Run `File` ⇒ `Open`, select `android-google-maps-demo`
-3. Make sure you have these dependencies in your `build.gradle` file:
+1. Download the [Maps Demo Repo](https://github.com/codepath/android-google-maps-demo/archive/master.zip) 
+2. Run `File` ⇒ `Open`, select `android-google-maps-demo-master`
+3. Verify sure you have these dependencies listed in your `app/build.gradle` file:
 
 ```gradle
 dependencies {
@@ -22,6 +22,9 @@ dependencies {
     compile 'com.google.android.gms:play-services-location:8.4.0'
 }
 ```
+4. Make sure to select `Build => Clean project` and then `Build => Re-build project` to make any issues with `MapDemoActivityPermissionsDispatcher` in `MapDemoActivity.java` clear up.
+
+Next, we need to get ourselves a maps API key from Google to put into our `AndroidManifest.xml`.
 
 ### Get API Key
 
@@ -33,41 +36,11 @@ Select `Continue` and then `Create a new project`
 
 <img src="https://i.imgur.com/kRJDzk3.png" width="650" />
 
-At this stage, you need to `Add Package Name and Fingerprint`
-
-Open your terminal and execute the following command to generate SHA-1 fingerprint necessary to get your API key from Google.
-
-* On Windows:
-
-  ```
-  "C:\Program Files (x86)\Java\jdk1.7.0_60\bin\keytool.exe" -list -v -keystore "%USERPROFILE%\.android\debug.keystore" -alias androiddebugkey -storepass android -keypass android
-  ```
-
-  or, depending on the installation location of your JDK:
-
-  ```
-  "C:\Program Files\Java\jre7\bin\keytool.exe" -list -v -keystore "%USERPROFILE%\.android\debug.keystore" -alias androiddebugkey -storepass android -keypass android
-  ```
-
-* On Mac or Linux:
-
-  ```
-  keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
-  ```
-
-In the output you can see `SHA1` fingerprint:
-
-![Fingerprint](http://www.androidhive.info/wp-content/uploads/2013/08/android-google-maps-sha-1-fingerprint.png)
-
-Add your package name from your `AndroidManifest.xml` (the demo project is `com.example.mapdemo`) and the `SHA1` fingerprint to the `Google Developers Console` page
-
-<img src="https://i.imgur.com/KofyUk9.png" width="650" />
-
-At this stage you will have your `API Key`
+Now you want to skip optional section on restricting usage and click "Create". At this stage you should have your working `API Key`:
 
 <img src="https://i.imgur.com/mGbpWdN.png" width="650" />
 
-Fill in your API Key into the meta data for `com.google.android.maps.v2.API_KEY` within the **application node** in the `AndroidManifest.xml`:
+Copy your API Key into the meta data for `com.google.android.maps.v2.API_KEY` within the **application node** in the `AndroidManifest.xml` for your app where you see the value `YOUR-API-KEY-HERE`:
 
 ```xml
 <application
@@ -77,14 +50,27 @@ Fill in your API Key into the meta data for `com.google.android.maps.v2.API_KEY`
   </activity>
 
   <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+
   <meta-data
      android:name="com.google.android.maps.v2.API_KEY"
-     android:value="YOUR-KEY-HERE" />
+     android:value="YOUR-API-KEY-HERE" />
 
 </application>
 ```
 
+## Installing on a Device
+
+If you are **using a physical device**, then you skip this section and go directly to "Run the App" below! You only need this section **if you want to run maps on an emulator**. 
+
+If you are using Genymotion then see the section below to make sure **you've setup Google Play services**. If you want to use the official emulator, see the "Setup x86-based Emulator" section below. 
+
+### Installing on Genymotion
+
+See the instructions to [[setup Genymotion|Genymotion 2.0 Emulators-with-Google-Play-support]].  It includes directions for setting Google Play Services and GPS too.  You will need to setup both in order to setup the map demo.
+
 ### Setup x86-based Emulator
+
+**Note:** Skip this step unless you can't run maps on Genymotion or a physical device. 
 
 Open `Android Studio` ⇒ `Tools` ⇒ `Android` ⇒ `Android AVD Manager` and `Create a Virtual Device...`
 
@@ -98,23 +84,39 @@ This emulator is now configured to run Google Play Services. When you start this
 
 <img src="https://i.imgur.com/XOpvoci.png" width="650" alt="FixDisplay" />
 
-### Installing on Genymotion (Optional)
+## Enabling Location on Emulator
 
-See the instructions to [[setup Genymotion|Genymotion 2.0 Emulators-with-Google-Play-support]].  It includes directions for setting Google Play Services and GPS too.  You will need to setup both in order to setup the map demo.
+If you are using a physical device, you can **skip this section**.
 
-### Run App
+### Genymotion GPS
 
-Now we want to run the map demo, and if everything went well we should see:
+Note that you **need to set the location on your emulator** either through Genymotion or on the official emulator. On Genymotion, we can click the GPS icon on the right-hand sidebar and then enable GPS:
+
+<img src="http://i.imgur.com/xha71ga.png" width="350" />
+
+You can enter any lat / lng i.e `37.4810289, -122.1543292`. With GPS enabled, you can now close the dialog and use the "current location" marker on the app to move the map to your device's configured location.
+
+### Official Emulator
+
+If using **the official Google emulator**, we can update the "current location" for the device by clicking the "..." icon (<img src="http://i.imgur.com/ncXZJxz.png" width="30"/>) and then selecting the "Location" tab on the left sidebar:
+
+<img src="http://i.imgur.com/hfZZBQF.png" width="650" alt="Android device monitor" />
+
+You can enter any lat / lng i.e `37.4810289, -122.1543292`. After updating this location, you can use the "current location" marker on the app to move the map to your device's configured location.
+
+## Run the App
+
+Before running our app, let's **open up the "official Maps" app** on the device or emulator to make sure the current location has been configured properly:
+
+<img src="http://i.imgur.com/2IWY4wF.png" width="350" />
+&nbsp;
+<img src="http://i.imgur.com/170keQM.png" width="350" />
+
+Now we can finally run our own maps app demo, and if everything goes well we should see:
 
 <img src="http://i.imgur.com/nypUNBK.png" width="500" alt="Demo app" />
 
-**Note:** If you don't, you may have not properly installed the Google Play services on the emulator (see instructions in genymotion setup above) or you may need to update the Google Play services on your emulator by following the instructions given in the app.
-
-If using **the official Google emulator**, we can update the "current location" for the device using the [Android Device Monitor](http://developer.android.com/tools/help/monitor.html) accessed through `Tools > Android Device Monitor`. Once there, select the emulator on the left-hand side and then switch to the `Emulator Control` tab to enter a GPS [latitude and longitude](http://www.latlong.net/) for a given address:
-
-<img src="http://i.imgur.com/w2uUgrN.png" width="650" alt="Android device monitor" />
-
-After updating the location, you can use the "current location" marker on the app to move the map to your device's configured location.
+**Note:** If you don't see the "Maps" app or the map, you may have not properly installed the Google Play services on the emulator (see instructions in genymotion setup above) or you may need to update the Google Play services on your emulator by following the instructions given in the app.
 
 ### Conclusion
 
