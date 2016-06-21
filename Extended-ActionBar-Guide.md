@@ -315,7 +315,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
     MenuItem searchItem = menu.findItem(R.id.action_search);
     final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
     // Expand the search view and request focus 
-    searchView.expandActionView();
+    searchItem.expandActionView();
     searchView.requestFocus();
 }
 ```
