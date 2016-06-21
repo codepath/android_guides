@@ -124,7 +124,7 @@ At this point, you should have the Google map displaying in your sample applicat
 
 For more information including how to use the maps, check out the source of the [[Maps Usage Cliffnotes|Google-Maps-API-v2-Usage]] as well as this article on [androidhive](http://www.androidhive.info/2013/08/android-working-with-google-maps-v2/).
 
-### Troubleshooting
+## Troubleshooting
 
 Use this checklist for troubleshooting below:
 
