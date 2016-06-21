@@ -340,6 +340,8 @@ Next, inside the activity layout XML such as `res/layout/activity_main.xml`, we 
             app:layout_scrollFlags="scroll|enterAlways" />
     </android.support.design.widget.AppBarLayout>
 
+    <!-- This could also be included from another file using the include tag -->
+    <!-- i.e `res/layout/content_main.xml` -->
     <android.support.v7.widget.RecyclerView
         android:id="@+id/my_recycler_view"
         android:layout_width="match_parent"
@@ -359,7 +361,7 @@ Of course, the `RecyclerView` could also be replaced with a `FrameLayout` which 
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-   <!-- AppBarLayout and Toolbar as outlined in previous snippet! -->
+    <!-- AppBarLayout and Toolbar as outlined in previous snippet! -->
 
     <!-- FrameLayout can be used to insert fragments to display the content of the screen -->
     <!-- `app:layout_behavior` is set to a pre-defined behavior for scrolling -->
