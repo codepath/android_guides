@@ -348,6 +348,7 @@ Next, inside the activity layout XML such as `res/layout/activity_main.xml`, we 
         android:layout_height="match_parent"
         android:clipToPadding="false"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
 </android.support.design.widget.CoordinatorLayout>
 ```
 
