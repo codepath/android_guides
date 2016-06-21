@@ -217,10 +217,17 @@ public class ContactsAdapter extends
 
     // Store a member variable for the contacts
     private List<Contact> mContacts;
+    // Store the context for easy access
+    private Context mContext;
 
     // Pass in the contact array into the constructor
-    public ContactsAdapter(List<Contact> contacts) {
+    public ContactsAdapter(Context context, List<Contact> contacts) {
         mContacts = contacts;
+        mContext = context;
+    }
+
+    private Context getContext() {
+       return mContext;
     }
 }
 ```
