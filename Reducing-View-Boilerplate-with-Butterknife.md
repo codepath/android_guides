@@ -16,7 +16,20 @@ Butterknife is about reducing view boilerplate. [[Dagger 2|Dependency-Injection-
 
 ## Setup
 
-Using Gradle, add the following line to `app/build.gradle` file:
+Using Gradle, add this block to `build.gradle` at the project-level:
+
+```gradle
+buildscript {
+  repositories {
+    mavenCentral()
+   }
+  dependencies {
+    classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+  }
+}
+```
+
+Next, add the following to `app/build.gradle` file:
 
 ```gradle
 apply plugin: 'android-apt'
