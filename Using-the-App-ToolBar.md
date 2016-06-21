@@ -342,6 +342,7 @@ Next, inside the activity layout XML such as `res/layout/activity_main.xml`, we 
 
     <!-- This could also be included from another file using the include tag -->
     <!-- i.e `res/layout/content_main.xml` -->
+    <!-- `app:layout_behavior` is set to a pre-defined standard scrolling behavior -->
     <android.support.v7.widget.RecyclerView
         android:id="@+id/my_recycler_view"
         android:layout_width="match_parent"
