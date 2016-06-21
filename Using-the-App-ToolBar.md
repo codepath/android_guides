@@ -304,7 +304,7 @@ For example, we can have the toolbar hide when the user scrolls down on a list o
 
 ```gradle
 dependencies {
-    ...
+    // ...
     compile 'com.android.support:appcompat-v7:23.1.0'
     compile 'com.android.support:recyclerview-v7:23.1.0'
     compile 'com.android.support:design:23.1.0'
