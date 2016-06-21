@@ -373,17 +373,17 @@ Of course, the `RecyclerView` could also be replaced with a `FrameLayout` which 
 </android.support.design.widget.CoordinatorLayout>
 ```
 
+This type of layout results in the following:
+
+<img src="http://i.imgur.com/xbChjwE.gif" width="400" />
+
 Refer to the [[guide on CoordinatorLayout and AppBarLayout|Handling-Scrolls-with-CoordinatorLayout#expanding-and-collapsing-toolbars]] for additional explanation and specifics. For troubleshooting, refer to this [[troubleshooting guide|Handling-Scrolls-with-CoordinatorLayout#troubleshooting-coordinated-layouts]].
 
-### Animating Toolbar when Scrolling
+### Advanced Scrolling Behavior for Toolbar
 
-One common behavior seen in many modern apps is to hide or show the toolbar or make other changes as the user scrolls through a list:
-
-<img src="http://i.imgur.com/DW2Y8qU.gif" width="250" />
-
-The proper way of reacting to scroll behavior is leveraging the [[CoordinatorLayout|Handling-Scrolls-with-CoordinatorLayout#responding-to-scroll-events]] built into the [[Design Support Library]]. There are a few other relevant resources around reacting to scrolling events:
+The proper way of reacting to simple scroll behavior is leveraging the [[CoordinatorLayout|Handling-Scrolls-with-CoordinatorLayout#responding-to-scroll-events]] built into the [[Design Support Library]] as shown in the previous section. However, there are a few other relevant resources around reacting to scrolling events with a more manual approach:
 
  * [Hiding or Showing Toolbar on Scroll](http://rylexr.tinbytes.com/2015/04/27/how-to-hideshow-android-toolbar-when-scrolling-google-play-musics-behavior/) - Great guide on an alternate strategy not requiring the `CoordinatorLayout` to [replicate the behavior](https://www.youtube.com/watch?time_continue=25&v=z2JyRFpa0Xo) of the "Google Play Music" app. Sample code [can be found here](https://github.com/rylexr/android-show-hide-toolbar/tree/master/app/src/main/java/com/tinbytes/samples/showhidetoolbar).
  * [Hiding or Showing Toolbar using CoordinatorLayout](https://mzgreen.github.io/2015/06/23/How-to-hideshow-Toolbar-when-list-is-scrolling%28part3%29/) - Great guide that outlines how to use `CoordinatorLayout` to hide the Toolbar and the [[FAB|Floating-Action-Buttons]] when the user scrolls.
 
-With these methods, your app can replicate any scrolling behaviors seen in common apps with varying levels of difficulty.
+With these methods, your app can replicate any scrolling behaviors seen in common apps with varying levels of difficulty not captured with the method shown above.
