@@ -12,9 +12,9 @@ To provide the appearance of endless scrolling, it's important to fetch data bef
 
 <a href="http://imgur.com/NRr6dHK.png" target="_blank"><img src="http://imgur.com/NRr6dHK.png"/></a>
 
-## Implementing with ListView 
+## Implementing with ListView and GridView
 
-Every `AdapterView` has support for binding to the `OnScrollListener` events which are triggered whenever a user scrolls through the collection. Using this system, we can define a basic `EndlessScrollListener` which supports most use cases by creating our own class that extends `OnScrollListener`:
+Every `AdapterView` (such as `ListView` and `GridView`) has support for binding to the `OnScrollListener` events which are triggered whenever a user scrolls through the collection. Using this system, we can define a basic `EndlessScrollListener` which supports most use cases by creating our own class that extends `OnScrollListener`:
 
 ```java
 import android.widget.AbsListView; 
