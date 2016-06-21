@@ -300,7 +300,19 @@ We can configure the `ToolBar` to react and change as the page scrolls:
 
 ![](http://imgur.com/sGltNwr.png)
 
-For example, we can have the toolbar hide when the user scrolls down on a list or expand as the user scrolls to the header. There are many effects that can be configured by using the [[CoordinatorLayout|Handling-Scrolls-with-CoordinatorLayout#expanding-and-collapsing-toolbars]] inside the activity layout XML such as `res/layout/activity_main.xml`:
+For example, we can have the toolbar hide when the user scrolls down on a list or expand as the user scrolls to the header. There are many effects that can be configured by using the [[CoordinatorLayout|Handling-Scrolls-with-CoordinatorLayout#expanding-and-collapsing-toolbars]]. First, we need to make sure we add the design support library to our `app/build.gradle` file:
+
+```gradle
+dependencies {
+    ...
+    compile 'com.android.support:appcompat-v7:23.1.0'
+    compile 'com.android.support:recyclerview-v7:23.1.0'
+    compile 'com.android.support:design:23.1.0'
+}
+``` 
+
+
+inside the activity layout XML such as `res/layout/activity_main.xml`:
 
 ```xml
 <!-- CoordinatorLayout is used to create scrolling and "floating" effects within a layout -->
