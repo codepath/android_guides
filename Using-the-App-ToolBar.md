@@ -311,8 +311,7 @@ dependencies {
 }
 ``` 
 
-
-inside the activity layout XML such as `res/layout/activity_main.xml`:
+Next, inside the activity layout XML such as `res/layout/activity_main.xml`, we need to setup our coordinated layout with a `Toolbar` and a scrolling container such as a `RecyclerView`:
 
 ```xml
 <!-- CoordinatorLayout is used to create scrolling and "floating" effects within a layout -->
