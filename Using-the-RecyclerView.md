@@ -261,24 +261,14 @@ public class ContactsAdapter extends
         // Get the data model based on position
         Contact contact = mContacts.get(position);
 
-        // Set item views based on the data model
+        // Set item views based on your views and data model
         TextView textView = viewHolder.nameTextView;
         textView.setText(contact.getName());
-
         Button button = viewHolder.messageButton;
-
-        if (contact.isOnline()) {
-            button.setText("Message");
-            button.setEnabled(true);
-        }
-        else {
-            button.setText("Offline");
-            button.setEnabled(false);
-        }
-
+        button.setText("Message");
     }
 
-    // Return the total count of items
+    // Returns the total count of items in the list
     @Override
     public int getItemCount() {
         return mContacts.size();
