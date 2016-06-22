@@ -84,3 +84,37 @@ Next, if you **don't have the emulator started yet**, be sure to boot the genymo
 Now we need to enable the GPS location on the emulator by **manually selecting a location** on the map:
 
 ![Emulator](https://i.imgur.com/oAdAKA0.png)
+
+## Troubleshooting
+
+### Can't run app on Genymotion emulator
+
+If you are encountering issues with a Genymotion device not being detected inside Android Studio, try the following steps. First, **close all emulators and unplug any devices**. Next, open up the Terminal application on your computer. 
+
+```
+cd ~/Library/Android/sdk/platform-tools/
+./adb kill-server
+killall -9 adb
+./adb kill-server
+```
+
+Open up the Genymotion application and open `Settings => ADB` and then select "Custom SDK tools". Enter your SDK path into the text field: "/Users/[USERNAME]/Library/Android/sdk":
+
+![image](https://i.imgur.com/iGqP85B.png)
+
+Finally, go back to the terminal and run:
+
+```
+cd ~/Library/Android/sdk/platform-tools/
+./adb start-server
+./adb devices
+```
+
+Keep running `./adb devices` until you see a device show up in that list:
+
+```
+List of devices attached
+192.168.57.101:5555	device
+```
+
+That's it!
