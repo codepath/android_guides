@@ -567,7 +567,7 @@ The native date and time pickers for Android are another example of specialized 
 <img src="http://imgur.com/8YqcxA7.png" width="300"/>
 <img src="http://imgur.com/s358M0K.png" width="300"/>
 
-If you wish for the containing activity to receive the date or time selected by the dialog, you should ensure that the Activity implements the respective interface.  For instance, for a date picker fragment, you will want to ensure that the Activity implements the `OnDateSetListener` interface:
+If you wish for the containing activity to receive the date or time selected by the dialog, you should ensure that the Activity implements the respective interface. If we want the date picker to be shown from within another dialog fragment, refer to [[setting a target fragment|Using-DialogFragment#passing-data-to-parent-fragment]]. For instance, for a date picker fragment, you will want to ensure that the activity implements the `OnDateSetListener` interface:
 
 ```java
 public class DatePickerFragment extends DialogFragment {
