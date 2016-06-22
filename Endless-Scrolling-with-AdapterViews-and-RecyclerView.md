@@ -163,55 +163,6 @@ You can refer to this [code sample for usage](https://gist.github.com/nesquena/8
 
 All of the code needed is already incorporated in the `EndlessRecyclerViewScrollListener.java` code snippet above. However, if you wish to understand how the endless scrolling is calculated, the [detailed explanation is available here](https://hackmd.io/s/HyLTXPvH).
 
-### Alternative Methods
-
-Instead of using [EndlessRecyclerViewScrollListener.java](https://gist.github.com/nesquena/d09dc68ff07e845cc622) introduced in the previous section, we can use a simpler and less computational way to implement endless scrolling. We can make use of the following code snippet to achieve endless scrolling:
-
-```java
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
-  EndlessScrollListener endlessScrollListener
-  
-  ...
-  public void setEndlessScrollListener(EndlessScrollListener endlessScrollListener) {
-      this.endlessScrollListener = endlessScrollListener;
-  }
-  
-  @Override
-  public void onBindViewHolder(MyAdapter.ViewHolder holder, int position) {
-      final Data data = dataset.get(position);
-      static final int VISIBLE_THRESHOLD = 5;
-
-      // you can cache getItemCount() in a member variable for more performance tuning
-      if(position == getItemCount() - VISIBLE_THRESHOLD) {  
-          if(endlessScrollListener != null) {
-              endlessScrollListener.onLoadMore(position);
-          }
-      }
-
-      ...
-  }
-  
-  @Override
-  public int getItemCount() {
-      if(dataset == null)
-          return 0;
-      else
-          return dataset.size();
-  }
-  ...
-  
-  public interface EndlessScrollListener {
-      /**
-       * Loads more data.
-       * @param position
-       * @return true loads data actually, false otherwise.
-       */
-      boolean onLoadMore(int position);
-  }
-}
-
-```
-
 ## Troubleshooting
 
 If you are running into problems, please carefully consider the following suggestions:
