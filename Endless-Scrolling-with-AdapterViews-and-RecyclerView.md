@@ -120,9 +120,9 @@ Now as you scroll, items will be automatically filling in because the `onLoadMor
 
 ## Implementing with RecyclerView
 
-We can also use a similar approach with the [[RecyclerView|Using-the-RecyclerView]] by defining an interface `EndlessRecyclerViewScrollListener` that requires an `onLoadMore()` method to be implemented.  The [LayoutManager](http://developer.android.com/reference/android/support/v7/widget/RecyclerView.LayoutManager.html), which is responsible in the RecyclerView for rendering where items should be positioned and manages scrolling, provides information about the current scroll position relative to the adapter.  For this reason, we need to pass an instance of what LayoutManager is being used to collect the necessary information to ascertain when to load more data.  
+We can use a similar approach with the [[RecyclerView|Using-the-RecyclerView]] by defining an interface `EndlessRecyclerViewScrollListener` that requires an `onLoadMore()` method to be implemented.  The [LayoutManager](http://developer.android.com/reference/android/support/v7/widget/RecyclerView.LayoutManager.html), which is responsible in the RecyclerView for rendering where items should be positioned and manages scrolling, provides information about the current scroll position relative to the adapter.  For this reason, we need to pass an instance of what LayoutManager is being used to collect the necessary information to ascertain when to load more data.  
 
-Start by referring to this [code sample for usage](https://gist.github.com/rogerhu/17aca6ad4dbdb3fa5892) and [this code sample](https://gist.github.com/nesquena/d09dc68ff07e845cc622) for the full listener source code. In short endless pagination requires the following steps:
+Implementing endless pagination for `RecyclerView` requires the following steps:
 
 1. Copy over the [EndlessRecyclerViewScrollListener.java](https://gist.github.com/nesquena/d09dc68ff07e845cc622) into your application.
 2. Call `addOnScrollListener(...)` on a `RecyclerView` to enable endless pagination. Pass in an instance of `EndlessRecyclerViewScrollListener` and implement the `onLoadMore` which fires whenever a new page needs to be loaded to fill up the list.
@@ -158,6 +158,8 @@ public class MainActivity extends Activity {
   }
 }
 ```
+
+You can refer to this [code sample for usage](https://gist.github.com/nesquena/8a976dd3d6f866518db2cfe7f9cb0db7) and [this code sample](https://gist.github.com/nesquena/d09dc68ff07e845cc622) for the full endless scroll source code. 
 
 All of the code needed is already incorporated in the `EndlessRecyclerViewScrollListener.java` code snippet above. However, if you wish to understand how the endless scrolling is calculated, the [detailed explanation is available here](https://hackmd.io/s/HyLTXPvH).
 
