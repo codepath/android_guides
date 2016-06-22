@@ -117,4 +117,4 @@ List of devices attached
 192.168.57.101:5555	device
 ```
 
-That's it!
+That's it! Try running the app again.
