@@ -151,15 +151,10 @@ public class MainActivity extends Activity {
 
   // Append more data into the adapter
   // This method probably sends out a network request and appends new data items to your adapter. 
-  public void customLoadMoreDataFromApi(int offset) {
+  public void customLoadMoreDataFromApi(int page) {
       // Send an API request to retrieve appropriate data using the offset value as a parameter.
-      // Deserialize API response and then construct new objects to append to the adapter
-      // Add the new objects to the data source for the adapter
-      items.addAll(moreItems);
-      // For efficiency purposes, notify the adapter of only the elements that got changed
-      // curSize will equal to the index of the first element inserted because the list is 0-indexed
-      int curSize = adapter.getItemCount(); 
-      adapter.notifyItemRangeInserted(curSize, items.size() - 1);
+      //  --> Deserialize API response and then construct new objects to append to the adapter
+      //  --> Notify the adapter of the changes
   }
 }
 ```
