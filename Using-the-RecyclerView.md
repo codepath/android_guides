@@ -296,7 +296,7 @@ public class UserListActivity extends AppCompatActivity {
          // Initialize contacts
          contacts = Contact.createContactsList(20);
          // Create adapter passing in the sample user data
-         ContactsAdapter adapter = new ContactsAdapter(contacts);
+         ContactsAdapter adapter = new ContactsAdapter(this, contacts);
          // Attach the adapter to the recyclerview to populate items
          rvContacts.setAdapter(adapter);
          // Set layout manager to position the items
