@@ -164,8 +164,6 @@ public class ChatApplication extends Application {
 }
 ```
 
-**Note**: make sure to use the extra trailing `/` when using the `.server()` call.  There appears to be a [bug](https://github.com/ParsePlatform/Parse-SDK-Android/issues/393) in the Android SDK that strips the URL without this trailing slash.
-
 The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which is set to this value by default.
 
 ### Troubleshooting Parse Server
@@ -315,8 +313,6 @@ Body : {
 * If GCM is fully setup, your app if properly configured should register itself with your Parse server.  Check your `_Installation` table to verify that the entries were being saved. Clear your app cache or uninstall the app if an entry in the  `_Installation` table hasn't been added.
 
 * Inside your `AndroidManifest.xml` definition, make sure your `gcm_sender_id` is prefixed with `id:` (i.e. `id:123456`).  Parse needs to begin with an `id:` to work correctly.
-
-* Make sure that your SERVER_URL is set on the client side with a trailing '/'.
 
 * You can use this curl command with your application key and master key to send a push to all Android devices:
 
