@@ -74,7 +74,7 @@ Observable<String> myObservable = Observable.create(
 );
 ```
 
-This observable event emits the data "a", "b", "c" and then completes. 
+This observable event emits the data "a", "b", "c" and then completes.
 
 ### Defining Observers
 
@@ -117,7 +117,7 @@ This example would simply print each emitted item and then exit since each item 
 As demonstrated above, an `Observer` watches for result values emitted by the `Observable`.  When these events occur, the role of the subscriber is to respond to these events.  An `Observable` can be created from any type of input.  For instance, an `Observable` can be a set of string items that should be iterated:
 
 ```java
-// `just` generates an observable object that emits each letter and then the stream is completed
+// `just` generates an observable object that emits each letter and then completes the stream
 Observable.just("a", "b", "c")  
 ```
 To implement an observer for these events, the following interface must be defined:
@@ -152,6 +152,8 @@ Observable.just("a", "b", "c").subscribe(new Observer<String>() {
 This example above would simply print each argument ("a", "b", "c") and then exit since each item is invoked with a call to `onNext`. Once all items have been invoked, the `onCompleted` method is called. 
 
 This might seem contrived and not particularly useful in this example but as layers are built on top of these foundations, we begin to see the power of RxJava.
+
+For a complete list of the different ways of creating an `Observbale`, check out this [link](https://github.com/ReactiveX/RxJava/wiki/Creating-Observables).
 
 ### Schedulers
 
