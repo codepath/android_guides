@@ -114,12 +114,28 @@ This example would simply print each emitted item and then exit since each item 
 
 ## Creating Asynchronous Streams
 
-As demonstrated above, an `Observer` watches for result values emitted by the `Observable`.  When these events occur, the role of the subscriber is to respond to these events.  An `Observable` can be created from any type of input.  For instance, an `Observable` can be a set of string items that should be iterated:
+As demonstrated above, an `Observer` watches for result values emitted by the `Observable`.  When these events occur, the role of the subscriber is to respond to these events.  An `Observable` can be created from any type of input.  
+
+Just about anything to be considered an asynchronous stream of data.  For instance, an `Observable` can be a set of string items that should be iterated:
 
 ```java
 // `just` generates an observable object that emits each letter and then completes the stream
-Observable.just("a", "b", "c")  
+Observable.just("a", "b", "c");
 ```
+
+You can create existing arrays as well:
+
+```java
+ArrayList<String> items = new ArrayList();
+items.add("red");
+items.add("orange");
+items.add("yellow");
+
+Observable.from(items);
+```
+
+For a complete list of the different ways of creating an `Observable`, check out this [link](https://github.com/ReactiveX/RxJava/wiki/Creating-Observables).  You can create 
+
 To implement an observer for these events, the following interface must be defined:
 
 ```java
@@ -152,8 +168,6 @@ Observable.just("a", "b", "c").subscribe(new Observer<String>() {
 This example above would simply print each argument ("a", "b", "c") and then exit since each item is invoked with a call to `onNext`. Once all items have been invoked, the `onCompleted` method is called. 
 
 This might seem contrived and not particularly useful in this example but as layers are built on top of these foundations, we begin to see the power of RxJava.
-
-For a complete list of the different ways of creating an `Observbale`, check out this [link](https://github.com/ReactiveX/RxJava/wiki/Creating-Observables).
 
 ### Schedulers
 
