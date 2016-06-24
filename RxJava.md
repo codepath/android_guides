@@ -117,7 +117,7 @@ This example would simply print each emitted item and then exit since each item 
 As demonstrated above, an `Observer` watches for result values emitted by the `Observable`.  When these events occur, the role of the subscriber is to respond to these events.  An `Observable` can be created from any type of input.  For instance, an `Observable` can be a set of string items that should be iterated:
 
 ```java
-// `just` generates an observable object that emits each letter
+// `just` generates an observable object that emits each letter and then the stream is completed
 Observable.just("a", "b", "c")  
 ```
 To implement an observer for these events, the following interface must be defined:
