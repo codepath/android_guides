@@ -507,7 +507,7 @@ recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
 
 #### Attaching Click Listeners with Decorators
 
-Then easiest solution for setting up item click handlers within a `RecyclerView` is to use a decorator class as [outlined in this article](http://www.littlerobots.nl/blog/Handle-Android-RecyclerView-Clicks/). With [this clever `ItemClickSupport` decorator](https://gist.github.com/nesquena/231e356f372f214c4fe6), attaching a click handler can be done with:
+Then easiest solution for setting up item click handlers within a `RecyclerView` is to use a decorator class to manage the item click listener. With [this clever `ItemClickSupport` decorator](https://gist.github.com/nesquena/231e356f372f214c4fe6), attaching a click handler can be done with:
 
 ```java
 ItemClickSupport.addTo(mRecyclerView).setOnItemClickListener(
@@ -520,7 +520,7 @@ ItemClickSupport.addTo(mRecyclerView).setOnItemClickListener(
 );
 ```
 
-Under the covers, this is wrapping the interface pattern described in detail below. If you apply this code above, you **don't need to any of the manual item click handling below**. 
+Under the covers, this is wrapping the interface pattern described in detail below. If you apply this code above, you **don't need to any of the manual item click handling below**. This technique was originally [outlined in this article](http://www.littlerobots.nl/blog/Handle-Android-RecyclerView-Clicks/).
 
 #### Simple Click Handler within ViewHolder
 
