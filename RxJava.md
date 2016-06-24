@@ -441,3 +441,4 @@ For more context, watch this [video talk](https://vimeo.com/144812843).
 * <https://speakerdeck.com/passsy/get-reactive>
 * <http://www.grokkingandroid.com/rxjavas-side-effect-methods/>
 * <http://colintheshots.com/blog/?p=85/>
+* [Dan Lew's talk on common RxJava mistakes](https://www.youtube.com/watch?v=QdmkXL7XikQ&feature=youtu.be&t=35m10s)
