@@ -173,7 +173,7 @@ This might seem contrived and not particularly useful in this example but as lay
 
 RxJava is synchronous by default, but work can be defined asynchronously using schedulers.  For instance, we can define that the network call should be done on a background thread, but the callback should be done on the main UI thread. 
 
-``java
+```java
 Observable.from(Arrays.asList(1,2,3,4,5))
 	.subscribeOn(Schedulers.newThread())
 	.observeOn(AndroidSchedulers.mainThread()))
