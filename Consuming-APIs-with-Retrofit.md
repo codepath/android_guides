@@ -19,8 +19,8 @@ Add the following to your `app/build.gradle` file:
 ```gradle
 dependencies {
     compile 'com.google.code.gson:gson:2.6.2'
-    compile 'com.squareup.retrofit2:retrofit:2.0.2'
-    compile 'com.squareup.retrofit2:converter-gson:2.0.2'  
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'  
 
 }
 ```
@@ -36,9 +36,9 @@ If you intend to use [[RxJava]] with Retrofit 2, you will also need to include t
 
 ```gradle
 dependencies {
-  compile 'io.reactivex:rxjava:1.1.3'
-  compile 'io.reactivex:rxandroid:1.1.0'
-  compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
+  compile 'io.reactivex:rxjava:1.1.6'
+  compile 'io.reactivex:rxandroid:1.2.1'
+  compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
 }
 ```
 
@@ -46,12 +46,12 @@ In the past, Retrofit relied on the [Gson](https://github.com/google/gson) libra
 
 |Converter  | Library             
 |-----------|------------------------------------------------
-|Gson       | com.squareup.retrofit2:converter-gson:2.0.2          
-|Jackson    | com.squareup.retrofit2:converter-jackson:2.0.2         
-|Moshi      | com.squareup.retrofit2:converter-moshi:2.0.2           
-|Protobuf   | com.squareup.retrofit2:converter-protobuf:2.0.2       
-|Wire       | com.squareup.retrofit2:converter-wire:2.0.2           
-|Simple XML | com.squareup.retrofit2:converter-simplexml:2.0.2      
+|Gson       | com.squareup.retrofit2:converter-gson:2.1.0          
+|Jackson    | com.squareup.retrofit2:converter-jackson:2.1.0         
+|Moshi      | com.squareup.retrofit2:converter-moshi:2.1.0           
+|Protobuf   | com.squareup.retrofit2:converter-protobuf:2.1.0       
+|Wire       | com.squareup.retrofit2:converter-wire:2.1.0           
+|Simple XML | com.squareup.retrofit2:converter-simplexml:2.1.0      
 
 ### Create Java Classes for Resources
 
