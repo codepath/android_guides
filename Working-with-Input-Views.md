@@ -95,7 +95,7 @@ and in our activity, we can manage checkboxes using a checked listener with `OnC
 // Fires every time a checkbox is checked or unchecked
 CompoundButton.OnCheckedChangeListener checkListener = new CompoundButton.OnCheckedChangeListener() {
     @Override
-    public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+    public void onCheckedChanged(CompoundButton view, boolean checked) {
         // compoundButton is the checkbox
         // boolean is whether or not checkbox is checked
         // Check which checkbox was clicked
