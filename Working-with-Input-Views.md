@@ -84,7 +84,7 @@ We can access whether or not a checkbox is checked with:
 ```java
 Checkbox checkCheese = (Checkbox) findViewById(R.id.checkbox_cheese);
 // Check if the checkbox is checked
-boolean isChecked = checkCheese.getChecked();
+boolean isChecked = checkCheese.isChecked();
 // Set the checkbox as checked
 checkCheese.setChecked(true);
 ```
