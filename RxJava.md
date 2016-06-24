@@ -173,6 +173,33 @@ This might seem contrived and not particularly useful in this example but as lay
 
 RxJava is synchronous by default, but work can be defined asynchronously using schedulers.  For instance, we can define that the network call should be done on a background thread, but the callback should be done on the main UI thread. 
 
+``java
+Observable.from(Arrays.asList(1,2,3,4,5))
+	.subscribeOn(Schedulers.newThread())
+	.observeOn(AndroidSchedulers.mainThread()))
+	.subscribe(new Subscriber<String>() {
+		@Override
+		public void onCompleted() {
+			//called on completion
+		}
+		
+		@Override
+		public void onError(final Throwable e) {
+			//called when error occurs
+		}
+		
+		@Override
+		public void onNext(final String s) {
+			Log.d("emit", s);
+		}
+	});
+```
+
+Here are the things to note from the example code above:
+* `subscribeOn(Schedulers.newThread())`:  This will make the `Observable` do its background work in a new thread
+* `.observeOn(AndroidSchedulers.mainThread()))`: This makes the subscriber action to execute its result on Android's main UI thread. This is very important especially when change to a UI component needs to be made based on the result.
+* `.subscribe()`: Subscribes an `Observer` to the `Observable`. The `Observers` `onNext` method is called on each emitted item, followed by either `onCompletion` if it runs successfully or `onError` if an error occurs. 
+
 Using schedulers relies on queuing the work through bounded or unbounded thread pools.  Here are a few options available that come with RxJava.  See [this link](http://reactivex.io/RxJava/javadoc/rx/schedulers/Schedulers.html) for all the possible options.  
 
 |  Name                      | Description                                            |
