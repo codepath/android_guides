@@ -101,16 +101,18 @@ CompoundButton.OnCheckedChangeListener checkListener = new CompoundButton.OnChec
         // Check which checkbox was clicked
         switch(view.getId()) {
             case R.id.checkbox_meat:
-                if (checked)
+                if (checked) {
                     // Put some meat on the sandwich
-                else
+                } else {
                     // Remove the meat
+                }
                 break;
             case R.id.checkbox_cheese:
-                if (checked)
+                if (checked) {
                     // Cheese me
-                else
+                } else {
                     // I'm lactose intolerant
+                }
                 break;
           }
     }
