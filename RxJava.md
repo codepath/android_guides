@@ -370,8 +370,7 @@ compile 'com.trello:rxlifecycle:0.4.0'
 compile 'com.trello:rxlifecycle-components:0.4.0'
 ```
 
-RxLifecycle requires subclassing all activities with [RxActivity](https://github.com/trello/RxLifecycle/blob/master/rxlifecycle-components/src/main/java/com/trello/rxlifecycle/components/RxActivity.java).  One issue is that it does not directly from `AppCompatActivity` so you may need to create a similar class that performs this same behavior.
-See [this guide](https://github.com/trello/RxLifecycle#rxlifecycle) for more details.
+RxLifecycle requires subclassing all activities with [RxActivity] (https://github.com/trello/RxLifecycle/blob/master/rxlifecycle-components/src/main/java/com/trello/rxlifecycle/components/RxActivity.java) or [RxAppCompatActivity](https://github.com/trello/RxLifecycle/blob/master/rxlifecycle-components/src/main/java/com/trello/rxlifecycle/components/support/RxAppCompatActivity.java). 
 
 ### Chaining Observables
 
