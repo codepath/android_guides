@@ -123,6 +123,24 @@ Press "Create Pull Request" and then if there's an associated issue then in the 
 
 Tag your team members so they can review your pull request. When you get approval from your team members then merge the pull request back into the mainline.
 
+### Reverting Changes
+
+If you have a commit from the past that is working and you made changes locally and want to revert all of your changes since that commit, you can run:
+
+```
+git reset --hard
+```
+
+If you want to revert your current code to a past commit:
+
+``
+git log
+...find the commit i.e c1fc1c2d1aa1d37c...
+git reset --hard c1fc1c2d1aa1d37c
+```
+
+That it! After running that all of your local uncommitted changes will be reverted.
+
 ## Google Maps Access Across Computers
 
 Often when collaborating on a project with others, you need to have **maps work across multiple computers**. The problem is that the map key fingerprint is different from computer to computer and thus by default maps will only work on the computer that was used to generate the key.
