@@ -133,7 +133,7 @@ git reset --hard
 
 If you want to revert your current code to a past commit:
 
-``
+```
 git log
 ...find the commit i.e c1fc1c2d1aa1d37c...
 git reset --hard c1fc1c2d1aa1d37c
