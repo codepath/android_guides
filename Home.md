@@ -284,6 +284,7 @@ Focused on issues like deployment, dependency management, etc:
 * [[Presenting an Android Device]] (Cast Device to Laptop)
 * [[Recording Video of an Android Device]] 
 * [[Configuring ProGuard]]
+* [[Lambda Expressions]]
 
 ## Contributing 
 
