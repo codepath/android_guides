@@ -57,6 +57,15 @@ android:
      - extra-google-m2repository
 ```
 
+### Lambda expressions support
+
+To add support for [[lambda expressions|Lambda Expressions]], make sure to specify JDK 8 or higher:
+
+```yaml
+jdk:
+  - oraclejdk8
+```
+
 ### Troubleshooting
 
 If you see an error code 137, chances are that the Travis build has ran out of memory trying to load all your dependencies.
