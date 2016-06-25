@@ -82,6 +82,18 @@ retrolambda {
 }
 ```
 
+#### Limitations
+
+* Using the Android lint detector will trigger a `java.lang.UnsupportedOperationException: Unknown ASTNode child: LambdaExpression`.  To get around this [issue](https://github.com/evant/gradle-retrolambda/issues/96), you need to add this third-party package that replaces the parsing engine for Java to support lamda expressions:
+
+```gradle
+buildscript {
+  dependencies {
+     classpath 'me.tatarka.retrolambda.projectlombok:lombok.ast:0.2.3.a2'
+  }
+}
+```
+
 ### Using Jack Toolchain
 
 Android provided a way to use some Java 8 language features including `lambda expressions` in your Android project by enabling the **Jack toolchain**. To do this, edit your module level `build.gradle` file as follows:
