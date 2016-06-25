@@ -106,7 +106,11 @@ Sync your gradle file, if you encounter any build error, you may need to downloa
 
 **Known issues with using the Jack toolchain**
 
-Android studio instant run does not currenty work with Jack and will be disabled while using the new toolchain. Because Jack does not generate intermediate class files when compiling an app, tools that depend on these files for example, Lint detectors, do not currently work with Jack. Also tools like `android-apt` which is required for using `Dagger 2` in your Android project does not currently work with Jack.
+* Android Studio Instant Run does not currently work with Jack and will be disabled while using the new toolchain. 
+
+* Because Jack does not generate intermediate class files when compiling an app, tools that depend on these files for example, lint detectors, do not currently work with Jack. 
+
+* Tools like `android-apt` which is required for using `Dagger 2` in your Android project do not currently work with Jack.
 
 ## Attribution
 
