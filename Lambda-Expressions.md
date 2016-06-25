@@ -45,7 +45,7 @@ Observable.just("Hello RxAndroid")
 
 Make sure you have JDK 8 installed or higher.  Click [here](http://www.oracle.com/technetwork/java/javase/downloads/index.html) in case you need to download it.  If you are using a continuous integration service, you should also make sure to be specifying a JDK 8 environment.
 
-To use Java 8 lambda expressions in your Android code, you can either use the `Gradle Retrolambda` plugin developed by Evan Tatarka or use the new [Android Jack toolchain](https://source.android.com/source/jack.html).  
+To use Java 8 lambda expressions in your Android code, you can either use the [Gradle Retrolambda plugin](https://github.com/evant/gradle-retrolambda) developed by Evan Tatarka or use the new [Android Jack toolchain](https://source.android.com/source/jack.html).  
 
 ### Retrolambda Setup
 
