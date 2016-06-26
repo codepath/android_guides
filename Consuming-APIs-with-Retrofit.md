@@ -175,6 +175,14 @@ We can also add headers as a parameter to the endpoint:
 Call<SomeResponse> someEndpoint(@Header("Cache-Control") int maxAge)
 ```
 
+#### Form data
+
+If we wish to submit form-encoded data, we can use the `FormUrlEncoded` annotation.  The `@Field` annotation will denote what payload will be submitted as form data.
+
+@FormUrlEncoded
+@POST("/some/endpoint")
+Observable<SomeResponse> someEndpoint(@Field("code") String code);
+
 #### Multipart forms
 
 If we need to upload images or files, we need to send by using Multipart forms.  We will to mark the endpoint with `@Multipart`, and label at least one parameter with @Part.
