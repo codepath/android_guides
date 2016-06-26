@@ -25,21 +25,38 @@ Lambda expressions are especially helpful in [[RxJava|RxJava]] as well.  Take a 
 Creating and subscribing to an observable without lambdas:
 
 ```java
-Observable.just("Hello RxAndroid")
-	.subscribe(new Action1<String>() {
-		@Override
-		public void call(String s) {
-			Log.d("Emitted", s);
-		}
-	});
+Observable.just("1", "2", "3")
+          .subscribe(new Subscriber<String>() {
+                         @Override
+                         public void onCompleted() {
+                            Log.d("debug", "complete");
+                         }
+
+                         @Override
+                         public void onError(Throwable throwable) {
+                            Log.d("debug", throwable.getMessage());
+                         }
+
+                         @Override
+                         public void onNext(String s) {
+                            Log.d("debug", s);
+                         }
+                     });
 ```
 
 Consider the same code with lambda expressions:
 
 ```java
-Observable.just("Hello RxAndroid")
-	.subscribe(s -> Log.d("Emitted", s));
+Observable.just("1", "2", "3")
+          .subscribe(
+          value -> Log.d("debug", value),
+          throwable -> Log.d("debug", throwable.getMessage()),
+          () -> Log.d("debug", "complete"));
 ```
+
+Lambda expressions rely on type inference to fill in the blanks.   You can look to the left of Android Studio to see how it is inferring which type to use:
+
+<img src="http://imgur.com/n1RrHpT.png">
 
 ## Setup
 
@@ -94,6 +111,12 @@ buildscript {
 }
 ```
 
+* If you intend to use Retrolambda with ProGuard, make sure to add this line to your configuration.
+
+```
+-dontwarn java.lang.invoke.*
+```
+
 ### Using Jack Toolchain
 
 Android provided a way to use some Java 8 language features including `lambda expressions` in your Android project by enabling the **Jack toolchain**. To do this, edit your module level `build.gradle` file as follows:
@@ -127,3 +150,7 @@ Sync your gradle file, if you encounter any build error, you may need to downloa
 ## Attribution
 
 This guide was originally drafted by [Adegeye Mayowa](https://github.com/mayojava)
+
+## References
+
+* <https://www.captechconsulting.com/blogs/getting-started-with-rxjava-and-android>
