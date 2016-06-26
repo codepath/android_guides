@@ -121,6 +121,12 @@ keep class * implements android.os.Parcelable {
 -keep class org.parceler.Parceler$$Parcels
 ```
 
+#### Retrolambda
+
+```
+-dontwarn java.lang.invoke.*
+```
+
 ### Troubleshooting
 
 If you wish to confirm whether ProGuard is preserving certain annotations or classes, you can review the `.apk` package that gets created to check.  The first step is to download the [dex2jar](http://sourceforge.net/projects/dex2jar/files/) program and use it to decompile the Dalvik code (`.dex` file) to a Java archive file (`.jar` file).  
