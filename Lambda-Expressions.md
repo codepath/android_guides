@@ -12,7 +12,7 @@ myButton.setOnClickListener(new View.OnClickListener() {
 
 ```
 
-With event listeners that only have one method that need to be implemented, lambda expressions can be used to simplify the syntax:
+Lambda expressions can be used to simplify the syntax, especially in cases where event listeners that only have one method that need to be implemented:
 
 ```java
 myButton.setOnClickListener(v -> {
@@ -54,7 +54,7 @@ Observable.just("1", "2", "3")
           () -> Log.d("debug", "complete"));
 ```
 
-Lambda expressions rely on type inference to fill in the blanks. Notice that the right-hand side of the arrow does not require a return statement if you do not surround the block with `{` and `}`.  Also notice that a function with zero or multiple arguments need parenthesis.
+Lambda expressions rely on type inference to fill in the blanks. Notice that the right-hand side of the arrow does not require a return statement if you do not surround the block with `{` and `}`.  Also notice that a function with zero or multiple arguments need parenthesis enclosing them.
 
 You can look to the left of Android Studio to see how it is inferring which type to use:
 
