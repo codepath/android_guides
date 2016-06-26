@@ -186,7 +186,7 @@ Essentially this method is used to enable your code to short-circuit before exec
 
 ### Image Processing
 
-* [AndroidPhotoFilters](https://github.com/zomato/androidphotofilters) - Library to create custom effects on any image
+* [AndroidPhotoFilters](https://github.com/zomato/androidphotofilters) - Library to create interesting effects on any image of your choice. Comes with prebuilt great sample effects.
 * [android-gpuimage](https://github.com/CyberAgent/android-gpuimage) - Popular GPU Image Processing
 * [android-image-filter](https://github.com/ragnraok/android-image-filter) - Older image filtering library
 * [picasso-transformations](https://github.com/wasabeef/picasso-transformations) - Library for processing images via Picasso
