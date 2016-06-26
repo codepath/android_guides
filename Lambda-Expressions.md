@@ -54,7 +54,9 @@ Observable.just("1", "2", "3")
           () -> Log.d("debug", "complete"));
 ```
 
-Lambda expressions rely on type inference to fill in the blanks.   You can look to the left of Android Studio to see how it is inferring which type to use:
+Lambda expressions rely on type inference to fill in the blanks. Notice that the right-hand side of the arrow does not require a return statement if you do not surround the block with `{` and `}`.  Also notice that a function with zero or multiple arguments need parenthesis.
+
+You can look to the left of Android Studio to see how it is inferring which type to use:
 
 <img src="http://imgur.com/n1RrHpT.png">
 
