@@ -134,7 +134,7 @@ If you wish to confirm whether ProGuard is preserving certain annotations or cla
 ```bash
 wget http://sourceforge.net/projects/dex2jar/files/dex2jar-2.0.zip/download -O dex2jar-2.0.zip
 unzip dex2jar-2.0.zip
-chmod u+x ~/projects/dex2jar-2.0/*.sh
+chmod u+x dex2jar-2.0/*.sh
 ./d2j-dex2jar.sh <.apk file>
 ```
 
