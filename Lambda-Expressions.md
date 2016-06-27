@@ -1,6 +1,6 @@
 ### Overview
 
-Java 8 [lambda expressions](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html) help eliminate boilerplate code that makes the syntax verbose and less clear.  For instance, even basic click listeners syntax can be simplified:
+Java 8 [lambda expressions](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html) help eliminate boilerplate code that makes the syntax verbose and less clear.  For instance, consider the standard basic click listener:
 
 ```java
 myButton.setOnClickListener(new View.OnClickListener() {
@@ -12,7 +12,7 @@ myButton.setOnClickListener(new View.OnClickListener() {
 
 ```
 
-Lambda expressions can greatly simplify this code, especially in cases where event listeners that only have one method that need to be implemented:
+Lambda expressions can greatly simplify this code, especially in this case where the event listener has only one method that needs to be implemented:
 
 ```java
 myButton.setOnClickListener(v -> Log.d("debug", "Button clicked"));
