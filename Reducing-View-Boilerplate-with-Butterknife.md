@@ -82,19 +82,20 @@ This can be done within `Activity`, `Fragment`, or `Adapter` classes. For exampl
 public class FancyFragment extends Fragment {
   @BindView(R.id.button1) Button button1;
   @BindView(R.id.button2) Button button2;
+  private Unbinder unbinder;
 
   @Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.fancy_fragment, container, false);
-    ButterKnife.bind(this, view);
+    unbinder = ButterKnife.bind(this, view);
     // TODO Use fields...
     return view;
   }
 
   // When binding a fragment in onCreateView, set the views to null in onDestroyView. 
-  // Butter Knife has an unbind method to do this automatically.
+  // ButterKnife returns an Unbinder on the initial binding that has an unbind method to do this automatically.
   @Override public void onDestroyView() {
     super.onDestroyView();
-    ButterKnife.unbind(this);
+    unbinder.unbind();
   }
 }
 ```
