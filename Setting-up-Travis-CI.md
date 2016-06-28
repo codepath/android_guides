@@ -14,8 +14,9 @@ You simply need to create a `.travis.yml` file in the root directory.  The simpl
 language: android
 android:
   components:
+    - tools
     - platform-tools
-    - build-tools-23.0.1
+    - build-tools-23.0.2
     - android-23
 
 script:
