@@ -611,9 +611,6 @@ The final manifest for this chat application looks like:
         <meta-data
             android:name="com.parse.APPLICATION_ID"
             android:value="{APPLICATION_ID}" />
-        <meta-data
-            android:name="com.parse.CLIENT_KEY"
-            android:value="{CLIENT_KEY}" />
     </application>
 </manifest>
 ```
