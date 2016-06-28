@@ -509,12 +509,12 @@ public class ChatActivity extends AppCompatActivity {
 
 ## 11. Receive Messages
 
-Now we can fetch last 50 messages from parse and bind them to the ListView with the use of our custom messages adapter within `ChatActivity.java`:
+Now we can fetch last 500 messages from parse and bind them to the ListView with the use of our custom messages adapter within `ChatActivity.java`:
 
 ```java
 public class ChatActivity extends AppCompatActivity {
 ...
-    static final int MAX_CHAT_MESSAGES_TO_SHOW = 50;
+    static final int MAX_CHAT_MESSAGES_TO_SHOW = 500;
 ...
     // Query messages from Parse so we can load them into the chat adapter
     void refreshMessages() {
@@ -549,13 +549,13 @@ Now, we should be able to see the messages in the list after posting but we won'
 
 ## 12. Refreshing Messages
 
-Finally, let's periodically refresh the ListView with latest messages [[using a handler|Repeating-Periodic-Tasks#handler]]. The handler will call a runnable to fetch new messages every 100ms. This is a primitive "polling" rather than the more efficient "push" technique for refreshing new messages - but will work for the purposes of this simple project.
+Finally, let's periodically refresh the ListView with latest messages [[using a handler|Repeating-Periodic-Tasks#handler]]. The handler will call a runnable to fetch new messages every 1 second. This is a primitive "polling" rather than the more efficient "push" technique for refreshing new messages - but will work for the purposes of this simple project.
 
 ```java
 ...
 
 // Create a handler which can run code periodically
-static final int POLL_INTERVAL = 100; // milliseconds
+static final int POLL_INTERVAL = 1000; // milliseconds
 Handler mHandler = new Handler();  // android.os.Handler
 Runnable mRefreshMessagesRunnable = new Runnable() {
     @Override
