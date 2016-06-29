@@ -154,7 +154,7 @@ TextView tvUser = (TextView) findViewById(R.id.tvUser);
 tvUser.setText(u.getFirstName() + " " + u.getLastName());
 ```
 
-### Implicit Intents
+## Implicit Intents
 
 Implicit Intents are requests to perform an action based on a desired action and target data. This is in contrast to an explicit intent that targets a specific activity. For example, if I want to make a phone call for the user, that can be done with this intent:
 
