@@ -176,7 +176,31 @@ You can see a list of other [[common implicit intents|Common-Implicit-Intents]].
 
 ### Receiving Implicit Intents
 
-If we wish to receive implicit intents, you need to associate intent filters with your activity.  You can also enable links within a view page to launch your app using [deep links](https://developer.android.com/training/app-indexing/deep-linking.html).  You can also create custom URL schemes (i.e. instead of http:// you can create example://) patterns that are primarily meant to launch your app as well.   
+If we wish to receive implicit intents, you need to associate intent filters with your activity.  You can also enable links within a view page to launch your app using [deep links](https://developer.android.com/training/app-indexing/deep-linking.html).  You can also create custom URL schemes (i.e. instead of http:// you can create example://) patterns that are primarily meant to launch your app as well.  
+
+Make sure to specify `android.intent.category.DEFAULT` category to declare that the activity should receive implicit intents.   Otherwise, the activity can only respond to explicit intents.  You also need to declare what type of implicit intent action to which it responds with the `<action>` tag:
+
+```xml
+<activity
+    android:name="com.codepath.ImplicitIntentActivity"
+    <intent-filter>
+        <action android:name="android.intent.action.SEND"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+    </intent-filter>
+```
+
+If you wish for a web page link to be able to launch the activity, make sure to also specify the BROWSABLE category as well.  You should also specify the `<data>` tag to specify what URL pattern to scan for:
+
+```xml
+    <intent-filter>
+        <action android:name="android.intent.action.SEND"/>
+        <category android:name="android.intent.category.BROWSABLE" />
+        <category android:name="android.intent.category.DEFAULT"/>
+        <data android:scheme="http"
+              android:host="www.codepath.com"
+              android:pathPrefix="/example" />
+    </intent-filter>
+```
 
 You can also use the [DeepLinkDispatch](https://github.com/airbnb/DeepLinkDispatch) library to makes it easy to annotate your activities with specific URL patterns.
 
