@@ -202,6 +202,20 @@ If you wish for a web page link to be able to launch the activity, make sure to 
     </intent-filter>
 ```
 
+Receiving the specific URL being requested entails calling `getData()` on the intent:
+
+```java
+@Override
+public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.main);
+
+    Intent intent = getIntent();
+    String action = intent.getAction();
+    Uri data = intent.getData();
+}
+```
+
 You can also use the [DeepLinkDispatch](https://github.com/airbnb/DeepLinkDispatch) library to makes it easy to annotate your activities with specific URL patterns.
 
 ## References
