@@ -52,7 +52,7 @@ To setup your genymotion emulator [sign up](https://www.genymotion.com/account/l
 
 | Version     | APK Link                                                                          |
 |-------------|:---------------------------------------------------------------------------------:| 406
-|Android 6.0  |1) [gapps-L-4-21-15.zip](https://www.androidfilehost.com/?fid=96042739161891406) 2) [benzo-gapps-M-20151011-signed-chroma-r3.zip](https://www.androidfilehost.com/?fid=24052804347835438)|
+|Android 6.0  |1) [gapps-L-4-21-15.zip](https://www.androidfilehost.com/?fid=96042739161891406) 2) [benzo-gapps-M-20151011-signed-chroma-r3.zip](https://www.androidfilehost.com/?fid=24052804347835438) (See instructions below)|
 |Android 5.0  |[Google Play Services APK](https://www.androidfilehost.com/?fid=95784891001614559) - requires Genymotion 2.4.0+ |
 |Android 4.4.4|[Google Play Services APK](https://www.androidfilehost.com/?fid=23501681358544845)             |
 |Android 4.3  |[Google Play Services APK](https://www.androidfilehost.com/?fid=23060877490000124)     |
