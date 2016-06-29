@@ -174,6 +174,12 @@ startActivity(browserIntent);
 
 You can see a list of other [[common implicit intents|Common-Implicit-Intents]].
 
+### Receiving Implicit Intents
+
+If we wish to receive implicit intents, you need to associate intent filters with your activity.  You can also enable links within a view page to launch your app using [deep links](https://developer.android.com/training/app-indexing/deep-linking.html).  You can also create custom URL schemes (i.e. instead of http:// you can create example://) patterns that are primarily meant to launch your app as well.   
+
+You can also use the [DeepLinkDispatch](https://github.com/airbnb/DeepLinkDispatch) library to makes it easy to annotate your activities with specific URL patterns.
+
 ## References
 
  * <http://developer.android.com/guide/components/intents-filters.html>
