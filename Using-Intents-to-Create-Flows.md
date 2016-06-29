@@ -217,6 +217,8 @@ public void onCreate(Bundle savedInstanceState) {
 }
 ```
 
+You can also receive more complex data types as shown in this [guide](https://developer.android.com/training/sharing/receive.html).
+
 You can also use the [DeepLinkDispatch](https://github.com/airbnb/DeepLinkDispatch) library to makes it easy to annotate your activities with specific URL patterns.
 
 ## References
