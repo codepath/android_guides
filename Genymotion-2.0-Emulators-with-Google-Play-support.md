@@ -52,13 +52,15 @@ To setup your genymotion emulator [sign up](https://www.genymotion.com/account/l
 
 | Version     | APK Link                                                                          |
 |-------------|:---------------------------------------------------------------------------------:| 406
-|Android 6.0  |[Google Play Services APK](https://www.androidfilehost.com/?fid=24052804347835438) - requires Genymotion 2.4.0+ |
+|Android 6.0  |1) [gapps-L-4-21-15.zip](https://www.androidfilehost.com/?fid=96042739161891406) 2) [benzo-gapps-M-20151011-signed-chroma-r3.zip](https://www.androidfilehost.com/?fid=24052804347835438)|
 |Android 5.0  |[Google Play Services APK](https://www.androidfilehost.com/?fid=95784891001614559) - requires Genymotion 2.4.0+ |
 |Android 4.4.4|[Google Play Services APK](https://www.androidfilehost.com/?fid=23501681358544845)             |
 |Android 4.3  |[Google Play Services APK](https://www.androidfilehost.com/?fid=23060877490000124)     |
 
 4. Drag and drop the zip file onto the running Genymotion emulator device
    ![Installing Google Apps APK](https://i.imgur.com/PvGjlyo.png)
+
+   **NOTE**: For Android 6.0, you need to first flash the first .ZIP file.  Then you need to sign-in to your Google account and then flash the second file.  See [these instructions](https://z3ntu.github.io/2015/12/10/play-services-with-genymotion.html) for more details.
 
 5. When asked to flash the device, make sure to proceed with the installation.
    - At this point, 'Google Apps Services' will crash frequently with the message "google play services has stopped working".
