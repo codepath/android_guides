@@ -178,7 +178,8 @@ You can see a list of other [[common implicit intents|Common-Implicit-Intents]].
 
 If we wish to receive implicit intents, you need to associate intent filters with your activity.  You can also enable links within a view page to launch your app using [deep links](https://developer.android.com/training/app-indexing/deep-linking.html).  You can also create custom URL schemes (i.e. instead of http:// you can create example://) patterns that are primarily meant to launch your app as well.  
 
-Make sure to specify `android.intent.category.DEFAULT` category to declare that the activity should receive implicit intents.   Otherwise, the activity can only respond to explicit intents.  You also need to declare what type of implicit intent action to which it responds with the `<action>` tag:
+Make sure to specify `android.intent.category.DEFAULT` category to declare that the activity should receive implicit intents.   Otherwise, the activity can only respond to explicit intents.  You also need to declare what type of implicit intent action to which it responds with the `<action>` tag.  The list of possible actions 
+are shown in the `Standard Activity Actions` section [here](https://developer.android.com/reference/android/content/Intent.html).
 
 ```xml
 <activity
