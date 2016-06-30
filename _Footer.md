@@ -1,1 +1,1 @@
-Created by [CodePath](http://codepath.com) with much help from the community..
+Created by [CodePath](http://codepath.com) with much help from the community.
