@@ -106,6 +106,7 @@ Recording audio is as simple as starting and stopping the `MediaRecorder`:
 ```java
 // File path of recorded audio
 private String mFileName;
+private static final String LOG_TAG = "AudioRecordTest";
 // Verify that the device has a mic first
 PackageManager pmanager = this.getPackageManager();
 if (pmanager.hasSystemFeature(PackageManager.FEATURE_MICROPHONE)) {
@@ -113,7 +114,7 @@ if (pmanager.hasSystemFeature(PackageManager.FEATURE_MICROPHONE)) {
     mFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
     mFileName += "/audiorecordtest.3gp";
     // Create the recorder
-    mediaRecorder = new MediaRecorder();
+    MediaRecorder mediaRecorder = new MediaRecorder();
     // Set the audio format and encoder
     mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
     mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
@@ -121,8 +122,12 @@ if (pmanager.hasSystemFeature(PackageManager.FEATURE_MICROPHONE)) {
     // Setup the output location
     mediaRecorder.setOutputFile(mFileName);
     // Start the recording
-    mediaRecorder.prepare();
-    mediaRecorder.start();
+    try {
+        mediaRecorder.prepare();
+        mediaRecorder.start();
+    } catch (IOException e) {
+        Log.e(LOG_TAG, "prepare() failed");
+    }
 } else { // no mic on device
     Toast.makeText(this, "This device doesn't have a mic!", Toast.LENGTH_LONG).show();
 }
