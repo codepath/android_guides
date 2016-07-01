@@ -320,6 +320,26 @@ public boolean onCreateOptionsMenu(Menu menu) {
 }
 ```
 
+We can customize the search icon and text color with:
+
+```java
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+    // ... lookup the search view
+    MenuItem searchItem = menu.findItem(R.id.action_search);
+    final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+    // Use a custom search icon for the SearchView in AppBar
+    int searchImgId = android.support.v7.appcompat.R.id.search_button; 
+    ImageView v = (ImageView) searchView.findViewById(searchImgId);
+    v.setImageResource(R.drawable.search_btn);
+    // Customize searchview text and hint colors
+    int searchEditId = android.support.v7.appcompat.R.id.search_src_text;
+    EditText et = (EditText) searchView.findViewById(searchEditId);
+    et.setTextColor(Color.BLACK);
+    et.setHintTextColor(Color.BLACK);
+}
+```
+
 See [this writeup](http://antonioleiva.com/actionbarcompat-action-views/) for details on the compatibility action views outlined above. For more advanced searching functionality, check out the [Creating a Search Interface](http://developer.android.com/guide/topics/search/search-dialog.html) guide.
 
 Refer to [this tutorial](http://ramannanda.blogspot.com/2014/10/android-searchview-integration-with.html) for a guide on how to **add autocomplete to your searchview** in the actionbar.
