@@ -223,7 +223,29 @@ You can also receive more complex data types as shown in this [guide](https://de
 
 You can also use the [DeepLinkDispatch](https://github.com/airbnb/DeepLinkDispatch) library to makes it easy to annotate your activities with specific URL patterns.
 
-If you wish for the links to launch your app directly with Marshmallow devices or higher, you can also use the set `android:autoVerify` on the intent filter and host an `assetlinks.json` file hosted at `https://domain[:optional_port]/.well-known/assetlinks.json` that includes info about the app's signing certificate signature.  See [this guide](https://developer.android.com/training/app-links/index.html) for more details.
+If you wish for the links to launch your app directly with Marshmallow devices or higher, you can also use the set `android:autoVerify` on the intent filter:
+
+```
+<intent-filter android:autoVerify="true">
+
+</intent>
+```
+
+You would then need to host an `assetlinks.json` file at `https://domain[:optional_port]/.well-known/assetlinks.json` that uses the following format:
+
+```
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.mycompany.app1",
+    "sha256_cert_fingerprints":
+    ["14:6D:E9:83:C5:73:06:50:D8:EE:B9:95:2F:34:FC:64:16:A0:83:42:E6:1D:BE:A8:8A:04:96:B2:3F:CF:44:E5"]
+  }
+}]
+```
+
+The `sha256_cert_fingerprints` comes from the app signing certificate by typing `keytool -list -v -keystore my-release-key.keystore`.  The package name should correspond to your app's package name.  See [this guide](https://developer.android.com/training/app-links/index.html) for more details.
 
 ## References
 
