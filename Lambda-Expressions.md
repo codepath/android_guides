@@ -14,7 +14,7 @@ myButton.setOnClickListener(new View.OnClickListener() {
 Lambda expressions can greatly simplify this code, especially in this case where the event listener has only one method that needs to be implemented:
 
 ```java
-myButton.setOnClickListener(v -> Log.d("debug", "Button clicked"));
+myButton.setOnClickListener(v -> { Log.d("debug", "Button clicked"); });
 ```
 
 Lambda expressions are especially helpful in [[RxJava|RxJava]] as well.  Take a look at the code below for creating an Observable and subscribing an Observer to it.
