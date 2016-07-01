@@ -223,9 +223,12 @@ You can also receive more complex data types as shown in this [guide](https://de
 
 You can also use the [DeepLinkDispatch](https://github.com/airbnb/DeepLinkDispatch) library to makes it easy to annotate your activities with specific URL patterns.
 
+If you wish for the links to launch your app directly with Marshmallow devices or higher, you can also use the set `android:autoVerify` on the intent filter and host an `assetlinks.json` file hosted at `https://domain[:optional_port]/.well-known/assetlinks.json` that includes info about the app's signing certificate signature.  See [this guide](https://developer.android.com/training/app-links/index.html) for more details.
+
 ## References
 
  * <http://developer.android.com/guide/components/intents-filters.html>
  * <http://developer.android.com/reference/android/content/Intent.html>
  * <http://www.vogella.com/articles/AndroidIntent/article.html>
  * [[Common Implicit Intents|Common-Implicit-Intents]]
+ * <https://developer.android.com/training/app-links/index.html>
