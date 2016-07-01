@@ -4,12 +4,11 @@ Java 8 [lambda expressions](https://docs.oracle.com/javase/tutorial/java/javaOO/
 
 ```java
 myButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Log.d("debug", "Button clicked");
-                    }
-                });
-
+    @Override
+    public void onClick(View v) {
+        Log.d("debug", "Button clicked");
+    }
+});
 ```
 
 Lambda expressions can greatly simplify this code, especially in this case where the event listener has only one method that needs to be implemented:
