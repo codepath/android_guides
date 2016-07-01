@@ -227,7 +227,7 @@ You can also use the [DeepLinkDispatch](https://github.com/airbnb/DeepLinkDispat
 
 If you wish for your app to be considered the default handler for a link (only works for Android Marshmallow devices and higher), you can leverage the new feature by setting `android:autoVerify` on the intent filter:
 
-```
+```xml
 <intent-filter android:autoVerify="true">
 
 </intent>
@@ -235,7 +235,7 @@ If you wish for your app to be considered the default handler for a link (only w
 
 You would then need to host an `assetlinks.json` file at `https://domain[:optional_port]/.well-known/assetlinks.json` that uses the following format:
 
-```
+```javascript
 [{
   "relation": ["delegate_permission/common.handle_all_urls"],
   "target": {
