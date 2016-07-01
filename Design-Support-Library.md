@@ -92,8 +92,8 @@ Finally, the libraries need to be added:
 
 ```gradle
 dependencies {
-    compile 'com.android.support:support-vector-drawable:${supportLibVersion}' // VectorDrawableCompat 
-    compile 'com.android.support:animated-vector-drawable:${supportLibVersion}' // AnimatedVectorDrawableCompat
+    compile "com.android.support:support-vector-drawable:${supportLibVersion}" // VectorDrawableCompat 
+    compile "com.android.support:animated-vector-drawable:${supportLibVersion}" // AnimatedVectorDrawableCompat
 }
 ```
 
