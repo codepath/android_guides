@@ -320,7 +320,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
 }
 ```
 
-We can customize the search icon and text color with:
+We can customize the search icon and text color with [this approach with styles](http://stackoverflow.com/a/26897024) or the Java code below:
 
 ```java
 @Override
