@@ -223,7 +223,9 @@ You can also receive more complex data types as shown in this [guide](https://de
 
 You can also use the [DeepLinkDispatch](https://github.com/airbnb/DeepLinkDispatch) library to makes it easy to annotate your activities with specific URL patterns.
 
-If you wish for the links to launch your app directly with Marshmallow devices or higher, you can also use the set `android:autoVerify` on the intent filter:
+### Default link handling
+
+If you wish for your app to be considered the default handler for a link (only works for Android Marshmallow devices and higher), you can leverage the new feature by setting `android:autoVerify` on the intent filter:
 
 ```
 <intent-filter android:autoVerify="true">
@@ -246,6 +248,14 @@ You would then need to host an `assetlinks.json` file at `https://domain[:option
 ```
 
 The `sha256_cert_fingerprints` comes from the app signing certificate by typing `keytool -list -v -keystore my-release-key.keystore`.  The package name should correspond to your app's package name.  See [this guide](https://developer.android.com/training/app-links/index.html) for more details.
+
+You can check to see if this file is hosted properly by checking this URL:
+
+```
+https://digitalassetlinks.googleapis.com/v1/statements:list?
+   source.web.site=https://<domain1>:<port>&
+   relation=delegate_permission/common.handle_all_urls
+```
 
 ## References
 
