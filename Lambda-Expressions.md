@@ -14,8 +14,33 @@ myButton.setOnClickListener(new View.OnClickListener() {
 Lambda expressions can greatly simplify this code, especially in this case where the event listener has only one method that needs to be implemented:
 
 ```java
-myButton.setOnClickListener(v -> { Log.d("debug", "Button clicked"); });
+myButton.setOnClickListener(v -> Log.d("debug", "Button clicked"); );
 ```
+
+If you have more than one line to execute, then you should surround the block of code with braces:
+
+```java
+myButton.setOnClickListener(v -> { 
+  Log.d("debug", "Button clicked"); 
+  Toast.makeText(MyActivity.this, "here", Toast.LENGTH_LONG).show();
+});
+```
+
+### Method References
+
+You may also notice in some cases lambda expressions also contain double colons `::`.  These refer to a new syntax in Java 8 known as [method references](http://baddotrobot.com/blog/2014/02/18/method-references-in-java8/).  You can reference a class or instance and pass along the method that will handle the click event:
+
+```java
+public void onCreate() { 
+   myButton.setOnClickListener(this::logError);
+}
+
+public void logError(View v) {
+Log.d("debug", "Button clicked"); 
+}
+```
+
+### RxJava
 
 Lambda expressions are especially helpful in [[RxJava|RxJava]] as well.  Take a look at the code below for creating an Observable and subscribing an Observer to it.
 
@@ -100,6 +125,14 @@ retrolambda {
     jdk '/path/to/java-8/jdk'
 }
 ```
+
+### Converting Lambda Expressions with Android Studio
+
+If you wish to convert your code to lambda expressions, move your cursor to the slightly greyed out section of your anonymous class and look on the left-hand side of the Android Studio editor for the light bulb:
+
+<img src="http://imgur.com/KDzMS8l.png"/>
+
+Once you see the `Replace with lambda` appear, you can also apply `Fix all` click on the left-hand side to convert all the possible candidates automatically:
 
 #### Limitations
 
