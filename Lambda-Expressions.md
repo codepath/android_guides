@@ -86,7 +86,7 @@ You can look to the left of Android Studio to see how it is inferring which type
 
 Make sure you have JDK 8 installed or higher.  Click [here](http://www.oracle.com/technetwork/java/javase/downloads/index.html) in case you need to download it.  If you are using a continuous integration service, you should also make sure to be specifying a JDK 8 environment.
 
-To use Java 8 lambda expressions in your Android code, you can either use the [Gradle Retrolambda plugin](https://github.com/evant/gradle-retrolambda) developed by Evan Tatarka or use the new [Android Jack toolchain](https://source.android.com/source/jack.html).  
+To use Java 8 lambda expressions in your Android code, you can either use the [Gradle Retrolambda plugin](https://github.com/evant/gradle-retrolambda) developed by Evan Tatarka or use the new [Android Jack toolchain](https://source.android.com/source/jack.html).    The former is recommended until the Jack toolchain can be finalized to include annotation support.
 
 ### Retrolambda Setup
 
@@ -180,7 +180,7 @@ Sync your gradle file, if you encounter any build error, you may need to downloa
 
 * Because Jack does not generate intermediate class files when compiling an app, tools that depend on these files for example, lint detectors, do not currently work with Jack. 
 
-* Tools like `android-apt` which is required for using `Dagger 2` in your Android project do not currently work with Jack.
+* Annotation support for libraries such as [[Dagger 2|Dependency-Injection-with-Dagger-2]] to show you in your Android project may not work with Jack.  The most recent experimental releases are starting to add [this support](http://stackoverflow.com/questions/31789967/new-jack-toolchain-crashes-when-using-android-apt-plugin).
 
 ## Attribution
 
