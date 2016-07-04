@@ -28,7 +28,7 @@ myButton.setOnClickListener(v -> {
 
 ### Method References
 
-You may also notice in some cases lambda expressions also contain double colons `::`.  These refer to a new syntax in Java 8 known as [method references](http://baddotrobot.com/blog/2014/02/18/method-references-in-java8/).  You can reference a class or instance and pass along the method that will handle the click event:
+You may also notice in some cases lambda expressions also contain double colons `::`.  These refer to a new syntax in Java 8 known as [method references](http://baddotrobot.com/blog/2014/02/18/method-references-in-java8/).  You can reference a class or instance and pass along the method that will handle the event:
 
 ```java
 public void onCreate() { 
@@ -36,7 +36,7 @@ public void onCreate() {
 }
 
 public void logError(View v) {
-Log.d("debug", "Button clicked"); 
+  Log.d("debug", "Button clicked"); 
 }
 ```
 
