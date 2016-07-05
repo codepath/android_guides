@@ -35,7 +35,26 @@ The `try/catch` block is necessary because the user may not have the Play Store 
 
 ## Automatic Rate Me Prompts
 
-For this method, we make use of the open source library [AppRate](https://github.com/TimotheeJeannin/AppRate). Download this [jar](https://github.com/TimotheeJeannin/AppRate/raw/master/AppRateDownloads/AppRate_1.1.jar) and place it in your `libs` folder. In the `onCreate` method of your `MAIN` activity, place the codeblock to launch the prompt:
+For this method, we make use of the open source library [AppRate](https://github.com/MSF-Jarvis/AppRate), which is an updated fork of the three year old original [here](https://github.com/TimotheeJeannin/AppRate). Add the gradle dependencies like this : 
+
+*In your root build.gradle*
+```
+allprojects {
+        repositories {
+            ...
+            maven { url "https://jitpack.io" }
+        }
+    }
+```
+
+*Now add the dependency*
+```
+dependencies {
+            compile 'com.github.MSF-Jarvis:AppRate:-SNAPSHOT'
+    }
+```
+
+Then run a gradle sync and you are good to go. In the `onCreate` method of your `MAIN` activity, place the codeblock to launch the prompt:
 
 ```java
 new AppRate(this).init();
@@ -43,7 +62,7 @@ new AppRate(this).init();
 
 The key difference between this method and the manual method is that this one launches a prompt, and only when the user clicks on the positive action in that prompt will they be sent to the Play Store to rate your app.
 
-The above codeblock will launch the prompt as soon as they open your app, which is generally not the desired behavior. You'll most likely want to customize when your prompt occurs. Thankfully, most of the public methods for the [AppRate](https://github.com/TimotheeJeannin/AppRate) object return itself, so you can chain the methods together to easily customize the prompt. The following setup is recommended:
+The above codeblock will launch the prompt as soon as they open your app, which is generally not the desired behavior. You'll most likely want to customize when your prompt occurs. Thankfully, most of the public methods for the [AppRate](https://github.com/MSF-Jarvis/AppRate) object return itself, so you can chain the methods together to easily customize the prompt. The following setup is recommended:
 
 ```java
 new AppRate(this)
@@ -53,9 +72,9 @@ new AppRate(this)
     .init()
 ```
 
-This will not launch the prompt until 7 days have passed and the user has launched the app a minimum of 20 times. Additionally, if the app has crashed at any point before then, the prompt will not launch, even if the other two criteria are met. More information on how to set up the prompt can be found in this [README](https://github.com/TimotheeJeannin/AppRate/blob/master/README.md).
+This will not launch the prompt until 7 days have passed and the user has launched the app a minimum of 20 times. Additionally, if the app has crashed at any point before then, the prompt will not launch, even if the other two criteria are met. More information on how to set up the prompt can be found in this [README](https://github.com/MSF-Jarvis/AppRate/blob/master/README.md).
 
 ## References
 
- * <https://github.com/TimotheeJeannin/AppRate>
+ * <https://github.com/MSF-Jarvis/AppRate>
  * <http://stackoverflow.com/questions/11753000/how-to-open-the-google-play-store-directly-from-my-android-application>
