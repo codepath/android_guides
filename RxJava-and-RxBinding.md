@@ -110,7 +110,7 @@ RxTextView.textChanges(searchTextView)
 	.subscribe(/* attach observer */);
 ```
 
-The `filter` operation will only trigger if there is more than 2 characters, the `debounce` operation will filter multiple events that occur within 100 ms, and the `flatMap` operation will return an API response to make the API call.
+The `filter` operation will only trigger if there is more than 2 characters, the `debounce` operation will filter multiple events that occur within 100 ms, and the `flatMap` operation will return an API response in the form of another `Observable` to make the API call.
 
 ## Attribution
 
