@@ -1,6 +1,6 @@
 ## Overview
 
-One of the benefits of using [[RxJava|RxJava]] is the ability to compose asynchronous events in a more straightforward way.  Complex UI interactions in Android can also be greatly simplified too, especially when there are multiple UI events that can trigger.  To describe the interaction pattern with standard Android code, you would usually need to use a combination of both `listeners`, `Handlers` and `AsyncTask` (see [this ebook](http://www.oreilly.com/programming/free/files/rxjava-for-android-app-development.pdf)) for an example.  With `RxJava` and `RxBinding`, this logic can be greatly simplified and you can describe the interaction patterns between multiple UI components.
+One of the benefits of using [[RxJava|RxJava]] is the ability to compose asynchronous events in a more straightforward way.  Complex UI interactions in Android can also be greatly simplified too, especially when there are multiple UI events that can trigger.  To describe the interaction pattern with standard Android code, you would usually need to use a combination of both `listeners`, `Handlers` and `AsyncTask` (see [this ebook](http://www.oreilly.com/programming/free/files/rxjava-for-android-app-development.pdf) for an example).  With `RxJava` and `RxBinding`, this logic can be greatly simplified and you can describe the interaction patterns between multiple UI components.
 
 ## Setup
 
