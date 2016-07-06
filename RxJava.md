@@ -423,7 +423,7 @@ public void onPause() {
 ```
 Once a `clear()` call is made, the `CompositeSubscription` [can be reused](https://github.com/ReactiveX/RxJava/commit/4c33811a4de52887d99a44ef7494c121edc69c36).  
 
-#### RxBinding
+### RxBinding
 
 See [[this guide|RxJava-and-RxBinding]] on how to implement RxJava with Android views.   The RxBinding library simply implements `Observable` events for many standard Android views, making it easier to turn your UI events to leverage reactive-based programming.
 
