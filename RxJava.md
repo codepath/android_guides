@@ -275,7 +275,7 @@ Subscription subscription = getImageNetworkCall()
 
 Using this combination of `Observable`, `Subscriber` and thread scheduling, we can see the power of `RxJava`. But there's a lot more that can be done.  
 
-### Using RxJava with Retrofit
+## Using RxJava with Retrofit
 
 RxJava can be used with Retrofit to provide the ability to chain multiple network calls.   It also provides a basic abstraction for surfacing errors if one of these network calls should fail.  The section below shows you how to setup Retrofit with RxJava.
 
@@ -366,7 +366,7 @@ connectedObservable.observeOn(AndroidSchedulers.mainThread()).subscribe(observer
 connectedObservable.connect();
 ```
 
-#### Hot to Cold Observables
+### Hot to Cold Observables
 
 You can also turn a hot observable back to a cold observable by using `autoConnect()`.  Instead of needing to call an explicit `connect()` and passing around `ConnectedObservable` types, you can use this approach to enable the next subscriber to trigger a network request upon the next subscription:
 
@@ -387,7 +387,7 @@ The flexibility in being able to schedule observables on different threads and h
 
 An observer that is created within an Activity or Fragment therefore can hold a reference that will be unable to be garbage collected if the observable is still running.  There are several different approaches suggested.  Both approaches attempt to manage the subscriptions created from attaching an observer to an observable and canceling them when a lifecycle event occurs.
 
-#### Composite Subscriptions
+### Composite Subscriptions
 
 One of the simplest approach is to simply instantiate a CompositeSubscription object inside your Activity or Fragment. 
  
@@ -427,7 +427,7 @@ Once a `clear()` call is made, the `CompositeSubscription` [can be reused](https
 
 See [[this guide|RxJava-and-RxBinding]] on how to implement RxJava with Android views.   The RxBinding library simply implements `Observable` events for many standard Android views, making it easier to turn your UI events to leverage reactive-based programming.
 
-#### RxLifecycle
+### RxLifecycle
 
 There is also a library called [RxLifecycle](https://github.com/trello/RxLifecycle) which provides support for managing the lifecycle of activities and fragments.  In the past [RxAndroid](https://github.com/ReactiveX/RxAndroid/wiki) provided this support with `AndroidObservables`, but a decision was made to simplify the library.  See this [release note](https://github.com/ReactiveX/RxAndroid/releases/tag/v1.0.0) for more context.
 
