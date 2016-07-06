@@ -184,7 +184,7 @@ Sync your gradle file, if you encounter any build error, you may need to downloa
 
 ## Attribution
 
-This guide was originally drafted by [Adegeye Mayowa](https://github.com/mayojava)
+This guide was originally drafted by [Adegeye Mayowa](https://github.com/mayojava).
 
 ## References
 
