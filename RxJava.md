@@ -98,44 +98,6 @@ Observer<String> mySubscriber = new Observer<String>() {
 
 ### Subscribing to Observables
 
-An `Observer` can be attached to an `Observable` in order to respond to emitted data with:
-
-```java
-// Attaches the subscriber above to the observable object
-myObservable.subscribe(mySubscriber);
-// Outputs:
-// onNext: "a"
-// onNext: "b"
-// onNext: "c"
-// done!
-```
-
-This example would simply print each emitted item and then exit since each item is invoked with a call to `onNext`. Once all items have been invoked, the `onCompleted` method of the `Observer` is called. 
-
-## Creating Asynchronous Streams
-
-As demonstrated above, an `Observer` watches for result values emitted by the `Observable`.  When these events occur, the role of the subscriber is to respond to these events.  An `Observable` can be created from any type of input.  
-
-Just about anything to be considered an asynchronous stream of data.  For instance, an `Observable` can be a set of string items that should be iterated:
-
-```java
-// `just` generates an observable object that emits each letter and then completes the stream
-Observable.just("a", "b", "c");
-```
-
-You can create existing arrays as well:
-
-```java
-ArrayList<String> items = new ArrayList();
-items.add("red");
-items.add("orange");
-items.add("yellow");
-
-Observable.from(items);
-```
-
-For a complete list of the different ways of creating an `Observable`, check out this [link](https://github.com/ReactiveX/RxJava/wiki/Creating-Observables).  You can create 
-
 To implement an observer for these events, the following interface must be defined:
 
 ```java
@@ -168,6 +130,63 @@ Observable.just("a", "b", "c").subscribe(new Observer<String>() {
 This example above would simply print each argument ("a", "b", "c") and then exit since each item is invoked with a call to `onNext`. Once all items have been invoked, the `onCompleted` method is called. 
 
 This might seem contrived and not particularly useful in this example but as layers are built on top of these foundations, we begin to see the power of RxJava.
+
+An `Observer` can be attached to an `Observable` in order to respond to emitted data with:
+
+```java
+// Attaches the subscriber above to the observable object
+myObservable.subscribe(mySubscriber);
+// Outputs:
+// onNext: "a"
+// onNext: "b"
+// onNext: "c"
+// done!
+```
+
+This example would simply print each emitted item and then exit since each item is invoked with a call to `onNext`. Once all items have been invoked, the `onCompleted` method of the `Observer` is called. 
+
+### Other ways to create Observables
+
+As demonstrated above, an `Observer` watches for result values emitted by the `Observable`.  When these events occur, the role of the subscriber is to respond to these events.  An `Observable` can be created from any type of input.  
+
+Just about anything to be considered an asynchronous stream of data.  For instance, an `Observable` can be a set of string items that should be iterated:
+
+```java
+// `just` generates an observable object that emits each letter and then completes the stream
+Observable.just("a", "b", "c");
+```
+
+You can create existing arrays as well:
+
+```java
+ArrayList<String> items = new ArrayList();
+items.add("red");
+items.add("orange");
+items.add("yellow");
+
+Observable.from(items);
+```
+
+If you are trying to convert internal code into Observables, consider using `Observable.defer()` instead, especially for code that may cause your code to block the thread:
+
+```java
+private Object slowBlockingMethod() { ... }
+
+public Observable<Object> newMethod() {
+    return Observable.just(slowBlockingMethod()); // slow blocking method will be invoked when created
+}
+```
+
+Instead, we should use `defer()` to create the observable going:
+
+```java
+public Observable<Object> newMethod() {
+    return Observable.defer(() -> Observable.just(slowBlockingMethod()));
+}
+```
+
+See [this blog post](http://blog.danlew.net/2014/10/08/grokking-rxjava-part-4/#oldslowcode) for more details.
+For a complete list of the different ways of creating an `Observable`, check out this [link](https://github.com/ReactiveX/RxJava/wiki/Creating-Observables).  
 
 ### Schedulers
 
@@ -442,3 +461,4 @@ For more context, watch this [video talk](https://vimeo.com/144812843).
 * <http://www.grokkingandroid.com/rxjavas-side-effect-methods/>
 * <http://colintheshots.com/blog/?p=85/>
 * [Dan Lew's talk on common RxJava mistakes](https://www.youtube.com/watch?v=QdmkXL7XikQ&feature=youtu.be&t=35m10s)
+* <http://blog.danlew.net/2014/10/08/grokking-rxjava-part-4/#oldslowcode>
