@@ -45,6 +45,8 @@ dependencies {
 }
 ```
 
+If you plan to use RxJava, it is highly recommended that you setup [[lambda expressions|Lambda Expressions]] to reduce the verbose syntax usually needed.  The guide includes instructions about how to update your existing Android Studio projects to leverage it.
+
 ## Observables and Observers
 
 The basic building blocks of reactive code are `Observables` and `Observers`. An `Observable` emits items; an `Observer` consumes those items. An `Observable` **may emit any number of items** (including zero items), then it terminates either by successfully completing, or due to an error. 
