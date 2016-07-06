@@ -261,6 +261,8 @@ Covers usage of more advanced third-party libraries and SDKs that save time and 
 * [[Reducing View Boilerplate with Butterknife]] (View Annotations)
 * [[Communicating with an Event Bus]] (Using EventBus to publish and receive events)
 * [[Using Parceler]] (Creating Parcelable objects)
+* [[RxJava Intro|RxJava]] (Intro to Reactive programming)
+* [[RxJava and RxBinding]] (Reactive programming with Android views)
 
 ## Production
 
