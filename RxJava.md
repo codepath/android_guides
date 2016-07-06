@@ -381,6 +381,28 @@ Observer<User> observer3 = new Observer<User>() {
 observable.subscribe(observer3);
 ```
 
+#### Handling Configuration Changes
+
+If an `Activity` is destroyed because of a change in screen orientation, the `Observable` will fire again in `onCreate()` and this will result in duplication of work because the same API call will be made again and all progress made initially will be lost. To solve this problem, you need to first store a reference to the `Observable` by using singletons or using [[retained fragments|Handling-Configuration-Changes#retaining-fragments]] and use the `cache()` operator:
+
+```java
+Observable<User> call = apiService.getUser(username).cache();
+```
+
+Future observers will get the previous emitted items from the Observables as soon as it subscribes:
+
+```java
+Subscription subscription = observable.subscribe(observer1);
+```
+
+If you wish to have more granular control over the buffer size or time span in which cached events will be emitted, you should use the `replay()` operator:
+
+```java
+ConnectableObservable<User> call = apiService.getUser(username).replay(10, TimeUnit.MINUTES);
+```
+
+Also note that the `replay()` turns the observable into a cold observable, which will not emit events until `connect()` is called.
+
 ### Avoiding Memory Leaks
 
 The flexibility in being able to schedule observables on different threads and have them operate as long-running tasks can make it easy to contribute the memory leaks.  One of the reasons is that observers are often created with anonymous classes.  In Java, creating anonymous classes requires the inner class retaining an instance to the containing class as discussed in this [Stack Overflow article](http://stackoverflow.com/questions/5054360/do-anonymous-classes-always-maintain-a-reference-to-their-enclosing-instance).  
