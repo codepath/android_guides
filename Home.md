@@ -96,6 +96,7 @@ Exploring the gritty details of views, layout, styling and common UI patterns:
 * [[Working with the Soft Keyboard]]
 * [[Working with the WebView]]
 * [[Working with the ScrollView]]
+* [[Applying Data Binding for Views]] (Data binding library)
 
 ### Designing and Styling Views
 
