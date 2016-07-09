@@ -25,6 +25,7 @@ Clean architecture:
 
 MVP Pattern:
 
+* <https://github.com/Arello-Mobile/Moxy/>
 * <http://www.tinmegali.com/en/model-view-presenter-android-part-1/>
 * <https://medium.com/mobiwise-blog/android-basic-project-architecture-for-mvp-72f4b33252d0>
 * <http://antonioleiva.com/mvp-android/>
