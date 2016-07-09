@@ -179,9 +179,11 @@ Call<SomeResponse> someEndpoint(@Header("Cache-Control") int maxAge)
 
 If we wish to submit form-encoded data, we can use the `FormUrlEncoded` annotation.  The `@Field` annotation will denote what payload will be submitted as form data.
 
+```java
 @FormUrlEncoded
 @POST("/some/endpoint")
 Observable<SomeResponse> someEndpoint(@Field("code") String code);
+```
 
 #### Multipart forms
 
