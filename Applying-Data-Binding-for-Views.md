@@ -6,7 +6,7 @@ The Data Binding Library is a support library that is compatible with all recent
 
 ### Setup
 
-To get started with data binding, we need to make sure to download the support repository in the Android SDK manager.
+To get started with data binding, we need to make sure to upgrade to the latest version of the [[Android Gradle plugin|Getting-Started-with-Gradle#upgrading-gradle]].
 
 To configure your app to use data binding, add the `dataBinding` element to your `app/build.gradle` file:
 
