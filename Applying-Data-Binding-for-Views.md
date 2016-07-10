@@ -156,9 +156,75 @@ That's all! When running the app now, you'll see the name is populated into the 
 
 <img src="http://i.imgur.com/Q8kscZQ.png" width="400" />
 
+#### Controlling visibility
+
+You can use binding expressions to control the visibility of an item.  
+
+First, make sure you have access to the View properties (i.e. `View.INVISIBLE` and `View.GONE`) by importing
+the object into the template.
+
+```xml
+<data>
+   <import type="android.view.View" />
+</data>
+```
+
+Next, you can test for a condition (i.e. first name is null) and determine whether to show or hide the text view  accordingly:
+
+```xml
+<TextView
+   android:visibility="@{user.firstName != null ? View.VISIBLE: View.GONE}">
+
+</TextView>
+```
+
+#### Image Loading
+
+Unlike TextViews, you cannot bind values directly.  In this case, you need to create a custom  attribute.
+
+First, make sure to define the `res-auto` namespace in your layout.  You cannot declare it in the `<layout>` outer tag so should put it on the outermost tag after the `<data>` tag:
+
+```xml
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+  
+  <data>
+
+  </data>
+
+  <RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto">
+  </RelativeLayout>
+```
+
+```xml
+<ImageView app:imageUrl=“@{mymodel.imageUrl}”>
+```
+
+You then need to annotate a static method that maps the custom attribute:
+
+```java
+
+public class BindingAdapterUtils {
+  @BindingAdapter({"bind:imageUrl"})
+  public static void loadImage(ImageView view, String url) {
+     Picasso.with(view.getContext()).load(url).into(view); 
+  }
+}
+```
+
 ### Two Way Data Binding
 
 If you want to have a two-way binding between the view and the data source, check out this [handy 2-way data binding tutorial](https://medium.com/@fabioCollini/android-data-binding-f9f9d3afc761#.6h923gix6).
+
+### Troubleshooting
+
+* If you see an error message such as `**.**.databinding does not exist`, it's likely that there is an error in your data binding template.  Make sure to look for errors (i.e. forgetting to import a Java class when referencing it within your template).
+
+* If you are using the data binding library with the `android-apt` plugin, you may need to add a reference to the library according to this [issue](https://bitbucket.org/hvisser/android-apt/issues/38/android-apt-breaks-brand-new-data-binding#comment-18504545).
+
+```gradle
+    apt 'com.android.databinding:compiler:1.0-rc0'
+```
 
 ## References
 
