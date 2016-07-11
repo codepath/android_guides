@@ -22,7 +22,7 @@ android {
 
 ### Eliminating View Lookups
 
-The most basic thing we get with data binding is the elimination of `findViewById`. To enable this to work for a layout file, first we need to change the layout file by making the outer tag <layout> instead of whatever ViewGroup you use:
+The most basic thing we get with data binding is the elimination of `findViewById`. To enable this to work for a layout file, first we need to change the layout file by making the outer tag <layout> instead of whatever ViewGroup you use (note that the XML namespaces should also be moved):
 
 ```xml
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -45,7 +45,11 @@ The most basic thing we get with data binding is the elimination of `findViewByI
 </layout>
 ```
 
-The `layout` container tag tells Android Studio that this layout should take the extra processing during compilation time to find all the interesting Views and note them for use with the data binding library. Now, we can use the `Binding` object to access the view. In our activity, we can now inflate the layout content using the binding:
+The `layout` container tag tells Android Studio that this layout should take the extra processing during compilation time to find all the interesting Views and note them for use with the data binding library.  
+
+Essentially creating this outer `layout` tag causes a special reserved class file to be generated at compile time based on the name of the file.  For instance, `activity_main.xml` will generate a class called `ActivityMainBinding`.  Although this class is not generated at compile-time, it can still be referenced in Android Studio thanks to [integrated support](https://developer.android.com/topic/libraries/data-binding/index.html#studio_support) for data binding.
+  
+Now, we can use the `Binding` object to access the view.  In our activity, we can now inflate the layout content using the binding:
  
 ```java
 public class MainActivity extends AppCompatActivity {
