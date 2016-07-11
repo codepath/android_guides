@@ -460,6 +460,14 @@ public class MyActivity extends Activity {
 }
 ```
 
+## ProGuard
+
+Dagger 2 should work out of box without ProGuard, but if you start seeing `library class dagger.producers.monitoring.internal.Monitors$1 extends or implements program class javax.inject.Provider` in newer versions, you may need to add this line to your [[ProGuard|Configuring ProGuard]] configuration:
+
+```
+-keep class javax.inject.** { *; }
+```
+
 ## References
 
 * [Dagger 2 Github Page](http://google.github.io/dagger/)
