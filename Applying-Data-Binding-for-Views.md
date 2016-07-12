@@ -224,7 +224,7 @@ If you want to have a two-way binding between the view and the data source, chec
 
 * If you see an error message such as `**.**.databinding does not exist`, it's likely that there is an error in your data binding template.  Make sure to look for errors (i.e. forgetting to import a Java class when referencing it within your template).
 
-* If you are using the data binding library with [[Dagger 2]], you may see errors such as `NoSuchMethodError: ...FluentIterable.append(...)`.  The solution to this fix is to add the Guava library before the Dagger compiler.  There appears to be a known [issue](https://code.google.com/p/android/issues/detail?id=205589) that can only be resolved by forcing the Dagger compiler to use a newer Guava version.
+* If you are using the data binding library with [[Dagger 2|Dependency Injection With Dagger 2]], you may see errors such as `NoSuchMethodError: ...FluentIterable.append(...)`.  The solution to this fix is to add the Guava library before the Dagger compiler.  There appears to be a known [issue](https://code.google.com/p/android/issues/detail?id=205589) that can only be resolved by forcing the Dagger compiler to use a newer Guava version (Dagger 2 appears to have an older version of Guava bundled and without an explicit dependency it uses this version).
 
 ```gradle
 apt 'com.google.guava:guava:19.0' // add above dagger-compiler
