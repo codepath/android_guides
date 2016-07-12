@@ -75,6 +75,8 @@ If you see an error code 137, chances are that the Travis build has ran out of m
 com.android.ide.common.process.ProcessException: org.gradle.process.internal.ExecException: Process 'command '/usr/lib/jvm/java-7-oracle/bin/java'' finished with non-zero exit value 137
 ```
 
+Here are a few ways to try to resolve:
+
 - If you are using [Google Play Services](https://developers.google.com/android/guides/setup), try to be more selective about the modules you import.  In prior versions before 6.5, you had to include all packages which often caused the 65K method limit to be reached.  If you only wish to use the Google Cloud Messaging package and not Google Fitness or Google Wear, you do not need to import 
 `com.google.android.gms:play-services:8.3.0`.  Instead, you can simply specify the libraries explicitly:
 
@@ -104,3 +106,11 @@ com.android.ide.common.process.ProcessException: org.gradle.process.internal.Exe
       }
     }
    ```
+
+
+- Disable container-based builds, which currently only have a maximum of 4GB of memory, whereas standard versions have a max of 7.5GB of memory:
+
+  ```yaml
+  sudo: required
+  ```
+
