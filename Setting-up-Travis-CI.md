@@ -108,7 +108,7 @@ Here are a few ways to try to resolve:
    ```
 
 
-- Disable container-based builds, which currently only have a maximum of 4GB of memory, whereas standard versions have a max of 7.5GB of memory:
+- Disable container-based builds, which currently only have a maximum of 4GB of memory, whereas standard versions have a max of 7.5GB of memory (according to this [doc](https://docs.travis-ci.com/user/ci-environment/)):
 
   ```yaml
   sudo: required
