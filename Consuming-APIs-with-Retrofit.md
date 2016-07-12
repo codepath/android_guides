@@ -9,7 +9,7 @@ This library makes downloading JSON or XML data from a web API fairly straightfo
 Make sure to require Internet permissions in your `AndroidManifest.xml` file:
 
 ```xml
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
 ```
