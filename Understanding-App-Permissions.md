@@ -122,7 +122,14 @@ public class MainActivity extends AppCompatActivity {
                     grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Toast.makeText(this, "Read Contacts permission granted", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, "Read Contacts permission denied", Toast.LENGTH_SHORT).show();
+                // showRationale = false if user clicks Never Ask Again, otherwise true
+                boolean showRationale = shouldShowRequestPermissionRationale( this, Manifest.permission.READ_CONTACTS)
+
+                if (showRationale) {
+                   // do something here to handle degraded mode
+                else {
+                   Toast.makeText(this, "Read Contacts permission denied", Toast.LENGTH_SHORT).show();
+                }
             }
         } else {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults);
