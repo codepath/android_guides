@@ -85,7 +85,7 @@ Uri smsUri = Uri.parse("tel:" + to);
 Intent intent = new Intent(Intent.ACTION_VIEW, smsUri);
 intent.putExtra("address", to);
 intent.putExtra("sms_body", message);
-intent.setType("vnd.android-dir/mms-sms");
+intent.setType("vnd.android-dir/mms-sms");//here setType will set the previous data null.
 if (intent.resolveActivity(getPackageManager()) != null) {
     startActivity(intent);
 }
