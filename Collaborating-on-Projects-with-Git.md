@@ -139,7 +139,7 @@ git log
 git reset --hard c1fc1c2d1aa1d37c
 ```
 
-That it! After running that all of your local uncommitted changes will be reverted.
+That it! After running that all of your local uncommitted changes will be reverted. For more information, check out this Github guide on [how to revert almost anything with Git](https://github.com/blog/2019-how-to-undo-almost-anything-with-git).
 
 ## Google Maps Access Across Computers
 
