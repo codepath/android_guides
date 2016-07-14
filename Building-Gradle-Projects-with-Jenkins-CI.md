@@ -120,6 +120,12 @@ Congratulations on building your Android project!
 If you are interested in automating APK distribution to the Google Play Store, check out this [guide]
 (Automating-Publishing-to-the-Play-Store#setting-up-jenkins-for-automating-ci-builds).
 
+## Troubleshooting
+
+If you are seeing `java.lang.OutOfMemoryError: PermGen space` errors, you may need to increase the [permanent generation space](http://www.integratingstuff.com/2011/07/24/understanding-and-avoiding-the-java-permgen-space-error/) as discussed in [this section](https://wiki.jenkins-ci.org/display/JENKINS/Builds+failing+with+OutOfMemoryErrors).   You can do so by navigating to `Manage Jenkins` and `Configure System`.  Then find the `Global properties` section and add an environment variable for `GRADLE_OPTS`.   You can increase the overall memory size pool (via `-Xmx`), as well as the permanent generation space (via `-XX`).  If you want to collect a memory dump should the error occur, you can also specify using the `-XX:+HeapDumpOnOutOfMemoryError` option:
+
+`-Dorg.gradle.jvmargs="-Xmx1000m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError"`
+
 ## References
 * http://ingorichter.blogspot.com/2012/02/jenkins-change-workspaces-and-build.html
 * http://www.ericrgon.com/android-with-circle-ci/ - extra tips on building with CircleCI
