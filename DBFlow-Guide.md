@@ -38,7 +38,7 @@ Next, within your `app/build.gradle, apply the `android-apt` plugin and add DBFl
 ```gradle
 apply plugin: 'com.neenbedankt.android-apt'
 
-def dbflow_version = "3.0.0-beta2"
+def dbflow_version = "3.1.1"
 
 dependencies {
     apt "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
@@ -200,7 +200,28 @@ ArrayList<User> users = new ArrayList<>();
 // fetch users from the network
 
 // save rows
-TransactionManager.getInstance().addTransaction(new SaveModelTransaction<>(ProcessModelInfo.withModels(users)));
+FlowManager.getDatabase(AppDatabase.class)
+          .beginTransactionAsync(new ProcessModelTransaction.Builder<>(
+          new ProcessModelTransaction.ProcessModel<User>() {
+              @Override
+              public void processModel(User user) {
+                   // do work here -- i.e. user.delete() or user.update()
+                   user.save(); 
+              }
+          }).add(user).build())  // add elements (can also handle multiple)
+          .error(new Transaction.Error() {
+              @Override
+              public void onError(Transaction transaction, Throwable error) {
+
+              }
+          })
+          .success(new Transaction.Success() {
+              @Override
+              public void onSuccess(Transaction transaction) {
+
+              }
+          }).build().execute();
+
 ```
 ### Exposing Content Providers
 
@@ -241,7 +262,7 @@ public class MyDatabase {
     // ...
 
     // Declare endpoints here
-    @TableEndpoint(name = UserProviderModel.ENDPOINT)
+    @TableEndpoint(name = UserProviderModel.ENDPOINT, contentProvider = MyDatabase.class)
     public static class UserProviderModel {
 
         public static final String ENDPOINT = "User";
