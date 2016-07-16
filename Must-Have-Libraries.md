@@ -104,7 +104,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [IceNet] (https://github.com/anton46/IceNet) -  Android networking wrapper consisting of a combination of Volley, OkHttp and Gson
  * [Android Universal Image Loader](https://github.com/nostra13/Android-Universal-Image-Loader) - Popular alternative for image loading that can replace Picasso or Glide.
  * [Fresco](http://frescolib.org/) - An image management library from Facebook.
- * [Android Networking](https://github.com/amitshekhariitbhu/Android-Networking) - Android Networking is a        powerful library for doing any type of networking in Android applications which is made on top of OkHttp Networking Layer.
+ * [Fast Android Networking](https://github.com/amitshekhariitbhu/Fast-Android-Networking) -Fast Android Networking is a powerful library for doing any type of networking in Android applications which is made on top of OkHttp Networking Layer.
 
 ### ListView
 
