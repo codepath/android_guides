@@ -21,7 +21,7 @@ dependencies {
     compile 'com.android.support:design:23.4.0'
     compile 'com.android.support:support-v4:23.4.0'
  }
-
+```
 Add the `compile project(':material-intro')` line into the dependencies block.
 
 
