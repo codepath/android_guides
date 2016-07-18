@@ -98,7 +98,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [Ion](https://github.com/koush/ion) - Powerful asynchronous networking library. [Download](https://github.com/koush/ion#get-ion) as a jar here.
  * [Android Async HTTP](http://loopj.com/android-async-http/) - Asynchronous networking client for loading remote content such as JSON.
  * [Volley](http://developer.android.com/training/volley/index.html) - Google's HTTP library that makes networking for Android apps easier and most importantly, faster.
- * [OkHttp](http://square.github.io/okhttp/) - Square's underlying networking library with support for asynchronous requests.
+ * [[OkHttp|Using OkHttp]] - Square's underlying networking library with support for asynchronous requests.
  * [Glide](https://github.com/bumptech/glide) - Picasso image loading alternative endorsed by Google 
  * [Android Universal Image Loader](https://github.com/nostra13/Android-Universal-Image-Loader) - Popular alternative for image loading that can replace Picasso or Glide.
  * [Fresco](http://frescolib.org/) - An image management library from Facebook.
