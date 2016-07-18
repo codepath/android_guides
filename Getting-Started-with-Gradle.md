@@ -213,10 +213,12 @@ You need to modify the `settings.gradle` file to specify that what proejcts are 
 
 Next, go to your `app/build.gradle` and make sure to specify the `compile project(':material-intro:')` is included:
 
+```gradle
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':material-intro') // add this line
  }
+```
 
 For more information, see the documentation about [multi-project builds](https://docs.gradle.org/current/userguide/userguide_single.html#intro_multi_project_builds).
 
