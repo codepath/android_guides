@@ -100,7 +100,6 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [Volley](http://developer.android.com/training/volley/index.html) - Google's HTTP library that makes networking for Android apps easier and most importantly, faster.
  * [OkHttp](http://square.github.io/okhttp/) - Square's underlying networking library with support for asynchronous requests.
  * [Glide](https://github.com/bumptech/glide) - Picasso image loading alternative endorsed by Google 
- * [IceNet] (https://github.com/anton46/IceNet) -  Android networking wrapper consisting of a combination of Volley, OkHttp and Gson
  * [Android Universal Image Loader](https://github.com/nostra13/Android-Universal-Image-Loader) - Popular alternative for image loading that can replace Picasso or Glide.
  * [Fresco](http://frescolib.org/) - An image management library from Facebook.
  * [Fast Android Networking](https://github.com/amitshekhariitbhu/Fast-Android-Networking) -Fast Android Networking is a powerful library for doing any type of networking in Android applications which is made on top of OkHttp Networking Layer.
