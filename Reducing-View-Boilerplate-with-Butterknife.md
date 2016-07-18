@@ -37,8 +37,8 @@ apply plugin: 'android-apt'
 ...
 
 dependencies {
-  compile 'com.jakewharton:butterknife:8.1.0'
-  apt 'com.jakewharton:butterknife-compiler:8.1.0'
+  compile 'com.jakewharton:butterknife:8.2.1'
+  apt 'com.jakewharton:butterknife-compiler:8.2.1'
 }
 ```
 
@@ -248,9 +248,35 @@ View headerView = navigationView.getHeaderView(0);
 TextView textView = ButterKnife.findById(headerView, R.id.tvName);
 ```
 
-## Limitations
+### Using in your own Android libraries
 
-* ButterKnife cannot be used when creating your own Android libraries.  This limitation is described in [[this section|Building-your-own-Android-library#using-with-butterknife]] of the guide.
+In the past, ButterKnife was not supported when [[building your own Android libraries|building-your-own-Android-library]].  However, in v8.2.0, additional support was included using a custom Gradle plugin. To use it, make sure your followed the previous steps to include the `android-apt` and latest version of ButterKnife.
+
+Next, add this Gradle plugin to the top of your library `build.gradle` file:
+
+```gradle
+buildscript {
+  dependencies {
+    classpath 'com.jakewharton:butterknife-gradle-plugin:8.2.1'
+  }
+}
+```
+
+Below your `com.android.library` plugin, you should apply this Gradle plugin:
+
+```
+apply plugin: 'com.android.library'
+apply plugin: 'com.jakewharton.butterknife'
+```
+
+For an example of this setup, see this [build.gradle](https://github.com/JakeWharton/butterknife/blob/master/sample/library/build.gradle) file.
+
+This Gradle plugin mostly creates a separate `R2` class, which will be used inside your library projects instead:
+
+```java
+  @BindView(R2.id.title) TextView title;
+  @BindView(R2.id.subtitle) TextView subtitle;
+```
 
 ## References
 
