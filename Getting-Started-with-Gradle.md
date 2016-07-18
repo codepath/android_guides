@@ -197,6 +197,29 @@ The files below will be generated.  Similarly, Android Studio will create the sa
     gradle-wrapper.properties
 ```
 
+## How to add local dependencies
+
+Normally most dependencies can be retrieved remotely from a Maven or Gradle repository hosted at [Maven Central](http://search.maven.org/) or [BinTray](https://bintray.com/bintray/jcenter).  If you wish to include a local dependency, you can copy the source to the project's root directory.  For instance, suppose you wanted to fork a copy of the [material intro](https://github.com/HeinrichReimer/material-intro) repoistory.  You could copy this source into your main project as follows:
+
+```
+Project
+  |--build.gradle
+  |--settings.gradle
+  |--material-intro
+  |    |--build.gradle
+```
+
+You need to modify the `settings.gradle` file to specify that what proejcts are available.  Note that this new directory prefixed with a ":" operator:
+
+Next, go to your `app/build.gradle` and make sure to specify the `compile project(':material-intro:')` is included:
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile project(':material-intro') // add this line
+ }
+
+For more information, see the documentation about [multi-project builds](https://docs.gradle.org/current/userguide/userguide_single.html#intro_multi_project_builds).
+
 ## Speeding up Gradle Builds
 
 There are several configuration tweaks that can be experimented with to significantly speed up gradle build times. A few relevant resources are included below:
