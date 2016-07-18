@@ -236,6 +236,7 @@ This is a list of popular scrolling and parallax libraries:
 ### Debugging
 
 * [Stetho](http://facebook.github.io/stetho/) - A debug bridge for Android applications which could be used for multiple purposes not limited to Network Inspection, Database Inspection and Javascript Console.
+* [Bugfender](https://github.com/bugfender/bugfender-android-sample/) - Cloud storage for your app logs, track user behaviour to find problems in your mobile apps.
 
 ## Resources
 
