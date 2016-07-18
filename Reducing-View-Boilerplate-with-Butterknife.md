@@ -248,7 +248,7 @@ View headerView = navigationView.getHeaderView(0);
 TextView textView = ButterKnife.findById(headerView, R.id.tvName);
 ```
 
-### Using in your own Android libraries
+## Using in your own Android libraries
 
 In the past, ButterKnife was not supported when [[building your own Android libraries|building-your-own-Android-library]].  However, in v8.2.0, additional support was included using a custom Gradle plugin. To use it, make sure your followed the previous steps to include the `android-apt` and latest version of ButterKnife.
 
