@@ -12,11 +12,11 @@ dependencies {
 }
 ```
 
-**Note**: there is a bug with the current version of Picasso that prevents large images (i.e. 10MB) from being loaded, especially with newer camera phones that have larger resolutions.   If you are experiencing [this issue](https://github.com/square/picasso/issues/364), you will need to upgrade to the Picasso 2.5.3 snapshot.  See the [[troubleshooting|Displaying Images with the Picasso Library#troubleshooting]] guide to confirm.
+**Note**: there is a bug with the current version of Picasso that prevents large images (i.e. 10MB) from being loaded, especially with newer camera phones that have larger resolutions.   If you are experiencing [this issue](https://github.com/square/picasso/issues/364), you may need to upgrade to the Picasso 2.6.0 snapshot.  See the [[troubleshooting|Displaying Images with the Picasso Library#troubleshooting]] guide to confirm.
 
 ```gradle
 dependencies {
-    compile 'com.squareup.picasso:picasso:2.5.3-SNAPSHOT'
+    compile 'com.squareup.picasso:picasso:2.6.0-SNAPSHOT'
 }
 ```
 
