@@ -83,8 +83,7 @@ Your AlertDialogs should import from the AppCompat support library instead, whic
 If you were migrating from the Holo theme, your new theme  would inherit from `Theme.AppCompat` instead of `android:Theme.Holo.Light`:
 
 ```xml
--    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
 ```
 
 If you wish to have a style that disables the ActionBar in certain Activity screens but still wish to use many of the ones you custom defined, you can inherit from `AppTheme` and apply the same styles declared in `Theme.AppCompat.NoActionBar`:
@@ -102,12 +101,11 @@ If you see `AppCompat does not support the current theme features`, it's likely 
 For your menu/ layout files, add an `app:` namespace .  For menu items, the `showAsAction` must be from the `app` namespace instead of `android` namespace.  It is considered a custom attribute of the support library and will no otherwise be processed correctly without making this change.
 
 ```xml
--<menu xmlns:android="http://schemas.android.com/apk/res/android">
-+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
  <item android:id="@+id/myMenuItem"
        android:title="@string/select"
--      android:showAsAction="ifRoom"
-+      app:showAsAction="ifRoom"
+       android:showAsAction="ifRoom"
+       app:showAsAction="ifRoom"
 ```
 
 If you are using widgets such as the SearchView, you must also use `android.support.v7.widget.SearchView` instead of `android.widget.SearchView`.  Note that the `app` namespace must also be used.
@@ -118,10 +116,8 @@ If you are using widgets such as the SearchView, you must also use `android.supp
      <item android:id="@+id/contentSearch"
            android:orderInCategory="2"
            android:title="@string/search"
--          android:showAsAction="ifRoom"
--          android:actionViewClass="android.widget.SearchView">
-+          app:showAsAction="ifRoom"
-+          app:actionViewClass="android.support.v7.widget.SearchView">
+           app:showAsAction="ifRoom"
+           app:actionViewClass="android.support.v7.widget.SearchView">
 ```
 
 #### Changes to Menu Options
