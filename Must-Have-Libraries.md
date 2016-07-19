@@ -119,6 +119,7 @@ Essentially this method is used to enable your code to short-circuit before exec
 ### RecyclerView
 
 * [UltimateRecyclerView](https://github.com/cymcsg/UltimateRecyclerView) - Augmented RecyclerView with refreshing, loading more, animation and many other features.
+* [AdvRecyclerView](https://github.com/h6ah4i/android-advancedrecyclerview) - Extended RecyclerView with swipe to dismiss, and draggable or expanding items. 
 * [android-parallax-recyclerview](https://github.com/kanytu/android-parallax-recyclerview) - An adapter which could be used to achieve a parallax effect on RecyclerView.
 * [sticky-headers-recyclerview](https://github.com/timehop/sticky-headers-recyclerview) - Sticky Headers decorator for Android's RecyclerView.
 * [FastAdapter](https://github.com/mikepenz/FastAdapter) - Simplify and speed up the process of filling your RecyclerView with data
