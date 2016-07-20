@@ -76,8 +76,10 @@ But be careful in using nestedLinearLayout and layout_weight from a layout perfo
 In a relative layout every element arranges itself relative to other elements or a parent element. RelativeLayout positions views based on a number of directional attributes:
 
 * Position based on siblings: *layout_above*, *layout_below*, *layout_toLeftOf*, *layout_toRightOf*
-* Position based on parent: *layout_alignParentTop*, *layout_alignParentBottom*, *layout_alignParentLeft*, *layout_alignParentRight*, *android:layout_centerHorizontal*, *android:layout_centerVertical*
+* Position based on parent: *android:layout_centerHorizontal*, *android:layout_centerVertical*
 * Alignment based on siblings: *layout_alignTop*, *layout_alignBottom*, *layout_alignLeft*, *layout_alignRight*, *layout_alignBaseline*
+* Alignment based on parent: *layout_alignParentTop*, *layout_alignParentBottom*, *layout_alignParentLeft*, *layout_alignParentRight* 
+
 
 An example of a RelativeLayout:
 
