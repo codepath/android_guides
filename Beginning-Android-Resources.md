@@ -17,7 +17,7 @@ Thanks to these original content authors for helping us put together this useful
 * **Installation** - If you have never done Android development, first setup your Android environment by following these [Android Setup Slides](https://docs.google.com/presentation/d/1JOICG5Ow6QgMBrUKChenvSSxjylCpeQKvfvpPbJMx3M/edit)
 * **Programming** - If you are starting with no programming knowledge, we recommend you learn Java first (see resources in next section)
 * **First App** - Consider starting by building a simple [todo app](http://goo.gl/pBKfYP) by following these slides. Alternately try this [video tutorial](http://www.youtube.com/watch?v=Z149x12sXsw) that will guide you through the basics of an Android app. I recommend that you not only watch the video but repeat what he is doing simultaneously.
-- **Finding Solutions** - Learn how to search for solutions before you ask questions; check sources like [StackOverflow](http://stackoverflow.com/) and the [cliffnotes](http://guides.codepath.com/android) for answers. Learn how to debug your code. This means using **LogCat** and reading stack traces, also learning how to use breakpoints.
+- **Finding Solutions** - Learn how to search for solutions before you ask questions; check sources like [StackOverflow](http://stackoverflow.com/) and the [cliffnotes](http://guides.codepath.com/android) for answers. Learn how to [debug your code](http://guides.codepath.com/android/Debugging-Exceptions-within-your-App). This means using **LogCat** and reading stack traces, also learning [how to use breakpoints](http://guides.codepath.com/android/Debugging-Exceptions-within-your-App#investigation-methodologies).
 * **Reference Book** - A great companion book is [The Busy Coder's Guide to Android Development](http://commonsware.com/Android/). If you don't want or can't buy the book, consider looking at its many code examples [available for free](https://github.com/commonsguy/cw-omnibus/)
 
 ## Learning to Program with Java
@@ -68,13 +68,8 @@ Once you understand Java, OOP (Classes, Inheritance, etc), XML and APIs with JSO
 
 Understanding the concepts above is a good thing because it allows you search for practical ways to achieve something. Almost everything you can think of doing has already been tried and documented by someone else. You just need to know how to find it. Which leads me to my next set of things you may consider to learn first:
 
-* **Learn how to search** -- I cannot stress this enough. Seriously, just Google it. If you are stuck or in doubt, search for your question. And most of all: Search before you ask.
-* **Learn how to debug your code** There is a surprisingly high number of learners who do not debug their code at all and can't really [understand their code's log](http://stackoverflow.com/questions/6065258/how-to-interpret-logcat). If you are using Eclipse,  [check this out] (http://stackoverflow.com/questions/8551818/how-to-debug-android-application-line-by-line-using-eclipse)
-
-Speaking of Eclipse, an older IDE many people still use to program for Android, whether you want to use it or not is up to you. Eclipse is **no longer in active development**. Bear in mind the following though:
-
-  * The IDE most people talk about, [Android Studio](http://developer.android.com/sdk/index.html) (which is based on IntelliJ), is now in a stable 2.1.2 release. The official Android page recommends new developers use this over eclipse.
-  * Most tutorials and documentation for beginners are still based on the use of Eclipse. All the resources I talk about here which are connected to an IDE, refer to Eclipse. However, this is changing as Android Studio is now the standard recommended by Google.
+* **Learn how to search** -- We cannot stress this enough. If you are stuck or in doubt, search for your question on Google. And most of all: Search before you ask.
+* **Learn how to debug your code** There is a surprisingly high number of developers who do not debug their code at all and can't really [understand their code's log](http://stackoverflow.com/questions/6065258/how-to-interpret-logcat). Refer to our comprehensive [[debugging your exceptions|Debugging-Exceptions-within-your-App]] to understand how to investigate and solve your own issues.
 
 ## Designing Android Apps
 
