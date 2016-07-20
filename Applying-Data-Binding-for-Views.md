@@ -22,7 +22,7 @@ android {
 
 ### Eliminating View Lookups
 
-The most basic thing we get with data binding is the elimination of `findViewById`. To enable this to work for a layout file, first we need to change the layout file by making the outer tag <layout> instead of whatever ViewGroup you use (note that the XML namespaces should also be moved):
+The most basic thing we get with data binding is the elimination of `findViewById`. To enable this to work for a layout file, first we need to change the layout file by making the outer tag `<layout>` instead of whatever ViewGroup you use (note that the XML namespaces should also be moved):
 
 ```xml
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
