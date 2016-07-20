@@ -34,6 +34,22 @@ To setup your genymotion emulator [sign up](https://www.genymotion.com/account/l
   * You can start the emulator through the Android Studio plugin, or can launch the Genymotion application separately.
 4. Wait for device to boot up into a useable state
 
+**Note**: if starting Genymotion you see the following error:
+
+```
+Unable to start the virtual device
+VirtualBox cannot start the virtual device
+To find out the cause the problem, start the virtual device from VirtualBox.
+```
+
+Try opening VirtualBox and opening the image directly.  If you see an `VERR_PDM_DRIVER_NOT_FOUND` error, try disabling the audio settings for the virtual image in VirtualBox:
+
+1. Select Android VM
+2. Click Settings on top.
+3. Go to Audio and Uncheck Enable Audio Checkbox
+
+See [this link](http://stackoverflow.com/questions/38275500/genymotion-virtualbox-error) for more information.
+
 **Note:** On Ubuntu/Linux, make sure to [3D acceleration mode](http://imgur.com/Kl9cOmb) by launching VirtualBox and going to `Settings -> Display` to fix. VirtualBox appears to prone to memory leaks, so you may find yourself killing the process from time to time. To avoid large CPU consumption by the compiz window manager and swapping in general, try increasing the video memory allocation and Base Memory (found in `Settings -> System`).
 
 **Note:** Are you getting an error when starting the emulator? `Error Failed to load VMMR0.r0`? Follow the [advice here](https://forums.virtualbox.org/viewtopic.php?f=8&t=40525#p186381). In short, go to [virtual box page](https://www.virtualbox.org/wiki/Downloads) and download and install VirtualBox 4.3.6 Oracle VM VirtualBox Extension Pack.
