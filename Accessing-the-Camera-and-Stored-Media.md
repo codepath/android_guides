@@ -117,13 +117,18 @@ Bitmap resizedBitmap = BitmapScaler.scaleToFitWidth(rawTakenImage, SOME_WIDTH);
 Then we can write that smaller bitmap back to disk with:
 
 ```java
+// Configure byte output stream
 ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-photo.compress(Bitmap.CompressFormat.JPEG, 40, bytes);
-File f = new File(Environment.getExternalStorageDirectory() + File.separator + "Imagename.jpg");
-f.createNewFile();
-FileOutputStream fo = new FileOutputStream(f);
-fo.write(bytes.toByteArray());
-fo.close();
+// Compress the image further
+resizedBitmap.compress(Bitmap.CompressFormat.JPEG, 40, bytes);
+// Create a new file for the resized bitmap (`getPhotoFileUri` defined above)
+Uri resizedUri = getPhotoFileUri(photoFileName + "_resized");
+File resizedFile = new File(resizedUri.getPath());
+resizedFile.createNewFile();
+FileOutputStream fos = new FileOutputStream(resizedFile);
+// Write the bytes of the bitmap to file
+fos.write(bytes.toByteArray());
+fos.close();
 ```
 
 Now, we can store the path to that resized image and load that from disk instead for much faster load times.
