@@ -359,7 +359,7 @@ You can then instantiate the Retrofit instance:
 ```java
 Retrofit retrofit = new Retrofit.Builder()
                                .baseUrl("https://api.github.com")
-                               .addConverterFactory(GsonConverterFactory.create());
+                               .addConverterFactory(GsonConverterFactory.create())
                                .addCallAdapterFactory(rxAdapter)
                                .build();
 ```
