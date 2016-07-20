@@ -71,16 +71,17 @@ Intent intent = new Intent(this, SomeActivity.class);
 int requestID = (int) System.currentTimeMillis(); //unique requestID to differentiate between various notification with same NotifId
 int flags = PendingIntent.FLAG_CANCEL_CURRENT; // cancel old intent and create new one
 PendingIntent pIntent = PendingIntent.getActivity(this, requestID, intent, flags);
-// Now we can attach this to the notification using setContentIntent
+ // Get the notification builder
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+// Now we can attach the pendingIntent to the notification using setContentIntent
 Notification noti =
-        new NotificationCompat.Builder(this)
-        .setSmallIcon(R.drawable.notification_icon)
+        builder.setSmallIcon(R.drawable.notification_icon)
         .setContentTitle("My notification")
         .setContentText("Hello World!")
         .setContentIntent(pIntent).build();
         
 // Hide the notification after its selected
-noti.setAutoCancel(true);
+builder.setAutoCancel(true);
 
 NotificationManager mNotificationManager = 
     (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
