@@ -111,7 +111,7 @@ Uri takenPhotoUri = getPhotoFileUri(photoFileName);
 // by this point we have the camera photo on disk
 Bitmap rawTakenImage = BitmapFactory.decodeFile(takenPhotoUri.getPath());
 // See BitmapScaler.java: https://gist.github.com/nesquena/3885707fd3773c09f1bb
-Bitmap resizedBitmap = BitmapScaler.scaleToFitWidth(bitmap, WIDTH);
+Bitmap resizedBitmap = BitmapScaler.scaleToFitWidth(rawTakenImage, SOME_WIDTH);
 ```
 
 Then we can write that smaller bitmap back to disk with:
