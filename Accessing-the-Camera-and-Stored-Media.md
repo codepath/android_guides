@@ -55,6 +55,7 @@ public void onActivityResult(int requestCode, int resultCode, Intent data) {
          Uri takenPhotoUri = getPhotoFileUri(photoFileName);
          // by this point we have the camera photo on disk
          Bitmap takenImage = BitmapFactory.decodeFile(takenPhotoUri.getPath());
+         // RESIZE BITMAP, see section below
          // Load the taken image into a preview
          ImageView ivPreview = (ImageView) findViewById(R.id.ivPreview);
          ivPreview.setImageBitmap(takenImage);   
@@ -100,7 +101,32 @@ In certain cases, when loading a bitmap with `BitmapFactory.decodeFile(file)` de
 
 ### Resizing the Picture
 
-Photos taken with the Camera intent are often quite large. After taking a photo, you may want to consider [[resizing the Bitmap|Working-with-the-ImageView#scaling-a-bitmap]] to a more manageable size before displaying in an `ImageView`.
+Photos taken with the Camera intent are often quite large and take a very long time to load from disk. After taking a photo, you should strongly consider [[resizing the Bitmap|Working-with-the-ImageView#scaling-a-bitmap]] to a more manageable size and then **storing that smaller bitmap to disk**. We can then use that resized bitmap before displaying in an `ImageView`.
+
+Resizing a large bitmap and writing to disk can be done with:
+
+```java
+// See code above
+Uri takenPhotoUri = getPhotoFileUri(photoFileName);
+// by this point we have the camera photo on disk
+Bitmap rawTakenImage = BitmapFactory.decodeFile(takenPhotoUri.getPath());
+// See BitmapScaler.java: https://gist.github.com/nesquena/3885707fd3773c09f1bb
+Bitmap resizedBitmap = BitmapScaler.scaleToFitWidth(bitmap, WIDTH);
+```
+
+Then we can write that smaller bitmap back to disk with:
+
+```java
+ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+photo.compress(Bitmap.CompressFormat.JPEG, 40, bytes);
+File f = new File(Environment.getExternalStorageDirectory() + File.separator + "Imagename.jpg");
+f.createNewFile();
+FileOutputStream fo = new FileOutputStream(f);
+fo.write(bytes.toByteArray());
+fo.close();
+```
+
+Now, we can store the path to that resized image and load that from disk instead for much faster load times.
 
 ### Rotating the Picture
 
