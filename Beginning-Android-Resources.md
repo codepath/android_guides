@@ -73,7 +73,7 @@ Understanding the concepts above is a good thing because it allows you search fo
 
 Speaking of Eclipse, an older IDE many people still use to program for Android, whether you want to use it or not is up to you. Eclipse is **no longer in active development**. Bear in mind the following though:
 
-  * The IDE most people talk about, [Android Studio](http://developer.android.com/sdk/index.html) (which is based on IntelliJ), is now in a stable 1.0 release. The official Android page recommends new developers use this over eclipse.
+  * The IDE most people talk about, [Android Studio](http://developer.android.com/sdk/index.html) (which is based on IntelliJ), is now in a stable 2.1.2 release. The official Android page recommends new developers use this over eclipse.
   * Most tutorials and documentation for beginners are still based on the use of Eclipse. All the resources I talk about here which are connected to an IDE, refer to Eclipse. However, this is changing as Android Studio is now the standard recommended by Google.
 
 ## Designing Android Apps
