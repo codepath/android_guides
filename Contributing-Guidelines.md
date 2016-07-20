@@ -44,7 +44,7 @@ The cliffnotes philosophy is all about cutting down the content keeping the guid
  * **Do** discuss third-party open-source libraries that save you tons of time
  * **Do** put the code blocks first. **Always include practical code samples**
  * **Don't** use elaborate examples that take way too much time to understand.
- * **Do** mention the implications and practical conclusions you've made
+ * **Do** mention the implications and practical conclusions you've made.
 
 ## Principles
 
