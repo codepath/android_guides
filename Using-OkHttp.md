@@ -24,7 +24,7 @@ compile 'com.squareup.okhttp3:okhttp:3.3.0'
 
 **Note**: If you are upgrading from an older version of OkHttp, your imports will also need to be changed from `import com.squareup.okhttp.XXXX` to `import okhttp3.XXXX`.
 
-**Note**: If you are intending to use Picasso with OkHttp3, make sure to add this custom downloader.  This change is necessary until the next release of Picasso as described [here](https://github.com/square/picasso/issues/1256).  
+**Note**: If you are intending to use Picasso with OkHttp3, you can either [[upgrade Picasso|Displaying-Images-with-the-Picasso-Library#setup-picasso]] to the latest snapshot version or use this custom downloader.  This change is necessary until the next release of Picasso as described [here](https://github.com/square/picasso/issues/1256).  
 
 ```gradle
 dependencies {
