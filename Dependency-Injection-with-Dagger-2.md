@@ -464,6 +464,10 @@ public class MyActivity extends Activity {
 
 Dagger 2 should work out of box without ProGuard, but if you start seeing `library class dagger.producers.monitoring.internal.Monitors$1 extends or implements program class javax.inject.Provider`, make sure your Gradle configuration uses the `apt` declaration instead of `provided`. 
 
+## Troubleshooting
+
+* If you are upgrading Dagger 2 versions (i.e. from v2.0 to v2.5), some of the generated code has changed.  If you are incorporating Dagger code that was generated with older versions, you may see `MemberInjector` and `actual and former argument lists different in length` errors.  Make sure to clean the entire project and verify that you have upgraded all versions to use the consistent version of Dagger 2.
+
 ## References
 
 * [Dagger 2 Github Page](http://google.github.io/dagger/)
