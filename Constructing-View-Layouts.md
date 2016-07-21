@@ -71,9 +71,9 @@ If you want to setup a part of your layout, such that, for instance, 3 buttons a
 </LinearLayout>
 ```
 
-Using the above XML, `btnLocEnable` will have 2/5 of total container width and `btnUploadPhoto` will have 3/5 of parent width because we set the total `android:weightSum` to `5` and the the buttons to `2` and `3` respectively. 
+Using the above XML, `btnLocEnable` will have 2/5 of total container width and `btnUploadPhoto` will have 3/5 of parent width because we set the total `android:weightSum` to `5` and the buttons `android:layout_weight` property to `2` and `3` respectively. 
 
-Be careful in utilizing multiple nested `LinearLayout`s and/or `layout_weight` from a performance standpoint!
+Use caution in utilizing multiple nested `LinearLayout`s and/or `layout_weight` from a performance standpoint!
 
 ## RelativeLayout
 
