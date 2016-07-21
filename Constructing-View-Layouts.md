@@ -39,7 +39,7 @@ Example of LinearLayout snippet:
 </LinearLayout>
 ```
 
-If you want to setup a part of your layout, such that, for instance, 3 buttons appear in a row, occupying equal space (or if, for instance, you want to give 4/5 space to a map and 1/5 to another component below it), LinearLayout can be used to do the trick by leveraging `android:layout_weight`: 
+If you want to setup a part of your layout, such that, for instance, 3 buttons appear in a row, occupying equal space (or if, for instance, you want to give 4/5 space to a map and 1/5 to another component below it), LinearLayout can be used to do the trick by leveraging `android:layout_weight`. This works by setting the `android:weightSum` to a total value and then setting the `android:layout_weight` value for each subview to determine width distribution. 
 
 ```xml
 ...
@@ -47,12 +47,13 @@ If you want to setup a part of your layout, such that, for instance, 3 buttons a
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:weightSum="5"
         android:layout_alignParentBottom="true">
     <ImageButton
         android:id="@+id/btnLocEnable"
         android:src="@drawable/ic_location"
         android:layout_width="0dp"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:background="@color/twitter_light_blue"
@@ -61,15 +62,16 @@ If you want to setup a part of your layout, such that, for instance, 3 buttons a
         android:id="@+id/btnUploadPhoto"
         android:src="@drawable/ic_addimage"
         android:layout_width="0dp"
-        android:layout_weight="1"
+        android:layout_weight="3"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:background="@color/twitter_light_blue"/>
 </LinearLayout>
-...
 ```
 
-But be careful in using nestedLinearLayout and layout_weight from a layout performance point of view!
+Using the above XML, `btnLocEnable` will have 2/5 of total container width and `btnUploadPhoto` will have 3/5 of parent width because we set the total `android:weightSum` to `5` and the the buttons to `2` and `3` respectively. 
+
+Be careful in utilizing multiple nested `LinearLayout`s and/or `layout_weight` from a performance standpoint!
 
 ## RelativeLayout
 
