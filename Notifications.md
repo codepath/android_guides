@@ -71,8 +71,8 @@ Intent intent = new Intent(this, SomeActivity.class);
 int requestID = (int) System.currentTimeMillis(); //unique requestID to differentiate between various notification with same NotifId
 int flags = PendingIntent.FLAG_CANCEL_CURRENT; // cancel old intent and create new one
 PendingIntent pIntent = PendingIntent.getActivity(this, requestID, intent, flags);
- // Get the notification builder
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+// Get the notification builder
+NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
 // Now we can attach the pendingIntent to the notification using setContentIntent
 Notification noti =
         builder.setSmallIcon(R.drawable.notification_icon)
