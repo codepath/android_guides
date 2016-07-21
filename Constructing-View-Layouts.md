@@ -39,7 +39,9 @@ Example of LinearLayout snippet:
 </LinearLayout>
 ```
 
-If you want to setup a part of your layout, such that, for instance, 3 buttons appear in a row, occupying equal space (or if, for instance, you want to give 4/5 space to a map and 1/5 to another component below it), LinearLayout can be used to do the trick by leveraging `android:layout_weight`. This works by setting the `android:weightSum` to a total value and then setting the `android:layout_weight` value for each subview to determine width distribution. 
+### Distribute Widths with Layout Weight
+
+If you want to setup a part of your layout, such that, for instance, 3 buttons appear in a row, occupying equal space (or if, for instance, you want to give 4/5 space to a map and 1/5 to another component below it), `LinearLayout` can be used to do the trick by leveraging `android:layout_weight`. This works by setting the `android:weightSum` to a total value and then setting the `android:layout_weight` value for each subview to determine width distribution. 
 
 ```xml
 ...
