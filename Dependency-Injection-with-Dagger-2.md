@@ -230,7 +230,7 @@ public class MyApp extends Application {
 
         // If a Dagger 2 component does not have any constructor arguments for any of its modules,
         // then we can use .create() as a shortcut instead:
-        //  mAppComponent = com.codepath.dagger.components.DaggerNetComponent.create();
+        //  mNetComponent = com.codepath.dagger.components.DaggerNetComponent.create();
     }
 
     public NetComponent getNetComponent() {
