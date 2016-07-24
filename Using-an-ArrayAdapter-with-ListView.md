@@ -194,6 +194,33 @@ public class User {
 
 For more details, check out our guide on [[converting JSON into a model|Converting JSON to Models]]. If you are not using a JSON source for your data, you can safely skip this step.
 
+## Attaching Event Handlers Within Adapter
+
+Within a `ListView`, we can easily [attach event listeners](http://guides.codepath.com/android/Basic-Event-Listeners#view-event-listeners) onto any of the views that are item position aware with:
+
+```java
+public class UsersAdapter extends ArrayAdapter<User> {
+    // ...
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        // ...
+        // Lookup view for data population
+        Button tvButton = (Button) convertView.findViewById(R.id.tvButton);
+        tvButton.setTag(position); // store position in the button
+        tvButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int position = (Integer) view.getTag();
+                // Access the position here
+            }
+        });
+        // ... other view population...
+        // Return the completed view to render on screen
+        return convertView;
+    }
+}
+```
+
 ## Improving Performance with the ViewHolder Pattern
 
 To improve performance, we should modify the custom adapter by applying the **ViewHolder** pattern which speeds up the population of the ListView considerably by caching view lookups for smoother, faster item loading:
