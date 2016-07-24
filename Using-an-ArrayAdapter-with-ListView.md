@@ -228,9 +228,10 @@ public class UsersAdapter extends ArrayAdapter<User> {
 You can also similarly pass an entire object through a tag as well as shown here:
 
 ```java
-// Inside adapter getView
+// Inside adapter `getView` method
 User user = getItem(position);
-moreInfoView.setTag(movie); // store position in the button
+// Cache user object inside the button using `setTag`
+btButton.setTag(user); 
 // Attach the click event handler
 btButton.setOnClickListener(new View.OnClickListener() {
     @Override
