@@ -14,19 +14,20 @@ Chrome custom tabs also allow the developer to pre-start Chrome and pre-fetch co
 
 1. Add the Android Support Library for Chrome Custom Tabs as a dependency to your gradle build file:
 
-```java
+    ```java
 compile 'com.android.support:customtabs:24.0.0+'
 ```
 
-> The library only works on API 16 (Jelly Bean) an above. If you are supporting previous API, you can add `<uses-sdk tools:overrideLibrary="android.support.customtabs"/>` to your manifest to force its use and check the API version at runtime and just use Chrome Custom tabs if its >= 16
+    > The library only works on API 16 (Jelly Bean) an above. If you are supporting previous API, you can add `<uses-sdk tools:overrideLibrary="android.support.customtabs"/>` to your manifest to force its use and check the API version at runtime and just use Chrome Custom tabs if its >= 16
 
 2. Copy the following files from [`GoogleChrome`](https://github.com/GoogleChrome/custom-tabs-client) sample git repo to your project and adjust the package names accordingly:
 
-- [CustomTabActivityHelper.java](https://github.com/GoogleChrome/custom-tabs-client/blob/master/demos/src/main/java/org/chromium/customtabsdemos/CustomTabActivityHelper.java)
-- [CustomTabsHelper.java](https://github.com/GoogleChrome/custom-tabs-client/blob/master/shared/src/main/java/org/chromium/customtabsclient/shared/CustomTabsHelper.java)
-- [KeepAliveService.java](https://github.com/GoogleChrome/custom-tabs-client/blob/master/shared/src/main/java/org/chromium/customtabsclient/shared/KeepAliveService.java)
-- [ServiceConnection.java](https://github.com/GoogleChrome/custom-tabs-client/blob/master/shared/src/main/java/org/chromium/customtabsclient/shared/ServiceConnection.java)
-- [ServiceConnectionCallback.java](https://github.com/GoogleChrome/custom-tabs-client/blob/master/shared/src/main/java/org/chromium/customtabsclient/shared/ServiceConnectionCallback.java)
+    - [CustomTabActivityHelper.java](https://github.com/GoogleChrome/custom-tabs-client/blob/master/demos/src/main/java/org/chromium/customtabsdemos/CustomTabActivityHelper.java)
+    - [CustomTabsHelper.java](https://github.com/GoogleChrome/custom-tabs-client/blob/master/shared/src/main/java/org/chromium/customtabsclient/shared/CustomTabsHelper.java)
+    - [KeepAliveService.java](https://github.com/GoogleChrome/custom-tabs-client/blob/master/shared/src/main/java/org/chromium/customtabsclient/shared/KeepAliveService.java)
+    - [ServiceConnection.java](https://github.com/GoogleChrome/custom-tabs-client/blob/master/shared/src/main/java/org/chromium/customtabsclient/shared/ServiceConnection.java)
+    - [ServiceConnectionCallback.java](https://github.com/GoogleChrome/custom-tabs-client/blob/master/shared/src/main/java/org/chromium/customtabsclient/shared/ServiceConnectionCallback.java)
+
 
 3. Use the following method to open a Chrome Custom Tab *if possible*. If the user doesn't have a browser that supports Chrome Custom Tabs, it will open the default browser:
 
@@ -37,7 +38,7 @@ CustomTabActivityHelper.openCustomTab(this, customTabsIntent, uri,
             @Override
             public void openUri(Activity activity, Uri uri) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
+                activity.startActivity(intent);
             }
         });
 ```
