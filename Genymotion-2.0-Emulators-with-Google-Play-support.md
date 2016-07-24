@@ -61,6 +61,7 @@ See [this link](http://stackoverflow.com/questions/38275500/genymotion-virtualbo
 **NOTE**: These steps need to be followed only if you want to be able to use Google services such as maps and push messaging on your Genymotion device. For basic testing, these steps can be safely skipped.
 
 1. Download the [ARM Translation Installer v1.1](http://www14.zippyshare.com/v/44278764/file.html) and drag and drop the zip file onto the running Genymotion emulator device.  The ARM emulator is only needed for apps that trigger a `INSTALL_FAILED_CPU_ABI_INCOMPATIBLE` error.
+  * **Note:** If you get `Files successfully copied` message, you need to make sure there **are no spaces in the filename**. Remove any spaces from the name of your zip file before dragging to ensure the file is detected as flashable.
 
 2. You must **close and restart the emulator** fully before continuing.
 
@@ -80,6 +81,7 @@ See [this link](http://stackoverflow.com/questions/38275500/genymotion-virtualbo
 
 5. When asked to flash the device, make sure to proceed with the installation.
    - At this point, 'Google Apps Services' will crash frequently with the message "google play services has stopped working".
+   - **Note:** If you get `Files successfully copied` message, you need to make sure there **are no spaces in the filename**. Remove any spaces from the name of your zip file before dragging to ensure the file is detected as flashable.
 
 6. You must **close and restart the emulator** so that Google Play Store can be installed.
 
