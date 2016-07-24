@@ -243,13 +243,13 @@ This is a list of popular scrolling and parallax libraries:
 
 Check out the following resources for finding libraries:
 
- * [Android Elementals](https://github.com/cesards/AndroidElementals)
+ * [Android Elementals - Link not working](https://github.com/cesards/AndroidElementals)
  * [Wasabeef Core Libraries](https://github.com/wasabeef/awesome-android-libraries)
  * [Wasabeef UI Libraries](https://github.com/wasabeef/awesome-android-ui)
  * [Android-Libs.com](http://android-libs.com)
  * <http://androidlibs.org/>
  * <http://appdevwiki.com/wiki/show/HomePage>
- * <http://androidweekly.net/toolbox>
+ * <http://androidweekly.net/toolbox - Link not working>
  * <http://android-arsenal.com>
  * <http://www.libtastic.com>
 
