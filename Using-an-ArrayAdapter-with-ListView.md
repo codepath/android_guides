@@ -213,7 +213,9 @@ public class UsersAdapter extends ArrayAdapter<User> {
             @Override
             public void onClick(View view) {
                 int position = (Integer) view.getTag();
-                // Access the row position here!
+                // Access the row position here to get the correct data item
+                User user = getItem(position);
+                // Do what you want here...
             }
         });
         // ... other view population as needed...
@@ -222,6 +224,25 @@ public class UsersAdapter extends ArrayAdapter<User> {
     }
 }
 ```
+
+You can also similarly pass an entire object through a tag as well as shown here:
+
+```java
+// Inside adapter getView
+User user = getItem(position);
+moreInfoView.setTag(movie); // store position in the button
+// Attach the click event handler
+btButton.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        // Access user from within the tag
+        User user = (User) view.getTag();
+        // Do what you want here...
+    }
+});
+```
+
+With this approach you can easily access data as needed from within any event handlers.
 
 ## Improving Performance with the ViewHolder Pattern
 
