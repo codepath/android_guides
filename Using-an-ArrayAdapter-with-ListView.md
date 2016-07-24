@@ -205,17 +205,19 @@ public class UsersAdapter extends ArrayAdapter<User> {
     public View getView(int position, View convertView, ViewGroup parent) {
         // ...
         // Lookup view for data population
-        Button tvButton = (Button) convertView.findViewById(R.id.tvButton);
-        tvButton.setTag(position); // store position in the button
-        tvButton.setOnClickListener(new View.OnClickListener() {
+        Button btButton = (Button) convertView.findViewById(R.id.btButton);
+        // Cache row position inside the button using `setTag`
+        btButton.setTag(position); 
+        // Attach the click event handler
+        btButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int position = (Integer) view.getTag();
-                // Access the position here
+                // Access the row position here!
             }
         });
-        // ... other view population...
-        // Return the completed view to render on screen
+        // ... other view population as needed...
+        // Return the completed view
         return convertView;
     }
 }
