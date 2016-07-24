@@ -6,7 +6,7 @@ We can use the [YouTube Android Player API] (https://developers.google.com/youtu
 
 ### Setup
 
-In order to use this API, you will **need to have Google Play installed on your emulator** because the YouTube API interacts with a service that is distributed with the YouTube app.  Either use a physical device to test or make sure you have followed [[this emulator setup guide|Genymotion-2.0-Emulators-with-Google-Play-support#setup-google-play-services]] to install Google Play services. Otherwise, you are likely to see `An error has occurred while initializing the YouTube player`.
+In order to use this API, you will **need to have Google Play installed on your emulator** and **the Youtube App installed** because the YouTube API interacts with a service that is distributed with the YouTube app.  Either use a physical device to test or make sure you have followed [[this emulator setup guide|Genymotion-2.0-Emulators-with-Google-Play-support#setup-google-play-services]] to install Google Play services and then added the Youtube App. Otherwise, you are likely to see `An error has occurred while initializing the YouTube player`.
 
 To start, you will need to create an API key through [https://console.developers.google.com/](https://console.developers.google.com/).  Make sure to enable the `YouTube Data API v3`.  Go to the `Credentials` section and generate an API key.
 
@@ -81,7 +81,11 @@ If you wish to force the video to landscape mode, you can also add the `screenOr
 
 ## Troubleshooting
 
-Common issues with the `YouTubePlayerView` are listed below:
+In regards to setup, if you are using an emulator, make sure you have followed [[this emulator setup guide|Genymotion-2.0-Emulators-with-Google-Play-support#setup-google-play-services]] to install Google Play services and then **also added the Youtube app**. Otherwise, you are likely to see `An error has occurred while initializing the YouTube player`.
+
+When anything is going wrong, first thing to check that the value passed into the `cueVideo` or `loadVideo` methods is a valid Youtube video. Be sure **not to pass a null value** into those methods. Investigate to make sure that if you take the value given i.e `5xVh-7ywKpE` and then visit this [on youtube](https://www.youtube.com/watch?v=5xVh-7ywKpE) that the video is valid.
+
+Other common issues with the `YouTubePlayerView` are listed below:
 
   * **Error DeadObjectException:** If you receive the `java.lang.IllegalStateException: android.os.DeadObjectException` exception, you need to open up the "Play Store" and update the Youtube app on the Android device.
   * **Error Leaked ServiceConnection:** If you are using an emulator, upgrade to Lollipop (API 21) and open up the "Play Store" to check for updates to the Youtube app.
