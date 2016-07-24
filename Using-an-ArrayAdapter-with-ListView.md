@@ -268,13 +268,16 @@ public class UsersAdapter extends ArrayAdapter<User> {
        // Check if an existing view is being reused, otherwise inflate the view
        ViewHolder viewHolder; // view lookup cache stored in tag
        if (convertView == null) {
+          // If there's no view to re-use, inflate a brand new view for row
           viewHolder = new ViewHolder();
           LayoutInflater inflater = LayoutInflater.from(getContext());
           convertView = inflater.inflate(R.layout.item_user, parent, false);
           viewHolder.name = (TextView) convertView.findViewById(R.id.tvName);
           viewHolder.home = (TextView) convertView.findViewById(R.id.tvHome);
+          // Cache the viewHolder object inside the fresh view
           convertView.setTag(viewHolder);
        } else {
+           // View is being recycled, retrieve the viewHolder object from tag
            viewHolder = (ViewHolder) convertView.getTag();
        }
        // Populate the data into the template view using the data object
@@ -286,7 +289,7 @@ public class UsersAdapter extends ArrayAdapter<User> {
 }
 ```
 
-In this example we also have a private static class called `ViewHolder`.  Making calls to `findViewById()` is really slow in practice, and if your adapter has to call it for each View in your row for every single row then you will quickly run into performance issues.  What the ViewHolder class does is cache the call to `findViewById()`.  Once your ListView has reached the max amount of rows it can display on a screen, Android is smart enough to begin recycling those row Views.  We check if a View is recycled with `if (convertView == null)`.  If it is not null then we have a recycled View and can just change its values, otherwise we need to create a new row View.  The magic behind this is the `setTag()` method which lets us attach an arbitrary object onto a View object, which is how we save the already inflated View for future reuse.
+In this example we also have a private static class called `ViewHolder`.  Making calls to `findViewById()` can be slow in practice, and if your adapter has to call it for each `View` in your row for every single row then you can often run into performance issues.  What the `ViewHolder` class does is cache the call to `findViewById()`.  Once your ListView has reached the max amount of rows it can display on a screen, Android is smart enough to begin recycling those row Views.  We check if a View is recycled with `if (convertView == null)`.  If it is not null then we have a recycled View and can just change its values, otherwise we need to create a new row View.  The magic behind this is the `setTag()` method which lets us attach an arbitrary object onto a View object, which is how we save the already inflated `View` for future reuse.
 
 ### Beyond ViewHolders
 
