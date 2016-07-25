@@ -82,7 +82,7 @@ Here is an example of some of the ProGuard definitions for various popular libra
 ```
 -keepattributes Signature
 -keepattributes *Annotation*
--keep class okhttp3.** { *                  ; }
+-keep class okhttp3.** { *; }
 -keep interface okhttp3.** { *; }
 -dontwarn okhttp3.**
 -dontnote okhttp3.**
