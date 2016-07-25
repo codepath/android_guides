@@ -33,10 +33,13 @@ public class MyApplication extends Application {
 }
 ```
 
-If you are also using Stetho with the [[OkHttp|Using OkHttp]] or [[Retrofit|Consuming-APIs-with-Retrofit]], make sure to include the OkHttp library:
+If you are also using Stetho with the [[OkHttp|Using OkHttp]] or [[Retrofit|Consuming-APIs-with-Retrofit]], make sure to include the OkHttp library as well:
 
 ```java
+dependencies {
+    // add below Stetho main dependency
     compile 'com.facebook.stetho:stetho-okhttp3:1.3.1' // for OkHttp library
+}
 ```
 
 You will also need to add the `StethoInterceptor` when constructing the `OkHttpClient` instance:
