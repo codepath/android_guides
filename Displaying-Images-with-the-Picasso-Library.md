@@ -20,16 +20,6 @@ dependencies {
 }
 ```
 
-If using the SNAPSHOT, also include the maven repo to the project gradle file.
-
-```allprojects {
-    repositories {
-        jcenter()
-        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
-    }
-}
-```
-
 ### Loading an Image from Url
 
 We can then load a remote image into any `ImageView` with:
