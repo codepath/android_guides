@@ -361,7 +361,7 @@ Be sure to review the common questions below.
 
 > Question: How do I inspect the SQLite data stored on the device?
 
-In order to inspect the persisted data, we need to [[use adb to query or download the data|Local-Databases-with-SQLiteOpenHelper#sqlite-database-debugging]].
+In order to inspect the persisted data, we need to [[use adb to query or download the data|Local-Databases-with-SQLiteOpenHelper#sqlite-database-debugging]].  You can also take a look at using the [[Stetho|Troubleshooting-Common-Issues#database-inspection]] library, which provides a way to use Chrome to inspect the local data.
 
 > Problem: I am getting a "java.lang.NullPointerException at com.activeandroid.Cache.getTableInfo"
 
