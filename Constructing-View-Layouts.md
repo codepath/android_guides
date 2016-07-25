@@ -394,9 +394,9 @@ myView.bringToFront();
 myView.invalidate(); 
 ```
 
-**Note:** You must be sure to call `bringToFront()` and `invalidate()` method on the highest-level view under your root view. See a [more detailed example here](http://stackoverflow.com/a/23669036).
+**Note:** You must be sure to call `bringToFront()` and `invalidate()` method on the highest-level view under your root view. See a [more detailed example here](http://stackoverflow.com/a/23669036). 
 
- 
+With these methods outlined above, we can easily control the draw order of our views. 
 
 ## Optimizing Layout Performance
 
