@@ -52,6 +52,7 @@ If you are an experienced engineer with 2+ years of professional experience in s
 * [[Debugging Exceptions within your App]] (App crashing?)
 * [Debugging Android App Slides](https://docs.google.com/presentation/d/1DUigTm6Uh43vatHkB4rFkVVIt1zf7zB7Z5tpGTy2oFY/edit?usp=sharing)
 * [[Troubleshooting Common Issues]] (Running into problems?)
+* [[Debugging with Stetho]] (use Chrome developer tools to help troubleshoot)
 
 **External Resources**. Great external content to explore.
 
