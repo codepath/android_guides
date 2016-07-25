@@ -56,6 +56,14 @@ Simply wrap your views inside a [[PercentRelativeLayout|Constructing-View-Layout
 
 Tabs used to swap the content displayed on screen can be added to an Activity using a number of methods. The [[recommended method using a TabLayout|Google-Play-Style-Tabs-using-TabLayout]] involves splitting up the contents of each tab into a "Fragment" (modular piece of an activity) and then using a "ViewPager" which enables us to easily swap the contents of different fragments onto the screen. 
 
+#### How do I control the order of view layers within a layout?
+
+The easiest way to layer is to pay close attention to the order in which the Views are added to your XML file within their container. Lower down in the file means higher up in the Z-axis. Be sure to check out this [[detailed section on view drawing order|Constructing-View-Layouts#understanding-view-layers]] for the details. 
+
+#### How do I overlap two views on top of each other?
+
+The easiest way to overlap two views on top of each other is to use a [[RelativeLayout|Constructing-View-Layouts#relativelayout]] or [[FrameLayout|Constructing-View-Layouts#framelayout]] to wrap the views and then to order them such that views that should be drawn on top are lower down in the file. Be sure to check out this [[detailed section on view drawing order|Constructing-View-Layouts#understanding-view-layers]] for the details.
+
 ### Images
 
 #### How do I load images into an Android app for display?
