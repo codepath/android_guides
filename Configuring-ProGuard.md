@@ -20,19 +20,7 @@ Proguard can add a few minutes to your build cycle.  If you can avoid using ProG
 
 #### Checking method limit
 
-If you wish to check how close you are to the 64k limit, fork a copy of the [dex-method-counts](https://github.com/mihaip/dex-method-counts) library.  Inside this repo, type:
-
-```bash
-./gradlew assemble
-```
-
-Once this project compiles successfully, you can point this program to any of your `.apk` files (normally located in `app/build/outputs/apk`:
-
-```bash
-./dex-method-counts build/outputs/debug//myapp.apk # or .zip or .dex or directory
-```
-
-The program will generate a breakdown of the methods used across each library.
+If you wish to check how close you are to the 64k limit, use the new APK Analyzer that is soon to be released as part of [Android Studio v2.2](http://tools.android.com/recent) by going to `Build`=>`Analyze APK...`.  Click on the respective APK file and you can see a breakdown of the methods by package.
 
 ### Development
 
@@ -89,14 +77,15 @@ Here is an example of some of the ProGuard definitions for various popular libra
 -keepattributes Exceptions
 ```
 
-#### OkHttp
+#### OkHttp3
 
 ```
 -keepattributes Signature
 -keepattributes *Annotation*
--keep class com.squareup.okhttp.** { *; }
--keep interface com.squareup.okhttp.** { *; }
--dontwarn com.squareup.okhttp.**
+-keep class okhttp3.** { *                  ; }
+-keep interface okhttp3.** { *; }
+-dontwarn okhttp3.**
+-dontnote okhttp3.**
 
 # Okio
 -keep class sun.misc.Unsafe { *; }
