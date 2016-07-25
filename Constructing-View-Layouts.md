@@ -342,7 +342,7 @@ This is described in the [official view docs](https://developer.android.com/refe
 
 > The tree is largely recorded and drawn in order, with parents drawn before (i.e., behind) their children, with siblings drawn in the order they appear in the tree. If you set a background drawable for a View, then the View will draw it before calling back to its `onDraw()` method. The child drawing order can be overridden with [custom child drawing order](https://developer.android.com/reference/android/view/ViewGroup.html#setChildrenDrawingOrderEnabled(boolean)) in a ViewGroup, and with [setZ(float)](https://developer.android.com/reference/android/view/View.html#setZ(float)) custom Z values} set on Views.
 
-In other words, the easiest way to layer is to **pay close attention to the order**` in which the Views are added to your XML file within their container. **Lower down in the file means higher up in the Z-axis**.
+In other words, the easiest way to layer is to **pay close attention to the order** in which the Views are added to your XML file within their container. **Lower down in the file means higher up in the Z-axis**.
 
 ### Elevation
 
