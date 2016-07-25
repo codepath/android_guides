@@ -20,6 +20,15 @@ dependencies {
 }
 ```
 
+
+```allprojects {
+    repositories {
+        jcenter()
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+    }
+}
+```
+
 ### Loading an Image from Url
 
 We can then load a remote image into any `ImageView` with:
