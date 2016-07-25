@@ -14,21 +14,18 @@ dependencies {
 
 **Note**: there is a bug with the current version of Picasso that prevents large images (i.e. 10MB) from being loaded, especially with newer camera phones that have larger resolutions.   If you are experiencing [this issue](https://github.com/square/picasso/issues/364), you may need to upgrade to the Picasso 2.6.0 snapshot.  See the [[troubleshooting|Displaying Images with the Picasso Library#troubleshooting]] guide to confirm.
 
+To use this snapshot version, you need to add a custom separate Maven repo first:
+
 ```gradle
+repositories {
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+}
+
+// add directly below repositories section
 dependencies {
     compile 'com.squareup.picasso:picasso:2.6.0-SNAPSHOT'
 }
 ```
-
-If using the SNAPSHOT, include the maven repo in the project gradle file.
-
-    allprojects {
-        repositories {
-            jcenter()
-            maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
-        }
-    }
-
 
 ### Loading an Image from Url
 
