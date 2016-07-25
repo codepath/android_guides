@@ -20,14 +20,15 @@ dependencies {
 }
 ```
 
+If using the SNAPSHOT, include the maven repo in the project gradle file.
 
-```allprojects {
-    repositories {
-        jcenter()
-        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+    allprojects {
+        repositories {
+            jcenter()
+            maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+        }
     }
-}
-```
+
 
 ### Loading an Image from Url
 
