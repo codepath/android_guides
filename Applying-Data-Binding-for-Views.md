@@ -229,8 +229,9 @@ If you see an error message such as `cannot resolve symbol 'ActivityMainBinding'
  1. Make sure you have the proper `dataBinding.enabled = true` in gradle and trigger "Sync with Gradle"
  2. Open the layout file and ensure that the XML file is valid and is wrapped in a `<layout>` tag.
  3. Check the **layout file for the correct name** i.e `activity_main.xml` maps to `ActivityMainBinding.java`.
+ 4. Run `File => Invalidate Caches / Restart` to clear the caches. 
  4. Run `Project => Clean` and `Project => Re-Build` to regenerate the class file.
- 5. Restart Android Studio and then try the above steps again.
+ 5. Restart Android Studio again and then try the above steps again.
  
 **Databinding does not exist messages**
 
