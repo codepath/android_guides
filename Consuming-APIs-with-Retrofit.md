@@ -542,45 +542,7 @@ Retrofit retrofit = new Retrofit.Builder()
 
 ### Stetho
 
-Facebook's [Stetho](http://facebook.github.io/stetho/) project enables you to use Chrome to inspect all network traffic.
-
-<img src="http://facebook.github.io/stetho/static/images/inspector-network.png"/>
-
-Setup your `app/build.gradle` file:
-
-```gradle
-// Gradle dependency on Stetho
-  dependencies {
-    compile 'com.facebook.stetho:stetho:1.3.0'
-    compile 'com.facebook.stetho:stetho-okhttp3:1.3.0'
-  }
-```
-
-Initialize Stetho inside your Application object:
-```java
-public class MyApplication extends Application {
-  public void onCreate() {
-    super.onCreate();
-    Stetho.initializeWithDefaults(this);
-  }
-}
-```
-
-Enable network inspection.  Note that `client.networkInterceptors().add()` can no longer be used as OkHttp3 is immutable.
-
-```java
-OkHttpClient client = new OkHttpClient.Builder()
-    .addNetworkInterceptor(new StethoInterceptor())
-    .build();
-```
-
-Start your emulator or device.  Then visit `chrome://inspect` on your Chrome desktop and your emulator device should appear.  Click on `Inspect` to launch a new window.  
-
-<img src="http://facebook.github.io/stetho/static/images/inspector-discovery.png"/>
-
-Click on the `Network` tab.  Now you can start watching network traffic between your emulator or device in real-time!
-
-<img src="http://imgur.com/qlFJ0Yd.png"/>
+Facebook's [Stetho](http://facebook.github.io/stetho/) project enables you to use Chrome debugging tools to troubleshoot network traffic, database files, and view layouts. See this [[guide|Debugging-with-Stetho]] for more details.
 
 ## References
 
