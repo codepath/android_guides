@@ -403,13 +403,13 @@ ConnectableObservable<User> call = apiService.getUser(username).replay(10, TimeU
 
 Also note that the `replay()` turns the observable into a cold observable, which will not emit events until `connect()` is called.
 
-### Avoiding Memory Leaks
+## Avoiding Memory Leaks
 
 The flexibility in being able to schedule observables on different threads and have them operate as long-running tasks can make it easy to contribute the memory leaks.  One of the reasons is that observers are often created with anonymous classes.  In Java, creating anonymous classes requires the inner class retaining an instance to the containing class as discussed in this [Stack Overflow article](http://stackoverflow.com/questions/5054360/do-anonymous-classes-always-maintain-a-reference-to-their-enclosing-instance).  
 
 An observer that is created within an Activity or Fragment therefore can hold a reference that will be unable to be garbage collected if the observable is still running.  There are several different approaches suggested.  Both approaches attempt to manage the subscriptions created from attaching an observer to an observable and canceling them when a lifecycle event occurs.
 
-### Composite Subscriptions
+## Composite Subscriptions
 
 One of the simplest approach is to simply instantiate a CompositeSubscription object inside your Activity or Fragment. 
  
@@ -449,7 +449,7 @@ Once a `clear()` call is made, the `CompositeSubscription` [can be reused](https
 
 See [[this guide|RxJava-and-RxBinding]] on how to implement RxJava with Android views.   The RxBinding library simply implements `Observable` events for many standard Android views, making it easier to turn your UI events to leverage reactive-based programming.
 
-### RxLifecycle
+## RxLifecycle
 
 There is also a library called [RxLifecycle](https://github.com/trello/RxLifecycle) which provides support for managing the lifecycle of activities and fragments.  In the past [RxAndroid](https://github.com/ReactiveX/RxAndroid/wiki) provided this support with `AndroidObservables`, but a decision was made to simplify the library.  See this [release note](https://github.com/ReactiveX/RxAndroid/releases/tag/v1.0.0) for more context.
 
@@ -462,7 +462,7 @@ compile 'com.trello:rxlifecycle-components:0.4.0'
 
 RxLifecycle requires subclassing all activities with [RxActivity] (https://github.com/trello/RxLifecycle/blob/master/rxlifecycle-components/src/main/java/com/trello/rxlifecycle/components/RxActivity.java) or [RxAppCompatActivity](https://github.com/trello/RxLifecycle/blob/master/rxlifecycle-components/src/main/java/com/trello/rxlifecycle/components/support/RxAppCompatActivity.java). 
 
-### Chaining Observables
+## Chaining Observables
 
 For a better understanding about how subscriptions can be chained and how RxJava works in general, it's best to first to understand what happens beneath the surfaces when this `subscribe()` call is made.   Beneath the covers `Subscriber` objects are created.  If we wish to chain the input, there are various **operators** that are available that map one `Subscriber` type to another.  
 
