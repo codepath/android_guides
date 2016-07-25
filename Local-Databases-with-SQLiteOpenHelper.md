@@ -594,7 +594,7 @@ public class PostsDatabaseHelper extends SQLiteOpenHelper {
 ## SQLite Database Debugging 
 
 When working with SQLite, opening and inspecting the SQLite database can be helpful while debugging issues. 
-You can leverage the [[Stetho library|Troubleshooting-Common-Issues#database-inspection]] to view your data directly, or you can use the following command-line tools to retrieve the data.
+You can leverage the [[Stetho library|Debugging-with-Stetho]] to view your data directly, or you can use the following command-line tools to retrieve the data.
 
 The commands below will show how to get at the data (whether running on an emulator or an actual device). The commands should be performed **within the terminal or command-line**. Once you have the data, there are [desktop SQLite viewers](http://sqlitebrowser.org/) to help inspect the SQLite data graphically.
 
