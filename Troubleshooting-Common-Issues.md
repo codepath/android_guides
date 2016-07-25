@@ -12,7 +12,7 @@ If the debugger isn't working, check the [[guide section below|Troubleshooting-C
 
 ### Network Traffic Inspection
 
-If you are using [[OkHttp|Using-OkHttp]] or [[Retrofit|Consuming-APIs-with-Retrofit]], make sure to include the [Stetho](http://facebook.github.io/stetho/) project.  You can also use Stetho project for inspecting your network traffic through Chrome.  There is no current support with Stetho with [[Android Async Http Client|Using-Android-Async-Http-Client]] as noted in this [issue](https://github.com/facebook/stetho/issues/116).
+If you are using [[OkHttp|Using-OkHttp]] or [[Retrofit|Consuming-APIs-with-Retrofit]], make sure to include the [[Stetho|Debugging with Stetho]] project.  You can also use Stetho project for inspecting your network traffic through Chrome.  There is no current support with Stetho with [[Android Async Http Client|Using-Android-Async-Http-Client]] as noted in this [issue](https://github.com/facebook/stetho/issues/116).
 
 <img src="http://facebook.github.io/stetho/static/images/inspector-network.png"/>
 
