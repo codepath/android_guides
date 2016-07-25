@@ -55,6 +55,20 @@ If Android Studio starts freezing up or crashing even after rebooting the IDE or
 
 and then uninstall Android Studio and re-install the latest stable version. This should allow you to boot Android Studio again without errors.
 
+### Android Studio Design Pane isn't loading properly 
+
+If you find yourself opening up a layout file and not seeing the design pane rendering correctly such as:
+
+<img src="http://i.imgur.com/DaArMlC.png" width="300" />
+
+We can try the following steps to get this functioning again:
+
+ * Try changing the API version selected in the dropdown and try a few different versions
+ * Click the "refresh" icon at the top right of the design pane
+ * Select `File -> Invalidate Caches / Restart` and restart Android Studio
+
+You may need to install the newest version of Android and select that version within the dropdown for the pane to work as expected. 
+
 ### Seeing `Unable to execute dex: method ID` when compiling
 
 This might also show up as `Too many field references: 131000; max is 65536.` or `com.android.dex.DexIndexOverflowException: method ID not in [0, 0xffff]: 65536` or `Error:Execution failed for task ':app:dexDebug'` in the build console. This error occurs when the total number of references within a single bytecode file exceeds the 65,536 method limit. This usually means you have a substantial amount of code or are loading a large number of libraries.
