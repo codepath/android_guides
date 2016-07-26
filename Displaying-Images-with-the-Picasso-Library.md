@@ -111,6 +111,30 @@ builder.listener(new Picasso.Listener() {
 
 ## Advanced Usages
 
+### Showing ProgressBar with Picasso
+
+We can add a progress bar or otherwise handle callbacks for an image that is loading with:
+
+```java
+// Show progress bar
+progressBar.setVisibility(View.VISIBLE);
+// Hide progress bar on successful load
+Picasso.with(this).load(imageUrl)
+  .into(imageView, new com.squareup.picasso.Callback() {
+      @Override
+      public void onSuccess() {
+          if (progressBar != null) {
+              progressBar.setVisibility(View.GONE);
+          }
+      }
+
+      @Override
+      public void onError() {
+
+      }
+});
+```
+
 ### Adjusting Image Size Dynamically
 
 If we wish to readjust the ImageView size after the image has been retrieved, we first define a `Target` object that governs how the Bitmap is handled:
@@ -187,30 +211,6 @@ public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickL
 ```
 
 Now the staggered grid of images should render as expected.
-
-### Showing ProgressBar with Picasso
-
-We can add a progress bar or otherwise handle callbacks for an image that is loading with:
-
-```java
-// Show progress bar
-progressBar.setVisibility(View.VISIBLE);
-// Hide progress bar on successful load
-Picasso.with(this).load(imageUrl)
-  .into(imageView, new com.squareup.picasso.Callback() {
-      @Override
-      public void onSuccess() {
-          if (progressBar != null) {
-              progressBar.setVisibility(View.GONE);
-          }
-      }
-
-      @Override
-      public void onError() {
-
-      }
-});
-```
 
 ### Other Transformations
 
