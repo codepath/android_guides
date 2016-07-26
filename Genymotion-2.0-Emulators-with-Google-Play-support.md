@@ -7,7 +7,8 @@ To setup your genymotion emulator [sign up](https://www.genymotion.com/account/l
 #### Installation
 
 1. Sign up for an account on the [Genymotion Website](https://www.genymotion.com/account/login/)
-2. Install [VirtualBox 5.0](https://www.virtualbox.org/wiki/Downloads), a powerful free virtualization software for Genymotion to run.  
+2. Install [the latest VirtualBox](https://www.virtualbox.org/wiki/Downloads), a powerful free virtualization software for Genymotion to run.  
+   * If you already have VirtualBox installed, be sure to open and upgrade to the latest version.
 3. [Download Genymotion Emulator v2.7.0 or higher](https://www.genymotion.com/download/) for your platform.  
 4. Install the Genymotion Emulator
   * Windows: Run the MSI installer
