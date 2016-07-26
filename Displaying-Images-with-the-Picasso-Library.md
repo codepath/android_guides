@@ -172,7 +172,7 @@ We can use this custom Target approach to create a staggered image view using `R
 
 <img src="https://i.imgur.com/gsp1prk.png" width="300"/>
 
-We first need to use [DynamicHeightImageView.java](https://github.com/etsy/AndroidStaggeredGrid/blob/master/library/src/main/java/com/etsy/android/grid/util/DynamicHeightImageView.java) that enables us to update the ImageView width and height while still preserving the aspect ratio when new images are replaced with old recycled views. We can set the ratio before the image has loaded if we already know the height:width ratio using `onBindViewHolder` as shown below:
+We first need to replace the `ImageView` with the [DynamicHeightImageView.java](https://github.com/etsy/AndroidStaggeredGrid/blob/master/library/src/main/java/com/etsy/android/grid/util/DynamicHeightImageView.java) that enables us to update the `ImageView` width and height while still preserving the aspect ratio when new images are replaced with old recycled views. We can then set the ratio before the image has loaded if we already know the height:width ratio using `onBindViewHolder` as shown below:
 
 ```java
 public class PhotosAdapter extends RecyclerView.Adapter<PhotoViewHolder> {
@@ -181,6 +181,7 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotoViewHolder> {
     @Override
     public void onBindViewHolder(PhotoViewHolder holder, int position) {
         Photo photo = mPhotos.get(position);
+        // `holder.ivPhoto` should be of type `DynamicHeightImageView`
         // Set the height ratio before loading in image into Picasso
         holder.ivPhoto.setHeightRatio(((double)photo.getHeight())/photo.getWidth());
         // Load the image into the view using Picasso
@@ -210,7 +211,7 @@ public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickL
 }
 ```
 
-Now the staggered grid of images should render as expected.
+With either of these approaches the staggered grid of images should now render as expected.
 
 ### Other Transformations
 
