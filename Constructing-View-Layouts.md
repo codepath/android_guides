@@ -247,6 +247,13 @@ An example of a layout used to describe the image above is shown below (taken fr
 </android.support.percent.PercentRelativeLayout>
 ```
 
+Further samples include:
+
+ * <https://github.com/JulienGenoud/android-percent-support-lib-sample>
+ * <https://github.com/lusfold/Android-Percent-Layout-Sample>
+ * <https://gist.github.com/vijaymakwana/e7fe04aaaa1cbaff8c6c98af1031e26a>
+ * <http://android-er.blogspot.com/2015/08/try-percentrelativelayout-and.html>
+
 #### Margin Percentages
 
 The margins can also be set to a percentage of the total widths as well:
