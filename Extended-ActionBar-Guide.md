@@ -279,6 +279,9 @@ Notice that the `app:showAsAction` attribute also includes the "collapseActionVi
 Now we need to hook up a listener for when a search is performed:
 
 ```java
+// Make sure to import the support version of the SearchView
+import android.support.v7.widget.SearchView;
+
 @Override
 public boolean onCreateOptionsMenu(Menu menu) {
     MenuInflater inflater = getMenuInflater();
