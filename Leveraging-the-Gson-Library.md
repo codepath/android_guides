@@ -127,7 +127,7 @@ public class BoxOfficeMovieResponse {
 
 ### Custom options
 
-The [Gson Builder](https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/GsonBuilder.html) class enables a variety of different options that help provide more flexibility for the JSON parsing.  Before we instantiate a Gson parser, it's important to know what options are available using the Builder class.  
+The [Gson Builder]() class enables a variety of different options that help provide more flexibility for the JSON parsing.  Before we instantiate a Gson parser, it's important to know what options are available using the Builder class.  
 
 ```java
 GsonBuilder gsonBuilder = new GsonBuilder();
