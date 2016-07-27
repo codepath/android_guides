@@ -456,8 +456,14 @@ repositories {
     jcenter()
 }
 
+//If you are using a RecyclerView 23.1.0 or higher.
 dependencies {
-    compile 'jp.wasabeef:recyclerview-animators:2.2.0'
+    compile 'jp.wasabeef:recyclerview-animators:2.2.3'
+}
+
+//If you are using a RecyclerView 23.0.1 or below.
+dependencies {
+    compile 'jp.wasabeef:recyclerview-animators:1.3.0'
 }
 ```
 
