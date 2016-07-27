@@ -47,7 +47,7 @@ Not seeing your device in the "Choose Device" window? Try the following:
 
  * Unplug your device from the USB port on the computer 
  * Restart the device by powering off and back on
- * Verify that `Settings => Developer options => USB Debugging" is enabled
+ * Verify that `Settings => Developer options => USB Debugging` is enabled
  * Quit and re-launch Android Studio
  * Force [restart ADB](https://www.youtube.com/watch?v=FtdydFDBuQo) from the "Android Device Monitor"
  * Plug your device back into the USB port on the computer 
