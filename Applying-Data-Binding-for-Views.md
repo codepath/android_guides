@@ -216,6 +216,24 @@ public class BindingAdapterUtils {
 }
 ```
 
+### Event Handling
+
+Data Binding allows you to write expressions handling events that are dispatched from the views (e.g. onClick). To attach events to views, we can use [method references](https://developer.android.com/topic/libraries/data-binding/index.html#method_references) or [listener bindings](https://developer.android.com/topic/libraries/data-binding/index.html#listener_bindings).
+
+### List Adapters with Binding
+
+We can inflate the layout XML for a list item within an adapter using:
+
+```java
+ListItemBinding binding = ListItemBinding.inflate(layoutInflater, viewGroup, false);
+```
+
+Refer to these tutorials for how to work with data binding in `RecyclerView` or `ListView`:
+
+ * [Using data binding in RecyclerView](http://mutualmobile.com/posts/using-data-binding-api-in-recyclerview).
+ * [RecyclerView and Data Binding](https://www.jayway.com/2015/12/08/recyclerview-and-databinding/)
+ * [Simple code for data binding in the RecyclerView](https://newfivefour.com/android-databinding-recyclerview.html)
+
 ### Two Way Data Binding
 
 If you want to have a two-way binding between the view and the data source, check out this [handy 2-way data binding tutorial](https://medium.com/@fabioCollini/android-data-binding-f9f9d3afc761#.6h923gix6).
