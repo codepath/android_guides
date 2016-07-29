@@ -24,7 +24,7 @@ The current stable release is [v1.3](https://github.com/satyan/sugar/releases/do
         ...
         android:name="com.orm.SugarApp" >  <!--Use this attribute verbatim-->
         <meta-data android:name="DATABASE" android:value="example.db" />
-        <meta-data android:name="VERSION" android:value="1" />
+        <meta-data android:name="VERSION" android:valuell="1" />
         <meta-data android:name="QUERY_LOG" android:value="true" />
         <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="com.example" />
         <activity ... />
