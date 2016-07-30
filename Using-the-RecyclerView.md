@@ -509,6 +509,25 @@ recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
 });
 ```
 
+### Snap to Center Effect
+
+In certain cases, we might want a horizontal `RecyclerView` that allows the user to scroll through a list of items. As the user scrolls, we might want items to "snap to center" as they are revealed. Such as in this example:
+
+<img src="" width="350" />
+
+To achieve this effect, we can create a custom extension to `RecyclerView` called `SnappyRecyclerView` which will snap items to center as the user scrolls:
+
+1. Copy over the code from [SnappyRecyclerView.java](https://gist.github.com/nesquena/b26f9a253bbbb6a2e4890891e8a57eb9) to your project.
+2. Configure the `SnappyRecyclerView` with a horizontal `LinearLayoutManager`:
+   ```java
+   LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+   snappyRecyclerView.setLayoutManager(layoutManager);
+   ```
+3. Attach your adapter to the `RecyclerView` to populate the data into the horizontal list.
+4. You can access the currently "snapped" item position with `snappyRecyclerView.getFirstVisibleItemPosition()`.
+
+That's all, you should be set!
+
 ### Attaching Click Handlers to Items
 
 #### Attaching Click Listeners with Decorators
