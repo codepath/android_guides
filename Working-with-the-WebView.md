@@ -1,6 +1,6 @@
 ## Overview
 
-If you want to deliver a web application (or just a web page) as a part of a client application, you can do it using [WebView](http://developer.android.com/reference/android/webkit/WebView.html). The `WebView` class is an extension of Android's `View` class that allows you to display web pages as a part of your activity layout.
+If you want to deliver a web application (or just a web page) as a part of a client application, you can do it using [WebView](http://developer.android.com/reference/android/webkit/WebView.html). The `WebView` class is an extension of Android's `View` class that allows you to display web pages as a part of your activity layout.  Since Android 4.4, it is based on the Chrome on Android v33.0.0 according to this [reference](https://developer.chrome.com/multidevice/webview/overview).
 
 This document shows you how to get started with WebView and how to do some additional things, such as handle page navigation and bind JavaScript from your web page to client-side code in your Android application. See [the official WebView](http://developer.android.com/guide/webapps/webview.html) docs for a more detailed look.
 
