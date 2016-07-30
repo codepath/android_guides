@@ -61,7 +61,7 @@ public class MainActivity extends Activity {
       @TargetApi(Build.VERSION_CODES.N)
       @Override
       public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-          view.loadUrl(request.getUrl());
+          view.loadUrl(request.getUrl().toString());
           return true;
       }
    }
