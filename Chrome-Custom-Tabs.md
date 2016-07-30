@@ -33,7 +33,7 @@ CustomTabsIntent customTabsIntent = builder.build();
 customTabsIntent.launchUrl(this, Uri.parse(url));
 ```
 
-If you do not have Chrome installed, the intent will launch the default browser installed on the device.
+If you do not have Chrome installed, the intent will launch the default browser installed on the device.  The `CustomTabsIntent` simply launches an [[implicit intent|Common-Implicit-Intents]] (`android.intent.action.VIEW`) and passes an extra data in the intent (i.e. `android.support.customtabs.extra.SESSION` and `android.support.customtabs.extra.TOOLBAR_COLOR`) that gets ignored if the default browser cannot process this information.
 
 ### Enable pre-starting and pre-fetching
 
