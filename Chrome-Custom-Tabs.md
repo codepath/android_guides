@@ -24,7 +24,7 @@ compile 'com.android.support:customtabs:24.0.0+'
 
 The library only works on API 16 (Jelly Bean) an above. If you are supporting previous API, you can add `<uses-sdk tools:overrideLibrary="android.support.customtabs"/>` to your manifest to force its use and check the API version at runtime and just use Chrome Custom tabs if its >= 16
 
-The most basic example to launch a custom intent is shown below: 
+The most basic example to launch a Chrome tab is through a custom intent as shown below: 
 
 ```java
 String url = "https://www.codepath.com/";
