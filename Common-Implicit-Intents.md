@@ -65,6 +65,8 @@ if (browserIntent.resolveActivity(getPackageManager()) != null) {
 }
 ```
 
+You can also launch a Chrome tab if the app.  Take a look at [[this guide|Chrome-Custom-Tabs#setup]] for how to launch this implicit intent.
+
 ## Open Google Play Store
 
 Open app page on Google Play:
