@@ -18,7 +18,7 @@ Chrome custom tabs also allow the developer to pre-start Chrome and pre-fetch co
     compile 'com.android.support:customtabs:24.0.0+'
     ```
 
-    > The library only works on API 16 (Jelly Bean) an above. If you are supporting previous API, you can add `<uses-sdk tools:overrideLibrary="android.support.customtabs"/>` to your manifest to force its use and check the API version at runtime and just use Chrome Custom tabs if its >= 16
+    The library only works on API 16 (Jelly Bean) an above. If you are supporting previous API, you can add `<uses-sdk tools:overrideLibrary="android.support.customtabs"/>` to your manifest to force its use and check the API version at runtime and just use Chrome Custom tabs if its >= 16
 
 2. Copy the following files from [`GoogleChrome`](https://github.com/GoogleChrome/custom-tabs-client) sample git repo to your project and adjust the package names accordingly:
 
