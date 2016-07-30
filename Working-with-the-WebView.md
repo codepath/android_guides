@@ -51,10 +51,18 @@ public class MainActivity extends Activity {
    
    // Manages the behavior when URLs are loaded
    private class MyBrowser extends WebViewClient {
+      @SuppressWarnings("deprecation")
       @Override
       public boolean shouldOverrideUrlLoading(WebView view, String url) {
-         view.loadUrl(url);
-         return true;
+          view.loadUrl(url);
+          return true;
+      }
+
+      @TargetApi(Build.VERSION_CODES.N)
+      @Override
+      public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+          view.loadUrl(request.getUrl());
+          return true;
       }
    }
 }
