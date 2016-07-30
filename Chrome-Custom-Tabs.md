@@ -1,6 +1,6 @@
 ## Overview
 
-Chrome custom tabs give apps more control over their web experience, and make transitions between native and web content more seamless without having to resort to a WebView.
+[Chrome custom tabs](https://developer.chrome.com/multidevice/android/customtabs) give apps more control over their web experience, and make transitions between native and web content more seamless without having to resort to a WebView.
 
 Chrome custom tabs allow an app to customize how Chrome looks and feels. An app can change things like:
 
@@ -10,17 +10,36 @@ Chrome custom tabs allow an app to customize how Chrome looks and feels. An app 
 
 Chrome custom tabs also allow the developer to pre-start Chrome and pre-fetch content for faster loading.
 
-## Quick Integrating with Chrome Custom Tabs:
+See [this README](https://github.com/GoogleChrome/custom-tabs-client/blob/master/Using.md) more ways to use Chrome Custom Tabs.
 
-1. Add the Android Support Library for Chrome Custom Tabs as a dependency to your gradle build file:
+## Setup
 
-    ```java
-    compile 'com.android.support:customtabs:24.0.0+'
-    ```
+You will need to have the Chrome app installed on your phone.  If you are using an emulator, you must setup [[Google Play Services|Genymotion-2.0-Emulators-with-Google-Play-support#setup-google-play-services]] and install the Chrome app though the Play store.
 
-    The library only works on API 16 (Jelly Bean) an above. If you are supporting previous API, you can add `<uses-sdk tools:overrideLibrary="android.support.customtabs"/>` to your manifest to force its use and check the API version at runtime and just use Chrome Custom tabs if its >= 16
+Add the Android Support Library for Chrome Custom Tabs as a dependency to your gradle build file:
 
-2. Copy the following files from [`GoogleChrome`](https://github.com/GoogleChrome/custom-tabs-client) sample git repo to your project and adjust the package names accordingly:
+```java
+compile 'com.android.support:customtabs:24.0.0+'
+```
+
+The library only works on API 16 (Jelly Bean) an above. If you are supporting previous API, you can add `<uses-sdk tools:overrideLibrary="android.support.customtabs"/>` to your manifest to force its use and check the API version at runtime and just use Chrome Custom tabs if its >= 16
+
+The most basic example to launch a custom intent is shown below: 
+
+```java
+String url = "https://www.codepath.com/";
+CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+CustomTabsIntent customTabsIntent = builder.build();
+customTabsIntent.launchUrl(this, Uri.parse(url));
+```
+
+If you do not have Chrome installed, the intent will launch the default browser installed on the device.
+
+### Enable pre-starting and pre-fetching
+
+Chrome custom tabs also allow the developer to pre-start Chrome and pre-fetch content for faster loading.
+
+Copy the following files from [`GoogleChrome`](https://github.com/GoogleChrome/custom-tabs-client) sample git repo to your project and adjust the package names accordingly:
 
     - [CustomTabActivityHelper.java](https://github.com/GoogleChrome/custom-tabs-client/blob/master/demos/src/main/java/org/chromium/customtabsdemos/CustomTabActivityHelper.java)
     - [CustomTabsHelper.java](https://github.com/GoogleChrome/custom-tabs-client/blob/master/shared/src/main/java/org/chromium/customtabsclient/shared/CustomTabsHelper.java)
@@ -28,8 +47,7 @@ Chrome custom tabs also allow the developer to pre-start Chrome and pre-fetch co
     - [ServiceConnection.java](https://github.com/GoogleChrome/custom-tabs-client/blob/master/shared/src/main/java/org/chromium/customtabsclient/shared/ServiceConnection.java)
     - [ServiceConnectionCallback.java](https://github.com/GoogleChrome/custom-tabs-client/blob/master/shared/src/main/java/org/chromium/customtabsclient/shared/ServiceConnectionCallback.java)
 
-
-3. Use the following method to open a Chrome Custom Tab *if possible*. If the user doesn't have a browser that supports Chrome Custom Tabs, it will open the default browser:
+Use the following method to open a Chrome Custom Tab *if possible*. If the user doesn't have a browser that supports Chrome Custom Tabs, it will open the default browser:
 
 ```java
 CustomTabsIntent customTabsIntent = new CustomTabsIntent.Builder().build();
