@@ -4,6 +4,8 @@ If you want to deliver a web application (or just a web page) as a part of a cli
 
 This document shows you how to get started with WebView and how to do some additional things, such as handle page navigation and bind JavaScript from your web page to client-side code in your Android application. See [the official WebView](http://developer.android.com/guide/webapps/webview.html) docs for a more detailed look.
 
+An alternative for using WebViews is [Chrome Custom Tabs](https://developer.chrome.com/multidevice/android/customtabs), which provides more flexibility in terms of customizing the toolbar, adding animations, or warming up the browser ahead of time.  Chrome Custom Tabs only works if Chrome on Android is installed on the browser.  More information, see this [[guide|Chrome-Custom-Tabs]].
+
 ## Usage
 
 ### Load External Pages
