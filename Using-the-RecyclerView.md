@@ -400,11 +400,9 @@ recyclerView.setHasFixedSize(true);
 The positioning of the items is configured using the layout manager. By default, we can choose between `LinearLayoutManager`, `GridLayoutManager`, and `StaggeredGridLayoutManager`. Linear displays items either vertically or horizontally:
 
 ```java
-// Setup layout manager for items
-LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-// Control orientation of the items
-// also supports LinearLayoutManager.HORIZONTAL
-layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+// Setup layout manager for items with orientation
+// Also supports `LinearLayoutManager.HORIZONTAL`
+LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
 // Optionally customize the position you want to default scroll to
 layoutManager.scrollToPosition(0);
 // Attach layout manager to the RecyclerView
