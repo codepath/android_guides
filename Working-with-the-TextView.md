@@ -318,6 +318,32 @@ tvHelloWorld.setText(ssb, TextView.BufferType.EDITABLE);
 
 Note: There are 3 different classes that can be used to represent text that has markup attached. [SpannableStringBuilder](http://developer.android.com/reference/android/text/SpannableStringBuilder.html) (used above) is the one to use when dealing with mutable spans and mutable text. [SpannableString](http://developer.android.com/reference/android/text/SpannableString.html) is for mutable spans, but immutable text. And [SpannedString](http://developer.android.com/reference/android/text/SpannedString.html) is for immutable spans and immutable text.
 
+### Creating Clickable Styled Spans
+
+In certain cases, we might want different substrings in a `TextView` to different styles and then clickable to trigger an action. For example, rendering tweet items where `@foo` can be clicked in a message to view a user's profile. For this, you should copy over the [PatternEditableBuilder.java](https://gist.github.com/nesquena/f2504c642c5de47b371278ee61c75124#file-patterneditablebuilder-java) utility into your app. You can then use this utility to make clickable spans. For example:
+
+```java
+// Set text within a `TextView`
+TextView textView = (TextView) findViewById(R.id.textView);
+textView.setText("Hey @sarah, where did @jim go? #lost");
+// Style clickable spans based on pattern
+new PatternEditableBuilder().
+    addPattern(Pattern.compile("\\@(\\w+)"), Color.BLUE,
+       new PatternEditableBuilder.SpannableClickedListener() {
+            @Override
+            public void onSpanClicked(String text) {
+                Toast.makeText(MainActivity.this, "Clicked username: " + text,
+                    Toast.LENGTH_SHORT).show();
+            }
+       }).into(textView);
+```
+
+and this results in the following:
+
+<img src="http://i.imgur.com/OHFMMTc.gif" width="500" />
+
+For more details, [view the README](https://gist.github.com/nesquena/f2504c642c5de47b371278ee61c75124#file-readme-md) for more usage examples. 
+
 ## Displaying Images within a TextView
 
 A TextView is actually surprisingly powerful and actually supports having images displayed as a part of it's content area. Any images stored in the "drawable" folders can actually be embedded within a TextView at several key locations in relation to the text using the [android:drawableRight](http://developer.android.com/reference/android/widget/TextView.html#attr_android:drawableRight) and the `android:drawablePadding` property. For example:
