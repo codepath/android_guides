@@ -273,6 +273,15 @@ public class MyParentFragment extends Fragment implements EditNameDialogListener
 }
 ```
 
+**Troubleshooting**
+
+If you are having any issues, be sure to use the checklist below:
+
+ * In parent fragment, before calling `dialogFragment.show()`, are you calling `setTargetFragment` and passing in the correct fragment as the target?
+ * In the dialog fragment, before calling `dismiss()`, are you calling `listener.someCallbackMethod()` on a listener casted from the `getTargetFragment()` passed in above? 
+ * Have you correctly implemented the interface and callback method fired i.e `listener.someCallbackMethod()` inside of the parent fragment?
+ * Try breakpointing each of those lines to make sure the target fragment is set property and the callback method is being executed. 
+
 With that, the two fragments are able to pass data back and forth. 
 
 ## Styling Dialogs
