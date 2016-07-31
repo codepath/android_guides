@@ -216,6 +216,45 @@ One known issue when using `android:autoLink` or the `Linkify` class is that it 
 
 In addition, review [this stackoverflow post](http://stackoverflow.com/questions/26980204/listview-with-textview-autolink-not-receiving-onitemclicklistener) or [this android issue](https://code.google.com/p/android/issues/detail?id=3414) for additional context.
 
+## Displaying Images within a TextView
+
+A TextView is actually surprisingly powerful and actually supports having images displayed as a part of it's content area. Any images stored in the "drawable" folders can actually be embedded within a TextView at several key locations in relation to the text using the [android:drawableRight](http://developer.android.com/reference/android/widget/TextView.html#attr_android:drawableRight) and the `android:drawablePadding` property. For example:
+
+```xml
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"     
+    android:gravity="center"
+    android:text="@string/my_contacts"
+    android:drawableRight="@drawable/ic_action_add_group"
+    android:drawablePadding="8dp"
+/>
+```
+
+Which results in:
+
+![Contacts View](https://i.imgur.com/LoN8jpH.png)
+
+In Android, many views inherit from `TextView` such as `Button`s, `EditText`s, `RadioButton`s which means that all of these views support the same functionality. For example, we can also do:
+
+```xml
+<EditText
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="@string/user_name"
+    android:drawableLeft="@drawable/ic_action_person"
+    android:drawablePadding="8dp"
+/>
+```
+
+Which results in:
+
+![EditText with drawable](https://i.imgur.com/GZiIf1C.png)
+
+The relevant attributes here are `drawableLeft`, `drawableRight`, `drawableTop` and `drawableBottom` along with `drawablePadding`. Check out [this TextView article](http://antonioleiva.com/textview_power_drawables/) for a more detailed look at how to use this functionality. 
+
+Note that if you want to be able to better control the size or scale of the drawables, check out [this handy TextView extension](http://stackoverflow.com/a/31916731/313399) or [this bitmap drawable approach](http://stackoverflow.com/a/29804171/313399). You can also make calls to [setCompoundDrawablesWithIntrinsicBounds](https://groups.google.com/forum/#!topic/android-developers/_Gzbe0KCP_0) on the `TextView`.
+
 ## Using Custom Fonts
 
 We can actually use any custom font that we'd like within our applications. Check out [fontsquirrel](http://www.fontsquirrel.com/) for an easy source of free fonts. For example, we can download [Chantelli Antiqua](http://www.fontsquirrel.com/fonts/Chantelli-Antiqua) as an example. 
@@ -343,45 +382,6 @@ and this results in the following:
 <img src="http://i.imgur.com/OHFMMTc.gif" width="500" />
 
 For more details, [view the README](https://gist.github.com/nesquena/f2504c642c5de47b371278ee61c75124#file-readme-md) for more usage examples. 
-
-## Displaying Images within a TextView
-
-A TextView is actually surprisingly powerful and actually supports having images displayed as a part of it's content area. Any images stored in the "drawable" folders can actually be embedded within a TextView at several key locations in relation to the text using the [android:drawableRight](http://developer.android.com/reference/android/widget/TextView.html#attr_android:drawableRight) and the `android:drawablePadding` property. For example:
-
-```xml
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"     
-    android:gravity="center"
-    android:text="@string/my_contacts"
-    android:drawableRight="@drawable/ic_action_add_group"
-    android:drawablePadding="8dp"
-/>
-```
-
-Which results in:
-
-![Contacts View](https://i.imgur.com/LoN8jpH.png)
-
-In Android, many views inherit from `TextView` such as `Button`s, `EditText`s, `RadioButton`s which means that all of these views support the same functionality. For example, we can also do:
-
-```xml
-<EditText
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:hint="@string/user_name"
-    android:drawableLeft="@drawable/ic_action_person"
-    android:drawablePadding="8dp"
-/>
-```
-
-Which results in:
-
-![EditText with drawable](https://i.imgur.com/GZiIf1C.png)
-
-The relevant attributes here are `drawableLeft`, `drawableRight`, `drawableTop` and `drawableBottom` along with `drawablePadding`. Check out [this TextView article](http://antonioleiva.com/textview_power_drawables/) for a more detailed look at how to use this functionality. 
-
-Note that if you want to be able to better control the size or scale of the drawables, check out [this handy TextView extension](http://stackoverflow.com/a/31916731/313399) or [this bitmap drawable approach](http://stackoverflow.com/a/29804171/313399). You can also make calls to [setCompoundDrawablesWithIntrinsicBounds](https://groups.google.com/forum/#!topic/android-developers/_Gzbe0KCP_0) on the `TextView`
 
 ## References
 
