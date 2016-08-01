@@ -180,7 +180,7 @@ If you wish to convert your code to lambda expressions, move your cursor to the 
 
 <img src="http://imgur.com/KDzMS8l.png"/>
 
-Once you see the `Replace with lambda` appear, you can also apply `Fix all` click on the left-hand side to convert all the possible candidates automatically:
+Once you see the `Replace with lambda` appear, you can also apply `Fix all` click on the left-hand side to convert all the possible candidates automatically as [outlined here](http://stackoverflow.com/a/36746855).
 
 ## Attribution
 
