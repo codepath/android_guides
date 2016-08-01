@@ -1,6 +1,6 @@
 ## Overview
 
-[Chrome custom tabs](https://developer.chrome.com/multidevice/android/customtabs) give apps more control over their web experience, and make transitions between native and web content more seamless without having to resort to a WebView.
+[Chrome custom tabs](https://developer.chrome.com/multidevice/android/customtabs) give apps more control over their web experience, and make transitions between native and web content more seamless without having to resort to a [[WebView|Working with the WebView]].
 
 Chrome custom tabs allow an app to customize how Chrome looks and feels. An app can change things like:
 
@@ -29,11 +29,24 @@ The most basic example to launch a Chrome tab is through a custom intent as show
 ```java
 String url = "https://www.codepath.com/";
 CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+// set toolbar color and/or setting custom actions before invoking build()
 CustomTabsIntent customTabsIntent = builder.build();
 customTabsIntent.launchUrl(this, Uri.parse(url));
 ```
 
 If you do not have Chrome installed, the intent will launch the default browser installed on the device.  The `CustomTabsIntent` simply launches an [[implicit intent|Common-Implicit-Intents]] (`android.intent.action.VIEW`) and passes an extra data in the intent (i.e. `android.support.customtabs.extra.SESSION` and `android.support.customtabs.extra.TOOLBAR_COLOR`) that gets ignored if the default browser cannot process this information.
+
+### Setting Toolbar color
+
+If you wish to set the toolbar color, you can use the `setToolbarColor()` method in the builder class:
+
+```java
+CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+// set toolbar color
+builder.setToolbarColor(ContextCompat.getColor(this, R.color.colorAccent));
+```
+
+Normally, `context.getResources().getColor())` can be used, but in Android API 23 this method has been [deprecated](http://stackoverflow.com/questions/31590714/getcolorint-id-deprecated-on-android-6-0-marshmallow-api-23).   For this reason, see this guide for how to include the [[design support library|Design Support Library]] to leverage a new `ContextCompat` API.  
 
 ### Enable pre-starting and pre-fetching
 
