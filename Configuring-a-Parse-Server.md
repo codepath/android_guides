@@ -302,7 +302,7 @@ Body : {
    "deviceType": "android",
    "appIdentifier": "com.test",
    "installationId": "XXXX",
-   "parseVersion": "1.13.0",
+   "parseVersion": "1.13.1",
    "appName": "PushNotificationDemo",
    "timeZone": "America\/New_York"
 }
