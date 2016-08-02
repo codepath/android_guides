@@ -22,7 +22,7 @@ Let's setup Parse into a brand new Android app following the steps below.
     
     ```gradle
     dependencies {
-      compile 'com.parse:parse-android:1.13.0'
+      compile 'com.parse:parse-android:1.13.1'
       compile 'com.parse:parseinterceptors:0.0.2' // for logging API calls to LogCat
     }
     ```
