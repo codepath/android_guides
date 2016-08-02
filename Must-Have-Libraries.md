@@ -190,6 +190,7 @@ Essentially this method is used to enable your code to short-circuit before exec
 * [picasso-transformations](https://github.com/wasabeef/picasso-transformations) - Library for processing images via Picasso
 * [glide-transformations](https://github.com/wasabeef/glide-transformations) - Process images via Glide
 * [ImageEffectFilter](https://github.com/mnafian/ImageEffectFilter) - Sample code for processing images.
+* [VidEffects](https://github.com/krazykira/VidEffects) - Apply manipulation effects to videos.
 
 ### Scanning
 
