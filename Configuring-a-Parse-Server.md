@@ -125,7 +125,7 @@ Make sure you have the latest Parse-Android SDK in your `app/build.gradle` file.
 
 ```gradle
 dependencies {
-    compile 'com.parse:parse-android:1.13.0'
+    compile 'com.parse:parse-android:1.13.1'
     compile 'com.parse:parseinterceptors:0.0.2' // for logging API calls to LogCat
     compile 'com.parse.bolts:bolts-android:1.+'
 }
