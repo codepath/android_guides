@@ -176,7 +176,19 @@ This results in:
 
 ![](http://i.imgur.com/PEl2EKl.png)
 
-Note that all tags are not supported. See [this article](http://javatechig.com/android/display-html-in-android-textview) for a more detailed look at supported tags and usages. If you want to store your HTML text within `res/values/strings.xml`, you have to use CDATA to escape such as:
+Note that all tags are not supported. See [this article](http://javatechig.com/android/display-html-in-android-textview) for a more detailed look at supported tags and usages. 
+
+### Setting Font Colors
+
+For setting font colors, we can use the `<font>` tag and need to be careful to escape the quotes as shown:
+
+Html.fromHtml("Nice! <font color=\"#c5c5c5\">" + "This text has a color" + "</font>"); 
+
+And you should be all set. 
+
+### Storing Long HTML Strings
+
+If you want to store your HTML text within `res/values/strings.xml`, you have to use CDATA to escape such as:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -188,7 +200,7 @@ Note that all tags are not supported. See [this article](http://javatechig.com/a
 </string>
 ```
 
-and access the content with `getString(R.string.htmlFormattedText)` to load this within the TextView.
+and access the content with `getString(R.string.htmlFormattedText)` to load this within the TextView. 
 
 For more advanced cases, you can also check out the [html-textview](https://github.com/dschuermann/html-textview) library which adds support for almost any HTML tag within this third-party TextView.
 
