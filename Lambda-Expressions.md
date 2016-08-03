@@ -186,8 +186,8 @@ Once you see the `Replace with lambda` appear, you can also apply `Fix all` clic
 
 * Getting `An exception has occurred in the compiler (1.8.0_05)` or `com.sun.tools.javac.code.Symbol$CompletionFailure` or `java.lang.invoke.MethodType not found`? 
   * Try swapping the order of `apply plugin: 'retrolambda'` and `apply plugin: "android"`. 
-  * Check the path to the JDK in Android Studio settings to ensure correct.
-  * Check the path to the JDK in `build.gradle` to ensure correct. 
+  * Check the path to the JDK in Android Studio settings to ensure correctness.
+  * Check the path to the JDK in `build.gradle` to ensure correctness and consistency. 
 
 ## Attribution
 
