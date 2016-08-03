@@ -205,7 +205,13 @@ The only way to fulfill this requirement is to expand the height of the second b
 
 <img src="http://imgur.com/CmMsIgp.png"/>
 
-To use, follow the [[setup guide|Design-Support-Library#adding-percent-support-library]] and make sure the Gradle dependency is included.
+To use, follow the [[setup guide|Design-Support-Library#adding-percent-support-library]] and make sure the Gradle dependency is included in `app/build.gradle` with `X.X.X` based on your support version:
+
+```gradle
+dependencies {
+  compile "com.android.support:percent:X.X.X"
+}
+```
 
 The `layout_width` and `layout_height` of the PercentRelativeLayout should determine the total width and height that can be used.  Any elements contained within it should specify the width and height possible using `layout_heightPercent` and/or `layout_widthPercent`.  Because this library is not part of the standard Android library, note that a custom attribute `app` namespace being used.
 
