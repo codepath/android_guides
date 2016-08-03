@@ -182,7 +182,9 @@ Note that all tags are not supported. See [this article](http://javatechig.com/a
 
 For setting font colors, we can use the `<font>` tag and need to be careful to escape the quotes as shown:
 
+```java
 Html.fromHtml("Nice! <font color=\"#c5c5c5\">" + "This text has a color" + "</font>"); 
+```
 
 And you should be all set. 
 
