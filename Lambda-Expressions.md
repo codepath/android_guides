@@ -182,6 +182,13 @@ If you wish to convert your code to lambda expressions, move your cursor to the 
 
 Once you see the `Replace with lambda` appear, you can also apply `Fix all` click on the left-hand side to convert all the possible candidates automatically as [outlined here](http://stackoverflow.com/a/36746855).
 
+## Troubleshooting
+
+* Getting `An exception has occurred in the compiler (1.8.0_05)` or `com.sun.tools.javac.code.Symbol$CompletionFailure` or `java.lang.invoke.MethodType not found`? 
+  * Try swapping the order of `apply plugin: 'retrolambda'` and `apply plugin: "android"`. 
+  * Check the path to the JDK in Android Studio settings to ensure correct.
+  * Check the path to the JDK in `build.gradle` to ensure correct. 
+
 ## Attribution
 
 This guide was originally drafted by [Adegeye Mayowa](https://github.com/mayojava).
