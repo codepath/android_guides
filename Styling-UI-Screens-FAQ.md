@@ -64,6 +64,10 @@ The easiest way to layer is to pay close attention to the order in which the Vie
 
 The easiest way to overlap two views on top of each other is to use a [[RelativeLayout|Constructing-View-Layouts#relativelayout]] or [[FrameLayout|Constructing-View-Layouts#framelayout]] to wrap the views and then to order them such that views that should be drawn on top are lower down in the file. Be sure to check out this [[detailed section on view drawing order|Constructing-View-Layouts#understanding-view-layers]] for the details.
 
+#### Why is my layout overlapping the status bar?
+
+Use `android:fitsSystemWindows="true"` in the root view of your layout. This is an internal attribute to adjust view layout based on system windows such as the status bar. If true, adjusts the padding of this view to leave space for the system windows. Read more about [caveats here](http://stackoverflow.com/a/29738556).
+
 ### Images
 
 #### How do I load images into an Android app for display?
