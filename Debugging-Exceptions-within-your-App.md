@@ -57,6 +57,8 @@ First, within Android Studio, be sure to setup your Android Monitor to filter fo
 
 This will set you up to see only serious issues as they come up.
 
+**Note:** See [this blog post](http://andressjsu.blogspot.com/2016/07/android-debugging.html) for improving the coloring of errors or logs in `LogCat` and for other related tools. 
+
 ### Find the Stack Trace
 
 Now let's go into Android Studio and select open up the "Android Monitor". Expand the monitor so you can read the log messages easily. 
@@ -399,6 +401,7 @@ With these tools and the power of Google, you should be well-equipped to debug a
 
 ## References
 
+* <http://andressjsu.blogspot.com/2016/07/android-debugging.html>
 * <https://developer.android.com/studio/debug/index.html>
 * <http://blog.strv.com/debugging-in-android-studio-as/>
 * <https://www.youtube.com/watch?v=2c1L19ZP5Qg>
