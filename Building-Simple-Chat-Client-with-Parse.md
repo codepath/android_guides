@@ -514,7 +514,7 @@ Now we can fetch last 500 messages from parse and bind them to the ListView with
 ```java
 public class ChatActivity extends AppCompatActivity {
 ...
-    static final int MAX_CHAT_MESSAGES_TO_SHOW = 500;
+    static final int MAX_CHAT_MESSAGES_TO_SHOW = 50;
 ...
     // Query messages from Parse so we can load them into the chat adapter
     void refreshMessages() {
@@ -522,13 +522,14 @@ public class ChatActivity extends AppCompatActivity {
         ParseQuery<Message> query = ParseQuery.getQuery(Message.class);
         // Configure limit and sort order
         query.setLimit(MAX_CHAT_MESSAGES_TO_SHOW);
-        query.orderByAscending("createdAt");
+        query.orderByDescending("createdAt");
         // Execute query to fetch all messages from Parse asynchronously
         // This is equivalent to a SELECT query with SQL
         query.findInBackground(new FindCallback<Message>() {
             public void done(List<Message> messages, ParseException e) {
                 if (e == null) {
                     mMessages.clear();
+                    Collections.reverse(messages);
                     mMessages.addAll(messages);
                     mAdapter.notifyDataSetChanged(); // update adapter
                     // Scroll to the bottom of the list on initial load
