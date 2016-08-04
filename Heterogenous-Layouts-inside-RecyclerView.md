@@ -237,7 +237,7 @@ Next, override the `onBindViewHolder` method to configure the `ViewHolder` with 
                 break;
             case IMAGE:
                 ViewHolder2 vh2 = (ViewHolder2) viewHolder;
-                configureViewHolder2(vh2);
+                configureViewHolder2(vh2, position);
                 break;
             default:
                 RecyclerViewSimpleTextViewHolder vh = (RecyclerViewSimpleTextViewHolder) viewHolder;
