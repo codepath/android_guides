@@ -22,10 +22,10 @@ Parse is an open-source Android SDK and back-end solution that enables developer
 
 <img src="http://i.imgur.com/LylIn7w.png" />
 
-Parse is a Node.js application which is deployed onto a host such as Heroku (or AWS) and then creates an automatic API for user authentication and storing data to a MongoDB document store. In short, Parse has the following features included by combining the mobile SDK and back-end service:
+Parse is a Node.js application which is deployed onto a host such as Heroku (or AWS) and then creates an automatic API for user authentication and storing data to a MongoDB document store. Parse has the following features included by combining the mobile SDK and back-end service:
 
- * User registration and sign-in
- * Connecting to an app using Facebook
+ * User registration and authentication
+ * Connecting user with Facebook to create a user account. 
  * Creating, querying, modifying and deleting arbitrary data models
  * Makes sending push notifications easier
  * Uploading files to a server for access across clients
