@@ -63,7 +63,7 @@ public class ParseApplication extends Application {
                 .applicationId("myAppId") // should correspond to APP_ID env variable
                 .clientKey(null)  // set explicitly unless clientKey is explicitly configured on Parse server
                 .addNetworkInterceptor(new ParseLogInterceptor())
-                .server("https://parse-testing-port.herokuapp.com/parse/").build());
+                .server("https://my-parse-app-url.herokuapp.com/parse/").build());
     }
 }
 ```
