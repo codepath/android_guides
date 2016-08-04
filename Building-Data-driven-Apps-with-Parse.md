@@ -16,6 +16,20 @@ To get started setting up our own Parse backend, check out our [[configuring a P
 
 A comprehensive list of alternatives can be [reviewed here](https://github.com/relatedcode/ParseAlternatives). You can also review [Parse migration tools](http://blog.parse.com/announcements/introducing-parse-server-and-the-database-migration-tool/) and setup your own MongoDb/NodeJS server and leverage the existing Parse client SDK's.
 
+## What is Parse?
+
+Parse is an open-source Android SDK and back-end solution that enables developers to build mobile apps with shared data quickly and without writing any back-end code or custom APIs. 
+
+Parse is a Node.js application which is deployed onto a host such as Heroku (or AWS) and then creates an automatic API for user authentication and storing data to a MongoDB document store. In short, Parse has the following features included by combining the mobile SDK and back-end service:
+
+ * User registration and sign-in
+ * Connecting to an app using Facebook
+ * Creating, querying, modifying and deleting arbitrary data models
+ * Makes sending push notifications easier
+ * Uploading files to a server for access across clients
+
+In short, Parse makes building mobile app ideas much easier!
+
 ## Registration
 
 First, we need to [sign up for a Parse account](https://www.parse.com/#signup) unless we are already registered. 
