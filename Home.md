@@ -83,6 +83,7 @@ Exploring the core of app development:
 * [[App Permissions|Understanding App Permissions]] (How to request the permissions you need) 
 * [[Managing Runtime Permissions with PermissionsDispatcher]]
 * [[Replacing Enums with Enumerated Annotations]] (StringDef, IntDef for validated types)
+* [[Understanding the Android Application Class]] (Custom application object)
 
 ## Views and Layouts
 
