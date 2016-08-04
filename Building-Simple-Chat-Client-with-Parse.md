@@ -69,6 +69,7 @@ Let's setup Parse into a brand new Android app following the steps below.
 
     ```xml
     <application
+        ...>
         <!-- activities and everything here. meta-data last inside application tag -->
         <meta-data
             android:name="com.parse.APPLICATION_ID"
