@@ -65,6 +65,19 @@ Let's setup Parse into a brand new Android app following the steps below.
     />
     ```
 
+* Add your `YOUR_APPLICATION_ID` to the `<meta-data>` tag inside your `<application>` in your `AndroidManifest.xml`:
+
+    ```xml
+    <application
+        <!-- activities and everything here. meta-data last inside application tag -->
+        <meta-data
+            android:name="com.parse.APPLICATION_ID"
+            android:value="{YOUR_APPLICATION_ID_HERE}" />
+    />
+    ```
+
+**WARNING:** Be sure to **add the application name** above after creating the custom Application class or the following code won't work!! Also be **sure to add the application id** inside the manifest as wel. 
+
 ## 3. Design Messages Layout
 
 Let's create an XML layout which allows us to post messages by typing into a text field. Open your layout file `activity_chat.xml`, add an `EditText` and a `Button` to compose and send text messages.
