@@ -522,6 +522,17 @@ Joins are done using the query language AA provides in the [From class](https://
 
 Developers use both [[SQLiteOpenHelper|Local-Databases-with-SQLiteOpenHelper]] and [[several different ORMs|Persisting-Data-to-the-Device#object-relational-mappers]]. It's common to use the SQLiteOpenHelper in cases where an ORM breaks down or isn't necessary. Since Models are typically formed anyways though and persistence on Android in many cases can map very closely to objects, ORMs like ActiveAndroid can be helpful especially for simple database mappings.
 
+
+> Error:Parceler: Unable to find read/write generator for type `com.activeandroid.TableInfo`
+
+Make sure to annotate the class with the `@Parcel(analyze={}` decorator.  Otherwise, the Parceler library will try to serialize the fields that are associated with the `Model` class and trigger `Error:Parceler: Unable to find read/write generator for type` errors.  To avoid this issue, specify to Parceler exactly which class in the inheritance chain should be examined (see this [disucssion](https://github.com/johncarl81/parceler/issues/73#issuecomment-167131080) for more details):
+
+```java
+@Table(name="users")
+@Parcel(analyze={User.class})   // add Parceler annotation here
+public class User extends Model { }
+```
+
 ## References
 
 * [ActiveAndroid Website](http://www.activeandroid.com/)
