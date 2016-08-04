@@ -379,6 +379,7 @@ void setupMessagePosting() {
                 //ParseObject message = ParseObject.create("Message");
                 //message.put(Message.USER_ID_KEY, ParseUser.getCurrentUser().getObjectId());
                 //message.put(Message.BODY_KEY, data);
+                // Using new `Message` Parse-backed model now
                 Message message = new Message();
                 message.setBody(data);
                 message.setUserId(ParseUser.getCurrentUser().getObjectId());
@@ -511,6 +512,7 @@ public class ChatActivity extends AppCompatActivity {
                 //ParseObject message = ParseObject.create("Message");
                 //message.put(Message.USER_ID_KEY, userId);
                 //message.put(Message.BODY_KEY, data);
+                // Using new `Message` Parse-backed model now
                 Message message = new Message();
                 message.setBody(data);
                 message.setUserId(ParseUser.getCurrentUser().getObjectId());
@@ -531,7 +533,7 @@ public class ChatActivity extends AppCompatActivity {
     void refreshMessages() {
         // TODO:
     }
-...
+    ...
 }
 ```
 
@@ -607,7 +609,6 @@ protected void onCreate(Bundle savedInstanceState) {
     }
     mHandler.postDelayed(mRefreshMessagesRunnable, POLL_INTERVAL);
 }
-
 ```
 
 See the [[repeating periodic tasks|Repeating-Periodic-Tasks#handler]] guide to learn more about the handler.
