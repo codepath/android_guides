@@ -363,34 +363,6 @@ Be sure to review the common questions below.
 
 In order to inspect the persisted data, we need to [[use adb to query or download the data|Local-Databases-with-SQLiteOpenHelper#sqlite-database-debugging]].  You can also take a look at using the [[Stetho|Troubleshooting-Common-Issues#database-inspection]] library, which provides a way to use Chrome to inspect the local data.
 
-> Problem: I am getting a "java.lang.NullPointerException at com.activeandroid.Cache.getTableInfo"
-
-**Android API 23+ Users:** Be sure to also check [this exception workaround](http://stackoverflow.com/a/36887411) and applying one of those three options to avoid this exception. 
-
-This usually means that you have not properly configured ActiveAndroid. You need to initialize ActiveAndroid within your application. This can be done either by leveraging the ActiveAndroid `Application` class directly in your manifest:
-
-```xml
-<application
-        android:name="com.activeandroid.app.Application"
-```
-
-OR by extending a custom application class `class MyApplication extends com.activeandroid.app.Application` and then:
-
-```xml
-<application
-        android:name=".MyApplication"
-```
-
-or by calling `ActiveAndroid.initialize(this);` in your own custom `Application` class as [outlined here](https://github.com/pardom/ActiveAndroid/wiki/Getting-started#configuring-your-project).
-
-> Problem: I am getting an "SQLiteException: no such table" error when I try to run the app
-
-This is because ActiveAndroid only generates the schema if there is no existing database file. In order to "regenerate" the schema after creating a new model, the easiest way is to uninstall the app from the emulator and allow it to be fully re-installed. This is because this clears the database file and triggers ActiveAndroid to recreate the tables based on the annotated models in the project.
-
-> Problem: I am getting a NullPointerException when trying to save a model
-
-This is because ActiveAndroid needs you to **save all objects separately**. Before saving a tweet for example, be sure to save the associated user object first. So when you have a tweet that references a user be sure to `user.save()` before you call `tweet.save()` since storing the user requires the local id to be set and assigned as the foreign key for the tweet.
-
 > Question: How does ActiveAndroid handle duplicate IDs?  For example, I want to make sure no duplicate twitter IDs are inserted.  Is there a way to specify a column is the primary key in the model?
 
 The first step is to mark the column recording the unique id of an object as a unique column acting as your pseudo primary key. As [explained here](https://github.com/pardom/ActiveAndroid/issues/22), the annotation is:
@@ -407,45 +379,6 @@ public class SampleModel extends Model {
 ```
 
 Make sure to **uninstall the app** afterward on the emulator to ensure the schema changes take effect. Note that you may need to manually ensure that you don't attempt to re-create existing objects by verifying they are not already in the database **as shown below**.
-
-> Problem: `SQLiteConstraintException: foreign key constraint failed (code 19)` when saving an object
-
-This error means that you are **attempting to save a object** which would create a duplicate row in the database. This means that the object you are trying to save has the same `remoteId` (or other unique column) as an object already in the database. 
-
-With ActiveAndroid, be sure to avoid attempting to save duplicate data. Instead, you can check to ensure the data has not already been saved before saving a new object:
-
-```java
-@Table(name="users")
-public class User extends Model {
-    @Column(name = "remote_id", unique = true)
-    public long remoteId;
-
-    // Finds existing user based on remoteId or creates new user and returns
-    public static User findOrCreateFromJson(JSONObject json) {
-        long rId = json.getLong("id"); // get just the remote id
-    	User existingUser = 
-          new Select().from(User.class).where("remote_id = ?", rId).executeSingle(); 
-    	if (existingUser != null) { 
-    	    // found and return existing
-    	    return existingUser;
-    	} else {
-    	    // create and return new user
-    	    User user = User.fromJSON(json);
-    	    user.save();
-    	    return user;
-    	}
-    }    
-}
-```
-
-Then when you want to create this record and avoid duplicates, you can just call:
-
-```java
-User user = User.findOrCreateFromJson(objectJson);
-// Returns either the existing user or the created user
-```
-
-This will help avoid any foreign key constraint exceptions due to duplicate rows.
 
 > Question: I read somewhere that ActiveAndroid automatically creates another auto-increment ID column, is this true?  What field names should I avoid using?
 
@@ -522,8 +455,76 @@ Joins are done using the query language AA provides in the [From class](https://
 
 Developers use both [[SQLiteOpenHelper|Local-Databases-with-SQLiteOpenHelper]] and [[several different ORMs|Persisting-Data-to-the-Device#object-relational-mappers]]. It's common to use the SQLiteOpenHelper in cases where an ORM breaks down or isn't necessary. Since Models are typically formed anyways though and persistence on Android in many cases can map very closely to objects, ORMs like ActiveAndroid can be helpful especially for simple database mappings.
 
+## Troubleshooting
 
-> Error:Parceler: Unable to find read/write generator for type `com.activeandroid.TableInfo`
+#### Problem: I am getting a "java.lang.NullPointerException at com.activeandroid.Cache.getTableInfo"
+
+**Android API 23+ Users:** Be sure to also check [this exception workaround](http://stackoverflow.com/a/36887411) and applying one of those three options to avoid this exception. 
+
+This usually means that you have not properly configured ActiveAndroid. You need to initialize ActiveAndroid within your application. This can be done either by leveraging the ActiveAndroid `Application` class directly in your manifest:
+
+```xml
+<application
+        android:name="com.activeandroid.app.Application"
+```
+
+OR by extending a custom application class `class MyApplication extends com.activeandroid.app.Application` and then:
+
+```xml
+<application
+        android:name=".MyApplication"
+```
+
+or by calling `ActiveAndroid.initialize(this);` in your own custom `Application` class as [outlined here](https://github.com/pardom/ActiveAndroid/wiki/Getting-started#configuring-your-project).
+
+#### Problem: I am getting an "SQLiteException: no such table" error when I try to run the app
+
+This is because ActiveAndroid only generates the schema if there is no existing database file. In order to "regenerate" the schema after creating a new model, the easiest way is to uninstall the app from the emulator and allow it to be fully re-installed. This is because this clears the database file and triggers ActiveAndroid to recreate the tables based on the annotated models in the project.
+
+#### Problem: I am getting a NullPointerException when trying to save a model
+
+This is because ActiveAndroid needs you to **save all objects separately**. Before saving a tweet for example, be sure to save the associated user object first. So when you have a tweet that references a user be sure to `user.save()` before you call `tweet.save()` since storing the user requires the local id to be set and assigned as the foreign key for the tweet.
+
+#### Problem: `SQLiteConstraintException: foreign key constraint failed (code 19)` when saving an object
+
+This error means that you are **attempting to save a object** which would create a duplicate row in the database. This means that the object you are trying to save has the same `remoteId` (or other unique column) as an object already in the database. 
+
+With ActiveAndroid, be sure to avoid attempting to save duplicate data. Instead, you can check to ensure the data has not already been saved before saving a new object:
+
+```java
+@Table(name="users")
+public class User extends Model {
+    @Column(name = "remote_id", unique = true)
+    public long remoteId;
+
+    // Finds existing user based on remoteId or creates new user and returns
+    public static User findOrCreateFromJson(JSONObject json) {
+        long rId = json.getLong("id"); // get just the remote id
+    	User existingUser = 
+          new Select().from(User.class).where("remote_id = ?", rId).executeSingle(); 
+    	if (existingUser != null) { 
+    	    // found and return existing
+    	    return existingUser;
+    	} else {
+    	    // create and return new user
+    	    User user = User.fromJSON(json);
+    	    user.save();
+    	    return user;
+    	}
+    }    
+}
+```
+
+Then when you want to create this record and avoid duplicates, you can just call:
+
+```java
+User user = User.findOrCreateFromJson(objectJson);
+// Returns either the existing user or the created user
+```
+
+This will help avoid any foreign key constraint exceptions due to duplicate rows.
+
+### Error:Parceler: Unable to find read/write generator for type `com.activeandroid.TableInfo`
 
 Make sure to annotate the class with the `@Parcel(analyze={}` decorator.  Otherwise, the Parceler library will try to serialize the fields that are associated with the `Model` class and trigger `Error:Parceler: Unable to find read/write generator for type` errors.  To avoid this issue, specify to Parceler exactly which class in the inheritance chain should be examined (see this [disucssion](https://github.com/johncarl81/parceler/issues/73#issuecomment-167131080) for more details):
 
