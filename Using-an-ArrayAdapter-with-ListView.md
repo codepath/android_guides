@@ -23,7 +23,7 @@ Here is another related diagram on view recycling:
 
 <img src="https://i.imgur.com/SZ8iKuu.jpg" width="500" />
 
-Refer to [this ListView guide](http://android.amberfog.com/?p=296) for another look at how this works to optimize the performance of your lists.
+Refer to [this ListView guide](http://android.amberfog.com/?p=296) for another look at how this works to optimize the performance of your lists. Be sure to check out [this Udacity video on view recycling](https://www.youtube.com/watch?v=2lcoB5-PCCw) as well. 
 
 ## Using a Basic ArrayAdapter
 
