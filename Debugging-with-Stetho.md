@@ -10,7 +10,7 @@ Any SQLite database can also be inspected using the `Resources` -> `Web SQL` tab
 
 <img src="http://facebook.github.io/stetho/static/images/inspector-sqlite.png" width="400"/>
 
-## Caveats
+### Caveats
 
 The third-party [[Android Async Http Client|Using-Android-Async-Http-Client]] library uses the Apache HTTP Client, which is not currently supported by Stetho as noted in this [issue](https://github.com/facebook/stetho/issues/116).  Troubleshooting networking issues works best with [[OkHttp|Using OkHttp]] or [[Retrofit|Consuming-APIs-with-Retrofit]].  Regardless, you can still use this library for SQLite database inspection regardless.
 
