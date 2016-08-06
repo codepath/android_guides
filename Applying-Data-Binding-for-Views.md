@@ -222,10 +222,10 @@ Data Binding allows you to write expressions handling events that are dispatched
 
 ### List Adapters with Binding
 
-We can inflate the layout XML for a list item within an adapter using:
+We can inflate the layout XML for a list item `item_user.xml` within an adapter using:
 
 ```java
-ListItemBinding binding = ListItemBinding.inflate(layoutInflater, viewGroup, false);
+ItemUserBinding binding = ItemUserBinding.inflate(layoutInflater, viewGroup, false);
 ```
 
 Refer to these tutorials for how to work with data binding in `RecyclerView` or `ListView`:
