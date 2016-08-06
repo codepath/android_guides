@@ -178,6 +178,11 @@ At this point, you should notice that the Toolbar responds to scroll events.
 If we want to create the collapsing toolbar effect, we must wrap the Toolbar inside CollapsingToolbarLayout:
 
 ```xml
+<android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
@@ -194,6 +199,7 @@ If we want to create the collapsing toolbar effect, we must wrap the Toolbar ins
                 android:layout_height="?attr/actionBarSize"
                 app:layout_scrollFlags="scroll|enterAlways"></android.support.v7.widget.Toolbar>
 
+</android.support.design.widget.AppBarLayout>
 </android.support.design.widget.CollapsingToolbarLayout>
 ```
 
