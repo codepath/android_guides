@@ -48,7 +48,7 @@ If you need your keys in another XML file such as in `AndroidManifest.xml`, you 
 Since your secrets are now in an individual file, they're simple to ignore in your source control system (for example, in Git, you would add this to the '.gitignore' file in your repository):
 
 ```
-echo "**/*/res/values/configuration.xml" > .gitignore
+echo "**/*/res/values/secrets.xml" > .gitignore
 ```
 
 This process is not bulletproof. As resources, they are somewhat more vulnerable to decompilation of your application package, and so they are discoverable if somebody really wants to know them. This solution does, however, prevent your secrets just sitting in plaintext in source control waiting for someone to use, and also has the advantage of being simple to use, leveraging Android's resource management system, and requiring no extra libraries.
