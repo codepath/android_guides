@@ -205,6 +205,7 @@ Exploring the strategies for data persistence:
 * [[DBFlow ORM Guide|DBFlow-Guide]] (Installation, Queries)
 * [[Easier SQL with Cupboard]]
 * [[Powerful Persistence with JDXA ORM]]
+* [[Storing Secret Keys in Android]] (API keys, credentials)
 
 ## Fragments
 
