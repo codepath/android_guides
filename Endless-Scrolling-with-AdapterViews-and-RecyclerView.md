@@ -137,7 +137,7 @@ public class MainActivity extends Activity {
        // Configure the RecyclerView
        RecyclerView rvItems = (RecyclerView) findViewById(R.id.rvContacts);
        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-       recyclerView.setLayoutManager(linearLayoutManager);
+       rvItems.setLayoutManager(linearLayoutManager);
        // Add the scroll listener
        rvItems.addOnScrollListener(new EndlessRecyclerViewScrollListener(linearLayoutManager) {
            @Override
