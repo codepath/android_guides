@@ -28,7 +28,7 @@ If you use a third-party solution from the approved vendor list, you are likely 
 
 4. Go the `Credentials` section and create a service account.  Save the credential file to JSON format.
 
-5. Upload this JSON data along with the EMM token you generated to the vendor system you've chosen.
+5. Upload this JSON data along with the EMM token you generated to the vendor system you've chosen.   You may need to follow other steps as provided by the vendor to complete the necessary steps.
 
 ## References
 
