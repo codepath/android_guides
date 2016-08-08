@@ -14,6 +14,22 @@ Once this option is selected, you will need to either rely on Google to manage t
 
 <img src="http://i.imgur.com/EyiIQS1.png">
 
+### Using a Third-Party Solution
+
+If you use a third-party solution from the approved vendor list, you are likely to need to grant access to the Google Play EMM API.
+
+1. Visit [https://console.developers.google.com](https://console.developers.google.com) with the Google Apps domain.  
+
+2. Create a new project or use an existing one.
+
+3. Make sure to enable EMM API
+
+   <img src="http://i.imgur.com/GyMQzmX.png"/>
+
+4. Go the `Credentials` section and create a service account.  Save the credential file to JSON format.
+
+5. Upload this JSON data along with the EMM token you generated to the vendor system you've chosen.
+
 ## References
 
 * <https://support.google.com/work/android>
