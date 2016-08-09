@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
 	// ...
 	
     public static class MyPagerAdapter extends FragmentPagerAdapter {
-	private static int NUM_ITEMS = 3;
+	    private static int NUM_ITEMS = 3;
 		
         public MyPagerAdapter(FragmentManager fragmentManager) {
             super(fragmentManager);
