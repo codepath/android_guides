@@ -206,13 +206,7 @@ The extracted swatches will include vibrant and muted tones as well as foregroun
 
 ### Dialog Styles
 
-If you want your Dialogs to have a Material look and feel across all Android versions, you’ll want to use a library to achieve modern dialogs such as:
-
- * [material-dialogs](https://github.com/afollestad/material-dialogs)
- * [AlertDialogPro](https://github.com/fengdai/AlertDialogPro/)
- * [MaterialDialog](https://github.com/drakeet/MaterialDialog)
-
-![Material Dialog](https://i.imgur.com/U4mr2BB.jpg)
+If you want your Dialogs to have a Material look and feel across all Android versions, you can take advantage of the [[AppCompat|Migrating-to-the-AppCompat-Library]] library and use the alert dialogs.   
 
 ## References
 
