@@ -11,7 +11,7 @@ android {
       }
 }
 ```
-----Cheng
+-
 The Android SDK comes with ProGuard included as well as default settings file, which are specified as [proguard-android.txt](https://android.googlesource.com/platform/sdk/+/master/files/proguard-android.txt).  It is important to include this file since it explicitly includes configuration settings such as explicitly stating that all View getter and setter methods should not be removed.   The `proguard-rules.pro` file is the file that you will use to configure.
 
 ### Caveats
