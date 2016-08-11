@@ -113,7 +113,7 @@ public class MyParentActivity extends Activity {
     	// Create the custom object
     	MyCustomObject object = new MyCustomObject();
     	// Step 4 - Setup the listener for this object
-    	object.setCustomObjectListener(new MyCustomObjectListener() {
+    	object.setCustomObjectListener(new MyCustomObject.MyCustomObjectListener() {
     		@Override
     		public void onObjectReady(String title) {
     		    // Code to handle object ready
@@ -192,7 +192,7 @@ The code earlier demonstrated passing the callback through a method call like th
 
 ```java
 // Inside the parent object
-childObject.setCustomObjectListener(new MyCustomObjectListener() {
+childObject.setCustomObjectListener(new MyCustomObject.MyCustomObjectListener() {
     @Override
     public void onObjectReady(String title) {
         // Code to handle object ready
@@ -230,7 +230,7 @@ and then when we can create the child object from the parent we can do the follo
 
 ```java
 // Inside the parent object
-MyCustomObject object = new MyCustomObject(new MyCustomObjectListener() {
+MyCustomObject object = new MyCustomObject(new MyCustomObject.MyCustomObjectListener() {
     @Override
     public void onObjectReady(String title) {
         // Code to handle object ready
