@@ -12,6 +12,7 @@ The following template projects are built to act as a starting point for a prefe
  * <https://github.com/android10/Android-CleanArchitecture>
  * <https://github.com/googlesamples/android-architecture>
  * <https://github.com/antoniolg/androidmvp>
+ * <https://github.com/eyeem/decorator>
 
 ## References
 
