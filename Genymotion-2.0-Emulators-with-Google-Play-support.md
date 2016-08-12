@@ -140,4 +140,15 @@ List of devices attached
 192.168.57.101:5555	device
 ```
 
+### Connecting to VPN sites
+
+If you are trying to use a VPN client to connect to an internal web site, open VirtualBox and select the emulator image.  Click on Settings and make sure `Adapter 1` is disabled.   
+
+<img src="http://i.imgur.com/9tFR6We.png"/>
+
+Verify that `Adapter 2` is selected for NAT, which will force connections to be routed through your machine.
+
+<img src="http://i.imgur.com/ZFQMnaE.png"/>
+
+
 That's it! Try running the app again.
