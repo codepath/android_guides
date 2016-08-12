@@ -419,7 +419,7 @@ For this example, just create in `androidTest` folder new Java class and call it
 
 This file is a standard `ActivityTestRule` with some additional getters, which we will use later in our test class.
 
-> **NOTE:** Whole code of this is available here: https://github.com/piotrek1543/robotium-showcase
+> **NOTE:** This example is available here: https://github.com/piotrek1543/robotium-showcase
 
 ####Create your first automation testing file
 
@@ -451,9 +451,11 @@ Just create a new Java class and write the code below:
     
           }
         }
-    
+
+####Running the tests    
 To run tests, **right-click** on the name of class or method and select `Run `[nameOfTest]``
 
+####Aditional informations
 As you may notice there are some new annotations to remember:
   *  `@RunWith()` - it describes which runner we would use in our test class.
   *  `@Rule` - it defines where your actual `TestRule` is defined
