@@ -145,6 +145,8 @@ we could write:
 - no more @SmallTest, @MediumTest, @LargeTest (they're also deprecated)
 - use @Test arguments like @Test(timeout = 3000) instead of @MediumTest
 ...
+
+
 Before we start our journey with using `ActivityTestRule` with `Robotium` testing we need to need to change our existing configuration. 
 
 ###Configuration
