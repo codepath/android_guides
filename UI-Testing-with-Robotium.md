@@ -141,7 +141,8 @@ For better experience create a new Android `Empty Project` and follows these ste
         androidTestCompile 'com.android.support:support-annotations:24.1.1'
         androidTestCompile 'com.jayway.android.robotium:robotium-solo:5.6.1'
 
-Don't forget about defining your `testInstrumentationRunner` runner! Otherwise your tests won't run. 
+**Don't forget about defining your `testInstrumentationRunner` runner! **
+**Otherwise your tests won't run. **
 Just add this line:
 
       testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -185,7 +186,9 @@ Finally your `build.gradle file` should look like below:
 
 ####Define your own `ActivityTestRule`
 
-`Android Testing Support Library` supports creating your own test rules for tests. For this example, just create in `androidTest` folder new Java class and call it `MyActivityTestRule`. Then put this code into it:
+`Android Testing Support Library` supports creating your own test rules for tests. 
+
+For this example, just create in `androidTest` folder new Java class and call it `MyActivityTestRule`. Then put this code into it:
 
 
         @Beta
@@ -418,9 +421,11 @@ This file is a standard `ActivityTestRule` with some additional getters, which w
 
 > **NOTE:** Whole code of this is available here: https://github.com/piotrek1543/robotium-showcase
 
-####Create `Java` test file
+####Create your first automation testing file
 
-Now we have all needed configuration to start test coding using `Robotium`. Just create a new Java class and write the code below:
+Now we have all needed configuration to start test coding using `Robotium`. 
+
+Just create a new Java class and write the code below:
 
         @RunWith(AndroidJUnit4.class) 
         public class MainActivityTest {
@@ -447,11 +452,12 @@ Now we have all needed configuration to start test coding using `Robotium`. Just
           }
         }
     
+To run tests, **right-click** on the name of class or method and select `Run `[nameOfTest]``
+
 As you may notice there are some new annotations to remember:
   *  `@RunWith()` - it describes which runner we would use in our test class.
   *  `@Rule` - it defines where your actual `TestRule` is defined
   *  `@Test` - thanks to this annotation, you can name your test method as you would like to, no more `testSomethingToDo`
-
 
 ## References
 
