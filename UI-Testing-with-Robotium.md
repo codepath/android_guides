@@ -206,18 +206,9 @@ Finally your `build.gradle file` should look like below:
                androidTestCompile 'com.android.support:support-annotations:24.1.1'
                compile 'com.jayway.android.robotium:robotium-solo:5.6.1'    
         }
+        
 
-####Define your own `ActivityTestRule`
-
-`Android Testing Support Library` supports creating your own test rules for tests. 
-
-For this example, just create in `androidTest` folder new Java class, let's say `MyActivityTestRule` copy existing code from my project. You would find it [here](https://github.com/piotrek1543/robotium-showcase/blob/master/app/src/androidTest/java/com/example/piotr/robotium_showcase/rule/MyActivityTestRule.java)
-
-[`MyActivityTestRule`](https://github.com/piotrek1543/robotium-showcase/blob/master/app/src/androidTest/java/com/example/piotr/robotium_showcase/rule/MyActivityTestRule.java) is just a standard Google's `ActivityTestRule` with some additional getters, which we will use later in our test class.
-
-> **NOTE:** This example is available here: https://github.com/piotrek1543/robotium-showcase
-
-####Create your own first `Robotium` testing class
+####Create `MainActivityTest` testing class
 
 Now we have all needed configuration to start test coding using `Robotium`. 
 
