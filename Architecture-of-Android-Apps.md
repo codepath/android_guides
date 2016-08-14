@@ -23,6 +23,7 @@ Clean architecture:
 * <http://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/>
 * <http://fernandocejas.com/2015/07/18/architecting-android-the-evolution/>
 * <https://github.com/dmilicic/android-clean-sample-app>
+* <https://speakerdeck.com/romainpiel/ingredients-for-a-healthy-codebase/>
 
 MVP Pattern:
 
