@@ -310,7 +310,7 @@ Scope annotations cause dagger to hold a single instance of the provided object 
 ```java
 @Scope
 @Documented
-@Retention(value=RUNTIME)
+@Retention(value=RetentionPolicy.RUNTIME)
 public @interface MyActivityScope
 ```
 
