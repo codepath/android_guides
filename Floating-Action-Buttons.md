@@ -25,7 +25,7 @@ Once you've selected the icon to use, download the image by selecting the icon a
 
 ### Design Support Library
 
-Make sure to follow the [[Design Support Library]] setup instructions first. Namely, you may want to add this to your `build.gradle` file: `compile 'com.android.support:design:24.1.1'`.
+Make sure to follow the [[Design Support Library]] setup instructions first. Namely, you may want to add this to your `build.gradle` file: `compile 'com.android.support:design:X.X.X'` where X represents the support library version.
 
 You should now be able to add the `android.support.design.widget.FloatingActionButton` view to the layout.  The `src` attribute references the icon that should be used for the floating action.  
 
