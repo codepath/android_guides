@@ -12,6 +12,7 @@ The following template projects are built to act as a starting point for a prefe
  * <https://github.com/android10/Android-CleanArchitecture>
  * <https://github.com/googlesamples/android-architecture>
  * <https://github.com/antoniolg/androidmvp>
+ * <http://macoscope.com/blog/model-view-presenter-architecture-in-android-applications/>
  * <https://labs.ribot.co.uk/approaching-android-with-mvvm-8ceec02d5442>
 
 ## References
