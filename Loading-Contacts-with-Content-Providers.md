@@ -1,6 +1,6 @@
 ## Overview
 
-The way to access data from content providers is to use the `LoaderManager` to execute query and bind cursor result to list using `SimpleCursorAdapter`.  The loader manager is used to fetch the cursor asynchronously and the cursor is loaded directly into a `SimpleCursorAdapter`.
+The way to access data from content providers is to use the `LoaderManager` to execute the query and bind the cursor result to a list using `SimpleCursorAdapter`.  The loader manager is used to fetch the cursor asynchronously and the cursor is loaded directly into a `SimpleCursorAdapter`.
 
 ## Using CursorLoader and SimpleCursorAdapter
 
