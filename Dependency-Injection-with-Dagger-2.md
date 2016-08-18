@@ -325,16 +325,34 @@ If we wish to have multiple components that do not need to remain in memory all 
 
 There are several considerations when using these approaches:
 
-  * **Dependent components require the parent component to explicitly list out what dependencies can be used downstream, while subcomponents do not.**   The former allows more explicit control, while the latter makes it easier to manage.  
+  * **Dependent components require the parent component to explicitly list out what dependencies can be injected downstream, while subcomponents do not.**   For parent components, you would need to expose to the downstream component by specifying the type and a method:
+
+```java
+// parent component
+@Singleton
+@Component(modules={AppModule.class, NetModule.class})
+public interface NetComponent {
+    // remove injection methods if downstream modules will perform injection
+
+    // downstream components need these exposed
+    // the method name does not matter, only the return type
+    Retrofit retrofit(); 
+    OkHttpClient okHttpClient();
+    SharedPreferences sharedPreferences();
+}
+```
+
+If you forget to add this line, you will likely to see an error about an injection target missing.  Using a parent component allows more explicit control, but using subcomponents makes dependency injection easier to manage.
 
   * **Two dependent components cannot share the same scope.**  For instance, two components cannot both be scoped to a `@Singleton` annotation.  This restriction is imposed because of reasons described [here](https://github.com/google/dagger/issues/107#issuecomment-71073298).  Dependent components need to define their own scope.
 
   * **While Dagger 2 also enables the ability to create scoped instances, the responsibility rests on you to create and delete references that are consistent with the intended behavior.**  Dagger 2 does not know anything about the underlying implementation.  See this Stack Overflow [discussion](http://stackoverflow.com/questions/28411352/what-determines-the-lifecycle-of-a-component-object-graph-in-dagger-2) for more details.
 
-#### Component Dependencies
+#### Dependent Components
+
 ![Dagger Component Dependencies](https://raw.githubusercontent.com/codepath/android_guides/master/images/dagger_dependency.png)
 
-For instance, if we wish to use a dependent component created for the entire lifecycle of a user session signed into the application, we can define our own `UserScope` interface:
+For instance, if we wish to use a component created for the entire lifecycle of a user session signed into the application, we can define our own `UserScope` interface:
 
 ```java
 import java.lang.annotation.Retention;
