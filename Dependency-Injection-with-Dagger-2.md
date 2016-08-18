@@ -321,9 +321,9 @@ Leveraging scopes allows us to create either **dependent components** or **subco
 
 There are several considerations when using these approaches:
 
-  * Dependent components require the parent component to explicitly list out what dependencies can be used downstream, while subcomponents do not.   The former allows more explicit control, while the latter makes it easier to manage.  
+  * **Dependent components require the parent component to explicitly list out what dependencies can be used downstream, while subcomponents do not.**   The former allows more explicit control, while the latter makes it easier to manage.  
 
-  * Two dependent components cannot share the same scope.**  For instance, two components cannot both be scoped to a `@Singleton` annotation.  This restriction is imposed because of reasons described [here](https://github.com/google/dagger/issues/107#issuecomment-71073298).  Dependent components need to define their own scope.
+  * **Two dependent components cannot share the same scope.**  For instance, two components cannot both be scoped to a `@Singleton` annotation.  This restriction is imposed because of reasons described [here](https://github.com/google/dagger/issues/107#issuecomment-71073298).  Dependent components need to define their own scope.
 
   * **While Dagger 2 also enables the ability to create scoped instances, the responsibility rests on you to create and delete references that are consistent with the intended behavior.**  Dagger 2 does not know anything about the underlying implementation.  See this Stack Overflow [discussion](http://stackoverflow.com/questions/28411352/what-determines-the-lifecycle-of-a-component-object-graph-in-dagger-2) for more details.
 
