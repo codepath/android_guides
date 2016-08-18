@@ -317,13 +317,15 @@ public @interface MyActivityScope
 
 Even though Dagger 2 does not rely on the annotation at runtime, keeping the `RetentionPolicy` at RUNTIME is useful in allowing you to inspect your modules later.
 
-Leveraging scopes allows us to create either **dependent components** or **subcomponents**.  Both provide a way of encapsulating your code.  Dependent components require the parent component to explicitly list out what dependencies can be used downstream, while subcomponents do not.  The former allows more explicit control, while the latter makes it easier to manage.  We'll see how to use both in the next section. 
+Leveraging scopes allows us to create either **dependent components** or **subcomponents**.  Both provide a way of encapsulating your code. We'll see how to use both in the next section. 
 
-There are several considerations when using either approach:
+There are several considerations when using these approaches:
 
- * **Two dependent components cannot share the same scope.**  For instance, two components cannot both be scoped to a `@Singleton` annotation.  This restriction is imposed because of reasons described [here](https://github.com/google/dagger/issues/107#issuecomment-71073298).  Dependent components need to define their own scope.
+  * Dependent components require the parent component to explicitly list out what dependencies can be used downstream, while subcomponents do not.   The former allows more explicit control, while the latter makes it easier to manage.  
 
- * **While Dagger 2 also enables the ability to create scoped instances, the responsibility rests on you to create and delete references that are consistent with the intended behavior.**  Dagger 2 does not know anything about the underlying implementation.  See this Stack Overflow [discussion](http://stackoverflow.com/questions/28411352/what-determines-the-lifecycle-of-a-component-object-graph-in-dagger-2) for more details.
+  * Two dependent components cannot share the same scope.**  For instance, two components cannot both be scoped to a `@Singleton` annotation.  This restriction is imposed because of reasons described [here](https://github.com/google/dagger/issues/107#issuecomment-71073298).  Dependent components need to define their own scope.
+
+  * **While Dagger 2 also enables the ability to create scoped instances, the responsibility rests on you to create and delete references that are consistent with the intended behavior.**  Dagger 2 does not know anything about the underlying implementation.  See this Stack Overflow [discussion](http://stackoverflow.com/questions/28411352/what-determines-the-lifecycle-of-a-component-object-graph-in-dagger-2) for more details.
 
 #### Component Dependencies
 ![Dagger Component Dependencies](https://raw.githubusercontent.com/codepath/android_guides/master/images/dagger_dependency.png)
