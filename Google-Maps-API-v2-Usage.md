@@ -83,7 +83,7 @@ BitmapDescriptor defaultMarker =
 // listingPosition is a LatLng point
 LatLng listingPosition = new LatLng(-33.867, 151.206);
 // Create the marker on the fragment 
-Marker mapMarker = mapFragment.addMarker(new MarkerOptions()
+Marker mapMarker = map.addMarker(new MarkerOptions()
     .position(listingPosition)					 								    
     .title("Some title here")
     .snippet("Some description here")
