@@ -388,6 +388,20 @@ The update and delete methods take in a selection string and arguments to define
     }
 ```
 
+##Using the Content Provider
+In order to use the content provider, even from within your own app, you must update the AndroidManifest.xml file:  In the ``application`` node, add:
+
+
+```
+
+     <provider
+            android:name=".MovieProvider"
+            android:authorities="com.androidessence.moviedatabase"
+            android:exported="false"
+            android:protectionLevel="signature"
+            android:syncable="true"/>
+```
+
 The code seen above, as well as a sample project can be found on Github: https://github.com/androidessence/MovieDatabase
 
 ## References
