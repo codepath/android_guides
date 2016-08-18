@@ -317,7 +317,7 @@ public @interface MyActivityScope
 
 Even though Dagger 2 does not rely on the annotation at runtime, keeping the `RetentionPolicy` at RUNTIME is useful in allowing you to inspect your modules later.
 
-Leveraging scopes allows us to create either dependent components or subcomponents.  Both provide a way of encapsulating your code.  Dependent components require the parent component to explicitly list out what dependencies can be used downstream, while subcomponents do not.  The former is usually easier to manage because of this reason, while the latter allows more explicit control.  We'll see how to use both in the next section. 
+Leveraging scopes allows us to create either **dependent components** or **subcomponents**.  Both provide a way of encapsulating your code.  Dependent components require the parent component to explicitly list out what dependencies can be used downstream, while subcomponents do not.  The former is usually easier to manage because of this reason, while the latter allows more explicit control.  We'll see how to use both in the next section. 
 
 There are several considerations when using either approach:
 
