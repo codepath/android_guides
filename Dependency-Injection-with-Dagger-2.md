@@ -304,9 +304,8 @@ public @interface DefaultPreferences {
 ### Scopes
 ![Dagger Scopes](https://raw.githubusercontent.com/codepath/android_guides/master/images/dagger_scopes.png)
 
-Scope annotations cause dagger to hold a single instance of the provided object in a given component.  Provider methods that do not have a scope specified will be called to create a new object every time that the given type is injected.  
+In Dagger 2, you can define how components should be encapsulated by defining custom scopes.  For instance, you can create a scope that only lasts the duration of an activity or fragment lifecycle.  You can create a scope that maps only to a user authenticated session.  You can define any number of custom scope annotations in your application by declaring them as a public `@interface`:
 
-`@Singleton` is a scope annotation that is defined by Dagger, but you can define any number of scope annotations in your application:
 ```java
 @Scope
 @Documented
@@ -316,27 +315,20 @@ public @interface MyActivityScope
 }
 ```
 
-### Component Dependencies
-![Dagger Component Dependencies](https://raw.githubusercontent.com/codepath/android_guides/master/images/dagger_dependency.png)
+Even though Dagger 2 does not rely on the annotation at runtime, keeping the `RetentionPolicy` at RUNTIME is useful in allowing you to inspect your modules later.
 
-The example above showed that we used singletons that lasted the entire lifecycle of the application. We also relied on one major Dagger component.  If we wish to have multiple components that do not need to remain in memory all the time (i.e. components that are tied to the lifecycle of an activity or fragment, or even tied to when a user is signed-in), we can create dependent components.  There are several considerations when using dependent components:
+Leveraging scopes allows us to create either dependent components or subcomponents.  Both provide a way of encapsulating your code.  Dependent components require the parent component to explicitly list out what dependencies can be used downstream, while subcomponents do not.  The former is usually easier to manage because of this reason, while the latter allows more explicit control.  We'll see how to use both in the next section. 
 
- * **Two dependent components cannot share the same scope.**  For instance, two components cannot both be scoped to a `@Singleton` annotation.  This restriction is imposed because of reasons described [here](https://github.com/google/dagger/issues/107#issuecomment-71073298).  Dependent components need to define their own scope.
+There are several considerations when using either approach:
+
+ * **Two components cannot share the same scope.**  For instance, two components cannot both be scoped to a `@Singleton` annotation.  This restriction is imposed because of reasons described [here](https://github.com/google/dagger/issues/107#issuecomment-71073298).  Dependent components need to define their own scope.
 
  * **While Dagger 2 also enables the ability to create scoped instances, the responsibility rests on you to create and delete references that are consistent with the intended behavior.**  Dagger 2 does not know anything about the underlying implementation.  See this Stack Overflow [discussion](http://stackoverflow.com/questions/28411352/what-determines-the-lifecycle-of-a-component-object-graph-in-dagger-2) for more details.
 
- * **When creating dependent components, the parent component needs to explicitly expose the objects to downstream objects.**  For example, if a downstream component needed access to the `Retrofit` instance,
-it would need to explicitly expose it with the corresponding return type:
+#### Component Dependencies
+![Dagger Component Dependencies](https://raw.githubusercontent.com/codepath/android_guides/master/images/dagger_dependency.png)
 
- ```java
-  @Singleton
-  @Component(modules={AppModule.class, NetModule.class})
-  public interface NetComponent {
-      // downstream components need these exposed with the return type
-      // method name does not really matter
-      Retrofit retrofit();
-  }
- ```
+The example above showed that we used the `@Singleton` notation that lasted the entire lifecycle of the application. We also relied on one major Dagger component.  If we wish to have multiple components that do not need to remain in memory all the time (i.e. components that are tied to the lifecycle of an activity or fragment, or even tied to when a user is signed-in), we can create dependent components.  
 
 For instance, if we wish to use a dependent component created for the entire lifecycle of a user session signed into the application, we can define our own `UserScope` interface:
 
@@ -347,6 +339,18 @@ import javax.inject.Scope;
 @Scope
 public @interface UserScope {
 }
+```
+
+Next, we define the parent component:
+
+```java
+  @Singleton
+  @Component(modules={AppModule.class, NetModule.class})
+  public interface NetComponent {
+      // downstream components need these exposed with the return type
+      // method name does not really matter
+      Retrofit retrofit();
+  }
 ```
 
 We can then define a child component:
@@ -410,20 +414,31 @@ GitHubComponent gitHubComponent = DaggerGitHubComponent.builder()
 
 See [this example code](https://github.com/codepath/dagger2-example) for a working example.
 
-## Subcomponents
+#### Subcomponents
 ![Dagger subcomponents](https://raw.githubusercontent.com/codepath/android_guides/master/images/dagger_subcomponent.png)
 
-Using Subcomponents is another way to extend the object graph of a component.  Like components with dependencies, subcomponents have their own life-cycle and can be garbage collected when all references to the subcomponent are gone, and have the same scope restrictions.  
+Using subcomponents is another way to extend the object graph of a component.  Like components with dependencies, subcomponents have their own life-cycle and can be garbage collected when all references to the subcomponent are gone, and have the same scope restrictions.  One advantage in using this approach is that you do not need to define all the downstream components.  
 
-The main differences from dependencies are that subcomponents:
-* Need to be declared in the interface of the parent component.
-* Can access all elements of the parent component's graph (not just ones declared in its interface).
+Another major difference is that subcomponents simply need to be declared in the parent component.
 
-Here's an example of using a sub-component for an activity:
+Here's an example of using a subcomponent for an activity.  We annotate the class with a custom scope and the `@Subcomponent` annotation: 
+
+```java
+@MyActivityScope
+@Subcomponent(modules={ MyActivityModule.class })
+public interface MyActivitySubComponent {
+    @Named("my_list") ArrayAdapter myListAdapter();
+}
+```
+
+The module that will be used is defined below:
+
 ```java
 @Module
 public class MyActivityModule {
     private final MyActivity activity;
+
+    // must be instantiated with an activity
     public MyActivityModule(MyActivity activity) { this.activity = activity; }
    
     @Provides @MyActivityScope @Named("my_list")
@@ -432,16 +447,16 @@ public class MyActivityModule {
     }
     ...
 }
+```
 
-@MyActivityScope
-@Subcomponent(modules={ MyActivityModule.class })
-public interface MyActivitySubComponent {
-    @Named("my_list") ArrayAdapter myListAdapter();
-}
-
+Finally, in the **parent component**, we will define a factory method with the return value of the component and the dependencies needed to instantiate it:
+```
 @Singleton
 @Component(modules={ ... })
 public interface MyApplicationComponent {
+    // injection targets here
+
+    // factory method to instantiate the subcomponent defined here (passing in the module instance)
     MyActivitySubComponent newMyActivitySubcomponent(MyActivityModule activityModule);
 }
 ```
