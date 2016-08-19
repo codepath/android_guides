@@ -50,9 +50,9 @@ The same constructor call from the last example will now show an error in Androi
 
 ```java
 public class FilterColorDescriptor {
-  public static final int FILTER_BLUE = "blue";
-  public static final int FILTER_RED = "red";
-  public static final int FILTER_GRAY = "gray";
+  public static final int FILTER_BLUE = 1;
+  public static final int FILTER_RED = 2;
+  public static final int FILTER_GRAY = 3;
 
   public final int filterColor;
 
