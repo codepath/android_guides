@@ -156,6 +156,10 @@ The latest source code updates for the support library are now always included s
 - Added support for bottom sheets. ([[view guide|Handling-Scrolls-with-CoordinatorLayout#bottom-sheets]])
 - Added setup instructions for vector drawables. ([[view guide|Drawables#vector-drawables]])
 
+### Changes in Support Library v24.2.0
+
+- `TextInputLayout` and `EditText` now includes the ability to add password visibility toggles.  ([[view guide |Working-with-the-EditText#adding-password-visibility-toggles]])
+
 ## References
 
 * <https://medium.com/android-bites/first-steps-with-the-design-support-library-8dcf06230ddd>
