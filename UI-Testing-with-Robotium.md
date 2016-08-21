@@ -110,143 +110,140 @@ There are many actions which you can take during tests with Robotium via the `So
 For more details, make sure to check the [Robotium documentation](https://code.google.com/p/robotium/wiki/Getting_Started). 
 
 
-##Robotium in Google's Espresso way
+## Robotium in Google's Espresso way
 
-###Motivation 
+### Motivation 
 
-Most of `Robotium` examples [`ActivityInstrumentationTestCase2`]([https://developer.android.com/reference/android/test/ActivityInstrumentationTestCase2.html]), which is already marked as deprecated, so it won't be maintained any more. `Android Reference` says clearly that:
+Most of `Robotium` examples rely on [`ActivityInstrumentationTestCase2`(https://developer.android.com/reference/android/test/ActivityInstrumentationTestCase2.html]), which is already marked as deprecated.  Instead, Use `ActivityTestRule` using the `Android Testing Support Library`.
 
-> `**This class was deprecated in API level 24.**
->
-> Use `ActivityTestRule` instead. New tests should be written using the `Android Testing Support Library`.
+Another reason to change from `ActivityInstrumentationTestCase2` to `ActivityTestRule` is that it uses generated boilerplate code for initializing and finishing tests. Furthermore, `@SmallTest`, `@MediumTest`, and `@LargeTest` annotations have been deprecated but a `timeout` parameter can specify the expected duration of the text:
 
-Another reason to change `ActivityInstrumentationTestCase2` into `ActivityTestRule` is a generated boilerplate code used for initialization and finishing tests. Futhermore, let's think for a moment what if instead of 
+Instead of:
 
-    @MediumTest
-    public void testStartSecondActivity() throws Exception {
-         solo.waitForActivity("SecondActivity", 2000); 
-         ...
-we could write:
+```java
+@MediumTest
+public void testStartSecondActivity() throws Exception {
+    solo.waitForActivity("SecondActivity", 2000); 
+    ...
+}
+```
 
-    @Test(timeout = 2000)
-    public void startMainActivityIsProperlyDisplayed() throws InterruptedException {
-        solo.waitForActivity("MainActivity", 1000);
-        ...
+We would use:
+```java
+@Test(timeout = 2000)
+public void startMainActivityIsProperlyDisplayed() throws InterruptedException {
+    solo.waitForActivity("MainActivity", 1000);
+    ...
+}
+```
 
-####To resume what was already said, we want to achieve:
+Before we start using `ActivityTestRule` with `Robotium` testing, we need to need to change our existing configuration. 
 
-- using `ActivityTestRule` or similar like `InstrumentationTestRule`
-- writing our own test rules
-- no more `ActivityInstrumentationTestCase2` which is deprecated
-- adding support for new `Android Testing Support Library`
-- reducing `Robotium` tests flakyness and boilerplate code
-- no more `testDoSomethingWhatIsToDo` methods name
-- using @Test, @Rule and other great Android test annotations
-- no more @SmallTest, @MediumTest, @LargeTest (they're also deprecated)
-- use @Test arguments like @Test(timeout = 3000) instead of @MediumTest
-...
-
-
-Before we start our journey with using `ActivityTestRule` with `Robotium` testing we need to need to change our existing configuration. 
-
-###Configuration
+### Configuration
 
 ####Start new Android Application project
 
 For better experience create a new Android `Empty Project` and follows these steps:
 
-####Add [`Android Testing Support Library`](https://developer.android.com/tools/testing-support-library/index.html) dependencies in project's `build.gradle` file:
+Add the [Android Testing Support Library](https://developer.android.com/tools/testing-support-library/index.html) dependencies in project's `build.gradle` file:
 
-        androidTestCompile 'com.android.support.test:runner:0.4.1'
-        androidTestCompile 'com.android.support.test:rules:0.4.1'
-        androidTestCompile 'com.android.support:support-annotations:24.1.1'
-        androidTestCompile 'com.jayway.android.robotium:robotium-solo:5.6.1'
+```gradle
+dependencies {
+    androidTestCompile 'com.android.support.test:runner:0.4.1'
+    androidTestCompile 'com.android.support.test:rules:0.4.1'
+    androidTestCompile 'com.android.support:support-annotations:24.1.1'
+    androidTestCompile 'com.jayway.android.robotium:robotium-solo:5.6.1'
+}
+```
 
-####Define `testInstrumentationRunner` in project's `build.gradle` file
+#### Define `testInstrumentationRunner` in project's `build.gradle` file
 
 Don't forget about defining your `testInstrumentationRunner` runner! Otherwise your tests won't run.
 
 Just add this line:
-
+```gradle
       testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+```
 
 Finally your `build.gradle file` should look like below:
+```
+apply plugin: 'com.android.application'
+    
+android {
+  compileSdkVersion 24
+  buildToolsVersion "24.0.1"
+    
+  defaultConfig {
+     applicationId "com.example.piotr.myapplication"
+     minSdkVersion 15
+     targetSdkVersion 21
+     versionCode 1
+     versionName "1.0"
+     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+  }
+    
+  buildTypes {
+     release {
+          minifyEnabled false
+          proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+     }
+  }  
+    
+  dependencies {
+     compile fileTree(dir: 'libs', include: ['*.jar'])
+     testCompile 'junit:junit:4.12'
+     compile 'com.android.support:appcompat-v7:24.1.1'
+     compile 'com.android.support:design:24.1.1'
+     androidTestCompile 'com.android.support.test:runner:0.4.1'
+     androidTestCompile 'com.android.support.test:rules:0.4.1'
+     androidTestCompile 'com.android.support:support-annotations:24.1.1'
+     compile 'com.jayway.android.robotium:robotium-solo:5.6.1'    
+  }
+```      
 
-        apply plugin: 'com.android.application'
-    
-        android {
-                compileSdkVersion 24
-                buildToolsVersion "24.0.1"
-    
-        defaultConfig {
-              applicationId "com.example.piotr.myapplication"
-              minSdkVersion 15
-              targetSdkVersion 21
-              versionCode 1
-              versionName "1.0"
-              testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-          }
-    
-           buildTypes {
-              release {
-                  minifyEnabled false
-                  proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-              }
-    
-           }
-        }
-    
-        dependencies {
-               compile fileTree(dir: 'libs', include: ['*.jar'])
-               testCompile 'junit:junit:4.12'
-               compile 'com.android.support:appcompat-v7:24.1.1'
-               compile 'com.android.support:design:24.1.1'
-               androidTestCompile 'com.android.support.test:runner:0.4.1'
-               androidTestCompile 'com.android.support.test:rules:0.4.1'
-               androidTestCompile 'com.android.support:support-annotations:24.1.1'
-               compile 'com.jayway.android.robotium:robotium-solo:5.6.1'    
-        }
-        
-
-####Create `MainActivityTest` testing class
+#### Create `MainActivityTest` testing class
 
 Now we have all needed configuration to start test coding using `Robotium`. 
 
 Just create a new Java class and write the code below:
 
-        @RunWith(AndroidJUnit4.class) 
-        public class MainActivityTest {
+```java
+  @RunWith(AndroidJUnit4.class) 
+  public class MainActivityTest {
 
-        private Solo solo;
+  private Solo solo;
     
-        private static final String MAIN_ACTIVITY = MainActivity.class.getSimpleName();
+  private static final String MAIN_ACTIVITY = MainActivity.class.getSimpleName();
     
-        @Rule
-        public MyActivityTestRule<MainActivity> mActivityRule = new MyActivityTestRule<>(MainActivity.class);
+  @Rule
+  public MyActivityTestRule<MainActivity> mActivityRule = new MyActivityTestRule<>(MainActivity.class);
     
-        @Before
-        public void setUp() throws Exception {
-            solo = new Solo(mActivityRule.getInstrumentation(), mActivityRule.getActivity());
-        }
+  @Before
+  public void setUp() throws Exception {
+     solo = new Solo(mActivityRule.getInstrumentation(), mActivityRule.getActivity());
+  }
     
-        @Test(timeout = 5000)
-        public void checkIfMainActivityIsProperlyDisplayed() throws Exception {
-            solo.waitForActivity("MainActivity", 2000);
-            solo.assertCurrentActivity(mActivityRule.getActivity().getString(
-                    R.string.error_no_class_def_found, MAIN_ACTIVITY), MAIN_ACTIVITY);
-            solo.getText("Hello World").isShown();
+  @Test(timeout = 5000)
+  public void checkIfMainActivityIsProperlyDisplayed() throws Exception {
+    solo.waitForActivity("MainActivity", 2000);
+    solo.assertCurrentActivity(mActivityRule.getActivity().getString(
+              R.string.error_no_class_def_found, MAIN_ACTIVITY), MAIN_ACTIVITY);
+    solo.getText("Hello World").isShown();
     
-          }
-        }
+  }
+}
+```
 
-####Running the tests    
+#### Running the tests    
+
 To run tests, **right-click** on the name of class or method and select `Run `[nameOfTest]``
 
-####Aditional informations
+#### Other annotations
+
 As you may notice there are some new annotations to remember:
-  *  `@RunWith()` - it describes which runner we would use in our test class.
-  *  `@Rule` - it defines where your actual `TestRule` is defined
-  *  `@Test` - thanks to this annotation, you can name your test method as you would like to, no more `testSomethingToDo`
+  *  `@RunWith()` - describes which runner we would use in our test class.
+  *  `@Rule` - defines where your actual `TestRule` is defined
+  *  `@Test` - thanks to this annotation, you can name your test method as you would like to (i.e. no more `testSomethingToDo`)
 
 
 ## References
