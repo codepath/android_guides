@@ -13,16 +13,7 @@ dependencies {
 }
 ```
 
-Note that the AppCompat library has an implicit dependency on the support-v4 library.  The support-v4 declaration however does not necessarily need to be declared.  Since the release of the support-v4 version 24.2.0, the library has been [divided into separate modules](https://developer.android.com/topic/libraries/support-library/revisions.html): `support-compat`, `support-core-utils`, `support-core-ui`, `support-media-compat`, and `support-fragment`.  
-
-To take advantage of this change, which will reduce your overall size and method count, you should exclude the support-v4 from the AppCompat library and only add back the necessary dependencies:
-
-```java
-compile('com.android.support:appcompat-v7:24.2.0', {
-     exclude group: 'com.android.support', module: "support-v4"
-})
-compile "com.android.support:support-fragment:24.2.0"
-```
+Note that the AppCompat library has an implicit dependency on the support-v4 library.  The support-v4 declaration however does not necessarily need to be declared.  Since the release of the support-v4 version 24.2.0, the library has been [divided into separate modules](https://developer.android.com/topic/libraries/support-library/revisions.html): `support-compat`, `support-core-utils`, `support-core-ui`, `support-media-compat`, and `support-fragment`.  However, because the AppCompat library usually depends on `support-fragment`, which still contains a dependency to all the other modules, you currently cannot take advantage of this change to reduce the number of overall dependencies.
 
 Also notice that once you upgrade to AppCompat v7 v24, you will also be forced to update your Build Tools and `compileSDKVersion` to API 24 too.
 
