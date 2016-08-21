@@ -241,6 +241,32 @@ The `TextInputLayout` simply needs to define `app:counterEnabled` and `app:Count
 </android.support.design.widget.TextInputLayout>
 ```
 
+### Adding Password Visibility Toggles
+
+<img src="http://imgur.com/33oQgLr.png"/>
+
+If you use an `EditText` with an input password type, you can also enable an icon that can show or hide the entire text using the `passwordToggleEnabled` attribute.    You can also change the default eye icon with  `passwordToggleDrawable` attribute or the color hint using the `passwordToggleTint` attribute.  See the `TextInputLayout` [attributes](https://developer.android.com/reference/android/support/design/widget/TextInputLayout.html#attr_android.support.design:passwordToggleTintMode) for more details.
+
+```xml
+<android.support.design.widget.TextInputLayout
+        android:id="@+id/username_text_input_layout"
+        app:passwordToggleEnabled="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/etUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:hint="Username" />
+
+    </android.support.design.widget.TextInputLayout>
+```
+
 ### Styling TextInputLayout
 
 Make sure you have the `app` namespace (`xmlns:app="http://schemas.android.com/apk/res-auto"` defined in your outer layout.  You can type `appNS` as a shortcut in Android Studio to be declared.
