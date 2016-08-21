@@ -162,7 +162,7 @@ Don't forget about defining your `testInstrumentationRunner` runner! Otherwise y
 
 Just add this line:
 ```gradle
-      testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 ```
 
 Finally your `build.gradle file` should look like below:
