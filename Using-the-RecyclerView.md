@@ -63,13 +63,13 @@ The steps are explained in more detail below.
 
 ### Installation
 
-Make sure the recyclerview support library is listed as a dependency in your `app/build.gradle`:
+Make sure the RecyclerView support library is listed as a dependency in your `app/build.gradle`:
 
 ```gradle
 dependencies {
     ...
-    compile 'com.android.support:support-v4:24.1.1'
-    compile 'com.android.support:recyclerview-v7:23.2.1'
+    compile 'com.android.support:support-v4:24.2.0'
+    compile 'com.android.support:recyclerview-v7:24.2.0'
 }
 ```
 
@@ -666,6 +666,26 @@ See [this detailed stackoverflow post](http://stackoverflow.com/a/24933117/31339
 ## Implementing Pull to Refresh
 
 The `SwipeRefreshLayout` should be used to refresh the contents of a `RecyclerView` via a vertical swipe gesture. See our detailed [[RecyclerView with SwipeRefreshLayout|Implementing-Pull-to-Refresh-Guide#recyclerview-with-swiperefreshlayout]] guide for a step-by-step tutorial on implementing pull to refresh.
+
+## Swipe Detection
+
+RecyclerView (since the release of v24.2.0) now has an `OnFlingListener` method that can be used to implement swipe detection.  Download this [RecyclerViewSwipeListener](https://gist.github.com/rogerhu/9e769149f9550c0a6ddb4987b94caee8) and you can attach this class to your RecyclerView: 
+
+```java
+RecyclerView rvMyList;
+
+rvMyList.setOnFlingListener(new RecyclerViewSwipeListener(true) {
+   @Override
+   public void onSwipeDown() {
+      Toast.makeText(MainActivity.this, "swipe down", Toast.LENGTH_SHORT).show();
+   }
+
+   @Override
+   public void onSwipeUp() {
+      Toast.makeText(MainActivity.this, "swipe up", Toast.LENGTH_SHORT).show();
+   }
+});
+```
 
 ## References
 
