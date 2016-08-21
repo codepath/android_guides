@@ -95,6 +95,10 @@ myView.setOnTouchListener(new OnSwipeTouchListener(this) {
 
 With that code in place, swipe gestures should be easily manageable. 
 
+#### RecyclerView Swipe Detection
+
+If you intend to implement pull-to-refresh capabilities in your RecyclerView, you can leverage the built-in `SwipeRefreshLayout` as described [[here|Implementing-Pull-to-Refresh-Guide#recyclerview-with-swiperefreshlayout]].  If you wish to handle your own swipe detection, you can use the new `OnFlingListener` as described in [[this section|Using-the-RecyclerView#swipe-detection]].
+
 #### ListView Swipe Detection
 
 If you are interested in having a ListView that recognizes swipe gestures for each item, consider using the popular third-party library [android-swipelistview](https://github.com/47deg/android-swipelistview) which is a ListView replacement that supports swipe-eable items. Once setup, you can configure a layout that will appear when the item is swiped. 
