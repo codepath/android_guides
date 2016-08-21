@@ -1,6 +1,6 @@
 ## Overview
 
-At their I/O 2015 conference, Google announced a new [design support library](http://android-developers.blogspot.com/2015/05/android-design-support-library.html), which helps bring a lot of [[material design components|Material-Design-Primer]] including a navigation drawer view, floating labels, floating action buttons, snackbars, and a new framework to tie motion and scroll events.  The library is supported for Android version 2.1 and higher. 
+At their I/O 2015 conference, Google announced a new [design support library](http://android-developers.blogspot.com/2015/05/android-design-support-library.html), which helps bring a lot of [[material design components|Material-Design-Primer]] including a navigation drawer view, floating labels, floating action buttons, snackbars, and a new framework to tie motion and scroll events.  The library is supported for Android version 2.2 and higher. 
 
 <img src="http://cdn.androidpolice.com/wp-content/uploads/2014/10/nexus2cee_67-351x625.png" width="200" />
 <a href="https://github.com/chrisbanes/cheesesquare"><img src="http://i.stack.imgur.com/Wb28n.png" width="200" /></a>
@@ -39,11 +39,11 @@ Update your root `build.gradle` file:
 
 ```gradle
 android {
-   compileSdkVersion 23  // needs to be consistent with major support libs used
+   compileSdkVersion 24  // needs to be consistent with major support libs used
 }
 
 ext {
-  supportLibVersion = '23.4.0'  // variable that can be referenced to keep support libs consistent
+  supportLibVersion = '24.2.0'  // variable that can be referenced to keep support libs consistent
 }
 ```
 
