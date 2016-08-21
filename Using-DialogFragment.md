@@ -185,8 +185,7 @@ public class EditNameDialogFragment extends DialogFragment implements OnEditorAc
 	
     // ...
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-        Bundle savedInstanceState) {
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         // ...
         // 2. Setup a callback when the "Done" button is pressed on keyboard
         mEditText.setOnEditorActionListener(this);
