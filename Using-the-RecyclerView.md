@@ -669,7 +669,7 @@ The `SwipeRefreshLayout` should be used to refresh the contents of a `RecyclerVi
 
 ## Swipe Detection
 
-RecyclerView (since the release of v24.2.0) now has an `OnFlingListener` method that can be used to implement swipe detection.  Download this [RecyclerViewSwipeListener](https://gist.github.com/rogerhu/9e769149f9550c0a6ddb4987b94caee8) and you can attach this class to your RecyclerView: 
+RecyclerView (since the release of v24.2.0) now has an `OnFlingListener` method that can be used to implement custom fling behavior.  Download this [RecyclerViewSwipeListener](https://gist.github.com/rogerhu/9e769149f9550c0a6ddb4987b94caee8) and you can handle custom swipe detection by adding this class to your RecyclerView: 
 
 ```java
 RecyclerView rvMyList;
