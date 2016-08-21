@@ -19,9 +19,9 @@ Also notice that once you upgrade to AppCompat v7 v24, you will also be forced t
 
 There is a current [bug](https://code.google.com/p/android/issues/detail?id=183149) that precludes you from compiling to lower versions.   Once you are using this API version 23 or higher, be aware that the Apache HTTP Client library has been [removed](https://developer.android.com/preview/behavior-changes.html#behavior-apache-http-client). Workarounds are discussed in this [[guide|Using-Android-Async-Http-Client#resolving-android-marshmallow-compatibility-issues]].
 
-#### Using AppCompat v22 or lower
+#### Downgrading AppCompat libraries
  
-If you need to wish to downgrade from API 23, you need to follow more steps besides simply uninstalling the SDK as documented in this [bug report](https://code.google.com/p/android/issues/detail?id=183149#c7):
+If you need to wish to downgrade (i.e. API 23 to API 22), you need to follow more steps besides simply uninstalling the SDK as documented in this [bug report](https://code.google.com/p/android/issues/detail?id=183149#c7):
 
 1. Remove the Build Tools 23 from the SDK Manager.
 2. Find the appcompat-v7 SDK folder and delete the entire 23.0.0.0 folder.
