@@ -114,7 +114,7 @@ For more details, make sure to check the [Robotium documentation](https://code.g
 
 ### Motivation 
 
-Most of `Robotium` examples rely on [`ActivityInstrumentationTestCase2`](https://developer.android.com/reference/android/test/ActivityInstrumentationTestCase2.html), which is already marked as deprecated.  Instead, Use `ActivityTestRule` using the `Android Testing Support Library`.
+Most of `Robotium` examples rely on [ActivityInstrumentationTestCase2](https://developer.android.com/reference/android/test/ActivityInstrumentationTestCase2.html), which is already marked as deprecated.  Instead, Use `ActivityTestRule` using the `Android Testing Support Library`.
 
 Another reason to change from `ActivityInstrumentationTestCase2` to `ActivityTestRule` is that it uses generated boilerplate code for initializing and finishing tests. Furthermore, `@SmallTest`, `@MediumTest`, and `@LargeTest` annotations have been deprecated but a `timeout` parameter can specify the expected duration of the text:
 
