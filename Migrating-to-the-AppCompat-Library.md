@@ -13,9 +13,18 @@ dependencies {
 }
 ```
 
-Note that the AppCompat library has an implicit dependency on the support-v4 library.  The support-v4 declaration however does not necessarily need to be declared.
+Note that the AppCompat library has an implicit dependency on the support-v4 library.  The support-v4 declaration however does not necessarily need to be declared.  Since the release of the support-v4 version 24.2.0, the library has been [divided into separate modules](https://developer.android.com/topic/libraries/support-library/revisions.html): `support-compat`, `support-core-utils`, `support-core-ui`, `support-media-compat`, and `support-fragment`.  
 
-Also notice that once you upgrade to AppCompat v7 v23, you will also be forced to update your Build Tools and `compileSDKVersion` to API 23 too.
+To take advantage of this change, which will reduce your overall size and method count, you should exclude the support-v4 from the AppCompat library and only add back the necessary dependencies:
+
+```java
+compile('com.android.support:appcompat-v7:24.2.0', {
+     exclude group: 'com.android.support', module: "support-v4"
+})
+compile "com.android.support:support-fragment:24.2.0"
+```
+
+Also notice that once you upgrade to AppCompat v7 v24, you will also be forced to update your Build Tools and `compileSDKVersion` to API 24 too.
 
 There is a current [bug](https://code.google.com/p/android/issues/detail?id=183149) that precludes you from compiling to lower versions.   Once you are using this API version 23 or higher, be aware that the Apache HTTP Client library has been [removed](https://developer.android.com/preview/behavior-changes.html#behavior-apache-http-client). Workarounds are discussed in this [[guide|Using-Android-Async-Http-Client#resolving-android-marshmallow-compatibility-issues]].
 
