@@ -156,7 +156,7 @@ You can see more about all this in the [official styles guide](http://developer.
 
 #### Referencing styles from themes
 
-Once a theme is applied, you can reference the currently apply attribute by using the `?attr` syntax.  For instance, if we want to set the primary color of our EditText to use the default primary color, we could use:
+Once a theme is applied, you can reference the currently applied attribute by using the `?attr` syntax.  For instance, if we want to set the primary color of our EditText to use the default primary color, we could use:
 
 ```xml
 <EditText
