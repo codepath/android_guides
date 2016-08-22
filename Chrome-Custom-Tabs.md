@@ -18,7 +18,7 @@ You will need to have the Chrome app installed on your phone.  If you are using 
 
 Add the Android Support Library for Chrome Custom Tabs as a dependency to your gradle build file:
 
-```java
+```groovy
 compile 'com.android.support:customtabs:24.0.0+'
 ```
 
