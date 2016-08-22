@@ -93,9 +93,15 @@ In addition to string resources shown above, the following common resource types
 The colors can be accessed in Java code with:
 
 ```java
-Resources res = getResources();
-int color = res.getColor(R.color.yellow);
+// getResources().getColor() is now deprecated
+// Resources res = getResources();
+// int color = res.getColor(R.color.yellow); 
+
+// Use AppCompatResources instead of getColor()
+int color = AppCompatResources.getColor(context, R.color.yellow);
 ```
+
+It is important to note that the new way of accessing colors requires providing context in order to resolve any custom [[theme|Styles and Themes]] attributes.  See [this article](http://www.androiddesignpatterns.com/2016/08/contextcompat-getcolor-getdrawable.html) for more context.
 
 and referenced within any view in the XML using:
 
