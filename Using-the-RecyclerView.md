@@ -363,7 +363,7 @@ contacts.addAll(newItems);
 adapter.notifyItemRangeInserted(curSize, newItems.size());
 ```
 
-### Computing the changes
+### Diffing Larger Changes
 
 Often times there are cases when changes to your list are more complex (i.e. sorting an existing list) and it cannot be easily determined whether each row changed.  In this cases, you would normally have to call `notifyDataSetChanged()` on the entire adapter to update the entire screen, which eliminates the ability to perform animation sequences to showcase what changed.
 
