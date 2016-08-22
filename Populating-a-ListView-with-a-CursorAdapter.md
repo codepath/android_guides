@@ -54,7 +54,7 @@ Next, we need to define the adapter to describe the process of converting the `C
 
 ```java
 public class TodoCursorAdapter extends CursorAdapter {
-  public TodoCursorAdapter(Context context, Cursor cursor, int flags) {
+  public TodoCursorAdapter(Context context, Cursor cursor) {
       super(context, cursor, 0);
   }
 
