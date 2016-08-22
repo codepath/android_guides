@@ -414,7 +414,10 @@ public class ContactDiffCallback extends DiffUtil.Callback {
 Next, you would implement a `swapItems()` method on your adapter to perform the diff and then invoke `dispatchUpdates()` to notify the adapter whether the element was inserted, removed, moved, or changed:
 
 ```java
- public void swapItems(List<Contact> contacts) {
+public class ContactsAdapter extends
+        RecyclerView.Adapter<ContactsAdapter.ViewHolder> {
+
+  public void swapItems(List<Contact> contacts) {
         // compute diffs
         final ContactDiffCallback diffCallback = new ContactDiffCallback(this.mContacts, contacts);
         final DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(diffCallback);
@@ -425,6 +428,7 @@ Next, you would implement a `swapItems()` method on your adapter to perform the 
 
         diffResult.dispatchUpdatesTo(this); // calls adapter's notify methods after diff is computed
     }
+}
 ```
 
 For a working example, see this [sample code](https://github.com/mrmike/DiffUtil-sample).
