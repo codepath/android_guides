@@ -154,6 +154,43 @@ You can also apply to a particular activity in the manifest:
 
 You can see more about all this in the [official styles guide](http://developer.android.com/guide/topics/ui/themes.html).
 
+#### Referencing styles from themes
+
+Once a theme is applied, you can reference the currently apply attribute by using the `?attr` syntax.  For instance, if we want to set the primary color of our EditText to use the default primary color, we could use:
+
+```xml
+<EditText
+   android:textColor="?attr/colorPrimary"
+   android:layout_width="wrap_content"
+   android:layout_height="match_parent"
+   android:text="abc"/>
+```
+
+You can also use custom theme attributes for button states using [[state lists|Drawables#state-list]]:
+
+```xml
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="?attr/colorAccent" android:state_enabled="false"/>
+    <item android:color="?attr/colorPrimary"/>
+</selector>
+```
+
+To resolve these theme attributes properly, make sure to use the `ContextCompat` or `AppCompatResources` helper classes instead:
+```java
+// getResources().getColor() is deprecated, ContextCompat will properly resolve
+ContextCompat.getColor(R.color.button_text_state_list);
+
+// resolve the default color 
+ColorStateList colorState = AppCompatResources.getColorStateList(this, R.color.button_text_state_list).getDefaultColor();
+```
+
+To allow the theme attributes to be resolved, you should also do the same for drawables:
+
+```java
+// getResources().getDrawable() is deprecated
+Drawable drawable = AppCompatResources.getDrawable(this, R.drawable.my_drawable);
+```
+
 ## Tools
 
  * <http://jgilfelt.github.io/android-actionbarstylegenerator>
