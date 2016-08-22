@@ -323,3 +323,4 @@ When you request a resource for which you provide alternatives, Android selects 
  * <http://developer.android.com/guide/topics/resources/providing-resources.html>
  * <http://developer.android.com/training/multiscreen/screendensities.html>
  * <http://www.evoketechnologies.com/blog/effective-ui-design-tips-android-devices/>
+ * <http://www.androiddesignpatterns.com/2016/08/contextcompat-getcolor-getdrawable.html/>
