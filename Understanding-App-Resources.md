@@ -97,8 +97,8 @@ The colors can be accessed in Java code with:
 // Resources res = getResources();
 // int color = res.getColor(R.color.yellow); 
 
-// Use AppCompatResources instead of getColor()
-int color = AppCompatResources.getColor(context, R.color.yellow);
+// Use ContextCompatResources instead of getColor()
+int color = ContextCompat.getColor(context, R.color.yellow);
 ```
 
 It is important to note that the most current way of accessing color resources (since API 24) requires providing context in order to resolve any custom [[theme|Styles and Themes]] attributes.  See [this article](http://www.androiddesignpatterns.com/2016/08/contextcompat-getcolor-getdrawable.html) for more context.
