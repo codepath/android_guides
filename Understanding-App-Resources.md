@@ -101,7 +101,7 @@ The colors can be accessed in Java code with:
 int color = AppCompatResources.getColor(context, R.color.yellow);
 ```
 
-It is important to note that the new way of accessing colors requires providing context in order to resolve any custom [[theme|Styles and Themes]] attributes.  See [this article](http://www.androiddesignpatterns.com/2016/08/contextcompat-getcolor-getdrawable.html) for more context.
+It is important to note that the most current way of accessing color resources (since API 24) requires providing context in order to resolve any custom [[theme|Styles and Themes]] attributes.  See [this article](http://www.androiddesignpatterns.com/2016/08/contextcompat-getcolor-getdrawable.html) for more context.
 
 and referenced within any view in the XML using:
 
