@@ -363,6 +363,71 @@ contacts.addAll(newItems);
 adapter.notifyItemRangeInserted(curSize, newItems.size());
 ```
 
+### Computing the changes
+
+Often times there are cases when changes to your list are more complex (i.e. sorting an existing list) and it cannot be easily determined whether each row changed.  In this cases, you would normally have to call `notifyDataSetChanged()` on the entire adapter to update the entire screen, which eliminates the ability to perform animation sequences to showcase what changed.
+
+A new `DiffUtil` class has been added in the v24.2.0 of the support library to help compute the difference between the old and new list.   This class uses the same algorithm used for computing line changes in source code (the [diff utility](https://en.wikipedia.org/wiki/Diff_utility) program), so it usually fairly fast.  It is recommended however for larger lists that you execute this computation in a background thread.
+ 
+To use the `DiffUtil` class, you need to first implement a class that implements the `DiffUtil.Callback` that accepts the old and new list:
+
+```java
+
+public class ContactDiffCallback extends DiffUtil.Callback {
+
+    private List<Contact> mOldList;
+    private List<Contact> mNewList;
+
+    public ContactDiffCallback(List<Contact> oldList, List<Contact> newList) {
+        this.mOldList = oldList;
+        this.mNewList = newList;
+    }
+    @Override
+    public int getOldListSize() {
+        return mOldList.size();
+    }
+
+    @Override
+    public int getNewListSize() {
+        return mNewList.size();
+    }
+
+    @Override
+    public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
+        // add a unique ID property on Contact and expose a getId() method
+        return mOldList.get(oldItemPosition).getId() == mNewList.get(newItemPosition).getId();
+    }
+
+    @Override
+    public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
+        Contact oldContact = mOldList.get(oldItemPosition);
+        Contact newContact = mNewList.get(newItemPosition);
+
+        if (oldContact.getName() == newContact.getName() && oldContact.isOnline() == newContact.isOnline()) {
+            return true;
+        }
+        return false;
+    }
+}
+```
+
+Next, you would implement a `swapItems()` method on your adapter to perform the diff and then invoke `dispatchUpdates()` to notify the adapter whether the element was inserted, removed, moved, or changed:
+
+```java
+ public void swapItems(List<Contact> contacts) {
+        // compute diffs
+        final ContactDiffCallback diffCallback = new ContactDiffCallback(this.mContacts, contacts);
+        final DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(diffCallback);
+
+        // clear contacts and add 
+        this.mContacts.clear();
+        this.mContacts.addAll(contacts);
+
+        diffResult.dispatchUpdatesTo(this); // calls adapter's notify methods after diff is computed
+    }
+```
+
+For a working example, see this [sample code](https://github.com/mrmike/DiffUtil-sample).
 
 ### Scrolling to New Items
 
