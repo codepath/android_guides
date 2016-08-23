@@ -721,7 +721,7 @@ and now we have this:
 
 You can also check out the popular [android-gif-drawable](https://github.com/koral--/android-gif-drawable) library for another solution. An alternative method is simply to [use a WebView](http://droid-blog.net/2011/10/17/tutorial-how-to-play-animated-gifs-in-android-part-3/). 
 
-## Lollipop Animations
+## Material Animations
 
 In Android 5.0, several new animation features were introduced including:
 
@@ -729,7 +729,7 @@ In Android 5.0, several new animation features were introduced including:
  * [[Ripple Animation]] - Used provide an instantaneous visual confirmation at the point of contact when users interact with UI elements.
  * [[Circular Reveal Animation]] - Reveal is a new animation introduced in Android L that animates the view's clipping boundaries. Often used in conjunction with [[material floating action buttons|Floating Action Buttons]].
 
-Note that these animations require **lollipop or newer** and do not work on devices with an Android version less than API 21. Around 30% of devices have at least lollipop (Dec 2015), so the time spent using one of these animations requires thought to determine if it is worth the effort.
+Note that these animations require **lollipop or newer** and do not work on devices with an Android version less than API 21. Around 30% of devices have at least lollipop (Dec 2015), so the time spent using one of these animations requires thought to determine if it is worth the effort. Refer to this [Material Animations sample app](https://github.com/lgvalle/Material-Animations) for detailed explanations with examples.
 
 ## Particle Effects
 
@@ -764,3 +764,4 @@ Precisely because its main use is games, all engines have support for particle s
  * <http://www.google.com/design/spec/animation/authentic-motion.html> 
  * <https://plus.google.com/+JakeWharton/posts/hPZYyEXaSqk>
  * <https://twitter.com/jakewharton/status/486346048755884034>
+ * <https://github.com/lgvalle/Material-Animations>
