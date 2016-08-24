@@ -2,7 +2,7 @@
 
 [Glide](https://github.com/bumptech/glide) is an Image Loader Library for Android developed by bumptech and is a library that is recommended by Google. It has been used in many Google open source projects including Google I/O 2014 official application.
 
-**Needs attention**
+**Guide is incomplete and needs attention**
 
 ### Setup
 
