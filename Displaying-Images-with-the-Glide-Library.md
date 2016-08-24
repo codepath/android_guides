@@ -55,7 +55,7 @@ Glide.with(context)
     .load("http://pathtoimage.com/graphic.png")
     .centerCrop()
     .into(ivImg);
-``
+```
 
 Transforming images with:
 
@@ -64,7 +64,7 @@ Glide.with(context)
     .load("http://pathtoimage.com/graphic.png")
     .transform(new CircleTransform(context))
     .into(ivImg);
-``
+```
 
 ### Configuration
 
