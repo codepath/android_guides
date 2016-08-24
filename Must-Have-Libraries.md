@@ -10,7 +10,6 @@ This "standard pack" listed below are libraries that are quite popular, widely a
 | ----            | ------------                                                |
 | [[Retrofit|Consuming-APIs-with-Retrofit]] | A type-safe REST client for Android which intelligently maps an API into a client interface using annotations.            |
 | [[Picasso|Displaying-Images-with-the-Picasso-Library]] | A powerful image downloading and caching library for Android. |
-| [[Glide|Displaying-Images-with-the-Glide-Library]] | A powerful image downloading and caching library for Android. |
 | [[ButterKnife|Reducing-View-Boilerplate-with-Butterknife]] | Using Java annotations, makes Android development better by simplifying common tasks. |
 | [[Parceler|Using-Parceler]] | Android Parcelable made easy through code generation |
 | [IcePick](https://github.com/frankiesardo/icepick) | Android Instance State made easy |
@@ -100,10 +99,11 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [Android Async HTTP](http://loopj.com/android-async-http/) - Asynchronous networking client for loading remote content such as JSON.
  * [Volley](http://developer.android.com/training/volley/index.html) - Google's HTTP library that makes networking for Android apps easier and most importantly, faster.
  * [[OkHttp|Using OkHttp]] - Square's underlying networking library with support for asynchronous requests.
- * [Glide](https://github.com/bumptech/glide) - Picasso image loading alternative endorsed by Google 
+ * [[Glide|Displaying-Images-with-the-Glide-Library]] - Picasso image loading alternative endorsed by Google 
  * [Android Universal Image Loader](https://github.com/nostra13/Android-Universal-Image-Loader) - Popular alternative for image loading that can replace Picasso or Glide.
  * [Fresco](http://frescolib.org/) - An image management library from Facebook.
  * [Fast Android Networking](https://github.com/amitshekhariitbhu/Fast-Android-Networking) -Fast Android Networking is a powerful library for doing any type of networking in Android applications which is made on top of OkHttp Networking Layer.
+
 
 ### ListView
 
