@@ -9,7 +9,7 @@ This "standard pack" listed below are libraries that are quite popular, widely a
 | Name            | Description                                                 |  
 | ----            | ------------                                                |
 | [[Retrofit|Consuming-APIs-with-Retrofit]] | A type-safe REST client for Android which intelligently maps an API into a client interface using annotations.            |
-| [[Picasso|Displaying-Images-with-the-Picasso-Library]] | A powerful image downloading and caching library for Android. |
+| [[Glide|Displaying-Images-with-the-Glide-Library]] | A powerful image downloading and caching library for Android. |
 | [[ButterKnife|Reducing-View-Boilerplate-with-Butterknife]] | Using Java annotations, makes Android development better by simplifying common tasks. |
 | [[Parceler|Using-Parceler]] | Android Parcelable made easy through code generation |
 | [IcePick](https://github.com/frankiesardo/icepick) | Android Instance State made easy |
