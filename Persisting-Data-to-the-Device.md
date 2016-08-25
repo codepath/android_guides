@@ -61,7 +61,7 @@ Reading the file back is then just using a `BufferedReader` and then building th
 ```java
 BufferedReader input = null;
 input = new BufferedReader(
-new InputStreamReader(openFileInput("myfile")));
+new InputStreamReader(openFileInput("filename")));
 String line;
 StringBuffer buffer = new StringBuffer();
 while ((line = input.readLine()) != null) {
