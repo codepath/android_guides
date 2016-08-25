@@ -42,15 +42,15 @@ Alternatively, you can use the [android:alpha](http://developer.android.com/refe
 
 #### How do I align the position of my view or its inner contents?
 
-To align the **position of your view itself** in the layout, you need to use a different method based on the parent layout type. If the view is contained within a `RelativeLayout`, use the [`android:centerInParent`](http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_centerInParent) property to center the view both horizontally and vertically or `android:layout_centerHorizontal` to set just one or the other. 
+To align the **position of your view itself** in the layout, you need to use a different method based on the parent layout type. If the view is contained within a `RelativeLayout`, use the [`android:layout_centerInParent`](http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html#attr_android:layout_centerInParent) property to center the view both horizontally and vertically or `android:layout_centerHorizontal` to set just one or the other. 
 
-If your view is contained within a `LinearLayout`, then you can use the [`android:layoutGravity`](http://developer.android.com/reference/android/widget/LinearLayout.LayoutParams.html#attr_android:layout_gravity) to determine the alignment of the view.
+If your view is contained within a `LinearLayout`, then you can use the [`android:layout_gravity`](http://developer.android.com/reference/android/widget/LinearLayout.LayoutParams.html#attr_android:layout_gravity) to determine the alignment of the view.
 
 To align the contents within a view, you can use the [[android:gravity|Defining-Views-and-their-Attributes#view-gravity]] property. This property can also be used to set the alignment of text in a `TextView` to the `left`, `right`, or `center`. Note that `android:textAlignment` is **essentially useless** replaced by gravity.
 
 #### How do I specify percentage based width, height and margins for my views?
 
-Simply wrap your views inside a [[PercentRelativeLayout|Constructing-View-Layouts#percentrelativelayout]] or `PercentFrameLayout` and specify attributes with "Percent" suffix. Alternatively, you can also use [[`android:layout_weight`|Constructing-View-Layouts#linearlayout]] attribute if you are using a `LinearLayout`.
+Simply wrap your views inside a [[PercentRelativeLayout|Constructing-View-Layouts#percentrelativelayout]] or `PercentFrameLayout` and specify attributes with "Percent" suffix. Alternatively, you can also use [[android:layout_weight|Constructing-View-Layouts#linearlayout]] attribute if you are using a `LinearLayout`.
 
 #### How do I add tabs to my activity to switch between views?
 
@@ -149,7 +149,7 @@ Any view can have a click handler setup by [[following this event handler guide|
 
 For views that display text, if the view such as a button displays text in all caps and you want to disable that set the `android:textAllCaps="false"` property to change that behavior. This behavior is the default starting with API 21. 
 
-For **EditText** or other views that accept input, use the [android:capitalize](http://developer.android.com/reference/android/widget/TextView.html#attr_android:capitalize) attribute to change the capitalization of text entered by the user.
+For **EditText** or other views that accept input, use the [android:capitalize](http://developer.android.com/reference/android/widget/TextView.html#attr_android:capitalize) attribute (deprecated from API 3, using `android:inputType` instead) to change the capitalization of text entered by the user.
 
 #### How can I add an image on the left of the text in my button?
 
