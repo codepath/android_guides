@@ -269,6 +269,10 @@ public void onActivityResult(int requestCode, int resultCode, Intent data) {
 }
 ```
 
+### Custom Gallery Selector
+
+Alternatively, we can use a custom gallery selector that is implemented inside of our application to take full control over the gallery picking user experience. Check out [this custom gallery source code gist](https://gist.github.com/nesquena/55f3d8c87759f10a5343e3bb478f8858) or [older libraries wrapping this up](https://github.com/luminousman/MultipleImagePick) for reference. You can also take a look at [older tutorials on custom galleries](http://geekonjava.blogspot.com/2015/10/easy-multiple-image-pick-android.html). 
+
 ## References
 
  * <http://developer.android.com/guide/topics/media/camera.html>
