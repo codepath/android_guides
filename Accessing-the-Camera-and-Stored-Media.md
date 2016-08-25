@@ -238,6 +238,37 @@ public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 Note that there is a try-catch block required around the `MediaStore.Images.Media.getBitmap` line which was removed from above for brevity. Check out [this stackoverflow post](http://stackoverflow.com/questions/5309190/android-pick-images-from-gallery/5309217#5309217) for an alternate approach using mimetypes to restrict content user can select.
 
+### Selecting Multiple Images from Gallery
+
+First, from the above example, we can add the `Intent.EXTRA_ALLOW_MULTIPLE` flag to the intent:
+
+```java
+Intent intent = new Intent(Intent.ACTION_PICK);
+intent.setType("image/*");
+intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_PHOTO_CODE);
+```
+
+and then inside of `onActivityResult`, we can access all the photos selected with:
+
+```java
+@Override
+public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    if (data.getClipData() != null) {
+        ClipData mClipData = data.getClipData();
+         mArrayUri = new ArrayList<Uri>();
+         mBitmapsSelected = new ArrayList<Bitmap>();
+         for (int i = 0; i < mClipData.getItemCount(); i++) {
+             ClipData.Item item = mClipData.getItemAt(i);
+             Uri uri = item.getUri();
+             mArrayUri.add(uri);
+             Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), photoUri);
+             mBitmapsSelected.add(bitmap);
+         }
+    }
+}
+```
+
 ## References
 
  * <http://developer.android.com/guide/topics/media/camera.html>
