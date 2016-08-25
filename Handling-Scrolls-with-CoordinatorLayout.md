@@ -432,7 +432,7 @@ The following tutorials and sample code should help achieve these more sophistic
 
 Getting the desired effect can take quite a bit of experimentation. For certain use-cases, you might find that the third-party libraries listed below provide easier alternatives. 
 
-### Third-party Alternatives
+### Third-party Bottom Sheet Alternatives
 
 In addition to the official bottom sheet within the design support library, there are several extremely popular third-party alternatives that can be easier to use and configure for certain use cases:
 
