@@ -422,16 +422,24 @@ Modal sheets are basically Dialog Fragments that slide from the bottom.  See [[t
 
 There are many examples in the wild of complex bottom sheets with a floating action button that grows or shrinks or sheet state transitions as the user scrolls. The most well-known example is Google Maps which has a multi-phase sheet:
 
-<img src="http://i.imgur.com/lLSdNus.gif" width="300" />
+<img src="http://i.imgur.com/lLSdNus.gif" width="250" />
 
 For an example of how to position and animate the floating action button based on the bottom sheet, check out this [great tutorial from grafixartist](http://blog.grafixartist.com/bottom-sheet-android-design-support-library/). You can read this [stackoverflow post](http://stackoverflow.com/questions/34160423/how-to-mimic-google-maps-bottom-sheet-3-phases-behavior) for additional discussion. 
 
 ### Third-party Alternatives
 
+In addition to the official bottom sheet within the design support library, there are several extremely popular third-party alternatives that can be easier to use and configure for certain use cases:
+
+<img src="http://i.imgur.com/xRv4IQH.gif" width="250" />
+
+The following represent the most common alternatives and related samples:
+
 * [AndroidSlidingUpPanel](https://github.com/umano/AndroidSlidingUpPanel) - A widely popular third-party approach to a bottom sheet that should be considered as an alternative to the official approach. 
 * [Flipboard/bottomsheet](https://github.com/Flipboard/bottomsheet) - Another very popular alternative to the official bottom sheet that was widely in use before the official solution was released. 
 * [ThreePhasesBottomSheet](https://github.com/AndroidDeveloperLB/ThreePhasesBottomSheet) - Sample code leveraging third-party libraries to create a multi-phase bottom sheet. 
 * [Foursquare BottomSheet Tutorial](http://android.amberfog.com/?p=915) - Outlines how to use third-party bottom sheets to achieve the effect used within an older version of Foursquare. 
+
+Between the official persistent modal sheets and these third-party alternatives, you should be able to achieve any desired effect with sufficient experimentation. 
 
 ## Troubleshooting Coordinated Layouts
 
