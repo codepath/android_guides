@@ -185,7 +185,7 @@ are shown in the `Standard Activity Actions` section [here](https://developer.an
 
 ```xml
 <activity
-    android:name="com.codepath.ImplicitIntentActivity"
+    android:name="com.codepath.ImplicitIntentActivity">
     <intent-filter>
         <action android:name="android.intent.action.SEND"/>
         <category android:name="android.intent.category.DEFAULT"/>
