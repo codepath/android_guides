@@ -424,7 +424,13 @@ There are many examples in the wild of complex bottom sheets with a floating act
 
 <img src="http://i.imgur.com/lLSdNus.gif" width="250" />
 
-For an example of how to position and animate the floating action button based on the bottom sheet, check out this [great tutorial from grafixartist](http://blog.grafixartist.com/bottom-sheet-android-design-support-library/). You can read this [stackoverflow post](http://stackoverflow.com/questions/34160423/how-to-mimic-google-maps-bottom-sheet-3-phases-behavior) for additional discussion. 
+The following tutorials and sample code should help achieve these more sophisticated effects:
+
+ * [CustomBottomSheetBehavior Sample](https://github.com/miguelhincapie/CustomBottomSheetBehavior) - Demonstrates three-state phase shifts during scrolling of the bottom sheet. Refer to [related stackoverflow post](http://stackoverflow.com/a/37443680) for explanation.  
+ * [Grafixartist Bottom Sheet Tutorial](http://blog.grafixartist.com/bottom-sheet-android-design-support-library/) - Tutorial on how to position and animate the floating action button as the bottom sheet scrolls.
+ * You can read this [stackoverflow post](http://stackoverflow.com/questions/34160423/how-to-mimic-google-maps-bottom-sheet-3-phases-behavior) for additional discussion on how to mimic google maps state changes during scroll. 
+
+Getting the desired effect can take quite a bit of experimentation. For certain use-cases, you might find that the third-party libraries listed below provide easier alternatives. 
 
 ### Third-party Alternatives
 
