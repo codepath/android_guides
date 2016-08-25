@@ -89,7 +89,7 @@ In some cases, we want to apply a consistent theme to all activities within our 
 </style>
 ```
 
-This theme contains `item` nodes that often an reference other styles or colors:
+This theme contains `item` nodes that often reference other styles or colors:
 
 ```xml
 <style name="LightThemeSelector" parent="android:Theme.AppCompat.Light">
