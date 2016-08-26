@@ -1,3 +1,11 @@
+## Overview
+
+This guide is about contributing to the Android guides! Hopefully you are finding the Android guides helpful in your work with Android and are here because you are interested in contributing back. The best way to contribute is to either improve  / update existing guides or to create your own for missing topics.
+
+### Missing Topics
+
+Check the [issues](https://github.com/codepath/android_guides/issues) for this repository to see what types of contributions would be most impactful. In particular, I will [maintain an issue](https://github.com/codepath/android_guides/issues/2) that contains the most important missing topics. Also look for items in the cliffnotes with the **Needs Attention** mark which indicates the guide needs some love.
+
 ## Getting Started
 
 ### Cloning Guides Locally with Git
@@ -53,7 +61,3 @@ The most important thing is to **save people as much time as possible**. Include
  * Have short introductions that explain the reason why the concept matters
  * Always share references at the bottom of the guide that cites all sources
  * Feel free to use gists for large bodies of code you want to link to
-
-## Missing Topics
-
-Check the [issues](https://github.com/codepath/android_guides/issues) for this repository to see what types of contributions would be most impactful. In particular, I will [maintain an issue](https://github.com/codepath/android_guides/issues/2) that contains the most important missing topics. Also look for items in the cliffnotes with the **Needs Attention** mark which indicates the guide needs some love.
