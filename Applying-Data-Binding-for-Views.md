@@ -234,15 +234,15 @@ We first need to modify the ViewHolder class to include a reference to the data 
 
 ```java
 public class SamplesViewHolder extends RecyclerView.ViewHolder {
-        final ItemUserBinding binding;  // this will be used by `onBindViewHolder()` 
+  final ItemUserBinding binding;  // this will be used by `onBindViewHolder()` 
 
-        public ItemViewHolder(View rootView) {
-            super(rootView);
+  public ItemViewHolder(View rootView) {
+     super(rootView);
    
-            binding = ItemUserBinding.bind(rootView);
+     binding = ItemUserBinding.bind(rootView);
 
-        }
-    }
+  }
+}
 ```
 
 Next, we modify the `onBindViewHolder()` to associate the User object with the user at the given position and then update the views with the newly bound references:
