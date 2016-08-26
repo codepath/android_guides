@@ -220,15 +220,7 @@ public class BindingAdapterUtils {
 
 Data Binding allows you to write expressions handling events that are dispatched from the views (e.g. onClick). To attach events to views, we can use [method references](https://developer.android.com/topic/libraries/data-binding/index.html#method_references) or [listener bindings](https://developer.android.com/topic/libraries/data-binding/index.html#listener_bindings).
 
-### List Adapters with Binding
-
-We can inflate the layout XML for a list item `item_user.xml` within an adapter using:
-
-```java
-ItemUserBinding binding = ItemUserBinding.inflate(layoutInflater, viewGroup, false);
-```
-
-#### Using Data Binding inside RecyclerView 
+### Using Data Binding inside RecyclerView 
 
 We first need to modify the ViewHolder class to include a reference to the data binding class:
 
@@ -239,6 +231,8 @@ public class SamplesViewHolder extends RecyclerView.ViewHolder {
   public ItemViewHolder(View rootView) {
      super(rootView);
    
+     // If the layout was already inflated, we can use this bind() method to associate the layout variables
+     // with the layout.
      binding = ItemUserBinding.bind(rootView);
 
   }
