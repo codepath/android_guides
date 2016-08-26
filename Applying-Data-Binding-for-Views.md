@@ -253,8 +253,7 @@ Next, we modify the `onBindViewHolder()` to associate the User object with the u
       final User user = users.get(position); 
 
       // add these lines
-
-      holder.binding.setVariable(BR.user, user);  // bind the new user object
+      holder.binding.setUser(user);  // setVariable(BR.user, user) would also work
       holder.binding.executePendingBindings();   // update the view now
    } 
 ```
