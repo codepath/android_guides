@@ -234,7 +234,7 @@ We first need to modify the ViewHolder class to include a reference to the data 
 
 ```java
 public class SamplesViewHolder extends RecyclerView.ViewHolder {
-  final ItemUserBinding binding;  // this will be used by `onBindViewHolder()` 
+  final ItemUserBinding binding;  // this will be used by onBindViewHolder()
 
   public ItemViewHolder(View rootView) {
      super(rootView);
