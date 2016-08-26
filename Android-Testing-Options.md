@@ -9,7 +9,7 @@ Unit testing is about testing a particular component (i.e. an activity or model 
  * [[Robolectric|Unit-Testing-with-Robolectric]] - Popular Android unit test framework that allows faster test execution by running tests on the JVM (no device or emulator needed).
  * [JUnit](http://junit.org/) - Popular Java unit test framework. Most of the Android test frameworks are built on top of JUnit.
 
-### Instrumentation Testing
+### Instrumentation Testing 
 
 Android Instrumentation is a set of "hooks" into the Android system that allow you to control the lifecycle of Android components (i.e. drive the activity lifecycle yourself instead of having these driven by the system). These tests require an actual device or emulator to run and are typically placed in the `app/src/androidTest/java` folder.
  
