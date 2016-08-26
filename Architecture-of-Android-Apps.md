@@ -13,8 +13,6 @@ The following template projects are built to act as a starting point for a prefe
  * <https://github.com/dmilicic/Android-Clean-Boilerplate>
  * <https://github.com/android10/Android-CleanArchitecture>
  * <https://github.com/googlesamples/android-architecture>
- * <https://github.com/antoniolg/androidmvp>
- * <https://labs.ribot.co.uk/approaching-android-with-mvvm-8ceec02d5442>
 
 ## References
 
@@ -38,3 +36,8 @@ MVP Pattern:
 * <https://github.com/konmik/konmik.github.io/wiki/Introduction-to-Model-View-Presenter-on-Android>
 * <http://thefinestartist.com/android/mvp-pattern>
 * <https://www.youtube.com/watch?v=BlkJzgjzL0c>
+* <https://github.com/antoniolg/androidmvp>
+
+MVVM Pattern:
+* <https://labs.ribot.co.uk/approaching-android-with-mvvm-8ceec02d5442>
+
