@@ -228,7 +228,38 @@ We can inflate the layout XML for a list item `item_user.xml` within an adapter 
 ItemUserBinding binding = ItemUserBinding.inflate(layoutInflater, viewGroup, false);
 ```
 
-Refer to these tutorials for how to work with data binding in `RecyclerView` or `ListView`:
+#### Using Data Binding inside RecyclerView 
+
+We first need to modify the ViewHolder class to include a reference to the data binding class:
+
+```java
+public class SamplesViewHolder extends RecyclerView.ViewHolder {
+        final ItemUserBinding binding;  // this will be used by `onBindViewHolder()` 
+
+        public ItemViewHolder(View rootView) {
+            super(rootView);
+   
+            binding = ItemUserBinding.bind(rootView);
+
+        }
+    }
+```
+
+Next, we modify the `onBindViewHolder()` to associate the User object with the user at the given position and then update the views with the newly bound references:
+
+```java
+@Override 
+   public void onBindViewHolder(BindingHolder holder, int position) { 
+      final User user = users.get(position); 
+
+      // add these lines
+
+      holder.binding.setVariable(BR.user, user);  // bind the new user object
+      holder.binding.executePendingBindings();   // update the view now
+   } 
+```
+
+Refer also to these tutorials for how to work with data binding in `RecyclerView` or `ListView`:
 
  * [Using data binding in RecyclerView](http://mutualmobile.com/posts/using-data-binding-api-in-recyclerview).
  * [RecyclerView and Data Binding](https://www.jayway.com/2015/12/08/recyclerview-and-databinding/)
