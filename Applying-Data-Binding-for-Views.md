@@ -231,7 +231,8 @@ public class SamplesViewHolder extends RecyclerView.ViewHolder {
   public ItemViewHolder(View rootView) {
      super(rootView);
    
-     // If the layout was already inflated, we can use this bind() method to associate the layout variables
+     // Since the layout was already inflated within onCreateViewHolder(), we 
+     // can use this bind() method to associate the layout variables
      // with the layout.
      binding = ItemUserBinding.bind(rootView);
 
