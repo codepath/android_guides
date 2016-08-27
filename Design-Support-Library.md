@@ -171,6 +171,8 @@ The latest source code updates for the support library are now always included s
 
 - `TextInputLayout` and `EditText` now includes the ability to add password visibility toggles.  ([[view guide |Working-with-the-EditText#adding-password-visibility-toggles]])
 
+- Transitions API backported to Android 4.0 but does not include support for activity/fragment transitions.
+
 ## References
 
 * <https://medium.com/android-bites/first-steps-with-the-design-support-library-8dcf06230ddd>
