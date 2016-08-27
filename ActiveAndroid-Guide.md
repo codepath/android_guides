@@ -83,7 +83,7 @@ public class Item extends Model {
     public Category category;
     
     // Make sure to have a default constructor for every ActiveAndroid model
-    public Item()
+    public Item(){
        super();
     }
     
