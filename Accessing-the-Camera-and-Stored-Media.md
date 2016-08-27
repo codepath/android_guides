@@ -262,7 +262,7 @@ public void onActivityResult(int requestCode, int resultCode, Intent data) {
              ClipData.Item item = mClipData.getItemAt(i);
              Uri uri = item.getUri();
              mArrayUri.add(uri);
-             # !! You may need to resize the image if it's too large
+             // !! You may need to resize the image if it's too large
              Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), photoUri);
              mBitmapsSelected.add(bitmap);
          }
