@@ -171,6 +171,10 @@ The latest source code updates for the support library are now always included s
 
 - `TextInputLayout` and `EditText` now includes the ability to add password visibility toggles.  ([[view guide |Working-with-the-EditText#adding-password-visibility-toggles]])
 
+- Added DiffUtil class for RecyclerView.  ([[view guide|Using-the-RecyclerView#diffing-larger-changes]])
+
+- Support v4 library modules have been broken apart but cannot be used to reduce APK size because the fragment library still depends on all other related modules.  ([[view guide|Migrating-to-the-AppCompat-Library#overview]])
+
 - Transitions API backported to Android 4.0 but does not include support for activity/fragment transitions.
 
 ## References
