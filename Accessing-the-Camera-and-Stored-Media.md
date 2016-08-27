@@ -262,12 +262,15 @@ public void onActivityResult(int requestCode, int resultCode, Intent data) {
              ClipData.Item item = mClipData.getItemAt(i);
              Uri uri = item.getUri();
              mArrayUri.add(uri);
+             # !! You may need to resize the image if it's too large
              Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), photoUri);
              mBitmapsSelected.add(bitmap);
          }
     }
 }
 ```
+
+**Note:** that you may need to [[resize the selected images|Working-with-the-ImageView#scaling-a-bitmap]] if they are large to avoid `OutOfMemoryError`. 
 
 ### Custom Gallery Selector
 
