@@ -270,7 +270,7 @@ public void onActivityResult(int requestCode, int resultCode, Intent data) {
 }
 ```
 
-**Note:** that you may need to [[resize the selected images|Working-with-the-ImageView#scaling-a-bitmap]] if they are large to avoid `OutOfMemoryError`. 
+**Note:** that you may need to [load the selected bitmaps efficiently](https://developer.android.com/training/displaying-bitmaps/load-bitmap.html) or [[resize them|Working-with-the-ImageView#scaling-a-bitmap]] if they are large images to avoid encountering `OutOfMemoryError` exceptions. 
 
 ### Custom Gallery Selector
 
