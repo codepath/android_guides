@@ -22,6 +22,7 @@ The support design library has the following key features:
 7. [[PercentRelativeLayout|Constructing-View-Layouts#percentrelativelayout]] and [PercentFrameLayout](https://developer.android.com/reference/android/support/percent/PercentFrameLayout.html) to enable views to occupy [percentage-based dimensions](http://developer.android.com/reference/android/support/percent/PercentRelativeLayout.html).  
 8. [[Vector Drawables|Drawables#vector-drawables]] to reduce the need to include images for every density size.
   * Vector drawables are compatible back to Android 2.1 (API 7), but animated vector drawables are only back-ported to Android 3.0 (API 11).
+9. [Transitions framework](https://developer.android.com/training/transitions/overview.html) for animating view hierarchies down to Android 4.0 (API 14) .  Currently, there is no backported support for activity/fragment transitions used in this API.
 
 ### Setup
 
@@ -99,6 +100,16 @@ dependencies {
 
 Check out the [[vector drawables guide|Drawables#vector-drawables]] for usage details.
 
+#### Adding Transitions Library
+
+The Transitions API was first introduced in Android 4.4 (KitKat) but now includes back ported support for animating view hierarchies down to Android 4.0.   However, there is no support for activity/fragment transitions currently.  To use this library, you need to add the library explicitly:
+
+```gradle
+dependencies {
+    compile "com.android.support:transition:${supportLibVersion}"
+}
+```
+
 #### Adding Annotations Library
 
 To leverage the [annotations library](http://tools.android.com/tech-docs/support-annotations), you can also explicitly add it to your Gradle file.  Adding the [[AppCompat|Migrating-to-the-AppCompat-Library]] or support design library implicitly adds it:
@@ -172,3 +183,4 @@ The latest source code updates for the support library are now always included s
 * <https://plus.google.com/+AndroidDevelopers/posts/RZutBRWN6sH?linkId=17978076>
 * <https://medium.com/@chrisbanes/appcompat-v23-2-age-of-the-vectors-91cbafa87c88#.dvbsz7sts>
 * <https://plus.google.com/+AndroidDevelopers/posts/iTDmFiGrVne>
+* <https://www.reddit.com/r/androiddev/comments/4y70e7/android_support_library_v242_released/>
