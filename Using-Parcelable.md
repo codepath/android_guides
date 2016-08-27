@@ -33,7 +33,7 @@ public class MyParcelable implements Parcelable {
     public void writeToParcel(Parcel out, int flags) {
         out.writeInt(mData);
         out.writeString(mName);
-        out.writeParcelable(mInfo, flags)
+        out.writeParcelable(mInfo, flags);
     }
 
     // Using the `in` variable, we can retrieve the values that 
