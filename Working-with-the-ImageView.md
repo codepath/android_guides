@@ -80,7 +80,7 @@ An ImageView can display an image differently based on the `scaleType` provided.
 Top row (l-r) center, centerCrop, centerInside.<br/>
 Bottom row (l-r): fitCenter, fitStart, fitEnd, fitXY.
 
-**Remember** that if you wish to match the aspect ratio of the actual drawable, `adjustViewBounds=true` must be declared along with not defining an explicit width and/or height.
+Refer to this [ImageView ScaleType visual guide](https://robots.thoughtbot.com/android-imageview-scaletype-a-visual-guide) for additional reference. **Remember** that if you wish to match the aspect ratio of the actual drawable, `adjustViewBounds=true` must be declared along with not defining an explicit width and/or height.
 
 ### Supporting Multiple Densities
 
@@ -208,3 +208,4 @@ See the [official tutorial](https://code.google.com/p/svg-android/wiki/Tutorial)
 * <http://developer.android.com/guide/practices/screens_support.html>
 * <https://code.google.com/p/svg-android/wiki/Tutorial>
 * <https://github.com/android/platform_frameworks_base/blob/master/core/java/android/widget/ImageView.java#L903-L907>
+* <https://robots.thoughtbot.com/android-imageview-scaletype-a-visual-guide>
