@@ -35,6 +35,21 @@ This new framework encompasses several changes to the interface of Android apps 
 
 Using these materials, you can understand and begin adhering to these guidelines for your own apps.
 
+
+## Material Code Samples
+
+There are a wide variety of sample apps to check out related to material design best practices including:
+
+* [Plaid](https://github.com/nickbutcher/plaid) - Showcase of material design and animations from Google
+* [Topeka](https://github.com/googlesamples/android-topeka) - Sample app from Google that showcases material design
+* [Google IO Schedule](https://github.com/google/iosched) - Google sample app showcasing modern Android UI
+* [Timber](https://github.com/naman14/Timber) - Modern music player showcasing beautiful material patterns
+* [Opengur](https://github.com/Kennyc1012/Opengur) - Android imgur viewer illustrating modern UI patterns
+* [Slide](https://github.com/ccrama/Slide) - Reddit Android app with material design
+* [Awesome-MaterialDesign](https://github.com/lightSky/Awesome-MaterialDesign) - List of popular material libraries and sample apps. 
+
+Hopefully these samples give you a solid starting point to explore material design. 
+
 ## Material Design Setup
 
 When switching a fresh material design theme, you can’t leave behind all older devices since the vast majority of current Android devices can't upgrade to lollipop. This is where the [Material Support Library](https://developer.android.com/training/material/compatibility.html#SupportLib) comes in to save the day. 
@@ -215,3 +230,4 @@ If you want your Dialogs to have a Material look and feel across all Android ver
 * <http://code.hootsuite.com/tips-and-tricks-for-android-material-support-library/>
 * <http://code.hootsuite.com/tips-and-tricks-for-android-material-support-library-2-electric-boogaloo/>
 * <http://android-developers.blogspot.com/2015/06/more-material-design-with-topeka-for_16.html>
+* <https://github.com/lightSky/Awesome-MaterialDesign>
