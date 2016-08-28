@@ -8,6 +8,8 @@ Clean architecture principles, as espoused by Robert Martin (also known as "Uncl
 
 It's important to note that each layer has its own data model, and data can only be exchanged between layers and usually flows only in one direction (i.e. outer to inner, or inner to outer)  Anytime data needs to be exchanged, usually a converter is used to map one layer's model to another.  In this way, a boundary of separation is created that helps limit changes in one layer to cause unintended side effects in other layers.
 
+At the data layer, every source (i.e. file, network, memory) of data should be represented using the repository data pattern.  There are many different ways of implementing this repository pattern, but the ultimate goal is to expose an interface that defines the different queries that need to be performed in order to abstract away the type of data source used.  The underlying implementations can therefore be swapped regardless of the type of data source used.
+
 Clean architecture introduces more abstractions and attempts to apply [single responsibility principles](https://en.wikipedia.org/wiki/Single_responsibility_principle) in Android development.  While there may be concerns about this approach adding more complexity, slow performance, and poor testability, it has been shown to work successfully in production apps (see [this Droidcon talk](https://www.youtube.com/watch?v=-oZswd1j5H0) or [this Droidcon 2016 talk](https://www.youtube.com/watch?v=R89ufpJI3SY)).
 
 ### Migrating to
