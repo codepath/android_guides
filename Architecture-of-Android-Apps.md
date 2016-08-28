@@ -12,7 +12,18 @@ At the data layer, every source (i.e. file, network, memory) of data should be r
 
 Clean architecture introduces more abstractions and attempts to apply [single responsibility principles](https://en.wikipedia.org/wiki/Single_responsibility_principle) in Android development.  While there may be concerns about this approach adding more complexity, slow performance, and poor testability, it has been shown to work successfully in production apps (see [this Droidcon talk](https://www.youtube.com/watch?v=-oZswd1j5H0) or [this Droidcon 2016 talk](https://www.youtube.com/watch?v=R89ufpJI3SY)).
 
-### Migrating to
+### Migrating to Clean Architecture
+
+If you're attempting to migrate towards clean architecture without necessarily rewriting your entire code base, your best approach is to first try to isolate and encapsulate your logic by moving it outside of your Activities or Fragments.  Moving towards the Model-View-Presenter (MVP), which is a popular way of structuring your presentation layer, should probably be your first step.  There is no exact way of implementing this approach, so here are a few recommended links:
+
+* <https://github.com/Arello-Mobile/Moxy/>
+* <http://www.tinmegali.com/en/model-view-presenter-android-part-1/>
+* <https://medium.com/mobiwise-blog/android-basic-project-architecture-for-mvp-72f4b33252d0>
+* <http://antonioleiva.com/mvp-android/>
+* <https://github.com/konmik/konmik.github.io/wiki/Introduction-to-Model-View-Presenter-on-Android>
+* <http://thefinestartist.com/android/mvp-pattern>
+* <https://www.youtube.com/watch?v=BlkJzgjzL0c>
+* <https://github.com/antoniolg/androidmvp>
 
 ## Templates
 
@@ -34,17 +45,6 @@ Clean architecture:
 * <https://speakerdeck.com/romainpiel/ingredients-for-a-healthy-codebase/>
 * <http://macoscope.com/blog/model-view-presenter-architecture-in-android-applications/>
 * <https://github.com/macoscope/RoomBookerMVP/tree/master/mvp/src/main/java/com/macoscope/>
-
-MVP Pattern:
-
-* <https://github.com/Arello-Mobile/Moxy/>
-* <http://www.tinmegali.com/en/model-view-presenter-android-part-1/>
-* <https://medium.com/mobiwise-blog/android-basic-project-architecture-for-mvp-72f4b33252d0>
-* <http://antonioleiva.com/mvp-android/>
-* <https://github.com/konmik/konmik.github.io/wiki/Introduction-to-Model-View-Presenter-on-Android>
-* <http://thefinestartist.com/android/mvp-pattern>
-* <https://www.youtube.com/watch?v=BlkJzgjzL0c>
-* <https://github.com/antoniolg/androidmvp>
 
 MVVM Pattern:
 * <https://labs.ribot.co.uk/approaching-android-with-mvvm-8ceec02d5442>
