@@ -2,7 +2,7 @@
 
 When first building Android apps, many developers might start by relying on Model View Controller (MVC) patterns and usually end up writing most of the core business logic in activities or fragments.  The challenge is that writing tests that can validate the app's behavior is difficult to do because the code is often so closely tied to the Android framework and the various lifecycle events.  While automated UI testing could be written to validate individual activities or fragments, maintaining and running them over the long-term is often difficult to sustain.
 
-Clean architecture principles, as espoused by Robert Martin (also known as "Uncle Bob"), attempt to focus the developer on thinking through the app's core functionality.  It does so by separating the architecture of app into three major layers: how the app shows the data to the user (**presentation layer**), what the core functions of the app (**domain or use case layer**) are, and how the data can be accessed (**data layer**).  The presentation layer sits as the outermost layer, the domain layer sits in the middle layer, and the data layer resides in the inner layer.  
+Clean architecture principles, as espoused by Robert Martin (also known as "Uncle Bob"), attempt to focus the developer on thinking through the app's core functionality.  It does so by separating the architecture of app into three major layers: how the app shows the data to the user (**presentation layer**), what are the core functions of the app (**domain or use case layer**), and how the data can be accessed (**data layer**).  The presentation layer sits as the outermost layer, the domain layer sits in the middle layer, and the data layer resides in the inner layer.  
 
 <img src="http://i.imgur.com/tJxzrx2.png" />
 
