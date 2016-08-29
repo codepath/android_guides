@@ -10,7 +10,7 @@ In order to use Android for Work, you either need to do the following:
 
 If you want to use this option, you need to upgrade to a paid subscription service but you can upgrade to a 30-day free trial service to evaluate the solution first.   Also, if you choose not to use this paid offering, you can easily downgrade without any cost. 
 
-2) Signup for Android for Work using a personal Gmail account using this [registration link](https://www.google.com/a/signup/?enterprise_product=ANDROID_WORK).
+2) **Signup for Android for Work using a personal Gmail account** using this [registration link](https://www.google.com/a/signup/?enterprise_product=ANDROID_WORK).
 
 You can only use this option if you are not currently using Google Apps to manage your domain.   You will also need at least a personal Gmail account that will serve as the administrator.  Note that **Android for Work accounts do NOT have any access to paid products such as Gmail, Google Calendar, and Drive**.  You will mostly use it in conjunction with a third-party EMM system.
 
