@@ -14,7 +14,7 @@ Once you have upgraded to a paid subscription plan, make sure to click on the `A
 
 <img src="http://i.imgur.com/Ccg7pdi.png" width="450"/>
 
-Once this option is selected, you will need to either rely on Google to manage the devices, or you can use a third-party solution.  
+Once this option is selected, you will need to either rely on Google to manage the devices, or you can use a third-party solution.  If you wish to try to use Google's, you can always unbind the selection later.
 
 2) **Signup for Android for Work using a personal Gmail account** using this [registration link](https://www.google.com/a/signup/?enterprise_product=ANDROID_WORK).
 
