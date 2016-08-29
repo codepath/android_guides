@@ -291,6 +291,7 @@ Focused on issues like deployment, dependency management, etc:
 * [[Recording Video of an Android Device]] 
 * [[Configuring ProGuard]]
 * [[Lambda Expressions]] (Retrolambda and Java 8)
+* [[Android for Work]] (Deploying Android to the Enterprise)
 
 ## Contributing 
 
