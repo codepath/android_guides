@@ -26,8 +26,6 @@ Upon signing up, your screenshot will look like:
 
 You will need to validate that you own the domain name (DNS).  The account and password that you used in the signup page can be used to relogin to [https://admin.google.com](https://admin.google.com) similar to other Google logins.  The one difference is that this account has no access to other paid products such as Gmail, Google Calendar, and Drive.  See this [reference guide](https://support.google.com/work/android/answer/6371476?hl=en&ref_topic=6151012) for more details.
 
-### EMM Tokens
-
 ### Using a Third-Party EMM Provider
 
 If you use a third-party solution from the approved vendor list, you are likely to need to grant access to the Google Play EMM API.  You will need to generate a token that can be used. 
