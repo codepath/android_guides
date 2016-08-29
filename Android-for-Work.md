@@ -40,7 +40,7 @@ If you use a third-party solution from the approved vendor list, you are likely 
 
    If you are using a personal Gmail account and signing up your domain with Android for Work:
 
-   <img src="http://imgur.com/rdwFnxp.png"/>
+   <img src="http://i.imgur.com/owi7CEh.png"/>
 
 2. Visit [https://console.developers.google.com](https://console.developers.google.com) with the Google Apps domain.  
 
