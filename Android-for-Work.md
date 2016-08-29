@@ -28,25 +28,25 @@ You will need to validate that you own the domain name (DNS).  The account and p
 
 ### EMM Tokens
 
-If you are using Android for Work accounts or use a third-party solution instead of Google's (only applicable with using with Google Apps for Work), you will need to generate a token that can be used.  If you wish to try to use Google's, you can always unbind the selection.
-
-<img src="http://i.imgur.com/EyiIQS1.png">
-
 ### Using a Third-Party EMM Provider
 
-If you use a third-party solution from the approved vendor list, you are likely to need to grant access to the Google Play EMM API.  
+If you use a third-party solution from the approved vendor list, you are likely to need to grant access to the Google Play EMM API.  You will need to generate a token that can be used. 
 
-1. Visit [https://console.developers.google.com](https://console.developers.google.com) with the Google Apps domain.  
+1. Generate an EMM Token. 
 
-2. Create a new project or use an existing one.
+   <img src="http://i.imgur.com/EyiIQS1.png">
 
-3. Make sure to enable EMM API
+2. Visit [https://console.developers.google.com](https://console.developers.google.com) with the Google Apps domain.  
+
+3. Create a new project or use an existing one.
+
+4. Make sure to enable EMM API
 
    <img src="http://i.imgur.com/GyMQzmX.png"/>
 
-4. Go the `Credentials` section and create a service account.  Save the credential file to JSON format.
+5. Go the `Credentials` section and create a service account.  Save the credential file to JSON format.
 
-5. Upload this JSON data along with the EMM token you generated to the vendor system you've chosen.   You may need to follow other steps as provided by the vendor to complete the necessary steps.
+6. Upload this JSON data along with the EMM token you generated to the vendor system you've chosen.   You may need to follow other steps as provided by the vendor to complete the necessary steps.
 
 ## References
 
