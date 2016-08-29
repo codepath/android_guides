@@ -2,6 +2,8 @@
 
 Android for Work enables your mobile devices to be managed centrally by enterprises as well to help mitigate issues with lost or stolen devices.  You can leverage Google's own enterprise mobile management (EMM) system, or you can use a third-party [approved vendor list](https://www.google.com/work/android/partners/).  Using Android for Work, you can also leverage [managed app configurations](https://developer.android.com/work/managed-configurations.html), which allow a way to push custom key/value pairs to apps for large scale deployments.
 
+Note that only Android 5.0 (Lollipop) and above support for Android for Work.   Lower versions do not currently work.
+
 ## Setup
 
 In order to use Android for Work, you either need to do the following:
