@@ -24,7 +24,7 @@ Upon signing up, your screenshot will look like:
 
 <img src="http://imgur.com/tODDzBG.png" width="450"/>
 
-You will need to validate that you own the domain name (DNS).  The account and password that you used in the signup page can be used to relogin to [http://admin.google.com](http://admin.google.com) similar to other Google logins.  The one difference is that this account has no access to other paid products such as Gmail, Google Calendar, and Drive.  See this [reference guide](https://support.google.com/work/android/answer/6371476?hl=en&ref_topic=6151012) for more details.
+You will need to validate that you own the domain name (DNS).  The account and password that you used in the signup page can be used to relogin to [https://admin.google.com](https://admin.google.com) similar to other Google logins.  The one difference is that this account has no access to other paid products such as Gmail, Google Calendar, and Drive.  See this [reference guide](https://support.google.com/work/android/answer/6371476?hl=en&ref_topic=6151012) for more details.
 
 ### EMM Tokens
 
