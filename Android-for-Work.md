@@ -4,9 +4,19 @@ Android for Work enables your mobile devices to be managed centrally by enterpri
 
 ## Setup
 
-In order to use Android for Work, you either need to 1) signup for a Google Apps for Work (Gmail, Calendar, Drive) or 2) use a personal Gmail account to provision for an Android for Work account.  If you want to use the Google Apps for Work option, you need to upgrade to a paid subscription service but you can upgrade to a 30-day free trial service to evaluate the solution first.   Also, if you choose not to use this paid offering, you can easily downgrade without any cost. 
+In order to use Android for Work, you either need to do the following:
 
-For the 2nd option, you need to fill out this [registration link](https://www.google.com/a/signup/?enterprise_product=ANDROID_WORK) to manage Android for Work accounts.  You can only use this option if you are not currently using Google Apps to manage your domain.   You will also need at least a personal Gmail account that will serve as the administrator.  Note that **Android for Work accounts do NOT have any access to paid products such as Gmail, Google Calendar, and Drive**.  You will mostly use it in conjunction with a third-party EMM system.
+1) **Signup for a Google Apps for Work (Gmail, Calendar, Drive)** through [apps.google.com](http://apps.google.com).
+
+If you want to use this option, you need to upgrade to a paid subscription service but you can upgrade to a 30-day free trial service to evaluate the solution first.   Also, if you choose not to use this paid offering, you can easily downgrade without any cost. 
+
+2) Signup for Android for Work using a personal Gmail account using this [registration link](https://www.google.com/a/signup/?enterprise_product=ANDROID_WORK).
+
+You can only use this option if you are not currently using Google Apps to manage your domain.   You will also need at least a personal Gmail account that will serve as the administrator.  Note that **Android for Work accounts do NOT have any access to paid products such as Gmail, Google Calendar, and Drive**.  You will mostly use it in conjunction with a third-party EMM system.
+
+Upon signing up, your screenshot will look like:
+
+<img src="http://imgur.com/tODDzBG.png" width="450"/>
 
 See this [reference guide](https://support.google.com/work/android/answer/6371476?hl=en&ref_topic=6151012) for more details about the differences between using a Google Apps for Work domain vs. using an Android for Work account with a persona Gmail account.
 
