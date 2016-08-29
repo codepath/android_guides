@@ -20,7 +20,7 @@ Once this option is selected, you will need to either rely on Google to manage t
 
 ### EMM Tokens
 
-If you are using Android for Work accounts or use a third-party solution instead of Google's (only applicable to Google Apps for Work accounts), you will need to generate a token that can be used.  If you wish to try to use Google's, you can always unbind the selection.
+If you are using Android for Work accounts or use a third-party solution instead of Google's (only applicable with using with Google Apps for Work), you will need to generate a token that can be used.  If you wish to try to use Google's, you can always unbind the selection.
 
 <img src="http://i.imgur.com/EyiIQS1.png">
 
