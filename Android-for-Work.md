@@ -4,9 +4,11 @@ Android for Work enables your mobile devices to be managed centrally by enterpri
 
 ## Setup
 
-In order to use Android for Work, you must have a Google Apps domain setup.  In addition, you must also convert your Google Apps domain to a Google Apps for Work, which is a paid subscription service.  Standard Google Apps domains cannot be used, but you can upgrade to a 30-day free trial service to evaluate the service.    If you choose not to use it, you can easily downgrade too.
+In order to use Android for Work, you either need to have a Google Apps for Work domain or a personal Gmail account that will be used to create an Android for Work account.  If you want to use a Google Apps for Work option, you need to upgrade to a paid subscription service but you can upgrade to a 30-day free trial service to evaluate the solution first.   Also, if you choose not to use the paid offering, you can easily downgrade without any cost.
 
-Next, make sure to click on the `Android for Work` option:
+To signup for an Android for Work account, you need to fill out this [registration link](https://www.google.com/a/signup/?enterprise_product=ANDROID_WORK).  You can only use this option if you are not currently using Google Apps to manage your domain.   You will need at least a personal Gmail account that will serve as the administrator for this newly created enterprise.
+
+Inside the admin console, make sure to click on the `Android for Work` option:
 
 <img src="http://i.imgur.com/Ccg7pdi.png"/>
 
