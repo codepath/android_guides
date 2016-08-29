@@ -10,23 +10,21 @@ In order to use Android for Work, you either need to do the following:
 
 If you want to use this option, you need to upgrade to a paid subscription service but you can upgrade to a 30-day free trial service to evaluate the solution first.   Also, if you choose not to use this paid offering, you can easily downgrade without any cost. 
 
+Once you have upgraded to a paid subscription plan, make sure to click on the `Android for Work` option inside the admin console:
+
+<img src="http://i.imgur.com/Ccg7pdi.png" width="450"/>
+
+Once this option is selected, you will need to either rely on Google to manage the devices, or you can use a third-party solution.  
+
 2) **Signup for Android for Work using a personal Gmail account** using this [registration link](https://www.google.com/a/signup/?enterprise_product=ANDROID_WORK).
 
-You can only use this option if you are not currently using Google Apps to manage your domain.   You will also need at least a personal Gmail account that will serve as the administrator.  Note that **Android for Work accounts do NOT have any access to paid products such as Gmail, Google Calendar, and Drive**.  You will mostly use it in conjunction with a third-party EMM system.
+You can only use this option if you are not currently using Google Apps to manage your domain.   You will also need at least a personal Gmail account that will serve as the administrator.  Note that **Android for Work accounts do NOT have any access to paid products such as Gmail, Google Calendar, and Drive**.  You can only use this option in conjunction with a third-party EMM system.
 
 Upon signing up, your screenshot will look like:
 
 <img src="http://imgur.com/tODDzBG.png" width="450"/>
 
-See this [reference guide](https://support.google.com/work/android/answer/6371476?hl=en&ref_topic=6151012) for more details about the differences between using a Google Apps for Work domain vs. using an Android for Work account with a persona Gmail account.
-
-### Google Apps for Work Setup
-
-If you are using Google Apps for Work, inside the admin console, make sure to click on the `Android for Work` option:
-
-<img src="http://i.imgur.com/Ccg7pdi.png"/>
-
-Once this option is selected, you will need to either rely on Google to manage the devices, or you can use a third-party solution.  
+You will need to validate that you own the domain name (DNS).  The account and password that you used in the signup page can be used to relogin to [http://admin.google.com](http://admin.google.com) similar to other Google logins.  The one difference is that this account has no access to other paid products such as Gmail, Google Calendar, and Drive.  See this [reference guide](https://support.google.com/work/android/answer/6371476?hl=en&ref_topic=6151012) for more details.
 
 ### EMM Tokens
 
