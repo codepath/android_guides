@@ -34,7 +34,13 @@ If you use a third-party solution from the approved vendor list, you are likely 
 
 1. Generate an EMM Token. 
 
-   <img src="http://i.imgur.com/EyiIQS1.png">
+   If you are using Google Apps for Work, your screenshot will look like the following:
+
+     <img src="http://i.imgur.com/EyiIQS1.png"/>
+
+   If you are using a personal Gmail account and signing up your domain with Android for Work:
+
+     <img src="http://imgur.com/rdwFnxp.png"/>
 
 2. Visit [https://console.developers.google.com](https://console.developers.google.com) with the Google Apps domain.  
 
