@@ -40,7 +40,7 @@ If you use a third-party solution from the approved vendor list, you are likely 
 
    <img src="http://i.imgur.com/EyiIQS1.png"/>
 
-   If you are using a personal Gmail account and signing up your domain with Android for Work:
+   If you are using a personal Gmail account and signing up your domain with Android for Work, you screenshot will appear as follows:
 
    <img src="http://i.imgur.com/owi7CEh.png"/>
 
