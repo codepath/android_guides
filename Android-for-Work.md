@@ -10,7 +10,7 @@ In order to use Android for Work, you either need to do the following:
 
 1) **Signup for a Google Apps for Work (Gmail, Calendar, Drive)** through [apps.google.com](http://apps.google.com).
 
-If you want to use this option, you need to upgrade to a paid subscription service but you can upgrade to a 30-day free trial service to evaluate the solution first.   Also, if you choose not to use this paid offering, you can easily downgrade without any cost (go to `Billing` -> `Cancel Subscription`) within 30 days.  Make sure to click on downgrading to the free option (and **not** cancel Google Apps for Work).
+If you want to use this option, you intend to move to hosted e-mail service to Google and need to upgrade to a paid subscription service with an initial 30-day free trial. If you choose not to use this paid offering, you can easily downgrade without any cost (go to Billing -> Cancel Subscription) within 30 days. Make sure to click on downgrading to the free option (andnot cancel Google Apps for Work).   Also, if you choose not to use this paid offering, you can easily downgrade without any cost (go to `Billing` -> `Cancel Subscription`) within 30 days.  Make sure to click on downgrading to the free option (and **not** cancel Google Apps for Work).
 
 Once you have upgraded to a paid subscription plan, make sure to click on the `Android for Work` option inside the admin console:
 
