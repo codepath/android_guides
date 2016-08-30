@@ -177,7 +177,14 @@ The simplest fix is described in detail within [this stack overflow post](http:/
 
 ### Simulating GPS Locations
 
-This handy [playback-gps](https://github.com/galens/playback-gpx) script allows a developer to simulate traveling a specific route on genymotion. Use this for testing and for presentations if you need to demonstrate how the map works with location in real-time.
+This handy [playback-gps](https://github.com/galens/playback-gpx) script allows a developer to simulate traveling a specific route on genymotion. Use this for testing and for presentations if you need to demonstrate how the map works with location in real-time. Additional resources related to mocking GPS locations on Android device or emulator:
+
+ * [Simulate GPS Locations with Plugin](http://www.jesusamieiro.com/android-studio-simulate-multiple-gps-points-with-mock-location-plugin/) - Using Android Studio Mock Location plugin to simulate locations. 
+ * [Lockito](https://play.google.com/store/apps/details?id=fr.dvilleneuve.lockito) - Allows you to make your phone follow a fake itinerary, with total control over the speed and GPS signal accuracy. This can be recorded using [GPS Logger](https://play.google.com/store/apps/details?id=com.mendhak.gpslogger&hl=en_GB) You can also simulate a static location.
+ * [Fake GPS location app](https://play.google.com/store/apps/details?id=com.lexa.fakegps&hl=en) - Teleport your phone to any place in the world with two clicks! This app sets up fake GPS location so every other app in your phone belives you are there!
+ * [FakeLocationProvider](https://gist.github.com/iutinvg/4671582) - Sample code for faking locations provider for Android. Useful for demoing tracking related applications.
+ * [android-gps-emulator](https://github.com/dpdearing/android-gps-emulator) - GPS location emulator for changing/setting/simulating the GPS location of the Android emulator through a simple map-based interface.
+
 
 ## References
 
