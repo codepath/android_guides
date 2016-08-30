@@ -20,7 +20,7 @@ Once this option is selected, you will need to either rely on Google to manage t
 
 2) **Signup for Android for Work using a personal Gmail account** using this [registration link](https://www.google.com/a/signup/?enterprise_product=ANDROID_WORK).
 
-You can only use this option if you are not currently using Google Apps to manage your domain.   You will also need at least a personal Gmail account that will serve as the administrator.  Note that **Android for Work accounts do NOT have any access to paid products such as Gmail, Google Calendar, and Drive**.  You can only use this option in conjunction with a third-party EMM system.
+You can only use this option if you already have a company managed domain and only wish to implement Android for Work.  You will also need at least a personal Gmail account that will serve as the administrator.  Note that **Android for Work accounts do NOT have any access to paid products such as Gmail, Google Calendar, and Drive**.  You can only use this option in conjunction with a third-party EMM system.
 
 Upon signing up, your screenshot will look like:
 
