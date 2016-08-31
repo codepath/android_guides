@@ -472,7 +472,8 @@ public class MyActivityModule {
 ```
 
 Finally, in the **parent component**, we will define a factory method with the return value of the component and the dependencies needed to instantiate it:
-```
+
+```java
 @Singleton
 @Component(modules={ ... })
 public interface MyApplicationComponent {
