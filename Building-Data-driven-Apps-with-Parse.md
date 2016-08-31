@@ -139,7 +139,7 @@ If needed in your application, you might also want to [setup push notifications]
 
 ## Working with Users
 
-At the core of many apps, there is a notion of user accounts that lets users access their information in a secure manner. Parse has a specialized `ParseUser` as a part of their SDK which handles this functionality. Be sure to check out the [Users](https://www.parse.com/docs/android_guide#users) docs for a complete overview. See the API docs for [ParseUser](http://www.parse.com/docs/android/api/com/parse/ParseUser.html) for more details.
+At the core of many apps, there is a notion of user accounts that lets users access their information in a secure manner. Parse has a specialized `ParseUser` as a part of their SDK which handles this functionality. Be sure to check out the [Users](http://parseplatform.github.io/docs/android/guide/#users) docs for a complete overview. See the API docs for [ParseUser](http://www.parse.com/docs/android/api/com/parse/ParseUser.html) for more details.
 
 ### User Signup
 
@@ -166,7 +166,7 @@ user.signUpInBackground(new SignUpCallback() {
   }
 });
 ```
-This call will asynchronously create a new user in your Parse App. Before it does this, it checks to make sure that both the username and email are unique. See the [signup up docs](https://www.parse.com/docs/android_guide#users-signup) for more details.
+This call will asynchronously create a new user in your Parse App. Before it does this, it checks to make sure that both the username and email are unique. See the [signup up docs](http://parseplatform.github.io/docs/android/guide/#signing-up) for more details.
 
 ### User Session Login
 
@@ -202,9 +202,9 @@ ParseUser.logOut();
 ParseUser currentUser = ParseUser.getCurrentUser(); // this will now be null
 ```
 
-That's the basics of what you need to work with users. See more details by checking out the [User](https://www.parse.com/docs/android_guide#users) official docs.
+That's the basics of what you need to work with users. See more details by checking out the [User](http://parseplatform.github.io/docs/android/guide/#users) official docs.
 
-You can also have a [Facebook Login](https://www.parse.com/docs/android_guide#fbusers-setup) or [Twitter Login](https://www.parse.com/docs/android_guide#twitterusers-setup) for your users easily following the guides linked.
+You can also have a [Facebook Login](http://parseplatform.github.io/docs/android/guide/#facebook-users) or [Twitter Login](http://parseplatform.github.io/docs/android/guide/#twitter-users) for your users easily following the guides linked.
 
 ### Querying Users
 
@@ -224,11 +224,11 @@ query.findInBackground(new FindCallback<ParseUser>() {
 });
 ```
 
-See a list of [query constraints](https://www.parse.com/docs/android_guide#queries-constraints) here.
+See a list of [query constraints](http://parseplatform.github.io/docs/android/guide/#query-constraints) here.
 
 ## Working With Data Objects
 
-Storing data on Parse is built around the `ParseObject`. Each `ParseObject` contains key-value pairs of JSON-compatible data. This data is schemaless, which means that you don't need to specify ahead of time what keys exist on each `ParseObject`. Each `ParseObject` has a class name that you can use to distinguish different sorts of data. See the API docs for [ParseObject](http://www.parse.com/docs/android/api/com/parse/ParseObject.html) for more details.
+Storing data on Parse is built around the `ParseObject`. Each `ParseObject` contains key-value pairs of JSON-compatible data. This data is schema-less, which means that you don't need to specify ahead of time what keys exist on each `ParseObject`. Each `ParseObject` has a class name that you can use to distinguish different sorts of data. See the API docs for [ParseObject](http://www.parse.com/docs/android/api/com/parse/ParseObject.html) for more details.
 
 ### Creating Parse Models
 
@@ -318,7 +318,7 @@ todoItem.saveInBackground();
 
 Note that there are two ways to save an object: `saveInBackground` which executes immediately and `saveEventually` which will store the update on the device and push to the server once internet access is available. 
 
-See the [saving objects](https://www.parse.com/docs/android_guide#objects-saving) and [updating docs](https://www.parse.com/docs/android_guide#objects-updating) docs for more details. Also, check out the [relational data](https://www.parse.com/docs/android_guide#objects-pointers) section.
+See the [saving objects](http://parseplatform.github.io/docs/android/guide/#saving-objects) and [updating docs](http://parseplatform.github.io/docs/android/guide/#updating-objects) docs for more details. Also, check out the [relational data](http://parseplatform.github.io/docs/android/guide/#relations) section.
 
 ### Querying Objects
 
@@ -348,7 +348,7 @@ query.getInBackground("aFuEsvjoHt", new GetCallback<TodoItem>() {
 });
 ```
 
-See [retrieving objects](https://www.parse.com/docs/android_guide#objects-retrieving) official docs for information on refreshing stale objects and more.
+See [retrieving objects](http://parseplatform.github.io/docs/android/guide/#retrieving-objects) official docs for information on refreshing stale objects and more.
 
 #### Objects By Query Conditions
 
@@ -373,7 +373,7 @@ query.findInBackground(new FindCallback<TodoItem>() {
 });
 ```
 
-See a list of [query constraints](https://www.parse.com/docs/android_guide#queries-constraints) here and check the [queries overview](https://www.parse.com/docs/android_guide#queries) for explanation of compound queries and relational queries.
+See a list of [query constraints](http://parseplatform.github.io/docs/android/guide/#query-constraints) here and check the [queries overview](http://parseplatform.github.io/docs/android/guide/#queries) for explanation of compound queries and relational queries.
 
 #### Objects by Querying GeoLocation
 
@@ -537,7 +537,7 @@ fetchedTodoItem.getTagsRelation().getQuery().findInBackground(new FindCallback<T
 });
 ```
 
-For more details, check out the official [Relational Data](https://www.parse.com/docs/android_guide#objects-pointers) guide. For more complex many-to-many relationships, check out this official [join tables](https://www.parse.com/docs/relations_guide#manytomany-jointables) guide when the many-to-many requires additional metadata.
+For more details, check out the official [Relational Data](http://parseplatform.github.io/docs/android/guide/#using-pointers) guide. For more complex many-to-many relationships, check out this official [join tables](http://parseplatform.github.io/docs/android/guide/#using-join-tables) guide when the many-to-many requires additional metadata.
 
 ### Deleting Objects
 
@@ -793,5 +793,5 @@ Running server-side code on Parse:
 
 ## References
 
- * <https://www.parse.com/docs/android_guide>
- * <https://www.parse.com/docs/android/api/?com/parse/ParseObject.html>
+ * <http://parseplatform.github.io/docs/android/guide/>
+ * <http://parseplatform.github.io/Parse-SDK-Android/api/>
