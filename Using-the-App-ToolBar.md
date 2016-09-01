@@ -51,6 +51,7 @@ Now you need to add a `Toolbar` to your Activity layout file. One of the biggest
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
@@ -66,6 +67,8 @@ Now you need to add a `Toolbar` to your Activity layout file. One of the biggest
 
 </LinearLayout>
 ```
+
+**Note:** You'll want to add `android:fitsSystemWindows="true"` ([learn more](https://medium.com/google-developers/why-would-i-want-to-fitssystemwindows-4e26d9ce1eec)) to the parent layout of the `Toolbar` to ensure that the height of the activity is calculated correctly. 
 
 As Toolbar is just a `ViewGroup` and can be **styled and positioned like any other view**. Note that this means if you are in a `RelativeLayout`, you need to ensure that all other views are positioned below the toolbar explicitly. The toolbar is not given any special treatment as a view.
 
@@ -147,6 +150,7 @@ Next, we can use the `<include />` tag to load the toolbar into our activity lay
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:orientation="vertical">
 
     <!-- Load the toolbar here -->
