@@ -103,6 +103,12 @@ http://developer.android.com/guide/topics/manifest/activity-element.html#wsoft).
 
 See the guide on [keyboard visibility](http://developer.android.com/training/keyboard-input/visibility.html) for more details.
 
+## Troubleshooting
+
+### Toolbar Height Expands on UI Resize
+
+To avoid incorrect `Toolbar` height calculations, you can add `android:fitsSystemWindows="true"` ([learn more](https://medium.com/google-developers/why-would-i-want-to-fitssystemwindows-4e26d9ce1eec)) to the parent layout of the `Toolbar`. In many cases, this should resolve the issue.  
+
 ## References
 
  * <http://developer.android.com/training/keyboard-input/style.html>
