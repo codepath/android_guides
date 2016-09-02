@@ -581,7 +581,7 @@ recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
 
 In certain cases, we might want a horizontal `RecyclerView` that allows the user to scroll through a list of items. As the user scrolls, we might want items to "snap to center" as they are revealed. Such as in this example:
 
-<img src="http://i.imgur.com/D5crJK4.gif" width="350" />
+<img src="http://i.imgur.com/D5crJK4.gif" width="300" />
 
 #### LinearSnapHelper
 
