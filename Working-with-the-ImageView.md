@@ -2,7 +2,7 @@
 
 Typically, images are displayed using the built-in image view. This view takes care of the loading and optimizing of the image, freeing you to focus on app-specific details like the layout and content. 
 
-In this guide, we will take a look at how to use an ImageView, how to manipulate bitmaps, learn about the different density folders and more.
+In this guide, we will take a look at how to use an ImageView, how to manipulate bitmaps, learn about the different density folders and more.f
 
 ## Usage
 
@@ -100,6 +100,8 @@ To create alternative bitmap drawables for different densities, you should follo
 This means that if you generate a 100x100 for mdpi (1x baseline), then you should generate the same resource in 150x150 for hdpi (1.5x), 200x200 image for xhdpi devices (2.0x), 300x300 image for xxhdpi (3.0x) and a 75x75 image for ldpi devices (0.75x). See [these density guidelines](http://iconhandbook.co.uk/reference/chart/android/) for additional details. 
 
 ![Densities](http://developer.android.com/images/screens_support/screens-densities.png)
+
+#### Final Android Resizer
 
 To resize images more easily, check out the [Final Android Resizer](https://github.com/asystat/Final-Android-Resizer) by [downloading and running this JAR](https://github.com/asystat/Final-Android-Resizer/blob/master/Executable%20Jar/Final%20Android%20Resizer.jar?raw=true). 
 
