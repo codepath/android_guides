@@ -581,9 +581,22 @@ recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
 
 In certain cases, we might want a horizontal `RecyclerView` that allows the user to scroll through a list of items. As the user scrolls, we might want items to "snap to center" as they are revealed. Such as in this example:
 
-<img src="" width="350" />
+<img src="http://i.imgur.com/D5crJK4.gif" width="350" />
 
-To achieve this effect, we can create a custom extension to `RecyclerView` called `SnappyRecyclerView` which will snap items to center as the user scrolls:
+#### LinearSnapHelper
+
+To achieve this snapping to center effect as the user scrolls, starting with support library 24.2.0 version and greater, we can use the built-in [LinearSnapHelper](https://developer.android.com/reference/android/support/v7/widget/LinearSnapHelper.html) as follows:
+
+```java
+SnapHelper snapHelper = new LinearSnapHelper();
+snapHelper.attachToRecyclerView(recyclerView);
+```
+
+For more sophisticated snapping behavior, [read more about customizing these helpers](https://rubensousa.github.io/2016/08/recyclerviewsnap) and [review related sample code here](https://github.com/rubensousa/RecyclerViewSnap/).
+
+#### SnappyRecyclerView
+
+For a more manual approach, we can create a custom extension to `RecyclerView` called `SnappyRecyclerView` which will snap items to center as the user scrolls:
 
 1. Copy over the code from [SnappyRecyclerView.java](https://gist.github.com/nesquena/b26f9a253bbbb6a2e4890891e8a57eb9) to your project.
 2. Configure your new `SnappyRecyclerView` with a horizontal `LinearLayoutManager`:
@@ -596,7 +609,7 @@ To achieve this effect, we can create a custom extension to `RecyclerView` calle
 3. Attach your adapter to the `RecyclerView` to populate the data into the horizontal list as normal.
 4. You can access the currently "snapped" item position with `snappyRecyclerView.getFirstVisibleItemPosition()`.
 
-That's all, you should be set for a snap-to-center horizontal scrolling list!
+That's all, you should be set for a snap-to-center horizontal scrolling list! 
 
 ### Attaching Click Handlers to Items
 
