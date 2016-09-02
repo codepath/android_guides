@@ -694,7 +694,15 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
 
     /***** Creating OnItemClickListener *****/
     
-    // Define listener member variable    
+/*****
+ I just want to point out that in case you are using TabLayout in
+ your android app. Don't make your listener to be static else it will make the 
+ clicking to misbehave when you switch tabs. 
+*****/
+
+    
+    // Define listener member variable
+    // for use with TabLayout don't make this static    
     private static OnItemClickListener listener;
     // Define the listener interface
     public interface OnItemClickListener {
