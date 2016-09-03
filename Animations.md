@@ -9,10 +9,11 @@ dynamically within the Java code.
 
 ### Animation Types
 
-There are actually two distinct animation frameworks for Android:
+There are actually three distinct animation frameworks for Android:
 
  - [Property Animations](http://developer.android.com/guide/topics/graphics/prop-animation.html) - The most powerful and flexible animation system introduced in Android 3.0.
  - [View Animations](http://developer.android.com/guide/topics/graphics/view-animation.html) - Slower and less flexible; deprecated since property animations were introduced
+ - [Transition Animations](https://developer.android.com/training/transitions/overview.html) - For Android 4.4 devices and above, the Transitions API framework enables both activity and view hierarchy animations.  Using the [[design support library|Design-Support-Library]], view hierarchy animations can be supported down to Android 4.0 devices.
 
 Powered by these animation frameworks, there are five relevant types of animations:
 
