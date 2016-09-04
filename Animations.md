@@ -677,17 +677,6 @@ Read more about Fragment Transitions in this [detailed article](http://android-e
 
 ## Layout Animations
 
-### Animating View Changes
-
-The Transitions framework introduces two concepts: **scenes** are sna
-```xml
-        viewRoot = (ViewGroup) findViewById(R.id.sample3_root);
-
-```java
-TransitionManager.beginDelayedTransition(recyclerView, explode);
-
-
-
 ### Animating on Start
 
 A particular animation can be specified when the layout first appears on screen. This can be done by using the [android:layoutAnimation](http://developer.android.com/reference/android/view/ViewGroup.html#attr_android:layoutAnimation) property to specify an animation to execute.
