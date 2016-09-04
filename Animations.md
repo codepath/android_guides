@@ -526,6 +526,65 @@ This results in the following:
 
 ![Activity Transition](https://i.imgur.com/lRU3wrn.gif)
 
+#### Activity Transitions in Lollipop
+
+The Transitions API (only for Android 5.0 and above) introduces a new way of performing activity transitions, which obviously is not backwards compatible with older Android devices but provides the foundation for performing layout animations within parts of an activity.  You can create different types of XML tags `res/transition` include `slide`, `fade`, `explode`, `autoTransition`, and `recolor`.  For instance, a slide right could be defined as `slide_right.xml`:
+
+```xml
+<slide xmlns:android="http://schemas.android.com/apk/res/android""
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:slideEdge="right"
+    android:duration="1000"/>
+```
+
+We could then inflate this transition using the `TransitionInflater` class:
+```java
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        // inflate transition XML & set exit transition
+        Transition transition = TransitionInflater.from(this).inflateTransition(R.transition.slide_right);        
+        getWindow().setExitTransition(transition);
+
+        // inflate xml here
+```
+
+We also need to change the entering activity as well with a `slide_left.xml`:
+
+```java
+<?xml version="1.0" encoding="utf-8"?>
+<slide xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="1000"
+    android:slideEdge="left" />
+```
+
+```java
+public class SecondActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // setup before inflating
+        Transition a = TransitionInflater.from(this).inflateTransition(R.transition.slide_right);
+        getWindow().setEnterTransition(a);
+    }
+
+}
+```
+
+One particular change is that `startActivity` needs to be called with a special bundle:
+
+```java
+Intent i = new Intent(MainActivity.this, SecondActivity.class);
+// options need to be passed when starting the activity
+ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this, null);
+startActivity(i, options.toBundle());
+```
+
+Also, if you need to navigate back to the previous screen, use `finishAfterTransition()` instead of `finish()`.  Normally clicking the back button already calls this method for you.
+
 #### Browsing Transition Samples
 
 You can see several complete examples of activity transitions in the following resources:
@@ -617,6 +676,17 @@ Read more about Fragment Transitions in this [detailed article](http://android-e
 **Extended Note:** Check out [this stackoverflow post](http://stackoverflow.com/a/15816189/313399) if you are looking to animate the appearance of a DialogFragment.
 
 ## Layout Animations
+
+### Animating View Changes
+
+The Transitions framework introduces two concepts: **scenes** are sna
+```xml
+        viewRoot = (ViewGroup) findViewById(R.id.sample3_root);
+
+```java
+TransitionManager.beginDelayedTransition(recyclerView, explode);
+
+
 
 ### Animating on Start
 
@@ -771,3 +841,7 @@ The following animations library provide easy ways to plug-in animations into yo
  * <https://plus.google.com/+JakeWharton/posts/hPZYyEXaSqk>
  * <https://twitter.com/jakewharton/status/486346048755884034>
  * <https://github.com/lgvalle/Material-Animations>
+ * <http://cogitolearning.co.uk/?p=1224/>
+ * <https://medium.com/@andkulikov/animate-all-the-things-transitions-in-android-914af5477d50/>
+ * <https://android.googlesource.com/platform/frameworks/base/+/3da2834/core/java/android/transition/TransitionInflater.java/>
+ * <http://www.androiddesignpatterns.com/2014/12/activity-fragment-transitions-in-android-lollipop-part1.html/>
