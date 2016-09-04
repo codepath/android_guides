@@ -20,7 +20,7 @@ Powered by these animation frameworks, there are five relevant types of animatio
  * [Property Animations](http://developer.android.com/guide/topics/graphics/prop-animation.html) - This is the animation of any property between two values. Frequently used to animate views on screen such as rotating an image or fading out a button.
  * [[Activity Transitions|Animations#activity-transitions]] - Animates the transition as an Activity enters the screen when an Intent is executed.
  * [Fragment Transitions](http://android-er.blogspot.com/2013/04/implement-animation-in.html) - Animates the transition as a fragment enters or exits the screen when a transaction occurs.
- * [Layout Animation](http://developer.android.com/guide/topics/graphics/prop-animation.html#layout) - This allows us to enable animations on any layout container or other ViewGroup such as a ListView. With layout animations enabled, all changes to views inside the container will be animated.
+ * [[Layout Animations|Animations#layout-animations]] - This allows us to enable animations on any layout container or other ViewGroup such as LinearLayout, RelativeLayout, or ListView.  Using the Transitions API (for Android 4.4 devices and above), the animations to the view changes can be specified.  For lower versions, [layout animations](https://developer.android.com/guide/topics/graphics/prop-animation.html#layout) can still be enabled, but there is no way to dictate how the transitions occur.
  * [Drawable Animations](http://developer.android.com/guide/topics/graphics/drawable-animation.html) - Used to animate by displaying drawables in quick succession
 
 ### Material Animation Principles
@@ -625,7 +625,7 @@ A particular animation can be specified when the layout first appears on screen.
 First, let's define an animation we'd like to use when the views in the layout appear on the screen in `res/anim/slide_right.xml` which defines sliding in right from outside the screen:
 
 ```xml
-<set  xmlns:android="http://schemas.android.com/apk/res/android"  
+<set xmlns:android="http://schemas.android.com/apk/res/android"  
       android:interpolator="@android:anim/accelerate_interpolator">
     <translate android:fromXDelta="-100%p" android:toXDelta="0"
             android:duration="1000" /> 
