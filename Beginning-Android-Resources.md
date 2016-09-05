@@ -14,7 +14,7 @@ Thanks to these original content authors for helping us put together this useful
 
 ## High Level Guide
 
-* **Installation** - If you have never done Android development, first setup your Android environment by following these [Android Setup Slides](https://docs.google.com/presentation/d/1JOICG5Ow6QgMBrUKChenvSSxjylCpeQKvfvpPbJMx3M/edit)
+* **Installation** - If you have never done Android development, first setup your Android environment by following these [Android Setup Slides](https://docs.google.com/presentation/d/1iD0sMc-qIG80yZ1AQfDU5nxSAl3Xe4nx-2W_g9yzMSM/edit#slide=id.p)
 * **Programming** - If you are starting with no programming knowledge, we recommend you learn Java first (see resources in next section)
 * **First App** - Consider starting by building a simple [todo app](http://goo.gl/pBKfYP) by following these slides. Alternately try this [video tutorial](http://www.youtube.com/watch?v=Z149x12sXsw) that will guide you through the basics of an Android app. I recommend that you not only watch the video but repeat what he is doing simultaneously.
 - **Finding Solutions** - Learn how to search for solutions before you ask questions; check sources like [StackOverflow](http://stackoverflow.com/) and the [cliffnotes](http://guides.codepath.com/android) for answers. Learn how to [[debug your code|Debugging-Exceptions-within-your-App]]. This means using **LogCat** and reading stack traces, also learning [how to use breakpoints](http://guides.codepath.com/android/Debugging-Exceptions-within-your-App#investigation-methodologies).
