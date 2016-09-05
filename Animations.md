@@ -579,7 +579,7 @@ One particular change is that `startActivity` needs to be called with a special 
 ```java
 Intent i = new Intent(MainActivity.this, SecondActivity.class);
 // options need to be passed when starting the activity
-ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this, null);
+ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(MainActivity.this);
 startActivity(i, options.toBundle());
 ```
 
