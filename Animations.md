@@ -589,7 +589,7 @@ Also, if you need to navigate back to the previous screen, use `finishAfterTrans
 
 You can see several complete examples of activity transitions in the following resources:
 
- * [Card Flip Animation](http://stackoverflow.com/a/19959933/313399)
+ * [Card Flip Animation 1](http://stackoverflow.com/a/19959933/313399), [Card Flip 2](http://www.thedroidsonroids.com/blog/android/android-flipa-card-animation-exlpained/), [Card Flip 3](http://stackoverflow.com/a/25701636).
  * [Vine Activity Transition](http://blog.quent.in/index.php/2013/06/activity-transition-animations-like-the-vine-android-application/)
  * [Sliding In From Left Animation](http://android-er.blogspot.com/2013/04/custom-animation-while-switching.html)
  * [Sliding Drawer Animation](http://blog.blundell-apps.com/animate-an-activity/)
