@@ -538,6 +538,7 @@ The Transitions API (only for Android 5.0 and above) introduces a new way of per
 ```
 
 We could then inflate this transition using the `TransitionInflater` class:
+
 ```java
 public class MainActivity extends AppCompatActivity {
 
@@ -549,6 +550,10 @@ public class MainActivity extends AppCompatActivity {
 
         // inflate xml here
 ```
+
+Note that we set the exit transition of the activity.  There are actually 4 different transitions that work in pairs: exit/enter and return/reenter.  The exit transition should be declared on the departing activity, and the enter transition should be declared on the incoming activity.  The same concept applies for return and reenter transitions.
+
+<img src="http://imgur.com/jrpSvv6.png"/>
 
 We also need to change the entering activity as well with a `slide_left.xml`:
 
@@ -834,3 +839,4 @@ The following animations library provide easy ways to plug-in animations into yo
  * <https://medium.com/@andkulikov/animate-all-the-things-transitions-in-android-914af5477d50>
  * <https://android.googlesource.com/platform/frameworks/base/+/3da2834/core/java/android/transition/TransitionInflater.java>
  * <http://www.androiddesignpatterns.com/2014/12/activity-fragment-transitions-in-android-lollipop-part1.html>
+ * <https://www.youtube.com/watch?v=4L4fLrWDvAU>
