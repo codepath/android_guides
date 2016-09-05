@@ -830,7 +830,7 @@ The following animations library provide easy ways to plug-in animations into yo
  * <https://plus.google.com/+JakeWharton/posts/hPZYyEXaSqk>
  * <https://twitter.com/jakewharton/status/486346048755884034>
  * <https://github.com/lgvalle/Material-Animations>
- * <http://cogitolearning.co.uk/?p=1224/>
- * <https://medium.com/@andkulikov/animate-all-the-things-transitions-in-android-914af5477d50/>
- * <https://android.googlesource.com/platform/frameworks/base/+/3da2834/core/java/android/transition/TransitionInflater.java/>
- * <http://www.androiddesignpatterns.com/2014/12/activity-fragment-transitions-in-android-lollipop-part1.html/>
+ * <http://cogitolearning.co.uk/?p=1224>
+ * <https://medium.com/@andkulikov/animate-all-the-things-transitions-in-android-914af5477d50>
+ * <https://android.googlesource.com/platform/frameworks/base/+/3da2834/core/java/android/transition/TransitionInflater.java>
+ * <http://www.androiddesignpatterns.com/2014/12/activity-fragment-transitions-in-android-lollipop-part1.html>
