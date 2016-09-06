@@ -323,7 +323,7 @@ Body : {
 * If GCM is fully setup, your app if properly configured should register itself with your Parse server.  Check your `_Installation` table to verify that the entries were being saved. Clear your app cache or uninstall the app if an entry in the  `_Installation` table hasn't been added.
 
 * Inside your `AndroidManifest.xml` definition within the application node, make sure your `gcm_sender_id` is prefixed with `id:` (i.e. `id:123456`).  Parse needs to begin with an `id:` to work correctly.
-  * Make sure to add the GCM metadata **inside of the the <application> node** or this won't be used properly. 
+  * Make sure to add the GCM metadata **inside of the the `<application>` node** or this won't be picked up properly. 
 
 * You can use this curl command with your application key and master key to send a push to all Android devices:
 
