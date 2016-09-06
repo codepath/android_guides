@@ -363,7 +363,7 @@ If you see `Can not find sender for push type android`, it means you forgot to s
 
      ```xml
      <application>  
-        <!- Add this INSIDE the application node... -->
+        <!-- Add this INSIDE the application node... -->
         <meta-data
               android:name="com.parse.push.gcm_sender_id"
               android:value="id:SENDER_ID_HERE"/>
