@@ -590,6 +590,8 @@ startActivity(i, options.toBundle());
 
 Also, if you need to navigate back to the previous screen, use `finishAfterTransition()` instead of `finish()`.  Normally clicking the back button already calls this method for you.
 
+You can also control what parts of the activity transitions are excluded from this animation sequence.  See [this section](Shared-Element-Activity-Transition#excluding-window-content-transitions) for more details.
+
 #### Browsing Transition Samples
 
 You can see several complete examples of activity transitions in the following resources:
