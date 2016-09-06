@@ -256,7 +256,7 @@ Instead, you need to write your own server-side Parse code and have the client i
 2. Make sure to confirm the `SERVER_URL` environment variable is set to the URL and Parse mount location (i.e. `http://yourappname.herokuapp.com/parse`).
 3. Verify that `cloud/main.js` is the default value of `CLOUD_CODE_MAIN` environment variable.  
 4. Modify [cloud/main.js](https://github.com/codepath/parse-server-example/blob/master/cloud/main.js) yourself to add custom code to send Push notifications.  See [these examples](https://github.com/ParsePlatform/parse-server/issues/401#issuecomment-183767065) for other ways of sending too.  
-      * If you use Parse's default [ParsePushBroadcastReceiver](https://github.com/ParsePlatform/Parse-SDK-Android/blob/master/Parse/src/main/java/com/parse/ParsePushBroadcastReceiver.java#L155-L160), using either `alert` or `title` as a key/value pair will trigger a notification message. See [this section](https://parse.com/docs/android/guide#push-notifications-receiving-pushes) of the Parse documentation.
+      * If you use Parse's default [ParsePushBroadcastReceiver](https://github.com/ParsePlatform/Parse-SDK-Android/blob/master/Parse/src/main/java/com/parse/ParsePushBroadcastReceiver.java#L155-L160), using either `alert` or `title` as a key/value pair will trigger a notification message. See [this section](http://parseplatform.github.io/docs/android/guide/#receiving-pushes) of the Parse documentation.
       * You can also create your own custom receiver as shown in [this example](https://github.com/codepath/ParsePushNotificationExample/blob/master/app/src/main/java/com/test/MyCustomReceiver.java).
 5. Redeploy the code.  If you are using Heroku, you need to connect your own forked repository and redeploy.  
 
@@ -281,6 +281,17 @@ Instead, you need to write your own server-side Parse code and have the client i
      // Need to register GCM token
      ParseInstallation.getCurrentInstallation().saveInBackground();
      ```
+
+#### Receiving Pushes on Android
+
+After following the steps outlined above, be sure to check out the following resources for more information:
+
+ * [ParsePlatform Push Docs](http://parseplatform.github.io/docs/android/guide/#push-notifications)
+ * [ParsePlatform Push QuickStart](https://github.com/ParsePlatform/parse-server/wiki/Push#quick-start)
+ * [CodePath Parse Push Example](https://github.com/codepath/ParsePushNotificationExample) 
+
+Refer to these resources for more information on Parse Server push. 
+ 
 
 #### Troubleshooting Push Notifications
 
