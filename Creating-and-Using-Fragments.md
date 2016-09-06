@@ -234,6 +234,14 @@ public class SomeFragment extends Fragment {
         ListView lv = (ListView) view.findViewById(R.id.lvSome);
         lv.setAdapter(adapter);
     }
+
+    // This method is called when the fragment is no longer connected to the Activity
+    // Any references saved in onAttach should be nulled out here to prevent memory leaks. 
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        this.listener = null;
+    }
         
     // This method is called after the parent Activity's onCreate() method has completed.
     // Accessing the view hierarchy of the parent activity must be done in the onActivityCreated.
