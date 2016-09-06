@@ -160,7 +160,7 @@ getWindow().setEnterTransition(new Explode());
 getWindow().setExitTransition(new Explode());
 ```
 
-Often times you want to exclude from the animation sequence the use of the status bar, ActionBar, and [navigation bar](https://developer.android.com/training/system-ui/navigation.html), especially if shared elements will be drawn on top of them (see this [Google post](https://plus.google.com/+AlexLockwood/posts/RPtwZ5nNebb for more details).  You can exclude these elements by add a `<targets>` tag and specify the ID of the elements to exclude:
+Often times you want to exclude from the animation sequence the use of the status bar, ActionBar, and [navigation bar](https://developer.android.com/training/system-ui/navigation.html), especially if shared elements will be drawn on top of them (see this [Google post](https://plus.google.com/+AlexLockwood/posts/RPtwZ5nNebb for more details)).  You can exclude these elements by add a `<targets>` tag and specify the ID of the elements to exclude:
 
 ```xml
 <slide xmlns:android="http://schemas.android.com/apk/res/android"
