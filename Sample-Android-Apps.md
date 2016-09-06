@@ -28,6 +28,7 @@ One of the best ways to learn about Android is to checkout Android code in the w
 * [Android Rest Client Multi-Service Demo](https://github.com/codepath/android-multiservice-oauth-demo)
 * [HMKCode Android](https://github.com/hmkcode/Android)
 * [Google Samples](https://github.com/googlesamples) 
+* [Android-Examples](https://github.com/nisrulz/android-examples) 
 
 ## Open-Source Apps
 
