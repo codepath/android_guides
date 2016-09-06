@@ -291,7 +291,6 @@ After following the steps outlined above, be sure to check out the following res
  * [CodePath Parse Push Example](https://github.com/codepath/ParsePushNotificationExample) 
 
 Refer to these resources for more information on Parse Server push. 
- 
 
 #### Troubleshooting Push Notifications
 
