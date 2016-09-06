@@ -187,7 +187,6 @@ Diving into the networking and model layers for data-driven apps:
 * [[Consuming APIs with Retrofit]]
 * [[Sending and Receiving Data with Sockets]] 
 * [[Building Data driven Apps with Firebase]]
-* [[Swagger - The World's Most Popular Framework for APIs]]
 
 ## Persistence
 
