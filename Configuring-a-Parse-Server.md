@@ -322,7 +322,8 @@ Body : {
 
 * If GCM is fully setup, your app if properly configured should register itself with your Parse server.  Check your `_Installation` table to verify that the entries were being saved. Clear your app cache or uninstall the app if an entry in the  `_Installation` table hasn't been added.
 
-* Inside your `AndroidManifest.xml` definition, make sure your `gcm_sender_id` is prefixed with `id:` (i.e. `id:123456`).  Parse needs to begin with an `id:` to work correctly.
+* Inside your `AndroidManifest.xml` definition within the application node, make sure your `gcm_sender_id` is prefixed with `id:` (i.e. `id:123456`).  Parse needs to begin with an `id:` to work correctly.
+  * Make sure to add the GCM metadata **inside of the the <application> node** or this won't be used properly. 
 
 * You can use this curl command with your application key and master key to send a push to all Android devices:
 
@@ -361,6 +362,8 @@ If you see `Can not find sender for push type android`, it means you forgot to s
 4. Add a `meta-data` with the Sender ID in your AndroidManifest.xml.  Make sure the `id:` is used as the prefix (Android treats any metadata value that has a string of digits as an integer so Parse prefixes this value).  If you forget this step, Parse will register with its own Sender ID but you will see `SenderID mismatch` errors when trying to issue push notifications.
 
      ```xml
+     <application>  
+        <!- Add this INSIDE the application node... -->
         <meta-data
               android:name="com.parse.push.gcm_sender_id"
               android:value="id:SENDER_ID_HERE"/>
