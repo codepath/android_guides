@@ -19,13 +19,13 @@ One of the best ways to learn about Android is to checkout Android code in the w
 * [Google Maps Demo](https://github.com/codepath/android-google-maps-demo)
 * [Master-Detail Demo](https://github.com/codepath/android-master-detail-demo)
 * [Crouton Alert Demo](https://github.com/codepath/android-crouton-sample)
+* [Android Snake Game](https://github.com/codepath/android_snake_game)
+* [Android Rest Client Multi-Service Demo](https://github.com/codepath/android-multiservice-oauth-demo)
 
 ## External Code Samples
 
 * [Tons of examples from commonsguy](https://github.com/commonsguy/cw-omnibus)
 * [Novoda Android samples](https://github.com/novoda/android-demos)
-* [Android Snake Game](https://github.com/codepath/android_snake_game)
-* [Android Rest Client Multi-Service Demo](https://github.com/codepath/android-multiservice-oauth-demo)
 * [HMKCode Android](https://github.com/hmkcode/Android)
 * [Google Samples](https://github.com/googlesamples) 
 * [Android-Examples](https://github.com/nisrulz/android-examples) 
