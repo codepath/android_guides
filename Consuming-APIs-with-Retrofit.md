@@ -342,7 +342,7 @@ try {
 ## RxJava
 
 Retrofit 2 also supports [[RxJava]] extensions.  You will need to create an [[RxJava]] Adapter.
-By default, all network calls by default are synchronous:
+By default, all network calls are synchronous:
 
 ```java
 RxJavaCallAdapterFactory rxAdapter = RxJavaCallAdapterFactory.create();
