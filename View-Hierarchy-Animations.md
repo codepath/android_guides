@@ -56,7 +56,7 @@ circle.setLayoutParams(params);
 
 <img src="http://imgur.com/yEm6Xn3.png"/>
 
-The default choreographed transition that is used by TransitionManager is `AutoTransition`, which performs a current fade, move/resizing if any elements have changed position or size, and a fade transition).    If you wish to create your own sequence, you can compose the transitions out of the built-in ones that are provided:
+The default choreographed transition that is used by TransitionManager is `AutoTransition`, which performs a current fade, move/resizing if any elements have changed position or size, and a fade transition.    If you wish to create your own sequence, you can compose the transitions out of the built-in ones that are provided:
 
 * `slide` (entering/exiting from an edge)
 * `changeBounds` (resizing or moving)
