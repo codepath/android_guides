@@ -10,7 +10,7 @@ The Transitions API works by introducing the concept of a **scene**, which refle
 
 ## Setup
 
-If you intend to support Android 4.0 devices, make sure to include the [[design support library|Design-Support-Library]].
+If you intend to support Android 4.0 devices, make sure to include the [[design support library|Design-Support-Library#setup]] in your Gradle configuration.
 
 ## Animating Simple Layout Changes
 
