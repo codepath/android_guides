@@ -254,4 +254,3 @@ As you may notice there are some new annotations to remember:
 * <http://www.guru99.com/why-android-testing.html>
 * <http://wiebe-elsinga.com/blog/whats-new-in-android-testing>
 * <https://github.com/piotrek1543/robotium-showcase>
-* <http://stackoverflow.com/questions/38783594/use-test-annotation-and-activitytestrule-with-robotium-espresso-way>
