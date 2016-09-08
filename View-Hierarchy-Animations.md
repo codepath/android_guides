@@ -52,7 +52,7 @@ You then make a call to `setLayoutParams()` to trigger a layout pass on the next
 circle.setLayoutParams(params);
 ```		
 
-### Custom Transition Sets
+## Custom Transition Sets
 
 <img src="http://imgur.com/yEm6Xn3.png"/>
 
