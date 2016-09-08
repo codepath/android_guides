@@ -116,6 +116,7 @@ Exploring the gritty details of views, layout, styling and common UI patterns:
 * [[Shared Element Activity Transition]] (Android 5.0)
 * [[Circular Reveal Animation]] (Android 5.0)
 * [[Design Support Library]] (Material Design Library)
+* [[View Hierarchy Animations]] (Android 4.0)
 * [[Chrome Custom Tabs]]
 
 ### AdapterViews
