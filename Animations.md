@@ -528,7 +528,7 @@ This results in the following:
 
 #### Activity Transitions in Lollipop
 
-The Transitions API (only for Android 5.0 and above) introduces a new way of performing activity transitions, which obviously is not backwards compatible with older Android devices but provides the foundation for performing layout animations within parts of an activity.  You can create different types of XML tags `res/transition` include `slide`, `fade`, `explode`, `autoTransition`, and `recolor`.  For instance, a slide right could be defined as `slide_right.xml`:
+The Transitions API (only for Android 5.0 and above) introduces a new way of performing activity transitions, which obviously is not backwards compatible with older Android devices but provides the foundation for performing layout animations within activity [[view hierarchies|View Hierarchy Animations]].  You can create different types of XML tags `res/transition` include `slide`, `fade`, `explode`, `autoTransition`, and `recolor`.  For instance, a slide right could be defined as `slide_right.xml`:
 
 ```xml
 <slide xmlns:android="http://schemas.android.com/apk/res/android""
@@ -590,7 +590,7 @@ startActivity(i, options.toBundle());
 
 Also, if you need to navigate back to the previous screen, use `finishAfterTransition()` instead of `finish()`.  Normally clicking the back button already calls this method for you.
 
-You can also control what parts of the activity transitions are excluded from this animation sequence.  See [this section](Shared-Element-Activity-Transition#excluding-window-content-transitions) for more details.
+You can also control what parts of the activity transitions are excluded from this animation sequence, especially for shared elements between screens.  See [this section](Shared-Element-Activity-Transition#excluding-window-content-transitions) for more details.
 
 #### Browsing Transition Samples
 
