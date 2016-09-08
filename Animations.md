@@ -723,7 +723,7 @@ and now when you launch the application, the views within this layout will slide
 
 [Layout Change Animations](http://developer.android.com/training/animation/layout.html) allow us to enable animations on any Layout container or other ViewGroup such as a ListView. With layout animations enabled, all changes to views inside the container will be animated automatically. This is especially useful for ListViews which causes items to be animated as they are added or removed.
 
-To enable the default animations, all we have to do is set the `animateLayoutChanges` property on any ViewGroup within the XML:
+In the past, the only way to animate changes within a layout was to set the `animateLayoutChanges` property on any ViewGroup within the XML:
 
 ```xml
 <LinearLayout
@@ -739,6 +739,8 @@ To enable the default animations, all we have to do is set the `animateLayoutCha
 ```
 
 The [android:animateLayoutChanges](http://developer.android.com/reference/android/view/ViewGroup.html#attr_android:animateLayoutChanges) property enables a default animation if no further customization is made.
+
+With the introduction of the Transitions API framework, the animation sequences can now be controlled as well.  See [[this guide|View Hierarchy Animations]] for more details.
 
 ## Animated Images
 
