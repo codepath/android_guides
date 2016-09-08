@@ -54,6 +54,8 @@ circle.setLayoutParams(params);
 
 ### Custom Transition Sets
 
+<img src="http://imgur.com/yEm6Xn3.png"/>
+
 The default choreographed transition that is used by TransitionManager is `AutoTransition`, which performs a current fade, move/resizing if any elements have changed position or size, and a fade transition).    If you wish to create your own sequence, you can compose the transitions out of the built-in ones that are provided:
 
 * `slide` (entering/exiting from an edge)
@@ -119,6 +121,8 @@ Scene scene2 = Scene(sceneRoot, view);
 ```
 
 If you need to perform any additional animation changes, you can also use the `setEnterAction()` and `setExitAction()`.  
+
+Check out this [example project](https://github.com/lgvalle/Material-Animations) for more details.
 
 ## References
 
