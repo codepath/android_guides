@@ -242,20 +242,30 @@ def getDestUrl() {
 
 uploadArchives {
     repositories {
-        mavenDeployer {
-          // repository(url: "file:///" + getOutputDir()) can also be used to copy to local file
-          repository(url: getDestUrl()) // for copying directly to S3
+        // Use mavenDeployer instead of maven if trying to write to a local file first
 
-          pom.groupId = GROUP
-          pom.artifactId = POM_ARTIFACT_ID
-          pom.version = VERSION_NAME
+        // mavenDeployer {
+        //  repository(url: "file:///" + getOutputDir()) can also be used to copy to local file
+        
+        maven {
+          url getDestUrl()
 
-          pom.project {
-             name POM_NAME
-             packaging POM_PACKAGING
-             description POM_DESCRIPTION
+          credentials(AwsCredentials) {
+                accessKey=AWS_ACCESS_KEY 
+                secretKey=AWS_SECRET_KEY 
           }
-        }
+
+          pom {
+              groupId = GROUP
+              artifactId = POM_ARTIFACT_ID
+              version = VERSION_NAME
+
+              project {
+                name POM_NAME
+                packaging POM_PACKAGING
+                description POM_DESCRIPTION
+              }
+          }
     }
 }
 
