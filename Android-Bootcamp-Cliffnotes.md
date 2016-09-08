@@ -93,6 +93,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Handling Scrolls with CoordinatorLayout]]
 * [[Shared Element Activity Transition]]
 * [[Floating Action Buttons]]
+* [[View Hierarchy Animations]]
 
 ### Week 8 - Next Steps
 
