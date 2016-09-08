@@ -65,6 +65,8 @@ The default choreographed transition that is used by TransitionManager is `AutoT
 * `changeTransform` (adjusting scale/rotation)
 * `changeImageTransform` (adjusting size, shape, scaleType of an image)
 * `pathMotion` (allows movement along a path)
+* `explode` (slide in some direction depending on epicenter)
+* `recolor` (change background or next color)
 
 The transition sets can be created either programatically or through XML inflation.  If we rely on XML to create them, put them in the `res/transition` dir.
 
