@@ -513,6 +513,7 @@ The various types are illustrated below:
 
 First install the `com.google.maps.android:android-maps-utils` library.
 
+In order to use an .xml file / vector for a map marker it must first be inflated into layout then converted into a bitmap.
 
 Turn the drawable.xml file into a bitmap
 ```
