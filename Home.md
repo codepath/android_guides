@@ -201,7 +201,7 @@ Exploring the strategies for data persistence:
 * [[Settings with PreferenceFragment]]
 * [[Loading Contacts with Content Providers]] (CursorLoader, LoaderManager)
 * [[Interacting with the Calendar]] (CalendarProvider)
-* [[Creating Content Providers]] (**Needs Attention**)
+* [[Creating Content Providers]] 
 * [[Clean Persistence with Sugar ORM]] (Installation, Queries, Migrations)
 * [[DBFlow ORM Guide|DBFlow-Guide]] (Installation, Queries)
 * [[Easier SQL with Cupboard]]
