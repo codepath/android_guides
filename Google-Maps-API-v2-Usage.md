@@ -509,6 +509,44 @@ The various types are illustrated below:
 
 <img src="https://i.imgur.com/LWHlz7a.jpg" alt="map types" width="300" />
 
+### Using Vectors As Map Markers
+
+First install the `com.google.maps.android:android-maps-utils` library.
+
+
+Turn the drawable.xml file into a bitmap
+```
+public Bitmap getMarker() {
+        IconGenerator iconGen = new IconGenerator(context);
+
+        // Define the size you want from dimensions file
+        int shapeSize = context.getResources().getDimensionPixelSize(R.dimen.custom_marker_size;
+
+        Drawable shapeDrawable = ResourcesCompat.getDrawable(context.getResources(), R.drawable.custom_marker, null);
+        iconGen.setBackground(shapeDrawable);
+
+        // Create a view container to set the size
+        View view = new View(context);
+        view.setLayoutParams(new ViewGroup.LayoutParams(shapeSize, shapeSize));
+        iconGen.setContentView(view);
+
+        // Create the bitmap
+        Bitmap bitmap = iconGen.makeIcon();
+
+        return bitmap;
+    }
+```
+
+Consume the Bitmap in your Marker Creator:
+```
+MarkerOptions opts = new MarkerOptions()
+            .position(latLng)
+            .icon(BitmapDescriptorFactory.fromBitmap(getMarker());
+        carParkedMarker = map.addMarker(opts);
+
+        MarkerManager.animate(map, carParkedMarker, 1000);
+```
+
 ### Utility Library
 
 For additional features such as heat maps, marker clusters, calculating distances and more be sure to check out the [maps utility library](https://developers.google.com/maps/documentation/android/utility/). Watch [this video introduction](https://www.youtube.com/watch?v=nb2X9IjjZpM) for a brief overview.
