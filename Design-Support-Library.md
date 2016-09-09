@@ -22,7 +22,7 @@ The support design library has the following key features:
 7. [[PercentRelativeLayout|Constructing-View-Layouts#percentrelativelayout]] and [PercentFrameLayout](https://developer.android.com/reference/android/support/percent/PercentFrameLayout.html) to enable views to occupy [percentage-based dimensions](http://developer.android.com/reference/android/support/percent/PercentRelativeLayout.html).  
 8. [[Vector Drawables|Drawables#vector-drawables]] to reduce the need to include images for every density size.
   * Vector drawables are compatible back to Android 2.1 (API 7), but animated vector drawables are only back-ported to Android 3.0 (API 11).
-9. [Transitions framework](https://developer.android.com/training/transitions/overview.html) for animating view hierarchies down to Android 4.0 (API 14) .  Currently, there is no backported support for activity/fragment transitions used in this API.
+9. [[Animating view hierarchies|View Hierarchy Animations]] using the [Transitions framework](https://developer.android.com/training/transitions/overview.html) down to Android 4.0 (API 14) .  Currently, there is no backported support for activity/fragment transitions used in this API.
 
 ### Setup
 
