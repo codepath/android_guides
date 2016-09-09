@@ -539,13 +539,11 @@ public Bitmap getMarker() {
 ```
 
 Consume the Bitmap in your Marker Creator:
-```
-MarkerOptions opts = new MarkerOptions()
-            .position(latLng)
-            .icon(BitmapDescriptorFactory.fromBitmap(getMarker());
-        carParkedMarker = map.addMarker(opts);
 
-        MarkerManager.animate(map, carParkedMarker, 1000);
+```
+Marker mapMarker = map.addMarker(new MarkerOptions()
+    .position(listingPosition)                                                      
+    .icon(BitmapDescriptorFactory.fromBitmap(getMarker()));
 ```
 
 ### Utility Library
