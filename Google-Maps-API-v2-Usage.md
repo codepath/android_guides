@@ -515,32 +515,34 @@ First install the `com.google.maps.android:android-maps-utils` library.
 
 In order to use an .xml file / vector for a map marker it must first be inflated into layout then converted into a bitmap.
 
-Turn the drawable.xml file into a bitmap
-```
+Turn the drawable.xml file into a bitmap:
+
+```java
 public Bitmap getMarker() {
-        IconGenerator iconGen = new IconGenerator(context);
+    IconGenerator iconGen = new IconGenerator(context);
 
-        // Define the size you want from dimensions file
-        int shapeSize = context.getResources().getDimensionPixelSize(R.dimen.custom_marker_size;
+    // Define the size you want from dimensions file
+    int shapeSize = context.getResources().getDimensionPixelSize(R.dimen.custom_marker_size;
 
-        Drawable shapeDrawable = ResourcesCompat.getDrawable(context.getResources(), R.drawable.custom_marker, null);
-        iconGen.setBackground(shapeDrawable);
+    Drawable shapeDrawable = ResourcesCompat.getDrawable(context.getResources(), 
+        R.drawable.custom_marker, null);
+    iconGen.setBackground(shapeDrawable);
 
-        // Create a view container to set the size
-        View view = new View(context);
-        view.setLayoutParams(new ViewGroup.LayoutParams(shapeSize, shapeSize));
-        iconGen.setContentView(view);
+    // Create a view container to set the size
+    View view = new View(context);
+    view.setLayoutParams(new ViewGroup.LayoutParams(shapeSize, shapeSize));
+    iconGen.setContentView(view);
 
-        // Create the bitmap
-        Bitmap bitmap = iconGen.makeIcon();
+    // Create the bitmap
+    Bitmap bitmap = iconGen.makeIcon();
 
-        return bitmap;
-    }
+    return bitmap;
+}
 ```
 
 Consume the Bitmap in your Marker Creator:
 
-```
+```java
 Marker mapMarker = map.addMarker(new MarkerOptions()
     .position(listingPosition)                                                      
     .icon(BitmapDescriptorFactory.fromBitmap(getMarker()));
