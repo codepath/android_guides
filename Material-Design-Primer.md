@@ -19,7 +19,7 @@ What exactly is "Material Design"? This can be difficult to answer because of th
  9. [[View Elevation and Shadows|Material-Design-Primer#elevation-and-shadows]] 
  10. [[Updated Dialog Themes|Material-Design-Primer#dialog-styles]]
 
-This represents just a few of the highlights that represent the implementation of Material design.
+This represents just a few of the highlights that represent the implementation of Material design. Watch this [Material Design Primer](https://realm.io/news/360andev-yash-prabhu-practical-guide-material-design-android-ui/) by Yash Prabhu or [Living in a Material World](https://www.youtube.com/watch?v=-SxPDFnCmF0) by Nidhi Shah for an in-depth look. 
 
 ## Design Guidelines
 
@@ -34,7 +34,6 @@ This new framework encompasses several changes to the interface of Android apps 
  * [Material Design Icons](http://materialdesignicons.com/) - Standard material icons from google and community
 
 Using these materials, you can understand and begin adhering to these guidelines for your own apps.
-
 
 ## Material Code Samples
 
@@ -231,3 +230,5 @@ If you want your Dialogs to have a Material look and feel across all Android ver
 * <http://code.hootsuite.com/tips-and-tricks-for-android-material-support-library-2-electric-boogaloo/>
 * <http://android-developers.blogspot.com/2015/06/more-material-design-with-topeka-for_16.html>
 * <https://github.com/lightSky/Awesome-MaterialDesign>
+* <https://realm.io/news/360andev-yash-prabhu-practical-guide-material-design-android-ui/>
+* <https://www.youtube.com/watch?v=-SxPDFnCmF0>
