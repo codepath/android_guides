@@ -171,9 +171,9 @@ See [this guide](http://stackoverflow.com/a/12933632/313399) for the source for 
 
 ### Building a Custom Camera
 
-Instead of using the capture intent to capture photos "the easy way", a custom camera can be used within your app directly leveraging the [Camera2 API](https://developer.android.com/reference/android/hardware/camera2/package-summary.html). This custom camera is much more complicated to implement but [sample code can be found here](https://github.com/googlesamples/android-Camera2Basic) and a  [Google video overview of Camera2](https://www.youtube.com/watch?v=Xtp3tH27OFs) explains how this works.  
+Instead of using the capture intent to capture photos "the easy way", a custom camera can be used within your app directly leveraging the [Camera2 API](https://developer.android.com/reference/android/hardware/camera2/package-summary.html). This custom camera is much more complicated to implement but [sample code can be found here](https://github.com/googlesamples/android-Camera2Basic) and this [CameraView](https://github.com/google/cameraview?files=1) from Google aims to help Android developers easily integrate Camera features. There is also a  [Google video overview of Camera2](https://www.youtube.com/watch?v=Xtp3tH27OFs) which explains how `Camera2` works.  
 
-There are a number of `Camera2` tutorials you can review as well:
+There are a number of `Camera2` tutorials you can review:
 
  * [Android Lollipop's New Camera](http://willowtreeapps.com/blog/camera2-and-you-leveraging-android-lollipops-new-camera/)
  * [Android Camera Tutorial](http://inducesmile.com/android/android-camera-api-tutorial/).'
@@ -181,7 +181,7 @@ There are a number of `Camera2` tutorials you can review as well:
  * [Android Camera2 Video Tutorial](https://www.youtube.com/watch?v=dfeencf-TpM)
  * [Camera2 Explained](http://pierrchen.blogspot.com/2015/01/android-camera2-api-explained.html)
 
-However, there are a number of third-party libraries available to make custom camera easier:
+There are also a number of third-party libraries available to make custom cameras easier:
 
  * [CWAC-Cam2](https://github.com/commonsguy/cwac-cam2)
  * [EasyCamera](https://github.com/Glamdring/EasyCamera)
