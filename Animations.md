@@ -225,7 +225,7 @@ This applies multiple property animations in parallel including opacity change, 
 If we want to be able to compile the code to run on pre-ICS devices, we can leverage the support library's `ViewCompat.animate` static method instead. If you are an Android Studio user, first add the following dependency to your `app/build.gradle` file:
 
 ```gradle
-compile 'com.android.support:support-v4:23.1.0'
+compile 'com.android.support:support-v4:24.2.0'
 ```
 
 We can now run concurrent animations with the following:
