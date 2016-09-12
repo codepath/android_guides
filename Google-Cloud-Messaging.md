@@ -96,7 +96,7 @@ First, let's download and setup the Google Play Services SDK. Open `Tools`->`And
 
 ### Add Google Repository
 
-Also open `Tools`->`Android`->`SDK Manager` and click on the `SDK Tools` tab.  Make sure that under `Support Repository` you have installed the `Google Repository`.  If you forget this step, you are not likely to be able to include the Firebase messaging project.
+Also open `Tools`->`Android`->`SDK Manager` and click on the `SDK Tools` tab.  Make sure that under `Support Repository` you have installed the `Google Repository`.  If you forget this step, you are not likely to be able to include the Firebase messaging library in the next step.
 
 <img src="http://imgur.com/QBvyEAH.png"/>
 
