@@ -94,11 +94,13 @@ First, let's download and setup the Google Play Services SDK. Open `Tools`->`And
 
 ![](https://i.imgur.com/VYM0m59.png)
 
-Also open `Tools`->`Android`->`SDK Manager` and click on the `SDK Tools` tab.  Make sure that under `Support Repository` you have included the `Google Repository`.  If you forget this step, you are not likely to be able to include the Firebase messaging project.
+### Add Google Repository
+
+Also open `Tools`->`Android`->`SDK Manager` and click on the `SDK Tools` tab.  Make sure that under `Support Repository` you have installed the `Google Repository`.  If you forget this step, you are not likely to be able to include the Firebase messaging project.
 
 <img src="http://imgur.com/QBvyEAH.png"/>
 
-### Import Google Play Services
+### Import Firebase Messaging Library
 
 Add the following to your Gradle file:
 
