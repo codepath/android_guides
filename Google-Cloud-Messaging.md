@@ -100,7 +100,7 @@ Add the following to your Gradle file:
 
 ```gradle
 dependencies {
-   compile 'com.google.firebase:firebase-messaging:9.0.0'
+   compile 'com.google.firebase:firebase-messaging:9.4.0'
 }
 ```
 
