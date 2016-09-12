@@ -94,6 +94,10 @@ First, let's download and setup the Google Play Services SDK. Open `Tools`->`And
 
 ![](https://i.imgur.com/VYM0m59.png)
 
+Also open `Tools`->`Android`->`SDK Manager` and click on the `SDK Tools` tab.  Make sure that under `Support Repository` you have included the `Google Repository`.  If you forget this step, you are not likely to be able to include the Firebase messaging project.
+
+<img src="http://imgur.com/QBvyEAH.png"/>
+
 ### Import Google Play Services
 
 Add the following to your Gradle file:
@@ -529,6 +533,10 @@ curl -s "https://gcm-http.googleapis.com/GCM/send" -H "Authorization: key=[AUTHO
 ## Rate Limits
 
 FCM is free to use.  In Jan. 2015, Google announced new rate limits in this [blog post](https://plus.google.com/+AndroidDevelopers/posts/Kc2whqR66zt) for FCM.  There is a per minute / per device limit that can be sent.  More technical details are included in this Stack Overflow [posting](http://stackoverflow.com/questions/26790810/rate-limit-exceeded-error-when-using-google-cloud-messaging-api/26790811#26790811).
+
+## Quickstart sample
+
+Take a look at Google's [quickstart sample](https://github.com/firebase/quickstart-android/tree/master/messaging) to test out FCM.
 
 ## References
 
