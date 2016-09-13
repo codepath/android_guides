@@ -37,10 +37,10 @@ Check out the following links regarding optimizing performance:
 ## Memory Management
 
 * [Stopping Memory Leaks](http://blog.nimbledroid.com/2016/09/06/stop-memory-leaks.html)
+* [Memory Performance 101 Video](https://www.youtube.com/watch?v=OrLEoIsMIAc)
 
 ## References
 
-* [Memory Performance 101 Video](https://www.youtube.com/watch?v=OrLEoIsMIAc)
 * [Top Android performance problems](http://www.androidauthority.com/top-android-performance-problems-666234/)
 * [FlatBuffers in Android](http://frogermcs.github.io/flatbuffers-in-android-introdution/)
 * [Android Performance Patterns Video Series](https://www.youtube.com/playlist?list=PLWz5rJ2EKKc9CBxr3BVjPTPoDPLdPIFCE)
