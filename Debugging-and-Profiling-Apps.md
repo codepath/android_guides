@@ -34,6 +34,10 @@ Check out the following links regarding optimizing performance:
 * [Layout Performance Guide](http://developer.android.com/training/improving-layouts/index.html)
 * [Keeping Your App Responsive](http://developer.android.com/training/articles/perf-anr.html)
 
+## Memory Management
+
+* [Stopping Memory Leaks](http://blog.nimbledroid.com/2016/09/06/stop-memory-leaks.html)
+
 ## References
 
 * [Memory Performance 101 Video](https://www.youtube.com/watch?v=OrLEoIsMIAc)
