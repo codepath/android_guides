@@ -2,6 +2,15 @@
 
 Automated Testing is an important topic that helps us ensure quality when building Android apps. There are many different testing tools and frameworks we can use while developing Android apps. This guide will take a look at some of the more popular approaches available. For someone first starting with testing, we recommend looking at [[Robolectric|Unit-Testing-with-Robolectric]] for unit testing, [Espresso](https://google.github.io/android-testing-support-library/docs/espresso/index.html) for UI testing, [Assertj-Android](http://square.github.io/assertj-android/) for better validation support, and [Mockito](http://mockito.org/) for mocking.
 
+Helpful external testing resources include:
+
+ * [Google Android Testing CodeLab](https://codelabs.developers.google.com/codelabs/android-testing/index.html)
+ * [Google Testing Sample Code](https://github.com/googlesamples/android-testing)
+ * [Espresso Samples](https://github.com/chiuki/espresso-samples)
+ * [Chiu-ki Talk on Advanced Espresso](https://realm.io/news/chiu-ki-chan-advanced-android-espresso-testing/)
+
+Review the sections below for further resources and guides.
+
 ### Unit Testing
 
 Unit testing is about testing a particular component (i.e. an activity or model object) in isolation of other components. In Android, unit tests do not require a device or emulator. These tests are typically placed in the `app/src/test/java` folder.
