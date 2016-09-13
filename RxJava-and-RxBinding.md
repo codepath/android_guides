@@ -110,7 +110,7 @@ RxTextView.textChanges(searchTextView)
 	.subscribe(/* attach observer */);
 ```
 
-The `filter` operation will only trigger if there is more than 2 characters, the `debounce` operation will filter multiple events that occur within 100 ms, and the `flatMap` operation will return an API response in the form of another `Observable` to make the API call.
+The `filter` operation will only trigger if there is more than 2 characters, the `debounce` operation will filter multiple events that occur within 100 ms, and the `switchMap` operation will return an API response in the form of another `Observable` to make the API call. SwitchMap is preferred over FlatMap because it ignores stale response - http://stackoverflow.com/questions/28175702/what-is-the-difference-between-flatmap-and-switchmap-in-rxjava
 
 ## Attribution
 
@@ -119,4 +119,3 @@ This guide was originally drafted by [Adegeye Mayowa](https://github.com/mayojav
 ### References
 
 * <http://www.oreilly.com/programming/free/files/rxjava-for-android-app-development.pdf>
-
