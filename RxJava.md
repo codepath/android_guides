@@ -22,6 +22,8 @@ k = ?  // What should k be?
 
 State variables such as `k` intrinsically may not reflect the current value of its inputs.  Traditional asynchronous programming approaches tend to rely on callbacks to update these changes, but this way can lead to a problem known as [callback hell](http://callbackhell.com/).  **_Reactive programming_** (see an intro [here](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754)) addresses these issues by providing a framework to describe outputs to reflect their changing inputs.  RxJava, which is a port of the [Reactive Extensions](https://msdn.microsoft.com/en-us/data/gg577609.aspx) library from .NET, enables Android apps to be built in this style.
 
+Check out Kaushik's video [introduction to RxJava](https://www.youtube.com/watch?v=k3D0cWyNno4) talk which provides a solid overview of the library.
+
 ### Advantages
 
 Here are a few advantages of using RxJava on Android:
@@ -490,3 +492,4 @@ For more context, watch this [video talk](https://vimeo.com/144812843).
 * <http://colintheshots.com/blog/?p=85/>
 * [Dan Lew's talk on common RxJava mistakes](https://www.youtube.com/watch?v=QdmkXL7XikQ&feature=youtu.be&t=35m10s)
 * <http://blog.danlew.net/2014/10/08/grokking-rxjava-part-4/#oldslowcode>
+* <https://www.youtube.com/watch?v=k3D0cWyNno4>
