@@ -345,7 +345,7 @@ Retrofit uses [OkHttp](http://square.github.io/okhttp/) for the underlying netwo
 ```java
  public interface RottenTomatoesService {
         @GET("/lists/movies/box_office.json")
-        public Call<BoxOfficeMovieResponse> listRepos();
+        public Call<BoxOfficeMovieResponse> listMovies();
     }
 ```
 
@@ -380,7 +380,7 @@ We then simply need to create a service class that will enable us to make API ca
 ```java
 RottenTomatoesService service = retrofit.create(RottenTomatoesService.class);
 
-Call<BoxOfficeMovieResponse> call = service.listRepos();
+Call<BoxOfficeMovieResponse> call = service.listMovies();
 call.enqueue(new Callback<BoxOfficeMovieResponse>() {
             @Override
             public void onResponse(Call<BoxOfficeMovieresponse> call, Response response) {
