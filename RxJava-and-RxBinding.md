@@ -102,7 +102,7 @@ RxTextView.textChanges(searchTextView)
 		}
 	})
 	.debounce(100, TimeUnit.MILLISECONDS)
-	.flatMap(new Func1<String, Observable<List<Result>>>() {
+	.switchMap(new Func1<String, Observable<List<Result>>>() {
 		makeApiCall(s);
 	})
 	.subscribeOn(Schedulers.io())
