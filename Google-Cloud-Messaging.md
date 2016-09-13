@@ -100,6 +100,10 @@ Also open `Tools`->`Android`->`SDK Manager` and click on the `SDK Tools` tab.  M
 
 <img src="http://imgur.com/QBvyEAH.png"/>
 
+### Update to SDK Tools
+
+Also make sure to upgrade to SDK Tools 25.2.2.  You may have Firebase authentication issues with lower SDK Tools version.
+
 ### Import Firebase Messaging Library
 
 Add the following to your Gradle file:
