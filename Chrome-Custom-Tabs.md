@@ -10,7 +10,7 @@ Chrome custom tabs allow an app to customize how Chrome looks and feels. An app 
 
 Chrome custom tabs also allow the developer to pre-start Chrome and pre-fetch content for faster loading.
 
-See [this README](https://github.com/GoogleChrome/custom-tabs-client/blob/master/Using.md) more ways to use Chrome Custom Tabs.
+See [this README](https://github.com/GoogleChrome/custom-tabs-client/blob/master/Using.md) for more ways to use Chrome Custom Tabs.
 
 ## Setup
 
