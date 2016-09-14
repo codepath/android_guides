@@ -158,16 +158,16 @@ The latest source code updates for the support library are now always included s
 
 - Custom views can be provided for `NavigationView` rows.  ([[view guide|Fragment-Navigation-Drawer#adding-custom-views-to-navigation-drawer]])
 
-### Changes in Support Library v23.1.1
+#### Changes in Support Library v23.1.1
 
 - NavigationView now contains a `getHeaderView()` method ([[view guide|Fragment-Navigation-Drawer#getting-references-to-the-header]])
 
-### Changes in Support Library v23.2
+#### Changes in Support Library v23.2
 
 - Added support for bottom sheets. ([[view guide|Handling-Scrolls-with-CoordinatorLayout#bottom-sheets]])
 - Added setup instructions for vector drawables. ([[view guide|Drawables#vector-drawables]])
 
-### Changes in Support Library v24.2.0
+#### Changes in Support Library v24.2.0
 
 - `TextInputLayout` and `EditText` now includes the ability to add password visibility toggles.  ([[view guide |Working-with-the-EditText#adding-password-visibility-toggles]])
 
