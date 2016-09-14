@@ -94,6 +94,10 @@ You can then click on Code->Generate to SerialVersionUID:
 
 ![image](https://cloud.githubusercontent.com/assets/326857/2773934/76540c56-caaa-11e3-928a-d9698c9c79d4.png)
 
+## Shortcuts
+
+* <https://github.com/nisrulz/android-tips-tricks>
+
 ## References
 
 * <http://www.androidsx.com/how-to-link-an-android-library-project-with-gradle-in-android-studio/>
