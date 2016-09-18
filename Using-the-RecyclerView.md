@@ -657,10 +657,12 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
         // Handles the row being being clicked
         @Override
         public void onClick(View view) {
-            int position = getLayoutPosition(); // gets item position
-            User user = users.get(position);
-            // We can access the data within the views
-            Toast.makeText(context, tvName.getText(), Toast.LENGTH_SHORT).show();
+            int position = getAdapterPosition(); // gets item position
+            if (position != RecyclerView.NO_POSITION) { // Check if an item was deleted, but the user clicked it before the UI removed it
+                User user = users.get(position);
+                // We can access the data within the views
+                Toast.makeText(context, tvName.getText(), Toast.LENGTH_SHORT).show();
+            }
         }
     }
     
@@ -718,8 +720,12 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
                 @Override
                 public void onClick(View v) {
                     // Triggers click upwards to the adapter on click
-                    if (listener != null)
-                        listener.onItemClick(itemView, getLayoutPosition());
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (listener != null && position != RecyclerView.NO_POSITION) {
+                            listener.onItemClick(itemView, position);
+                        }
+                    }
                 }
             });
         }
