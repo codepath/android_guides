@@ -54,9 +54,9 @@ public class FilterColorDescriptor {
   public static final String FILTER_RED = "red";
   public static final String FILTER_GRAY = "gray";
 
-  public final int filterColor;
+  public final String filterColor;
 
-  public FilterColorDescriptor(int filterColor) {
+  public FilterColorDescriptor(String filterColor) {
     this.filterColor = filterColor;
   }
 }
@@ -74,7 +74,7 @@ public class FilterColorDescriptor {
   // Create an interface for validating int types
   public @interface FilterColorDef { }
   // Mark the argument as restricted to these enumerated types
-  public FilterColorDescriptor(@FilterColorDef int filterColor) {
+  public FilterColorDescriptor(@FilterColorDef String filterColor) {
     this.filterColor = filterColor;
   }
 }
