@@ -169,6 +169,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [Scissors](https://github.com/lyft/scissors) - An easy image cropping library developed by Lyft.
  * [Material-SearchView](https://github.com/MiguelCatalan/MaterialSearchView) - Beautiful Material SearchView made simple.
  * [PersistentSearchBar](https://github.com/arimorty/floatingsearchview) - Implementation of a persistent search bar.
+ * [Android Material Intro Screen](https://github.com/TangoAgency/material-intro-screen/) - Library for easily adding intro screen to app.
 
 ### Drawing
 
@@ -218,6 +219,10 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [Hawk](https://github.com/orhanobut/hawk) - Persistent secure key/value store
  * [Poetry](https://github.com/elastique/poetry) - Persist JSON directly into SQLite
  * [JDXA](http://softwaretree.com/v1/products/jdxa/jdxa.html) - The KISS ORM for Android - Simple, Non-intrusive, and Flexible
+
+### Binding
+ * [RecyclerViewBinding](https://github.com/radzio/android-data-binding-recyclerview) - Library for easily add recycler view data bindings.
+ * [CommandDataBinding](https://github.com/radzio/android-data-binding-command) - Library for better handling onClick actions.
 
 ### Compatibility
 
