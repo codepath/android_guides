@@ -88,7 +88,7 @@ If you only want to exclude it from recent tasks under certain one-off condition
 
 ### Configuring Activity Properties
 
-The first approach to modifying the task stack is to set proprties on the [<activity>](http://developer.android.com/guide/topics/manifest/activity-element.html) element within the `AndroidManifest.xml`. 
+The first approach to modifying the task stack is to set properties on the [<activity>](http://developer.android.com/guide/topics/manifest/activity-element.html) element within the `AndroidManifest.xml`. 
 
 #### Launch Modes
 
