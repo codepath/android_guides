@@ -72,6 +72,7 @@ Check out [this handy youtube video](https://www.youtube.com/watch?v=UFhStnF42tw
 
 | Version     | APK Link                                                                          |
 |-------------|:---------------------------------------------------------------------------------:| 406
+|Android 7.0  | [Download from GApps](http://opengapps.org/) (Untested)                           |
 |Android 6.0  |1) [gapps-L-4-21-15.zip](https://www.androidfilehost.com/?fid=96042739161891406) 2) [benzo-gapps-M-20151011-signed-chroma-r3.zip](https://www.androidfilehost.com/?fid=24052804347835438) (See instructions below)|
 |Android 5.0  |[Google Play Services APK](https://www.androidfilehost.com/?fid=95784891001614559) - requires Genymotion 2.4.0+ |
 |Android 4.4.4|[Google Play Services APK](https://www.androidfilehost.com/?fid=23501681358544845)             |
@@ -150,14 +151,4 @@ Verify that `Adapter 2` is selected for NAT, which will force connections to be 
 
 <img src="http://i.imgur.com/ZFQMnaE.png"/>
 
-
 That's it! Try running the app again.
-
-# # # # Android Nougat
-
-Android Nougat (Android 7.0) is now available for download from Genymotion. You can also install Google Play support on the Genymotion emulator by:
-
-1. Downloading one of the Genymotion Emulator for 7.0.0 (I choose the PREVIEW - Google Nexus X5 - 7.0.0 API 24 - 1080 X 1920 emulator)
-2. Then go to this site, http://opengapps.org, and select the following: PLATFORM x86, Android 7.0, choose the variant you want and download.
-3. Drag and drop your downloaded zip file into the emulator window, restart and you will have installed Google Play support in Android Nougat for Genymotion.
-
