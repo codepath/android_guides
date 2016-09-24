@@ -152,3 +152,12 @@ Verify that `Adapter 2` is selected for NAT, which will force connections to be 
 
 
 That's it! Try running the app again.
+
+# # # # Android Nougat
+
+Android Nougat (Android 7.0) is now available for download from Genymotion. You can also install Google Play support on the Genymotion emulator by:
+
+1. Downloading one of the Genymotion Emulator for 7.0.0 (I choose the PREVIEW - Google Nexus X5 - 7.0.0 API 24 - 1080 X 1920 emulator)
+2. Then go to this site, http://opengapps.org, and select the following: PLATFORM x86, Android 7.0, choose the variant you want and download.
+3. Drag and drop your downloaded zip file into the emulator window, restart and you will have installed Google Play support in Android Nougat for Genymotion.
+
