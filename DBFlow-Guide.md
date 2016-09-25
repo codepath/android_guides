@@ -64,6 +64,9 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         FlowManager.init(new FlowConfig.Builder(this).build());
+
+        // add for verbose logging
+        // FlowLog.setMinimumLoggingLevel(FlowLog.Level.V);
     }
 }
 ```
@@ -464,7 +467,22 @@ gsonBuilder.setExclusionStrategies(new ExclusionStrategy[]{new DBFlowExclusionSt
 
 See [this issue](https://github.com/Raizlabs/DBFlow/issues/121) for more information.
 
-### References
+### Adding logging
+
+You can monitor the SQL queries being performed by setting this line in your application:
+
+```java
+public class MyApplication extends Application {
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+      
+        FlowLog.setMinimumLoggingLevel(FlowLog.Level.V); // set to verbose logging
+    }
+```
+
+## References
 
 * <https://github.com/Raizlabs/DBFlow#usage-docs>
 * <https://github.com/Raizlabs/DBFlow/blob/master/usage2/SQLiteWrapperLanguage.md>
