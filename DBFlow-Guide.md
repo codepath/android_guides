@@ -46,7 +46,7 @@ dependencies {
     compile "com.github.Raizlabs.DBFlow:dbflow:${dbflow_version}"
 
     // sql-cipher database encryption (optional)
-    compile "com.github.Raizlabs.DBFlow:dbflow-sqlcipher:${dbflow_version}"
+    // compile "com.github.Raizlabs.DBFlow:dbflow-sqlcipher:${dbflow_version}"
   }
 ```
 
