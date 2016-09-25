@@ -395,7 +395,7 @@ This allows for bulk deletes.
 
 > Question: Is it possible to do joins with DBFlow? 
 
-Joins are done using the query language DBFlow provides in the [From class](https://github.com/Raizlabs/DBFlow/blob/master/usage2/SQLiteWrapperLanguage.md#joins). You can read more here on the [SQLiteWrapperLanguage docs](https://github.com/Raizlabs/DBFlow/blob/master/usage2/SQLiteWrapperLanguage.md)
+Joins are done using the query language DBFlow provides in the [Select class](https://github.com/Raizlabs/DBFlow/blob/master/usage2/SQLiteWrapperLanguage.md#joins). You can read more here on the [SQLiteWrapperLanguage docs](https://github.com/Raizlabs/DBFlow/blob/master/usage2/SQLiteWrapperLanguage.md)
 
 > Question: What are the best practices when interacting with the sqlite in Android, is ORM/DAO the way to go?
 
