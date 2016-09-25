@@ -71,6 +71,8 @@ public class MyDatabase {
 The Java objects that need to be declared as models need to extend from `BaseModel`.  In addition, you should annotate the class with the database name too.   Here we show how to create an `Organization` and `User` table:
 
 ```java
+import com.raizlabs.android.dbflow.structure.BaseModel;
+
 @Table(database = MyDatabase.class)
 public class Organization extends BaseModel {
 
