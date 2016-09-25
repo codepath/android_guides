@@ -298,12 +298,6 @@ The final step is for the Content Provider to be exposed.  If you wish for other
 
 In order to inspect the persisted data, we need to [[use adb to query or download the data|Local-Databases-with-SQLiteOpenHelper#sqlite-database-debugging]].  You can also take a look at using the [[Stetho|Troubleshooting-Common-Issues#database-inspection]] library, which provides a way to use Chrome to inspect the local data.
 
-## Common Questions
-
-> Question: How do I inspect the SQLite data stored on the device?
-
-In order to inspect the persisted data, we need to [[use adb to query or download the data|Local-Databases-with-SQLiteOpenHelper#sqlite-database-debugging]].  You can also take a look at using the [[Stetho|Troubleshooting-Common-Issues#database-inspection]] library, which provides a way to use Chrome to inspect the local data.
-
 > Question: How does DBFlow handle duplicate IDs?  For example, I want to make sure no duplicate twitter IDs are inserted.  Is there a way to specify a column is the primary key in the model?
 
 Simply annotate the post ID column as the `@PrimaryKey` annotation:
