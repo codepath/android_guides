@@ -350,3 +350,4 @@ See [this issue](https://github.com/Raizlabs/DBFlow/issues/121) for more informa
 ### References
 
 * <https://github.com/Raizlabs/DBFlow#usage-docs>
+* <https://github.com/Raizlabs/DBFlow/blob/master/usage2/SQLiteWrapperLanguage.md>
