@@ -369,7 +369,9 @@ Simply annotate the post ID column as the `@PrimaryKey` annotation:
 ```java
 @Table(database = MyDatabase.class)
 public class SampleModel extends BaseModel {
+
     @PrimaryKey
+    @Column
     private int remoteId;
 
     // ... set the remote id based on the json response
