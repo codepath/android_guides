@@ -150,7 +150,7 @@ Modify your `AndroidManifest.xml` file to call this Application object:
 
 ### Basic CRUD operations
 
-Basic creation, read, update, and delete (CRUD) statements are fairly straightfroward to do.  DBFlow generates a Table class for each your annotated models (i.e. User_Table, Organization_Table).  Each field is defined as a `Property` object and ensures type-safety when evaluating it against in a SELECT statement or a raw value.
+Basic creation, read, update, and delete (CRUD) statements are fairly straightforward to do.  DBFlow generates a Table class for each your annotated models (i.e. User_Table, Organization_Table).  Each field is defined as a `Property` object and ensures type-safety when evaluating it against in a SELECT statement or a raw value.
 
 See [this section](https://github.com/Raizlabs/DBFlow/blob/master/usage/Conditions.md) for more details on the queries that can be performed.
 
@@ -178,6 +178,8 @@ user.save();
 List<Organization> organizationList = new Select().from(Organization.class).queryList();
 List<User> users = new Select().from(User.class).where(Organization_Table.name.is("CodePath")).queryList();
 ```
+
+
 
 #### Updating rows
 
