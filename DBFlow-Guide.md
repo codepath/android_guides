@@ -52,6 +52,32 @@ dependencies {
 
 **Note:** Make sure to remove any previous references of DBFlow if you are upgrading.  The annotation processor has significantly changed for older versions.  If you `java.lang.NoSuchMethodError: com.raizlabs.android.dbflow.annotation.Table.tableName()Ljava/lang/String;`, then you are likely to still have included the old annotation processor in your Gradle configuration.
 
+#### Instantiating DBFlow
+
+Next, we need to instantiate `DBFlow` in our main application.  If you do not have an `Application` object, create one:
+
+```java
+
+public class MyApplication extends Application {
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        FlowManager.init(new FlowConfig.Builder(this).build());
+    }
+}
+```
+
+Modify your `AndroidManifest.xml` file to call this Application object:
+
+```xml
+<application
+        android:name=".MyApplication"
+</application>
+```
+
+If you skip this step, you may see `com.raizlabs.android.dbflow.structure.InvalidDBConfiguration: Model object: XXXX is not registered with a Database. Did you forget an annotation?`.
+
 #### Creating the database
 
 Create a `MyDatabase.java` file and annotate your class with the `@Database` decorator to declare your database.  It should contain both the name to be used for creating the table, as well as the version number.  **Note**: if you decide to change the schema for any tables you create later, you will need to bump the version number.  The version number should always be incremented (and never downgraded) to avoid conflicts with older database versions.
@@ -121,31 +147,6 @@ If you are using DBFlow with the [[Parceler|Using Parceler]] library, make sure 
 @Parcel(analyze={User.class})   // add Parceler annotation here
 public class User extends BaseModel {
 }
-```
-
-#### Instantiating DBFlow
-
-Next, we need to instantiate `DBFlow` in our main application.  If you do not have an `Application` object, create one:
-
-```java
-
-public class MyApplication extends Application {
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        FlowManager.init(new FlowConfig.Builder(this).build());
-    }
-}
-```
-
-Modify your `AndroidManifest.xml` file to call this Application object:
-
-```xml
-<application
-        android:name=".MyApplication"
-
-</application>
 ```
 
 ### Basic CRUD operations
