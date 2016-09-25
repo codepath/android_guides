@@ -288,68 +288,6 @@ The final step is for the Content Provider to be exposed.  If you wish for other
             android:name=".provider.TestContentProvider_Provider"/>
 ```
 
-### Troubleshooting
-
-Because DBFlow requires on annotation processing, sometimes you may need to click `Build` -> `New Project` to rebuild the source code generated.  
-
-#### ProGuard issues
-
-If you are using DBFlow with [[ProGuard|Configuring ProGuard]], and see `Table is not registered with a Database. Did you forget the @Table annotation?`, make sure to include this line in your ProGuard configuration:
-
-```
--keep class * extends com.raizlabs.android.dbflow.config.DatabaseHolder { *; }
-```
-
-You can go into your `app/build/intermediate/classes/com/raizlabs/android/dbflow/config` and look for the `GeneratedDatabaseHolder.class` to understand what code is generated.  
-#### Database schema
-
-You can also download and inspect the local database using ADB:
-
-```bash
-adb pull /data/data/com.codepath.yourappname/databases/MyDatabase*.db
-sqlite3 MyDatabase.db 
-```
-
-Type `.schema` to see how the table definitions are created:
-
-```
-sqlite> .schema
-CREATE TABLE android_metadata (locale TEXT);
-CREATE TABLE `Organization`(`id` INTEGER,`name` TEXT, PRIMARY KEY(`id`));
-CREATE TABLE `User`(`id` INTEGER,`name` TEXT,`organization_id` INTEGER, PRIMARY KEY(`id`), FOREIGN KEY(`organization_id`) REFERENCES `Organization`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION);
-```
-
-#### Using with Gson Library
-
-If you intend to use DBFlow with the [[Gson|Leveraging-the-Gson-Library]] library, you may get `StackOverflowError` exceptions when trying to use Java objects that extend from `BaseModel`.  In order to avoid these issues, you need to exclude the `ModelAdapter` class, which is a field included with [BaseModel](https://github.com/Raizlabs/DBFlow/blob/master/dbflow/src/main/java/com/raizlabs/android/dbflow/structure/BaseModel.java#L45):
-
-```java
-
-public class DBFlowExclusionStrategy implements ExclusionStrategy {
-
-    // Otherwise, Gson will go through base classes of DBFlow models
-    // and hang forever.
-    @Override
-    public boolean shouldSkipField(FieldAttributes f) {
-        return f.getDeclaredClass().equals(ModelAdapter.class);
-    }
-
-    @Override
-    public boolean shouldSkipClass(Class<?> clazz) {
-        return false;
-    }
-}
-```
-
-You then need to create a custom Gson builder to exclude this class:
- 
-```java
-GsonBuilder gsonBuilder = new GsonBuilder();
-gsonBuilder.setExclusionStrategies(new ExclusionStrategy[]{new DBFlowExclusionStrategy()});
-```
-
-See [this issue](https://github.com/Raizlabs/DBFlow/issues/121) for more information.
-
 ## Common Questions
 
 > Question: How do I inspect the SQLite data stored on the device?
@@ -462,6 +400,69 @@ Joins are done using the query language DBFlow provides in the [From class](http
 > Question: What are the best practices when interacting with the sqlite in Android, is ORM/DAO the way to go?
 
 Developers use both [[SQLiteOpenHelper|Local-Databases-with-SQLiteOpenHelper]] and [[several different ORMs|Persisting-Data-to-the-Device#object-relational-mappers]]. It's common to use the SQLiteOpenHelper in cases where an ORM breaks down or isn't necessary. Since Models are typically formed anyways though and persistence on Android in many cases can map very closely to objects, ORMs like ActiveAndroid can be helpful especially for simple database mappings.
+
+## Troubleshooting
+
+Because DBFlow requires on annotation processing, sometimes you may need to click `Build` -> `New Project` to rebuild the source code generated.  
+
+### ProGuard issues
+
+If you are using DBFlow with [[ProGuard|Configuring ProGuard]], and see `Table is not registered with a Database. Did you forget the @Table annotation?`, make sure to include this line in your ProGuard configuration:
+
+```
+-keep class * extends com.raizlabs.android.dbflow.config.DatabaseHolder { *; }
+```
+
+You can go into your `app/build/intermediate/classes/com/raizlabs/android/dbflow/config` and look for the `GeneratedDatabaseHolder.class` to understand what code is generated.  
+
+### Database schema
+
+You can also download and inspect the local database using ADB:
+
+```bash
+adb pull /data/data/com.codepath.yourappname/databases/MyDatabase*.db
+sqlite3 MyDatabase.db 
+```
+
+Type `.schema` to see how the table definitions are created:
+
+```
+sqlite> .schema
+CREATE TABLE android_metadata (locale TEXT);
+CREATE TABLE `Organization`(`id` INTEGER,`name` TEXT, PRIMARY KEY(`id`));
+CREATE TABLE `User`(`id` INTEGER,`name` TEXT,`organization_id` INTEGER, PRIMARY KEY(`id`), FOREIGN KEY(`organization_id`) REFERENCES `Organization`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION);
+```
+
+### Using with Gson Library
+
+If you intend to use DBFlow with the [[Gson|Leveraging-the-Gson-Library]] library, you may get `StackOverflowError` exceptions when trying to use Java objects that extend from `BaseModel`.  In order to avoid these issues, you need to exclude the `ModelAdapter` class, which is a field included with [BaseModel](https://github.com/Raizlabs/DBFlow/blob/master/dbflow/src/main/java/com/raizlabs/android/dbflow/structure/BaseModel.java#L45):
+
+```java
+
+public class DBFlowExclusionStrategy implements ExclusionStrategy {
+
+    // Otherwise, Gson will go through base classes of DBFlow models
+    // and hang forever.
+    @Override
+    public boolean shouldSkipField(FieldAttributes f) {
+        return f.getDeclaredClass().equals(ModelAdapter.class);
+    }
+
+    @Override
+    public boolean shouldSkipClass(Class<?> clazz) {
+        return false;
+    }
+}
+```
+
+You then need to create a custom Gson builder to exclude this class:
+ 
+```java
+GsonBuilder gsonBuilder = new GsonBuilder();
+gsonBuilder.setExclusionStrategies(new ExclusionStrategy[]{new DBFlowExclusionStrategy()});
+```
+
+See [this issue](https://github.com/Raizlabs/DBFlow/issues/121) for more information.
 
 ### References
 
