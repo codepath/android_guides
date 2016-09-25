@@ -75,7 +75,8 @@ Modify your `AndroidManifest.xml` file to call this Application object:
 
 ```xml
 <application
-        android:name=".MyApplication"
+        android:name=".MyApplication">
+  <!-- ... -->
 </application>
 ```
 
