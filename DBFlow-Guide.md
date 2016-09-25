@@ -350,6 +350,117 @@ gsonBuilder.setExclusionStrategies(new ExclusionStrategy[]{new DBFlowExclusionSt
 
 See [this issue](https://github.com/Raizlabs/DBFlow/issues/121) for more information.
 
+## Common Questions
+
+> Question: How do I inspect the SQLite data stored on the device?
+
+In order to inspect the persisted data, we need to [[use adb to query or download the data|Local-Databases-with-SQLiteOpenHelper#sqlite-database-debugging]].  You can also take a look at using the [[Stetho|Troubleshooting-Common-Issues#database-inspection]] library, which provides a way to use Chrome to inspect the local data.
+
+## Common Questions
+
+> Question: How do I inspect the SQLite data stored on the device?
+
+In order to inspect the persisted data, we need to [[use adb to query or download the data|Local-Databases-with-SQLiteOpenHelper#sqlite-database-debugging]].  You can also take a look at using the [[Stetho|Troubleshooting-Common-Issues#database-inspection]] library, which provides a way to use Chrome to inspect the local data.
+
+> Question: How does DBFlow handle duplicate IDs?  For example, I want to make sure no duplicate twitter IDs are inserted.  Is there a way to specify a column is the primary key in the model?
+
+Simply annotate the post ID column as the `@PrimaryKey` annotation:
+
+```java
+@Table(database = MyDatabase.class)
+public class SampleModel extends BaseModel {
+    @PrimaryKey
+    private int remoteId;
+
+    // ... set the remote id based on the json response
+}
+```
+
+Make sure to **uninstall the app** afterward on the emulator to ensure the schema changes take effect. Note that you may need to manually ensure that you don't attempt to re-create existing objects by verifying they are not already in the database **as shown below**.
+
+> Question: How do you specify the data type (int, text)?  Does DBFlow automatically know what the column type should be?
+
+The type is inferred automatically from the type of the field.
+
+> Question: How do I store dates into DBFlow?
+
+DBFlow supports serializing Date fields automatically. It is stored internally as a timestamp (INTEGER) in milliseconds.
+
+```java
+@Column
+private Date timestamp; 
+```
+
+and the date will be serialized to SQLite. You can parse strings into a Date object using [SimpleDateFormat](http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html):
+
+```java
+public void setDateFromString(String date) {
+    SimpleDateFormat sf = new SimpleDateFormat("EEE MMM dd HH:mm:ss ZZZZZ yyyy");
+    sf.setLenient(true);
+    this.timestamp = sf.parse(date);
+}
+```
+
+```java
+public static List<Model> findRecent(Date newerThan) {
+    return new Select().from(Model.class).where("timestamp > ?", newerThan.getTimeInMillis()).execute();
+}
+```
+
+> Question: How do you represent a 1-1 relationship?  
+
+Check out the [relationships section](https://github.com/Raizlabs/DBFlow/blob/master/usage2/Relationships.md) if you haven't yet.  You will need to annotate the field with the `@ForeignKey` and `@Column` annotation:
+
+```java
+public class User extends BaseModel {
+  public String email;
+
+  @Column
+  @ForeignKey
+  public Address address;
+}
+```
+
+You can manage this process by simply constructing and assigning the user object to a field of the parent object and then calling save on the parent. 
+
+```java
+User u = new User("bob@foo.com");
+u.address = new Address("135 Hesby St, Los Angeles, CA");
+u.address.save();
+u.save();
+```
+
+You should make sure to **call save separately on the associated object** in most cases.
+
+> Question: How do I delete all the records from a table?
+
+See [this section](https://github.com/Raizlabs/DBFlow/blob/master/usage2/SQLiteWrapperLanguage.md#delete) of DBFlow.  You can delete individual records using the `.delete` method and you can delete all records matching a particular condition with:
+
+```java
+// Delete a whole table
+Delete.table(MyTable.class);
+
+// Delete multiple instantly
+Delete.tables(MyTable1.class, MyTable2.class);
+
+// Delete using query
+SQLite.delete(MyTable.class)
+  .where(DeviceObject_Table.carrier.is("T-MOBILE"))
+    .and(DeviceObject_Table.device.is("Samsung-Galaxy-S5"))
+  .async()
+  .execute();
+```
+
+This allows for bulk deletes.
+
+> Question: Is it possible to do joins with DBFlow? 
+
+Joins are done using the query language DBFlow provides in the [From class](https://github.com/Raizlabs/DBFlow/blob/master/usage2/SQLiteWrapperLanguage.md#joins). You can read more here on the [SQLiteWrapperLanguage docs](https://github.com/Raizlabs/DBFlow/blob/master/usage2/SQLiteWrapperLanguage.md)
+
+> Question: What are the best practices when interacting with the sqlite in Android, is ORM/DAO the way to go?
+
+Developers use both [[SQLiteOpenHelper|Local-Databases-with-SQLiteOpenHelper]] and [[several different ORMs|Persisting-Data-to-the-Device#object-relational-mappers]]. It's common to use the SQLiteOpenHelper in cases where an ORM breaks down or isn't necessary. Since Models are typically formed anyways though and persistence on Android in many cases can map very closely to objects, ORMs like ActiveAndroid can be helpful especially for simple database mappings.
+
 ### References
 
 * <https://github.com/Raizlabs/DBFlow#usage-docs>
