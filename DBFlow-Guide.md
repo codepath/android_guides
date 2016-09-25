@@ -153,7 +153,7 @@ public class User extends BaseModel {
 
 Basic creation, read, update, and delete (CRUD) statements are fairly straightforward to do.  DBFlow generates a Table class for each your annotated models (i.e. User_Table, Organization_Table).  Each field is defined as a `Property` object and ensures type-safety when evaluating it against in a SELECT statement or a raw value.
 
-See [this section](https://github.com/Raizlabs/DBFlow/blob/master/usage/Conditions.md) for more details on the queries that can be performed.
+See [this section](https://github.com/Raizlabs/DBFlow/blob/master/usage2/SQLiteWrapperLanguage.md) for more details on the queries that can be performed.
 
 #### Creating rows
 
