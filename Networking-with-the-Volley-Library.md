@@ -140,6 +140,7 @@ protected void onStop() {
 
 ## References
 
+* <https://developer.android.com/training/volley/index.html>
 * <https://smaspe.github.io/2013/06/03/volley-part1.html>
 * <http://java.dzone.com/articles/android-%E2%80%93-volley-library>
 * <http://arnab.ch/blog/2013/08/asynchronous-http-requests-in-android-using-volley/>
