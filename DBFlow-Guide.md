@@ -54,28 +54,27 @@ dependencies {
 
 #### Instantiating DBFlow
 
-Next, we need to instantiate `DBFlow` in our main application.  If you do not have an `Application` object, create one:
+Next, we need to instantiate `DBFlow` in a [[custom application class|Understanding-the-Android-Application-Class]].  If you do not have an `Application` object, create one in `MyApplication.java` as shown below:
 
 ```java
-
 public class MyApplication extends Application {
-
     @Override
     public void onCreate() {
         super.onCreate();
+        // This instantiates DBFlow
         FlowManager.init(new FlowConfig.Builder(this).build());
-
         // add for verbose logging
         // FlowLog.setMinimumLoggingLevel(FlowLog.Level.V);
     }
 }
 ```
 
-Modify your `AndroidManifest.xml` file to call this Application object:
+Modify your `AndroidManifest.xml` file to reference this Application object for the `android:name` property:
 
 ```xml
 <application
-        android:name=".MyApplication">
+        android:name=".MyApplication"
+        ...>
   <!-- ... -->
 </application>
 ```
