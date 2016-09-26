@@ -177,9 +177,19 @@ user.save();
 #### Reading rows
 
 ```java
-List<Organization> organizationList = new Select().from(Organization.class).queryList();
-List<User> users = new Select().from(User.class).where(Organization_Table.name.is("CodePath")).queryList();
-List<User> users = new Select().from(User.class).where(User_Table.age.greaterThen(25)).queryList();
+// Query all organizations
+List<Organization> organizationList = SQLite.select().
+  from(Organization.class).queryList();
+// Set query conditions based on column
+List<User> users = SQLite.select().
+  from(User.class).
+  where(User_Table.age.greaterThen(25)).
+  queryList();
+// Query users based on organization
+List<User> users = SQLite.select().
+  from(User.class).
+  where(Organization_Table.name.is("CodePath")).
+  queryList();
 ```
 
 Refer to the [DBFlow Retrieval guide](https://github.com/Raizlabs/DBFlow/blob/master/usage2/Retrieval.md#synchronous-retrieval) and [SQLLiteWrapperLanguage Guide](https://github.com/Raizlabs/DBFlow/blob/master/usage2/SQLiteWrapperLanguage.md) for more examples of querying records. 
