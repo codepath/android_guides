@@ -202,7 +202,17 @@ Refer to the [DBFlow Retrieval guide](https://github.com/Raizlabs/DBFlow/blob/ma
 
 ### Updating Rows
 
-Calling `save()` on the object will automatically update if the record has already been saved and there is a primary key that matches.
+This can be done by calling `.save()` on an object:
+
+```java
+// Create user
+User user = new User();
+user.setName("John Doe");
+user.setOrganization(organization);
+user.save();
+```
+
+This will automatically update the record if it has already been saved and there is a primary key that matches.
 
 ### Deleting Rows
 
