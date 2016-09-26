@@ -89,7 +89,6 @@ Create a `MyDatabase.java` file and annotate your class with the `@Database` dec
 ```java
 @Database(name = MyDatabase.NAME, version = MyDatabase.VERSION)
 public class MyDatabase {
-
     public static final String NAME = "MyDataBase";
 
     public static final int VERSION = 1;
@@ -105,7 +104,6 @@ import com.raizlabs.android.dbflow.structure.BaseModel;
 
 @Table(database = MyDatabase.class)
 public class Organization extends BaseModel {
-
   @Column
   @PrimaryKey
   int id;
@@ -120,7 +118,6 @@ We can define a `ForeignKey` relation easily.  The `saveForeignKeyModel` denotes
 ```java
 @Table(database = MyDatabase.class)
 public class User extends BaseModel {
-
     @Column
     @PrimaryKey
     int id;
@@ -182,7 +179,10 @@ user.save();
 ```java
 List<Organization> organizationList = new Select().from(Organization.class).queryList();
 List<User> users = new Select().from(User.class).where(Organization_Table.name.is("CodePath")).queryList();
+List<User> users = new Select().from(User.class).where(User_Table.age.greaterThen(25)).queryList();
 ```
+
+Refer to the [SQLLiteWrapperLanguage Guide](https://github.com/Raizlabs/DBFlow/blob/master/usage2/SQLiteWrapperLanguage.md) for more examples of querying rows. 
 
 #### Updating rows
 
