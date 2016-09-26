@@ -188,6 +188,12 @@ bintray {
 To upload your package, just type:
 
 ```bash
+
+```bash
+# Set your Bintray user ID below
+export BINTRAY_USER="codepath"
+# Set your Bintray API key below
+export BINTRAY_API_KEY="YOUR_BINTRAY_API_KEY_HERE"
 ./gradlew <subproject name>:bintrayUpload // i.e. ./gradlew app:bintrayUpload
 ```
 
