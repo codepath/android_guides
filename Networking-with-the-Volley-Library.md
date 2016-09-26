@@ -90,17 +90,17 @@ public class MainActivity extends Activity {
 		        @Override
 		        public void onResponse(JSONObject response) {
 		            try {
-				String result = "Your IP Address is " + response.getString("ip");
-				Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
-			    } catch (JSONException e) {
-			        e.printStackTrace();
-			    }
+		                String result = "Your IP Address is " + response.getString("ip");
+		                Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
+		            } catch (JSONException e) {
+		                e.printStackTrace();
+		            }
 	                }
 		    }, new Response.ErrorListener() {
-			@Override
-			public void onErrorResponse(VolleyError error) {
-				VolleyLog.e("Error: ", error.getMessage());
-			}
+		        @Override
+		        public void onErrorResponse(VolleyError error) {
+		            VolleyLog.e("Error: ", error.getMessage());
+		        }
 		});
 
 		/* Add your Requests to the RequestQueue to execute */
