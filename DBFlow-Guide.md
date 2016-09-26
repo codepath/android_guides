@@ -1,12 +1,12 @@
-### Overview
+## Overview
 
 One of the issues with existing SQL object relational mapping (ORM) libraries is that they rely on Java reflection to define database models, table schemas, and column relationships.   [DBFlow](https://github.com/Raizlabs/DBFlow) is one of the few that relies strictly on annotation processing to generate Java code based on the [[SQLiteOpenHelper|Local-Databases-with-SQLiteOpenHelper]] framework that avoids this issue.   This approach results in increasing run-time performance while also saving you from having to write a lot boilerplate code normally needed to declare your tables, manage their schema changes, and perform queries.
 
-### Setup
+## Setup
 
 The section below describes how to setup using DBFlow v3, which is currently in beta but still very much ready for production use.  If you are upgrading from an older version of DBFlow, read this [migration guide](https://github.com/Raizlabs/DBFlow/blob/master/usage/Migration3Guide.md).  One of the major changes is the library used to generate Java code from annotation now relies on [JavaPoet](https://github.com/square/javapoet).  The generated database and table classes now use '_' instead of '$' as the separator, which may require small adjustments to your code when upgrading.
 
-#### Gradle configuration
+### Gradle configuration
 
 The first step is to add the android-apt plugin to your root `build.gradle` file:
 
@@ -52,7 +52,7 @@ dependencies {
 
 **Note:** Make sure to remove any previous references of DBFlow if you are upgrading.  The annotation processor has significantly changed for older versions.  If you `java.lang.NoSuchMethodError: com.raizlabs.android.dbflow.annotation.Table.tableName()Ljava/lang/String;`, then you are likely to still have included the old annotation processor in your Gradle configuration.
 
-#### Instantiating DBFlow
+### Instantiating DBFlow
 
 Next, we need to instantiate `DBFlow` in a [[custom application class|Understanding-the-Android-Application-Class]].  If you do not have an `Application` object, create one in `MyApplication.java` as shown below:
 
@@ -81,7 +81,7 @@ Modify your `AndroidManifest.xml` file to reference this Application object for 
 
 If you skip this step, you may see `com.raizlabs.android.dbflow.structure.InvalidDBConfiguration: Model object: XXXX is not registered with a Database. Did you forget an annotation?`.
 
-#### Creating the database
+### Creating the database
 
 Create a `MyDatabase.java` file and annotate your class with the `@Database` decorator to declare your database.  It should contain both the name to be used for creating the table, as well as the version number.  **Note**: if you decide to change the schema for any tables you create later, you will need to bump the version number.  The version number should always be incremented (and never downgraded) to avoid conflicts with older database versions.
  
@@ -94,7 +94,7 @@ public class MyDatabase {
 }
 ```
 
-#### Defining your Tables
+### Defining your Tables
 
 The Java objects that need to be declared as models need to extend from `BaseModel`.  In addition, you should annotate the class with the database name too.   Here we show how to create an `Organization` and `User` table:
 
@@ -138,7 +138,7 @@ public class User extends BaseModel {
 }
 ```
 
-#### Using with the Parceler library
+### Using with the Parceler library
 
 If you are using DBFlow with the [[Parceler|Using Parceler]] library, make sure to annotate the class with the `@Parcel(analyze={}` decorator.  Otherwise, the Parceler library will try to serialize the fields that are associated with the `BaseModel` class and trigger `Error:Parceler: Unable to find read/write generator for type` errors.  To avoid this issue, specify to Parceler exactly which class in the inheritance chain should be examined (see this [disucssion](https://github.com/johncarl81/parceler/issues/73#issuecomment-167131080) for more details):
 
@@ -149,13 +149,13 @@ public class User extends BaseModel {
 }
 ```
 
-### Basic CRUD operations
+## Basic CRUD operations
 
 Basic creation, read, update, and delete (CRUD) statements are fairly straightforward to do.  DBFlow generates a Table class for each your annotated models (i.e. User_Table, Organization_Table), and each field is defined as a `Property` object and ensures type-safety when evaluating it against in a SELECT statement or a raw value.
 
 In order to perform queries, make sure to compile your code so that the tables and column names can be generated.   See [this section](https://github.com/Raizlabs/DBFlow/blob/master/usage2/SQLiteWrapperLanguage.md) for more details on the queries that can be performed (i.e. sum, count, AND/OR, and joins).
 
-#### Creating rows
+### Inserting Rows
 
 We can simply call `.save()` on the annotated class to save the row into the table:
 
@@ -173,12 +173,19 @@ user.setOrganization(organization);
 user.save();
 ```
 
-#### Reading rows
+### Querying Rows
+
+We can query all records in a table with:
 
 ```java
 // Query all organizations
 List<Organization> organizationList = SQLite.select().
   from(Organization.class).queryList();
+```
+
+We can also do more sophisticated queries:
+
+```java
 // Set query conditions based on column
 List<User> users = SQLite.select().
   from(User.class).
@@ -193,11 +200,11 @@ List<User> users = SQLite.select().
 
 Refer to the [DBFlow Retrieval guide](https://github.com/Raizlabs/DBFlow/blob/master/usage2/Retrieval.md#synchronous-retrieval) and [SQLLiteWrapperLanguage Guide](https://github.com/Raizlabs/DBFlow/blob/master/usage2/SQLiteWrapperLanguage.md) for more examples of querying records. 
 
-#### Updating rows
+### Updating Rows
 
 Calling `save()` on the object will automatically update if the record has already been saved and there is a primary key that matches.
 
-#### Deleting rows
+### Deleting Rows
 
 We can simply call `.delete()` on the respective object:
 
@@ -205,12 +212,11 @@ We can simply call `.delete()` on the respective object:
 user.delete();
 ```
 
-### Database Transactions
+## Database Transactions
 
 See [this guide](https://github.com/Raizlabs/DBFlow/blob/master/usage/StoringData.md) about how to perform transactions.  You can batch save a list of `User` objects by using the `ProcessModelTransaction` class:
 
 ```java
-
 ArrayList<User> users = new ArrayList<>();
 
 // fetch users from the network
@@ -239,7 +245,7 @@ FlowManager.getDatabase(AppDatabase.class)
           }).build().execute();
 
 ```
-### Exposing Content Providers
+## Exposing Content Providers
 
 One of the side benefits of using DBFlow is that you can expose tables easily as Android [[Content Providers|Creating-Content-Providers]], which enables other apps to query this data.    
 
@@ -290,7 +296,7 @@ public class MyDatabase {
 }
 ```
 
-#### Adding to Manifest file
+### Adding to Manifest file
 
 The final step is for the Content Provider to be exposed.  If you wish for other apps to be able to view this data, set `android:exported` to be true.  Otherwise, if you only wish the existing application to query this content provider, set the value to be false.  Note that DBFlow3 uses underscore (`_`) instead of the dollar sign (`$`) as the separator:
 
