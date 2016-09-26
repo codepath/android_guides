@@ -8,13 +8,14 @@ Login to [Travis CI](https://travis-ci.com/) and sign-in with your GitHub creden
 
 ### Setup
 
-You simply need to create a `.travis.yml` file in the root directory.  The simplest configuration to install the Build Tools and Android SDK 24.   You can launch the [[Gradle wrapper|Getting Started with Gradle]] to build and run emulator tests.    Make sure the `tools` line is first to ensure that Build Tools (esp for versions above API 24)
+You simply need to create a `.travis.yml` file in the root directory.  The simplest configuration to install the Build Tools and Android SDK 24.   You can launch the [[Gradle wrapper|Getting Started with Gradle]] to build and run emulator tests.    Make sure the `tools` line is first to ensure that Build Tools (esp for versions above API 24).  It also needs to be included twice.
 
 ```yaml
 language: android
 android:
   components:
-    - tools
+    - tools # to get the new `repository-11.xml`
+    - tools # see https://github.com/travis-ci/travis-ci/issues/6040#issuecomment-219367943)
     - platform-tools
     - build-tools-24.0.2
     - android-24
