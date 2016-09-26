@@ -126,7 +126,7 @@ buildscript {
    }
    dependencies {
      // used to generate a POM file
-     classpath 'com.github.dcendents:android-maven-gradle-plugin:1.3'
+     classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
    }
 }
  
@@ -184,6 +184,14 @@ bintray {
 	}
 }
 ```
+
+To upload your package, just type:
+
+```bash
+./gradlew <subproject name>:bintrayUpload // i.e. ./gradlew app:bintrayUpload
+```
+
+You need to specify a subproject currently because of this [reported bug](https://github.com/bintray/gradle-bintray-plugin/issues/74#issuecomment-244616013).
 
 #### Setting up a private Amazon S3 Maven repository
 
