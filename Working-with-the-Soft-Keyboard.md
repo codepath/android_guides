@@ -82,7 +82,7 @@ The options for the mode include two aspects: visibility of the keyboard and adj
 
 ### Changing UI Reaction
 
-The virtual keyboard reduces the amount of space available for your app's UI. We can also use this same `android:windowSoftInputMode` property within the `<activity>` note to change the way that the soft keyboard displaces the view elements when appearing within the `AndroidManifest.xml` file:
+The virtual keyboard reduces the amount of space available for your app's UI. We can also use this same `android:windowSoftInputMode` property within the `<activity>` node to change the way that the soft keyboard displays the view elements when appearing within the `AndroidManifest.xml` file:
 
 ```xml
 <!-- Configures the UI to be resized to make room for the keyboard -->
