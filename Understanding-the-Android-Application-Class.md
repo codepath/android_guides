@@ -63,7 +63,7 @@ That's all you should need to get started with your custom application.
 
 ## Limitations and Warnings
 
-There is always data and information that is needed in many places within your app. This might be be a session token, the result of an expensive computation, etc. It might be tempting to use the application instance in order to avoid the overhead of passing objects between activities or keeping those in persistent storage.
+There is always data and information that is needed in many places within your app. This might be a session token, the result of an expensive computation, etc. It might be tempting to use the application instance in order to avoid the overhead of passing objects between activities or keeping those in persistent storage.
 
 However, you should **never store mutable instance data** inside the `Application` object because if you assume that your data will stay there, your application will inevitably crash at some point with a `NullPointerException`. The application object is **not guaranteed to stay in memory forever, it will get killed**. Contrary to popular belief, the app won’t be restarted from scratch. Android will create a new `Application` object and start the activity where the user was before to give the illusion that the application was never killed in the first place. 
 
