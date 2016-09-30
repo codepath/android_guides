@@ -4,6 +4,7 @@ While setting up breakpoints in your code is usually the first place to check, i
 
 * Am I using the correct API key?
 * Am I passing in the correct HTTP GET or POST parameters?
+* Do I have the right URL pattern?
 * What is the server error code?
 * What is the server response?
 
