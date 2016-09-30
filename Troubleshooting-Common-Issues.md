@@ -36,7 +36,7 @@ If are you are using [[Android Async Http Client|Using-Android-Async-Http-Client
 
 ***On your phone:***
 
-1. Open your Android device and go to [chls.pro/ssl].  Install the root certificate on the phone.
+1. Open your Android device and go to [http://chls.pro/ssl](http://chls.pro/ssl).  Download and install the root certificate on the phone.
 
 2. Go to your WiFi settings and modify the existing network:
 
