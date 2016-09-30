@@ -3,11 +3,11 @@
 While setting up breakpoints in your code is usually the first place to check, it often can be useful to see the network traffic exchanged between your Android device and a server.  There are often things you want to check:
 
 * Am I using the correct API key?
-* Am I passing in the correct HTTP GET parameters?
+* Am I passing in the correct HTTP GET or POST parameters?
 * What is the server error code?
 * What is the server response?
 
-It is often useful to monitor the network traffic to help diagnose these issues.  Monitoring network traffic depends on the networking library you use.  
+It is often useful to monitor the network traffic to help diagnose these issues.  Monitoring network traffic depends on the networking library you use.   There are two general approaches: using the Stetho library or setting up a proxy.  The former is the simplest but requires the OkHttp or Retrofit networking library to be used.
 
 ### Using Stetho
 
@@ -45,10 +45,12 @@ The process requires two parts: one on the PC that will act as the proxy, and th
 
      <img src="http://imgur.com/DXqpvWl.png"/>
 
-3. Enter the IP address and port 8888.  
+3. Change the proxy settings to manual, and enter the IP address and port 8888.  
      
     <img src="http://imgur.com/AclSz0z.png"/> 
 
-4. Connect to a web site.  **You need to go back to the PC to grant authorization for the device to connect.***
+4. Connect to a web site.  *You need to go back to the PC to grant authorization for the device to connect.**
+
+
 
 For more details, take a look at this [blog](https://jaanus.com/debugging-http-on-an-android-phone-or-tablet-with-charles-proxy-for-fun-and-profit/) for using Charles Proxy.
