@@ -1,6 +1,17 @@
 ## Overview
 
-Monitoring network traffic to help with troubleshooting depends on the networking library you use.  If you are using [[OkHttp|Using-OkHttp]] or [[Retrofit|Consuming-APIs-with-Retrofit]], you can take advantage of Facebook's [Stetho](http://facebook.github.io/stetho) project that will allow you to leverage the Chrome network traffic inspector.  You can walk through [[this guide|Debugging with Stetho]] for more details.
+While setting up breakpoints in your code is usually the first place to check, it often can be useful to see the network traffic exchanged between your Android device and a server.  There are often things you want to check:
+
+* Am I using the correct API key?
+* Am I passing in the correct HTTP GET parameters?
+* What is the server error code?
+* What is the server response?
+
+It is often useful to monitor the network traffic to help diagnose these issues.  Monitoring network traffic depends on the networking library you use.  
+
+### Using Stetho
+
+If you are using [[OkHttp|Using-OkHttp]] or [[Retrofit|Consuming-APIs-with-Retrofit]], you can take advantage of Facebook's [Stetho](http://facebook.github.io/stetho) project that will allow you to leverage the Chrome network traffic inspector.  You can walk through [[this guide|Debugging with Stetho]] for more details.
 
 If are you are using [[Android Async Http Client|Using-Android-Async-Http-Client]] or any other networking library, you cannot leverage the Stetho project and Chrome project as noted in this [issue](https://github.com/facebook/stetho/issues/116).  However, you can still setup an HTTP proxy that can intercept the network requests. 
 
