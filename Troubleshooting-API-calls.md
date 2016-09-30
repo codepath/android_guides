@@ -52,10 +52,12 @@ The process requires two parts: one on the PC that will act as the proxy, and th
      
     <img src="http://imgur.com/AclSz0z.png"/> 
 
-4. Connect to a web site.  *You need to go back to the PC to grant authorization for the device to connect.**
+3. Connect to any web site.  You need to go back to the PC to grant authorization for the device to connect:
 
-Go back to Charles Proxy and start recording network traffic!
+   <img src="http://imgur.com/yuRmGRC.png">
 
-<img src="http://imgur.com/c0q6j2j.png"/>
+4. Go back to Charles Proxy and start recording network traffic:
+
+   <img src="http://imgur.com/c0q6j2j.png"/>
 
 For more details, take a look at this [blog](https://jaanus.com/debugging-http-on-an-android-phone-or-tablet-with-charles-proxy-for-fun-and-profit/) for using Charles Proxy.
