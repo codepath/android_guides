@@ -44,9 +44,9 @@ If are you are using [[Android Async Http Client|Using-Android-Async-Http-Client
 
 3. Enter the IP address and port 8888.  
      
-    <img src="http://imgur.com/a/Y10Wm.png"/> 
+    <img src="http://imgur.com/AclSz0z.png"/> 
 
-4. Connect to a web site.  If you go back to your PC, you should see Charles Proxy requesting your approval to connect.
+4. Connect to a web site.  **You need to go back to the PC to grant authorization for the device to connect.***
 
 For more details, take a look at this [blog](https://jaanus.com/debugging-http-on-an-android-phone-or-tablet-with-charles-proxy-for-fun-and-profit/) for using Charles Proxy.
 
