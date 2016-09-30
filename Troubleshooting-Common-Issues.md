@@ -30,7 +30,7 @@ If are you are using [[Android Async Http Client|Using-Android-Async-Http-Client
 
      <img src="http://imgur.com/YXTqq93.png"/>
 
-4. Make sure to ascertain your IP address of the machine with the proxy installed.  You can go to the `Help` -> `IP Address` to find it:
+4. Make sure to ascertain your IP address of the machine with the proxy installed.  You can go to the `Help` -> `Local IP Address` to find it:
 
 <img src="http://imgur.com/AwbbEwA.png"/>
 
