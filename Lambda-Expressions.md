@@ -112,9 +112,11 @@ Make sure to specify the plug-in last, especially after the `android-apt` plug-i
 * Add a new `compileOptions` block, then `sourceCompatibility` and `targetCompatibility` Java version should be set as 1.8
 
 ```groovy 
-compileOptions {
-    sourceCompatibility JavaVersion.VERSION_1_8
-    targetCompatibility JavaVersion.VERSION_1_8
+android { 
+  compileOptions {
+      sourceCompatibility JavaVersion.VERSION_1_8
+      targetCompatibility JavaVersion.VERSION_1_8
+  }
 }
 ```
 
