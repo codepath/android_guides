@@ -41,6 +41,10 @@ customTabsIntent.launchUrl(this, Uri.parse(url));
 
 If you do not have Chrome installed, the intent will launch the default browser installed on the device.  The `CustomTabsIntent` simply launches an [[implicit intent|Common-Implicit-Intents]] (`android.intent.action.VIEW`) and passes an extra data in the intent (i.e. `android.support.customtabs.extra.SESSION` and `android.support.customtabs.extra.TOOLBAR_COLOR`) that gets ignored if the default browser cannot process this information.
 
+## Configuring other options
+
+Configuring additional options requires using the builder class.  If you wish to add custom icons or actions to the menu, you will need to create pending intents to do so.
+
 ### Setting Toolbar color
 
 If you wish to set the toolbar color, you can use the `setToolbarColor()` method in the builder class:
@@ -57,12 +61,54 @@ Normally, `context.getResources().getColor())` can be used, but in Android API 2
 
 <img src="http://imgur.com/e3rNTqM.png"/>
 
-By default, a Chrome tab does not include share action in the toolbar.  However, you should add a default one when creating the intent:
+By default, a Chrome tab does not include share action in the toolbar.  However, you can add a default one to the menu item list:
 
 ```java
 CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
-// add share action
+// add share action to menu list
 intentBuilder.addDefaultShareMenuItem();
+```
+
+### Adding custom icons
+
+<img src="http://imgur.com/8Rh0qw4.png"/>
+
+If you want to add a specific icon (such as the share icon) to the menu item, you need to first should add the icon using `New` -> `Image Asset` (currently, Chrome Tabs do not support [[vector drawables|Drawables#vector-drawables]] so you should be using PNG files as your icons.):
+
+<img src="http://imgur.com/dPw0tBM.png" width="600"/>
+
+Note the file that is saved.  We will need to create a bitmap for use later:
+
+```java
+Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_action_name);
+```
+
+Next, create the intent:
+
+```java
+Intent intent = new Intent(Intent.ACTION_SEND);
+intent.setType("text/plain");
+intent.putExtra(Intent.EXTRA_TEXT, "http://www.codepath.com");
+```
+
+Next, you need to create a pending intent, which is a way similar to calling `startActivity()` when a user clicks on the icon.   This pending intent needs to be passed to the Chrome Tabs intent builder:
+
+```java
+int requestCode = 100;
+
+PendingIntent pendingIntent = PendingIntent.getActivity(this, requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+```
+
+Finally, we need to pass the bitmap, text, and pending intent created:
+
+```java
+CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+
+// Map the bitmap, text, and pending intent to this icon
+// Set tint to be true so it matches the toolbar color
+builder.setActionButton(bitmap, "Share Link", pendingIntent, true);
+
+CustomTabsIntent customTabsIntent = builder.build();
 ```
 
 ### Enable pre-starting and pre-fetching
