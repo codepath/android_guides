@@ -53,6 +53,18 @@ builder.setToolbarColor(ContextCompat.getColor(this, R.color.colorAccent));
 
 Normally, `context.getResources().getColor())` can be used, but in Android API 23 this method has been [deprecated](http://stackoverflow.com/questions/31590714/getcolorint-id-deprecated-on-android-6-0-marshmallow-api-23).   For this reason, see this guide for how to include the [[design support library|Design Support Library]] to leverage a new `ContextCompat` API.  
 
+### Adding a share action
+
+<img src="http://imgur.com/e3rNTqM.png"/>
+
+By default, a Chrome tab does not include share action in the toolbar.  However, you should add a default one when creating the intent:
+
+```java
+CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+// add share action
+intentBuilder.addDefaultShareMenuItem();
+```
+
 ### Enable pre-starting and pre-fetching
 
 Chrome custom tabs also allow the developer to pre-start Chrome and pre-fetch content for faster loading.
