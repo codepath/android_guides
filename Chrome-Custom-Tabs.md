@@ -91,12 +91,14 @@ intent.setType("text/plain");
 intent.putExtra(Intent.EXTRA_TEXT, "http://www.codepath.com");
 ```
 
-Next, you need to create a pending intent, which is a way similar to calling `startActivity()` when a user clicks on the icon.   This pending intent needs to be passed to the Chrome Tabs intent builder:
+Next, you need to create a pending intent (see this [YouTube clip](https://www.youtube.com/watch?v=URcVZybzMUI#t=925) for more info), which is used to wake up your app when the user clicks on the icon.  This pending intent needs to be passed to the Chrome Tabs intent builder:
 
 ```java
 int requestCode = 100;
 
-PendingIntent pendingIntent = PendingIntent.getActivity(this, requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+// Pending intent used to 
+PendingIntent pendingIntent = PendingIntent.getActivity(this, requestCode, 
+                                                        intent, PendingIntent.FLAG_UPDATE_CURRENT);
 ```
 
 Finally, we need to pass the bitmap, text, and pending intent created:
