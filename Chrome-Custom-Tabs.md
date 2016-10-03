@@ -73,7 +73,7 @@ intentBuilder.addDefaultShareMenuItem();
 
 <img src="http://imgur.com/8Rh0qw4.png"/>
 
-If you want to add a specific icon (such as the share icon) to the menu item, you need to first should add the icon using `New` -> `Image Asset` (currently, Chrome Tabs do not support [[vector drawables|Drawables#vector-drawables]] so you should be using PNG files as your icons):
+If you want to add a specific icon (such as the share icon) to the toolbar, you need to first should add the icon using `New` -> `Image Asset` (currently, Chrome Tabs do not support [[vector drawables|Drawables#vector-drawables]] so you should be using PNG files as your icons):
 
 <img src="http://imgur.com/dPw0tBM.png" width="600"/>
 
