@@ -96,9 +96,10 @@ Next, you need to create a pending intent (see this [YouTube clip](https://www.y
 ```java
 int requestCode = 100;
 
-// Pending intent used to 
-PendingIntent pendingIntent = PendingIntent.getActivity(this, requestCode, 
-                                                        intent, PendingIntent.FLAG_UPDATE_CURRENT);
+PendingIntent pendingIntent = PendingIntent.getActivity(this, 
+                                                        requestCode, 
+                                                        intent, 
+                                                        PendingIntent.FLAG_UPDATE_CURRENT);
 ```
 
 Finally, we need to pass the bitmap, text, and pending intent created:
