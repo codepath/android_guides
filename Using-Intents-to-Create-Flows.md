@@ -183,7 +183,7 @@ If we wish to receive implicit intents, you need to associate intent filters wit
 Make sure to specify `android.intent.category.DEFAULT` category to declare that the activity should receive implicit intents.   Otherwise, the activity can only respond to explicit intents.  You also need to declare what type of implicit intent action to which it responds with the `<action>` tag.  The list of possible actions 
 are shown in the `Standard Activity Actions` section [here](https://developer.android.com/reference/android/content/Intent.html).
 
-If you wish to receive a share intent from Chrome, for instance, you need to setup your activity as follows:
+If you wish to receive a share intent from Chrome, for instance, you have to declare an activity will be responsible for processing the data in your `AndroidManifest.xml` file:
 
 ```xml
 <activity
