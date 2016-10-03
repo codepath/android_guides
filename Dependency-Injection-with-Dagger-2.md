@@ -76,7 +76,7 @@ SharedPreferences sharedPrefeences = PreferenceManager.getDefaultSharedPreferenc
 
 // Instantiate Gson
 Gson gson = new GsonBuilder().create();
-GsonConverterFactory converterFactory = GsonConverterFactory.create(Gson);
+GsonConverterFactory converterFactory = GsonConverterFactory.create(gson);
 
 // Build Retrofit
 Retrofit retrofit = new Retrofit.Builder()
