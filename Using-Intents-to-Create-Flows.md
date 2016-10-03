@@ -183,16 +183,44 @@ If we wish to receive implicit intents, you need to associate intent filters wit
 Make sure to specify `android.intent.category.DEFAULT` category to declare that the activity should receive implicit intents.   Otherwise, the activity can only respond to explicit intents.  You also need to declare what type of implicit intent action to which it responds with the `<action>` tag.  The list of possible actions 
 are shown in the `Standard Activity Actions` section [here](https://developer.android.com/reference/android/content/Intent.html).
 
+If you wish to receive a share intent from Chrome, for instance, you need to setup your activity as follows:
+
 ```xml
 <activity
-    android:name="com.codepath.ImplicitIntentActivity">
+    android:name="com.codepath.ReceiveIntentDataActivity">
     <intent-filter>
         <action android:name="android.intent.action.SEND"/>
         <category android:name="android.intent.category.DEFAULT"/>
+        <data android:mimeType="text/plain"></data>
     </intent-filter>
 ```
 
-If you wish for a web page link to be able to launch the activity, make sure to also specify the BROWSABLE category as well.  You should also specify the `<data>` tag to specify what URL pattern to scan for:
+Receiving the data entails receiving the intent data:
+
+```java
+@Override
+public void onCreate(Bundle savedInstanceState) {
+  super.onCreate(savedInstanceState);
+
+  // Get intent, action and MIME type
+  Intent intent = getIntent();
+  String action = intent.getAction();
+  String type = intent.getType();
+
+  if (Intent.ACTION_SEND.equals(action) && type != null) {
+    if ("text/plain".equals(type)) {
+
+      // Make sure to check whether returned data will be null.
+      String titleOfPage = intent.getStringExtra(Intent.EXTRA_SUBJECT);
+      String urlOfPage = intent.getStringExtra(Intent.EXTRA_TEXT);
+      Uri imageUriOfPage = (Uri) intent.getParcelableExtra(Intent.EXTRA_STREAM);
+    }   
+  }
+```
+
+See [this article](https://paul.kinlan.me/parsing-screenshot-from-Chrome-for-Android-send-intent/) for more details about parsing data from Chrome.
+
+If you wish for a web page link to be able to launch an activity, make sure to also specify the BROWSABLE category as well.  You should also specify the `<data>` tag to specify what URL pattern to scan for:
 
 ```xml
     <intent-filter>
