@@ -10,7 +10,7 @@ Parse is shutting down in a year on **January 28, 2017**.  New accounts are no l
 
 We can deploy our own Parse data store and push notifications systems to [Heroku](https://www.heroku.com/) leveraging the [server open-sourced by Parse](https://github.com/ParsePlatform/parse-server-example). Parse is built on top of the MongoDB database which can be added to Heroku using MongoLab. 
 
-To follow this guide we need to [[setup our own Parse server|configuring a Parse Server]]. Once the Parse server is configured, we can [initialize Parse within our Android app](http://guides.codepath.com/android/Configuring-a-Parse-Server#enabling-client-sdk-integration) pointing the client to our self-hosted URL. After that, the tutorial works the same as before. vvvvvvvvv
+To follow this guide we need to [[setup our own Parse server|configuring a Parse Server]]. Once the Parse server is configured, we can [initialize Parse within our Android app](http://guides.codepath.com/android/Configuring-a-Parse-Server#enabling-client-sdk-integration) pointing the client to our self-hosted URL. After that, the tutorial works the same as before. 
 
 ## 2. Setup Parse client
 
