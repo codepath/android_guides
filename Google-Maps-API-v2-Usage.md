@@ -640,7 +640,7 @@ public class MyItemRenderer extends DefaultClusterRenderer<MyItem>{
 }
 ```
 
-In order to support click events on the marker have you parent activity implement `OnClusterItemClickListener`:
+In order to support click events on the marker have your parent activity implement `OnClusterItemClickListener`:
 
 ```
 public class MapActivity extends AppCompatActivity implements ClusterManager.OnClusterItemClickListener<MyItem>{
