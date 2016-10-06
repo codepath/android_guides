@@ -573,31 +573,31 @@ In your map activity, add the `ClusterManager` and feed it the cluster items:
 
 ```
 public class MapActivity extends AppCompatActivity {
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		...
-		setUpClusterer()
-	}
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    ...
+    setUpClusterer()
+  }
 	
-	private void setUpClusterer() {
-	  // Declare a variable for the cluster manager.
-	  private ClusterManager<MyItem> mClusterManager;
+  private void setUpClusterer() {
+    // Declare a variable for the cluster manager.
+    private ClusterManager<MyItem> mClusterManager;
 
-	  private List<MyItem> myItems;
+    private List<MyItem> myItems;
 
-	  // Initialize the manager
-	  mClusterManager = new ClusterManager<MyItem>(this, getMap());
+    // Initialize the manager
+    mClusterManager = new ClusterManager<MyItem>(this, getMap());
+    
+    // Point the map's listeners at the listeners implemented by the cluster manager.
+    // This will later allow onClusterItemClick to work.
+    getMap().setOnMarkerClickListener(mClusterManager);
 
-	  // Point the map's listeners at the listeners implemented by the cluster manager.
-	  // This will later allow onClusterItemClick to work.
-	  getMap().setOnMarkerClickListener(mClusterManager);
-
-	  // Add cluster items (markers) to the cluster manager.
-	  myItems = yourWayOfPopulating();
-	  mClusterManager.addItems(myItems);
-	  // Let the cluster manager know you've made changes
-	  mClusterManager.cluster()
-	}
+    // Add cluster items (markers) to the cluster manager.
+    myItems = yourWayOfPopulating();
+    mClusterManager.addItems(myItems);
+    // Let the cluster manager know you've made changes
+    mClusterManager.cluster()
+  }
 	
 }
 ```
@@ -619,23 +619,23 @@ Define the `MyItemRenderer` class:
 ```
 public class MyItemRenderer extends DefaultClusterRenderer<MyItem>{
 	
-	public MyItemRenderer() {
-		super(getApplicationContext(), getMap(), mClusterManager);
-	}
+  public MyItemRenderer(ClusterManager<MyItem> clusterManager) {
+    super(getApplicationContext(), getMap(), clusterManager);
+  }
 
   @Override
   protected void onBeforeClusterItemRendered(MyItem myItem, MarkerOptions markerOptions) {
-  	// Customize the marker here
-	markerOptions
-			.position(myItem.getLatLng())
-			.icon(BitmapDescriptorFactory.fromBitmap(getMarker()));
+    // Customize the marker here
+    markerOptions
+	      .position(myItem.getLatLng())
+	      .icon(BitmapDescriptorFactory.fromBitmap(getMarker()));
   }
 
    @Override
   protected void onBeforeClusterRendered(Cluster<MyItem> cluster, MarkerOptions markerOptions) {
-  	// Customize the cluster here
-  	markerOptions
-			.icon(BitmapDescriptorFactory.fromBitmap(getMarker()))
+    // Customize the cluster here
+    markerOptions
+	      .icon(BitmapDescriptorFactory.fromBitmap(getMarker()))
   }
 }
 ```
@@ -653,7 +653,7 @@ public class MapActivity extends AppCompatActivity implements ClusterManager.OnC
 }
 ```
 
-For additional information check out the [google one] (https://developers.google.com/maps/documentation/android-api/utility/marker-clustering). This [google app](https://github.com/googlemaps/android-maps-utils) contains code samples for a customized map with cluster icons. This [post](http://stackoverflow.com/a/30972491/1715285) on stack overflow goes into deep detail on styling a cluster icon. 
+For additional information check out the [google] (https://developers.google.com/maps/documentation/android-api/utility/marker-clustering) tutorial. This [google app](https://github.com/googlemaps/android-maps-utils) contains code samples for a customized map with cluster icons. This [post](http://stackoverflow.com/a/30972491/1715285) on stack overflow goes into deep detail on styling a cluster icon. 
 
 ### Utility Library
 
