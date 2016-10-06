@@ -560,13 +560,13 @@ public class MyItem implements ClusterItem {
   private final LatLng mPosition;
 
   public MyItem(double lat, double lng) {
-      mPosition = new LatLng(lat, lng);
+    mPosition = new LatLng(lat, lng);
   }
 
   @Override
   public LatLng getPosition() {
-      return mPosition;
-    }
+    return mPosition;
+  }
 }
 ```
 In your map activity, add the `ClusterManager` and feed it the cluster items:
@@ -644,12 +644,12 @@ In order to support click events on the marker have you parent activity implemen
 
 ```
 public class MapActivity extends AppCompatActivity implements ClusterManager.OnClusterItemClickListener<MyItem>{
-	...
-	@Override
-	public boolean onClusterItemClick(MyItem item) {
-        // Do a click thing here
-        return false;
-	}
+  ...
+  @Override
+  public boolean onClusterItemClick(MyItem item) {
+    // Do a click thing here
+    return false;
+  }
 }
 ```
 
