@@ -547,6 +547,113 @@ Marker mapMarker = map.addMarker(new MarkerOptions()
     .position(listingPosition)                                                      
     .icon(BitmapDescriptorFactory.fromBitmap(getMarker()));
 ```
+### Marker Clustering
+Before diving in, you will need to have the [maps utility library](https://developers.google.com/maps/documentation/android-api/utility/) installed.  
+The clustering utility allows you to manage how markers render at different zoom levels. Instead of the map keeping track of markers, it will now track objects and then render them as clusters or markers depending on the zoom and the distance between marker points.
+
+This section shows how to implement clusters that will appear as individual markers when zoomed in. And it will show how to support click events on the markers.
+
+First create a class `MyItem` that implements `ClusterItem`: 
+
+```
+public class MyItem implements ClusterItem {
+  private final LatLng mPosition;
+
+  public MyItem(double lat, double lng) {
+      mPosition = new LatLng(lat, lng);
+  }
+
+  @Override
+  public LatLng getPosition() {
+      return mPosition;
+    }
+}
+```
+In your map activity, add the `ClusterManager` and feed it the cluster items:
+
+```
+public class MapActivity extends AppCompatActivity {
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		...
+		setUpClusterer()
+	}
+	
+	private void setUpClusterer() {
+	  // Declare a variable for the cluster manager.
+	  private ClusterManager<MyItem> mClusterManager;
+
+	  private List<MyItem> myItems;
+
+	  // Initialize the manager
+	  mClusterManager = new ClusterManager<MyItem>(this, getMap());
+
+	  // Point the map's listeners at the listeners implemented by the cluster manager.
+	  // This will later allow onClusterItemClick to work.
+	  getMap().setOnMarkerClickListener(mClusterManager);
+
+	  // Add cluster items (markers) to the cluster manager.
+	  myItems = yourWayOfPopulating();
+	  mClusterManager.addItems(myItems);
+	  // Let the cluster manager know you've made changes
+	  mClusterManager.cluster()
+	}
+	
+}
+```
+
+At this point, you should be able to render default markers that cluster. In order use customized markers you will need to extend `DefaultClusterRenderer` and build your own renderer class:
+
+```
+private void setUpClusterer() {
+  ...
+  mClusterManager = new ClusterManager<MyItem>(this, getMap());
+  
+  // Set our custom renderer
+  mClusterManager.setRenderer(new MyItemRenderer());
+  ...
+}
+```
+Define the `MyItemRenderer` class:
+
+```
+public class MyItemRenderer extends DefaultClusterRenderer<MyItem>{
+	
+	public MyItemRenderer() {
+		super(getApplicationContext(), getMap(), mClusterManager);
+	}
+
+  @Override
+  protected void onBeforeClusterItemRendered(MyItem myItem, MarkerOptions markerOptions) {
+  	// Customize the marker here
+	markerOptions
+			.position(myItem.getLatLng())
+			.icon(BitmapDescriptorFactory.fromBitmap(getMarker()));
+  }
+
+   @Override
+  protected void onBeforeClusterRendered(Cluster<MyItem> cluster, MarkerOptions markerOptions) {
+  	// Customize the cluster here
+  	markerOptions
+			.icon(BitmapDescriptorFactory.fromBitmap(getMarker()))
+  }
+}
+```
+
+In order to support click events on the marker have you parent activity implement `OnClusterItemClickListener`:
+
+```
+public class MapActivity extends AppCompatActivity implements ClusterManager.OnClusterItemClickListener<MyItem>{
+	...
+	@Override
+	public boolean onClusterItemClick(MyItem item) {
+        // Do a click thing here
+        return false;
+	}
+}
+```
+
+For additional information check out the [google one] (https://developers.google.com/maps/documentation/android-api/utility/marker-clustering). This [google app](https://github.com/googlemaps/android-maps-utils) contains code samples for a customized map with cluster icons. This [post](http://stackoverflow.com/a/30972491/1715285) on stack overflow goes into deep detail on styling a cluster icon. 
 
 ### Utility Library
 
