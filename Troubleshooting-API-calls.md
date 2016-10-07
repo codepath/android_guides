@@ -38,7 +38,11 @@ The process requires two parts: one on the PC that will act as the proxy, and th
 
      <img src="http://imgur.com/YXTqq93.png"/>
 
-4. Make sure to ascertain your IP address of the machine with the proxy installed.  You can go to the `Help` -> `Local IP Address` to find it:
+4. Disable the proxy from being used on your desktop web browser by simply going to `Proxy` -> `Proxy Settings` and uncheck the `Enable macOS proxy` option:
+
+     <img src="http://imgur.com/zzWkuEX.png"/>
+
+5. Make sure to ascertain your IP address of the machine with the proxy installed.  You can go to the `Help` -> `Local IP Address` to find it:
 
 <img src="http://imgur.com/AwbbEwA.png"/>
 
