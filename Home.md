@@ -179,15 +179,16 @@ Diving into the networking and model layers for data-driven apps:
 * [[Leveraging the Gson Library]] (JSON deserialization library)
 * [[Creating and Executing Async Tasks]] (Long-running Background Tasks)
 * [[Handling ProgressBars]] (with Long-Running Tasks)
-* [[Networking with the Fast Android Networking Library]]
 * [[Rotten Tomatoes Networking Tutorial]]
 * [[Networking with the Volley Library]]
+* [[Networking with the OkHttp Library|Using-OkHttp]]
+* [[Networking with the Fast Android Networking Library]]
+* [[Consuming APIs with Retrofit]]
 * [[Displaying Images with the Fresco Library]]
 * [[Building Data-driven Apps with Parse]]
 * [[Configuring a Parse Server]]
 * [[Building Simple Chat Client with Parse]]
 * [[Troubleshooting Common Issues with Parse]]
-* [[Consuming APIs with Retrofit]]
 * [[Sending and Receiving Data with Sockets]] 
 * [[Building Data driven Apps with Firebase]]
 
