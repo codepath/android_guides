@@ -179,6 +179,7 @@ Diving into the networking and model layers for data-driven apps:
 * [[Leveraging the Gson Library]] (JSON deserialization library)
 * [[Creating and Executing Async Tasks]] (Long-running Background Tasks)
 * [[Handling ProgressBars]] (with Long-Running Tasks)
+* [[Networking with the Fast Android Networking Library]]
 * [[Rotten Tomatoes Networking Tutorial]]
 * [[Networking with the Volley Library]]
 * [[Displaying Images with the Fresco Library]]
