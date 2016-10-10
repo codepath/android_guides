@@ -343,6 +343,17 @@ public boolean onCreateOptionsMenu(Menu menu) {
 }
 ```
 
+We can customize the up button that appears when the search view is activated with [this approach](http://stackoverflow.com/a/35482445/1715285) or the code below:
+
+Use the `app:collapseIcon` to customize the color/style of your drawable.
+```
+<android.support.v7.widget.Toolbar
+         android:id="@+id/toolbar"
+         android:layout_width="match_parent"
+         android:layout_height="@dimen/toolbarHeight"
+         app:collapseIcon="@drawable/collapseBackIcon" />
+```
+
 See [this writeup](http://antonioleiva.com/actionbarcompat-action-views/) for details on the compatibility action views outlined above. For more advanced searching functionality, check out the [Creating a Search Interface](http://developer.android.com/guide/topics/search/search-dialog.html) guide.
 
 Refer to [this tutorial](http://ramannanda.blogspot.com/2014/10/android-searchview-integration-with.html) for a guide on how to **add autocomplete to your searchview** in the actionbar.
