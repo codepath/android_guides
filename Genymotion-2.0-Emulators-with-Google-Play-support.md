@@ -23,7 +23,7 @@ To setup your genymotion emulator [sign up](https://www.genymotion.com/account/l
 
   After restarting, go to `Preferences`->`Other`->`Genymotion` and setup the location of the Genymotion app.
 
-  ![http://i.imgur.com/ZVzXfxV.png](http://i.imgur.com/ZVzXfxV.png)
+  ![http://i.imgur.com/JIZb7FE.png](http://i.imgur.com/JIZb7FE.png)
 
 #### Configuration
 
