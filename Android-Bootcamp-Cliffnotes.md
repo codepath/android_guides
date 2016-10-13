@@ -14,7 +14,6 @@ Cliffnotes are references giving you the "most important" Android topics with br
 * [[Working with the EditText]]
 * [[Working with the ImageView]]
 * [[Working with the Soft Keyboard]]
-* [[Organizing your Source Files]]
 * [[Using Context]]
 * [[Understanding the Activity Lifecycle|Activity Lifecycle]]
 * [[Displaying Images with the Picasso Library]]
