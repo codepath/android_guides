@@ -300,7 +300,7 @@ For a detailed tutorial on how to manage responsive layouts for tablets, review 
 
 Here is a quick checklist about how you can ensure that your application displays properly on different screens:
 
-* Avoid use hard coded pixel values in your application code
+* Avoid using hard coded pixel values in your application code
 * Use `RelativeLayout` properly and never use `AbsoluteLayout` 
 * Use `wrap_content`, `match_parent`, or `dp` units when specifying dimensions
 * Use alternate layouts and drawables to ensure a responsive design when needed
