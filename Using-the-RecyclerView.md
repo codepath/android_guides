@@ -459,7 +459,7 @@ The `RecyclerView` is quite flexible and customizable. Several of the options av
 
 ### Performance
 
-We can also enable optimizations if all item views are of the same height and width for significantly smoother scrolling:
+We can also enable optimizations if the items are static and will not change for significantly smoother scrolling:
 
 ```java
 recyclerView.setHasFixedSize(true);
