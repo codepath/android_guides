@@ -129,7 +129,7 @@ Common issues with the `YouTubePlayerView` are listed below:
 
 - **Verify Video is Valid** - When anything is going wrong, first thing to check that the value passed into the `cueVideo` or `loadVideo` methods is a valid Youtube video. Be sure **not to pass a null value** into those methods. Investigate to make sure that if you take the value given i.e `5xVh-7ywKpE` and then visit this [on youtube](https://www.youtube.com/watch?v=5xVh-7ywKpE) that the video is valid.
 
-- **NullPointerException During Init** - Make sure that your activity `extends YouTubeBaseActivity`. If the activity does not extend that base class then the activity will throw this exception. 
+- **NullPointerException During Init** - Make sure that your activity `extends YouTubeBaseActivity` or you are using the `YouTubePlayerFragment`. If the activity does not extend that base class then the activity will throw this exception. 
 
 - **Error DeadObjectException:** If you receive the `java.lang.IllegalStateException: android.os.DeadObjectException` exception, you need to open up the "Play Store" and update the Youtube app on the Android device.
   
