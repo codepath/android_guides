@@ -250,14 +250,14 @@ We can then apply that shape drawable to the background of any view or layout wi
 
 Refer to the [gradient drawable section](http://guides.codepath.com/android/Drawables#gradient-colored-shapes) for more details on drawing shapes and applying them to views. 
 
-#### How do I remove the grey border from a Button or ImageButton?
+#### How do I remove the grey border from an ImageButton?
 
-You can remove the border from a `Button` or `ImageButton` by either setting `android:background` to "@null" or setting `style` to "android:attr/borderlessButtonStyle":
+You can remove the border from a `ImageButton` by either setting `android:background` to "@android:color/transparent":
 
 ```xml
-<Button
-     ...
-     style="?android:attr/borderlessButtonStyle"
+<ImageButton
+     android:background="@android:color/transparent"
+     android:src="@drawable/fancy_button"
      ...
 />
 ```
