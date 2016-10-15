@@ -119,7 +119,7 @@ Next, we lookup the fragment by ID and then initialize the video player:
     }
 ```
 
-Otherwise the steps are identical regardless of using the fragment or Activity approach. 
+Note that in this case, the **activity containing the fragment does not need to extend any special base class**. Otherwise the steps are identical regardless of using the fragment or activity approach. 
 
 ## Troubleshooting
 
