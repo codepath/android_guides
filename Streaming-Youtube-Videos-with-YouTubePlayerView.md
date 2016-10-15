@@ -79,9 +79,9 @@ If you wish to force the video to landscape mode, you can also add the `screenOr
 </activity>
 ```
 
-### Using the YouTubePlayerFragment
+## Using the YouTubePlayerFragment Approach
 
-Alternatively, rather than `extending YouTubeBaseActivity`, we can use the [YouTubePlayerFragment](https://developers.google.com/youtube/android/player/reference/com/google/android/youtube/player/YouTubePlayerFragment) instead. First, put the player into your activity using this fragment:
+Alternatively instead of the approach outlined above, rather than `extending YouTubeBaseActivity`, we can use the [YouTubePlayerFragment](https://developers.google.com/youtube/android/player/reference/com/google/android/youtube/player/YouTubePlayerFragment) instead. First, put the player into your activity using this fragment:
 
 ```xml
 <fragment
