@@ -311,6 +311,7 @@ In addition, there are several ways to create vector drawables directly from SVG
  * [Vector Asset Studio](http://developer.android.com/tools/help/vector-asset-studio.html) is a utility included in Android Studio (shown above) for converting SVG assets into vector drawables. 
  * [SVG2Android Online Utility](http://inloop.github.io/svg2android/) converts SVG into vectors right in your browser.
  * [Command-line SVG Converter](https://github.com/a-student/SvgToVectorDrawableConverter) can batch convert SVGs to vectors.
+ * [Vectorizer](https://www.vectorizer.io) - Transform a PNG image into an SVG to be converted to a vector drawable.
 
 You can refer to [this VectorDrawables guide for more details](http://developer.android.com/training/material/drawables.html#VectorDrawables). 
 
