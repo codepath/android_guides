@@ -127,6 +127,7 @@ Essentially this method is used to enable your code to short-circuit before exec
 * [ItemAnimators](https://github.com/mikepenz/ItemAnimators) - RecyclerView animators to animate item add/remove/add/move
 * [GreedoLayout](https://github.com/500px/greedo-layout-for-android) - Full aspect ratio grid LayoutManager for Android's RecyclerView
 * [RecyclerViewHelper](https://github.com/nisrulz/recyclerviewhelper) - Provides the most common functions around recycler view like Swipe to dismiss, Drag and Drop, Divider in the ui, events for when item selected and when not selected, on-click listener for items.
+* [async-expandable-list](https://github.com/Ericliu001/async-expandable-list) - async-expandable-list provides solutions to displaying header-sub-items structure with simple api and asynchronously loading sub-list into an expandable list.   
 
 ### Easy Navigation 
 
