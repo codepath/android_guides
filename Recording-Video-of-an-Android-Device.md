@@ -36,7 +36,7 @@ See [this stackoverflow post](http://stackoverflow.com/a/31547690/313399) for th
 3. Run the `adb shell screenrecord` to start recording
 
   ```
-  cd /Applications/Android\ Studio.app/sdk/platform-tools
+  cd /Users/myusername/Library/Android/sdk/platform-tools
   ./adb shell screenrecord /sdcard/myapp.mp4
   ```
 4. Press `Ctrl-C` to stop recording when done
