@@ -243,6 +243,8 @@ The `TextInputLayout` simply needs to define `app:counterEnabled` and `app:Count
 
 ### Adding Password Visibility Toggles
 
+**NOTE**: You must have support library 24.2.0 or higher to use this feature.  
+
 <img src="http://imgur.com/33oQgLr.png"/>
 
 If you use an `EditText` with an input password type, you can also enable an icon that can show or hide the entire text using the `passwordToggleEnabled` attribute.    You can also change the default eye icon with  `passwordToggleDrawable` attribute or the color hint using the `passwordToggleTint` attribute.  See the `TextInputLayout` [attributes](https://developer.android.com/reference/android/support/design/widget/TextInputLayout.html#attr_android.support.design:passwordToggleTintMode) for more details.
