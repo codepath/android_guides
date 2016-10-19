@@ -218,6 +218,8 @@ protected void onResume() {
 }
 ```
 
+Check out this [blog post](http://panavtec.me/retain-restore-recycler-view-scroll-position) and [stackoverflow post](http://stackoverflow.com/a/28262885) for more details. 
+
 ## Locking Screen Orientation
 
 If you want to lock the screen orientation change of any screen (activity) of your android application you just need to set the `android:screenOrientation` property of an `<activity>` within the `AndroidManifest.xml`:
