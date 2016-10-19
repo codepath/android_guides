@@ -131,7 +131,9 @@ To add the fragment **statically**, simply embed the fragment in the activity's 
 </LinearLayout>
 ```
 
-Note: You will likely need to change the path for FooFragment based on your project setup.
+Note: 
+* You will likely need to change the path for FooFragment based on your project setup.
+* You cannot replace a fragment defined statically in the layout file via a FragmentTransaction. You can only replace fragments that you added dynamically.
 
 #### Dynamically
 
