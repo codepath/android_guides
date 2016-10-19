@@ -582,7 +582,7 @@ outerRect.setColor(Color.parseColor("#2f8f22"));
 
 Note that the shape is accessed as a `GradientDrawable` here even though the shape is a solid color.
 
-### Vector Drawables
+### Runtime Vector Drawables
 
 If you are using vector drawables or animated vector drawables at runtime for pre-Lollipop devices, make sure to use the new `AppCompatResource` class instead of the normal `getDrawable()` call, especially if you reference custom theme attributes (i.e. `?attr/colorAccent) in your drawables:
 
