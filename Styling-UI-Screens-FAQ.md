@@ -77,9 +77,9 @@ Be sure to review the following key tips about images:
  * **Icons vs Images.** Don't use the "Image Asset" dialog in Android Studio unless **you want to generate small icons**.
  * **Image Densities**. Instead use [Final Android Resizer](http://guides.codepath.com/android/Working-with-the-ImageView#final-android-resizer) to create appropriate image sizes.
  * **Memory Errors.** Image files larger than `1776 x 1080px` in dimensions will cause Android apps to crash.
- * **Resource Names.** Image filenames should only contain **lowercase letters, numbers and underscores** (i.e `my_image_file_1.png`)
+ * **Resource Names.** Filenames only include **lowercase letters, numbers and underscores** (i.e `image_1.png`)
  * **Scaling Images.** Understand and adjust the [scaleType](http://guides.codepath.com/android/Working-with-the-ImageView#scale-types) of your `ImageView` to control how the image is displayed.
- * **Aspect Ratio.** Add `android:adjustViewBounds="true"` to your `ImageView` to adjust the size according to image aspect ratio.
+ * **Aspect Ratio.** Add `android:adjustViewBounds="true"` to your `ImageView` to adjust the size to image aspect ratio.
 
 Refer to the questions below for more detail.
 
