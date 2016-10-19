@@ -155,6 +155,68 @@ This approach keeps the fragment from being destroyed during the activity lifecy
 
 Now you can **check to see if the fragment already exists by tag** before creating one and the fragment will retain it's state across configuration changes. See the [Handling Runtime Changes](http://developer.android.com/guide/topics/resources/runtime-changes.html#RetainingAnObject) guide for more details.
 
+## Properly Handling List State
+
+### ListView
+
+Often when you rotate the screen, the app will lose the scroll position and other state of any lists on screen. To properly retain this state for `ListView`, you can store the instance state `onPause` and restore `onViewCreated` as shown below:
+
+```
+Parcelable scrollState;
+
+@Override
+public void onPause() {    
+    // Save ListView scroll and selected states
+    scrollState = listView.onSaveInstanceState();
+    super.onPause();
+}
+...
+
+@Override
+public void onViewCreated(final View view, Bundle savedInstanceState) {
+    super.onViewCreated(view, savedInstanceState);
+    // Set back the items
+    listView.setAdapter(adapter);
+    // ...
+    // Restore previous state (including selected item index and scroll position)
+    if(scrollState != null) {
+        listView.onRestoreInstanceState(scrollState);
+    }
+}
+```
+
+Check out this [blog post](https://futurestud.io/tutorials/how-to-save-and-restore-the-scroll-position-and-state-of-a-android-listview) and [stackoverflow post](http://stackoverflow.com/a/5688490) for more details. 
+
+### RecyclerView
+
+Often when you rotate the screen, the app will lose the scroll position and other state of any lists on screen. To properly retain this state for `RecyclerView`, you can store the instance state `onPause` and restore `onViewCreated` as shown below:
+
+```
+public final static int LIST_STATE_KEY = "recycler_list_state";
+Parcelable listState;
+
+protected void onSaveInstanceState(Bundle state) {
+     super.onSaveInstanceState(state);
+     // Save list state
+     listState = mLayoutManager.onSaveInstanceState();
+     state.putParcelable(LIST_STATE_KEY, mListState);
+}
+
+protected void onRestoreInstanceState(Bundle state) {
+    super.onRestoreInstanceState(state);
+    // Retrieve list state and list/item positions
+    if(state != null)
+        listState = state.getParcelable(LIST_STATE_KEY);
+}
+
+@Override
+protected void onResume() {
+    super.onResume();
+    if (mListState != null) {
+        mLayoutManager.onRestoreInstanceState(listState);
+    }
+}
+```
 
 ## Locking Screen Orientation
 
