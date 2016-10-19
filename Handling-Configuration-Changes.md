@@ -161,7 +161,8 @@ Now you can **check to see if the fragment already exists by tag** before creati
 
 Often when you rotate the screen, the app will lose the scroll position and other state of any lists on screen. To properly retain this state for `ListView`, you can store the instance state `onPause` and restore `onViewCreated` as shown below:
 
-```
+```java
+// YourActivity.java
 Parcelable scrollState;
 
 @Override
@@ -191,7 +192,8 @@ Check out this [blog post](https://futurestud.io/tutorials/how-to-save-and-resto
 
 Often when you rotate the screen, the app will lose the scroll position and other state of any lists on screen. To properly retain this state for `RecyclerView`, you can store the instance state `onPause` and restore `onViewCreated` as shown below:
 
-```
+```java
+// YourActivity.java
 public final static int LIST_STATE_KEY = "recycler_list_state";
 Parcelable listState;
 
