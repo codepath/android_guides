@@ -174,9 +174,9 @@ public void onPause() {
 ...
 
 @Override
-public void onViewCreated(final View view, Bundle savedInstanceState) {
-    super.onViewCreated(view, savedInstanceState);
-    // Set back the items
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    // Set back the items into the list
     listView.setAdapter(adapter);
     // ...
     // Restore previous state (including selected item index and scroll position)
