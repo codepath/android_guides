@@ -112,7 +112,7 @@ public interface Observer<T> {
 }
 ```
 
-Note that an `Observer` is a generic type.  It must be represent the type of value that the `Observable` will emit.  For a subscriber to start watching an observable that will generate string types, it must subscribe to it:
+Note that an `Observer` is a generic type.  It must represent the type of value that the `Observable` will emit.  For a subscriber to start watching an observable that will generate string types, it must subscribe to it:
 
 ```java
 Observable.just("a", "b", "c").subscribe(new Observer<String>() {
