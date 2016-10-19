@@ -61,6 +61,7 @@ If you are an experienced engineer with 2+ years of professional experience in s
 * [Google Android Interactive Codelabs](https://codelabs.developers.google.com/?cat=Android)
 * [Google Android Glossary](https://developers.google.com/android/for-all/vocab-words/) (Defining Common Terms)
 * [Android Learning Resources](https://github.com/CodementorIO/Android-Learning-Resources)
+* [Awesome Android Complete Reference](https://github.com/amitshekhariitbhu/awesome-android-complete-reference)
 * [[Free Android Curriculum]] (Additional Android resources and slides)
 
 **Using Eclipse?** See below.
