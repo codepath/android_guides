@@ -33,8 +33,8 @@ Let's setup Parse into a brand new Android app following the steps below.
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     ```
 
-* Create a class called `ChatApplication` which extends from `android.app.Application`
-  * In the application, initialize parse
+* Create [an application class](http://guides.codepath.com/android/Understanding-the-Android-Application-Class) called `ChatApplication` which extends from `android.app.Application`
+  * In the [Android application class]([an application class](http://guides.codepath.com/android/Understanding-the-Android-Application-Class)), initialize Parse as shown below:
 
     ```java
     public class ChatApplication extends Application {
