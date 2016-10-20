@@ -272,7 +272,15 @@ Refer to the following resources related to the include tag and binding:
 
 If you want to have a two-way binding between the view and the data source, check out this [handy 2-way data binding tutorial](https://medium.com/@fabioCollini/android-data-binding-f9f9d3afc761#.6h923gix6).
 
-### Troubleshooting
+## MVVM Architecture and Data Binding 
+
+The Data binding framework can be used in conjunction with an MVVM architecture to help to decouple the View from the Model. In this approach, the binding framework connects with the ViewModel, which exposes data from the Model, into the View (xml layout). 
+
+<img src="http://i.imgur.com/Beq1Zry.png" width="300" />
+
+Check out [this blog post](https://labs.ribot.co.uk/approaching-android-with-mvvm-8ceec02d5442) for a detailed overview. 
+
+## Troubleshooting
 
 **Issues with the Binding Class**
 
