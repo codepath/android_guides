@@ -276,7 +276,7 @@ If you want to have a two-way binding between the view and the data source, chec
 
 The Data binding framework can be used in conjunction with an MVVM architecture to help to decouple the View from the Model. In this approach, the binding framework connects with the ViewModel, which exposes data from the Model, into the View (xml layout). 
 
-<img src="http://i.imgur.com/Beq1Zry.png" width="500" />
+<img src="http://i.imgur.com/Beq1Zry.png" width="700" />
 
 Check out [this blog post](https://labs.ribot.co.uk/approaching-android-with-mvvm-8ceec02d5442) for a detailed overview. 
 
