@@ -34,7 +34,7 @@ Let's setup Parse into a brand new Android app following the steps below.
     ```
 
 * Create [an application class](http://guides.codepath.com/android/Understanding-the-Android-Application-Class) called `ChatApplication` which extends from `android.app.Application`
-  * In the [Android application class]([an application class](http://guides.codepath.com/android/Understanding-the-Android-Application-Class)), initialize Parse as shown below:
+  * In the [Android application class](http://guides.codepath.com/android/Understanding-the-Android-Application-Class), initialize Parse as shown below:
 
     ```java
     public class ChatApplication extends Application {
