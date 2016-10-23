@@ -168,12 +168,16 @@ public class MainActivity extends Activity {
 }
 ```
 
-If you intend to perform a new search, make sure to clear the contents of the list and notify the adapter the contents have changed **as soon as possible**.  Make sure also to reset the state of the `EndlessRecyclerViewScrollListener` too:
+### Resetting the Endless Scroll State
+
+When you intend to perform a new search, make sure to clear the existing contents from the list and notify the adapter the contents have changed **as soon as possible**.  Make sure also to reset the state of the `EndlessRecyclerViewScrollListener` with the `resetState` method:
 
 ```java
-// clear list and notify adapter
-
-// reset endless scroll listener too  whenever performing a new search
+// 1. First, clear the array of data
+listOfItems.clear();
+// 2. Notify the adapter of the update
+recyclerAdapterOfItems.notifyDataSetChanged(); // or notifyItemRangeRemoved
+// 3. Reset endless scroll listener when performing a new search
 scrollListener.resetState();
 ```
 
