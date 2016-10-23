@@ -145,16 +145,7 @@ public class MainActivity extends Activity {
            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
                // Triggered only when new data needs to be appended to the list
                // Add whatever code is needed to append new items to the bottom of the list
-               customLoadMoreDataFromApi(page); 
-
-               // if the RecyclerView adapter needs to be updated, delay a frame because scroll callbacks might be run during a measure & layout pass when you cannot change the RecyclerView data. 
-               // See http://stackoverflow.com/questions/39445330/cannot-call-notifyiteminserted-method-in-a-scroll-callback-recyclerview-v724-2
-               view.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        // notify adapter here
-                    }
-                });
+               customLoadMoreDataFromApi(page);
            }
       });
       rvItems.addOnScrollListener(scrollListener);
@@ -169,6 +160,7 @@ public class MainActivity extends Activity {
   }
 }
 ```
+
 
 You can refer to this [code sample for usage](https://gist.github.com/rogerhu/17aca6ad4dbdb3fa5892) and [this code sample](https://gist.github.com/nesquena/d09dc68ff07e845cc622) for the full endless scroll source code. 
 
@@ -185,6 +177,22 @@ If you are running into problems, please carefully consider the following sugges
 * In order for this pagination system to trigger, keep in mind that as `customLoadMoreDataFromApi` is called, new data needs to be **appended to the existing data source**. In other words, only clear items from the list when on the initial "page". Subsequent "pages" of data should be appended to the existing data.
 
 * For the `RecyclerView`, if you intend to clear the contents of the list and start endless scrolling again, make sure to clear the contents of the list and notify the adapter the contents have changed **as soon as possible**.  Make sure also to call `resetState()` on the `EndlessRecyclerViewScrollListener` to inform the scroll listener to restart.
+
+* If you see `Cannot call this method in a scroll callback. Scroll callbacks might be run during a measure & layout pass where you cannot change the RecyclerView data.`, you mean need to do the following inside your `onLoadMore()` method:
+
+```java
+// delay a frame before notifying the adapter since the scroll listeners can be called when RecyclerView data
+// cannot be changed
+view.post(new Runnable() {
+                @Override
+                public void run() {
+                  // notify adapter
+                  adapter.notifyItemRangeInserted(curSize, allContacts.size() - 1);
+                }
+           });
+```
+
+See [this Stack Overflow](http://stackoverflow.com/questions/39445330/cannot-call-notifyiteminserted-method-in-a-scroll-callback-recyclerview-v724-2) article for more details.
 
 ## Displaying Progress with Custom Adapter
 
