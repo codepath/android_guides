@@ -107,12 +107,16 @@ public class MainActivity extends Activity {
         });
     }
     
-    // Append more data into the adapter
-    public void customLoadMoreDataFromApi(int offset) {
-      // This method probably sends out a network request and appends new data items to your adapter. 
-      // Use the offset value and add it as a parameter to your API request to retrieve paginated data.
-      // Deserialize API response and then construct new objects to append to the adapter
-    }
+
+   // Append the next page of data into the adapter
+   // This method probably sends out a network request and appends new data items to your adapter. 
+   public void customLoadMoreDataFromApi(int offset) {
+      // Send an API request to retrieve appropriate paginated data 
+      //  --> Send the request including an offset value (i.e `page`) as a query parameter.
+      //  --> Deserialize and construct new model objects from the API response
+      //  --> Append the new data objects to the existing set of items inside the array of items
+      //  --> Notify the adapter of the new items made with `notifyDataSetChanged()`
+   }
 }
 ```
 
@@ -151,12 +155,14 @@ public class MainActivity extends Activity {
       rvItems.addOnScrollListener(scrollListener);
   }
 
-  // Append more data into the adapter
+  // Append the next page of data into the adapter
   // This method probably sends out a network request and appends new data items to your adapter. 
-  public void customLoadMoreDataFromApi(int page) {
-      // Send an API request to retrieve appropriate data using the offset value as a parameter.
-      //  --> Deserialize API response and then construct new objects to append to the adapter
-      //  --> Notify the adapter of the changes
+  public void customLoadMoreDataFromApi(int offset) {
+      // Send an API request to retrieve appropriate paginated data 
+      //  --> Send the request including an offset value (i.e `page`) as a query parameter.
+      //  --> Deserialize and construct new model objects from the API response
+      //  --> Append the new data objects to the existing set of items inside the array of items
+      //  --> Notify the adapter of the new items made with `notifyDataSetChanged()`
   }
 }
 ```
