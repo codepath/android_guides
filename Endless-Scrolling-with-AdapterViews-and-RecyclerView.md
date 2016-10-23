@@ -197,7 +197,7 @@ If you are running into problems, please carefully consider the following sugges
 
 * In order for this pagination system to trigger, keep in mind that as `loadNextDataFromApi` is called, new data needs to be **appended to the existing data source**. In other words, only clear items from the list when on the initial "page". Subsequent "pages" of data should be appended to the existing data.
 
-* If you see `Cannot call this method in a scroll callback. Scroll callbacks might be run during a measure & layout pass where you cannot change the RecyclerView data.`, you mean need to do the following inside your `onLoadMore()` method:
+* If you see `Cannot call this method in a scroll callback. Scroll callbacks might be run during a measure & layout pass where you cannot change the RecyclerView data.`, you need to do the following inside your `onLoadMore()` method as outlined in [this Stack Overflow](http://stackoverflow.com/questions/39445330/cannot-call-notifyiteminserted-method-in-a-scroll-callback-recyclerview-v724-2) article to delay the adapter update:
 
     ```java
     // Delay before notifying the adapter since the scroll listeners 
@@ -210,8 +210,6 @@ If you are running into problems, please carefully consider the following sugges
         }
     });
     ```
-
-See [this Stack Overflow](http://stackoverflow.com/questions/39445330/cannot-call-notifyiteminserted-method-in-a-scroll-callback-recyclerview-v724-2) article for more details.
 
 ## Displaying Progress with Custom Adapter
 
