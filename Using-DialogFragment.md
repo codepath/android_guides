@@ -330,6 +330,20 @@ Styling a DialogFragment with a custom layout works just the [[same as styling a
 </style>
 ```
 
+#### Dialog Styling Workaround
+
+**Note:** There is currently a bug in the support library that **causes styles not to show up properly**. Changing the `DialogFragment` in the `onCreateView` to use the activity's inflater seems to resolve the issue:
+
+```java
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+        return getActivity().getLayoutInflater().inflate(R.layout.fragment_edit_name, container);
+    }
+```
+
+All dialog widgets should now be properly themed.
+
 ### Styling Titlebar of Dialog
 
 The titlebar can be styled using the "android:windowTitleStyle" as follows:
