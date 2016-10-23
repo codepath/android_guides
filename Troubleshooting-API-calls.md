@@ -8,7 +8,11 @@ While setting up breakpoints in your code is usually the first place to check, i
 * What is the server error code?
 * What is the server response?
 
-It is often useful to monitor the network traffic to help diagnose these issues.  Monitoring network traffic depends on the networking library you use.   There are two general approaches: using the Stetho library or setting up a proxy.  The former is the simplest but requires the [[OkHttp|Using-OkHttp]] or [[Retrofit|Consuming-APIs-with-Retrofit]] networking library to be used.
+You should first try to verify whether your API calls are correct by visiting [https://dhc.restlet.com/](https://dhc.restlet.com/).   You can also install a Chrome browser extension [Dev HTTP Client](https://chrome.google.com/webstore/detail/dhc-rest-client/aejoelaoggembcahagimdiliamlcdmfm) or any other available REST-based client tester. 
+
+<img src="http://imgur.com/GfVK80o.png" width="600"/>
+
+In other cases, it is often useful to monitor the network traffic to help diagnose these issues.  Monitoring network traffic depends on the networking library you use.   There are two general approaches: using the Stetho library or setting up a proxy.  The former is the simplest but requires the [[OkHttp|Using-OkHttp]] or [[Retrofit|Consuming-APIs-with-Retrofit]] networking library to be used.
 
 ### Using Stetho
 
