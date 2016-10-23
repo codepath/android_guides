@@ -170,7 +170,7 @@ public class MainActivity extends Activity {
 }
 ```
 
-You can refer to this [code sample for usage](https://gist.github.com/nesquena/8a976dd3d6f866518db2cfe7f9cb0db7) and [this code sample](https://gist.github.com/nesquena/d09dc68ff07e845cc622) for the full endless scroll source code. 
+You can refer to this [code sample for usage](https://gist.github.com/rogerhu/17aca6ad4dbdb3fa5892) and [this code sample](https://gist.github.com/nesquena/d09dc68ff07e845cc622) for the full endless scroll source code. 
 
 All of the code needed is already incorporated in the `EndlessRecyclerViewScrollListener.java` code snippet above. However, if you wish to understand how the endless scrolling is calculated, the [detailed explanation is available here](https://hackmd.io/s/HyLTXPvH).
 
