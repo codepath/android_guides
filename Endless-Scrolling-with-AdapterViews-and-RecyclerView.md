@@ -187,15 +187,15 @@ If you are running into problems, please carefully consider the following sugges
 * If you see `Cannot call this method in a scroll callback. Scroll callbacks might be run during a measure & layout pass where you cannot change the RecyclerView data.`, you mean need to do the following inside your `onLoadMore()` method:
 
     ```java
-    // delay a frame before notifying the adapter since the scroll listeners can be called when RecyclerView data
-    // cannot be changed
+    // Delay before notifying the adapter since the scroll listeners 
+    // can be called while RecyclerView data cannot be changed.
     view.post(new Runnable() {
-                @Override
-                public void run() {
-                  // notify adapter
-                  adapter.notifyItemRangeInserted(curSize, allContacts.size() - 1);
-                }
-           });
+        @Override
+        public void run() {
+            // Notify adapter with appropriate notify methods
+            adapter.notifyItemRangeInserted(curSize, allContacts.size() - 1);
+        }
+    });
     ```
 
 See [this Stack Overflow](http://stackoverflow.com/questions/39445330/cannot-call-notifyiteminserted-method-in-a-scroll-callback-recyclerview-v724-2) article for more details.
