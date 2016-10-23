@@ -142,10 +142,19 @@ public class MainActivity extends Activity {
        // keep an instance so that you can call `resetState()` for subsequent searches
        EndlessRecyclerViewScrollListener scrollListener = new EndlessRecyclerViewScrollListener(linearLayoutManager) {
            @Override
-           public void onLoadMore(int page, int totalItemsCount) {
+           public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
                // Triggered only when new data needs to be appended to the list
                // Add whatever code is needed to append new items to the bottom of the list
                customLoadMoreDataFromApi(page); 
+
+               // if the RecyclerView adapter needs to be updated, delay a frame because scroll callbacks might be run during a measure & layout pass when you cannot change the RecyclerView data. 
+               // See http://stackoverflow.com/questions/39445330/cannot-call-notifyiteminserted-method-in-a-scroll-callback-recyclerview-v724-2
+               view.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        // notify adapter here
+                    }
+                });
            }
       });
       rvItems.addOnScrollListener(scrollListener);
