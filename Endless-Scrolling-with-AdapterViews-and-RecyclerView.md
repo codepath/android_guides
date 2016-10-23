@@ -139,7 +139,7 @@ public class MainActivity extends Activity {
        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
        rvItems.setLayoutManager(linearLayoutManager);
        // Add the scroll listener
-       // keep an instance so that you can call `resetState()` for subsequent searches
+       // keep an instance so that you can call `resetState()` for new searches
        EndlessRecyclerViewScrollListener scrollListener = new EndlessRecyclerViewScrollListener(linearLayoutManager) {
            @Override
            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
@@ -176,7 +176,12 @@ If you are running into problems, please carefully consider the following sugges
 
 * In order for this pagination system to trigger, keep in mind that as `customLoadMoreDataFromApi` is called, new data needs to be **appended to the existing data source**. In other words, only clear items from the list when on the initial "page". Subsequent "pages" of data should be appended to the existing data.
 
-* For the `RecyclerView`, if you intend to clear the contents of the list and start endless scrolling again, make sure to clear the contents of the list and notify the adapter the contents have changed **as soon as possible**.  Make sure also to call `resetState()` on the `EndlessRecyclerViewScrollListener` to inform the scroll listener to restart.
+* For the `RecyclerView`, if you intend to clear the contents of the list and start endless scrolling again, make sure to clear the contents of the list and notify the adapter the contents have changed **as soon as possible**.  Make sure also to reset the state of the `EndlessRecyclerViewScrollListener` too:
+
+```java
+// endless scroll listener needs to be reset whenever performing a new search
+scrollListener.resetState();
+```
 
 * If you see `Cannot call this method in a scroll callback. Scroll callbacks might be run during a measure & layout pass where you cannot change the RecyclerView data.`, you mean need to do the following inside your `onLoadMore()` method:
 
