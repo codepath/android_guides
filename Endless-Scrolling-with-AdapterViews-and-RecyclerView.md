@@ -100,8 +100,8 @@ public class MainActivity extends Activity {
           public boolean onLoadMore(int page, int totalItemsCount) {
               // Triggered only when new data needs to be appended to the list
               // Add whatever code is needed to append new items to your AdapterView
-              customLoadMoreDataFromApi(page); 
-              // or customLoadMoreDataFromApi(totalItemsCount); 
+              loadNextDataFromApi(page); 
+              // or loadNextDataFromApi(totalItemsCount); 
               return true; // ONLY if more data is actually being loaded; false otherwise.
           }
         });
@@ -110,7 +110,7 @@ public class MainActivity extends Activity {
 
    // Append the next page of data into the adapter
    // This method probably sends out a network request and appends new data items to your adapter. 
-   public void customLoadMoreDataFromApi(int offset) {
+   public void loadNextDataFromApi(int offset) {
       // Send an API request to retrieve appropriate paginated data 
       //  --> Send the request including an offset value (i.e `page`) as a query parameter.
       //  --> Deserialize and construct new model objects from the API response
@@ -136,7 +136,9 @@ To start handling the scroll events for steps 2 and 3, we need to use the `addOn
 
 ```java
 public class MainActivity extends Activity {
+    // Store a member variable for the listener
     private EndlessRecyclerViewScrollListener scrollListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
        // Configure the RecyclerView
@@ -149,7 +151,7 @@ public class MainActivity extends Activity {
            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
                // Triggered only when new data needs to be appended to the list
                // Add whatever code is needed to append new items to the bottom of the list
-               customLoadMoreDataFromApi(page);
+               loadNextDataFromApi(page);
            }
       });
       // Adds the scroll listener to RecyclerView
@@ -158,7 +160,7 @@ public class MainActivity extends Activity {
 
   // Append the next page of data into the adapter
   // This method probably sends out a network request and appends new data items to your adapter. 
-  public void customLoadMoreDataFromApi(int offset) {
+  public void loadNextDataFromApi(int offset) {
       // Send an API request to retrieve appropriate paginated data 
       //  --> Send the request including an offset value (i.e `page`) as a query parameter.
       //  --> Deserialize and construct new model objects from the API response
@@ -193,7 +195,7 @@ If you are running into problems, please carefully consider the following sugges
 
 * In order for the pagination system to continue working reliably, you should make sure to **clear the adapter** of items (or notify adapter after clearing the array) before appending new items to the list.  For RecyclerView, it is highly recommended to make more granular updates when notifying the adapter.  See this [video talk] (https://youtu.be/imsr8NrIAMs?t=8m27s) for more context.
 
-* In order for this pagination system to trigger, keep in mind that as `customLoadMoreDataFromApi` is called, new data needs to be **appended to the existing data source**. In other words, only clear items from the list when on the initial "page". Subsequent "pages" of data should be appended to the existing data.
+* In order for this pagination system to trigger, keep in mind that as `loadNextDataFromApi` is called, new data needs to be **appended to the existing data source**. In other words, only clear items from the list when on the initial "page". Subsequent "pages" of data should be appended to the existing data.
 
 * If you see `Cannot call this method in a scroll callback. Scroll callbacks might be run during a measure & layout pass where you cannot change the RecyclerView data.`, you mean need to do the following inside your `onLoadMore()` method:
 
