@@ -136,15 +136,15 @@ To start handling the scroll events for steps 2 and 3, we need to use the `addOn
 
 ```java
 public class MainActivity extends Activity {
+    private EndlessRecyclerViewScrollListener scrollListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
        // Configure the RecyclerView
        RecyclerView rvItems = (RecyclerView) findViewById(R.id.rvContacts);
        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
        rvItems.setLayoutManager(linearLayoutManager);
-       // Add the scroll listener
-       // keep an instance so that you can call `resetState()` for new searches
-       EndlessRecyclerViewScrollListener scrollListener = new EndlessRecyclerViewScrollListener(linearLayoutManager) {
+       // Retain an instance so that you can call `resetState()` for fresh searches
+       scrollListener = new EndlessRecyclerViewScrollListener(linearLayoutManager) {
            @Override
            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
                // Triggered only when new data needs to be appended to the list
@@ -152,6 +152,7 @@ public class MainActivity extends Activity {
                customLoadMoreDataFromApi(page);
            }
       });
+      // Adds the scroll listener to RecyclerView
       rvItems.addOnScrollListener(scrollListener);
   }
 
