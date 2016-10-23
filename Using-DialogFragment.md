@@ -341,8 +341,7 @@ Styling a DialogFragment with a custom layout works just the [[same as styling a
         return getActivity().getLayoutInflater().inflate(R.layout.fragment_edit_name, container);
     }
 ```
-
-All dialog widgets should now be properly themed.
+All dialog widgets should now be properly themed. Check out this [stackoverflow post](http://stackoverflow.com/a/32791569) for details.
 
 ### Styling Titlebar of Dialog
 
