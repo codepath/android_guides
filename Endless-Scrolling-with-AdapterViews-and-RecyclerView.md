@@ -184,7 +184,7 @@ If you are running into problems, please carefully consider the following sugges
 
 * In order for this pagination system to trigger, keep in mind that as `customLoadMoreDataFromApi` is called, new data needs to be **appended to the existing data source**. In other words, only clear items from the list when on the initial "page". Subsequent "pages" of data should be appended to the existing data.
 
-* For the `RecyclerView`, if you intend to clear the contents of the list and start endless scrolling again, make sure to clear the contents of the list and notify the adapter the contents have changed **as soon as possible**.  The reason is that `RecyclerView` will trigger a new `onScroll` event and allow the endless scrolling code to reset itself.   
+* For the `RecyclerView`, if you intend to clear the contents of the list and start endless scrolling again, make sure to clear the contents of the list and notify the adapter the contents have changed **as soon as possible**.  Make sure also to call `resetState()` on the `EndlessRecyclerViewScrollListener` to inform the scroll listener to restart.
 
 ## Displaying Progress with Custom Adapter
 
