@@ -92,7 +92,7 @@ checkCheese.setChecked(true);
 and in our activity, we can manage checkboxes using a checked listener with `OnCheckedChangeListener` as show below:
 
 ```java
-// Fires every time a checkbox is checked or unchecked
+// Defines a listener for every time a checkbox is checked or unchecked
 CompoundButton.OnCheckedChangeListener checkListener = new CompoundButton.OnCheckedChangeListener() {
     @Override
     public void onCheckedChanged(CompoundButton view, boolean checked) {
@@ -118,6 +118,8 @@ CompoundButton.OnCheckedChangeListener checkListener = new CompoundButton.OnChec
     }
 };
 
+// This actually applies the listener to the checkboxes 
+// by calling `setOnCheckedChangeListener` on each one
 public void setupCheckboxes() {
     Checkbox checkCheese = (Checkbox) findViewById(R.id.checkbox_cheese);
     Checkbox checkMeat = (Checkbox) findViewById(R.id.checkbox_meat);
