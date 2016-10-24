@@ -722,7 +722,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
                     // Triggers click upwards to the adapter on click
                     if (listener != null) {
                         int position = getAdapterPosition();
-                        if (listener != null && position != RecyclerView.NO_POSITION) {
+                        if (position != RecyclerView.NO_POSITION) {
                             listener.onItemClick(itemView, position);
                         }
                     }
