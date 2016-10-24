@@ -1,5 +1,5 @@
 ## Overview
-
+v
 A drawable resource is a general concept for a graphic that can be drawn to the screen. Drawables are used to define shapes, colors, borders, gradients, etc. which can then be applied to views within an Activity.
 
 This is typically used for customizing the view graphics that are displayed within a particular view or context. Drawables tend to be defined in XML and can then be applied to a view via XML or Java.
@@ -290,7 +290,14 @@ This results in the following image being rendered:
 
 <img src="http://i.imgur.com/zcHxiii.png" width="250" />
 
-See [the official release blog post](http://android-developers.blogspot.com/2016/02/android-support-library-232.html) for additional compatibility notes and this [video talk](https://www.youtube.com/watch?v=wlFVIIstKmA). 
+You can also set a vector at runtime using:
+
+```java
+ImageView iv = (ImageView) findViewById(...);
+iv.setImageResource(R.drawable.ic_search);
+```
+
+Be sure to check out this great [age of vectors blog post](https://medium.com/@chrisbanes/appcompat-v23-2-age-of-the-vectors-91cbafa87c88#.4ys7p2hoq) for a more detailed look at vectors. Also see [the official release blog post](http://android-developers.blogspot.com/2016/02/android-support-library-232.html) for additional compatibility notes and this [video talk](https://www.youtube.com/watch?v=wlFVIIstKmA). 
 
 #### Finding Vector Drawables
 
