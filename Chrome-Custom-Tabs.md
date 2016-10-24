@@ -152,3 +152,4 @@ For more information on possible UI customizations, check the [CustomUIActivity]
 
 * <https://developer.chrome.com/multidevice/android/customtabs>
 * <https://github.com/GoogleChrome/custom-tabs-client>
+* <https://labs.ribot.co.uk/exploring-chrome-customs-tabs-on-android-ef427effe2f4>
