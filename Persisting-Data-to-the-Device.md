@@ -112,20 +112,21 @@ Each of these provide a thin layer of abstraction on `SQLiteOpenHelper`. For a m
 
 ### Object Relational Mappers
 
-Instead of accessing the SQLite database directly, there is no shortage of higher-level wrappers for managing SQL persistence. There are many popular ORMs for Android, but one of the easiest to use is [ActiveAndroid](https://github.com/pardom/ActiveAndroid/wiki/Getting-started) ([[cliffnotes|ActiveAndroid-Guide]]). Here's a few alternatives as well:
+Instead of accessing the SQLite database directly, there is no shortage of higher-level wrappers for managing SQL persistence. There are many popular ORMs for Android, including:
 
  * [DBFlow](https://github.com/Raizlabs/DBFlow) - Newer, light syntax, fast ([[cliffnotes|DBFlow-Guide]])
+ * [ActiveAndroid](https://github.com/pardom/ActiveAndroid/wiki/Getting-started) ([[cliffnotes|ActiveAndroid-Guide]]) - stable to use, though unsupported for the last 2 years
  * [SugarORM](http://satyan.github.io/sugar/index.html) - Very easy syntax, uses reflection to infer data ([[cliffnotes|Clean-Persistence-with-Sugar-ORM]])
  * [Siminov](http://siminov.github.io/android-orm/) - Another viable alternative syntax
  * [greenDAO](http://greendao-orm.com/) - Slightly different take (DAO vs ORM)
  * [ORMLite](http://ormlite.com/sqlite_java_android_orm.shtml) - Lightweight and speed is prioritized
  * [JDXA](http://softwaretree.com/v1/products/jdxa/jdxa.html) - Simple, non-intrusive, flexible
 
-For this class, we selected ActiveAndroid. With ActiveAndroid, building models that are SQLite backed is easy and explicit using annotations. Instead of manually creating and updating tables and managing SQL queries, simply annotate your model classes to associate fields with database columns:
+For this class, we selected DBFlow. With DBFlow, building models that are SQLite backed is easy and explicit using annotations. Instead of manually creating and updating tables and managing SQL queries, simply annotate your model classes to associate fields with database columns:
 
 ```java
-@Table(name = "Users")
-public class User extends Model {
+@Table(database = MyDatabase.class)
+public class User extends BaseModel {
   @Column(name = "Name")
   public String name;
 
@@ -158,16 +159,19 @@ user.save();
 user.delete();
 ```
 
-ActiveAndroid queries map to SQL queries and are built by chaining methods.
+DBFlow queries map to SQL queries and are built by chaining methods.
 
 ```java
 List<User> users = new Select()
-    .from(User.class).where("age > ?", 25)
-    .limit(25).offset(0)
-    .orderBy("age ASC").execute();
+    .from(User.class)
+    .where(User_Table.age.greaterThen(25)
+    .limit(25)
+    .offset(0)
+    .orderBy(User_Table.age, true) // true for ASC, false for DESC
+    .queryList();
 ```
 
-This will automatically query the database and return the results as a List for use. For more information, check out our [[ActiveAndroid Guide|ActiveAndroid-Guide]] for links to more resources and answers to common questions. As needed, we can also [[access the SQLite database for debugging|Local-Databases-with-SQLiteOpenHelper#sqlite-database-debugging]].
+This will automatically query the database and return the results as a List for use. For more information, check out our [[DBFlow Guide|DBFlow-Guide]] for links to more resources and answers to common questions. As needed, we can also [[access the SQLite database for debugging|Local-Databases-with-SQLiteOpenHelper#sqlite-database-debugging]].
 
 ## References
 
