@@ -165,7 +165,7 @@ public class MainActivity extends Activity {
       //  --> Send the request including an offset value (i.e `page`) as a query parameter.
       //  --> Deserialize and construct new model objects from the API response
       //  --> Append the new data objects to the existing set of items inside the array of items
-      //  --> Notify the adapter of the new items made with `notifyDataSetChanged()`
+      //  --> Notify the adapter of the new items made with `notifyItemRangeInserted()`
   }
 }
 ```
