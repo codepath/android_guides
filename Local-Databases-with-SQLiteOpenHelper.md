@@ -632,6 +632,10 @@ There isn't a `SQLite3` executable on the device so our only option is to downlo
 ./adb pull /sdcard/<database file name>
 ```
 
+### Using Android Device Monitor
+
+You can go to `Tools`->`Android Device Monitor`->`File Explorer` and look inside the `/data/<app package name>/databases` and download the file locally to inspect the tables using a tool such as [DB Browser for SQLite](http://sqlitebrowser.org/).
+
 ## References
 
 * [Vogella SQLite Tutorial](http://www.vogella.com/articles/AndroidSQLite/article.html)
