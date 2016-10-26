@@ -506,7 +506,7 @@ public class MyApplication extends Application {
 
 ### Seeing `*==========*` errors
 
-It is easier to check by clicking on the Gradle console at the bottom right corner what the error message is:
+The errors span multiple lines, but the Android Device Monitor may not be displaying them appropriately.  For this reason, it is easier to check by clicking on the Gradle console at the bottom right corner to see in more detail the error message:
 
 <img src="http://imgur.com/q9cCNHq.png"/>
 
