@@ -134,6 +134,7 @@ Location updates should always be done using the `GoogleApiClient` leveraging th
  * **Did you add the necessary permissions?** Make sure your app has `INTERNET` and `ACCESS_COARSE_LOCATION` permissions to ensure that location can be accessed as illustrated in the guide above.
  * **Are you getting `null` when calling `LocationServices.FusedLocationApi.getLastLocation`**? This is normal since this method only returns if there is already a location recently retrieved by another application. If this returns null, this means you need start receiving location updates with `LocationServices.FusedLocationApi.requestLocationUpdates` before receiving the location as shown above.
  * **Are you trying to get location on the genymotion emulator?** Ensure you've enabled GPS and configured a lat/lng properly. Try restarting the emulator if needed and re-enabling GPS or **trying a device** (or the official emulator) instead to rule out genymotion specific issues.
+* **Are you failed to add Google Play Services Location dependencies when using Firebase?** Firebase dependencies version is usually not up to date with recent Google Play Services, thus showing a conflict error when Gradle trying to get dependencies. To solve this, simply match Google Play Services Location version with your Firebase version.
 
 You can also review the following troubleshooting resources:
 
