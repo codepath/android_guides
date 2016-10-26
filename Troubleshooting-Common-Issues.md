@@ -16,7 +16,7 @@ If you wish to inspect network traffic, see [[this guide|Troubleshooting-API-Cal
 
 ### Database Inspection
 
-Also, you can use the [Stetho](http://facebook.github.io/stetho/) project can also be used to view your local SQLLite database too.  See [[this guide|Debugging-with-Stetho]] for more details.
+Also, the [Stetho](http://facebook.github.io/stetho/) project can be used to view your local SQLLite database.  See [[this guide|Debugging-with-Stetho]] for more details.
 
 <img src="http://facebook.github.io/stetho/static/images/inspector-sqlite.png"/>
 
