@@ -502,15 +502,17 @@ public class MyApplication extends Application {
     }
 ```
 
-### Seeing `*==========*` or `java.lang.Thread.getStackTrace(Thread.java:1552) errors
+### Seeing `*==========*` errors
 
-Check to see if you are using private fields.  If so, you need to define manually the getter and setters for these fields.   Otherwise you may notice `class com.raizlabs.android.dbflow.processor.validator.ColumnValidator: Could not find setter for private element: "fieldName" from table class: MyTableName```
+It is easier to check by clicking on the Gradle console at the bottom right corner what the error message is:
 
-It is easier to check by running the Gradle wrapper at the command line:
+<img src="http://imgur.com/q9cCNHq.png"/>
 
-```bash
-./gradlew build
-```
+There are a few things to verify:
+
+* Check to see if you are using private fields.  If so, you need to define manually the getter and setters for these fields.   Otherwise you may notice `class com.raizlabs.android.dbflow.processor.validator.ColumnValidator: Could not find setter for private element: "fieldName" from table class: MyTableName```
+
+* Check to see if you have at least one `@PrimaryKey` associated with a column.  
 
 ## References
 
