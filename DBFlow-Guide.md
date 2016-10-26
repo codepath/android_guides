@@ -112,6 +112,8 @@ public class Organization extends BaseModel {
 }
 ```
 
+**NOTE**: You must define at least one column to be the primary key.  If any of the fields are labeled as private, you will also need to define the getter and setter methods (i.e. `getId()` and `setId()`).  Otherwise, DBFlow may fail to generate the tables at compile time.
+
 We can define a `ForeignKey` relation easily.  The `saveForeignKeyModel` denotes whether to update the foreign key if the entry is also updated.  In this case, we disable this functionality:
 
 ```java
