@@ -103,7 +103,7 @@ Let's create an XML layout which allows us to post messages by typing into a tex
         android:id="@+id/btSend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical|right"
+        android:gravity="center"
         android:paddingRight="10dp"
         android:layout_alignParentRight="true"
         android:text="@string/send"
@@ -339,7 +339,7 @@ public class Message extends ParseObject {
     public void setBody(String body) {
         put(BODY_KEY, body);
     }
-}}
+}
 ```
 
 We also need to make sure to register this class with Parse before we call Parse.initialize within the `ChatApplication.java` file:
