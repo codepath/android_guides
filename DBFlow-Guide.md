@@ -244,7 +244,7 @@ user.delete();
 
 ## Database Transactions
 
-See [this guide](https://github.com/Raizlabs/DBFlow/blob/master/usage/StoringData.md) about how to perform transactions.  You can batch save a list of `User` objects by using the `ProcessModelTransaction` class:
+See [this guide](https://github.com/Raizlabs/DBFlow/blob/master/usage2/StoringData.md) about how to perform transactions.  You can batch save a list of `User` objects by using the `ProcessModelTransaction` class:
 
 ```java
 ArrayList<User> users = new ArrayList<>();
