@@ -52,6 +52,22 @@ dependencies {
 
 **Note:** Make sure to remove any previous references of DBFlow if you are upgrading.  The annotation processor has significantly changed for older versions.  If you `java.lang.NoSuchMethodError: com.raizlabs.android.dbflow.annotation.Table.tableName()Ljava/lang/String;`, then you are likely to still have included the old annotation processor in your Gradle configuration.
 
+#### Compilation issues
+
+If you see `java.lang.IllegalArgumentException: expected type but was null` errors, you may need to use DBFlow 4.0.0-beta1:
+
+```
+def dbflow_version = "4.0.0-beta1"
+```
+
+Previous versions require table names to be upper camel case (i.e. MyTableName) as described in [this issue](https://github.com/Raizlabs/DBFlow/issues/972).  If you do not use the convention, you may triggering these issues.
+
+#### Disabling Instant Run
+
+Because DBFlow relies on generating code for your table files, Android's Instant Run feature can often interfere with creating the correct set of tables.  It is highly recommended you disable this functionality by going to your Android Studio Preferences and disabling them there:
+
+<img src="http://i.stack.imgur.com/C902z.jpg">
+
 ### Instantiating DBFlow
 
 Next, we need to instantiate `DBFlow` in a [[custom application class|Understanding-the-Android-Application-Class]].  If you do not have an `Application` object, create one in `MyApplication.java` as shown below:
