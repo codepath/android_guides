@@ -264,7 +264,7 @@ Now that we have verified that messages are successfully being saved to your par
           android:id="@+id/btSend"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:gravity="center_vertical|right"
+          android:gravity="center"
           android:paddingRight="10dp"
           android:layout_alignParentRight="true"
           android:text="@string/send"
