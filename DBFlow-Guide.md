@@ -60,7 +60,7 @@ If you see `java.lang.IllegalArgumentException: expected type but was null` erro
 def dbflow_version = "4.0.0-beta1"
 ```
 
-Previous versions require table names to be upper camel case (i.e. MyTableName) as described in [this issue](https://github.com/Raizlabs/DBFlow/issues/972).  If you do not use the convention, you may triggering these issues.
+Previous versions require table names to be upper camel case (i.e. MyTableName) as described in [this issue](https://github.com/Raizlabs/DBFlow/issues/972).  If you do not use the convention, you may triggering these issues.  Some Android Studio installations trigger this issue as well so the simple workaround is to upgrade versions.
 
 #### Disabling Instant Run
 
