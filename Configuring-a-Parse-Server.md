@@ -46,7 +46,7 @@ Use Heroku if you have little or no experience with setting up web sites. Heroku
       * If you intend to use Parse's Facebook authentication, set `FACEBOOK_APP_ID` to be the [FB application ID](https://developers.facebook.com/apps).
       * If you intend to setup push notifications, there are additional environment variables such as `GCM_SENDER_KEY` and `GCM_API_KEY` that will need to be configured.  See [[this section|Configuring-a-Parse-Server#enabling-push-notifications]] for the required steps.
 
-4. Deploy the Heroku app.  The app should be hosted at `https://<app name>.herokuapp.com`.
+4. Deploy the Heroku app.  The app should be hosted at `https://<app name>.herokuapp.com` where `<app name>` represents your App Name that you provided (or if one was assigned to you if you left this field blank).
 
 If you ever need to change these values later, you can go to (`https://dashboard.heroku.com/apps/<app name>/settings`). Check out [this guide](https://devcenter.heroku.com/articles/deploying-a-parse-server-to-heroku) for a more detailed set of steps for deploying Parse to Heroku.
 
