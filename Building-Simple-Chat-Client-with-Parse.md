@@ -560,7 +560,6 @@ public class ChatActivity extends AppCompatActivity {
             public void done(List<Message> messages, ParseException e) {
                 if (e == null) {
                     mMessages.clear();
-                    Collections.reverse(messages);
                     mMessages.addAll(messages);
                     mAdapter.notifyDataSetChanged(); // update adapter
                     // Scroll to the bottom of the list on initial load
@@ -574,6 +573,20 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
     }
+}
+```
+
+If you get to this step, you will display the newest posts ordered from newest to oldest.  You can reverse the order without necessarily doing a linear sort by overriding the `getItem()` in your adapter to display the oldest items first:
+
+```java
+public class ChatListAdapter extends ArrayAdapter<Message> {
+
+  // Get the items in the reverse order:
+
+  @Override
+  public Object getItem(int position) {
+     return super.getItem(super.getCount() - position - 1);
+  }
 }
 ```
 
