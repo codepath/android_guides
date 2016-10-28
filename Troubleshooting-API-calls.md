@@ -62,18 +62,18 @@ The process requires two parts: one on the PC that will act as the proxy, and th
      
     <img src="http://imgur.com/AclSz0z.png"/> 
 
-3. Connect to any web site.  You need to go back to the PC to grant authorization for the device to connect:
+4. Connect to any web site.  You need to go back to the PC to grant authorization for the device to connect:
 
    <img src="http://imgur.com/yuRmGRC.png">
 
-4. If you are using AsyncHttpClient, you have to set the proxy settings manually (see [this GitHub issue](https://github.com/loopj/android-async-http/issues/971) for more details):
+5. If you are using AsyncHttpClient, you have to set the proxy settings manually (see [this GitHub issue](https://github.com/loopj/android-async-http/issues/971) for more details):
 
    ```java
    AsyncHttpClient client = new AsyncHttpClient();
    client.setProxy(System.getProperty("http.proxyHost"), Integer.parseInt(System.getProperty("http.proxyPort")));
    ```
 
-5. Go back to Charles Proxy and start recording network traffic:
+6. Go back to Charles Proxy and start recording network traffic:
 
    <img src="http://imgur.com/c0q6j2j.png"/>
 
