@@ -429,3 +429,4 @@ The tool should decode your `.apk` file and allow you to better understand how t
 * <http://ryanharter.com/blog/2015/06/18/hosting-a-private-maven-repo-on-amazon-s3/>
 * <http://chris.banes.me/2013/08/27/pushing-aars-to-maven-central/>
 * <https://gist.github.com/adrianbk/c4982e5ebacc6b6ed902/>
+* <https://github.com/gradle/gradle/blob/master/design-docs/finding-and-using-credentials.md#story-an-s3-repository-can-be-configured-to-authenticate-using-awss-ec2-instance-metadata/>
