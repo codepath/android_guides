@@ -71,7 +71,7 @@ The process requires two parts: one on the PC that will act as the proxy, and th
    ```java
    AsyncHttpClient client = new AsyncHttpClient();
    client.setProxy(System.getProperty("http.proxyHost"), Integer.parseInt(System.getProperty("http.proxyPort")));
-    ```
+   ```
 
 5. Go back to Charles Proxy and start recording network traffic:
 
