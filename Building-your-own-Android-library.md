@@ -301,7 +301,9 @@ POM_PACKAGING=aar
 
 #### Support for Amazon IAM Roles
 
-Currently Gradle's Amazon S3 integration only supports access keys and does not support [Identity Access Management (IAM)](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) roles.  To take advantage of a client that does, you can output the repository to a local file and use the AWS command-line client to copy the snapshot dirs:  
+Currently Gradle's Amazon S3 integration only supports access keys and does not support [Identity Access Management (IAM)](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) roles.  There is an existing backlog as reported in this [ticket](https://discuss.gradle.org/t/sts-iam-role-credentials-for-s3-maven-repository/14010) but currently it is not officially supported.
+
+To take advantage of a client that does, you can output the repository to a local file and use the AWS command-line S3 client to copy the snapshot dirs:  
 
 ```gradle
 
