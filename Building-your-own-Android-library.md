@@ -229,58 +229,50 @@ AWS_ACCESS_KEY=<my_aws_access_key>
 AWS_SECRET_KEY=<my_super_secret_key>
 ```
 
-In order to publish the plugin, we need to create a separate Gradle file that can be use in our library configuration.  Create a file called `gradle/gradle-mvn-push.gradle`, which will apply the Gradle-Maven plugin and specify the location of the S3 bucket when using the `./gradlew uploadArchives` command:
+In order to publish the plugin, we need to create a separate Gradle file that can be use in our library configuration.  Create a file called `gradle/gradle-mvn-push.gradle`, which will apply the Gradle-Maven plugin and specify the location of the S3 bucket when using the `./gradlew publish` command:
 
 ```gradle
-apply plugin: 'maven'
+// Inspired from https://gist.github.com/adrianbk/c4982e5ebacc6b6ed902
+
+apply plugin: 'maven-publish'
 
 def isReleaseBuild() {
     return VERSION_NAME.contains("SNAPSHOT") == false
 }
 
 def getOutputDir() {
-  if (isReleaseBuild()) {
-      return "${project.buildDir}/releases"
-  } else {
-      return "${project.buildDir}/snapshots"
-  }
+    if (isReleaseBuild()) {
+        return "${project.buildDir}/releases"
+    } else {
+        return "${project.buildDir}/snapshots"
+    }
 }
 
 def getDestUrl() {
-  if (isReleaseBuild()) {
-      return "s3://yourmavenrepo-bucket/android/releases"
-  } else {
-      return "s3://yourmavenrepo-bucket/android/snapshots"
-  }
+    if (isReleaseBuild()) {
+        return "s3://my-bucket/releases"
+    } else {
+        return "s3://my-bucket/snapshots"
+    }
 }
 
-uploadArchives {
-    repositories {
-        // Use mavenDeployer instead of maven if trying to write to a local file first
-
-        // mavenDeployer {
-        //  repository(url: "file:///" + getOutputDir()) can also be used to copy to local file
-        
-        maven {
-          url getDestUrl()
-
-          credentials(AwsCredentials) {
-                accessKey=AWS_ACCESS_KEY 
-                secretKey=AWS_SECRET_KEY 
-          }
-
-          pom {
-              groupId = GROUP
-              artifactId = POM_ARTIFACT_ID
-              version = VERSION_NAME
-
-              project {
-                name POM_NAME
-                packaging POM_PACKAGING
-                description POM_DESCRIPTION
-              }
-          }
-    }
+publishing {
+    publications {
+        myPublication (MavenPublication) {
+            groupId GROUP
+            artifactId POM_ARTIFACT_ID
+            version VERSION_NAME
+        }
+   }
+   repositories {
+      maven {
+        url getDestUrl()
+        credentials(AwsCredentials) {
+         accessKey = "key"
+         secretKey = "password"
+        }
+      }
+   }
 }
 
 ```
@@ -433,3 +425,4 @@ The tool should decode your `.apk` file and allow you to better understand how t
 
 * <http://ryanharter.com/blog/2015/06/18/hosting-a-private-maven-repo-on-amazon-s3/>
 * <http://chris.banes.me/2013/08/27/pushing-aars-to-maven-central/>
+* <https://gist.github.com/adrianbk/c4982e5ebacc6b6ed902/>
