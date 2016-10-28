@@ -54,7 +54,7 @@ Now, we can [[test our deployment|Configuring-a-Parse-Server#testing-deployment]
 
 ### Testing Deployment
 
-After deployment, try to connect to the site.  You should see `I dream of being a web site.` if the site loaded correctly.   If you try to connect to the `/parse` endpoint, you should see `{error: "unauthorized"}`.  If both tests pass, the basic configuration is successful.
+After deployment, try to connect to the site.  You should see `I dream of being a website. Please star the parse-server repo on GitHub!` if the site loaded correctly.   If you try to connect to the `/parse` endpoint, you should see `{error: "unauthorized"}`.  If both tests pass, the basic configuration is successful.
 
 Next, make sure you can create Parse objects.  You do not need a client Key to write new data:
 
