@@ -68,13 +68,13 @@ The process requires two parts: one on the PC that will act as the proxy, and th
 
 5. If you are using AsyncHttpClient, you have to set the proxy settings manually (see [this GitHub issue](https://github.com/loopj/android-async-http/issues/971) for more details):
 
-   ```java
-   AsyncHttpClient client = new AsyncHttpClient();
-   client.setProxy(System.getProperty("http.proxyHost"), Integer.parseInt(System.getProperty("http.proxyPort")));
-   ```
+     ```java
+     AsyncHttpClient client = new AsyncHttpClient();
+     client.setProxy(System.getProperty("http.proxyHost"), Integer.parseInt(System.getProperty("http.proxyPort")));
+     ```
 
 6. Go back to Charles Proxy and start recording network traffic:
 
-   <img src="http://imgur.com/c0q6j2j.png"/>
+     <img src="http://imgur.com/c0q6j2j.png"/>
 
 For more details, take a look at this [blog](https://jaanus.com/debugging-http-on-an-android-phone-or-tablet-with-charles-proxy-for-fun-and-profit/) for using Charles Proxy.
