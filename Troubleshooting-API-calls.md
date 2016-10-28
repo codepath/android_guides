@@ -60,11 +60,11 @@ The process requires two parts: one on the PC that will act as the proxy, and th
 
 3. Select on advanced options, set the proxy settings to manual, and enter the IP address and port 8888.  
      
-    <img src="http://imgur.com/AclSz0z.png"/> 
+     <img src="http://imgur.com/AclSz0z.png"/> 
 
 4. Connect to any web site.  You need to go back to the PC to grant authorization for the device to connect:
 
-   <img src="http://imgur.com/yuRmGRC.png">
+     <img src="http://imgur.com/yuRmGRC.png">
 
 5. If you are using AsyncHttpClient, you have to set the proxy settings manually (see [this GitHub issue](https://github.com/loopj/android-async-http/issues/971) for more details):
 
