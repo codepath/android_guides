@@ -634,7 +634,7 @@ There isn't a `SQLite3` executable on the device so our only option is to downlo
 
 ### Using Android Device Monitor
 
-You can go to `Tools`->`Android Device Monitor`->`File Explorer` and look inside the `/data/<app package name>/databases` and download the file locally to inspect the tables using a tool such as [DB Browser for SQLite](http://sqlitebrowser.org/).
+You can go to `Tools`->`Android Device Monitor`->`File Explorer` and look inside the `/data/<app package name>/databases` and download the file locally to inspect the tables using a tool such as [DB Browser for SQLite](http://sqlitebrowser.org/) or [SQLite Professional](https://itunes.apple.com/us/app/sqlite-professional-read-only/id635299994?mt=12). 
 
 ## References
 
