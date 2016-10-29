@@ -65,7 +65,8 @@ In the above Intent if your Activity is expecting some extras you can always pas
              android:value="value" />
 </intent>
 ```
-![Static Shortcuts](https://i.imgur.com/CZYtNT2.jpg)
+
+<img src="https://i.imgur.com/CZYtNT2.jpg" alt="Static Shortcuts" width="200" />
 
 So this will create a static shortcut. So we also have Dynamic Shortcuts as well lets see what are they. If you want to always show a shortcut in your app you can go with static shortcut, if you want some shortcuts to be Dynamic like text to a person which is Dynamic not same for all then you have to use Dynamic Shortcuts.
 
@@ -119,9 +120,8 @@ private void removeShorcuts() {
 So the method `disableShortcuts(List<String>)` will disable the shortcuts whose id is passed. `removeAllDynamicShortcuts();` will remove all the dynamic shortcuts.
 See the Images below for example, left is normal shortcuts for a logged in user and right has two disabled shortcuts for Guest users and when pressed it displays the Disabled messages.
 
-![All shortcuts enabled](https://i.imgur.com/5VTj7RS.jpg)
+<img src="https://i.imgur.com/5VTj7RS.jpg" alt="All shortcuts enabled" width="200" />
 
-![Some shortcuts disabled](https://i.imgur.com/OGC9eYk.jpg)
-
+<img src="https://i.imgur.com/OGC9eYk.jpg" alt="Some shortcuts disabled" width="200" />
 
 So this is how we use the new feature app shortcuts on Android 7.1, an app can have 5 shortcuts. So you can use `setRank(int)` on `ShortcutInfo` to change the order of the shortcuts.
