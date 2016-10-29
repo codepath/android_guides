@@ -176,7 +176,7 @@ First, you must declare this FileProvider in your `AndroidManifest.xml` file wit
 </provider>
 ```
 
-Next, create a resource directory called `xml` and create a `fileprovider.xml`.  This declaration will give access to the application's external path directory.
+Next, create a resource directory called `xml` and create a `fileprovider.xml`.  Assuming you wish to grant access to the application's specific external storage directory, which requires requesting no additional permissions, you can declare this line as follows:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
