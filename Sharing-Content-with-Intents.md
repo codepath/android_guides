@@ -187,6 +187,9 @@ Next, create a resource directory called `xml` and create a `fileprovider.xml`. 
     <external-files-path
         name="images"
         path="Pictures" />
+
+    <!--Uncomment below to share the entire application specific directory -->
+    <!--<external-path name="all" path="."/>-->
 </paths>
 ```
 
