@@ -146,6 +146,7 @@ public Uri getLocalBitmapUri(ImageView imageView) {
         FileOutputStream out = new FileOutputStream(file);
         bmp.compress(Bitmap.CompressFormat.PNG, 90, out);
         out.close();
+        // **Warning:** This will fail for API > 24, use a FileProvider as shown below instead.
         bmpUri = Uri.fromFile(file);
     } catch (IOException e) {
         e.printStackTrace();
@@ -157,6 +158,8 @@ public Uri getLocalBitmapUri(ImageView imageView) {
 Make sure to setup the "SD Card" within the emulator device settings:
 
 <img src="https://i.imgur.com/nvA2ZKz.png" width="300" />
+
+If you are using API 24 or above, see the section below on using a `FileProvider` to work around the new file restrictions.
 
 ### Sharing files with API 24 or higher
 
