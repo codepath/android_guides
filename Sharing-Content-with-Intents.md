@@ -197,7 +197,7 @@ File file = new File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), "share
 bmpUri = FileProvider.getUriForFile(MyActivity.this, "com.codepath.fileprovider", file);
 ```
 
-Note that there are other XML tags you can use in the `fileprovider.xml`, which map to the File directory specified.  In the example above, we use `Context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)`, which mapped to the `<external-files-dir>` XML tag in the declaration.  Here are other options you can use too:
+Note that there are other XML tags you can use in the `fileprovider.xml`, which map to the File directory specified.  In the example above, we use `Context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)`, which mapped to the `<external-files-dir>` XML tag in the declaration with the `Pictures` path specified.  Here are other options you can use too:
 
 | XML tag                   | Corresponding storage call                |
 |---------------------------|-------------------------------------------|
