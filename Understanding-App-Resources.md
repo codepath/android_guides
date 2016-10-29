@@ -296,6 +296,8 @@ Generally speaking phones and phablets are between `sw240` and `sw480`. 7" table
 
 For a detailed tutorial on how to manage responsive layouts for tablets, review our [[Flexible User Interfaces]] guide. You can also review this [article on UI design best practices](http://www.evoketechnologies.com/blog/effective-ui-design-tips-android-devices/) and [this official doc on resources](http://developer.android.com/guide/topics/resources/providing-resources.html) for more details.
 
+There's also a list of Android phone screens and dimensions each one use that you can find [here](https://material.io/devices/)
+
 ### Layout Best Practices
 
 Here is a quick checklist about how you can ensure that your application displays properly on different screens:
