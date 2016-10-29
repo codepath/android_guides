@@ -161,7 +161,7 @@ Make sure to setup the "SD Card" within the emulator device settings:
 
 If you are using API 24 or above, see the section below on using a `FileProvider` to work around the new file restrictions.
 
-### Sharing files with API 24 or higher
+### Sharing Files with API 24 or higher
 
 If you are using Android API 24 or higher, private File URI resources (file:///) cannot be shared.  You must wrap the File object as a content provider (content://) using the [FileProvider](https://developer.android.com/reference/android/support/v4/content/FileProvider.html) class.
 
@@ -229,6 +229,8 @@ return uri;
 ```
 
 You get the `Drawable` from the `ImageView`.  You get the `Bitmap` from the `Drawable`.  Put that bitmap into the Media image store.  That gives you a path which can be used instead of a file path or URL.  Note the original webpage had an additional problem with immutable bitmaps, solved by drawing the bitmap into a canvas (never shown on screen).  See linked page above for details.
+
+If you are **using API 23 or above**, then you'll need to [[request runtime permissions|Managing-Runtime-Permissions-with-PermissionsDispatcher]] for `Manifest.permission.READ_EXTERNAL_STORAGE` and `Manifest.permission.WRITE_EXTERNAL_STORAGE` in order to share the image as shown above since newer versions require explicit permisions at runtime for accessing external storage. 
 
 **Note:** There is a [common bug on emulators](https://code.google.com/p/android/issues/detail?id=75447) that will cause `MediaStore.Images.Media.insertImage` to fail with `E/MediaStore﹕ Failed to insert image` unless the media directory is first initialized as described in the link.
 
