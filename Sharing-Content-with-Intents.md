@@ -160,7 +160,7 @@ Make sure to setup the "SD Card" within the emulator device settings:
 
 ### Sharing files with API 24 or higher
 
-If you are using Android API 24 or higher, private File URI resources (file:///) cannot be shared.  You must wrap the File object as a content provider using the [FileProvider](https://developer.android.com/reference/android/support/v4/content/FileProvider.html) class.
+If you are using Android API 24 or higher, private File URI resources (file:///) cannot be shared.  You must wrap the File object as a content provider (content://) using the [FileProvider](https://developer.android.com/reference/android/support/v4/content/FileProvider.html) class.
 
 First, you must declare this FileProvider in your `AndroidManifest.xml` file within the `<application>` tag:
   
