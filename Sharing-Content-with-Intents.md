@@ -158,6 +158,45 @@ Make sure to setup the "SD Card" within the emulator device settings:
 
 <img src="https://i.imgur.com/nvA2ZKz.png" width="300" />
 
+### Sharing files with API 24 or higher
+
+If you are using Android API 24 or higher, private File URI resources (file:///) cannot be shared.  You must wrap the File object as a content provider using the [FileProvider](https://developer.android.com/reference/android/support/v4/content/FileProvider.html) class.
+
+First, you must declare this FileProvider in your `AndroidManifest.xml` file within the `<application>` tag:
+  
+```xml
+<provider
+  android:name="android.support.v4.content.FileProvider"
+  android:authorities="com.codepath.fileprovider"
+  android:exported="false"
+  android:grantUriPermissions="true">
+    <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/fileprovider" />
+</provider>
+```
+
+Next, create a resource directory called `xml` and create a `fileprovider.xml`.  This declaration will give access to the application's external path directory.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-files-path
+        name="images"
+        path="Pictures" />
+</paths>
+```
+
+Finally, you will convert the File object into a content provider using the FileProvider class:
+
+```java
+// getExternalFilesDir() + "/Pictures" should match the declaration in fileprovider.xml paths
+File file = new File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), "share_image_" + System.currentTimeMillis() + ".png");
+
+// wrap File object into a content provider
+bmpUri = FileProvider.getUriForFile(MyActivity.this, "com.codepath.fileprovider", file);
+```
+
 ### Sharing Remote Images (without explicit file IO)
 
 The second way to share an Image does not require you to write the image into a file.  This code can safely be executed on the UI thread. The approach was suggested on this webpage http://www.nurne.com/2012/07/android-how-to-attach-image-file-from.html. 
@@ -314,3 +353,4 @@ Check out the [official guide for easy sharing](http://developer.android.com/tra
 * <http://developer.android.com/training/sharing/send.html>
 * <http://developer.android.com/training/sharing/shareaction.html>
 * <http://developer.android.com/reference/android/widget/ShareActionProvider.html>
+* <https://medium.com/@benexus/dealing-with-permissions-when-sharing-files-android-m-cee9ecc287bf>
