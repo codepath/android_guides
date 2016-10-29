@@ -281,6 +281,7 @@ Covers guides specifically related to developing and publishing robust Android a
 * [[Publishing with Android Studio|Publishing-to-the-Play-Store]]
 * [[Debugging and Profiling Apps]] (**Needs Attention**)
 * [Android Best Practices](https://github.com/futurice/android-best-practices)
+* [[Creating App Shortcuts in Launcher]] (**Needs Attention**)
 
 ## Workflow
 
