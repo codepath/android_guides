@@ -189,7 +189,7 @@ Next, create a resource directory called `xml` and create a `fileprovider.xml`. 
         path="Pictures" />
 
     <!--Uncomment below to share the entire application specific directory -->
-    <!--<external-path name="all" path="."/>-->
+    <!--<external-path name="all_dirs" path="."/>-->
 </paths>
 ```
 
