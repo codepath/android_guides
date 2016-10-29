@@ -197,6 +197,15 @@ File file = new File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), "share
 bmpUri = FileProvider.getUriForFile(MyActivity.this, "com.codepath.fileprovider", file);
 ```
 
+Note that there are other XML tags you can use in the `fileprovider.xml`, which map to the File directory specified.  In the example above, we use `Context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)`, which mapped to the `<external-files-dir>` XML tag in the declaration.  Here are other options you can use too:
+
+| XML tag                   | Corresponding storage call                |
+|---------------------------|-------------------------------------------|
+| &lt;files-path>           | Context.getFilesDir()                     |
+| &lt;cache-path>           | Context.getCacheDir()                     |
+| &lt;external-path>        | Environment.getExternalStorageDirectory() |
+| &lt;external-cache-path>  | Context.getExternalCacheDir()             |
+
 ### Sharing Remote Images (without explicit file IO)
 
 The second way to share an Image does not require you to write the image into a file.  This code can safely be executed on the UI thread. The approach was suggested on this webpage http://www.nurne.com/2012/07/android-how-to-attach-image-file-from.html. 
