@@ -74,7 +74,7 @@ public class User extends BaseModel {
    public getUser() {
       return uid;
    }
-
+}
 ```
 
 
