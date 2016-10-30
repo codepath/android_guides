@@ -300,6 +300,7 @@ All the sample projects are provided as Eclipse IDE projects. However, an X in t
 | **Sample Project** | **Brief Description** | **Also Available as Android Studio Project** |
 | --- | --- | --- |
 | _JDXAndroidSimpleExample_ | Demonstrates how JDXA ORM and associated utilities can be used to easily develop an Android app that exchanges data of domain model objects with an SQLite database. | X |
+| _JDXAndroidSimpleExample2_ | Demonstrates how a JDXHelper object can simplify many of the tasks done through lower level APIs provided by JXResource, JXSession, and JDXS objects. | X |
 | _JDXAndroidRelationshipsExample_ | Demonstrates using JDXA for an object model with one-to-one and one-to-many relationships.   | X |
 | _JDXAndroidRelationships2Example_ | Demonstrates using JDXA for persisting an object model such that the attribute values of the related objects are stored in the same table (INLINE or EMBEDDED) where the attribute values of the parent object are stored.  | X |
 | _JDXAndroidAutoIncrementExample_ | Demonstrates JDXA facilitating the use of an autoincrement column for a primary key attribute of an object. | X |
