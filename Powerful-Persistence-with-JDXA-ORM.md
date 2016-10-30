@@ -302,16 +302,16 @@ All the sample projects are provided as Eclipse IDE projects. However, an X in t
 | _JDXAndroidSimpleExample_ | Demonstrates how JDXA ORM and associated utilities can be used to easily develop an Android app that exchanges data of domain model objects with an SQLite database. | X |
 | _JDXAndroidRelationshipsExample_ | Demonstrates using JDXA for an object model with one-to-one and one-to-many relationships.   | X |
 | _JDXAndroidAutoIncrementExample_ | Demonstrates JDXA facilitating the use of an autoincrement column for a primary key attribute of an object. | X |
-| _JDXAndroidSimpleLoginExample_ | Demonstrates how to easily develop a user login/signup subsystem for an Android app. |   |
+| _JDXAndroidSimpleLoginExample_ | Demonstrates how to easily develop a user login/signup subsystem for an Android app. | X  |
 | _JDXAndroidClassHierarchyExample_ | Demonstrates using JDXA for an object model with class hierarchies. Person is the superclass with BaseEmployee and Intern has its subclasses. BaseEmployee has further two subclasses - PermEmployee and TempEmployee. | X |
 | _JDXAndroidImagesExample_ | Demonstrates using JDX with image data. | X |
 | _JDXAndroidListExample1_ | Demonstrates using a JDXA provided ListAdapter class to query a list of objects from the database and displaying them. | X |
 | _JDXAndroidListExample2_ | Demonstrates using a JDX provided ListAdapter class to query a filtered list of objects from the database and displaying them. | X  |
 | _JDXAndroidStreamingListExample_ | Demonstrates using a JDXA provided streaming ListAdapter class to query a list of objects from the database and displaying them iteratively on demand by fetching only a few objects from the database at a time. |   |
 | _JDXAndroidSequencesExample_ | Demonstrates defining named sequences for generating persistently unique sequence numbers and using the JDXSeqUtility class to easily and efficiently create unique keys at runtime. |  X  |
-| _JDXAndroidManyToManyExample_ | Demonstrates using JDXA for an object model with many-to-many relationships.   |   |
+| _JDXAndroidManyToManyExample_ | Demonstrates using JDXA for an object model with many-to-many relationships.   | X  |
 | _JDXAndroidJSONExample_ | Demonstrates using JDXA for persistence of JSON objects. | X  |
-| _JDXAndroidListWithHolderPatternExample_ | Demonstrates using JDXA for retrieving a list of objects from databases, employing a holder pattern to cache and use the references to widgets for displaying an  object in a list view, and persisting an updated object back into the database. |   |
+| _JDXAndroidListWithHolderPatternExample_ | Demonstrates using JDXA for retrieving a list of objects from databases, employing a holder pattern to cache and use the references to widgets for displaying an  object in a list view, and persisting an updated object back into the database. | X  |
 | _JDXAndroidPrePostMethodsExample_ | Demonstrates using JDXPreInsert, JDXPresUpdate, and JDXPostQuery callback methods in a domain model class to automatically massage (for example, encode, decode, compress, and decompress) instance data (perhaps for security and saving disk space reasons) before saving it to the database and after retrieving it from the database. | X  |
 | _JDXAndroidAsyncQueryExample_ | Demonstrates using JDXA for retrieving object(s) asynchronously in a background thread and then showing them in a UI (main) thread. | X  |
 | _JDXAndroidCachingExample_ | Demonstrates how, with JDXA, in-memory caches may be established for particular classes such that the database need not be queried for previously cached objects. | X  |
