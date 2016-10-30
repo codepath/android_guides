@@ -129,7 +129,19 @@ public class MyDatabase {
 
 ### Defining your Tables
 
-The Java model objects **need to extend from the `BaseModel` class**.  In addition, you should annotate the class with the database name too.   Here we show how to create an `Organization` and `User` table:
+The Java model objects **need to extend from the `BaseModel` class** as shown below for an `Organization` model:
+
+```java
+import com.raizlabs.android.dbflow.structure.BaseModel;
+
+// **Note:** Your class must extend from BaseModel
+@Table(database = MyDatabase.class)
+public class Organization extends BaseModel {
+   // ... field definitions that map to columns go here ...
+}
+```
+
+Next, we need to add annotations for each of the fields within our model class that will map to columns in the database table:
 
 ```java
 import com.raizlabs.android.dbflow.structure.BaseModel;
