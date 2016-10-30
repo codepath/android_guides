@@ -100,6 +100,12 @@ You can also look at your `app/build/generated/source/apt` directory to see how 
 
 <img src="http://imgur.com/6cR07Ae.png"/> 
 
+### Troubleshooting
+
+* Getting `Something$$Parcelable cannot be cast to Something`?
+  * Be sure to call `Parcels.unwrap` whenever pulling out the parcel from the bundle:
+  * `User user = (User) Parcels.unwrap(getIntent().getParcelableExtra("user"));`
+
 ### References
 
 * <http://parceler.org/>
