@@ -173,6 +173,8 @@ If you aren't able to get the swipe to refresh working, check the following tips
 
 * **Did you clear out the old items before updating the list?** Make sure that in order for the new items to be displayed that you **clear the list of any old items if needed**. In other words, if you are replacing items in the list with new versions, be sure to remove the old versions from the adapter first with `adapter.clear();`
 
+* **Are you using CoordinatorLayout?** If you are [[using a CoordinatorLayout|Handling-Scrolls-with-CoordinatorLayout]] to manage scrolling, be sure to move the `app:layout_behavior="@string/appbar_scrolling_view_behavior"` property to the `SwipeRefreshLayout` rather than the child `RecyclerView` or `ListView`.
+
 ## References
 
 * <http://antonioleiva.com/swiperefreshlayout/>
