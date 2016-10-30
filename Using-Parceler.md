@@ -117,6 +117,10 @@ public class User extends BaseModel {
     User user = (User) Parcels.unwrap(someIntent.getParcelableExtra("user"));
     ```
 
+* Getting a null exception when accessing a class instance stored within a `Parceler` object? 
+  * Be sure that **all custom java objects** stored as fields within a Parceler object are **themselves also Parcels**. 
+  * Make sure that every parceled field is properly converted into a `Parceler` object.
+
 ## References
 
 * <http://parceler.org/>
