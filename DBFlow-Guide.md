@@ -574,7 +574,7 @@ public class MyApplication extends Application {
 
 ### Seeing `*==========*` errors
 
-The errors span multiple lines, but the Android Device Monitor may not be displaying them appropriately.  For this reason, it is easier to check by clicking on the Gradle console at the bottom right corner to see in more detail the error message:
+The gradle `java.lang.Thread.getStackTrace` and `ProcessorManager.logError` errors span multiple lines, but the Android Device Monitor may not be displaying them appropriately.  For this reason, it is easier to check by clicking on the Gradle console at the bottom right corner to see in more detail the error message:
 
 <img src="http://imgur.com/q9cCNHq.png"/>
 
@@ -583,6 +583,8 @@ There are a few things to verify:
 * Check to see if you are using private fields.  If so, you need to define manually the getter and setters for these fields.   Otherwise you may notice `class com.raizlabs.android.dbflow.processor.validator.ColumnValidator: Could not find setter for private element: "fieldName" from table class: MyTableName```
 
 * Check to see if you have at least one `@PrimaryKey` associated with a column.  
+
+* Check the [[compilation errors section|DBFlow-Guide#compilation-issues]] and try upgrading to `"4.0.0-beta1"`.
 
 ## References
 
