@@ -150,6 +150,9 @@ import com.raizlabs.android.dbflow.structure.BaseModel;
 // **Note:** Your class must extend from BaseModel
 @Table(database = MyDatabase.class)
 public class Organization extends BaseModel {
+
+  // There are various compile-time issues when using private fields, so it's recommended
+  // to keep your columns public for now.
   @Column
   @PrimaryKey
   int id;
@@ -159,7 +162,7 @@ public class Organization extends BaseModel {
 }
 ```
 
-**NOTE**: You must define at least one column to be the primary key.  If any of the fields are labeled as private, you will also need to define the getter and setter methods (i.e. `getId()` and `setId()`).  Otherwise, DBFlow may fail to generate the tables at compile time.
+**NOTE**: You must define at least one column to be the primary key.  If any of the fields are labeled as private, you will also need to define the getter and setter methods (i.e. `getId()` and `setId()`).  Otherwise, DBFlow may fail to generate the tables at compile time.  
 
 In addition, make sure your table names are using upper camel case (i.e. MyTableName).  Otherwise, you are likely to trigger `java.lang.IllegalArgumentException: expected type but was null` issues.  See [this ticket](https://github.com/Raizlabs/DBFlow/issues/972) for more details.
 
