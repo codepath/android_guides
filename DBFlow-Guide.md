@@ -151,6 +151,7 @@ The Java model objects **need to extend from the `BaseModel` class** as shown be
 import com.raizlabs.android.dbflow.structure.BaseModel;
 
 // **Note:** Your class must extend from BaseModel
+// Make sure that your table names are upper camel case (Organization, OrganizationTable, etc.) for DBFlow3
 @Table(database = MyDatabase.class)
 public class Organization extends BaseModel {
    // ... field definitions that map to columns go here ...
