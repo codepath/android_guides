@@ -25,6 +25,8 @@ dependencies {
 }
 ```
 
+## Usage
+
 ### Converting a model from Serializable objects
 
 Suppose we have an User object that implements the `Serializable` interface:
