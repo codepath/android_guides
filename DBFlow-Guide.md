@@ -151,8 +151,6 @@ import com.raizlabs.android.dbflow.structure.BaseModel;
 @Table(database = MyDatabase.class)
 public class Organization extends BaseModel {
 
-  // There are various compile-time issues when using private fields, so it's recommended
-  // to keep your columns public for now.
   @Column
   @PrimaryKey
   int id;
