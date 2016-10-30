@@ -65,6 +65,7 @@ Previous versions require table names to be upper camel case (i.e. MyTableName) 
 There is also a known issue with DBFlow v4.0 generating the wrong foreign key name as reported in [this issue](https://github.com/Raizlabs/DBFlow/issues/1036).   If you need to define a foreign key relation between two objects (i.e. User and Tweet where Tweet has a foreign key reference to User), you may need to implement a getter method on User (i.e. getUser()):
 
 ```java
+// **Note:** Your class must extend from BaseModel
 public class User extends BaseModel {
    @PrimaryKey
    @Column
@@ -128,11 +129,12 @@ public class MyDatabase {
 
 ### Defining your Tables
 
-The Java objects that need to be declared as models need to extend from `BaseModel`.  In addition, you should annotate the class with the database name too.   Here we show how to create an `Organization` and `User` table:
+The Java model objects **need to extend from the `BaseModel` class**.  In addition, you should annotate the class with the database name too.   Here we show how to create an `Organization` and `User` table:
 
 ```java
 import com.raizlabs.android.dbflow.structure.BaseModel;
 
+// **Note:** Your class must extend from BaseModel
 @Table(database = MyDatabase.class)
 public class Organization extends BaseModel {
   @Column
@@ -173,6 +175,8 @@ public class User extends BaseModel {
     }
 }
 ```
+
+Be sure to remember that **all models need to extend from** `BaseModel` including foreign keys or the models will not save properly. 
 
 ### Using with the Parceler library
 
