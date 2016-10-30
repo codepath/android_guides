@@ -54,15 +54,19 @@ dependencies {
 
 #### Compilation issues
 
-If you see `java.lang.IllegalArgumentException: expected type but was null` errors, you may need to use DBFlow 4.0.0-beta1:
+If you see `java.lang.IllegalArgumentException: expected type but was null` errors, chances are you are using package names that are not all lowercase.  Make sure you rename your package name to all lowercase:
+
+<img src="http://imgur.com/SGtxczF.png"/>
+
+In addition, all table names must be upper camel case (i.e. MyTableName) as described in [this issue](https://github.com/Raizlabs/DBFlow/issues/972).  If you do not use the convention, you may triggering these issues.  Some Android Studio installations trigger this issue as well so the simple workaround is to upgrade versions.
+
+This problem has been fixed in DBFlow 4.0.0-beta1:
 
 ```
 def dbflow_version = "4.0.0-beta1"
 ```
 
-Previous versions require table names to be upper camel case (i.e. MyTableName) as described in [this issue](https://github.com/Raizlabs/DBFlow/issues/972).  If you do not use the convention, you may triggering these issues.  Some Android Studio installations trigger this issue as well so the simple workaround is to upgrade versions.
-
-If you use private fields with foreign keys, there is also a known issue with DBFlow v4.0 generating the wrong foreign key name as reported in [this issue](https://github.com/Raizlabs/DBFlow/issues/1036).   If you need to define a relation between two objects (i.e. User and Tweet where Tweet has a foreign key reference to User), the recommended approach is simply to use **public** fields on the primary key of the relating model:
+However, if you use private fields with foreign keys, there is also a known issue with DBFlow v4.0 generating the wrong foreign key name as reported in [this issue](https://github.com/Raizlabs/DBFlow/issues/1036).   If you need to define a relation between two objects (i.e. User and Tweet where Tweet has a foreign key reference to User), the recommended approach is simply to use **public** fields on the primary key of the relating model:
 
 ```java
 // **Note:** Your class must extend from BaseModel
