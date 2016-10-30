@@ -58,7 +58,7 @@ If you see `java.lang.IllegalArgumentException: expected type but was null` erro
 
 <img src="http://imgur.com/SGtxczF.png"/>
 
-In addition, all table names must be upper camel case (i.e. MyTableName) as described in [this issue](https://github.com/Raizlabs/DBFlow/issues/972).  If you do not use the convention, you may triggering these issues.  
+In addition, all table names must be upper camel case (i.e. `User`, `UserTable`, `MyUserTable`, etc.) as described in [this issue](https://github.com/Raizlabs/DBFlow/issues/972).  If you do not use the convention, you may triggering these issues.  
 
 This problem has been fixed in DBFlow 4.0.0-beta1:
 
