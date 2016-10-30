@@ -119,7 +119,8 @@ public class UsersAdapter extends ArrayAdapter<User> {
 }
 ```
 
-That adapter has a constructor and a `getView()` method to describe the **translation between the data item and the View** to display.  `getView()` is the method that returns the actual view used as a row within the `ListView` at a particular position. Another method used is `getItem()` which is already present in the `ArrayAdapter` Class and its task is to simply get the data item associated with the specified `position` in the data set which is associated with that `ArrayAdapter`.
+That adapter has a constructor and a `getView()` method to describe the **translation between the data item and the View** to display.  
+`getView()` is the method that returns the actual view used as a row within the `ListView` at a particular position. Another method used is `getItem()` which is already present in the `ArrayAdapter` class and its task is to simply get the data item associated with the specified `position` in the data set which is associated with that `ArrayAdapter`.
 
 ## Attaching the Adapter to a ListView
 
