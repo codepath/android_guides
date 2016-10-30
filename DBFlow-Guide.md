@@ -188,7 +188,7 @@ public class User extends BaseModel {
 }
 ```
 
-Be sure to remember that **all models need to extend from** `BaseModel` including foreign keys or the models will not save properly. 
+Be sure to remember that **all models need to extend from** `BaseModel` including foreign keys or the tables will not be generated properly, preventing you from being able to compile your code successfully.
 
 ### Using with the Parceler library
 
