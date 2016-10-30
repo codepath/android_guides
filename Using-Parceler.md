@@ -104,6 +104,7 @@ You can also look at your `app/build/generated/source/apt` directory to see how 
 
 * Getting `java.lang.ClassCastException: SomeObject$$Parcelable cannot be cast to SomeObject`?
   * Be sure to call `Parcels.unwrap` when extracting the parcel from the bundle:
+
     ```java
     User user = (User) Parcels.unwrap(someIntent.getParcelableExtra("user"));
     ```
