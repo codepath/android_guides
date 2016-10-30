@@ -62,7 +62,7 @@ def dbflow_version = "4.0.0-beta1"
 
 Previous versions require table names to be upper camel case (i.e. MyTableName) as described in [this issue](https://github.com/Raizlabs/DBFlow/issues/972).  If you do not use the convention, you may triggering these issues.  Some Android Studio installations trigger this issue as well so the simple workaround is to upgrade versions.
 
-There is also a known issue with DBFlow v4.0 generating the wrong foreign key name as reported in [this issue](https://github.com/Raizlabs/DBFlow/issues/1036).   If you need to define a foreign key relation between two objects (i.e. User and Tweet where Tweet has a foreign key reference to User), you may need to implement a getter method on User (i.e. getUser()):
+If you use private fields with foreign keys, there is also a known issue with DBFlow v4.0 generating the wrong foreign key name as reported in [this issue](https://github.com/Raizlabs/DBFlow/issues/1036).   If you need to define a relation between two objects (i.e. User and Tweet where Tweet has a foreign key reference to User), you may need to implement a getter method on User (i.e. getUser()):
 
 ```java
 // **Note:** Your class must extend from BaseModel
@@ -72,6 +72,7 @@ public class User extends BaseModel {
    private long uid;
 
    // DBFlow 4.0 is generating the wrong foreign key relation (should be getUid() instead of getUser())
+   // if you use private fields.
    public getUser() {
       return uid;
    }
