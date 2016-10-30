@@ -282,7 +282,8 @@ public class UsersAdapter extends ArrayAdapter<User> {
            // View is being recycled, retrieve the viewHolder object from tag
            viewHolder = (ViewHolder) convertView.getTag();
        }
-       // Populate the data from the data object via the viewHolder object into the template view.
+       // Populate the data from the data object via the viewHolder object 
+       // into the template view.
        viewHolder.name.setText(user.name);
        viewHolder.home.setText(user.hometown);
        // Return the completed view to render on screen
