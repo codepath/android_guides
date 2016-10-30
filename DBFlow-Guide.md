@@ -62,7 +62,7 @@ In addition, all table names must be upper camel case (i.e. MyTableName) as desc
 
 This problem has been fixed in DBFlow 4.0.0-beta1:
 
-```
+```groovy
 def dbflow_version = "4.0.0-beta1"
 ```
 
