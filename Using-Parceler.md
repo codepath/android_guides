@@ -120,6 +120,8 @@ public class User extends BaseModel {
 * Getting a null exception when accessing a member instance stored within a `Parceler` object? 
   * Be sure that **all custom java objects** stored as fields within a Parceler object are **themselves also Parcels**. 
   * Make sure that every parceled field is properly converted into a `Parceler` object.
+  * Breakpoint at the point right before the object is being wrapped and verify the member field is correct.
+  * Breakpoint again at the point right after the object is extracted and unwrapped and verify member field is correct.
 
 ## References
 
