@@ -550,7 +550,7 @@ public Bitmap getMarker() {
     IconGenerator iconGen = new IconGenerator(context);
 
     // Define the size you want from dimensions file
-    int shapeSize = context.getResources().getDimensionPixelSize(R.dimen.custom_marker_size;
+    int shapeSize = context.getResources().getDimensionPixelSize(R.dimen.custom_marker_size);
 
     Drawable shapeDrawable = ResourcesCompat.getDrawable(context.getResources(), 
         R.drawable.custom_marker, null);
