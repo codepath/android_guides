@@ -134,6 +134,8 @@ dependencies {
 }
 ```
 
+Use the `IconGenerator` class included in this library and set the color and text of this speech bubble:
+
 ```java
 IconGenerator iconGenerator = new IconGenerator(MapDemoActivity.this);
 
@@ -143,8 +145,10 @@ iconGenerator.setStyle(IconGenerator.STYLE_GREEN);
 // Swap text here to live inside speech bubble
 Bitmap bitmap = iconGenerator.makeIcon(title);
 // Use BitmapDescriptorFactory to create the marker
-BitmapDescriptor marker = BitmapDescriptorFactory.fromBitmap(bitmap);
+BitmapDescriptor icon = BitmapDescriptorFactory.fromBitmap(bitmap);
 ```
+
+When adding a marker, use this icon instead of the default one.
 
 ### Show AlertDialog on LongClick
 
