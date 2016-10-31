@@ -555,7 +555,7 @@ This section shows how to implement clusters that will appear as individual mark
 
 First create a class `MyItem` that implements `ClusterItem`: 
 
-```
+```java
 public class MyItem implements ClusterItem {
   private final LatLng mPosition;
 
@@ -571,7 +571,7 @@ public class MyItem implements ClusterItem {
 ```
 In your map activity, add the `ClusterManager` and feed it the cluster items:
 
-```
+```java
 public class MapActivity extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -604,7 +604,7 @@ public class MapActivity extends AppCompatActivity {
 
 At this point, you should be able to render default markers that cluster. In order use customized markers you will need to extend `DefaultClusterRenderer` and build your own renderer class:
 
-```
+```java
 private void setUpClusterer() {
   ...
   mClusterManager = new ClusterManager<MyItem>(this, getMap());
@@ -616,7 +616,7 @@ private void setUpClusterer() {
 ```
 Define the `MyItemRenderer` class:
 
-```
+```java
 public class MyItemRenderer extends DefaultClusterRenderer<MyItem>{
 	
   public MyItemRenderer(ClusterManager<MyItem> clusterManager) {
@@ -642,7 +642,7 @@ public class MyItemRenderer extends DefaultClusterRenderer<MyItem>{
 
 In order to support click events on the marker have your parent activity implement `OnClusterItemClickListener`:
 
-```
+```java
 public class MapActivity extends AppCompatActivity implements ClusterManager.OnClusterItemClickListener<MyItem>{
   ...
   @Override
