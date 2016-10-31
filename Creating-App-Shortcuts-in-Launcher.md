@@ -56,6 +56,7 @@ Your `shortcut.xml` will be under xml-v25 under res folder and will look like th
     </shortcut>
 </shortcuts>
 ```
+Specify shortcut categories. Currently only `SHORTCUT_CATEGORY_CONVERSATION` is defined in the framework.
 In the above Intent if your Activity is expecting some extras you can always pass it with extra tag like this.
 ```xml
 <intent
@@ -95,7 +96,7 @@ private void createShorcut() {
 }
 ```
 
-ShortcutManager uses system service so this has to be in an activity and remember this only works on Android 7.1 so it's good to add the annotation `@TargetApi(25)` to this code to avoid compile errors and add version check before calling these methods.
+`ShortcutManager` uses system service so this has to be in an activity and remember this only works on Android 7.1 so it's good to add the annotation `@TargetApi(25)` to this code to avoid compile errors and add version check before calling these methods.
 
 ```java
 if (Build.VERSION.SDK_INT >= 25) {
@@ -118,10 +119,16 @@ private void removeShorcuts() {
 }
 ```
 So the method `disableShortcuts(List<String>)` will disable the shortcuts whose id is passed. `removeAllDynamicShortcuts();` will remove all the dynamic shortcuts.
-See the Images below for example, left is normal shortcuts for a logged in user and right has two disabled shortcuts for Guest users and when pressed it displays the Disabled messages.
+See the Images below for example, left is normal shortcuts for a logged in user and right has two disabled shortcuts for Guest users and when pressed it displays the disabled messages set in the method `setDisabledMessage(String)`.
 
-<img src="https://i.imgur.com/5VTj7RS.jpg" alt="All shortcuts enabled" width="200" />
-
-<img src="https://i.imgur.com/OGC9eYk.jpg" alt="Some shortcuts disabled" width="200" />
+<img src="https://i.imgur.com/5VTj7RS.jpg" alt="All shortcuts enabled" width="200" /> <img src="https://i.imgur.com/OGC9eYk.jpg" alt="Some shortcuts disabled" width="200" />
 
 So this is how we use the new feature app shortcuts on Android 7.1, an app can have 5 shortcuts. So you can use `setRank(int)` on `ShortcutInfo` to change the order of the shortcuts.
+
+## Resources
+
+Check out the following links for more details:
+
+ * [App Shortcuts](https://developer.android.com/preview/shortcuts.html)
+ * [ShortcutManager](https://developer.android.com/reference/android/content/pm/ShortcutManager.html)
+ * [ShortcutInfo.Builder](https://developer.android.com/reference/android/content/pm/ShortcutInfo.Builder.html)
