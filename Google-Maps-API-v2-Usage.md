@@ -124,6 +124,27 @@ BitmapDescriptor customMarker =
 
 See the [BitmapDescriptorFactory](https://developers.google.com/android/reference/com/google/android/gms/maps/model/BitmapDescriptorFactory) docs for other colors or icon loading options. Review the [official markers guide](https://developers.google.com/maps/documentation/android/marker#make_a_marker_draggable) for additional marker customization options.
 
+#### Speech Bubbles
+
+Add the [Google Maps Android Utility library](https://developers.google.com/maps/documentation/android-api/utility/) to your `app/build.gradle` file:
+
+```gradle
+dependencies {
+  compile 'com.google.maps.android:android-maps-utils:0.4+'
+}
+```
+
+```java
+IconGenerator iconGenerator = new IconGenerator(MapDemoActivity.this);
+
+// Possible color options:
+// STYLE_WHITE, STYLE_RED, STYLE_BLUE, STYLE_GREEN, STYLE_PURPLE, STYLE_ORANGE
+iconGenerator.setStyle(IconGenerator.STYLE_GREEN);
+// Swap text here to live inside speech bubble
+Bitmap bitmap = iconGenerator.makeIcon(title);
+// Use BitmapDescriptorFactory to create the marker
+BitmapDescriptor marker = BitmapDescriptorFactory.fromBitmap(bitmap);
+
 ### Show AlertDialog on LongClick
 
 You can use the following code to bring up an `AlertDialog` for users to type a message on `MapLongClick` event. On completion, we can add a marker to the map which when pressed displays the message typed. 
