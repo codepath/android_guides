@@ -126,6 +126,8 @@ See the [BitmapDescriptorFactory](https://developers.google.com/android/referenc
 
 #### Speech Bubbles
 
+<img src="http://imgur.com/tj9gpoa.png"/>
+
 Add the [Google Maps Android Utility library](https://developers.google.com/maps/documentation/android-api/utility/) to your `app/build.gradle` file:
 
 ```gradle
