@@ -144,6 +144,7 @@ iconGenerator.setStyle(IconGenerator.STYLE_GREEN);
 Bitmap bitmap = iconGenerator.makeIcon(title);
 // Use BitmapDescriptorFactory to create the marker
 BitmapDescriptor marker = BitmapDescriptorFactory.fromBitmap(bitmap);
+```
 
 ### Show AlertDialog on LongClick
 
