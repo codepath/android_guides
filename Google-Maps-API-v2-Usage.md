@@ -150,7 +150,14 @@ Bitmap bitmap = iconGenerator.makeIcon(title);
 BitmapDescriptor icon = BitmapDescriptorFactory.fromBitmap(bitmap);
 ```
 
-When adding a marker, use this icon instead of the default one.
+When adding a marker, use this icon instead of the default one:
+
+```java
+Marker mapMarker = map.addMarker(new MarkerOptions()
+// add options here
+    .icon(icon));
+```
+
 
 ### Show AlertDialog on LongClick
 
