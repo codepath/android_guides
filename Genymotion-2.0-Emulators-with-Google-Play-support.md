@@ -19,7 +19,7 @@ To setup your genymotion emulator [sign up](https://www.genymotion.com/account/l
    <img src="http://cdn.sysprobs.com/wp-content/uploads/2009/10/virt_bios.gif"> 
 7. Install the Genymotion plugin for Android Studio.  Go to `Preferences`->`Plugins` and click Browse repositories. Search for Genymotion and you should find one provided by http://www.genymotion.com.
 
-  ![https://i.imgur.com/AIY7gOS.gif](https://i.imgur.com/AIY7gOS.gif | width=100%)
+  ![https://i.imgur.com/AIY7gOS.gif](https://i.imgur.com/AIY7gOS.gif)
 
   After restarting, go to `Preferences`->`Other`->`Genymotion` and setup the location of the Genymotion app.
 
