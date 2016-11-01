@@ -153,7 +153,7 @@ public class MainActivity extends Activity {
                // Add whatever code is needed to append new items to the bottom of the list
                loadNextDataFromApi(page);
            }
-      });
+      };
       // Adds the scroll listener to RecyclerView
       rvItems.addOnScrollListener(scrollListener);
   }
