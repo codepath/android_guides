@@ -211,6 +211,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [greenDAO](https://github.com/greenrobot/greenDAO)
  * [SugarORM](http://satyan.github.io/sugar/)
  * [RxCache](https://github.com/VictorAlbertos/RxCache) - Reactive caching library for Android
+ * [Android-Orma](https://github.com/gfx/Android-Orma) - A type-safe ORM for Android as a wrapper of SQLiteDatabase
  * [ORMLite](http://ormlite.com/sqlite_java_android_orm.shtml)
  * [SQLBrite](https://github.com/square/sqlbrite) - Lightweight wrapper around SQLiteOpenHelper
  * [[Cupboard|Easier-SQL-with-Cupboard]] - Popular take on SQL wrapper
