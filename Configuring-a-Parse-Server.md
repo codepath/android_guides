@@ -390,8 +390,8 @@ If you see `Can not find sender for push type android`, it means you forgot to s
           to match your app's package name + ".permission.C2D_MESSAGE".
         -->
         <permission android:protectionLevel="signature"
-            android:name="com.codepath.parseportpush.permission.C2D_MESSAGE" />
-        <uses-permission android:name="com.codepath.parseportpush.permission.C2D_MESSAGE" />
+            android:name="${packageName}.permission.C2D_MESSAGE" />
+        <uses-permission android:name="${packageName}.permission.C2D_MESSAGE" />
     ```
 
 6. Declare a service, Parse-specific broadcast receiver, and a GCM receiver within the `application` tag of the `AndroidManifest.xml` file:
@@ -418,7 +418,7 @@ If you see `Can not find sender for push type android`, it means you forgot to s
                       <!--
                         IMPORTANT: Change "com.codepath.parseportpush" to match your app's package name.
                       -->
-                      <category android:name="com.codepath.parseportpush" />
+                      <category android:name="${packageName}" />
                   </intent-filter>
             </receiver>
       </application>
