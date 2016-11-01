@@ -24,7 +24,7 @@ Select `Android Library`.  There is the option to choose `Java library`, but the
 
 <img src="http://imgur.com/xDUBjYg.png"/>
 
-You will prompted next to provide a name and the module name.  The name will simply be used to [label](http://developer.android.com/guide/topics/manifest/manifest-intro.html#iconlabel) the application in the Android Manifest file, while the module name will correspond to the directory to be created:
+Next, you will be prompted to provide a name and the module name.  The name will simply be used to [label](http://developer.android.com/guide/topics/manifest/manifest-intro.html#iconlabel) the application in the Android Manifest file, while the module name will correspond to the directory to be created:
 
 <img src="http://imgur.com/kNKP51f.png"/>
 
