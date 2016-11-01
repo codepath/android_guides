@@ -379,6 +379,7 @@ If you see `Can not find sender for push type android`, it means you forgot to s
     * context.getPackageName() + .permission.C2D_MESSAGE (i.e. `com.yourpackagename.permission.C2D_MESSAGE`)
 
     ```xml
+        <!-- These permissions should live outside the application tag -->
         <uses-permission android:name="android.permission.INTERNET" />
         <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
         <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -392,6 +393,9 @@ If you see `Can not find sender for push type android`, it means you forgot to s
         <permission android:protectionLevel="signature"
             android:name="${packageName}.permission.C2D_MESSAGE" />
         <uses-permission android:name="${packageName}.permission.C2D_MESSAGE" />
+
+        <application>
+        </application>
     ```
 
 6. Declare a service, Parse-specific broadcast receiver, and a GCM receiver within the `application` tag of the `AndroidManifest.xml` file:
