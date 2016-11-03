@@ -37,8 +37,8 @@ apply plugin: 'android-apt'
 ...
 
 dependencies {
-  compile 'com.jakewharton:butterknife:8.2.1'
-  apt 'com.jakewharton:butterknife-compiler:8.2.1'
+  compile 'com.jakewharton:butterknife:8.4.0'
+  apt 'com.jakewharton:butterknife-compiler:8.4.0'
 }
 ```
 
