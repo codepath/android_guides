@@ -11,7 +11,7 @@ First approach is to use the Parse Push service to send and receive push notific
 
 ### Setup
 
-Start by checking out our [push notifications setup guide for Parse](https://guides.codepath.com/android/Push-Notifications-with-Parse) to get things started.  Use the [push notifications client demo](https://github.com/codepath/ParsePushNotificationExample) as a reference as well.
+Start by checking out our [push notifications setup guide for Parse](https://guides.codepath.com/android/Push-Notifications-Setup-for-Parse) to get things started.  Use the [push notifications client demo](https://github.com/codepath/ParsePushNotificationExample) as a reference as well.
 
 ### Sending Push Notifications
 
