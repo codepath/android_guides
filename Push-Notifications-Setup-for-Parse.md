@@ -164,8 +164,6 @@ If you use Parse's default [ParsePushBroadcastReceiver](https://github.com/Parse
 
 You can also create your own custom receiver as shown in [this example](https://github.com/codepath/ParsePushNotificationExample/blob/master/app/src/main/java/com/test/MyCustomReceiver.java).
 
-#### Listening to Broadcast Events Dynamically
-
 In addition, you can programmatically register for broadcast notifications by creating an intent filter and registering the receiver: 
 
 ```java
