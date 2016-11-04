@@ -160,7 +160,7 @@ Marker mapMarker = map.addMarker(new MarkerOptions()
 
 ### Enable Markers to be Draggable
 
-First, set the map
+First, set the map to listen for drag events:
 
 ```java
 protected void loadMap(GoogleMap googleMap) {
