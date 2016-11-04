@@ -167,8 +167,14 @@ Declare the Push service and a Parse-specific broadcast receiver `AndroidManifes
 * In addition, you can programmatically register for broadcast notifications by creating an intent filter and registering the receiver: 
 
 ```java
-IntentFilter intentFilter = new IntentFilter("com.parse.push.intent.RECEIVE");
-registerReceiver(new MarkerUpdatesReceiver(this), intentFilter);
+public class MapDemoActivity extends AppCompatActivity {
+
+   @Override
+    protected void onCreate(Bundle savedInstanceState) {
+     IntentFilter intentFilter = new IntentFilter("com.parse.push.intent.RECEIVE");  
+     registerReceiver(new MarkerUpdatesReceiver(this), intentFilter);
+    }
+}
 ```
 
 ### Receiving Pushes on Android
