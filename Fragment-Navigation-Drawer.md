@@ -418,6 +418,8 @@ The ActionBarToggle will perform the same function done previously but adds a bi
 One thing to note is that the ActionBarDrawerToggle renders a custom [DrawerArrowDrawable](
 https://github.com/android/platform_frameworks_support/blob/master/v7/appcompat/src/android/support/v7/graphics/drawable/DrawerArrowDrawable.java) for you for the hamburger icon.
 
+Also, make sure to be using `android.support.v7.app.ActionBarDrawerToggle` version.  The `android.support.v4.app.ActionBarDrawerToggle` has been deprecated.
+
 ## Making Status Bar Translucent
 
 <img src="http://imgur.com/o4WvT3k.gif"/>
