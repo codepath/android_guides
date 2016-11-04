@@ -231,7 +231,7 @@ The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which 
 
 ### Enabling Push Notifications
 
-See [[this guide|Push-Notifications-with-Parse]] for more details about how to setup both the Parse open source version and the Parse Android SDK Client.
+See [[this guide|Push-Notifications-Setup-for-Parse]] for more details about how to setup both the Parse open source version and the Parse Android SDK Client.
 
 ### Storing Files with Parse
 
