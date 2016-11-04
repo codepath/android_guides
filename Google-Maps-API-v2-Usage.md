@@ -690,6 +690,24 @@ public class MapActivity extends AppCompatActivity implements ClusterManager.OnC
 
 For additional information check out the [google] (https://developers.google.com/maps/documentation/android-api/utility/marker-clustering) tutorial. This [google app](https://github.com/googlemaps/android-maps-utils) contains code samples for a customized map with cluster icons. This [post](http://stackoverflow.com/a/30972491/1715285) on stack overflow goes into deep detail on styling a cluster icon. 
 
+### Enable Markers to be Draggable
+
+First, set the map
+
+```java
+protected void loadMap(GoogleMap googleMap) {
+  map.setOnMarkerDragListener(this);
+}
+```
+
+You then must implement the `onMarkerDragStart()`, `onMarkerDrag()`, and `onMarkerDragEnd()` methods for your activity.
+
+Finally, when creating markers, make sure to set the draggable state to `true`:
+
+```java
+marker.setDraggable(true);
+```
+
 ### Utility Library
 
 For additional features such as heat maps, marker clusters, calculating distances and more be sure to check out the [maps utility library](https://developers.google.com/maps/documentation/android/utility/). Watch [this video introduction](https://www.youtube.com/watch?v=nb2X9IjjZpM) for a brief overview.
