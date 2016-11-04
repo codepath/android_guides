@@ -252,7 +252,23 @@ You will likely see this error in the API response:
 
 Instead, you need to write your own server-side Parse code and have the client invoke it.  Fortunately, the process is fairly straightforward:
 
-1. Fork this [repo](https://github.com/codepath/parse-server-example).  This repo is similar to the package that you used for your one-click deploy.  This repo has some additional environment variables configurations added that help facilitate sending push notifications (i.e. see `GCM_SENDER_ID`, and `GCM_API_KEY` in [index.js](https://github.com/codepath/parse-server-example/blob/master/index.js#L37-L40))
+1. You will need to modify your `index.js` to add support for GCM.  See [this example](https://github.com/codepath/parse-server-example/blob/master/index.js#L15-L18):
+
+      ```javascript
+      if (process.env.GCM_SENDER_ID && process.env.GCM_API_KEY) {
+        pushConfig['android'] = { senderId: process.env.GCM_SENDER_ID || '',
+                                  apiKey: process.env.GCM_API_KEY || ''};
+      }
+      ```
+
+   This repo has some additional environment variables configurations added that help facilitate sending push notifications (i.e. see `GCM_SENDER_ID`, and `GCM_API_KEY` in [index.js](https://github.com/codepath/parse-server-example/blob/master/index.js#L37-L40)).  You need to pass this configuration to the instantiation of the Parse server:
+
+   ```javascript
+      var api = new ParseServer({
+                  push: pushConfig,
+             });
+   ```
+
 2. Make sure to confirm the `SERVER_URL` environment variable is set to the URL and Parse mount location (i.e. `http://yourappname.herokuapp.com/parse`).
 3. Verify that `cloud/main.js` is the default value of `CLOUD_CODE_MAIN` environment variable.  
 4. Modify [cloud/main.js](https://github.com/codepath/parse-server-example/blob/master/cloud/main.js) yourself to add custom code to send Push notifications.  See [these examples](https://github.com/ParsePlatform/parse-server/issues/401#issuecomment-183767065) for other ways of sending too.  
