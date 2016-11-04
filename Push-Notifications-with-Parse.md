@@ -107,6 +107,8 @@ Add the necessary permissions to your `Android Manifest.xml` file.  These permis
   <uses-permission android:name="android.permission.GET_ACCOUNTS" />
   <uses-permission android:name="android.permission.VIBRATE" />
   <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+  <!-- ${packageName} is substituted for the package name declared above.  -->
   <permission android:protectionLevel="signature" android:name="${packageName}.permission.C2D_MESSAGE" />
   <uses-permission android:name="${packageName}.permission.C2D_MESSAGE" />
 
@@ -118,9 +120,9 @@ Add the necessary permissions to your `Android Manifest.xml` file.  These permis
 </manifest>
 ```
 
-**NOTE**: The Parse Android SDK permissions are different than those in the official Firebase Cloud Messaging documentation.   In particular, the permissions in the manifest file that you need to set are checked by the Parse Android SDK, so you should **must** use the old permissions as provided. 
+**NOTE**: The Parse Android SDK permissions are different than those in the official Firebase Cloud Messaging documentation.   In particular, the permissions in the manifest file that you need to set are checked by the Parse Android SDK, so you should **must** use the old permissions as provided.   There is still work underway to upgrade the Parse Android SDK to the latest version of Firebase Cloud Messaging (see [discussion issue](https://github.com/ParsePlatform/Parse-SDK-Android/pull/452)).  
 
-There is still work underway to upgrade the Parse Android SDK to the latest version of Firebase Cloud Messaging (see [discussion issue](https://github.com/ParsePlatform/Parse-SDK-Android/pull/452)).  
+Use the `${packageName}` instead of specifying the package name yourself.  If you mistype this information, push notifications may not be enabled by the Parse Android SDK.
 
 #### Create a Gcm Broadcast Receiver
 
