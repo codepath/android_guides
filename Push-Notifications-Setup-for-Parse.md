@@ -171,7 +171,7 @@ IntentFilter intentFilter = new IntentFilter("com.parse.push.intent.RECEIVE");
 registerReceiver(new MarkerUpdatesReceiver(this), intentFilter);
 ```
 
-#### Executing Parse Cloud Functions
+### Executing Parse Cloud Functions
 
 Assuming the function is named `pushChannelTest`, modify your Android code to invoke this function by using the `callFunctionInBackground()` call.  Any parameters should be passed as a `HashMap`:
 
@@ -183,7 +183,7 @@ test.put("channel", "testing");
 ParseCloud.callFunctionInBackground("pushChannelTest", test);
 ```
 
-#### Save GCM Token
+### Save GCM Token
 
 Make sure to register the GCM token to the server:
 
@@ -194,7 +194,7 @@ Parse.initialize(...);
 ParseInstallation.getCurrentInstallation().saveInBackground();
 ```
 
-#### Subscribing to Channels 
+### Subscribing to Channels 
 
 If you wish to subscribe to certain channels, you can call this command:
 
