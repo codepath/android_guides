@@ -144,7 +144,7 @@ You will also need to add a Gcm Broadcast receiver for handling GCM messages in 
 
 #### Create a Parse-specific broadcast receiver
 
-Declare a Parse-specific broadcast receiver `AndroidManifest.xml` file:
+Declare the Push service and a Parse-specific broadcast receiver `AndroidManifest.xml` file:
 
 ```xml
 <application>
