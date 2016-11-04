@@ -82,7 +82,7 @@ controller.setVisibility(View.VISIBLE);
 
 <a href="https://github.com/yqritc/Android-ScalableVideoView"><img src="http://i.imgur.com/EFVEg0V.gif" width="250" /></a>
 
-You can read about [how fenster was developed](http://www.malmstein.com/blog/2014/08/09/how-to-use-a-textureview-to-display-a-video-with-custom-media-player-controls/) as well. 
+You can read about [how fenster was developed](http://www.malmstein.com/blog/2014/08/09/how-to-use-a-textureview-to-display-a-video-with-custom-media-player-controls/) as well. If you are using fenster and running into a permissions error related to `write_settings` on an Android >= 6.0 device, check out [this snippet as a workaround](https://gist.github.com/shrikant0013/fc3e67b4b898294a03e4eba1b527f898). 
 
 ### Streaming from YouTube
 
