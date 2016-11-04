@@ -192,8 +192,15 @@ ParseInstallation.getCurrentInstallation().saveInBackground();
 If you wish to subscribe to certain channels, you can call this command:
 
 ```java
-final String CHANNEL_NAME = "abcd";
-ParsePush.subscribeInBackground(CHANNEL_NAME);
+public class MyApplication extends Application {
+    final String CHANNEL_NAME = "abcd";
+
+    @Override
+    public void onCreate() {
+
+      // after Parse init
+      ParsePush.subscribeInBackground(CHANNEL_NAME);
+    }
 ```
 
 ### Receiving Pushes on Android
