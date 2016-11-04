@@ -122,7 +122,7 @@ BitmapDescriptor customMarker =
   BitmapDescriptorFactory.fromResource(R.drawable.house_flag);
 ```
 
-See the [BitmapDescriptorFactory](https://developers.google.com/android/reference/com/google/android/gms/maps/model/BitmapDescriptorFactory) docs for other colors or icon loading options. Review the [official markers guide](https://developers.google.com/maps/documentation/android/marker#make_a_marker_draggable) for additional marker customization options.
+See the [BitmapDescriptorFactory](https://developers.google.com/android/reference/com/google/android/gms/maps/model/BitmapDescriptorFactory) docs for other colors or icon loading options. 
 
 #### Speech Bubbles
 
@@ -158,6 +158,23 @@ Marker mapMarker = map.addMarker(new MarkerOptions()
     .icon(icon));
 ```
 
+### Enable Markers to be Draggable
+
+First, set the map
+
+```java
+protected void loadMap(GoogleMap googleMap) {
+  map.setOnMarkerDragListener(this);
+}
+```
+
+You then must implement the `onMarkerDragStart()`, `onMarkerDrag()`, and `onMarkerDragEnd()` methods for your activity.
+
+Finally, when creating markers, make sure to set the draggable state to `true`:
+
+```java
+marker.setDraggable(true);
+```
 
 ### Show AlertDialog on LongClick
 
@@ -689,24 +706,6 @@ public class MapActivity extends AppCompatActivity implements ClusterManager.OnC
 ```
 
 For additional information check out the [google] (https://developers.google.com/maps/documentation/android-api/utility/marker-clustering) tutorial. This [google app](https://github.com/googlemaps/android-maps-utils) contains code samples for a customized map with cluster icons. This [post](http://stackoverflow.com/a/30972491/1715285) on stack overflow goes into deep detail on styling a cluster icon. 
-
-### Enable Markers to be Draggable
-
-First, set the map
-
-```java
-protected void loadMap(GoogleMap googleMap) {
-  map.setOnMarkerDragListener(this);
-}
-```
-
-You then must implement the `onMarkerDragStart()`, `onMarkerDrag()`, and `onMarkerDragEnd()` methods for your activity.
-
-Finally, when creating markers, make sure to set the draggable state to `true`:
-
-```java
-marker.setDraggable(true);
-```
 
 ### Utility Library
 
