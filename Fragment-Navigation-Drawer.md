@@ -370,6 +370,8 @@ We need to tie the DrawerLayout and Toolbar together:
    }
 
    private ActionBarDrawerToggle setupDrawerToggle() {
+        // NOTE: Make sure you pass in a valid toolbar value.  ActionBarDrawToggle() does not require it
+        // and will not render the hamburger icon without it.
         return new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.drawer_open,  R.string.drawer_close);
    }
 ```
