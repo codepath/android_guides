@@ -184,7 +184,7 @@ Make sure to register the GCM token to the server:
 Parse.initialize(...);
 
 // Need to register GCM token
-     ParseInstallation.getCurrentInstallation().saveInBackground();
+ParseInstallation.getCurrentInstallation().saveInBackground();
 ```
 
 ### Receiving Pushes on Android
