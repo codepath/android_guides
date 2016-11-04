@@ -164,6 +164,15 @@ If you use Parse's default [ParsePushBroadcastReceiver](https://github.com/Parse
 
 You can also create your own custom receiver as shown in [this example](https://github.com/codepath/ParsePushNotificationExample/blob/master/app/src/main/java/com/test/MyCustomReceiver.java).
 
+In addition, you can programmatically register for broadcast notifications by creating an intent filter and registering the receiver: 
+
+```java
+IntentFilter intentFilter = new IntentFilter("com.parse.push.intent.RECEIVE");
+registerReceiver(new MarkerUpdatesReceiver(this), intentFilter);
+```
+
+See [this gist](https://gist.github.com/rogerhu/376db94277503a4a2887339cba4e9fad) for MarkerUpdatesReceiver.java.
+
 #### Executing Parse Cloud Functions
 
 Assuming the function is named `pushChannelTest`, modify your Android code to invoke this function by using the `callFunctionInBackground()` call.  Any parameters should be passed as a `HashMap`:
@@ -201,6 +210,7 @@ public class MapDemoActivity extends AppCompatActivity {
       // make sure Parse has been initialized
       ParsePush.subscribeInBackground(CHANNEL_NAME);
     }
+}
 ```
 
 ### Receiving Pushes on Android
