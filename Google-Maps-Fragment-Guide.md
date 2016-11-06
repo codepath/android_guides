@@ -8,7 +8,7 @@ In this guide, we will walk you through the step by step process of getting an e
 
 First, let's download and setup the Google Play Services and Google Repository SDKs. Open `Android Studio` ⇒ `Tools` ⇒ `Android` ⇒ `Android SDK Manager`:
 
-<img src="http://imgur.com/AYvwTw6.png" width="500" />
+<img src="http://imgur.com/lVilDXT.png" width="500" />
 
 Under `SDK Tools` section, check whether you have already downloaded the latest version `Google Play services` and `Google Repository` or not. If not, select `Google Play services` and `Google Repository` to install the missing packages.
 
