@@ -237,7 +237,7 @@ public class MapDemoActivity extends AppCompatActivity implements
   GoogleApiClient.ConnectionCallbacks,
   GoogleApiClient.OnConnectionFailedListener,
   LocationListener,
-  OnMapLongClickListener {
+  GoogleMap.OnMapLongClickListener {
 
     ...
 
