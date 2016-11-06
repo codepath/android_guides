@@ -17,12 +17,12 @@ Under `SDK Tools` section, check whether you have already downloaded the latest 
 1. Download the [Maps Demo Repo](https://github.com/codepath/android-google-maps-demo/archive/master.zip) 
 2. Run `File` ⇒ `Open`, select `android-google-maps-demo-master`
 3. Verify sure you have these dependencies listed in your `app/build.gradle` file:
-   ```gradle
-   dependencies {
-       compile 'com.google.android.gms:play-services-maps:9.8.0'
-       compile 'com.google.android.gms:play-services-location:9.8.0'
-   }
-   ```
+      ```gradle
+      dependencies {
+          compile 'com.google.android.gms:play-services-maps:9.8.0'
+          compile 'com.google.android.gms:play-services-location:9.8.0'
+      }
+      ```
 4. Make sure to select `Build => Clean project` and then `Build => Re-build project` to make any issues with `MapDemoActivityPermissionsDispatcher` in `MapDemoActivity.java` clear up.
 
 Next, we need to get ourselves a maps API key from Google to put into our `AndroidManifest.xml`.
