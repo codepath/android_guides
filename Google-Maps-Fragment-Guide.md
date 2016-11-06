@@ -20,8 +20,8 @@ Under `SDK Tools` section, check whether you have already downloaded the latest 
 
    ```gradle
    dependencies {
-       compile 'com.google.android.gms:play-services-maps:8.4.0'
-       compile 'com.google.android.gms:play-services-location:8.4.0'
+       compile 'com.google.android.gms:play-services-maps:9.8.0'
+       compile 'com.google.android.gms:play-services-location:9.8.0'
    }
    ```
 4. Make sure to select `Build => Clean project` and then `Build => Re-build project` to make any issues with `MapDemoActivityPermissionsDispatcher` in `MapDemoActivity.java` clear up.
