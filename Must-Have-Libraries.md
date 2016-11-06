@@ -272,3 +272,4 @@ Check out the following resources for finding libraries:
  * <https://github.com/erikwt/PullToRefresh-ListView>
  * https://github.com/jfeinstein10/SlidingMenu
  * <http://square.github.io/picasso/>
+ * <https://cloudrail.com/best-android-libraries-for-developers/>
