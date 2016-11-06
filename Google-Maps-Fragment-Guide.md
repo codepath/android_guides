@@ -10,7 +10,7 @@ First, let's download and setup the Google Play Services and Google Repository S
 
 <img src="http://imgur.com/sFNZImF.png"/>
 
-Under `SDK Tools` section, check whether you have already downloaded the latest version `Google Play services` and `Google Repository` or not. If not, select the checkboxes next to `Google Play services` and `Google Repository` to install the missing or updated packages.
+Under `SDK Tools` section, check whether you have already downloaded the latest version `Google Play services` and `Google Repository` or not. If not, select the checkboxes next to them  to install the missing or updated packages.
 
 ### Import Maps Demo
 
