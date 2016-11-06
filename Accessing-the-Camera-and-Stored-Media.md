@@ -286,6 +286,15 @@ public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 Alternatively, we can use a custom gallery selector that is implemented inside of our application to take full control over the gallery picking user experience. Check out [this custom gallery source code gist](https://gist.github.com/nesquena/55f3d8c87759f10a5343e3bb478f8858) or [older libraries wrapping this up](https://github.com/luminousman/MultipleImagePick) for reference. You can also take a look at [older tutorials on custom galleries](http://geekonjava.blogspot.com/2015/10/easy-multiple-image-pick-android.html). 
 
+### File Pickers
+
+For allowing users to pick files from their system or online services, check out these helpful filepicker libraries:
+
+ * [Android-FilePicker](https://github.com/DroidNinja/Android-FilePicker)
+ * [MaterialFilePicker](https://github.com/nbsp-team/MaterialFilePicker)
+
+These allow users to pick files beyond just images and are easy to drop into any app.
+
 ## References
 
  * <http://developer.android.com/guide/topics/media/camera.html>
