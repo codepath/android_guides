@@ -48,6 +48,8 @@ The events associated with other pointers usually start with `MotionEvent.ACTION
 
 Within an `onTouch` event, we can then use a [GestureDetector](http://developer.android.com/reference/android/view/GestureDetector.html) to understand gestures based on a series of motion events. Gestures are often used for user interactions within an app. Let's take a look at how to implement common gestures.
 
+For easy gesture detection using a third-party library, check out the popular [Sensey](https://github.com/nisrulz/Sensey) library which greatly simplifies the process of attaching multiple gestures to your views.
+
 ### Double Tapping
 
 You can enable double tap events for any view within your activity using the [OnDoubleTapListener](https://gist.github.com/nesquena/b2f023bb04190b2653c7). First, copy the code for `OnDoubleTapListener` into your application and then you can apply the listener with:
@@ -342,7 +344,7 @@ Now we just have to implement the expected behavior for the shaking event in the
 
 ### MultiTouch Events
 
-Additional multi-touch events such as "rotation" of fingers, finger movement events, etc you can check out the [multitouch-gesture-detectors](https://github.com/Almeros/android-gesture-detectors) third-party library. Read the [documentation](http://code.almeros.com/android-multitouch-gesture-detectors#.UmTf0JQ6VZ8) for more details about how to handle multi-touch gestures. Also, for a more generic approach, read the official [multitouch guide](http://developer.android.com/training/gestures/multi.html).  See this [blog post](http://android-developers.blogspot.com/2010/06/making-sense-of-multitouch.html) for more details about how multi-touch events work.
+For additional multi-touch events such as "rotation" of fingers, finger movement events, etc., be sure to check out libraries such as [Sensey](https://github.com/nisrulz/Sensey) and [multitouch-gesture-detectors](https://github.com/Almeros/android-gesture-detectors) third-party library. Read the [documentation](http://code.almeros.com/android-multitouch-gesture-detectors#.UmTf0JQ6VZ8) for more details about how to handle multi-touch gestures. Also, for a more generic approach, read the official [multitouch guide](http://developer.android.com/training/gestures/multi.html).  See this [blog post](http://android-developers.blogspot.com/2010/06/making-sense-of-multitouch.html) for more details about how multi-touch events work.
 
 ## Understanding Touch Events
 
@@ -409,6 +411,7 @@ The explanation above has been simplified and abridged for clarity. For addition
 
 ## Libraries
 
+* [Sensey](https://github.com/nisrulz/Sensey) - Android library which makes detecting gestures a breeze.
 * [AndroidSlidingUpPanel](https://github.com/umano/AndroidSlidingUpPanel) - Sliding panel up from the bottom
 * [PhotoView](https://github.com/chrisbanes/PhotoView) - ImageView for Android that supports zooming, by various touch gestures.
 * [DraggablePanel](https://github.com/pedrovgs/DraggablePanel) - Cool draggable panels like YouTube
