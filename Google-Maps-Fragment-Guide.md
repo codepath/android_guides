@@ -41,7 +41,15 @@ Now you want to skip optional section on restricting usage and click "Create". A
 
 <img src="https://i.imgur.com/mGbpWdN.png" width="650" />
 
-Copy your API Key into the meta data for `com.google.android.maps.v2.API_KEY` within the **application node** in the `AndroidManifest.xml` for your app where you see the value `YOUR-API-KEY-HERE`:
+Copy your API Key into the `res/values/strings.xml` file for the `google_maps_api_key`:
+
+```java
+<resources>
+    <string name="google_maps_api_key">YOUR-API-KEY here</string>
+</resources>
+```
+
+The meta data for `com.google.android.maps.v2.API_KEY` within the **application node** in the `AndroidManifest.xml` for your app should reference this string resource:
 
 ```xml
 <application
@@ -52,9 +60,8 @@ Copy your API Key into the meta data for `com.google.android.maps.v2.API_KEY` wi
 
   <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
 
-  <meta-data
-     android:name="com.google.android.maps.v2.API_KEY"
-     android:value="YOUR-API-KEY-HERE" />
+  <meta-data android:name="com.google.android.maps.v2.API_KEY"
+android:value="@string/google_maps_api_key" />
 
 </application>
 ```
