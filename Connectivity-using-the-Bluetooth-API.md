@@ -14,6 +14,13 @@ Using the Bluetooth APIs, an Android application can perform the following:
 
 **Incomplete, Needs Attention**
 
+## Libraries
+
+Check out these libraries for easy handling of Bluetooth in your apps:
+
+ * [Android-BluetoothSPPLibrary](https://github.com/akexorcist/Android-BluetoothSPPLibrary) - Hardware developer? This is an easy way to use the Bluetooth Serial Port Profile
+ * [RxAndroidBle](https://github.com/Polidea/RxAndroidBle) - Easily handle Bluetooth Low Energy
+
 ## References
 
 * <http://developer.android.com/guide/topics/connectivity/bluetooth-le.html>
