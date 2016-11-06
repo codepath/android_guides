@@ -2,7 +2,7 @@
 
 Ripple touch effect was [introduced with material design in Android 5.0](https://www.youtube.com/watch?v=97SWYiRtF0Y&t=482) (API level 21).
 
-Touch feedback in material design provides an instantaneous visual confirmation at the point of contact when users interact with UI elements. For example, buttons now display a ripple effect when they are touched-this is the default touch feedback animation in Android 5.0. Ripple animation is implemented by the new `RippleDrawable` class. The ripple effect can be configured to end at the bounds of the view or extend beyond the bounds of the view. For example, the following sequence of screenshots illustrates the ripple effect in a button during touch animation:
+Touch feedback in material design provides an instantaneous visual confirmation at the point of contact when users interact with UI elements. For example, buttons now display a ripple effect when they are touched - this is the default touch feedback animation in Android 5.0. Ripple animation is implemented by the new `RippleDrawable` class. The ripple effect can be configured to end at the bounds of the view or extend beyond the bounds of the view. For example, the following sequence of screenshots illustrates the ripple effect in a button during touch animation:
 
   ![touch](https://i.imgur.com/hrkinJY.png)
 
@@ -43,7 +43,7 @@ Most buttons are made with several drawables. Usually you’ll have a pressed an
 </selector>
 ```
 
-If you have a custom button with selected state, your text color changes depending on the state, etc. So default button background is not going to work for you here. You can add this feedback for your own drawables and for custom buttons by simply wrapping them in a `ripple` element:
+If you have a custom button with selected state, your text color changes depending on the state, etc. So the  default button background is not going to work for you here. You can add this feedback for your own drawables and for custom buttons by simply wrapping them in a `ripple` element:
 
 `/drawable-v21/button.xml`:
 
