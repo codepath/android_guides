@@ -7,6 +7,8 @@ The [Fused Location API](http://developer.android.com/intl/es/training/location/
  * Register for updates or accuracy changes
  * Get last location
 
+For even simpler location updates, check out this [smart-location-lib](https://github.com/mrmans0n/smart-location-lib) locations API wrapper.
+
 ### Installation
 
 Fused location requires the use of the Google Play SDK. You must include the library in your  `app/build.gradle` file: 
