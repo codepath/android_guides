@@ -177,7 +177,23 @@ public class MapDemoActivity extends AppCompatActivity
   }
 ```
 
-You then must implement the `onMarkerDragStart()`, `onMarkerDrag()`, and `onMarkerDragEnd()` methods for your activity.
+You then must implement the `onMarkerDragStart()`, `onMarkerDrag()`, and `onMarkerDragEnd()` methods for your activity:
+
+```java
+@Override
+public void onMarkerDragStart(Marker marker) {
+
+}
+
+@Override
+public void onMarkerDrag(Marker marker) {
+}
+
+@Override
+public void onMarkerDragEnd(Marker marker) {
+   // DO MOST WORK HERE
+}
+```
 
 Finally, when creating markers, make sure to set the draggable state to `true`:
 
