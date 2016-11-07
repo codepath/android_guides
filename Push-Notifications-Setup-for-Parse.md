@@ -204,7 +204,7 @@ Refer to these resources for more information on Parse Server push.
 : Url : http://192.168.3.116:1337/parse/classes/_Installation
 ```
 
-You should be able to se the `deviceToken`, `installationId`, and `appName` registered:
+You should be able to see the `deviceToken`, `installationId`, and `appName` registered:
 
 ```
 03-02 03:17:27.859 9362-9596/com.test I/ParseLogInterceptor:
@@ -222,8 +222,23 @@ Body : {
 }
 ```
 
-* Make sure you are on latest open source Parse version: [![npm version](https://img.shields.io/npm/v/parse-server.svg?style=flat)](https://www.npmjs.com/package/parse-server)  You will want to verify what version is set in your `package.json` file (i.e. https://github.com/ParsePlatform/parse-server-example/blob/master/package.json#L15).  Make sure to update this file and redeploy.
+You might also see an abbreviated version similar to the following:
 
+```
+11-06 06:32:20.349 25417-25599/com.example.mapdemo I/ParseLogInterceptor: Body : {
+  "pushType": "gcm",
+  "deviceToken": "YOUR-TOKEN_HERE",
+  "objectId": "Q1Y0GKgktO"
+}
+11-06 06:32:20.349 25417-25599/com.example.mapdemo I/ParseLogInterceptor: --------------
+```
+
+* If necessary, set a breakpoint on [ManifestInfo.java](https://github.com/ParsePlatform/Parse-SDK-Android/blob/master/Parse/src/main/java/com/parse/ManifestInfo.java#L470) and verify that function `gcmSupportLevel()` reaches the final line `return ManifestCheckResult.HAS_ALL_DECLARATIONS;`.
+     * Double-check your `<uses-permissions>` is outside the `<application>` tag.
+     * Verify that you have define the `GcmBroadcastReceiver`, `PushService`, and `ParseBroadcastReceiver` inside the `<application>` tag.
+
+* Make sure you are on latest open source Parse version: [![npm version](https://img.shields.io/npm/v/parse-server.svg?style=flat)](https://www.npmjs.com/package/parse-server)  You will want to verify what version is set in your `package.json` file (i.e. https://github.com/ParsePlatform/parse-server-example/blob/master/package.json#L15).  Make sure to update this file and redeploy.
+ 
 * If GCM is fully setup, your app if properly configured should register itself with your Parse server.  Check your `_Installation` table to verify that the entries were being saved. Clear your app cache or uninstall the app if an entry in the  `_Installation` table hasn't been added.
 
 * Inside your `AndroidManifest.xml` definition within the application node, make sure your `gcm_sender_id` is prefixed with `id:` (i.e. `id:123456`).  Parse needs to begin with an `id:` to work correctly.
