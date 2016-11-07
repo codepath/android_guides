@@ -200,7 +200,7 @@ Refer to these resources for more information on Parse Server push.
 
 #### Client Issues
 
-* If you are using Facebook's Stetho library with your Android client, you can see the LogCat statements and verify that GCM tokens are being registered by API calls to the `/parse/classes/_Installation` endpoint:
+* If you are using Facebook's [[Stetho library|Debugging-with-Stetho]] with your Android client, you can see the LogCat statements and verify that GCM tokens are being registered by API calls to the `/parse/classes/_Installation` endpoint:
 
 ```
 : Url : http://192.168.3.116:1337/parse/classes/_Installation
@@ -224,7 +224,7 @@ Body : {
 }
 ```
 
-You might also see an abbreviated version similar to the following:
+You might also see an abbreviated version similar to the following if the GCM token is registered later:
 
 ```
 11-06 06:32:20.349 25417-25599/com.example.mapdemo I/ParseLogInterceptor: Body : {
