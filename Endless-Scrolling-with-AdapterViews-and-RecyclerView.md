@@ -128,7 +128,7 @@ We can use a similar approach with the [[RecyclerView|Using-the-RecyclerView]] b
 
 Implementing endless pagination for `RecyclerView` requires the following steps:
 
-1. Copy over the [EndlessRecyclerViewScrollListener.java](https://gist.github.com/rogerhu/d041b6467536842aa986) into your application.
+1. Copy over the [EndlessRecyclerViewScrollListener.java](https://gist.github.com/nesquena/d09dc68ff07e845cc622) into your application.
 2. Call `addOnScrollListener(...)` on a `RecyclerView` to enable endless pagination. Pass in an instance of `EndlessRecyclerViewScrollListener` and implement the `onLoadMore` which fires whenever a new page needs to be loaded to fill up the list.
 3. Inside the aforementioned `onLoadMore` method, load additional items into the adapter either by sending out a network request or by loading from another source. 
 
