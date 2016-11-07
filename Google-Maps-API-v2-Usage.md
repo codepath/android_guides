@@ -211,45 +211,26 @@ First, we need to create a new xml file in `res/layout/message_item.xml` which w
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/layout_root"
+<RelativeLayout android:id="@+id/layout_root"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp" >
-
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="20dp"
-        android:text="Title:" />
+    android:padding="10dp">
 
     <EditText
         android:id="@+id/etTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/etSnippet"
-        android:layout_alignBottom="@+id/tvTitle"
-        android:layout_toRightOf="@+id/tvTitle" >
-    </EditText>
-
-    <TextView
-        android:id="@+id/tvSnippet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvTitle"
         android:paddingTop="20dp"
-        android:text="Snippet:" />
+        android:hint="Title"></EditText>
 
     <EditText
         android:id="@+id/etSnippet"
+        android:layout_below="@id/etTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/tvSnippet"
-        android:layout_below="@+id/tvTitle"
-        android:layout_toRightOf="@+id/tvSnippet" >
-    </EditText>
-
+        android:hint="Snippet"></EditText>
 </RelativeLayout>
 ```
 
