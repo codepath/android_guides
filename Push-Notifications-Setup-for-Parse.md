@@ -64,7 +64,7 @@ If you are using Heroku to configure the server, make sure to set the following 
 
 #### Add Parse Cloud Code
 
-Modify [cloud/main.js](https://github.com/codepath/parse-server-example/blob/master/cloud/main.js) yourself to add custom code to send Push notifications.  See the [Parse JavaScript guide](https://parseplatform.github.io/docs/js/guide/#queries) to see what types of queries can be performed. Also take a look at the [Parse Push wiki](https://github.com/ParsePlatform/parse-server/wiki/Push#api] about the types of push data that can be sent.  Finally, see [these examples](https://github.com/ParsePlatform/parse-server/issues/401#issuecomment-183767065) for other ways of sending too.  
+Modify [cloud/main.js](https://github.com/codepath/parse-server-example/blob/master/cloud/main.js) yourself to add custom code to send Push notifications.  See the [Parse JavaScript guide](https://parseplatform.github.io/docs/js/guide/#queries) to see what types of queries can be performed. Also take a look at the [Parse Push wiki](https://github.com/ParsePlatform/parse-server/wiki/Push#api) about the types of push data that can be sent.  Finally, see [these examples](https://github.com/ParsePlatform/parse-server/issues/401#issuecomment-183767065) for other ways of sending too.  
 
 #### Redeploy Code
 
