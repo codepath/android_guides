@@ -160,12 +160,15 @@ Marker mapMarker = map.addMarker(new MarkerOptions()
 
 ### Enable Markers to be Draggable
 
-First, set the map to listen for drag events:
+First, set the activity to implement `OnMarkerDragListener` and set the map to listen for drag events:
 
 ```java
-protected void loadMap(GoogleMap googleMap) {
-  map.setOnMarkerDragListener(this);
-}
+public class MapDemoActivity extends AppCompatActivity 
+                                     implements GoogleMap.OnMarkerDragListener {
+
+  protected void loadMap(GoogleMap googleMap) {
+    map.setOnMarkerDragListener(this);
+  }
 ```
 
 You then must implement the `onMarkerDragStart()`, `onMarkerDrag()`, and `onMarkerDragEnd()` methods for your activity.
