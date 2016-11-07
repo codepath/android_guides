@@ -166,8 +166,14 @@ First, set the activity to implement `OnMarkerDragListener` and set the map to l
 public class MapDemoActivity extends AppCompatActivity 
                                      implements GoogleMap.OnMarkerDragListener {
 
+  private GoogleMap map;
+
   protected void loadMap(GoogleMap googleMap) {
-    map.setOnMarkerDragListener(this);
+    map = GoogleMap;
+
+    if (map != null) {
+      map.setOnMarkerDragListener(this);
+    }
   }
 ```
 
