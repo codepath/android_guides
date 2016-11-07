@@ -177,6 +177,8 @@ public class MapDemoActivity extends AppCompatActivity {
 }
 ```
 
+NOTE: Parse's Android SDK requires at least one receiver to be declared on startup in your `AndroidManifest.xml` file in order for push messages to be received.
+
 ### Receiving Pushes on Android
 
 If you wish to listen to any pushes sent to a specific channel, you can subscribe by doing the following:
