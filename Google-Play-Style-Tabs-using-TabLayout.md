@@ -22,7 +22,7 @@ Simply add `android.support.design.widget.TabLayout`, which will be used for ren
         android:id="@+id/sliding_tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabMode="scrollable" />
+        app:tabMode="fixed" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
@@ -146,6 +146,34 @@ public class MainActivity extends AppCompatActivity {
 Heres the output:
 
 ![Screen 1](https://i.imgur.com/rhRXjLIl.png)
+
+### Configuring the TabLayout
+
+There are many attributes you can use to customize the behavior of your `TabLayout` as shown below:
+
+```xml
+<android.support.design.widget.TabLayout
+    android:id="@+id/sliding_tabs"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:tabMaxWidth="0dp"
+    app:tabGravity="fill"
+    app:tabMode="fixed" />
+```
+
+The most important properties available are listed below:
+
+| Name                 | Options           | Description |
+| -----                | --------          | ----------- |
+| `tabBackground`      | `@drawable/image` | Background applied to the tabs |
+| `tabGravity`         | `center`, `fill`  | Gravity of the tabs |
+| `tabIndicatorColor`  | `@color/blue`     | Color of the tab indicator line |
+| `tabIndicatorHeight` | `@dimen/tabh`     | Height of the tab indicator line |
+| `tabMaxWidth`        | `@dimen/tabmaxw`  | Maximum width of the tab |
+| `tabMode`            | `fixed`, `scrollable` | Small number of fixed tabs or scrolling list |
+| `tabTextColor`       | `@color/blue`     | Color of the text on the tab |
+
+You can see all the [properties available here](https://developer.android.com/reference/android/support/design/widget/TabLayout.html#lattrs).
 
 ### Styling the TabLayout
 
