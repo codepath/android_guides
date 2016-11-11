@@ -81,7 +81,8 @@ Before getting started, make sure you have Google Play installed on the emulator
 Set the GCM Sender ID inside `res/values/strings.xml`:
 
 ```xml
-<string name="gcm_sender_id">id:1234567</string>
+<!-- apply the GCM Sender ID XXXXXXX for your ID -->
+<string name="gcm_sender_id">id:XXXXXXXXXX</string>
 ```
 
 Add a `meta-data` with the Sender ID in your AndroidManifest.xml.  
