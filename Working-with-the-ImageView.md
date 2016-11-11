@@ -103,9 +103,11 @@ To resize images more easily, check out the [Final Android Resizer](https://gith
 
 <a href="https://github.com/asystat/Final-Android-Resizer/blob/master/Executable%20Jar/Final%20Android%20Resizer.jar?raw=true"><img src="https://i.imgur.com/Usx4iXH.png" alt="final resizer" width="350" /></a>
 
-This handy utility allows us to select a resources directory, choose an extra high density image and the tool will automatically generate the corresponding lower size images for us and place them in the correct folders.
+This handy utility allows us to select a resources directory, choose an extra high density image and the tool will automatically generate the corresponding lower size images for us and place the subfolders inside the generated `res-drawable` diretory within the actual `res` folder in your project as the example shows below:
 
-See the [screens support](http://developer.android.com/guide/practices/screens_support.html) reference for a more detailed look at supporting a wide range of devices. Also check out the [iconography](http://developer.android.com/design/style/iconography.html) guide for more details.
+<img src="http://i.imgur.com/obCEvBY.png" width="250">&nbsp;<img src="http://i.imgur.com/SehFCO1.png" width="250">
+
+Refer to the [screens support](http://developer.android.com/guide/practices/screens_support.html) reference for a more detailed look at supporting a wide range of devices. Also check out the [iconography](http://developer.android.com/design/style/iconography.html) guide for more details.
 
 ### Mipmaps and Drawables
 
