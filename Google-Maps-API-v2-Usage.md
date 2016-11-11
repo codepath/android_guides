@@ -169,7 +169,7 @@ public class MapDemoActivity extends AppCompatActivity
   private GoogleMap map;
 
   protected void loadMap(GoogleMap googleMap) {
-    map = GoogleMap;
+    map = googleMap;
 
     if (map != null) {
       map.setOnMarkerDragListener(this);
