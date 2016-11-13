@@ -118,7 +118,7 @@ dependencies {
 
 You will want to implement an [[Intent Service|Starting-Background-Services#creating-an-intentservice]], which will execute as a background thread instead of being tied to the lifecycle of an Activity.   In this way, you can ensure that push notifications can be received by your app if a user navigates away from the activity while this registration process is occuring.
 
-First, you will need to create a `RegistrationIntentService` class and make sure it is declared in your `AndroidManifest.xml` file:
+First, you will need to create a `RegistrationIntentService` class and make sure it is declared in your `AndroidManifest.xml` file and within the `application` tag:
 
 ```java
 <service android:name=".RegistrationIntentService" android:exported="false"/>
@@ -246,7 +246,7 @@ public class MyInstanceIDListenerService extends InstanceIDListenerService {
 }
 ```
 
-You also need to add the service to your `AndroidManifest.xml` file:
+You also need to add the service to your `AndroidManifest.xml` file within the `application` tag:
 
 ```xml
 <service
