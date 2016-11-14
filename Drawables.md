@@ -212,11 +212,11 @@ Keep in mind that the items in a [LayerList](http://developer.android.com/guide/
 
 ### Stretchable Nine-Patch Image
 
-A [NinePatch](http://developer.android.com/guide/topics/graphics/2d-graphics.html#nine-patch) is a PNG image in which you can **define stretchable regions that is stretched** when content within the View exceeds the normal image bounds. You typically assign this type of image as the background of a View which has width set to `wrap_content`. The most common use is a button that has to stretch based on the text displayed inside.
+A [NinePatch](http://developer.android.com/guide/topics/graphics/2d-graphics.html#nine-patch) is a PNG image in which you can **define stretchable regions that are stretched** when the content within the View exceeds the normal image bounds. You typically assign this type of image as the background of a View which has its width set to `wrap_content`. The most common use is a button that has to stretch based on the text displayed inside.
 
 <img src="https://i.imgur.com/JHVsslP.png" width="450" alt="9patch" />
 
-NinePatch are images that have a `.9.png` file extension signifies that this is a stretchable PNG image.  The file is no different from a normal PNG file except that you will add thin black lines to indicate the vertical and horizontal "stretchable" and "fill" areas for the image. Android will not show these guide lines, which are used to determine how the image should be rendered.
+NinePatch are images that have a `.9.png` file extension, which signifies that this is a stretchable PNG image.  The file is no different from a normal PNG file except that you will add thin black lines to indicate the vertical and horizontal "stretchable" and "fill" areas for the image. Android will not show these guide lines, which are used to determine how the image should be rendered.
 
 An example of a 9-patch image is embedded below (left is the 9patch graphic, right is an example of use in an app):
 
