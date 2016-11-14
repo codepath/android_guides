@@ -13,7 +13,7 @@ There are at least 17 types of drawables but there are five that are most import
 
 1. **Shape Drawables** - Defines a shape with properties such as stroke, fill, and padding
 2. **StateList Drawables** - Defines a list of drawables to use for different states
-3. **LayerList Drawables** - Defines a list of drawables group together into a composite result
+3. **LayerList Drawables** - Defines a list of drawables grouped together into a composite result
 4. **NinePatch Drawables** - A PNG file with stretchable regions to allow proper resizing
 5. **Vector Drawables** - Defines complex XML-based vector images
 
