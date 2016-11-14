@@ -60,7 +60,7 @@ Note that **drawables can be applied to any view** and are usually set with the 
 
 #### Gradient Colored Shapes
 
-Shapes also support [gradients backgrounds](http://developer.android.com/guide/topics/resources/drawable-resource.html#gradient-element) as well supporting properties such as `startColor`, `centerColor`, `endColor`, `angle`. Different gradients such as radial, linear or sweep can be selected using the `type` property. 
+Shapes also support [gradients backgrounds](http://developer.android.com/guide/topics/resources/drawable-resource.html#gradient-element) as well as supporting properties such as `startColor`, `centerColor`, `endColor`, `angle`. Different gradients such as radial, linear or sweep can be selected using the `type` property. 
 
 Here's an example of a simple linear gradient shape specified in `res/layout/drawable/gradient_shape.xml`:
 
