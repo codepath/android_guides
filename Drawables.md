@@ -171,7 +171,7 @@ Common use cases for layer lists include:
  * [Drawing Cards](http://android-dev-tips-and-tricks.blogspot.com/2014/02/creating-card-ui.html)
  * [Drawing Triangles](https://looksok.wordpress.com/2013/08/24/android-triangle-arrow-defined-as-an-xml-shape/) 
 
-For a simple example, the following layer list draws several shapes in relation each other:
+For a simple example, the following layer list draws several shapes in relation to each other:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
