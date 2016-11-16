@@ -1,29 +1,6 @@
 ## Overview
 
-The security model chosen for the open source version of Parse is to require any type of push functionality to be implemented as Parse Cloud code executed only on the server side.  Unlike Parse's hosted service, **you cannot implement this type of code** on the actual client:
-
-```java
-// Note: This does NOT work with Parse Server at this time
-ParsePush push = new ParsePush();
-push.setChannel("mychannel");
-push.setMessage("this is my message");
-push.sendInBackground();
-```
-
-You will likely see this error in the API response:
-
-```json
-{
-    "code": 115,
-    "error": "Master key is invalid, you should only use master key to send push"
-}
-```
-
-Instead, you need to write your own server-side Parse code and have the client invoke it. 
-
-### Parse Server Setup
-
-The instructions below apply to the open source version of Parse, not hosted Parse.  
+The instructions below apply to the open source version of Parse, not hosted Parse.    One of the restrictions is that you must execute [Parse Cloud code](http://parseplatform.github.io/docs/cloudcode/guide/#cloud-code-cloud-functions) hosted on the server to implement push notifications.
 
 #### Obtain GCM Sender ID and API Key
 
@@ -200,6 +177,29 @@ public class MapDemoActivity extends AppCompatActivity {
 ```
 
 NOTE: Parse's Android SDK requires at least one receiver to be declared on startup in your `AndroidManifest.xml` file in order for push messages to be received.
+
+### Security Model
+
+The security model chosen for the open source version of Parse is to require any type of push functionality to be implemented as Parse Cloud code executed only on the server side.  Unlike Parse's hosted service, **you cannot implement this type of code** on the actual client:
+
+```java
+// Note: This does NOT work with Parse Server at this time
+ParsePush push = new ParsePush();
+push.setChannel("mychannel");
+push.setMessage("this is my message");
+push.sendInBackground();
+```
+
+You will likely see this error in the API response:
+
+```json
+{
+    "code": 115,
+    "error": "Master key is invalid, you should only use master key to send push"
+}
+```
+
+Instead, you need to write your own server-side Parse code and have the client invoke it. 
 
 ### Troubleshooting 
 
