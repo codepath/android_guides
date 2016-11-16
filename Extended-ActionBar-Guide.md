@@ -346,7 +346,8 @@ public boolean onCreateOptionsMenu(Menu menu) {
 We can customize the up button that appears when the search view is activated with [this approach](http://stackoverflow.com/a/35482445/1715285) or the code below:
 
 Use the `app:collapseIcon` to modify the color/style of your drawable.
-```
+
+```xml
 <android.support.v7.widget.Toolbar
          android:id="@+id/toolbar"
          android:layout_width="match_parent"
