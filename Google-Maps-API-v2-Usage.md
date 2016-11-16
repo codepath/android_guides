@@ -195,7 +195,7 @@ public void onMarkerDragEnd(Marker marker) {
 }
 ```
 
-Finally, when creating markers, make sure to set the draggable state to `true`:
+Finally, when [[creating markers|Adding-Markers-to-Map-Fragment]], make sure to set the draggable state to `true`:
 
 ```java
 marker.setDraggable(true);
