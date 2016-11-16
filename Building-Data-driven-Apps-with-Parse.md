@@ -103,7 +103,9 @@ We also need to add a few important network permissions to the `AndroidManifest.
 </manifest>
 ```
 
-Now, let's test the SDK. We should be able to create a new object to verify that Parse is working with this application. Let's add the test code to `ParseApplication` as follows:
+If you have access to the Parse instance, you can test the SDK to verify that Parse is working with this application. 
+
+Let's add the test code to `ParseApplication` as follows:
 
 ```java
 public class ParseApplication extends Application {
@@ -128,7 +130,7 @@ Run your app and a new object of class `TestObject` will be sent to the Parse Cl
 
 If you see "Congrats! You saved your first object", then Parse is setup successfully. If not, review the steps above to get Parse setup. 
 
-If needed in your application, you might also want to [setup push notifications](https://www.parse.com/apps/quickstart#parse_push/android/existing) through Parse as well at this time.
+If needed in your application, you might also want to [[setup push notifications|Push-Notifications-Setup-for-Parse]] through Parse as well at this time.
 
 ## Working with Users
 
