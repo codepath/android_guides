@@ -103,7 +103,9 @@ We also need to add a few important network permissions to the `AndroidManifest.
 </manifest>
 ```
 
-If you have access to the Parse instance, you can test the SDK to verify that Parse is working with this application. 
+### Testing Parse Client
+
+Assuming you have access to the Parse instance, you can test the SDK to verify that Parse is working with this application. 
 
 Let's add the test code to `ParseApplication` as follows:
 
@@ -124,11 +126,7 @@ public class ParseApplication extends Application {
 }
 ```
 
-Run your app and a new object of class `TestObject` will be sent to the Parse Cloud and saved. Click on the "Test" button back on the [Parse quickstart guide](https://www.parse.com/apps/quickstart#parse_data/mobile/android/native/existing) to confirm data was successfully transmitted.
-
-<img src="https://i.imgur.com/YloGilR.png" alt="screen_3" width="500" />
-
-If you see "Congrats! You saved your first object", then Parse is setup successfully. If not, review the steps above to get Parse setup. 
+Run your app and a new object of class `TestObject` will be sent to the Parse Cloud and saved. See [[browsing Parse data|Configuring-a-Parse-Server#browsing-parse-data]] for more information about how to check this data.
 
 If needed in your application, you might also want to [[setup push notifications|Push-Notifications-Setup-for-Parse]] through Parse as well at this time.
 
