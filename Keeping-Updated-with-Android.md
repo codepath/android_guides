@@ -14,6 +14,7 @@ Android is changing constantly under our feet. In order to keep up to date with 
 * [Android Arsenal Library Tracker](https://android-arsenal.com/?sort=updated)
 * [Android Developers Backstage](http://androidbackstage.blogspot.com/)
 * [Android Study Group Slack](https://github.com/AndroidStudyGroup/Code-Of-Conduct#member-nomination) (requires a nomination)
+* [Android Libhunt](https://android.libhunt.com/) - A curated list of Android packages and resources
 
 ### Secondary Sources
 
