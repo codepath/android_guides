@@ -161,11 +161,13 @@ Declare the Push service and a Parse-specific broadcast receiver `AndroidManifes
 </application>
 ```
 
+Other options:
+
 * If you use Parse's default [ParsePushBroadcastReceiver](https://github.com/ParsePlatform/Parse-SDK-Android/blob/master/Parse/src/main/java/com/parse/ParsePushBroadcastReceiver.java#L155-L160), using either `alert` or `title` as a key/value pair will trigger a notification message. See [this section](http://parseplatform.github.io/docs/android/guide/#receiving-pushes) of the Parse documentation.
 
 * You can also create your own custom receiver as shown in [this example](https://github.com/codepath/ParsePushNotificationExample/blob/master/app/src/main/java/com/test/MyCustomReceiver.java).
 
-* In addition, you can programmatically register for broadcast notifications by creating an intent filter and registering the receiver: 
+* You can programmatically register for broadcast notifications by creating an intent filter and registering the receiver: 
 
 ```java
 public class MapDemoActivity extends AppCompatActivity {
