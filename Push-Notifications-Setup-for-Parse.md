@@ -163,7 +163,26 @@ Declare the Push service and a Parse-specific broadcast receiver `AndroidManifes
 
 If you use Parse's default [ParsePushBroadcastReceiver](https://github.com/ParsePlatform/Parse-SDK-Android/blob/master/Parse/src/main/java/com/parse/ParsePushBroadcastReceiver.java#L155-L160), using either `alert` or `title` as a key/value pair will trigger a notification message. See [this section](http://parseplatform.github.io/docs/android/guide/#receiving-pushes) of the Parse documentation.
 
-Other options:
+### Receiving Pushes on Android
+
+If you wish to listen to any pushes sent to a specific channel, you can subscribe by doing the following:
+
+```java
+final String CHANNEL_NAME = "abcd";
+ParsePush.subscribeInBackground(CHANNEL_NAME);
+```
+
+After following the steps outlined above, be sure to check out the following resources for more information:
+
+ * [ParsePlatform Push Docs](http://parseplatform.github.io/docs/android/guide/#push-notifications)
+ * [ParsePlatform Push QuickStart](https://github.com/ParsePlatform/parse-server/wiki/Push#quick-start)
+ * [CodePath Parse Push Example](https://github.com/codepath/ParsePushNotificationExample) 
+
+Refer to these resources for more information on Parse Server push. 
+
+### Custom Receivers
+
+There are other options for creating custom receivers as well:
 
 * You can also create your own custom receiver as shown in [this example](https://github.com/codepath/ParsePushNotificationExample/blob/master/app/src/main/java/com/test/MyCustomReceiver.java).
 
@@ -181,23 +200,6 @@ public class MapDemoActivity extends AppCompatActivity {
 ```
 
 NOTE: Parse's Android SDK requires at least one receiver to be declared on startup in your `AndroidManifest.xml` file in order for push messages to be received.
-
-### Receiving Pushes on Android
-
-If you wish to listen to any pushes sent to a specific channel, you can subscribe by doing the following:
-
-```java
-final String CHANNEL_NAME = "abcd";
-ParsePush.subscribeInBackground(CHANNEL_NAME);
-```
-
-After following the steps outlined above, be sure to check out the following resources for more information:
-
- * [ParsePlatform Push Docs](http://parseplatform.github.io/docs/android/guide/#push-notifications)
- * [ParsePlatform Push QuickStart](https://github.com/ParsePlatform/parse-server/wiki/Push#quick-start)
- * [CodePath Parse Push Example](https://github.com/codepath/ParsePushNotificationExample) 
-
-Refer to these resources for more information on Parse Server push. 
 
 ### Troubleshooting 
 
