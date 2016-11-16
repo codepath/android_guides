@@ -195,7 +195,7 @@ public void onMarkerDragEnd(Marker marker) {
 }
 ```
 
-Finally, when [[creating markers|Google-Maps-API-v2-Usage#Adding-Markers-to-Map-Fragment]], make sure to set the draggable state to `true`:
+Finally, when [[creating markers|Google-Maps-API-v2-Usage#adding-markers-to-map-fragment]], make sure to set the draggable state to `true`:
 
 ```java
 marker.setDraggable(true);
