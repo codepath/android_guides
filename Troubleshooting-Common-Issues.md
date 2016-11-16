@@ -166,7 +166,7 @@ Some Android Studio plugins do not support Java 1.6 anymore, so it's best to con
 
 <img src="http://imgur.com/Jn2jevR.png"/>
 
-If you have multiple Java versions installed, you should make sure that v1.6 is not being used.
+If you have multiple Java versions installed, you should make sure that v1.6 is not being used. Instead you should now be using the [JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). See [this stackoverflow post for solutions](http://stackoverflow.com/a/36262436).
 
 On OS X machines, you can remove the JDK from being noticed.  You can move it the temporary directory in case other issues are created by this change.
 
