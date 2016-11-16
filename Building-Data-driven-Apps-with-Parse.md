@@ -83,10 +83,6 @@ We also need to make sure to set the application instance above as the `android:
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <!-- activities and everything are here. meta-data is last inside application tag -->
-        <meta-data
-            android:name="com.parse.APPLICATION_ID"
-            android:value="YOUR_APPLICATION_ID_HERE" />
     </application>
 </manifest>
 ```
@@ -111,9 +107,6 @@ Now, let's test the SDK. We should be able to create a new object to verify that
 
 ```java
 public class ParseApplication extends Application {
-    public static final String YOUR_APPLICATION_ID = "AERqqIXGvzH7Nmg45xa5T8zWRRjqT8UmbFQeeI";
-    public static final String YOUR_CLIENT_KEY = "8bXPznF5eSLWq0sY9gTUrEF5BJlia7ltmLQFRh";
-
     @Override
     public void onCreate() {
         super.onCreate();
