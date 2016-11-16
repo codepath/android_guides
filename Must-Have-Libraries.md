@@ -263,6 +263,7 @@ Check out the following resources for finding libraries:
  * <http://androidlibs.org/>
  * <http://appdevwiki.com/wiki/show/HomePage>
  * <http://www.libtastic.com>
+ * [Android Libhunt](https://android.libhunt.com/)
 
 ## References
 
