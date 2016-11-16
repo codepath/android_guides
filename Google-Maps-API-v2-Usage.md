@@ -201,6 +201,8 @@ Finally, when [[creating markers|Google-Maps-API-v2-Usage#adding-markers-to-map-
 marker.setDraggable(true);
 ```
 
+To verify, create a marker and hold down the mouse button for a few seconds before moving it. If you also have a  long click listener may also interfere, make sure your cursor is pointing directly at a marker icon.
+
 ### Show AlertDialog on LongClick
 
 You can use the following code to bring up an `AlertDialog` for users to type a message on `MapLongClick` event. On completion, we can add a marker to the map which when pressed displays the message typed. 
