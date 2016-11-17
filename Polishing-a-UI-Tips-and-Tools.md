@@ -8,6 +8,20 @@ Building beautiful Android apps starts with understanding how to approach buildi
   <img src="https://i.imgur.com/I4qigt5.jpg" alt="design" width="250" />
 </a>
 
+## Critical Guidelines
+
+Be sure to pay attention to the following elements of beautiful visual design. The devil is in the details. Trust that small improvements can make a big difference on the overall experience:
+
+ - **Colors.** Having three colors (One primary, one secondary, and one accent) used consistently through your app. 
+ - **Typography.** Using the correct sizes for different information to create a consistent visual hierarchy 
+ - **Iconography.** Icons should generally be a muted single-color (gray, faded colors) and not be too eye-catching unless they are actions or meant to draw attention. 
+ - **Spacing.** Make sure you to tighten up spacing of elements. Spacing on the top and bottom should be consistent. Pay attention to proper spacing between elements as well. 
+ - **Alignment.** Make sure elements are aligned to a grid. In other words, each view should be aligned to surrounding elements (i.e text to middle of image). 
+ - **Information.** Having multiple pieces of text that are all near each other in an item that are exactly the same size, color and style is usually not a good practice. 
+ - **Tabs.** Tabs should be a consistent with the background color of the Toolbar above them.
+
+## Links and Resources
+
 Polishing up the user interface of your application starts with the following enhancements:
 
  1. Benchmarking to **Adhere to Good Designs** - Check out the [[following sites|Android-Design-Guidelines#benchmarking]] or [these material design examples](http://www.materialup.com/) for looking at how popular apps look and feel.
@@ -15,27 +29,9 @@ Polishing up the user interface of your application starts with the following en
  3. Use **Proper Icons and Colorful Images** - Use images, icons and backgrounds for your UIs leveraging resources like [MaterialDesignIcons](http://materialdesignicons.com/), [IconFinder](https://www.iconfinder.com/), [iconmonstr](http://iconmonstr.com/), [NounProject](http://thenounproject.com/), [flickr](https://www.flickr.com/search/) and [Google Image Search](http://www.google.com/imghp) to locate relevant assets. Adhere carefully to the [iconography style guidelines](http://developer.android.com/design/style/iconography.html) for Android
  4. Review **Typography** - Check out the [typography guide](http://developer.android.com/design/style/typography.html) to understand the common font types for Android apps and default type colors and sizes. See the [calligraphy library](https://github.com/chrisjenx/Calligraphy) for easy custom fonts. 
  5. Apply **backgrounds and borders** to views and layouts - Use [[shape and layer drawables|Drawables]] cliffnotes to create colorful backgrounds and borders to your [[buttons|Drawables#customizing-a-button]], [[listviews|Drawables#customizing-a-listview]], and other views. See the [[material card view|Using-the-CardView]] for a look at modern styles for lists.
- 6. Improve **ActionBar and Navigation Appearance** -  Review our style guides for the [[ActionBar|Extended-ActionBar-Guide#custom-actionbar-styles]] and [[Tabs guide|sliding-tabs-with-pagerslidingtabstrip#customize-tab-styles]]. See generators linked in next section.
+ 6. Improve **ActionBar and Navigation Appearance** -  Review our style guides for the [[ActionBar|Extended-ActionBar-Guide#custom-actionbar-styles]] and [[Tabs guide|Google-Play-Style-Tabs-using-TabLayout#styling-the-tablayout]]. See generators linked in next section.
  7. Follow **Android UI Standards** - Use [[modern material design guidelines|Material-Design-Primer]], [[common navigation styles|Android-Design-Guidelines#common-patterns]]. Review the [[Android Design Guidelines]] with [proper app structure](http://developer.android.com/design/patterns/app-structure.html) and be sure to [design for Android](http://developer.android.com/design/patterns/pure-android.html).
  8. Implement **Intermediate UI Elements** - Make sure to [[add progress bars|Handling-ProgressBars]] when loading, along with placeholders for images and empty states in cases when there's no content.
-
-## Tips and Tools
-
-Simple guide for improving the UI for any application including links to tools:
-
-1. **Catchy Title** - Pick a creative single word name for your application
-2. **Launcher Icon** - Select a pleasant launcher icon (create a [launcher icon](http://imgur.com/a/8cmLM) and update in manifest)
-3. **Design Guidelines** - Review these [[design cliffnotes|Android-Design-Guidelines]] for an  overview of design guidelines and patterns.
-  * [[Material Design Primer|Material-Design-Primer]] - Quick overview of all things related to material design
-  * [[Android Design Guidelines]] - Review our practical design guidelines page
-  * [Core Principles](http://developer.android.com/design/get-started/principles.html) - Core motivating principles of Android UI
-  * [Pure Android](http://developer.android.com/design/patterns/pure-android.html) - Simple guidelines for following Android standards
-  * [App Structure](http://developer.android.com/design/patterns/app-structure.html) - Guidelines for general app structure
-4. **Benchmarking** - Check out the [[following sites|Android-Design-Guidelines#benchmarking]] for looking at how popular apps look and feel
-5. **Styling with Generators**
-  * **Style ActionBar** - Customize the ActionBar with [this generator](http://jgilfelt.github.io/android-actionbarstylegenerator/), copy over the files, and apply the theme. 
-  * **Style Views** - Customize the View control colors using the [Holo Colors Generator](http://android-holo-colors.com/)
-  * **Style Drawables** - Customize drawables using the [Drawable Style Generator](http://hateum.github.io/AndroidDrawableGenerator/)
 
 ## Further Reading
 
