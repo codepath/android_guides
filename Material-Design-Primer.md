@@ -75,22 +75,30 @@ Change your application theme to extend from a `Theme.AppCompat` theme in the `v
   <item name="colorPrimaryDark">@color/primary_dark</item>
   <!-- colorAccent is used as the default value for widgets -->
   <item name="colorAccent">@color/accent</item>
-  <!-- Applies to views in their activated state (i.e checked or switches) -->   
-  <item name="colorControlActivated">@color/colorActivated</item>      
-  <!-- Applied to framework control highlights (i.e ripples or list selectors) -->
-  <item name="colorControlHighlight">@color/colorHighlight</item>  
   <!-- Default color of the text in your views  -->
   <item name="android:textColorPrimary">@color/textPrimary</item>
-  <!-- Default color of the status bar at the top of your device  -->
-  <item name="android:statusBarColor">@color/primaryDark</item>
-  <!-- Default color of the navigation bar at the bottom of your device  -->
-  <item name="android:navigationBarColor">@color/primary</item>
 </style>
 ``` 
 
 These colors correspond to the following diagram:
 
 <img src="https://developer.android.com/training/material/images/ThemeColors.png" width="300"/>
+
+You can also override the following properties as needed for further customization:
+
+```xml
+<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+  <!-- ... styles above ... -->
+  <!-- Applies to views in their activated state (i.e checked or switches) -->   
+  <item name="colorControlActivated">@color/colorActivated</item>      
+  <!-- Applied to framework control highlights (i.e ripples or list selectors) -->
+  <item name="colorControlHighlight">@color/colorHighlight</item>  
+  <!-- Default color of the status bar at the top of your device  -->
+  <item name="android:statusBarColor">@color/primaryDark</item>
+  <!-- Default color of the navigation bar at the bottom of your device  -->
+  <item name="android:navigationBarColor">@color/primary</item>
+</style>
+```
 
 The available `Theme.Appcompat` which support material design include the following: `Theme.AppCompat`, `Theme.AppCompat.Light`, `Theme.AppCompat.Light.DarkActionBar`, `Theme.AppCompat.DeviceDefault`, `Theme.AppCompat.DeviceDefault.Light`, `Theme.AppCompat.DeviceDefault.Light.DarkActionBar`.
 
