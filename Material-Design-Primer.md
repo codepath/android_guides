@@ -65,13 +65,26 @@ As of June 2015, Google released the [[Design Support Library]] which helps simp
 
 ### Change the Application Theme
 
-Change your application theme to extend from a `Theme.AppCompat` theme in the `values/styles.xml` file:
+Change your application theme to extend from a `Theme.AppCompat` theme in the `values/styles.xml` file and apply the [material color properties](https://developer.android.com/training/material/theme.html#ColorPalette) to your application:
 
 ```xml
 <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+  <!-- colorPrimary is used for the default action bar background -->
   <item name="colorPrimary">@color/primary</item>
+  <!-- colorPrimaryDark is used for the status bar -->
   <item name="colorPrimaryDark">@color/primary_dark</item>
+  <!-- colorAccent is used as the default value for widgets -->
   <item name="colorAccent">@color/accent</item>
+  <!-- Applies to views in their activated state (i.e checked or switches) -->   
+  <item name="colorControlActivated">@color/colorActivated</item>      
+  <!-- Applied to framework control highlights (i.e ripples or list selectors) -->
+  <item name="colorControlHighlight">@color/colorHighlight</item>  
+  <!-- Default color of the text in your views  -->
+  <item name="android:textColorPrimary">@color/textPrimary</item>
+  <!-- Default color of the status bar at the top of your device  -->
+  <item name="android:statusBarColor">@color/primaryDark</item>
+  <!-- Default color of the navigation bar at the bottom of your device  -->
+  <item name="android:navigationBarColor">@color/primary</item>
 </style>
 ``` 
 
