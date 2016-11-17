@@ -500,6 +500,67 @@ public class MyActivity extends Activity {
 }
 ```
 
+#### Subcomponent Builders
+Subcomponent builders allow the creator of the subcomponent to be de-coupled from the parent component, by removing the need to have a subcomponent factory method declared on that parent component.  
+
+```java
+@MyActivityScope
+@Subcomponent(modules={ MyActivityModule.class })
+public interface MyActivitySubComponent {
+    ...
+    @Subcomponent.Builder
+    interface Builder extends SubcomponentBuilder<MyActivitySubComponent> {
+        Builder activityModule(MyActivityModule module);
+    }
+}
+
+public interface SubcomponentBuilder<V> {
+    V build();
+}
+```
+
+The subcomponent is declared as an inner interface in the subcomponent interface and it must include a `build()` method which the return type matching the subcomponent.  It's convenient to declare a base interface with this method, like `SubcomponentBuilder` above.  This new **builder must be added to the parent component graph** using a "binder" module with a "subcomponents" parameter:
+
+```java
+@Module(subcomponents={ MyActivitySubComponent.class })
+public abstract class ApplicationBinders {
+    // Provide the builder to be included in a mapping used for creating the builders.
+    @Binds @IntoMap @SubcomponentKey(MyActivitySubComponent.Builder.class)
+    public abstract SubcomponentBuilder myActivity(MyActivitySubComponent.Builder impl);
+}
+
+@Component(modules={..., ApplicationBinders.class})
+public interface ApplicationComponent {
+    // Returns a map with all the builders mapped by their class.
+    Map<Class<?>, Provider<SubcomponentBuilder>> subcomponentBuidlers();
+}
+
+// Needed only to to create the above mapping
+@MapKey @Target({ElementType.METHOD}) @Retention(RetentionPolicy.RUNTIME)
+public @interface SubcomponentKey {
+    Class<?> value();
+}
+```
+
+Once the builders are made available in the component graph, the activity can use it to create its subcomponent:
+
+```java
+public class MyActivity extends Activity {
+  @Inject ArrayAdapter arrayAdapter;
+
+  public void onCreate(Bundle savedInstance) {
+        // assign singleton instances to fields
+        // We need to cast to `MyApp` in order to get the right method
+        MyActivitySubcomponent.Builder builder = (MyActivitySubcomponent.Builder)
+            ((MyApp) getApplication()).getApplicationComponent())
+            .subcomponentBuidlers()
+            .get(MyActivitySubcomponent.Builder.class)
+            .get();
+        builder.activityModule(new MyActivityModule(this)).build().inject(this);
+    } 
+}
+```
+
 ## ProGuard
 
 Dagger 2 should work out of box without ProGuard, but if you start seeing `library class dagger.producers.monitoring.internal.Monitors$1 extends or implements program class javax.inject.Provider`, make sure your Gradle configuration uses the `apt` declaration instead of `provided`. 
