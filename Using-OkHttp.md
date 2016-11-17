@@ -243,7 +243,7 @@ We can setup network caching by passing in a cache when building the `OkHttpClie
 
 ```java
 int cacheSize = 10 * 1024 * 1024; // 10 MiB
-Cache cache = new Cache(getApplication().getCacheDir(), cacheSize);
+Cache cache = new Cache(new File(getApplication().getCacheDir(),"cacheFileName"), cacheSize);
 OkHttpClient client = new OkHttpClient.Builder().cache(cache).build();
 ```
 
