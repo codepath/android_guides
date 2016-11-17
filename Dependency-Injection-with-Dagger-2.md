@@ -501,6 +501,10 @@ public class MyActivity extends Activity {
 ```
 
 #### Subcomponent Builders
+*Available starting in v2.7*
+
+![Dagger subcomponent builders](https://raw.githubusercontent.com/codepath/android_guides/master/images/subcomponent_builders.png)
+
 Subcomponent builders allow the creator of the subcomponent to be de-coupled from the parent component, by removing the need to have a subcomponent factory method declared on that parent component.  
 
 ```java
