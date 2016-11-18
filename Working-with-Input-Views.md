@@ -9,7 +9,7 @@ Android has support for many different input controls for accepting input from t
  * [[Spinners|Working-With-Input-Views#spinners]]
  * [SeekBar](http://developer.android.com/reference/android/widget/SeekBar.html)
  * [RatingBar](http://developer.android.com/reference/android/widget/RatingBar.html)
- * [[NumberPicker|Working-With-Input-Views#number-picker]]
+ * [[NumberPicker|Working-With-Input-Views#numberpicker]]
  * [Switch](http://developer.android.com/reference/android/widget/Switch.html)
  * [[Date and Time Pickers|Working-With-Input-Views#date-and-time-pickers]]
 
