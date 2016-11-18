@@ -159,7 +159,7 @@ An `<attr>` element has two XML attributes `name` and `format`. `name` lets you 
 
 In this case, it is a "reference" to another attribute i.e. it references another resource id (e.g, `@color/my_color`, `@layout/my_layout`). Other examples of possible formats are `pixels`, `color`, `boolean`, `dimension`, `integer`, and `float`, `string`, `fraction`, `enum` and `flag`.
 
-These attributes can be defined in each theme later and then applied to views on the page by adding a `style` property indicating the attribute to apply.  We will implement this part in [[step 6|Developing-Custom-Themes#6-create-themes-xml-file]].
+These attributes can be defined in each theme later and then applied to views on the page by adding a `style` property indicating the attribute to apply.  We will implement this part in [[step 6|Developing-Custom-Themes#6-create-themesxml-file]].
 
 Create a file called `attrs.xml` inside `/res/values/` and add the following
 
