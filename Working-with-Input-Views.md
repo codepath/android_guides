@@ -210,7 +210,7 @@ and then specify the string array of options in `res/values/planets_array.xml`:
 </resources>
 ```
 
-Check out the [Spinners](http://developer.android.com/guide/topics/ui/controls/spinner.html) guide for more details. Note that customizing a spinner's text requires using a [custom array adapter and layout file](http://stackoverflow.com/questions/9476665/how-to-change-spinner-text-size-and-text-color).
+Check out the [Spinners](http://developer.android.com/guide/topics/ui/controls/spinner.html) guide for more details. Note that customizing a spinner's text requires using a [custom array adapter and layout file](http://stackoverflow.com/questions/9476665/how-to-change-spinner-text-size-and-text-color).  See [this link](http://www.broculos.net/2013/09/how-to-change-spinner-text-size-color.html#.WC6FKaIrK_A) for more details.
 
 #### Getting and Setting Values
 
