@@ -133,7 +133,8 @@ Notice that we use the `AppTheme` generated for us to make modifications to [but
 
 Having trouble figuring out which style attributes you can use when defining a theme?  Here are a few resources:
 
- * [themes.xml](http://omapzoom.org/?p=platform/frameworks/base.git;a=blob;f=core/res/res/values/themes.xml;hb=master) for the complete list of the thousands of default styles for an app. 
+ * [themes_base.xml](https://github.com/android/platform_frameworks_support/blob/master/v7/appcompat/res/values/themes_base.xml)
+ * [styles_base.xml](https://github.com/android/platform_frameworks_support/blob/master/v7/appcompat/res/values/styles_base.xml)
  * [R.attr](http://developer.android.com/reference/android/R.attr.html) documentation for a full rundown as well. 
  * [Useful holo theme generator tool](http://android-holo-colors.com/) for creating a theme that has a modified base color for certain widgets by default.  
  * [[Customizing Action Bar styles guide|Extended-ActionBar-Guide#custom-actionbar-styles]] and [sample code](https://github.com/codepath/android-actionbar-style-demo) for theming the Action Bar.
