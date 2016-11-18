@@ -210,8 +210,6 @@ and then specify the string array of options in `res/values/planets_array.xml`:
 </resources>
 ```
 
-Check out the [Spinners](http://developer.android.com/guide/topics/ui/controls/spinner.html) guide for more details. 
-
 #### Customizing Spinner Items
 
 Changing text size on the `<Spinner>` tag has no effect on the actual dropdown items.   To change their styles, you need to create a custom array adapter and layout file.  First, you should create a `spinner_item1.xml`
@@ -242,6 +240,7 @@ spinner.setAdapter(adapter);
 ```
 
 See [this link](http://www.broculos.net/2013/09/how-to-change-spinner-text-size-color.html) for more details.
+Check out the [Spinners](http://developer.android.com/guide/topics/ui/controls/spinner.html) guide for more details. 
 
 #### Getting and Setting Values
 
