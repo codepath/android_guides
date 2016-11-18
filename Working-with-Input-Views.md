@@ -3,15 +3,15 @@
 Android has support for many different input controls for accepting input from the user. The common input controls include:
 
  * [Buttons](http://developer.android.com/guide/topics/ui/controls/button.html)
- * [Text Fields](http://developer.android.com/guide/topics/ui/controls/text.html)
- * [Checkboxes](http://developer.android.com/guide/topics/ui/controls/checkbox.html)
- * [Radio Buttons](http://developer.android.com/guide/topics/ui/controls/radiobutton.html)
- * [Spinners](http://developer.android.com/guide/topics/ui/controls/spinner.html)
+ * [[Text Fields|Working-With-Input-Views#text-fields]]
+ * [[Checkboxes|Working-With-Input-Views#checkboxes]]
+ * [[Radio Buttons|Working-With-Input-Views#radio-buttons]]
+ * [[Spinners|Working-With-Input-Views#spinners]]
  * [SeekBar](http://developer.android.com/reference/android/widget/SeekBar.html)
  * [RatingBar](http://developer.android.com/reference/android/widget/RatingBar.html)
- * [NumberPicker](http://developer.android.com/reference/android/widget/NumberPicker.html)
+ * [[NumberPicker|Working-With-Input-Views#number-pickers]]
  * [Switch](http://developer.android.com/reference/android/widget/Switch.html)
- * [Date and Time Pickers](http://developer.android.com/guide/topics/ui/controls/pickers.html)
+ * [[Date and Time Pickers|Working-With-Input-Views#date-and-time-pickers]]
 
 Adding an input control to your UI is as simple as adding an XML element with attributes to your layout file:
 
@@ -313,3 +313,13 @@ You can also call `getValue` to retrieve the numeric value any time. See the [Nu
 ## References
 
  * <http://developer.android.com/guide/topics/ui/controls.html>
+ * [Buttons](http://developer.android.com/guide/topics/ui/controls/button.html)
+ * [Text Fields](http://developer.android.com/guide/topics/ui/controls/text.html)
+ * [Checkboxes](http://developer.android.com/guide/topics/ui/controls/checkbox.html)
+ * [Radio Buttons](http://developer.android.com/guide/topics/ui/controls/radiobutton.html)
+ * [Spinners](http://developer.android.com/guide/topics/ui/controls/spinner.html)
+ * [SeekBar](http://developer.android.com/reference/android/widget/SeekBar.html)
+ * [RatingBar](http://developer.android.com/reference/android/widget/RatingBar.html)
+ * [NumberPicker](http://developer.android.com/reference/android/widget/NumberPicker.html)
+ * [Switch](http://developer.android.com/reference/android/widget/Switch.html)
+ * [Date and Time Pickers](http://developer.android.com/guide/topics/ui/controls/pickers.html)
