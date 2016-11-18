@@ -210,7 +210,38 @@ and then specify the string array of options in `res/values/planets_array.xml`:
 </resources>
 ```
 
-Check out the [Spinners](http://developer.android.com/guide/topics/ui/controls/spinner.html) guide for more details. Note that customizing a spinner's text requires using a [custom array adapter and layout file](http://stackoverflow.com/questions/9476665/how-to-change-spinner-text-size-and-text-color).  See [this link](http://www.broculos.net/2013/09/how-to-change-spinner-text-size-color.html#.WC6FKaIrK_A) for more details.
+Check out the [Spinners](http://developer.android.com/guide/topics/ui/controls/spinner.html) guide for more details. 
+
+#### Customizing Spinner Items
+
+Changing text size on the `<Spinner>` tag has no effect on the actual dropdown items.   To change their styles, you need to create a custom array adapter and layout file.  First, you should create a `spinner_item1.xml`
+
+```xml
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/text1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style:"@style/spinner_dropdown_style1"
+    android:textColor="#ff0000" />
+```
+
+Define your style to inherit from `Widget.AppCompat.DropDownItem.Spinner` so that it will inherit the correct spacing for dropdown items.  Otherwise, you may notice the dropdown items are too closely spaced or not enough margin to the left-hand side:
+
+```xml
+<style name="spinner_dropdown_style_theme1" parent="Widget.AppCompat.DropDownItem.Spinner">
+     <item name="android:textColor">@android:color/white</item>
+     <item name="android:background">#507B91</item>
+</style>
+```
+
+You then bind the string array of items to the layout:
+
+```java
+ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.planets_array, R.layout.spinner_item);
+spinner.setAdapter(adapter);
+```
+
+See [this link](http://www.broculos.net/2013/09/how-to-change-spinner-text-size-color.html) for more details.
 
 #### Getting and Setting Values
 
@@ -323,3 +354,4 @@ You can also call `getValue` to retrieve the numeric value any time. See the [Nu
  * [NumberPicker](http://developer.android.com/reference/android/widget/NumberPicker.html)
  * [Switch](http://developer.android.com/reference/android/widget/Switch.html)
  * [Date and Time Pickers](http://developer.android.com/guide/topics/ui/controls/pickers.html)
+
