@@ -194,6 +194,8 @@ The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which 
 
 * If you are seeing `Master key is invalid, you should only use master key to send push`, chances are you are trying to send Push notifications without enable client push.  On Parse.com you can simply enable a toggle switch but for hosted parse there is an outstanding [issue](https://github.com/ParsePlatform/parse-server/issues/396) that must be resolved to start supporting it.
 
+* If you see the exception `Error Loading Messagescom.parse.ParseException: java.lang.IllegalArgumentException: value == null`, try setting the `clientKey` to a blank string such as `Parse.initialize(...).applicationId(...).clientKey("")` rather than `null`. Review [this issue](https://github.com/ParsePlatform/Parse-SDK-Android/issues/392) and [this issue](https://github.com/ParsePlatform/Parse-SDK-Android/issues/201) for further details.
+
 * You can also use Facebook's [Stetho](http://facebook.github.io/stetho/) interceptor to watch network logs with Chrome:
 
     ```gradle
