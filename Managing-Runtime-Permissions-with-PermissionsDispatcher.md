@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-After compiling the project, we need to delegate the permission events to the generated helper class:
+After compiling the project, we need to delegate the permission events to the generated helper class ([Activity Name] + PermissionsDispatcher):
 
 ```java
 @RuntimePermissions
