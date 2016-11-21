@@ -68,7 +68,7 @@ You can repeat this process for the other icons.  You can also download the icon
 
 Finally, you will need to set the navigation select handler manually:
 
-```javascript
+```java
 BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
 
 bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
