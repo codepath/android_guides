@@ -23,6 +23,7 @@ The support design library has the following key features:
 8. [[Vector Drawables|Drawables#vector-drawables]] to reduce the need to include images for every density size.
   * Vector drawables are compatible back to Android 2.1 (API 7), but animated vector drawables are only back-ported to Android 3.0 (API 11).
 9. [[Animating view hierarchies|View Hierarchy Animations]] using the [Transitions framework](https://developer.android.com/training/transitions/overview.html) down to Android 4.0 (API 14) .  Currently, there is no backported support for activity/fragment transitions used in this API.
+10. [[Bottom Navigation Views]] for easily switching from 3 to 5 tabbed items.
 
 ### Setup
 
@@ -30,7 +31,7 @@ Make sure that you have at least the Android Gradle plugin v2.1.0 supported.
 
 ```gradle
 dependencies {
-    classpath 'com.android.tools.build:gradle:2.1.0'
+    classpath 'com.android.tools.build:gradle:2.2.0'
 }
 ```
 
@@ -40,11 +41,11 @@ Update your root `build.gradle` file:
 
 ```gradle
 android {
-   compileSdkVersion 24  // needs to be consistent with major support libs used
+   compileSdkVersion 25  // usually needs to be consistent with major support libs used, but not necessary
 }
 
 ext {
-  supportLibVersion = '24.2.1'  // variable that can be referenced to keep support libs consistent
+  supportLibVersion = '25.0.0'  // variable that can be referenced to keep support libs consistent
 }
 ```
 
