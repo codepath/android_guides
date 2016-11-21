@@ -178,6 +178,10 @@ The latest source code updates for the support library are now always included s
 
 - Transitions API backported to Android 4.0 but does not include support for activity/fragment transitions. ([[view guide|View-Hierarchy-Animations]])
 
+#### Changes in Support Library v25.0.0
+
+- Bottom Navigation Views support added ([[view guide|Bottom Navigation Views]])
+
 ## References
 
 * <https://medium.com/android-bites/first-steps-with-the-design-support-library-8dcf06230ddd>
