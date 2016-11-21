@@ -135,13 +135,13 @@ The bottom navigation view also can be customized with several different options
 `app:itemBackground`, `app:itemIcontint`, and `app:ItemTextColor`:
 
 ```xml
-<android.support.design.widget.BottomNavigationView>
+<android.support.design.widget.BottomNavigationView
   <!-- should match top primary color -->
   app:itemBackground="@color/colorPrimary"
   <!-- tint color for bottom navigation icons -->
   app:itemIconTint="@color/white"
   <!-- text color for bottom navigation text -->
-  app:itemTextColor="@color/white"
+  app:itemTextColor="@color/white">
 </android.support.design.widget.BottomNavigationView>
 ```
 
