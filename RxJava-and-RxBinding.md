@@ -79,9 +79,9 @@ editText.addTextChangedListener(new TextWatcher() {
 Same thing written with RxBinding support:
 ```java 
 EditText editText = (EditText)findViewById(R.id.editText);
-Subscription editTextSub = RxTextView.textChanges(editText).subscribe(new Action1<String>() {
+Subscription editTextSub = RxTextView.textChanges(editText).subscribe(new Action1<CharSequence>() {
    @Override
-   public void call(String value) {
+   public void call(CharSequence value) {
       // do some work with new text
    }
 });
