@@ -531,7 +531,7 @@ This results in the following:
 The Transitions API (only for Android 5.0 and above) introduces a new way of performing activity transitions, which obviously is not backwards compatible with older Android devices but provides the foundation for performing layout animations within activity [[view hierarchies|View Hierarchy Animations]].  You can create different types of XML tags `res/transition` include `slide`, `fade`, `explode`, `autoTransition`, and `recolor`.  For instance, a slide right could be defined as `slide_right.xml`:
 
 ```xml
-<slide xmlns:android="http://schemas.android.com/apk/res/android""
+<slide xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:slideEdge="right"
     android:duration="1000"/>
@@ -557,7 +557,7 @@ Note that we set the exit transition of the activity.  There are actually 4 diff
 
 We also need to change the entering activity as well with a `slide_left.xml`:
 
-```java
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <slide xmlns:android="http://schemas.android.com/apk/res/android"
     android:duration="1000"
