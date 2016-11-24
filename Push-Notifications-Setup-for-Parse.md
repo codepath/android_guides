@@ -257,6 +257,10 @@ You might also see an abbreviated version similar to the following if the GCM to
 
 * Make sure you are on latest open source Parse version: [![npm version](https://img.shields.io/npm/v/parse-server.svg?style=flat)](https://www.npmjs.com/package/parse-server)  You will want to verify what version is set in your `package.json` file (i.e. https://github.com/ParsePlatform/parse-server-example/blob/master/package.json#L15).  Make sure to update this file and redeploy.
 
+* Add the `VERBOSE=1` to the Heroku dashboard.  It will show specific GCM logs:
+
+     <img src="http://imgur.com/K1MU5gL.png"/>
+
 * You can use this curl command with your application key and master key to send a push to all Android devices:
 
 ```bash
