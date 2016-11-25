@@ -261,6 +261,8 @@ You might also see an abbreviated version similar to the following if the GCM to
 
      <img src="http://imgur.com/K1MU5gL.png"/>
 
+   * If you see `MismatchSenderId` errors, make sure you have the correct Sender ID.  Also, make sure the prefix `id:` is specified as your GCM sender ID in the `AndroidManifest.xml` file.  
+
 * You can use this curl command with your application key and master key to send a push to all Android devices:
 
 ```bash
