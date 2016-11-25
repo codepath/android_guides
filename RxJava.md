@@ -373,7 +373,7 @@ connectedObservable.connect();
 You can also turn a hot observable back to a cold observable by using `autoConnect()`.  Instead of needing to call an explicit `connect()` and passing around `ConnectedObservable` types, you can use this approach to enable the next subscriber to trigger a network request upon the next subscription:
 
 ```java
-// back to hot observable
+// back to cold observable
 Observable<User> observable = connectedObservable.autoConnect();  
 
 // define 3rd observer here
