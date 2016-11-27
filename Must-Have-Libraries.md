@@ -151,6 +151,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [android-shape-imageview](https://github.com/siyamed/android-shape-imageview) - Custom shaped android imageview components including bubble, star, heart, diamond.
  * [RoundedImageView](https://github.com/vinc3m1/RoundedImageView) - Easily round corners or create oval-shaped images with this popular library.
  * [Android StackBlur](https://github.com/kikoso/android-stackblur) - Dynamically blur images
+ * [BlurKit for Android](https://github.com/wonderkiln/blurkit-android) -  Fast blur-behind layout that parallels iOS.
  * [Android Bootstrap](https://github.com/Bearded-Hen/Android-Bootstrap) - Bootstrap UI widgets
  * [PhotoView](https://github.com/chrisbanes/PhotoView) - ImageView that supports touch gestures
  * [ShowcaseView](https://github.com/amlcurran/ShowcaseView) - Highlight the best bits of your app
