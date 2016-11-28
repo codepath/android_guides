@@ -288,6 +288,12 @@ adapterViewPager.getRegisteredFragment(vpPager.getCurrentItem());
 
 This pattern should save your app quite a deal of memory and allow for much easier management of fragments within your pager for the right situation.
 
+### Replacing Fragments Inside ViewPager
+
+In certain cases, we want to dynamically replace the `Fragment` shown for a given page within a `ViewPager`. For example, perhaps the page in the `ViewPager` currently displays a list of items and we want to have a detail view show up when an item is selected. 
+
+One of the easiest approaches is to have the page display a fragment container that switches between multiple child content fragments as [outlined in this tutorial](http://www.pineappslab.com/post/fragments-viewpager/) on the subject. You can view the [working sample code here](https://github.com/danilao/fragments-viewpager-example) as well. 
+
 ## Set Offscreen Page Limit
 
 Alternatively, you can use the method `setOffscreenPageLimit(int limit)` provided by ViewPager to set how many page instances you want the system to keep in memory on either side of your current page. As a result, more memory will be consumed. So be careful when tweaking this setting if your pages have complex layouts. 
