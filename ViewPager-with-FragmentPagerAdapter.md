@@ -288,31 +288,33 @@ adapterViewPager.getRegisteredFragment(vpPager.getCurrentItem());
 
 This pattern should save your app quite a deal of memory and allow for much easier management of fragments within your pager for the right situation.
 
-### Updating Fragments Inside ViewPager
-Sometime, we would like to change the data in one of the ViewPager's fragments and update it from another fragment. Say you have a cars list fragment on one page where you can 'favorite/like' cars on the list, and you have another favorites list on another page. Every time you like a car, you'd like to update the data on the favorites fragment. For that, you need to override `getItemPosition(Object object)` inside your `ViewPagerAdapter`. the method is called every time you call `viewPager.getAdapter().notifyDataSetChanged()`.
+### Replacing Fragments Inside ViewPager
 
-For example:
-```
-@Override
-public int getItemPosition(Object object) {
-    // this method will be called for every fragment in the ViewPager
-    if (object instanceof NeverChangingFragment) {
-        return POSITION_UNCHANGED;
-    } else {
-        // POSITION_NONE means something like: this fragment is no longer here, please refresh.
-        // in return, the ViewPager will rebuild the instance of this fragment (not very performant for 
-        // big complicated views.
-        return POSITION_NONE;
+In certain cases, we want to dynamically replace the `Fragment` shown for a given page within a `ViewPager`. For example, perhaps the page in the `ViewPager` currently displays a list of items and we want to have a detail view show up when an item is selected. There are two approaches for this: create a fragment container as a page or switch fragments from within the adapter. 
+
+The first approach is to have the page display a fragment container that switches between multiple child content fragments as [outlined in this tutorial](http://www.pineappslab.com/post/fragments-viewpager/) on the subject. You can view the [working sample code here](https://github.com/danilao/fragments-viewpager-example) as well. 
+
+The second approach is to switch the fragment to display inside the `FragmentPagerAdapter` by overriding `getItem(...)` as well as `getItemPosition(Object object)` which is invoked every time you call `viewPager.getAdapter().notifyDataSetChanged()`. For example:
+
+```java
+public static class MyPagerAdapter extends FragmentPagerAdapter {
+    // ...
+
+    @Override
+    public int getItemPosition(Object object) {
+        // this method will be called for every fragment in the ViewPager
+        if (object instanceof SomePermanantCachedFragment) {
+            return POSITION_UNCHANGED; // don't force a reload
+        } else {
+            // POSITION_NONE means something like: this fragment is no longer valid
+            // triggering the ViewPager to re-build the instance of this fragment.
+            return POSITION_NONE;
+        }
     }
 }
 ```
-For more info, check [this StackOverflow thread](http://stackoverflow.com/questions/19744261/how-to-update-refresh-fragment-in-viewpager-by-main-activity-programmatically) and [this one](http://stackoverflow.com/questions/18088076/update-fragment-from-viewpager).
 
-### Replacing Fragments Inside ViewPager
-
-In certain cases, we want to dynamically replace the `Fragment` shown for a given page within a `ViewPager`. For example, perhaps the page in the `ViewPager` currently displays a list of items and we want to have a detail view show up when an item is selected. 
-
-One of the easiest approaches is to have the page display a fragment container that switches between multiple child content fragments as [outlined in this tutorial](http://www.pineappslab.com/post/fragments-viewpager/) on the subject. You can view the [working sample code here](https://github.com/danilao/fragments-viewpager-example) as well. 
+You would then change the `getItem` method to return a different fragment based on state tracked in a member variable and invoke `notifyDataSetChanged` on the adapter to trigger a reload of the updated fragment at any time. For more details, check out [this StackOverflow thread](http://stackoverflow.com/a/18088509/313399).
 
 ## Set Offscreen Page Limit
 
