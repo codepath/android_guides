@@ -266,7 +266,7 @@ public class MyActivity extends Activity {
 ### Qualified types
 ![Dagger Qualifiers](https://raw.githubusercontent.com/codepath/android_guides/master/images/dagger_qualifiers.png)
 
-If we need two different objects of the same return type, we can use the `@Named` qualifier annotation.  You will define it both it where you provide the singletons (`@Provides` annotation), and where you inject them (`@Inject` annotations):
+If we need two different objects of the same return type, we can use the `@Named` qualifier annotation.  You will define it both where you provide the singletons (`@Provides` annotation), and where you inject them (`@Inject` annotations):
 
 ```java
 @Provides @Named("cached")
