@@ -19,9 +19,11 @@ Open your app's gradle file (`Your-Project/app/build.gradle`) and add the follow
 ```gradle
 dependencies {
     // your other dependencies...
-    compile 'com.android.support:preference-v7:23.0.1'
+    compile 'com.takisoft.fix:preference-v7:25.0.1.0'
 }
 ```
+
+Note that due to a bug with using the Material design theme and the Preference Fragment compat, an open source project is used instead. See more details on this [StackOverflow post](http://stackoverflow.com/questions/32070670/preferencefragmentcompat-requires-preferencetheme-to-be-set/32325283).
 
 ### Defining the XML
 First, define the preference object hierarchy by creating a new xml file in `res/xml`:
@@ -155,3 +157,4 @@ For a detailed guide on implementing a custom preference, refer to the [Android 
  * <http://www.mysamplecode.com/2011/11/android-shared-preferences-example_12.html>
  * <http://mobile.tutsplus.com/tutorials/android/android-user-interface-design-building-application-preference-screens/>
  * <https://storiesandroid.wordpress.com/2015/10/06/android-settings-using-preference-fragments/>
+ * <http://stackoverflow.com/questions/32070670/preferencefragmentcompat-requires-preferencetheme-to-be-set/32325283/>
