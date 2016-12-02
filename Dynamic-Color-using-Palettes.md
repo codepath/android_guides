@@ -17,13 +17,25 @@ The [Palette.Builder](https://developer.android.com/reference/android/support/v7
 Generate the palette synchronously when you have access to the underlying image loading thread. 
 
 ```java
-Palette.from(bitmap).generate();
-```
-```java
-Palette.from(bitmap).maximumColorCount(numberOfColors).generate();
+Palette palette = Palette.from(bitmap).generate();
+// OR
+Palette palette = Palette.from(bitmap).maximumColorCount(numberOfColors).generate();
 ```
 
-The passed in `bitmap` is the image from which you want to extract the colors. By default, it will use a maximum palette size of 16 colors. This can be overridden using the `maximumColorCount` method.
+The passed in `bitmap` is the image from which you want to extract the colors. By default, it will use a maximum palette size of 16 colors. This can be overridden using the `maximumColorCount` method. We can then use the colors as shown below:
+
+```java
+// Pick one of the swatches
+Palette.Swatch vibrant = palette.getVibrantSwatch();
+if (vibrant != null) {
+    // Set the background color of a layout based on the vibrant color
+    containerView.setBackgroundColor(vibrant.getRgb());
+    // Update the title TextView with the proper text color
+    titleView.setTextColor(vibrant.getTitleTextColor());
+}
+```
+
+Note that this synchronous method is deprecated as the asynchronous method is now preferred. 
 
 ### Asynchronously
 
