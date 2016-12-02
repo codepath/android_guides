@@ -1,6 +1,6 @@
 ## Overview
 
-In Android apps, there are often settings pages that contain different options the user can tweak. The [`PreferenceFragment`](http://developer.android.com/reference/android/preference/PreferenceFragment.html) contains a hierarchy of preference objects displayed on screen in a list. These preferences will automatically save to SharedPreferences as the user interacts with them.
+In Android apps, there are often settings pages that contain different options the user can tweak. The [`PreferenceFragment`](http://developer.android.com/reference/android/preference/PreferenceFragment.html) and [`PreferenceFragmentCompat`](https://developer.android.com/reference/android/support/v7/preference/PreferenceFragmentCompat.html) contains a hierarchy of preference objects displayed on screen in a list. These preferences will automatically save to SharedPreferences as the user interacts with them.
 
 ### What's your minimum API level?
 
@@ -10,7 +10,7 @@ In Android apps, there are often settings pages that contain different options t
 * [https://github.com/Machinarius/PreferenceFragment-Compat](https://github.com/Machinarius/PreferenceFragment-Compat)
 * [https://github.com/kolavar/android-support-v4-preferencefragment](https://github.com/kolavar/android-support-v4-preferencefragment)
 
-**Marshmallow and above**: The support v7 library introduced the `PreferenceFragmentCompat`. We'll be using this for the rest of the tutorial.
+**Marshmallow and above**: The support v7 library introduced the [`PreferenceFragmentCompat`](https://developer.android.com/reference/android/support/v7/preference/PreferenceFragmentCompat.html). We'll be using this for the rest of the tutorial.
 
 ### Edit your gradle dependencies
 
