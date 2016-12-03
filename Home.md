@@ -45,6 +45,7 @@ If you are an experienced engineer with 2+ years of professional experience in s
 * [[Todo App Guide|Basic Todo App Tutorial]] (Todo App steps in guide format)
 * [[Sample Android Apps]] (Code repositories)
 * [[Keeping Updated with Android]] (Podcasts, blogs, newsletters)
+* [[Effective Java for Android]] (Java best practices)
 * [[Using Kotlin for Android development]] (Alternative syntax to Java)
 
 **Debugging Android**. Debug and troubleshoot issues.
