@@ -24,6 +24,7 @@ If you're attempting to migrate towards clean architecture without necessarily r
 * <http://thefinestartist.com/android/mvp-pattern>
 * <https://www.youtube.com/watch?v=BlkJzgjzL0c>
 * <https://github.com/antoniolg/androidmvp>
+* <https://speakerdeck.com/alphonzo79/better-android-architecture/>
 
 ## Templates
 
@@ -45,6 +46,7 @@ Clean architecture:
 * <https://speakerdeck.com/romainpiel/ingredients-for-a-healthy-codebase/>
 * <http://macoscope.com/blog/model-view-presenter-architecture-in-android-applications/>
 * <https://github.com/macoscope/RoomBookerMVP/tree/master/mvp/src/main/java/com/macoscope/>
+* <https://github.com/alphonzo79/AndroidArchitectureExample/>
 
 MVVM Pattern:
 * <https://labs.ribot.co.uk/approaching-android-with-mvvm-8ceec02d5442>
