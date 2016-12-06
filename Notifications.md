@@ -184,7 +184,7 @@ Make sure to include this new intent service in your `AndroidManifest.xml`:
 </application>
 ```
 
-Next, we will create a pending intent to launch this service assuming the minimum API (API 24) is used:
+Next, we will create a pending intent to launch this service assuming that API version 24 or higher is used:
 
 ```java
 if (android.os.Build.VERSION.SDK_INT >= 24) {
@@ -220,6 +220,7 @@ We need to use this `RemoteInput` class and create a **notification action**.  T
                     R.drawable.ic_launcher, "Reply", directReplyPendingIntent)
                     .addRemoteInput(remoteInput).build();
     builder.addAction(action);
+  } // end of minimum API version 24 check
 ```
 
 Finally, we should create the notification.  Note that we need to reference the notification ID so that it can be used to acknowledge it in the reply.  Earlier, we passed this notification ID as part of the pending intent.
