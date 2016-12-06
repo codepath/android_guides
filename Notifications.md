@@ -59,7 +59,7 @@ private void createNotification(int nId, int iconRes, String title, String body)
 
 Notifications can also have actions attached that the user can perform by clicking. Although having an action attached to the notification is optional, you should almost always have at least one action attached.
 
-Notifications in Android are created by a system service.  In order for the notification to launch an intent without the application needing to be run, the notification system will need the same permissions as the one granted to the original application.  A [pending intent](http://stackoverflow.com/questions/2808796/what-is-an-android-pendingintent) is created, which wraps an intent with a token that grants permission to the notifications service.  For more information about pending intents, see the [official Android documentation](http://developer.android.com/reference/android/app/PendingIntent.html)
+Notifications in Android are created by a system service.  In order for the notification service to launch an intent in the original application without necessarily starting it up, the notification system will need to use the same permissions required by this application.  A [pending intent](http://stackoverflow.com/questions/2808796/what-is-an-android-pendingintent) is created, which wraps an intent with a token that grants these permissions to the notifications service.  For more information about pending intents, see the [official Android documentation](http://developer.android.com/reference/android/app/PendingIntent.html)
 
 ```java
 // First let's define the intent to trigger when notification is selected
