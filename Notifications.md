@@ -238,11 +238,12 @@ mNotificationManager.notify(NOTIF_ID, noti);
 Finally, we need to setup the `DirectReplyIntent` service to receive this message:
 
 ```java
-@Override
-protected void onHandleIntent(Intent intent) {
-  CharSequence directReply = getMessageText(intent);
-  if (directReply != null) {
-      Notification repliedNotification =
+public class DirectReplyIntent extends IntentService {
+  @Override
+  protected void onHandleIntent(Intent intent) {
+    CharSequence directReply = getMessageText(intent);
+    if (directReply != null) {
+       Notification repliedNotification =
          new NotificationCompat.Builder(DirectReplyIntent.this)
                             .setSmallIcon(R.drawable.ic_launcher)
                             .setContentText("Received: " + directReply)
@@ -253,17 +254,18 @@ protected void onHandleIntent(Intent intent) {
 
       int notifyId = intent.getIntExtra(KEY_NOTIFY_ID, -1);
       notificationManager.notify(notifyId, repliedNotification);
+    }  
   }
-}
 
-@TargetApi(Build.VERSION_CODES.KITKAT_WATCH)
-private CharSequence getMessageText(Intent intent) {
-  // Decode the reply text
-  Bundle remoteInput = RemoteInput.getResultsFromIntent(intent);
-  if (remoteInput != null) {
-    return remoteInput.getCharSequence(KEY_TEXT_REPLY);
+  @TargetApi(Build.VERSION_CODES.KITKAT_WATCH)
+  private CharSequence getMessageText(Intent intent) {
+    // Decode the reply text
+    Bundle remoteInput = RemoteInput.getResultsFromIntent(intent);
+    if (remoteInput != null) {
+      return remoteInput.getCharSequence(KEY_TEXT_REPLY);
+    }
+    return null;
   }
-  return null;
 }
 ```
 
