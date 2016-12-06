@@ -49,6 +49,7 @@ These are the best A/B testing services:
 * [Splitforce](https://www.splitforce.com)
 * [Leanplum](https://www.leanplum.com/)
 * [Taplytics](https://taplytics.com/)
+* [Darkly](https://launchdarkly.com/)
 
 ### Device Testing
 
