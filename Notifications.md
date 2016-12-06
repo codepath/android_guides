@@ -271,7 +271,9 @@ The final result:
 
 <img src="http://imgur.com/c3an6Cv.png">
 
-The approach can also be used for receiving text in an activity.  The only difference is that you need to use `getIntent()` in the activity instead of the `onHandleIntent()` in this intent service.
+The approach can also be used for receiving text in an activity.  The only difference is that you need to use 
+`PendingIntent.getActivity()` instead of `PendingIntent.getService()`, and receiving data needs to use
+`getIntent()` in the activity instead of the `onHandleIntent()`.
 
 ## References
 
