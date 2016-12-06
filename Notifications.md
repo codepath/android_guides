@@ -144,6 +144,134 @@ NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
 
 Note that if the large icon is set, then the small icon supplied will be displayed minified on the right-hand side instead.
 
+### Adding Direct Reply Support
+
+Android N (API 24) now supports the ability to respond directly to a notification.    The UI contains action icons below the notification.  In the example below, there are 3 different actions to take:
+
+<img src="https://1.bp.blogspot.com/-l-WaE4Rkd6Q/V1hWYDm2slI/AAAAAAAADIQ/0aV2uhEUGNcsRUTpGUsSk2MVPQnwuLywQCLcB/s400/image01.png"/>
+
+First, let's assume we are setting up the notification without this functionality:
+```java
+// Use standard notification manager builder class
+NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
+                .setSmallIcon(R.drawable.ic_launcher)
+                .setContentTitle("Image Download Complete!");
+```
+
+To leverage the direct reply, you need to setup an activity or service to receive it.  In the example below, we will setup an [[intent service|Starting-Background-Services#creating-an-intentservice]] called `DirectReplyIntent`.  Create this intent service and make sure to declare this service in your `AndroidManifest.xml` file:
+
+```java
+public class DirectReplyIntent extends IntentService {
+
+    public static String KEY_TEXT_REPLY = "key_text_reply";
+    public static String KEY_NOTIFY_ID = "key_notify_id";
+
+    public DirectReplyIntent() {
+        super("DirectReplyIntent");
+    }
+
+    @Override
+    protected void onHandleIntent(Intent intent) {
+      // handle notification here
+    }
+```
+
+Make sure to include this new intent service in your `AndroidManifest.xml`:
+
+```xml
+<application>
+  <service android:name=".services.DirectReplyIntent"/>
+</application>
+```
+
+Next, we will create a pending intent to launch this service assuming the minimum API (API 24) is used:
+
+```java
+if (android.os.Build.VERSION.SDK_INT >= 24) {
+
+  // Setup a DirectReply IntentService
+  Intent directReplyIntent = new Intent(this, DirectReplyIntent.class);
+
+  // pass the notification ID -- it should be a UUID
+  directReplyIntent.putExtra(KEY_NOTIFY_ID, 82);
+
+  // only handle one pending intent at a time
+  int flags = FLAG_CANCEL_CURRENT;
+
+  PendingIntent directReplyPendingIntent = PendingIntent.getService(this, 0, directReplyIntent, flags);
+```
+
+We need to set the placeholder text and the key name that will be used to store the text by creating a `RemoteInput` class:
+
+```java
+  // Set the placeholder text when the user clicks on the Reply button
+  // RemoteInput originally came from Android Wear
+  public static String KEY_TEXT_REPLY = "key_text_reply";
+
+  RemoteInput remoteInput = new RemoteInput.Builder(KEY_TEXT_REPLY)
+                    .setLabel("Type Message").build();
+```
+
+We need to use this `RemoteInput` class and create a **notification action**.  This notification action will then be passed to the **notification builder** class.
+
+```java
+    // Generate the notification action
+    NotificationCompat.Action action = new NotificationCompat.Action.Builder(
+                    R.drawable.ic_launcher, "Reply", directReplyPendingIntent)
+                    .addRemoteInput(remoteInput).build();
+    builder.addAction(action);
+```
+
+Finally, we should create the notification.  Note that we need to reference the notification ID so that it can be used to acknowledge it in the reply.  Earlier, we passed this notification ID as part of the pending intent.
+
+```java
+// Create the notification outside the minimum API 24 version check
+Notification noti = builder.build();
+NotificationManager mNotificationManager = (NotificationManager) getSystemService(
+                Context.NOTIFICATION_SERVICE);
+
+// NOTIF_ID allows you to update the notification later on.
+mNotificationManager.notify(NOTIF_ID, noti);
+```
+
+Finally, we need to setup the `DirectReplyIntent` service to receive this message:
+
+```java
+@Override
+protected void onHandleIntent(Intent intent) {
+  CharSequence directReply = getMessageText(intent);
+  if (directReply != null) {
+      Notification repliedNotification =
+         new NotificationCompat.Builder(DirectReplyIntent.this)
+                            .setSmallIcon(R.drawable.ic_launcher)
+                            .setContentText("Received: " + directReply)
+                            .build();
+
+      NotificationManager notificationManager = (NotificationManager) getSystemService(
+        Context.NOTIFICATION_SERVICE);
+
+      int notifyId = intent.getIntExtra(KEY_NOTIFY_ID, -1);
+      notificationManager.notify(notifyId, repliedNotification);
+  }
+}
+
+@TargetApi(Build.VERSION_CODES.KITKAT_WATCH)
+private CharSequence getMessageText(Intent intent) {
+  // Decode the reply text
+  Bundle remoteInput = RemoteInput.getResultsFromIntent(intent);
+  if (remoteInput != null) {
+    return remoteInput.getCharSequence(KEY_TEXT_REPLY);
+  }
+  return null;
+}
+```
+
+The final result:
+
+<img src="http://imgur.com/c3an6Cv.png">
+
+The approach can also be used for receiving text in an activity.  The only difference is that you need to use `getIntent()` in the activity instead of the `onHandleIntent()` in this intent service.
+
 ## References
 
  * <http://developer.android.com/guide/topics/ui/notifiers/notifications.html>
@@ -152,3 +280,4 @@ Note that if the large icon is set, then the small icon supplied will be display
  * <http://www.javacodegeeks.com/2013/08/android-notification-with-sound-and-icon-tutorial.html>
  * <http://developer.android.com/reference/android/app/Notification.html>
  * <http://developer.android.com/reference/android/support/v4/app/NotificationCompat.Builder.html>
+ * <http://android-developers.blogspot.com/2016/06/notifications-in-android-n.html>
