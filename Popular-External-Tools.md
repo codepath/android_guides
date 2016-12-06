@@ -49,7 +49,7 @@ These are the best A/B testing services:
 * [Splitforce](https://www.splitforce.com)
 * [Leanplum](https://www.leanplum.com/)
 * [Taplytics](https://taplytics.com/)
-* [Darkly](https://launchdarkly.com/)
+* [Darkly](https://launchdarkly.com/) - real-time feature flag management
 
 ### Device Testing
 
