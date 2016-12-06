@@ -25,6 +25,7 @@ These are the best crash reporting tools:
 
 These are the best tools for distributing beta builds for your apps:
 
+* [BuddyBuild](http://buddybuild.com) - Continuous integration, feedback reporting, and beta build distribution
 * [TestFairy](http://blog.testfairy.com/testflight-sdk-users-welcome-to-testfairy/) - Complete Testflight Replacement
 * [Appaloosa.io] (https://www.appaloosa-store.com/app-beta-testing) - Simple and secure OTA app distribution 
 * [DeployGate](https://deploygate.com/docs/sdk) - Painless OTA distribution for apps
