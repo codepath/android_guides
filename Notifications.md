@@ -98,52 +98,6 @@ Notification noti = new NotificationCompat.Builder(this).
     .addAction(R.drawable.icon, "Ignore", iIntent).build();
 ```
 
-### Adding an Expanded View
-
-Android 4.1 supports expandable notifications. You can also setup the notification to have an expanded view when pressed which gives additional details. See more about that on the [official guide](http://developer.android.com/guide/topics/ui/notifiers/notifications.html#ApplyStyle);
-
-There are three styles to be used with the big view: big picture style, big text style, Inbox style. The following code demonstrates the usage of the BigTextStyle() which allows to use up to 256 dp.
-
-```java
-Notification noti = new NotificationCompat.Builder(this).
-.....
-.setStyle(new NotificationCompat.BigTextStyle().bigText(longText)) 
-```
-
-### Canceling Notifications
-
-The user can dismiss all notification or if you set your notification to auto-cancel it is also removed once the user selects it.
-You can also call the cancel() for a specific notification ID on the NotificationManager.
-
-```java
-// Store some notification id as `nId`
-NotificationManager mNotificationManager = 
-  (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-mNotificationManager.cancel(nId);
-```
-
-See  the [official notifications guide](http://developer.android.com/guide/topics/ui/notifiers/notifications.html) for more details.
-
-### Adding a Large Icon
-
-If the notification should display a larger higher-quality icon on the left, we can use the `setLargeIcon` method to set a large (64x64) image as the icon. A common usage of this is to show a picture of the person's face that is associated with the notification:
-
-<img src="https://i.imgur.com/iuPmvzA.png" />
-
-This can be done with the following code:
-
-```java
-// .setLargeIcon expects a bitmap
-Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), 
-    R.drawable.my_large_icon);
-// Pass in the bitmap as the large icon
-NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
-    ...
-    .setLargeIcon(largeIcon);
-```
-
-Note that if the large icon is set, then the small icon supplied will be displayed minified on the right-hand side instead.
-
 ### Adding Direct Reply Support
 
 Android N (API 24) now supports the ability to respond directly to a notification.    The UI contains action icons below the notification.  In the example below, there are 3 different actions to take:
@@ -280,6 +234,52 @@ The final result:
 The approach can also be used for receiving text in an activity.  The only difference is that you need to use 
 `PendingIntent.getActivity()` instead of `PendingIntent.getService()`, and receiving data needs to use
 `getIntent()` in the activity instead of the `onHandleIntent()`.
+
+### Adding an Expanded View
+
+Android 4.1 supports expandable notifications. You can also setup the notification to have an expanded view when pressed which gives additional details. See more about that on the [official guide](http://developer.android.com/guide/topics/ui/notifiers/notifications.html#ApplyStyle);
+
+There are three styles to be used with the big view: big picture style, big text style, Inbox style. The following code demonstrates the usage of the BigTextStyle() which allows to use up to 256 dp.
+
+```java
+Notification noti = new NotificationCompat.Builder(this).
+.....
+.setStyle(new NotificationCompat.BigTextStyle().bigText(longText)) 
+```
+
+### Canceling Notifications
+
+The user can dismiss all notification or if you set your notification to auto-cancel it is also removed once the user selects it.
+You can also call the cancel() for a specific notification ID on the NotificationManager.
+
+```java
+// Store some notification id as `nId`
+NotificationManager mNotificationManager = 
+  (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+mNotificationManager.cancel(nId);
+```
+
+See  the [official notifications guide](http://developer.android.com/guide/topics/ui/notifiers/notifications.html) for more details.
+
+### Adding a Large Icon
+
+If the notification should display a larger higher-quality icon on the left, we can use the `setLargeIcon` method to set a large (64x64) image as the icon. A common usage of this is to show a picture of the person's face that is associated with the notification:
+
+<img src="https://i.imgur.com/iuPmvzA.png" />
+
+This can be done with the following code:
+
+```java
+// .setLargeIcon expects a bitmap
+Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), 
+    R.drawable.my_large_icon);
+// Pass in the bitmap as the large icon
+NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
+    ...
+    .setLargeIcon(largeIcon);
+```
+
+Note that if the large icon is set, then the small icon supplied will be displayed minified on the right-hand side instead.
 
 ## References
 
