@@ -239,6 +239,10 @@ Finally, we need to setup the `DirectReplyIntent` service to receive this messag
 
 ```java
 public class DirectReplyIntent extends IntentService {
+
+  // Previous declarations here
+
+  // ...continued 
   @Override
   protected void onHandleIntent(Intent intent) {
     CharSequence directReply = getMessageText(intent);
