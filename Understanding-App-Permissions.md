@@ -123,11 +123,11 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Read Contacts permission granted", Toast.LENGTH_SHORT).show();
             } else {
                 // showRationale = false if user clicks Never Ask Again, otherwise true
-                boolean showRationale = shouldShowRequestPermissionRationale( this, Manifest.permission.READ_CONTACTS)
+                boolean showRationale = shouldShowRequestPermissionRationale( this, Manifest.permission.READ_CONTACTS);
 
                 if (showRationale) {
                    // do something here to handle degraded mode
-                else {
+                } else {
                    Toast.makeText(this, "Read Contacts permission denied", Toast.LENGTH_SHORT).show();
                 }
             }
