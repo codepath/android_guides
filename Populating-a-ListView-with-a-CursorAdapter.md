@@ -1,13 +1,13 @@
 ## Overview
 
-In Android development, any time you want to show a vertical list of items you will want to use a ListView which is populated using an Adapter to a data source. When we want the data for the list to be sourced directly from a [[SQLite database|Persisting-Data-to-the-Device#sqlite]] query we can use a [CursorAdapter](http://developer.android.com/reference/android/widget/CursorAdapter.html).
+In Android development, any time you want to show a vertical list of items you will want to use a ListView which is populated using an Adapter to a data source. When we want the data for the list to be sourced directly from a [[SQLite database|Persisting-Data-to-the-Device#sqlite]] query, we can use a [CursorAdapter](http://developer.android.com/reference/android/widget/CursorAdapter.html).
 
 <img src="https://i.imgur.com/mk82Jd2.jpg" width="600" />
 
 The `CursorAdapter` fits in between a `Cursor` (data source from SQLite query) and the `ListView` (visual representation) and configures two aspects:
 
  * Which layout template to inflate for an item
- * Which fields of the cursor to bind to views in the template
+ * Which fields of the cursor to bind to which views in the template
 
 ## Using a Custom CursorAdapter
 
@@ -50,7 +50,7 @@ When we want to display a series of items into a list using a custom representat
 
 ### Defining the Adapter
 
-Next, we need to define the adapter to describe the process of converting the `Cursor` into a View. To do this we need to override the `newView` method and the `bindView` methods. The naive approach to this (without any view caching) looks like the following:
+Next, we need to define the adapter to describe the process of projecting the `Cursor`'s data into a View. To do this we need to override the `newView` method and the `bindView` method. The naive approach to this (without any view caching) looks like the following:
 
 ```java
 public class TodoCursorAdapter extends CursorAdapter {
@@ -82,7 +82,7 @@ public class TodoCursorAdapter extends CursorAdapter {
 }
 ```
 
-First, we define a constructor that passes the cursor and context to the superclass. Next, we override the `newView` method which is used to inflate a new view template. Finally, we override the `bindView` which is used to bind all data to a given view to populate the template content for the item.
+First, we define a constructor that passes the cursor and context to the superclass. Next, we override the `newView` method which is used to inflate a new view template. Finally, we override the `bindView` method which is used to bind all data to a given view to populate the template content for the item.
 
 ## Retrieving the Cursor
 
