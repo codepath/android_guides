@@ -82,7 +82,7 @@ public class TodoCursorAdapter extends CursorAdapter {
 }
 ```
 
-First, we define a constructor that passes the cursor and context to the superclass. Next, we override the `newView` method which is used to inflate a new view template. Finally, we override the `bindView` method which is used to bind all data to a given view to populate the template content for the item.
+First, we define a constructor that passes the cursor and context to the superclass. Next, we override the `newView` method, which is used to inflate a new view template. Finally, we override the `bindView` method, which is used to bind all data to a given view to populate the template content for the item.
 
 ## Retrieving the Cursor
 
