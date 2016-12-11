@@ -24,7 +24,7 @@ To create this database table, we would use [[SQLite persistence|Persisting-Data
 
 ### Creating the View Template
 
-When we want to display a series of items into a list using a custom representation of the items, we need to use our own custom XML layout template for each item. We can simply create an XML layout template in `res/layout/item_todo.xml` representing a particular cursor row:
+When we want to display a series of items into a list, using a custom representation of the items, we need to use our own custom XML layout template for each item. We can simply create an XML layout template in `res/layout/item_todo.xml`, representing a particular cursor row:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
