@@ -29,7 +29,7 @@ public class MainActivity extends Activity {
 
 ### Setup
 
-~~Android Studio by default will not recognize a lot of generated Dagger 2 code as legitimate classes, but adding the `android-apt` plugin will add these files into the IDE class path and enable you to have more visibility.~~
+Android Studio by default will not allow you to navigate to generated Dagger 2 code as legitimate classes because they are not normally added to the source path  but adding the `android-apt` plugin will add these files into the IDE classpath and enable you to have more visibility.
 
 As of Android Gradle plugin 2.2 annotation processing is built in and android-apt is deprecated. android-apt does not support the new `jack` build toolchain.
 
