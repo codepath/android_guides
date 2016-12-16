@@ -24,7 +24,7 @@ If you are an experienced engineer (2+ years of professional experience in softw
 
 We need your help making the guides even better. In particular, here are the easiest ways to contribute:
 
-1. **Update Guides.** Review existing guides and update outdated content, add troubleshooting tips or add/update images
+1. **Update Guides.** Review existing guides and update outdated content, add tips or add/update images
 2. **Fill Out Guides.** Find guides that are [simply stubs](https://github.com/codepath/android_guides/issues/2) and fill them out with content.
 3. **Create New Guides.** Review the [missing topics list](https://github.com/codepath/android_guides/issues/2) and create new topic guides.
 
