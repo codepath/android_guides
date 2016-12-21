@@ -182,6 +182,33 @@ Often times you want to exclude from the animation sequence the use of the statu
 
 See this official guide on [Defining Custom Animations](https://developer.android.com/training/material/animations.html#Transitions) for more details.
 
+### 6. Shared Elements dependent on asynchronously loaded data
+
+If the shared elements require data loaded by an AsyncTask, a Loader, or something similar before their final appearance within the called activity can be determined, the framework might start the transition before that data is delivered back to the main thread.
+
+To overcome this, the Activity Transitions API gives us a way to temporarily delay the transition until we know for sure that the shared elements have been properly measured and laid out. 
+
+To temporarily prevent the shared element transition from starting, call `postponeEnterTransition()` (API >= 21) or `supportPostponeEnterTransition()` (API < 21) in your called activity’s `onCreate()` method. Later, when you know for certain that all of your shared elements have been properly positioned and sized, call `startPostponedEnterTransition()` (API >= 21) or `supportStartPostponedEnterTransition()` (API < 21) to resume the transition.
+
+A common pattern you’ll find useful is to start the postponed transition in an `OnPreDrawListener`, which will be called after the shared element has been measured and laid out.
+
+```java
+// ... load remote image with Glide/Picasso here
+
+supportPostponeEnterTransition();
+ivBackdrop.getViewTreeObserver().addOnPreDrawListener(
+    new ViewTreeObserver.OnPreDrawListener() {
+        @Override
+        public boolean onPreDraw() {
+            ivBackdrop.getViewTreeObserver().removeOnPreDrawListener(this);
+            supportStartPostponedEnterTransition();
+            return true;
+        }
+    }
+);
+```
+
+
 ## Fragment Shared Elements Transitions
 
 Leveraging shared element transitions works with fragments too in a similar way as was shown above for activities.
