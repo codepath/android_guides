@@ -277,3 +277,4 @@ Check out the following resources for finding libraries:
  * https://github.com/jfeinstein10/SlidingMenu
  * <http://square.github.io/picasso/>
  * <https://cloudrail.com/best-android-libraries-for-developers/>
+ * <https://github.com/geniushkg/github-oauth>
