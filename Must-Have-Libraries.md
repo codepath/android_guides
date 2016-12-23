@@ -81,6 +81,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [AboutLibraries](https://github.com/mikepenz/AboutLibraries) - Automatically generates an *About this app* section, with a list of used libraries 
  * [EasyDeviceInfo](https://github.com/nisrulz/easydeviceinfo) - Get device information in a super easy way
  * [Sensey](https://github.com/nisrulz/sensey) - Detecting gestures in a snap.
+ * [OAuthLibGithub](https://github.com/geniushkg/github-oauth) - Easily add Authentication using Github API.
 
 
 ### Extensions 
