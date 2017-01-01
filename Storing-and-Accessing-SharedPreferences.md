@@ -9,7 +9,7 @@ In order to store data to the SharedPreferences you need to first instantiate an
 #### Specifying a Preference File
 
 ```java
-SharedPreferences mSettings = getActivity().getSharedPreferences("Settings", 0);
+SharedPreferences mSettings = getActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE);
 ```
 
 The string `Settings` is the name of the preference file you wish to access. If it does not exist, it will be created. The mode value of 0 designates the default behavior, which is to allow read access to only to the application.  There are other read/write permissions that can be specified, but are no longer encouraged for [security reasons](http://developer.android.com/reference/android/content/Context.html#MODE_WORLD_READABLE).
@@ -56,7 +56,7 @@ Once you have stored some data to your SharedPrefrences you may retrieve this va
 First you need to instantiate an instance of your shared preferences. 
 
 ```java
-SharedPreferences mSettings = getActivity().getSharedPreferences("Settings", 0);
+SharedPreferences mSettings = getActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE);
 ```
 
 The string Settings is the name of the settings file you wish to access. If it does not exist it will be created. The mode value of 0 designates the default behavior.
