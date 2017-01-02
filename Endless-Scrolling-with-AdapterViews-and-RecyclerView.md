@@ -43,9 +43,7 @@ public abstract class EndlessScrollListener implements AbsListView.OnScrollListe
 		this.currentPage = startPage;
 	}
 
-	// This happens many times a second during a scroll, so be wary of the code you place here.
-	// We are given a few useful parameters to help us work out if we need to load some more data,
-	// but first we check if we are waiting for the previous load to finish.
+	
 	@Override
 	public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) 
         {
