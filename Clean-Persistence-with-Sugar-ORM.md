@@ -86,7 +86,7 @@ This will prevent `password` from having a column created for it in the underlyi
 
 ##### v1.3
 
-While the above integration is simple, clean, and quick, integrating with v1.3 is strictly better. The only difference between the two versions in terms of their integration is that `Context` is no longer a required argument in v1.3. A no argument constructor is the only remaining requirement. The above `Book` model would become:
+While the above integration is simple, clean, and quick, integrating with v1.3 is strictly better. The only difference between the two versions in terms of their integration is that `Context` is no longer a required argument in v1.3. A no argument constructor is the only remaining requirement. The above `Author` model would become:
 
 ```java
 public class Author extends SugarRecord<Author> {
