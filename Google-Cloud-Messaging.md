@@ -544,6 +544,10 @@ FCM is free to use.  In Jan. 2015, Google announced new rate limits in this [blo
 
 Take a look at Google's [quickstart sample](https://github.com/firebase/quickstart-android/tree/master/messaging) to test out FCM.
 
+## Deploying to Heroku
+
+If you wanted to actually deploy this sinatra app to production, you can do so for free with [heroku](https://heroku.com). Full source code and details for doing so can be [found on this repo](https://github.com/mjpablo23/FirebaseCloudMessagingHerokuServer). 
+
 ## References
 
 - <https://developers.google.com/cloud-messaging/gcm>
