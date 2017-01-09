@@ -1,29 +1,29 @@
 ## Overview
 
-`ToolBar` was introduced in Android Lollipop, API 21 release and is the spiritual successor of the [[ActionBar|Defining-The-ActionBar]]. It's a `ViewGroup` that can be placed anywhere in your XML layouts. ToolBar's appearance and behavior can be more easily customized than the ActionBar. 
+`Toolbar` was introduced in Android Lollipop, API 21 release and is the spiritual successor of the [[ActionBar|Defining-The-ActionBar]]. It's a `ViewGroup` that can be placed anywhere in your XML layouts. Toolbar's appearance and behavior can be more easily customized than the ActionBar. 
 
 <img src="http://i.imgur.com/0auGknf.png" width="500" />
 
-ToolBar works well with apps targeted to API 21 and above. However, Android has updated the AppCompat support libraries so the ToolBar can be used on lower Android OS devices as well. In AppCompat, ToolBar is implemented in the `android.support.v7.widget.Toolbar` class.
+Toolbar works well with apps targeted to API 21 and above. However, Android has updated the AppCompat support libraries so the Toolbar can be used on lower Android OS devices as well. In AppCompat, Toolbar is implemented in the `android.support.v7.widget.Toolbar` class.
 
 There are two ways to use Toolbar:
 
  1. Use a `Toolbar` as an Action Bar when you want to use the existing ActionBar facilities (such as menu inflation and selection, `ActionBarDrawerToggle`, and so on) but want to have more control over its appearance.
  2. Use a standalone `Toolbar` when you want to use the pattern in your app for situations that an Action Bar would not support; for example, showing multiple toolbars on the screen, spanning only part of the width, and so on.
 
-### ToolBar vs ActionBar
+### Toolbar vs ActionBar
 
-The ToolBar is a generalization of the [[ActionBar system|Defining-The-ActionBar]]. The key differences that distinguish the `ToolBar` from the `ActionBar` include:
+The Toolbar is a generalization of the [[ActionBar system|Defining-The-ActionBar]]. The key differences that distinguish the `Toolbar` from the `ActionBar` include:
 
- * `ToolBar` is a `View` included in a layout like any other `View`
+ * `Toolbar` is a `View` included in a layout like any other `View`
  * As a regular `View`, the toolbar is easier to position, animate and control 
- * Multiple distinct `ToolBar` elements can be defined within a single activity
+ * Multiple distinct `Toolbar` elements can be defined within a single activity
 
-Keep in mind that you can also configure any `ToolBar` as an Activity’s ActionBar, meaning that your standard options menu actions will be display within.
+Keep in mind that you can also configure any `Toolbar` as an Activity’s ActionBar, meaning that your standard options menu actions will be display within.
 
 Note that the ActionBar continues to work and if **all you need is a static bar at the top** that can host icons and a back button, then you can safely continue to use `ActionBar`.
 
-### Using ToolBar as ActionBar
+### Using Toolbar as ActionBar
 
 To use Toolbar as an ActionBar, first ensure the AppCompat-v7 support library is added to your application `build.gradle` (Module:app) file:
 
@@ -253,7 +253,7 @@ Next, we need to remove the left inset margin that pushes the icon over too far 
 </android.support.v7.widget.Toolbar>
 ```
 
-With that the icon should properly display within the `ToolBar` as expected.
+With that the icon should properly display within the `Toolbar` as expected.
 
 ### Custom Title View
 
@@ -346,7 +346,7 @@ You should be all set. Refer to [this stackoverflow post](http://stackoverflow.c
 
 ## Reacting to Scroll
 
-We can configure the `ToolBar` to react and change as the page scrolls:
+We can configure the `Toolbar` to react and change as the page scrolls:
 
 ![](http://imgur.com/sGltNwr.png)
 
