@@ -38,7 +38,7 @@ Add these three lines to your `app/build.gradle` file after this apply statement
 ```gradle
 dependencies {
     // apt command comes from the android-apt plugin
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.8'
+    apt 'com.google.dagger:dagger-compiler:2.8'
     compile 'com.google.dagger:dagger:2.8'
     provided 'javax.annotation:jsr250-api:1.0'
 }
