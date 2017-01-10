@@ -82,6 +82,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [EasyDeviceInfo](https://github.com/nisrulz/easydeviceinfo) - Get device information in a super easy way
  * [Sensey](https://github.com/nisrulz/sensey) - Detecting gestures in a snap.
  * [OAuthLibGithub](https://github.com/geniushkg/github-oauth) - Easily add Authentication using Github API.
+ * [Timber](https://github.com/JakeWharton/timber) - A logger with a small, extensible API which provides utility on top of Android's normal Log class.
 
 
 ### Extensions 
@@ -130,6 +131,7 @@ Essentially this method is used to enable your code to short-circuit before exec
 * [ChipsLayoutManager](https://github.com/BelooS/ChipsLayoutManager) - RecyclerView's LayoutManager which moves item to the next line when no space left on the current. Can represent google material chips guideline or tags view. 
 * [RecyclerViewHelper](https://github.com/nisrulz/recyclerviewhelper) - Provides the most common functions around recycler view like Swipe to dismiss, Drag and Drop, Divider in the ui, events for when item selected and when not selected, on-click listener for items.
 * [async-expandable-list](https://github.com/Ericliu001/async-expandable-list) - async-expandable-list provides solutions to displaying header-sub-items structure with simple api and asynchronously loading sub-list into an expandable list.   
+* [Epoxy](https://github.com/airbnb/epoxy) - Epoxy is an Android library for building complex screens in a RecyclerView.
 
 ### Easy Navigation 
 
