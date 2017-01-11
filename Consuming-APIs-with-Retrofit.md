@@ -18,7 +18,7 @@ Add the following to your `app/build.gradle` file:
 
 ```gradle
 dependencies {
-    compile 'com.google.code.gson:gson:2.6.2'
+    compile 'com.google.code.gson:gson:2.7'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'  
 
