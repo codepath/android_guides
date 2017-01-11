@@ -8,7 +8,7 @@ Add the following line to your Gradle configuration:
 
 ```gradle
 dependencies {
-  compile 'com.google.code.gson:gson:2.6.2'
+  compile 'com.google.code.gson:gson:2.7'
 }
 ```
 [![Javadoc](https://javadoc-emblem.rhcloud.com/doc/com.google.code.gson/gson/badge.svg)](http://www.javadoc.io/doc/com.google.code.gson/gson)
