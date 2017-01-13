@@ -188,8 +188,6 @@ bintray {
 To upload your package, just type:
 
 ```bash
-
-```bash
 # Set your Bintray user ID below
 export BINTRAY_USER="codepath"
 # Set your Bintray API key below
