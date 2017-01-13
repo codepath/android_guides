@@ -311,7 +311,7 @@ You can write a system with corresponding ID's if you wish to have this function
 
 ```java
 public static void clearAllBunnyData(SQLiteDatabase db) {
-    cupboard().withDatabase(db).delete(Bunny.class);
+    cupboard().withDatabase(db).delete(Bunny.class,null);
 }
 ```
 
