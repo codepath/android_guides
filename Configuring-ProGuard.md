@@ -34,6 +34,26 @@ When using in development/debug testing, you may wish to turn on a few settings 
 -optimizations !code/allocation/variable
 ```
 
+An alternative is to request only to remove unwanted code (shrink) but not obfuscate. Details [here](https://developer.android.com/studio/build/shrink-code.html#gradle-shrinker).
+
+```groovy
+buildTypes {
+  debug {
+    minifyEnabled true  // shrink
+    useProguard false   // don't obfuscate
+
+    proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+  }
+
+  release {
+    minifyEnabled true  // shrink
+    useProguard true    // obfuscate
+
+    proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+  }
+}
+```
+
 ### Third-Party Libraries
 
 Before you start adding any ProGuard rules, you should also check whether any of the libraries you use already come packaged with a `consumer-proguard-rules.pro` file.  This file gets added to the ProGuard definition list automatically.  For instance, for the [LeakCanary](https://github.com/square/leakcanary) project, the definition listings are located [here](https://github.com/square/leakcanary/blob/master/leakcanary-android/consumer-proguard-rules.pro) and added whenever you use this library with ProGuard enabled.
