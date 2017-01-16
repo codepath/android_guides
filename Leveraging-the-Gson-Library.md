@@ -8,14 +8,14 @@ Add the following line to your Gradle configuration:
 
 ```gradle
 dependencies {
-  compile 'com.google.code.gson:gson:2.7'
+  compile 'com.google.code.gson:gson:2.8.0'
 }
 ```
 [![Javadoc](https://javadoc-emblem.rhcloud.com/doc/com.google.code.gson/gson/badge.svg)](http://www.javadoc.io/doc/com.google.code.gson/gson)
 
 ### Auto-generating Model Classes
 
-You can [auto-generate much of the model code](http://www.jsonschema2pojo.org/) as described in [[this guide|https://github.com/codepath/android_guides/wiki/Consuming-APIs-with-Retrofit#automated-approach---auto-generating-the-java-objects]].   The generator will generated a large number of files that may be a bit overwhelming but the key is to parse the JSON to elements that you need.  You can also see how a class is created for each nested layer in order to understand the manual process.
+You can [auto-generate much of the model code](http://www.jsonschema2pojo.org/) as described in [[this guide|https://github.com/codepath/android_guides/wiki/Consuming-APIs-with-Retrofit#automated-approach---auto-generating-the-java-classes]].   The generator will generated a large number of files that may be a bit overwhelming but the key is to parse the JSON to elements that you need.  You can also see how a class is created for each nested layer in order to understand the manual process.
 
 ### Generating Models Manually
 
