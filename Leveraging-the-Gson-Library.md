@@ -340,7 +340,7 @@ Be sure to use the `TextHttpResponseHandler` rather than `JsonHttpResponseHandle
 
 #### Retrofit 2
 
-Retrofit uses [OkHttp](http://square.github.io/okhttp/) for the underlying networking library and relies on the Gson library by default for decoding on API-based responses.  To use it, we first need to define an interface file called `RottenTomatoesService.java`.  To ensure that the API call will be made asynchronously, we also define a callback interface.  Note that if this API call required other parameters, we should always make sure that the `Callback` declaration is last.
+Retrofit uses [OkHttp](http://square.github.io/okhttp/) for the underlying networking library and can use the Gson library to decode API-based responses.  To use it, we first need to define an interface file called `RottenTomatoesService.java`.  To ensure that the API call will be made asynchronously, we also define a callback interface.  Note that if this API call required other parameters, we should always make sure that the `Callback` declaration is last.
     
 ```java
  public interface RottenTomatoesService {
@@ -362,9 +362,9 @@ RequestInterceptor requestInterceptor = new RequestInterceptor() {
 };
 ```
 
-Next, we need to create a `Retrofit` instance and making sure to associate the adapter to this `RequestInterceptor`:
+Next, we need to create a `Retrofit` instance with a Gson converter and make sure to associate the adapter to this `RequestInterceptor`:
 
-```java 
+```java
 // Add the interceptor to OkHttpClient 
 OkHttpClient client = new OkHttpClient();
 client.interceptors().add(requestInterceptor);
@@ -372,6 +372,7 @@ client.interceptors().add(requestInterceptor);
 Retrofit retrofit = new Retrofit.Builder()
                .client(client)
                .baseUrl("http://api.rottentomatoes.com/api/public/v1.0")
+               .addConverterFactory(GsonConverterFactory.create())
                .build();
 ```
 
