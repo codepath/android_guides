@@ -83,7 +83,7 @@ There are various sites that provide icons, colors or other assets for your apps
  * [IconFinder](https://www.iconfinder.com/) - Excellent source of free to use graphics
  * [iconmonstr](http://iconmonstr.com/) - Great source of icons with customized shapes and colors
  * [NounProject](http://thenounproject.com/) - Another source of free icons and graphics
- * [Icon Generators](http://romannurik.github.io/AndroidAssetStudio/l) - Easily generate icons for use in your apps
+ * [Icon Generators](http://romannurik.github.io/AndroidAssetStudio/) - Easily generate icons for use in your apps
  * [MaterialPalette](http://www.materialpalette.com/) - Easy color palette selection for your apps. 
  * [Android Cheatsheet](http://petrnohejl.github.io/Android-Cheatsheet-For-Graphic-Designers/) - Great summary of design specs and dimensions
 
