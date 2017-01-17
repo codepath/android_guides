@@ -83,7 +83,7 @@ There are various sites that provide icons, colors or other assets for your apps
  * [IconFinder](https://www.iconfinder.com/) - Excellent source of free to use graphics
  * [iconmonstr](http://iconmonstr.com/) - Great source of icons with customized shapes and colors
  * [NounProject](http://thenounproject.com/) - Another source of free icons and graphics
- * [Icon Generator](http://android-ui-utils.googlecode.com/hg/asset-studio/dist/icons-launcher.html) - Easily generate icons and images for use in your apps
+ * [Icon Generators](http://romannurik.github.io/AndroidAssetStudio/l) - Easily generate icons for use in your apps
  * [MaterialPalette](http://www.materialpalette.com/) - Easy color palette selection for your apps. 
  * [Android Cheatsheet](http://petrnohejl.github.io/Android-Cheatsheet-For-Graphic-Designers/) - Great summary of design specs and dimensions
 
@@ -99,9 +99,13 @@ There are various guides that provide insight into the design principles for And
 
 There are various sites that provide inspiration by showcasing beautiful modern app design:
 
- * [Android App Patterns](http://www.android-app-patterns.com/) - Repository of Android interfaces for dozens of categories. **Great way to explore the Android design standards**
- * [Android UX](http://androidux.com/) - Nicely categorizes apps by the best user experience they provide.
- * [AndroidNiceties](http://androidniceties.tumblr.com/) - Inspiring examples of Android app interfaces
+ * [UI-Oh-My](http://uiohmy.com/) - Great resource for seeing screenshots of apps.
+ * [inspired-ui](http://android.inspired-ui.com/) - Endless list of beautiful UI design
+ * [mobilepatterns](https://www.mobile-patterns.com/android) - Common screen patterns neatly organized
+ * [pttrns](http://pttrns.com/android-patterns) - List of android screens in categories
+ * [androidniceties](http://androidniceties.tumblr.com/) - Blog of beautiful interfaces
+ * [androidux](http://androidux.com/) - Explores common patterns for UX
+ * [androidpatterns](http://www.androidpatterns.com/) - UI patterns organized by questions, such as "How can I let users manage their accounts?"
   
 ## Beginning Android Resources
 
