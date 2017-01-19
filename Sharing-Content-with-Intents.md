@@ -146,7 +146,7 @@ public Uri getLocalBitmapUri(ImageView imageView) {
         FileOutputStream out = new FileOutputStream(file);
         bmp.compress(Bitmap.CompressFormat.PNG, 90, out);
         out.close();
-        // **Warning:** This will fail for API > 24, use a FileProvider as shown below instead.
+        // **Warning:** This will fail for API >= 24, use a FileProvider as shown below instead.
         bmpUri = Uri.fromFile(file);
     } catch (IOException e) {
         e.printStackTrace();
