@@ -51,7 +51,7 @@ We use the context to fetch the `LocalBroadcastManager` when sending out or regi
 // The context contains a reference to the main Looper, 
 // which manages the queue for the application's main thread.
 Intent broadcastIntent = new Intent("custom-action");
-LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
+LocalBroadcastManager.getInstance(context).sendBroadcast(broadcastIntent);
 ```
 
 ### Retrieving a System Service
