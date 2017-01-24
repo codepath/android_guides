@@ -181,10 +181,13 @@ protected void onRestoreInstanceState(Bundle state) {
     mListState = state.getParcelable(LIST_STATE);
 }
 
+
 @Override
 protected void onResume() {
     super.onResume();
     loadData(); // make sure data has been reloaded into adapter first
+    // ONLY call this part once the data items have been loaded back into the adapter
+    // for example, inside a success callback from the network
     if (mListState != null) {
         myListView.onRestoreInstanceState(mListState);
         mListState = null;
