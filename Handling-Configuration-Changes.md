@@ -163,32 +163,38 @@ Often when you rotate the screen, the app will lose the scroll position and othe
 
 ```java
 // YourActivity.java
-Parcelable scrollState;
+private static final String LIST_STATE = "listState";
+private Parcelable mListState = null;
 
+// Write list state to bundle
 @Override
-public void onPause() {    
-    // Save ListView scroll and selected states
-    scrollState = listView.onSaveInstanceState();
-    super.onPause();
+protected void onSaveInstanceState(Bundle state) {
+    super.onSaveInstanceState(state);
+    mListState = getListView().onSaveInstanceState();
+    state.putParcelable(LIST_STATE, mListState);
 }
-...
+
+// Restore list state from bundle
+@Override
+protected void onRestoreInstanceState(Bundle state) {
+    super.onRestoreInstanceState(state);
+    mListState = state.getParcelable(LIST_STATE);
+}
 
 @Override
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    // Set back the items into the list
-    listView.setAdapter(adapter);
-    // ...load the items back into the adapter first...
-    // Restore previous state (including selected item index and scroll position)
-    if(scrollState != null) {
-        // Note: This should only be called after the adapter is again filled with items
-        listView.onRestoreInstanceState(scrollState);
-        scrollState = null; // clear scroll state
+protected void onResume() {
+    super.onResume();
+    loadData(); // make sure data has been reloaded into adapter first
+    if (mListState != null) {
+        myListView.onRestoreInstanceState(mListState);
+        mListState = null;
     }
 }
 ```
 
-Check out this [blog post](https://futurestud.io/tutorials/how-to-save-and-restore-the-scroll-position-and-state-of-a-android-listview) and [stackoverflow post](http://stackoverflow.com/a/5688490) for more details. Note that **you must load the items back into the adapter first** before calling `onRestoreInstanceState`. 
+Check out this [blog post](https://futurestud.io/tutorials/how-to-save-and-restore-the-scroll-position-and-state-of-a-android-listview) and [stackoverflow post](http://stackoverflow.com/a/5688490) for more details. 
+
+Note that **you must load the items back into the adapter first** before calling `onRestoreInstanceState`. In other words, don't call `onRestoreInstanceState` on the ListView until after the items are loaded back in from the network or the database. 
 
 ### RecyclerView
 
