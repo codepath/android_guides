@@ -178,15 +178,17 @@ protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     // Set back the items into the list
     listView.setAdapter(adapter);
-    // ...
+    // ...load the items back into the adapter first...
     // Restore previous state (including selected item index and scroll position)
     if(scrollState != null) {
+        // Note: This should only be called after the adapter is again filled with items
         listView.onRestoreInstanceState(scrollState);
+        scrollState = null; // clear scroll state
     }
 }
 ```
 
-Check out this [blog post](https://futurestud.io/tutorials/how-to-save-and-restore-the-scroll-position-and-state-of-a-android-listview) and [stackoverflow post](http://stackoverflow.com/a/5688490) for more details. 
+Check out this [blog post](https://futurestud.io/tutorials/how-to-save-and-restore-the-scroll-position-and-state-of-a-android-listview) and [stackoverflow post](http://stackoverflow.com/a/5688490) for more details. Note that **you must load the items back into the adapter first** before calling `onRestoreInstanceState`. 
 
 ### RecyclerView
 
