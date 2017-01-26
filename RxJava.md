@@ -326,7 +326,7 @@ The RxAndroid library includes `AndroidSchedulers.mainThread()` for allowing cal
 
 ### Hot vs. Cold Observables
 
-By [default](https://github.com/ReactiveX/RxJava/blob/1.x/src/main/java/rx/Observable.java#L66-L67), Observables are initialized to begin executing after the first subscriber is attached.  Retrofit, for instance, by default operates in this way, which are known as **cold** observables.    You can take a look at the Retrofit [source code](https://github.com/square/retrofit/blob/master/retrofit-adapters/rxjava/src/main/java/retrofit2/RxJavaCallAdapterFactory.java#L88) to see that the network request is made on the first subscription.
+By [default](https://github.com/ReactiveX/RxJava/blob/1.x/src/main/java/rx/Observable.java#L66-L67), Observables are initialized to begin executing after the first subscriber is attached.  Retrofit, for instance, by default operates in this way, which are known as **cold** observables.  You can take a look at the Retrofit [source code](https://github.com/square/retrofit/blob/master/retrofit-adapters/rxjava/src/main/java/retrofit2/adapter/rxjava/RxJavaCallAdapterFactory.java#L92) to see that the network request is made on the first subscription.
 
 #### Cold to Hot Observables
 
