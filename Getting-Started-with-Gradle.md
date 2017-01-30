@@ -224,8 +224,25 @@ For more information, see the documentation about [multi-project builds](https:/
 
 ## Speeding up Gradle Builds
 
-There are several configuration tweaks that can be experimented with to significantly speed up gradle build times. A few relevant resources are included below:
+There are several configuration tweaks that can be experimented with to significantly speed up gradle build times. In Android Studio, open the `gradle.properties` file in the project and add:
 
+```
+#Enable daemon
+org.gradle.daemon=true
+
+# Try and findout the best heap size for your project build.
+org.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8
+
+# Modularise your project and enable parallel build
+org.gradle.parallel=true
+
+# Enable configure on demand.
+org.gradle.configureondemand=true
+```
+
+On average, this will cause a 65% decrease in your build times. A few additional resources are included below:
+
+* [How to decrease your gradle build time](https://medium.com/@kevalpatel2106/how-to-decrease-your-gradle-build-time-by-65-310b572b0c43)
 * [How I save 5h/week on Gradle builds](https://medium.com/@cesarmcferreira/speeding-up-gradle-builds-619c442113cb)
 * [Speeding up Gradle builds](http://kevinpelgrims.com/blog/2015/06/11/speeding-up-your-gradle-builds/)
 * [Speed Up Gradle Build In Android Studio](https://medium.com/@101/speed-up-gradle-build-in-android-studio-80a5f74ac9ed)
