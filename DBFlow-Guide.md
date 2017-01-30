@@ -384,7 +384,7 @@ The final step is for the Content Provider to be exposed.  If you wish for other
 <provider
             android:authorities="com.codepath.myapp.provider"
             android:exported="true|false"
-            android:name=".provider.TestContentProvider_Provider"/>
+            android:name=".provider.MyDatabase_Provider"/>
 ```
 
 ## Common Questions
