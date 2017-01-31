@@ -54,7 +54,7 @@ And of course, signup:
 <img src="http://cdn.pttrns.com/531/6208_w250.jpg" height="420" alt="Sign Up 2" />&nbsp;
 <img src="http://cdn.pttrns.com/336/6137_w250.jpg" height="420" alt="Sign Up 3" />
 
-Check out more examples of login screens on [mobile app patterns](http://www.android-app-patterns.com/category/login-screens).
+Check out more examples of login screens on [pttrns](https://pttrns.com/android-patterns?scid=17) and sign up pages on [pttrns](https://pttrns.com/android-patterns?scid=9).
 
 ### 2. Stream
 
@@ -76,11 +76,11 @@ Streams usually require the following components:
 
 **Examples:**
 
-<img src="http://www.android-app-patterns.com/img/sets/streams/144_4_streams.png" height="420" alt="Stream" />&nbsp;
-<img src="http://www.android-app-patterns.com/img/sets/streams/twitter-stream-2.png" height="420" alt="Stream" />&nbsp;
-<img src="http://www.android-app-patterns.com/img/sets/streams/facebook-stream.jpeg" height="420" alt="Stream" />
+<img src="http://cdn.pttrns.com/534/6259_w250.jpg" height="420" alt="Stream" />&nbsp;
+<img src="http://cdn.pttrns.com/396/4146_w250.jpg" height="420" alt="Stream" />&nbsp;
+<img src="http://cdn.pttrns.com/353/6108_w250.jpg" height="420" alt="Stream" />
 
-Check out more examples of streams on [mobile app patterns](http://www.android-app-patterns.com/category/streams).
+Check out more examples of streams on [pttrns](https://pttrns.com/android-patterns?scid=11).
 
 ### 3. Detail
 
@@ -99,11 +99,11 @@ Detail views usually require the following components:
 
 **Examples:**
 
-<img src="http://www.android-app-patterns.com/img/screens/52935ea54ecfa.png" height="420" alt="Detail" />&nbsp;
-<img src="http://www.android-app-patterns.com/img/sets/content-item/164_9_content-item.png" height="420" alt="Detail" />&nbsp;
-<img src="http://www.android-app-patterns.com/img/sets/content-item/148_5_content-item.png" height="420" alt="Detail" />
+<img src="http://68.media.tumblr.com/0738655266cd17a0c96d5943e8cef331/tumblr_o60r3ewWOW1r2wjwko5_250.png" height="420" alt="Detail" />&nbsp;
+<img src="http://cdn.pttrns.com/351/3493_w250.jpg"" height="420" alt="Detail" />&nbsp;
+<img src="http://68.media.tumblr.com/3bf1585c110ec3493c5756296eaaa4bf/tumblr_ngodqroIOp1r2wjwko5_250.png" height="420" alt="Detail" />
 
-Check out more examples of detail screens on [mobile app patterns](http://www.android-app-patterns.com/category/content-item).
+Check out more examples of detail screens on [pttrns](https://pttrns.com/android-patterns?scid=54).
 
 ### 4. Creation
 
@@ -125,11 +125,13 @@ Creation screens usually require the following tasks:
 
 **Examples:**
 
-<img src="http://www.android-app-patterns.com/img/sets/content-creation/144_15_content-creation.png" height="420" alt="Creation" />&nbsp;
-<img src="http://www.android-app-patterns.com/img/screens/537fede2cda9d.png" height="420" alt="Creation" />&nbsp;
-<img src="http://www.android-app-patterns.com/img/sets/content-creation/Google%20Plus_4_content-creation.png" height="420" alt="Creation" />
+<img src="http://68.media.tumblr.com/e1df69f85950abdfc18209437e075496/tumblr_nubrrgrwuI1r2wjwko5_250.png" height="420" alt="Creation" />&nbsp;
+<img src="http://68.media.tumblr.com/24ae04fb6c007c9bc771cc269e97eb87/tumblr_ntrvs7zGvr1r2wjwko5_250.png" height="420" alt="Creation" />&nbsp;
+<img src="http://68.media.tumblr.com/ecfd265ee9185621a4df6ca1a6111f0f/tumblr_mz9930Lwvb1r2wjwko2_250.png" height="420" alt="Creation" />
+<img src="http://68.media.tumblr.com/7d99e88a28cf4aac41d0a9011720d53c/tumblr_n1mxepbR2s1r2wjwko3_250.png" height="420" alt="Creation" />
 
-Check out more examples of creation screens on [mobile app patterns](http://www.android-app-patterns.com/category/content-creation).
+
+Check out more examples of creation screens on [pttrns](https://pttrns.com/android-patterns?scid=19).
 
 ### 5. Profile
 
@@ -147,11 +149,11 @@ Profile screens usually require the following components:
 
 **Examples:**
 
-<img src="http://www.android-app-patterns.com/img/sets/profile-pages/159_15_profile-pages.png" height="420" alt="Profile" />&nbsp;
-<img src="http://www.android-app-patterns.com/img/sets/profile-pages/149_5_profile-pages.png" height="420" alt="Profile" />&nbsp;
-<img src="http://www.android-app-patterns.com/img/sets/profile-pages/Pinterest_4_profile-pages.png" height="420" alt="Profile" />
+<img src="http://cdn.pttrns.com/353/6124_w250.jpg" height="420" alt="Profile" />&nbsp;
+<img src="http://68.media.tumblr.com/42420c6bbe58829c3fd56e2d85e544eb/tumblr_nqu31wL6WT1r2wjwko5_250.png" />&nbsp;
+<img src="http://68.media.tumblr.com/64d0d7baecd9b76f3badc0628137f1fe/tumblr_o60rraLQzl1r2wjwko3_250.png" height="420" alt="Profile" />
 
-Check out more examples of profile screens on [mobile app patterns](http://www.android-app-patterns.com/category/profile-pages).
+Check out more examples of profile screens on [pttrns](https://pttrns.com/android-patterns?scid=20).
 
 ### 6. Settings
 
@@ -170,12 +172,14 @@ Settings screens usually require the following components:
 
 **Examples:**
 
-<img src="http://www.android-app-patterns.com/img/sets/settings/148_12_settings.png" height="420" alt="Profile" />&nbsp;
-<img src="http://www.android-app-patterns.com/img/sets/settings/155_10_settings.png" height="420" alt="Profile" />&nbsp;
-<img src="http://www.android-app-patterns.com/img/sets/settings/Pinterest_1_settings.png" height="420" alt="Profile" />
+<img src="http://cdn.pttrns.com/532/6227_w250.jpg" height="420" alt="Profile" />&nbsp;
+<img src="http://cdn.pttrns.com/345/6033_w250.jpg" height="420" alt="Profile" />&nbsp;
+<img src="http://68.media.tumblr.com/479eeffd3b1174453a6ceb732c92eaa1/tumblr_mohaz18J5z1r2wjwko6_250.png" height="420" alt="Profile" />
 
-Check out more examples of settings screens on [mobile app patterns](http://www.android-app-patterns.com/category/settings).
+Check out more examples of settings screens on [pttrns](https://pttrns.com/android-patterns?scid=16&y=2016).
 
 ## References
 
-* <http://www.android-app-patterns.com/>
+* <https://pttrns.com/android-patterns/>
+* <http://androidniceties.tumblr.com//>
+
