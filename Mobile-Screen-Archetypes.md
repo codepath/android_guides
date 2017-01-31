@@ -44,15 +44,15 @@ Login screens usually require the following components:
 
 First, sign in pages:
 
-<img src="http://www.android-app-patterns.com/img/screens/52935e9985697.png" height="420" alt="Sign In" />&nbsp;
-<img src="http://www.android-app-patterns.com/img/sets/login-screens/155_2_login-screens.png" height="420" alt="Sign In 2" />&nbsp;
-<img src="http://www.android-app-patterns.com/img/sets/login-screens/facebook-login.jpeg" height="420" alt="Sign In 3" />
+<img src="http://cdn.pttrns.com/357/6082_w250.jpg" height="420" alt="Sign In" />&nbsp;
+<img src="http://cdn.pttrns.com/356/6045_w250.jpg" height="420" alt="Sign In 2" />&nbsp;
+<img src="http://cdn.pttrns.com/422/4511_w250.jpg" height="420" alt="Sign In 3" />
 
 And of course, signup:
 
-<img src="http://www.android-app-patterns.com/img/screens/52409664366a5.png" height="420" alt="Sign Up" />&nbsp;
-<img src="http://www.android-app-patterns.com/img/sets/signup/149_7_signup.png" height="420" alt="Sign Up 2" />&nbsp;
-<img src="http://www.android-app-patterns.com/img/sets/signup/foodspotting-signup.png" height="420" alt="Sign Up 3" />
+<img src="http://cdn.pttrns.com/399/4181_w250.jpg" height="420" alt="Sign Up" />&nbsp;
+<img src="http://cdn.pttrns.com/531/6208_w250.jpg" height="420" alt="Sign Up 2" />&nbsp;
+<img src="http://cdn.pttrns.com/336/6137_w250.jpg" height="420" alt="Sign Up 3" />
 
 Check out more examples of login screens on [mobile app patterns](http://www.android-app-patterns.com/category/login-screens).
 
