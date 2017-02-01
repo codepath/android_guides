@@ -14,8 +14,11 @@ Fast Android Networking Library supports Android 2.3 (Gingerbread) and later.
 
 Add this in your build.gradle
 ```groovy
-compile 'com.amitshekhar.android:android-networking:0.2.0'
+compile 'com.amitshekhar.android:android-networking:0.4.0'
 ```
+
+### For RxJava2 Support, [check here](https://amitshekhariitbhu.github.io/Fast-Android-Networking/rxjava2_support.html).
+
 Do not forget to add internet permission in manifest if already not present
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
@@ -63,8 +66,27 @@ AndroidNetworking.post("https://fierce-cove-29863.herokuapp.com/createAnUser")
                     }
                 });
 ```
-You can also post json, file ,etc in POST request like this.
+You can also post java object, json, file, etc in POST request like this.
 ```java
+User user = new User();
+user.firstname = "Amit";
+user.lastname = "Shekhar";
+
+AndroidNetworking.post("https://fierce-cove-29863.herokuapp.com/createUser")
+                 .addBodyParameter(user) // posting java object
+                 .setTag("test")
+                 .setPriority(Priority.MEDIUM)
+                 .build()
+                 .getAsJSONArray(new JSONArrayRequestListener() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                      // do anything with response
+                    }
+                    @Override
+                    public void onError(ANError error) {
+                      // handle error
+                    }
+                });
 
 JSONObject jsonObject = new JSONObject();
 try {
@@ -116,7 +138,7 @@ AndroidNetworking.get("https://fierce-cove-29863.herokuapp.com/getAllUsers/{page
                 .setTag(this)
                 .setPriority(Priority.LOW)
                 .build()
-                .getAsParsed(new TypeToken<List<User>>() {}, new ParsedRequestListener<List<User>>() {
+                .getAsObjectList(User.class, new ParsedRequestListener<List<User>>() {
                     @Override
                     public void onResponse(List<User> users) {
                       // do anything with response
@@ -138,7 +160,7 @@ AndroidNetworking.get("https://fierce-cove-29863.herokuapp.com/getAnUserDetail/{
                 .setTag(this)
                 .setPriority(Priority.LOW)
                 .build()
-                .getAsParsed(new TypeToken<User>() {}, new ParsedRequestListener<User>() {
+                .getAsObject(User.class, new ParsedRequestListener<User>() {
                      @Override
                      public void onResponse(User user) {
                         // do anything with response
@@ -151,7 +173,7 @@ AndroidNetworking.get("https://fierce-cove-29863.herokuapp.com/getAnUserDetail/{
                         // handle error
                      }
                  }); 
-/*-- Note : TypeToken and getAsParsed is important here --*/              
+/*-- Note : YourObject.class, getAsObject and getAsObjectList are important here --*/              
 ```
 
 ### Downloading a file from server
@@ -254,18 +276,20 @@ AndroidNetworking.get(imageUrl)
 ### Error Code Handling
 ```java
 public void onError(ANError error) {
-               if (error.getErrorCode() != 0) {
-                  // received error from server
-                  // error.getErrorCode() - the error code from server
-                  // error.getErrorBody() - the error body from server
-                  // error.getErrorDetail() - just an error detail
-                  Log.d(TAG, "onError errorCode : " + error.getErrorCode());
-                  Log.d(TAG, "onError errorBody : " + error.getErrorBody());
-                  Log.d(TAG, "onError errorDetail : " + error.getErrorDetail());
-               } else {
-                  // error.getErrorDetail() : connectionError, parseError, requestCancelledError
-                  Log.d(TAG, "onError errorDetail : " + error.getErrorDetail());
-               }
-         }
+   if (error.getErrorCode() != 0) {
+        // received error from server
+        // error.getErrorCode() - the error code from server
+        // error.getErrorBody() - the error body from server
+        // error.getErrorDetail() - just an error detail
+        Log.d(TAG, "onError errorCode : " + error.getErrorCode());
+        Log.d(TAG, "onError errorBody : " + error.getErrorBody());
+        Log.d(TAG, "onError errorDetail : " + error.getErrorDetail());
+        // get parsed error object (If ApiError is your class)
+        ApiError apiError = error.getErrorAsObject(ApiError.class);
+   } else {
+        // error.getErrorDetail() : connectionError, parseError, requestCancelledError
+        Log.d(TAG, "onError errorDetail : " + error.getErrorDetail());
+   }
+}
 ```
 
