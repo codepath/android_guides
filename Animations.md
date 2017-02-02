@@ -797,6 +797,7 @@ In Android 5.0, several new animation features were introduced including:
  * [[Shared Element Activity Transition]] - Transitions that have shared layout elements that transform as one activity is transitioned to the other.
  * [[Ripple Animation]] - Used provide an instantaneous visual confirmation at the point of contact when users interact with UI elements.
  * [[Circular Reveal Animation]] - Reveal is a new animation introduced in Android L that animates the view's clipping boundaries. Often used in conjunction with [[material floating action buttons|Floating Action Buttons]].
+ * [[View Hierarchy Animations]] - Provides an easy way to perform animation transitions within an activity.
 
 Note that these animations require **lollipop or newer** and do not work on devices with an Android version less than API 21. Around 50% of devices have at least lollipop (Aug 2016), so the time spent using one of these animations requires thought to determine if it is worth the effort. Refer to this [Material Animations sample app](https://github.com/lgvalle/Material-Animations) for detailed explanations with examples.
 
