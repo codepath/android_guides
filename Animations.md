@@ -4,7 +4,7 @@ Android supports powerful animations for both views and transitions between acti
 
 These can be applied to anything within the Android application. This is typically used for any dynamic movement for views including position changes, rotations, expansion or coloramn nbb/tion changes. 
 
-Animations like many resources for Android can be defined both through XML resources as well as 
+AAnimations like many resources for Android can be defined both through XML resources as well as 
 dynamically within the Java code.
 
 ### Animation Types
