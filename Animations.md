@@ -2,7 +2,7 @@
 
 Android supports powerful animations for both views and transitions between activities. There are three animation systems that work differently for different cases but the most important are Property animations. Property animations allow us to animate any property of any object from one value to another over a specified duration. 
 
-These can be applied to anything within the Android application. This is typically used for any dynamic movement for views including position changes, rotations, expansion or coloration changes. 
+These can be applied to anything within the Android application. This is typically used for any dynamic movement for views including position changes, rotations, expansion or coloramn nbb/tion changes. 
 
 Animations like many resources for Android can be defined both through XML resources as well as 
 dynamically within the Java code.
