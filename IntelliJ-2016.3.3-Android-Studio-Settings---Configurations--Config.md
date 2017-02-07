@@ -45,25 +45,25 @@ Goto \sdk\extras\android\
 Select this one
 Very important JAR files are located here. Gradle wrapper and layout pallet + adapters. 
 
-You need to download "gradle.exe" separately to your local drive. Without it, your project (MAVEN and GRADLE )dependencies won't work like they do in Studio.
+11) You need to download "gradle.exe" separately to your local drive. Without it, your project (MAVEN and GRADLE )dependencies won't work like they do in Studio.
 
-As an option, I would encourage ALL Android programmers to download the Node.JS if using IntelliJ. A short description is provided from wiki below. It's a very real-time ASYNC in JAVA.
+12) As an option, I would encourage ALL Android programmers to download the Node.JS if using IntelliJ. A short description is provided from wiki below. It's a very real-time ASYNC in JAVA.
 
 Node.js is an open-source, cross-platform JavaScript runtime environment for developing a diverse variety of tools and applications. Although Node.js is not a JavaScript framework,[4] many of its basic modules are written in JavaScript, and developers can write new modules in JavaScript. The runtime environment interprets JavaScript using Google's V8 JavaScript engine.
 Node.js has an event-driven architecture capable of asynchronous I/O. These design choices aim to optimize throughput and scalability in Web applications with many input/output operations, as well as for real-time Web applications (e.g., real-time communication programs and browser games).
 
 After you Install them, all you have to do is to tell IntelliJ to how to locate them. The beauty is that after the installation, IntelliJ sorts all of the settings.
 
-For Node.Js, after installation go to default settings;
+13) Node.Js; after installation go to default settings;
 Languages and Frameworks
 Node.js and NPM
 and select the location wherever you have extracted the of the Node.exe as the node interpreter.
 
-For Gradle;
+14) Gradle binaries;
 Make sure the Gradle plug-in is enabled. This is enabled by IntelliJ by default.
 Go to default settings 
       Build, Execution, Deployment
-                Gradle      Service Directory  select the below.(wherever you have exctracted your local gradle binaries) 
+                Gradle      Service Directory  select the below.(wherever you have extracted your local gradle binaries) 
 .gradle/wrapper/dists/gradle-3.1-bin/37qejo6a26ua35lyn7h1u9v2n/gradle-3.1
 
 RedKidBytesProductions@gmail.com
