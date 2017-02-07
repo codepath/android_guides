@@ -10,7 +10,7 @@ After the initial configuration, you will be able to manage all of your reposito
 6) Under System Variables, select Path
 7) Click on Edit (this is an easier way). When you are in it, click on new.  Then go to Browse and choose the location of your Java 1.8.0_102 {up to date as for Jan 2017 }
 8) Make sure You know the location of your LOCAL SDK FILES. You will start extracting the JAR files.
-8) After the installing IntelliJ;
+9) After the installing IntelliJ;
          Default Project Structure
          Project Settings
          Project 
@@ -20,11 +20,13 @@ After the initial configuration, you will be able to manage all of your reposito
 before you go to the libraries ( you can make your selections afterward), now go to SDK. 
          Select SDK\platorms\android-25\android.jar    as your class path
 
-After this, you will need to select the JAR files for IntelliJ to Set-up the Android SDK
-click plus above your class path and locate your JAR files and select them
+10) You will need to select the JAR files for IntelliJ to Set-up the Android SDKs.
+Click the plus icon on the right, while the class path tab is selected. Locate your JAR files and select them
 
-MAIN is the SDK\tool\
-Most of these files located generally although not always under the BIN folders.
+Start with SDK\tools then follow below respectively.
+
+Most of these files located generally although not always under the BIN folders. Thus open folder and search for them.
+
 
 Summary of folders are:
 tools
@@ -35,32 +37,33 @@ patcher
 platforms
 platform-tools
 extras\select Google directory as a whole
+
 Project Library
 Create A library File
 
 Goto \sdk\extras\android\
 Select this one
-Very important JAR files are located here. Gradle wrapper and layout pallet + adapters.
+Very important JAR files are located here. Gradle wrapper and layout pallet + adapters. 
 
-You need to download "gradle.exe" Without it, your project (MAVEN and GRADLE )dependencies won't work like they do in Studio.
+You need to download "gradle.exe" separately to your local drive. Without it, your project (MAVEN and GRADLE )dependencies won't work like they do in Studio.
 
 As an option, I would encourage ALL Android programmers to download the Node.JS if using IntelliJ. A short description is provided from wiki below. It's a very real-time ASYNC in JAVA.
 
 Node.js is an open-source, cross-platform JavaScript runtime environment for developing a diverse variety of tools and applications. Although Node.js is not a JavaScript framework,[4] many of its basic modules are written in JavaScript, and developers can write new modules in JavaScript. The runtime environment interprets JavaScript using Google's V8 JavaScript engine.
 Node.js has an event-driven architecture capable of asynchronous I/O. These design choices aim to optimize throughput and scalability in Web applications with many input/output operations, as well as for real-time Web applications (e.g., real-time communication programs and browser games).
 
-After you Install them, all we have to do is to tell IntelliJ to how to locate them. The beauty is that after the installation, IntelliJ sorts all of the settings.
+After you Install them, all you have to do is to tell IntelliJ to how to locate them. The beauty is that after the installation, IntelliJ sorts all of the settings.
 
 For Node.Js, after installation go to default settings;
 Languages and Frameworks
 Node.js and NPM
-and select the location of the Node.exe as the node interpreter.
+and select the location wherever you have extracted the of the Node.exe as the node interpreter.
 
 For Gradle;
 Make sure the Gradle plug-in is enabled. This is enabled by IntelliJ by default.
 Go to default settings 
       Build, Execution, Deployment
-                Gradle      Service Directory  selec the below. 
+                Gradle      Service Directory  select the below.(wherever you have exctracted your local gradle binaries) 
 .gradle/wrapper/dists/gradle-3.1-bin/37qejo6a26ua35lyn7h1u9v2n/gradle-3.1
 
 RedKidBytesProductions@gmail.com
