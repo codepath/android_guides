@@ -63,6 +63,8 @@ Go to default settings
                 Gradle      Service Directory  selec the below. 
 .gradle/wrapper/dists/gradle-3.1-bin/37qejo6a26ua35lyn7h1u9v2n/gradle-3.1
 
+RedKidBytesProductions@gmail.com
+
 
 
 
