@@ -32,7 +32,7 @@ before you go to the libraries ( you can make your selections afterward), now go
 Click the plus icon on the right, while the class path tab is selected. Locate your JAR files and select them
 
 Start with SDK\tools then follow below respectively.
-Most of these files located generally although not always under the BIN folders. Thus open folder and search for them.
+Most of these files located generally although not always under the BIN folders. Thus open folders and search for them.
 
 Summary of folders are:
 tools, tool\Proguard(without this proguard won't work), \Add-ons, \build-tools, patcher, platforms, \platform-tools, \extras, select the Google directory as a whole
