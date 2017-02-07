@@ -3,13 +3,21 @@ IntelliJ does not download the Android SDK as plug and play type installation, s
 After the initial configuration, you will be able to manage all of your repositories, extras, SDK files through the SDK manager as you would with the Android Studio. 
 
 1) Install latest Java JDK (8)
-2) Install latest IntelliJ {2016.3.3   Jan 2017}
+
+2) Install latest IntelliJ
+
 3) Install latest Android SDK files to your local drive
+
 4) (We have to describe the path for the environment variables) for Windows 8,10 click Windows +E, select System Properties from the toolbar on top.  Then select Advanced System Settings on the left.
+
 5) Select Environment Variables
+
 6) Under System Variables, select Path
-7) Click on Edit (this is an easier way). When you are in it, click on new.  Then go to Browse and choose the location of your Java 1.8.0_102 {up to date as for Jan 2017 }
+
+7) Click on Edit (this is an easier way). When you are in it, click on new.  Then go to Browse and choose the location of your Java 1.8.0_102
+
 8) Make sure You know the location of your LOCAL SDK FILES. You will start extracting the JAR files.
+
 9) After the installing IntelliJ;
          Default Project Structure
          Project Settings
@@ -24,9 +32,7 @@ before you go to the libraries ( you can make your selections afterward), now go
 Click the plus icon on the right, while the class path tab is selected. Locate your JAR files and select them
 
 Start with SDK\tools then follow below respectively.
-
 Most of these files located generally although not always under the BIN folders. Thus open folder and search for them.
-
 
 Summary of folders are:
 tools
