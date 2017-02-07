@@ -35,14 +35,7 @@ Start with SDK\tools then follow below respectively.
 Most of these files located generally although not always under the BIN folders. Thus open folder and search for them.
 
 Summary of folders are:
-tools
-tool\Proguard....without this proguard won't work
-Add-ons
-build-tools
-patcher
-platforms
-platform-tools
-extras\select Google directory as a whole
+tools, tool\Proguard(without this proguard won't work), \Add-ons, \build-tools, patcher, platforms, \platform-tools, \extras, select the Google directory as a whole
 
 Project Library
 Create A library File
