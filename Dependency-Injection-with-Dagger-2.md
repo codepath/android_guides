@@ -44,6 +44,17 @@ dependencies {
 }
 ```
 
+If you are using android gradle plugin 2.3 you can use `annotationProcessor` instead of the apt-plugin:
+
+```gradle
+dependencies {
+    // apt command comes from the android-apt plugin
+    compile "com.google.dagger:dagger:2.9"
+    annotationProcessor "com.google.dagger:dagger-compiler:2.9"
+    provided 'javax.annotation:jsr250-api:1.0'
+}
+```
+
 Note that the `provided` keyword refers to dependencies that are only needed at compilation.  The Dagger compiler generates code that is used to create the dependency graph of the classes defined in your source code.  These classes are added to the IDE class path during compilation. The `annotationProcessor` keyword, which is understood by the Android Gradle plugin, does not add these classes to the class path, they are used only for annotation processing, which prevents accidentally referencing them.
 
 ### Creating Singletons
