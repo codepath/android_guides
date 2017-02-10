@@ -53,7 +53,7 @@ In addition to understanding Java and OOP, most Android development requires the
 
  * [Beginners Guide to REST](http://www.andrewhavens.com/posts/20/beginners-guide-to-creating-a-rest-api/)
  * [Another Guide to REST](http://net.tutsplus.com/tutorials/other/a-beginners-introduction-to-http-and-rest/)
- * [Documentation for Twitter API](https://dev.twitter.com/docs/api/1.1)
+ * [Documentation for Twitter API](https://dev.twitter.com/overview/api)
  * [JSON Overview Tutorial](http://www.copterlabs.com/blog/json-what-it-is-how-it-works-how-to-use-it/)
  * [Parsing JSON in Java](http://www.tutorialspoint.com/json/json_java_example.htm)
 
