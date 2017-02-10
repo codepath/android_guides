@@ -4,7 +4,7 @@ Due to Android's memory management scheme, you will often find yourself needing 
 
 Android uses Binder to facilitate such communication in a highly optimized way.  The Binder communicates with Parcels, which is a message container.  The Binder marshals the Parcel to be sent, sends and receives it, and then unmarshals it on the other side to reconstruct a copy of the original Parcel.  
 
-### Creating a Parcelable, The Easiest Way (using Third Party Library)
+### Creating a Parcelable, The Easiest Way (using Third Party Library) (note for interns, SKIP THIS)
 
 The simplest way to create a Parcelable is to use a third-party library called [Parceler](https://github.com/johncarl81/parceler).  See [[this guide on Parceler|Using-Parceler]] to see how to use it.  By annotating your Java classes that you intend to use, the library is able to create much of the boilerplate code needed as discussed in the manual steps below. 
 
