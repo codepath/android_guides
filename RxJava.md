@@ -300,26 +300,28 @@ MyApiEndpointInterface apiService =
 Observable<User> call = apiService.getUser(username);
 // To define where the work is done, we can use `observeOn()` with Retrofit
 // This means the result is handed to the subscriber on the main thread
-call.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<User>() {
-  @Override
-  public void onNext(User user) {
-     // Called once the `User` object is available
-  }
-
-  @Override
-  public void onCompleted() {
-    // Nothing to do here
-  }
-
-  @Override
-  public void onError(Throwable e) {
-    // cast to retrofit.HttpException to get the response code
-    if (e instanceof HttpException) {
-       HttpException response;
-       int code = response.code();
+call.subscribeOn(Schedulers.io())
+  .observeOn(AndroidSchedulers.mainThread())
+  .subscribe(new Subscriber<User>() {
+    @Override
+    public void onNext(User user) {
+       // Called once the `User` object is available
     }
-  }
-});
+
+    @Override
+    public void onCompleted() {
+      // Nothing to do here
+    }
+
+    @Override
+    public void onError(Throwable e) {
+      // cast to retrofit.HttpException to get the response code
+      if (e instanceof HttpException) {
+         HttpException response;
+         int code = response.code();
+      }
+    }
+  });
 ```
 
 The RxAndroid library includes `AndroidSchedulers.mainThread()` for allowing callbacks to be fired on the main UI thread. 
