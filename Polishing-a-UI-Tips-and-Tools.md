@@ -12,12 +12,15 @@ Building beautiful Android apps starts with understanding how to approach buildi
 
 Be sure to pay attention to the following elements of beautiful visual design. The devil is in the details. Trust that small improvements can make a big difference on the overall experience:
 
- - **Colors.** Having three colors (One primary, one secondary, and one accent) used consistently through your app. 
- - **Typography.** Using the correct sizes for different information to create a consistent visual hierarchy 
+"Perfection is achieved not when there is nothing more to add, but when there is nothing left to take away."
+
+ - **Hierarchy.** Set a clear hierarchy on the screen. One thing should clearly be the most important (i.e. larger, more colorful). If other things are on the screen, then they should clearly be less important (i.e. less contrast, less space around them). A lot of design mistakes can be cleared up by answering "What is the most important thing here? What is second and third?"
+ - **Colors.** Start with one color plus light and dark grey. Add another color if you want to. You could add a third, but more than three colors is usually unnecessary. Two-to-six shades of light and dark grey will usually be enough. Avoid shades of grey in the middle range.
+ - **Typography.** Establish a clear size hierarchy. As a rule of thumb, have three basic sizes: headline, title, and body (regular) size. The font-size menus in word processors show certain numbers (18, 36, 64 etc.) because their ratios go well together, so that is a good place to pick from. 
  - **Iconography.** Icons should generally be a muted single-color (gray, faded colors) and not be too eye-catching unless they are actions or meant to draw attention. 
  - **Spacing.** Make sure you to tighten up spacing of elements. Spacing on the top and bottom should be consistent. Pay attention to proper spacing between elements as well. 
- - **Alignment.** Make sure elements are aligned to a grid. In other words, each view should be aligned to surrounding elements (i.e text to middle of image). 
- - **Information.** Having multiple pieces of text that are all near each other in an item that are exactly the same size, color and style is usually not a good practice. 
+ - **Alignment.** Make sure elements are aligned to a grid. In other words, each view should be aligned to surrounding elements (i.e text to the middle or edge of an image). Here is a useful exercise: Pick the left edge of any object in a design. Now draw a vertical line from the top to the bottom of the screen, aligned with that edge. Now do that for every element on screen, unless it already rests on a line. How many lines do you end up with? Try to reduce that number by aligning elements to the same vertical lines.
+ - **Information.** Present only the information that is necessary in a given moment. Having multiple pieces of text that are all near each other, or several items that are exactly the same size color and style, is usually not a good practice. 
  - **Tabs.** Tabs should be a consistent with the background color of the Toolbar above them.
 
 ## Links and Resources
