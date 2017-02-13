@@ -1,7 +1,7 @@
 ## Overview
 
 OkHttp is a third-party library developed by Square for sending and receive HTTP-based network requests.  It is built on top of the [Okio](https://corner.squareup.com/2014/04/okio.html) library, which tries to be more efficient about reading and writing data than
-the standard Java I/O libraries by creating a [shared memory pool](https://www.youtube.com/watch?v=WvyScM_S88c&feature=youtu.be).  It also is the underlying library for [[Retrofit|Consuming-APIs-with-Retrofit]] library that provides type safety for consuming REST-based APIs.
+the standard Java I/O libraries by creating a [shared memory pool](https://www.youtube.com/watch?v=WvyScM_S88c&feature=youtu.be).  It is also the underlying library for [[Retrofit|Consuming-APIs-with-Retrofit]] library that provides type safety for consuming REST-based APIs.
 
 The OkHttp library actually provides an [implementation](https://github.com/square/okhttp/blob/master/okhttp-urlconnection/src/main/java/com/squareup/okhttp/internal/huc/HttpURLConnectionImpl.java) of the [HttpUrlConnection](http://developer.android.com/reference/java/net/HttpURLConnection.html)
 interface, which Android 4.4 and later versions now use.  Therefore, when using the manual approach described in this [[section|Sending-and-Managing-Network-Requests#sending-an-http-request-the-hard-way]] of the guide, the underlying `HttpUrlConnection` class may be leveraging code from the OkHttp library. However, there is a separate API provided by OkHttp that makes it easier to send and receive network requests, which is described in this guide.  
