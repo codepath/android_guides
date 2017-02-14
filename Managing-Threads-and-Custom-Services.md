@@ -255,7 +255,7 @@ handler.post(new Runnable() {
 });
 ```
 
-See [this post by a developer at weddingparty](http://nerds.weddingpartyapp.com/tech/2014/06/20/primer-threading-handlers-android/) for better code samples. Since this pattern of accessing the UI thread's handler is so common within an Activity, the [`Activity.runOnUiThread(Runnable action)` method](http://developer.android.com/reference/android/app/Activity.html#runOnUiThread\(java.lang.Runnable\)) simplifies the above code even further:
+See [this post by Kaushik Gopal](http://blog.kaush.co/2014/06/20/primer-on-threading-and-handlers-in-android/) for better code samples. Since this pattern of accessing the UI thread's handler is so common within an Activity, the [`Activity.runOnUiThread(Runnable action)` method](http://developer.android.com/reference/android/app/Activity.html#runOnUiThread\(java.lang.Runnable\)) simplifies the above code even further:
 
 ```java
 // From within an Activity, 
