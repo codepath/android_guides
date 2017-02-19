@@ -6,22 +6,12 @@ While there are IDE plugins to help facilitate the creating of these objects, an
 
 ## Setup
 
-To setup, we need to add the [android-apt](https://bitbucket.org/hvisser/android-apt) plugin to our classpath in our root `build.gradle` file.  This plugin enables the Parceler library to be used for annotation processing but not added to the final build.
+Inside the `app/build.gradle` file add the following dependencies:
 
 ```gradle
 dependencies {
-  classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
-}
-```
-
-Inside the `app/build.gradle` file, we should apply the plugin before the Parceler dependencies are added.  This way, the `apt` keyword can be used, which is primarily used for annotation processing and keeps the libraries from being added to the classpath.
-
-```gradle
-apply plugin: 'com.neenbedankt.android-apt'
-
-dependencies {
-  compile 'org.parceler:parceler-api:1.1.1'
-  apt 'org.parceler:parceler:1.1.1'
+    compile 'org.parceler:parceler-api:1.1.6'
+    annotationProcessor 'org.parceler:parceler:1.1.6'
 }
 ```
 
