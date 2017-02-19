@@ -225,7 +225,7 @@ protected void onRestoreInstanceState(Bundle state) {
 @Override
 protected void onResume() {
     super.onResume();
-    if (mListState != null) {
+    if (listState != null) {
         mLayoutManager.onRestoreInstanceState(listState);
     }
 }
