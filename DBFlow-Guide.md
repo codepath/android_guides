@@ -8,21 +8,7 @@ The section below describes how to setup using DBFlow v3.  If you are upgrading 
 
 ### Gradle configuration
 
-The first step is to add the android-apt plugin to your root `build.gradle` file:
-
-```gradle
-buildscript {
-    repositories {
-      // required for this library, don't use mavenCentral()
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
-    }
-}
-```
-
-Because DBFlow3 is still not officially released, you need also add https://jitpack.io to your `allprojects` -> `repositories` dependency list:
+Because DBFlow4 is still not officially released, you need also add https://jitpack.io to your `allprojects` -> `repositories` dependency list:
 
 ```java
 allprojects {
@@ -33,15 +19,15 @@ allprojects {
 }
 ```
 
-Next, within your `app/build.gradle, apply the `android-apt` plugin and add DBFlow to your dependency list.  We create a separate variable to store the version number to make it easier to change later:
+Next, within your `app/build.gradle, add DBFlow to your dependency list.  We create a separate variable to store the version number to make it easier to change later:
 
 ```gradle
-apply plugin: 'com.neenbedankt.android-apt'
-
 def dbflow_version = "4.0.0-beta5"
 
 dependencies {
-    apt "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
+    // annotationProcessor now supported in Android Gradle plugin 2.2
+    // See https://bitbucket.org/hvisser/android-apt/wiki/Migration
+    annotationProcessor "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
     compile "com.github.Raizlabs.DBFlow:dbflow-core:${dbflow_version}"
     compile "com.github.Raizlabs.DBFlow:dbflow:${dbflow_version}"
 
