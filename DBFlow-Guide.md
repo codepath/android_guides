@@ -38,7 +38,7 @@ Next, within your `app/build.gradle, apply the `android-apt` plugin and add DBFl
 ```gradle
 apply plugin: 'com.neenbedankt.android-apt'
 
-def dbflow_version = "3.1.1"
+def dbflow_version = "4.0.0-beta5"
 
 dependencies {
     apt "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
@@ -60,40 +60,7 @@ If you see `java.lang.IllegalArgumentException: expected type but was null` erro
 
 In addition, all table names must be upper camel case (i.e. `User`, `UserTable`, `MyUserTable`, etc.) as described in [this issue](https://github.com/Raizlabs/DBFlow/issues/972).  If you do not use the convention, you may triggering these issues.  
 
-This problem has been fixed in DBFlow 4.0.0-beta1:
-
-```groovy
-def dbflow_version = "4.0.0-beta1"
-```
-
-However, there is a known issue with DBFlow v4.0 generating the wrong foreign key name as reported in [this issue](https://github.com/Raizlabs/DBFlow/issues/1036) if you use private fields with foreign keys.   If you need to define a relation between two objects (i.e. User and Tweet where Tweet has a foreign key reference to User), the recommended approach is simply to use **public** fields on the primary key of the relating model:
-
-```java
-// **Note:** Your class must extend from BaseModel
-public class User extends BaseModel {
-
-   // Leave this column public
-   @PrimaryKey
-   @Column
-   long uid;
-```
-
-Otherwise, you may need to implement a getter method on User (i.e. getUser()):
-
-```java
-// **Note:** Your class must extend from BaseModel
-public class User extends BaseModel {
-   @PrimaryKey
-   @Column
-   private long uid;
-
-   // DBFlow 4.0 is generating the wrong foreign key relation (should be getUid() instead of getUser())
-   // if you use private fields.
-   public getUser() {
-      return uid;
-   }
-}
-```
+This problem has been fixed in DBFlow 4.0.0-beta1 and above.
 
 #### Disabling Instant Run
 
