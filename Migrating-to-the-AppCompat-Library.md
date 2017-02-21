@@ -4,12 +4,12 @@ The [AppCompat](https://developer.android.com/tools/support-library/features.htm
 
 ```gradle
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.0"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:24.2.0'
+    compile 'com.android.support:appcompat-v7:25.1.1'
 }
 ```
 
