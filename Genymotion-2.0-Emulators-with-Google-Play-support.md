@@ -9,7 +9,7 @@ To setup your genymotion emulator [sign up](https://www.genymotion.com/account/l
 1. Sign up for an account on the [Genymotion Website](https://www.genymotion.com/account/login/)
 2. Install [the latest VirtualBox](https://www.virtualbox.org/wiki/Downloads), a powerful free virtualization software for Genymotion to run.  
    * If you already have VirtualBox installed, be sure to open and upgrade to the latest version.
-3. [Download Genymotion Emulator v2.7.0 or higher](https://www.genymotion.com/download/) for your platform.  
+3. [Download Genymotion Emulator](https://www.genymotion.com/download/) for your platform.  
 4. Install the Genymotion Emulator
   * Windows: Run the MSI installer
   * Mac: Open the dmg and drag both apps to Applications directory
@@ -72,7 +72,7 @@ Check out [this handy youtube video](https://www.youtube.com/watch?v=UFhStnF42tw
 
 | Version     | APK Link                                                                          |
 |-------------|:---------------------------------------------------------------------------------:| 406
-|Android 7.0  | [Download from GApps](http://opengapps.org/) (Untested)                           |
+|Android 7.0  | [Download from opengapps.org](http://opengapps.org/) - Choose the x86, 7.0, and micro instance.    <img src="http://imgur.com/L4ytwv1.png" width="400"> |
 |Android 6.0  |1) [gapps-L-4-21-15.zip](https://www.androidfilehost.com/?fid=96042739161891406) 2) [benzo-gapps-M-20151011-signed-chroma-r3.zip](https://www.androidfilehost.com/?fid=24052804347835438) (See instructions below)|
 |Android 5.0  |[Google Play Services APK](https://www.androidfilehost.com/?fid=95784891001614559) - requires Genymotion 2.4.0+ |
 |Android 4.4.4|[Google Play Services APK](https://www.androidfilehost.com/?fid=23501681358544845)             |
