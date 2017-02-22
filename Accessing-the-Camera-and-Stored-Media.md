@@ -81,7 +81,11 @@ public Uri getPhotoFileUri(String fileName) {
         }
 
         // Return the file target for the photo based on filename
-        return Uri.fromFile(new File(mediaStorageDir.getPath() + File.separator + fileName));
+        File file = Uri.fromFile(new File(mediaStorageDir.getPath() + File.separator + fileName));
+
+        // wrap File object into a content provider
+        // required for API >= 24
+        return FileProvider.getUriForFile(MyActivity.this, "com.codepath.fileprovider", file);
     }
     return null;
 }
@@ -92,6 +96,8 @@ private boolean isExternalStorageAvailable() {
     return state.equals(Environment.MEDIA_MOUNTED);
 }
 ```
+
+If you are using `targetSdkVersion` >= `24`, you also must configure a `FileProvider` as show in this [[section|Sharing-Content-with-Intents#sharing-files-with-api-24-or-higher]].  The example above uses `com.codepath.fileprovider` and should match the authority specified.
 
 Check out the official [Photo Basics](http://developer.android.com/training/camera/photobasics.html) guide for more details.
 
