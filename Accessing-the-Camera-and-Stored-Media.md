@@ -87,6 +87,7 @@ public Uri getPhotoFileUri(String fileName) {
 
         // wrap File object into a content provider
         // required for API >= 24
+        // See https://guides.codepath.com/Sharing-Content-with-Intents#sharing-files-with-api-24-or-higher
         return FileProvider.getUriForFile(MyActivity.this, "com.codepath.fileprovider", file);
     }
     return null;
