@@ -26,6 +26,8 @@ Make sure to enable access to the external storage first before using the camera
 
 **Note:** The permissions model has changed starting in Marshmallow. If your `targetSdkVersion` >= `23` and you are running on a Marshmallow (or later) device, you may need to [[enable runtime permissions|Managing-Runtime-Permissions-with-PermissionsDispatcher]]. You should also read more about the [[runtime permissions changes|Understanding-App-Permissions#runtime-permissions]].
 
+If you are using `targetSdkVersion` >= `24`, you also must configure a `FileProvider` as show in this [[section|Sharing-Content-with-Intents#sharing-files-with-api-24-or-higher]].  The example below uses `com.codepath.fileprovider` and should match the `authorities` XML tag specified.
+
 ### Using Capture Intent
 
 Easy way works in most cases, using the intent to [launch the camera](http://developer.android.com/guide/topics/media/camera.html):
@@ -96,8 +98,6 @@ private boolean isExternalStorageAvailable() {
     return state.equals(Environment.MEDIA_MOUNTED);
 }
 ```
-
-If you are using `targetSdkVersion` >= `24`, you also must configure a `FileProvider` as show in this [[section|Sharing-Content-with-Intents#sharing-files-with-api-24-or-higher]].  The example above uses `com.codepath.fileprovider` and should match the `authorities` XML tag specified.
 
 Check out the official [Photo Basics](http://developer.android.com/training/camera/photobasics.html) guide for more details.
 
