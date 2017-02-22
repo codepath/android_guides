@@ -106,6 +106,7 @@ val len = x?.length ?: -1 // This will return -1 if x is null
 ## Configure your development environment
 
 To be able to write and compile Kotlin code in your Android application you need to do the following:
+
 1. Install Android Studio
   First thing you need is to have Android Studio installed.
 2. Install Kotlin plugin
