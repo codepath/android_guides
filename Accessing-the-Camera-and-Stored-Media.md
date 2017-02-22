@@ -97,7 +97,7 @@ private boolean isExternalStorageAvailable() {
 }
 ```
 
-If you are using `targetSdkVersion` >= `24`, you also must configure a `FileProvider` as show in this [[section|Sharing-Content-with-Intents#sharing-files-with-api-24-or-higher]].  The example above uses `com.codepath.fileprovider` and should match the authority specified.
+If you are using `targetSdkVersion` >= `24`, you also must configure a `FileProvider` as show in this [[section|Sharing-Content-with-Intents#sharing-files-with-api-24-or-higher]].  The example above uses `com.codepath.fileprovider` and should match the `authorities` XML tag specified.
 
 Check out the official [Photo Basics](http://developer.android.com/training/camera/photobasics.html) guide for more details.
 
