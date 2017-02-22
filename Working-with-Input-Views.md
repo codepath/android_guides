@@ -87,7 +87,7 @@ Checkboxes allow the user to select one or more options from a set. Typically, y
 We can access whether or not a checkbox is checked with:
 
 ```java
-Checkbox checkCheese = (Checkbox) findViewById(R.id.checkbox_cheese);
+CheckBox checkCheese = (CheckBox) findViewById(R.id.checkbox_cheese);
 // Check if the checkbox is checked
 boolean isChecked = checkCheese.isChecked();
 // Set the checkbox as checked
