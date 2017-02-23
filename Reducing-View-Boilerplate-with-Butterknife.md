@@ -25,7 +25,7 @@ dependencies {
 }
 ```
 
-Make sure to upgrade to the latest [[Gradle|Getting-Started-with-Gradle#intro-to-the-gradle-wrapper]] version to use the `annotationProcessor` syntax.
+Make sure to upgrade to the latest [[Gradle|Getting-Started-with-Gradle#upgrading-gradle]] version to use the `annotationProcessor` syntax.
 
 Make sure the "apply plugin" line is placed somewhere at the top of the file. Use [gradleplease](http://gradleplease.appspot.com/#butterknife) to get the latest version. See [this page](https://github.com/JakeWharton/butterknife/blob/master/README.md#download) for alternate installation methods.
 
