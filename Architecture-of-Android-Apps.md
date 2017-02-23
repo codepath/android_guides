@@ -28,7 +28,7 @@ In Android app development, the traditional "Model / View / Controller pattern" 
  * **View**: the UI layer, displays data received from Presenter, reacts to user input. On Android, we treat Activities, Fragments, and android.view.View as View from MVP.
  * **Presenter**: responds to actions performed on the UI layer, performs tasks on Model objects (using Use Cases), passes results of those tasks to Views.
 
-<img src="http://i.imgur.com/5WLQno7.png" width="300" />
+<img src="http://i.imgur.com/5WLQno7.png" width="500" />
 
 What we want to achieve by using MVP are simpler tasks, smaller objects, and fewer dependencies between Model and Views layers. This, in turns makes our code easier to manage and test. Major differences from MVC include:
 
