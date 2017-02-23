@@ -28,24 +28,14 @@ The full list of [dangerous permissions](http://developer.android.com/guide/topi
 
 ### Installation
 
-First, include the following in your project's `build.gradle` file:
-
-```gradle
-buildscript {
-  dependencies {
-    classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
-  }
-}
-```
+Make sure to [[upgrade|Getting-Started-with-Gradle#upgrading-gradle]] to the latest Gradle version. 
 
 And on your app module in `app/build.gradle`:
 
 ```gradle
-apply plugin: 'android-apt'
-
 dependencies {
   compile 'com.github.hotchemi:permissionsdispatcher:2.0.7'
-  apt 'com.github.hotchemi:permissionsdispatcher-processor:2.0.7'
+  annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:2.0.7'
 }
 ```
 
