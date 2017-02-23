@@ -107,7 +107,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda' // make sure to apply last!
 ```
 
-Make sure to specify the plug-in last, especially after the `android-apt` plug-in according to this [article](https://medium.com/android-news/retrolambda-on-android-191cc8151f85#.c5vbxdwst).
+Make sure to specify the plug-in last, especially if the `android-apt` plug-in used according to this [article](https://medium.com/android-news/retrolambda-on-android-191cc8151f85#.c5vbxdwst).
 
 * Add a new `compileOptions` block, then `sourceCompatibility` and `targetCompatibility` Java version should be set as 1.8
 
