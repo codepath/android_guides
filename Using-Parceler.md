@@ -15,6 +15,8 @@ dependencies {
 }
 ```
 
+Make sure to [[upgrade|Getting-Started-with-Gradle#upgrading-gradle]] to the latest Gradle version to use the `annotationProcessor` syntax. 
+
 ## Usage
 
 ### Converting a model from Serializable objects
