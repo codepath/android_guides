@@ -4,7 +4,7 @@ The Android SDK can be installed automatically using [Jake Wharton's SDK Plugin]
 
 ## Installing the Android SDK (Automated Way)
 
-Gradle 2.2.0 now supports downloading automatically dependencies.  Make sure to upgrade to the latest [[Gradle|Getting-Started-with-Gradle#intro-to-the-gradle-wrapper]] version.  The [Gradle plugin](https://github.com/JakeWharton/sdk-manager-plugin) to manage dependencies is now deprecated.
+Gradle 2.2.0 now supports downloading automatically dependencies.  Make sure to [[upgrade|Getting-Started-with-Gradle#upgrading-gradle]] to the latest Gradle version.  The [Gradle plugin](https://github.com/JakeWharton/sdk-manager-plugin) to manage dependencies is now deprecated.
 
 ### Installing for Ubuntu Linux 
 
