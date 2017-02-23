@@ -31,7 +31,14 @@ distributionUrl=http\://services.gradle.org/distributions/gradle-2.14.1-all.zip
 
 #### Upgrading Gradle
 
-If you wish to upgrade Gradle versions, you need to update the `distributionUrl` accordingly.  You can check [this link](https://services.gradle.org/distributions) to find the latest version.  Note that the Gradle releases are independent from the Android Gradle plugin, which is defined in your `build.gradle` config.
+If you wish to upgrade Gradle versions, you need to update the `distributionUrl` accordingly in `gradle-wrapper.properties`:
+
+```
+#Wed Apr 10 15:27:10 PDT 2013
+distributionUrl=http\://services.gradle.org/distributions/gradle-2.14.1-all.zip
+```
+
+You can check [this link](https://services.gradle.org/distributions) to find the latest version.  Note that the Gradle releases are independent from the Android Gradle plugin, which is defined in your `build.gradle` config.
 
 Gradle will use this configuration to see if the version has already been installed.  If not, it will be downloaded and stored in a separate directory.  (For Unix machines, the various Gradle downloads will live in ~/.gradle/wrapper.)
 
