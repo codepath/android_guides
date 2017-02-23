@@ -18,7 +18,7 @@ When you setup a project in Android Studio, it automatically generates several f
 
 By checking in the gradlew and gradlew.bat files into your source code repository, other people on Unix and Windows platforms do not need to go through the process of manually downloading Gradle or installing Android Studio.
 
-The gradle-wrapper.properties file, which is created when you first create an Android Studio project, determines what version of Gradle to use:
+The `gradle-wrapper.properties` file, which is created when you first create an Android Studio project, determines what version of Gradle to use:
 
 ```
 #Wed Apr 10 15:27:10 PDT 2013
