@@ -38,9 +38,9 @@ The following template projects are built to act as a starting point for a prefe
 
 In Android app development, the traditional "Model / View / Controller pattern" is often being dropped in preference for the "Model / View / Presenter" pattern. The Model-View-Presenter (MVP) architecture comprises:
 
- * Model: the data layer
- * View: the UI layer, displays data received from Presenter, reacts to user input. On Android, we treat Activities, Fragments, and android.view.View as View from MVP.
- * Presenter: responds to actions performed on the UI layer, performs tasks on Model objects (using Use Cases), passes results of those tasks to Views.
+ * **Model**: the data layer
+ * **View**: the UI layer, displays data received from Presenter, reacts to user input. On Android, we treat Activities, Fragments, and android.view.View as View from MVP.
+ * **Presenter**: responds to actions performed on the UI layer, performs tasks on Model objects (using Use Cases), passes results of those tasks to Views.
 
 <img src="http://i.imgur.com/5WLQno7.png" width="300" />
 
@@ -50,7 +50,7 @@ What we want to achieve by using MVP are simpler tasks, smaller objects, and few
 * Easier to create unit tests
 * Generally there is a one to one mapping between View and Presenter, with the possibility to use multiple Presenters for complex Views
 
-Check out these resources for more details:
+The easiest method for understanding this is multiple specific examples with sample code. Check out these useful resources for an in-depth look:
 
  * [MVP Architecture in Android](http://macoscope.com/blog/model-view-presenter-architecture-in-android-applications/)
  * [MVP Explained](https://medium.com/upday-devs/android-architecture-patterns-part-2-model-view-presenter-8a6faaae14a5#.u53s2u5gu) with [official sample code](https://github.com/googlesamples/android-architecture/tree/todo-mvp-rxjava/)
