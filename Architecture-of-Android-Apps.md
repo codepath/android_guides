@@ -34,6 +34,34 @@ The following template projects are built to act as a starting point for a prefe
  * <https://github.com/android10/Android-CleanArchitecture>
  * <https://github.com/googlesamples/android-architecture>
 
+## Model View Presenter
+
+In Android app development, the traditional "Model / View / Controller pattern" is often being dropped in preference for the "Model / View / Presenter" pattern. The Model-View-Presenter (MVP) architecture comprises:
+
+ * Model: the data layer
+ * View: the UI layer, displays data received from Presenter, reacts to user input. On Android, we treat Activities, Fragments, and android.view.View as View from MVP.
+ * Presenter: responds to actions performed on the UI layer, performs tasks on Model objects (using Use Cases), passes results of those tasks to Views.
+
+<img src="http://i.imgur.com/5WLQno7.png" width="300" />
+
+What we want to achieve by using MVP are simpler tasks, smaller objects, and fewer dependencies between Model and Views layers. This, in turns makes our code easier to manage and test. Major differences from MVC include:
+
+* View is more separated from Model. The Presenter is the mediator between Model and View.
+* Easier to create unit tests
+* Generally there is a one to one mapping between View and Presenter, with the possibility to use multiple Presenters for complex Views
+
+Check out these resources for more details:
+
+ * [MVP Architecture in Android](http://macoscope.com/blog/model-view-presenter-architecture-in-android-applications/)
+ * [MVP Explained](https://medium.com/upday-devs/android-architecture-patterns-part-2-model-view-presenter-8a6faaae14a5#.u53s2u5gu) with [official sample code](https://github.com/googlesamples/android-architecture/tree/todo-mvp-rxjava/)
+ * [MVP Tutorial](https://medium.com/@be.betr.codr/android-mvp-survival-guide-b2094ab79f78#.ee4ajr7pz) with [handy sample code](https://github.com/WillyShakes/NetflixShows)
+ * [Introduction to MVP](https://code.tutsplus.com/tutorials/an-introduction-to-model-view-presenter-on-android--cms-26162)
+ * [Android MVP Pattern, Part 1](http://www.tinmegali.com/en/model-view-presenter-android-part-1/), [2](http://www.tinmegali.com/en/model-view-presenter-mvp-in-android-part-2/), and [3](http://www.tinmegali.com/en/model-view-presenter-mvp-in-android-part-3/). 
+ * [Basic MVP Architecture](https://medium.com/mobiwise-blog/android-basic-project-architecture-for-mvp-72f4b33252d0#.dcco0jo19)
+ * [Brief MVP Introduction](https://antonioleiva.com/mvp-android/) with [sample code](https://github.com/antoniolg/androidmvp)
+ * [Introduction to MVP Library Nucleus](http://konmik.com/post/introduction_to_model_view_presenter_on_android/)
+ * [How to Adopt MVP](https://code.tutsplus.com/tutorials/how-to-adopt-model-view-presenter-on-android--cms-26206)
+
 ## References
 
 Clean architecture:
