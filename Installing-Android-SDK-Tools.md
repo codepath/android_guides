@@ -4,43 +4,9 @@ The Android SDK can be installed automatically using [Jake Wharton's SDK Plugin]
 
 ## Installing the Android SDK (Automated Way)
 
-You can use [Jake Wharton's SDK Manager](https://github.com/JakeWharton/sdk-manager-plugin) to manage all missing SDK dependencies.  It is particularly useful for simplifying the steps of retrieving the Build Tools, SDK version, or support libraries used in your project.      
-
-Edit your root `build.gradle` file to include this plugin.  Because the latest plugin version has not been released to a Maven repository in awhile, we can use [Jitpack](https://jitpack.io/) to grab the latest version as described [here](https://github.com/JakeWharton/sdk-manager-plugin/issues/73#issuecomment-106747867).  The old version attempts to download an Android SDK Manager that does not include ProGuard as noted in this [issue](https://github.com/JakeWharton/sdk-manager-plugin/issues/57).
-
-```gradle
-buildscript {
-  repositories {
-    jcenter()
-    maven { url 'https://jitpack.io' }
-  }
-  dependencies {
-    classpath 'com.android.tools.build:gradle:1.3.1'
-    // download commit hash 220bf7
-    classpath 'com.github.JakeWharton:sdk-manager-plugin:220bf7a88a7072df3ed16dc8466fb144f2817070'
-  }
-}
-```
-
-The `android-sdk-manager` plugin needs to be declared before the regular `com.android.application` plugin is applied.  If you have [multiple subprojects](http://gradle.org/docs/current/userguide/multi_project_builds.html) used in your app, make sure every `build.gradle` has this dependency included.
-
-```gradle
-apply plugin: 'android-sdk-manager' // run before com.android.application
-apply plugin: 'com.android.application'
-```
+Gradle 2.2.0 now supports downloading automatically dependencies.  Make sure to upgrade to the latest [[Gradle|Getting-Started-with-Gradle#intro-to-the-gradle-wrapper]] version.
 
 If you wish to also download a specific emulator, add this section too:
-```gradle
-// optionally including an emulator
-sdkManager {
-  emulatorVersion 'android-19'
-  emulatorArchitecture 'armeabi-v7a' // optional, defaults to arm
-}
-```
-
-When the SDK Manager plug-in runs, it will look at the `local.properties` file to see where the Android SDK files are located.  If this file does not exist, it will attempt to check the environment variable `ANDROID_HOME` for the location.  If it does not find one defined, it will create a directory in `~/.android-sdk`.  In any case, you will want to make sure that that the build has permissions to write to whichever directory if any new packages need to be downloaded.
-
-If you are having any issues with this -plugin, you can run `gradlew build -d` to help see the verbose logging messages.  
 
 ### Installing for Ubuntu Linux 
 
