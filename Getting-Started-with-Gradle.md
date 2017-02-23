@@ -26,7 +26,7 @@ distributionBase=GRADLE_USER_HOME
 distributionPath=wrapper/dists
 zipStoreBase=GRADLE_USER_HOME
 zipStorePath=wrapper/dists
-distributionUrl=http\://services.gradle.org/distributions/gradle-2.10-all.zip
+distributionUrl=http\://services.gradle.org/distributions/gradle-2.14.1-all.zip
 ```
 
 #### Upgrading Gradle
@@ -43,7 +43,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.0'
+        classpath 'com.android.tools.build:gradle:2.2.0'
     }
 }
 ```
