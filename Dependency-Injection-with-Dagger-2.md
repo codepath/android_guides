@@ -521,7 +521,7 @@ public abstract class ApplicationBinders {
 @Component(modules={..., ApplicationBinders.class})
 public interface ApplicationComponent {
     // Returns a map with all the builders mapped by their class.
-    Map<Class<?>, Provider<SubcomponentBuilder>> subcomponentBuidlers();
+    Map<Class<?>, Provider<SubcomponentBuilder>> subcomponentBuilders();
 }
 
 // Needed only to to create the above mapping
@@ -542,7 +542,7 @@ public class MyActivity extends Activity {
         // We need to cast to `MyApp` in order to get the right method
         MyActivitySubcomponent.Builder builder = (MyActivitySubcomponent.Builder)
             ((MyApp) getApplication()).getApplicationComponent())
-            .subcomponentBuidlers()
+            .subcomponentBuilders()
             .get(MyActivitySubcomponent.Builder.class)
             .get();
         builder.activityModule(new MyActivityModule(this)).build().inject(this);
