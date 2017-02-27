@@ -45,7 +45,7 @@ If you want to be push your APKs directly through Gradle, you can install a plug
 
        dependencies {
            // ...
-           classpath 'com.github.triplet.gradle:play-publisher:1.1.2'
+           classpath 'com.github.triplet.gradle:play-publisher:1.1.5'
        }
     }
 
