@@ -179,7 +179,7 @@ You can also use custom theme attributes for button states using [[state lists|D
 To resolve these theme attributes properly, make sure to use the `ContextCompat` or `AppCompatResources` helper classes instead:
 ```java
 // getResources().getColor() is deprecated, ContextCompat will properly resolve
-ContextCompat.getColor(R.color.button_text_state_list);
+ContextCompat.getColor(this, R.color.button_text_state_list);
 
 // resolve the default color 
 ColorStateList colorState = AppCompatResources.getColorStateList(this, R.color.button_text_state_list).getDefaultColor();
