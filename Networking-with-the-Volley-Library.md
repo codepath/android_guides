@@ -1,6 +1,6 @@
 ## Overview
 
-Volley is a library that makes networking for Android apps easier and most importantly, faster. Volley Library was announced by [Ficus Kirkpatrick](https://plus.google.com/+FicusKirkpatrick) at Google I/O '13!
+Volley is a library that makes networking for Android apps easier and most importantly, faster. Volley Library was announced by [Ficus Kirkpatrick](https://plus.google.com/+FicusKirkpatrick) at Google I/O '13.
 It was first used by the Play Store team in Play Store Application and then they released it as an Open Source Library.
 
 ## Why Volley?
@@ -145,3 +145,4 @@ protected void onStop() {
 * <http://java.dzone.com/articles/android-%E2%80%93-volley-library>
 * <http://arnab.ch/blog/2013/08/asynchronous-http-requests-in-android-using-volley/>
 * <http://files.evancharlton.com/volley-docs/>
+* <https://www.youtube.com/watch?v=yhv8l9F44qo/>
