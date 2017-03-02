@@ -90,6 +90,7 @@ Essentially this method is used to enable your code to short-circuit before exec
 
  * [RxJava](https://github.com/ReactiveX/RxJava) - Reactive Extensions for the JVM
  * [EventBus](https://github.com/greenrobot/EventBus) - Android optimized event bus that simplifies communication between components.
+ * [EventBus](https://github.com/SysdataItaliaSpA/UniversalEventBus) - An Android Event Bus Architecture 
  * [Tape](http://square.github.io/tape/) - Tape is a collection of queue-related classes for Android and Java
  * [Priority Job Queue](https://github.com/yigit/android-priority-jobqueue) - Easier background tasks
  * [ACRA](http://acra.ch/) - Crash reporting made easy and free. Check the [setup instructions](https://github.com/ACRA/acra/wiki/BasicSetup) and [open-source backend](https://github.com/ACRA/acralyzer).
