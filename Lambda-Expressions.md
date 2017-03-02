@@ -95,7 +95,7 @@ To use Java 8 lambda expressions in your Android code, you can either use the [G
 ```gradle
 buildscript {
   dependencies {
-    classpath 'me.tatarka:gradle-retrolambda:3.3.1'
+    classpath 'me.tatarka:gradle-retrolambda:3.5.0'
   }
 }
 ```
