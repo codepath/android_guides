@@ -31,7 +31,7 @@ Make sure that you have at least the Android Gradle plugin v2.1.0 supported.
 
 ```gradle
 dependencies {
-    classpath 'com.android.tools.build:gradle:2.2.0'
+    classpath 'com.android.tools.build:gradle:2.2.2'
 }
 ```
 
@@ -45,7 +45,7 @@ android {
 }
 
 ext {
-  supportLibVersion = '25.1.1'  // variable that can be referenced to keep support libs consistent
+  supportLibVersion = '25.2.0'  // variable that can be referenced to keep support libs consistent
 }
 ```
 
