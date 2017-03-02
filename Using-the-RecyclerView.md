@@ -18,8 +18,8 @@ For more details, see [this detailed overview](http://www.grokkingandroid.com/fi
 `RecyclerView` differs from its predecessor `ListView` primarily because of the following features:
 
  * **Required ViewHolder in Adapters** - `ListView` adapters do not require the use of the ViewHolder pattern to improve performance. In contrast, implementing an adapter for `RecyclerView` requires the use of the ViewHolder pattern.
- * **Customizable Item Layouts** - `ListView` can only layout items in a vertical linear arrangement and this cannot be customized. In contrast, the `RecyclerView` has a `RecyclerView.LayoutManager` that allows any item layouts including horizontal lists or staggered grids. 
- * **Easy Item Animations** - `ListView` contains no special provisions through which one can animate the addition or deletion of items. In contrast, the `RecyclerView` has the `RecyclerView.ItemAnimator` class for handling item animations. 
+ * **Customizable Item Layouts** - `ListView` can only layout items in a vertical linear arrangement and this cannot be customized. In contrast, the `RecyclerView` has a `RecyclerView.LayoutManager` that allows any item layouts including horizontal lists or staggered grids.
+ * **Easy Item Animations** - `ListView` contains no special provisions through which one can animate the addition or deletion of items. In contrast, the `RecyclerView` has the `RecyclerView.ItemAnimator` class for handling item animations.
  * **Manual Data Source** - `ListView` had adapters for different sources such as `ArrayAdapter` and `CursorAdapter` for arrays and database results respectively. In contrast, the `RecyclerView.Adapter` requires a custom implementation to supply the data to the adapter.
  * **Manual Item Decoration** - `ListView` has the `android:divider` property for easy dividers between items in the list. In contrast, `RecyclerView` requires the use of a `RecyclerView.ItemDecoration` object to setup much more manual divider decorations.
  * **Manual Click Detection** - `ListView` has a `AdapterView.OnItemClickListener` interface for binding to the click events for individual items in the list. In contrast, `RecyclerView` only has support for ` RecyclerView.OnItemTouchListener` which manages individual touch events but has no built-in click handling.
@@ -28,7 +28,7 @@ For more details, see [this detailed overview](http://www.grokkingandroid.com/fi
 
 ### `LayoutManagers`
 
-A `RecyclerView` needs to have a layout manager and an adapter to be instantiated. A layout manager positions item views inside a `RecyclerView` and determines when to reuse item views that are no longer visible to the user. 
+A `RecyclerView` needs to have a layout manager and an adapter to be instantiated. A layout manager positions item views inside a `RecyclerView` and determines when to reuse item views that are no longer visible to the user.
 
 [RecyclerView](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html) provides these built-in layout managers:
 
@@ -38,7 +38,7 @@ A `RecyclerView` needs to have a layout manager and an adapter to be instantiate
 
 To create a custom layout manager, extend the [RecyclerView.LayoutManager](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.LayoutManager.html) class.
 
-Here is [Dave Smith's talk](https://www.youtube.com/watch?v=gs_C1E8HwvE&index=22&list=WL) on custom layout manager 
+Here is [Dave Smith's talk](https://www.youtube.com/watch?v=gs_C1E8HwvE&index=22&list=WL) on custom layout manager
 
 ### `RecyclerView.Adapter`
 
@@ -68,8 +68,7 @@ Make sure the RecyclerView support library is listed as a dependency in your `ap
 ```gradle
 dependencies {
     ...
-    compile 'com.android.support:support-v4:25.1.1'
-    compile 'com.android.support:recyclerview-v7:25.1.1'
+    compile 'com.android.support:recyclerview-v7:25.2.0'
 }
 ```
 
@@ -119,7 +118,7 @@ Inside the desired activity layout XML file in `res/layout/activity_users.xml`, 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
-    
+
     <android.support.v7.widget.RecyclerView
       android:id="@+id/rvContacts"
       android:layout_width="match_parent"
@@ -176,14 +175,14 @@ With the custom item layout complete, let's create the adapter to populate the d
 
 ### Creating the `RecyclerView.Adapter`
 
-Here we need to create the adapter which will actually populate the data into the RecyclerView. The adapter's role is to **convert an object at a position into a list row item** to be inserted. 
+Here we need to create the adapter which will actually populate the data into the RecyclerView. The adapter's role is to **convert an object at a position into a list row item** to be inserted.
 
 However with a `RecyclerView` the adapter requires the existence of a "ViewHolder" object which describes and provides access to all the views within each item row.  We can create the basic empty adapter and holder together in `ContactsAdapter.java` as follows:
 
 ```java
 // Create the basic adapter extending from RecyclerView.Adapter
 // Note that we specify the custom ViewHolder which gives us access to our views
-public class ContactsAdapter extends 
+public class ContactsAdapter extends
     RecyclerView.Adapter<ContactsAdapter.ViewHolder> {
 
     // Provide a direct reference to each of the views within a data item
@@ -211,7 +210,7 @@ public class ContactsAdapter extends
 Now that we've defined the basic adapter and `ViewHolder`, we need to begin filling in our adapter. First, let's store a member variable for the list of contacts and pass the list in through our constructor:
 
 ```java
-public class ContactsAdapter extends 
+public class ContactsAdapter extends
     RecyclerView.Adapter<ContactsAdapter.ViewHolder> {
 
     // ... view holder defined above...
@@ -237,7 +236,7 @@ public class ContactsAdapter extends
 Every adapter has three primary methods: `onCreateViewHolder` to inflate the item layout and create the holder, `onBindViewHolder` to set the view attributes based on the data and `getItemCount` to determine the number of items. We need to implement all three to finish the adapter:
 
 ```java
-public class ContactsAdapter extends 
+public class ContactsAdapter extends
     RecyclerView.Adapter<ContactsAdapter.ViewHolder> {
 
     // ... constructor and member variables
@@ -255,7 +254,7 @@ public class ContactsAdapter extends
         ViewHolder viewHolder = new ViewHolder(contactView);
         return viewHolder;
     }
-    
+
     // Involves populating data into the item through holder
     @Override
     public void onBindViewHolder(ContactsAdapter.ViewHolder viewHolder, int position) {
@@ -281,7 +280,7 @@ With the adapter completed, all that is remaining is to bind the data from the a
 
 ### Binding the Adapter to the RecyclerView
 
-In our activity, we will populate a set of sample users which should be displayed in the `RecyclerView`. 
+In our activity, we will populate a set of sample users which should be displayed in the `RecyclerView`.
 
 ```java
 public class UserListActivity extends AppCompatActivity {
@@ -313,7 +312,7 @@ Finally, compile and run the app and you should see something like the screensho
 
 ### Notifying the Adapter
 
-Unlike ListView, there is no way to add or remove items directly through the `RecyclerView` adapter.  You need to make changes to the data source directly and notify the adapter of any changes.   Also, whenever adding or removing elements, always make changes to the **existing** list.  For instance, reinitializing the list of Contacts such as the following will not affect the adapter, since it has a memory reference to the old list: 
+Unlike ListView, there is no way to add or remove items directly through the `RecyclerView` adapter.  You need to make changes to the data source directly and notify the adapter of any changes.   Also, whenever adding or removing elements, always make changes to the **existing** list.  For instance, reinitializing the list of Contacts such as the following will not affect the adapter, since it has a memory reference to the old list:
 
 ```java
 // do not reinitialize an existing reference used by an adapter
@@ -354,7 +353,7 @@ Also, if you are intending to update an existing list, make sure to get the curr
 int curSize = adapter.getItemCount();
 
 // replace this line with wherever you get new records
-ArrayList<Contact> newItems = Contact.createContactsList(20); 
+ArrayList<Contact> newItems = Contact.createContactsList(20);
 
 // update the existing list
 contacts.addAll(newItems);
@@ -368,7 +367,7 @@ adapter.notifyItemRangeInserted(curSize, newItems.size());
 Often times there are cases when changes to your list are more complex (i.e. sorting an existing list) and it cannot be easily determined whether each row changed.  In this cases, you would normally have to call `notifyDataSetChanged()` on the entire adapter to update the entire screen, which eliminates the ability to perform animation sequences to showcase what changed.
 
 A new `DiffUtil` class has been added in the v24.2.0 of the support library to help compute the difference between the old and new list.   This class uses the same algorithm used for computing line changes in source code (the [diff utility](https://en.wikipedia.org/wiki/Diff_utility) program), so it usually fairly fast.  It is recommended however for larger lists that you execute this computation in a background thread.
- 
+
 To use the `DiffUtil` class, you need to first implement a class that implements the `DiffUtil.Callback` that accepts the old and new list:
 
 ```java
@@ -422,7 +421,7 @@ public class ContactsAdapter extends
         final ContactDiffCallback diffCallback = new ContactDiffCallback(this.mContacts, contacts);
         final DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(diffCallback);
 
-        // clear contacts and add 
+        // clear contacts and add
         this.mContacts.clear();
         this.mContacts.addAll(contacts);
 
@@ -438,7 +437,7 @@ For a working example, see this [sample code](https://github.com/mrmike/DiffUtil
 If we are inserting elements to the front of the list and wish to maintain the position at the top, we can set the scroll position to the 1st element:
 
 ```java
-adapter.notifyItemInserted(0);  
+adapter.notifyItemInserted(0);
 rvContacts.scrollToPosition(0);   // index 0 position
 ```
 
@@ -446,12 +445,12 @@ If we are adding items to the end and wish to scroll to the bottom as items are 
 
 ```java
 adapter.notifyItemInserted(contacts.size() - 1);  // contacts.size() - 1 is the last element position
-rvContacts.scrollToPosition(mAdapter.getItemCount() - 1); // update based on adapter 
+rvContacts.scrollToPosition(mAdapter.getItemCount() - 1); // update based on adapter
 ```
 
 ### Implementing Endless Scrolling
 
-To implement fetching more data and appending to the end of the list as the user scrolls towards the bottom,  use the `addOnScrollListener()` from the `RecyclerView` and add an `onLoadMore` method leveraging the [[EndlessScrollViewScrollListener|Endless-Scrolling-with-AdapterViews-and-RecyclerView#implementing-with-recyclerview]] document in the guide.  
+To implement fetching more data and appending to the end of the list as the user scrolls towards the bottom,  use the `addOnScrollListener()` from the `RecyclerView` and add an `onLoadMore` method leveraging the [[EndlessScrollViewScrollListener|Endless-Scrolling-with-AdapterViews-and-RecyclerView#implementing-with-recyclerview]] document in the guide.
 
 ## Configuring the RecyclerView
 
@@ -483,7 +482,7 @@ Displaying items in a grid or staggered grid works similarly:
 
 ```java
 // First param is number of columns and second param is orientation i.e Vertical or Horizontal
-StaggeredGridLayoutManager gridLayoutManager = 
+StaggeredGridLayoutManager gridLayoutManager =
     new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
 // Attach the layout manager to the recycler view
 recyclerView.setLayoutManager(gridLayoutManager);
@@ -500,7 +499,7 @@ We can build [our own custom layout managers](http://wiresareobsolete.com/2014/0
 We can decorate the items using various decorators attached to the recyclerview such as the [DividerItemDecoration](https://gist.githubusercontent.com/alexfu/0f464fc3742f134ccd1e/raw/abe729359e5b3691f2fe56445644baf0e40b35ba/DividerItemDecoration.java):
 
 ```java
-RecyclerView.ItemDecoration itemDecoration = new 
+RecyclerView.ItemDecoration itemDecoration = new
     DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST);
 recyclerView.addItemDecoration(itemDecoration);
 ```
@@ -511,9 +510,9 @@ This decorator displays dividers between each item within the list as illustrate
 
 #### Grid Spacing Decorations
 
-Decorators can also be used for adding consistent spacing around items displayed in a grid layout or staggered grid. Copy over this [SpacesItemDecoration.java decorator](https://gist.github.com/nesquena/db922669798eba3e3661) into your project and apply to a `RecyclerView` using the `addItemDecoration` method. Refer to [this staggered grid tutorial](http://blog.grafixartist.com/pinterest-masonry-layout-staggered-grid/) for a more detailed outline. 
+Decorators can also be used for adding consistent spacing around items displayed in a grid layout or staggered grid. Copy over this [SpacesItemDecoration.java decorator](https://gist.github.com/nesquena/db922669798eba3e3661) into your project and apply to a `RecyclerView` using the `addItemDecoration` method. Refer to [this staggered grid tutorial](http://blog.grafixartist.com/pinterest-masonry-layout-staggered-grid/) for a more detailed outline.
 
-### Animators 
+### Animators
 
 RecyclerView supports custom animations for items as they enter, move, or get deleted using [ItemAnimator](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.ItemAnimator.html).  The default animation effects is defined by [DefaultItemAnimator](https://developer.android.com/intl/ko/reference/android/support/v7/widget/DefaultItemAnimator.html), and the complex implementation (see [source code)](https://android.googlesource.com/platform/frameworks/support/+/refs/heads/master/v7/recyclerview/src/android/support/v7/widget/DefaultItemAnimator.java) shows that the logic necessary to ensure that animation effects are performed in a specific sequence (remove, move, and add).
 
@@ -573,7 +572,7 @@ recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
     public boolean onInterceptTouchEvent(RecyclerView recycler, MotionEvent event) {
         return false;
     }
-    
+
 });
 ```
 
@@ -609,7 +608,7 @@ For a more manual approach, we can create a custom extension to `RecyclerView` c
 3. Attach your adapter to the `RecyclerView` to populate the data into the horizontal list as normal.
 4. You can access the currently "snapped" item position with `snappyRecyclerView.getFirstVisibleItemPosition()`.
 
-That's all, you should be set for a snap-to-center horizontal scrolling list! 
+That's all, you should be set for a snap-to-center horizontal scrolling list!
 
 ### Attaching Click Handlers to Items
 
@@ -665,7 +664,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
             }
         }
     }
-    
+
     // ...
 }
 ```
@@ -677,7 +676,7 @@ If we want the item to show a "selected" effect when pressed, we can set the `an
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?android:attr/selectableItemBackground"> 
+    android:background="?android:attr/selectableItemBackground">
   <!-- ... -->
 </LinearLayout>
 ```
@@ -695,7 +694,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
     // ...
 
     /***** Creating OnItemClickListener *****/
-    
+
     // Define listener member variable
     private OnItemClickListener listener;
     // Define the listener interface
@@ -730,7 +729,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
             });
         }
     }
-    
+
     // ...
 }
 ```
@@ -749,7 +748,7 @@ adapter.setOnItemClickListener(new ContactsAdapter.OnItemClickListener() {
 });
 ```
 
-See [this detailed stackoverflow post](http://stackoverflow.com/a/24933117/313399) which describes how to setup item-level click handlers when using `RecyclerView`. 
+See [this detailed stackoverflow post](http://stackoverflow.com/a/24933117/313399) which describes how to setup item-level click handlers when using `RecyclerView`.
 
 ## Implementing Pull to Refresh
 
@@ -757,7 +756,7 @@ The `SwipeRefreshLayout` should be used to refresh the contents of a `RecyclerVi
 
 ## Swipe Detection
 
-RecyclerView (since the release of v24.2.0) now has an `OnFlingListener` method that can be used to implement custom fling behavior.  Download this [RecyclerViewSwipeListener](https://gist.github.com/rogerhu/9e769149f9550c0a6ddb4987b94caee8) and you can handle custom swipe detection by adding this class to your RecyclerView: 
+RecyclerView (since the release of v24.2.0) now has an `OnFlingListener` method that can be used to implement custom fling behavior.  Download this [RecyclerViewSwipeListener](https://gist.github.com/rogerhu/9e769149f9550c0a6ddb4987b94caee8) and you can handle custom swipe detection by adding this class to your RecyclerView:
 
 ```java
 RecyclerView rvMyList;
