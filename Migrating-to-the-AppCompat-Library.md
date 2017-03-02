@@ -9,7 +9,7 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:25.1.1'
+    compile 'com.android.support:appcompat-v7:25.2.0'
 }
 ```
 
