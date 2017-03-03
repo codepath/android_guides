@@ -48,6 +48,7 @@ Most common input types include:
 | textEmailAddress   | Text that will be used as an e-mail address       |
 | textPersonName     | Text that is the name of a person                 |
 | textPassword       | Text that is a password that should be obscured   |
+| textVisiblePassword| Text, next button, and no microphone input        |
 | number             | A numeric only field                              |
 | phone              | For entering a phone number                       |
 | date               | For entering a date                               |
