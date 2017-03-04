@@ -1,8 +1,10 @@
 ## Overview
 
-Often your app will have secret credentials or API keys that you need to have in your app to function but you'd rather not have easily extracted from your app.  If you are using dynamically generated secrets, the most effective way to store this information is to use the [Android Keystore API](https://developer.android.com/training/articles/keystore.html).  
+Often your app will have secret credentials or API keys that you need to have in your app to function but you'd rather not have easily extracted from your app.  
 
-You should not store them in [[shared preferences|Storing-and-Accessing-SharedPreferences]] without encrypting this data first because they can be extracted when performing a backup of your data.  The alternative is to disable backups by setting `android:allowBackup` in your `AndroidManifest.xml` file.  You can also specify which files to avoid backups too by reviewing this [doc](https://developer.android.com/guide/topics/data/autobackup.html#Files).
+If you are using dynamically generated secrets, the most effective way to store this information is to use the [Android Keystore API](https://developer.android.com/training/articles/keystore.html).  You should not store them in [[shared preferences|Storing-and-Accessing-SharedPreferences]] without encrypting this data first because they can be extracted when performing a backup of your data.  
+
+The alternative is to disable backups by setting `android:allowBackup` in your `AndroidManifest.xml` file:
 
 ```xml
 <application ...
@@ -10,14 +12,16 @@ You should not store them in [[shared preferences|Storing-and-Accessing-SharedPr
 </application>
 ```
 
+You can also specify which files to avoid backups too by reviewing this [doc](https://developer.android.com/guide/topics/data/autobackup.html#Files).
+
 ### Using the Android Keystore API
 
 To understand the Android Keystore API, you must first understand that encrypting secrets requires both public key and symmetric cryptography.  In public key cryptography, data can be encrypted with one key and decrypted with the other key.  In symmetric cryptography, the same key is used to encrypt and decrypt the data.   The Keystore API uses both types of cryptography in order to safeguard secrets.  
 
 A public/private RSA key pair is generated, which is stored in the Android device's keystore.  An AES symmetric key is also generated, which is used to encrypt and decrypt the secrets. 
- The app needs to store this AES symmetric key to later decode, so it is encrypted by the RSA public key first before persisted.  When the app runs, it gives this encrypted AES key to the Keystore API, which will decode the data using its private RSA key.  
+ The app needs to store this AES symmetric key to later decode, so it is encrypted by the RSA public key first before persisted.  When the app runs, it gives this encrypted AES key to the Keystore API, which will decode the data using its private RSA key.  In this way, data cannot be decoded if 
 
-Read this [Medium blog](https://medium.com/@ericfu/securely-storing-secrets-in-an-android-application-501f030ae5a3) for more information about how to use the Keystore API.   Do not use the [Qlassified Android](https://github.com/Q42/Qlassified-Android) library because it introduces an additional 20K methods to your Android program.  You can use the [Android Vault](https://github.com/BottleRocketStudios/Android-Vault/tree/master/AndroidVault/vault/src/androidTest/java/com/bottlerocketstudios/vault) library instead of needing to write the boilerplate code yourself.
+Read this [Medium blog](https://medium.com/@ericfu/securely-storing-secrets-in-an-android-application-501f030ae5a3) for more information about how to use the Keystore API.   Do not use the [Qlassified Android](https://github.com/Q42/Qlassified-Android) library because it introduces an additional 20K methods to your Android program.  You can use the [Android Vault](https://github.com/BottleRocketStudios/Android-Vault/tree/master/AndroidVault/vault/src/androidTest/java/com/bottlerocketstudios/vault) library, which will also help facilitate the rotation of RSA keys, which usually have an expiration date of 1-5 years.
 
 ### Storing Fixed Keys
 
