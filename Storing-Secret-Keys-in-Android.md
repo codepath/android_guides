@@ -19,6 +19,8 @@ A public/private RSA key pair is generated, which is stored in the Android devic
 
 Read this [Medium blog](https://medium.com/@ericfu/securely-storing-secrets-in-an-android-application-501f030ae5a3) for more information about how to use the Keystore API.   Do not use the [Qlassified Android](https://github.com/Q42/Qlassified-Android) library because it introduces an additional 20K methods to your Android program.  You can use the [Android Vault](https://github.com/BottleRocketStudios/Android-Vault/tree/master/AndroidVault/vault/src/androidTest/java/com/bottlerocketstudios/vault) library instead of needing to write the boilerplate code yourself.
 
+### Storing Fixed Keys
+
 For storing fixed API keys, the following common strategies exist for storing secrets in your source code:
 
  * [[Embedded in resource file|Storing-Secret-Keys-in-Android#secrets-in-resource-files]]
