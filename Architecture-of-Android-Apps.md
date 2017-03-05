@@ -2,6 +2,20 @@
 
 When first building Android apps, many developers might start by relying on Model View Controller (MVC) patterns and usually end up writing most of the core business logic in activities or fragments.  The challenge is that writing tests that can validate the app's behavior is difficult to do because the code is often so closely tied to the Android framework and the various lifecycle events.  While automated UI testing could be written to validate individual activities or fragments, maintaining and running them over the long-term is often difficult to sustain.
 
+### Architectural Patterns
+
+There are currently three major approaches to architecting your Android apps:
+
+ 1. **Standard Android** (Model-View-Controller) - This is the "default" approach approach with layout files, Activities/Fragments acting as the controller and Models used for data and persistence. With this approach, Activities are in charge of processing the data and updating the views. Activities act like a controller in MVC but with some extra responsibilities that should be part of the view. The problem with this standard architecture is that Activities and Fragments can become quite large and very difficult to tests.
+
+ 2. **Clean Architecture** (Model View Presenter) - When using MVP, Activities and Fragments become part of the view layer and they delegate most of the work to presenter objects. Each Activity has a matching presenter that handles all access to the model. The presenters also notify the Activities when the data is ready to display. 
+
+ 3. **Data-binding MVVM** (Model-View-ViewModel) - ViewModels retrieve data from the model when requested from the view via the [[Android data binding framework|Applying-Data-Binding-for-Views]]. With this pattern, Activities and Fragments become very lightweight. Moreover, writing unit tests becomes easier because the ViewModels are decoupled from the view.
+
+Check this [blog post from Realm](https://realm.io/news/eric-maxwell-mvc-mvp-and-mvvm-on-android/) for a detailed comparison of the options. Refer to [this sample app](https://github.com/ivacf/archi) for an example of each architecture type. 
+
+## Clean Architecture
+
 Clean architecture principles, as espoused by Robert Martin (also known as "Uncle Bob"), attempt to focus the developer on thinking through the app's core functionality.  It does so by separating the architecture of app into three major layers: how the app shows the data to the user (**presentation layer**), what are the core functions of the app (**domain or use case layer**), and how the data can be accessed (**data layer**).  The presentation layer sits as the outermost layer, the domain layer sits in the middle layer, and the data layer resides in the inner layer.  
 
 <img src="http://i.imgur.com/tJxzrx2.png" />
@@ -12,15 +26,7 @@ At the data layer, every source (i.e. file, network, memory) of data should be r
 
 Clean architecture introduces more abstractions and attempts to apply [single responsibility principles](https://en.wikipedia.org/wiki/Single_responsibility_principle) in Android development.  While there may be concerns about this approach adding more complexity, slow performance, and poor testability, it has been shown to work successfully in production apps (see [this Droidcon talk](https://www.youtube.com/watch?v=-oZswd1j5H0) or [this Droidcon 2016 talk](https://www.youtube.com/watch?v=R89ufpJI3SY)).
 
-## Templates
-
-The following template projects are built to act as a starting point for a preferred architecture:
-
- * <https://github.com/dmilicic/Android-Clean-Boilerplate>
- * <https://github.com/android10/Android-CleanArchitecture>
- * <https://github.com/googlesamples/android-architecture>
-
-## Model View Presenter
+### Model View Presenter
 
 In Android app development, the traditional "Model / View / Controller pattern" is often being dropped in preference for the "Model / View / Presenter" pattern. The Model-View-Presenter (MVP) architecture comprises:
 
@@ -60,6 +66,14 @@ If you're attempting to migrate towards clean architecture without necessarily r
 * <https://www.youtube.com/watch?v=BlkJzgjzL0c>
 * <https://github.com/antoniolg/androidmvp>
 * <https://speakerdeck.com/alphonzo79/better-android-architecture/>
+
+### Templates
+
+The following template projects are built to act as a starting point for this architecture:
+
+ * <https://github.com/dmilicic/Android-Clean-Boilerplate>
+ * <https://github.com/android10/Android-CleanArchitecture>
+ * <https://github.com/googlesamples/android-architecture>
 
 ## References
 
