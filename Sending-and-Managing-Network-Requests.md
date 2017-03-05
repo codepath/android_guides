@@ -63,7 +63,7 @@ Note that this does not need to be run in background and does not require specia
 
 ### Sending an HTTP Request (Third Party)
 
-There are at least two popular third-party networking libraries you should consider using.  
+There are at least three major third-party networking libraries you should consider using.  
 
 * See the [[Android Async Http Client guide|Using-Android-Async-Http-Client]] for making basic network calls.  It is the library often used for learning Android but would not be used in a production application.
 
