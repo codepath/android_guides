@@ -422,6 +422,7 @@ To optimize layout performance, minimize the number of instantiated layouts and 
 Review the following references for more detail on optimizing your view hierarchy:
 
 - [Optimizing Layouts](http://developer.android.com/training/improving-layouts/optimizing-layout.html)
+- [Optimizing View Hierarchies](https://developer.android.com/topic/performance/rendering/optimizing-view-hierarchies.html)
 - [Android Layout Tricks](http://android-developers.blogspot.ca/2009/02/android-layout-tricks-1.html)
 - [Layout Optimization](http://code.tutsplus.com/tutorials/android-sdk-tools-layout-optimization--mobile-5245)
 
