@@ -65,6 +65,7 @@ If you are an experienced engineer with 2+ years of professional experience in s
 * [Android Learning Resources](https://github.com/CodementorIO/Android-Learning-Resources)
 * [Awesome Android Complete Reference](https://github.com/amitshekhariitbhu/awesome-android-complete-reference)
 * [[Free Android Curriculum]] (Additional Android resources and slides)
+* [Notate: Annotated YouTube Lectures](http://www.notatevideo.com/)
 
 **Using Eclipse?** See below.
 
