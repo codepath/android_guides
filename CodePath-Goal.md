@@ -22,6 +22,8 @@ Right now, we are [building curriculum](http://guides.codepath.com), [creating i
 
 At the moment, the best way to help is to **contribute to our guides** or tell as many developers about them as possible. If you see a missing topic, please [raise an issue](https://github.com/codepath/android_guides/issues) or add the wiki page yourself. A [list of missing cliffnotes](https://github.com/codepath/android_guides/issues/2) might be a good place to start. If you see inaccurate information, [let us know](https://github.com/codepath/android_guides/issues) or fix it directly! 
 
+A great way to learn *and* contribute is to annotate Android lecture videos using [Notate](http://www.notatevideo.com/). You can summarize various parts of the video, or add bookmarks about where certain topics get discussed. 
+
 Another way to help out is to [answer questions on our Google Group](https://groups.google.com/forum/#!forum/codepath-android-guides) where new users can ask questions and people can discuss topics related to Android and these guides.
 
 If you want to learn Android, [join our free bootcamps](http://codepath.com/androidbootcamp). If you already know Android and like what we are doing, **please email us** at **help (at) codepath.com** and we'd love to talk with you!
