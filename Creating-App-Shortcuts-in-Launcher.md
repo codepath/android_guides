@@ -101,8 +101,7 @@ private void createShorcut() {
 ```java
 if (Build.VERSION.SDK_INT >= 25) {
     createShorcut();
-}
-if (Build.VERSION.SDK_INT >= 25) {
+}else{
     removeShorcuts();
 }
 ```
