@@ -199,7 +199,7 @@ Finally, you will convert the File object into a content provider using the File
 // getExternalFilesDir() + "/Pictures" should match the declaration in fileprovider.xml paths
 File file = new File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), "share_image_" + System.currentTimeMillis() + ".png");
 
-// wrap File object into a content provider
+// wrap File object into a content provider. NOTE: authority here should match authority in manifest declaration
 bmpUri = FileProvider.getUriForFile(MyActivity.this, "com.codepath.fileprovider", file);
 ```
 
