@@ -38,7 +38,7 @@ Note: Robolectric can also be configured with Android Studio 1.1, but the setup 
 ```gradle
 dependencies {
     ...
-    testCompile 'org.robolectric:robolectric:3.1.4'
+    testCompile 'org.robolectric:robolectric:3.3'
 }
 ```
 
@@ -154,7 +154,7 @@ public void secondActivityStartedOnClick() {
 The best way to understand how shadows work is to understand how one is implemented.  Let's use the Bitmap class as an example.  There is an equivalent [ShadowBitmap](https://github.com/robolectric/robolectric/blob/master/robolectric-shadows/shadows-core/src/main/java/org/robolectric/shadows/ShadowBitmap.java) defined in Roboelectric.  Supposed we tried to create a Bitmap image using the `Bitmap.createBitmap`:
 
 ```java
-  @RunWith(RobolectricGradleTestRunner.class)
+  @RunWith(RobolectricTestRunner.class)
   @Config(constants=BuildConfig.class)
   @Test
   public void testBitmapScaling() {
