@@ -53,6 +53,7 @@ The easiest method for understanding this is multiple specific examples with sam
  * [Brief MVP Introduction](https://antonioleiva.com/mvp-android/) with [sample code](https://github.com/antoniolg/androidmvp)
  * [Introduction to MVP Library Nucleus](http://konmik.com/post/introduction_to_model_view_presenter_on_android/)
  * [How to Adopt MVP](https://code.tutsplus.com/tutorials/how-to-adopt-model-view-presenter-on-android--cms-26206)
+ * [MVP Guidelines](https://medium.com/@cervonefrancesco/model-view-presenter-android-guidelines-94970b430ddf#.uzpd446ez)
 
 ### Migrating to Clean Architecture
 
