@@ -177,7 +177,7 @@ Note the use of padding to remove the extra spacing added to the text when the d
 
 You can add the `android:drawablePadding` attribute to your EditText. Example layout with 10dp drawable padding:
 
-```
+```xml
 <EditText
     android:id="@+id/emailEditText"
     android:layout_width="match_parent"
