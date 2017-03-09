@@ -115,7 +115,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [GridListViewAdapters](https://github.com/birajpatel/GridListViewAdapters) - Easily build unlimited Grid cards list like play-store. (ListView working as unlimited GridView)
  * [StickyListHeaders](https://github.com/emilsjolander/StickyListHeaders) - An android library for section headers that stick to the top of a ListView
  * [PinnedListView](https://github.com/beworker/pinned-section-listview) - Pinned Section with ListView
- * [ListViewAnimations](https://github.com/nhaarman/ListViewAnimations) - Easy way to animate ListView items
+ * [ListViewAnimations](https://github.com/nhaarman/ListViewAnimations) - Easy way to animate ListView items (**DEPRECATED**)
  * [Cardslib](https://github.com/gabrielemariotti/cardslib) - Card UI for Lists or Grids
  * [PullToRefresh-ListView](https://github.com/erikwt/PullToRefresh-ListView) - Easy to use pull-to-refresh functionality for ListViews. [Download](https://github.com/erikwt/PullToRefresh-ListView/archive/master.zip) and install as a [library project](http://imgur.com/a/N8baF).
  * [QuickReturn](https://github.com/lawloretienne/QuickReturn) - Reveal or hide a header or footer as the list is scrolled in a direction.
