@@ -173,6 +173,22 @@ First create your [image icons with this generator](http://romannurik.github.io/
 
 Note the use of padding to remove the extra spacing added to the text when the drawable is inserted. See the [[textview guide|Working-with-the-TextView#displaying-images-within-a-textview]] for more details.
 
+#### How can I add padding between my `drawableStart` or `drawableLeft` and the text in my EditText?
+
+You can add the `android:drawablePadding` attribute to your EditText. Example layout with 10dp drawable padding:
+
+```
+<EditText
+    android:id="@+id/emailEditText"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:drawableLeft="@drawable/email_drawable"
+    android:drawablePadding="10dp"
+    android:singleLine="true" />
+```
+
+Read more [details on this stackoverflow post](http://stackoverflow.com/a/23608015).
+
 #### How do I support text with rich formatting (bold words, links) in a TextView?
 
 The `TextView` has [[basic support for HTML text formatting|Working-with-the-TextView#inserting-html-formatting]]:
