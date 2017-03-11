@@ -121,11 +121,11 @@ Using that cross-platform app to easily access and modify the data for your Pars
 
 ### Enabling Client SDK integration
 
-Make sure you have the latest Parse-Android SDK in your `app/build.gradle` file.  It should be at least `1.13.1`:
+Make sure you have the latest Parse-Android SDK in your `app/build.gradle` file.  It should be at least `1.13.3`:
 
 ```gradle
 dependencies {
-    compile 'com.parse:parse-android:1.13.1'
+    compile 'com.parse:parse-android:1.13.3'
     compile 'com.parse:parseinterceptors:0.0.2' // for logging API calls to LogCat
     compile 'com.parse.bolts:bolts-android:1.+'
 }
