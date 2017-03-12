@@ -68,17 +68,17 @@ Make sure to select `JSON` as the Source Type:
 
 <img src="http://imgur.com/3DRH984.png"/>
 
-You can select the Annotation style to `Gson`, but it's not entirely necessary since the Java file created will work without it.  For now, select `None` as the Annotation type.
+Set the Annotation style to `Gson`.
 
-<img src="http://imgur.com/aTrRfpu.png"/>
+<img src="http://i.imgur.com/RohCHRK.png" width="200"/>
 
 Next, paste the JSON output into the textbox:
 
-<img src="https://i.imgur.com/DG4TAB2.png" width="400" alt="POJO Generator" />
+<img src="http://i.imgur.com/vn44UFk.png" width="600" alt="POJO Generator" />
 
 Click the Preview button.  You should see the top section look sort of like the following:
 
-<img src="http://imgur.com/qoMywKe.png"/>
+<img src="http://i.imgur.com/Cxxmnu1.png" width="600"/>
 
 Paste the generated class into your project under a `models` sub-package.  Rename the class name `Example` to reflect your model name.  For this example, we will call this file and class the `User` model.
 
