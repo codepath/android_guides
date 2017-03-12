@@ -8,7 +8,11 @@ To implement a heterogenous list of items, most of the work is done **within the
 
 ## Implementation
 
-Suppose we wanted to implement a heterogenous list of items in an application. Keep in mind that each item in this list should be implemented with a common base model.  The first step therefore is to create a model flexible enough to support all the types (i.e `Post`) and embed a mechanism to determine the type.   Let's pick a simple example such as list of colors in which each color is represented differently:
+Suppose we wanted to implement a heterogenous list of items in an application. Keep in mind that each item in this list should be implemented with a common base model.  
+
+### Define the Enum Values
+
+The first step therefore is to create a model flexible enough to support all the types (i.e `Post`) and embed a mechanism to determine the type.  Let's pick a simple example such as list of colors in which each color is represented differently:
 
 ```java
 public class SimpleColor {
@@ -28,7 +32,11 @@ public class SimpleColor {
 }
 ```
 
-Here we have an enum and a field that represents the color type. We can also have additional fields and information for each type. Now, we need to create an adapter that supports this heterogenous set of colors each represented differently. The skeleton for this type of heterogenous list is a few key methods such as [getViewTypeCount](http://developer.android.com/reference/android/widget/Adapter.html#getViewTypeCount\(\)) and [getItemViewType](http://developer.android.com/reference/android/widget/Adapter.html#getItemViewType\(int\)):
+Here we have an enum and a field that represents the color type. We can also have additional fields and information for each type. 
+
+### Define Adapter Type Methods
+
+Now, we need to create an adapter that supports this heterogenous set of colors each represented differently. The skeleton for this type of heterogenous list is a few key methods such as [getViewTypeCount](http://developer.android.com/reference/android/widget/Adapter.html#getViewTypeCount\(\)) and [getItemViewType](http://developer.android.com/reference/android/widget/Adapter.html#getItemViewType\(int\)):
 
 ```java
 public class ColorArrayAdapter extends ArrayAdapter<SimpleColor> {
@@ -116,7 +124,11 @@ public class ColorArrayAdapter extends ArrayAdapter<SimpleColor> {
 }
 ```
 
-Note that **once `getItemViewType` is defined**, the `convertView` object is guaranteed to be the "correct" type to ensure that recycling views is relatively straightforward. Now we can attach this together within an activity and populate a ListView with:
+Note that **once `getItemViewType` is defined**, the `convertView` object is guaranteed to be the "correct" type to ensure that recycling views is relatively straightforward. 
+
+### Populating the Adapter
+
+Now we can attach this together within an activity and populate a ListView with:
 
 ```java
 public class HeterogenousListActivity extends Activity {
