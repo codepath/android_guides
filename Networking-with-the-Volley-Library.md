@@ -73,6 +73,29 @@ public MainActivity extends Activity {
 
 See [this guide for creating a singleton to use for sending requests](https://developer.android.com/training/volley/requestqueue.html). 
 
+### Requesting images
+
+Volley provides the ability to make image requests and receive back as bitmap.  You can use this bitmap to set directly onto an ImageView.
+
+```java
+ImageRequest imageRequest = new ImageRequest("http://i.imgur.com/Nwk25LA.jpg", new Response.Listener<Bitmap>() {
+  @Override
+  public void onResponse(Bitmap response) {
+
+  }, 
+  // Image width & height equals 0 means to use the actual size
+  0, 0, 
+  // ImageView scale type
+  ImageView.ScaleType.FIT_XY, 
+  // 8 bytes per pixel image 
+  Bitmap.Config.ARGB_8888, new Response.ErrorListener() {
+    @Override
+    public void onErrorResponse(VolleyError error) {
+      error.printStackTrace();
+    }
+  });
+```
+
 ### Accessing JSON Data
 
 After this step you are ready to create your `Request` objects which represents a desired request to be executed. Then we add that request onto the queue. 
