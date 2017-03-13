@@ -71,7 +71,7 @@ We might want to limit the entry to a single-line of text (avoid newlines):
 
 ```xml
 <EditText
-  android:singleLine="true"
+  android:maxLines="1"
   android:lines="1"
 />
 ```
