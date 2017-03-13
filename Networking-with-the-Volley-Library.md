@@ -80,21 +80,21 @@ Volley provides the ability to make image requests and receive back as bitmap.  
 ```java
 ImageRequest imageRequest = new ImageRequest("http://i.imgur.com/Nwk25LA.jpg", 
   new Response.Listener<Bitmap>() {
-  @Override
-  public void onResponse(Bitmap response) {
-
-  }, 
-  // Image width & height equals 0 means to use the actual size
-  0, 0, 
-  // ImageView scale type
-  ImageView.ScaleType.FIT_XY, 
-  // 8 bytes per pixel image 
-  Bitmap.Config.ARGB_8888, new Response.ErrorListener() {
     @Override
-    public void onErrorResponse(VolleyError error) {
-      error.printStackTrace();
-    }
-  });
+    public void onResponse(Bitmap response) {
+
+    }, 
+    // Image width & height equals 0 means to use the actual size
+    0, 0, 
+    // ImageView scale type
+    ImageView.ScaleType.FIT_XY, 
+    // 8 bytes per pixel image 
+    Bitmap.Config.ARGB_8888, new Response.ErrorListener() {
+      @Override
+      public void onErrorResponse(VolleyError error) {
+        error.printStackTrace();
+      }
+    });
 ```
 
 ### Accessing JSON Data
