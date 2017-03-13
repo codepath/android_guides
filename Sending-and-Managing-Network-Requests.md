@@ -23,44 +23,6 @@ In order to access the internet, be sure to specify the following permissions in
 </manifest>
 ```
 
-### Checking for Network Connectivity
-
-#### Checking Network is Connected
-
-First, make sure to setup the `android.permission.ACCESS_NETWORK_STATE` permission as shown above. To verify network availability you can then define and call this method:
-
-```java
-private Boolean isNetworkAvailable() {
-    ConnectivityManager connectivityManager 
-          = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-    NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-    return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
-}
-```
-
-Note that having an active network interface doesn't guarantee that a particular networked service is available or that **the internet is actually connected**. Network issues, server downtime, low signal, captive portals, content filters and the like can all prevent your app from reaching a server. For instance you can't tell for sure if your app can reach Twitter until you receive a valid response from the Twitter service.
-
-See [this official connectivity guide](http://developer.android.com/training/monitoring-device-state/connectivity-monitoring.html) for more details.
-
-#### Checking the Internet is Connected
-
-To verify if the device is actually connected to the internet, we can use the following method of pinging the Google DNS servers to check for the expected exit value:
-
-```java
-public boolean isOnline() {
-    Runtime runtime = Runtime.getRuntime();
-    try {
-        Process ipProcess = runtime.exec("/system/bin/ping -c 1 8.8.8.8");
-        int     exitValue = ipProcess.waitFor();
-        return (exitValue == 0);
-    } catch (IOException e)          { e.printStackTrace(); } 
-      catch (InterruptedException e) { e.printStackTrace(); }
-    return false;
-}
-```
-
-Note that this does not need to be run in background and does not require special privileges. See [this stackoverflow post](http://stackoverflow.com/a/27312494) for the source of this solution.
-
 ### Sending an HTTP Request (Third Party)
 
 There are at least three major third-party networking libraries you should consider using.  
@@ -218,6 +180,44 @@ We could even create our own basic version of a library for loading images by wr
 Of course, doing this the "hard" way is not recommended. In most cases, to avoid having to manually manage caching and download management, we are better off creating your own libraries or in most cases utilizing existing [third-party libraries](http://square.github.io/picasso/). 
 
 **Note:** If you use the approach above to download and display many images within a ListView, you might run into some threading issues that cause buggy loading of images. The blog post [Multithreading for Performance](http://android-developers.blogspot.com/2010/07/multithreading-for-performance.html) offers a solution in which you manage the active remote downloading background tasks to ensure that too many tasks are not being spun up at once. 
+
+### Checking for Network Connectivity
+
+#### Checking Network is Connected
+
+First, make sure to setup the `android.permission.ACCESS_NETWORK_STATE` permission as shown above. To verify network availability you can then define and call this method:
+
+```java
+private Boolean isNetworkAvailable() {
+    ConnectivityManager connectivityManager 
+          = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+    NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+    return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
+}
+```
+
+Note that having an active network interface doesn't guarantee that a particular networked service is available or that **the internet is actually connected**. Network issues, server downtime, low signal, captive portals, content filters and the like can all prevent your app from reaching a server. For instance you can't tell for sure if your app can reach Twitter until you receive a valid response from the Twitter service.
+
+See [this official connectivity guide](http://developer.android.com/training/monitoring-device-state/connectivity-monitoring.html) for more details.
+
+#### Checking the Internet is Connected
+
+To verify if the device is actually connected to the internet, we can use the following method of pinging the Google DNS servers to check for the expected exit value:
+
+```java
+public boolean isOnline() {
+    Runtime runtime = Runtime.getRuntime();
+    try {
+        Process ipProcess = runtime.exec("/system/bin/ping -c 1 8.8.8.8");
+        int     exitValue = ipProcess.waitFor();
+        return (exitValue == 0);
+    } catch (IOException e)          { e.printStackTrace(); } 
+      catch (InterruptedException e) { e.printStackTrace(); }
+    return false;
+}
+```
+
+Note that this does not need to be run in background and does not require special privileges. See [this stackoverflow post](http://stackoverflow.com/a/27312494) for the source of this solution.
 
 ## Troubleshooting
 
