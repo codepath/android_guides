@@ -1,7 +1,7 @@
 ## Overview
 
 Volley is a library that makes networking for Android apps easier and most importantly, faster. Volley Library was announced by [Ficus Kirkpatrick](https://plus.google.com/+FicusKirkpatrick) at Google I/O '13.
-It was first used by the Play Store team in Play Store Application and then they released it as an Open Source Library.
+It was first used by the Play Store team in Play Store Application and then they released it as an open source library.  Although it is part of the Android Open Source Project (AOSP), Google announced in January 2017 that Volley will move to a [standalone library](https://plus.google.com/+IanLake/posts/EvB2BeqDUjC).
 
 ## Why Volley?
 
