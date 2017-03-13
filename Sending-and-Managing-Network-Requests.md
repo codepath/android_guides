@@ -68,12 +68,11 @@ There are at least three major third-party networking libraries you should consi
 * See the [[Android Async Http Client guide|Using-Android-Async-Http-Client]] for making basic network calls.  It is the library often used for learning Android but would not be used in a production application.
 
 * See the [[OkHttp guide|Using-OkHttp]] for making synchronous and asynchronous calls.  
-
     - See also the [[Retrofit guide|Consuming-APIs-with-Retrofit]], which uses OkHttp and makes it easier to make more RESTful API calls.  Read through [[this guide|Leveraging-the-Gson-Library]] to understand how the Gson library works with Retrofit.
 
-* Check out the [[Volley guide|Networking-with-the-Volley-Library]], a library built by Google that has fallen out of favor for OkHttp.
+* Check out the [[Volley guide|Networking-with-the-Volley-Library]], a library built by Google that has fallen out of favor for OkHttp.   It currently comes with the Android SDK, so provides a more convenient way to make networking requests.  
 
-There can be a bit of a learning curve when using these libraries, so your best bet when first learning is to use Android Async Http Client.  With OkHttp you also have to deal with the complexity of whether your callbacks need to be run on the main thread to update the UI, as explained in the guide.
+There can be a bit of a learning curve when using these libraries, so your best bet when first learning is to use Android Async Http Client or .  With OkHttp you also have to deal with the complexity of whether your callbacks need to be run on the main thread to update the UI, as explained in the guide.
 
 ### Sending an HTTP Request (The "Hard" Way)
 
