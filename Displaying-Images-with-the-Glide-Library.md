@@ -8,7 +8,7 @@ Add to your `app/build.gradle` file:
 
 ```gradle
 repositories {
-  mavenCentral() // jcenter() works as well because it pulls from Maven Central
+   jcenter()
 }
 
 dependencies {
