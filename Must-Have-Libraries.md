@@ -258,7 +258,7 @@ This is a list of popular scrolling and parallax libraries:
 * [Android Debug Database](https://github.com/amitshekhariitbhu/Android-Debug-Database) - Android Debug Database allows you to view databases and shared preferences directly in your browser in a very simple way.
 * [Bugfender](https://github.com/bugfender/bugfender-android-sample/) - Cloud storage for your app logs, track user behaviour to find problems in your mobile apps.
 * [Chuck](https://github.com/jgilfelt/chuck) - Chuck is a simple in-app HTTP inspector for Android OkHttp clients. Chuck intercepts and persists all HTTP requests and responses inside your application, and provides a UI for inspecting their content.
-
+* [AnUitor](http://anuitor.scurab.com/) - UI debug tool for Android
 ## Resources
 
 Check out the following resources for finding libraries:
