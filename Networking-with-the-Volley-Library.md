@@ -162,6 +162,14 @@ protected void onStop() {
 }
 ```
 
+### Troubleshooting
+
+You can activate verbose logging by typing this command using the Android Debug Shell (ADB):
+
+```bash
+adb shell setprop log.tag.Volley VERBOSE
+```
+
 ## References
 
 * <https://developer.android.com/training/volley/index.html>
@@ -170,3 +178,4 @@ protected void onStop() {
 * <http://arnab.ch/blog/2013/08/asynchronous-http-requests-in-android-using-volley/>
 * <http://files.evancharlton.com/volley-docs/>
 * <https://www.youtube.com/watch?v=yhv8l9F44qo/>
+* <https://commondatastorage.googleapis.com/io-2013/presentations/110%20-%20Volley-%20Easy,%20Fast%20Networking%20for%20Android.pdf>
