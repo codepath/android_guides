@@ -94,6 +94,31 @@ And then define it as `meta-data` inside `AndroidManifest.xml`:
 <meta-data android:name="my.app.namespace.utils.GlideConfiguration"
             android:value="GlideModule"/>
 
+### Using with OkHttp
+
+By default, Glide uses the [[Volley|Networking with the Volley Library]] networking library.  There is a way to use Glide to use OkHttp instead, which may be useful if you need to do authenticated requests.  First, add the `okhttp3-integration` library as a dependency:
+
+```gradle
+dependencies {
+    compile 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
+}
+```
+
+Next, you can configure Glide to use OkHttp in XML or through Java.  The Java approach is useful especially if you already have a shared instance of OkHttpClient:
+
+```java
+OkHttpClient okHttpClient = new OkHttpClient();
+Glide.get(application).register(GlideUrl.class, InputStream.class, new OkHttpUrlLoader.Factory(okHttpClient));
+```
+
+Alternatively, you can declare Glide to use OkHttp by declaring it in your `AndroidManifest.xml` file:
+
+```xml
+<meta-data
+    android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule"
+    android:value="GlideModule" />
+```
+
 ## References
 
 * <https://github.com/bumptech/glide>
