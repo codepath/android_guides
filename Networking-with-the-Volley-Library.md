@@ -164,7 +164,13 @@ protected void onStop() {
 
 ### Troubleshooting
 
-You can activate verbose logging by typing this command using the Android Debug Shell (ADB):
+You can enable verbose logging by simplify setting `VolleyLog.DEBUG` to be true before issuing network requests:
+
+```java
+VolleyLog.DEBUG = true;
+```
+
+You can also activate verbose logging after an app has already been running by typing this command using the Android Debug Shell (ADB):
 
 ```bash
 adb shell setprop log.tag.Volley VERBOSE
