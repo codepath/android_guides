@@ -78,7 +78,8 @@ See [this guide for creating a singleton to use for sending requests](https://de
 Volley provides the ability to make image requests and receive back as bitmap.  You can use this bitmap to set directly onto an ImageView.
 
 ```java
-ImageRequest imageRequest = new ImageRequest("http://i.imgur.com/Nwk25LA.jpg", new Response.Listener<Bitmap>() {
+ImageRequest imageRequest = new ImageRequest("http://i.imgur.com/Nwk25LA.jpg", 
+  new Response.Listener<Bitmap>() {
   @Override
   public void onResponse(Bitmap response) {
 
