@@ -1,8 +1,6 @@
 ## Overview
 
-[Glide](https://github.com/bumptech/glide) is an Image Loader Library for Android developed by bumptech and is a library that is recommended by Google. It has been used in many Google open source projects including Google I/O 2014 official application.
-
-**Guide is incomplete and needs attention**
+[Glide](https://github.com/bumptech/glide) is an Image Loader Library for Android developed by bumptech and is a library that is recommended by Google. It has been used in many Google open source projects including Google I/O 2014 official application.  It provides animated GIF support and handles image loading/caching.  
 
 ### Setup
 
@@ -118,6 +116,8 @@ Alternatively, you can declare Glide to use OkHttp by declaring it in your `Andr
     android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule"
     android:value="GlideModule" />
 ```
+
+Review [this section](https://github.com/bumptech/glide#proguard) if are configuring Glide for use with ProGuard.
 
 ## References
 
