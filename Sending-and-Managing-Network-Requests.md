@@ -46,10 +46,10 @@ Here is a comparison of the different aspects of the library.
 | Remote Image Fetching| Manual   | Requires Picasso or Glide | Included  |
 | Animated GIF Support | No | Requires Glide | Requires Glide |
 | Release Cadence  | Infrequent | Monthly | Infrequent | 
-| Author     | James Smith | Square | Google | 
 | Transport Layer | Apache HTTP Client | OkHttp | HttpUrlConnection (or OkHttp)|
 | HTTP/2 | No | Yes | Works with OkHttp |
-| Automatic Gzip processing | Yes | Yes | Manual |
+| Automatic Gzip processing | Yes | Yes | No (unless using OkHttp) |
+| Author     | James Smith | Square | Google | 
 
 One issue with Android Async Http Client is that the library has very limited ways to observe network traces that are useful for debugging.   Volley provides remote fetching images out of the box, while Android Async Http client requires more manual work and OkHttp needs the [[Picasso|Displaying-Images-with-the-Picasso-Library]] or [[Glide|Displaying-Images-with-the-Picasso-Library]] library in order to do so.
 
