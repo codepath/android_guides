@@ -43,7 +43,7 @@ Here is a comparison of the different aspects of the library.
 | Debugging            | Requires Proxy server | Use LogInterceptor | Use verbose mode |
 | Disk Caching              | Yes       | Yes  | Yes  |
 | Request Queue        | No | No | Included |
-| Remote Image Fetching| Manual   | Requires Picasso | Included |
+| Remote Image Fetching| Manual   | Requires Picasso or Glide | Included |
 | Release Cadence  | Infrequent | Monthly | Infrequent | 
 | Author     | James Smith | Square | Google | 
 | Transport Layer | Apache HTTP Client | OkHttp | HttpUrlConnection (or OkHttp)|
