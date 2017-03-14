@@ -176,6 +176,18 @@ You can also activate verbose logging after an app has already been running by t
 adb shell setprop log.tag.Volley VERBOSE
 ```
 
+The output will show cache hits, queue additions, and network latency calls:
+
+```
+03-13 23:32:11.382 2565-2565/com.test D/Volley: [1] MarkerLog.finish: (1494 ms) [ ] http://i.imgur.com/Nwk25LA.jpg 0x189700ee LOW 1
+03-13 23:32:11.382 2565-2565/com.test D/Volley: [1] MarkerLog.finish: (+0   ) [ 1] add-to-queue
+03-13 23:32:11.382 2565-2565/com.test D/Volley: [1] MarkerLog.finish: (+85  ) [191] cache-queue-take
+03-13 23:32:11.382 2565-2565/com.test D/Volley: [1] MarkerLog.finish: (+107 ) [191] cache-hit
+03-13 23:32:11.383 2565-2565/com.test D/Volley: [1] MarkerLog.finish: (+957 ) [191] cache-hit-parsed
+03-13 23:32:11.383 2565-2565/com.test D/Volley: [1] MarkerLog.finish: (+0   ) [191] post-response
+03-13 23:32:11.383 2565-2565/com.test D/Volley: [1] MarkerLog.finish: (+345 ) [ 1] done
+```
+
 ## References
 
 * <https://developer.android.com/training/volley/index.html>
