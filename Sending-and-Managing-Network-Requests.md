@@ -43,14 +43,15 @@ Here is a comparison of the different aspects of the library.
 | Debugging            | Requires Proxy server | Use LogInterceptor | Use verbose mode |
 | Disk Caching              | Yes       | Yes  | Yes  |
 | Request Queue        | No | No | Included |
-| Remote Image Fetching| Manual   | Requires Picasso or Glide | Included |
+| Remote Image Fetching| Manual   | Requires Picasso or Glide | Included  |
+| Animated GIF Support | No | Requires Glide | Requires Glide |
 | Release Cadence  | Infrequent | Monthly | Infrequent | 
 | Author     | James Smith | Square | Google | 
 | Transport Layer | Apache HTTP Client | OkHttp | HttpUrlConnection (or OkHttp)|
 | HTTP/2 | No | Yes | Works with OkHttp |
 | Automatic Gzip processing | Yes | Yes | Manual |
 
-One issue with Android Async Http Client is that the library has very limited ways to observe network traces that are useful for debugging.   Volley provides remote fetching images out of the box, while Android Async Http client requires more manual work and OkHttp needs the [[Picasso|Displaying-Images-with-the-Picasso-Library]] library in order to do so.
+One issue with Android Async Http Client is that the library has very limited ways to observe network traces that are useful for debugging.   Volley provides remote fetching images out of the box, while Android Async Http client requires more manual work and OkHttp needs the [[Picasso|Displaying-Images-with-the-Picasso-Library]] or [[Glide|Displaying-Images-with-the-Picasso-Library]] library in order to do so.
 
 Another important point is that OkHttp is not only a standalone networking library but also can be used for the [underlying implementation for HttpUrlConnection](https://android.googlesource.com/platform/external/okhttp/+/master/okhttp-urlconnection/src/main/java/com/squareup/okhttp/internal/huc/HttpURLConnectionImpl.java).  For this reason, Volley can also leverage OkHttp to support automatic Gzip and HTTP/2 processing.
 
