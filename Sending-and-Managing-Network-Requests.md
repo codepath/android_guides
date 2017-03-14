@@ -47,6 +47,7 @@ Here is a comparison of the different aspects of the libraries.
 | Animated GIF Support | No | Requires Glide | Requires Glide |
 | Release Cadence  | Infrequent | Monthly | Infrequent | 
 | Transport Layer | Apache HTTP Client | OkHttp | HttpUrlConnection (or OkHttp)|
+| Synchronous Calls    | use SyncHttpClient |  execute() instead of enqueue() | use RequestFuture |
 | HTTP/2 | No | Yes | Works with OkHttp |
 | Automatic Gzip processing | Yes | Yes | No (unless using OkHttp) |
 | Author     | James Smith | Square | Google | 
