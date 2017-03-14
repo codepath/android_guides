@@ -42,7 +42,7 @@ Here is a comparison of the different aspects of the libraries.
 | ----------------     |--------- |:------:| ------:|
 | Debugging            | Requires Proxy server | Use LogInterceptor | Use verbose mode |
 | Disk Caching              | Yes       | Yes  | Yes  |
-| Request Queue        | No | No | Included |
+| Request Queueing        | No | No | Included |
 | Remote Image Fetching| Manual   | Requires Picasso or Glide | Included  |
 | Animated GIF Support | No | Requires Glide | Requires Glide |
 | Release Cadence  | Infrequent | Monthly | Infrequent | 
