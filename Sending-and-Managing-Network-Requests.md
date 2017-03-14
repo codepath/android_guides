@@ -36,6 +36,24 @@ There are at least three major third-party networking libraries you should consi
 
 There can be a bit of a learning curve when using these libraries, so your best bet when first learning is to use Android Async Http Client or Volley.  With OkHttp you also have to deal with the complexity of whether your callbacks need to be run on the main thread to update the UI, as explained in the guide.
 
+Here is a comparison of the different aspects of the library.  
+
+|                 |Android Async Http | OkHttp | Volley |
+| ----------------     |--------- |:------:| ------:|
+| Debugging            | Requires Proxy server | Use LogInterceptor | Use verbose mode |
+| Disk Caching              | Yes       | Yes  | Yes  |
+| Request Queue        | No | No | Included |
+| Remote Image Fetching| Manual   | Requires Picasso | Included |
+| Release Cadence  | Infrequent | Monthly | Infrequent | 
+| Author     | James Smith | Square | Google | 
+| Transport Layer | Apache HTTP Client | OkHttp | HttpUrlConnection (or OkHttp)|
+| HTTP/2 | No | Yes | Works with OkHttp |
+| Automatic Gzip processing | Yes | Yes | Manual |
+
+One issue with Android Async Http Client is that the library has very limited ways to observe network traces that are useful for debugging.   Volley provides remote fetching images out of the box, while Android Async Http client requires more manual work and OkHttp needs the Picasso library in order to do so.
+
+Another important point is that OkHttp is not only a standalone networking library but can also be used for the [underlying implementation for HttpUrlConnection](https://android.googlesource.com/platform/external/okhttp/+/master/okhttp-urlconnection/src/main/java/com/squareup/okhttp/internal/huc/HttpURLConnectionImpl.java).  For this reason, Volley can also leverage OkHttp to support automatic Gzip and HTTP/2 processing.
+
 ### Sending an HTTP Request (The "Hard" Way)
 
 Sending an HTTP Request involves the following conceptual steps:
