@@ -162,6 +162,39 @@ protected void onStop() {
 }
 ```
 
+### Using with OkHttp
+
+Although Volley uses the `HttpUrlConnection` interface for networking calls, the OkHttp library instead can be used instead since it also provides an implementation of this interface:
+
+```java
+public class OkHttpStack extends HurlStack {
+  private final OkHttpClient client;
+
+  public OkHttpStack() {
+    this(new OkHttpClient());
+  }
+
+  public OkHttpStack(OkHttpClient client) {
+    if (client == null) {
+      throw new NullPointerException("Client must not be null.");
+    }
+    this.client = client;
+  }
+
+  @Override protected HttpURLConnection createConnection(URL url) throws IOException {
+    return client.open(url);
+  }   
+}
+```
+
+You can then generate a request queue:
+
+```java
+Volley.newRequestQueue(context, new OkHttpStack());
+```
+
+Follow this [gist](https://gist.github.com/JakeWharton/5616899) for more information.
+
 ### Troubleshooting
 
 You can enable verbose logging by simplify setting `VolleyLog.DEBUG` to be true before issuing network requests:
