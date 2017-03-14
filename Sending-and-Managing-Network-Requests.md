@@ -36,7 +36,7 @@ There are at least three major third-party networking libraries you should consi
 
 There can be a bit of a learning curve when using these libraries, so your best bet when first learning is to use Android Async Http Client or Volley.  With OkHttp you also have to deal with the complexity of whether your callbacks need to be run on the main thread to update the UI, as explained in the guide.
 
-Here is a comparison of the different aspects of the library.  
+Here is a comparison of the different aspects of the libraries.  
 
 |                 |Android Async Http | OkHttp | Volley |
 | ----------------     |--------- |:------:| ------:|
