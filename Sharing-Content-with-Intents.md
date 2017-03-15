@@ -338,6 +338,8 @@ public boolean onCreateOptionsMenu(Menu menu) {
 }
 ```
 
+**Note:** Be sure to call `attachShareIntentAction` method **both inside** `onCreateOptionsMenu` AND inside the `onSuccess` for Picasso to ensure that the share attaches properly. 
+
 #### Attach Share for a WebView URL
 
 We can use a similar approach if we wish to create a share action for the current URL that is being loaded in a [[WebView|Working-with-the-WebView]]:
