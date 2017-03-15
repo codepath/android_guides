@@ -203,14 +203,15 @@ File file = new File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), "share
 bmpUri = FileProvider.getUriForFile(MyActivity.this, "com.codepath.fileprovider", file);
 ```
 
-Note that there are other XML tags you can use in the `fileprovider.xml`, which map to the File directory specified.  In the example above, we use `Context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)`, which corresponded to the `<external-files-dir>` XML tag in the declaration with the `Pictures` path explicitly specified.  Here are other options you can use too:
+Note that there are other XML tags you can use in the `fileprovider.xml`, which map to the File directory specified.  In the example above, we use `Context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)`, which corresponded to the `<external-files-dir>` XML tag in the declaration with the `Pictures` path explicitly specified.  Here are all the options you can use too:
 
-| XML tag                   | Corresponding storage call                |
-|---------------------------|-------------------------------------------|
-| &lt;files-path>           | Context.getFilesDir()                     |
-| &lt;cache-path>           | Context.getCacheDir()                     |
-| &lt;external-path>        | Environment.getExternalStorageDirectory() |
-| &lt;external-cache-path>  | Context.getExternalCacheDir()             |
+| XML tag                   | Corresponding storage call                | When to use      |
+|---------------------------|-------------------------------------------|------------------
+| &lt;files-path>           | Context.getFilesDir()                     | data can only be viewed by app, deleted when uninstalled (data/data/[packagename]/files) |
+| &lt;external-files-dir>   | Context.getExternalFilesDir()             | data can be read/write by the app, any apps granted with READ_STORAGE permission can read too, deleted when uninstalled (/Android/data/[packagename]/files) |
+| &lt;cache-path>           | Context.getCacheDir()                     | temporary file storage |
+| &lt;external-path>        | Environment.getExternalStoragePublicDirectory() | data can be read/write by the app, any apps can view, files not deleted when uninstalled##  |
+| &lt;external-cache-path>  | Context.getExternalCacheDir()             | temporary file storage with usually larger space |
 
 If you are **using API 23 or above**, then you'll need to [[request runtime permissions|Managing-Runtime-Permissions-with-PermissionsDispatcher]] for `Manifest.permission.READ_EXTERNAL_STORAGE` and `Manifest.permission.WRITE_EXTERNAL_STORAGE` in order to share the image as shown above since newer versions require explicit permisions at runtime for accessing external storage. 
 
