@@ -212,24 +212,6 @@ Note that there are other XML tags you can use in the `fileprovider.xml`, which 
 | &lt;external-path>        | Environment.getExternalStorageDirectory() |
 | &lt;external-cache-path>  | Context.getExternalCacheDir()             |
 
-### Sharing Remote Images (without explicit file IO)
-
-The second way to share an Image does not require you to write the image into a file.  This code can safely be executed on the UI thread. The approach was suggested on this webpage http://www.nurne.com/2012/07/android-how-to-attach-image-file-from.html. 
-
-```java
-ImageView siv = (ImageView) findViewById(R.id.ivResult);
-Drawable mDrawable = siv.getDrawable();
-Bitmap mBitmap = ((BitmapDrawable)mDrawable).getBitmap();
-
-String path = Images.Media.insertImage(getContentResolver(), 
-    mBitmap, "Image Description", null);
-
-Uri uri = Uri.parse(path);
-return uri;
-```
-
-You get the `Drawable` from the `ImageView`.  You get the `Bitmap` from the `Drawable`.  Put that bitmap into the Media image store.  That gives you a path which can be used instead of a file path or URL.  Note the original webpage had an additional problem with immutable bitmaps, solved by drawing the bitmap into a canvas (never shown on screen).  See linked page above for details.
-
 If you are **using API 23 or above**, then you'll need to [[request runtime permissions|Managing-Runtime-Permissions-with-PermissionsDispatcher]] for `Manifest.permission.READ_EXTERNAL_STORAGE` and `Manifest.permission.WRITE_EXTERNAL_STORAGE` in order to share the image as shown above since newer versions require explicit permisions at runtime for accessing external storage. 
 
 **Note:** There is a [common bug on emulators](https://code.google.com/p/android/issues/detail?id=75447) that will cause `MediaStore.Images.Media.insertImage` to fail with `E/MediaStore﹕ Failed to insert image` unless the media directory is first initialized as described in the link.
