@@ -85,6 +85,8 @@ If you intend use the library with [ButterKnife](https://github.com/JakeWharton/
 
 To publish your library, you can either make it available to a public or private repository.  jCenter and Maven Central are the most popular ones, though jCenter has become the default one used in Android Studio.  For understanding the differences between jCenter or Maven Central, see this [blog link](http://inthecheesefactory.com/blog/how-to-upload-library-to-jcenter-maven-central-as-dependency/en).   
 
+To publish your library straight from GitHub you can use [JitPack](https://jitpack.io). Once you create a GitHub release JitPack will build your library from source and will publish it automatically. 
+
 #### Setting up through jCenter
 
 First, [signup](https://bintray.com/) for a BinTray account.  You will want to create a GPG signing key:
