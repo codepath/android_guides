@@ -84,7 +84,7 @@ We can add a `ProgressBar` into our `ActionBar` or `Toolbar` [[using a custom Ac
 <?xml version="1.0" encoding="utf-8"?>
 <ProgressBar xmlns:android="http://schemas.android.com/apk/res/android"
     style="?android:attr/progressBarStyleLarge"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/pbProgressAction" />
 ```
