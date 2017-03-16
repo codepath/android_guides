@@ -190,17 +190,6 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        ActionBar actionBar = getSupportActionBar();
-        if(actionBar != null)
-        {
-             // setting this to true to show up (back) button on the appBar.
-             // https://developer.android.com/reference/android/app/ActionBar.html#setDisplayHomeAsUpEnabled(boolean)
-             actionBar.setDisplayHomeAsUpEnabled(true);
-             // setting default drawable from android theme
-             // passing 0 as the Resource id displays default drawable
-             // https://developer.android.com/reference/android/app/ActionBar.html#setHomeAsUpIndicator(int)
-             actionBar.setHomeAsUpIndicator(0);
-        }
         // Find our drawer view
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
     }
