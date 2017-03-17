@@ -79,7 +79,7 @@ By default, the `WebView` does not account for the default scale size if HTML pa
 ```java
 // Enable responsive layout
 myWebView.getSettings().setUseWideViewPort(true);
-// Zoom out if the content width is greater than the width of the veiwport
+// Zoom out if the content width is greater than the width of the viewport
 myWebView.getSettings().setLoadWithOverviewMode(true);
 ```
 
