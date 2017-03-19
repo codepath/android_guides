@@ -571,7 +571,7 @@ public class ChatListAdapter extends ArrayAdapter<Message> {
   // Get the items in the reverse order:
 
   @Override
-  public Object getItem(int position) {
+  public Message getItem(int position) {
      return super.getItem(super.getCount() - position - 1);
   }
 }
