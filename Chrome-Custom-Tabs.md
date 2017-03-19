@@ -66,7 +66,7 @@ By default, a Chrome tab does not include share action in the toolbar.  However,
 ```java
 CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
 // add share action to menu list
-intentBuilder.addDefaultShareMenuItem();
+builder.addDefaultShareMenuItem();
 ```
 
 ### Adding custom icons
