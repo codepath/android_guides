@@ -588,12 +588,12 @@ Finally, let's periodically refresh the ListView with latest messages [[using a 
 
 // Create a handler which can run code periodically
 static final int POLL_INTERVAL = 1000; // milliseconds
-Handler mHandler = new Handler();  // android.os.Handler
+Handler myHandler = new Handler();  // android.os.Handler
 Runnable mRefreshMessagesRunnable = new Runnable() {
     @Override
     public void run() {
        refreshMessages();
-       mHandler.postDelayed(this, POLL_INTERVAL);
+       myHandler.postDelayed(this, POLL_INTERVAL);
     }
 };
 
@@ -608,7 +608,7 @@ protected void onCreate(Bundle savedInstanceState) {
     } else {
     	login();
     }
-    mHandler.postDelayed(mRefreshMessagesRunnable, POLL_INTERVAL);
+    myHandler.postDelayed(mRefreshMessagesRunnable, POLL_INTERVAL);
 }
 ```
 
