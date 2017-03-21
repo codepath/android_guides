@@ -1,6 +1,6 @@
 ProGuard is a tool to help minify, obfuscate, and optimize your code.  It is not only especially useful for reducing the overall size of your Android application as well as removing unused classes and methods that contribute towards the intrinsic [64k method limit](http://developer.android.com/tools/building/multidex.html#avoid) of Android applications.  Because of the latter issue, ProGuard is often recommended to be used both in development and production especially for larger applications.  
 
-ProGuard can be enabled by using the `minifyEnabled` option for any build type.  If you intend to use it for production, it is highly recommended you also enable it on your development.  Without fulling testing ProGuard on your development builds, you may encounter unexpected crashes or situations where the app does not function as expected.
+ProGuard can be enabled by using the `minifyEnabled` option for any build type.  If you intend to use it for production, it is highly recommended you also enable it on your development.  Without fully testing ProGuard on your development builds, you may encounter unexpected crashes or situations where the app does not function as expected.
 
 ```gradle
 android {
