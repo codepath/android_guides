@@ -1,3 +1,5 @@
+## Getting Started
+
 **Полный ноль в Android?** Начинай отсюда.
 
 * [Getting Started as a Developer](http://courses.codepath.com/snippets/intro_to_android/non_coders) (New to programming?)
