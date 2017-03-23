@@ -207,18 +207,19 @@ Instead, you need to write your own server-side Parse code and have the client i
 
 * Make sure to enable logging by using `Parse.setLogLevel(Parse.LOG_LEVEL_DEBUG);` to track down permission issues.  You may see in your LogCat an error message such as the following.  
 
-```
-03-23 12:59:23.788 8905-8905/com.test D/com.parse.ManifestInfo: Cannot use GCM for push because the app manifest is missing some required declarations. Please make sure that these permissions are declared as children of the root <manifest> element:
+   ```
+   03-23 12:59:23.788 8905-8905/com.test D/com.parse.ManifestInfo: Cannot use GCM for push because the app manifest is missing some required declarations. Please make sure that these permissions are declared as children of the root <manifest> element:
                                                                 
- <uses-permission android:name="android.permission.INTERNET" />
- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
- <uses-permission android:name="android.permission.VIBRATE" />
- <uses-permission android:name="android.permission.WAKE_LOCK" />
- <uses-permission android:name="android.permission.GET_ACCOUNTS" />
- <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
- <permission android:name="com.test.permission.C2D_MESSAGE" android:protectionLevel="signature" />
- <uses-permission android:name="com.test.permission.C2D_MESSAGE" />                                                               
-```
+   <uses-permission android:name="android.permission.INTERNET" />
+   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+   <uses-permission android:name="android.permission.VIBRATE" />
+   <uses-permission android:name="android.permission.WAKE_LOCK" />
+   <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+   <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+   <permission android:name="com.test.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+   <uses-permission android:name="com.test.permission.C2D_MESSAGE" />                                                               
+
+   ```
 
     * Double-check your `<uses-permissions>` is outside the `<application>` tag.
     * Verify that you have define the `GcmBroadcastReceiver`, `PushService`, and `ParseBroadcastReceiver` inside the `<application>` tag.
