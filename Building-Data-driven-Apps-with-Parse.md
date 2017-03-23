@@ -1,10 +1,6 @@
-[Parse](http://parseplatform.org/) is a service that provides one of the easiest ways to get a database and RESTful API up and running. If you want to build a mobile app and don't want to code the back-end, give Parse a try.
+[Parse](http://parseplatform.org/) is an open-source platform that provides one of the easiest ways to get a database and RESTful API up and running. If you want to build a mobile app and don't want to code the back-end by hand, give Parse a try.
 
 <img src="http://i.imgur.com/Xo47jSc.gif" alt="Parse" width="750" />
-
-## Hosted Parse Discontinued
-
-Parse is **shutting down on January 28, 2017** and new accounts can no longer be created. As a result we can choose to either host our own Parse server or use a hosted alternative. 
 
 ### Parse on Heroku
 
