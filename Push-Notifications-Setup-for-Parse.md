@@ -205,6 +205,8 @@ Instead, you need to write your own server-side Parse code and have the client i
 
 #### Client Issues
 
+* Make sure to enable logging by using `Parse.setLogLevel(Parse.LOG_LEVEL_DEBUG);` to track down permission issues.
+
 * If you are using Facebook's [[Stetho library|Debugging-with-Stetho]] with your Android client, you can see the LogCat statements and verify that GCM tokens are being registered by API calls to the `/parse/classes/_Installation` endpoint:
 
 ```
