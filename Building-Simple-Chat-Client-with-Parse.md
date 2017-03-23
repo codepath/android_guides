@@ -91,7 +91,7 @@ Let's create an XML layout which allows us to post messages by typing into a tex
         android:paddingRight="10dp"
         android:layout_alignParentRight="true"
         android:text="@string/send"
-        android:textSize="18sp" >
+        android:textSize="18sp" />
     </Button>
 
 </RelativeLayout>
