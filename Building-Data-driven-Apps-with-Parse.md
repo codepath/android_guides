@@ -1,4 +1,4 @@
-[Parse](https://www.parse.com) is a service that provides one of the easiest ways to get a database and RESTful API up and running. If you want to build a mobile app and don't want to code the back-end, give Parse a try.
+[Parse](http://parseplatform.org/) is a service that provides one of the easiest ways to get a database and RESTful API up and running. If you want to build a mobile app and don't want to code the back-end, give Parse a try.
 
 <img src="http://i.imgur.com/Xo47jSc.gif" alt="Parse" width="750" />
 
@@ -132,7 +132,7 @@ If needed in your application, you might also want to [[setup push notifications
 
 ## Working with Users
 
-At the core of many apps, there is a notion of user accounts that lets users access their information in a secure manner. Parse has a specialized `ParseUser` as a part of their SDK which handles this functionality. Be sure to check out the [Users](http://parseplatform.github.io/docs/android/guide/#users) docs for a complete overview. See the API docs for [ParseUser](http://www.parse.com/docs/android/api/com/parse/ParseUser.html) for more details.
+At the core of many apps, there is a notion of user accounts that lets users access their information in a secure manner. Parse has a specialized `ParseUser` as a part of their SDK which handles this functionality. Be sure to check out the [Users](http://parseplatform.github.io/docs/android/guide/#users) docs for a complete overview. See the API docs for [ParseUser](http://parseplatform.org/Parse-SDK-Android/api/com/parse/ParseUser.html) for more details.
 
 ### User Signup
 
@@ -221,7 +221,7 @@ See a list of [query constraints](http://parseplatform.github.io/docs/android/gu
 
 ## Working With Data Objects
 
-Storing data on Parse is built around the `ParseObject`. Each `ParseObject` contains key-value pairs of JSON-compatible data. This data is schema-less, which means that you don't need to specify ahead of time what keys exist on each `ParseObject`. Each `ParseObject` has a class name that you can use to distinguish different sorts of data. See the API docs for [ParseObject](http://www.parse.com/docs/android/api/com/parse/ParseObject.html) for more details.
+Storing data on Parse is built around the `ParseObject`. Each `ParseObject` contains key-value pairs of JSON-compatible data. This data is schema-less, which means that you don't need to specify ahead of time what keys exist on each `ParseObject`. Each `ParseObject` has a class name that you can use to distinguish different sorts of data. See the API docs for [ParseObject](http://parseplatform.org/Parse-SDK-Android/api/com/parse/ParseObject.html) for more details.
 
 ### Creating Parse Models
 
@@ -370,7 +370,7 @@ See a list of [query constraints](http://parseplatform.github.io/docs/android/gu
 
 #### Objects by Querying GeoLocation
 
-Often we might want to query objects within a certain radius of a coordinate (for example to display them on a map). With Parse, querying by `GeoPoint` to retrieve objects within a certain distance of a location is built in. Check the [AnyWall Tutorial](https://parse.com/tutorials/anywall-android) and the [whereWithinMiles](https://parse.com/docs/android/api/com/parse/ParseQuery.html#whereWithinMiles\(java.lang.String,%20com.parse.ParseGeoPoint,%20double\)) and related `where` conditions for more details. 
+Often we might want to query objects within a certain radius of a coordinate (for example to display them on a map). With Parse, querying by `GeoPoint` to retrieve objects within a certain distance of a location is built in. Check the [AnyWall Tutorial](https://github.com/rosstapson/AnyWall) and the [whereWithinMiles](http://parseplatform.org/Parse-SDK-Android/api/com/parse/ParseQuery.html#whereWithinMiles\(java.lang.String,%20com.parse.ParseGeoPoint,%20double\)) and related `where` conditions for more details. 
 
 If you want to query this based on a map, first you can [add a listener for the map camera](https://developers.google.com/android/reference/com/google/android/gms/maps/GoogleMap#setOnCameraChangeListener\(com.google.android.gms.maps.GoogleMap.OnCameraChangeListener\)). Next, you can determine the [visible bounds of the map](http://stackoverflow.com/q/16056366) as shown there. Check the [[Maps Usage Guide|Google-Maps-API-v2-Usage]] for additional information on using the map.
 
@@ -403,9 +403,9 @@ query.getInBackground(todoId, new GetCallback<TodoItem>() {
 }
 ```
 
-You can also use `query.getFirst()` instead to retrieve the item in a synchronous style. Review the different [caching policies](https://parse.com/docs/android_guide#queries-caching) to understand how to make this fast.
+You can also use `query.getFirst()` instead to retrieve the item in a synchronous style. Review the different [caching policies](http://parseplatform.org/docs/android/guide/#caching-queries) to understand how to make this fast.
 
-While we could [implement parceling ourselves](http://www.androidbook.com/akc/display?url=DisplayNoteIMPURL&reportId=4539&ownerUserId=android) this is not ideal as it's pretty complex to manage the state of Parse objects. We could also [use a Proxy object](https://www.parse.com/questions/passing-around-parseobjects-in-android) to pass the data as well but this can be brittle.
+While we could [implement parceling ourselves](http://www.androidbook.com/akc/display?url=DisplayNoteIMPURL&reportId=4539&ownerUserId=android) this is not ideal as it's pretty complex to manage the state of Parse objects. 
 
 ### Associations
 
@@ -548,7 +548,7 @@ todoItem.deleteEventually();
 
 ## Local Storage Mode
 
-Parse now supports a more powerful form of [local data storage](https://parse.com/docs/android_guide#localdatastore) out of the box which can be used to store and retrieve ParseObjects, even when the network is unavailable. To enable this functionality, simply call Parse.enableLocalDatastore() before your call to initialize:
+Parse now supports a more powerful form of [local data storage](http://parseplatform.org/docs/android/guide/#local-datastore) out of the box which can be used to store and retrieve ParseObjects, even when the network is unavailable. To enable this functionality, simply call Parse.enableLocalDatastore() before your call to initialize:
 
 ```java
 // Within the Android Application where Parse is initialized
@@ -587,11 +587,11 @@ query.getInBackground("aFuEsvjoHt", new GetCallback<TodoItem>() {
 
 ### Further Details
 
-For the full summary of how to utilize the offline mode for Parse, be sure to review the [official local store guide](https://parse.com/docs/android_guide#localdatastore) in the Parse docs.
+For the full summary of how to utilize the offline mode for Parse, be sure to review the [official local store guide](http://parseplatform.org/docs/android/guide/#local-datastore) in the Parse docs.
 
 ## Using the Data Browser
 
-Suppose we had a simple todo application with user accounts and items persisted to Parse. The next step is to create our models using the [dashboard](https://www.parse.com/apps) to manage your new app. Visit the "Data Browser" for the correct application and let's create our `User` and `TodoItem` objects for our app.
+Suppose we had a simple todo application with user accounts and items persisted to Parse. The next step is to setup and create our models using the [Parse dashboard](http://guides.codepath.com/android/Configuring-a-Parse-Server#parse-dashboard) to manage your new app. Visit the "Data Browser" for the correct application and let's create our `User` and `TodoItem` objects for our app.
 
 First, **remove the test code that we added previously** and drop the "TestObject" listed in the browser to clear testing data.
 
@@ -625,30 +625,30 @@ Parse has many powerful features in addition to the core functionality listed ab
 
 ### Uploading Photos
 
-Parse has full support for storing images uploaded by an application. Photos are stored using the `ParseFile` construct [described in more detail here](https://parse.com/docs/android/guide#files). Refer to the following resources for more details: 
+Parse has full support for storing images uploaded by an application. Photos are stored using the `ParseFile` construct [described in more detail here](http://parseplatform.org/docs/android/guide/#files). Refer to the following resources for more details: 
 
  * [Parse Image Upload Tutorial](http://www.androidbegin.com/tutorial/android-parse-com-image-upload-tutorial) - Tutorial on using `ParseFile` to upload images.
- * [Mealspotting Tutorial](https://parse.com/tutorials/mealspotting) - Detailed guide on how to store images associated to a record.
+ * [Mealspotting Sample App](https://github.com/rufflez/MealSpottingTutorial) - Detailed app sample showing how to store images associated to a record. Here's a [related video](https://www.youtube.com/watch?v=X9ttMA5ca9U).
  * [[CodePath Camera and Gallery Guide|Accessing-the-Camera-and-Stored-Media]] - Guide on capturing photos with the camera.
 
 ### Geo Location
 
 Parse has support for geolocation services and querying:
 
-* [AnyWall Tutorial](https://parse.com/tutorials/anywall-android) - Tutorial including how to read geolocation and use this data within your app.
+* [AnyWall Sample App](https://github.com/rosstapson/AnyWall) - Sample app including how to read geolocation and use this data within your app.
 
 ### Push Notifications
 
 Parse supports push notifications made easy:
 
 * [[Parse Push Messaging|Push-Messaging]] - CodePath Guide
-* [Parse Push](https://parse.com/tutorials/android-push-notifications) - Super easy push notifications
+* [[Parse Push|Configuring-a-Parse-Server#enabling-push-notifications]] - Super easy push notifications
 
 ### Facebook SDK
 
 For a quick way of incorporating Facebook login, check out Parse's [UI Library](https://github.com/ParsePlatform/ParseUI-Android/wiki/Login-Library).  It leverages Parse's [FacebookUtils](https://github.com/ParsePlatform/ParseFacebookUtils-Android/) library, which acts as a wrapper for associating `ParseUser` objects with Facebook users.  
 
-The official step by step instructions for integrating Parse with Facebook SDK is located [here](https://parse.com/docs/android/guide#users-facebook-users).  The manual process of integrating with Facebook's SDK is discussed below.
+The official step by step instructions for integrating Parse with Facebook SDK is located [here](http://parseplatform.org/docs/android/guide/#facebook-users).  The manual process of integrating with Facebook's SDK is discussed below.
 
 You will first need to create a [Facebook app](https://developers.facebook.com/apps) and get an Application ID. 
 If you are using open source Parse, make sure to set the `FACEBOOK_APP_ID` environment variable too.
@@ -782,7 +782,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 Running server-side code on Parse:
 
-* [CloudCode Guide](https://parse.com/docs/cloud_code_guide#cloud_code) - Guide on how to write cloud-based code that adds error checking, validation or triggers "server-side" 
+* [CloudCode Guide](http://parseplatform.org/docs/android/guide/#use-cloud-code) - Guide on how to write cloud-based code that adds error checking, validation or triggers "server-side" 
 
 ## References
 
