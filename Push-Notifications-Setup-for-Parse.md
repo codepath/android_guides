@@ -205,8 +205,25 @@ Instead, you need to write your own server-side Parse code and have the client i
 
 #### Client Issues
 
-* Make sure to enable logging by using `Parse.setLogLevel(Parse.LOG_LEVEL_DEBUG);` to track down permission issues.
+* Make sure to enable logging by using `Parse.setLogLevel(Parse.LOG_LEVEL_DEBUG);` to track down permission issues.  You may see in your LogCat an error message such as the following.  
 
+```
+03-23 12:59:23.788 8905-8905/com.test D/com.parse.ManifestInfo: Cannot use GCM for push because the app manifest is missing some required declarations. Please make sure that these permissions are declared as children of the root <manifest> element:
+                                                                
+ <uses-permission android:name="android.permission.INTERNET" />
+ <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+ <uses-permission android:name="android.permission.VIBRATE" />
+ <uses-permission android:name="android.permission.WAKE_LOCK" />
+ <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+ <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+ <permission android:name="com.test.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+ <uses-permission android:name="com.test.permission.C2D_MESSAGE" />                                                               
+```
+
+    * Double-check your `<uses-permissions>` is outside the `<application>` tag.
+    * Verify that you have define the `GcmBroadcastReceiver`, `PushService`, and `ParseBroadcastReceiver` inside the `<application>` tag.
+    * Use `${packageName} in lieu of the hard-coded package names so you can avoid typos.
+ 
 * If you are using Facebook's [[Stetho library|Debugging-with-Stetho]] with your Android client, you can see the LogCat statements and verify that GCM tokens are being registered by API calls to the `/parse/classes/_Installation` endpoint:
 
 ```
@@ -241,10 +258,6 @@ You might also see an abbreviated version similar to the following if the GCM to
 }
 11-06 06:32:20.349 25417-25599/com.example.mapdemo I/ParseLogInterceptor: --------------
 ```
-
-* If necessary, set a breakpoint on [ManifestInfo.java](https://github.com/ParsePlatform/Parse-SDK-Android/blob/master/Parse/src/main/java/com/parse/ManifestInfo.java#L470) and verify that function `gcmSupportLevel()` reaches the final line `return ManifestCheckResult.HAS_ALL_DECLARATIONS;`.
-     * Double-check your `<uses-permissions>` is outside the `<application>` tag.
-     * Verify that you have define the `GcmBroadcastReceiver`, `PushService`, and `ParseBroadcastReceiver` inside the `<application>` tag.
 
 * If GCM is fully setup, your app if properly configured should register itself with your Parse server.  Check your `_Installation` table to verify that the entries were being saved. Clear your app cache or uninstall the app if an entry in the  `_Installation` table hasn't been added.
 
