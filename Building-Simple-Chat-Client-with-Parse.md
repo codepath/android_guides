@@ -521,7 +521,7 @@ public class ChatActivity extends AppCompatActivity {
 
 ## 11. Receive Messages
 
-Now we can fetch last 500 messages from parse and bind them to the ListView with the use of our custom messages adapter within `ChatActivity.java`:
+Now we can fetch last 50 messages from parse and bind them to the ListView with the use of our custom messages adapter within `ChatActivity.java`:
 
 ```java
 public class ChatActivity extends AppCompatActivity {
