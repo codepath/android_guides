@@ -284,7 +284,6 @@ We will be showing the logged in user's gravatar and messages on the right and t
     <ImageView
         android:id="@+id/ivProfileMe"
         android:contentDescription="@string/profile_me"
-        android:layout_marginStart="-64dp"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:src="@mipmap/ic_launcher" />
