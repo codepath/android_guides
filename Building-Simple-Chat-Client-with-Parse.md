@@ -275,7 +275,8 @@ We will be showing the logged in user's gravatar and messages on the right and t
         android:textSize="18sp"
         android:id="@+id/tvBody"
         android:padding="20dp"
-        android:lines="3"
+        android:lines="1"
+        android:ellipsize="end"
         android:layout_marginEnd="64dp"
         android:layout_width="match_parent"
         android:layout_height="64dp">
