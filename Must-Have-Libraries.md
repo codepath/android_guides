@@ -179,6 +179,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [Material-SearchView](https://github.com/MiguelCatalan/MaterialSearchView) - Beautiful Material SearchView made simple.
  * [PersistentSearchBar](https://github.com/arimorty/floatingsearchview) - Implementation of a persistent search bar.
  * [Android Material Intro Screen](https://github.com/TangoAgency/material-intro-screen/) - Library for easily adding intro screen to app.
+* [Gravity View](https://github.com/gofynd/gravity-view) - Library for image tilt using sensor
 
 ### Drawing
 
