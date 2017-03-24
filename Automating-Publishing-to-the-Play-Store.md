@@ -6,62 +6,60 @@ This guide will show you how you can setup publishing APK's directly through the
 
 1. Inside the Google Play Store for your project, navigate to `Settings` -> `API Access`:
 
-       <img src="http://imgur.com/0n7ihzM.png"/>
+![](http://imgur.com/0n7ihzM.png)
    
 2. There should be a `Service Accounts` section where you need to click the `Create Service Account button`.  Click on the link shown on the first step to visit the Google Developers Console.  
 
-       <img src="http://imgur.com/6TnR700.png"/>
+![](http://imgur.com/6TnR700.png)
 
 3. Click on the `Create New Client ID` button.
 
-       <img src="http://imgur.com/7VPlkHM.png"/>
+![](http://imgur.com/7VPlkHM.png)
 
 4. Click to create new `Service Account`.  Make sure to also request the `.p12 Key File` instead of JSON:
 
-       <img src="http://imgur.com/paTHMHK.png"/>
+![](http://imgur.com/paTHMHK.png)
 
 5. You will be prompted to download the .p12 file.  Save it somewhere.  
 
 6. Note the service account email associated with this new account.  You should see it appear in the Google Developer Console:
 
-       <img src="http://imgur.com/TVm6CLM.png"/>
+![](http://imgur.com/TVm6CLM.png)
 
 7. Once you are done, go back to the Google Play Developer Console and navigate to the `Settings` -> `API Access`.  Make sure the checkboxes for `Edit store listing, pricing & distribution`, `Manage Production APKs`, and `Manage Alpha & Beta APKs` are checked for the Google Service account used.  (If you intend to upload an alpha or beta SDK through a Google service account, apparently these permissions must be checked according to this [discussion](http://echelog.com/logs/browse/jenkins/1409263200).
 
-       <img src="https://i.imgur.com/QBF0Vmp.png"/>
+![](https://i.imgur.com/QBF0Vmp.png)
 
 ## Setting Up Gradle Plugin (for command-line APK publishing)
 
 If you want to be push your APKs directly through Gradle, you can install a plugin such as the [Gradle Play Publisher](https://github.com/Triple-T/gradle-play-publisher).
 
 1. Add the following to the top of your `app/build.gradle` file:
-
        ```gradle
            buildscript {
-
+       
        repositories {
            jcenter()
        }
-
+       
        dependencies {
            // ...
            classpath 'com.github.triplet.gradle:play-publisher:1.1.5'
        }
-    }
+       }
 
        apply plugin: 'com.github.triplet.play'
        ```
-
 2. Configure the plugin with the Google Service Account and p12 file saved in steps #5 and #6.
 
        ```gradle
-
-      play {
-         track = 'alpha'
-         serviceAccountEmail = 'abcd@developer.gserviceaccount.com'
-         pk12File = file('Google Play Android Developer-12345.p12')
-      }
-   ```
+       
+       play {
+          track = 'alpha'
+          serviceAccountEmail = 'abcd@developer.gserviceaccount.com'
+          pk12File = file('Google Play Android Developer-12345.p12')
+       }
+       ```
 
 3. The plugin creates the following tasks for you:
 
@@ -73,9 +71,9 @@ If you want to be push your APKs directly through Gradle, you can install a plug
 
 You can now type the following gradle commands such as the following:
 
-```bash
-./gradlew publishApkRelease
-```
+    ```bash
+    ./gradlew publishApkRelease
+    ```
 
 ## Setting Up Jenkins (for automating CI builds)
 
@@ -89,11 +87,12 @@ This section mainly shows how to setup the [Google Play Android Publisher plugin
 
 4. Navigate to the `Credentials` section in Jenkins and load the `.p12` key file downloaded during the initial setup process of setting up Google API access.  A [basic walkthrough video](https://www.youtube.com/watch?v=txdPSJF94RM&list=PLhF0STyfNdUk1R3taEmgFR30yzp41yuRK) also demonstrates how to do this step.
 
-       <img src="https://i.imgur.com/xxs8qlD.png"/>
+![](https://i.imgur.com/xxs8qlD.png)
 
 5. Add a post-build step to your existing Jenkins project.  
 
-       <a href="https://i.imgur.com/nfc4xDA.png"><img src="https://i.imgur.com/nfc4xDA.png"></a>
+![](https://i.imgur.com/nfc4xDA.png)</a>
+[link to img](https://i.imgur.com/nfc4xDA.png)
 
        a. Make sure to choose the credential name from the drop-down list.  It should belong to the Google Play account that manages the app.
 
@@ -109,12 +108,12 @@ This section mainly shows how to setup the [Google Play Android Publisher plugin
 
 1. Setup a `Build Trigger` in your Jenkins job to allow builds to be [triggered via remote API commands](https://wiki.jenkins-ci.org/display/JENKINS/Remote+access+API).  You can use the URL shown below the `Authentication token` (i.e. http://ci.mycompany.com/view/All/job/AndroidBuild/build?token=TOKEN_NAME) to trigger this Jenkins job.  
 
-       <img src="https://i.imgur.com/QfzhhQM.png"/>
+![](https://i.imgur.com/QfzhhQM.png)
 
 2. Go to your GitHub repository `Settings` page and visit the `Webhooks & Services` section.  Enter the `Payload URL` for your Jenkins build job.   
 
-       <img src="https://i.imgur.com/iONpTHh.png"/>
+![](https://i.imgur.com/iONpTHh.png)
 
 3. You can also control which GitHub events should fire these Jenkins build jobs:
 
-       <img src="https://i.imgur.com/JpwMRTn.png/">
+![](https://i.imgur.com/JpwMRTn.png/)
