@@ -27,7 +27,7 @@ This will install the Android SDK tools in `/usr/local/Cellar/android-sdk/<versi
 
 You wlil need to download the Android SDK without Android Studio bundled. Go to [Android SDK](http://developer.android.com/sdk/index.html) and navigate to the **SDK Tools Only** section. Copy the URL for the download that's appropriate for your build machine OS.
 
-![List of Android SDK downloads from developers.android.com](https://dl.dropboxusercontent.com/u/10808663/gradle_jenkins_android/sdk_downloads.png)
+![List of Android SDK downloads from developers.android.com](http://imgur.com/8D8Fnku.png)
 
 Use `wget` with the correct SDK URL:
 
