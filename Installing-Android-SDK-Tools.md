@@ -27,13 +27,19 @@ This will install the Android SDK tools in `/usr/local/Cellar/android-sdk/<versi
 
 You wlil need to download the Android SDK without Android Studio bundled. Go to [Android SDK](http://developer.android.com/sdk/index.html) and navigate to the **SDK Tools Only** section. Copy the URL for the download that's appropriate for your build machine OS.
 
-![List of Android SDK downloads from developers.android.com](http://imgur.com/8D8Fnku.png)
+![List of Android SDK downloads from developers.android.com](http://imgur.com/IRCWHY7.png)
 
 Use `wget` with the correct SDK URL:
 
-    $ wget http://dl.google.com/android/android-sdk_r22.6.2-macosx.zip
+    $ wget https://dl.google.com/android/repository/tools_r25.2.3-macosx.zip
 
 Unzip and place the contents within your home directory. The directory names can be anything you like, but save the files in somewhere easy to find (i.e. ~/android-sdk).
+
+Run the `sdkmanager` tool:
+
+    $ tools/bin/sdkmanager --update
+    $ tools/bin/sdkmanager "platforms;android-25" "build-tools;25.0.2" "extras;google;m2repository" "extras;android;m2repository"
+    $ tools/bin/sdkmanager --licenses
 
  ![Directory structure on the build server](https://dl.dropboxusercontent.com/u/10808663/gradle_jenkins_android/directories_on_build_server.png)
 
