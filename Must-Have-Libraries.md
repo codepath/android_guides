@@ -230,6 +230,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [Hawk](https://github.com/orhanobut/hawk) - Persistent secure key/value store
  * [Poetry](https://github.com/elastique/poetry) - Persist JSON directly into SQLite
  * [JDXA](http://softwaretree.com/v1/products/jdxa/jdxa.html) - The KISS ORM for Android - Simple, Non-intrusive, and Flexible
+ * [Schematic](https://github.com/SimonVT/schematic) - Generate the SQLite and ContentProvider code
 
 ### Binding
  * [RecyclerViewBinding](https://github.com/radzio/android-data-binding-recyclerview) - Library for easily add recycler view data bindings.
