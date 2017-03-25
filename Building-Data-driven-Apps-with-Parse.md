@@ -674,7 +674,7 @@ Next, you will need to include Parse's [FacebookUtils](https://github.com/ParseP
 dependencies {
   compile 'com.facebook.android:facebook-android-sdk:4.10.0'
   compile 'com.parse:parsefacebookutils-v4-android:1.10.4@aar'
-  compile 'com.parse:parse-android:1.13.3'
+  compile 'com.parse:parse-android:1.14.1'
 }
 ```
 
