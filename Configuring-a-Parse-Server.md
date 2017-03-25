@@ -126,7 +126,7 @@ Make sure you have the latest Parse-Android SDK <img src="https://camo.githubuse
 
 ```gradle
 dependencies {
-    compile 'com.parse:parse-android:1.14.0'
+    compile 'com.parse:parse-android:1.14.1'
     compile 'com.parse:parseinterceptors:0.0.2' // for logging API calls to LogCat
     compile 'com.parse.bolts:bolts-android:1.+'
 }
