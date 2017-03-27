@@ -35,8 +35,9 @@ This guide will show you how you can setup publishing APK's directly through the
 If you want to be push your APKs directly through Gradle, you can install a plugin such as the [Gradle Play Publisher](https://github.com/Triple-T/gradle-play-publisher).
 
 1. Add the following to the top of your `app/build.gradle` file:
-       ```gradle
-           buildscript {
+  
+```gradle
+    buildscript {
        
        repositories {
            jcenter()
@@ -46,25 +47,24 @@ If you want to be push your APKs directly through Gradle, you can install a plug
            // ...
            classpath 'com.github.triplet.gradle:play-publisher:1.1.5'
        }
-       }
+   }
 
-       apply plugin: 'com.github.triplet.play'
-       ```
+   apply plugin: 'com.github.triplet.play'
+```
 2. Configure the plugin with the Google Service Account and p12 file saved in steps #5 and #6.
-
-       ```gradle
-       
+```gradle
        play {
           track = 'alpha'
           serviceAccountEmail = 'abcd@developer.gserviceaccount.com'
           pk12File = file('Google Play Android Developer-12345.p12')
        }
-       ```
+```
 
 3. The plugin creates the following tasks for you:
 
 | Command                     | Description                                                          |
-|:---------------------------:|--------------------------------------------------------------------- |  |publishApkRelease            | Uploads the APK and the summary of recent changes.                   |
+|:---------------------------:|--------------------------------------------------------------------- |
+|publishApkRelease            | Uploads the APK and the summary of recent changes.                   |
 |publishListingRelease        | Uploads the descriptions and images for the Play Store listing.      |
 |publishRelease               | Uploads everything.                                                  |
 |bootstrapReleasePlayResources| Fetch data from the Play Store & bootstrap the required files/folders|
