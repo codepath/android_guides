@@ -60,7 +60,7 @@ Cache cache = new Cache(getApplication().getCacheDir(), cacheSize);
 client.setCache(cache);
 
 // Used for caching authentication tokens
-SharedPreferences sharedPrefeences = PreferenceManager.getDefaultSharedPreferences(this);
+SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
 // Instantiate Gson
 Gson gson = new GsonBuilder().create();
