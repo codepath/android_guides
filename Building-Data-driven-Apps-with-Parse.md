@@ -565,7 +565,7 @@ ParseLiveQueryClient parseLiveQueryClient = ParseLiveQueryClient.Factory.getClie
 
 Define the query pattern you wish to listen for events:
 ```java
-ParseQuery<ParseObject> query = ParseQuery.getQuery(Comment.class);
+ParseQuery<Comment> query = ParseQuery.getQuery(Comment.class);
 ```
 
 Create a subscription to this `ParseQuery` instance:
@@ -577,12 +577,13 @@ SubscriptionHandling<ParseObject> subscriptionHandling = parseLiveQueryClient.su
 Finally, listen to the events. You can listen for `Event.UPDATE`, `Event.DELETE`, `Event.ENTER`, and `Event.LEAVE`.  An enter and leave event reflects changes to an existing ParseObject that either now fulfill the criteria or no longer do so.  See [this guide](https://github.com/ParsePlatform/parse-server/wiki/Parse-LiveQuery-Protocol-Specification) for more information about the live queries protocol specification.
 
 ```java
-subscriptionHandling.handleEvent(SubscriptionHandling.Event.CREATE, new SubscriptionHandling.HandleEventCallback<ParseObject>() {
+subscriptionHandling.handleEvent(SubscriptionHandling.Event.CREATE, new SubscriptionHandling.HandleEventCallback<Comment>() {
     @Override
-    public void onEvent(ParseQuery<ParseObject> query, ParseObject object) {
+    public void onEvent(ParseQuery<Comment> query, Comment object) {
         // HANDLING create event
     }
 })
+```
 
 ### Deleting Objects
 
