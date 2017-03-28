@@ -4,9 +4,9 @@
 
 ### Parse on Heroku
 
-We can deploy our own Parse data store and push notifications systems to [Heroku](https://www.heroku.com/) leveraging the [server open-sourced by Parse](https://github.com/ParsePlatform/parse-server-example). Parse is built on top of the MongoDB database which can be added to Heroku using MongoLab. 
+We can deploy our own Parse data store and push notifications systems to [Heroku](https://www.heroku.com/) leveraging the [server open-sourced by Parse](https://github.com/ParsePlatform/parse-server-example). Parse is built on top of the MongoDB database which can be added to Heroku using MongoLab.
 
-To get started setting up our own Parse backend, check out our [[configuring a Parse Server]] guide. Once the Parse server is configured, we can [initialize Parse within our Android app](http://guides.codepath.com/android/Configuring-a-Parse-Server#enabling-client-sdk-integration) pointing the client to our self-hosted URL. After that, the functions demonstrated in this guide work the same as they did before. 
+To get started setting up our own Parse backend, check out our [[configuring a Parse Server]] guide. Once the Parse server is configured, we can [initialize Parse within our Android app](http://guides.codepath.com/android/Configuring-a-Parse-Server#enabling-client-sdk-integration) pointing the client to our self-hosted URL. After that, the functions demonstrated in this guide work the same as they did before.
 
 ### Alternatives to Parse
 
@@ -14,19 +14,19 @@ A comprehensive list of alternatives can be [reviewed here](https://github.com/r
 
 ## What is Parse?
 
-Parse is an open-source Android SDK and back-end solution that enables developers to build mobile apps with shared data quickly and without writing any back-end code or custom APIs. 
+Parse is an open-source Android SDK and back-end solution that enables developers to build mobile apps with shared data quickly and without writing any back-end code or custom APIs.
 
 <img src="http://i.imgur.com/LylIn7w.png" />
 
 Parse is a Node.js application which is deployed onto a host such as Heroku (or AWS) and then creates an automatic API for user authentication and storing data to a MongoDB document store. Parse has the following features included by combining the mobile SDK and back-end service:
 
  * User registration and authentication
- * Connecting user with Facebook to create a user account. 
+ * Connecting user with Facebook to create a user account.
  * Creating, querying, modifying and deleting arbitrary data models
  * Makes sending push notifications easier
  * Uploading files to a server for access across clients
 
-In short, Parse makes building mobile app ideas much easier! 
+In short, Parse makes building mobile app ideas much easier!
 
 ## Setup
 
@@ -94,7 +94,7 @@ We also need to add a few important network permissions to the `AndroidManifest.
     package="com.example.parsetododemo"
     android:versionCode="1"
     android:versionName="1.0" >
-  
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -104,7 +104,7 @@ We also need to add a few important network permissions to the `AndroidManifest.
 
 ### Testing Parse Client
 
-Assuming you have access to the Parse instance, you can test the SDK to verify that Parse is working with this application. 
+Assuming you have access to the Parse instance, you can test the SDK to verify that Parse is working with this application.
 
 Let's add the test code to `ParseApplication` as follows:
 
@@ -116,7 +116,7 @@ public class ParseApplication extends Application {
 
       	// Your initialization code from above here
       	Parse.initialize(...);
-    
+
         // New test creation of object below
       	ParseObject testObject = new ParseObject("TestObject");
       	testObject.put("foo", "bar");
@@ -308,7 +308,7 @@ todoItem.saveInBackground();
 // todoItem.saveEventually();
 ```
 
-Note that there are two ways to save an object: `saveInBackground` which executes immediately and `saveEventually` which will store the update on the device and push to the server once internet access is available. 
+Note that there are two ways to save an object: `saveInBackground` which executes immediately and `saveEventually` which will store the update on the device and push to the server once internet access is available.
 
 See the [saving objects](http://parseplatform.github.io/docs/android/guide/#saving-objects) and [updating docs](http://parseplatform.github.io/docs/android/guide/#updating-objects) docs for more details. Also, check out the [relational data](http://parseplatform.github.io/docs/android/guide/#relations) section.
 
@@ -369,13 +369,13 @@ See a list of [query constraints](http://parseplatform.github.io/docs/android/gu
 
 #### Objects by Querying GeoLocation
 
-Often we might want to query objects within a certain radius of a coordinate (for example to display them on a map). With Parse, querying by `GeoPoint` to retrieve objects within a certain distance of a location is built in. Check the [AnyWall Tutorial](https://github.com/rosstapson/AnyWall) and the [whereWithinMiles](http://parseplatform.org/Parse-SDK-Android/api/com/parse/ParseQuery.html#whereWithinMiles\(java.lang.String,%20com.parse.ParseGeoPoint,%20double\)) and related `where` conditions for more details. 
+Often we might want to query objects within a certain radius of a coordinate (for example to display them on a map). With Parse, querying by `GeoPoint` to retrieve objects within a certain distance of a location is built in. Check the [AnyWall Tutorial](https://github.com/rosstapson/AnyWall) and the [whereWithinMiles](http://parseplatform.org/Parse-SDK-Android/api/com/parse/ParseQuery.html#whereWithinMiles\(java.lang.String,%20com.parse.ParseGeoPoint,%20double\)) and related `where` conditions for more details.
 
 If you want to query this based on a map, first you can [add a listener for the map camera](https://developers.google.com/android/reference/com/google/android/gms/maps/GoogleMap#setOnCameraChangeListener\(com.google.android.gms.maps.GoogleMap.OnCameraChangeListener\)). Next, you can determine the [visible bounds of the map](http://stackoverflow.com/q/16056366) as shown there. Check the [[Maps Usage Guide|Google-Maps-API-v2-Usage]] for additional information on using the map.
 
 ### Passing Objects Between Activities
 
-Often with Android development, you need to pass an object from one Activity to another. This is done using the `Intent` system and passing objects as extras within a bundle. Unfortunately, `ParseObject` does not currently implement Parcelable or Serializable. 
+Often with Android development, you need to pass an object from one Activity to another. This is done using the `Intent` system and passing objects as extras within a bundle. Unfortunately, `ParseObject` does not currently implement Parcelable or Serializable.
 
 The simplest way to pass data between activities in Parse is simply to pass the object ID into the Intent:
 
@@ -396,7 +396,7 @@ query.setCachePolicy(ParseQuery.CachePolicy.CACHE_ELSE_NETWORK); // or CACHE_ONL
 query.getInBackground(todoId, new GetCallback<TodoItem>() {
   public void done(TodoItem item, ParseException e) {
     if (e == null) {
-       // item was found 
+       // item was found
     }
   }
 }
@@ -404,7 +404,7 @@ query.getInBackground(todoId, new GetCallback<TodoItem>() {
 
 You can also use `query.getFirst()` instead to retrieve the item in a synchronous style. Review the different [caching policies](http://parseplatform.org/docs/android/guide/#caching-queries) to understand how to make this fast.
 
-While we could [implement parceling ourselves](http://www.androidbook.com/akc/display?url=DisplayNoteIMPURL&reportId=4539&ownerUserId=android) this is not ideal as it's pretty complex to manage the state of Parse objects. 
+While we could [implement parceling ourselves](http://www.androidbook.com/akc/display?url=DisplayNoteIMPURL&reportId=4539&ownerUserId=android) this is not ideal as it's pretty complex to manage the state of Parse objects.
 
 ### Associations
 
@@ -428,7 +428,7 @@ public class Comment extends ParseObject {
 	public void setOwner(ParseUser user) {
 		put("owner", user);
 	}
-	
+
 	// Get the user for this comment
 	public ParseUser getOwner()  {
            return getParseUser("owner");
@@ -438,7 +438,7 @@ public class Comment extends ParseObject {
 	public void setPost(Post post) {
 		put("post", post);
 	}
-	
+
 	// Get the post for this item
 	public Post getPost()  {
            return (Post) getParseObject("post");
@@ -472,7 +472,7 @@ We can eagerly load nested associations as well. If you have an objectA which ha
 
 ```java
 ParseQuery<ParseObject> query = ParseQuery.getQuery(ObjectA.class);
-query.include("ObjectB.ObjectC"); 
+query.include("ObjectB.ObjectC");
 // ...execute query...
 ```
 
@@ -530,6 +530,59 @@ fetchedTodoItem.getTagsRelation().getQuery().findInBackground(new FindCallback<T
 ```
 
 For more details, check out the official [Relational Data](http://parseplatform.github.io/docs/android/guide/#using-pointers) guide. For more complex many-to-many relationships, check out this official [join tables](http://parseplatform.github.io/docs/android/guide/#using-join-tables) guide when the many-to-many requires additional metadata.
+
+## Live Queries
+
+One of the newer features of Parse is that you can monitor for live changes made to objects in your database  To get started, make sure you have defined the ParseObjects that you want in your NodeJS server.  Make sure to define a list of all the objects by declaring it in the `liveQuery` and `classNames listing`:
+
+```javascript
+let api = new ParseServer({
+  ...,
+  // Make sure to define liveQuery AND classNames
+  liveQuery: {
+    // define your ParseObject names here
+    classNames: ['Post', 'Comment']
+  }
+});
+```
+
+See [this guide](http://parseplatform.org/docs/parse-server/guide/#live-queries) for more details.  Parse Live Queries rely on the websocket protocol, which creates a bidirectional channel between the client and server and periodically exchange ping/pong frames to validate the connection is still alive.  Websocket URLs are usually prefixed with ws:// or wss:// (secure) URLs.  Heroku instances already provide websocket support, but if you are deploying to a different server (Amazon), you may need to make sure that TCP port 80 or TCP port 443 are available.
+
+You will need to also setup the client SDK by adding this dependency to your `app/build.gradle` config:
+
+```gradle
+dependencies {
+  // add Parse dependencies too
+  compile 'com.parse:parse-livequery-android:1.0.1'
+}
+```
+
+Next, instantiate the client:
+
+```java
+ParseLiveQueryClient parseLiveQueryClient = ParseLiveQueryClient.Factory.getClient();
+```
+
+Define the query pattern you wish to listen for events:
+```java
+ParseQuery<ParseObject> query = ParseQuery.getQuery(Comment.class);
+```
+
+Create a subscription to this `ParseQuery` instance:
+
+```java
+SubscriptionHandling<ParseObject> subscriptionHandling = parseLiveQueryClient.subscribe(parseQuery)
+```
+
+Finally, listen to the events. You can listen for `Event.UPDATE`, `Event.DELETE`, `Event.ENTER`, and `Event.LEAVE`.  An enter and leave event reflects changes to an existing ParseObject that either now fulfill the criteria or no longer do so.  See [this guide](https://github.com/ParsePlatform/parse-server/wiki/Parse-LiveQuery-Protocol-Specification) for more information about the live queries protocol specification.
+
+```java
+subscriptionHandling.handleEvent(SubscriptionHandling.Event.CREATE, new SubscriptionHandling.HandleEventCallback<ParseObject>() {
+    @Override
+    public void onEvent(ParseQuery<ParseObject> query, ParseObject object) {
+        // HANDLING create event
+    }
+})
 
 ### Deleting Objects
 
@@ -624,7 +677,7 @@ Parse has many powerful features in addition to the core functionality listed ab
 
 ### Uploading Photos
 
-Parse has full support for storing images uploaded by an application. Photos are stored using the `ParseFile` construct [described in more detail here](http://parseplatform.org/docs/android/guide/#files). Refer to the following resources for more details: 
+Parse has full support for storing images uploaded by an application. Photos are stored using the `ParseFile` construct [described in more detail here](http://parseplatform.org/docs/android/guide/#files). Refer to the following resources for more details:
 
  * [Parse Image Upload Tutorial](http://www.androidbegin.com/tutorial/android-parse-com-image-upload-tutorial) - Tutorial on using `ParseFile` to upload images.
  * [Mealspotting Sample App](https://github.com/rufflez/MealSpottingTutorial) - Detailed app sample showing how to store images associated to a record. Here's a [related video](https://www.youtube.com/watch?v=X9ttMA5ca9U).
@@ -649,7 +702,7 @@ For a quick way of incorporating Facebook login, check out Parse's [UI Library](
 
 The official step by step instructions for integrating Parse with Facebook SDK is located [here](http://parseplatform.org/docs/android/guide/#facebook-users).  The manual process of integrating with Facebook's SDK is discussed below.
 
-You will first need to create a [Facebook app](https://developers.facebook.com/apps) and get an Application ID. 
+You will first need to create a [Facebook app](https://developers.facebook.com/apps) and get an Application ID.
 If you are using open source Parse, make sure to set the `FACEBOOK_APP_ID` environment variable too.
 
 You will also need to get access to your keystore hash and make sure to include it:
@@ -781,7 +834,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 Running server-side code on Parse:
 
-* [CloudCode Guide](http://parseplatform.org/docs/android/guide/#use-cloud-code) - Guide on how to write cloud-based code that adds error checking, validation or triggers "server-side" 
+* [CloudCode Guide](http://parseplatform.org/docs/android/guide/#use-cloud-code) - Guide on how to write cloud-based code that adds error checking, validation or triggers "server-side"
 
 ## References
 
