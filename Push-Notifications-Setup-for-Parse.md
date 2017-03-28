@@ -71,7 +71,7 @@ Add a `meta-data` with the Sender ID in your AndroidManifest.xml.
               android:value="@string/gcm_sender_id"/>
 ```
           
-NOTE: Make sure the `id:` is used as the prefix (Android treats any metadata value that has a string of digits as an integer so Parse prefixes this value).  If you forget this step, Parse will register with its own Sender ID but you will see `SenderID mismatch` errors when trying to issue push notifications.
+NOTE: Make sure the `id:` is used as the prefix (Android treats any metadata value that has a string of digits as an integer so Parse prefixes this value).  In the latest Parse Android SDK, if you forget this step, you will not register correctly with GCM.
 
 #### Add Push Permissions
 
