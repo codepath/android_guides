@@ -7,14 +7,17 @@ The SyncAdapter can be invoked manually or can be set to sync periodically at re
 To use the SyncAdapter framework, you must create a few components: 
 1. _ContentProvider_ (used to update local content), 
 2. _Authenticator_ (can be stubbed or used to retrieve tokens such as OAuth tokens), 
-3. _SyncService_ (Used only by Android to run your SyncAdapter), 
-4. _AuthenticatorService_ (Used only by Android to use authenticator if needed),
-5. Declared _SyncAdapter_ and _Authenticator_ in XML
+3. _AuthenticatorService_ (Used only by Android to use authenticator if needed),
+4. _SyncAdapter_ (Performs the actual synchronization),
+5. _SyncService_ (Used only by Android to run your SyncAdapter)
 
-**As a hypothetical use case, we'll pretend that we are creating a SyncAdapter to synchronize RSS feed with our application herein.**
+**As a hypothetical use case, we'll pretend that we are creating a SyncAdapter to synchronize pretend RSS feed with our application herein.**
 
-## Model Classes
-Just simple classes that model what our data should look like.
+## Prelude
+Before being able to jump into building our SyncAdapter, we must create a few components before we can start.
+
+### Create Model Classes
+We need to create a simple class to model what our hypothetical article's data should look like.
 ```java
 /**
  * Represents a very simple RSS article.
@@ -62,8 +65,25 @@ public class Article {
 }
 ```
 
+### Create a Parsing Utility
+We need to create a utility that will convert JSON data into our Article model.
+```java
+/**
+ * This is an example parser to 'parse' pretend json news feed.
+ */
+public class ArticleParser {
+    public static Article parse(JSONObject jsonArticle) {
+        Article article = new Article();
+        article.setId(jsonArticle.optString("id"));
+        article.setTitle(jsonArticle.optString("title"));
+        article.setContent(jsonArticle.optString("content"));
+        article.setLink(jsonArticle.optString("link"));
+        return article;
+    }
+}
+```
 
-## Contract Classes
+### Create Contract Classes
 Just like recommended in other Wiki pages on here, it's a good idea to define your database and provider structure concretely. (Refer to this great [article](http://guides.codepath.com/android/Creating-Content-Providers) for a more detailed explanation)
 ```java
 /**
@@ -101,10 +121,10 @@ public final class ArticleContract {
 }
 ```
 
-## SQLiteDatabase
+### Create SQLite Database
 After defining our database structure, we will need to create, manage, and access it accordingly using the SQLiteOpenHelper class. For detailed information on using this, refer to this [article](http://guides.codepath.com/android/Creating-Content-Providers#SQLiteOpenHelper). 
 
-There are several ways to utilize this class, but I'm using the Singleton pattern to provide access to the SQLiteDatabase class.
+There are several ways to build this class, but I'm using the Singleton pattern to provide access to the SQLiteDatabase class.
 ```java
 /**
  * Notice how we are inheriting {@link SQLiteOpenHelper}, this requires we do:
@@ -173,11 +193,12 @@ public final class DatabaseClient extends SQLiteOpenHelper {
 }
 ```
 
-## ContentProvider
-Now that we've created the necessary components to implement a ContentProvider, we can start step one for creating a SyncAdapter. This ContentProvider is absolutley imperative as we use it synchronize local data changes and utilize its content observer to potentially update the UI during syncing.
+## Step 1: The ContentProvider
+Now that we've created the necessary components to implement a ContentProvider, we can start. We need to create a ContentProvider for our hypothetical example to provide access to our local data source.
 
-For an in-depth tutorial on ContentProvider, refer to this fantastic [article](http://guides.codepath.com/android/Creating-Content-Providers).
+This ContentProvider is absolutely imperative as we use it to synchronize local data changes and utilize its content observer to potentially update the UI after syncing.
 
+For an in-depth tutorial on creating a ContentProvider, refer to this fantastic [article](http://guides.codepath.com/android/Creating-Content-Providers).
 ```java
 /**
  * This is the ContentProvider that will be used by our SyncAdapter to sync local data.
@@ -312,8 +333,10 @@ public class ArticleProvider extends ContentProvider {
 }
 ```
 
-### Using the ContentProvider
-To use the ContentProvider, declare it in the manifest.xml file. It is important to note that `android:authorities` must match your ContentProvider's authority exactly and `android:syncable` MUST be true.
+### Declare the ContentProvider
+In order to use our ContentProvider, we need to declare it in the `manifest.xml` file. It is important to note that:
+1. `android:authorities` must match our ContentProvider's authority exactly, and
+2. `android:syncable` must be true.
 ```
 <provider
     android:name=".example.ArticleProvider"
@@ -322,8 +345,8 @@ To use the ContentProvider, declare it in the manifest.xml file. It is important
     android:syncable="true"/>
 ```
 
-## Account & Authenticator
-The next step requires that we have an Account on the device. This seems like a lot of work or unnecessary, but it is worth it for a prodigious amount of reasons:
+## Steps 2 & 3: The Account and Authenticator
+The next steps requires that we have an Account on the device. This seems like a lot of work or unnecessary, but it is worth it for a prodigious amount of reasons:
 * Supports the SyncAdapter framework
 * Supports various access tokens (access rights)
 * Supports various account settings features
@@ -332,9 +355,9 @@ The next step requires that we have an Account on the device. This seems like a 
 
 There are many ways you can utilize account creation and authentication (check out the references), but for the scope of our example (syncing RSS feed), we just want a very simple account with stubbed authentication.
 
-Before continuing, add these NEEDED permissions to the manifest.xml:
+### Declare Proper Permissions
+Before continuing, we must add these NEEDED permissions to the `manifest.xml` so we can use SyncAdapter, AccountManager, and Sync Settings.
 ```
-<!-- Permissions for SyncAdapter, AccountManager, and Sync Settings -->
 <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
 <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
 <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
@@ -343,8 +366,8 @@ Before continuing, add these NEEDED permissions to the manifest.xml:
 <uses-permission android:name="android.permission.READ_SYNC_STATS"/>
 ```
 
-### Contract Class for Account
-Again, it's a good idea to concretely define our account structure.
+### Create Contract Class for Account
+Again, it's a good idea to concretely define our account structure; especially since our account will be really simple.
 ```java
 public final class AccountGeneral {
     /**
@@ -406,7 +429,11 @@ public final class AccountGeneral {
 ```
 
 ### Create an Account Authenticator
-This is really simple because we don't use any authentication, therefore, we stub it. This authenticator must extend the AbstractAccountAuthenticator class.
+The authenticator will perform all the actions on the account type. It will also know which activity to show for the user to enter their credential and where to find any stored auth-token that the server has previously returned. This can also be common to many different services under a single account type.
+
+For example, Google's authenticator on Android authenticates the Google Mail service (Gmail), Google Calendar, Google Drive, and along with many other Google services.
+
+We need to make an authenticator that extends the AbstractAccountAuthenticator class. This is really simple because we don't use any authentication, therefore, we stub it.
 ```java
 /**
  * This is stubbed because we don't need any authentication to access the pretend RSS feed.
@@ -454,7 +481,9 @@ public class AccountAuthenticator extends AbstractAccountAuthenticator {
 ```
 
 ### Create the Authentication Service
-In order for Android to use our AccountAuthenticator, we need to create a bound Service that will allow it to do so.
+For Android to use our AccountAuthenticator, it needs to run it in a bound Service that will allow it to do so. To see the in-depth of how AbstractAccountAuthenticator works, look at its Transport inner-class and read about AIDL for inter-process communication.
+
+We need to create this bound Service so we can let Android use our `AccountAuthenticator` class.
 ```java
 /**
  * This is used only by Android to run our {@link AccountAuthenticator}.
@@ -478,8 +507,10 @@ public class AuthenticatorService extends Service {
 }
 ```
 
-### (Optional) Declare Account Settings in XML
-Create a resource package in 'res' called, 'xml', if not already created. In 'res/xml', create 'syncsettings.xml'.
+### (Optional) Declare Account Preferences
+These preferences will be shown when accessing the account's preferences from the device Settings screen. This allows the user more control over their account. 
+
+To create this, we need to create a resource package in 'res' called, 'xml', if not already created, and create 'syncsettings.xml'.
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
@@ -491,13 +522,13 @@ Create a resource package in 'res' called, 'xml', if not already created. In 're
 </PreferenceScreen>
 ```
 
-### Declare the Authenticator in XML
-Create a resource package in 'res' called, 'xml', if not already created. In 'res/xml', create 'authenticator.xml'.
-* `android:accountType=(string)` - must match EXACTLY the account type defined in our `AccountGeneral`
-* `android:label=(string)` - Name of the account
+### Declare the Authenticator
+We need to create a resource package in 'res' called, 'xml', if not already created, and create 'authenticator.xml'.
+* `android:accountType=(string)` - identify our account type when an app wants to authenticate us (match EXACTLY in our AccountsGeneral)
+* `android:label=(string)` - Name of the account on the device Settings
 * `android:icon=(drawable)` - is the normal icon that will appear in the 'Accounts' Android settings
 * `android:smallIcon=(drawable)` - (optional) is the small icon the will show for the account
-* `android:accountPreferences=(xml)` - (optional) specifies extra settings/features for our account
+* `android:accountPreferences=(xml)` - (optional) specifies extra settings for our account
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <account-authenticator
@@ -509,7 +540,8 @@ Create a resource package in 'res' called, 'xml', if not already created. In 're
     android:label="@string/app_name"/>
 ```
 
-### Declare `AuthenticatorService` In `manifest.xml` File
+### Declare the Authenticator Service
+We need to declare our `AuthenticatorService` in the `manifest.xml` file.
 ```
 <service android:name=".example.AuthenticatorService">
     <intent-filter>
@@ -521,11 +553,17 @@ Create a resource package in 'res' called, 'xml', if not already created. In 're
 </service>
 ```
 
-## SyncAdapter
-The next step requires us to have our `SyncAdapter` and another bound Service to allow Android to run it.
+## Steps 4 & 5: The SyncAdapter and SyncService
+The next steps requires us to have our `SyncAdapter` and another bound Service to allow Android to run it. These are some of the benefits it will offer us:
+* Status check and start synchronization when network is available
+* Scheduler that synchronizes using criteria
+* Auto synchronization if it had previously failed
+* Saves battery power because the system will batch networking
 
-### Create a `SyncAdapter`
-Firstly, let's create our `SyncAdapter`. We do this by extending the AbstractThreadedSyncAdapter class. It's important to note that any logic that's performed in the `onPerformSync()` method, happens on a new Thread. Do NOT create a new Thread to run networking or long performing tasks because Android handles that for you!
+### Create the SyncAdapter
+To create our `SyncAdapter`, we must extend the AbstractThreadedSyncAdapter class. 
+
+It's important to note that any logic that's performed in the `onPerformSync()` method, happens on a new Thread. Do NOT create a new Thread to run networking or long performing tasks because Android handles that for you!
 ```java
 /**
  * This is used by the Android framework to perform synchronization. IMPORTANT: do NOT create
@@ -727,6 +765,26 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
 }
 ```
 
+### Declare the SyncAdapter
+In the 'res/xml' resource package, create 'syncadapter.xml'.
+* `android:contentAuthority=(string)` - Specifies our ContentProvider's authority, must EXACTLY match
+* `android:accountType=(string)` - must match EXACTLY the account type defined in our `AccountGeneral`
+* `android:userVisible=(true|false)` - True if sync is visible to the user
+* `android:allowParallelSyncs=(true|false)` - True if can sync in parallel
+* `android:isAlwaysSyncable=(true|false)` - True if can be synced at anytime
+* `android:supportsUploading=(true|false)` - True if uploads to the server
+```
+<?xml version="1.0" encoding="utf-8"?>
+<sync-adapter
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:contentAuthority="com.example.sync"
+    android:accountType="com.example.syncaccount"
+    android:userVisible="true"
+    android:allowParallelSyncs="false"
+    android:isAlwaysSyncable="true"
+    android:supportsUploading="true"/>
+```
+
 ### Create a Sync Service
 In order for Android to use our `SyncAdapter`, we need to create a bound Service that will allow it to do so.
 ```java
@@ -757,26 +815,6 @@ public class SyncService extends Service {
         return syncAdapter.getSyncAdapterBinder();
     }
 }
-```
-
-### Declare the SyncAdapter in XML
-In the 'res/xml' resource package, create 'syncadapter.xml'.
-* `android:contentAuthority=(string)` - Specifies our ContentProvider's authority, must EXACTLY match
-* `android:accountType=(string)` - must match EXACTLY the account type defined in our `AccountGeneral`
-* `android:userVisible=(true|false)` - True if sync is visible to the user
-* `android:allowParallelSyncs=(true|false)` - True if can sync in parallel
-* `android:isAlwaysSyncable=(true|false)` - True if can be synced at anytime
-* `android:supportsUploading=(true|false)` - True if uploads to the server
-```
-<?xml version="1.0" encoding="utf-8"?>
-<sync-adapter
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:contentAuthority="com.example.sync"
-    android:accountType="com.example.syncaccount"
-    android:userVisible="true"
-    android:allowParallelSyncs="false"
-    android:isAlwaysSyncable="true"
-    android:supportsUploading="true"/>
 ```
 
 ### Declare `SyncService` In `manifest.xml` File
