@@ -252,6 +252,7 @@ Digging into how to run background services or leverage Android system services:
 * [[Google Cloud Messaging]] (Detailed GCM Implementation)
 * [[Real-time Messaging]] (**Needs Attention**)
 * [[Managing Threads and Custom Services]] (Looper, Handler, ThreadPoolExecutor)
+* [Server Synchronization (SyncAdapter)](https://github.com/codepath/android_guides/wiki/Server-Synchronization-(SyncAdapter))
 
 ## Testing
 
