@@ -526,7 +526,7 @@ This will help avoid any foreign key constraint exceptions due to duplicate rows
 
 #### Error:Parceler: Unable to find read/write generator for type `com.activeandroid.TableInfo`
 
-Make sure to annotate the class with the `@Parcel(analyze={}` decorator.  Otherwise, the Parceler library will try to serialize the fields that are associated with the `Model` class and trigger `Error:Parceler: Unable to find read/write generator for type` errors.  To avoid this issue, specify to Parceler exactly which class in the inheritance chain should be examined (see this [disucssion](https://github.com/johncarl81/parceler/issues/73#issuecomment-167131080) for more details):
+Make sure to annotate the class with the `@Parcel(analyze={}` decorator.  Otherwise, the Parceler library will try to serialize the fields that are associated with the `Model` class and trigger `Error:Parceler: Unable to find read/write generator for type` errors.  To avoid this issue, specify to Parceler exactly which class in the inheritance chain should be examined (see this [discussion](https://github.com/johncarl81/parceler/issues/73#issuecomment-167131080) for more details):
 
 ```java
 @Table(name="users")
