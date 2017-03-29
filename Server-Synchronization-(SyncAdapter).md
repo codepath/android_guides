@@ -766,7 +766,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
 ```
 
 ### Declare the SyncAdapter
-In the 'res/xml' resource package, create 'syncadapter.xml'.
+We need to create a resource package in 'res' called, 'xml', if not already created, and create 'syncadapter.xml'.
 * `android:contentAuthority=(string)` - Specifies our ContentProvider's authority, must EXACTLY match
 * `android:accountType=(string)` - must match EXACTLY the account type defined in our `AccountGeneral`
 * `android:userVisible=(true|false)` - True if sync is visible to the user
@@ -786,7 +786,9 @@ In the 'res/xml' resource package, create 'syncadapter.xml'.
 ```
 
 ### Create a Sync Service
-In order for Android to use our `SyncAdapter`, we need to create a bound Service that will allow it to do so.
+For Android to use our `SyncAdapter`, it needs to run it in a bound Service that will allow it to do so. To see the in-depth of how AbstractThreadedSyncAdapter works, read about AIDL for inter-process communication.
+
+We need to create this bound Service so we can let Android use our `SyncAdapter` class.
 ```java
 /**
  * This is used only by Android to run our {@link SyncAdapter}.
@@ -817,7 +819,8 @@ public class SyncService extends Service {
 }
 ```
 
-### Declare `SyncService` In `manifest.xml` File
+### Declare SyncService
+We need to declare our `SyncService` in the `manifest.xml` file.
 ```
 <service
     android:name=".example.SyncService"
@@ -832,7 +835,7 @@ public class SyncService extends Service {
 ```
 
 ## How to Use Your New SyncAdapter
-You now have created the wonderful ability of server synchronization! Here's an example of how to use you SynAdapter.
+You now have created the wonderful ability of server synchronization! Here's an example of how to use `SynAdapter`.
 ```java
 /**
  * Your SyncAdapter is good to go!
