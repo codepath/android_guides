@@ -373,6 +373,60 @@ Often we might want to query objects within a certain radius of a coordinate (fo
 
 If you want to query this based on a map, first you can [add a listener for the map camera](https://developers.google.com/android/reference/com/google/android/gms/maps/GoogleMap#setOnCameraChangeListener\(com.google.android.gms.maps.GoogleMap.OnCameraChangeListener\)). Next, you can determine the [visible bounds of the map](http://stackoverflow.com/q/16056366) as shown there. Check the [[Maps Usage Guide|Google-Maps-API-v2-Usage]] for additional information on using the map.
 
+#### Live Queries
+
+One of the newer features of Parse is that you can monitor for live changes made to objects in your database  To get started, make sure you have defined the ParseObjects that you want in your NodeJS server.  Make sure to define a list of all the objects by declaring it in the `liveQuery` and `classNames listing`:
+
+```javascript
+let api = new ParseServer({
+  ...,
+  // Make sure to define liveQuery AND classNames
+  liveQuery: {
+    // define your ParseObject names here
+    classNames: ['Post', 'Comment']
+  }
+});
+```
+
+See [this guide](http://parseplatform.org/docs/parse-server/guide/#live-queries) for more details.  Parse Live Queries rely on the websocket protocol, which creates a bidirectional channel between the client and server and periodically exchange ping/pong frames to validate the connection is still alive.  Websocket URLs are usually prefixed with ws:// or wss:// (secure) URLs.  Heroku instances already provide websocket support, but if you are deploying to a different server (Amazon), you may need to make sure that TCP port 80 or TCP port 443 are available.
+
+You will need to also setup the client SDK by adding this dependency to your `app/build.gradle` config:
+
+```gradle
+dependencies {
+  // add Parse dependencies too
+  compile 'com.parse:parse-livequery-android:1.0.1'
+}
+```
+
+Next, instantiate the client:
+
+```java
+ParseLiveQueryClient parseLiveQueryClient = ParseLiveQueryClient.Factory.getClient();
+```
+
+Define the query pattern you wish to listen for events:
+```java
+ParseQuery<Comment> query = ParseQuery.getQuery(Comment.class);
+```
+
+Create a subscription to this `ParseQuery` instance:
+
+```java
+SubscriptionHandling<ParseObject> subscriptionHandling = parseLiveQueryClient.subscribe(parseQuery)
+```
+
+Finally, listen to the events. You can listen for `Event.UPDATE`, `Event.DELETE`, `Event.ENTER`, and `Event.LEAVE`.  An enter and leave event reflects changes to an existing ParseObject that either now fulfill the criteria or no longer do so.  See [this guide](https://github.com/ParsePlatform/parse-server/wiki/Parse-LiveQuery-Protocol-Specification) for more information about the live queries protocol specification.
+
+```java
+subscriptionHandling.handleEvent(SubscriptionHandling.Event.CREATE, new SubscriptionHandling.HandleEventCallback<Comment>() {
+    @Override
+    public void onEvent(ParseQuery<Comment> query, Comment object) {
+        // HANDLING create event
+    }
+})
+```
+
 ### Passing Objects Between Activities
 
 Often with Android development, you need to pass an object from one Activity to another. This is done using the `Intent` system and passing objects as extras within a bundle. Unfortunately, `ParseObject` does not currently implement Parcelable or Serializable.
@@ -530,60 +584,6 @@ fetchedTodoItem.getTagsRelation().getQuery().findInBackground(new FindCallback<T
 ```
 
 For more details, check out the official [Relational Data](http://parseplatform.github.io/docs/android/guide/#using-pointers) guide. For more complex many-to-many relationships, check out this official [join tables](http://parseplatform.github.io/docs/android/guide/#using-join-tables) guide when the many-to-many requires additional metadata.
-
-## Live Queries
-
-One of the newer features of Parse is that you can monitor for live changes made to objects in your database  To get started, make sure you have defined the ParseObjects that you want in your NodeJS server.  Make sure to define a list of all the objects by declaring it in the `liveQuery` and `classNames listing`:
-
-```javascript
-let api = new ParseServer({
-  ...,
-  // Make sure to define liveQuery AND classNames
-  liveQuery: {
-    // define your ParseObject names here
-    classNames: ['Post', 'Comment']
-  }
-});
-```
-
-See [this guide](http://parseplatform.org/docs/parse-server/guide/#live-queries) for more details.  Parse Live Queries rely on the websocket protocol, which creates a bidirectional channel between the client and server and periodically exchange ping/pong frames to validate the connection is still alive.  Websocket URLs are usually prefixed with ws:// or wss:// (secure) URLs.  Heroku instances already provide websocket support, but if you are deploying to a different server (Amazon), you may need to make sure that TCP port 80 or TCP port 443 are available.
-
-You will need to also setup the client SDK by adding this dependency to your `app/build.gradle` config:
-
-```gradle
-dependencies {
-  // add Parse dependencies too
-  compile 'com.parse:parse-livequery-android:1.0.1'
-}
-```
-
-Next, instantiate the client:
-
-```java
-ParseLiveQueryClient parseLiveQueryClient = ParseLiveQueryClient.Factory.getClient();
-```
-
-Define the query pattern you wish to listen for events:
-```java
-ParseQuery<Comment> query = ParseQuery.getQuery(Comment.class);
-```
-
-Create a subscription to this `ParseQuery` instance:
-
-```java
-SubscriptionHandling<ParseObject> subscriptionHandling = parseLiveQueryClient.subscribe(parseQuery)
-```
-
-Finally, listen to the events. You can listen for `Event.UPDATE`, `Event.DELETE`, `Event.ENTER`, and `Event.LEAVE`.  An enter and leave event reflects changes to an existing ParseObject that either now fulfill the criteria or no longer do so.  See [this guide](https://github.com/ParsePlatform/parse-server/wiki/Parse-LiveQuery-Protocol-Specification) for more information about the live queries protocol specification.
-
-```java
-subscriptionHandling.handleEvent(SubscriptionHandling.Event.CREATE, new SubscriptionHandling.HandleEventCallback<Comment>() {
-    @Override
-    public void onEvent(ParseQuery<Comment> query, Comment object) {
-        // HANDLING create event
-    }
-})
-```
 
 ### Deleting Objects
 
