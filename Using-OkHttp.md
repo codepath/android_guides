@@ -358,28 +358,42 @@ OkHttp v3.5 now includes [support for bidirectional web sockets](https://medium.
 Request request = new Request.Builder().url(url).build();
 Websocket webSocket = client.newWebSocket(request,  = new WebSocketListener() {
 
-  // socket is 
   @Override
   public void onOpen(WebSocket webSocket, Response response) {
+     // connection succeeded
   }
 
   @Override
   public void onMessage(WebSocket webSocket, String text) {
+     // text message received
   }
 
   @Override
   public void onMessage(WebSocket webSocket, ByteString bytes) {
+     // binary message received
   }
 
   @Override
   public void onClosed(WebSocket webSocket, int code, String reason) {
+     // no more messages and the connection should be released
   }
 
   @Override
   public void onFailure(WebSocket webSocket, Throwable t, Response response) {
+     // unexpected error 
   });
+```
 
+To send a message, simply use the `send()` function:
+
+```java
 websocket.send("hello");
+```
+
+If you need to close the connection properly, make sure to use a status code of 1000.  See [this link](https://developer.mozilla.org/en-US/docs/Web/API/CloseEvent) for the different status codes.
+
+```java
+webSocket.close(1000, "closing);
 ```
 
 ### Recipe guide
