@@ -119,6 +119,23 @@ password: dbpassword
 
 Using that cross-platform app to easily access and modify the data for your Parse MongoDB data.
 
+### Adding Support for Live Queries
+
+One of the newer features of Parse is that you can monitor for live changes made to objects in your database  To get started, make sure you have defined the ParseObjects that you want in your NodeJS server.  Make sure to define a list of all the objects by declaring it in the `liveQuery` and `classNames listing`:
+
+```javascript
+let api = new ParseServer({
+  ...,
+  // Make sure to define liveQuery AND classNames
+  liveQuery: {
+    // define your ParseObject names here
+    classNames: ['Post', 'Comment']
+  }
+});
+```
+
+See [this guide](http://parseplatform.org/docs/parse-server/guide/#live-queries) for more details.  Parse Live Queries rely on the websocket protocol, which creates a bidirectional channel between the client and server and periodically exchange ping/pong frames to validate the connection is still alive.  Websocket URLs are usually prefixed with ws:// or wss:// (secure) URLs.  Heroku instances already provide websocket support, but if you are deploying to a different server (Amazon), you may need to make sure that TCP port 80 or TCP port 443 are available.
+
 ### Enabling Client SDK integration
 
 Make sure you have the latest Parse-Android SDK <img src="https://camo.githubusercontent.com/4da68f9e3fc719ae9f0198d780c611d61bb8843b/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f636f6d2e70617273652f70617273652d616e64726f69642f62616467652e7376673f7374796c653d666c6174" alt="Maven Central" data-canonical-src="https://maven-badges.herokuapp.com/maven-central/com.parse/parse-android/badge.svg?style=flat" style="max-width:100%;">
@@ -167,22 +184,6 @@ public class ParseApplication extends Application {
 
 The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which is set to this value by default.
 
-### Adding Support for Live Queries
-
-One of the newer features of Parse is that you can monitor for live changes made to objects in your database  To get started, make sure you have defined the ParseObjects that you want in your NodeJS server.  Make sure to define a list of all the objects by declaring it in the `liveQuery` and `classNames listing`:
-
-```javascript
-let api = new ParseServer({
-  ...,
-  // Make sure to define liveQuery AND classNames
-  liveQuery: {
-    // define your ParseObject names here
-    classNames: ['Post', 'Comment']
-  }
-});
-```
-
-See [this guide](http://parseplatform.org/docs/parse-server/guide/#live-queries) for more details.  Parse Live Queries rely on the websocket protocol, which creates a bidirectional channel between the client and server and periodically exchange ping/pong frames to validate the connection is still alive.  Websocket URLs are usually prefixed with ws:// or wss:// (secure) URLs.  Heroku instances already provide websocket support, but if you are deploying to a different server (Amazon), you may need to make sure that TCP port 80 or TCP port 443 are available.
 
 ### Troubleshooting Parse Server
 
