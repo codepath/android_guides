@@ -167,6 +167,23 @@ public class ParseApplication extends Application {
 
 The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which is set to this value by default.
 
+### Adding Support for Live Queries
+
+One of the newer features of Parse is that you can monitor for live changes made to objects in your database  To get started, make sure you have defined the ParseObjects that you want in your NodeJS server.  Make sure to define a list of all the objects by declaring it in the `liveQuery` and `classNames listing`:
+
+```javascript
+let api = new ParseServer({
+  ...,
+  // Make sure to define liveQuery AND classNames
+  liveQuery: {
+    // define your ParseObject names here
+    classNames: ['Post', 'Comment']
+  }
+});
+```
+
+See [this guide](http://parseplatform.org/docs/parse-server/guide/#live-queries) for more details.  Parse Live Queries rely on the websocket protocol, which creates a bidirectional channel between the client and server and periodically exchange ping/pong frames to validate the connection is still alive.  Websocket URLs are usually prefixed with ws:// or wss:// (secure) URLs.  Heroku instances already provide websocket support, but if you are deploying to a different server (Amazon), you may need to make sure that TCP port 80 or TCP port 443 are available.
+
 ### Troubleshooting Parse Server
 
 * If you see `Application Error` or `An error occurred in the application and your page could not be served. Please try again in a few moments.`, double-check that you set a `MASTER_KEY` in the environment settings for that app.
