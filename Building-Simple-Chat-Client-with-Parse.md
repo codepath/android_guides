@@ -625,7 +625,10 @@ Alternatively, assuming the server is configured properly to support it (see [[t
 protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
+   // Parse.initialize(...) should come first
+
    // Make sure the Parse server is setup to configured for live queries
+   // URL for server is determined by Parse.initialize() call.
    ParseLiveQueryClient parseLiveQueryClient = ParseLiveQueryClient.Factory.getClient();
 
    ParseQuery<Message> parseQuery = ParseQuery.getQuery(Message.class);
