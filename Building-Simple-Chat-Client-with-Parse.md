@@ -20,6 +20,7 @@ Let's setup Parse into a brand new Android app following the steps below.
     dependencies {
       compile 'com.parse:parse-android:1.14.1'
       compile 'com.parse:parseinterceptors:0.0.2' // for logging API calls to LogCat
+      compile 'com.parse:parse-livequery-android:1.0.2' // for Parse Live Queries
     }
     ```
   * Make sure you have added these lines before the `<application>` tag in your `AndroidManifest.xml`.
@@ -616,7 +617,29 @@ protected void onCreate(Bundle savedInstanceState) {
 
 See the [[repeating periodic tasks|Repeating-Periodic-Tasks#handler]] guide to learn more about the handler.
 
-## 13. Final AndroidManifest.xml
+#### Live Queries
+
+Alternatively, assuming the server is configured properly to support it (see [[this guide|Configuring-a-Parse-Server#adding-support-for-live-queries]]), we can also use [[Parse Live Queries|Building-Data-driven-Apps-with-Parse#live-queries]] to listen for new messages:
+
+```java
+// Make sure the Parse server is setup to configured for live queries
+ParseLiveQueryClient parseLiveQueryClient = ParseLiveQueryClient.Factory.getClient();
+
+ParseQuery<Message> parseQuery = ParseQuery.getQuery(Message.class);
+// This query can even be more granular (i.e. only refresh if the entry was added by some other user)
+// parseQuery.whereNotEqualTo(USER_ID_KEY, ParseUser.getCurrentUser().getObjectId());
+
+SubscriptionHandling<Message> subscriptionHandling = parseLiveQueryClient.subscribe(parseQuery);
+
+subscriptionHandling.handleEvent(SubscriptionHandling.Event.CREATE, new SubscriptionHandling.HandleEventCallback<Message>() {
+                    @Override
+                    public void onEvent(ParseQuery<Message> query, Message object) {
+                         refreshMessages();                        
+                    }
+                });
+```
+
+## 14. Final AndroidManifest.xml
 
 The final manifest for this chat application looks like:
 
@@ -653,3 +676,4 @@ The final manifest for this chat application looks like:
 Run your project and test it out with your pair partner. Below is the final output.
 
 ![Chat App|250](https://i.imgur.com/3UZ6ZNy.png)
+
