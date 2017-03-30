@@ -351,7 +351,7 @@ public class MyApplication extends Application {
 
 ### Using with Websockets
 
-OkHttp v3.5 now includes [support for bidirectional web sockets](https://medium.com/square-corner-blog/web-sockets-now-shipping-in-okhttp-3-5-463a9eec82d1).   The URL that should be used should be prefixed with `ws://` or `wss://` for the secure version.  Although the connection ports are the same as HTTP (port 80 and port 443), the server still needs to be configured to support WebSockets since it is a completely different protocol.
+OkHttp v3.5 now includes [support for bidirectional web sockets](https://medium.com/square-corner-blog/web-sockets-now-shipping-in-okhttp-3-5-463a9eec82d1).   The URL that should be used should be prefixed with `ws://` or `wss://` for the secure version.  Although the connection ports are the same as HTTP (port 80 and port 443), the server still needs to be configured to support WebSockets since they are a completely different protocol.
 
 ```java
 // URL should be ws:// or wss:// (secure)
@@ -389,6 +389,8 @@ To send a message, simply use the `send()` function:
 ```java
 websocket.send("hello");
 ```
+
+Note that OkHttp handles all the work on a separate thread, so you don't have to worry about making Websocket calls on the main thread.
 
 If you need to close the connection properly, make sure to use a status code of 1000.  See [this link](https://developer.mozilla.org/en-US/docs/Web/API/CloseEvent) for the different status codes.
 
