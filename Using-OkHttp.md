@@ -353,7 +353,7 @@ public class MyApplication extends Application {
 
 OkHttp v3.5 now includes [support for bidirectional web sockets](https://medium.com/square-corner-blog/web-sockets-now-shipping-in-okhttp-3-5-463a9eec82d1).   The URL that should be used should be prefixed with `ws://` or `wss://` for the secure version.  Although the connection ports are the same as HTTP (port 80 and port 443), the server still needs to be configured to support WebSockets since it is a completely different protocol.
 
-```
+```java
 // URL should be ws:// or wss:// (secure)
 Request request = new Request.Builder().url(url).build();
 Websocket webSocket = client.newWebSocket(request,  = new WebSocketListener() {
