@@ -299,7 +299,7 @@ OkHttp can be hard to troubleshoot when trying to step through the various layer
 To use `HttpLogInterceptor`, add this dependency to your Gradle configuration:
 
 ```gradle
-compile 'com.squareup.okhttp3:logging-interceptor:3.3.0'
+compile 'com.squareup.okhttp3:logging-interceptor:3.6.0'
 ```
 
 You will need to add a network interceptor for HttpLogInterceptor.  See [this doc](http://square.github.io/okhttp/3.x/logging-interceptor/) for the different options that can be used.
@@ -347,6 +347,39 @@ public class MyApplication extends Application {
     Stetho.initializeWithDefaults(this);
   }
 }
+```
+
+### Using with Websockets
+
+OkHttp v3.5 now includes [support for bidirectional web sockets](https://medium.com/square-corner-blog/web-sockets-now-shipping-in-okhttp-3-5-463a9eec82d1).   The URL that should be used should be prefixed with `ws://` or `wss://` for the secure version.  Although the connection ports are the same as HTTP (port 80 and port 443), the server still needs to be configured to support WebSockets since it is a completely different protocol.
+
+```
+// URL should be ws:// or wss:// (secure)
+Request request = new Request.Builder().url(url).build();
+Websocket webSocket = client.newWebSocket(request,  = new WebSocketListener() {
+
+  // socket is 
+  @Override
+  public void onOpen(WebSocket webSocket, Response response) {
+  }
+
+  @Override
+  public void onMessage(WebSocket webSocket, String text) {
+  }
+
+  @Override
+  public void onMessage(WebSocket webSocket, ByteString bytes) {
+  }
+
+  @Override
+  public void onClosed(WebSocket webSocket, int code, String reason) {
+  }
+
+  @Override
+  public void onFailure(WebSocket webSocket, Throwable t, Response response) {
+  });
+
+websocket.send("hello");
 ```
 
 ### Recipe guide
