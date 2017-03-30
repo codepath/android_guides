@@ -1,6 +1,6 @@
 ## Overview
 
-**Google Cloud Messaging** (GCM) for Android is a service that allows you to send data from your server to your users' Android-powered device and also to receive messages from devices on the same connection.  It is now known as **Firebase Cloud Messaging** (FCM) after a new site launched during the Google's I/O 2016 conference that unifies analytics and messaging into one platform.
+**Google Cloud Messaging** (GCM) for Android is a service that allows you to send data from your server to your users' Android-powered device and also to receive messages from devices on the same connection.  It is now known as **Firebase Cloud Messaging** (FCM) after a new site launched during the Google's I/O 2016 conference that unifies analytics and messaging into one platform.  Review this [slide deck](https://docs.google.com/presentation/d/16h4KOCbP2zmyqNqhfB4ulE9JtO-jwBT1j3hMgcX-his/edit?usp=sharing) for more context.
 
 ![FCM Arch](https://i.imgur.com/9XzwPqc.png)
 
