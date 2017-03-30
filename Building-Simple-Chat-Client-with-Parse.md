@@ -622,21 +622,27 @@ See the [[repeating periodic tasks|Repeating-Periodic-Tasks#handler]] guide to l
 Alternatively, assuming the server is configured properly to support it (see [[this guide|Configuring-a-Parse-Server#adding-support-for-live-queries]]), we can also use [[Parse Live Queries|Building-Data-driven-Apps-with-Parse#live-queries]] to listen for new messages:
 
 ```java
-// Make sure the Parse server is setup to configured for live queries
-ParseLiveQueryClient parseLiveQueryClient = ParseLiveQueryClient.Factory.getClient();
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
 
-ParseQuery<Message> parseQuery = ParseQuery.getQuery(Message.class);
-// This query can even be more granular (i.e. only refresh if the entry was added by some other user)
-// parseQuery.whereNotEqualTo(USER_ID_KEY, ParseUser.getCurrentUser().getObjectId());
+   // Make sure the Parse server is setup to configured for live queries
+   ParseLiveQueryClient parseLiveQueryClient = ParseLiveQueryClient.Factory.getClient();
 
-SubscriptionHandling<Message> subscriptionHandling = parseLiveQueryClient.subscribe(parseQuery);
+   ParseQuery<Message> parseQuery = ParseQuery.getQuery(Message.class);
+   // This query can even be more granular (i.e. only refresh if the entry was added by some other user)
+   // parseQuery.whereNotEqualTo(USER_ID_KEY, ParseUser.getCurrentUser().getObjectId());
 
-subscriptionHandling.handleEvent(SubscriptionHandling.Event.CREATE, new SubscriptionHandling.HandleEventCallback<Message>() {
-                    @Override
-                    public void onEvent(ParseQuery<Message> query, Message object) {
-                         refreshMessages();                        
-                    }
-                });
+   // Connect to Parse server
+   SubscriptionHandling<Message> subscriptionHandling = parseLiveQueryClient.subscribe(parseQuery);
+
+   // Listen for CREATE events
+   subscriptionHandling.handleEvent(SubscriptionHandling.Event.CREATE, new 
+   SubscriptionHandling.HandleEventCallback<Message>() {
+                      @Override
+                      public void onEvent(ParseQuery<Message> query, Message object) {
+                          refreshMessages();                        
+                      }
+                  });
 ```
 
 ## 14. Final AndroidManifest.xml
