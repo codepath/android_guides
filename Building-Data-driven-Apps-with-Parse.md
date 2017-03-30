@@ -395,7 +395,7 @@ You will need to also setup the client SDK by adding this dependency to your `ap
 ```gradle
 dependencies {
   // add Parse dependencies too
-  compile 'com.parse:parse-livequery-android:1.0.1'
+  compile 'com.parse:parse-livequery-android:1.0.2'
 }
 ```
 
