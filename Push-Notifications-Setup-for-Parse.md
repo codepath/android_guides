@@ -8,7 +8,7 @@ First, you will need to obtain a Google Cloud Messaging Sender ID and API Key.  
 
 ### Parse Server Setup
 
-Make sure to take a look at [[Configuring a Parse Server]] to understand how to setup your own self-hosted Parse server.  If a server has already been setup and configured properly to support GCM, you can skip this step.
+Make sure to take a look at [[Configuring a Parse Server]] to understand how to setup your own self-hosted Parse server.  If a server has already been setup and configured properly to support GCM, you can skip this section.
 
 #### Update Parse Server Config
 
