@@ -10,7 +10,7 @@ To get started setting up our own Parse backend, check out our [[configuring a P
 
 ### Alternatives to Parse
 
-A comprehensive list of alternatives can be [reviewed here](https://github.com/relatedcode/ParseAlternatives). One of the primary alternatives is Google's Firebase, which provides a hosted solution for analytics, crash reporting, and a realtime JSON database.  One major different is that Parse still provides many powerful constructs for querying data, whereas Firebase requires you to perform this querying based child/parent relations.  See [this guide](https://firebase.google.com/support/guides/parse-android) for more information to porting Parse applications to Firebase.
+A comprehensive list of alternatives can be [reviewed here](https://github.com/relatedcode/ParseAlternatives). One of the primary alternatives is Google's [Firebase](http://firebase.google.com), which provides a hosted solution for analytics, crash reporting, and a realtime JSON database.  One major difference is that Parse still provides many powerful constructs for querying data, whereas Firebase requires you to perform this querying based on child/parent relations.  See [this guide](https://firebase.google.com/support/guides/parse-android) for more information to porting Parse applications to Firebase.
 
 ## What is Parse?
 
