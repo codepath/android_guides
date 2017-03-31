@@ -10,7 +10,7 @@ To get started setting up our own Parse backend, check out our [[configuring a P
 
 ### Alternatives to Parse
 
-A comprehensive list of alternatives can be [reviewed here](https://github.com/relatedcode/ParseAlternatives). You can also review [Parse migration tools](http://blog.parse.com/announcements/introducing-parse-server-and-the-database-migration-tool/) and setup your own MongoDb/NodeJS server and leverage the existing Parse client SDK's.
+A comprehensive list of alternatives can be [reviewed here](https://github.com/relatedcode/ParseAlternatives). One of the primary alternatives is Google's Firebase, which provides a hosted solution for analytics, crash reporting, and a realtime JSON database.  One major different is that Parse still provides many powerful constructs for querying data, whereas Firebase requires you to perform this querying based child/parent relations.  See [this guide](https://firebase.google.com/support/guides/parse-android) for more information to porting Parse applications to Firebase.
 
 ## What is Parse?
 
@@ -134,6 +134,8 @@ public class ParseApplication extends Application {
 Run your app and a new object of class `TestObject` will be sent to the Parse Cloud and saved. See [[browsing Parse data|Configuring-a-Parse-Server#browsing-parse-data]] for more information about how to check this data.
 
 If needed in your application, you might also want to [[setup push notifications|Push-Notifications-Setup-for-Parse]] through Parse as well at this time.
+
+You should be setup now!  Follow the remaining documentation guide to understand how to leverage Parse for your entire backend.  
 
 ## Working with Users
 
