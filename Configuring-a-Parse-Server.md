@@ -140,52 +140,9 @@ Websocket URLs are usually prefixed with ws:// or wss:// (secure) URLs.  Heroku 
 
 ### Enabling Client SDK integration
 
+Follow the [[setup guide|Building-Data-driven-Apps-with-Parse#setup]].
 Make sure you have the latest Parse-Android SDK <img src="https://camo.githubusercontent.com/4da68f9e3fc719ae9f0198d780c611d61bb8843b/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f636f6d2e70617273652f70617273652d616e64726f69642f62616467652e7376673f7374796c653d666c6174" alt="Maven Central" data-canonical-src="https://maven-badges.herokuapp.com/maven-central/com.parse/parse-android/badge.svg?style=flat" style="max-width:100%;">
  in your `app/build.gradle` file. 
-
-```gradle
-dependencies {
-    compile 'com.parse:parse-android:1.14.1'
-    compile 'com.parse:parseinterceptors:0.0.2' // for logging API calls to LogCat
-    compile 'com.parse.bolts:bolts-android:1.+'
-}
-```
-
-If you are migrating from a previous Parse configuration, make sure to delete the `CLIENT_KEY` reference in your `AndroidManifest.xml` file.  You can in fact delete both lines since we will be using a custom config builder in the next step.
-
-```xml
- <!--- these lines should be deleted in lieu of our custom Parse builder -->
-        <meta-data
-            android:name="com.parse.APPLICATION_ID"
-            android:value="myAppId" />
-        <meta-data
-            android:name="com.parse.CLIENT_KEY"
-            android:value="clientKey" />
- <!--- end of delete --->
-```
-
-Modify your `Parse.initialize()` command to point to this newly created server.  You must be on the latest Parse Android SDK to have these options.
-
-```java
-public class ParseApplication extends Application {
-    @Override
-    public void onCreate() {
-        super.onCreate();
-
-        // set applicationId, and server server based on the values in the Heroku settings.
-        // clientKey is not needed unless explicitly configured
-        // any network interceptors must be added with the Configuration Builder given this syntax
-        Parse.initialize(new Parse.Configuration.Builder(this)
-                .applicationId("myAppId") // should correspond to APP_ID env variable
-                .clientKey("")  // set explicitly blank unless clientKey is configured on Parse server
-                .addNetworkInterceptor(new ParseLogInterceptor())
-                .server("https://parse-testing-port.herokuapp.com/parse/").build());
-    }
-}
-```
-
-The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which is set to this value by default.
-
 
 ### Troubleshooting Parse Server
 
