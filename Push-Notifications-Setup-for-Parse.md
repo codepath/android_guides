@@ -1,6 +1,6 @@
 ## Overview
 
-The instructions below apply to the open source version of Parse, not hosted Parse.    One of the restrictions is that you must execute [Parse Cloud code](http://parseplatform.github.io/docs/cloudcode/guide/#cloud-code-cloud-functions) hosted on the server to implement push notifications.
+The instructions below apply to the open source version of Parse, not hosted Parse.   There are two parts to setting up Parse for push notifications.  First, you need to make sure your Parse server is setup properly.  Second, you need to add support with changes to your Android application.
 
 ### Parse Server Setup
 
