@@ -36,11 +36,17 @@ Open the `app/build.gradle` in your project and add the following dependencies:
 
 ```gradle
 dependencies {
-    compile 'com.parse.bolts:bolts-android:1.+'
-    compile 'com.parse:parse-android:1.+'
+    compile 'com.parse.bolts:bolts-android:1.4.0'
+    compile 'com.parse:parse-android:1.14.1'
     compile 'com.parse:parseinterceptors:0.0.2' // for logging API calls to LogCat
 }
 ```
+| Package           | Version                                                                                  |     
+|-------------------|:----------------------------------------------------------------------------------------:|
+| Parse Bolts       | ![](https://maven-badges.herokuapp.com/maven-central/com.parse.bolts/bolts-android/badge.svg?style=flat) |
+| Parse Android SDK | ![](https://maven-badges.herokuapp.com/maven-central/com.parse/parse-android/badge.svg?style=flat) |
+| Parse Interceptors| ![](https://maven-badges.herokuapp.com/maven-central/com.parse/parseinterceptors/badge.svg?style=flat) |
+
 
 Select `Tools -> Android -> Sync Project with Gradle Files` to load the libraries through Gradle. When you sync, it will import everything automatically. You can see the imported files in the External Libraries folder.
 
