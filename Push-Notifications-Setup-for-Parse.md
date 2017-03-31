@@ -6,6 +6,10 @@ The instructions below apply to the open source version of Parse, not hosted Par
 
 First, you will need to obtain a Google Cloud Messaging Sender ID and API Key.  You can follow only step 1 of [this guide](https://github.com/codepath/android_guides/wiki/Google-Cloud-Messaging/b7ab0d3329898f147b2fe7a32c731f9ce251893c#step-1-register-with-google-developers-console) to obtain the Sender ID (equivalent to the Project Number) and API Key.  You do not need to follow the other steps because Parse provides much of code to handle GCM registration for you.  Remember the GCM Sender and API key provided.
 
+### Parse Server Setup
+
+Make sure to take a look at [[Configuring a Parse Server]] to understand how to setup your own self-hosted Parse server.  If a server has already been setup and configured properly to support GCM, you can skip this step.
+
 #### Update Parse Server Config
 
 Modify your `index.js` to add support for GCM.  See [this example](https://github.com/codepath/parse-server-example/blob/master/index.js#L15-L18):
