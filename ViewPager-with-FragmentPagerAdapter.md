@@ -275,8 +275,8 @@ public class MainActivity extends AppCompatActivity {
 Now with this adapter in place, we can also easily access any fragments within the `ViewPager` with:
 
 ```java
-adapterViewPager.getRegisteredFragment(0); 
-// returns first Fragment item within the pager
+FirstFragment fragment = (FirstFragment) adapterViewPager.getRegisteredFragment(0); 
+// gets first Fragment item within the pager
 ```
 
 and we can easily access the "current" pager item with:
