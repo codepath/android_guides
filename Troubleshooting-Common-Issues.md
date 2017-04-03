@@ -4,7 +4,7 @@ This page will compile common issues experienced with Android Studio 1.0 or abov
 
 If you want to do more in-depth debugging in your code, you can setup breakpoints in your code by clicking on the left side pane and then clicking on `Run`->`Debug`.    You can also click on the bug icon ![https://i.imgur.com/zGh8wZ0.png](https://i.imgur.com/zGh8wZ0.png) if you've enabled the Toolbar (`View`->`Enable Toolbar`): 
 
-Android v1.2 and higher also provides a [built-in decompiler](http://www.androidpolice.com/2015/04/03/android-studio-1-2-reaches-beta-adds-built-in-decompiler-inline-debugger-variables-smarter-formatting-and-so-much-more/).  You can also use `Navigate`->`Declaration` within the IDE and set breakpoints even within classes for which you may not necessarily have the actual source code.  Notice the warning message at the top and an example of a screenshot of setting a breakpoint of a class defined in a JAR file below:
+Android Studio v1.2 and higher also provides a [built-in decompiler](http://www.androidpolice.com/2015/04/03/android-studio-1-2-reaches-beta-adds-built-in-decompiler-inline-debugger-variables-smarter-formatting-and-so-much-more/).  You can also use `Navigate`->`Declaration` within the IDE and set breakpoints even within classes for which you may not necessarily have the actual source code.  Notice the warning message at the top and an example of a screenshot of setting a breakpoint of a class defined in a JAR file below:
 
 <img src="https://imgur.com/shKOtyh.png"/>
 
