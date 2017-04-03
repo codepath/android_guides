@@ -165,6 +165,15 @@ There is yet to be a standard place to find what data is exposed by various Cont
 * `DocumentsContract` ([Docs](https://developer.android.com/reference/android/provider/DocumentsContract.html))
 * `Settings` ([Docs](http://developer.android.com/reference/android/provider/Settings.html))
 
+## Cursors and RecyclerView
+
+This guide demonstrates the use of `Cursor` based data loading with `ListView` leveraging the built-in `SimpleCursorAdapter`. RecyclerView does not have built-in cursor-based adapters but [Arnaud Frugier wrote a great post](http://quanturium.github.io/2015/04/19/using-cursors-with-the-new-recyclerview/) providing the sample code for cursor-based RecyclerView adapters. To use cursors and loaders with RecyclerView, copy these files into your codebase:
+
+ * [SimpleCursorRecyclerAdapter.java](https://gist.github.com/nesquena/609c409e50ad21332f6e5a5a7edb3476#file-simplecursorrecycleradapter-java)
+ * [CursorRecyclerAdapter.java](https://gist.github.com/nesquena/609c409e50ad21332f6e5a5a7edb3476#file-cursorrecycleradapter-java)
+
+These files will enable you to write cursor-based RecyclerView adapters in a style that is very similar to the approach taken with ListView. 
+
 ## References
 
  * <http://www.androiddesignpatterns.com/2012/07/loaders-and-loadermanager-background.html>
