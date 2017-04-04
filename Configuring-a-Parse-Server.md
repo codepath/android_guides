@@ -117,7 +117,7 @@ user: dbuser
 password: dbpassword
 ```
 
-Using that cross-platform app to easily access and modify the data for your Parse MongoDB data.
+Note that the **user and password** provided are for a database user you configure and are **not your mLab login credentials**. Using that cross-platform app to easily access and modify the data for your Parse MongoDB data. 
 
 ### Adding Support for Live Queries
 
