@@ -238,6 +238,7 @@ public CharSequence getPageTitle(int position) {
     // or ContextCompat.getDrawable(Context context, int id) if you want support for older versions.
     // Drawable image = context.getResources().getDrawable(iconIds[position], context.getTheme());
     // Drawable image = context.getResources().getDrawable(imageResId[position]);
+    // Drawable image = AppCompatDrawableManager.get().getDrawable(context, imageResId[position]); for support library
 
     Drawable image = ContextCompat.getDrawable(context, imageResId[position]);
     image.setBounds(0, 0, image.getIntrinsicWidth(), image.getIntrinsicHeight());
