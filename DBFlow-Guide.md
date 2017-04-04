@@ -322,7 +322,7 @@ public class MyDatabase {
 
         public static final String ENDPOINT = "User";
 
-        @ContentUri(path = IdentityProviderModel.ENDPOINT,
+        @ContentUri(path = UserProviderModel.ENDPOINT,
                 type = ContentUri.ContentType.VND_MULTIPLE + ENDPOINT)
         public static final Uri CONTENT_URI = buildUri(ENDPOINT);
     }
