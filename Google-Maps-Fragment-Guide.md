@@ -14,7 +14,7 @@ Under `SDK Tools` section, check whether you have already downloaded the latest 
 
 ### Import Maps Demo
 
-1. Download the [Maps Demo Repo](https://github.com/codepath/android-google-maps-demo/archive/master.zip) 
+1. Download the [Maps Demo Repo](https://github.com/codepath/android-google-maps-demo/archive/master.zip) ([GitHub link](https://github.com/codepath/android-google-maps-demo/))
 2. Run `File` ⇒ `Open`, select `android-google-maps-demo-master`
 3. Verify sure you have these dependencies listed in your `app/build.gradle` file:
       ```gradle
