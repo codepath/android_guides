@@ -184,6 +184,56 @@ public class MapDemoActivity extends AppCompatActivity {
 
 NOTE: Parse's Android SDK requires at least one receiver to be declared on startup in your `AndroidManifest.xml` file in order for push messages to be received.
 
+### Testing Push from the Client Side
+
+Let's setup a quick way to validate push is setup correctly.  First, we need to have this echo reply Parse Cloud function defined.  
+
+```javascript
+// Defined in cloud/main.js on Parse server side
+Parse.Cloud.define('pingReply', function(request, response) {
+  var params = request.params;
+  var customData = params.customData;
+
+  if (!customData) {
+    response.error("Missing customData!")
+  }
+
+  var sender = JSON.parse(customData).sender;
+  var query = new Parse.Query(Parse.Installation);
+  query.equalTo("installationId", sender);
+
+  Parse.Push.send({
+  where: query,
+  // Parse.Push requires a dictionary, not a string.
+  data: {"alert": "The Giants scored!"},
+  }, { success: function() {
+     console.log("#### PUSH OK");
+  }, error: function(error) {
+     console.log("#### PUSH ERROR" + error.message);
+  }, useMasterKey: true});
+
+  response.success('success');
+});
+```
+
+On the client side, we need to execute this Parse Cloud function:
+
+```java
+JSONObject payload = new JSONObject();
+
+try {
+  payload.put("sender", ParseInstallation.getCurrentInstallation().getInstallationId());
+} catch (JSONException e) {
+e.printStackTrace();
+}
+
+HashMap<String, String> data = new HashMap<>();
+data.put("customData", payload.toString());
+
+ParseCloud.callFunctionInBackground("pingReply", data);
+```
+
+
 ### Security Model
 
 The security model chosen for the open source version of Parse is to require any type of push functionality to be implemented as Parse Cloud code executed only on the server side.  Unlike Parse's hosted service, **you cannot implement this type of code** on the actual client:
