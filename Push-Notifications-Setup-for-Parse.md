@@ -224,7 +224,7 @@ JSONObject payload = new JSONObject();
 try {
   payload.put("sender", ParseInstallation.getCurrentInstallation().getInstallationId());
 } catch (JSONException e) {
-e.printStackTrace();
+  e.printStackTrace();
 }
 
 HashMap<String, String> data = new HashMap<>();
