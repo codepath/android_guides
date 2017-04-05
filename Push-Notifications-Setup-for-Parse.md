@@ -35,7 +35,7 @@ var api = new ParseServer({
 
 If you are using Heroku to configure the server, make sure to set the following environment variables:
 
-   * Set `GCM_SENDER_KEY` and `GCM_API_KEY` environment variables to correspond to the Sender ID and API Key in the previous step.  
+   * Set `GCM_SENDER_ID` and `GCM_API_KEY` environment variables to correspond to the Sender ID and API Key in the previous step.  
 
       <img src="http://imgur.com/KgU2S2y.png"/>
 
