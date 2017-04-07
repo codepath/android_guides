@@ -28,6 +28,25 @@ Snackbar.make(parentView, R.string.snackbar_text, Snackbar.LENGTH_INDEFINITE).sh
 
 This can be helpful for error messages that should persist on screen until the user performs the action. 
 
+### Action Click Listener
+
+The `setAction` method accepts a String resource id and a `View.OnClickListener` defined and used:
+
+```java
+// Define the click listener as a member 
+View.OnClickListener myOnClickListener = new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        // Do something here	
+    }
+});
+
+// Pass in the click listener when displaying the Snackbar
+Snackbar.make(parentView, R.string.snackbar_text, Snackbar.LENGTH_LONG)
+  .setAction(R.string.snackbar_action, myOnClickListener)
+  .show(); // Don’t forget to show!
+```
+
 ### Configuration Options
 
 Additional options can be used to configure the snackbar such a `setActionTextColor` and `setDuration`:
