@@ -19,7 +19,7 @@ Open your app's gradle file (`Your-Project/app/build.gradle`) and add the follow
 ```gradle
 dependencies {
     // your other dependencies...
-    compile 'com.takisoft.fix:preference-v7:25.1.1.0'
+    compile 'com.takisoft.fix:preference-v7:25.3.0.0'
 }
 ```
 
