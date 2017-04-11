@@ -7,7 +7,7 @@ This guide will show you how to configure an Android app to send and receive pus
 
 ## Parse Push
 
-First approach is to use the Parse Push service to send and receive push notifications.  You will first need to setup a Parse server by following our [configuring parse server guide](https://guides.codepath.com/android/Configuring-a-Parse-Server) to get things started.   
+First approach is to use the Parse Push service to send and receive push notifications.  You will first need to setup a Parse server by following our [configuring parse server guide](https://guides.codepath.com/android/Configuring-a-Parse-Server) to get things started.
 
 ### Setup
 
@@ -42,7 +42,7 @@ Parse.Cloud.define('pushChannelTest', function(request, response) {
   var pushQuery = new Parse.Query(Parse.Installation);
   pushQuery.equalTo("deviceType", "android");
 
-  var payload = { "alert": message, 
+  var payload = { "alert": message,
                   "customdata": customData
                 };
   };
@@ -64,7 +64,7 @@ Parse.Cloud.define('pushChannelTest', function(request, response) {
 
 ### Receiving Push Notifications
 
-Check out the [Receiving Push Guide](https://parse.com/docs/android/guide#push-notifications-receiving-pushes) for a basic overview of receiving Push messages within an Android app. There are two basic ways to receive push notifications.
+Check out the [Receiving Push Guide](http://docs.parseplatform.org/android/guide/#receiving-pushes) for a basic overview of receiving Push messages within an Android app. There are two basic ways to receive push notifications.
 
 #### Basic Push Invoking Activity
 
@@ -77,7 +77,7 @@ public class YourBroadcastReceiver extends ParsePushBroadcastReceiver {
 
   ....
   protected Class<? extends Activity> getActivity(Context context, Intent intent) {
-    return YourActivity.class; // the activity that shows up 
+    return YourActivity.class; // the activity that shows up
   }
   ....
 
@@ -102,9 +102,9 @@ This way is pretty straightforward to bringing up an activity when a push is rec
 
 #### Custom Push Broadcast Receiver
 
-Receiving push notifications sent with Parse can also be done using the [BroadcastReceiver](http://developer.android.com/reference/android/content/BroadcastReceiver.html) and implementing the `onReceive()` method to manage incoming push events. Any activity can register to handle these broadcast events. 
+Receiving push notifications sent with Parse can also be done using the [BroadcastReceiver](http://developer.android.com/reference/android/content/BroadcastReceiver.html) and implementing the `onReceive()` method to manage incoming push events. Any activity can register to handle these broadcast events.
 
-If you want to implement the push notification receiver, then check out [this tutorial](http://ahirazitai.blogspot.in/2013/05/push-notification.html). Full source code for this tutorial can be [found on github](https://github.com/codepath/ParsePushNotificationExample/blob/master/app/src/main/java/com/test/MyCustomReceiver.java). 
+If you want to implement the push notification receiver, then check out [this tutorial](http://ahirazitai.blogspot.in/2013/05/push-notification.html). Full source code for this tutorial can be [found on github](https://github.com/codepath/ParsePushNotificationExample/blob/master/app/src/main/java/com/test/MyCustomReceiver.java).
 
 Once a `BroadcastReceiver` is listening for messages, there are a few actions that are commonly taken once a push is received:
 
@@ -112,13 +112,13 @@ Once a `BroadcastReceiver` is listening for messages, there are a few actions th
  * [[Update an Activity|Starting-Background-Services#communicating-from-a-service-to-an-application]]
  * [Launch new activity](https://github.com/codepath/ParsePushNotificationExample/blob/master/app/src/main/java/com/test/MyCustomReceiver.java#L69)
 
-You can review examples of these [outlined in this more elaborate code sample](https://github.com/codepath/ParsePushNotificationExample/blob/master/app/src/main/java/com/test/MyCustomReceiver.java). 
+You can review examples of these [outlined in this more elaborate code sample](https://github.com/codepath/ParsePushNotificationExample/blob/master/app/src/main/java/com/test/MyCustomReceiver.java).
 
 #### Creating Dashboard Notifications
 
-By default, Parse will create dashboard notifications based on certain details of the push message that are sent if you specify the "alert" and "title" properties in the notification. In the event that you want to manually manage the notifications, all you have to do is avoid sending the `alert` or `title` so parse doesn't create the notification for you. 
+By default, Parse will create dashboard notifications based on certain details of the push message that are sent if you specify the "alert" and "title" properties in the notification. In the event that you want to manually manage the notifications, all you have to do is avoid sending the `alert` or `title` so parse doesn't create the notification for you.
 
-Details of setting up custom push notifications can be [found in this guide](https://www.parse.com/questions/update-notification-in-android). Check out the [[Notifications|Notifications#creating-a-notification]] guide for a detailed look at creating and managing these notices. See also how to [group notifications](http://developer.android.com/training/notify-user/managing.html) by modifying existing notices. This is useful if you want to avoid stacking a bunch of notifications and instead group messages or only show the latest one.
+Details of setting up custom push notifications can be found in the [[Notifications|Notifications#creating-a-notification]] guide for a detailed look at creating and managing these notices. See also how to [group notifications](http://developer.android.com/training/notify-user/managing.html) by modifying existing notices. This is useful if you want to avoid stacking a bunch of notifications and instead group messages or only show the latest one.
 
 ##### Launching an Activity
 
@@ -126,34 +126,33 @@ When working with push messages, often the notification will launch an activity 
 
 ##### Checking App State when Receiving a Broadcast
 
-In certain cases when receiving a push, you want to **update an activity only if the activity is on the screen**. Otherwise, if the activity is not on screen then you want to [[create a notification|Notifications]]. 
+In certain cases when receiving a push, you want to **update an activity only if the activity is on the screen**. Otherwise, if the activity is not on screen then you want to [[create a notification|Notifications]].
 
 There are two approaches to this: either use `ActivityManager` to check if the activity is running or use ordered broadcasts to override the receiver when the activity is running. Both possible solutions to this are [outlined in this post](http://stackoverflow.com/a/18311830/313399) with a [code sample here](http://stackoverflow.com/a/15949723/313399).
 
 ### Source Code
 
-We have a full demo of Parse Push sending and receiving which [can be found on Github](https://github.com/codepath/ParsePushNotificationExample/tree/master/app/src/main/java/com/test). Check out [MyCustomReceiver](https://github.com/codepath/ParsePushNotificationExample/tree/master/app/src/main/java/com/test/MyCustomReceiver.java) and [MainActivity](https://github.com/codepath/ParsePushNotificationExample/tree/master/app/src/main/java/com/test/MainActivity.java). 
+We have a full demo of Parse Push sending and receiving which [can be found on Github](https://github.com/codepath/ParsePushNotificationExample/tree/master/app/src/main/java/com/test). Check out [MyCustomReceiver](https://github.com/codepath/ParsePushNotificationExample/tree/master/app/src/main/java/com/test/MyCustomReceiver.java) and [MainActivity](https://github.com/codepath/ParsePushNotificationExample/tree/master/app/src/main/java/com/test/MainActivity.java).
 
 ### Gotchas
 
 A few quick things to help make implementing push notifications easier:
 
- * Review the official [parse push troubleshooting guide](https://parse.com/docs/android/guide#push-notifications-troubleshooting).
- * Make sure to register for the broadcasts using the [LocalBroadcastManager](http://developer.android.com/reference/android/support/v4/content/LocalBroadcastManager.html) with the `LocalBroadcastManager.getInstance(this).registerReceiver` method. 
+ * Review the official [parse push troubleshooting guide](http://docs.parseplatform.org/android/guide/#troubleshooting).
+ * Make sure to register for the broadcasts using the [LocalBroadcastManager](http://developer.android.com/reference/android/support/v4/content/LocalBroadcastManager.html) with the `LocalBroadcastManager.getInstance(this).registerReceiver` method.
  * If you need to communicate between a receiver and then a second activity that is not currently in the foreground, you may consider **persisting the notification** to disk in SQLite. This way we can easily access that from another Activity once that activity switches to the foreground.
 
 ## Google Cloud Messaging
 
 Second approach is the more manual way using GCM. Google Cloud Messaging for Android (GCM) is a service that allows you to send data from your server to your users' Android-powered device and also to receive messages from devices on the same connection.  Beneath the surface, Parse implements push notifications for Android with GCM.
 
-Read our [[Google Cloud Messaging]] guide for specific implementation details. 
+Read our [[Google Cloud Messaging]] guide for specific implementation details.
 
 ## References
 
 * [Google I/O 2012 Intro Talk](https://www.youtube.com/watch?v=YoaP6hcDctM)
 * <http://developer.android.com/google/gcm/index.html>
 * <https://pushbots.com/>
-* <https://parse.com/products/push>
 * <http://www.push-notification.org/>
 * <https://mixpanel.com/docs/people-analytics/android-push>
 * <http://aws.amazon.com/sns/>

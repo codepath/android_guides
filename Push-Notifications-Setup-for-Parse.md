@@ -144,7 +144,7 @@ Declare the Push service and a Parse-specific broadcast receiver `AndroidManifes
 </application>
 ```
 
-If you use Parse's default [ParsePushBroadcastReceiver](https://github.com/ParsePlatform/Parse-SDK-Android/blob/master/Parse/src/main/java/com/parse/ParsePushBroadcastReceiver.java#L155-L160), using either `alert` or `title` as a key/value pair will trigger a notification message. See [this section](http://parseplatform.github.io/docs/android/guide/#receiving-pushes) of the Parse documentation.
+If you use Parse's default [ParsePushBroadcastReceiver](https://github.com/ParsePlatform/Parse-SDK-Android/blob/master/Parse/src/main/java/com/parse/ParsePushBroadcastReceiver.java#L155-L160), using either `alert` or `title` as a key/value pair will trigger a notification message. See [this section](http://docs.parseplatform.org/android/guide/#receiving-pushes) of the Parse documentation.
 
 ### Receiving Pushes on Android
 
@@ -157,7 +157,7 @@ ParsePush.subscribeInBackground(CHANNEL_NAME);
 
 After following the steps outlined above, be sure to check out the following resources for more information:
 
- * [ParsePlatform Push Docs](http://parseplatform.github.io/docs/android/guide/#push-notifications)
+ * [ParsePlatform Push Docs](http://docs.parseplatform.org/android/guide/#push-notifications)
  * [ParsePlatform Push QuickStart](https://github.com/ParsePlatform/parse-server/wiki/Push#quick-start)
  * [CodePath Parse Push Example](https://github.com/codepath/ParsePushNotificationExample) 
 

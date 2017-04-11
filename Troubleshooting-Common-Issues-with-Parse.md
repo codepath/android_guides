@@ -1,10 +1,6 @@
 This guide is about troubleshooting common Parse issues that people encounter.
 
-## Common Issues 
-
-> Can't save object, I get "com.parse.ParseException: object not found for update"
-
-This is usually an ACL Error which can be fixed by reviewing [this post](https://parse.com/questions/comparseparseexception-object-not-found-for-update-error-when-the-object-exists), [this one](https://www.parse.com/questions/android-object-not-found-for-update) and also [this post](https://parse.com/questions/how-to-update-objects-in-android).
+## Common Issues
 
 > Can't construct query based on an associated object
 
@@ -54,7 +50,7 @@ public class CustomUser {
     return user.getCreatedAt();
   }
 }
-```  
+```
 
 While this isn't as convenient, it works more reliably.
 
@@ -81,7 +77,7 @@ public class ElectricStove extends Stove {
 }
 ```
 
-This doesn't appear to be possible at this point as Parse Android SDK does not support this. Rather, we can use an identifier to specify what type of "Stove" a particular stove object is. Refer to this [stackoverflow example](http://stackoverflow.com/a/31682925) for specifics. 
+This doesn't appear to be possible at this point as Parse Android SDK does not support this. Rather, we can use an identifier to specify what type of "Stove" a particular stove object is. Refer to this [stackoverflow example](http://stackoverflow.com/a/31682925) for specifics.
 
 ### Passing ParseObject through Intent
 
@@ -89,7 +85,7 @@ Often with Android development, you need to pass an object from one `Activity` t
 
 ### Leveraging Multi-level Relational Queries
 
-In the case where we want to execute a query with Parse that resembles a complex SQL join query, the best way to achieve this is using inner queries as [outlined briefly here](https://www.parse.com/docs/android/guide#queries-relational-queries). The key to inner queries is constructing a query on an associated object and then using [whereMatchesQuery](https://parse.com/docs/android/api/com/parse/ParseQuery.html#whereMatchesQuery\(java.lang.String,%20com.parse.ParseQuery\)) to form the outer query. 
+In the case where we want to execute a query with Parse that resembles a complex SQL join query, the best way to achieve this is using inner queries as [outlined briefly here](http://docs.parseplatform.org/android/guide/#relational-queries). The key to inner queries is constructing a query on an associated object and then using [whereMatchesQuery](http://parseplatform.org/Parse-SDK-Android/api/com/parse/ParseQuery.html#whereMatchesQuery\(java.lang.String,%20com.parse.ParseQuery\)) to form the outer query.
 
 For example, if we had a Post which had associated entries each of which had a user (`Post => Entry => User`), we could get all posts which have at least one entry belonging to a particular user with the following multi-level query:
 
@@ -97,7 +93,7 @@ For example, if we had a Post which had associated entries each of which had a u
 // Get current user object
 User me = (User) User.getCurrentUser();
 /* Equivalent SQL query (to help you to understand):
- SELECT * FROM Post WHERE Post.entry IN 
+ SELECT * FROM Post WHERE Post.entry IN
      (SELECT * FROM Entry WHERE Entry.user = me) */
 // Build inner query (finding entries that have the associated user)
 ParseQuery<Entry> innerQuery = ParseQuery.getQuery(Entry.class);
@@ -117,17 +113,17 @@ query.findInBackground(new FindCallback<Post>() {
 });
 ```
 
-With this mechanism of inner queries we can recreate a lot of the relational logic used with SQL databases. Note that there is also a mechanism called [whereMatchesKeyInQuery](https://parse.com/docs/android/api/com/parse/ParseQuery.html#whereMatchesKeyInQuery\(java.lang.String,%20java.lang.String,%20com.parse.ParseQuery\)) which adds a constraint to the query that requires a particular key's value to match a specified value.
+With this mechanism of inner queries we can recreate a lot of the relational logic used with SQL databases. Note that there is also a mechanism called [whereMatchesKeyInQuery](http://parseplatform.org/Parse-SDK-Android/api/com/parse/ParseQuery.html#whereMatchesKeyInQuery\(java.lang.String,%20java.lang.String,%20com.parse.ParseQuery\)) which adds a constraint to the query that requires a particular key's value to match a specified value.
 
 ### Minimizing Number of Queries
 
-When using Parse, you can often have many different relations between models causing your app to send multiple queries out to get back all the required information. Whenever possible try to reduce the queries sent using "include" statements. Refer to the [relational queries](https://parse.com/docs/android/guide#queries-relational-queries) guide for more details. One caveat is that include only works for pointers to objects and as such does not work with [many-to-many relational data with ParseRelation](https://parse.com/docs/android/guide#objects-relational-data). See [this parse support post](https://www.parse.com/questions/can-i-use-include-in-a-query-to-include-all-members-of-a-parserelation-error-102) for further clarification.
+When using Parse, you can often have many different relations between models causing your app to send multiple queries out to get back all the required information. Whenever possible try to reduce the queries sent using "include" statements. Refer to the [relational queries](http://docs.parseplatform.org/android/guide/#relational-queries) guide for more details. One caveat is that include only works for pointers to objects and as such does not work with [many-to-many relational data with ParseRelation](http://docs.parseplatform.org/android/guide/#relational-data).
 
 In addition, in certain situations making multiple queries to get all the required data for a screen is unavoidable. In these cases, encapsulating all the separate requests into a single object fetching java object can make data retrieval much more manageable in your activity. See [this android guides issue for a rough example](https://github.com/codepath/android_guides/issues/50). The idea here is to wrap all the queries to Parse in a container object which aggregates all the data and fires a listener once all callbacks have returned.
 
 ### Batch Save with Parse
 
-In certain cases, there are many objects that need to be created and saved at once. In this case, we can use batch inserts to significantly speed up posting objects to parse with the [`saveAllInBackground`](https://parse.com/docs/android/api/com/parse/ParseObject.html#saveAllInBackground\(java.util.List\)) static method on `ParseObject`:
+In certain cases, there are many objects that need to be created and saved at once. In this case, we can use batch inserts to significantly speed up posting objects to parse with the [`saveAllInBackground`](http://parseplatform.org/Parse-SDK-Android/api/com/parse/ParseObject.html#saveAllInBackground\(java.util.List\)) static method on `ParseObject`:
 
 ```java
 List<ParseObject> objList = new ArrayList<ParseObject>();
@@ -154,7 +150,7 @@ It looks like public read access to data is necessary for local datastore to wor
 
 ### Caching vs. Pinning
 
-Even though it may not be apparent from Parse documentation, [caching](https://parse.com/docs/android_guide#queries-caching) and [pinning](https://parse.com/docs/android_guide#localdatastore-pin) are different concepts. Mixing the two results in an exception like so:
+Even though it may not be apparent from Parse documentation, [caching](http://docs.parseplatform.org/android/guide/#caching-queries) and [pinning](http://docs.parseplatform.org/android/guide/#pinning) are somewhat different concepts. Mixing the two results in an exception like so:
 
 ```
 Caused by: java.lang.IllegalStateException: Method not allowed when Pinning is enabled.
@@ -164,15 +160,15 @@ Caused by: java.lang.IllegalStateException: Method not allowed when Pinning is e
 
 With caching, hasCachedResult() determines whether a specific result is in the cache.
 
-But there doesn't seem to be a way to determine if a set of objects has been pinned. 
+But there doesn't seem to be a way to determine if a set of objects has been pinned.
 
 ## Providing Complete Offline Support
 
-Let's say you want your app to work completely offline. That is, when it launches for the first time, it checks if there is data in the [local datastore](https://parse.com/docs/android_guide#localdatastore). The app works with the local data if it is available, otherwise it fetches data from the remote store and [pins](https://parse.com/docs/android_guide#localdatastore-pin) it locally. When creating new data, the app pins it to the local datastore as well as persists it remotely (based on network availability). To refresh the local cache, the app provides a pull-to-refresh or some similar mechanism.
+Let's say you want your app to work completely offline. That is, when it launches for the first time, it checks if there is data in the [local datastore](http://docs.parseplatform.org/android/guide/#local-datastore). The app works with the local data if it is available, otherwise it fetches data from the remote store and [pins](hhttp://docs.parseplatform.org/android/guide/#pinning) it locally. When creating new data, the app pins it to the local datastore as well as persists it remotely (based on network availability). To refresh the local cache, the app provides a pull-to-refresh or some similar mechanism.
 
-**Note**: The default Parse functionality removes the locally pinned data after [syncing local changes](https://parse.com/docs/android_guide#localdatastore-saving). 
+**Note**: The default Parse functionality removes the locally pinned data after [syncing local changes](http://docs.parseplatform.org/android/guide/#syncing-local-changes).
 
-### Fetching Data 
+### Fetching Data
 
 ```java
 
@@ -238,15 +234,13 @@ persistDataRemotely(data) {
 
 ## Configuring Proper ACLs
 
-Parse takes its [access control lists](https://parse.com/docs/android_guide#users-acls) very seriously--every object has public read and _owner-only_ write access by default. If you have multiple users adding data to your Parse application and they are not all part of the same [role](https://parse.com/docs/android_guide#roles), it's possible that data created by one user cannot be modified by another. The error message is rather cryptic:
+Parse takes its [access control lists](http://docs.parseplatform.org/android/guide/#security-for-user-objects) very seriously--every object has public read and _owner-only_ write access by default. If you have multiple users adding data to your Parse application and they are not all part of the same [role](hhttp://docs.parseplatform.org/android/guide/#security-for-other-objects), it's possible that data created by one user cannot be modified by another. The error message is rather cryptic:
 
 ```
 exception: com.parse.ParseException: object not found for update
 ```
 
-Review related threads [here](https://parse.com/questions/comparseparseexception-object-not-found-for-update-error-when-the-object-exists), [here](https://www.parse.com/questions/android-object-not-found-for-update) and also [here](https://parse.com/questions/how-to-update-objects-in-android).
-
-**Note**: It may **not** be possible to fix the ACLs manually for all rows in Parse DB and they keep reverting to their original values.
+Note that it may **not** be possible to fix the ACLs manually for all rows in Parse DB and they keep reverting to their original values.
 
 ### Solution
 
@@ -258,7 +252,7 @@ As a one-time operation, fix your ACLs.
 final ParseACL roleACL = new ParseACL();
 roleACL.setPublicReadAccess(true);
 final ParseRole role = new ParseRole("Engineer", roleACL);
- 
+
 // Add users to this role.
 final ParseQuery<ParseUser> userQuery = ParseUser.getQuery();
 userQuery.findInBackground(new FindCallback<ParseUser>() {
@@ -268,7 +262,7 @@ userQuery.findInBackground(new FindCallback<ParseUser>() {
          for (final ParseUser user : parseUsers) {
             role.getUsers().add(user);
          }
- 
+
          role.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
@@ -324,7 +318,7 @@ Add this dependency to your `app/build.gradle` file:
 
 ```gradle
 dependencies {
-  compile 'com.parse:parseinterceptors:0.0.2' 
+  compile 'com.parse:parseinterceptors:0.0.2'
   compile 'com.facebook.stetho:stetho:1.3.0' // Parse interceptor needs this library
 }
 ```
@@ -340,7 +334,7 @@ Parse.initialize(context, parseAppId, parseClientKey);
 
 ### Monitoring all network calls through Chrome
 
-You can add the `ParseStethoInterceptor` before initializing Parse: 
+You can add the `ParseStethoInterceptor` before initializing Parse:
 
 ```java
 Parse.addParseNetworkInterceptor(new ParseStethoInterceptor());

@@ -1,6 +1,6 @@
 ### Overview
 
-Parse provides a cloud-based backend service to build data-driven mobile apps quickly.  Facebook, which acquired the company more than 3 years ago, announced that the service would be shutting down on **January 28, 2017**.   An [open source version](https://github.com/ParsePlatform/parse-server) enables developers to continue using Parse to build apps. 
+Parse provides a cloud-based backend service to build data-driven mobile apps quickly.  Facebook, which acquired the company more than 3 years ago, announced that the service would be shutting down on **January 28, 2017**.   An [open source version](https://github.com/ParsePlatform/parse-server) enables developers to continue using Parse to build apps.
 
 While there are many
 [alternate options to Parse](https://github.com/relatedcode/ParseAlternatives), most of them lack either the functionality, documentation, or sample code to enable quick prototyping.  For this reason, the open source Parse version is a good option to use with minimal deployment/configuration needed.
@@ -11,7 +11,7 @@ You can review this [Wiki](https://github.com/ParsePlatform/parse-server/wiki) t
 
 * **Authentication**: By default, only an application ID is needed to authenticate with open source Parse.  The [base configuration](https://github.com/ParsePlatform/parse-server-example/blob/master/index.js#L13-L18) that comes with the one-click deploy options does not require authenticating with any other types of keys.   Therefore, specifying client keys on Android or iOS is not needed.
 
-* **Push notifications**: Because of the implicit [security issues](https://github.com/ParsePlatform/parse-server/issues/396#issuecomment-183792657) with allowing push notifications to be sent through Android or iOS directly to other devices, this feature is disabled.  Normally in Parse.com you can toggle an option to override this security restriction.  For open source Parse, you must implement pre-defined code written in JavaScript that can be called by the clients to execute, otherwise known as [Parse Cloud](http://blog.parse.com/announcements/pushing-from-the-javascript-sdk-and-cloud-code/).
+* **Push notifications**: Because of the implicit [security issues](https://github.com/ParsePlatform/parse-server/issues/396#issuecomment-183792657) with allowing push notifications to be sent through Android or iOS directly to other devices, this feature is disabled. Note that for open source Parse, you must implement pre-defined code written in JavaScript that can be called by the clients to execute, otherwise known as [Parse Cloud](http://blog.parse.com/announcements/pushing-from-the-javascript-sdk-and-cloud-code/).
 
 * **Single app aware**: The current version only supports single app instances.  There is ongoing work to make this version multi-app aware.  However, if you intend to run many different apps with different datastores, you currently would need to instantiate separate instances.
 
@@ -25,7 +25,7 @@ The steps described this guide walk through most of the process of setting an op
 
 #### Signing up with Heroku
 
-Use Heroku if you have little or no experience with setting up web sites. Heroku allows you to manage changes to deploy easily by specifying a GitHub repository to use.  In addition, it comes with a UI data viewer from mLab.  
+Use Heroku if you have little or no experience with setting up web sites. Heroku allows you to manage changes to deploy easily by specifying a GitHub repository to use.  In addition, it comes with a UI data viewer from mLab.
 
 1. Sign Up / Sign In at [Heroku](https://www.heroku.com)
 
@@ -117,7 +117,7 @@ user: dbuser
 password: dbpassword
 ```
 
-Note that the **user and password** provided are for a database user you configure and are **not your mLab login credentials**. Using that cross-platform app to easily access and modify the data for your Parse MongoDB data. 
+Note that the **user and password** provided are for a database user you configure and are **not your mLab login credentials**. Using that cross-platform app to easily access and modify the data for your Parse MongoDB data.
 
 ### Adding Support for Live Queries
 
@@ -134,7 +134,7 @@ let api = new ParseServer({
 });
 ```
 
-See [this guide](http://parseplatform.org/docs/parse-server/guide/#live-queries) for more details.  Parse Live Queries rely on the websocket protocol, which creates a bidirectional channel between the client and server and periodically exchange ping/pong frames to validate the connection is still alive.  
+See [this guide](http://parseplatform.org/docs/parse-server/guide/#live-queries) for more details.  Parse Live Queries rely on the websocket protocol, which creates a bidirectional channel between the client and server and periodically exchange ping/pong frames to validate the connection is still alive.
 
 Websocket URLs are usually prefixed with ws:// or wss:// (secure) URLs.  Heroku instances already provide websocket support, but if you are deploying to a different server (Amazon), you may need to make sure that TCP port 80 or TCP port 443 are available.
 
@@ -142,7 +142,7 @@ Websocket URLs are usually prefixed with ws:// or wss:// (secure) URLs.  Heroku 
 
 Follow the [[setup guide|Building-Data-driven-Apps-with-Parse#setup]].
 Make sure you have the latest Parse-Android SDK <img src="https://camo.githubusercontent.com/4da68f9e3fc719ae9f0198d780c611d61bb8843b/68747470733a2f2f6d6176656e2d6261646765732e6865726f6b756170702e636f6d2f6d6176656e2d63656e7472616c2f636f6d2e70617273652f70617273652d616e64726f69642f62616467652e7376673f7374796c653d666c6174" alt="Maven Central" data-canonical-src="https://maven-badges.herokuapp.com/maven-central/com.parse/parse-android/badge.svg?style=flat" style="max-width:100%;">
- in your `app/build.gradle` file. 
+ in your `app/build.gradle` file.
 
 ### Troubleshooting Parse Server
 
@@ -170,7 +170,7 @@ Make sure you have the latest Parse-Android SDK <img src="https://camo.githubuse
    2016-02-07T08:28:14.292475+00:00 heroku[router]: at=info method=POST path="/parse/classes/Message" host=parse-testing-port.herokuapp.com request_id=804c2533-ac56-4107-ad05-962d287537e9 fwd="101.12.34.12" dyno=web.1 connect=1ms service=2ms status=404 bytes=179
    ```
 
-* If you are seeing `Master key is invalid, you should only use master key to send push`, chances are you are trying to send Push notifications without enable client push.  On Parse.com you can simply enable a toggle switch but for hosted parse there is an outstanding [issue](https://github.com/ParsePlatform/parse-server/issues/396) that must be resolved to start supporting it.
+* If you are seeing `Master key is invalid, you should only use master key to send push`, chances are you are trying to send Push notifications without enable client push.  On hosted parse there is an outstanding [issue](https://github.com/ParsePlatform/parse-server/issues/396) that must be resolved to start supporting it.
 
 * If you see the exception `Error Loading Messagescom.parse.ParseException: java.lang.IllegalArgumentException: value == null`, try setting the `clientKey` to a blank string such as `Parse.initialize(...).applicationId(...).clientKey("")` rather than `null`. Review [this issue](https://github.com/ParsePlatform/Parse-SDK-Android/issues/392) and [this issue](https://github.com/ParsePlatform/Parse-SDK-Android/issues/201) for further details.
 
@@ -231,7 +231,7 @@ If you wish to store the files in an Amazon S3 bucket, you will need to make sur
 
 1. Modify the Parse server to use the S3 adapter.  See [these changes](https://github.com/codepath/parse-server-example/blob/master/index.js#L20-L29) as an example.
 2. Create an Amazon S3 bucket.
-3. Create an Amazon user with access to this S3 bucket.  
+3. Create an Amazon user with access to this S3 bucket.
 4. Generate an authorized key/secret pair to write to this bucket.
 5. Set the environment variables:
       * Set `S3_ENABLE` to be 1.
