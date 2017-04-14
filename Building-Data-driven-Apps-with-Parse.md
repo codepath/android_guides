@@ -686,11 +686,15 @@ Parse has many powerful features in addition to the core functionality listed ab
 
 ### Uploading Photos
 
-Parse has full support for storing images uploaded by an application. Photos are stored using the `ParseFile` construct [described in more detail here](http://parseplatform.org/docs/android/guide/#files). Refer to the following resources for more details:
+Parse has full support for storing images and files uploaded by an application. Photos are stored using the `ParseFile` construct [described in more detail here](http://parseplatform.org/docs/android/guide/#files). Refer to the following resources for more details:
 
+ * [Parse Docs on File Uploads](http://parseplatform.org/docs/android/guide/#files)
  * [Parse Image Upload Tutorial](http://www.androidbegin.com/tutorial/android-parse-com-image-upload-tutorial) - Tutorial on using `ParseFile` to upload images.
  * [Mealspotting Sample App](https://github.com/rufflez/MealSpottingTutorial) - Detailed app sample showing how to store images associated to a record. Here's a [related video](https://www.youtube.com/watch?v=X9ttMA5ca9U).
  * [[CodePath Camera and Gallery Guide|Accessing-the-Camera-and-Stored-Media]] - Guide on capturing photos with the camera.
+ * [[Handling Files after API 24|Sharing-Content-with-Intents#sharing-files-with-api-24-or-higher]] - Section on how to store files using `FileProvider`
+ * [How to upload images onto Parse post](http://stackoverflow.com/questions/31227547/how-to-upload-image-to-parse-in-android) - Good StackOverflow post on uploading images to Parse
+
 
 ### Geo Location
 
