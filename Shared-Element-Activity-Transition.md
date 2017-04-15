@@ -208,6 +208,54 @@ ivBackdrop.getViewTreeObserver().addOnPreDrawListener(
 );
 ```
 
+### Troubleshooting Shared Element Transitions
+
+If you are running into issues with shared element transitions such as unreliable transitions, the problem likely lies with the order of operation or race conditions associated with loading asynchronous data. For example, if the shared element relies on an image being loaded by Picasso, then we need to properly time the transition to animate reliably:
+
+```java
+Picasso.with(this).load(photoUrl).resize(displayWidth, 0).into(ivCourse,
+    new Callback() {
+        @Override
+        public void onSuccess() {
+            // Call the "scheduleStartPostponedTransition()" method
+            // below when you know for certain that the shared element is
+            // ready for the transition to begin.
+            scheduleStartPostponedTransition(ivCourse);
+        }
+
+        @Override
+        public void onError() {
+           // ...
+        }
+     });
+				
+		
+/**
+ * Schedules the shared element transition to be started immediately
+ * after the shared element has been measured and laid out within the
+ * activity's view hierarchy. Some common places where it might make
+ * sense to call this method are:
+ * 
+ * (1) Inside a Fragment's onCreateView() method (if the shared element
+ *     lives inside a Fragment hosted by the called Activity).
+ *
+ * (2) Inside a Picasso Callback object (if you need to wait for Picasso to
+ *     asynchronously load/scale a bitmap before the transition can begin).
+ **/	
+private void scheduleStartPostponedTransition(final View sharedElement) {
+    sharedElement.getViewTreeObserver().addOnPreDrawListener(
+        new ViewTreeObserver.OnPreDrawListener() {
+            @Override
+            public boolean onPreDraw() {
+                sharedElement.getViewTreeObserver().removeOnPreDrawListener(this);
+                startPostponedEnterTransition();
+                return true;
+            }
+        });
+}
+```
+
+Check out [this article](http://www.androiddesignpatterns.com/2015/03/activity-postponed-shared-element-transitions-part3b.html) for a detailed look at scheduling postponed transitions. 
 
 ## Fragment Shared Elements Transitions
 
