@@ -209,6 +209,8 @@ Make sure you have the latest Parse-Android SDK <img src="https://camo.githubuse
         .server("http://192.168.3.116:1337/parse/")  // lookup your IP address of your machine
    ```
 
+* **Running into issues with mLab and MongoDB or `MONGODB_URL`? Check the [more detailed instructions here](https://gist.github.com/nesquena/7786c5a876e335737fb28d037400fd40) for getting the `MONGODB_URL` setup properly. 
+
 ### Enabling Push Notifications
 
 See [[this guide|Push-Notifications-Setup-for-Parse]] for more details about how to setup both the Parse open source version and the Parse Android SDK Client.
