@@ -29,7 +29,7 @@ c = 1       // definite assignment
 
 Mutable variable:
 
-```Kotlin
+```kotlin
 var x = 5 // `Int` type is inferred
 x += 1
 ```
@@ -37,26 +37,27 @@ x += 1
 ### Functions
 
 Function having two Int parameters with Int return type:
-```Kotlin
+
+```kotlin
 fun sum(a: Int, b: Int) :Int {
 	return a + b
 }
 ```
 Function with an expression body and inferred return type:
 
-```Kotlin 
+```kotlin 
 fun sum(a: Int, b: Int) = a + b 
 ```
 Function returning no meaningful value:
 
-```Kotlin
+```kotlin
 fun printSum(a: Int, b: Int): Unit {
   print(a + b)
 }
 ```
 Unit return type can be omitted:
 
-```Kotlin
+```kotlin
 fun printSum(a: Int, b: Int) {
   print(a + b)
 }
@@ -66,19 +67,19 @@ fun printSum(a: Int, b: Int) {
 
 Iterating over a collection:
 
-```Kotlin
+```kotlin
 for (name in names)
   println(name)
 ```
 Checking if a collection contains an object using in operator:
 
-```Kotlin
+```kotlin
 if (text in names) // names.contains(text) is called
   print("Yes")
 ```
 Using lambda expressions to filter and map collections:
 
-```Kotlin
+```kotlin
 names
     .filter { it.startsWith("A") }
     .sortedBy { it }
@@ -88,13 +89,14 @@ names
 
 ### Null Safety
 
-```Kotlin
+```kotlin
 val x: String? = "Hi"
 x.length // Won't compile
 val y: String = null // Won't compile
 ```
 Dealing with null 
-```Kotlin
+
+```kotlin
 // using the safe call operator ?.
 x?.length // This returns x.length if x is not null, and null otherwise
 
@@ -124,6 +126,7 @@ To be able to write and compile Kotlin code in your Android application you need
 
 
 Your `build.gradle` file will look like this: 
+
 ```gradle
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
@@ -165,7 +168,7 @@ repositories {
 
 You can start by converting your existing Java File to Kotlin file. Open your Java File -> Click on `Code` menu item -> select `Convert Java File to Kotlin File`. Your converted file would look like this:
 
-```Kotlin
+```kotlin
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
