@@ -114,6 +114,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [EasyListViewAdapters](https://github.com/birajpatel/EasyListViewAdapters) - Building multi-row-type listview made much cleaner & easier.
  * [GridListViewAdapters](https://github.com/birajpatel/GridListViewAdapters) - Easily build unlimited Grid cards list like play-store. (ListView working as unlimited GridView)
  * [StickyListHeaders](https://github.com/emilsjolander/StickyListHeaders) - An android library for section headers that stick to the top of a ListView
+ * [PinnedList-Android](https://github.com/Joseph82/PinnedList-Android) - A library that allows you to create a list of items that are pinned by a floating label (text or image) on the left of the list
  * [PinnedListView](https://github.com/beworker/pinned-section-listview) - Pinned Section with ListView
  * [ListViewAnimations](https://github.com/nhaarman/ListViewAnimations) - Easy way to animate ListView items (**DEPRECATED**)
  * [Cardslib](https://github.com/gabrielemariotti/cardslib) - Card UI for Lists or Grids
