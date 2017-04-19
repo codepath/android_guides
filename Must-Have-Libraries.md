@@ -114,7 +114,6 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [EasyListViewAdapters](https://github.com/birajpatel/EasyListViewAdapters) - Building multi-row-type listview made much cleaner & easier.
  * [GridListViewAdapters](https://github.com/birajpatel/GridListViewAdapters) - Easily build unlimited Grid cards list like play-store. (ListView working as unlimited GridView)
  * [StickyListHeaders](https://github.com/emilsjolander/StickyListHeaders) - An android library for section headers that stick to the top of a ListView
- * [PinnedList-Android](https://github.com/Joseph82/PinnedList-Android) - A library that allows you to create a list of items that are pinned by a floating label (text or image) on the left of the list
  * [PinnedListView](https://github.com/beworker/pinned-section-listview) - Pinned Section with ListView
  * [ListViewAnimations](https://github.com/nhaarman/ListViewAnimations) - Easy way to animate ListView items (**DEPRECATED**)
  * [Cardslib](https://github.com/gabrielemariotti/cardslib) - Card UI for Lists or Grids
@@ -124,7 +123,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [Paginated Table](https://github.com/ojinxy/AndroidComponents) - This is a table which allows dynamic paging for any list of objects. Icons can be added to columns as well as custom items such as check boxes and buttons.
 
 ### RecyclerView
-
+* [PinnedList-Android](https://github.com/Joseph82/PinnedList-Android) - A library that allows you to create a list of items that are pinned by a floating label (text or image) on the left of the list
 * [UltimateRecyclerView](https://github.com/cymcsg/UltimateRecyclerView) - Augmented RecyclerView with refreshing, loading more, animation and many other features.
 * [AdvRecyclerView](https://github.com/h6ah4i/android-advancedrecyclerview) - Extended RecyclerView with swipe to dismiss, and draggable or expanding items. 
 * [android-parallax-recyclerview](https://github.com/kanytu/android-parallax-recyclerview) - An adapter which could be used to achieve a parallax effect on RecyclerView.
