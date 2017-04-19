@@ -48,6 +48,7 @@ The easiest method for understanding this is multiple specific examples with sam
  * [MVP Explained](https://medium.com/upday-devs/android-architecture-patterns-part-2-model-view-presenter-8a6faaae14a5#.u53s2u5gu) with [official sample code](https://github.com/googlesamples/android-architecture/tree/todo-mvp-rxjava/)
  * [MVP Tutorial](https://medium.com/@be.betr.codr/android-mvp-survival-guide-b2094ab79f78#.ee4ajr7pz) with [handy sample code](https://github.com/WillyShakes/NetflixShows)
  * [Introduction to MVP](https://code.tutsplus.com/tutorials/an-introduction-to-model-view-presenter-on-android--cms-26162)
+ * [Android MVP Basics with Sample](https://android.jlelse.eu/android-mvp-basics-w-sample-app-3698e33ab9db)
  * [Android MVP Pattern, Part 1](http://www.tinmegali.com/en/model-view-presenter-android-part-1/), [2](http://www.tinmegali.com/en/model-view-presenter-mvp-in-android-part-2/), and [3](http://www.tinmegali.com/en/model-view-presenter-mvp-in-android-part-3/). 
  * [Basic MVP Architecture](https://medium.com/mobiwise-blog/android-basic-project-architecture-for-mvp-72f4b33252d0#.dcco0jo19)
  * [Brief MVP Introduction](https://antonioleiva.com/mvp-android/) with [sample code](https://github.com/antoniolg/androidmvp)
