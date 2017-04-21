@@ -11,7 +11,6 @@ Android is changing constantly under our feet. In order to keep up to date with 
 * [Android Developers YouTube Channel](https://www.youtube.com/user/androiddevelopers)
 * [Styling Android](http://blog.stylingandroid.com/)
 * [Square Eng Blog](https://corner.squareup.com/)
-* [Mindorks Blog](https://blog.mindorks.com/)
 * [Android Arsenal Library Tracker](https://android-arsenal.com/?sort=updated)
 * [Android Developers Backstage](http://androidbackstage.blogspot.com/)
 * [Android Study Group Slack](https://github.com/AndroidStudyGroup/Code-Of-Conduct#member-nomination) (requires a nomination)
@@ -26,3 +25,4 @@ You can also check out the following secondary resources:
 * [Android Development Google+ Group](https://plus.google.com/communities/105153134372062985968)
 * [Jake Wharton on Twitter](https://twitter.com/jakewharton)
 * [Cyril Mottier on Twitter](https://twitter.com/cyrilmottier)
+* [Mindorks Blog](https://blog.mindorks.com/)
