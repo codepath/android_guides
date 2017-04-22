@@ -19,7 +19,11 @@ sudo apt-get install libc6-dev-i386 lib32z1 default-jdk
 Assuming you have OS X running, you can use Homebrew to install the Android SDK.
 
 1. [Install Homebrew](http://brew.sh/) - package manager for OSX
-2. run `brew install android-sdk`
+2. run 
+```
+brew tap caskroom/cask
+brew cask install android-sdk
+```
 
 This will install the Android SDK tools in `/usr/local/Cellar/android-sdk/<version number>`
 
