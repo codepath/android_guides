@@ -22,7 +22,7 @@ If you are using OkHttp or Retrofit, you can take advantage of Facebook's [Steth
 
 ### Setting up a proxy
 
-If you are using [[Android Async Http Client|Using-Android-Async-Http-Client]] or any other networking library, you cannot leverage the Stetho project and Chrome project as noted in this [issue](https://github.com/facebook/stetho/issues/116).  However, you can still setup an HTTP proxy that can intercept the network requests. 
+If you are using [[Android Async Http Client|Using-Android-Async-Http-Client]] or any other networking library that relies on Android's legacy Apache HttpClient implementation, you cannot leverage the Stetho project and Chrome project as noted in this [issue](https://github.com/facebook/stetho/issues/116).  However, you can still setup an HTTP proxy that can intercept the network requests. 
 
 The process requires two parts: one on the PC that will act as the proxy, and the other on the Android device.  It will also walk you through installing a root SSL certificate that can be used by the proxy to inspect SSL network requests.
 
@@ -52,7 +52,7 @@ The process requires two parts: one on the PC that will act as the proxy, and th
 
 ***On your phone:***
 
-1. Open your Android device and go to [http://chls.pro/ssl](http://chls.pro/ssl).  Download and install the root certificate on the phone.
+1. Open your Android device and go to [http://chls.pro/ssl](http://chls.pro/ssl).  Download and install the root certificate on the phone.  
 
 2. Go to your WiFi settings and modify the existing network:
 
@@ -72,6 +72,30 @@ The process requires two parts: one on the PC that will act as the proxy, and th
      AsyncHttpClient client = new AsyncHttpClient();
      client.setProxy(System.getProperty("http.proxyHost"), Integer.parseInt(System.getProperty("http.proxyPort")));
      ```
+
+6. If you are targeting API 24 or above, make sure that your app allows the self-signed Charles Proxy certificate to be used.  Add this file to your `res/xml/network_security_config.xml`:
+
+     ```xml
+     <?xml version="1.0" encoding="utf-8"?>
+     <network-security-config>
+        <debug-overrides>
+           <trust-anchors>
+               <!-- Trust user added CAs while debuggable only -->
+               <certificates src="user" />
+           </trust-anchors>
+       </debug-overrides>
+     </network-security-config>
+    ```
+
+    Inside your `AndroidManifest.xml` file, make sure to include this `networkSecurityConfig` parameter:
+
+    ```xml
+       <application
+           android:name=".RestApplication"
+           android:networkSecurityConfig="@xml/network_security_config"
+    ```
+
+    If you forget this step, a proxied SSL connection will not work for any devices targeted for API 24 (Nougat) and above.  For more information, see [this link](https://developer.android.com/training/articles/security-config.html).
 
 6. Go back to Charles Proxy and start recording network traffic:
 
