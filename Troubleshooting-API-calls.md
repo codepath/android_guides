@@ -52,7 +52,7 @@ The process requires two parts: one on the PC that will act as the proxy, and th
 
 ***On your phone:***
 
-1. Open your Android device and go to [http://chls.pro/ssl](http://chls.pro/ssl).  Download and install the root certificate on the phone.  
+1. Open your Android device and go to [http://chls.pro/ssl](http://chls.pro/ssl).  Download and install the root certificate on the phone.   If you are using a Genymotion emulator, it may be easier to install Chrome first to download this cert, which requires [[setting up Google Play Services|Genymotion-2.0-Emulators-with-Google-Play-support#setup-google-play-services]] first.
 
 2. Go to your WiFi settings and modify the existing network:
 
