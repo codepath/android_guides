@@ -544,6 +544,8 @@ For example, here's scrolling through a list after customizing the animation:
 
 <img src="https://i.imgur.com/v0VyQS8.gif" width="300" alt="Screenshot" />
 
+For a look further into writing custom animators, check out this [custom item animation post](https://hackmd.io/s/r1IEQ-jAl).
+
 #### New ItemAnimator interface
 
 Starting in the [support v23.1.0](https://developer.android.com/tools/support-library/index.html#revisions) library for `RecyclerView`, there is also a new interface for the [ItemAnimator](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.ItemAnimator.html#pubmethods) interface.   The old interface has now been deprecated to `SimpleItemAnimator` .  This library adds a [ItemHolderInfo](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.ItemAnimator.ItemHolderInfo.html) class, which appears to be similar to the [MoveInfo](https://github.com/android/platform_frameworks_support/blob/master/v7/recyclerview/src/android/support/v7/widget/DefaultItemAnimator.java#L53-L63) class defined by `DefaultItemAnimator` but used more generically to pass state information between animation transition states.  It is likely that the next version of `DefaultItemAnimator` will be simplified to use this new class and revised interface.
