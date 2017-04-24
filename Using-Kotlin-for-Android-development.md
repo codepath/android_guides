@@ -187,6 +187,8 @@ This guide was originally put together by [Kirk Saviour (@savekirk)](https://git
 
 ## References
 
+- <https://medium.com/@calren24/kotlin-in-action-chapter-2-kotlin-basics-430a905ef4d8>
+- <https://medium.com/@calren24/kotlin-in-action-chapter-1-what-and-why-9d2899560755>
 - http://antonioleiva.com/kotlin-for-android-introduction/
 - http://antonioleiva.com/kotlin-android-create-project/
 - https://kotlinlang.org
