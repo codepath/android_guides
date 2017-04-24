@@ -544,7 +544,7 @@ For example, here's scrolling through a list after customizing the animation:
 
 <img src="https://i.imgur.com/v0VyQS8.gif" width="300" alt="Screenshot" />
 
-For a look further into writing custom animators, check out this [custom item animation post](https://hackmd.io/s/r1IEQ-jAl).
+For a further look into defining custom item animators, check out this [custom RecyclerView item animation post](https://hackmd.io/s/r1IEQ-jAl).
 
 #### New ItemAnimator interface
 
