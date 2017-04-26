@@ -39,9 +39,11 @@ In your app’s manifest file (`AndroidManifest.xml`), find an activity whose in
 </activity>
 ```
 
-Your `shortcut.xml` will be under xml-v25 under res folder and will look like this
+Your `shortcut.xml` will be under xml under res folder and will look like this
 ```xml
-<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:targetApi="25">
     <shortcut
         android:enabled="true"
         android:icon="@drawable/icon_name"
