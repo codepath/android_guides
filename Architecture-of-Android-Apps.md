@@ -47,6 +47,7 @@ The easiest method for understanding this is multiple specific examples with sam
  * [MVP Architecture in Android](http://macoscope.com/blog/model-view-presenter-architecture-in-android-applications/)
  * [MVP Explained](https://medium.com/upday-devs/android-architecture-patterns-part-2-model-view-presenter-8a6faaae14a5#.u53s2u5gu) with [official sample code](https://github.com/googlesamples/android-architecture/tree/todo-mvp-rxjava/)
  * [MVP Tutorial](https://medium.com/@be.betr.codr/android-mvp-survival-guide-b2094ab79f78#.ee4ajr7pz) with [handy sample code](https://github.com/WillyShakes/NetflixShows)
+ * [Avenging Android MVP Article](https://android.jlelse.eu/avenging-android-mvp-23461aebe9b5)
  * [Introduction to MVP](https://code.tutsplus.com/tutorials/an-introduction-to-model-view-presenter-on-android--cms-26162)
  * [Android MVP Basics with Sample](https://android.jlelse.eu/android-mvp-basics-w-sample-app-3698e33ab9db)
  * [Android MVP Pattern, Part 1](http://www.tinmegali.com/en/model-view-presenter-android-part-1/), [2](http://www.tinmegali.com/en/model-view-presenter-mvp-in-android-part-2/), and [3](http://www.tinmegali.com/en/model-view-presenter-mvp-in-android-part-3/). 
@@ -94,3 +95,11 @@ Clean architecture:
 MVVM Pattern:
 * <https://labs.ribot.co.uk/approaching-android-with-mvvm-8ceec02d5442>
 
+Other tutorial articles:
+
+ * [A Simple Android Apps with MVP, Dagger, RxJava, and Retrofit](https://medium.com/@nurrohman/a-simple-android-apps-with-mvp-dagger-rxjava-and-retrofit-4edb214a66d7)
+ * [MVP, Dagger 2, RxJava](https://www.captechconsulting.com/blogs/a-mvp-approach-to-lifecycle-safe-requests-with-retrofit-20-and-rxjava)
+ * [Dagger 2 and MVP Architecture](https://adityaladwa.wordpress.com/2016/05/11/dagger-2-and-mvp-architecture/)
+ * [Offline-First Reactive Android Apps](https://adityaladwa.wordpress.com/2016/10/25/offline-first-reactive-android-apps-repository-pattern-mvp-dagger-2-rxjava-contentprovider/) - Repository Pattern + MVP + Dagger 2 + RxJava + ContentProvider
+ * [MVP + Dagger Tutorial](https://hackernoon.com/yet-another-mvp-article-part-2-how-dagger-helps-with-the-project-90d049a45e00)
+ * [Dagger 2 and RxJava 1 Tutorial](http://saulmm.github.io/when-Thor-and-Hulk-meet-dagger2-rxjava-1)
