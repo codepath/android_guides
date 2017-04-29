@@ -58,6 +58,7 @@ If you are an experienced engineer with 2+ years of professional experience in s
 **External Resources**. Great external content to explore.
 
 * [[Android Resources List|Beginning Android Resources#beginning-android-resources]]
+* [Ultimate Android Reference](https://github.com/aritraroy/UltimateAndroidReference/blob/master/README.md)
 * [Android Tips and Tricks Repo](https://github.com/nisrulz/android-tips-tricks/blob/master/Readme.md)
 * [Google Android Interactive Codelabs](https://codelabs.developers.google.com/?cat=Android)
 * [Google Android Glossary](https://developers.google.com/android/for-all/vocab-words/) (Defining Common Terms)
