@@ -83,7 +83,7 @@ public Uri getPhotoFileUri(String fileName) {
         }
 
         // Return the file target for the photo based on filename
-        File file = Uri.fromFile(new File(mediaStorageDir.getPath() + File.separator + fileName));
+        File file = new File(mediaStorageDir.getPath() + File.separator + fileName);
 
         // wrap File object into a content provider
         // required for API >= 24
