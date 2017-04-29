@@ -1,6 +1,6 @@
 ## Overview
 
-Cupboard is a way to manage persistence in a sqlite instance for your app. It was written by [Hugo Visser] (https://twitter.com/botteaap). His talk on the library can be found [here](https://skillsmatter.com/skillscasts/4806-simple-persistence-with-cupboard). It's a small library, simple to use, and it was designed specifically for Android unlike ORMlite.
+Cupboard is a way to manage persistence in a sqlite instance for your app. It was written by [Hugo Visser](https://twitter.com/botteaap). His talk on the library can be found [here](https://skillsmatter.com/skillscasts/4806-simple-persistence-with-cupboard). It's a small library, simple to use, and it was designed specifically for Android unlike ORMlite.
 
 Using the Cupboard persistence library makes managing client-side models extremely easy in simple cases. For more advanced or custom cases, you can use [[SQLiteOpenHelper|Local-Databases-with-SQLiteOpenHelper]] to manage the database communication directly. However, keep in mind that Cupboard was written with the intention to abstract away a lot of boilerplate and reused code that would go into making SQLiteOpenHelper function. 
 
