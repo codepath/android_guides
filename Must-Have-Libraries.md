@@ -269,8 +269,8 @@ Check out the following resources for finding libraries:
  * <http://android-arsenal.com>
  * [Wasabeef Core Libraries](https://github.com/wasabeef/awesome-android-libraries)
  * [Wasabeef UI Libraries](https://github.com/wasabeef/awesome-android-ui)
+ * [Ultimate Android Library Reference](https://github.com/aritraroy/UltimateAndroidReference/blob/master/README.md)
  * [Snowdream Android Library Repository](https://snowdream.github.io/awesome-android/)
- * [Android-Libs.com](http://android-libs.com)
  * <http://appdevwiki.com/wiki/show/HomePage>
  * <http://www.libtastic.com>
  * [Android Libhunt](https://android.libhunt.com/)
