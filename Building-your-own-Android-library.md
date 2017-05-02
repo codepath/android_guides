@@ -134,7 +134,7 @@ buildscript {
  
 // Plugin used to upload authenticated files to BinTray through Gradle
 plugins {
-   id "com.jfrog.bintray" version "1.5"
+   id "com.jfrog.bintray" version "1.7.3"
 }
 ```
 
