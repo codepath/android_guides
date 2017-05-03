@@ -255,6 +255,7 @@ Next, we modify the `onBindViewHolder()` to associate the User object with the u
 
 Refer also to these tutorials for how to work with data binding in `RecyclerView` or `ListView`:
 
+ * [Databinding within RecyclerView](https://medium.com/google-developers/android-data-binding-recyclerview-db7c40d9f0e4)
  * [Using data binding in RecyclerView](http://mutualmobile.com/posts/using-data-binding-api-in-recyclerview).
  * [RecyclerView and Data Binding](https://www.jayway.com/2015/12/08/recyclerview-and-databinding/)
  * [Simple code for data binding in the RecyclerView](https://newfivefour.com/android-databinding-recyclerview.html)
@@ -270,7 +271,15 @@ Refer to the following resources related to the include tag and binding:
 
 ### Two Way Data Binding
 
-If you want to have a two-way binding between the view and the data source, check out this [handy 2-way data binding tutorial](https://medium.com/@fabioCollini/android-data-binding-f9f9d3afc761#.6h923gix6).
+If you want to have a two-way binding between the view and the data source, check out this [handy 2-way data binding tutorial](https://medium.com/google-developers/android-data-binding-2-way-your-way-ccac20f6313). You can also check [this reference on 2-way data binding](https://medium.com/google-developers/android-data-binding-2-way-your-way-ccac20f6313) and [this related post on inverse functions](https://medium.com/google-developers/android-data-binding-inverse-functions-95aab4b11873).
+
+### Advanced Data Binding
+
+There is a great [series of posts](https://medium.com/@georgemount007) outlining advanced data binding features with the most important highlighted below:
+
+ * [Animating UI Updates with Data Binding](https://medium.com/google-developers/android-data-binding-animations-55f6b5956a64)
+ * [Dynamic List Tricks and Data Binding](https://medium.com/google-developers/android-data-binding-list-tricks-ef3d5630555e)
+ * [Databinding Dependent Properties](https://medium.com/google-developers/android-data-binding-dependent-properties-516d3235cd7c)
 
 ## MVVM Architecture and Data Binding 
 
