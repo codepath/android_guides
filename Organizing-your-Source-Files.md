@@ -12,12 +12,12 @@ The following naming and casing conventions are important for your Java code:
 
 | Type        | Example                | Description                   | Link |
 | ----------- | ------------           | ----------------------------- | ------
-| Variable    | `incomeTaxRate`        | All variables should be camel case | [Read More](https://www.cwu.edu/~gellenbe/javastyle/variable.html) |
-| Constant    | `DAYS_IN_WEEK`         | All constants should be all uppercase | [Read More](https://www.cwu.edu/~gellenbe/javastyle/constant.html) |
-| Method      | `convertToEuroDollars` | All methods should be camel case | [Read More](https://www.cwu.edu/~gellenbe/javastyle/method.html) |
-| Parameter   | `depositAmount`        | All parameter names should be camel case | [Read More](https://www.cwu.edu/~gellenbe/javastyle/parameter.html) |
+| Variable    | `incomeTaxRate`        | All variables should be camel case | [Read More](http://www.oracle.com/technetwork/java/javase/documentation/codeconventions-137265.html#547) |
+| Constant    | `DAYS_IN_WEEK`         | All constants should be all uppercase | [Read More](http://www.oracle.com/technetwork/java/javase/documentation/codeconventions-137265.html#1255) |
+| Method      | `convertToEuroDollars` | All methods should be camel case | [Read More](http://www.oracle.com/technetwork/java/javase/documentation/codeconventions-135099.html#367) |
+| Parameter   | `depositAmount`        | All parameter names should be camel case | [Read More](http://www.oracle.com/technetwork/java/javase/documentation/codeconventions-141270.html#16817) |
 
-See [this naming guide](https://www.cwu.edu/~gellenbe/javastyle/naming.html) for more details.
+See [this naming guide](http://www.oracle.com/technetwork/java/codeconvtoc-136057.html) for more details.
 
 #### For Android Classes
 
