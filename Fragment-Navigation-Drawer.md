@@ -80,7 +80,7 @@ You can also create subheaders too and group elements together:
 
 ### Define Fragments
 
-Next, you need to define your fragments that will be displayed within the drawer. These can be any support fragments you define within your application. Make sure that all the fragments extend from **android.support.v4.app.Fragment**.
+Next, you need to define your fragments that will be displayed within the activity. These can be any support fragments you define within your application. Make sure that all the fragments extend from **android.support.v4.app.Fragment**.
 
 ### Setup Toolbar
 
