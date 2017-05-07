@@ -142,7 +142,7 @@ Now, we can store the path to that resized image and load that from disk instead
 
 ### Rotating the Picture
 
-When using the Camera intent to capture a photo, the picture is always taken in the orientation the camera is built into the device. To get your image rotated correctly you'll have to read the orientation information that is stored into the picture (EXIF meta data) and perform the following transformation:
+When using the Camera intent to capture a photo, the picture is always taken in the orientation the camera is built into the device. To get your image rotated correctly you'll have to read the orientation information that is stored into the picture (EXIF meta data) and perform the following transformation using the [ExifInterface Support Library](https://android-developers.googleblog.com/2016/12/introducing-the-exifinterface-support-library.html):
 
 ```java
 public Bitmap rotateBitmapOrientation(String photoFilePath) {
@@ -174,7 +174,7 @@ public Bitmap rotateBitmapOrientation(String photoFilePath) {
 }
 ```
 
-See [this guide](http://stackoverflow.com/a/12933632/313399) for the source for this answer. Be aware that on certain devices even the EXIF data isn't set properly, in which case you should [checkout this workaround](http://stackoverflow.com/a/8864367/313399) for a fix.
+See [this guide](http://stackoverflow.com/a/12933632/313399) for the source for this answer. Be aware that on certain devices even the EXIF data isn't set properly, in which case you should [checkout this workaround](http://stackoverflow.com/a/8864367/313399) for a fix. You can [read more here about the ExifInterface Support Library](https://android-developers.googleblog.com/2016/12/introducing-the-exifinterface-support-library.html).
 
 ### Applying Filters to Images
 
