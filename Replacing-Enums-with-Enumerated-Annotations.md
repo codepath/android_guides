@@ -24,7 +24,7 @@ public class ItemTypeDescriptor {
 }
 ```
 
-Right now there is no validations to ensure that the type passed into the constructor is valid. We can use `IntDef` to ensure that the the value is one of the expected values by adding annotations:
+Right now there is no validations to ensure that the type passed into the constructor is valid. We can use `IntDef` to ensure that the value is one of the expected values by adding annotations:
 
 ```java
 public class ItemTypeDescriptor {
