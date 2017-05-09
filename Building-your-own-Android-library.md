@@ -187,6 +187,24 @@ bintray {
 }
 ```
 
+If you want to test to see if the package works locally, type:
+
+```bash
+./gradlew install
+```
+
+The package will be installed in your ~/.m2/repository.  If you wish to try the library out, you can add this private Maven repository to the root `build.gradle` config of the application that will be using te 
+
+```
+allprojects {
+
+    repositories {
+        // add first
+        maven { url "${System.env.HOME}/.m2/repository" }
+        jcenter()
+    }
+```
+
 To upload your package, just type:
 
 ```bash
@@ -194,10 +212,8 @@ To upload your package, just type:
 export BINTRAY_USER="codepath"
 # Set your Bintray API key below
 export BINTRAY_API_KEY="YOUR_BINTRAY_API_KEY_HERE"
-./gradlew <subproject name>:bintrayUpload // i.e. ./gradlew app:bintrayUpload
+./gradlew bintrayUpload 
 ```
-
-You need to specify a subproject currently because of this [reported bug](https://github.com/bintray/gradle-bintray-plugin/issues/74#issuecomment-244616013).
 
 #### Setting up a private Amazon S3 Maven repository
 
