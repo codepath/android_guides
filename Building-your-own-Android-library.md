@@ -195,7 +195,7 @@ If you want to test to see if the package works locally, type:
 
 The package will be installed in your ~/.m2/repository.  If you wish to try the library out, you can add this private Maven repository to the root `build.gradle` config of the application that will be using te 
 
-```
+```gradle
 allprojects {
 
     repositories {
