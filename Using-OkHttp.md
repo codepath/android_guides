@@ -398,6 +398,32 @@ If you need to close the connection properly, make sure to use a status code of 
 webSocket.close(1000, "closing);
 ```
 
+### Enabling TLS V1.2 on older devices
+
+If you are seeing `SSL handshake terminated` errors and using Android 4.0 devices, you will need to enable TLS v1.2 explicitly.  Android has supported TLS 1.2 since API 16 (Android 4.1).  You also should ensure you are using the latest OpenSSL by using the `ProviderInstaller as described [here](https://developer.android.com/training/articles/security-gms-provider.html).
+ 
+This should be in the first line of your Application (before OkHttp initializes):
+
+```java
+public class MyApplication extends Application {
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        try {
+          // Google Play will install latest OpenSSL 
+          ProviderInstaller.installIfNeeded(getApplicationContext());
+          SSLContext sslContext;
+          sslContext = SSLContext.getInstance("TLSv1.2");
+          sslContext.init(null, null, null);
+          sslContext.createSSLEngine();
+        } catch (GooglePlayServicesRepairableException | GooglePlayServicesNotAvailableException
+            | NoSuchAlgorithmException | KeyManagementException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
 ### Recipe guide
 
 Check out Square's official [recipe guide](https://github.com/square/okhttp/wiki/Recipes) for other examples of using OkHttp.
