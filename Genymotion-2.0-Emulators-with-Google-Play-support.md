@@ -61,7 +61,7 @@ See [this link](http://stackoverflow.com/questions/38275500/genymotion-virtualbo
 
 **NOTE**: These steps need to be followed only if you want to be able to use Google services such as maps and push messaging on your Genymotion device. For basic testing, these steps can be safely skipped.
 
-Check out [this handy YoTtube video](https://www.youtube.com/watch?v=UFhStnF42tw) for a guided step-by-step of enabling play services in Genymotion. You may want to use a newer version of these files based on the desired emulator as found below. 
+Check out [this handy YouTube video](https://www.youtube.com/watch?v=UFhStnF42tw) for a guided step-by-step of enabling play services in Genymotion. You may want to use a newer version of these files based on the desired emulator as found below. 
 
 1. Download the [opengapps.org](http://opengapps.org/) image corresponding to your Android version. Make sure to choose **x86** and the **nano** instance.  
       <img src="http://imgur.com/z8O6Txp.png" width="400">
