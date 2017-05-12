@@ -68,7 +68,7 @@ Make sure the RecyclerView support library is listed as a dependency in your `ap
 ```gradle
 dependencies {
     ...
-    compile 'com.android.support:recyclerview-v7:25.2.0'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
 }
 ```
 
