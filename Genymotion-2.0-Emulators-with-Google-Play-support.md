@@ -61,41 +61,23 @@ See [this link](http://stackoverflow.com/questions/38275500/genymotion-virtualbo
 
 **NOTE**: These steps need to be followed only if you want to be able to use Google services such as maps and push messaging on your Genymotion device. For basic testing, these steps can be safely skipped.
 
-Check out [this handy youtube video](https://www.youtube.com/watch?v=UFhStnF42tw) for a guided step-by-step of enabling play services in Genymotion. You may want to use a newer version of these files based on the desired emulator as found below. 
+Check out [this handy YoTtube video](https://www.youtube.com/watch?v=UFhStnF42tw) for a guided step-by-step of enabling play services in Genymotion. You may want to use a newer version of these files based on the desired emulator as found below. 
 
-1. Download the [ARM Translation Installer v1.1](http://www14.zippyshare.com/v/44278764/file.html) and drag and drop the zip file onto the running Genymotion emulator device.  The ARM emulator is only needed for apps that trigger a `INSTALL_FAILED_CPU_ABI_INCOMPATIBLE` error.
-  * **Note:** If you get `Files successfully copied` message, you need to make sure there **are no spaces in the filename**. Remove any spaces from the name of your zip file before dragging to ensure the file is detected as flashable.
+1. Download the [opengapps.org](http://opengapps.org/) image corresponding to your Android version. Make sure to choose **x86** and the **nano** instance.  
+      <img src="http://imgur.com/z8O6Txp.png" width="400">
 
-2. You must **close and restart the emulator** fully before continuing.
+2. Drag and drop the zip file onto the running Genymotion emulator device
+   ![Installing Google Apps APK](http://imgur.com/zSPf1Fn.png)
 
-3. The Google Play APK package needed is specific to the Android emulator version.  You must use the corresponding Google Play Service package.  Otherwise, you may notice problems with Google Play not having Internet connectivity or other strange issues.
+3. When asked to flash the device, make sure to proceed with the installation.
 
-| Version     | APK Link                                                                          |
-|-------------|:---------------------------------------------------------------------------------:| 406
-|Android 7.0  | [Download from opengapps.org](http://opengapps.org/) - Choose the x86, 7.0, and micro instance.    <img src="http://imgur.com/L4ytwv1.png" width="400"> |
-|Android 6.0  |1) [gapps-L-4-21-15.zip](https://www.androidfilehost.com/?fid=96042739161891406) 2) [benzo-gapps-M-20151011-signed-chroma-r3.zip](https://www.androidfilehost.com/?fid=24052804347835438) (See instructions below)|
-|Android 5.0  |[Google Play Services APK](https://www.androidfilehost.com/?fid=95784891001614559) - requires Genymotion 2.4.0+ |
-|Android 4.4.4|[Google Play Services APK](https://www.androidfilehost.com/?fid=23501681358544845)             |
-|Android 4.3  |[Google Play Services APK](https://www.androidfilehost.com/?fid=23060877490000124)     |
+4. You must **close and restart the emulator** so that Google Play Store can be installed.
 
-4. Drag and drop the zip file onto the running Genymotion emulator device
-   ![Installing Google Apps APK](https://i.imgur.com/PvGjlyo.png)
+5. After restart, open the "Play Store" app on your emulator and **sign in** with a google account.
 
-   **NOTE**: For Android 6.0, you need to first flash the first .ZIP file.  Then you need to sign-in to your Google account and then flash the second file.  See [these instructions](https://z3ntu.github.io/2015/12/10/play-services-with-genymotion.html) for more details.
+6. Make sure to update to the latest version of Google Play Services by opening the "Play Store" app and then the "Maps" app to verify play services is running correctly.
 
-5. When asked to flash the device, make sure to proceed with the installation.
-   - At this point, 'Google Apps Services' will crash frequently with the message "google play services has stopped working".
-   - **Note:** If you get `Files successfully copied` message, you need to make sure there **are no spaces in the filename**. Remove any spaces from the name of your zip file before dragging to ensure the file is detected as flashable.
-
-6. You must **close and restart the emulator** so that Google Play Store can be installed.
-
-7. After restart, open the "Play Store" app on your emulator and **sign in** with a google account.
-   - If you can't find Google Play, try updating the Google Hangouts app to trigger an update to the Play Store.
-   - You may see messages that the Google+ app needs to be updated.  You will need to go to the Google Play Store and click "Update".
-
-8. **Android 5.0.0 only:** If you are using Android 5.0.0, you will be prompted to update to the latest version of Google+ app.  In addition, make sure to upgrade to at least Genymotion 2.4.0.
-
-9. Make sure to update to the latest version of Google Play Services by opening the "Play Store" app and then the "Maps" app to verify play services is running correctly.
+7. If you are using Android 7.0 (API 24) or higher, **make sure** to install the Chrome app from the Play Store.  The WebView browser that comes with API 24 and higher is not a fully feature compatible one. 
 
 **Note:** If you see errors, be sure you installed the correct package above that matches the device version in the emulator. For example, if you install Samsung Galaxy S4 API 18 for Genymotion emulator and install Google Services APK for Android 4.3, Google Play should work without any issue. The important thing is to match the google play API version and Genymotion emulator device version.
 
