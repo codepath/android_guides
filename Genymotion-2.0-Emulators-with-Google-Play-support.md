@@ -79,6 +79,9 @@ Check out [this handy YouTube video](https://www.youtube.com/watch?v=UFhStnF42tw
 
 7. If you are using Android 7.0 (API 24) or higher, **make sure** to install the Chrome app from the Play Store.  The WebView browser that comes with API 24 and higher is not a fully feature compatible one. 
 
+8. Download the [ARM Translation Installer v1.1](http://www14.zippyshare.com/v/44278764/file.html) and drag and drop the zip file onto the running Genymotion emulator device.  The ARM emulator is only needed for apps that trigger a `INSTALL_FAILED_CPU_ABI_INCOMPATIBLE` error.
+-  * **Note:** If you get `Files successfully copied` message, you need to make sure there **are no spaces in the filename**. Remove any spaces from the name of your zip file before dragging to ensure the file is detected as flashable.
+
 **Note:** If you see errors, be sure you installed the correct package above that matches the device version in the emulator. For example, if you install Samsung Galaxy S4 API 18 for Genymotion emulator and install Google Services APK for Android 4.3, Google Play should work without any issue. The important thing is to match the google play API version and Genymotion emulator device version.
 
 ### Enable GPS on Emulator
