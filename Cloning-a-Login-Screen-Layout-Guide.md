@@ -1,8 +1,6 @@
 ## Overview
 
-This guide is going to walk us through the step-by-step process of recreating this screenshot in an Android app:
-
-<img width="400" src="http://www.android-app-patterns.com/img/sets/login-screens/155_2_login-screens.png" />
+This guide is going to walk us through the step-by-step process of recreating this screenshot in an Android app.
 
 **Note:** Jump to the [[Styling Screens Q&A|Styling-UI-Screens-FAQ]] for more general answers to common questions.
 
