@@ -29,7 +29,7 @@ This will install the Android SDK tools in `/usr/local/Cellar/android-sdk/<versi
 
 ## Installing the Android SDK (Manual Way)
 
-You wlil need to download the Android SDK without Android Studio bundled. Go to [Android SDK](http://developer.android.com/sdk/index.html) and navigate to the **SDK Tools Only** section. Copy the URL for the download that's appropriate for your build machine OS.
+You will need to download the Android SDK without Android Studio bundled. Go to [Android SDK](http://developer.android.com/sdk/index.html) and navigate to the **SDK Tools Only** section. Copy the URL for the download that's appropriate for your build machine OS.
 
 ![List of Android SDK downloads from developers.android.com](http://imgur.com/IRCWHY7.png)
 
@@ -75,7 +75,7 @@ Here are the SDK package names you'll definitely wish to select:
   * `Tools > Android SDK Tools`
   * `Tools > Android SDK Platform-tools`
   * `Tools > Android SDK Build-tools`
-  * One version of the Android Platform.  E.g., `Android 5.1.1 (API 22)`.  It should be the one you named named in the `android: compileSdkVersion` section of your `build.gradle` file.
+  * One version of the Android Platform.  E.g., `Android 5.1.1 (API 22)`.  It should be the one you named in the `android: compileSdkVersion` section of your `build.gradle` file.
 
 You will also want to download the extras:
 
