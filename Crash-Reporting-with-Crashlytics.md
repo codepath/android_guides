@@ -1,7 +1,9 @@
 # Overview
+
 Crashlytics is a part of Fabric.io and gives mobile app developers insight into their apps’ performance, so you can pinpoint and fix issues quickly and easily. It is **free to use for everybody.**
 
 # How to start, step by step guide
+
 1. Register on [Fabric.io](https://fabric.io)
 2. Download Android Studio plugin **Fabric for Android**
 3. After restart Android Studio, open your project and click Fabric button ![](https://i.imgur.com/UobXlWS.png) to login into your account
@@ -141,3 +143,11 @@ Crashlytics crashlyticsKit = new Crashlytics.Builder()
 // Initialize Fabric with the debug-disabled crashlytics.
 Fabric.with(this, crashlyticsKit);
 ```
+
+## Attribution
+
+This guide was originally authored by [Mateusz Utkała](https://github.com/DonMat) for the CodePath guides.
+
+## References
+
+* <https://fabric.io/kits/android/crashlytics/install>
