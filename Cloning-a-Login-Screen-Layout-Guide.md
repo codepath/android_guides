@@ -14,7 +14,7 @@ First, I will make the downloadable assets available. Keep in mind these were st
 
 Download those and import the images one by one into the drawable folder as shown below:
 
-<img width="500" src="http://i.imgur.com/lUQgT0H.gif" />
+<img width="500" src="https://i.imgur.com/OiIeLdK.gif" />
 
 Note that in production applications you would multiple sizes of these images for [different image densities](http://developer.android.com/guide/practices/screens_support.html#DesigningResources).
 
@@ -22,7 +22,7 @@ Note that in production applications you would multiple sizes of these images fo
 
 Generate a new Android project that uses the highlight icon as the launcher icon:
 
-<img width="500" src="https://imgur.com/yOaej.gif" />
+<img width="500" src="http://i.imgur.com/lUQgT0H.gif" />
 
 <img width="500" src="https://i.imgur.com/ZKjFv99.gif" />
 
