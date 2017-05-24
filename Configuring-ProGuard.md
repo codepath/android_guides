@@ -123,7 +123,7 @@ Here is an example of some of the ProGuard definitions for various popular libra
 #### Parcels
 
 ```
-keep class * implements android.os.Parcelable {
+-keep class * implements android.os.Parcelable {
   public static final android.os.Parcelable$Creator *;
 }
 
