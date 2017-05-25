@@ -17,13 +17,6 @@ To setup your genymotion emulator [sign up](https://www.genymotion.com/account/l
    ![image](https://i.imgur.com/iGqP85B.png)
 6. (PC's only) You need to reboot and enable Intel Virtualization Technology or Intel VT-x on the BIOS.   Typically you need to reboot and hit `F1`, `Esc`, or `F10` to enter this mode.  See these [instructions](http://www.sysprobs.com/disable-enable-virtualization-technology-bios) for more information.
    <img src="http://cdn.sysprobs.com/wp-content/uploads/2009/10/virt_bios.gif"> 
-7. Install the Genymotion plugin for Android Studio.  Go to `Preferences`->`Plugins` and click Browse repositories. Search for Genymotion and you should find one provided by http://www.genymotion.com.
-
-  ![https://i.imgur.com/AIY7gOS.gif](https://i.imgur.com/AIY7gOS.gif)
-
-  After restarting, go to `Preferences`->`Other`->`Genymotion` and setup the location of the Genymotion app.
-
-  ![http://i.imgur.com/JIZb7FE.png](http://i.imgur.com/JIZb7FE.png)
 
 #### Configuration
 
