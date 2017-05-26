@@ -4,7 +4,7 @@ One of the issues with existing SQL object relational mapping (ORM) libraries is
 
 ## Setup
 
-The section below describes how to setup using DBFlow v3.  If you are upgrading from an older version of DBFlow, read this [migration guide](https://github.com/Raizlabs/DBFlow/blob/master/usage/Migration3Guide.md).  One of the major changes is the library used to generate Java code from annotation now relies on [JavaPoet](https://github.com/square/javapoet).  The generated database and table classes now use '_' instead of '$' as the separator, which may require small adjustments to your code when upgrading.
+The section below describes how to setup using DBFlow v3.  If you are upgrading from an older version of DBFlow, read this [migration guide](https://agrosner.gitbooks.io/dbflow/content/Migration3Guide.html).  One of the major changes is the library used to generate Java code from annotation now relies on [JavaPoet](https://github.com/square/javapoet).  The generated database and table classes now use '_' instead of '$' as the separator, which may require small adjustments to your code when upgrading.
 
 ### Gradle configuration
 
@@ -176,7 +176,7 @@ public class User extends BaseModel {
 
 Basic creation, read, update, and delete (CRUD) statements are fairly straightforward to do.  DBFlow generates a Table class for each your annotated models (i.e. User_Table, Organization_Table), and each field is defined as a `Property` object and ensures type-safety when evaluating it against in a SELECT statement or a raw value.
 
-In order to perform queries, make sure to compile your code so that the tables and column names can be generated.   See [this section](https://github.com/Raizlabs/DBFlow/blob/master/usage2/SQLiteWrapperLanguage.md) for more details on the queries that can be performed (i.e. sum, count, AND/OR, and joins).
+In order to perform queries, make sure to compile your code so that the tables and column names can be generated.   See [this section](https://agrosner.gitbooks.io/dbflow/content/SQLiteWrapperLanguage.html) for more details on the queries that can be performed (i.e. sum, count, AND/OR, and joins).
 
 ### Inserting Rows
 
@@ -221,7 +221,7 @@ List<User> users = SQLite.select().
   queryList();
 ```
 
-Refer to the [DBFlow Retrieval guide](https://github.com/Raizlabs/DBFlow/blob/master/usage2/Retrieval.md#synchronous-retrieval) and [SQLLiteWrapperLanguage Guide](https://github.com/Raizlabs/DBFlow/blob/master/usage2/SQLiteWrapperLanguage.md) for more examples of querying records. 
+Refer to the [DBFlow Retrieval guide](https://agrosner.gitbooks.io/dbflow/content/Retrieval.html#synchronous-retrieval) and [SQLLiteWrapperLanguage Guide](https://agrosner.gitbooks.io/dbflow/content/SQLiteWrapperLanguage.html) for more examples of querying records. 
 
 ### Updating Rows
 
@@ -247,7 +247,7 @@ user.delete();
 
 ## Database Transactions
 
-See [this guide](https://github.com/Raizlabs/DBFlow/blob/master/usage2/StoringData.md) about how to perform transactions.  You can batch save a list of `User` objects by using the `ProcessModelTransaction` class:
+See [this guide](https://agrosner.gitbooks.io/dbflow/content/StoringData.html) about how to perform transactions.  You can batch save a list of `User` objects by using the `ProcessModelTransaction` class:
 
 ```java
 ArrayList<User> users = new ArrayList<>();
@@ -395,7 +395,7 @@ public static List<Model> findRecent(Date newerThan) {
 
 > Question: How do you represent a 1-1 relationship?  
 
-Check out the [relationships section](https://github.com/Raizlabs/DBFlow/blob/master/usage2/Relationships.md) if you haven't yet.  You will need to annotate the field with the `@ForeignKey` and `@Column` annotation:
+Check out the [relationships section](https://agrosner.gitbooks.io/dbflow/content/Relationships.html) if you haven't yet.  You will need to annotate the field with the `@ForeignKey` and `@Column` annotation:
 
 ```java
 public class User extends BaseModel {
@@ -420,7 +420,7 @@ You should make sure to **call save separately on the associated object** in mos
 
 > Question: How do I delete all the records from a table?
 
-See [this section](https://github.com/Raizlabs/DBFlow/blob/master/usage2/SQLiteWrapperLanguage.md#delete) of DBFlow.  You can delete individual records using the `.delete` method and you can delete all records matching a particular condition with:
+See [this section](https://agrosner.gitbooks.io/dbflow/content/SQLiteWrapperLanguage.html#delete) of DBFlow.  You can delete individual records using the `.delete` method and you can delete all records matching a particular condition with:
 
 ```java
 // Delete a whole table
@@ -441,7 +441,7 @@ This allows for bulk deletes.
 
 > Question: Is it possible to do joins with DBFlow? 
 
-Joins are done using the query language DBFlow provides in the [Select class](https://github.com/Raizlabs/DBFlow/blob/master/usage2/SQLiteWrapperLanguage.md#joins). You can read more here on the [SQLiteWrapperLanguage docs](https://github.com/Raizlabs/DBFlow/blob/master/usage2/SQLiteWrapperLanguage.md)
+Joins are done using the query language DBFlow provides in the [Select class]https://agrosner.gitbooks.io/dbflow/content/SQLiteWrapperLanguage.html#joins). You can read more here on the [SQLiteWrapperLanguage docs](https://agrosner.gitbooks.io/dbflow/content/SQLiteWrapperLanguage.html)
 
 > Question: What are the best practices when interacting with the sqlite in Android, is ORM/DAO the way to go?
 
@@ -542,4 +542,4 @@ There are a few things to verify:
 ## References
 
 * <https://github.com/Raizlabs/DBFlow#usage-docs>
-* <https://github.com/Raizlabs/DBFlow/blob/master/usage2/SQLiteWrapperLanguage.md>
+* <https://agrosner.gitbooks.io/dbflow/content/SQLiteWrapperLanguage.html>
