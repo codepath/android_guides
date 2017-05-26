@@ -34,7 +34,7 @@ dependencies {
 }
 ```
 
-Second, let's disable the theme-provided ActionBar. The easiest way is to have your theme extend from `Theme.AppCompat.NoActionBar` (or the light variant) within the `res/styles.xml` file:
+Second, let's disable the theme-provided ActionBar. The easiest way is to have your theme extend from `Theme.AppCompat.NoActionBar` (or the light variant) within the `res/values/styles.xml` file:
 
 ```xml
 <resources>
@@ -183,7 +183,7 @@ The Toolbar can be customized in many ways leveraging various style properties i
 />
 ```
 
-Now, we need to create the custom styles in `res/styles.xml` with:
+Now, we need to create the custom styles in `res/values/styles.xml` with:
 
 ```xml
 <!-- Base application theme. -->
