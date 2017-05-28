@@ -13,7 +13,6 @@ repositories {
 
 dependencies {
   compile 'com.github.bumptech.glide:glide:3.7.0'
-  compile 'com.android.support:support-v4:19.1.0'
 }
 ```
 
