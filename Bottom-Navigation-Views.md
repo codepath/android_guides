@@ -108,7 +108,6 @@ public class MainActivity extends AppCompatActivity {
         new BottomNavigationView.OnNavigationItemSelectedListener() {
           @Override
           public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-           public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
               case R.id.action_favorites:
                   FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
