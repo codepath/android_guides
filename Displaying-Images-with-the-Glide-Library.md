@@ -12,7 +12,7 @@ repositories {
 }
 
 dependencies {
-  compile 'com.github.bumptech.glide:glide:3.7.0'
+  compile 'com.github.bumptech.glide:glide:3.8.0'
 }
 ```
 
