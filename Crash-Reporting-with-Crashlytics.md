@@ -72,9 +72,9 @@ import io.fabric.sdk.android.Fabric;
 Crashlytics provides 4 logging mechanisms right out of the box: logging, custom keys, user information, and caught exceptions
 
 ## Caught Exceptions
-:::info
+___
 For any individual app session, only the most recent 8 logged exceptions are stored.
-:::
+___
 >All logged exceptions will appear as “non-fatal” issues in the Fabric dashboard. 
 >Crashlytics processes exceptions on a dedicated background thread, so the performance impact to your app is minimal. To reduce your users’ network traffic, Crashlytics batches logged exceptions together and sends them the next time the app launches.
 
@@ -95,9 +95,9 @@ Crashlytics.log("Higgs-Boson detected! Bailing out...");
 ```
 
 ## Custom Keys
-:::info
+___
 Crashlytics supports a maximum of 64 key/value pairs. Once you reach this threshold, additional values are not saved. Each key/value pair can be up to 1 KB in size.
-:::
+___
 Crashlytics allows you to associate arbitrary key/value pairs with your crash reports, which are viewable right from the Crashlytics dashboard. Setting keys are as easy as calling: Crashlytics.setString(key, value) or one of the related methods. Options are:
 ```java
 void setBool(String key, boolean value);
