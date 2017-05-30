@@ -7,10 +7,6 @@
 Add to your `app/build.gradle` file:
 
 ```gradle
-repositories {
-   jcenter()
-}
-
 dependencies {
   compile 'com.github.bumptech.glide:glide:3.8.0'
 }
