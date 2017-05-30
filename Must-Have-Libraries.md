@@ -193,6 +193,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [HelloCharts](https://github.com/lecho/hellocharts-android) - Charts/graphs library for Android with support for scaling, scrolling and animations.
  * [Leonids](https://github.com/plattysoft/Leonids) - Simple and easy particle effects ([See Tutorial](http://www.plattysoft.com/2014/05/30/leonids-particle-system-lib/))
  * [Confetti](https://github.com/jinatonic/confetti) - Newer particle effects library. 
+ * [Konfetti](https://github.com/DanielMartinus/Konfetti) - Alternative light-weight confetti particle system
  * [AChartEngine](http://jaxenter.com/effort-free-graphs-on-android-with-achartengine-46199.html) - This is a charting software library for Android applications
 
 ### Image Processing
