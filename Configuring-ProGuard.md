@@ -136,6 +136,16 @@ Here is an example of some of the ProGuard definitions for various popular libra
 -dontwarn java.lang.invoke.*
 ```
 
+### Code obfuscation
+
+If you plan on enabling code obfuscation by removing the `dontobfuscate` line, make sure to check for any third-party libraries that may be performing reflection such as RxJava 1 and Gson.  The classes that depend on reflection cannot be renamed because of the intrinsic need to inspect the classes. See [this link](https://github.com/artem-zinnatullin/RxJavaProGuardRules) for the rules that should be used for RxJava. 
+
+If you are planning to enable code obfuscation for Gson, make sure to avoid obfuscating the field names:
+
+```
+-keepclassmembers class com.codepath.models** { <fields>; }
+```
+ 
 ### Troubleshooting
 
 If you wish to confirm whether ProGuard is preserving certain annotations or classes, you can review the `.apk` package that gets created to check.  The first step is to download the [dex2jar](http://sourceforge.net/projects/dex2jar/files/) program and use it to decompile the Dalvik code (`.dex` file) to a Java archive file (`.jar` file).  
