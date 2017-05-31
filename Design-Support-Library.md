@@ -45,7 +45,7 @@ android {
 }
 
 ext {
-  supportLibVersion = '25.2.0'  // variable that can be referenced to keep support libs consistent
+  supportLibVersion = '25.3.1'  // variable that can be referenced to keep support libs consistent
 }
 ```
 
