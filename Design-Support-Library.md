@@ -31,7 +31,7 @@ Make sure that you have at least the Android Gradle plugin v2.1.0 supported.
 
 ```gradle
 dependencies {
-    classpath 'com.android.tools.build:gradle:2.2.2'
+    classpath 'com.android.tools.build:gradle:2.3.1'
 }
 ```
 
