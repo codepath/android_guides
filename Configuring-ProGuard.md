@@ -20,7 +20,7 @@ Proguard can add a few minutes to your build cycle.  If you can avoid using ProG
 
 #### Checking method limit
 
-If you wish to check how close you are to the 64k limit, use the new APK Analyzer that is soon to be released as part of [Android Studio v2.2](http://tools.android.com/recent) by going to `Build`=>`Analyze APK...`.  Click on the respective APK file and you can see a breakdown of the methods by package.
+If you wish to check how close you are to the 64k limit, use the new APK Analyzer by going to `Build`=>`Analyze APK...`.  Click on the respective APK file and you can see a breakdown of the methods by package.
 
 ### Development
 
