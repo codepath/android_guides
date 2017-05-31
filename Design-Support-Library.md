@@ -27,11 +27,18 @@ The support design library has the following key features:
 
 ### Setup
 
-Make sure that you have at least the Android Gradle plugin v2.1.0 supported.  
+Make sure your top-level `build.gradle` includes the following:
 
 ```gradle
-dependencies {
-    classpath 'com.android.tools.build:gradle:2.3.1'
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    repositories {
+        jcenter() 
+        maven { url "https://maven.google.com" }  // new as of Google I/O 2017
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.1'
+    }
 }
 ```
 
