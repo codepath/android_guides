@@ -74,6 +74,7 @@ If you're attempting to migrate towards clean architecture without necessarily r
 
 The following template projects are built to act as a starting point for this architecture:
 
+ * <https://github.com/ribot/android-boilerplate>
  * <https://github.com/dmilicic/Android-Clean-Boilerplate>
  * <https://github.com/android10/Android-CleanArchitecture>
  * <https://github.com/googlesamples/android-architecture>
