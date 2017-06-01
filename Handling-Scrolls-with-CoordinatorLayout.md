@@ -48,7 +48,7 @@ So long as the CoordinatorLayout is used as the primary layout, this animation e
    <android.support.v7.widget.RecyclerView
          android:id="@+id/rvToDoList"
          android:layout_width="match_parent"
-         android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+         android:layout_height="match_parent"/>
 
    <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
