@@ -95,13 +95,13 @@ Facebook doesn't work well with normal sharing intents when sharing multiple con
 
 ### Sharing Remote Images
 
-You may want to send an image that were loaded from a remote URL. Assuming you are using a third party library like `Picasso`, here is how you might share an image that came from the network and was loaded into an ImageView.  There are two ways to accomplish this.   The first way, shown below, takes the bitmap from the view and loads it into a file.  
+You may want to send an image that were loaded from a remote URL. Assuming you are using a third party library like `Glide`, here is how you might share an image that came from the network and was loaded into an ImageView.  There are two ways to accomplish this.   The first way, shown below, takes the bitmap from the view and loads it into a file.  
 
 ```java
 // Get access to ImageView 
 ImageView ivImage = (ImageView) findViewById(R.id.ivResult);
 // Fire async request to load image
-Picasso.with(context).load(imageUrl).into(ivImage);
+Glide.with(context).load(imageUrl).into(ivImage);
 ```
 
 and then later assuming after the image has completed loading, this is how you can trigger a share:
@@ -262,7 +262,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
 
 #### Attach Share Intent for Remote Image
 
-Now, once you've setup the ShareActionProvider menu item, construct and attach the share intent for the provider but only **after image has been loaded** as shown below using the `Callback` for `Picasso`.
+Now, once you've setup the ShareActionProvider menu item, construct and attach the share intent for the provider but only **after image has been loaded** as shown below using the `RequestListener` for `Glide`.
 
 ```java
 
@@ -274,19 +274,22 @@ protected void onCreate(Bundle savedInstanceState) {
     // Get access to ImageView
     ImageView ivImage = (ImageView) findViewById(R.id.ivResult);
     // Load image async from remote URL, setup share when completed
-    Picasso.with(this).load(result.getFullUrl()).into(ivImage, new Callback() {
-        @Override
-        public void onSuccess() {
-            // Setup share intent now that image has loaded
-            prepareShareIntent();
-            attachShareIntentAction();
+    Glide.with(this).load(result.getFullUrl())
+        .listener(new RequestListener<Uri, GlideDrawable>() {
+            @Override
+            public boolean onException(Exception e, Uri model, Target<GlideDrawable> target, boolean isFirstResource) {
+                return false;
+            }
+
+            @Override
+            public boolean onResourceReady(GlideDrawable resource, Uri model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                prepareShareIntent();
+                attachShareIntentAction();
+                return true;
+            }
         }
-        
-        @Override
-        public void onError() { 
-            // ...
-        }
-   });
+    )        
+    .into(ivImage);
 }
 
 // Gets the image URI and setup the associated share intent to hook into the provider
@@ -321,7 +324,7 @@ public boolean onCreateOptionsMenu(Menu menu) {
 }
 ```
 
-**Note:** Be sure to call `attachShareIntentAction` method **both inside** `onCreateOptionsMenu` AND inside the `onSuccess` for Picasso to ensure that the share attaches properly. 
+**Note:** Be sure to call `attachShareIntentAction` method **both inside** `onCreateOptionsMenu` AND inside the `onResourceReady` for Glide to ensure that the share attaches properly. 
 
 #### Attach Share for a WebView URL
 
