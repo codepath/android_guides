@@ -255,7 +255,7 @@ To create this effect, we add an ImageView and declare an `app:layout_collapseMo
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:layout_scrollFlags="scroll|enterAlways"></android.support.v7.widget.Toolbar>
+                app:layout_scrollFlags="scroll|enterAlways" />
             <ImageView
                 android:src="@drawable/cheese_1"
                 app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
@@ -263,7 +263,7 @@ To create this effect, we add an ImageView and declare an `app:layout_collapseMo
                 android:layout_height="wrap_content"
                 android:scaleType="centerCrop"
                 app:layout_collapseMode="parallax"
-                android:minHeight="100dp"/>
+                android:minHeight="100dp" />
 
 </android.support.design.widget.CollapsingToolbarLayout>
 ```
