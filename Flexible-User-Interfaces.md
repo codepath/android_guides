@@ -474,7 +474,7 @@ So, let's take a look at how to setup the two-pane view only for larger tablet d
 &nbsp;
 <img src="https://i.imgur.com/HbztuOc.png" alt="image 1" width="450" />
 
-The net result is we want to **create an alternate layout XML for our activity** at `res/layout-large/activity_items_list.xml`:
+The net result is we want to **create an alternate layout XML for our activity** at `res/layout-sw600dp/activity_items_list.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
