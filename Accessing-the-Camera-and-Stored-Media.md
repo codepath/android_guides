@@ -1,6 +1,6 @@
 ## Overview
 
-This guide covers how to work with the camera and how to access media stored on the phone
+This guide covers how to work with the camera and how to access media stored on the phone.
 
 ## Using the Camera
 

@@ -1,0 +1,1 @@
+This page has been relocated to [[Endless Scrolling with AdapterViews and RecyclerView]].
