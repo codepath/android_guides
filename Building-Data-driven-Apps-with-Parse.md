@@ -771,7 +771,7 @@ public class MainApplication extends Application {
   }
 ```
 
-**Note that you need to add /parse in the url in order for Parse to work, just just the hostname.**
+**Note that you need to add /parse in the url in order for Parse to work, not just the hostname.**
 
 Make sure to reference this `MainApplication` in your `AndroidManifest.xml` file:
 
