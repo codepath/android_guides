@@ -486,9 +486,9 @@ public class ChatListAdapter extends ArrayAdapter<Message> {
 }
 ```
 
-## 10. Bind Adapter to the ListView
+## 10. Bind Adapter to the RecyclerView
 
-Next, we will setup the ListView and bind our custom adapter to this ListView within the `ChatActivity.java` source file:
+Next, we will setup the ReyclerView and bind our custom adapter to this ReyclerView within the `ChatActivity.java` source file:
 
 ```java
 public class ChatActivity extends AppCompatActivity {
