@@ -426,7 +426,6 @@ dependencies {
 
 ```java
 public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
-    // Store a member variable for the contacts
     private List<Message> mMessages;
     private Context mContext;
     private String mUserId;
