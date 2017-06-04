@@ -762,14 +762,16 @@ public class MainApplication extends Application {
      super.onCreate();
 
      Parse.initialize(new Parse.Configuration.Builder(this)
-           .applicationId("myAppId")
+           .applicationId("YOUR_APPLICATION_ID_HERE")
            .clientKey(null)
-           .server("https://yourappname.herokupapp.com/parse/").build());
+           .server("YOUR_HOSTED_PARSE_SERVER_URL/parse").build());
 
     // ParseFacebookUtils should initialize the Facebook SDK for you
     ParseFacebookUtils.initialize(this);
   }
 ```
+
+**Note that you need to add /parse in the url in order for Parse to work, just just the hostname.**
 
 Make sure to reference this `MainApplication` in your `AndroidManifest.xml` file:
 
