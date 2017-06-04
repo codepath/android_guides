@@ -31,9 +31,15 @@ Next, we need to get ourselves a maps API key from Google to put into our `Andro
 
 Navigate to [Google Maps Android API](https://developers.google.com/maps/documentation/android-api/) and select `Get A Key`
 
+<img src="https://i.imgur.com/6PhVvQU.png" width="500" />
+
 Select `Continue` and then `Create a new project`
 
+<img src="https://i.imgur.com/kRJDzk3.png" width="650" />
+
 Now you want to skip optional section on restricting usage and click "Create". At this stage you should have your working `API Key`:
+
+<img src="https://i.imgur.com/mGbpWdN.png" width="650" />
 
 Copy your API Key into the `res/values/strings.xml` file for the `google_maps_api_key`:
 
