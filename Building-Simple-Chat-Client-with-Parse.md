@@ -212,9 +212,17 @@ public class ChatActivity extends AppCompatActivity {
 
 At this point, run your application and try to send a text to parse. If the save was successful, you should see 'Successfully sent message to parse.' toast on your screen. To make sure the data was saved, you can verify whether the objects were created by clicking on the MongoDB instance in the Heroku panel. Refer [testing parse deployment guide](http://guides.codepath.com/android/Configuring-a-Parse-Server#testing-deployment) for more info.
 
-## 7. Add ListView to Chat Layout
+## 7. Add RecyclerView to Chat Layout
 
-Now that we have verified that messages are successfully being saved to your parse database, lets go ahead and build the UI to retrieve these messages. Open your layout file `activity_chat.xml`and add a `ListView` to display the text messages from parse.
+Now that we have verified that messages are successfully being saved to your parse database, lets go ahead and build the UI to retrieve these messages. Open your layout file `activity_chat.xml`and add a `RecyclerView` to display the text messages from parse.
+
+First, add the RecyclerView as a dependency in your `app/build.gradle`:
+```xml
+dependencies {
+    ...
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+}
+```
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -222,14 +230,14 @@ Now that we have verified that messages are successfully being saved to your par
   android:background="@android:color/white"
   android:layout_width="match_parent"
   android:layout_height="match_parent">
-    <ListView
+    <android.support.v7.widget.RecyclerView
       android:id="@+id/lvChat"
       android:transcriptMode="alwaysScroll"
       android:layout_alignParentTop="true"
       android:layout_alignParentLeft="true"
       android:layout_alignParentRight="true"
       android:layout_above="@+id/rlSend"
-      android:layout_width="wrap_content" 
+      android:layout_width="wrap_content"
       android:layout_height="match_parent" />
     <RelativeLayout 
       android:id="@+id/rlSend"
@@ -337,19 +345,22 @@ We also need to make sure to register this class with Parse before we call Parse
 
 ```java
 public class ChatApplication extends Application {
-	// ...
-	public void onCreate() {
-		super.onCreate();
-		// Register your parse models here
-		ParseObject.registerSubclass(Message.class);
-		// Existing initialization happens after all classes are registered
-	
-                // For open-source Parse backend
-                Parse.initialize(new Parse.Configuration.Builder(this)
-                     .applicationId("YOUR_APPLICATION_ID") // should correspond to APP_ID env variable
-                     .addNetworkInterceptor(new ParseLogInterceptor())
-                     .server("https://myparseapp.herokuapp.com/parse/").build());
-	}
+    // ...
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        // ...
+        ParseObject.registerSubclass(Message.class);
+
+        // Use for monitoring Parse OkHttp trafic
+        // Can be Level.BASIC, Level.HEADERS, or Level.BODY
+        // See http://square.github.io/okhttp/3.x/logging-interceptor/ to see the options.
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
+        // ...
+
+    }
+    // ...
 }
 ```
 
