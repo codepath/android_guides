@@ -205,14 +205,14 @@ Often when you rotate the screen, the app will lose the scroll position and othe
 
 ```java
 // YourActivity.java
-public final static int LIST_STATE_KEY = "recycler_list_state";
+public final static String LIST_STATE_KEY = "recycler_list_state";
 Parcelable listState;
 
 protected void onSaveInstanceState(Bundle state) {
      super.onSaveInstanceState(state);
      // Save list state
      listState = mLayoutManager.onSaveInstanceState();
-     state.putParcelable(LIST_STATE_KEY, mListState);
+     state.putParcelable(LIST_STATE_KEY, listState);
 }
 
 protected void onRestoreInstanceState(Bundle state) {
