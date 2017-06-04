@@ -231,7 +231,7 @@ dependencies {
   android:layout_width="match_parent"
   android:layout_height="match_parent">
     <android.support.v7.widget.RecyclerView
-      android:id="@+id/lvChat"
+      android:id="@+id/rvChat"
       android:transcriptMode="alwaysScroll"
       android:layout_alignParentTop="true"
       android:layout_alignParentLeft="true"
@@ -315,7 +315,7 @@ Add the following values to `res-->values-->strings.xml` file:
 
 ## 8. Create Model Class
 
-Now let's create a `Message.java` class which will extend from `ParseObject`. This model class will provide message data for the `ListView` and will be used to retrieve and save messages to Parse.
+Now let's create a `Message.java` class which will extend from `ParseObject`. This model class will provide message data for the `RecyclerView` and will be used to retrieve and save messages to Parse.
 
 ```java
 @ParseClassName("Message")
@@ -413,42 +413,45 @@ With our model defined with Parse and properly registered, we can now use this m
 
 ## 9. Create Custom List Adapter
 
-Create a class named `ChatListAdapter.java` with below code. This is a custom list adapter class which provides data to list view. In other words it renders the chat_item.xml in list by pre-filling appropriate information. We'll be using the open source `Picasso`library to load profile images. Add dependency for this library to the `app/build.gradle` file.
+Create a class named `ChatAdapter.java` with below code. This is a custom list adapter class which provides data to list view. In other words it renders the chat_item.xml in list by pre-filling appropriate information. We'll be using the open source `Picasso`library to load profile images. Add dependency for this library to the `app/build.gradle` file.
 
 ```groovy
 ...
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
     compile 'com.android.support:appcompat-v7:23.4.0'
-    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.github.bumptech.glide:glide:3.8.0'
 }
 ```
 
 ```java
-public class ChatListAdapter extends ArrayAdapter<Message> {
+public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
+    // Store a member variable for the contacts
+    private List<Message> mMessages;
+    private Context mContext;
     private String mUserId;
 
-    public ChatListAdapter(Context context, String userId, List<Message> messages) {
-        super(context, 0, messages);
+    public ChatAdapter(Context context, String userId, List<Message> messages) {
+        mMessages = messages;
         this.mUserId = userId;
+        mContext = context;
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).
-                    inflate(R.layout.chat_item, parent, false);
-            final ViewHolder holder = new ViewHolder();
-            holder.imageOther = (ImageView)convertView.findViewById(R.id.ivProfileOther);
-            holder.imageMe = (ImageView)convertView.findViewById(R.id.ivProfileMe);
-            holder.body = (TextView)convertView.findViewById(R.id.tvBody);
-            convertView.setTag(holder);
-        }
-        final Message message = getItem(position);
-        final ViewHolder holder = (ViewHolder)convertView.getTag();
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        Context context = parent.getContext();
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View contactView = inflater.inflate(R.layout.chat_item, parent, false);
+
+        ViewHolder viewHolder = new ViewHolder(contactView);
+        return viewHolder;
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        Message message = mMessages.get(position);
         final boolean isMe = message.getUserId() != null && message.getUserId().equals(mUserId);
-        // Show-hide image based on the logged-in user.
-        // Display the profile image to the right for our user, left for other users.
+
         if (isMe) {
             holder.imageMe.setVisibility(View.VISIBLE);
             holder.imageOther.setVisibility(View.GONE);
@@ -458,10 +461,10 @@ public class ChatListAdapter extends ArrayAdapter<Message> {
             holder.imageMe.setVisibility(View.GONE);
             holder.body.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
         }
+
         final ImageView profileView = isMe ? holder.imageMe : holder.imageOther;
-        Picasso.with(getContext()).load(getProfileUrl(message.getUserId())).into(profileView);
+        Glide.with(mContext).load(getProfileUrl(message.getUserId())).into(profileView);
         holder.body.setText(message.getBody());
-        return convertView;
     }
 
     // Create a gravatar image based on the hash value obtained from userId
@@ -478,10 +481,22 @@ public class ChatListAdapter extends ArrayAdapter<Message> {
         return "http://www.gravatar.com/avatar/" + hex + "?d=identicon";
     }
 
-    final class ViewHolder {
-        public ImageView imageOther;
-        public ImageView imageMe;
-        public TextView body;
+    @Override
+    public int getItemCount() {
+        return mMessages.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView imageOther;
+        ImageView imageMe;
+        TextView body;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            imageOther = (ImageView)itemView.findViewById(R.id.ivProfileOther);
+            imageMe = (ImageView)itemView.findViewById(R.id.ivProfileMe);
+            body = (TextView)itemView.findViewById(R.id.tvBody);
+        }
     }
 }
 ```
@@ -547,7 +562,7 @@ public class ChatActivity extends AppCompatActivity {
 
 ## 11. Receive Messages
 
-Now we can fetch last 50 messages from parse and bind them to the ListView with the use of our custom messages adapter within `ChatActivity.java`:
+Now we can fetch last 50 messages from parse and bind them to the RecyclerView with the use of our custom messages adapter within `ChatActivity.java`:
 
 ```java
 public class ChatActivity extends AppCompatActivity {
@@ -603,7 +618,7 @@ Now, we should be able to see the messages in the list after posting but we won'
 
 ## 12. Refreshing Messages
 
-Finally, let's periodically refresh the ListView with latest messages [[using a handler|Repeating-Periodic-Tasks#handler]]. The handler will call a runnable to fetch new messages every 1 second. This is a primitive "polling" rather than the more efficient "push" technique for refreshing new messages - but will work for the purposes of this simple project.
+Finally, let's periodically refresh the RecyclerView with latest messages [[using a handler|Repeating-Periodic-Tasks#handler]]. The handler will call a runnable to fetch new messages every 1 second. This is a primitive "polling" rather than the more efficient "push" technique for refreshing new messages - but will work for the purposes of this simple project.
 
 ```java
 ...
