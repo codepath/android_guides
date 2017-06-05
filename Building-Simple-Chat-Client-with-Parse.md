@@ -279,7 +279,7 @@ We will be showing the logged in user's gravatar and messages on the right and t
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="horizontal" >
     <ImageView
         android:id="@+id/ivProfileOther"
