@@ -505,9 +505,10 @@ Next, we will setup the ReyclerView and bind our custom adapter to this ReyclerV
 ```java
 public class ChatActivity extends AppCompatActivity {
 ...
-    ListView lvChat;
+
+    RecyclerView rvChat;    
     ArrayList<Message> mMessages;
-    ChatListAdapter mAdapter;
+    ChatAdapter mAdapter;
     // Keep track of initial load to scroll to the bottom of the ListView
     boolean mFirstLoad;
 	
@@ -516,14 +517,13 @@ public class ChatActivity extends AppCompatActivity {
         // Find the text field and button
         etMessage = (EditText) findViewById(R.id.etMessage);
         btSend = (Button) findViewById(R.id.btSend);
-        lvChat = (ListView) findViewById(R.id.lvChat);
+        rvChat = (RecyclerView) findViewById(R.id.rvChat);
         mMessages = new ArrayList<>();
-        // Automatically scroll to the bottom when a data set change notification is received and only if the last item is already visible on screen. Don't scroll to the bottom otherwise.
-        lvChat.setTranscriptMode(1);
         mFirstLoad = true;
         final String userId = ParseUser.getCurrentUser().getObjectId();
-        mAdapter = new ChatListAdapter(ChatActivity.this, userId, mMessages);
-        lvChat.setAdapter(mAdapter);
+        mAdapter = new ChatAdapter(ChatActivity.this, userId, mMessages);
+        rvChat.setAdapter(mAdapter);
+        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ChatActivity.this);
         // When send button is clicked, create message object on Parse
         btSend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -597,17 +597,18 @@ public class ChatActivity extends AppCompatActivity {
 }
 ```
 
-If you get to this step, you will display the newest posts ordered from newest to oldest.  You can reverse the order without necessarily doing a linear sort by overriding the `getItem()` in your adapter to display the oldest items first:
-
+If you get to this step, you will display the newest posts ordered from newest to oldest.  You can reverse the order without necessarily doing a linear sort by setting `setReverseLayout` to be `true`.
 ```java
 public class ChatListAdapter extends ArrayAdapter<Message> {
 
-  // Get the items in the reverse order:
-
-  @Override
-  public Message getItem(int position) {
-     return super.getItem(super.getCount() - position - 1);
-  }
+    // Get the items in the reverse order:
+    void setupMessagePosting() {
+        // ...
+        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ChatActivity.this);
+        linearLayoutManager.setReverseLayout(true);
+        // ...
+    }
+    // ...
 }
 ```
 
