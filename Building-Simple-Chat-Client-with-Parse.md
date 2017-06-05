@@ -585,7 +585,7 @@ public class ChatActivity extends AppCompatActivity {
                     mAdapter.notifyDataSetChanged(); // update adapter
                     // Scroll to the bottom of the list on initial load
                     if (mFirstLoad) {
-                        lvChat.setSelection(mAdapter.getCount() - 1);
+                        rvChat.scrollToPosition(mMessages.size() - 1);
                         mFirstLoad = false;
                     }
                 } else {
