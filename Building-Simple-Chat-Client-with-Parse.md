@@ -418,8 +418,6 @@ Create a class named `ChatAdapter.java` with below code. This is a custom list a
 ```groovy
 ...
 dependencies {
-    compile fileTree(dir: 'libs', include: '*.jar')
-    compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.github.bumptech.glide:glide:3.8.0'
 }
 ```
