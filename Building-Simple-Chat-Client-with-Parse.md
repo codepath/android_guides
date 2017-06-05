@@ -413,7 +413,7 @@ With our model defined with Parse and properly registered, we can now use this m
 
 ## 9. Create Custom List Adapter
 
-Create a class named `ChatAdapter.java` with below code. This is a custom list adapter class which provides data to list view. In other words it renders the chat_item.xml in list by pre-filling appropriate information. We'll be using the open source `Picasso`library to load profile images. Add dependency for this library to the `app/build.gradle` file.
+Create a class named `ChatAdapter.java` with below code. This is a custom list adapter class which provides data to list view. In other words it renders the chat_item.xml in list by pre-filling appropriate information. We'll be using the open source `Glide`library to load profile images. Add dependency for this library to the `app/build.gradle` file.
 
 ```groovy
 ...
