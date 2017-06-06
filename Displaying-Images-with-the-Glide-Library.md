@@ -80,7 +80,7 @@ And then define it as `meta-data` inside `AndroidManifest.xml`:
             android:value="GlideModule"/>
 ```
 
-### Transformations
+## Transformations
 
 Transformations are supported by an additional third-party library, [glide-transformations](https://github.com/wasabeef/glide-transformations). First, add the dependencies:
 
@@ -91,6 +91,18 @@ dependencies {
     compile 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
 }
 ```
+### Rounded Corners
+
+```java
+int radius = 30; // corner radius, higher value = more rounded
+int margin = 10; // crop margin, set to 0 for corners with no crop
+Glide.with(this)
+        .load("http://via.placeholder.com/300.png")
+        .bitmapTransform(new RoundedCornersTransformation(context, radius, margin))
+        .into(ivImg);
+```
+
+### Crop
 
 Circle crop:
 
@@ -100,6 +112,7 @@ Glide.with(this)
         .bitmapTransform(new CropCircleTransformation(context))
         .into(ivImg);
 ```
+### Effects
 
 Blur:
 
@@ -121,9 +134,13 @@ Glide.with(this)
 
 - [List of available transformations](https://github.com/wasabeef/glide-transformations/blob/master/README.md#transformations-1)
 
+## Networking
+
+By default, Glide uses the [[Volley|Networking with the Volley Library]] networking library.
+
 ### Using with OkHttp
 
-By default, Glide uses the [[Volley|Networking with the Volley Library]] networking library.  There is a way to use Glide to use OkHttp instead, which may be useful if you need to do authenticated requests.  First, add the `okhttp3-integration` library as a dependency:
+There is a way to use Glide to use OkHttp instead, which may be useful if you need to do authenticated requests.  First, add the `okhttp3-integration` library as a dependency:
 
 ```gradle
 dependencies {
