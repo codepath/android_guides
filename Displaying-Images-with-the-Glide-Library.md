@@ -16,7 +16,7 @@ dependencies {
 
 ```java
 Glide.with(context)
-    .load("http://pathtoimage.com/graphic.png")
+    .load("http://via.placeholder.com/300.png")
     .into(ivImg);
 ```
 
@@ -26,7 +26,7 @@ Resizing images with:
 
 ```java
 Glide.with(context)
-    .load("http://pathtoimage.com/graphic.png")
+    .load("http://via.placeholder.com/300.png")
     .override(300, 200)
     .into(ivImg);
 ```
@@ -35,7 +35,7 @@ Placeholder and error images:
 
 ```java
 Glide.with(context)
-    .load("http://pathtoimage.com/graphic.png")
+    .load("http://via.placeholder.com/300.png")
     .placeholder(R.drawable.placeholder)
     .error(R.drawable.imagenotfound)
     .into(ivImg);
@@ -45,17 +45,8 @@ Cropping images with:
 
 ```java
 Glide.with(context)
-    .load("http://pathtoimage.com/graphic.png")
+    .load("http://via.placeholder.com/300.png")
     .centerCrop()
-    .into(ivImg);
-```
-
-Transforming images with:
-
-```java
-Glide.with(context)
-    .load("http://pathtoimage.com/graphic.png")
-    .transform(new CircleTransform(context))
     .into(ivImg);
 ```
 
@@ -84,8 +75,51 @@ public class GlideConfiguration implements GlideModule {
 
 And then define it as `meta-data` inside `AndroidManifest.xml`:
 
+```xml
 <meta-data android:name="my.app.namespace.utils.GlideConfiguration"
             android:value="GlideModule"/>
+```
+
+### Transformations
+
+Transformations are supported by an additional third-party library, [glide-transformations](https://github.com/wasabeef/glide-transformations). First, add the dependencies:
+
+```gradle
+dependencies {
+    compile 'jp.wasabeef:glide-transformations:2.0.2'
+    // If you want to use the GPU Filters
+    compile 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
+}
+```
+
+Circle crop:
+
+```java
+Glide.with(this)
+        .load("http://via.placeholder.com/300.png")
+        .bitmapTransform(new CropCircleTransformation(context))
+        .into(ivImg);
+```
+
+Blur:
+
+```java
+Glide.with(this)
+        .load("http://via.placeholder.com/300.png")
+        .bitmapTransform(new BlurTransformation(context))
+        .into(ivImg);
+```
+
+Multiple transforms:
+
+```java
+Glide.with(this)
+        .load("http://via.placeholder.com/300.png")
+        .bitmapTransform(new BlurTransformation(context, 25), new CropCircleTransformation(context))
+        .into(ivImg);
+```
+
+- [List of available transformations](https://github.com/wasabeef/glide-transformations/blob/master/README.md#transformations-1)
 
 ### Using with OkHttp
 
