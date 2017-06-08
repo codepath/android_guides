@@ -179,6 +179,7 @@ Exploring how to allow user interaction and navigation within an app:
 Diving into the networking and model layers for data-driven apps:
 
 * [[Sending and Managing Network Requests]] (API Calls, Image Downloading)
+* [[Displaying Images with the Glide Library]] (Remote Image Downloading)
 * [[Displaying Images with the Picasso Library]] (Remote Image Downloading)
 * [[Converting JSON to Models]] (JSON to Objects Deserialization)
 * [[Leveraging the Gson Library]] (JSON deserialization library)
@@ -215,6 +216,14 @@ Exploring the strategies for data persistence:
 * [[Easier SQL with Cupboard]]
 * [[Powerful Persistence with JDXA ORM]]
 * [[Storing Secret Keys in Android]] (API keys, credentials)
+
+## Images
+
+* [[Working with the ImageView]] (Drawables, Size and Scale, Density, Raw Bitmaps)
+* [[Drawables]] (and how to polish UI views)
+* [[Displaying Images with the Glide Library]]
+* [[Displaying Images with the Picasso Library]]
+* [[Displaying Images with the Fresco Library]]
 
 ## Fragments
 
