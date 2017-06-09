@@ -116,7 +116,7 @@ This will then trigger the `CursorAdapter` iterating through the result set and 
 
 ```java
 // Switch to new cursor and update contents of ListView
-todoAdapter.changeCursor(newCursor);
+todoAdapter.changeCursor(todoCursor);
 ```
 
 ## References
