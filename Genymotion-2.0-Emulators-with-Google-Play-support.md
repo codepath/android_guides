@@ -89,6 +89,18 @@ Now we need to enable the GPS location on the emulator by **manually selecting a
 
 ## Troubleshooting
 
+### Issuing Setting Up Play Services
+
+While installing play services, there are a variety of issues that can come up, refer to a few common ones below:
+
+* **Received a `Files successfully copied` message after dragging over the zip.** You need to make sure there **are no spaces in the filename**. Remove any spaces from the name of your zip file before dragging to ensure the file is detected as flashable.
+
+* **Received a message about files being added to the SD card** If you are using a Mac, and get this message while dragging over the file to the emulator, make sure to [configure your app security settings](https://kb.wisc.edu/helpdesk/page.php?id=25443) to allow all applications. 
+
+* **Seeing errors after flashing the emulator?** If you see errors, be sure you installed the correct package above that matches the device version in the emulator. For example, if you install Samsung Galaxy S4 API 18 for Genymotion emulator and install Google Services APK for Android 4.3, Google Play should work without any issue. The important thing is to **match the google play API version and Genymotion emulator device version**.
+
+* **Try rebooting your system.** If all else fails, try rebooting your computer and then trying the Play store process again. Then try a second reboot after installation. This can sometimes fix issues that are otherwise unresolved. 
+
 ### Can't run app on Genymotion emulator
 
 If you are encountering issues with a Genymotion device not being detected inside Android Studio, try the following steps. First, **close all emulators and unplug any devices**. Next, open up the Terminal application on your computer. 
