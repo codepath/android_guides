@@ -22,7 +22,7 @@ allprojects {
 Next, within your `app/build.gradle`, add DBFlow to your dependency list.  We create a separate variable to store the version number to make it easier to change later:
 
 ```gradle
-def dbflow_version = "4.0.0-beta5"
+def dbflow_version = "4.0.3"
 
 dependencies {
     // annotationProcessor now supported in Android Gradle plugin 2.2
