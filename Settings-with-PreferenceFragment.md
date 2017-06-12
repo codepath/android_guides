@@ -76,7 +76,7 @@ SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(an
 
 The root for the XML file must be a `<PreferenceScreen>`. Within this screen, you can either list all preferences or group with `<PreferenceCategory>`. The grouped preferences will appear together under the same section heading. The XML above creates the following setting screen:
 
-![Settings Screen](https://i.imgur.com/qkE1W6H.png?1 =200x)
+![Settings Screen](https://i.imgur.com/qkE1W6H.png?1=200x)
 
 #### Preference Types
 
