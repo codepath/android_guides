@@ -60,7 +60,7 @@ To send notifications from an application, the `NotificationManager` system serv
 
 ```java
 // Context objects are able to fetch or start system services.
-NotificationManager manager = 
+NotificationManager notificationManager = 
     (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
 int notificationId = 1;
