@@ -402,7 +402,7 @@ webSocket.close(1000, "closing);
 
 If you are seeing `SSL handshake terminated` errors and using Android 4.0 devices, you will need to enable TLS v1.2 explicitly.  Android has supported TLS 1.2 since API 16 (Android 4.1).  You also should ensure you are using the latest OpenSSL by using the `ProviderInstaller` as described [here](https://developer.android.com/training/articles/security-gms-provider.html).
  
-This should be in the first line of your Application (before OkHttp initializes):
+This should be in the first line of your Application (or at least before OkHttp initializes):
 
 ```java
 public class MyApplication extends Application {
