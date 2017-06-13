@@ -136,10 +136,10 @@ If an image or set of images aren't loading, make sure to check the Android moni
 
 First, you have to find which image(s) being loaded are likely causing this error. For any given `Glide` call, we can fix this by **one or more of the following approaches**:
 
-1. Add an explicit width or height to the `ImageView` by setting `layout_width=500dp` in the layout file.
-1. Call `.override(width, height)` during the Glide load and explicitly set a width or height for the image such as: `Glide.with(...).load(imageUri).override(500, 500).into(...)`. 
-1. Try removing `android:adjustViewBounds="true"` from your `ImageView` if present and if you not calling `.override()`
-1. Open up your static placeholder or error images and make sure their dimensions are relatively small (< 500px width). If not, resize those static images and save them back to your project.
+- Add an explicit width or height to the `ImageView` by setting `layout_width=500dp` in the layout file.
+- Call `.override(width, height)` during the Glide load and explicitly set a width or height for the image such as: `Glide.with(...).load(imageUri).override(500, 500).into(...)`. 
+- Try removing `android:adjustViewBounds="true"` from your `ImageView` if present and if you not calling `.override()`
+- Open up your static placeholder or error images and make sure their dimensions are relatively small (< 500px width). If not, resize those static images and save them back to your project.
 
 Applying these tips to all of your Glide image loads should resolve any out of memory issues. As a fallback, you might want to open up your `AndroidManifest.xml` and then add `android:largeHeap` to your manifest:
 
