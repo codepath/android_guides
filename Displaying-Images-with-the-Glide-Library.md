@@ -146,36 +146,27 @@ Note that this is not generally a good idea, but can be used temporarily to trig
 
 ### Loading Errors
 
-If you experience errors loading images, you can create a listener and pass it in via `Glide.listener()` to intercept errors. 
-
-First, create a new `RequestListener<String, GlideDrawable>`, preferably declared as a field object to prevent it from being garbage-collected:
-
-```java
-private RequestListener<String, GlideDrawable> requestListener = new RequestListener<String, GlideDrawable>() {  
-    @Override
-    public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
-        // log exception
-        Log.e("TAG", "Error loading image", e);
-        // important to return false so the error placeholder can be placed
-        return false;
-    }
-
-    @Override
-    public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-        return false;
-    }
-};
-```
-
-Then pass this listener in when loading an image:
+If you experience errors loading images, you can create a `RequestListener<String, GlideDrawable>` and pass it in via `Glide.listener()` to intercept errors:
 
 ```java
 Glide.with(context)
-    .load("http://via.placeholder.com/300.png")
-    .listener(requestListener)
-    .placeholder(R.drawable.placeholder)
-    .error(R.drawable.imagenotfound)
-    .into(ivImg);
+        .load("http://via.placeholder.com/300.png")
+        .placeholder(R.drawable.placeholder)
+        .error(R.drawable.imagenotfound)
+        .listener(new RequestListener<String, GlideDrawable>() {
+            @Override
+            public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+                // log exception
+                Log.e("TAG", "Error loading image", e);
+                return false; // important to return false so the error placeholder can be placed
+            }
+
+            @Override
+            public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                return false;
+            }
+        })
+        .into(ivImg);
 ```
 
 
@@ -232,6 +223,36 @@ Glide.with(this)
 ```
 
 - [List of available transformations](https://github.com/wasabeef/glide-transformations/blob/master/README.md#transformations-1)
+
+## Advanced Usages
+
+### Showing a `ProgressBar`
+
+Add a `ProgressBar` or otherwise handle callbacks for an image that is loading:
+
+```java
+progressBar.setVisibility(View.VISIBLE);
+
+Glide.with(this)
+        .load("http://via.placeholder.com/300.png")
+        .listener(new RequestListener<String, GlideDrawable>() {
+            @Override
+            public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+                progressBar.setVisibility(View.GONE);
+                return false; // important to return false so the error placeholder can be placed
+            }
+
+            @Override
+            public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                progressBar.setVisibility(View.GONE);
+                return false;
+            }
+        })
+        .into(ivImg);
+```
+
+
+
 
 ## Networking
 
