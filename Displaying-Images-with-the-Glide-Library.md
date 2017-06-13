@@ -119,6 +119,66 @@ Glide.with(context)
     .into(ivImg);
 ```
 
+## Troubleshooting
+
+### OutOfMemoryError Loading Errors
+
+If an image or set of images aren't loading, make sure to check the Android monitor log in Android Studio. There's a good chance you might see an `java.lang.OutOfMemoryError "Failed to allocate a [...] byte allocation with [...] free bytes"` or a `Out of memory on a 51121168-byte allocation.`. This is quite common and means that **you are loading one or more large images** that have not been properly resized.
+
+First, you have to find which image(s) being loaded are likely causing this error. For any given `Glide` call, we can fix this by **one or more of the following approaches**:
+
+1. Add an explicit width or height to the `ImageView` by setting `layout_width=500dp` in the layout file.
+1. Call `.override(width, height)` during the Glide load and explicitly set a width or height for the image such as: `Glide.with(...).load(imageUri).override(500, 500).into(...)`. 
+1. Try removing `android:adjustViewBounds="true"` from your `ImageView` if present and if you not calling `.override()`
+1. Open up your static placeholder or error images and make sure their dimensions are relatively small (< 500px width). If not, resize those static images and save them back to your project.
+
+Applying these tips to all of your Glide image loads should resolve any out of memory issues. As a fallback, you might want to open up your `AndroidManifest.xml` and then add `android:largeHeap` to your manifest:
+
+```xml
+<application
+        android:name=".MyApplication"
+        ...
+        android:largeHeap="true"
+        ...
+```
+
+Note that this is not generally a good idea, but can be used temporarily to trigger fewer out of memory errors.
+
+### Loading Errors
+
+If you experience errors loading images, you can create a listener and pass it in via `Glide.listener()` to intercept errors. 
+
+First, create a new `RequestListener<String, GlideDrawable>`, preferably declared as a field object to prevent it from being garbage-collected:
+
+```java
+private RequestListener<String, GlideDrawable> requestListener = new RequestListener<String, GlideDrawable>() {  
+    @Override
+    public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+        // log exception
+        Log.e("TAG", "Error loading image", e);
+        // important to return false so the error placeholder can be placed
+        return false;
+    }
+
+    @Override
+    public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+        return false;
+    }
+};
+```
+
+Then pass this listener in when loading an image:
+
+```java
+Glide.with(context)
+    .load("http://via.placeholder.com/300.png")
+    .listener(requestListener)
+    .placeholder(R.drawable.placeholder)
+    .error(R.drawable.imagenotfound)
+    .into(ivImg);
+```
+
+
 ## Transformations
 
 Transformations are supported by an additional third-party library, [glide-transformations](https://github.com/wasabeef/glide-transformations). First, add the dependencies:
