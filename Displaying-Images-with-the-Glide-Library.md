@@ -251,8 +251,34 @@ Glide.with(this)
         .into(ivImg);
 ```
 
+### Adjusting Image Size Dynamically
 
+To readjust the `ImageView` size after the image has been retrieved, first define a `SimpleTarget<Bitmap>` object to intercept the `Bitmap` once it is loaded:
 
+```java
+private SimpleTarget target = new SimpleTarget<Bitmap>() {  
+    @Override
+    public void onResourceReady(Bitmap bitmap, GlideAnimation glideAnimation) {
+        // do something with the bitmap
+        // set it to an ImageView
+        imageView.setImageBitmap(bitmap);
+    }
+};
+
+```
+
+Next, pass the `SimpleTarget` to Glide via `into()`:
+
+```java
+Glide.with(context)
+        .load("http://via.placeholder.com/300.png")
+        .asBitmap()
+        .into(target);
+```
+
+**Note:** The `SimpleTarget` object must be **stored as a member field or method** and cannot be an anonymous class otherwise this won't work as expected.  The reason is that Glide accepts this parameter as a weak memory reference, and because anonymous classes are eligible for garbage collection when there are no more references, the network request to fetch the image may finish after this anonymous class has already been reclaimed.  See this [Stack Overflow](http://stackoverflow.com/questions/24180805/onbitmaploaded-of-target-object-not-called-on-first-load#answers) discussion for more details.
+
+In other words, you cannot do this all inline `Glide.with(this).load("url").into(new SimpleTarget<Bitmap>() { ... })` as in other scenarios.
 
 ## Networking
 
