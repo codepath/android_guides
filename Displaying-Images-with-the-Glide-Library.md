@@ -84,7 +84,7 @@ And then define it as `meta-data` inside `AndroidManifest.xml`:
 
 Ideally, an image's dimensions would match exactly those of the `ImageView` in which it is being displayed, but as this is often not the case, care must be taken to resize and/or scale the image appropriately. Android's native support for this isn't robust, especially when displaying very large images (such as bitmaps returned from the camera) in smaller image views, which can often lead to errors (see Troubleshooting).
 
-Glide automatically limits the size of the image it holds in memory to the `ImageView` dimensions. Picasso has the same ability, but requires a call to `fit()`. With Glide, if the image should _not_ be automatically fitted to the `ImageView`, call `override(horizontalSize, verticalSize)`. This will resize the image before displaying it in the `ImageView` but _without_ respect to the image's aspect ratio:
+Glide automatically limits the size of the image it holds in memory to the `ImageView` dimensions. Picasso has the same ability, but requires a call to `fit()`. With Glide, if you _don't want_ the image to be automatically fitted to the `ImageView`, you can call `override(horizontalSize, verticalSize)`. This will resize the image before displaying it in the `ImageView` but _without_ respect to the image's aspect ratio:
 
 ```java
 Glide.with(context)
@@ -94,6 +94,15 @@ Glide.with(context)
 ```
 
 Resizing images in this way without respect to the original aspect ratio will often make the image appear skewed or distorted. In most cases, this should be avoided, and Glide offers two standard scaling transformation options to prevent this: `centerCrop` and `fitCenter`.
+
+If you only want to resize one dimension, use `Target.SIZE_ORIGINAL` as a placeholder for the other dimension:
+
+```java
+Glide.with(context)
+    .load("http://via.placeholder.com/300.png")
+    .override(100, Target.SIZE_ORIGINAL) // resizes width to 100, preserves original height, does not respect aspect ratio
+    .into(ivImg);
+```
 
 #### `centerCrop()`
 
