@@ -80,6 +80,45 @@ And then define it as `meta-data` inside `AndroidManifest.xml`:
             android:value="GlideModule"/>
 ```
 
+### Resizing
+
+Ideally, an image's dimensions would match exactly those of the `ImageView` in which it is being displayed, but as this is often not the case, care must be taken to resize and/or scale the image appropriately. Android's native support for this isn't robust, especially when displaying very large images (such as bitmaps returned from the camera) in smaller image views, which can often lead to errors (see Troubleshooting).
+
+Glide automatically limits the size of the image it holds in memory to the `ImageView` dimensions. Picasso has the same ability, but requires a call to `fit()`. With Glide, if the image should _not_ be automatically fitted to the `ImageView`, call `override(horizontalSize, verticalSize)`. This will resize the image before displaying it in the `ImageView` but _without_ respect to the image's aspect ratio:
+
+```java
+Glide.with(context)
+    .load("http://via.placeholder.com/300.png")
+    .override(100, 200) // resizes the image to 100x200 pixels but does not respect aspect ratio
+    .into(ivImg);
+```
+
+Resizing images in this way without respect to the original aspect ratio will often make the image appear skewed or distorted. In most cases, this should be avoided, and Glide offers two standard scaling transformation options to prevent this: `centerCrop` and `fitCenter`.
+
+#### `centerCrop()`
+
+Calling `centerCrop()` scales the image so that it fills the requested bounds of the `ImageView` and then crops the extra. The `ImageView` will be filled completely, but the entire image might not be displayed.
+
+```java
+Glide.with(context)
+    .load("http://via.placeholder.com/300.png")
+    .override(100, 200) 
+    .centerCrop() // scale to fill the ImageView and crop any extra
+    .into(ivImg);
+```
+
+#### `fitCenter()`
+
+Calling `fitCenter()` scales the image so that both dimensions are equal to or less than the requested bounds of the `ImageView`. The image will be displayed completely, but might not fill the entire `ImageView`.
+
+```java
+Glide.with(context)
+    .load("http://via.placeholder.com/300.png")
+    .override(100, 200) 
+    .fitCenter() // scale to fit entire image within ImageView
+    .into(ivImg);
+```
+
 ## Transformations
 
 Transformations are supported by an additional third-party library, [glide-transformations](https://github.com/wasabeef/glide-transformations). First, add the dependencies:
