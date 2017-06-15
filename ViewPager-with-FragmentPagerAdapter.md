@@ -297,7 +297,7 @@ The first approach is to have the page **display a fragment container** that swi
 The second approach is to **switch the fragment that displays** inside the `FragmentPagerAdapter` by overriding the `getItem(...)` method as well as `getItemPosition(Object object)` which is invoked every time you call `viewPager.getAdapter().notifyDataSetChanged()`. For example:
 
 ```java
-public static class MyPagerAdapter extends FragmentPagerAdapter {
+public static class MyPagerAdapter extends FragmentStatePagerAdapter {
     // Return a different fragment for position based on additional state tracked in a member variable
     @Override
     public Fragment getItem(int position) {
