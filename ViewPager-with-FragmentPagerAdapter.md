@@ -221,7 +221,7 @@ In certain cases, we may require a dynamic `ViewPager` where we want to get acce
 
 ### Setup SmartFragmentStatePagerAdapter
 
-First, copy in the [SmartFragmentStatePagerAdapter.java](https://gist.github.com/nesquena/c715c9b22fb873b1d259) which provides the intelligent caching of registered fragments within our `ViewPager`. This solves the common problem of needing to **access the current item within the ViewPager**.
+First, copy in the [SmartFragmentStatePagerAdapter.java](https://gist.github.com/nesquena/c715c9b22fb873b1d259) which provides the intelligent caching of registered fragments within our `ViewPager`.  It does so by overriding the `instantiateItem()` method and caching any created fragments internally.  This solves the common problem of needing to **access the current item within the ViewPager**.
 
 Now, we want to extend from `SmartFragmentStatePagerAdapter` copied above when declaring our adapter so we can take advantage of the better memory management of the state pager:
 
