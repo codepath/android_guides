@@ -52,7 +52,7 @@ private void displayToast(String message) {
   TextView text = (TextView) layout.findViewById(R.id.text);
   text.setText(message); 
   // Construct the toast, set the view and display
-  Toast toast = Toast.makeText(getApplicationContext(), "some message", Toast.LENGTH_SHORT);
+  Toast toast = new Toast(getApplicationContext());
   toast.setView(layout);
   toast.show();
 }
