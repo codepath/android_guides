@@ -77,12 +77,14 @@ Iterating over a collection:
 for (name in names)
   println(name)
 ```
+
 Checking if a collection contains an object using in operator:
 
 ```kotlin
 if (text in names) // names.contains(text) is called
   print("Yes")
 ```
+
 Using lambda expressions to filter and map collections:
 
 ```kotlin
