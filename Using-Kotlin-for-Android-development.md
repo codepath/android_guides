@@ -49,13 +49,12 @@ fun sum(a: Int, b: Int) :Int {
 	return a + b
 }
 ```
-Function with an expression body and inferred return type:
 
+Function with an expression body and inferred return type:
 ```kotlin
 fun sum(a: Int, b: Int) = a + b
 ```
 Function returning no meaningful value:
-
 ```kotlin
 fun printSum(a: Int, b: Int): Unit {
   print(a + b)
