@@ -61,6 +61,7 @@ fun printSum(a: Int, b: Int): Unit {
   print(a + b)
 }
 ```
+
 Unit return type can be omitted:
 
 ```kotlin
