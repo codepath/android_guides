@@ -1,12 +1,12 @@
 ## What is Kotlin?
 
-[Kotlin](https://kotlinlang.org) is a language by [JetBrains](https://www.jetbrains.com), the company behind [IntelliJ IDEA](https://www.jetbrains.com/idea), which Android Studio is based on, and other developer tools. Kotlin is purposely built for large scale software projects to improve upon Java with a focus on readability, correctness, and developer productivity. 
+[Kotlin](https://kotlinlang.org) is a language by [JetBrains](https://www.jetbrains.com), the company behind [IntelliJ IDEA](https://www.jetbrains.com/idea), which Android Studio is based on, and other developer tools. Kotlin is purposely built for large scale software projects to improve upon Java with a focus on readability, correctness, and developer productivity.
 
-The language was created in response to limitations in Java which were hindering development of JetBrains' software products and after an evaluation of all other JVM languages proved unsuitable. Since the goal of Kotlin was for use in improving their products, it focuses very strongly on interop with Java code and the Java standard library.  
+The language was created in response to limitations in Java which were hindering development of JetBrains' software products and after an evaluation of all other JVM languages proved unsuitable. Since the goal of Kotlin was for use in improving their products, it focuses very strongly on interop with Java code and the Java standard library.
 
 ## Why Kotlin?
 
-- 100% interoperable with Java - Kotlin and Java can co-exist in one project. You can continue to use existing libraries in Java. 
+- 100% interoperable with Java - Kotlin and Java can co-exist in one project. You can continue to use existing libraries in Java.
 - Concise - Drastically reduce the amount of boilerplate code you need to write.
 - Safe - Avoid entire classes of errors such as null pointer exceptions.
 - It's functional - Kotlin uses many concepts from functional programming, such as lambda expressions.
@@ -25,6 +25,12 @@ val a: Int = 1
 val b = 1   // `Int` type is inferred
 val c: Int  // Type required when no initializer is provided
 c = 1       // definite assignment
+```
+```java
+int a = 1;
+int b = 1;
+int c;
+c = 1;
 ```
 
 Mutable variable:
@@ -45,8 +51,8 @@ fun sum(a: Int, b: Int) :Int {
 ```
 Function with an expression body and inferred return type:
 
-```kotlin 
-fun sum(a: Int, b: Int) = a + b 
+```kotlin
+fun sum(a: Int, b: Int) = a + b
 ```
 Function returning no meaningful value:
 
@@ -94,7 +100,7 @@ val x: String? = "Hi"
 x.length // Won't compile
 val y: String = null // Won't compile
 ```
-Dealing with null 
+Dealing with null
 
 ```kotlin
 // using the safe call operator ?.
@@ -113,7 +119,7 @@ To be able to write and compile Kotlin code in your Android application you need
   First thing you need is to have Android Studio installed.
 2. Install Kotlin plugin
   Under `Preferences (OSX)` or `Settings (Windows/Linux)` -> `Plugins` -> `Browse Repositories` type `Kotlin` to find the Kotlin plugin. Click `Install` and follow the instructions.
-3. Configure Gradle 
+3. Configure Gradle
   The Kotlin plugin includes a tool which does the Gradle configuration for us.
   - Click on `Tools` -> `Kotlin` -> `Configure Kotlin in Project`
 <br/><img src="http://i.imgur.com/efeuBdX.png" width="500" />
@@ -121,11 +127,11 @@ To be able to write and compile Kotlin code in your Android application you need
   - Select `Android with Gradle`
 <br/><img src="http://i.imgur.com/cfJOIQH.png" width="500" />
 
-  - Choose`All Modules` -> Select the `Kotlin compiler and the runtime version` you want from the dropdown and click `OK`. 
+  - Choose`All Modules` -> Select the `Kotlin compiler and the runtime version` you want from the dropdown and click `OK`.
 <br/><img src="http://i.imgur.com/ITVWnp0.png" width="500" />
 
 
-Your `build.gradle` file will look like this: 
+Your `build.gradle` file will look like this:
 
 ```gradle
 apply plugin: 'com.android.application'
