@@ -148,8 +148,8 @@ public void clear() {
     notifyDataSetChanged(); 
 }
 
-// Add a list of items
-public void addAll(List<list> list) { 
+// Add a list of items -- change to type used
+public void addAll(List<Tweet> list) { 
     items.addAll(list); 
     notifyDataSetChanged(); 
 }
