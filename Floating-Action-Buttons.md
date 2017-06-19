@@ -229,6 +229,16 @@ This can be achieved by use CoordinatorLayout as the root view. We need to speci
 
 For details check out [this stackoverflow post](http://stackoverflow.com/questions/24459352/how-can-i-add-the-new-floating-action-button-between-two-widgets-layouts). See the [[CoordinatorLayout guide|Handling-Scrolls-with-CoordinatorLayout]] for more details on that layout.
 
+## Tinting the Floating Action Button
+
+By default, the floating action button takes the color accent used for your theme.  If you wish to change it, you can use the `android:backgroundTint` attribute:
+
+```xml
+    <android.support.design.widget.FloatingActionButton
+
+        android:backgroundTint="#ff1da1f2"/>
+```
+
 ## References
 
 * <http://www.google.com/design/spec/components/buttons.html#buttons-floating-action-button>
