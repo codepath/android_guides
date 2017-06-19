@@ -251,6 +251,8 @@ Sliding tabs with images:
 
 ![Slide 2](https://i.imgur.com/dYvY5NKl.jpg)
 
+We can also apply color tinting to the tabs by following [[this guide|Drawables#applying-tints-to-drawables]].
+
 ### Add Icons+Text to TabLayout
 
 Another approach is to use `SpannableString` to add icons and text to `TabLayout`:
