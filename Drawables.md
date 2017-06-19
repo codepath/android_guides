@@ -620,7 +620,13 @@ Here is the corresponding vector drawable:
 </vector>
 ```
 
-The simplest way to change this vector drawable to be blue is to apply an `android:tint` attribute to the `<vector>` tag:
+First, we add the color to our `colors.xml` file:
+
+```xml
+<color name="twitter_blue">#ff1da1f2</color>
+```
+
+The simplest way to change this vector drawable to be blue is to apply an `android:tint` attribute to the `<vector>` tag.  
 
 ```xml
 <vector android:tint="@color/twitter_blue"></vector>
