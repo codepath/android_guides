@@ -253,7 +253,7 @@ Sliding tabs with images:
 
 ### Add Icons+Text to TabLayout
 
-Since we are using `SpannableString` to add icons to `TabLayout`, it becomes easy to have text next to the icons by manipulating the `SpannableString` object.
+Another approach is to use `SpannableString` to add icons and text to `TabLayout`:
 
 ```java
 @Override
