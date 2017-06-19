@@ -603,6 +603,48 @@ ImageView imageView = (ImageView) findViewById(R.id.tst);
 imageView.setBackground(drawable);
 ```
 
+### Applying Tints to Drawables
+
+Starting in Android 5.0 and above, a tint color can now be applied to drawables.  The advantage is that images to be styled according to the current theme used.  For instance, in Twitter's recent [Android UI update](https://androidcommunity.com/twitter-rolls-out-new-look-ui-changes-in-latest-update-20170616/), most of the images are stored as vector drawables in black color:
+
+<img src="http://imgur.com/zRYnrnD.png" width="200"/>
+
+Here is the corresponding vector drawable:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:height="24.0dip" android:width="24.0dip" android:viewportWidth="24.0" android:viewportHeight="24.0"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="#ff000000" android:pathData="M22.46,7.57L12.357,2.115c-0.223,-0.12 -0.49,-0.12 -0.713,0L1.543,7.57c-0.364,0.197 -0.5,0.652 -0.303,1.017 0.135,0.25 0.394,0.393 0.66,0.393 0.12,0 0.243,-0.03 0.356,-0.09l0.815,-0.44L4.7,19.963c0.214,1.215 1.308,2.062 2.658,2.062h9.282c1.352,0 2.445,-0.848 2.663,-2.087l1.626,-11.49 0.818,0.442c0.364,0.193 0.82,0.06 1.017,-0.304 0.196,-0.363 0.06,-0.818 -0.304,-1.016zM17.822,19.703c-0.107,0.606 -0.703,0.822 -1.18,0.822L7.36,20.525c-0.48,0 -1.075,-0.216 -1.178,-0.798L4.48,7.69 12,3.628l7.522,4.06 -1.7,12.015z" />
+    <path android:fillColor="#ff000000" android:pathData="M8.22,12.184c0,2.084 1.695,3.78 3.78,3.78s3.78,-1.696 3.78,-3.78 -1.695,-3.78 -3.78,-3.78 -3.78,1.696 -3.78,3.78zM14.28,12.184c0,1.258 -1.022,2.28 -2.28,2.28s-2.28,-1.022 -2.28,-2.28 1.022,-2.28 2.28,-2.28 2.28,1.022 2.28,2.28z" />
+</vector>
+```
+
+The simplest way to change this vector drawable to be blue is to apply an `android:tint` attribute to the `<vector>` tag:
+
+```xml
+<vector android:tint="@color/twitter_blue"></vector>
+```
+
+We can also apply this change dynamically:
+
+```java
+ColorStateList colors;
+if (Build.VERSION.SDK_INT >= 23) {
+  colors = getResources().getColorStateList(R.color.twitter_blue, getTheme());
+}
+else {
+  colors = getResources().getColorStateList(R.color.twitter_blue);
+}
+// Use for pre-Lollipop devices
+Drawable drawable = AppCompatResources.getDrawable(R.drawable.ic_test_24dp);
+// Wrap the drawable so that future tinting calls work on pre-v21 devices. 
+Drawable icon = DrawableCompat.wrap(drawable);
+DrawableCompat.setTintList(icon, colors);
+}
+```
+
+
 ## Additional Drawable Types
 
  * [LevelList](http://developer.android.com/guide/topics/resources/drawable-resource.html#LevelList) - A Drawable that manages a number of alternate Drawables, each assigned a maximum numerical value.
