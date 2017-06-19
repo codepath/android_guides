@@ -96,7 +96,7 @@ this [[guide|Using-the-RecyclerView]] to help make the transition.
 You also must upgrade to the v22 version of RecyclerView.  Previous v21 versions will not work with CoordinatorLayout.  Make sure to bump your `build.gradle` file:
 
 ```gradle
-    compile 'com.android.support:recyclerview-v7:22.2.1'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
 ```
 
 #### Using CoordinatorLayout
