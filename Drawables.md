@@ -603,7 +603,7 @@ ImageView imageView = (ImageView) findViewById(R.id.tst);
 imageView.setBackground(drawable);
 ```
 
-### Applying Tints to Drawables
+## Applying Tints to Drawables
 
 Starting in Android 5.0 and above, a tint color can now be applied to drawables.  The advantage is that images to be styled according to the current theme used.  For instance, in Twitter's recent [Android UI update](https://androidcommunity.com/twitter-rolls-out-new-look-ui-changes-in-latest-update-20170616/), most of the images are stored as vector drawables in black color:
 
