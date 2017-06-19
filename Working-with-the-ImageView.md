@@ -187,18 +187,7 @@ Check out [this source](http://androidsnippets.wordpress.com/2012/10/25/how-to-s
 
 ### Displaying SVG Images
 
-Using a third party library called [svg-android](https://code.google.com/p/svg-android/wiki/Tutorial) we can actually display resolution and density independent SVG images. 
-
-```java
-// Parse an SVG resource from the "raw" resource folder
-SVG svg = SVGParser.getSVGFromResource(getResources(), R.raw.android);
-// Fix issue with renderer on certain devices
-myImageView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-// Get a drawable from the parsed SVG and set it as the drawable for the ImageView
-myImageView.setImageDrawable(svg.createPictureDrawable());
-```
-
-See the [official tutorial](https://code.google.com/p/svg-android/wiki/Tutorial) for more details.
+Android has now [vector drawables](http://guides.codepath.com/android/Drawables#vector-drawables) support, which allows SVG files to be imported to a specific format.  SVG files can be automatically converted using Android Studio by going to `File` -> `New` -> `Vector Asset`.  Make sure to click `Local file (SVG, PSD)` to import the file.
 
 ## References
 
