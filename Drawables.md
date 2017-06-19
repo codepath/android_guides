@@ -285,6 +285,8 @@ We can then load vectors using the `app:srcCompat` property:
 </RelativeLayout>
 ```
 
+**Note**: Be sure to use `app:srcCompat` to support older Android devices.  If you use `android:src` for a vector drawable, your app may render correctly in newer devices but may crash in pre-Lollipop devices.
+
 This results in the following image being rendered:
 
 <img src="http://i.imgur.com/zcHxiii.png" width="250" />
