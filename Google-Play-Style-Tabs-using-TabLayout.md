@@ -269,6 +269,18 @@ public CharSequence getPageTitle(int position) {
 }
 ```
 
+By default, the tab created by TabLayout sets the textAllCaps property to be true, which prevents ImageSpans from being rendered. You can override this behavior by changing the tabTextAppearance property.
+
+```xml
+<style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
+     <item name="tabTextAppearance">@style/MyCustomTextAppearance</item>
+</style>
+
+<style name="MyCustomTextAppearance" parent="TextAppearance.Design.Tab">
+     <item name="textAllCaps">false</item>
+</style>
+```
+
 Note the additional spaces that are added before the tab title while instantiating `SpannableString` class. The blank spaces are used to place the image icon so that the actual title is displayed completely. Depending on where you want to position your icon, you can specify the range start…end of the span in `setSpan()` method.
 
 ![Slide 3](https://i.imgur.com/A8xEpKsl.jpg)
