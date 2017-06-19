@@ -218,47 +218,33 @@ There are several other styles that can be configured for the `TabLayout`:
 
 ### Add Icons to TabLayout
 
-Currently, the TabLayout class does not provide a clean abstraction model that allows for icons in your tab.  There are many posted workarounds, one of which is to return a `SpannableString`, containing your icon in an `ImageSpan`, from your PagerAdapter's `getPageTitle(position)` method as shown in the code snippet below:
+Currently, the TabLayout class does not provide a clean abstraction model that allows for icons in your tab.  However, you can manually add the icons after you have setup your TabLayout.
+
+Inside your FragmentPagerAdapter, you can delete the `getPageTitle()` line or simply return null:
 
 ```java
-private int[] imageResId = {
-        R.drawable.ic_one,
-        R.drawable.ic_two,
-        R.drawable.ic_three
-};
-
 // ...
 
 @Override
 public CharSequence getPageTitle(int position) {
-    // Generate title based on item position
-    // return tabTitles[position];
-    
-    // getDrawable(int i) is deprecated, use getDrawable(int i, Theme theme) for min SDK >=21
-    // or ContextCompat.getDrawable(Context context, int id) if you want support for older versions.
-    // Drawable image = context.getResources().getDrawable(iconIds[position], context.getTheme());
-    // Drawable image = context.getResources().getDrawable(imageResId[position]);
-    // Drawable image = AppCompatDrawableManager.get().getDrawable(context, imageResId[position]); for support library
-
-    Drawable image = ContextCompat.getDrawable(context, imageResId[position]);
-    image.setBounds(0, 0, image.getIntrinsicWidth(), image.getIntrinsicHeight());
-    SpannableString sb = new SpannableString(" ");
-    ImageSpan imageSpan = new ImageSpan(image, ImageSpan.ALIGN_BOTTOM);
-    sb.setSpan(imageSpan, 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-    return sb;
+    return null;
 }
 ```
 
-By default, the tab created by TabLayout sets the `textAllCaps` property to be true, which prevents ImageSpans from being rendered.  You can override this behavior by changing the `tabTextAppearance` property.
+After you setup your TabLayout, you can use the `getTabAt()` function to set the icon:
 
-```xml
-  <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
-        <item name="tabTextAppearance">@style/MyCustomTextAppearance</item>
-  </style>
+```java
+// setup TabLayout first
 
-  <style name="MyCustomTextAppearance" parent="TextAppearance.Design.Tab">
-        <item name="textAllCaps">false</item>
-  </style>
+// configure icons
+private int[] imageResId = {
+        R.drawable.ic_one,
+        R.drawable.ic_two,
+        R.drawable.ic_three };
+
+for (int i = 0; i < imageResId.length(); i++) {
+       tabLayout.getTabAt(i).setIcon(imageResId[0]);
+}
 ```
 
 Sliding tabs with images:
