@@ -624,6 +624,7 @@ First, we add the color to our `colors.xml` file:
 
 ```xml
 <color name="twitter_blue">#ff1da1f2</color>
+<color name="medium_gray">#ffaab8c2</color>
 ```
 
 The simplest way to change this vector drawable to be blue is to apply an `android:tint` attribute to the `<vector>` tag.  
@@ -645,6 +646,7 @@ if (Build.VERSION.SDK_INT >= 23) {
 else {
   colors = getResources().getColorStateList(R.color.twitter_blue);
 }
+
 // Use for pre-Lollipop devices
 Drawable drawable = AppCompatResources.getDrawable(R.drawable.ic_test_24dp);
 // Wrap the drawable so that future tinting calls work on pre-v21 devices. 
@@ -653,7 +655,16 @@ DrawableCompat.setTintList(icon, colors);
 }
 ```
 
+Note that tinting color used can also use a state list drawable.  For instance, if we wish for the tint to be change colors depending on whether the icon has been selected, we can create a `res/color/tab_selector.xml`:
 
+```xml
+  <?xml version="1.0" encoding="utf-8"?>
+  <selector xmlns:android="http://schemas.android.com/apk/res/android">
+      <item android:color="@color/twitter_blue" android:state_selected="true"></item>
+      <item android:color="@color/medium_gray" />
+  </selector>
+```
+    
 ## Additional Drawable Types
 
  * [LevelList](http://developer.android.com/guide/topics/resources/drawable-resource.html#LevelList) - A Drawable that manages a number of alternate Drawables, each assigned a maximum numerical value.
