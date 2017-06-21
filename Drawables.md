@@ -658,11 +658,11 @@ DrawableCompat.setTintList(icon, colors);
 Note that tinting color used can also use a state list drawable.  For instance, if we wish for the tint to be change colors depending on whether the icon has been selected, we can create a `res/color/tab_selector.xml`:
 
 ```xml
-  <?xml version="1.0" encoding="utf-8"?>
-  <selector xmlns:android="http://schemas.android.com/apk/res/android">
-      <item android:color="@color/twitter_blue" android:state_selected="true"></item>
-      <item android:color="@color/medium_gray" />
-  </selector>
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+   <item android:color="@color/twitter_blue" android:state_selected="true"></item>
+   <item android:color="@color/medium_gray" />
+</selector>
 ```
     
 ## Additional Drawable Types
