@@ -84,7 +84,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [OAuthLibGithub](https://github.com/geniushkg/github-oauth) - Easily add Authentication using Github API.
  * [Timber](https://github.com/JakeWharton/timber) - A logger with a small, extensible API which provides utility on top of Android's normal Log class.
  * [LoggingInterceptor](https://github.com/ihsanbal/LoggingInterceptor) - An OkHttp interceptor which pretty logs request and response data.
-
+ * [PrivacyStreams](https://github.com/PrivacyStreams/PrivacyStreams) - Access and process various types of personal data in Android with an easy, uniform, and privacy-friendly API.
 
 ### Extensions 
 
