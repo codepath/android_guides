@@ -798,7 +798,7 @@ This library requires you to implement the primary data fetcher, mediating betwe
           primaryRequest.getFrom() + "- " + primaryRequest.getTo());
         ...
         ArrayList<String> data = new ArrayList<String>();
-     
+        ...
         return new PrimaryResponse<String>(data, Integer.MAX_VALUE);
       }
     });
@@ -811,9 +811,7 @@ This library requires you to implement the primary data fetcher, mediating betwe
     model.install(recyclerView, adapter);
 ```
 
-The model.install glues model, view and adapter into working implementation. 
-
-
+The `model.install` glues model, view and adapter into working implementation. When the user swipes forward quickly, the library skips unneeded fetches of data between the new and old position, last requested data are fetched first, and any pending requests are dropped from the queue if they data are no longer visible. 
 
 ## References
 
