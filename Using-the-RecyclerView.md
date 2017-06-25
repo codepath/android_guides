@@ -775,6 +775,45 @@ rvMyList.setOnFlingListener(new RecyclerViewSwipeListener(true) {
    }
 });
 ```
+## Using Uncover library
+
+If your use RecyclerView to implement 'infinite scrolling' over output of the web service, or some other resource that requires slow background calls with multiple items at once, it may be reasonable to try the [Uncover library](https://github.com/andviane/google-books-android-viewer) from Maven central:
+
+```java
+dependencies {
+    compile ('io.github.andviane:uncover:2.0.1@aar')
+}    
+```
+This library requires you to implement the primary data fetcher, mediating between fast single item UI-thread calls on model and slow chunked calls on the background on your fetcher:
+
+```java
+    final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler);
+    final UncoveringDataModel<String> model = new UncoveringDataModel<>();
+
+    model.setPrimaryDataProvider(new PrimaryDataProvider<String>() {
+
+      @Override
+      public PrimaryResponse fetch(PrimaryRequest primaryRequest) {
+        Log.i("Fetch", "Service call to fetch items" + 
+          primaryRequest.getFrom() + "- " + primaryRequest.getTo());
+        ...
+        ArrayList<String> data = new ArrayList<String>();
+     
+        return new PrimaryResponse<String>(data, Integer.MAX_VALUE);
+      }
+    });
+
+    RecyclerView.Adapter adapter = new RecyclerView.Adapter() {
+      public int getItemCount() {
+        return model.size();
+      ...
+    };
+    model.install(recyclerView, adapter);
+```
+
+The model.install glues model, view and adapter into working implementation. 
+
+
 
 ## References
 
