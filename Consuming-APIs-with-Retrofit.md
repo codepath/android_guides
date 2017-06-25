@@ -345,13 +345,13 @@ Retrofit 2 also supports [[RxJava]] extensions.  You will need to create an [[Rx
 By default, all network calls are synchronous:
 
 ```java
-RxJavaCallAdapterFactory rxAdapter = RxJavaCallAdapterFactory.create();
+RxJavaCallAdapterFactory rxAdapter = RxJava2CallAdapterFactory.create();
 ```
 
 If you wish to default network calls to be asynchronous, you need to use `createWithScheduler()`.  
 
 ```java
-RxJavaCallAdapterFactory rxAdapter = RxJavaCallAdapterFactory.createWithScheduler(Schedulers.io());
+RxJavaCallAdapterFactory rxAdapter = RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io());
 ```
 
 You can then instantiate the Retrofit instance:
@@ -383,13 +383,14 @@ public interface MyApiEndpointInterface {
 ```
 
 Consistent with the RxJava framework, we need to create a subscriber to handle the response.  The methods `onCompleted()`, `onError()`, and `onNext()` need to be added.  Using the Android RxJava library, we can also designate that we will handle this event on the UI main thread.  **Note**: If you intend to override the default network call behavior, you can specify `subscribeOn()`.  Otherwise, it can omitted.
+**Note**: As the RxJava rewrote their API, the term "Subscription" used here shall be replaced with "Disposable". As the word "Subscription" had conflict intentions.
 
 ```java
 String username = "sarahjean";
 Observable<User> call = apiService.getUser(username);
-Subscription subscription = call
+Disposable disposable = call
 .subscribeOn(Schedulers.io()) // optional if you do not wish to override the default behavior
-.observeOn(AndroidSchedulers.mainThread()).subscribe(new Subscriber<User>() {
+.observeOn(AndroidSchedulers.mainThread()).subscribeWith(new Disposable<User>() {
   @Override
   public void onCompleted() {
 
@@ -414,16 +415,16 @@ Note that if you are running any API calls in an activity or fragment, you will 
 
 ```java
 // MyActivity
-private Subscription subscription;
+private Disposable disposable;
 
 protected void onCreate(Bundle savedInstanceState) {
-    this.subscription = observable.subscribe(this);
+    this.disposable = observable.subscribe(this);
 }
 
 ...
 
 protected void onDestroy() {
-    this.subscription.unsubscribe();
+    this.disposable.dispose();
     super.onDestroy();
 }
 ```
