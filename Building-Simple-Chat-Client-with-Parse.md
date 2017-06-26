@@ -217,7 +217,7 @@ At this point, run your application and try to send a text to parse. If the save
 Now that we have verified that messages are successfully being saved to your parse database, lets go ahead and build the UI to retrieve these messages. Open your layout file `activity_chat.xml`and add a `RecyclerView` to display the text messages from parse.
 
 First, add the RecyclerView as a dependency in your `app/build.gradle`:
-```xml
+```gradle
 dependencies {
     ...
     compile 'com.android.support:recyclerview-v7:25.3.1'
