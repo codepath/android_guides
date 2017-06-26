@@ -739,7 +739,7 @@ The final manifest for this chat application looks like:
 </manifest>
 ```
 
-## 14. Final Output
+## 15. Final Output
 
 Run your project and test it out with your pair partner. Below is the final output.
 
