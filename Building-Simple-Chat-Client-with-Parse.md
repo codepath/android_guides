@@ -18,8 +18,7 @@ Let's setup Parse into a brand new Android app following the steps below.
     
     ```gradle
     dependencies {
-      compile 'com.parse:parse-android:1.15.7'
-      compile 'com.parse:parse-livequery-android:1.0.4' // for Parse Live Queries
+      compile 'com.parse:parse-android:1.15.8'
       compile 'com.squareup.okhttp3:logging-interceptor:3.6.0' // for logging API calls to LogCat
     }
     ```
@@ -660,7 +659,21 @@ See the [[repeating periodic tasks|Repeating-Periodic-Tasks#handler]] guide to l
 
 #### Live Queries
 
-Alternatively, assuming the server is configured properly to support it (see [[this guide|Configuring-a-Parse-Server#adding-support-for-live-queries]]), we can also use [[Parse Live Queries|Building-Data-driven-Apps-with-Parse#live-queries]] to listen for new messages:
+Alternatively, assuming the server is configured properly to support it (see [[this guide|Configuring-a-Parse-Server#adding-support-for-live-queries]]), we can also use [[Parse Live Queries|Building-Data-driven-Apps-with-Parse#live-queries]] to listen for new messages.  We can disable the use of the `postDelayed()` runnable that we created in the earlier step:
+
+```java
+// myHandler.postDelayed(mRefreshMessagesRunnable, POLL_INTERVAL);
+``
+
+First, make sure to add the Parse LiveQuery dependency:
+
+```gradle
+dependencies {
+      compile 'com.parse:parse-livequery-android:1.0.4' // for Parse Live Queries
+}
+```
+
+Next, we will configure to listen for any newly created Message object:
 
 ```java
 protected void onCreate(Bundle savedInstanceState) {
@@ -684,8 +697,16 @@ protected void onCreate(Bundle savedInstanceState) {
    SubscriptionHandling.HandleEventCallback<Message>() {
                       @Override
                       public void onEvent(ParseQuery<Message> query, Message object) {
-                          refreshMessages();                        
-                      }
+                          mMessages.add(0, message);
+  
+                          // RecyclerView updates need to be run on the UI thread
+                          runOnUiThread(new Runnable() {
+                              @Override
+                              public void run() {
+                                mAdapter.notifyDataSetChanged();
+                                rvChat.scrollToPosition(0);
+                            }
+                        });
                   });
 ```
 
