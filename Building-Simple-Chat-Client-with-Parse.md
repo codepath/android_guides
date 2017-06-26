@@ -274,7 +274,7 @@ Next, add your `RecyclerView` to the layout:
 </RelativeLayout>
 ```
 
-We will be showing the logged in user's gravatar and messages on the right and the other gravatars and messages on the left. You can read more about creating gravatars [here](https://en.gravatar.com/site/implement/images/). We need to create another layout file to represent each chat message row in the list view. Put this into `res/layout/chat_item.xml`:
+We will be showing the logged in user's gravatar and messages on the right and the other gravatars and messages on the left. You can read more about creating gravatars [here](https://en.gravatar.com/site/implement/images/). We need to create another layout file to represent each chat message row in the list view. Put this into `res/layout/item_chat.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -414,7 +414,7 @@ With our model defined with Parse and properly registered, we can now use this m
 
 ## 9. Create Custom List Adapter
 
-Create a class named `ChatAdapter.java` with below code. This is a custom list adapter class which provides data to list view. In other words it renders the `chat_item.xml `in list by pre-filling appropriate information. We'll be using the open source `Glide` library to load profile images. 
+Create a class named `ChatAdapter.java` with below code. This is a custom list adapter class which provides data to list view. In other words it renders the `item_chat.xml `in list by pre-filling appropriate information. We'll be using the open source `Glide` library to load profile images. 
 
 First, add dependency for this library to the `app/build.gradle` file:
 
@@ -443,7 +443,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-        View contactView = inflater.inflate(R.layout.chat_item, parent, false);
+        View contactView = inflater.inflate(R.layout.item_chat, parent, false);
 
         ViewHolder viewHolder = new ViewHolder(contactView);
         return viewHolder;
