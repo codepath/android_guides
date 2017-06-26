@@ -663,7 +663,7 @@ Alternatively, assuming the server is configured properly to support it (see [[t
 
 ```java
 // myHandler.postDelayed(mRefreshMessagesRunnable, POLL_INTERVAL);
-``
+```
 
 First, make sure to add the Parse LiveQuery dependency:
 
