@@ -657,7 +657,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 See the [[repeating periodic tasks|Repeating-Periodic-Tasks#handler]] guide to learn more about the handler.
 
-### 13. Live Queries
+## 13. Live Queries
 
 Alternatively, assuming the server is configured properly to support it (see [[this guide|Configuring-a-Parse-Server#adding-support-for-live-queries]]), we can also use [[Parse Live Queries|Building-Data-driven-Apps-with-Parse#live-queries]] to listen for new messages.  We can disable the use of the `postDelayed()` runnable that we created in the earlier step:
 
