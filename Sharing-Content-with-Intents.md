@@ -127,15 +127,8 @@ public void onShareItem(View v) {
 }
 
 // Returns the URI path to the Bitmap displayed in specified ImageView
-public Uri getLocalBitmapUri(ImageView imageView) {
-    // Extract Bitmap from ImageView drawable
-    Drawable drawable = imageView.getDrawable();
-    Bitmap bmp = null;
-    if (drawable instanceof BitmapDrawable){
-       bmp = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
-    } else {
-       return null;
-    }
+public Uri getBitmapFromDrawable(Bitmap bmp){
+
     // Store image to default external storage directory
     Uri bmpUri = null;
     try {
@@ -146,8 +139,12 @@ public Uri getLocalBitmapUri(ImageView imageView) {
         FileOutputStream out = new FileOutputStream(file);
         bmp.compress(Bitmap.CompressFormat.PNG, 90, out);
         out.close();
-        // **Warning:** This will fail for API >= 24, use a FileProvider as shown below instead.
-        bmpUri = Uri.fromFile(file);
+
+        // wrap File object into a content provider. NOTE: authority here should match authority in manifest declaration
+        bmpUri = FileProvider.getUriForFile(BookDetailActivity.this, "com.codepath.fileprovider", file);  // use this version for API >= 24 
+
+        // **Note:** For API < 24, you may use bmpUri = Uri.fromFile(file);
+
     } catch (IOException e) {
         e.printStackTrace();
     }
