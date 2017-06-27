@@ -287,7 +287,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
             @Override
             public boolean onResourceReady(GlideDrawable resource, Uri model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                prepareShareIntent();
+                prepareShareIntent(((GlideBitmapDrawable) resource).getBitmap());
                 attachShareIntentAction();
                 // Let Glide handle resource load
                 return false; 
@@ -298,10 +298,9 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 
 // Gets the image URI and setup the associated share intent to hook into the provider
-public void prepareShareIntent() {
+public void prepareShareIntent(Bitmap drawableImage) {
     // Fetch Bitmap Uri locally
-    ImageView ivImage = (ImageView) findViewById(R.id.ivResult);
-    Uri bmpUri = getLocalBitmapUri(ivImage); // see previous remote images section
+     Uri bmpUri = getBitmapFromDrawable(drawableImage);// see previous remote images section and notes for API > 23
     // Construct share intent as described above based on bitmap
     shareIntent = new Intent();
     shareIntent.setAction(Intent.ACTION_SEND);
