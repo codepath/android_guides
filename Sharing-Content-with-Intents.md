@@ -285,7 +285,8 @@ protected void onCreate(Bundle savedInstanceState) {
             public boolean onResourceReady(GlideDrawable resource, Uri model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
                 prepareShareIntent();
                 attachShareIntentAction();
-                return true;
+                // Let Glide handle resource load
+                return false; 
             }
         }
     )        
