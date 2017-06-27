@@ -168,15 +168,19 @@ If you are using Android API 24 or higher, private `File` URI resources (file://
 First, you must declare this FileProvider in your `AndroidManifest.xml` file within the `<application>` tag:
   
 ```xml
-<provider
-  android:name="android.support.v4.content.FileProvider"
-  android:authorities="com.codepath.fileprovider"
-  android:exported="false"
-  android:grantUriPermissions="true">
-    <meta-data
+<application>
+
+  <!-- make sure within the application tag, otherwise app will crash with XmlResourceParser errors -->
+  <provider
+    android:name="android.support.v4.content.FileProvider"
+    android:authorities="com.codepath.fileprovider"
+    android:exported="false"
+    android:grantUriPermissions="true">
+      <meta-data
             android:name="android.support.FILE_PROVIDER_PATHS"
             android:resource="@xml/fileprovider" />
-</provider>
+  </provider>
+</application>
 ```
 
 Next, create a resource directory called `xml` and create a `fileprovider.xml`.  Assuming you wish to grant access to the application's specific external storage directory, which requires requesting no additional permissions, you can declare this line as follows:
