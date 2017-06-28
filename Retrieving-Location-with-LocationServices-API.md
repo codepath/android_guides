@@ -15,7 +15,7 @@ Fused location requires the use of the Google Play SDK. You must include the lib
 
 ```gradle
 dependencies {
-    compile 'com.google.android.gms:play-services-location:9.8.0'
+    compile 'com.google.android.gms:play-services-location:11.0.1'
 }
 ```
 
@@ -52,62 +52,34 @@ private long FASTEST_INTERVAL = 2000; /* 2 sec */
 public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    // Create the location client to start receiving updates
-    mGoogleApiClient = new GoogleApiClient.Builder(this)
-                          .addApi(LocationServices.API)
-                          .addConnectionCallbacks(this)
-                          .addOnConnectionFailedListener(this).build();
-}
-
-protected void onStart() {
-    super.onStart();
-    // Connect the client.
-    mGoogleApiClient.connect();
-}
-
-protected void onStop() {
-    // Disconnecting the client invalidates it.
-    LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
-
-    // only stop if it's connected, otherwise we crash
-    if (mGoogleApiClient != null) {
-        mGoogleApiClient.disconnect();
-    }
-    super.onStop();
-}
-
-public void onConnected(Bundle dataBundle) {
-    // Get last known recent location. 
-    Location mCurrentLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-    // Note that this can be NULL if last location isn't already known.
-    if (mCurrentLocation != null) {
-      // Print current location if not null
-      Log.d("DEBUG", "current location: " + mCurrentLocation.toString());
-      LatLng latLng = new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude());
-    }
-    // Begin polling for new location updates.
-    startLocationUpdates();
-}
-
-@Override
-public void onConnectionSuspended(int i) {
-    if (i == CAUSE_SERVICE_DISCONNECTED) {
-      Toast.makeText(this, "Disconnected. Please re-connect.", Toast.LENGTH_SHORT).show();
-    } else if (i == CAUSE_NETWORK_LOST) {
-      Toast.makeText(this, "Network lost. Please re-connect.", Toast.LENGTH_SHORT).show();
-    }
+    startLocationUpdates(); 
 }
 
 // Trigger new location updates at interval
 protected void startLocationUpdates() {
-    // Create the location request
-    mLocationRequest = LocationRequest.create()
-        .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
-        .setInterval(UPDATE_INTERVAL)
-        .setFastestInterval(FASTEST_INTERVAL);
-    // Request location updates
-    LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient,
-        mLocationRequest, this);
+
+    // Create the location request to start receiving updates
+    Location locationRequest = new LocationRequest();
+    locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+    locationRequest.setInterval(UPDATE_INTERVAL);
+    locationRequest.setFastestInterval(FASTEST_INTERVAL);
+
+    LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder();
+    builder.addLocationRequest(mLocationRequest);
+    LocationSettingsRequest locationSettingsRequest = builder.build();
+
+    SettingsClient settingsClient = LocationServices.getSettingsClient(this);
+    settingsClient.checkLocationSettings(locationSettingsRequest);
+
+    // new Google API SDK v11 uses getFusedLocationProviderClient(this)
+    getFusedLocationProviderClient(this).requestLocationUpdates(mLocationRequest, new LocationCallback() {
+      @Override
+      public void onLocationResult(LocationResult locationResult) {
+         // do work here
+         onLocationChanged(locationResult.getLastLocation();
+      }
+    },
+    Looper.myLooper());
 }
 ```
 
@@ -122,6 +94,30 @@ public void onLocationChanged(Location location) {
     Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     // You can now create a LatLng Object for use with maps
     LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+}
+```
+
+If you want the last known location, you can implement this function:
+
+```java
+public void getLastLocation() {
+    // Get last known recent location using new Google Play Services SDK (v11+)
+    FusedLocationProviderClient locationClient = getFusedLocationProviderClient(this);
+
+    locationClient.getLastLocation()
+                .addOnCompleteListener(this, new OnCompleteListener<Location>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Location> task) {
+                        if (task.isSuccessful() && task.getResult() != null) {
+                           Location currentLocation = task.getResult();
+                           Log.d("MapDemoActivity", "current location: " + currentLocation.toString());
+                           LatLng latLng = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
+
+                        } else {
+                            Log.d("MapDemoActivity", "Error");
+                        }
+                    }
+                });
 }
 ```
 
@@ -152,3 +148,5 @@ With this, you should have location updates working as expected.
 * <https://developer.android.com/training/location/receive-location-updates.html>
 * <http://www.vogella.com/articles/AndroidLocationAPI/article.html>
 * <http://www.vogella.com/articles/AndroidGoogleMaps/article.html>
+* <https://github.com/googlesamples/android-play-location/blob/master/BasicLocationSample/app/src/main/java/com/google/android/gms/location/sample/basiclocationsample/MainActivity.java>
+* <https://github.com/googlesamples/android-play-location/blob/master/LocationUpdates/app/src/main/java/com/google/android/gms/location/sample/locationupdates/MainActivity.java>
