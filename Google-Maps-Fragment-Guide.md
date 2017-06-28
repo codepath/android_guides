@@ -23,7 +23,9 @@ Under `SDK Tools` section, check whether you have already downloaded the latest 
           compile 'com.google.android.gms:play-services-location:11.0.1'
       }
       ```
-4. Make sure to select `Build => Clean project` and then `Build => Re-build project` to make any issues with `MapDemoActivityPermissionsDispatcher` in `MapDemoActivity.java` clear up.
+4. Make sure to select `Build => Clean project` and then `Build => Re-build project` to make any issues with `MapDemoActivityPermissionsDispatcher` in `MapDemoActivity.java` clear up the errors.
+
+If Gradle does not find the Play Services Gradle packages, make sure to go back and [[download Google Play Services and the Google Repository|Google-Maps-Fragment-Guide#download-google-play-services-and-google-repository]].  Both must be updated to the latest version.
 
 Next, we need to get ourselves a maps API key from Google to put into our `AndroidManifest.xml`.
 
