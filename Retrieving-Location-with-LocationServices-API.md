@@ -90,8 +90,6 @@ and then register for location updates with `onLocationChanged`:
 
 ```java
 public void onLocationChanged(Location location) {
-
-
     // New location has now been determined
     String msg = "Updated Location: " +
         Double.toString(location.getLatitude()) + "," +
