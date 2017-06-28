@@ -129,6 +129,35 @@ public void getLastLocation() {
 }
 ```
 
+To allow Google Maps to show the icon that will take you to the GPS location, you will need to first request 
+`ACCESS_FINE_LOCATION` permission and call `setMyLocationEnabled`:
+
+```java
+@Override
+public void onMapReady(GoogleMap googleMap) {
+
+   if(checkPermissions()) {
+     googleMap.setMyLocationEnabled(true);
+   }
+}
+
+private boolean checkPermissions() {
+  if (ContextCompat.checkSelfPermission(this,
+     Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+     return true;
+  } else {
+     requestPermissions();
+     return false;
+  }
+}
+
+private void requestPermissions() {
+        ActivityCompat.requestPermissions(this,
+                new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                REQUEST_FINE_LOCATION);
+}
+```
+ 
 For more information on the Fused Location API, refer to [this Google guide](http://developer.android.com/intl/es/training/location/retrieve-current.html).
 
 For using maps check out the [[Cliffnotes for Maps|Google Maps Fragment Guide]] or the [Android Maps Tutorial](http://www.vogella.com/articles/AndroidGoogleMaps/article.html).  See a [working source code example](https://github.com/codepath/android-google-maps-demo). 
