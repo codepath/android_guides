@@ -242,9 +242,6 @@ If we want to setup a long click listener, we need to implement the `OnMapLongCl
 
 ```java
 public class MapDemoActivity extends AppCompatActivity implements
-  GoogleApiClient.ConnectionCallbacks,
-  GoogleApiClient.OnConnectionFailedListener,
-  LocationListener,
   GoogleMap.OnMapLongClickListener {
 
     ...
