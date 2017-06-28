@@ -172,7 +172,6 @@ Location updates should always be done using the `GoogleApiClient` leveraging th
 
 You can also review the following troubleshooting resources:
 
- * [FusedLocationApi.getLastLocation null](http://stackoverflow.com/questions/29796436/why-is-fusedlocationapi-getlastlocation-null)
  * [Beginner's Guide to Location](http://blog.teamtreehouse.com/beginners-guide-location-android)
  * [Sample Treehouse Source Code](https://github.com/treehouse/android-location-example-refactored/tree/master/app/src/main/java/teamtreehouse/com/iamhere)
 
