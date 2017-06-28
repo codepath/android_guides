@@ -64,10 +64,13 @@ protected void startLocationUpdates() {
     locationRequest.setInterval(UPDATE_INTERVAL);
     locationRequest.setFastestInterval(FASTEST_INTERVAL);
 
+    // Create LocationSettingsRequest object using location request
     LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder();
     builder.addLocationRequest(mLocationRequest);
     LocationSettingsRequest locationSettingsRequest = builder.build();
 
+    // Check whether location settings are satisfied
+    // https://developers.google.com/android/reference/com/google/android/gms/location/SettingsClient
     SettingsClient settingsClient = LocationServices.getSettingsClient(this);
     settingsClient.checkLocationSettings(locationSettingsRequest);
 
