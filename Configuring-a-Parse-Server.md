@@ -121,7 +121,7 @@ Note that the **user and password** provided are for a database user you configu
 
 ### Adding Support for Live Queries
 
-One of the newer features of Parse is that you can monitor for live changes made to objects in your database  To get started, make sure you have defined the ParseObjects that you want in your NodeJS server.  Make sure to define a list of all the objects by declaring it in the `liveQuery` and `classNames listing`:
+One of the newer features of Parse is that you can monitor for live changes made to objects in your database (creation, updates, and deletes)  To get started, make sure you have defined the ParseObjects that you want in your NodeJS server.  Make sure to define a list of all the objects by declaring it in the `liveQuery` and `classNames listing`:
 
 ```javascript
 let api = new ParseServer({
