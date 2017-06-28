@@ -90,6 +90,8 @@ and then register for location updates with `onLocationChanged`:
 
 ```java
 public void onLocationChanged(Location location) {
+
+
     // New location has now been determined
     String msg = "Updated Location: " +
         Double.toString(location.getLatitude()) + "," +
@@ -108,17 +110,20 @@ public void getLastLocation() {
     FusedLocationProviderClient locationClient = getFusedLocationProviderClient(this);
 
     locationClient.getLastLocation()
-                .addOnCompleteListener(this, new OnCompleteListener<Location>() {
+                .addOnSuccessListener(new OnSuccessListener<Location>() {
                     @Override
-                    public void onComplete(@NonNull Task<Location> task) {
-                        if (task.isSuccessful() && task.getResult() != null) {
-                           Location currentLocation = task.getResult();
-                           Log.d("MapDemoActivity", "current location: " + currentLocation.toString());
-                           LatLng latLng = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
-
-                        } else {
-                            Log.d("MapDemoActivity", "Error");
+                    public void onSuccess(Location location) {
+                        // GPS location can be null if GPS is switched off
+                        if (location != null) {
+                            onLocationChanged(location);
                         }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d("MapDemoActivity", "Error trying to get last GPS location");
+                        e.printStackTrace();
                     }
                 });
 }
