@@ -117,7 +117,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
      MyParcelable object = data.getParcelableExtra("MY_KEY");  // make sure key matches the one specified in ActivityTwo.java
   }
 } 
-```java
+```
 
 
 ### What It Is Not
