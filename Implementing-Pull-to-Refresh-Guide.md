@@ -93,8 +93,7 @@ public class TimelineActivity extends Activity {
         // Send the network request to fetch the updated data
         // `client` here is an instance of Android Async HTTP
         // getHomeTimeline is an example endpoint.
-
-        client.getHomeTimeline(0, new JsonHttpResponseHandler() {
+        client.getHomeTimeline(new JsonHttpResponseHandler() {
             public void onSuccess(JSONArray json) {
                 // Remember to CLEAR OUT old items before appending in the new ones
                 adapter.clear();
