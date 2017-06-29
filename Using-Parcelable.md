@@ -77,6 +77,7 @@ public class MyParcelable implements Parcelable {
         }
     };
 }
+```
 
 Note that the `Parcelable` interface has two methods defined: `int describeContents()` and `void writeToParcel(Parcel dest, int flags)`. After implementing the `Parcelable` interface, we need to create the `Parcelable.Creator<MyParcelable> CREATOR` constant for our class which requires us to define `createFromParcel`, `newArray`.
 
