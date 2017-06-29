@@ -106,7 +106,7 @@ public class NewActivity extends Activity {
 
 Now we can access the parcelable data from within the launched activity.
 
-If returning data that was invoked via an intent (i.e. sending data back to the calling activity), the onActivityResult() method in the calling activity is be invoked:
+If returning data that was invoked via an intent (i.e. sending data back to the calling activity), the onActivityResult() method in the calling activity is to be invoked:
 
 ```java
 // ActivityOne.java, time to handle the result of the sub-activity
