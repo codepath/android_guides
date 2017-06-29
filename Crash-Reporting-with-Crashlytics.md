@@ -27,21 +27,30 @@ Crashlytics is a part of Fabric.io and gives mobile app developers insight into 
 > build.gradle
  ```javascript
 buildscript {
-    repositories {
-        maven { url 'https://maven.fabric.io/public' }
-    }
-    dependencies {
-        classpath 'io.fabric.tools:gradle:1.+'
-    }
+  repositories {
+    maven { url 'https://maven.fabric.io/public' }
+  }
+
+  dependencies {
+  // We recommend changing it to the latest version from our changelog: 
+  // https://docs.fabric.io/android/changelog.html#fabric-gradle-plugin
+    classpath 'io.fabric.tools:gradle:1.+'
+  }
 }
+apply plugin: 'com.android.application'
+// Put Fabric plugin after Android plugin
 apply plugin: 'io.fabric'
 
 repositories {
-    maven { url 'https://maven.fabric.io/public' }
+  maven { url 'https://maven.fabric.io/public' }
 }
-compile('com.crashlytics.sdk.android:crashlytics:2.6.7@aar') {
+dependencies {
+  ...
+  compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
     transitive = true;
+    }
 }
+
 ```
 > AndroidManifest.xml
 ```xml=
