@@ -119,7 +119,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
   }
 } 
 ```
-Instead of using `getIntent().getParcelableExtra("myData")` to retrieve the object, we access the Intent object via the parameter (in this example, "data").  
+Instead of using `getIntent()` to retrieve the passed object, we access the Intent object via the parameter (in this example, "data").  
 
 
 ### What It Is Not
