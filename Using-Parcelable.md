@@ -106,6 +106,20 @@ public class NewActivity extends Activity {
 
 Now we can access the parcelable data from within the launched activity.
 
+If returning data to onActivityResult, the 
+Once the sub-activity finishes, the onActivityResult() method in the calling activity is be invoked:
+
+// ActivityOne.java, time to handle the result of the sub-activity
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+  // REQUEST_CODE is defined above
+  if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
+     // Extract object from result extras
+     MyParcelable object = data.getParcelableExtra("MY_KEY");  // make sure key matches the one specified in ActivityTwo.java
+  }
+} 
+
+
 ### What It Is Not
 
 You may notice some similarities between `Parcelable` and `Serializable`.  DO NOT, I repeat, DO NOT attempt to persist `Parcel` data.  It is meant for high-performance transport and you could lose data by trying to persist it.
