@@ -89,24 +89,26 @@ We can now pass the parcelable data between activities within an intent:
 // somewhere inside an Activity
 MyParcelable dataToSend = new MyParcelable();
 Intent i = new Intent(this, NewActivity.class);
-i.putExtra("myData", dataToSend); // using the (String name, Parcelable value) overload!
+i.putExtra("myDataKey", dataToSend); // using the (String name, Parcelable value) overload!
 startActivity(i); // dataToSend is now passed to the new Activity
 ```
 
-and then access the data in the NewActivity using:
+and then access the data in the `NewActivity` that was launched using:
 
 ```java
 public class NewActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        MyParcelable object = (MyParcelable) getIntent().getParcelableExtra("myData");
+        MyParcelable object = (MyParcelable) getIntent().getParcelableExtra("myDataKey");
     }
 }
 ```
 
-Now we can access the parcelable data from within the launched activity.
+Now we can access the parcelable data from within the launched activity!
 
-If returning data that was invoked via an intent (i.e. sending data back to the calling activity), the onActivityResult() method in the calling activity is to be invoked:
+### Passing Data Result Back to Parent Activity
+
+If an activity is [[returning a data result back to the parent activity|Using-Intents-to-Create-Flows#returning-data-result-to-parent-activity]], the `onActivityResult()` method in the parent activity is invoked:
 
 ```java
 // ActivityOne.java, time to handle the result of the sub-activity
@@ -115,12 +117,14 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
   // REQUEST_CODE is defined above
   if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
      // Extract object from result extras
-     MyParcelable object = data.getParcelableExtra("MY_KEY");  // make sure key matches the one specified in ActivityTwo.java
+     // Make sure the key here matches the one specified in the result passed from ActivityTwo.java
+     MyParcelable object = data.getParcelableExtra("myDataKey");  
   }
 } 
 ```
-Instead of using `getIntent()` to retrieve the passed object, we access the Intent object via the parameter (in this example, "data").  
 
+Instead of using `getIntent()` to retrieve the passed object in this case, we access the `Intent` object via the parameter 
+representing the result (in this example, "data").  
 
 ### What It Is Not
 
