@@ -106,9 +106,9 @@ public class NewActivity extends Activity {
 
 Now we can access the parcelable data from within the launched activity.
 
-If returning data to onActivityResult, the 
-Once the sub-activity finishes, the onActivityResult() method in the calling activity is be invoked:
+If returning data that was invoked via an intent (i.e. sending data back to the calling activity), the onActivityResult() method in the calling activity is be invoked:
 
+```java
 // ActivityOne.java, time to handle the result of the sub-activity
 @Override
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -118,6 +118,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
      MyParcelable object = data.getParcelableExtra("MY_KEY");  // make sure key matches the one specified in ActivityTwo.java
   }
 } 
+```java
 
 
 ### What It Is Not
