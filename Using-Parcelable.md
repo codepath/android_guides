@@ -108,7 +108,7 @@ Now we can access the parcelable data from within the launched activity!
 
 ### Passing Data Result Back to Parent Activity
 
-If an activity is [[returning a data result back to the parent activity|Using-Intents-to-Create-Flows#returning-data-result-to-parent-activity]], the `onActivityResult()` method in the parent activity is invoked:
+If a launched activity is [[returning a data result back to the parent activity|Using-Intents-to-Create-Flows#returning-data-result-to-parent-activity]], the `onActivityResult()` method in the parent activity is invoked:
 
 ```java
 // ActivityOne.java, time to handle the result of the sub-activity
