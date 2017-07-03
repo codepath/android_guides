@@ -243,7 +243,7 @@ private int[] imageResId = {
         R.drawable.ic_three };
 
 for (int i = 0; i < imageResId.length; i++) {
-       tabLayout.getTabAt(i).setIcon(imageResId[0]);
+       tabLayout.getTabAt(i).setIcon(imageResId[i]);
 }
 ```
 
