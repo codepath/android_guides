@@ -31,13 +31,12 @@ public class MainActivity extends Activity {
 
 ### Setup
 
-Android Studio by default will not allow you to navigate to generated Dagger 2 code as legitimate classes because they are not normally added to the source path  but adding the `android-apt` plugin will add these files into the IDE classpath and enable you to have more visibility.
+Android Studio by default will not allow you to navigate to generated Dagger 2 code as legitimate classes because they are not normally added to the source path.  Adding the `annotationProcessor` plugin will add these files into the IDE classpath and enable you to have more visibility.
 
 Make sure to [[upgrade|Getting-Started-with-Gradle#upgrading-gradle]] to the latest Gradle version to use the `annotationProcessor` syntax: 
 
 ```gradle
 dependencies {
-    // apt command comes from the android-apt plugin
     compile "com.google.dagger:dagger:2.9"
     annotationProcessor "com.google.dagger:dagger-compiler:2.9"
     provided 'javax.annotation:jsr250-api:1.0'
