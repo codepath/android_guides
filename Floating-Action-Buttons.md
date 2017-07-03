@@ -231,12 +231,12 @@ For details check out [this stackoverflow post](http://stackoverflow.com/questio
 
 ## Tinting the Floating Action Button
 
-By default, the floating action button takes the color accent used for your theme.  If you wish to change it, you can use the `android:backgroundTint` attribute:
+By default, the floating action button takes the color accent used for your theme.  If you wish to change it, you can use the `app:backgroundTint` attribute:
 
 ```xml
     <android.support.design.widget.FloatingActionButton
 
-        android:backgroundTint="#ff1da1f2"/>
+        app:backgroundTint="#ff1da1f2"/>
 ```
 
 ## References
