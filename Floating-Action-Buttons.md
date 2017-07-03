@@ -153,7 +153,7 @@ The final step is to associate this CoordinatorLayout Behavior to the Floating A
 
 Replace the layout file's root element with a Coordinator Layout. This will ensure our ScrollAwareFABBehavior Class will call onNestedScroll().
 ```xml
-<android.support.design.widget.CoordinatorLayout
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
     ... 
