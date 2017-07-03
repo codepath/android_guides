@@ -55,6 +55,11 @@ buildscript {
 }
 ```
 
+If you are using the `android-apt` plugin, Gradle v2.3.0 now supports the `annotationProcessor` syntax natively.  See [here](https://bitbucket.org/hvisser/android-apt/wiki/Migration) for migration details.  Basically the process involves:
+
+* Remove the android-apt plugin from your build scripts
+* Change all apt, androidTestApt and testApt dependencies to `annotationProcessor`, `androidTestAnnotationProcessor`, and `testAnnotationProcessor` respectively.
+
 Google maintains the Android Gradle plugin and you can find the latest version at http://tools.android.com/tech-docs/new-build-system.  Both Gradle and the Android Studio plugin are constantly evolving, so you check the site to see what versions of Gradle are supported for which plugin.  
 
 Also, keep in mind that the Android Gradle plugin finds your SDK by what is defined in the local.properties file.  You should already find this local.properties file in your project directory:
