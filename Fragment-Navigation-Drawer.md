@@ -469,7 +469,6 @@ but can also be set to blank:
   <item android:id="@+id/nav_switch"
         app:actionLayout="@layout/action_view_switch"
         android:title="Downloaded only" />
-  </item>
 </menu>
 ```
 
