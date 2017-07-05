@@ -496,11 +496,11 @@ We can build [our own custom layout managers](http://wiresareobsolete.com/2014/0
 
 ### Decorations
 
-We can decorate the items using various decorators attached to the recyclerview such as the [DividerItemDecoration](https://gist.githubusercontent.com/alexfu/0f464fc3742f134ccd1e/raw/abe729359e5b3691f2fe56445644baf0e40b35ba/DividerItemDecoration.java):
+We can decorate the items using various decorators attached to the recyclerview such as the [DividerItemDecoration](https://developer.android.com/reference/android/support/v7/widget/DividerItemDecoration.html):
 
 ```java
 RecyclerView.ItemDecoration itemDecoration = new
-    DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST);
+    DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
 recyclerView.addItemDecoration(itemDecoration);
 ```
 
