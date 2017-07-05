@@ -58,10 +58,10 @@ public void onCreate(Bundle savedInstanceState) {
 protected void startLocationUpdates() {
 
     // Create the location request to start receiving updates
-    Location locationRequest = new LocationRequest();
-    locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-    locationRequest.setInterval(UPDATE_INTERVAL);
-    locationRequest.setFastestInterval(FASTEST_INTERVAL);
+    mLocationRequest = new LocationRequest();
+    mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+    mLocationRequest.setInterval(UPDATE_INTERVAL);
+    mLocationRequest.setFastestInterval(FASTEST_INTERVAL);
 
     // Create LocationSettingsRequest object using location request
     LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder();
@@ -71,7 +71,7 @@ protected void startLocationUpdates() {
     // Check whether location settings are satisfied
     // https://developers.google.com/android/reference/com/google/android/gms/location/SettingsClient
     SettingsClient settingsClient = LocationServices.getSettingsClient(this);
-    settingsClient.checkLocationSettings(locationSettingsRequest);
+    settingsClient.checkLocationSettings(locationSettingsRequest));
 
     // new Google API SDK v11 uses getFusedLocationProviderClient(this)
     getFusedLocationProviderClient(this).requestLocationUpdates(mLocationRequest, new LocationCallback() {
