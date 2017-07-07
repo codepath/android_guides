@@ -71,7 +71,7 @@ protected void startLocationUpdates() {
     // Check whether location settings are satisfied
     // https://developers.google.com/android/reference/com/google/android/gms/location/SettingsClient
     SettingsClient settingsClient = LocationServices.getSettingsClient(this);
-    settingsClient.checkLocationSettings(locationSettingsRequest));
+    settingsClient.checkLocationSettings(locationSettingsRequest);
 
     // new Google API SDK v11 uses getFusedLocationProviderClient(this)
     getFusedLocationProviderClient(this).requestLocationUpdates(mLocationRequest, new LocationCallback() {
