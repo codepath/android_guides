@@ -1,6 +1,6 @@
 ## Overview
 
-Building your own Android library enables other developers to take advantage of code that you've written.  You can share existing activities, services, images, drawables, resource strings, and layout files that enable other people to leverage your work such as those documented in the [[must have libraries|Must-Have-Libraries]] guide.  Also, if your code base begins to take longer times to compile and/or run, creating a library also enables you to iterate faster by working on a more smaller component.  
+Building your own Android library enables other developers to take advantage of code that you've written.  You can share existing activities, services, images, drawables, resource strings, and layout files that enable other people to leverage your work such as those documented in the [[must have libraries|Must-Have-Libraries]] guide.  Also, if your code base begins to take longer times to compile and/or run, creating a library also enables you to iterate faster by working on a smaller component.  
 
 If you plan to share only standard Java code, you can distribute them packaged as Java Archive Resources (`.jar`) files.  However, if you intend to include resources such as layouts, drawables, or string resources, or even an additional `AndroidManifest.xml` file, you must create an Android Archive Resource [`.aar` file](http://tools.android.com/tech-docs/new-build-system/aar-format) file instead.  An `.aar` file can include the following types of files:
 
