@@ -207,12 +207,12 @@ Call<Response> call = apiService.uploadImage("test", requestBody);
 If you need to specify a unique filename for your multipart upload, there is currently an issue in Retrofit 2 tracked in this [ticket](https://github.com/square/retrofit/issues/1063).  Alternatively, you can create a multi-part RequestBody according to this [OkHttp recipe guide](https://github.com/square/okhttp/wiki/Recipes#posting-a-multipart-request) and pass it along as one of the `@Part` annotated parameters:
 
 ```java
-RequestBody requestBody = new MultipartBuilder()
-                .type(MultipartBuilder.FORM)
-                .addPart(
-                        Headers.of("Content-Disposition", "form-data; name=\"mycustomfile.png\""),
-                        RequestBody.create(MEDIA_TYPE_PNG, file))
-                .build();
+RequestBody requestBody = new MultipartBody.Builder()
+        .setType(MultipartBody.FORM)
+        .addFormDataPart("title", "Square Logo")
+        .addFormDataPart("image", "logo-square.png",
+            RequestBody.create(MEDIA_TYPE_PNG, new File("website/static/logo-square.png")))
+        .build();
 ```
 
 #### Form URL encoding
