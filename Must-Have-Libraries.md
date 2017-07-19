@@ -1,3 +1,12 @@
+|-|-|-|-
+|---|---|---|---
+|[Overview](#overview)|[Standard Pack](#standard-pack)|[Advanced Pack](#advanced-pack)|[Convenience](#convenience)
+|[Extensions](#extensions)|[Networking](#networking)|[ListView](#listview)|[RecyclerView](#recyclerview)
+|[Easy Navigation](#easy-navigation)|[UI Components](#ui-components)|[Drawing](#drawing)|[Image Processing](#image-processing)
+|[Scanning](#scanning)|[Persistence](#persistence)|[Binding](#binding)|[Compatibility](#compatibility)
+|[Scrolling And Parallax](#scrolling-and-parallax)|[Debugging](#debugging)|[Resources](#resources)|[References](#references)
+
+
 ## Overview
 
 There are many third-party libraries for Android but several of them are "must have" libraries that are extremely popular and are often used in almost any Android project. Each has different purposes but all of them make life as a developer much more pleasant. The major libraries are listed below in a few categories.
@@ -129,6 +138,7 @@ Essentially this method is used to enable your code to short-circuit before exec
 * [android-parallax-recyclerview](https://github.com/kanytu/android-parallax-recyclerview) - An adapter which could be used to achieve a parallax effect on RecyclerView.
 * [sticky-headers-recyclerview](https://github.com/timehop/sticky-headers-recyclerview) - Sticky Headers decorator for Android's RecyclerView.
 * [FastAdapter](https://github.com/mikepenz/FastAdapter) - Simplify and speed up the process of filling your RecyclerView with data
+* [FlexibleAdapter](https://github.com/davideas/FlexibleAdapter) - Fast and versatile Adapter for RecyclerView which regroups several features into one library to considerably improve the user experience.
 * [ItemAnimators](https://github.com/mikepenz/ItemAnimators) - RecyclerView animators to animate item add/remove/add/move
 * [GreedoLayout](https://github.com/500px/greedo-layout-for-android) - Full aspect ratio grid LayoutManager for Android's RecyclerView
 * [ChipsLayoutManager](https://github.com/BelooS/ChipsLayoutManager) - RecyclerView's LayoutManager which moves item to the next line when no space left on the current. Can represent google material chips guideline or tags view. 
@@ -153,7 +163,8 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [Gravity View](https://github.com/gofynd/gravity-view) - Library for image tilt using sensor
  * [SparkButton](https://github.com/varunest/SparkButton) - Library to create buttons with Twitter's heart like animation.
  * [Crouton](https://github.com/keyboardsurfer/Crouton) - Context-sensitive, configurable alert notices much better than toasts. Download jar [from here](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22de.keyboardsurfer.android.widget%22). See [working sample code](https://github.com/codepath/android-crouton-sample)
- * [BetterPickers](https://github.com/derekbrameyer/android-betterpickers) - BetterPickers for easy input selection
+ * [BetterPickers](https://github.com/derekbrameyer/android-betterpickers) - BetterPickers for easy input selection.
+ * [FlipView](https://github.com/davideas/FlipView) - Flipping views like Gmail & beyond.
  * [android-shape-imageview](https://github.com/siyamed/android-shape-imageview) - Custom shaped android imageview components including bubble, star, heart, diamond.
  * [RoundedImageView](https://github.com/vinc3m1/RoundedImageView) - Easily round corners or create oval-shaped images with this popular library.
  * [Android StackBlur](https://github.com/kikoso/android-stackblur) - Dynamically blur images
