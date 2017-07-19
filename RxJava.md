@@ -405,7 +405,7 @@ If you wish to have more granular control over the buffer size or time span in w
 ConnectableObservable<User> call = apiService.getUser(username).replay(10, TimeUnit.MINUTES);
 ```
 
-Also note that the `replay()` turns the observable into a cold observable, which will not emit events until `connect()` is called.
+Also note that the `replay()` turns the observable into a hot observable, which will not emit events until `connect()` is called.
 
 ## Avoiding Memory Leaks
 
