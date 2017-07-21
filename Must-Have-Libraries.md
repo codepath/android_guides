@@ -162,7 +162,6 @@ Essentially this method is used to enable your code to short-circuit before exec
 ### UI Components
  * [Gravity View](https://github.com/gofynd/gravity-view) - Library for image tilt using sensor
  * [SparkButton](https://github.com/varunest/SparkButton) - Library to create buttons with Twitter's heart like animation.
- * [Crouton](https://github.com/keyboardsurfer/Crouton) - Context-sensitive, configurable alert notices much better than toasts. Download jar [from here](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22de.keyboardsurfer.android.widget%22). See [working sample code](https://github.com/codepath/android-crouton-sample)
  * [BetterPickers](https://github.com/derekbrameyer/android-betterpickers) - BetterPickers for easy input selection.
  * [FlipView](https://github.com/davideas/FlipView) - Flipping views like Gmail & beyond.
  * [android-shape-imageview](https://github.com/siyamed/android-shape-imageview) - Custom shaped android imageview components including bubble, star, heart, diamond.
