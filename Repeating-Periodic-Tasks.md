@@ -54,7 +54,8 @@ private Runnable runnableCode = new Runnable() {
       // Do something here on the main thread
       Log.d("Handlers", "Called on main thread");
       // Repeat this the same runnable code block again another 2 seconds
-      handler.postDelayed(runnableCode, 2000);
+      // 'this' is referencing the Runnable object
+      handler.postDelayed(this, 2000);
     }
 };
 // Start the initial runnable task by posting through the handler
