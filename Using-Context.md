@@ -234,7 +234,6 @@ Use the application context when a context reference is needed beyond the lifesp
 
 ```java
 public static CustomManager getInstance(Context context) {
-    CustomManager sInstance;
     if (sInstance == null) {
 
         // When storing a reference to a context, use the application context.
