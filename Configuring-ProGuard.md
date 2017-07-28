@@ -120,14 +120,12 @@ Here is an example of some of the ProGuard definitions for various popular libra
 -keep class com.google.gson.stream.** { *; }
 ```
 
-#### Parcels
+### Parceler library
 
 ```
--keep class * implements android.os.Parcelable {
-  public static final android.os.Parcelable$Creator *;
-}
-
--keep class org.parceler.Parceler$$Parcels
+-keep interface org.parceler.Parcel
+-keep @org.parceler.Parcel class * { *; }
+-keep class **$$Parcelable { *; }
 ```
 
 #### Retrolambda
