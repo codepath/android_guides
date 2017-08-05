@@ -176,7 +176,7 @@ public class MainActivity extends Activity {
    } 
 ```
 
-The injector class used in Dagger 2 is called a **component**.  It assigns references in our activities, services, or fragments to have access to singletons we earlier defined.  We will need to annotate this class with a `@Component` declaration. Note that the activities, services, or fragments that can be added should be declared in this class with individual `inject()` methods: 
+The injector class used in Dagger 2 is called a **component**.  It assigns references in our activities, services, or fragments to have access to singletons we earlier defined.  We will need to annotate this class with a `@Component` annotation. Note that the activities, services, or fragments that are allowed to request the dependencies (by means of the `@Inject` annotation) declared by the modules should be declared in this class with individual `inject()` methods: 
 
 
 ```java
