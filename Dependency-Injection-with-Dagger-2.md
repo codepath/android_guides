@@ -196,7 +196,7 @@ public interface NetComponent {
 An important aspect of Dagger 2 is that the library generates code for classes annotated with the `@Component` interface.  You can use a class prefixed with `Dagger` (i.e. `DaggerTwitterApiComponent.java`) that will be responsible for instantiating an instance of our dependency graph and using it to perform the injection work for fields annotated with `@Inject`.  See the [[setup guide|Dependency-Injection-with-Dagger-2#setup]].
 ### Instantiating the component
 
-We should do all this work within an `Application` class since these instances should be declared only once throughout the entire lifespan of the application:
+We should do all this work within a specialization of the `Application` class since these instances should be declared only once throughout the entire lifespan of the application:
 
 ```java
 public class MyApp extends Application {
