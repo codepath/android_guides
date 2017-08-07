@@ -86,7 +86,7 @@ You can look to the left of Android Studio to see how it is inferring which type
 
 Make sure you have JDK 8 installed or higher.  Click [here](http://www.oracle.com/technetwork/java/javase/downloads/index.html) in case you need to download it.  If you are using a continuous integration service, you should also make sure to be specifying a JDK 8 environment.
 
-To use Java 8 lambda expressions in your Android code, you can either use the [Gradle Retrolambda plugin](https://github.com/evant/gradle-retrolambda) developed by Evan Tatarka or use the new [Android Jack toolchain](https://source.android.com/source/jack.html).    The former is recommended until the Jack toolchain can be finalized to include annotation support.
+To use Java 8 lambda expressions in your Android code, you can either use the [Gradle Retrolambda plugin](https://github.com/evant/gradle-retrolambda) developed by Evan Tatarka. While [Android Jack toolchain](https://source.android.com/source/jack.html) is also an option it is currently deprecated as per this [announcement](https://android-developers.googleblog.com/2017/03/future-of-java-8-language-feature.html).
 
 ### Retrolambda Setup
 
@@ -148,7 +148,7 @@ buildscript {
 
 ### Jack Toolchain Setup (Experimental)
 
-Android provided a way to use some Java 8 language features including `lambda expressions` in your Android project by enabling the **Jack toolchain**.  You should not use this approach currently since it is still experimental.  To do this, edit your module level `build.gradle` file as follows:
+Android provided a way to use some Java 8 language features including `lambda expressions` in your Android project by enabling the **Jack toolchain**.  You should not use this approach currently since [it is deprecated](https://android-developers.googleblog.com/2017/03/future-of-java-8-language-feature.html).  To do this, edit your module level `build.gradle` file as follows:
 
 ```groovy 
 android {
