@@ -180,7 +180,7 @@ public View getViewById(String id) {
     Resources resources = getBaseContext().getResources();
     int viewId = resources.getIdentifier(id, "id", packageName);
     if (viewId == 0) { return null; }
-    // Return the string value based on the res id
+    // Return the view based on the res id
     return findViewById(viewId);
 }
 ```
