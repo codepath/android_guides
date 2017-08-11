@@ -45,7 +45,7 @@ There are several requirements to convert this object to one that can be used by
 ```java
 @Parcel
 public class User {
-    // fields must be public
+    // fields must be package private
     String firstName;
     String lastName;
 
