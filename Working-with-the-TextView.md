@@ -2,7 +2,7 @@
 
 Every Android device comes with a collection of standard fonts: Droid Sans, Droid Sans Mono and Droid Serif. They were designed to be optimal for mobile displays, so these are the three fonts you will be working with most of the time and they can be styled using a handful of XML attributes. You might, however, see the need to use custom fonts for special purposes. 
 
-This guide will take a look at the [TextView](http://developer.android.com/reference/androcuid/widget/TextView.html) and discuss common properties associated with this view as well as how to setup custom typefaces.
+This guide will take a look at the [TextView](http://developer.android.com/reference/android/widget/TextView.html) and discuss common properties associated with this view as well as how to setup custom typefaces.
 
 ## Text Attributes
 
