@@ -305,7 +305,7 @@ Even though Dagger 2 does not rely on the annotation at runtime, keeping the `Re
 
 ### Dependent Components vs. Subcomponents
 
-Leveraging scopes allows us to create either **dependent components** or **subcomponents**.  The example above showed that we used the `@Singleton` notation that lasted the entire lifecycle of the application. We also relied on one major Dagger component.  
+Leveraging scopes allows us to create either **dependent components** or **subcomponents**.  The example above showed that we used the `@Singleton` annotation that lasted the entire lifecycle of the application. We also relied on one major Dagger component.  
 
 If we wish to have multiple components that do not need to remain in memory all the time (i.e. components that are tied to the lifecycle of an activity or fragment, or even tied to when a user is signed-in), we can create dependent components or subcomponents.  In either case, each provide a way of encapsulating your code. We'll see how to use both in the next section. 
 
