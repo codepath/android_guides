@@ -525,7 +525,7 @@ public interface ApplicationComponent {
     Map<Class<?>, Provider<SubcomponentBuilder>> subcomponentBuilders();
 }
 
-// Needed only to to create the above mapping
+// Needed only to create the above mapping
 @MapKey @Target({ElementType.METHOD}) @Retention(RetentionPolicy.RUNTIME)
 public @interface SubcomponentKey {
     Class<?> value();
