@@ -2,7 +2,9 @@
 
 [Genymotion](http://www.genymotion.com/) is an incredibly fast, memory-efficient VM that runs the Android OS in a more accurate manner than even the official emulator. Many Android developers do all their device testing using this emulator especially when Google Play services is concerned.  In addition, the official Android emulator is plagued with a lot of bugs (i.e. intermittent network loss) that Genymotion is usually a far more reliable option.
 
-To setup your genymotion emulator [sign up](https://www.genymotion.com/account/login/) and follow the [installation guide](https://docs.genymotion.com/Content/Home.htm).  
+To setup your genymotion emulator [sign up](https://www.genymotion.com/account/login/) and follow the [installation guide](https://docs.genymotion.com/Content/Home.htm).
+
+**Note:** If you already have installed Genymotion on your system then you can skip this steps and go straight to [setup Google Play Services](#setup-google-play-services)  
 
 #### Installation
 
@@ -51,6 +53,7 @@ See [this link](http://stackoverflow.com/questions/38275500/genymotion-virtualbo
 **Note:** If you get `Failed to load OVI` error when re-adding the emulator, you need to use a new name for the same device. For example, "Nexus 4 - 4.4.4 - API 19" might be called "Nexus 4 - 4.4.4 - API 19 New".
 
 ### Setup Google Play Services
+**IMPORTANT NOTE**: Since version 2.10 Genymotion includes native support for Google Play Services and Google Store. Just open the emulator and click in the "Open GApps" widget showed in the toolbar. More info in [Genymotion's blog](https://www.genymotion.com/blog/2-10-open-gapps-widget/). If you are working with a previous version you can follow the next steps.
 
 **NOTE**: These steps need to be followed only if you want to be able to use Google services such as maps and push messaging on your Genymotion device. For basic testing, these steps can be safely skipped.
 
