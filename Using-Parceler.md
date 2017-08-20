@@ -97,6 +97,8 @@ public class User extends BaseModel {
 }
 ```
 
+In this case only parameters from User class will be serialized avoiding any fields from BaseModel.
+
 * [[DBFlow|DBFlow-Guide#using-with-the-parceler-library]]
 * [Realm.IO](https://github.com/johncarl81/parceler/issues/57)
 
