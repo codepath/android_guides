@@ -4,7 +4,7 @@ DialogFragment is a specialized Fragment used when you want to display an overla
 
 This is typically used for displaying an alert dialog, a confirm dialog, or prompting the user for information within an overlay without having to switch to another Activity.
 
-DialogFragment is now the canonical way to display overlays; using Dialog directly is considered bad practice.
+DialogFragment is now the canonical way to display overlays; using Dialog directly [is considered bad practice](https://stackoverflow.com/a/13765411).
 
 ## Usage
 
@@ -551,7 +551,7 @@ When using the `onCreateDialog` method there are many built-in Dialog types to t
 * [TimePickerDialog](http://developer.android.com/reference/android/app/TimePickerDialog.html) - Dialog that allows a user to select a time.
 * [DatePickerDialog](http://developer.android.com/reference/android/app/DatePickerDialog.html) - Dialog that allows a user to select a date.
 * BottomSheetDialog - Dialog that slides from the bottom.
-* Other dialogs [not](http://developer.android.com/reference/android/text/method/CharacterPickerDialog.html) [worth](http://developer.android.com/reference/android/support/v7/app/MediaRouteChooserDialog.html) discussing here.
+* Other dialogs not worth discussing here: [1](http://developer.android.com/reference/android/text/method/CharacterPickerDialog.html) [2](http://developer.android.com/reference/android/support/v7/app/MediaRouteChooserDialog.html)
 
 ### Displaying a ProgressDialog
 
