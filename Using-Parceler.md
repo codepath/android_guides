@@ -2,7 +2,7 @@
 
 Although creating Android [Parcelables](http://developer.android.com/reference/android/os/Parcelable.html) is usually at least 10x faster than using Serializable, creating [[Parcelable|Using-Parcelable]] objects requires creating a lot of boilerplate code in defining exactly the stream of data that should be serialized and deserialized as documented in [[this section|http://guides.codepath.com/android/Using-Parcelable#creating-a-parcelable-the-manual-way]].  
 
-While there are IDE plugins to help facilitate the creating of these objects, another option is to leverage a third-party library called [Parceler](https://parceler.org) that will help automate this work.   Underneath the surface this library generates the necessary wrapper classes for you at compile time automatically, saving you the repetitive steps required for leveraging the performance benefits of Parcelables.
+While there are IDE plugins to help facilitate the creating of these objects, another option is to leverage a third-party library called [Parceler](https://github.com/johncarl81/parceler) that will help automate this work.   Underneath the surface this library generates the necessary wrapper classes for you at compile time automatically, saving you the repetitive steps required for leveraging the performance benefits of Parcelables.
 
 ## Setup
 
