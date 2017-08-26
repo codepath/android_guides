@@ -71,7 +71,7 @@ public class FilterColorDescriptor {
   @Retention(RetentionPolicy.SOURCE)
   // Enumerate valid values for this interface
   @StringDef({ FILTER_BLUE, FILTER_RED, FILTER_GRAY })
-  // Create an interface for validating int types
+  // Create an interface for validating String types
   public @interface FilterColorDef { }
   // Mark the argument as restricted to these enumerated types
   public FilterColorDescriptor(@FilterColorDef String filterColor) {
