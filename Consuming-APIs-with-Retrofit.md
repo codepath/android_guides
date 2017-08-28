@@ -472,8 +472,6 @@ In order to authenticate with OAuth, we need to sign each network request sent o
 
 Resources for using signpost to authenticate with an OAuth API:
 
- * [Authenticating with Twitter using SignPost](http://blog.doityourselfandroid.com/2011/02/13/guide-to-integrating-twitter-android-application/)
- * [Guide for using SignPost for Authentication](http://nilvec.com/implementing-client-side-oauth-on-android.html)
  * [Additional SignPost Code Samples](https://github.com/mttkay/signpost-examples)
 
 Several other Android OAuth libraries can be explored instead of signpost:
