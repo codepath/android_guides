@@ -35,8 +35,10 @@ If you need to wish to downgrade (i.e. API 23 to API 22), you need to follow mor
 
    PC users: 
    `C:\Documents and Settings\<user>\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\appcompat-v7`
+
 3. Inside this same folder edit `maven-metadata.xml` and delete the one line `<version>23.0.0</version>`:
 <img src="https://imgur.com/JoXN8nH.png">
+
 4. Downgrade the Build Tools and AppCompat Library in `app/build.gradle`:
   ```gradle
   android {
@@ -48,6 +50,7 @@ If you need to wish to downgrade (i.e. API 23 to API 22), you need to follow mor
       compile 'com.android.support:appcompat-v7:22.2.1'
   }
   ```
+
 5. Clean the project and rebuild.
 
 
