@@ -10,19 +10,50 @@ Notifications can include actions that let the user take a relevant action from 
  * Title and message
  * Timestamp
 
+Starting with API level 26 (Oreo), notification channels were introduced to give more control over the notifications for users. Notification channels can be enabled/disabled by the user in the Settings app or upon long clicking the notification. Notifications are sorted based on the importance level of the channels. The developers targeting API level 26 and above need to set a channel to a notification at the minimum.  
+
 For a more detailed look at the design of notifications check out the [Notifications Design](http://developer.android.com/design/patterns/notifications.html) guide.
 
 ## Usage
 
 Creating notifications is fairly straightforward. First you construct the notification using the [NotificationCompat.Builder](http://developer.android.com/reference/android/support/v4/app/NotificationCompat.Builder.html) and then you add the notification to the [NotificationManager](http://developer.android.com/reference/android/app/NotificationManager.html).
 
+Beginning with API Level 26, **a notification must belong to a channel** as shown below. 
+
+### Creating a Notification Channel
+
+For **API level 26 and above**, we need to create a [notification channel](https://developer.android.com/reference/android/app/NotificationChannel.html), provide a unique string id, name, and [importance](https://developer.android.com/reference/android/app/NotificationChannel.html#setImportance(int)) level. Setting the description helps the user to identify the channel. Create the notification channel in the app's [application](http://guides.codepath.com/android/Understanding-the-Android-Application-Class) class. Creating a notification channel again with same id updates the name and description with the new values.
+
+```java
+// Configure the channel
+int importance = NotificationManager.IMPORTANCE_DEFAULT;
+NotificationChannel channel = new NotificationChannel("myChannelId", "My Channel", importance);
+channel.setDescription("Reminders");
+// Register the channel with the notifications manager
+NotificationManager mNotificationManager =
+                (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+mNotificationManager.createNotificationChannel(channel);
+```
+
+An app can create multiple channels with different ids. Also, one can delete existing channels, however, be aware that they are visible in the settings app. 
+
 ### Creating a Notification
 
-Let's build a basic notification using the [NotificationCompat.Builder](http://developer.android.com/reference/android/support/v4/app/NotificationCompat.Builder.html). Typically this will contain at least an icon, a title, body:
+Let's build a basic notification using the [NotificationCompat.Builder](http://developer.android.com/reference/android/support/v4/app/NotificationCompat.Builder.html). Typically this will contain at least an icon, a title, body. For **API level 25 and below**, we create the notification without any channel:
 
 ```java
 NotificationCompat.Builder mBuilder =
         new NotificationCompat.Builder(this)
+        .setSmallIcon(R.drawable.notification_icon)
+        .setContentTitle("My notification")
+        .setContentText("Hello World!");
+```
+
+For **API level 26 and above**, we need to set a notification channel using the updated [NotificationCompat.Builder](https://developer.android.com/reference/android/support/v4/app/NotificationCompat.Builder.html#NotificationCompat.Builder).
+
+```java
+NotificationCompat.Builder mBuilder =
+        new NotificationCompat.Builder(this, "myChannelId")
         .setSmallIcon(R.drawable.notification_icon)
         .setContentTitle("My notification")
         .setContentText("Hello World!");
@@ -290,3 +321,4 @@ Note that if the large icon is set, then the small icon supplied will be display
  * <http://developer.android.com/reference/android/app/Notification.html>
  * <http://developer.android.com/reference/android/support/v4/app/NotificationCompat.Builder.html>
  * <http://android-developers.blogspot.com/2016/06/notifications-in-android-n.html>
+ * <https://code.tutsplus.com/tutorials/android-o-how-to-use-notification-channels--cms-28616>
