@@ -39,21 +39,25 @@ An app can create multiple channels with different ids. Also, one can delete exi
 
 ### Creating a Notification
 
-Let's build a basic notification using the [NotificationCompat.Builder](http://developer.android.com/reference/android/support/v4/app/NotificationCompat.Builder.html). Typically this will contain at least an icon, a title, body. For **API level 25 and below**, we create the notification without any channel:
-
-```java
-NotificationCompat.Builder mBuilder =
-        new NotificationCompat.Builder(this)
-        .setSmallIcon(R.drawable.notification_icon)
-        .setContentTitle("My notification")
-        .setContentText("Hello World!");
-```
+Let's build a basic notification using the [NotificationCompat.Builder](http://developer.android.com/reference/android/support/v4/app/NotificationCompat.Builder.html). Typically this will contain at least an icon, a title, body. 
 
 For **API level 26 and above**, we need to set a notification channel using the updated [NotificationCompat.Builder](https://developer.android.com/reference/android/support/v4/app/NotificationCompat.Builder.html#NotificationCompat.Builder).
 
 ```java
 NotificationCompat.Builder mBuilder =
+        // Builder class for devices targeting API 26+ requires a channel ID
         new NotificationCompat.Builder(this, "myChannelId")
+        .setSmallIcon(R.drawable.notification_icon)
+        .setContentTitle("My notification")
+        .setContentText("Hello World!");
+```
+
+For **API level 25 and below**, we create the notification without any channel:
+
+```java
+NotificationCompat.Builder mBuilder =
+        // this Builder class is deprecated
+        new NotificationCompat.Builder(this)
         .setSmallIcon(R.drawable.notification_icon)
         .setContentTitle("My notification")
         .setContentText("Hello World!");
