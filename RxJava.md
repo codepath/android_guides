@@ -233,7 +233,7 @@ Using schedulers relies on queuing the work through bounded or unbounded thread 
 | Schedulers.newThread()     | create a new thread                                    | 
 | Schedulers.trampoline()   | schedule work on the current thread but put on a queue |
 
-These schedulers than then be used to control which thread an observable or the subscriber are operating on using `subscribeOn()` and `observeOn()`.
+These schedulers can then be used to control which thread an observable or the subscriber are operating on using `subscribeOn()` and `observeOn()`.
 
 Schedulers come out of the box with RxJava.  The RxAndroid library comes with `AndroidSchedulers.mainThread()`, which is a convenient way to access the main UI thread on Android.
 
