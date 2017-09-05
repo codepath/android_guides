@@ -46,7 +46,6 @@ dependencies {
 |-------------------|:--------------------------------------------------------------------------------------------------------:|
 | Parse Bolts       | ![](https://maven-badges.herokuapp.com/maven-central/com.parse.bolts/bolts-android/badge.svg?style=flat) |
 | Parse Android SDK | ![](https://maven-badges.herokuapp.com/maven-central/com.parse/parse-android/badge.svg?style=flat)       |
-| Parse Interceptors| ![](https://maven-badges.herokuapp.com/maven-central/com.parse/parseinterceptors/badge.svg?style=flat)   |
 
 Select `Tools -> Android -> Sync Project with Gradle Files` to load the libraries through Gradle. When you sync, it will import everything automatically. You can see the imported files in the External Libraries folder.
 
