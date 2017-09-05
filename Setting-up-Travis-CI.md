@@ -28,7 +28,7 @@ See the [docs](http://docs.travis-ci.com/user/languages/android/) here for more 
 
 #### Design Support Library
 
-If you are intending to use the new [[Design Support Library]], you will need to make sure to include the Maven repo
+If you are intending to use the new [[Design Support Library]], you will need to make sure to include the Maven repo in your root `build.gradle` file:
 
 ```
 repositories {
@@ -38,7 +38,7 @@ repositories {
 }
 ```
 
-The use of `extra-android-m2repository` in `travis.yml` is no longer needed:
+Because of this change announced in Google I/O 2017, the use of `extra-android-m2repository` in `travis.yml` is no longer needed:
 
 ```yaml
 language: android
