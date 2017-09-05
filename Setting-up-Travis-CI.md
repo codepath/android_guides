@@ -17,7 +17,7 @@ android:
     - tools # to get the new `repository-11.xml`
     - tools # see https://github.com/travis-ci/travis-ci/issues/6040#issuecomment-219367943)
     - platform-tools
-    - build-tools-26.01
+    - build-tools-26.0.1
     - android-26
 
 script:
