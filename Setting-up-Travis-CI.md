@@ -28,7 +28,17 @@ See the [docs](http://docs.travis-ci.com/user/languages/android/) here for more 
 
 #### Design Support Library
 
-If you are intending to use the new [[Design Support Library]], you will need to make sure to include the `extra-android-m2repository` component in `travis.yml`:
+If you are intending to use the new [[Design Support Library]], you will need to make sure to include the Maven repo
+
+```
+repositories {
+    maven {
+        url 'https://maven.google.com'
+    }
+}
+```
+
+The use of `extra-android-m2repository` in `travis.yml` is no longer needed:
 
 ```yaml
 language: android
@@ -38,26 +48,9 @@ android:
      - extra-android-m2repository
 ```
 
-Otherwise, you are likely to see the following error message:
-
-```
-Searched in the following locations:
-  file:/usr/local/android-sdk/extras/google/m2repository/com/android/support/support-v4/22.2.0/support-v4-22.2.0.pom 
-  file:/usr/local/android-sdk/extras/google/m2repository/com/android/support/support-v4/22.2.0/support-v4-22.2.0.jar
-```
-
-The reason is that the [[Design Support Library]] must be downloaded from the [[SDK Manager|https://developer.android.com/tools/help/sdk-manager.html]], which looks in the [repository manifest](https://dl-ssl.google.com/android/repository/addon.xml) for the `Local Maven repository for Support Libraries` package.  The support library is not yet available on a public Maven repository for licensing reasons.
-
 #### Google Play Services
 
-If you intend to use Google Play Services with Travis, you will also want to add the `extra-google-m2repository` for similar reasons:
-
-```yaml
-language: android
-android:
-  components:
-     - extra-google-m2repository
-```
+If you intend to use Google Play Services with Travis, make sure you also use the Maven support library.
 
 ### Lambda expressions support
 
