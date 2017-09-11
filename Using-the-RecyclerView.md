@@ -265,7 +265,8 @@ public class ContactsAdapter extends
         TextView textView = viewHolder.nameTextView;
         textView.setText(contact.getName());
         Button button = viewHolder.messageButton;
-        button.setText("Message");
+        button.setText(contact.isOnline() ? "Message" : "Offline");
+        button.setEnabled(contact.isOnline());
     }
 
     // Returns the total count of items in the list
