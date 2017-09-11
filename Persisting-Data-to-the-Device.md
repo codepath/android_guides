@@ -45,7 +45,7 @@ edit.commit();
 
 Android can read/write files to internal as well as external storage. Applications have access to an application-specific directory where preferences and sqlite databases are also stored. Every Activity has helpers to get the writeable directory. File I/O API is a subset of the normal Java File API.
 
-Writing files is as simple as getting the stream using `openFileOutput` method] and writing to it using a BufferedWriter:
+Writing files is as simple as getting the stream using `openFileOutput` method and writing to it using a BufferedWriter:
 
 ```java
 // Use Activity method to create a file in the writeable directory
