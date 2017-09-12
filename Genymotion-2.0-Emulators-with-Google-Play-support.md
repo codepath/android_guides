@@ -53,9 +53,16 @@ See [this link](http://stackoverflow.com/questions/38275500/genymotion-virtualbo
 **Note:** If you get `Failed to load OVI` error when re-adding the emulator, you need to use a new name for the same device. For example, "Nexus 4 - 4.4.4 - API 19" might be called "Nexus 4 - 4.4.4 - API 19 New".
 
 ### Setup Google Play Services
+
+As of version 2.10, setting up [Google Play Services on Genymotion](https://www.genymotion.com/blog/2-10-open-gapps-widget/) is really straightforward. Once in the emulator, a new "Open GApps" widget will be available in your toolbar. Click it and it’ll do the rest. The "Open GApps" widget is available for every device running Android 4.4 or higher (whether new or already created, as long as Genymotion 2.10 is installed).
+
+The Open GApps package implemented is the smallest one (i.e. "pico") as it fits most development and testing needs. If you need access to further Google Apps and Services, simply [visit the Play Store and download them from there](https://play.google.com/store/apps/dev?id=5700313618786177705). If Google Play Services get updated, no need to click the widget again. Updates will be handled directly within your virtual device – just like a real device after all
+
+#### Manual Installation
+
 **IMPORTANT NOTE**: Since version 2.10 Genymotion includes native support for Google Play Services and Google Store. Just open the emulator and click in the "Open GApps" widget showed in the toolbar. More info in [Genymotion's blog](https://www.genymotion.com/blog/2-10-open-gapps-widget/). If you are working with a previous version you can follow the next steps.
 
-**NOTE**: These steps need to be followed only if you want to be able to use Google services such as maps and push messaging on your Genymotion device. For basic testing, these steps can be safely skipped.
+**NOTE**: These steps need to be followed only if you are using Genymotion < 2.10 and you want to be able to use Google services such as maps and push messaging on your Genymotion device. For basic testing, these steps can be safely skipped.
 
 Check out [this handy YouTube video](https://www.youtube.com/watch?v=UFhStnF42tw) for a guided step-by-step of enabling play services in Genymotion. You may want to use a newer version of these files based on the desired emulator as found below. 
 
@@ -91,18 +98,6 @@ Now we need to enable the GPS location on the emulator by **manually selecting a
 ![Emulator](https://i.imgur.com/oAdAKA0.png)
 
 ## Troubleshooting
-
-### Issuing Setting Up Play Services
-
-While installing play services, there are a variety of issues that can come up, refer to a few common ones below:
-
-* **Received a `Files successfully copied` message after dragging over the zip.** You need to make sure there **are no spaces in the filename**. Remove any spaces from the name of your zip file before dragging to ensure the file is detected as flashable.
-
-* **Received a message about files being added to the SD card** If you are using a Mac, and get this message while dragging over the file to the emulator, make sure to [configure your app security settings](https://kb.wisc.edu/helpdesk/page.php?id=25443) to allow all applications. 
-
-* **Seeing errors after flashing the emulator?** If you see errors, be sure you installed the correct package above that matches the device version in the emulator. For example, if you install Samsung Galaxy S4 API 18 for Genymotion emulator and install Google Services APK for Android 4.3, Google Play should work without any issue. The important thing is to **match the google play API version and Genymotion emulator device version**.
-
-* **Try rebooting your system.** If all else fails, may find in order for things to take hold properly that you need to install the ARM-translator, and then reboot your computer, and after that, install the Gapps and then reboot a second time. This can sometimes fix issues that are otherwise unresolved. 
 
 ### Can't run app on Genymotion emulator
 
@@ -145,3 +140,15 @@ Verify that `Adapter 2` is selected for NAT, which will force connections to be 
 <img src="http://i.imgur.com/ZFQMnaE.png"/>
 
 That's it! Try running the app again.
+
+### Issuing Manually Setting Up Play Services 
+
+While installing play services, there are a variety of issues that can come up, refer to a few common ones below:
+
+* **Received a `Files successfully copied` message after dragging over the zip.** You need to make sure there **are no spaces in the filename**. Remove any spaces from the name of your zip file before dragging to ensure the file is detected as flashable.
+
+* **Received a message about files being added to the SD card** If you are using a Mac, and get this message while dragging over the file to the emulator, make sure to [configure your app security settings](https://kb.wisc.edu/helpdesk/page.php?id=25443) to allow all applications. 
+
+* **Seeing errors after flashing the emulator?** If you see errors, be sure you installed the correct package above that matches the device version in the emulator. For example, if you install Samsung Galaxy S4 API 18 for Genymotion emulator and install Google Services APK for Android 4.3, Google Play should work without any issue. The important thing is to **match the google play API version and Genymotion emulator device version**.
+
+* **Try rebooting your system.** If all else fails, may find in order for things to take hold properly that you need to install the ARM-translator, and then reboot your computer, and after that, install the Gapps and then reboot a second time. This can sometimes fix issues that are otherwise unresolved. 
