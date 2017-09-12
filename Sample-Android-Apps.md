@@ -33,6 +33,7 @@ One of the best ways to learn about Android is to checkout Android code in the w
 
 ## Open-Source Apps
 
+* [Tivi](https://github.com/chrisbanes/tivi) - Great open-source Kotlin + RxJava 2 + Architecture Sample
 * [FOSSDroid](http://fossdroid.com/) - Open-source android apps repository
 * [Github Android App](https://github.com/github/android)
 * [Astrid Android's #1 Task Management Application ](https://github.com/todoroo/astrid)
