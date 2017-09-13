@@ -77,10 +77,10 @@ client.get(url, params, new JsonHttpResponseHandler() {
        // Handle resulting parsed JSON response here
     }
 
-        @Override
-        public void onFailure(int statusCode, Header[] headers, String res, Throwable t) {
-            // called when response HTTP status is "4XX" (eg. 401, 403, 404)
-        }
+    @Override
+    public void onFailure(int statusCode, Header[] headers, String res, Throwable t) {
+       // called when response HTTP status is "4XX" (eg. 401, 403, 404)
+    }
 });
 ```
 
