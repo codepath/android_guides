@@ -132,4 +132,5 @@ client.getHomeTimeline(1, new JsonHttpResponseHandler() {
 });
 ```
 
-Note that as shown above you should also **handle failure cases** with [JsonHttpResponseHandler](http://loopj.com/android-async-http/doc/com/loopj/android/http/JsonHttpResponseHandler.html#onFailure\(java.lang.Throwable, org.json.JSONObject\)) using the `onFailure` method so your application is robust to "losing internet" and user doesn't become confused with unexpected results.
+Note that as shown above you should also **handle failure cases** with 
+[JsonHttpResultHandler](http://loopj.com/android-async-http/doc/com/loopj/android/http/JsonHttpResponseHandler.html#onFailure(java.lang.Throwable,%20org.json.JSONObject)) using the `onFailure` method so your application is robust to "losing internet" and user doesn't become confused with unexpected results.
