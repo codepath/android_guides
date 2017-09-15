@@ -12,7 +12,7 @@ To start, you will need to create an API key through [https://console.developers
 
 ### Installation
 
-Next, add the [YouTubeAndroidPlayerApi.jar](https://github.com/google/iosched/raw/master/android/libs/YouTubeAndroidPlayerApi.jar) file into Android Studio by [following this GIF](http://i.imgur.com/k9a6WET.gif) to add this to your `libs` dir. Once you've added the JAR, select `Tools => Android => Sync project files with Gradle` in Android Studio to complete installation.
+Next, add the [YouTubeAndroidPlayerApi.jar](https://developers.google.com/youtube/android/player/downloads/) file into Android Studio by [following this GIF](http://i.imgur.com/k9a6WET.gif) to add this to your `libs` dir. Once you've added the JAR, select `Tools => Android => Sync project files with Gradle` in Android Studio to complete installation.
 
 ### Usage
 
