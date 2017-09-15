@@ -1,6 +1,6 @@
 ## Overview
 
-We can use the [YouTube Android Player API] (https://developers.google.com/youtube/android/player/) to play YouTube videos within an Android app.  
+We can use the [YouTube Android Player API](https://developers.google.com/youtube/android/player/) to play YouTube videos within an Android app.  
 
 <img src="http://i.imgur.com/xeVSOyL.gif" width="600" />
 
