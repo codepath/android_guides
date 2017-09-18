@@ -27,7 +27,7 @@ dependencies {
 
 Make sure to upgrade to the latest [[Gradle|Getting-Started-with-Gradle#upgrading-gradle]] version to use the `annotationProcessor` syntax.
 
-Make sure the "apply plugin" line is placed somewhere at the top of the file. Use [gradleplease](http://gradleplease.appspot.com/#butterknife) to get the latest version. See [this page](https://github.com/JakeWharton/butterknife/blob/master/README.md#download) for alternate installation methods.
+Use [gradleplease](http://gradleplease.appspot.com/#butterknife) to get the latest version. See [this page](https://github.com/JakeWharton/butterknife/blob/master/README.md#download) for alternate installation methods.
 
 ## Usage
 
@@ -223,6 +223,17 @@ Add a static import for `ButterKnife.findById` and enjoy even more fun.
 There are a few popular plugins for Android Studio that further simplify usage of Butterknife:
 
  * [butterknife-zelezny](https://github.com/avast/android-butterknife-zelezny) - Used to automatically generate the view lookup injection code.
+
+## Troubleshooting
+
+Most common issue is seeing `java.lang.NullPointerException: Attempt to invoke virtual method 'xxxxxx' on a null object reference`. This means Butterknife is not compiling the generated code properly or you have an issue with your layout file:
+
+ * Make sure that `ButterKnife.bind(this);` is located underneath both `super.onCreate` and `setContentView` within an activity `onCreate` method. Note that you must include Butterknife binding in all files that reference Butterknife annotations (i.e fragments and adapters as well)
+ * Use [gradleplease](http://gradleplease.appspot.com/#butterknife) to get the latest version of the library. Make sure both `compile 'com.jakewharton:butterknife:X.X.X'` and `annotationProcessor 'com.jakewharton:butterknife-compiler:X.X.X'` are present and have the exact same version.
+ * Make sure the lines above are within the "app/build.gradle" (`build.gradle (Module: App)`) inside the `dependencies` block. 
+ * Remove any mention of `apply plugin: 'com.neenbedankt.android-apt` as this is no longer needed, you should just need the two lines mentioned above. 
+ * Try to flush the caches and build files with `Build -> Clean`, `Build -> Rebuild Project`, `File -> Invalidate Caches and Restart` and then re-run the project.
+ * Try restarting the emulator or device and then re-running the app
 
 ## Workarounds
 
