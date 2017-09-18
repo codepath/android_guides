@@ -19,7 +19,7 @@ Makes sure to enable the use of the Internet permission in your `AndroidManifest
 Simply add this line to your `app/build.gradle` file:
 
 ```gradle
-compile 'com.squareup.okhttp3:okhttp:3.6.0'
+compile 'com.squareup.okhttp3:okhttp:3.9.0'
 ```
 
 **Note**: If you are upgrading from an older version of OkHttp, your imports will also need to be changed from `import com.squareup.okhttp.XXXX` to `import okhttp3.XXXX`.
@@ -32,7 +32,7 @@ dependencies {
 }
 ```
 
-You will then wrap the `OkHttpClient` with this `OkHttp3Downloader`.  **Note**: as of `OkHttp3`, it is recommended you declare this object as a singleton because changes in OkHttp3 no long require a global connection pool.  See [this changelog](see https://github.com/square/okhttp/blob/master/CHANGELOG.md#version-300-rc1) for more details.
+You will then wrap the `OkHttpClient` with this `OkHttp3Downloader`.  **Note**: as of `OkHttp3`, it is recommended you declare this object as a singleton because changes in OkHttp3 no longer require a global connection pool.  See [this changelog](see https://github.com/square/okhttp/blob/master/CHANGELOG.md#version-300-rc1) for more details.
 
 ```java
 // Use OkHttpClient singleton
@@ -139,7 +139,7 @@ client.newCall(request).enqueue(new Callback() {
 
 ## Processing Network Responses
 
-Assuming the request is not cancelled and there are no connectivity issues, the `onResponse()` method will be fired. It passes a `Response` object that can be used to check the status code, the response body, and any headers that were returned. Calling `isSuccessful()` for instance if the code returned a status code of 2XX (i.e. 200, 201, etc.)
+Assuming the request is not canceled and there are no connectivity issues, the `onResponse()` method will be fired. It passes a `Response` object that can be used to check the status code, the response body, and any headers that were returned. Calling `isSuccessful()` for instance if the code returned a status code of 2XX (i.e. 200, 201, etc.)
 
 ```java
 if (!response.isSuccessful()) {
@@ -197,7 +197,7 @@ client.newCall(request).enqueue(new Callback() {
 
 ### Processing JSON data with Gson
 
-Note that the `string()` method on the response body will load the entire data into memory.  To make more efficient use of memory, it is recommended that the response be processed as a stream by using `charStream()` instead.  This approach however requires using the [Gson](https://github.com/google/gson) library.  See [[this guide|Leveraging-the-Gson-Library]] for setup instructions.
+Note that the `string()` method on the response body will load the entire data into memory.  To make more efficient use of memory, it is recommended that the response is processed as a stream by using `charStream()` instead.  This approach, however, requires using the [Gson](https://github.com/google/gson) library.  See [[this guide|Leveraging-the-Gson-Library]] for setup instructions.
 
 To use the Gson library, we first must declare a class that maps directly to the JSON response:
 
