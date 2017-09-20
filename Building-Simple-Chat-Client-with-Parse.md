@@ -18,7 +18,7 @@ Let's setup Parse into a brand new Android app following the steps below.
     
     ```gradle
     dependencies {
-      compile 'com.parse:parse-android:1.16.0'
+      compile 'com.parse:parse-android:1.16.2'
       compile 'com.squareup.okhttp3:logging-interceptor:3.8.0' // for logging API calls to LogCat
     }
     ```
