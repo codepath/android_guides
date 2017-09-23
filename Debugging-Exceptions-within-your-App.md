@@ -368,7 +368,7 @@ Here we were able to inspect the URL and compare the URL against the expected va
 
 Then we can hit "resume" (<img src="http://i.imgur.com/shxFUhJ.png" />) to continue until the next breakpoint or stop debugging (<img src="http://i.imgur.com/PETVfws.png" />) to end the session.
 
-To learn more about breakpoints, check out [this official Android Guide on debugging](https://developer.android.com/studio/debug/index.html#breakPoints) and [this third-party breakpointing guide](https://www.learnhowtoprogram.com/android/user-interface-basics-637d41b1-35dc-400a-bcc3-65794760474d/debugging-breakpoints-and-the-android-debugger)
+Breakpoints are incredibly powerful and worthy of additional investigation. To learn more about breakpoints, check out [this official Android Guide on debugging](https://developer.android.com/studio/debug/index.html#breakPoints) and [this third-party breakpoints guide](https://www.learnhowtoprogram.com/android/user-interface-basics-637d41b1-35dc-400a-bcc3-65794760474d/debugging-breakpoints-and-the-android-debugger).
 
 ### Fixing the Issue
 
