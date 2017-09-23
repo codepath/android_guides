@@ -227,23 +227,26 @@ Essentially this method is used to enable your code to short-circuit before exec
 
 ### Persistence
 
- * [[ActiveAndroid|ActiveAndroid-Guide]]
- * [[DBFlow|DBFlow Guide]] - A robust, powerful, and very simple ORM android database library with annotation processing.
- * [greenDAO](https://github.com/greenrobot/greenDAO)
- * [SugarORM](http://satyan.github.io/sugar/)
+ * [[ActiveAndroid|ActiveAndroid-Guide]] - Not very fast, but quite convenient and proven over time solution.
+ * [[DBFlow|DBFlow Guide]] - A robust, powerful, and very simple ORM android database library with annotation processing. One of the fastest write / read operations is the average update / delete speed. 
+ * [greenDAO](https://github.com/greenrobot/greenDAO) - It is flexible and convenient to use one-to-many communication, but very unpleasant code generation, as a result of which your classes will be filled with a bunch of methods and comments. In addition, you need to connect the Gradle plug-in, which greatly increases the build time.
+ * [SugarORM](http://satyan.github.io/sugar/) - Of the advantages can be noted ease of use, which is not enough in ORMLite, and that's it. Has a separate drawback associated with the approach to implementation - it is not "friendly" with Instant Run, so when working with it you have to disable it.
  * [RxCache](https://github.com/VictorAlbertos/RxCache) - Reactive caching library for Android
  * [Android-Orma](https://github.com/gfx/Android-Orma) - A type-safe ORM for Android as a wrapper of SQLiteDatabase
- * [ORMLite](http://ormlite.com/sqlite_java_android_orm.shtml)
+ * [ORMLite](http://ormlite.com/sqlite_java_android_orm.shtml) - It does not save much from the boilerplate code, however one of the fastest libraries out there is built-in caching and delayed initialization, good documentation. 
  * [SQLBrite](https://github.com/square/sqlbrite) - Lightweight wrapper around SQLiteOpenHelper
  * [[Cupboard|Easier-SQL-with-Cupboard]] - Popular take on SQL wrapper
  * [StorIO](https://github.com/pushtorefresh/storio) - Fresh take on a light SQL wrapper
- * [Realm](https://github.com/realm/realm-java)
+ * [Realm](https://github.com/realm/realm-java) - Object orientated database, with very easy setup and developing. Excellent documentation. Is, perhaps, one of the best option for storing data on a mobile device at the moment, the minus can only be an increase in the size of the apk-file by 2.5 MB.
  * [NexusData](https://github.com/dkharrat/NexusData)
  * [Hawk](https://github.com/orhanobut/hawk) - Persistent secure key/value store
  * [Poetry](https://github.com/elastique/poetry) - Persist JSON directly into SQLite
  * [JDXA](http://softwaretree.com/v1/products/jdxa/jdxa.html) - The KISS ORM for Android - Simple, Non-intrusive, and Flexible
  * [Schematic](https://github.com/SimonVT/schematic) - Generate the SQLite and ContentProvider code
  * [AORM](https://github.com/Jamling/Android-ORM) - Simple ORM mapping, generate SQLite table
+ * [Requery](https://github.com/requery/requery) - Supports different databases, rich functionality. 
+ * [Room](https://developer.android.com/topic/libraries/architecture/room.html) - An interesting solution presented on Google I / O 2017 as optimal for working with the database on Android OS. Despite the fact that it is necessary to use explicit sql-requests, the library turned out to be quite convenient and I liked it personally. On performance is in the lead, so I would advise you to choose this particular library. Since this solution, submitted by Google, it will quickly become popular, and, therefore, there will be no problems with finding solutions to problems that occur along with it.
+
 ### Binding
  * [RecyclerViewBinding](https://github.com/radzio/android-data-binding-recyclerview) - Library for easily add recycler view data bindings.
  * [CommandDataBinding](https://github.com/radzio/android-data-binding-command) - Library for better handling onClick actions.
