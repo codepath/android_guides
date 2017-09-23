@@ -193,9 +193,9 @@ In certain cases, we need to investigate the problem further. The methods for in
 
 In addition to finding and googling errors, often additional methods have to be applied to figure out what is going wrong. This usually becomes helpful when something isn't as we expected in the app and we need to figure out why. The three most common investigation techniques in Android are:
 
-1. **Toasts** - Using toasts to alert us to failures
-2. **Logging** - Using the logging system to print out values
-3. **Breakpoints** - Using the breakpoint system to investigate values
+1. **Toasts** - Using [[toasts|Displaying-Toasts]] to alert us to failures
+2. **Logging** - Using the [logging system](https://developer.android.com/studio/debug/index.html#systemLogWrite) to print out values
+3. **Breakpoints** - Using the [breakpoint system](https://developer.android.com/studio/debug/index.html#breakPoints) to investigate values
 
 Both methods are intended for us to be able to determine why a value isn't as we expect. Let's take a look at how to use each. 
 
@@ -367,6 +367,8 @@ Once the debugger connects, we can click on the movie to trigger the code to run
 Here we were able to inspect the URL and compare the URL against the expected value. Our actual URL was "https://api.themoviedb.org/3/movie246655/videos?api_key=KEY" while the expected URL was "https://api.themoviedb.org/3/movie/246655/videos?api_key=KEY". Extremely subtle difference. Can you spot it?
 
 Then we can hit "resume" (<img src="http://i.imgur.com/shxFUhJ.png" />) to continue until the next breakpoint or stop debugging (<img src="http://i.imgur.com/PETVfws.png" />) to end the session.
+
+To learn more about breakpoints, check out [this official Android Guide on debugging](https://developer.android.com/studio/debug/index.html#breakPoints) and [this third-party breakpointing guide](https://www.learnhowtoprogram.com/android/user-interface-basics-637d41b1-35dc-400a-bcc3-65794760474d/debugging-breakpoints-and-the-android-debugger)
 
 ### Fixing the Issue
 
