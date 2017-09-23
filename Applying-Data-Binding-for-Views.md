@@ -304,7 +304,9 @@ If you see an error message such as `cannot resolve symbol 'ActivityMainBinding'
  
 **Databinding does not exist messages**
 
-If you see an error message such as `**.**.databinding does not exist`, it's likely that there is an error in your data binding template.  Make sure to look for errors (i.e. forgetting to import a Java class when referencing it within your template).
+If you see an error message such as `**.**.databinding does not exist`, it's likely that there is an error in your data binding XML templates that needs to be resolved.  Make sure to look for errors (i.e. forgetting to import a Java class when referencing it within your template). 
+
+Make sure that **all your XML files with data binding have their errors fully resolved** and the files are saved. Then be sure to `Project -> Clean` and `Project -> Rebuild Project` the project in order to regenerate the binding classes with latest properties. 
 
 **Databinding is not picking up certain layout fields**
 
