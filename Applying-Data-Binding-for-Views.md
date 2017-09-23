@@ -310,6 +310,18 @@ If you see an error message such as `**.**.databinding does not exist`, it's lik
 
 Be sure to `Project -> Clean` and `Project -> Rebuild Project` the project in order to regenerate the binding classes with latest layout properties. 
 
+**Identifiers must have user defined types from the XML file. View is missing it**
+
+This usually means that you have a missing import statement or a mismatch between the type of variable in the XML and the actual object of the class passed in while binding. Check out these possible posts for solutions: 
+
+ * <https://stackoverflow.com/questions/32068675/data-binding-expression-not-compiling>
+ * <https://stackoverflow.com/q/41609252/313399>
+ * <https://stackoverflow.com/q/36229529/313399>
+ * <https://stackoverflow.com/a/36938816/313399>
+ * <https://stackoverflow.com/questions/31980342/android-data-binding-style>
+
+Please refer to these and carefully check for missing imports or type mismatches. Also try `Build -> Clean -> Rebuild Project` to recompile the binding classes as well to see if this helps. 
+
 **Dagger 2 compatibility errors**
 
 If you are using the data binding library with [[Dagger 2|Dependency Injection With Dagger 2]], you may see errors such as `NoSuchMethodError: ...FluentIterable.append(...)`.  The solution to this fix is to add the Guava library before the Dagger compiler.  There appears to be a known [issue](https://code.google.com/p/android/issues/detail?id=205589) that can only be resolved by forcing the Dagger compiler to use a newer Guava version (Dagger 2 appears to have an older version of Guava bundled and without an explicit dependency it uses this version).
