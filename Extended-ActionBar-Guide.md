@@ -189,7 +189,7 @@ getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 getSupportActionBar().setCustomView(R.layout.actionbar_title);
 ```
 
-At this point, we now have replaced the default ActionBar with our preferred layout and have complete control over it's appearance. The above code results in:
+At this point, we now have replaced the default ActionBar with our preferred layout and have complete control over its appearance. The above code results in:
 
 <img src="http://i.imgur.com/N5Bvoej.png" width="500" />
 
@@ -429,7 +429,7 @@ To specify the "up" activity at compile-time we can set the logical parent of an
 
 And now when the home icon is pressed on the child, the parent activity will always be shown.
 
-If you want to navigate up from current activity to it's Parent activity, but want that Parent activity preserves it's state, also specify <singleTop> launch mode for the parent activity in the `AndroidManifest.xml`.
+If you want to navigate up from current activity to its parent, but want that parent activity to preserve its state, then also specify the <singleTop> launch mode for the parent activity in `AndroidManifest.xml`. The existing parent activity instance will be re-used, receiving the intent through `onNewIntent()`.
 ```xml
 android:launchMode="singleTop"
 ```
@@ -472,7 +472,7 @@ Read more about ["Up" navigation](http://developer.android.com/training/implemen
 
 ### Configuring the ActionBar from a Fragment
 
-Configuring the action bar from a fragment is very similar to how it's done from an activity, with a couple small differences. By default, Android assumes that fragments don't want to contribute items to the action bar. When a fragment actually wants to add items to the action bar, it needs to tell Android about this by calling `setHasOptionsMenu(true)` in it's `onCreate()` method:
+Configuring the action bar from a fragment is very similar to how it's done from an activity, with a couple small differences. By default, Android assumes that fragments don't want to contribute items to the action bar. When a fragment actually wants to add items to the action bar, it needs to tell Android about this by calling `setHasOptionsMenu(true)` in its `onCreate()` method:
 
 ```java
 @Override
