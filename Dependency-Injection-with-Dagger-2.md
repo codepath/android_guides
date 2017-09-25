@@ -37,9 +37,10 @@ Make sure to [[upgrade|Getting-Started-with-Gradle#upgrading-gradle]] to the lat
 
 ```gradle
 dependencies {
-    compile "com.google.dagger:dagger:2.9"
-    annotationProcessor "com.google.dagger:dagger-compiler:2.9"
-    provided 'javax.annotation:jsr250-api:1.0'
+  compile 'com.google.dagger:dagger-android:2.11'
+  compile 'com.google.dagger:dagger-android-support:2.11' // if you use the support libraries
+  annotationProcessor 'com.google.dagger:dagger-android-processor:2.11'
+  annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
 }
 ```
 
