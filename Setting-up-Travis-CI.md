@@ -108,5 +108,8 @@ Here are a few ways to try to resolve:
   sudo: required
   ```
 
-- If you want to print any lint error issues, check out [https://github.com/daisy1754/pretty-android-lint](https://github.com/daisy1754/pretty-android-lint) tool
+- If you want to print any lint error issues, add this line:
 
+  ```yaml
+  after_failure: "cat $TRAVIS_BUILD_DIR/app/build/outputs/lint-results-debug.xml"
+  ```
