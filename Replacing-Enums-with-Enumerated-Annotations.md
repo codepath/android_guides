@@ -32,9 +32,14 @@ public class ItemTypeDescriptor {
   // Describes when the annotation will be discarded
   @Retention(RetentionPolicy.SOURCE)
   // Enumerate valid values for this interface
-  @IntDef({ TYPE_MUSIC, TYPE_PHOTO, TYPE_TEXT })
+  @IntDef({TYPE_MUSIC, TYPE_PHOTO, TYPE_TEXT})
   // Create an interface for validating int types
-  public @interface ItemTypeDef { }
+  public @interface ItemTypeDef {}
+  // Declare the constants
+  public static final int TYPE_MUSIC = 0;
+  public static final int TYPE_PHOTO = 1;
+  public static final int TYPE_TEXT = 2;
+
   // Mark the argument as restricted to these enumerated types
   public ItemTypeDescriptor(@ItemTypeDef int itemType) {
     this.itemType = itemType;
@@ -70,9 +75,14 @@ public class FilterColorDescriptor {
   // Describes when the annotation will be discarded
   @Retention(RetentionPolicy.SOURCE)
   // Enumerate valid values for this interface
-  @StringDef({ FILTER_BLUE, FILTER_RED, FILTER_GRAY })
+  @StringDef({FILTER_BLUE, FILTER_RED, FILTER_GRAY})
   // Create an interface for validating String types
-  public @interface FilterColorDef { }
+  public @interface FilterColorDef {}
+  // Declare the constants
+  public static final String FILTER_BLUE = "blue";
+  public static final String FILTER_RED = "red";
+  public static final String FILTER_GRAY = "gray";
+
   // Mark the argument as restricted to these enumerated types
   public FilterColorDescriptor(@FilterColorDef String filterColor) {
     this.filterColor = filterColor;
