@@ -10,9 +10,6 @@ When you have an object that requires more than ~3 constructor parameters, use a
 
 ```java
 class Movie {
-    static Builder newBuilder() {
-        return new Builder();
-    }
     static class Builder {
         String title;
         Builder withTitle(String title) {
@@ -29,7 +26,7 @@ class Movie {
     }
 }
 // Use like this:
-Movie matrix = Movie.newBuilder().withTitle("The Matrix").build();
+Movie matrix = new Movie.Builder().withTitle("The Matrix").build();
 ```
 
 ### Static Factory Methods
