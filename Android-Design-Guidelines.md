@@ -50,7 +50,9 @@ Check out the [typography guide](http://developer.android.com/design/style/typog
 
 #### Iconography
 
-An icon is any graphic that takes up a small portion of screen real estate and provides a quick, intuitive representation of an action, a status, or an app. Icons must be created to work across a wide array of devices. There are also many different types of icons such as the "Launcher" icon on the home screen, ActionBar icons, and notification icons. Check out the [iconography guide](http://developer.android.com/design/style/iconography.html) for a detailed look. In particular, work to understand the [design tips](http://developer.android.com/design/style/iconography.html#DesignTips) and follow the correct naming conventions for different icons.
+An icon is any graphic that takes up a small portion of screen real estate and provides a quick, intuitive representation of an action, a status, or an app. Icons must be created to work across a wide array of devices. There are also many different types of icons such as the "Launcher" icon on the home screen, ActionBar icons, and notification icons. To get started with icons, check out the [material icons style guide](https://material.io/guidelines/style/icons.html). If you are looking for actual icons to use, check out [materialdesignicons.com](https://materialdesignicons.com/) and [material.io icons](https://material.io/icons).
+
+Check out the [iconography guide](http://developer.android.com/design/style/iconography.html) and [icon design guidelines](https://developer.android.com/guide/practices/ui_guidelines/icon_design.html) for a detailed look. In particular, work to understand the [design tips](http://developer.android.com/design/style/iconography.html#DesignTips) and follow the correct naming conventions for different icons.
 
 #### Flexible Design
 
