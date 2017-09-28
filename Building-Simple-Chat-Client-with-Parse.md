@@ -713,7 +713,7 @@ protected void onCreate(Bundle savedInstanceState) {
    SubscriptionHandling.HandleEventCallback<Message>() {
                       @Override
                       public void onEvent(ParseQuery<Message> query, Message object) {
-                          mMessages.add(0, message);
+                          mMessages.add(0, object);
   
                           // RecyclerView updates need to be run on the UI thread
                           runOnUiThread(new Runnable() {
