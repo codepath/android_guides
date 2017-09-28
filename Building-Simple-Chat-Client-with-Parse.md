@@ -607,7 +607,7 @@ public class ChatActivity extends AppCompatActivity {
 
 If you get to this step, you will display the newest posts ordered from newest to oldest.  You can reverse the order without necessarily doing a linear sort by setting `setReverseLayout` to be `true`.
 ```java
-public class ChatListAdapter extends ArrayAdapter<Message> {
+public class ChatActivity extends AppCompatActivity {
 
     // Get the items in the reverse order:
     void setupMessagePosting() {
