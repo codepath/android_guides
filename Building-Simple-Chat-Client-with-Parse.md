@@ -310,7 +310,8 @@ We will be showing the logged in user's gravatar and messages on the right and t
         android:ellipsize="end"
         android:layout_marginEnd="64dp"
         android:layout_width="match_parent"
-        android:layout_height="64dp">
+        android:layout_height="64dp"
+        android:layout_weight="1">
     </TextView>
     <ImageView
         android:id="@+id/ivProfileMe"
