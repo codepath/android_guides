@@ -22,6 +22,21 @@ Let's setup Parse into a brand new Android app following the steps below.
       compile 'com.squareup.okhttp3:logging-interceptor:3.8.0' // for logging API calls to LogCat
     }
     ```
+
+    When you sync your project after adding these dependencies then you will likely have a failure that complains about "support-annotations".  If you run into this error then you need to make one more Gradle change.  Open your main project `build.gradle` file (not your app's `build.gradle` but your project's `build.gradle`).  Add the following "maven" part under "allprojects" > "repositories":
+
+    ```gradle
+    allprojects {
+        repositories {
+            jcenter()
+            // The next part if what you need to add
+            maven {
+                url "https://maven.google.com"
+            }
+        }
+    }
+    ```
+
   * Make sure you have added these lines before the `<application>` tag in your `AndroidManifest.xml`.
 
     ```xml
