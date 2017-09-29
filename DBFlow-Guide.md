@@ -391,6 +391,8 @@ public void setDateFromString(String date) {
 }
 ```
 
+and then:
+
 ```java
 public static List<Model> findRecent(Date newerThan) {
     return new Select().from(Model.class).where("timestamp > ?", newerThan.getTimeInMillis()).execute();
