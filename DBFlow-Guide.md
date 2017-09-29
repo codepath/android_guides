@@ -422,7 +422,18 @@ u.address.save();
 u.save();
 ```
 
-You should make sure to **call save separately on the associated object** in most cases.
+You should make sure to **call save separately on the associated object** in most cases. Once these are both saved, then you can access all users with:
+
+```java
+List<User> usersList = SQLite.select().from(User.class).queryList();
+```
+
+and then easily access the address from within any user:
+
+```java
+User user = usersList.get(0);
+Address address = user.address(); // <-- Gets us the address
+```
 
 > Question: How do I delete all the records from a table?
 
