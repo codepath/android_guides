@@ -133,6 +133,8 @@ public class Organization extends BaseModel {
 
 In addition, make sure your table names are using upper camel case (i.e. MyTableName).  Otherwise, you are likely to trigger `java.lang.IllegalArgumentException: expected type but was null` issues.  See [this ticket](https://github.com/Raizlabs/DBFlow/issues/972) for more details.
 
+### Defining Foreign Keys
+
 We can define a `ForeignKey` relation easily.  The `saveForeignKeyModel` denotes whether to update the foreign key if the entry is also updated.  In this case, we disable this functionality:
 
 ```java
@@ -161,7 +163,7 @@ public class User extends BaseModel {
 
 Be sure to remember that **all models need to extend from** `BaseModel` including foreign keys or the tables will not be generated properly, preventing you from being able to compile your code successfully.
 
-You can read more about setting relationships between objects in the [DBFlow Relationships Guide](https://agrosner.gitbooks.io/dbflow/content/Relationships.html)
+You can read more about setting relationships between objects [in this helpful guide](https://medium.com/@marco_cattaneo/dbflow-4-part-2-relations-and-queries-4b4227e489b2) and in the [DBFlow Relationships Guide](https://agrosner.gitbooks.io/dbflow/content/Relationships.html) to look at one-to-one, one-to-many, and many-to-many. 
 
 ### Using with the Parceler library
 
