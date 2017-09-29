@@ -400,6 +400,7 @@ public static List<Model> findRecent(Date newerThan) {
 ```
 
 <a id="one-to-one-relationships" />
+
 > Question: How do you represent a 1-1 relationship?  
 
 Check out the [relationships section](https://agrosner.gitbooks.io/dbflow/content/Relationships.html) if you haven't yet.  You will need to annotate the field with the `@ForeignKey` and `@Column` annotation:
