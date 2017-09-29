@@ -161,6 +161,8 @@ public class User extends BaseModel {
 
 Be sure to remember that **all models need to extend from** `BaseModel` including foreign keys or the tables will not be generated properly, preventing you from being able to compile your code successfully.
 
+You can read more about setting relationships between objects in the [DBFlow Relationships Guide](https://agrosner.gitbooks.io/dbflow/content/Relationships.html)
+
 ### Using with the Parceler library
 
 If you are using DBFlow with the [[Parceler|Using Parceler]] library, make sure to annotate the class with the `@Parcel(analyze={}` decorator.  Otherwise, the Parceler library will try to serialize the fields that are associated with the `BaseModel` class and trigger `Error:Parceler: Unable to find read/write generator for type` errors.  To avoid this issue, specify to Parceler exactly which class in the inheritance chain should be examined (see this [discussion](https://github.com/johncarl81/parceler/issues/73#issuecomment-167131080) for more details):
