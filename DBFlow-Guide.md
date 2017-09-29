@@ -399,6 +399,7 @@ public static List<Model> findRecent(Date newerThan) {
 }
 ```
 
+<a id="one-to-one-relationships" />
 > Question: How do you represent a 1-1 relationship?  
 
 Check out the [relationships section](https://agrosner.gitbooks.io/dbflow/content/Relationships.html) if you haven't yet.  You will need to annotate the field with the `@ForeignKey` and `@Column` annotation:
@@ -434,6 +435,8 @@ and then easily access the address from within any user:
 User user = usersList.get(0);
 Address address = user.address(); // <-- Gets us the address
 ```
+
+You can read more about setting relationships between objects [in this helpful guide](https://medium.com/@marco_cattaneo/dbflow-4-part-2-relations-and-queries-4b4227e489b2) and in the [DBFlow Relationships Guide](https://agrosner.gitbooks.io/dbflow/content/Relationships.html) to look at one-to-one, one-to-many, and many-to-many relationships.
 
 > Question: How do I delete all the records from a table?
 
