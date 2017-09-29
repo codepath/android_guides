@@ -346,11 +346,11 @@ The final step is for the Content Provider to be exposed.  If you wish for other
 
 ## Common Questions
 
-### How do I inspect the SQLite data stored on the device?
+> Question: How do I inspect the SQLite data stored on the device?
 
 In order to inspect the persisted data, we need to [[use adb to query or download the data|Local-Databases-with-SQLiteOpenHelper#sqlite-database-debugging]].  You can also take a look at using the [[Stetho|Troubleshooting-Common-Issues#database-inspection]] library, which provides a way to use Chrome to inspect the local data.
 
-### How does DBFlow handle duplicate IDs?  For example, I want to make sure no duplicate twitter IDs are inserted.  Is there a way to specify a column is the primary key in the model?
+> Question: How does DBFlow handle duplicate IDs?  For example, I want to make sure no duplicate twitter IDs are inserted.  Is there a way to specify a column is the primary key in the model?
 
 Simply annotate the post ID column as the `@PrimaryKey` annotation:
 
@@ -368,11 +368,11 @@ public class SampleModel extends BaseModel {
 
 Make sure to **uninstall the app** afterward on the emulator to ensure the schema changes take effect. Note that you may need to manually ensure that you don't attempt to re-create existing objects by verifying they are not already in the database **as shown below**.
 
-### How do you specify the data type (int, text)?  Does DBFlow automatically know what the column type should be?
+> Question: How do you specify the data type (int, text)?  Does DBFlow automatically know what the column type should be?
 
 The type is inferred automatically from the type of the field.
 
-### How do I store dates into DBFlow?
+> Question: How do I store dates into DBFlow?
 
 DBFlow supports serializing Date fields automatically. It is stored internally as a timestamp (INTEGER) in milliseconds.
 
@@ -399,7 +399,7 @@ public static List<Model> findRecent(Date newerThan) {
 }
 ```
 
-### How do you represent a 1-1 relationship?  
+> Question: How do you represent a 1-1 relationship?  
 
 Check out the [relationships section](https://agrosner.gitbooks.io/dbflow/content/Relationships.html) if you haven't yet.  You will need to annotate the field with the `@ForeignKey` and `@Column` annotation:
 
@@ -435,9 +435,7 @@ User user = usersList.get(0);
 Address address = user.address(); // <-- Gets us the address
 ```
 
-You can read more about setting relationships between objects [in this helpful guide](https://medium.com/@marco_cattaneo/dbflow-4-part-2-relations-and-queries-4b4227e489b2) and in the [DBFlow Relationships Guide](https://agrosner.gitbooks.io/dbflow/content/Relationships.html) to look at one-to-one, one-to-many, and many-to-many relationships. 
-
-### How do I delete all the records from a table?
+> Question: How do I delete all the records from a table?
 
 See [this section](https://agrosner.gitbooks.io/dbflow/content/SQLiteWrapperLanguage.html#delete) of DBFlow.  You can delete individual records using the `.delete` method and you can delete all records matching a particular condition with:
 
@@ -458,11 +456,11 @@ SQLite.delete(MyTable.class)
 
 This allows for bulk deletes.
 
-### Is it possible to do joins with DBFlow? 
+> Question: Is it possible to do joins with DBFlow? 
 
 Joins are done using the query language DBFlow provides in the [Select class]https://agrosner.gitbooks.io/dbflow/content/SQLiteWrapperLanguage.html#joins). You can read more here on the [SQLiteWrapperLanguage docs](https://agrosner.gitbooks.io/dbflow/content/SQLiteWrapperLanguage.html)
 
-### What are the best practices when interacting with the sqlite in Android, is ORM/DAO the way to go?
+> Question: What are the best practices when interacting with the sqlite in Android, is ORM/DAO the way to go?
 
 Developers use both [[SQLiteOpenHelper|Local-Databases-with-SQLiteOpenHelper]] and [[several different ORMs|Persisting-Data-to-the-Device#object-relational-mappers]]. It's common to use the SQLiteOpenHelper in cases where an ORM breaks down or isn't necessary. Since Models are typically formed anyways though and persistence on Android in many cases can map very closely to objects, ORMs like ActiveAndroid can be helpful especially for simple database mappings.
 
