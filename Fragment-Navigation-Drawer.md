@@ -127,7 +127,8 @@ Also note that normally you should decide on your color scheme by going to [Mate
 
 ### Setup Drawer in Activity
 
-Next, let's setup a basic navigation drawer based on the following layout file which has the entire drawer setup in `res/layout/activity_main.xml`. Note that the `Toolbar` is added as the first child of the main content view by adding the include tag.
+Next, let's setup a basic navigation drawer based on the following layout file which has the entire drawer setup in `res/layout/activity_main.xml`. Note that the `Toolbar` is added as the first child of the main content view by adding the include tag. 
+ _Note: if you are using a CoordinatorLayout, it must not lie outside of the DrawerLayout. See [https://stackoverflow.com/questions/32523188/coordinatorlayout-appbarlayout-navigationdrawer](https://stackoverflow.com/questions/32523188/coordinatorlayout-appbarlayout-navigationdrawer)_
 
 ```xml
 <!-- This DrawerLayout has two children at the root  -->
