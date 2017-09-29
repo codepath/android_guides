@@ -163,7 +163,7 @@ public class User extends BaseModel {
 
 Be sure to remember that **all models need to extend from** `BaseModel` including foreign keys or the tables will not be generated properly, preventing you from being able to compile your code successfully.
 
-You can read more about setting relationships between objects [in this helpful guide](https://medium.com/@marco_cattaneo/dbflow-4-part-2-relations-and-queries-4b4227e489b2) and in the [DBFlow Relationships Guide](https://agrosner.gitbooks.io/dbflow/content/Relationships.html) to look at one-to-one, one-to-many, and many-to-many. 
+You can read more about setting relationships between objects [in this helpful guide](https://medium.com/@marco_cattaneo/dbflow-4-part-2-relations-and-queries-4b4227e489b2) and in the [DBFlow Relationships Guide](https://agrosner.gitbooks.io/dbflow/content/Relationships.html) to look at one-to-one, one-to-many, and many-to-many relationships. 
 
 ### Using with the Parceler library
 
