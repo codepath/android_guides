@@ -166,7 +166,7 @@ public class MainActivity extends Activity {
 
         protected Bitmap doInBackground(String... addresses) {
             Bitmap bitmap = null;
-            InputStream in;
+            InputStream in = null;
             try {
                 // 1. Declare a URL Connection
                 URL url = new URL(addresses[0]);
@@ -180,7 +180,11 @@ public class MainActivity extends Activity {
                 e.printStackTrace();
             } finally {
               if(in != null)
-                 in.close();
+                 try {
+                   in.close();
+                 } catch (IOException e) {
+                   Log.e(TAG, "Exception while closing inputstream"+ e);
+                 }
             }
             return bitmap;
         }
