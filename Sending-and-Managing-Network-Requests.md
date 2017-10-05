@@ -185,6 +185,7 @@ public class MainActivity extends Activity {
                  } catch (IOException e) {
                    Log.e(TAG, "Exception while closing inputstream"+ e);
                  }
+               }
             }
             return bitmap;
         }
