@@ -245,9 +245,12 @@ This results in:
 
 ### Issues with ListView
 
-One known issue when using `android:autoLink` or the `Linkify` class is that it may break the ability to respond to events on the ListView through `setOnItemClickListener`.  Check out [this solution](http://www.michaelevans.org/blog/2013/03/29/clickable-links-in-android-listviews/) which extends `TextView` in order to modify the `onTouchEvent` to correctly propagate the click.   You basically need to create a `LinkifiedTextView` and use this special View in place of any of your TextView's that need auto-link detection.
+One known issue when using `android:autoLink` or the `Linkify` class is that it may break the ability to respond to events on the ListView through `setOnItemClickListener`.  Check out [this solution](http://www.michaelevans.org/blog/2013/03/29/clickable-links-in-android-listviews/) which extends `TextView` in order to modify the `onTouchEvent` to correctly propagate the click. You basically need to create a `LinkifiedTextView` and use this special View in place of any of your TextView's that need auto-link detection.
 
-In addition, review [this stackoverflow post](http://stackoverflow.com/questions/26980204/listview-with-textview-autolink-not-receiving-onitemclicklistener) or [this android issue](https://code.google.com/p/android/issues/detail?id=3414) for additional context.
+In addition, review these alternate solutions which may be effective as well:
+
+ * [This stackoverflow post](http://stackoverflow.com/questions/26980204/listview-with-textview-autolink-not-receiving-onitemclicklistener) or [this other post](https://stackoverflow.com/a/8654237/313399)
+ * [This android issue](https://code.google.com/p/android/issues/detail?id=3414) for additional context.
 
 ## Displaying Images within a TextView
 
