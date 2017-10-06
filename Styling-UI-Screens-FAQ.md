@@ -1,6 +1,6 @@
 ## Overview
 
-   This is an FAQ that addresses common questions that arise when building UI screens. For inspiration, see the [android app patterns](http://www.android-app-patterns.com/) site for screens you might try to build. There are several questions that come up commonly addressed below:
+This is an FAQ that addresses common questions that arise when building UI screens. For inspiration, see the [android app patterns](http://www.android-app-patterns.com/) site for screens you might try to build. There are several questions that come up commonly addressed below:
 
 ### Layouts
 
@@ -408,6 +408,23 @@ Using the powerful [[alternative resources feature|Understanding-App-Resources#p
 
 ### ActionBar
 
+#### How would I hide the top ActionBar?
+
+You can hide the top bar in any Activity by modifying the "theme" of an Activity in the `AndroidManifest.xml` such as:
+
+```xml
+<activity android:name=".Activity"
+    android:label="@string/app_name"
+    android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+</activity>
+```
+
+You can also hide the ActionBar programmatically at runtime in Java with `getSupportActionBar().hide()` within the `onCreate` method after `setContentView` in an Activity.
+
 #### How do I change the background color of the ActionBar or Toolbar?
 
 Customize the theme of the ActionBar in your app using the `res/values/styles.xml` as detailed in the [[Advanced ActionBar|Extended-ActionBar-Guide#custom-actionbar-styles]] to adjust the color of the ActionBar. If your app is using the `Toolbar` instead, then customize that using the [[styling the Toolbar guide|Using-the-App-ToolBar#styling-the-toolbar]].
@@ -432,19 +449,6 @@ You can read more about this on the [material design guidelines](https://develop
 
 ActionBar title can be styled or centered only if you opt to customize the XML view being inflated to display in the ActionBar. Instead of using the default ActionBar text you can specify your own to use instead that is styled as desired. Check out the [[Advanced ActionBar|Extended-ActionBar-Guide#custom-actionbar-layout]] cliffnotes for details.
 
-#### How would I hide the top ActionBar?
+#### How can I add additional spacing between action items in the ActionBar?
 
-You can hide the top bar in any Activity by modifying the "theme" of an Activity in the `AndroidManifest.xml` such as:
-
-```xml
-<activity android:name=".Activity"
-    android:label="@string/app_name"
-    android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-    <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-        <category android:name="android.intent.category.LAUNCHER" />
-    </intent-filter>
-</activity>
-```
-
-You can also hide the ActionBar programmatically at runtime in Java with `getSupportActionBar().hide()` within the `onCreate` method after `setContentView` in an Activity.
+One way is to use the XML drawable system to create a drawable that combines the icon with extra spacing using the "layer-list". See [the full instructions here](https://futurestud.io/tutorials/android-quick-tips-9-how-to-add-padding-to-actionbar-menu-icons).
