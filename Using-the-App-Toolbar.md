@@ -136,7 +136,6 @@ In many apps, the same toolbar can be used across multiple activities or in [[al
 ```xml
 <android.support.v7.widget.Toolbar
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?attr/colorPrimary"/>
@@ -162,6 +161,23 @@ Next, we can use the `<include />` tag to load the toolbar into our activity lay
     <!-- Rest of content for the activity -->
 
 </LinearLayout>
+```
+
+and then access the `Toolbar` by the `include` id instead:
+
+```
+public class MyActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_my);
+
+        // Find the toolbar view inside the activity layout
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
+        // Sets the Toolbar to act as the ActionBar for this Activity window.
+        // Make sure the toolbar exists in the activity and is not null
+        setSupportActionBar(toolbar);
+    }
 ```
 
 This allows us to create a consistent navigation experience across activities or configuration changes.
