@@ -165,7 +165,7 @@ Next, we can use the `<include />` tag to load the toolbar into our activity lay
 
 and then access the `Toolbar` by the `include` id instead:
 
-```
+```java
 public class MyActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
