@@ -555,7 +555,7 @@ Starting in the [support v23.1.0](https://developer.android.com/tools/support-li
 
 See [[this guide|Heterogenous-Layouts-inside-RecyclerView]] if you want to inflate multiple types of rows inside a single `RecyclerView`:
 
-<img src="http://i105.photobucket.com/albums/m232/purplehaze0077/heterorecycler2.png" width="300" alt="ss2" />
+<img src="http://i.imgur.com/HyOAOOu.png" width="300" alt="ss2" />
 
 This is useful for feeds which contain various different types of items within a single list.
 
