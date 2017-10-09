@@ -174,11 +174,25 @@ There are other options for creating custom receivers as well:
 ```java
 public class MapDemoActivity extends AppCompatActivity {
 
-   @Override
+   MarkerUpdatesReceiver markerUpdatesReceiver;
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
+     markerUpdatesReceiver = new MarkerUpdatesReceiver(this);
+     // implicit broadcast, Android O still allows doing so inside activity, fragment, or service
      IntentFilter intentFilter = new IntentFilter("com.parse.push.intent.RECEIVE");  
-     registerReceiver(new MarkerUpdatesReceiver(this), intentFilter);
+     registerReceiver(markerUpdatesReceiver, intentFilter);
     }
+
+    @Override
+    protected void onDestroy() {
+      super.onDestroy();
+      // avoid memory leaks
+      if (markerUpdatesReceiver != null) {
+        unregisterReceiver(markerUpdatesReceiver);
+      }
+    }
+    
 }
 ```
 
