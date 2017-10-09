@@ -100,7 +100,7 @@ Detail views usually require the following components:
 **Examples:**
 
 <img src="http://68.media.tumblr.com/0738655266cd17a0c96d5943e8cef331/tumblr_o60r3ewWOW1r2wjwko5_250.png" height="420" alt="Detail" />&nbsp;
-<img src="http://cdn.pttrns.com/351/3493_w250.jpg"" height="420" alt="Detail" />&nbsp;
+<img src="http://cdn.pttrns.com/351/3493_w250.jpg" height="420" alt="Detail" />&nbsp;
 <img src="http://68.media.tumblr.com/3bf1585c110ec3493c5756296eaaa4bf/tumblr_ngodqroIOp1r2wjwko5_250.png" height="420" alt="Detail" />
 
 Check out more examples of detail screens on [pttrns](https://pttrns.com/android-patterns?scid=54).
