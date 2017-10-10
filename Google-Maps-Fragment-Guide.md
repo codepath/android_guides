@@ -105,11 +105,9 @@ This emulator is now configured to run Google Play Services. When you start this
 
 <img src="https://i.imgur.com/XOpvoci.png" width="650" alt="FixDisplay" />
 
-* If you are prompted to update Google Play Services, you are probably not running an AVD emulator with Google Play support:
+* You may be prompted to update your Google Play Services.  If you are running an AVD emulator that supports Google Play, you will be asked to sign-in with a Google account.  If you do not see any window launching, then chances are you not using an emulator with Google Play support.
 
 <img src="https://imgur.com/zoY1t32.png">
-
-Look to see if there is a Google Play icon in your emulator.  If there is not, make sure to install an AVD emulator with Google Play support.
 
 ## Enabling Location on Emulator
 
