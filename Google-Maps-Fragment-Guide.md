@@ -131,7 +131,9 @@ If using **the official Google emulator**, we can update the "current location" 
 
 <img src="http://i.imgur.com/hfZZBQF.png" width="650" alt="Android device monitor" />
 
-You can enter any lat / lng i.e `37.4810289, -122.1543292`. After updating this location, you can use the "current location" marker on the app to move the map to your device's configured location.
+You can enter any lat / lng i.e `37.4810289, -122.1543292`.
+
+**Make sure to click the Send** button to report the GPS location.  After updating this location, you can use the "current location" marker on the app to move the map to your device's configured location.
 
 ## Run the App
 
