@@ -85,7 +85,11 @@ See the instructions to [[setup Genymotion|Genymotion 2.0 Emulators-with-Google-
 
 Open `Android Studio` ⇒ `Tools` ⇒ `Android` ⇒ `Android AVD Manager` and `Create a Virtual Device...`
 
-Select `Nexus 5X` ⇒ `Show downloadable system images` and select `Marshmallow, API Level 23, x86_64, Android 6.0` **(with Google APIs)**
+Choose only an AVD emulator that has `Play Store` support listed.  You can see the icon that only the Nexus 5x and Nexus 5 emulators provide support:
+
+<img src="https://imgur.com/Ab0tldo.png">
+
+Select `Nexus 5X` ⇒ `Show downloadable system images` and select `Oreo, API Level 26, x86_64, Android 6.0` **(with Google APIs)**
 
 <img src="https://i.imgur.com/gfSSoDB.png" width="650" alt="Emulator" />
 
