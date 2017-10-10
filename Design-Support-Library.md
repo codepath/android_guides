@@ -34,7 +34,7 @@ Make sure your top-level `build.gradle` includes the following:
 buildscript {
     repositories {
         jcenter() 
-        maven { url "https://maven.google.com" }  // new as of Google I/O 2017
+        google() // new as of Google I/O 2017, google() can be used with Gradle v3.0+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.1'
@@ -48,11 +48,11 @@ Update your root `build.gradle` file:
 
 ```gradle
 android {
-   compileSdkVersion 25  // usually needs to be consistent with major support libs used, but not necessary
+   compileSdkVersion 26  // usually needs to be consistent with major support libs used, but not necessary
 }
 
 ext {
-  supportLibVersion = '25.3.1'  // variable that can be referenced to keep support libs consistent
+  supportLibVersion = '26.1.0'  // variable that can be referenced to keep support libs consistent
 }
 ```
 
