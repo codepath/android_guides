@@ -101,7 +101,7 @@ Select `Nexus 5X` ⇒ `Show downloadable system images` and select `Oreo, API Le
 
 You may be prompted to update your Google Play Services.  If you are running an AVD emulator that supports Google Play, you will be asked to sign-in with a Google account.  If you do not see any window launching or see an error such as `android.content.ActivityNotFoundException: No Activity found to handle Intent { act=android.intent.action.VIEW dat=market://details?id=com.google.android.gms`, then chances are you not using an emulator with Google Play support.
 
-    <img src="https://imgur.com/zoY1t32.png">
+<img src="https://imgur.com/zoY1t32.png"/>
 
 If sign-in is successful, you should see Google Play services updating:
 
