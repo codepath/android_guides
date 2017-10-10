@@ -83,6 +83,12 @@ See the instructions to [[setup Genymotion|Genymotion 2.0 Emulators-with-Google-
 
 **Note:** Skip this step unless you can't run maps on Genymotion or a physical device. 
 
+For the respective Android API version you are targeting, make sure to download the respective `Google Play Intel x86 Atom System Message`:
+
+<img src="https://imgur.com/0iQA2ji.png">
+
+If you forget to follow this step, you may see error messages such as `Google Play services out of date.  Requires 11400000 but found 10932470` or similar error messages.
+
 Open `Android Studio` ⇒ `Tools` ⇒ `Android` ⇒ `Android AVD Manager` and `Create a Virtual Device...`
 
 Choose only an AVD emulator that has `Play Store` support listed.  You can see the icon that only the Nexus 5x and Nexus 5 emulators provide support:
@@ -93,15 +99,9 @@ Select `Nexus 5X` ⇒ `Show downloadable system images` and select `Oreo, API Le
 
 <img src="https://i.imgur.com/gfSSoDB.png" width="650" alt="Emulator" />
 
-* For the respective Android API version you are targeting, make sure to download the respective `Google Play Intel x86 Atom System Message`:
+You may be prompted to update your Google Play Services.  If you are running an AVD emulator that supports Google Play, you will be asked to sign-in with a Google account.  If you do not see any window launching or see an error such as `android.content.ActivityNotFoundException: No Activity found to handle Intent { act=android.intent.action.VIEW dat=market://details?id=com.google.android.gms`, then chances are you not using an emulator with Google Play support.
 
-<img src="https://imgur.com/0iQA2ji.png">
-
-This problem often comes about especially if you are seeing `Google Play services out of date.  Requires 11400000 but found 10932470` or similar error messages.
-
-* You may be prompted to update your Google Play Services.  If you are running an AVD emulator that supports Google Play, you will be asked to sign-in with a Google account.  If you do not see any window launching or see an error such as `android.content.ActivityNotFoundException: No Activity found to handle Intent { act=android.intent.action.VIEW dat=market://details?id=com.google.android.gms`, then chances are you not using an emulator with Google Play support.
-
-<img src="https://imgur.com/zoY1t32.png">
+    <img src="https://imgur.com/zoY1t32.png">
 
 If sign-in is successful, you should see Google Play services updating:
 
