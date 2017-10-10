@@ -89,6 +89,12 @@ Select `Nexus 5X` ⇒ `Show downloadable system images` and select `Marshmallow,
 
 <img src="https://i.imgur.com/gfSSoDB.png" width="650" alt="Emulator" />
 
+* For the respective Android API version you are targeting, make sure to download the respective `Google Play Intel x86 Atom System Message`:
+
+<img src="https://imgur.com/0iQA2ji.png">
+
+This problem often comes about especially if you are seeing `Google Play services out of date.  Requires 11400000 but found 10932470` or similar error messages.
+
 > ***Note:** Make sure to install `HAXM` if Android Studio prompts you to.
 
 This emulator is now configured to run Google Play Services. When you start this emulator, you may notice some loss of crispness, especially on text. This happens because the emulator launches to fill the window and may result in a non-power of 2 scaling. To fix this, you can edit the AVD and select a scale of `2dp = 1px on screen` and go into advanced settings and turn off `Enable Device Frame`.
