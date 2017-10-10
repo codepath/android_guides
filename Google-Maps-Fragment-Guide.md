@@ -24,10 +24,7 @@ In this guide, we will walk you through the step by step process of getting an e
           compile 'com.google.android.gms:play-services-location:11.4.2'
       }
       ```
-5. Verify also that inside your root `build.gradle` file:
- 
-      ```gradle
-6. Make sure to select `Build => Clean project` and then `Build => Re-build project` to make any issues with `MapDemoActivityPermissionsDispatcher` in `MapDemoActivity.java` clear up the errors.
+5. Make sure to select `Build => Clean project` and then `Build => Re-build project` to make any issues with `MapDemoActivityPermissionsDispatcher` in `MapDemoActivity.java` clear up the errors.
 
 If Gradle does not find the Play Services Gradle packages, make sure you followed step 2 and verified that the Google Maven repository has been added.
 
