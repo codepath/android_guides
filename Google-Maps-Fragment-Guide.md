@@ -109,6 +109,10 @@ This emulator is now configured to run Google Play Services. When you start this
 
 <img src="https://imgur.com/zoY1t32.png">
 
+If sign-in is successful, you should see Google Play services updating:
+
+<img src="https://imgur.com/p4wCfuA.png"/>
+
 ## Enabling Location on Emulator
 
 If you are using a physical device, you can **skip this section**. You only need this section **if you want to run maps and location on an emulator**. 
