@@ -99,19 +99,19 @@ Select `Nexus 5X` ⇒ `Show downloadable system images` and select `Oreo, API Le
 
 This problem often comes about especially if you are seeing `Google Play services out of date.  Requires 11400000 but found 10932470` or similar error messages.
 
-> ***Note:** Make sure to install `HAXM` if Android Studio prompts you to.
-
-This emulator is now configured to run Google Play Services. When you start this emulator, you may notice some loss of crispness, especially on text. This happens because the emulator launches to fill the window and may result in a non-power of 2 scaling. To fix this, you can edit the AVD and select a scale of `2dp = 1px on screen` and go into advanced settings and turn off `Enable Device Frame`.
-
-<img src="https://i.imgur.com/XOpvoci.png" width="650" alt="FixDisplay" />
-
-* You may be prompted to update your Google Play Services.  If you are running an AVD emulator that supports Google Play, you will be asked to sign-in with a Google account.  If you do not see any window launching, then chances are you not using an emulator with Google Play support.
+* You may be prompted to update your Google Play Services.  If you are running an AVD emulator that supports Google Play, you will be asked to sign-in with a Google account.  If you do not see any window launching or see an error such as `android.content.ActivityNotFoundException: No Activity found to handle Intent { act=android.intent.action.VIEW dat=market://details?id=com.google.android.gms`, then chances are you not using an emulator with Google Play support.
 
 <img src="https://imgur.com/zoY1t32.png">
 
 If sign-in is successful, you should see Google Play services updating:
 
 <img src="https://imgur.com/p4wCfuA.png"/>
+
+> ***Note:** Make sure to install `HAXM` if Android Studio prompts you to do so.
+
+This emulator is now configured to run Google Play Services. When you start this emulator, you may notice some loss of crispness, especially on text. This happens because the emulator launches to fill the window and may result in a non-power of 2 scaling. To fix this, you can edit the AVD and select a scale of `2dp = 1px on screen` and go into advanced settings and turn off `Enable Device Frame`.
+
+<img src="https://i.imgur.com/XOpvoci.png" width="650" alt="FixDisplay" />
 
 ## Enabling Location on Emulator
 
