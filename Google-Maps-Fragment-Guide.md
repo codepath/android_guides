@@ -4,28 +4,32 @@ Many Android applications require the use of an embedded interactive map. On And
 
 In this guide, we will walk you through the step by step process of getting an embedded Google Map working within an Android emulator.
 
-### Download Google Play Services and Google Repository
-
-First, let's download and setup the Google Play Services and Google Repository SDKs. Open `Android Studio` ⇒ `Tools` ⇒ `Android` ⇒ `Android SDK Manager`:
-
-<img src="http://i.imgur.com/n8C0bNr.png"/>
-
-Under `SDK Tools` section, check whether you have already downloaded the latest version `Google Play services` and `Google Repository` or not. If not, select the checkboxes next to them to install or update the packages.
-
 ### Import Maps Demo
 
 1. Download the [Maps Demo Repo](https://github.com/codepath/android-google-maps-demo/archive/master.zip) ([GitHub link](https://github.com/codepath/android-google-maps-demo/))
 2. Run `File` ⇒ `Open`, select `android-google-maps-demo-master`
-3. Verify sure you have these dependencies listed in your `app/build.gradle` file:
+3. Verify that you have the Google Maven repository defined in your root `build.gradle` file:
       ```gradle
-      dependencies {
-          compile 'com.google.android.gms:play-services-maps:11.0.1'
-          compile 'com.google.android.gms:play-services-location:11.0.1'
+      allprojects {
+        repositories {
+          jcenter()
+          maven { url "https://maven.google.com" }
+        }
       }
       ```
-4. Make sure to select `Build => Clean project` and then `Build => Re-build project` to make any issues with `MapDemoActivityPermissionsDispatcher` in `MapDemoActivity.java` clear up the errors.
+4. Verify sure you have these dependencies listed in your `app/build.gradle` file:
+      ```gradle
+      dependencies {
+          compile 'com.google.android.gms:play-services-maps:11.4.2'
+          compile 'com.google.android.gms:play-services-location:11.4.2'
+      }
+      ```
+5. Verify also that inside your root `build.gradle` file:
+ 
+      ```gradle
+6. Make sure to select `Build => Clean project` and then `Build => Re-build project` to make any issues with `MapDemoActivityPermissionsDispatcher` in `MapDemoActivity.java` clear up the errors.
 
-If Gradle does not find the Play Services Gradle packages, make sure to go back and [[download Google Play Services and the Google Repository|Google-Maps-Fragment-Guide#download-google-play-services-and-google-repository]].  Both must be updated to the latest version.
+If Gradle does not find the Play Services Gradle packages, make sure you followed step 2 and verified that the Google Maven repository has been added.
 
 Next, we need to get ourselves a maps API key from Google to put into our `AndroidManifest.xml`.
 
