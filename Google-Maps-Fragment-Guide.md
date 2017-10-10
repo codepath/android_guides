@@ -83,7 +83,7 @@ See the instructions to [[setup Genymotion|Genymotion 2.0 Emulators-with-Google-
 
 **Note:** Skip this step unless you can't run maps on Genymotion or a physical device. 
 
-For the respective Android API version you are targeting, make sure to download the respective `Google Play Intel x86 Atom System Message`:
+For the respective Android API version you are targeting, go to `Tools` -> `Android SDK` and make sure to download the respective `Google Play Intel x86 Atom System Message` by clicking on the `Show Package Details` checkbox:
 
 <img src="https://imgur.com/0iQA2ji.png">
 
