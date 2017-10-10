@@ -115,6 +115,10 @@ If using **the official Google emulator**, we can update the "current location" 
 
 You can enter any lat / lng i.e `37.4810289, -122.1543292`. After updating this location, you can use the "current location" marker on the app to move the map to your device's configured location.
 
+You may also be prompted to update Google Play Services.  Click `Update` to continue:
+
+<img src="https://imgur.com/zoY1t32.png">
+
 ## Run the App
 
 Before running our app, let's **open up the "official Maps" app** on the device or emulator to make sure the current location has been configured properly:
@@ -122,10 +126,6 @@ Before running our app, let's **open up the "official Maps" app** on the device 
 <img src="http://i.imgur.com/2IWY4wF.png" width="350" />
 &nbsp;
 <img src="http://i.imgur.com/170keQM.png" width="350" />
-
-You may be prompted to update Google Play Services.  Click `Update` to continue:
-
-<img src="https://imgur.com/zoY1t32.png">
 
 Now we can finally run our own maps app demo, and if everything goes well we should see:
 
