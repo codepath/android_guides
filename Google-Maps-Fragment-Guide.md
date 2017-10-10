@@ -123,6 +123,10 @@ Before running our app, let's **open up the "official Maps" app** on the device 
 &nbsp;
 <img src="http://i.imgur.com/170keQM.png" width="350" />
 
+You may be prompted to update Google Play Services.  Click `Update` to continue:
+
+<img src="https://imgur.com/zoY1t32.png">
+
 Now we can finally run our own maps app demo, and if everything goes well we should see:
 
 <img src="http://i.imgur.com/PQJhTf7.png" width="400" alt="Demo app" />
