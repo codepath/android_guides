@@ -105,6 +105,12 @@ This emulator is now configured to run Google Play Services. When you start this
 
 <img src="https://i.imgur.com/XOpvoci.png" width="650" alt="FixDisplay" />
 
+* If you are prompted to update Google Play Services, you are probably not running an AVD emulator with Google Play support:
+
+<img src="https://imgur.com/zoY1t32.png">
+
+Look to see if there is a Google Play icon in your emulator.  If there is not, make sure to install an AVD emulator with Google Play support.
+
 ## Enabling Location on Emulator
 
 If you are using a physical device, you can **skip this section**. You only need this section **if you want to run maps and location on an emulator**. 
@@ -124,10 +130,6 @@ If using **the official Google emulator**, we can update the "current location" 
 <img src="http://i.imgur.com/hfZZBQF.png" width="650" alt="Android device monitor" />
 
 You can enter any lat / lng i.e `37.4810289, -122.1543292`. After updating this location, you can use the "current location" marker on the app to move the map to your device's configured location.
-
-You may also be prompted to update Google Play Services.  Click `Update` to continue:
-
-<img src="https://imgur.com/zoY1t32.png">
 
 ## Run the App
 
