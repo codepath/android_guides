@@ -18,8 +18,8 @@ Let's setup Parse into a brand new Android app following the steps below.
     
     ```gradle
     dependencies {
-      compile 'com.parse:parse-android:1.16.2'
-      compile 'com.squareup.okhttp3:logging-interceptor:3.8.0' // for logging API calls to LogCat
+      compile 'com.parse:parse-android:1.16.3'
+      compile 'com.squareup.okhttp3:logging-interceptor:3.8.1' // for logging API calls to LogCat
     }
     ```
 
@@ -29,7 +29,7 @@ Let's setup Parse into a brand new Android app following the steps below.
     allprojects {
         repositories {
             jcenter()
-            // The next part if what you need to add
+            // The next part if what you don't want to add Google Play Service SDK manually
             maven {
                 url "https://maven.google.com"
             }
