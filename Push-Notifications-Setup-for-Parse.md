@@ -132,7 +132,6 @@ Declare the Push service and a Parse-specific broadcast receiver `AndroidManifes
 
 ```xml
 <application>
-    <service android:name="com.parse.PushService" />
     <receiver android:name="com.parse.ParsePushBroadcastReceiver"
                     android:exported="false">
         <intent-filter>
@@ -292,7 +291,8 @@ Instead, you need to write your own server-side Parse code and have the client i
    ```
 
     * Double-check your `<uses-permissions>` is outside the `<application>` tag.
-    * Verify that you have define the `GcmBroadcastReceiver`, `PushService`, and `ParseBroadcastReceiver` inside the `<application>` tag.
+    * Verify that you have define the `GcmBroadcastReceiver` and `ParseBroadcastReceiver` inside the `<application>` tag.
+    * If you were using an older version of Parse, remove `PushService` since `PushServiceApi26` now automatically added to support Android O and higher.
     * Use `${packageName} in lieu of the hard-coded package names so you can avoid typos.
  
 * If you are using Facebook's [[Stetho library|Debugging-with-Stetho]] with your Android client, you can see the LogCat statements and verify that GCM tokens are being registered by API calls to the `/parse/classes/_Installation` endpoint:
