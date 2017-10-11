@@ -93,7 +93,7 @@ When writing Espresso tests, you'll be using a lot of static imports. This makes
 * [ViewActions](http://developer.android.com/reference/android/support/test/espresso/action/ViewActions.html) – This is how we interact with views. Above we've used the `typeText(...)` method to type `Hello` into our `EditText`.
 * [ViewAssertions](http://developer.android.com/reference/android/support/test/espresso/assertion/ViewAssertions.html) – This is our validation. We use `ViewAssertions` to validate specific properties of views. Most of the time you'll be using `ViewAssertions` that are powered by `ViewMatchers` underneath. In our example above the `withText(...)` method is actually returning a `ViewMatcher` which we've converted into a `ViewAssertion` using the `matches(...)` method.
 
-The standard pattern for an Espresso test is to find a view (`ViewMatchers`), do something to that view (`ViewActions`), and then validate some view properties (`ViewAssertions`). There's a handy [cheat sheet] (https://google.github.io/android-testing-support-library/downloads/espresso-cheat-sheet-2.1.0.pdf) that's a great reference to see what's available in each of these classes.
+The standard pattern for an Espresso test is to find a view (`ViewMatchers`), do something to that view (`ViewActions`), and then validate some view properties (`ViewAssertions`). There's a handy [cheat sheet](https://google.github.io/android-testing-support-library/downloads/espresso-cheat-sheet-2.1.0.pdf) that's a great reference to see what's available in each of these classes.
 
 ## Running Espresso Tests
 
