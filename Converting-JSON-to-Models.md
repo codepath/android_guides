@@ -232,4 +232,4 @@ client.search("food", "san francisco", new JsonHttpResponseHandler() {
 }
 ```
 
-For additional details on creating using adapters to display data in lists, see [[Using RecyclerView|Using-the-RecyclerView#creating-the-recyclerviewadapter]] or [[Using ListView|Using-an-ArrayAdapter-with-ListView]].
+For additional details on using adapters to display data in lists, see [[Using RecyclerView|Using-the-RecyclerView#creating-the-recyclerviewadapter]] or [[Using ListView|Using-an-ArrayAdapter-with-ListView]].
