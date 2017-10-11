@@ -57,7 +57,7 @@ Next, redeploy the code.  If you are using Heroku, you need to connect your own 
 
 Before getting started, make sure you have Google Play installed on the emulator or device, since push notifications via [Google Cloud Messaging](Google-Cloud-Messaging) (GCM) will only work for devices and emulators that have Google Play installed.
 
-Also verify that you have setup the Parse Client SDK [[here|Building-Data-driven-Apps-with-Parse#setup]].
+Also verify that you have added the Parse Client SDK as shown in [[this guide|Building-Data-driven-Apps-with-Parse#setup]].
 
 #### Add GCM Sender ID
 
