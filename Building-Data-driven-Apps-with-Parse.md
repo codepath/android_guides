@@ -64,7 +64,7 @@ public class ParseApplication extends Application {
         // Use for troubleshooting -- remove this line for production
         Parse.setLogLevel(Parse.LOG_LEVEL_DEBUG);
 
-        // Use for monitoring Parse OkHttp trafic        
+        // Use for monitoring Parse OkHttp traffic        
         // Can be Level.BASIC, Level.HEADERS, or Level.BODY
         // See http://square.github.io/okhttp/3.x/logging-interceptor/ to see the options.
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
@@ -95,10 +95,8 @@ We also need to make sure to set the application instance above as the `android:
     android:versionCode="1"
     android:versionName="1.0" >
     <application
-        android:name=".ParseApplication"
-        android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        <!-- other attributes here -->
+        android:name=".ParseApplication">
     </application>
 </manifest>
 ```
