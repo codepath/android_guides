@@ -34,7 +34,7 @@ Make sure your top-level `build.gradle` includes the following:
 buildscript {
     repositories {
         jcenter() 
-        google() // new as of Google I/O 2017, google() can be used with Gradle v3.0+
+        maven { url "https://maven.google.com" }  // new as of Google I/O 2017
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.1'
