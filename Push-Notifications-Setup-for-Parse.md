@@ -177,7 +177,7 @@ There are other options for creating custom receivers as well:
 ```java
 public class MapDemoActivity extends AppCompatActivity {
 
-   MarkerUpdatesReceiver markerUpdatesReceiver;
+    MarkerUpdatesReceiver markerUpdatesReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
