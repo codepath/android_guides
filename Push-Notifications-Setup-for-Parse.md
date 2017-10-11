@@ -150,8 +150,12 @@ If you use Parse's default [ParsePushBroadcastReceiver](https://github.com/Parse
 If you wish to listen to any pushes sent to a specific channel, you can subscribe by doing the following:
 
 ```java
-final String CHANNEL_NAME = "abcd";
-ParsePush.subscribeInBackground(CHANNEL_NAME);
+public static final String CHANNEL_NAME = "abcd";
+
+@Override
+public void onCreate() {
+  ParsePush.subscribeInBackground(CHANNEL_NAME);
+}
 ```
 
 After following the steps outlined above, be sure to check out the following resources for more information:
