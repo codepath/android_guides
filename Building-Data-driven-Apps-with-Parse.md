@@ -30,6 +30,8 @@ In short, Parse makes building mobile app ideas much easier!
 
 ## Setup
 
+### Installing the Parse SDK
+
 Setting up Parse starts with [[deploying your own Parse instance|Configuring-a-Parse-Server#setting-a-new-parse-server]] to Heroku or another app hosting provider.
 
 Open the `app/build.gradle` in your project and add the following dependencies:
@@ -48,6 +50,8 @@ dependencies {
 | Parse Android SDK | ![](https://maven-badges.herokuapp.com/maven-central/com.parse/parse-android/badge.svg?style=flat)       |
 
 Select `Tools -> Android -> Sync Project with Gradle Files` to load the libraries through Gradle. When you sync, it will import everything automatically. You can see the imported files in the External Libraries folder.
+
+### Initializing the SDK
 
 Next, we need to create an `Application` class and initialize Parse. Be sure to replace the initialization line below with **your correct Parse keys**:
 
@@ -98,6 +102,8 @@ We also need to make sure to set the application instance above as the `android:
     </application>
 </manifest>
 ```
+
+### Setup network permissions
 
 We also need to add a few important network permissions to the `AndroidManifest.xml`:
 
