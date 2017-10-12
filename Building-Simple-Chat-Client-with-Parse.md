@@ -721,8 +721,9 @@ protected void onCreate(Bundle savedInstanceState) {
                               public void run() {
                                 mAdapter.notifyDataSetChanged();
                                 rvChat.scrollToPosition(0);
-                            }
-                        });
+                              }
+                          });
+                       }
                   });
 ```
 
