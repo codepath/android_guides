@@ -26,7 +26,7 @@ distributionBase=GRADLE_USER_HOME
 distributionPath=wrapper/dists
 zipStoreBase=GRADLE_USER_HOME
 zipStorePath=wrapper/dists
-distributionUrl=http\://services.gradle.org/distributions/gradle-3.3-all.zip
+distributionUrl=http\://services.gradle.org/distributions/gradle-4.2-all.zip
 ```
 
 #### Upgrading Gradle
@@ -35,7 +35,7 @@ If you wish to upgrade Gradle versions, you need to update the `distributionUrl`
 
 ```
 #Wed Apr 10 15:27:10 PDT 2013
-distributionUrl=http\://services.gradle.org/distributions/gradle-3.3-all.zip
+distributionUrl=http\://services.gradle.org/distributions/gradle-4.2-all.zip
 ```
 
 You can check [this link](https://services.gradle.org/distributions) to find the latest version.  Note that the Gradle releases are independent from the Android Gradle plugin, which is defined in your `build.gradle` config.
