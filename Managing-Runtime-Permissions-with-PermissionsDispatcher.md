@@ -34,8 +34,8 @@ And on your app module in `app/build.gradle`:
 
 ```gradle
 dependencies {
-  compile 'com.github.hotchemi:permissionsdispatcher:2.0.7'
-  annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:2.0.7'
+  compile 'com.github.hotchemi:permissionsdispatcher:3.0.1'
+  annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:3.0.1'
 }
 ```
 
@@ -93,7 +93,7 @@ In the code base, we can trigger the call with the appropriate runtime permissio
 
 ```java
 // NOTE: delegate the permission handling to generated method
-MainActivityPermissionsDispatcher.callPhoneWithCheck(this);
+MainActivityPermissionsDispatcher.callPhoneWithPermissionCheck(this);
 ```
 
 This will invoke the `callPhone` method wrapped with the appropriate permission checks. 
