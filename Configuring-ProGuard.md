@@ -60,7 +60,7 @@ Before you start adding any ProGuard rules, you should also check whether any of
 
 In addition, you can either check the GitHub source to see if this file exists, or you can navigate through Android Studio by clicking on the `Project` tab and navigating to `app` -> `build` -> `intermediates` -> `exploded-aar` and looking for the `proguard.txt` definition. 
 
-<img src="http://imgur.com/2ZY2aSG.png"/>
+<img src="https://imgur.com/2ZY2aSG.png"/>
 
 #### Common ProGuard configs
 

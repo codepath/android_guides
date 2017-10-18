@@ -49,11 +49,11 @@ Then you need to sync with gradle and make sure there are no errors.
 ### Download Assets
 We'll be using the following icon for our app.
 
-<a href="http://imgur.com/3odnsIE"><img src="https://i.imgur.com/3odnsIEl.png" title="source: imgur.com" /></a>
+<a href="https://imgur.com/3odnsIE"><img src="https://i.imgur.com/3odnsIEl.png" title="source: imgur.com" /></a>
 
 We'll use the following image when the cover image is not available.
 
-<a href="http://imgur.com/DTkTKtI"><img src="https://i.imgur.com/DTkTKtIl.png" title="source: imgur.com" /></a>
+<a href="https://imgur.com/DTkTKtI"><img src="https://i.imgur.com/DTkTKtIl.png" title="source: imgur.com" /></a>
 
 Copy and paste both [ic_launcher.png](https://i.imgur.com/3odnsIEl.png/ic_launcher.png) and [ic_nocover.png](https://i.imgur.com/DTkTKtIl.png/ic_nocover.png) into `res/drawable` for use later.
 

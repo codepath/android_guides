@@ -6,7 +6,7 @@ The approaches for ListView, GridView and [[RecyclerView|Using-the-RecyclerView]
 
 In both cases, the information needed to implement the scrolling include determining the last visible item within the list and some type of threshold value to start fetching more data before the last item has been reached.  This data can be used to decide when to load more data from an external source:
 
-<a href="http://imgur.com/6E7X1pr.png" target="_blank"><img src="http://imgur.com/6E7X1pr.png"/></a>
+<a href="https://imgur.com/6E7X1pr.png" target="_blank"><img src="https://imgur.com/6E7X1pr.png"/></a>
 
 To provide the appearance of endless scrolling, it's important to fetch data before the user gets to the end of the list.  Adding a threshold value therefore helps anticipate the need to append more data. 
 

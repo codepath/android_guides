@@ -37,7 +37,7 @@ If you are using Heroku to configure the server, make sure to set the following 
 
    * Set `GCM_SENDER_ID` and `GCM_API_KEY` environment variables to correspond to the Sender ID and API Key in the previous step.  
 
-      <img src="http://imgur.com/KgU2S2y.png"/>
+      <img src="https://imgur.com/KgU2S2y.png"/>
 
    * Confirm the `SERVER_URL` environment variable is set to the URL and Parse mount location (i.e. `http://yourappname.herokuapp.com/parse`).  
 
@@ -349,7 +349,7 @@ You might also see an abbreviated version similar to the following if the GCM to
 
 * Add the `VERBOSE=1` to the Heroku dashboard.  Also add `DEBUG=apn,node-gcm` to show specific GCM logs:
 
-     <img src="http://imgur.com/K1MU5gL.png"/>
+     <img src="https://imgur.com/K1MU5gL.png"/>
 
    * If you see `MismatchSenderId` errors, make sure you have the correct Sender ID.  Also, make sure the prefix `id:` is specified as your GCM sender ID in the `AndroidManifest.xml` file.  
 

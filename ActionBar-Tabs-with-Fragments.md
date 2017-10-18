@@ -55,7 +55,7 @@ Now you have fragments that work for any Android version above 3.0. If you need 
 
 Google has released an updated support library "android-support-v7-appcompat" which includes official support for the ActionBar with Gingerbread compatibility. To use this, first, we need to **upgrade to latest support library** by opening the Android SDK Manager and verifying we have the latest "Android Support Library".
 
-Now, we need to import the support library as a library project following the [usual steps](http://imgur.com/a/N8baF). `File => Import => Existing Android Code...` and then go to your **sdk folder** and select `sdk => extras => android => support => v7 => appcompat`. 
+Now, we need to import the support library as a library project following the [usual steps](https://imgur.com/a/N8baF). `File => Import => Existing Android Code...` and then go to your **sdk folder** and select `sdk => extras => android => support => v7 => appcompat`. 
 
 ![Screen 1](https://i.imgur.com/pRffDgs.png)
 

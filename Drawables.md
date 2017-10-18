@@ -233,7 +233,7 @@ A NinePatch is defined and saved in the `drawable` folder and setting the backgr
 ```
 Android Studio comes with the ability to edit 9-patch files directly.  Your PNG file simply needs to be saved with the `.9.png` extension in the `drawable` folder, and the 9-patch editor will display instead of the normal image editor.  You can use the mouse to select the regions to be stretched (use Shift and click while dragging the mouse to erase the region), and the preview pane on the right displays how images will be rendered depending on the text inside.
 
-<img src="http://imgur.com/LyOLk8y.png"/>
+<img src="https://imgur.com/LyOLk8y.png"/>
 
 The left and top lines need to be defined for the stretchable regions.  To avoid stretching the arrow of this speech bubble in the above example, we define regions outside this area.  The right and bottom lines define where text can be filled.   Without the bottom line for instance, your text will not fill up the entire width of the stretched region and may not be centered properly.
 
@@ -607,7 +607,7 @@ imageView.setBackground(drawable);
 
 Starting in Android 5.0 and above, a tint color can now be applied to drawables.  The advantage is that images to be styled according to the current theme used.  For instance, in Twitter's recent [Android UI update](https://androidcommunity.com/twitter-rolls-out-new-look-ui-changes-in-latest-update-20170616/), most of the images are stored as vector drawables in black color:
 
-<img src="http://imgur.com/zRYnrnD.png" width="200"/>
+<img src="https://imgur.com/zRYnrnD.png" width="200"/>
 
 Here is the corresponding vector drawable:
 

@@ -5,15 +5,15 @@
 
 * Sliding the Floating Action Button up and down to make space for the Snackbar.
 
-  <img src="http://imgur.com/zF9GGsK.gif" width="350"/>
+  <img src="https://imgur.com/zF9GGsK.gif" width="350"/>
 
 * Expanding or contracting the Toolbar or header space to make room for the main content.
 
-  <img src="http://imgur.com/X5AIH0P.gif" width="350"/>
+  <img src="https://imgur.com/X5AIH0P.gif" width="350"/>
 
 * Controlling which views should expand or collapse and at what rate, including [parallax scrolling effects](https://ihatetomatoes.net/demos/parallax-scroll-effect/) animations.
 
-  <img src="http://imgur.com/1JHP0cP.gif"/>
+  <img src="https://imgur.com/1JHP0cP.gif"/>
 
 ### Code Samples
 
@@ -33,7 +33,7 @@ The CoordinatorLayout can be used to create floating effects using the `layout_a
 
 When a [[Snackbar|Displaying the Snackbar]] is rendered, it normally appears at the bottom of the visible screen.  To make room, the floating action button must be moved up to provide space.  
 
-<img src="http://imgur.com/zF9GGsK.gif" width="350"/>
+<img src="https://imgur.com/zF9GGsK.gif" width="350"/>
 
 So long as the CoordinatorLayout is used as the primary layout, this animation effect will occur for you automatically.   The floating action button has a [default behavior](https://developer.android.com/reference/android/support/design/widget/FloatingActionButton.Behavior.html) that detects Snackbar views being added and animates the button above the height of the Snackbar.
 
@@ -63,7 +63,7 @@ So long as the CoordinatorLayout is used as the primary layout, this animation e
 
 ## Expanding and Collapsing Toolbars
 
-<img src="http://imgur.com/X5AIH0P.gif" width="350"/>
+<img src="https://imgur.com/X5AIH0P.gif" width="350"/>
 
 The first step is to make sure you are not using the deprecated ActionBar.  Make sure to follow the [[Using the ToolBar as ActionBar|Using-the-App-Toolbar#using-toolbar-as-actionbar]] guide.  Also make sure that the CoordinatorLayout is the main layout container.
 
@@ -142,7 +142,7 @@ The `scroll` flag used within the attribute `app:layout_scrollFlags` must be ena
 
   * `enterAlways`: The view will become visible when scrolling up.  This flag is useful in cases when scrolling from the bottom of a list and wanting to expose the `Toolbar` as soon as scrolling up takes place.  
  
-    <img src="http://imgur.com/sGltNwr.png"/>
+    <img src="https://imgur.com/sGltNwr.png"/>
     
     Normally, the `Toolbar` only appears when the list is scrolled to the top as shown below:
     
@@ -150,19 +150,19 @@ The `scroll` flag used within the attribute `app:layout_scrollFlags` must be ena
 
   * `enterAlwaysCollapsed`:   Normally, when only `enterAlways` is used, the `Toolbar` will continue to expand as you scroll down:
 
-    <img src="http://imgur.com/nVtheyw.png"/>
+    <img src="https://imgur.com/nVtheyw.png"/>
 
     Assuming `enterAlways` is declared and you have specified a `minHeight`, you can also specify `enterAlwaysCollapsed`.  When this setting is used, your view will only appear at this minimum height. Only when scrolling reaches to the top will the view expand to its full height:
 
-    <img src="http://imgur.com/HqR8Nx5.png">
+    <img src="https://imgur.com/HqR8Nx5.png">
 
   * `exitUntilCollapsed`: When the `scroll` flag is set, scrolling down will normally cause the entire content to move:
 
-    <img src="http://imgur.com/qpEr4x5.png"/>
+    <img src="https://imgur.com/qpEr4x5.png"/>
 
     By specifying a `minHeight` and `exitUntilCollapsed`, the minimum height of the `Toolbar` will be reached before the rest of the content begins to scroll and exit from the screen:
 
-    <img src="http://imgur.com/dTDPztp.png"/>
+    <img src="https://imgur.com/dTDPztp.png"/>
      
   * `snap`: Using this option will determine what to do when a view only has been partially reduced.  If scrolling ends and the view size has been reduced to less than 50% of its original, then this view to return to its original size.  If the size is greater than 50% of its sized, it will disappear completely.  
        <img src="https://i.imgur.com/9hnupWJ.png"/>
@@ -171,7 +171,7 @@ The `scroll` flag used within the attribute `app:layout_scrollFlags` must be ena
 
 At this point, you should notice that the Toolbar responds to scroll events.  
 
-<img src="http://imgur.com/Hl2Asb1.gif" width="350"/>
+<img src="https://imgur.com/Hl2Asb1.gif" width="350"/>
 
 ### Creating Collapsing Effects
 
@@ -205,7 +205,7 @@ If we want to create the collapsing toolbar effect, we must wrap the Toolbar ins
 
 Your result should now appears as:
 
-<img src="http://imgur.com/X5AIH0P.gif" width="350"/>
+<img src="https://imgur.com/X5AIH0P.gif" width="350"/>
 
 Normally, we set the title of the Toolbar. Now, we need to set the title on the CollapsingToolBarLayout instead of the Toolbar.
 
@@ -236,7 +236,7 @@ By enabling translucent system bars as shown above, your layout will fill the ar
 
 The CollapsingToolbarLayout also enables us to do more advanced animations, such as using an ImageView that fades out as it collapses.  The title can also change in height as the user scrolls.
 
-<img src="http://imgur.com/ah4l5oj.gif" width="350"/>
+<img src="https://imgur.com/ah4l5oj.gif" width="350"/>
 
 To create this effect, we add an ImageView and declare an `app:layout_collapseMode="parallax"` attribute to the tag.
 
@@ -272,7 +272,7 @@ To create this effect, we add an ImageView and declare an `app:layout_collapseMo
 
 Bottom Sheets are now supported in `v23.2` of the support design library.  There are two types of bottom sheets supported: [persistent](https://www.google.com/design/spec/components/bottom-sheets.html#bottom-sheets-persistent-bottom-sheets) and [modal](https://www.google.com/design/spec/components/bottom-sheets.html#bottom-sheets-modal-bottom-sheets).   Persistent bottom sheets show in-app content, while modal sheets expose menus or simple dialogs.
 
-<img src="http://imgur.com/3hCTnnC.png">
+<img src="https://imgur.com/3hCTnnC.png">
 
 ### Persistent Modal Sheets
 

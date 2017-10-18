@@ -85,7 +85,7 @@ The Parceler library works by using the `@Parcel` annotation to generate the wra
 
 You can also look at your `app/build/generated/source/apt` directory to see how it generates these wrapper classes.  Parceler essentially handles the steps described in [[this section|Using-Parcelable#creating-a-parcelable-the-manual-way]].
 
-<img src="http://imgur.com/6cR07Ae.png"/> 
+<img src="https://imgur.com/6cR07Ae.png"/> 
 
 ## Using with ORM libraries
 

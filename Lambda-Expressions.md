@@ -80,7 +80,7 @@ Lambda expressions rely on type inference to fill in the blanks. Notice that the
 
 You can look to the left of Android Studio to see how it is inferring which type to use:
 
-<img src="http://imgur.com/n1RrHpT.png">
+<img src="https://imgur.com/n1RrHpT.png">
 
 ## Setup
 
@@ -180,7 +180,7 @@ Sync your gradle file, if you encounter any build error, you may need to downloa
 
 If you wish to convert your code to lambda expressions, move your cursor to the slightly greyed out section of your anonymous class and look on the left-hand side of the Android Studio editor for the light bulb:
 
-<img src="http://imgur.com/KDzMS8l.png"/>
+<img src="https://imgur.com/KDzMS8l.png"/>
 
 Once you see the `Replace with lambda` appear, you can also apply `Fix all` click on the left-hand side to convert all the possible candidates automatically as [outlined here](http://stackoverflow.com/a/36746855).
 

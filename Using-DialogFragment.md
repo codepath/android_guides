@@ -227,7 +227,7 @@ public class DialogDemoActivity extends AppCompatActivity implements EditNameDia
 }
 ```
 
-**Note:** `setOnEditorActionListener` used above to dismiss requires the use of the soft keyboard in the emulator which [can be enabled through AVD](http://imgur.com/a/kf1s9) or by testing on a device. If you don't want to enable soft keyboard, you may want to dismiss on a button click or on a keypress instead.
+**Note:** `setOnEditorActionListener` used above to dismiss requires the use of the soft keyboard in the emulator which [can be enabled through AVD](https://imgur.com/a/kf1s9) or by testing on a device. If you don't want to enable soft keyboard, you may want to dismiss on a button click or on a keypress instead.
 
 ### Passing Data to Parent Fragment
 
@@ -588,8 +588,8 @@ Check out the CodePath [android-view-helpers](https://github.com/codepath/androi
 
 The native date and time pickers for Android are another example of specialized dialog fragments.  Please note that the date/time pickers that comes with the Android SDK differ depending on the Android device version.  See [this section](https://github.com/codepath/android_guides/wiki/Working-with-Input-Views#date-and-time-pickers) for more information.
 
-<img src="http://imgur.com/8YqcxA7.png" width="300"/>
-<img src="http://imgur.com/s358M0K.png" width="300"/>
+<img src="https://imgur.com/8YqcxA7.png" width="300"/>
+<img src="https://imgur.com/s358M0K.png" width="300"/>
 
 If you wish for the containing activity to receive the date or time selected by the dialog, you should ensure that the Activity implements the respective interface. If we want the date picker to be shown from within another dialog fragment, refer to [[setting a target fragment|Using-DialogFragment#passing-data-to-parent-fragment]]. For instance, for a date picker fragment, you will want to ensure that the activity implements the `OnDateSetListener` interface:
 

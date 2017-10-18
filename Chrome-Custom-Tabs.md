@@ -59,7 +59,7 @@ Normally, `context.getResources().getColor())` can be used, but in Android API 2
 
 ### Adding a share action
 
-<img src="http://imgur.com/e3rNTqM.png"/>
+<img src="https://imgur.com/e3rNTqM.png"/>
 
 By default, a Chrome tab does not include share action in the toolbar.  However, you can add a default one to the menu item list:
 
@@ -71,11 +71,11 @@ builder.addDefaultShareMenuItem();
 
 ### Adding custom icons
 
-<img src="http://imgur.com/8Rh0qw4.png"/>
+<img src="https://imgur.com/8Rh0qw4.png"/>
 
 If you want to add a specific icon (such as the share icon) to the toolbar, you need to first should add the icon using `New` -> `Image Asset` (currently, Chrome Tabs do not support [[vector drawables|Drawables#vector-drawables]] so you should be using PNG files as your icons):
 
-<img src="http://imgur.com/dPw0tBM.png" width="600"/>
+<img src="https://imgur.com/dPw0tBM.png" width="600"/>
 
 Note the file that is saved.  We will need to create a bitmap for use later:
 

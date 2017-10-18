@@ -126,7 +126,7 @@ which results in:
 
 ### Changing the bottom line color
 
-<img src="http://imgur.com/XUWKoju.png"/>
+<img src="https://imgur.com/XUWKoju.png"/>
 
 Assuming you are using the AppCompat library, you can override the styles `colorControlNormal`, `colorControlActivated`, and `colorControlHighlight`:
 
@@ -219,7 +219,7 @@ Here we use the `addTextChangedListener` to watch as the value changes to determ
 
 `TextInputLayout` since the [announcement of support design library v23.1](http://android-developers.blogspot.com/2015/10/android-support-library-231.html?linkId=17977963) also can expose a character counter for an `EditText` defined within it.  The counter will be rendered below the `EditText` and can change colors of both the line and character counter if the maximum number of characters has been exceeded:
 
-<img src="http://imgur.com/eEYwIO3.png"/>
+<img src="https://imgur.com/eEYwIO3.png"/>
 
 The `TextInputLayout` simply needs to define `app:counterEnabled` and `app:CounterMaxLength` in the XML attributes.  These settings can also be defined dynamically through `setCounterEnabled()` and `setCounterMaxLength()`:
 
@@ -246,7 +246,7 @@ The `TextInputLayout` simply needs to define `app:counterEnabled` and `app:Count
 
 **NOTE**: You must have support library 24.2.0 or higher to use this feature.  
 
-<img src="http://imgur.com/33oQgLr.png"/>
+<img src="https://imgur.com/33oQgLr.png"/>
 
 If you use an `EditText` with an input password type, you can also enable an icon that can show or hide the entire text using the `passwordToggleEnabled` attribute.    You can also change the default eye icon with  `passwordToggleDrawable` attribute or the color hint using the `passwordToggleTint` attribute.  See the `TextInputLayout` [attributes](https://developer.android.com/reference/android/support/design/widget/TextInputLayout.html#attr_android.support.design:passwordToggleTintMode) for more details.
 

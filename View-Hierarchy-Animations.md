@@ -6,7 +6,7 @@ The Transitions API introduced originally in Android 4.4 (and now backported to 
 
 The Transitions API works by introducing the concept of a **scene**, which reflects a snapshot of a view hierarchy (a container layout such as LinearLayout, RelativeLayout, etc.).  The framework figures out the changes that occurred between scenes and performs a default set of animation sequences.
 
-<img src="http://imgur.com/CAljFh6.png"/>
+<img src="https://imgur.com/CAljFh6.png"/>
 
 ## Setup
 
@@ -16,7 +16,7 @@ If you intend to support Android 4.0 devices, make sure to include the [[design 
 
 The most straightforward example is to use the  TransitionManager to perform the animation:
 
-<img src="http://imgur.com/QQVcWou.png"/>
+<img src="https://imgur.com/QQVcWou.png"/>
 
 You simply make a call to the `TransitionManager`:
 
@@ -54,7 +54,7 @@ circle.setLayoutParams(params);
 
 ## Custom Transition Sets
 
-<img src="http://imgur.com/yEm6Xn3.png"/>
+<img src="https://imgur.com/yEm6Xn3.png"/>
 
 The default choreographed transition that is used by TransitionManager is `AutoTransition`, which performs a current fade, move/resizing if any elements have changed position or size, and a fade transition.    If you wish to create your own sequence, you can compose the transitions out of the built-in ones that are provided:
 

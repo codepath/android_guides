@@ -116,7 +116,7 @@ A less understood aspect of RelativeLayout is how the use of alignment can deter
 
 Suppose we have two buttons of varying widths:
 
-<img src="http://imgur.com/0Hxn1Z5.png"/>
+<img src="https://imgur.com/0Hxn1Z5.png"/>
 
 The corresponding XML would be:
 
@@ -180,7 +180,7 @@ Suppose we have this layout definition:
 
 The corresponding preview looks like:
 
-<img src="http://imgur.com/bdD2BjC.png"/>
+<img src="https://imgur.com/bdD2BjC.png"/>
 
 If we wish to match the height of the first button, we can specify `layout_alignTop` and `layout_alignBottom` on the second button.  
 
@@ -197,13 +197,13 @@ If we wish to match the height of the first button, we can specify `layout_align
 
 The only way to fulfill this requirement is to expand the height of the second button as shown below:
 
-<img src="http://imgur.com/cDK6tws.png"/>
+<img src="https://imgur.com/cDK6tws.png"/>
 
 ## PercentRelativeLayout
 
 `PercentRelativeLayout`, a recent addition to the [[Design Support Library]], enables the ability to specify not only elements relative to each other but also the total percentage of available space.  In the past, in order to position two elements next to each other with equal height, you would normally have to create a `LinearLayout` within a `RelativeLayout`.  `PercentRelativeLayout` helps solves this issue.
 
-<img src="http://imgur.com/CmMsIgp.png"/>
+<img src="https://imgur.com/CmMsIgp.png"/>
 
 To use, follow the [[setup guide|Design-Support-Library#adding-percent-support-library]] and make sure the Gradle dependency is included in `app/build.gradle` with `X.X.X` based on your support version:
 
@@ -305,7 +305,7 @@ Similar to how [[ImageView|Working-with-the-ImageView#sizing-imageview-controls|
 
 The resulting layout appears as follows:
 
-<img src="http://imgur.com/jBj47AS.png"/>
+<img src="https://imgur.com/jBj47AS.png"/>
 
 ## FrameLayout
 

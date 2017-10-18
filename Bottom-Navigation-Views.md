@@ -2,7 +2,7 @@
 
 [Bottom navigation](https://material.google.com/components/bottom-navigation.html) provide easy navigation for switching between 3 to 5 different views.  It was a recently added to the [Material Design spec](https://material.google.com/components/bottom-navigation.html), which provides an alternative between [tabs](https://material.google.com/components/tabs.html) and [navigation drawers](https://material.google.com/patterns/navigation-drawer.html).  
 
-<center><img src="http://imgur.com/MN4szO6.png" height="400"></center>
+<center><img src="https://imgur.com/MN4szO6.png" height="400"></center>
 
 ## Setup
 
@@ -47,11 +47,11 @@ Next, similar to how menu items in the [[Toolbar|Using-the-App-ToolBar]], declar
 ```
 You can create the icons by choosing them from the `New` -> `Vector Asset`:
 
-<img src="http://imgur.com/j9SkJOE.png" width="300"/>
+<img src="https://imgur.com/j9SkJOE.png" width="300"/>
 
 Next, you can choose the `Action` and find the heart symbol:
 
-<img src="http://imgur.com/K6IH2kG.png" width="300"/>
+<img src="https://imgur.com/K6IH2kG.png" width="300"/>
 
 Save the file as `ic_favorite_white_24dp.xml`.  You can change the fill color after importing the vector drawable by modifying the `fillColor`:
 

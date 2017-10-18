@@ -10,15 +10,15 @@ Much of the heavy lifting in supporting push notifications on Android is facilit
 
 An Android device with Google Play Services will already have FCM client support available.  For push notifications to be received, an app must first obtain a token by registering with a Google server:
 
-<img src="http://imgur.com/5UPxP3n.png" height=300/>
+<img src="https://imgur.com/5UPxP3n.png" height=300/>
 
 This token then must be passed along to your server so that it can be used to send subsequent push notifications:
 
-<img src="http://imgur.com/ItRPQ7N.png" height=300/>
+<img src="https://imgur.com/ItRPQ7N.png" height=300/>
 
 Push notifications can be received assuming your app has registered to listen for FCM-based messages:
 
-<img src="http://imgur.com/adiFo8w.png" height=300/>
+<img src="https://imgur.com/adiFo8w.png" height=300/>
 
 In other words, in order to implement FCM, your app will need both a Google server and your own server.  When your app gets a token from Google, it needs to forward this token to your server.  This token should be persisted by the server so that it can be used to make API calls to the Google server.  With this approach, your server and the Android device do not need to create a persistent connection and the responsibility of queuing and relaying messages is all handled by Google's servers.
 
@@ -43,13 +43,13 @@ In order to use FCM, we need to go through the following steps:
 
 In order to use FCM, you need to login to [https://console.firebase.google.com/](https://console.firebase.google.com/).  You should be given a choice on the right-hand side as to whether to create a new project or import an existing Google app into Firebase.
 
-<img src="http://imgur.com/9uZggGW.png"/>
+<img src="https://imgur.com/9uZggGW.png"/>
 
 ### Creating a new project
 
 Click on `Create New Project`.  You should see the window pop up:
 
-<img src="http://imgur.com/b3puXlh.png"/>
+<img src="https://imgur.com/b3puXlh.png"/>
 
 ### Using an existing project
 
@@ -61,7 +61,7 @@ After you've created or imported an existing project into Firebase, you need to 
 
 Click on `Add Firebase to your Android app`:
 
-<img src="http://imgur.com/qTWfk3r.png"/>
+<img src="https://imgur.com/qTWfk3r.png"/>
 
 Click on `Add App` and then copy the `google-services.json` file that will get downloaded into your`app/` dir.  This file includes the  project information and API keys needed to connect to Firebase.  Make sure to preserve the filename, since it will be used in the next step.
 
@@ -98,7 +98,7 @@ First, let's download and setup the Google Play Services SDK. Open `Tools`->`And
 
 Also open `Tools`->`Android`->`SDK Manager` and click on the `SDK Tools` tab.  Make sure that under `Support Repository` you have installed the `Google Repository`.  If you forget this step, you are not likely to be able to include the Firebase messaging library in the next step.
 
-<img src="http://imgur.com/QBvyEAH.png"/>
+<img src="https://imgur.com/QBvyEAH.png"/>
 
 ### Update to SDK Tools
 

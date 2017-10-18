@@ -46,7 +46,7 @@ Try opening VirtualBox and opening the image directly.  If you see an `VERR_PDM_
 
 See [this link](http://stackoverflow.com/questions/38275500/genymotion-virtualbox-error) for more information.
 
-**Note:** On Ubuntu/Linux, make sure to enable [3D acceleration mode](http://imgur.com/Kl9cOmb) by launching VirtualBox and going to `Settings -> Display` to fix. VirtualBox appears to prone to memory leaks, so you may find yourself killing the process from time to time. To avoid large CPU consumption by the compiz window manager and swapping in general, try increasing the video memory allocation and Base Memory (found in `Settings -> System`).
+**Note:** On Ubuntu/Linux, make sure to enable [3D acceleration mode](https://imgur.com/Kl9cOmb) by launching VirtualBox and going to `Settings -> Display` to fix. VirtualBox appears to prone to memory leaks, so you may find yourself killing the process from time to time. To avoid large CPU consumption by the compiz window manager and swapping in general, try increasing the video memory allocation and Base Memory (found in `Settings -> System`).
 
 **Note:** Are you getting an error when starting the emulator? `Error Failed to load VMMR0.r0`? Follow the [advice here](https://forums.virtualbox.org/viewtopic.php?f=8&t=40525#p186381). In short, go to [virtual box page](https://www.virtualbox.org/wiki/Downloads) and download and install VirtualBox 4.3.6 Oracle VM VirtualBox Extension Pack.
 
@@ -67,10 +67,10 @@ The Open GApps package implemented is the smallest one (i.e. "pico") as it fits 
 Check out [this handy YouTube video](https://www.youtube.com/watch?v=UFhStnF42tw) for a guided step-by-step of enabling play services in Genymotion. You may want to use a newer version of these files based on the desired emulator as found below. 
 
 1. Download the [opengapps.org](http://opengapps.org/) image corresponding to your Android version. Make sure to choose **x86** and the **nano** instance.  
-      <img src="http://imgur.com/z8O6Txp.png" width="400">
+      <img src="https://imgur.com/z8O6Txp.png" width="400">
 
 2. Drag and drop the zip file onto the running Genymotion emulator device
-   ![Installing Google Apps APK](http://imgur.com/zSPf1Fn.png)
+   ![Installing Google Apps APK](https://imgur.com/zSPf1Fn.png)
 
 3. When asked to flash the device, make sure to proceed with the installation.
 

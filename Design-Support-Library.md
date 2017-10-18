@@ -132,7 +132,7 @@ dependencies {
 
 You normally need to open the [SDK Manager](https://developer.android.com/tools/support-library/setup.html) and make sure to download the `Android Support Repository` as well as the latest `Android Support Library`.   However, Android Studio will also show at the bottom any missing libraries and you can click on the `Install repository and sync project`.  The process will only succeed if you specify a valid library and version, but it enables you to upgrade without needing to open the SDK Manager.
 
-<img src="http://imgur.com/GQw6IHt.png"/>
+<img src="https://imgur.com/GQw6IHt.png"/>
 
 If you are using any type of continuous build system and need to help automate downloading of updates to the support library, you can use [[Jake Wharton's SDK Manager|Installing-Android-SDK-Tools#installing-the-android-sdk-automated-way]] to download the packages for you.  
 

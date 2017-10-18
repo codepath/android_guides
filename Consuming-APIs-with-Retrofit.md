@@ -66,7 +66,7 @@ See [[this guide|Leveraging-the-Gson-Library]]  about leveraging the Gson librar
 Assuming you have the JSON response already, go to [jsonschema2pojo](http://www.jsonschema2pojo.org/).
 Make sure to select `JSON` as the Source Type:
 
-<img src="http://imgur.com/3DRH984.png"/>
+<img src="https://imgur.com/3DRH984.png"/>
 
 Set the Annotation style to `Gson`.
 

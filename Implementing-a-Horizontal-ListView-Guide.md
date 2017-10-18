@@ -14,7 +14,7 @@ Of all the third-party libraries currently out there for Horizontal ListView, th
 
 ### Installing TwoWayView
 
-[Download TwoWayView](https://github.com/lucasr/twoway-view) as a ZIP and then install it as a [library project](http://imgur.com/a/N8baF). **Note:** If you have any trouble importing the version downloaded, try this modified version [compatible with Eclipse](https://www.dropbox.com/s/1zwlc17d2nyahf1/TwoWayView-eclipse.zip).
+[Download TwoWayView](https://github.com/lucasr/twoway-view) as a ZIP and then install it as a [library project](https://imgur.com/a/N8baF). **Note:** If you have any trouble importing the version downloaded, try this modified version [compatible with Eclipse](https://www.dropbox.com/s/1zwlc17d2nyahf1/TwoWayView-eclipse.zip).
 
 ### Adding TwoWayView to Layout
 

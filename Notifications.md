@@ -264,7 +264,7 @@ public class DirectReplyIntent extends IntentService {
 
 The final result:
 
-<img src="http://imgur.com/c3an6Cv.png">
+<img src="https://imgur.com/c3an6Cv.png">
 
 The approach can also be used for receiving text in an activity.  The only difference is that you need to use 
 `PendingIntent.getActivity()` instead of `PendingIntent.getService()`, and receiving data needs to use

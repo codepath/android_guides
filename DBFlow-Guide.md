@@ -42,7 +42,7 @@ dependencies {
 
 If you see `java.lang.IllegalArgumentException: expected type but was null` errors, chances are you are using package names that are not all lowercase.  Make sure you rename your package name to all lowercase:
 
-<img src="http://imgur.com/SGtxczF.png"/>
+<img src="https://imgur.com/SGtxczF.png"/>
 
 In addition, all table names must be upper camel case (i.e. `User`, `UserTable`, `MyUserTable`, etc.) as described in [this issue](https://github.com/Raizlabs/DBFlow/issues/972).  If you do not use the convention, you may triggering these issues.  
 
@@ -550,7 +550,7 @@ public class MyApplication extends Application {
 
 The gradle `java.lang.Thread.getStackTrace` and `ProcessorManager.logError` errors span multiple lines, but the Android Device Monitor may not be displaying them appropriately.  For this reason, it is easier to check by clicking on the Gradle console at the bottom right corner to see in more detail the error message:
 
-<img src="http://imgur.com/q9cCNHq.png"/>
+<img src="https://imgur.com/q9cCNHq.png"/>
 
 There are a few things to verify:
 

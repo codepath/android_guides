@@ -116,7 +116,7 @@ src="https://i.imgur.com/o8Y6d6u.png/small_movie_poster.png" /></a>
 
 Copy and paste both [small_movie_poster.png](https://i.imgur.com/o8Y6d6u.png/small_movie_poster.png) and [large_movie_poster.png](https://i.imgur.com/Z2MYNbj.png/large_movie_poster.png) into `res/drawable` for use later.  You can drag and drop these files into the appropriate folders assuming you have selected the `Project` dropdown inside Android Studio.
 
-<img src="http://imgur.com/deqXuA6.png/" width=400>
+<img src="https://imgur.com/deqXuA6.png/" width=400>
 
 ### Setup Internet Permission
 

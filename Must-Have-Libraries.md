@@ -127,7 +127,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [PinnedListView](https://github.com/beworker/pinned-section-listview) - Pinned Section with ListView
  * [ListViewAnimations](https://github.com/nhaarman/ListViewAnimations) - Easy way to animate ListView items (**DEPRECATED**)
  * [Cardslib](https://github.com/gabrielemariotti/cardslib) - Card UI for Lists or Grids
- * [PullToRefresh-ListView](https://github.com/erikwt/PullToRefresh-ListView) - Easy to use pull-to-refresh functionality for ListViews. [Download](https://github.com/erikwt/PullToRefresh-ListView/archive/master.zip) and install as a [library project](http://imgur.com/a/N8baF).
+ * [PullToRefresh-ListView](https://github.com/erikwt/PullToRefresh-ListView) - Easy to use pull-to-refresh functionality for ListViews. [Download](https://github.com/erikwt/PullToRefresh-ListView/archive/master.zip) and install as a [library project](https://imgur.com/a/N8baF).
  * [QuickReturn](https://github.com/lawloretienne/QuickReturn) - Reveal or hide a header or footer as the list is scrolled in a direction.
  * [SortableTableView](https://github.com/ISchwarz23/SortableTableView) - The library enables you to display your data in a table and provides numerous customization possibilities. The api was designed very android like so the usage is intuitive for experienced android developers.
  * [Paginated Table](https://github.com/ojinxy/AndroidComponents) - This is a table which allows dynamic paging for any list of objects. Icons can be added to columns as well as custom items such as check boxes and buttons.
@@ -253,7 +253,7 @@ Essentially this method is used to enable your code to short-circuit before exec
 
 ### Compatibility
 
- * [NineOldAndroids](http://nineoldandroids.com/) - Fully compatible animation library that works with all versions of Android. Widely used. [Download](https://github.com/JakeWharton/NineOldAndroids/zipball/master) and install as a [library project](http://imgur.com/a/N8baF).
+ * [NineOldAndroids](http://nineoldandroids.com/) - Fully compatible animation library that works with all versions of Android. Widely used. [Download](https://github.com/JakeWharton/NineOldAndroids/zipball/master) and install as a [library project](https://imgur.com/a/N8baF).
  * [HoloEverywhere](https://github.com/Prototik/HoloEverywhere) - Backport Holo theme from Android 4.2 to 2.1+
  * [CropImage](https://github.com/biokys/cropimage) - Simple compatible cropping intent for images
 

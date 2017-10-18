@@ -135,7 +135,7 @@ Be sure to check out the community-source [materialdesignicons](http://materiald
 
 Make sure to add vector drawable support for pre-Lollipop devices by following the [[setup instructions|Design-Support-Library#adding-vector-drawable-library]].    The Material Design icons should already be available in [[Vector Drawable|Drawables#vector-drawables]] XML format, which is a different format from .SVG files.  Alternatively, you can download the .SVG file, right click on the `res/drawable` folder, and click the new `Vector Asset` option to import these `.svg` files into a Vector Drawable XML, which can be used the same as any other [[drawable|Drawables]]. 
 
-<img src="http://imgur.com/yYAI16t.png">
+<img src="https://imgur.com/yYAI16t.png">
 
 ### Material Navigation Drawer
 
@@ -212,7 +212,7 @@ This animation is often times used in conjunction with a floating action button 
 
 [[Scroll effects|Handling-Scrolls-with-CoordinatorLayout]] can also be created to shrink or expand the Toolbar or Header to make room for the main content area as a user scrolls.
 
-<img src="http://imgur.com/ah4l5oj.gif" alt="scrolling effects" width="300" />
+<img src="https://imgur.com/ah4l5oj.gif" alt="scrolling effects" width="300" />
 
 ## Material Styles
 

@@ -18,19 +18,19 @@ If you plan to share only standard Java code, you can distribute them packaged a
 
 When you create a new Android project, a new application is always created.  You can use this application to test your library.  After creating the project, go to `New` -> `New Module`:
 
-<img src="http://imgur.com/hbv3Eo4.png"/>
+<img src="https://imgur.com/hbv3Eo4.png"/>
 
 Select `Android Library`.  There is the option to choose `Java library`, but there is a major difference in that an Android library will include not only the Java classes but the resource files, image files, and Android manifest file normally associated with Android.  
 
-<img src="http://imgur.com/xDUBjYg.png"/>
+<img src="https://imgur.com/xDUBjYg.png"/>
 
 Next, you will be prompted to provide a name and the module name.  The name will simply be used to [label](http://developer.android.com/guide/topics/manifest/manifest-intro.html#iconlabel) the application in the Android Manifest file, while the module name will correspond to the directory to be created:
 
-<img src="http://imgur.com/kNKP51f.png"/>
+<img src="https://imgur.com/kNKP51f.png"/>
 
 When you click Next, a directory with the module name will be generated along with other files including a resource and Java folder:
 
-<img src="http://imgur.com/tllGHUh.png"/>
+<img src="https://imgur.com/tllGHUh.png"/>
 
 In addition, a `build.gradle` file will be created.  One major difference is that Android applications use the `com.android.application` plugin.  Android libraries will use the `com.android.library` plugin.  This statement at the top signals to the [Android Gradle plug-in](http://developer.android.com/tools/building/plugin-for-gradle.html) to generate an `.aar` file instead of an `.apk` file normally installed on Android devices.
 

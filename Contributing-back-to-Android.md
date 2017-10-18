@@ -14,7 +14,7 @@ initially downloading the Git data from all the repos still takes at least 1-3 h
 
 This walkthrough shows an example of how you can build the [Android Tools](http://tools.android.com/overview) repository. It is intended to show how you can contribute back to any part of the Android open source code, such as the components that work with Android Studio, the native emulator, the 9-patch viewer, etc.  It also will show you how to setup with a Java IDE to be able to set breakpoints and understand the code better.
 
-<img src="http://imgur.com/qH9BQDE.png"/>
+<img src="https://imgur.com/qH9BQDE.png"/>
 
 ### Preliminary Setup
 
@@ -130,13 +130,13 @@ You should now be able to open the `tools/build.gradle` file.  Import the projec
 
 You can find any of the tests, right click on the file, and click on the `Debug option`..
 
-<img src="http://imgur.com/G5eqCdM.png"/>
+<img src="https://imgur.com/G5eqCdM.png"/>
 
 ### Experimenting with changes
 
 Click on the Gradle icon on the right side of the screen and find the `publishLocal` option by going to `tools`->`Tasks`->`other`->`publishLocal`.  Click on it to save it to an `/out/repo` directory that will be used in the next step.
 
-<img src="http://imgur.com/zVY3y3S.png"/>
+<img src="https://imgur.com/zVY3y3S.png"/>
 
 You can also type the same command at the command-line:
 

@@ -76,7 +76,7 @@ You can also create subheaders too and group elements together:
     </item>
 ```
 
-<img src="http://imgur.com/zoDqDKM.png"/>
+<img src="https://imgur.com/zoDqDKM.png"/>
 
 ### Define Fragments
 
@@ -104,7 +104,7 @@ Create a new layout file `res/layout/toolbar.xml` with the following code:
 
 Note that when the `android:fitsSystemWindows` attribute is set to true for a view, the view would be laid out as if the `StatusBar` and the `ActionBar` were present i.e. the UI on top gets padding enough to not be obscured by the navigation bar.  Without this attribute, there is not enough padding factored into consideration for the `ToolBar`:
 
-<img src="http://imgur.com/HaOAmoh.png"/>
+<img src="https://imgur.com/HaOAmoh.png"/>
 
 We want our main content view to have the navigation bar and hence `android:fitsSystemWindows` is set to true for the `Toolbar`.
 
@@ -343,7 +343,7 @@ View headerLayout = navigationView.getHeaderView(0);
 
 ## Animate the Hamburger Icon
 
-<img src="http://imgur.com/ekmWl7q.gif"/>
+<img src="https://imgur.com/ekmWl7q.gif"/>
 
 In order for the hamburger icon to animate to indicate the drawer is being opened and closed, we need to use the [ActionBarDrawerToggle](https://developer.android.com/reference/android/support/v7/app/ActionBarDrawerToggle.html) class.
 
@@ -423,7 +423,7 @@ Also, make sure to be using `android.support.v7.app.ActionBarDrawerToggle` versi
 
 ## Making Status Bar Translucent
 
-<img src="http://imgur.com/o4WvT3k.gif"/>
+<img src="https://imgur.com/o4WvT3k.gif"/>
 
 To have the status bar translucent and have our drawer slide over it, we need to set `android:windowTranslucentStatus` to true. Because this style is not available for pre Kitkat devices, we'll add  `res/values-v19/styles.xml` file for API version 19 and onwards.  **Note**: If you modify your `res/values/styles.xml` directly with this `android:windowTranslucentStatus` line, you are likely to need to build only for SDK versions 19 or higher, which will obviously limit you from supporting many older devices.
 

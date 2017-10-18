@@ -22,7 +22,7 @@ Also, the [Stetho](http://facebook.github.io/stetho/) project can be used to vie
 
 ## LogCat
 
-Android Studio contains a panel to receive logging messages from the emulator, known as [LogCat](http://developer.android.com/tools/help/logcat.html). If you are not seeing any log messages, click on the Restart icon ![http://imgur.com/kQKr1zv.png](http://imgur.com/kQKr1zv.png).  
+Android Studio contains a panel to receive logging messages from the emulator, known as [LogCat](http://developer.android.com/tools/help/logcat.html). If you are not seeing any log messages, click on the Restart icon ![https://imgur.com/kQKr1zv.png](https://imgur.com/kQKr1zv.png).  
 
 ![https://i.imgur.com/xP3dQcG.png](https://i.imgur.com/xP3dQcG.png)
 
@@ -164,7 +164,7 @@ It turns out that having both is redundant and will cause errors.  It is necessa
 
 Some Android Studio plugins do not support Java 1.6 anymore, so it's best to confirm what version you are using.  Inside Android Studio, click on `About Android Studio`.  You should see the JRE version listed as 1.x.x below:
 
-<img src="http://imgur.com/Jn2jevR.png"/>
+<img src="https://imgur.com/Jn2jevR.png"/>
 
 If you have multiple Java versions installed, you should make sure that v1.6 is not being used. Solutions include:
 
@@ -181,7 +181,7 @@ sudo mv /System/Library/Java/JavaVirtualMachines/1.6.0.jdk /tmp
 
 If your `minSdkVersion` is higher than the Android version you are using (i.e. using an emulator that supports API 19 and your target version is for API 23), then you may see an error message that appears similar to the following:
 
-<img src="http://imgur.com/RKlXMGV.png"/>
+<img src="https://imgur.com/RKlXMGV.png"/>
 
 You will need to either lower the `minSdkVersion` or upgrade to an Android emulator or device that supports the minimum SDK version required.
 

@@ -11,7 +11,7 @@ While setting up breakpoints in your code is usually the first place to check, i
 
 You should first try to verify whether your API calls are correct by visiting [https://dhc.restlet.com/](https://dhc.restlet.com/).   You can also install a Chrome browser extension [Dev HTTP Client](https://chrome.google.com/webstore/detail/dhc-rest-client/aejoelaoggembcahagimdiliamlcdmfm) or any other available REST-based client tester. 
 
-<img src="http://imgur.com/GfVK80o.png" width="600"/>
+<img src="https://imgur.com/GfVK80o.png" width="600"/>
 
 In other cases, it is often useful to monitor the network traffic to help diagnose these issues.  Monitoring network traffic depends on the networking library you use.   There are two general approaches: using the Stetho library or setting up a proxy.  The former is the simplest but requires the [[OkHttp|Using-OkHttp]] or [[Retrofit|Consuming-APIs-with-Retrofit]] networking library to be used.
 
@@ -35,21 +35,21 @@ The process requires two parts: one on the PC that will act as the proxy, and th
 
 2. You will need to insert a special root certificate in order to inspect SSL traffic.  Run Charles Proxy and navigate to `Help` -> `SSL Proxying` -> `Install Charles Root Certificate on a Mobile Device or Remote Browser`.
 
-     <img src="http://imgur.com/Ac5QR0x.png"/>
+     <img src="https://imgur.com/Ac5QR0x.png"/>
 
      You should see `Configure your device to use Charles as its HTTP proxy on xxxx:x:x:x:xxxx:xxx:xxxx:xxxxxx:8888, then browse to chls.pro/ssl to download and install the certificate.`    Take note of the URL that you should be using (i.e. chls.pro/ssl).
 
 3. SSL sites that must be inspected must be explicitly declared by going to `Proxy` -> `SSL Proxying Settings`.  Type the domain name and port 443 assuming the site is connecting to a standard SSL port.
 
-     <img src="http://imgur.com/YXTqq93.png"/>
+     <img src="https://imgur.com/YXTqq93.png"/>
 
 4. Disable the proxy from being used on your desktop web browser by simply going to `Proxy` -> `Proxy Settings` and uncheck the `Enable macOS proxy` option:
 
-     <img src="http://imgur.com/zzWkuEX.png"/>
+     <img src="https://imgur.com/zzWkuEX.png"/>
 
 5. Make sure to ascertain your IP address of the machine with the proxy installed.  You can go to the `Help` -> `Local IP Address` to find it:
 
-<img src="http://imgur.com/AwbbEwA.png"/>
+<img src="https://imgur.com/AwbbEwA.png"/>
 
 ***On your phone:***
 
@@ -57,15 +57,15 @@ The process requires two parts: one on the PC that will act as the proxy, and th
 
 2. Go to your WiFi settings and modify the existing network:
 
-     <img src="http://imgur.com/DXqpvWl.png"/>
+     <img src="https://imgur.com/DXqpvWl.png"/>
 
 3. Select on advanced options, set the proxy settings to manual, and enter the IP address and port 8888.  
      
-     <img src="http://imgur.com/AclSz0z.png"/> 
+     <img src="https://imgur.com/AclSz0z.png"/> 
 
 4. Connect to any web site.  You need to go back to the PC to grant authorization for the device to connect:
 
-     <img src="http://imgur.com/yuRmGRC.png">
+     <img src="https://imgur.com/yuRmGRC.png">
 
 5. If you are using AsyncHttpClient, you have to set the proxy settings manually (see [this GitHub issue](https://github.com/loopj/android-async-http/issues/971) for more details):
 
@@ -100,6 +100,6 @@ The process requires two parts: one on the PC that will act as the proxy, and th
 
 6. Go back to Charles Proxy and start recording network traffic:
 
-     <img src="http://imgur.com/c0q6j2j.png"/>
+     <img src="https://imgur.com/c0q6j2j.png"/>
 
 For more details, take a look at this [blog](https://jaanus.com/debugging-http-on-an-android-phone-or-tablet-with-charles-proxy-for-fun-and-profit/) for using Charles Proxy.

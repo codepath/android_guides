@@ -553,7 +553,7 @@ public class MainActivity extends AppCompatActivity {
 
 Note that we set the exit transition of the activity.  There are actually 4 different transitions that work in pairs: exit/enter and return/reenter.  The exit transition should be declared on the departing activity, and the enter transition should be declared on the incoming activity.  If no return and reenter transitions are specified, then the transitions used will be played back in reverse.
 
-<img src="http://imgur.com/jrpSvv6.png"/>
+<img src="https://imgur.com/jrpSvv6.png"/>
 
 We also need to change the entering activity as well with a `slide_left.xml`:
 

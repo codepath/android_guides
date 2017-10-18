@@ -24,7 +24,7 @@ You can only use this option if you already have a company managed domain and on
 
 Upon signing up, your screenshot will look like:
 
-<img src="http://imgur.com/tODDzBG.png" width="450"/>
+<img src="https://imgur.com/tODDzBG.png" width="450"/>
 
 You will need to validate that you own the domain name (DNS).  The account and password that you used in the signup page can be used to relogin to [https://admin.google.com/setup/u/3/android](https://admin.google.com/setup/u/3/android) similar to other Google logins.  The one difference is that this account has no access to other paid products such as Gmail, Google Calendar, and Drive. See this [reference guide](https://support.google.com/work/android/answer/6371476?hl=en&ref_topic=6151012) for more details.
 
@@ -54,7 +54,7 @@ If you use a third-party solution from the approved vendor list, you are likely 
 
 5. Go the `Credentials` section and create a service account.  Save the credential file to JSON format.
 
-   <img src="http://imgur.com/dcEmtAF.png"/>
+   <img src="https://imgur.com/dcEmtAF.png"/>
 
 6. Upload this JSON data along with the EMM token you generated to the vendor system you've chosen.   You may need to follow other steps as provided by the vendor to complete the necessary steps.
 

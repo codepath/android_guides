@@ -364,7 +364,7 @@ You should be all set. Refer to [this stackoverflow post](http://stackoverflow.c
 
 We can configure the `Toolbar` to react and change as the page scrolls:
 
-![](http://imgur.com/sGltNwr.png)
+![](https://imgur.com/sGltNwr.png)
 
 For example, we can have the toolbar hide when the user scrolls down on a list or expand as the user scrolls to the header. There are many effects that can be configured by using the [[CoordinatorLayout|Handling-Scrolls-with-CoordinatorLayout#expanding-and-collapsing-toolbars]]. First, we need to make sure we add the design support library to our `app/build.gradle` file:
 

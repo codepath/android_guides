@@ -35,10 +35,10 @@ Use Heroku if you have little or no experience with setting up web sites. Heroku
 
 2. Make sure to enter an App Name.  Scroll to the bottom of the page.
 
-      <img src="http://imgur.com/0JcJrn5.png">
+      <img src="https://imgur.com/0JcJrn5.png">
 
 3. Make sure to change the config values.
-      <img src="http://imgur.com/vQV0X0S.png"/>
+      <img src="https://imgur.com/vQV0X0S.png"/>
       * Leave `PARSE_MOUNT` to be `/parse`.  It does not need to be changed.
       * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId`.  You will need this info for the Client SDK setup.
       * Set `MASTER_KEY` to be the master key used to read/write all data.  **Note**: in hosted Parse, client keys are not used by default.
@@ -84,9 +84,9 @@ The hosted Parse instance deployed uses [mLab](https://mlab.com/) (previously ca
 
 If you are using Heroku, you can verify whether the objects were created by clicking on the MongoDB instance in the Heroku panel:
 
-<img src="http://imgur.com/bbj2e9N.png"/>
+<img src="https://imgur.com/bbj2e9N.png"/>
 
-<img src="http://imgur.com/snPqYkz.png"/>
+<img src="https://imgur.com/snPqYkz.png"/>
 
 #### Parse Dashboard
 
@@ -99,7 +99,7 @@ parse-dashboard --appId myAppId --masterKey myMasterKey --serverURL "https://you
 
 Connect to your dashboard at `http://localhost:4040/apps`. Assuming you have specified the correct application ID, master Key, and server URL, as well as installed a Parse open source version v2.1.3 or higher, you should see the app appear correctly:
 
-<img src="http://imgur.com/Z0Rz5Xs.png"/>
+<img src="https://imgur.com/Z0Rz5Xs.png"/>
 
 #### Robomongo
 
@@ -148,11 +148,11 @@ Make sure you have the latest Parse-Android SDK <img src="https://camo.githubuse
 
 * If you see `Application Error` or `An error occurred in the application and your page could not be served. Please try again in a few moments.`, double-check that you set a `MASTER_KEY` in the environment settings for that app.
 
-  <img src="http://imgur.com/uMYwPmS.png">
+  <img src="https://imgur.com/uMYwPmS.png">
 
 * If you are using Heroku, download the Heroku Toolbelt app [here](https://toolbelt.heroku.com/) to help view system logs.
 
-  <img src="http://imgur.com/Ch0mZOK.png"/>
+  <img src="https://imgur.com/Ch0mZOK.png"/>
 
   First, you must login with your Heroku login and password:
 
