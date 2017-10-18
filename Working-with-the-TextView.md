@@ -21,7 +21,7 @@ As stated in the overview, there are three different default typefaces which are
 
 Here's how they look:
 
-<img alt="fonts" src="http://i.imgur.com/BES7g98.png" width="400" />
+<img alt="fonts" src="https://i.imgur.com/BES7g98.png" width="400" />
 
 In addition to the above, there is another attribute value named "normal" which defaults to the sans typeface.
 
@@ -40,7 +40,7 @@ The `android:textStyle` attribute can be used to put emphasis on the text. The p
 
 A sampling of styles can be seen below:
 
-<img alt="style" src="http://i.imgur.com/BcX2r9O.png" width="400" />
+<img alt="style" src="https://i.imgur.com/BcX2r9O.png" width="400" />
 
 ### Text Size
 
@@ -57,7 +57,7 @@ A sampling of styles can be seen below:
 
 A sampling of styles can be seen below:
 
-<img alt="style" src="http://i.imgur.com/4pimMzN.png" width="400" />
+<img alt="style" src="https://i.imgur.com/4pimMzN.png" width="400" />
 
 Too many type sizes and styles at once can wreck any layout. The basic set of styles are based on a typographic scale of 12, 14, 16, 20, and 34. Refer to this [typography styles guide](https://www.google.com/design/spec/style/typography.html#typography-styles) for more details. 
 
@@ -86,7 +86,7 @@ In addition, we can use `android:ellipsize` to begin truncating text
 
 Following values are available for `ellipsize`: `start` for `...bccc`, `end` for `aaab...`, `middle` for `aa...cc`, and `marquee` for `aaabbbccc` sliding from left to right. Example:
 
-<img alt="style" src="http://i.imgur.com/NoKo7Ou.png" width="400" />
+<img alt="style" src="https://i.imgur.com/NoKo7Ou.png" width="400" />
 
 There is a known issue with **ellipsize and multi-line text**, see [this MultiplelineEllipsizeTextView library](https://github.com/IPL/MultiplelineEllipsizeTextView) for an alternative.
 
@@ -106,7 +106,7 @@ The `android:textColor` and `android:textColorLink` attribute values are hexadec
 
 The `android:textColorLink` attribute controls the highlighting for [[hyperlinks embedded within the TextView|Working-with-the-TextView#inserting-html-formatting]]. This results in:
 
-![](http://i.imgur.com/UlLSrEG.png)
+![](https://i.imgur.com/UlLSrEG.png)
 
 We can edit the color at runtime with:
 
@@ -144,7 +144,7 @@ The floating point numbers don't have a specific unit - they are merely arbitrar
 
 This results in:
 
-![](http://i.imgur.com/blFEHxX.png)
+![](https://i.imgur.com/blFEHxX.png)
 
 ### Various Text Properties
 
@@ -174,7 +174,7 @@ view.setText(Html.fromHtml(formattedText));
 
 This results in:
 
-![](http://i.imgur.com/PEl2EKl.png)
+![](https://i.imgur.com/PEl2EKl.png)
 
 Note that all tags are not supported. See [this article](http://javatechig.com/android/display-html-in-android-textview) for a more detailed look at supported tags and usages. 
 
@@ -241,7 +241,7 @@ TextView has [native support](http://developer.android.com/reference/android/wid
 
 This results in:
 
-![](http://i.imgur.com/73bwaRm.png)
+![](https://i.imgur.com/73bwaRm.png)
 
 ### Issues with ListView
 
@@ -297,7 +297,7 @@ We can actually use any custom font that we'd like within our applications. Chec
 
 Fonts are stored in the "assets" folder. In Android Studio, `File > New > folder > Assets Folder`. Now download any font and **place the TTF file in the `assets/fonts` directory**:
 
-![](http://i.imgur.com/2dxTeGY.png)
+![](https://i.imgur.com/2dxTeGY.png)
 
 We're going to use a basic layout file with a `TextView`, marked with an id of "custom_font" so we can access it in our code.
 
@@ -336,7 +336,7 @@ Alternatively, you can use the third-party [calligraphy library](https://github.
 
 Either method will will result in:
 
-<img alt="custom" src="http://i.imgur.com/jlTQpEY.png" width="400" />
+<img alt="custom" src="https://i.imgur.com/jlTQpEY.png" width="400" />
 
 You'll also want to keep an eye on the total size of your custom fonts, as this can grow quite large if you're using a lot of different typefaces. 
 
@@ -415,7 +415,7 @@ new PatternEditableBuilder().
 
 and this results in the following:
 
-<img src="http://i.imgur.com/OHFMMTc.gif" width="500" />
+<img src="https://i.imgur.com/OHFMMTc.gif" width="500" />
 
 For more details, [view the README](https://gist.github.com/nesquena/f2504c642c5de47b371278ee61c75124#file-readme-md) for more usage examples. 
 

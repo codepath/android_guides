@@ -22,7 +22,7 @@ Note: Robolectric can also be configured with Android Studio 1.1, but the setup 
 
 2. Next, open the `Build Variants` window and set the `Test Artifact` to `Unit Tests`. Without this, our unit tests won't be included in the build. Note that this is enabled by default in [Android studio version 2+](http://stackoverflow.com/a/35708264/4252667).
 
-    ![Imgur](http://i.imgur.com/sStdOnI.png)
+    ![Imgur](https://i.imgur.com/sStdOnI.png)
  
 3. Creating a new project doesn't automatically create a directory for our unit tests so let's manually add the `src/test/java` directory to the project. This is the default location for unit tests.
 

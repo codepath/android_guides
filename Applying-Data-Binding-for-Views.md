@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
 
 That's all! When running the app now, you'll see the name is populated into the layout automatically:
 
-<img src="http://i.imgur.com/Q8kscZQ.png" width="400" />
+<img src="https://i.imgur.com/Q8kscZQ.png" width="400" />
 
 #### Controlling visibility
 
@@ -285,7 +285,7 @@ There is a great [series of posts](https://medium.com/@georgemount007) outlining
 
 The Data binding framework can be used in conjunction with an MVVM architecture to help to decouple the View from the Model. In this approach, the binding framework connects with the ViewModel, which exposes data from the Model, into the View (xml layout). 
 
-[<img src="http://i.imgur.com/Beq1Zry.png" width="700" />](https://labs.ribot.co.uk/approaching-android-with-mvvm-8ceec02d5442)
+[<img src="https://i.imgur.com/Beq1Zry.png" width="700" />](https://labs.ribot.co.uk/approaching-android-with-mvvm-8ceec02d5442)
 
 Check out [this blog post](https://labs.ribot.co.uk/approaching-android-with-mvvm-8ceec02d5442) for a detailed overview. 
 

@@ -363,7 +363,7 @@ In Android starting from API level 21, items in the layout file get their Z-orde
 
 ### Overlapping Two Views
 
-If we want to overlap two views on top of each other, we can do so using either a `RelativeLayout` or a `FrameLayout`. Suppose we have two images: a [background image](http://i.imgur.com/PztAiKY.jpg) and a [foreground image](http://i.imgur.com/TB2gCgz.png) and we want to place them on top of one another. The code for this can be achieved with a `RelativeLayout` such as shown below:
+If we want to overlap two views on top of each other, we can do so using either a `RelativeLayout` or a `FrameLayout`. Suppose we have two images: a [background image](https://i.imgur.com/PztAiKY.jpg) and a [foreground image](https://i.imgur.com/TB2gCgz.png) and we want to place them on top of one another. The code for this can be achieved with a `RelativeLayout` such as shown below:
 
 ```xml
 <RelativeLayout
@@ -396,7 +396,7 @@ If we want to overlap two views on top of each other, we can do so using either 
 
 This results in the following:
 
-<img src="http://i.imgur.com/kdFda8z.png" width="400" />
+<img src="https://i.imgur.com/kdFda8z.png" width="400" />
 
 ### Forcing View to the Front
 

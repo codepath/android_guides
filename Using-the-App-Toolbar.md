@@ -2,7 +2,7 @@
 
 `Toolbar` was introduced in Android Lollipop, API 21 release and is the spiritual successor of the [[ActionBar|Defining-The-ActionBar]]. It's a `ViewGroup` that can be placed anywhere in your XML layouts. Toolbar's appearance and behavior can be more easily customized than the ActionBar. 
 
-<img src="http://i.imgur.com/0auGknf.png" width="500" />
+<img src="https://i.imgur.com/0auGknf.png" width="500" />
 
 Toolbar works well with apps targeted to API 21 and above. However, Android has updated the AppCompat support libraries so the Toolbar can be used on lower Android OS devices as well. In AppCompat, Toolbar is implemented in the `android.support.v7.widget.Toolbar` class.
 
@@ -125,7 +125,7 @@ Next, we need to make sure we have the action items listed within a menu resourc
 
 For more details about action items in the `Toolbar` including how to setup click handling, refer to our [[ActionBar guide|Defining-The-ActionBar#adding-action-items]]. The above code results in the toolbar fully replacing the ActionBar at the top:
 
-<img src="http://i.imgur.com/lucP1wY.png" width="400" />
+<img src="https://i.imgur.com/lucP1wY.png" width="400" />
 
 From this point on, all menu items are displayed in your Toolbar, populated via the standard options menu callbacks.
 
@@ -240,7 +240,7 @@ Now, we need to create the custom styles in `res/values/styles.xml` with:
 
 This results in:
 
-<img src="http://i.imgur.com/uLWp8Rl.png" width="450" />
+<img src="https://i.imgur.com/uLWp8Rl.png" width="450" />
 
 ### Displaying an App Icon
 
@@ -312,13 +312,13 @@ TextView mTitle = (TextView) toolbar.findViewById(R.id.toolbar_title);
 
 Note that you **must hide the default title using `setDisplayShowTitleEnabled`**. This results in:
 
-<img src="http://i.imgur.com/2Lu7Eru.png" width="450" />
+<img src="https://i.imgur.com/2Lu7Eru.png" width="450" />
 
 ### Translucent Status Bar
 
 In certain cases, the status bar should be translucent such as:
 
-<img src="http://i.imgur.com/s5okeLm.png" width="200" />
+<img src="https://i.imgur.com/s5okeLm.png" width="200" />
 
 To achieve this, first set these properties in your `res/values/styles.xml` within the main theme:
 
@@ -445,7 +445,7 @@ Of course, the `RecyclerView` could also be replaced with a `FrameLayout` which 
 
 This type of layout results in the following:
 
-<img src="http://i.imgur.com/xbChjwE.gif" width="400" />
+<img src="https://i.imgur.com/xbChjwE.gif" width="400" />
 
 Refer to the [[guide on CoordinatorLayout and AppBarLayout|Handling-Scrolls-with-CoordinatorLayout#expanding-and-collapsing-toolbars]] for additional explanation and specifics. For troubleshooting, refer to this [[troubleshooting guide|Handling-Scrolls-with-CoordinatorLayout#troubleshooting-coordinated-layouts]].
 

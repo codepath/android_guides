@@ -57,7 +57,7 @@ and then uninstall Android Studio and re-install the latest stable version. This
 
 If you find yourself opening up a layout file and not seeing the design pane rendering correctly such as:
 
-<img src="http://i.imgur.com/DaArMlC.png" width="300" />
+<img src="https://i.imgur.com/DaArMlC.png" width="300" />
 
 We can try the following steps to get this functioning again:
 

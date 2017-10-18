@@ -51,7 +51,7 @@ Modify [cloud/main.js](https://github.com/codepath/parse-server-example/blob/mas
 
 Next, redeploy the code.  If you are using Heroku, you need to connect your own forked repository and redeploy.  
 
-<img src="http://i.imgur.com/OmxXc6s.png"/>
+<img src="https://i.imgur.com/OmxXc6s.png"/>
 
 ### Parse Client Setup
 

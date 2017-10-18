@@ -289,7 +289,7 @@ We can then load vectors using the `app:srcCompat` property:
 
 This results in the following image being rendered:
 
-<img src="http://i.imgur.com/zcHxiii.png" width="250" />
+<img src="https://i.imgur.com/zcHxiii.png" width="250" />
 
 You can also set a vector at runtime using:
 
@@ -304,11 +304,11 @@ Be sure to check out this great [age of vectors blog post](https://medium.com/@c
 
 Vector drawables can now be found directly within Android Studio and also on many Android resource websites. Assuming you have updated to Android Studio v2.2, you can check for vector drawables inside the `File => New => Vector Asset` wizard:
 
-<img src="http://i.imgur.com/VkmWDpP.png" height="250" />&nbsp;<img src="http://i.imgur.com/EjI3mm9.png" height="250" />
+<img src="https://i.imgur.com/VkmWDpP.png" height="250" />&nbsp;<img src="https://i.imgur.com/EjI3mm9.png" height="250" />
 
 You can find additional icons on the [material design icons website](https://materialdesignicons.com/) which includes community-contributed icons as well.
 
-<a href="https://materialdesignicons.com/"><img src="http://i.imgur.com/PfulMMj.png" width="400" /></a>
+<a href="https://materialdesignicons.com/"><img src="https://i.imgur.com/PfulMMj.png" width="400" /></a>
 
 Learn more about [[finding icons here|Material-Design-Primer#material-design-icons]] for use within your app. 
 

@@ -121,15 +121,15 @@ If you are using a physical device, you can **skip this section**. You only need
 
 Note that you **need to set the location on your emulator** either through Genymotion or on the official emulator. On Genymotion, we can click the GPS icon on the right-hand sidebar and then enable GPS:
 
-<img src="http://i.imgur.com/xha71ga.png" width="350" />
+<img src="https://i.imgur.com/xha71ga.png" width="350" />
 
 You can enter any lat / lng i.e `37.4810289, -122.1543292`. With GPS enabled, you can now close the dialog and use the "current location" marker on the app to move the map to your device's configured location.
 
 ### Official Emulator
 
-If using **the official Google emulator**, we can update the "current location" for the device by clicking the "..." icon (<img src="http://i.imgur.com/ncXZJxz.png" width="30"/>) and then selecting the "Location" tab on the left sidebar:
+If using **the official Google emulator**, we can update the "current location" for the device by clicking the "..." icon (<img src="https://i.imgur.com/ncXZJxz.png" width="30"/>) and then selecting the "Location" tab on the left sidebar:
 
-<img src="http://i.imgur.com/hfZZBQF.png" width="650" alt="Android device monitor" />
+<img src="https://i.imgur.com/hfZZBQF.png" width="650" alt="Android device monitor" />
 
 You can enter any lat / lng i.e `37.4810289, -122.1543292`.
 
@@ -139,13 +139,13 @@ You can enter any lat / lng i.e `37.4810289, -122.1543292`.
 
 Before running our app, let's **open up the "official Maps" app** on the device or emulator to make sure the current location has been configured properly:
 
-<img src="http://i.imgur.com/2IWY4wF.png" width="350" />
+<img src="https://i.imgur.com/2IWY4wF.png" width="350" />
 &nbsp;
-<img src="http://i.imgur.com/170keQM.png" width="350" />
+<img src="https://i.imgur.com/170keQM.png" width="350" />
 
 Now we can finally run our own maps app demo, and if everything goes well we should see:
 
-<img src="http://i.imgur.com/PQJhTf7.png" width="400" alt="Demo app" />
+<img src="https://i.imgur.com/PQJhTf7.png" width="400" alt="Demo app" />
 
 **Note:** If you don't see the "Maps" app or the map, you may have not properly installed the Google Play services on the emulator (see instructions in genymotion setup above) or you may need to update the Google Play services on your emulator by following the instructions given in the app.
 

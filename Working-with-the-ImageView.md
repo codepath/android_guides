@@ -105,7 +105,7 @@ To resize images more easily, check out the [Final Android Resizer](https://gith
 
 This handy utility allows us to select a resources directory, choose an extra high density image and the tool will automatically generate the corresponding lower size images for us and place the subfolders inside the generated `res-drawable` directory within the actual `res` folder in your project as the example shows below in "Project" view (left) and the default "Android" view (right):
 
-<img src="http://i.imgur.com/obCEvBY.png" width="250">&nbsp;<img src="http://i.imgur.com/XJAzEu6.png" width="250">
+<img src="https://i.imgur.com/obCEvBY.png" width="250">&nbsp;<img src="https://i.imgur.com/XJAzEu6.png" width="250">
 
 Refer to the [screens support](http://developer.android.com/guide/practices/screens_support.html) reference for a more detailed look at supporting a wide range of devices. Also check out the [iconography](http://developer.android.com/design/style/iconography.html) guide for more details.
 

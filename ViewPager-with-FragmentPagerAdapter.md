@@ -387,7 +387,7 @@ We can customize how the pages animate as they are being swiped between using th
 
 The easiest way to leverage transformers is to use this [ViewPagerTransforms](https://github.com/ToxicBakery/ViewPagerTransforms) library:
 
-<a href="https://github.com/ToxicBakery/ViewPagerTransforms"><img src="http://i.imgur.com/qZt0ug9.gif" width="250" /></a>
+<a href="https://github.com/ToxicBakery/ViewPagerTransforms"><img src="https://i.imgur.com/qZt0ug9.gif" width="250" /></a>
 
 Loading the library into `app/build.gradle` with:
 
@@ -508,7 +508,7 @@ With that, any activity can launch the tabbed activity with the ability to confi
 
 While a `ViewPager` is often coupled with a `Fragment` for each page using the `FragmentPagerAdapter`, there are cases where the pages are better off as plain views. 
 
-<img src="http://i.imgur.com/VaCvAm5.png" width="200" />
+<img src="https://i.imgur.com/VaCvAm5.png" width="200" />
 
 A good example is an image gallery, where the user can swipe between different pictures. To achieve this, we can extend from `PagerAdapter`:
 
@@ -565,8 +565,8 @@ This is most commonly used for image slideshows or galleries. See [this image ga
 
 An "indicator" is the UI element that displays the possible pages and the current page such as "tabs". There are a number of other custom indicators for the pager that can be helpful in various contexts. 
 
-<a href="https://github.com/DavidPacioianu/InkPageIndicator"><img src="http://i.imgur.com/SBxPXZZ.gif" height="600" /></a>
-<a href="https://github.com/chenupt/SpringIndicator"><img src="http://i.imgur.com/lCMRaJX.gif" height="600" /></a>
+<a href="https://github.com/DavidPacioianu/InkPageIndicator"><img src="https://i.imgur.com/SBxPXZZ.gif" height="600" /></a>
+<a href="https://github.com/chenupt/SpringIndicator"><img src="https://i.imgur.com/lCMRaJX.gif" height="600" /></a>
 
 A few of the most interesting ones are listed below:
 

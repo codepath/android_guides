@@ -80,7 +80,7 @@ controller.setVisibility(View.VISIBLE);
 
 `VideoView` should not be embedded in a `ListView` or any scrolling view due to a [known bug with Android](https://code.google.com/p/android/issues/detail?id=37229). Instead of using a `VideoView` which extends `SurfaceView`, in order to enable scrolling we need to use a [TextureView instead](https://github.com/dmytrodanylyk/dmytrodanylyk/blob/gh-pages/articles/surface-view-play-video.md). The easiest workaround is to use a library such as [Android-ScalableVideoView](https://github.com/yqritc/Android-ScalableVideoView), [VideoPlayerManager](https://github.com/danylovolokh/VideoPlayerManager), or [fenster](https://github.com/malmstein/fenster). 
 
-<a href="https://github.com/yqritc/Android-ScalableVideoView"><img src="http://i.imgur.com/EFVEg0V.gif" width="250" /></a>
+<a href="https://github.com/yqritc/Android-ScalableVideoView"><img src="https://i.imgur.com/EFVEg0V.gif" width="250" /></a>
 
 You can read about [how fenster was developed](http://www.malmstein.com/blog/2014/08/09/how-to-use-a-textureview-to-display-a-video-with-custom-media-player-controls/) as well. If you are using fenster and running into a permissions error related to `write_settings` on an Android >= 6.0 device, check out [this snippet as a workaround](https://gist.github.com/shrikant0013/fc3e67b4b898294a03e4eba1b527f898). 
 
@@ -88,7 +88,7 @@ You can read about [how fenster was developed](http://www.malmstein.com/blog/201
 
 We can use the [YouTube Android Player API] (https://developers.google.com/youtube/android/player/) to play YouTube videos within an Android app.  
 
-<img src="http://i.imgur.com/xeVSOyL.gif" width="600" />
+<img src="https://i.imgur.com/xeVSOyL.gif" width="600" />
 
 Refer to the [[Streaming Youtube Videos with YouTubePlayerView]] guide for detailed instructions.
 

@@ -128,7 +128,7 @@ public class ViewHolder2 extends RecyclerView.ViewHolder {
 
 _Optional_: The asset that was used is attached below. You may choose your own asset instead.
 
-<img src="http://i.imgur.com/MsFYBG2.jpg" width="500" alt="ss1" />
+<img src="https://i.imgur.com/MsFYBG2.jpg" width="500" alt="ss1" />
 
 ### Creating the `ComplexRecyclerViewAdapter`
 
@@ -278,7 +278,7 @@ One ***final and important*** change before you can run the program would be to 
 
 Rest of the implementation remains the same. After compiling and running your app, here's the output you should be looking at:
 
-<img src="http://i.imgur.com/HyOAOOu.png" width="300" alt="ss1" /> <img src="http://i.imgur.com/aql8lXN.png" width="300" alt="ss2" />
+<img src="https://i.imgur.com/HyOAOOu.png" width="300" alt="ss1" /> <img src="https://i.imgur.com/aql8lXN.png" width="300" alt="ss2" />
 
 ### References:
 

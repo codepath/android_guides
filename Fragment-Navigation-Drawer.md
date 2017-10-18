@@ -445,7 +445,7 @@ Now if you run your app, you should see the navigation drawer and be able to sel
 
 One improvement made to the design support library 23.1.0 is the addition of support for custom views for the navigation drawer items.  For instance, we can create a custom switch like the navigation drawer from Google Play Movies for one of the rows:
 
-<img src="http://i.imgur.com/gCgB5PQ.png"/>
+<img src="https://i.imgur.com/gCgB5PQ.png"/>
  
 The approach is the same as adding [[ActionView items|Extended-ActionBar-Guide#adding-actionview-items]] to the ActionBar.  We simply need to define a separate layout such as the following snippet.  We will call this file `action_view_switch.xml`:
 
@@ -493,7 +493,7 @@ Custom widgets using `app:actionViewClass` can also be used too for menu items a
 
 In certain situations, especially on tablets, the navigation drawer should be a permanent fixture on the activity acting as a sidebar:
 
-![Persistent](http://i.imgur.com/9f7nyrA.png)
+![Persistent](https://i.imgur.com/9f7nyrA.png)
 
 To achieve this effect, review the following links which describe one approach:
 
@@ -507,7 +507,7 @@ Third-party libraries may also make this easier to achieve.
 
 There are a few third-party libraries that are still relevant as possible alternatives to using the `DrawerLayout` directly which provide certain material design elements automatically:
 
-<img src="http://i.imgur.com/6WHIEX5.jpg" width="500" />
+<img src="https://i.imgur.com/6WHIEX5.jpg" width="500" />
 
  * [MaterialDrawer](https://github.com/mikepenz/MaterialDrawer)
  * [NavigationDrawerMaterial](https://github.com/rudsonlive/NavigationDrawer-MaterialDesign)

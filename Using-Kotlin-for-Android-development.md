@@ -124,13 +124,13 @@ To be able to write and compile Kotlin code in your Android application you need
 3. Configure Gradle
   The Kotlin plugin includes a tool which does the Gradle configuration for us.
   - Click on `Tools` -> `Kotlin` -> `Configure Kotlin in Project`
-<br/><img src="http://i.imgur.com/efeuBdX.png" width="500" />
+<br/><img src="https://i.imgur.com/efeuBdX.png" width="500" />
 
   - Select `Android with Gradle`
-<br/><img src="http://i.imgur.com/cfJOIQH.png" width="500" />
+<br/><img src="https://i.imgur.com/cfJOIQH.png" width="500" />
 
   - Choose`All Modules` -> Select the `Kotlin compiler and the runtime version` you want from the dropdown and click `OK`.
-<br/><img src="http://i.imgur.com/ITVWnp0.png" width="500" />
+<br/><img src="https://i.imgur.com/ITVWnp0.png" width="500" />
 
 
 Your `build.gradle` file will look like this:

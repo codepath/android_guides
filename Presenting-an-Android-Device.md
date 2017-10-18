@@ -6,7 +6,7 @@ This guide details how to present an Android app to an audience. The easiest way
 
 First to present your phone, we need to enable USB debugging so your phone can interact with your computer in a developer mode. 
 
-[![](http://i.imgur.com/8DQIyWc.png)](https://www.youtube.com/watch?v=Ucs34BkfPB0&feature=youtu.be)
+[![](https://i.imgur.com/8DQIyWc.png)](https://www.youtube.com/watch?v=Ucs34BkfPB0&feature=youtu.be)
 
 The following steps are needed:
 
@@ -30,7 +30,7 @@ Watch [this video tutorial](https://www.youtube.com/watch?v=Ucs34BkfPB0&feature=
 
 [Mobizen](https://www.mobizen.com/?locale=en) is the easiest and most reliable way to present your Android screen onto your computer.
 
-<a href="https://www.mobizen.com/?locale=en" target="_blank"><img src="http://i.imgur.com/F0uSD12.png" height="400" /></a>
+<a href="https://www.mobizen.com/?locale=en" target="_blank"><img src="https://i.imgur.com/F0uSD12.png" height="400" /></a>
 
 There are three steps to using Mobizen:
 
@@ -55,7 +55,7 @@ Open the app up on your phone:
 
 You should see the following on your device:
 
-<img src="http://i.imgur.com/ortJlkO.png" height="400" />
+<img src="https://i.imgur.com/ortJlkO.png" height="400" />
 
 Now, let's setup mobizen on our computer.
 
@@ -69,7 +69,7 @@ Visit the [Mobizen Site](https://www.mobizen.com) to download the plug-in onto y
 
 You should see the following on your computer:
 
-<img src="http://i.imgur.com/QdJD6Ke.png" width="500" />
+<img src="https://i.imgur.com/QdJD6Ke.png" width="500" />
 
 Now, let's connect your device to your computer using mobizen.
 
@@ -86,9 +86,9 @@ Mobizen can connect to your device using either **USB** or **WiFi** connections.
 7. Tap "Start Now" on the device to display screen on the computer
 8. Select "FullScreen" on the menu sidebar
 
-<img src="http://i.imgur.com/Tk8N6LJ.png" height="530" />
+<img src="https://i.imgur.com/Tk8N6LJ.png" height="530" />
 &nbsp;
-<img src="http://i.imgur.com/5Njpxpn.png" height="530" />
+<img src="https://i.imgur.com/5Njpxpn.png" height="530" />
 
 You should be good to go for presenting your screen!
 

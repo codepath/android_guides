@@ -19,7 +19,7 @@
 
 Chris Banes from Google has put together a beautiful demo of the `CoordinatorLayout` and other [[design support library]] features.
 
-<a href="https://github.com/chrisbanes/cheesesquare"><img src="http://i.imgur.com/aA8aGSg.png" width="500" /></a>
+<a href="https://github.com/chrisbanes/cheesesquare"><img src="https://i.imgur.com/aA8aGSg.png" width="500" /></a>
 
 The [full source code](https://github.com/chrisbanes/cheesesquare) can be found on github. This project is one of the easiest ways to understand `CoordinatorLayout`.
 
@@ -146,7 +146,7 @@ The `scroll` flag used within the attribute `app:layout_scrollFlags` must be ena
     
     Normally, the `Toolbar` only appears when the list is scrolled to the top as shown below:
     
-    <img src="http://i.imgur.com/IZzcL1C.png"/>
+    <img src="https://i.imgur.com/IZzcL1C.png"/>
 
   * `enterAlwaysCollapsed`:   Normally, when only `enterAlways` is used, the `Toolbar` will continue to expand as you scroll down:
 
@@ -165,7 +165,7 @@ The `scroll` flag used within the attribute `app:layout_scrollFlags` must be ena
     <img src="http://imgur.com/dTDPztp.png"/>
      
   * `snap`: Using this option will determine what to do when a view only has been partially reduced.  If scrolling ends and the view size has been reduced to less than 50% of its original, then this view to return to its original size.  If the size is greater than 50% of its sized, it will disappear completely.  
-       <img src="http://i.imgur.com/9hnupWJ.png"/>
+       <img src="https://i.imgur.com/9hnupWJ.png"/>
 
 **Note**: Keep in mind to order all your views with the `scroll` flag first.  This way, the views that collapse will exit first while leaving the pinned elements at the top.
 
@@ -422,7 +422,7 @@ Modal sheets are basically Dialog Fragments that slide from the bottom.  See [[t
 
 There are many examples in the wild of complex bottom sheets with a floating action button that grows or shrinks or sheet state transitions as the user scrolls. The most well-known example is Google Maps which has a multi-phase sheet:
 
-<img src="http://i.imgur.com/lLSdNus.gif" width="250" />
+<img src="https://i.imgur.com/lLSdNus.gif" width="250" />
 
 The following tutorials and sample code should help achieve these more sophisticated effects:
 
@@ -436,7 +436,7 @@ Getting the desired effect can take quite a bit of experimentation. For certain 
 
 In addition to the official bottom sheet within the design support library, there are several extremely popular third-party alternatives that can be easier to use and configure for certain use cases:
 
-<img src="http://i.imgur.com/xRv4IQH.gif" width="250" />
+<img src="https://i.imgur.com/xRv4IQH.gif" width="250" />
 
 The following represent the most common alternatives and related samples:
 

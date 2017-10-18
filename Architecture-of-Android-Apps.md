@@ -18,7 +18,7 @@ Check this [blog post from Realm](https://realm.io/news/eric-maxwell-mvc-mvp-and
 
 Clean architecture principles, as espoused by Robert Martin (also known as "Uncle Bob"), attempt to focus the developer on thinking through the app's core functionality.  It does so by separating the architecture of app into three major layers: how the app shows the data to the user (**presentation layer**), what are the core functions of the app (**domain or use case layer**), and how the data can be accessed (**data layer**).  The presentation layer sits as the outermost layer, the domain layer sits in the middle layer, and the data layer resides in the inner layer.  
 
-<img src="http://i.imgur.com/tJxzrx2.png" />
+<img src="https://i.imgur.com/tJxzrx2.png" />
 
 It's important to note that each layer has its own data model, and data can only be exchanged between layers and usually flows only in one direction (i.e. outer to inner, or inner to outer)  Anytime data needs to be exchanged, usually a converter is used to map one layer's model to another.  In this way, a boundary of separation is created that helps limit changes in one layer to cause unintended side effects in other layers.
 
@@ -34,7 +34,7 @@ In Android app development, the traditional "Model / View / Controller pattern" 
  * **View**: the UI layer, displays data received from Presenter, reacts to user input. On Android, we treat Activities, Fragments, and android.view.View as View from MVP.
  * **Presenter**: responds to actions performed on the UI layer, performs tasks on Model objects (using Use Cases), passes results of those tasks to Views.
 
-<img src="http://i.imgur.com/5WLQno7.png" width="500" />
+<img src="https://i.imgur.com/5WLQno7.png" width="500" />
 
 What we want to achieve by using MVP are simpler tasks, smaller objects, and fewer dependencies between Model and Views layers. This, in turns makes our code easier to manage and test. Major differences from MVC include:
 

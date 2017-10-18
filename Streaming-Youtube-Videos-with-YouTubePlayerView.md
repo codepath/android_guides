@@ -2,7 +2,7 @@
 
 We can use the [YouTube Android Player API](https://developers.google.com/youtube/android/player/) to play YouTube videos within an Android app.  
 
-<img src="http://i.imgur.com/xeVSOyL.gif" width="600" />
+<img src="https://i.imgur.com/xeVSOyL.gif" width="600" />
 
 ### Setup
 
@@ -12,7 +12,7 @@ To start, you will need to create an API key through [https://console.developers
 
 ### Installation
 
-Next, add the [YouTubeAndroidPlayerApi.jar](https://developers.google.com/youtube/android/player/downloads/) file into Android Studio by [following this GIF](http://i.imgur.com/k9a6WET.gif) to add this to your `libs` dir. Once you've added the JAR, select `Tools => Android => Sync project files with Gradle` in Android Studio to complete installation.
+Next, add the [YouTubeAndroidPlayerApi.jar](https://developers.google.com/youtube/android/player/downloads/) file into Android Studio by [following this GIF](https://i.imgur.com/k9a6WET.gif) to add this to your `libs` dir. Once you've added the JAR, select `Tools => Android => Sync project files with Gradle` in Android Studio to complete installation.
 
 ### Usage
 

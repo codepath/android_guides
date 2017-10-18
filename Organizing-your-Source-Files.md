@@ -95,7 +95,7 @@ Often there are questions about organizing not just the source files but also be
 
 In order to further organize or group your various resources, the best way is to [install the third-party folding-plugin](https://plugins.jetbrains.com/plugin/7876) for Android Studio to create virtual folders
 
-<a href="https://github.com/dmytrodanylyk/folding-plugin"><img src="http://i.imgur.com/fOir80H.jpg" width="600" /></a>
+<a href="https://github.com/dmytrodanylyk/folding-plugin"><img src="https://i.imgur.com/fOir80H.jpg" width="600" /></a>
 
 Refer to [stackoverflow post](http://stackoverflow.com/q/4930398/313399) for a discussion of the other options. 
 

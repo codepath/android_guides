@@ -10,7 +10,7 @@ Permissions were much simpler before Marshmallow (API 23). All permissions were 
 
 Example of pre-Marshmallow permissions requested by the Dropbox app: 
 
-![Imgur](http://i.imgur.com/XeRdzOT.png)
+![Imgur](https://i.imgur.com/XeRdzOT.png)
 
 For an app developer, permissions were very simple. To request [one of the many permissions](http://developer.android.com/reference/android/Manifest.permission.html), simply specify it in the `AndroidManifest.xml`:
 
@@ -52,7 +52,7 @@ When you need to add a new permission, first check [this page](http://developer.
 
 If the permission you need to add isn't listed under the normal permissions, you'll need to deal with "Runtime Permissions". Runtime permissions are permissions that are requested as they are needed while the app is running. These permissions will show a dialog to the user, similar to the following one:
 
-![Imgur](http://i.imgur.com/er8yE9J.png)
+![Imgur](https://i.imgur.com/er8yE9J.png)
 
 The first step when adding a "Runtime Permission" is to add it to the `AndroidManifest`:
 

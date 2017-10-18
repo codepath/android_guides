@@ -12,7 +12,7 @@ Plug in your device to your computer with a USB cable. If you're developing on W
 
 The next step is to enable USB debugging so your phone can interact with your computer in a developer mode. 
 
-[![](http://i.imgur.com/8DQIyWc.png)](https://www.youtube.com/watch?v=Ucs34BkfPB0&feature=youtu.be)
+[![](https://i.imgur.com/8DQIyWc.png)](https://www.youtube.com/watch?v=Ucs34BkfPB0&feature=youtu.be)
 
 The following steps are needed:
 

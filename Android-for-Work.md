@@ -14,7 +14,7 @@ If you want to use this option, you intend to move to hosted e-mail service to G
 
 Once you have upgraded to a paid subscription plan, make sure to click on the `Android for Work` option inside the admin console:
 
-<img src="http://i.imgur.com/Ccg7pdi.png" width="450"/>
+<img src="https://i.imgur.com/Ccg7pdi.png" width="450"/>
 
 Once this option is selected, you will need to either rely on Google to manage the devices, or you can use a third-party solution.  If you wish to try to use Google's, you can always unbind the selection later.
 
@@ -38,11 +38,11 @@ If you use a third-party solution from the approved vendor list, you are likely 
 
    If you are using Google Apps for Work, your screenshot will look like the following:
 
-   <img src="http://i.imgur.com/EyiIQS1.png"/>
+   <img src="https://i.imgur.com/EyiIQS1.png"/>
 
    If you are using a personal Gmail account and signing up your domain with Android for Work, you screenshot will appear as follows:
 
-   <img src="http://i.imgur.com/owi7CEh.png"/>
+   <img src="https://i.imgur.com/owi7CEh.png"/>
 
 2. Visit [https://console.developers.google.com](https://console.developers.google.com) with the Google Apps domain.  
 
@@ -50,7 +50,7 @@ If you use a third-party solution from the approved vendor list, you are likely 
 
 4. Make sure to enable EMM API
 
-   <img src="http://i.imgur.com/GyMQzmX.png"/>
+   <img src="https://i.imgur.com/GyMQzmX.png"/>
 
 5. Go the `Credentials` section and create a service account.  Save the credential file to JSON format.
 

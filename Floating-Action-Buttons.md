@@ -4,8 +4,8 @@
 
 For example, if we are using an email app and we are listing the inbox folder, the promoted action might be composing a new message.
 
-<img src="http://i.imgur.com/BE7c4xy.gif" height="350" alt="FAB1" />&nbsp;
-<img src="http://i.imgur.com/qij0f3K.gif" height="350" alt="FAB2" />
+<img src="https://i.imgur.com/BE7c4xy.gif" height="350" alt="FAB1" />&nbsp;
+<img src="https://i.imgur.com/qij0f3K.gif" height="350" alt="FAB2" />
 
 The floating action button represents **the primary action** within a particular screen. More info and use cases of the FAB button from Google’s official [design specs can be found here](http://www.google.com/design/spec/components/buttons.html#buttons-floating-action-button).
 
@@ -17,9 +17,9 @@ Google made available during Google I/O 2015 a support library to create floatin
 
 The floating action button uses the **same menu icons** used for the App Bar at the top of the screen. This means the image should be single color and fit the material design guidelines. The best source for these icons is the [material design icons site](https://materialdesignicons.com/) or the official [google material icons](https://www.google.com/design/icons/):
 
-[<img src="http://i.imgur.com/XXoaV5g.png" height="300" />](https://materialdesignicons.com/)
+[<img src="https://i.imgur.com/XXoaV5g.png" height="300" />](https://materialdesignicons.com/)
 &nbsp;
-[<img src="http://i.imgur.com/Oznsogy.png" height="300" />](https://materialdesignicons.com/)
+[<img src="https://i.imgur.com/Oznsogy.png" height="300" />](https://materialdesignicons.com/)
 
 Once you've selected the icon to use, download the image by selecting the icon and then "Icon Package" and choose the "Android" package. Note that Mac users may need to use the [Unarchiver](http://wakaba.c3.cx/s/apps/unarchiver.html) to properly unzip the icon package. Bring the various drawables into the `drawable` folders within your Android app.
 

@@ -4,7 +4,7 @@ An ActionBar is located at the top of an activity and it can display any number 
 
 This is typically used for displaying the title of the application and providing a primary navigation for the app. The ActionBar can contain primary action buttons as well as a drawer toggle icon for displaying the navigation drawer.
 
-<img src="http://i.imgur.com/EA42s2Q.png" width="500" />
+<img src="https://i.imgur.com/EA42s2Q.png" width="500" />
 
 **Note** that we will be using the support library and `AppCompatActivity` for these examples since the library provides maximum compatibility with pre-3.0 Android versions. The APIs and usage are the same with the standard ActionBar just with small changes to the imported classes and class names.  If you are not currently using the support library, check out this [[migration guide|Migrating to the AppCompat Library]].
 
@@ -152,7 +152,7 @@ Now verify the theme for the application or activity within the `AndroidManifest
 
 Now your properties and styles will take affect within the ActionBar. This results in the following:
 
-<img src="http://i.imgur.com/B7OBUhO.png" width="500" />
+<img src="https://i.imgur.com/B7OBUhO.png" width="500" />
 
 See the [actionbar styling demo code](https://github.com/codepath/android-actionbar-style-demo) for a working example. If you want to style the tabs for the ActionBar, see our [[Tabs Styling Cliffnotes|ActionBar-Tabs-with-Fragments#styling-tabs]]. 
 
@@ -191,7 +191,7 @@ getSupportActionBar().setCustomView(R.layout.actionbar_title);
 
 At this point, we now have replaced the default ActionBar with our preferred layout and have complete control over its appearance. The above code results in:
 
-<img src="http://i.imgur.com/N5Bvoej.png" width="500" />
+<img src="https://i.imgur.com/N5Bvoej.png" width="500" />
 
 
 If you want to **include the app icon with the custom layout** you need to append `DISPLAY_SHOW_HOME` as well:
@@ -237,7 +237,7 @@ Next, we can attach that layout to any item by specifying the `app:action_layout
 
 and now the views specified in the layout are embedded in the ActionBar. The above code results in:
 
-<img src="http://i.imgur.com/YhuRH56.png" width="500" />
+<img src="https://i.imgur.com/YhuRH56.png" width="500" />
 
 We can access a reference to the embedded ActionView in the Activity by overriding the `onPrepareOptionsMenu` method:
 
@@ -274,7 +274,7 @@ One common example of an `ActionView` is the built-in `SearchView` which provide
 
 Notice that the `app:showAsAction` attribute also includes the "collapseActionView" value which collapses the search into an icon until clicked. The above code results in the search view in the action bar:
  
-<img src="http://i.imgur.com/zW9vfCf.gif" width="500" />
+<img src="https://i.imgur.com/zW9vfCf.gif" width="500" />
 
 Now we need to hook up a listener for when a search is performed:
 
@@ -367,7 +367,7 @@ Similar to an action view, an action provider replaces an action button with a c
 
 You can build your own action provider by extending the ActionProvider class, but Android provides some pre-built action providers such as [ShareActionProvider](http://developer.android.com/reference/android/support/v7/widget/ShareActionProvider.html) which facilitates a "share" action by showing a list of possible apps for sharing. 
 
-<img src="http://i.imgur.com/MLuaXES.png" />
+<img src="https://i.imgur.com/MLuaXES.png" />
 
 You can learn about this provider in the [[Sharing Content with Intents]] guide. You can also see the [ActionProvider section](http://developer.android.com/guide/topics/ui/actionbar.html#ActionProvider) of the ActionBar guide for more details.
 
@@ -375,7 +375,7 @@ You can learn about this provider in the [[Sharing Content with Intents]] guide.
 
 To enable the app icon as an Up button, call [setDisplayHomeAsUpEnabled](http://developer.android.com/reference/android/support/v7/app/ActionBar.html#setDisplayHomeAsUpEnabled(boolean)). 
 
-![Up Button](http://i.imgur.com/yEXdmG2.png)
+![Up Button](https://i.imgur.com/yEXdmG2.png)
 
 "Up" in contrast to the Back button takes the user to the logical parent screen of the current screen. This is not based on the navigation history but rather on the relationship between screens. For example, in a mail client "Back" might take the user to a previous email but "Up" would always take the user to the list of mail in the inbox.
 

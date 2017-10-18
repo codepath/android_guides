@@ -193,7 +193,7 @@ Check out the [getResources](http://developer.android.com/reference/android/cont
 
 In order to create an outstanding UI design, it is essential for app developers to create apps that work properly across a wide variety of devices. To do this, we first divide android mobile devices into various categories (buckets) based on screen size and display as shown below:
 
-<img src="http://i.imgur.com/bLOO9e3.png" width="600" />
+<img src="https://i.imgur.com/bLOO9e3.png" width="600" />
 
 Apps must be designed to work across any different screen densities as well as screen sizes. This can be done leveraging a variety of systems provided by the Android framework.
 
@@ -243,11 +243,11 @@ You can specify multiple qualifiers for a single set of resources, separated by 
 
 In Android Studio, the easiest way to create alternate resources is to **right-click on a resource subfolder** (i.e `layout`) in the Android project sidebar and then use the `New => Layout resource file` wizard to specify the qualifiers you'd like (i.e `orientation`):
 
-<img src="http://i.imgur.com/cxeH3J1.gif" width="650" />
+<img src="https://i.imgur.com/cxeH3J1.gif" width="650" />
 
-This will create **two versions of the layout file**, one for "portrait" mode (vertical) and one for "landscape" (horizontal). If you were to [add a different label into the second version of the layout](http://i.imgur.com/5kMibe3.gif) then you would see this effect **automatically** when the screen is rotated:
+This will create **two versions of the layout file**, one for "portrait" mode (vertical) and one for "landscape" (horizontal). If you were to [add a different label into the second version of the layout](https://i.imgur.com/5kMibe3.gif) then you would see this effect **automatically** when the screen is rotated:
 
-<img src="http://i.imgur.com/bRUzYLI.gif" width="350" />
+<img src="https://i.imgur.com/bRUzYLI.gif" width="350" />
 
 To summarize, you can create as many versions of a resource file as is needed for different situations and then the most appropriate version of the resource file is selected automatically by the system. 
 
@@ -292,7 +292,7 @@ res/
 
 Generally speaking phones and phablets are between `sw240` and `sw480`. 7" tablets are `sw600` and 10" tablets are `sw720`. You can also simply add qualifiers such as `layout-land` to be applied for all devices in landscape mode.  Here’s an illustrated example of the above procedure:
 
-<img src="http://i.imgur.com/KS5xs0n.png" width="600" />
+<img src="https://i.imgur.com/KS5xs0n.png" width="600" />
 
 For a detailed tutorial on how to manage responsive layouts for tablets, review our [[Flexible User Interfaces]] guide. You can also review this [article on UI design best practices](http://www.evoketechnologies.com/blog/effective-ui-design-tips-android-devices/) and [this official doc on resources](http://developer.android.com/guide/topics/resources/providing-resources.html) for more details.
 

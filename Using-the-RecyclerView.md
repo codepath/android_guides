@@ -309,7 +309,7 @@ public class UserListActivity extends AppCompatActivity {
 
 Finally, compile and run the app and you should see something like the screenshot below. If you create enough items and scroll through the list, the views will be recycled and far smoother by default than the `ListView` widget:
 
-<img src="http://i.imgur.com/vbIL5HA.gif" width="400" alt="Screenshot" />
+<img src="https://i.imgur.com/vbIL5HA.gif" width="400" alt="Screenshot" />
 
 ### Notifying the Adapter
 
@@ -555,7 +555,7 @@ Starting in the [support v23.1.0](https://developer.android.com/tools/support-li
 
 See [[this guide|Heterogenous-Layouts-inside-RecyclerView]] if you want to inflate multiple types of rows inside a single `RecyclerView`:
 
-<img src="http://i.imgur.com/HyOAOOu.png" width="300" alt="ss2" />
+<img src="https://i.imgur.com/HyOAOOu.png" width="300" alt="ss2" />
 
 This is useful for feeds which contain various different types of items within a single list.
 
@@ -583,7 +583,7 @@ recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
 
 In certain cases, we might want a horizontal `RecyclerView` that allows the user to scroll through a list of items. As the user scrolls, we might want items to "snap to center" as they are revealed. Such as in this example:
 
-<img src="http://i.imgur.com/D5crJK4.gif" width="300" />
+<img src="https://i.imgur.com/D5crJK4.gif" width="300" />
 
 #### LinearSnapHelper
 

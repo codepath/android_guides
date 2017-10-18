@@ -14,7 +14,7 @@ Important to note is that prior to 3.0, there was no ActionBar. In 2013, Google 
 
 Every application unless otherwise specified has an ActionBar by default. The ActionBar by default now has just the title for the current activity.
 
-![ActionBar](http://i.imgur.com/vAoRWEF.png)
+![ActionBar](https://i.imgur.com/vAoRWEF.png)
 
 ### Changing the ActionBar Title
 
@@ -55,7 +55,7 @@ getSupportActionBar().setDisplayUseLogoEnabled(true);
 
 The above code results in:
 
-<img src="http://i.imgur.com/gBPAIFu.png" width="400" />
+<img src="https://i.imgur.com/gBPAIFu.png" width="400" />
 
 You can read more about this on the [material design guidelines](https://developer.android.com/reference/android/support/v7/widget/Toolbar.html) which state: "The use of application icon plus title as a standard layout is discouraged on API 21 devices and newer." 
 
@@ -102,7 +102,7 @@ You also should note that the `xmlns:app` namespace must be defined in order to 
 
 The above code results in two action icons being displayed:
 
-<img src="http://i.imgur.com/yI4akxQ.png" width="400" />
+<img src="https://i.imgur.com/yI4akxQ.png" width="400" />
 
 **Note:** The above code refers to the `@drawable/ic_compose` and `@drawable/ic_profile` resources which would have to exist for this to compile. To generate ActionBar icons, be sure to use the **Asset Studio** in Android Studio. To create a new Android icon set, right click on a `res/drawable` folder and invoke **New -> Image Asset**.
 
@@ -158,7 +158,7 @@ and then you can handle all the action buttons in this single method.
 
 [[ToolBar|Using-the-App-Toolbar]] was introduced in Android Lollipop, API 21 release and is the spiritual successor of the ActionBar. It's a `ViewGroup` that can be placed anywhere in your layout. ToolBar's appearance can be more easily customized than the ActionBar. 
 
-[[<img src="http://i.imgur.com/0auGknf.png" width="500" />|Using-the-App-Toolbar]]
+[[<img src="https://i.imgur.com/0auGknf.png" width="500" />|Using-the-App-Toolbar]]
 
 ToolBar works well with apps targeted to API 21 and above. However, Android has updated the AppCompat support libraries so the ToolBar can be used on lower Android OS devices as well. In AppCompat, ToolBar is implemented in the `android.support.v7.widget.Toolbar` class. Refer to the [[ToolBar Guide|Using-the-App-Toolbar]] for more information.
 

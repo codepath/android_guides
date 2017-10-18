@@ -2,7 +2,7 @@
 
 Android 7.1 allows you to define shortcuts to specific actions in your app. These shortcuts can be displayed in a supported launcher, such as the one provided with Nexus and Pixel devices. Shortcuts let your users quickly start common or recommended tasks within your app:
 
-<img src="http://i.imgur.com/GRhy6Cx.png" width="200" />
+<img src="https://i.imgur.com/GRhy6Cx.png" width="200" />
 
 To implement it you have to start with downloading the latest SDK (API level 25). And after updating the SDK you have to update your build.gradle file to point the latest version.
 

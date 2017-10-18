@@ -117,7 +117,7 @@ When a branch is ready to be merged, a pull request should be opened. Make sure 
 
 Go the repository on github and look for:
 
-![](http://i.imgur.com/hae8B6L.jpg)
+![](https://i.imgur.com/hae8B6L.jpg)
 
 Press "Create Pull Request" and then if there's an associated issue then in the **description part of the PR** list the issue number you are closing like this: `closes #23` to automatically close the related issue when this is merged.
 

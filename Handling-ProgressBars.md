@@ -220,7 +220,7 @@ Now we can call these show and hide methods as needed to show the footer in the 
 
 In certain scenarios, a simple solution for displaying a progress bar during a long-running operation is to [[display a modal progress dialog|Using-DialogFragment#displaying-a-progressdialog]] indicating a task is running:
 
-[[<img src="http://i.imgur.com/apLzWt6.png" width="300" />|Using-DialogFragment#displaying-a-progressdialog]]
+[[<img src="https://i.imgur.com/apLzWt6.png" width="300" />|Using-DialogFragment#displaying-a-progressdialog]]
 
 Note that this modal display prevents the user from interacting with the app until the task is completed. As a result, the progress indicators above generally provide a better user experience.
 

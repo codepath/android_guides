@@ -22,7 +22,7 @@ Note that in production applications you would multiple sizes of these images fo
 
 Generate a new Android project that uses the highlight icon as the launcher icon:
 
-<img width="500" src="http://i.imgur.com/lUQgT0H.gif" />
+<img width="500" src="https://i.imgur.com/lUQgT0H.gif" />
 
 <img width="500" src="https://i.imgur.com/ZKjFv99.gif" />
 

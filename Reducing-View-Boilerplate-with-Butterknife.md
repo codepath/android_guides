@@ -2,7 +2,7 @@
 
 [Butterknife](http://jakewharton.github.io/butterknife/) is a popular View "injection" library for Android. This means that the library writes common boilerplate view code for you based on annotations to save you time and significantly reduce the lines of boilerplate code written. 
 
-<img src="http://i.imgur.com/8QU88W8.png" width="250" />
+<img src="https://i.imgur.com/8QU88W8.png" width="250" />
 
 This guide covers the most common usages of the library.
 

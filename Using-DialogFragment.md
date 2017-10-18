@@ -557,7 +557,7 @@ When using the `onCreateDialog` method there are many built-in Dialog types to t
 
 When running a long running background task, one easy way to notify users the app is loading is to display a [ProgressDialog](http://developer.android.com/intl/es/reference/android/app/ProgressDialog.html).
 
-<img src="http://i.imgur.com/apLzWt6.png" width="250" />
+<img src="https://i.imgur.com/apLzWt6.png" width="250" />
 
 A `ProgressDialog` can be created anytime with the following:
 

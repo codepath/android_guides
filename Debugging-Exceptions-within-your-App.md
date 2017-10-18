@@ -2,7 +2,7 @@
 
 When building Android apps, your app is bound to crash from time to time or exhibit strange unexpected behavior. You know you have experienced a runtime exception when you see this in your emulator or device:
 
-<img src="http://i.imgur.com/lMTPBfk.png" />
+<img src="https://i.imgur.com/lMTPBfk.png" />
 
 Don't worry though! This is totally normal and there's a specific set of steps you can take to solve these. Refer to our guide below and/or [these debugging slides](https://docs.google.com/presentation/d/1DUigTm6Uh43vatHkB4rFkVVIt1zf7zB7Z5tpGTy2oFY/edit#slide=id.g38d66bc5a_0175) for more a detailed look at debugging crashes and investigating unexpected problems with your app. 
 
@@ -42,7 +42,7 @@ This process nearly always starts with an unexpected app crash as we'll see belo
 
 Suppose we were building a simple movie trailer app called Flixster that lets the users browse new movies and watch trailers from Youtube. Imagine we ran the app, and we wanted to play the trailer and we saw this crash instead:
 
-<img src="http://i.imgur.com/Z22GWZe.gif" width="300" />
+<img src="https://i.imgur.com/Z22GWZe.gif" width="300" />
 
 First off though when you see the crash dialog, **don't press OK** on that dialog until **after you've already went through these steps below to identify the stacktrace details**.
 
@@ -50,7 +50,7 @@ First off though when you see the crash dialog, **don't press OK** on that dialo
 
 First, within Android Studio, be sure to setup your Android Monitor to filter for "Errors" only to reduce noise:
 
-<img src="http://i.imgur.com/fbUq9ok.gif" width="900" />
+<img src="https://i.imgur.com/fbUq9ok.gif" width="900" />
 
 1. Select "Error" as the log level to display
 2. Select "Show only selected application" to filter messages
@@ -63,7 +63,7 @@ This will set you up to see only serious issues as they come up.
 
 Now let's go into Android Studio and select open up the "Android Monitor". Expand the monitor so you can read the log messages easily. 
 
-<img src="http://i.imgur.com/1atGM14.gif" width="900" />
+<img src="https://i.imgur.com/1atGM14.gif" width="900" />
 
 1. Scroll to **the bottom of the error** looking for a line that says `Caused by` all the way at the bottom of the stack trace block. The "original cause" towards the bottom of the block is the important part of the error, ignore most of the rest of the stack trace above that.
 2. Locate that bottom-most `Caused by` line as well as the line that has the blue link with the name of your activity i.e `VideoActivity.java:13`. Copy them onto your clipboard and paste them both into a separate text file for easy review.
@@ -90,7 +90,7 @@ Next, we need to identify the actual issue that this stack trace is warning us a
 
 Consider the exception we copied above:
 
-<img src="http://i.imgur.com/xHOq5oE.gif" width="900" />
+<img src="https://i.imgur.com/xHOq5oE.gif" width="900" />
 
 This exception needs to be translated to identifying the following elements:
 
@@ -172,7 +172,7 @@ Now, we can run the app and see if things work as expected!
 
 Let's re-run the app and try this out again:
 
-<img src="http://i.imgur.com/qtcxeLA.gif" width="600" />
+<img src="https://i.imgur.com/qtcxeLA.gif" width="600" />
 
 Great! The exception seems to have been fixed!
 
@@ -229,7 +229,7 @@ public class InfoActivity extends YouTubeBaseActivity {
 
 Unfortunately when testing, we see that the trailer does not come up as expected when we run the app and click the top image:
 
-<img src="http://i.imgur.com/qLSCwQK.gif" width="300" />
+<img src="https://i.imgur.com/qLSCwQK.gif" width="300" />
 
 Why doesn't the video launch when you click on the image as expected? Let's investigate.
 
@@ -276,7 +276,7 @@ public class InfoActivity extends YouTubeBaseActivity {
 With the toast added, running this again, we see the problem is confirmed:
 
 
-<img src="http://i.imgur.com/kXe4fLF.gif" width="300" />
+<img src="https://i.imgur.com/kXe4fLF.gif" width="300" />
 
 The problem is that the **youtube video key is null** where as it should have a value. We haven't fixed the problem, but we at least know what the initial issue is. 
 
@@ -344,7 +344,7 @@ client.get(url, new JsonHttpResponseHandler(){
 
 When running the app, the first log does show up as expected but the one inside `onSuccess` does **not show up at all** in the Android monitor:
 
-<img src="http://i.imgur.com/LFOUrf5.gif" width="900" />
+<img src="https://i.imgur.com/LFOUrf5.gif" width="900" />
 
 Notice that we see `HELLO` but no other line logs. This means that we now know that **the onSuccess method is never called**. This means our network request sent out is failing for some reason. We are one step closer to fixing this issue.
 
@@ -354,19 +354,19 @@ In order to investigate why the network request sent out is failing, we are goin
 
 First, we have to decide at which points we want to stop the app and investigate. This is done by setting breakpoints. Let's set two breakpoints to investigate the network request:
 
-<img src="http://i.imgur.com/63e6ZMI.gif " width="600" />
+<img src="https://i.imgur.com/63e6ZMI.gif " width="600" />
 
 Now, we need to run the app using the "debugger" rather than the normal run command:
 
-<img src="http://i.imgur.com/A4gqK6r.gif" />
+<img src="https://i.imgur.com/A4gqK6r.gif" />
 
 Once the debugger connects, we can click on the movie to trigger the code to run. Once the code hits the spot with a breakpoint, the entire code pauses and let's us inspect everything:
 
-<img src="http://i.imgur.com/TFfpOSi.gif" />
+<img src="https://i.imgur.com/TFfpOSi.gif" />
 
 Here we were able to inspect the URL and compare the URL against the expected value. Our actual URL was "https://api.themoviedb.org/3/movie246655/videos?api_key=KEY" while the expected URL was "https://api.themoviedb.org/3/movie/246655/videos?api_key=KEY". Extremely subtle difference. Can you spot it?
 
-Then we can hit "resume" (<img src="http://i.imgur.com/shxFUhJ.png" />) to continue until the next breakpoint or stop debugging (<img src="http://i.imgur.com/PETVfws.png" />) to end the session.
+Then we can hit "resume" (<img src="https://i.imgur.com/shxFUhJ.png" />) to continue until the next breakpoint or stop debugging (<img src="https://i.imgur.com/PETVfws.png" />) to end the session.
 
 Breakpoints are incredibly powerful and worthy of additional investigation. To learn more about breakpoints, check out [this official Android Guide on debugging](https://developer.android.com/studio/debug/index.html#breakPoints) and [this third-party breakpoints guide](https://www.learnhowtoprogram.com/android/user-interface-basics-637d41b1-35dc-400a-bcc3-65794760474d/debugging-breakpoints-and-the-android-debugger).
 
@@ -387,7 +387,7 @@ public void fetchMovies(int videoId) {
 
 and remove any old log statements we don't need. Now, we can try running the app again:
 
-<img src="http://i.imgur.com/qtcxeLA.gif" width="600" />
+<img src="https://i.imgur.com/qtcxeLA.gif" width="600" />
 
 Great! The video now plays exactly as expected!
 

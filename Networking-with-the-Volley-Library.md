@@ -78,7 +78,7 @@ See [this guide for creating a singleton to use for sending requests](https://de
 Volley provides the ability to make image requests and receive back as bitmap.  You can use this bitmap to set directly onto an ImageView.
 
 ```java
-ImageRequest imageRequest = new ImageRequest("http://i.imgur.com/Nwk25LA.jpg", 
+ImageRequest imageRequest = new ImageRequest("https://i.imgur.com/Nwk25LA.jpg", 
   new Response.Listener<Bitmap>() {
     @Override
     public void onResponse(Bitmap response) {
@@ -212,7 +212,7 @@ adb shell setprop log.tag.Volley VERBOSE
 The output will show cache hits, queue additions, and network latency calls:
 
 ```
-03-13 23:32:11.382 2565-2565/com.test D/Volley: [1] MarkerLog.finish: (1494 ms) [ ] http://i.imgur.com/Nwk25LA.jpg 0x189700ee LOW 1
+03-13 23:32:11.382 2565-2565/com.test D/Volley: [1] MarkerLog.finish: (1494 ms) [ ] https://i.imgur.com/Nwk25LA.jpg 0x189700ee LOW 1
 03-13 23:32:11.382 2565-2565/com.test D/Volley: [1] MarkerLog.finish: (+0   ) [ 1] add-to-queue
 03-13 23:32:11.382 2565-2565/com.test D/Volley: [1] MarkerLog.finish: (+85  ) [191] cache-queue-take
 03-13 23:32:11.382 2565-2565/com.test D/Volley: [1] MarkerLog.finish: (+107 ) [191] cache-hit

@@ -34,7 +34,7 @@ After changes have been made, you can post the updated topic drafts online as ou
 
 For new guide, if you prefer to write your guide drafts online and keep them separate from this wiki, you can use the [hackmd.io](https://hackmd.io) for collaborative markdown drafts.
 
-<a href="https://hackmd.io"><img src="http://i.imgur.com/Pg8BycW.png" width="400" /><a/>
+<a href="https://hackmd.io"><img src="https://i.imgur.com/Pg8BycW.png" width="400" /><a/>
 
 Using collaborative online markdown tools, you can create new guide content. When the guide is ready to be reviewed, you can [submit an issue to this repo](https://github.com/codepath/android_guides/issues) with a link to the guide. Once the guide is ready, we can merge the guide back into the master wiki. 
 
