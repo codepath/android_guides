@@ -112,7 +112,11 @@ client.newCall(request).enqueue(new Callback() {
 
 #### Updating Views on UIThread
 
-OkHttp normally creates a new worker thread to dispatch the network request and uses the same thread to handle the response.  It is built [primarily as a Java library](http://stackoverflow.com/questions/24246783/okhttp-response-callbacks-on-the-main-thread#comment45410547_24248963) so does not handle the Android framework limitations that only permit views to be updated on the main UI thread.  If you need to update any views, you will need to use `runOnUiThread()` or post the result back on the main thread.  See [[this guide|Managing-Threads-and-Custom-Services#handler-and-loopers]] for more context.
+OkHttp normally creates a new worker thread to dispatch the network request and uses the same thread to handle the response.  It is built [primarily as a Java library](http://stackoverflow.com/questions/24246783/okhttp-response-callbacks-on-the-main-thread#comment45410547_24248963) so it does not handle the Android framework limitations that only permit views to be updated on the main UI thread.
+
+For this reason, if you try to **access or update views from outside the main thread** in the `Callback`, you will probably receive an exception: `android.view.ViewRootImpl$CalledFromWrongThreadException: Only the original thread that created a view hierarchy can touch its views`. Read more about the [relationship between the main thread and views here](http://guides.codepath.com/android/Managing-Threads-and-Custom-Services#understanding-the-main-thread).
+
+If you need to update any views from within a response, you will need to use `runOnUiThread()` or post the result back on the main thread:  
 
 ```java
 client.newCall(request).enqueue(new Callback() {
@@ -138,6 +142,8 @@ client.newCall(request).enqueue(new Callback() {
     }
 });
 ```
+
+See [[this guide|Managing-Threads-and-Custom-Services#handler-and-loopers]] for more context. Alternatively, you could use an extension of `Callback` such as [MainThreadCallback](https://gist.github.com/petitviolet/b27b61972a6a18ca7b9e) which wraps up this sort of behavior neatly and places you within the main thread from the response callback by default. 
 
 ## Processing Network Responses
 
