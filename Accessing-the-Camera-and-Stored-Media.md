@@ -36,11 +36,19 @@ Easy way works in most cases, using the intent to [launch the camera](http://dev
 public final String APP_TAG = "MyCustomApp";
 public final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034;
 public String photoFileName = "photo.jpg";
+File photoFile;
 
 public void onLaunchCamera(View view) {
     // create Intent to take a picture and return control to the calling application
     Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-    intent.putExtra(MediaStore.EXTRA_OUTPUT, getPhotoFileUri(photoFileName)); // set the image file name
+    // Create a File reference to access to future access
+    photoFile = getPhotoFileUri(photoFileName);  
+
+    // wrap File object into a content provider
+    // required for API >= 24
+    // See https://guides.codepath.com/android/Sharing-Content-with-Intents#sharing-files-with-api-24-or-higher
+    Uri fileProvider = FileProvider.getUriForFile(MyActivity.this, "com.codepath.fileprovider", photoFile);
+    intent.putExtra(MediaStore.EXTRA_OUTPUT, fileProvider); 
     
     // If you call startActivityForResult() using an intent that no app can handle, your app will crash.
     // So as long as the result is not null, it's safe to use the intent.
@@ -54,9 +62,8 @@ public void onLaunchCamera(View view) {
 public void onActivityResult(int requestCode, int resultCode, Intent data) {
     if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
        if (resultCode == RESULT_OK) {
-         Uri takenPhotoUri = getPhotoFileUri(photoFileName);
          // by this point we have the camera photo on disk
-         Bitmap takenImage = BitmapFactory.decodeFile(takenPhotoUri.getPath());
+         Bitmap takenImage = BitmapFactory.decodeFile(photoFile);
          // RESIZE BITMAP, see section below
          // Load the taken image into a preview
          ImageView ivPreview = (ImageView) findViewById(R.id.ivPreview);
@@ -67,8 +74,8 @@ public void onActivityResult(int requestCode, int resultCode, Intent data) {
     }
 }
 
-// Returns the Uri for a photo stored on disk given the fileName
-public Uri getPhotoFileUri(String fileName) {
+// Returns the File for a photo stored on disk given the fileName
+public File getPhotoFileUri(String fileName) {
     // Only continue if the SD Card is mounted
     if (isExternalStorageAvailable()) {
         // Get safe storage directory for photos
@@ -85,10 +92,7 @@ public Uri getPhotoFileUri(String fileName) {
         // Return the file target for the photo based on filename
         File file = new File(mediaStorageDir.getPath() + File.separator + fileName);
 
-        // wrap File object into a content provider
-        // required for API >= 24
-        // See https://guides.codepath.com/android/Sharing-Content-with-Intents#sharing-files-with-api-24-or-higher
-        return FileProvider.getUriForFile(MyActivity.this, "com.codepath.fileprovider", file);
+        return file;
     }
     return null;
 }
