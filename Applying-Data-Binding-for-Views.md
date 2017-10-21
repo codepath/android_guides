@@ -3,7 +3,7 @@
 Android has now released a stable data-binding library which allows you to connect views with data in a much more powerful way than was possible previously. Applying data binding can improve your app by removing boilerplate for data-driven UI and allowing for two-way binding between views and data objects. 
 
 The Data Binding Library is a support library that is compatible with all recent Android versions. See [this official video from Google](https://www.youtube.com/watch?v=5sCQjeGoE7M) for a brief overview.
-
+ 
 ### Setup
 
 To get started with data binding, we need to make sure to upgrade to the latest version of the [[Android Gradle plugin|Getting-Started-with-Gradle#upgrading-gradle]].
