@@ -200,6 +200,8 @@ First, make sure to define the `res-auto` namespace in your layout.  You cannot 
   </RelativeLayout>
 ```
 
+and:
+
 ```xml
 <ImageView app:imageUrl=“@{mymodel.imageUrl}”>
 ```
