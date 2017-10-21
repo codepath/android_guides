@@ -207,7 +207,6 @@ First, make sure to define the `res-auto` namespace in your layout.  You cannot 
 You then need to annotate a static method that maps the custom attribute:
 
 ```java
-
 public class BindingAdapterUtils {
   @BindingAdapter({"bind:imageUrl"})
   public static void loadImage(ImageView view, String url) {
@@ -280,6 +279,51 @@ There is a great [series of posts](https://medium.com/@georgemount007) outlining
  * [Animating UI Updates with Data Binding](https://medium.com/google-developers/android-data-binding-animations-55f6b5956a64)
  * [Dynamic List Tricks and Data Binding](https://medium.com/google-developers/android-data-binding-list-tricks-ef3d5630555e)
  * [Databinding Dependent Properties](https://medium.com/google-developers/android-data-binding-dependent-properties-516d3235cd7c)
+
+## Databinding Best Practices
+
+While MVVM with Data Binding does remove a good deal of this boilerplate you also run into new issues where logic is now present in the views, like this code similar to the section shown above:
+
+```xml
+<TextView 
+    ...
+    android:visibility="@{post.hasComments ? View.Visible : View.Gone}" />
+```
+
+This now buries the logic in an Android XML view and its near impossible to test. Instead, we should use a utility attribute:
+
+```java
+public class BindingAdapterUtils {
+  @BindingAdapter({"isVisible"})
+  public static void setIsVisible(View view, boolean isVisible) {
+      if (isVislble) {
+        view.visibility = View.VISIBLE
+      } else {
+        view.visibility = View.GONE
+      }
+  }
+}
+```
+```kotlin
+@BindingAdapter("isVisible")
+fun setIsVisible(view: View, isVisible: Boolean) {
+  if (isVislble) {
+    view.visibility = View.VISIBLE
+  } else {
+    view.visibility = View.GONE
+  }
+}
+```
+
+The logic for showing a view is now determined by a Boolean value. To use this in an MVVM Data Binding XML View you’d do the following in your view:
+
+```xml
+<TextView 
+    ...
+    app:isVisible="@{post.hasComments()}" />
+```
+
+For more best practices, check out this [source article here](http://www.donnfelker.com/android-mvvm-with-databinding-removing-logic-from-your-views-with-bindingadapters/). 
 
 ## MVVM Architecture and Data Binding 
 
