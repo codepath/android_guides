@@ -106,7 +106,7 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-Update `enterReveal()` method to remove this listener from the set listening to this animation. This is done to disable reveal animation when the activity ends.
+Update `enterReveal()` method to remove this listener from the stop listening to this animation. This is done to disable reveal animation when the activity ends.
 
 ```java
 private void enterReveal() {
