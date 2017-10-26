@@ -154,6 +154,7 @@ Next, let's setup a basic navigation drawer based on the following layout file w
         <!-- The main content view where fragments are loaded -->
         <FrameLayout
             android:id="@+id/flContent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
