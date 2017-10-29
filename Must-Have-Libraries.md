@@ -276,7 +276,7 @@ This is a list of popular scrolling and parallax libraries:
 * [Bugfender](https://github.com/bugfender/bugfender-android-sample/) - Cloud storage for your app logs, track user behaviour to find problems in your mobile apps.
 * [Chuck](https://github.com/jgilfelt/chuck) - Chuck is a simple in-app HTTP inspector for Android OkHttp clients. Chuck intercepts and persists all HTTP requests and responses inside your application, and provides a UI for inspecting their content.
 * [AnUitor](http://anuitor.scurab.com/) - UI debug tool for Android
-* [RxJava2Debug](https://github.com/akaita/RxJava2Debug) - RxJava 2.x extension to provide meaningful Stack Traces Edit
+* [RxJava2Debug](https://github.com/akaita/RxJava2Debug) - RxJava 2.x extension to provide meaningful Stack Traces
 
 ## Resources
 
