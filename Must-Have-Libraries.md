@@ -1,11 +1,10 @@
-|-|-|-|-
-|---|---|---|---
+|-|-|-|-|
+|---|---|---|---|
 |[Overview](#overview)|[Standard Pack](#standard-pack)|[Advanced Pack](#advanced-pack)|[Convenience](#convenience)
 |[Extensions](#extensions)|[Networking](#networking)|[ListView](#listview)|[RecyclerView](#recyclerview)
 |[Easy Navigation](#easy-navigation)|[UI Components](#ui-components)|[Drawing](#drawing)|[Image Processing](#image-processing)
 |[Scanning](#scanning)|[Persistence](#persistence)|[Binding](#binding)|[Compatibility](#compatibility)
 |[Scrolling And Parallax](#scrolling-and-parallax)|[Debugging](#debugging)|[Resources](#resources)|[References](#references)
-
 
 ## Overview
 
@@ -17,14 +16,14 @@ This "standard pack" listed below are libraries that are quite popular, widely a
 
 | Name            | Description                                                 |  
 | ----            | ------------                                                |
-| [[Retrofit|Consuming-APIs-with-Retrofit]] | A type-safe REST client for Android which intelligently maps an API into a client interface using annotations.            |
-| [[Glide|Displaying-Images-with-the-Glide-Library]] | A powerful image downloading and caching library for Android. |
-| [[ButterKnife|Reducing-View-Boilerplate-with-Butterknife]] | Using Java annotations, makes Android development better by simplifying common tasks. *Might Be replaced by Kotlin Synthetic Variables of [Kotlin Extensions](https://kotlinlang.org/docs/tutorials/android-plugin.html)* |
-| [[Parceler|Using-Parceler]] | Android Parcelable made easy through code generation |
+| [[Retrofit\|Consuming-APIs-with-Retrofit]] | A type-safe REST client for Android which intelligently maps an API into a client interface using annotations. |
+| [[Glide\|Displaying-Images-with-the-Glide-Library]] | A powerful image downloading and caching library for Android. |
+| [[ButterKnife\|Reducing-View-Boilerplate-with-Butterknife]] | Using Java annotations, makes Android development better by simplifying common tasks. *Might Be replaced by Kotlin Synthetic Variables of [Kotlin Extensions](https://kotlinlang.org/docs/tutorials/android-plugin.html)* |
+| [[Parceler\|Using-Parceler]] | Android Parcelable made easy through code generation |
 | [IcePick](https://github.com/frankiesardo/icepick) | Android Instance State made easy |
 | [LeakCanary](https://github.com/square/leakcanary) | Catch memory leaks in your apps | 
-| [[Espresso|UI-Testing-with-Espresso]] | Powerful DSL for Android integration testing |
-| [[Robolectric|Unit-Testing-with-Robolectric]] | Efficient unit testing for Android |
+| [[Espresso\|UI-Testing-with-Espresso]] | Powerful DSL for Android integration testing |
+| [[Robolectric\|Unit-Testing-with-Robolectric]] | Efficient unit testing for Android |
 
 ### Advanced Pack
 
@@ -32,11 +31,11 @@ The "advanced pack" listed below are additional libraries that are more advanced
 
 | Name            | Description                                                 |  
 | ----            | ------------                                                |
-| [[Dagger 2|Dependency-Injection-with-Dagger-2]]  | A fast dependency injector for managing objects.           |
-| [[RxJava|RxJava]] | Develop fully reactive components for Android.       |
-| [[EventBus|Communicating-with-an-Event-Bus]] | Android event bus for easier component communication, *can be ommitted using Lambda variables of Kotlin*.             |
+| [[Dagger 2\|Dependency-Injection-with-Dagger-2]]  | A fast dependency injector for managing objects.           |
+| [[RxJava\|RxJava]] | Develop fully reactive components for Android.       |
+| [[EventBus\|Communicating-with-an-Event-Bus]] | Android event bus for easier component communication, *can be ommitted using Lambda variables of Kotlin*.             |
 | [AndroidAnnotations](https://github.com/excilys/androidannotations) | Powerful annotations to reduce boilerplate code. |
-| [[Retrolambda|Lambda Expressions]]| Bringing lambda block support to Android. |
+| [[Retrolambda\|Lambda Expressions]]| Bringing lambda block support to Android. |
 
 Keep in mind that the combination of these libraries may not always play nicely with each other.  The following section highlights some of these issues.
 
