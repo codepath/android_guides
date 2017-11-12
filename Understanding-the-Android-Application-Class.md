@@ -78,7 +78,6 @@ So how should we store shared application data? We should store shared data in o
 
 * <https://developer.android.com/reference/android/app/Application.html>
 * <http://stackoverflow.com/questions/18002227/why-extend-an-application-class>
-* <http://www.devahead.com/blog/2011/06/extending-the-android-application-class-and-dealing-with-singleton/>
 * <https://tausiq.wordpress.com/2013/01/27/android-make-use-of-android-application-class-as-singleton-object/>
 * <https://androidresearch.wordpress.com/2012/03/22/defining-global-variables-in-android/>
 * <http://www.helloandroid.com/tutorials/maintaining-global-application-state>
