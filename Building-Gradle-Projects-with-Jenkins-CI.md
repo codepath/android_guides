@@ -117,8 +117,7 @@ Congratulations on building your Android project!
 
 ## Automated Publishing
 
-If you are interested in automating APK distribution to the Google Play Store, check out this [guide]
-(Automating-Publishing-to-the-Play-Store#setting-up-jenkins-for-automating-ci-builds).
+If you are interested in automating APK distribution to the Google Play Store, check out this [[guide|Automating-Publishing-to-the-Play-Store#setting-up-jenkins-for-automating-ci-builds]].
 
 ## Troubleshooting
 
