@@ -104,7 +104,7 @@ public void onSubmit(View v) {
 } 
 ```
 
-Once the sub-activity finishes, the onActivityResult() method in the calling activity is be invoked:
+Once the sub-activity finishes, the onActivityResult() method in the calling activity is invoked:
 
 ```java
 // ActivityOne.java, time to handle the result of the sub-activity
