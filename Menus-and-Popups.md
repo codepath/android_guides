@@ -229,7 +229,7 @@ public class MainActivity extends Activity {
   private void showFilterPopup(View v) {
     PopupMenu popup = new PopupMenu(this, v);
     // Inflate the menu from xml
-    popup.getMenuInflater().inflate(R.menu.popup_filter, popup.getMenu());
+    popup.inflate(R.menu.popup_filter);
     // Setup menu item selection
     popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
         public boolean onMenuItemClick(MenuItem item) {
