@@ -163,6 +163,7 @@ d2j-dex2jar.bat <.apk file>
 
 Running the `dex2jar` file directly on an APK file should convert it to a `.jar` file.  You can download [JD-GUI](http://jd.benow.ca/) and open this newly created file to review the Java class files.  The UI allows you to double-check whether certain annotations were removed and whether certain classes were kept in the final compilation.
 
+**Since Android Studio 3.0 release** there is an APK Analyzer tool which can view dex files and also helps to debug Proguard related changes. See here for more details https://developer.android.com/studio/build/apk-analyzer.html
 
 ### References
 
