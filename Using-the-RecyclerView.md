@@ -39,6 +39,7 @@ A `RecyclerView` needs to have a layout manager and an adapter to be instantiate
 To create a custom layout manager, extend the [RecyclerView.LayoutManager](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.LayoutManager.html) class.
 
 Here is [Dave Smith's talk](https://www.youtube.com/watch?v=gs_C1E8HwvE&index=22&list=WL) on custom layout manager
+> **Notes**: In recent version of the Support Library, if you don't explicitly set the LayoutManager, the RecyclerView will not show! There is a Logcat error though `E/RecyclerView: No layout manager attached; skipping layout`
 
 ### `RecyclerView.Adapter`
 
