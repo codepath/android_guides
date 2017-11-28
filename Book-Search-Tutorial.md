@@ -154,7 +154,7 @@ Looking at the JSON response format for the OpenLibrary search API, we can under
       "0768325242",
       "0768325234",
       "0768374693",
-      "0768325781",
+      "0768325734",
       "9780768325232",
       "Cedco Publishing",
       "OL2853379A",
