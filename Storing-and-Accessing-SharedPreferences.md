@@ -37,7 +37,7 @@ Then you can begin to add data to the Settings file declared when you instantiat
 ```java
 int id = 1;
 String username = "john";
-editor.putString("username", username);
+editor.putString(username, "username");
 editor.putInt("id", id);
 ```
 
