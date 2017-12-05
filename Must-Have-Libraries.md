@@ -157,7 +157,6 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [AndroidSlidingUpPanel](https://github.com/umano/AndroidSlidingUpPanel) - Sliding Up Panel 
  * [DraggablePanel](https://github.com/pedrovgs/DraggablePanel) - Panels that can be dragged
  * [MaterialDrawer](https://github.com/mikepenz/MaterialDrawer/) - Easily add a Navigation Drawer with Material style and AccountSwitcher
-* [StatusStories](https://github.com/RahulJanagouda/StatusStories) - Status Stories = Snapchat stories, Instagram stories, Whatsapp Statuses, Facebook Messenger Stories.
 
 ### UI Components
  * [Gravity View](https://github.com/gofynd/gravity-view) - Library for image tilt using sensor
