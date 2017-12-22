@@ -1,5 +1,5 @@
 In [[Common Navigation Paradigms]] cliffnotes, we discuss the various navigational structures available within Android apps. One of the most flexible is the [Navigation Drawer](http://developer.android.com/training/implementing-navigation/nav-drawer.html).  During the I/O Conference 2015, Google
-released [NavigationView] (https://developer.android.com/reference/android/support/design/widget/NavigationView.html), which makes it far easier to create it than the [previously documented instructions](http://developer.android.com/training/implementing-navigation/nav-drawer.html#top).
+released [NavigationView](https://developer.android.com/reference/android/support/design/widget/NavigationView.html), which makes it far easier to create it than the [previously documented instructions](http://developer.android.com/training/implementing-navigation/nav-drawer.html#top).
 
 With the release of Android 5.0 Lollipop, the new material design style navigation drawer spans the full height of the screen and is displayed over the `ActionBar` and overlaps the translucent `StatusBar`. Read the [material design style navigation drawer](http://www.google.com/design/spec/patterns/navigation-drawer.html) document for specs on styling your navigation drawer.
 
