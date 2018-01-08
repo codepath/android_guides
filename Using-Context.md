@@ -154,7 +154,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
         View v = 
             LayoutInflater
                 .from(parent.getContext())
-                .inflate(itemLayout, parent, false);
+                .inflate(R.layout.itemLayout, parent, false);
         
         return new ViewHolder(v);
     }
