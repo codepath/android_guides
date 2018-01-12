@@ -300,7 +300,7 @@ public class ShapeSelectorView extends View {
   protected Path getTrianglePath() {
     trianglePath.moveTo(0, shapeHeight);
     trianglePath.lineTo(shapeWidth, shapeHeight);
-    trianglePath.lineTo(shapeWidth / 2, 0;
+    trianglePath.lineTo(shapeWidth / 2, 0);
     return trianglePath;
   }
 
