@@ -249,6 +249,14 @@ public class ShapeSelectorView extends View {
   // ...
   private String[] shapeValues = { "square", "circle", "triangle" };
   private int currentShapeIndex = 0;
+  private Path trianglePath;
+
+   // ...
+  public ShapeSelectorView(Context context, AttributeSet attrs) {
+    super(context, attrs);
+    // ...
+    trianglePath = new Path();
+  }
 
   // Change the currentShapeIndex whenever the shape is clicked
   @Override
@@ -290,14 +298,10 @@ public class ShapeSelectorView extends View {
   }
 
   protected Path getTrianglePath() {
-    Point p1 = new Point(0, shapeHeight), p2 = null, p3 = null;
-    p2 = new Point(p1.x + shapeWidth, p1.y);
-    p3 = new Point(p1.x + (shapeWidth / 2), p1.y - shapeHeight);
-    Path path = new Path();
-    path.moveTo(p1.x, p1.y);
-    path.lineTo(p2.x, p2.y);
-    path.lineTo(p3.x, p3.y);
-    return path;
+    trianglePath.moveTo(0, shapeHeight);
+    trianglePath.lineTo(shapeWidth, shapeHeight);
+    trianglePath.lineTo(shapeWidth / 2, 0;
+    return trianglePath;
   }
 
   // ...
