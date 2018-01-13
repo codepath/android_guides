@@ -191,15 +191,13 @@ Make sure you have the latest Parse-Android SDK <img src="https://camo.githubuse
        .addNetworkInterceptor(new ParseStethoInterceptor())
   ```
 
-* If you wish to troubleshoot your Parse JavaScript code is to run the Parse server locally (see [instructions](https://github.com/ParsePlatform/parse-server-example#for-local-development)).  You should also install node-inspector for Node.js, which allows you to use Chrome or Safari to step through the code yourself:
+* If you wish to troubleshoot your Parse JavaScript code is to run the Parse server locally (see [instructions](https://github.com/ParsePlatform/parse-server-example#for-local-development)).  You should leverage the `--inspect` command, which allows you to use Chrome or Safari to step through the code yourself:
 
    ```bash
-   npm install node-inspector
-   node --debug index.js
-   node_modules/.bin/node-inspector
+   node --inspect index.js
    ```
 
-   Open up http://127.0.0.1:8080/?port=5858 locally.   You can use the Chrome debugging tools to set breakpoints in the JavaScript code.
+   Open up `chrome://inspect`.  You can use the Chrome debugging tools to set breakpoints in the JavaScript code.
 
    Point your Android client to this server::
 
