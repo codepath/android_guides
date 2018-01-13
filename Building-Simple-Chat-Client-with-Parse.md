@@ -30,9 +30,7 @@ Let's setup Parse into a brand new Android app following the steps below.
         repositories {
             jcenter()
             // The next part if what you don't want to add Google Play Service SDK manually
-            maven {
-                url "https://maven.google.com"
-            }
+            google()
         }
     }
     ```
