@@ -202,7 +202,7 @@ The Application Context is typically used when singleton instances need to be cr
 In the example below, if the context being stored is an Activity or Service and it's destroyed by the Android system, it won't be able to be garbage collected because the CustomManager class holds a static reference to it.
 
 ```java
-pubic class CustomManager {
+public class CustomManager {
     private static CustomManager sInstance;
 
     public static CustomManager getInstance(Context context) {
