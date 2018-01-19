@@ -18,7 +18,7 @@ This walkthrough shows an example of how you can build the [Android Tools](http:
 
 ### Preliminary Setup
 
-See the [instructions] (http://source.android.com/source/initializing.html) to make sure you have installed all the necessary libraries.  You will need at least JDK 7 installed.  There isn't much setup work needed for OS X, but follow the `apt-get` install commands if running Ubuntu-based machines.  If you are using Ubuntu 15.04 machines, you may need to run these commands at the minimum to get the Tools repository to compile:
+See the [instructions](http://source.android.com/source/initializing.html) to make sure you have installed all the necessary libraries.  You will need at least JDK 7 installed.  There isn't much setup work needed for OS X, but follow the `apt-get` install commands if running Ubuntu-based machines.  If you are using Ubuntu 15.04 machines, you may need to run these commands at the minimum to get the Tools repository to compile:
 
 ```bash
 sudo apt-get install libc6-dev-i386 lib32z1
