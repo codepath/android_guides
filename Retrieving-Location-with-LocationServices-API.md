@@ -78,7 +78,7 @@ protected void startLocationUpdates() {
       @Override
       public void onLocationResult(LocationResult locationResult) {
          // do work here
-         onLocationChanged(locationResult.getLastLocation();
+         onLocationChanged(locationResult.getLastLocation());
       }
     },
     Looper.myLooper());
