@@ -364,7 +364,7 @@ OkHttp v3.5 now includes [support for bidirectional web sockets](https://medium.
 ```java
 // URL should be ws:// or wss:// (secure)
 Request request = new Request.Builder().url(url).build();
-Websocket webSocket = client.newWebSocket(request,  = new WebSocketListener() {
+WebSocket webSocket = client.newWebSocket(request,  = new WebSocketListener() {
 
   @Override
   public void onOpen(WebSocket webSocket, Response response) {
