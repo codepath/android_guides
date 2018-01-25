@@ -675,7 +675,6 @@ Note that tinting color used can also use a state list drawable.  For instance, 
 
 ## Tools
 
- * <http://androiddrawables.com/>
  * <http://angrytools.com/android/button/>
 
 ## References
