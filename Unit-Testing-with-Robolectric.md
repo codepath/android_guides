@@ -38,7 +38,7 @@ Note: Robolectric can also be configured with Android Studio 1.1, but the setup 
 ```gradle
 dependencies {
     ...
-    testCompile 'org.robolectric:robolectric:3.3'
+    testCompile 'org.robolectric:robolectric:3.6.1'
 }
 ```
 
