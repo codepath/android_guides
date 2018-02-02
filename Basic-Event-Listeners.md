@@ -29,6 +29,22 @@ btnExample.setOnClickListener(new View.OnClickListener() {
 });
 ```
 
+Alternatively, it is sometimes useful to have your class implement the listener directly, in which case you would add the listener implementation to your class and pass a reference to your class to the `set`method. For Example:
+
+```java
+class MyClass extends Fragment implements View.OnClickListener {
+
+    // Elsewhere in a method in the class that sets up the Button ...
+        Button btnExample = (Button) findViewById(R.id.btnExample);
+        btnExample..setOnClickListener(this);
+
+    @Override
+    public void onClick(View v) {
+        // Do something here	
+    }
+}
+```
+
 This pattern works for any of the view-based event listeners.
 
 **Using XML**
