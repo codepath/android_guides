@@ -37,14 +37,14 @@ Make sure to [[upgrade|Getting-Started-with-Gradle#upgrading-gradle]] to the lat
 
 ```gradle
 dependencies {
-  compile 'com.google.dagger:dagger-android:2.11'
-  compile 'com.google.dagger:dagger-android-support:2.11' // if you use the support libraries
+  compileOnly 'com.google.dagger:dagger-android:2.11'
+  compileOnly 'com.google.dagger:dagger-android-support:2.11' // if you use the support libraries
   annotationProcessor 'com.google.dagger:dagger-android-processor:2.11'
   annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
 }
 ```
 
-Note that the `provided` keyword refers to dependencies that are only needed at compilation.  The Dagger compiler generates code that is used to create the dependency graph of the classes defined in your source code.  These classes are added to the IDE class path during compilation. The `annotationProcessor` keyword, which is understood by the Android Gradle plugin, does not add these classes to the class path, they are used only for annotation processing, which prevents accidentally referencing them.
+Note that the `compileOnly` keyword refers to dependencies that are only needed at compilation.  The Dagger compiler generates code that is used to create the dependency graph of the classes defined in your source code.  These classes are added to the IDE class path during compilation. The `annotationProcessor` keyword, which is understood by the Android Gradle plugin, does not add these classes to the class path, they are used only for annotation processing, which prevents accidentally referencing them.
 
 ### Creating Singletons
 ![Dagger Injections Overview](https://raw.githubusercontent.com/codepath/android_guides/master/images/dagger_general.png)
