@@ -208,6 +208,16 @@ vpPager.addOnPageChangeListener(new OnPageChangeListener() {
 
 We can use the ViewPager to display a tabbed indicator in order to create tabs to display our fragments. 
 At Google I/O 2015, Google announced a new `TabLayout` class that makes creating this tabbed interface fairly easy to do.  See [[Google Play Style Tabs using TabLayout]] for a walkthrough.
+```xml
+<android.support.design.widget.TabLayout
+    android:id="@+id/view_pager_tab"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/tab_bg"
+    app:tabMode="fixed"
+    app:tabGravity="fill" />
+<android:support.v4.view.ViewPager />
+```
 
 An alternative approach to achieve this is to use the third-party [[PagerSlidingTabStrip|Sliding-Tabs-with-PagerSlidingTabStrip]] library. 
 
