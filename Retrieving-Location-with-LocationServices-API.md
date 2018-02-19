@@ -15,7 +15,7 @@ Fused location requires the use of the Google Play SDK. You must include the lib
 
 ```gradle
 dependencies {
-    compile 'com.google.android.gms:play-services-location:11.0.1'
+    implementation 'com.google.android.gms:play-services-location:11.8.0'
 }
 ```
 
