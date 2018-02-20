@@ -233,6 +233,7 @@ public class SomeFragment extends Fragment {
     // Any view setup should occur here.  E.g., view lookups and attaching view listeners.
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         ListView lv = (ListView) view.findViewById(R.id.lvSome);
         lv.setAdapter(adapter);
     }
