@@ -52,8 +52,8 @@ Now it's time to set your build environment's `PATH` variable and other variable
 Edit your `.bash_profile` file. If you're not using bash, edit the right config file for your environment.
 
     # Android 
-    export ANDROID_HOME=/Users/ciandroid/android-sdk-macosx
-    export PATH=$PATH:$ANDROID_HOME/tools
+    export ANDROID_SDK_ROOT=/Users/ciandroid/android-sdk-macosx
+    export PATH=$PATH:$ANDROID_SDK_ROOT/tools
 
  
 Save and quit. Reload `.bash_profile`:
