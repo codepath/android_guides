@@ -48,9 +48,10 @@ In addition, you will need to setup the Android Gradle plugin by setting your `b
 buildscript {
     repositories {
         jcenter()
+        google()  // required for Android Gradle plugins > 3.0.0
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.0'
+        classpath 'com.android.tools.build:gradle:3.0.1'
     }
 }
 ```
