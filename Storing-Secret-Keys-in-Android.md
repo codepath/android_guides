@@ -81,3 +81,4 @@ This process is not bulletproof. As resources, they are somewhat more vulnerable
 
 * <https://joshmcarthur.com/2014/02/16/keeping-secrets-in-an-android-application.html>
 * <https://rammic.github.io/2015/07/28/hiding-secrets-in-android-apps/>
+* <https://medium.com/@ericfu/securely-storing-secrets-in-an-android-application-501f030ae5a3/>
