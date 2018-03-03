@@ -20,7 +20,7 @@ Other less edited folders include:
 * `gen` - Generated Java code files, this library is for Android internal use only.
 * `assets` - Uncompiled source files associated with your project; Rarely used.
 * `bin` - Resulting application package files associated with your project once it’s been built.
-* `libs` - Before the introduction of [[Gradle dependency management|Getting-Started-with-Gradle]], this directory was used for any secondary libraries (jars) you might want to link to your app.
+* `libs` - Before the introduction of [[Gradle build system|Getting-Started-with-Gradle]], this directory was used for any secondary libraries (jars) you might want to link to your app.
 
 ## References
 
