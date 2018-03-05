@@ -121,7 +121,7 @@ The following online courses teach Android through structured lessons and quizze
 
 * [Udacity Android Development for Beginners](https://www.udacity.com/course/android-development-for-beginners--ud837) (Beginner) - This course is designed for students who are new to programming, and want to learn how to build Android apps. You don’t need any programming experience to take this course. 
 
-* [Developing Android Apps by Google](https://www.udacity.com/course/ud853) (Intermediate) - Udacity course created by Google that teaches the core concepts involved in developing Android apps through videos and course work. 
+* [Developing Android Apps by Google](https://eu.udacity.com/course/new-android-fundamentals--ud851) (Intermediate) - Udacity course created by Google that teaches the core concepts involved in developing Android apps through videos and course work. 
 
 * [Programming Android Applications on Coursera](https://www.coursera.org/course/android) - Coursera online course from the University of Maryland.
 
