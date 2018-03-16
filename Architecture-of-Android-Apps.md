@@ -56,6 +56,11 @@ The easiest method for understanding this is multiple specific examples with sam
  * [Introduction to MVP Library Nucleus](http://konmik.com/post/introduction_to_model_view_presenter_on_android/)
  * [How to Adopt MVP](https://code.tutsplus.com/tutorials/how-to-adopt-model-view-presenter-on-android--cms-26206)
  * [MVP Guidelines](https://medium.com/@cervonefrancesco/model-view-presenter-android-guidelines-94970b430ddf#.uzpd446ez)
+ * [MVC vs MVP vs MVVM in Android](https://www.simform.com/mvc-mvp-mvvm-android-app-development/)
+ * [MVP Guidelines for Android](https://medium.com/@cervonefrancesco/model-view-presenter-android-guidelines-94970b430ddf)
+ * [Android Architecture Components](https://android.jlelse.eu/android-architecture-components-now-with-100-more-mvvm-11629a630125)
+
+
 
 ### Migrating to Clean Architecture
 
