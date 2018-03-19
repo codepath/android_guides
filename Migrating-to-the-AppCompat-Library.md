@@ -148,6 +148,8 @@ Preferences need to migrate to start using compat counterparts.
 
 Preference xmls need to migrate to using `android.support.v7.preference` package counterparts, e.g. `android.support.v7.preference.PreferenceCategory` instead of `PreferenceCategory` and `android.support.v7.preference.SwitchPreferenceCompat` instead of `SwitchPreference`.
 
+PreferenceManager used in APIs like PreferenceManager.getDefaultSharedPreferences(context) should now be `android.support.v7.preference.PreferenceManager`.
+
 If you have a custom UI for your ListPreference dialog, it needs to break down into `android.support.v7.preference.ListPreference` and `android.support.v7.preference.ListPreferenceDialogFragmentCompat`. APIs like `onPrepareDialogBuilder(AlertDialog.Builder builder)` and `onDialogClosed(boolean positiveResult)` can now be found in the dialog fragment instead of the ListPreference itself.
 
 The dialog can be instantiated from within the `PreferenceFragmentCompat` child using
