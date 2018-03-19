@@ -138,6 +138,31 @@ The `MenuItemCompat` helper class has a few static methods that should be used i
         mSearchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.contentSearch));
 ```
 
+#### Changes to Preferences
+Preferences need to migrate to start using compat counterparts.
+
+```
+    implementation 'com.android.support:preference-v7:version.used.everywhere'
+    implementation 'com.android.support:preference-v14:version.used.everywhere'
+```
+
+Preference xmls need to migrate to using `android.support.v7.preference` package counterparts, e.g. `android.support.v7.preference.PreferenceCategory` instead of `PreferenceCategory` and `android.support.v7.preference.SwitchPreferenceCompat` instead of `SwitchPreference`.
+
+If you have a custom UI for your ListPreference dialog, it needs to break down into `android.support.v7.preference.ListPreference` and `android.support.v7.preference.ListPreferenceDialogFragmentCompat`. APIs like `onPrepareDialogBuilder(AlertDialog.Builder builder)` and `onDialogClosed(boolean positiveResult)` can now be found in the dialog fragment instead of the ListPreference itself.
+
+The dialog can be instantiated from within the `PreferenceFragmentCompat` child using
+
+```
+    @Override
+    public void onDisplayPreferenceDialog(Preference preference) {
+        if (preference instanceof ListPreference) {
+            MyListPreferenceDialogFragmentCompat.show(this, preference.getKey());
+        } else {
+            super.onDisplayPreferenceDialog(preference);
+        }
+    }
+```
+
 #### Changing targetSDKVersion
 
 In addition, setting the `targetSdkVersion` to the latest SDK version ensures that the  AppCompat library will attempt to apply the Material Design assuming the device itself can support it. The support library will still check to see if the minimum SDK version is being used on the device.
