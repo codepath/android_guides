@@ -218,7 +218,7 @@ public void onCreate(Bundle savedInstanceState) {
   }
 ```
 
-See [this article](https://paul.kinlan.me/parsing-screenshot-from-Chrome-for-Android-send-intent/) for more details about parsing data from Chrome.
+See [this article](https://paul.kinlan.me/parsing-screenshot-from-Chrome-for-Android-send-intent/) for more details about parsing data from Chrome. **_This link was invalid_**
 
 If you wish for a web page link to be able to launch an activity, make sure to also specify the BROWSABLE category as well.  You should also specify the `<data>` tag to specify what URL pattern to scan for:
 
