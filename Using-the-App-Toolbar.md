@@ -163,7 +163,7 @@ Next, we can use the `<include />` tag to load the toolbar into our activity lay
 </LinearLayout>
 ```
 
-and then access the `Toolbar` by the `include` id instead:
+and then access the `Toolbar` by the `include` layout name instead:
 
 ```java
 public class MyActivity extends AppCompatActivity {
@@ -173,7 +173,7 @@ public class MyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my);
 
         // Find the toolbar view inside the activity layout
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.layout.toolbar_main);
         // Sets the Toolbar to act as the ActionBar for this Activity window.
         // Make sure the toolbar exists in the activity and is not null
         setSupportActionBar(toolbar);
