@@ -264,7 +264,7 @@ Often we need to lookup or find a fragment instance within an activity layout fi
 
  1. **ID** - Lookup a fragment by calling `findFragmentById` on the `FragmentManager`
  2. **Tag** - Lookup a fragment by calling `findFragmentByTag` on the `FragmentManager`
- 3. **Pager** - Lookup a fragment by calling `getRegisteredFragment` on a `PagerAdapter`
+ 3. **Pager** - Lookup a fragment by calling `getRegisteredFragment` on a `PagerAdapter` (not part of the Android APIs but there is a custom implementation here https://stackoverflow.com/a/30594487)
 
 Each method is outlined in more detail below.
 
