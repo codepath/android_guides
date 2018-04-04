@@ -6,7 +6,7 @@ This is a guide focused on collaborating on Android projects together with teamm
 
 First, you need to properly setup git for your project:
 
-```
+```bash
 git init
 ```
 
@@ -14,13 +14,13 @@ Next, setup a **.gitignore** file at the **root** with the [contents from this f
 
 If you have **already committed files** and need to **remove them after adding the ignore**, you can run this command to remove them before committing.
 
-```
+```bash
 git rm -r --cached . 
 ```
 
 You can now add the initial files to git using the SourceTree / [Github](https://mac.github.com/) client or by typing:
 
-```
+```bash
 git add .
 git commit -am "Initial commit"
 ```
@@ -33,7 +33,7 @@ git remote add origin git@github.com:myusername/reponame.git
 
 and now go ahead and push the code to Github with:
 
-```
+```bash
 git push origin master
 ```
 
@@ -45,7 +45,7 @@ You can also use your favorite Git GUI (for example the [Github](https://mac.git
 
 The following outlines how to collaborate with others using git. When first starting a session working on a project, we need to pull any updates pushed by other collaborators:
 
-```
+```bash
 git checkout master
 git pull origin master
 ```
@@ -56,7 +56,7 @@ A merge conflict occurs when two branches have changed the same part of the same
 
 When this sort of conflict occurs, Git writes a special block into the file that contains the contents of both versions where the conflict occurred:
 
-```
+```bash
 the number of planets are
 <<<<<<< HEAD
 nine
@@ -71,13 +71,13 @@ To complete this type of merge, use your text editor to resolve the conflict, th
 
 New features should be added in special [feature branches](https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is) that allow changes to be made in isolation. First, we can create a new branch to work on:
 
-```
+```bash
 git checkout -b my_branch_name
 ```
 
 Now changes can be locally committed to the branch:
 
-```
+```bash
 git add .
 git commit -am "Initial commit"
 ```
@@ -96,7 +96,7 @@ git push -u origin new_branch_name
 
 While working on the branch, be sure to rebase with master to pull in mainline changes:
 
-```
+```bash
 git checkout master
 git pull origin master
 git checkout your_branch
@@ -105,7 +105,7 @@ git rebase master
 
 If there are conflicts, they have to be resolved in the files and then you need to run:
 
-```
+```bash
 git rebase --continue
 ```
 
@@ -133,7 +133,7 @@ git reset --hard
 
 If you want to revert your current code to a past commit:
 
-```
+```bash
 git log
 ...find the commit i.e c1fc1c2d1aa1d37c...
 git reset --hard c1fc1c2d1aa1d37c
@@ -146,7 +146,3 @@ That it! After running that all of your local uncommitted changes will be revert
 Often when collaborating on a project with others, you need to have **maps work across multiple computers**. The problem is that the map key fingerprint is different from computer to computer and thus by default maps will only work on the computer that was used to generate the key.
 
 The simplest fix is described in detail within [this stackoverflow post](http://stackoverflow.com/a/9653946/313399) but in short you can get the `debug.keystore` from one of the team members, check that into git and then instruct other team members to replace their `debug.keystore` file with the one from repository. See also [this link](http://groups.google.com/group/android-developers/browse_thread/thread/c9051635ab37f252) and [this guide](http://developer.android.com/guide/publishing/app-signing.html#debugmode). 
-
-## SDK Manager
-
-When working with different teammates that may have different Android Build Tools or SDK versions installed, you might might find it convenient to use Jake Wharton's [SDK Manager plugin](https://github.com/JakeWharton/sdk-manager-plugin) to download these packages automatically. Follow these [[installation instructions|Installing-Android-SDK-Tools#installing-the-android-sdk-automated-way]] for more info.  
