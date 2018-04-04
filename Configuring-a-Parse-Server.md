@@ -37,18 +37,19 @@ Use Heroku if you have little or no experience with setting up web sites. Heroku
 
       <img src="https://imgur.com/0JcJrn5.png">
 
-3. Make sure to change the config values.
-      <img src="https://imgur.com/vQV0X0S.png"/>
+3. Make sure to change the config variables.
+      <img src="https://imgur.com/Ao1Yjdm.png"/>
       * Leave `PARSE_MOUNT` to be `/parse`.  It does not need to be changed.
       * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId`.  You will need this info for the Client SDK setup.
-      * Set `MASTER_KEY` to be the master key used to read/write all data.  **Note**: in hosted Parse, client keys are not used by default.
-      * Set `SERVER_URL` to be `http://yourappname.herokuapp.com/parse`.  Assuming you have left `PARSE_MOUNT` to be /parse, this will enable the use of Parse Cloud to work correctly.
+      * Set `MASTER_KEY` to be the master key used to read/write all data.  You will only use this key if you intend to setup the Parse Dashboard. 
+      * Set `SERVER_URL` to correspond to match the App Name you defined in step #2 along with the PARSE_MOUNT  (i.e. http://yourappname.herokuapp.com/parse)
       * If you intend to use Parse's Facebook authentication, set `FACEBOOK_APP_ID` to be the [FB application ID](https://developers.facebook.com/apps).
-      * If you intend to setup push notifications, there are additional environment variables such as `GCM_SENDER_KEY` and `GCM_API_KEY` that will need to be configured.  See [[this section|Configuring-a-Parse-Server#enabling-push-notifications]] for the required steps.
 
 4. Deploy the Heroku app.  The app should be hosted at `https://<app name>.herokuapp.com` where `<app name>` represents your App Name that you provided (or if one was assigned to you if you left this field blank).
 
-If you ever need to change these values later, you can go to (`https://dashboard.heroku.com/apps/<app name>/settings`). Check out [this guide](https://devcenter.heroku.com/articles/deploying-a-parse-server-to-heroku) for a more detailed set of steps for deploying Parse to Heroku.
+If you ever need to change these values later, you can go to (`https://dashboard.heroku.com/apps/<app name>/settings`).   For instance, if you intend to setup push notifications, there are additional environment variables such as `GCM_SENDER_KEY` and `GCM_API_KEY` that will need to be configured.  See [[this section|Configuring-a-Parse-Server#enabling-push-notifications]] for the required steps.
+
+Check out [this guide](https://devcenter.heroku.com/articles/deploying-a-parse-server-to-heroku) for a more detailed set of steps for deploying Parse to Heroku.
 
 Now, we can [[test our deployment|Configuring-a-Parse-Server#testing-deployment]] to verify that the Parse deployment is working as expected!
 
