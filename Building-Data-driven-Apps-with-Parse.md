@@ -95,8 +95,8 @@ class ParseApplication : Application() {
         // Use for monitoring Parse OkHttp traffic        
         // Can be Level.BASIC, Level.HEADERS, or Level.BODY
         // See http://square.github.io/okhttp/3.x/logging-interceptor/ to see the options.
-        var builder = OkHttpClient.Builder()
-        var httpLoggingInterceptor = HttpLoggingInterceptor()
+        val builder = OkHttpClient.Builder()
+        val httpLoggingInterceptor = HttpLoggingInterceptor()
         httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
         builder.networkInterceptors().add(httpLoggingInterceptor)
 
