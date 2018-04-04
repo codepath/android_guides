@@ -84,6 +84,33 @@ public class ParseApplication extends Application {
 }
 ```
 
+```kotlin
+class ParseApplication : Application() {
+    override fun onCreate() {
+        super.onCreate()
+
+        // Use for troubleshooting -- remove this line for production
+        Parse.setLogLevel(Parse.LOG_LEVEL_DEBUG)
+
+        // Use for monitoring Parse OkHttp traffic        
+        // Can be Level.BASIC, Level.HEADERS, or Level.BODY
+        // See http://square.github.io/okhttp/3.x/logging-interceptor/ to see the options.
+        var builder = OkHttpClient.Builder()
+        var httpLoggingInterceptor = HttpLoggingInterceptor()
+        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
+        builder.networkInterceptors().add(httpLoggingInterceptor)
+
+        // set applicationId, and server server based on the values in the Heroku settings.
+        // clientKey is not needed unless explicitly configured
+        // any network interceptors must be added with the Configuration Builder given this syntax
+        Parse.initialize(Parse.Configuration.Builder(this)
+                .applicationId("myAppId") // should correspond to APP_ID env variable
+                .clientKey(null) // set explicitly unless clientKey is explicitly configured on Parse server
+                .clientBuilder(builder)
+                .server("https://my-parse-app-url.herokuapp.com/parse/").build())
+    }
+}
+```
 The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which is set to this value by default.
 
 We also need to make sure to set the application instance above as the `android:name` for the application within the `AndroidManifest.xml`. This change in the manifest determines which application class is instantiated when the app is launched and also adding the application ID metadata tag:
