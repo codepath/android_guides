@@ -204,6 +204,24 @@ user.signUpInBackground(new SignUpCallback() {
   }
 });
 ```
+
+```kotlin
+// Create the ParseUser
+val user = ParseUser()
+user.username = "joestevens"
+user.setPassword("secret123")
+user.email = "email@example.com"
+user.put("phone", "650-253-0000")
+user.signUpInBackground({e ->
+  if (e == null) {
+     // Hooray! Let them use the app now.
+  } else {
+     // Sign up didn't succeed. Look at the ParseException
+     // to figure out what went wrong
+  }
+})
+```
+
 This call will asynchronously create a new user in your Parse App. Before it does this, it checks to make sure that both the username and email are unique. See the [signup up docs](http://docs.parseplatform.org/android/guide/#signing-up) for more details.
 
 ### User Session Login
@@ -223,7 +241,7 @@ ParseUser.logInInBackground("joestevens", "secret123", new LogInCallback() {
 ```
 
 ```kotlin
-ParseUser.logInInBackground("joeStevens", "secret123", ({ user, e ->
+ParseUser.logInInBackground("joestevens", "secret123", ({ user, e ->
   if (user != null) {
     // Hooray!  The user is logged in.
   } else {
