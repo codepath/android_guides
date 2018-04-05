@@ -222,6 +222,16 @@ ParseUser.logInInBackground("joestevens", "secret123", new LogInCallback() {
 });
 ```
 
+```kotlin
+ParseUser.logInInBackground("joeStevens", "secret123", ({ user, e ->
+  if (user != null) {
+    // Hooray!  The user is logged in.
+  } else {
+    // Signup failed.  Look at the ParseException to see what happened.
+  }})
+)
+```
+
 If the credentials are correct, the `ParseUser` will be passed back accordingly. You can now access the cached current user for your application at any time in order to determine the session status:
 
 ```java
