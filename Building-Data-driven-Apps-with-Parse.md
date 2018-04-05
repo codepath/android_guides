@@ -261,11 +261,18 @@ if (currentUser != null) {
 }
 ```
 
+### User Logout
+
 A user can be signed back out with:
 
 ```java
 ParseUser.logOut();
 ParseUser currentUser = ParseUser.getCurrentUser(); // this will now be null
+```
+
+```kotlin
+ParseUser.logOut()
+val currentUser = ParseUser.getCurrentUser() // this will now be null
 ```
 
 That's the basics of what you need to work with users. See more details by checking out the [User](http://docs.parseplatform.org/android/guide/#users) official docs.
