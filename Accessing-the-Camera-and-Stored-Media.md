@@ -17,8 +17,6 @@ Make sure to enable access to the external storage first before using the camera
   ...>
     <!- ... -->
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <!--- request the WRITE_EXTERNAL_STORAGE permission only if you want to save to the public image gallery -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -63,6 +61,28 @@ public void onLaunchCamera(View view) {
 }
 ```
 
+We need to define the `getPhotoFileUri()` function:
+
+```java
+// Returns the File for a photo stored on disk given the fileName
+public File getPhotoFileUri(String fileName) {
+    // Get safe storage directory for photos
+    // Use `getExternalFilesDir` on Context to access package-specific directories.
+    // This way, we don't need to request external read/write runtime permissions.
+    File mediaStorageDir = new File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), APP_TAG);
+
+    // Create the storage directory if it does not exist
+    if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()){
+       Log.d(APP_TAG, "failed to create directory");
+    }
+
+    // Return the file target for the photo based on filename
+    File file = new File(mediaStorageDir.getPath() + File.separator + fileName);
+
+    return file;
+}
+```
+
 When the camera app finishes, the `onActivityResult()` method will be called:
 ```java
 @Override
@@ -80,36 +100,6 @@ public void onActivityResult(int requestCode, int resultCode, Intent data) {
        }
     }
 }
-
-// Returns the File for a photo stored on disk given the fileName
-public File getPhotoFileUri(String fileName) {
-    // Only continue if the SD Card is mounted
-    if (isExternalStorageAvailable()) {
-        // Get safe storage directory for photos
-        // Use `getExternalFilesDir` on Context to access package-specific directories.
-        // This way, we don't need to request external read/write runtime permissions.
-        File mediaStorageDir = new File(
-            getExternalFilesDir(Environment.DIRECTORY_PICTURES), APP_TAG);
-
-        // Create the storage directory if it does not exist
-        if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()){
-            Log.d(APP_TAG, "failed to create directory");
-        }
-
-        // Return the file target for the photo based on filename
-        File file = new File(mediaStorageDir.getPath() + File.separator + fileName);
-
-        return file;
-    }
-    return null;
-}
-
-// Returns true if external storage for photos is available
-private boolean isExternalStorageAvailable() {
-    String state = Environment.getExternalStorageState();
-    return state.equals(Environment.MEDIA_MOUNTED);
-}
-```
 
 Check out the official [Photo Basics](http://developer.android.com/training/camera/photobasics.html) guide for more details.
 
