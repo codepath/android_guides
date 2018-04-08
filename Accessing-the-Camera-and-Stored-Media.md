@@ -9,23 +9,6 @@ The [camera](http://developer.android.com/guide/topics/media/camera.html) implem
  * The easy way - launch the camera with an intent, designating a file path, and handle the onActivityResult.
  * The hard way - use the Camera API to embed the camera preview within your app, adding your own custom controls.
 
-Make sure to enable access to the external storage first before using the camera:
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  ...>
-    <!- ... -->
-
-    <!--- request the WRITE_EXTERNAL_STORAGE permission only if you want to save to the public image gallery -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-    <!- ... -->
-</manifest>
-```
-
-**Note:** The permissions model has changed starting in Marshmallow. If your `targetSdkVersion` >= `23` and you are running on a Marshmallow (or later) device, you may need to [[enable runtime permissions|Managing-Runtime-Permissions-with-PermissionsDispatcher]]. You should also read more about the [[runtime permissions changes|Understanding-App-Permissions#runtime-permissions]].
-
 ### Setup FileProvider
 
 You must configure a `FileProvider` as show in this [[section|Sharing-Content-with-Intents#sharing-files-with-api-24-or-higher]].  The example below uses `com.codepath.fileprovider` and should match the `authorities` XML tag specified.
@@ -184,6 +167,25 @@ For applying filters to your captured images, check out the following libraries:
 
  * [CameraFilter](https://github.com/nekocode/CameraFilter) - Realtime camera filters. Process frames by OpenGL shaders.
  * [photofilter](https://github.com/mukeshsolanki/photofilter) - Apply filters to images after they are captured.
+
+### Saving to External Storage
+
+If you sure to enable access to the external storage to save to the public image, you must add this permission to your `AndroidManifest.xml` file:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  ...>
+    <!- ... -->
+
+    <!--- requesting the WRITE_EXTERNAL_STORAGE permission will also include READ_EXTERNAL_STORAGE permission -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!- ... -->
+</manifest>
+```
+
+**Note:** The permissions model has changed starting in Marshmallow. If your `targetSdkVersion` >= `23` and you are running on a Marshmallow (or later) device, you may need to [[enable runtime permissions|Managing-Runtime-Permissions-with-PermissionsDispatcher]]. You should also read more about the [[runtime permissions changes|Understanding-App-Permissions#runtime-permissions]].
 
 ### Building a Custom Camera
 
