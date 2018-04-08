@@ -34,7 +34,7 @@ Make sure your top-level `build.gradle` includes the following:
 buildscript {
     repositories {
         jcenter() 
-        google()  // new as of Google I/O 2017
+        google()  // new as of Gradle v4.1 (not to be confused the the Android Gradle plugin below)
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
