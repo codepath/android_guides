@@ -26,6 +26,14 @@ public void launchComposeView() {
 }
 ```
 
+```kotlin
+// ActivityOne.java
+fun launchComposeView() {
+  // first parameter is the context, second is the class of the activity to launch
+  val i = new Intent(this@ActivityOne, ActivityTwo::class.java)
+  startActivity(i) // brings up the second activity
+}
+```
 Now, in the launched second activity, the user can go back to the first screen by hitting "back" or if the developer wants to trigger the second activity to close, we need only call the [`finish` method](http://developer.android.com/reference/android/app/Activity.html#finish\(\)):
 
 ```java
