@@ -213,6 +213,7 @@ Next, create a resource directory called `xml` and create a `fileprovider.xml`. 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <paths>
+    <!-- See table below.  The external-files-path DOES NOT require external storage permissions. -->
     <external-files-path
         name="images"
         path="Pictures" />
