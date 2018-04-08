@@ -59,7 +59,10 @@ public void onLaunchCamera(View view) {
         startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
     }
 }
+```
 
+When the camera app finishes, the `onActivityResult()` method will be called:
+```java
 @Override
 public void onActivityResult(int requestCode, int resultCode, Intent data) {
     if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
