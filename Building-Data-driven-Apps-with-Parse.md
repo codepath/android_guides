@@ -225,7 +225,8 @@ with(user) {
        // to figure out what went wrong
     }
   })
-}```
+}
+```
 
 This call will asynchronously create a new user in your Parse App. Before it does this, it checks to make sure that both the username and email are unique. See the [signup up docs](http://docs.parseplatform.org/android/guide/#signing-up) for more details.
 
