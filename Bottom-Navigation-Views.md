@@ -21,7 +21,8 @@ Next, simply declare a `BottomNavigationView` instance and make sure to set `ali
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"></android.support.design.widget.BottomNavigationView>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/menu_bottom_navigation"></android.support.design.widget.BottomNavigationView>
 </android.support.constraint.ConstraintLayout>
 ```
 
