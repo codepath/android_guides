@@ -100,6 +100,7 @@ public void onActivityResult(int requestCode, int resultCode, Intent data) {
        }
     }
 }
+```
 
 Check out the official [Photo Basics](http://developer.android.com/training/camera/photobasics.html) guide for more details.
 
