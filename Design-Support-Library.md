@@ -48,11 +48,11 @@ Update your root `build.gradle` file:
 
 ```gradle
 android {
-   compileSdkVersion 26  // usually needs to be consistent with major support libs used, but not necessary
+   compileSdkVersion 27  // usually needs to be consistent with major support libs used, but not necessary
 }
 
 ext {
-  supportLibVersion = '26.1.0'  // variable that can be referenced to keep support libs consistent
+  supportLibVersion = '27.1.1'  // variable that can be referenced to keep support libs consistent
 }
 ```
 
@@ -60,8 +60,8 @@ Add these dependencies to your `app/build.gradle` file:
 
 ```gradle
 dependencies {
-    compile "com.android.support:appcompat-v7:${supportLibVersion}"
-    compile "com.android.support:design:${supportLibVersion}"
+    implementation "com.android.support:appcompat-v7:${supportLibVersion}"
+    implementation "com.android.support:design:${supportLibVersion}"
 }
 ```
 
@@ -69,7 +69,7 @@ If you are using the [[RecyclerView|Using the RecyclerView]], [[CardView|Using t
 
 ```gradle
 dependencies {
-    compile "com.android.support:recyclerview-v7:${supportLibVersion}"
+    implementation "com.android.support:recyclerview-v7:${supportLibVersion}"
 }
 ```
 
@@ -79,7 +79,7 @@ To add the percent support library, you need to add this statement:
 
 ```gradle
 dependencies {
-    compile "com.android.support:percent:${supportLibVersion}"
+    implementation "com.android.support:percent:${supportLibVersion}"
 }
 ```
 
@@ -101,8 +101,8 @@ Finally, the libraries need to be added:
 
 ```gradle
 dependencies {
-    compile "com.android.support:support-vector-drawable:${supportLibVersion}" // VectorDrawableCompat 
-    compile "com.android.support:animated-vector-drawable:${supportLibVersion}" // AnimatedVectorDrawableCompat
+    implementation "com.android.support:support-vector-drawable:${supportLibVersion}" // VectorDrawableCompat 
+    implementation "com.android.support:animated-vector-drawable:${supportLibVersion}" // AnimatedVectorDrawableCompat
 }
 ```
 
@@ -114,7 +114,7 @@ The Transitions API was first introduced in Android 4.4 (KitKat) but now include
 
 ```gradle
 dependencies {
-    compile "com.android.support:transition:${supportLibVersion}"
+    implementation "com.android.support:transition:${supportLibVersion}"
 }
 ```
 
@@ -124,7 +124,7 @@ To leverage the [annotations library](http://tools.android.com/tech-docs/support
 
 ```gradle
 dependencies {
-    compile "com.android.support:support-annotations:${supportLibVersion}"
+    implementation "com.android.support:support-annotations:${supportLibVersion}"
 }
 ```
 
