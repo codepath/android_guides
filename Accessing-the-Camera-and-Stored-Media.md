@@ -18,6 +18,8 @@ Make sure to enable access to the external storage first before using the camera
     <!- ... -->
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!--- request the WRITE_EXTERNAL_STORAGE permission only if you want to save to the public image gallery -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <!- ... -->
