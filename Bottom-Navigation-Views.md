@@ -1,12 +1,12 @@
 ## Overview
 
-[Bottom navigation](https://material.google.com/components/bottom-navigation.html) provide easy navigation for switching between 3 to 5 different views.  It was a recently added to the [Material Design spec](https://material.google.com/components/bottom-navigation.html), which provides an alternative between [tabs](https://material.google.com/components/tabs.html) and [navigation drawers](https://material.google.com/patterns/navigation-drawer.html).  
+[Bottom navigation](https://material.google.com/components/bottom-navigation.html) provide easy navigation for switching between 3 to 5 different views.  It was a recently added to the [Material Design spec](https://material.google.com/components/bottom-navigation.html), which provides an alternative between [tabs](https://material.google.com/components/tabs.html) and [navigation drawers](https://material.google.com/patterns/navigation-drawer.html).  This widget was also added to v25 of the support design library.
 
 <center><img src="https://imgur.com/MN4szO6.png" height="400"></center>
 
 ## Setup
 
-See the [[design support library|Design-Support-Library#setup]] setup instructions for the Gradle config you need to add.  In particular, make sure you have updated to the v25 design library, since support for the bottom navigation support was recently added.
+See the [[design support library|Design-Support-Library#setup]] setup instructions for the Gradle config you need to add. 
 
 Next, simply declare a `BottomNavigationView` instance and make sure to set `alignParentBottom=true` to ensure that the view is placed on the bottom layout:
 
