@@ -204,3 +204,4 @@ This guide was originally put together by [Kirk Saviour (@savekirk)](https://git
 - https://www.youtube.com/watch?v=A2LukgT2mKc
 - https://docs.google.com/document/d/1ReS3ep-hjxWA8kZi0YqDbEhCqTt29hG8P44aA9W0DM8/preview?hl=ru&forcehl=1
 - <https://blog.simon-wirtz.de/kotlin-features-miss-java/>
+- [Kotlin Idioms](http://kotlinlang.org/docs/reference/idioms.html)
