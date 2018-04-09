@@ -17,7 +17,7 @@ Make sure you have this Gradle dependency added to your `app/build.gradle` file:
 
 ```gradle
 dependencies {
-  compile 'com.android.support:design:25.2.0'
+  compile 'com.android.support:design:27.1.1'
 }
 ```
 
