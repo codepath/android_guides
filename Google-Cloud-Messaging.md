@@ -361,7 +361,7 @@ We need an endpoint for **registering a user id to a device token**:
 We need code for **sending data to specified registration tokens**:
 
   - To send GCM pushes, send a POST request to GCM send endpoint with data and registered ids
-    - `POST https://gcm-http.googleapis.com/gcm/send`
+    - `POST https://fcm.googleapis.com/fcm/send`
   - Request requires two headers:
     - `Authorization: key=<YOUR SERVER API KEY>`
     - `Content-Type: application/json`
@@ -481,7 +481,7 @@ curl http://localhost:4567/send -d "user_id=123&title=hello&body=message"
 To verify that API calls to Google servers are working currently, We can quickly test by sending commands with curl:
 
 ```bash
-curl -s "https://android.googleapis.com/gcm/send" -H "Authorization: key=[API_KEY_HERE]" -H "Content-Type: application/json" -d '{"to": "[REG_TOKEN_HERE]", "data": {"score": 123}}'
+curl -s "https://fcm.googleapis.com/fcm/send" -H "Authorization: key=[API_KEY_HERE]" -H "Content-Type: application/json" -d '{"to": "[REG_TOKEN_HERE]", "data": {"score": 123}}'
 ```
 
 ## Easy Local Testing with Ruby
