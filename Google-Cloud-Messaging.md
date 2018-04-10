@@ -457,7 +457,7 @@ def send_gcm_message(title, body, reg_tokens)
   }
 
   # Send the request with JSON args and headers
-  RestClient.post 'https://gcm-http.googleapis.com/gcm/send', post_args.to_json,
+  RestClient.post 'https://fcm.googleapis.com/fcm/send', post_args.to_json,
     :Authorization => 'key=' + AUTHORIZE_KEY, :content_type => :json, :accept => :json
 end
 ```
