@@ -9,7 +9,7 @@ If you want to use a `RecyclerView`, you will need to work with the following:
 
 <img src="https://developer.android.com/training/material/images/RecyclerView.png" width="500" alt="RecyclerView" />
 
-Furthermore, it provides animation support for `ListView` items whenever they are added or removed, which had been extremely difficult to do in the current implementation.  `RecyclerView` also begins to enforce the [[ViewHolder pattern|Using-an-ArrayAdapter-with-ListView#improving-performance-with-the-viewholder-pattern]] too, which was already a recommended practice but now deeply integrated with this new framework.
+Furthermore, it provides animation support for `RecylerView` items whenever they are added or removed, which had been extremely difficult to do in the current implementation.  `RecyclerView` also begins to enforce the [[ViewHolder pattern|Using-an-ArrayAdapter-with-ListView#improving-performance-with-the-viewholder-pattern]] too, which was already a recommended practice but now deeply integrated with this new framework.
 
 For more details, see [this detailed overview](http://www.grokkingandroid.com/first-glance-androids-recyclerview/).
 
