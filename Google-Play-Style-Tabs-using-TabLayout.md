@@ -27,7 +27,7 @@ Simply add `android.support.design.widget.TabLayout`, which will be used for ren
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
-        android:layout_height="0px"
+        android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@android:color/white" />
 
