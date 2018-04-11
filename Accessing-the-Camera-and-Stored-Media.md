@@ -73,7 +73,7 @@ public void onActivityResult(int requestCode, int resultCode, Intent data) {
     if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
        if (resultCode == RESULT_OK) {
          // by this point we have the camera photo on disk
-         Bitmap takenImage = BitmapFactory.decodeFile(photoFile);
+         Bitmap takenImage = BitmapFactory.decodeFile(photoFile.getAbsolutePath());
          // RESIZE BITMAP, see section below
          // Load the taken image into a preview
          ImageView ivPreview = (ImageView) findViewById(R.id.ivPreview);
