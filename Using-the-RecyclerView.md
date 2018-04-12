@@ -116,16 +116,22 @@ public class Contact {
 Inside the desired activity layout XML file in `res/layout/activity_users.xml`, let's add the `RecyclerView` from the support library:
 
 ```xml
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
     <android.support.v7.widget.RecyclerView
-      android:id="@+id/rvContacts"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent" />
+        android:id="@+id/rvContacts"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>
 ```
 
 In the layout, preview we can see the `RecyclerView` within the activity:
