@@ -224,18 +224,10 @@ public class ContactsAdapter extends
 
     // Store a member variable for the contacts
     private List<Contact> mContacts;
-    // Store the context for easy access
-    private Context mContext;
 
     // Pass in the contact array into the constructor
-    public ContactsAdapter(Context context, List<Contact> contacts) {
+    public ContactsAdapter(List<Contact> contacts) {
         mContacts = contacts;
-        mContext = context;
-    }
-
-    // Easy access to the context object in the recyclerview
-    private Context getContext() {
-       return mContext;
     }
 }
 ```
@@ -304,7 +296,7 @@ public class UserListActivity extends AppCompatActivity {
          // Initialize contacts
          contacts = Contact.createContactsList(20);
          // Create adapter passing in the sample user data
-         ContactsAdapter adapter = new ContactsAdapter(this, contacts);
+         ContactsAdapter adapter = new ContactsAdapter(contacts);
          // Attach the adapter to the recyclerview to populate items
          rvContacts.setAdapter(adapter);
          // Set layout manager to position the items
