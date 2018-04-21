@@ -22,7 +22,7 @@ Next, simply declare a `BottomNavigationView` instance and make sure to set `ali
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/menu_bottom_navigation"></android.support.design.widget.BottomNavigationView>
+        app:menu="@menu/menu_bottom_navigation" />
 </android.support.constraint.ConstraintLayout>
 ```
 
@@ -146,8 +146,7 @@ The bottom navigation view also can be customized with several different options
   <!-- tint color for bottom navigation icons -->
   app:itemIconTint="@color/white"
   <!-- text color for bottom navigation text -->
-  app:itemTextColor="@color/white">
-</android.support.design.widget.BottomNavigationView>
+  app:itemTextColor="@color/white" />
 ```
 
 ## References
