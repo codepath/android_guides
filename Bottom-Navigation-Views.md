@@ -136,16 +136,17 @@ public class MainActivity extends AppCompatActivity {
 ```
 ### Customizing styles
 
-The bottom navigation view also can be customized with several different options, including
+The bottom navigation view also can be customized with several different options, including:
 `app:itemBackground`, `app:itemIcontint`, and `app:ItemTextColor`:
+- `app:itemBackground` - The background for the bottom navigation's items
+- `app:itemIconTint` - The tinting for the bottom navigation's items' icons
+- `app:itemTextColor` - The text color for the bottom navigation's items' text
 
+Example:
 ```xml
 <android.support.design.widget.BottomNavigationView
-  <!-- should match top primary color -->
   app:itemBackground="@color/colorPrimary"
-  <!-- tint color for bottom navigation icons -->
   app:itemIconTint="@color/white"
-  <!-- text color for bottom navigation text -->
   app:itemTextColor="@color/white" />
 ```
 
