@@ -833,7 +833,7 @@ imageView.loadInBackground()
 ```
 
 ```kotlin
-imageView.setParseFile(post.media);
+imageView.setParseFile(post.media)
 imageView.loadInBackground()
 ```
 
