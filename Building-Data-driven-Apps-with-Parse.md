@@ -794,14 +794,16 @@ class Post : ParseObject() {
 A `ParseFile` instance can be initialized with a `File` object or a byte array.  Follow the [[CodePath Camera and Gallery Guide|Accessing-the-Camera-and-Stored-Media]] guide for capturing photos with a camera.  
 
 ```java
-// getPhotoFileUri() is defined in https://guides.codepath.com/android/Accessing-the-Camera-and-Stored-Media#using-capture-intent
+// getPhotoFileUri() is defined in 
+// https://guides.codepath.com/android/Accessing-the-Camera-and-Stored-Media#using-capture-intent
 File photoFile = getPhotoFileUri(photoFileName);
 
 ParseFile parseFile = new ParseFile(photoFile);
 ```
 
 ```kotlin
-getPhotoFileUri() is defined in https://guides.codepath.com/android/Accessing-the-Camera-and-Stored-Media#using-capture-intent
+// getPhotoFileUri() is defined in 
+// https://guides.codepath.com/android/Accessing-the-Camera-and-Stored-Media#using-capture-intent
 val photoFile = getPhotoFileUri(photoFileName)
 
 val parseFile = ParseFile(photoFile)
