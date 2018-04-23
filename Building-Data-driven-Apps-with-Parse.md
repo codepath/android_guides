@@ -839,7 +839,7 @@ imageView.setParseFile(post.media)
 imageView.loadInBackground()
 ```
 
-If you have a third-party library such as [Glide](https://guides.codepath.com/android/Displaying-Images-with-the-Glide-Library) or Picasso, you can also reference the URL property:
+Alternatively, if you have a third-party library such as [Glide](https://guides.codepath.com/android/Displaying-Images-with-the-Glide-Library) or Picasso, you can also reference the URL directly and don't need to use this special `ParseImageView` widget.
 
 ```java
 Glide.with(view.context).load(post.getMedia().getUrl()).into(imageView);
