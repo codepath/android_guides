@@ -765,15 +765,87 @@ Parse has many powerful features in addition to the core functionality listed ab
 
 ### Uploading Photos
 
-Parse has full support for storing images and files uploaded by an application. Photos are stored using the `ParseFile` construct [described in more detail here](http://parseplatform.org/docs/android/guide/#files). Refer to the following resources for more details:
+Parse has full support for storing images and files uploaded by an application. Photos are stored using the `ParseFile` construct [described in more detail here](http://parseplatform.org/docs/android/guide/#files). To add a custom property to your Parse Object, you simply need to use `ParseFile`:
 
- * [Parse Docs on File Uploads](http://parseplatform.org/docs/android/guide/#files)
- * [Mealspotting Sample App](https://github.com/rufflez/MealSpottingTutorial) - Detailed app sample showing how to store images associated to a record. Here's a [related video](https://www.youtube.com/watch?v=X9ttMA5ca9U).
- * [[CodePath Camera and Gallery Guide|Accessing-the-Camera-and-Stored-Media]] - Guide on capturing photos with the camera.
- * [[Handling Files after API 24|Sharing-Content-with-Intents#sharing-files-with-api-24-or-higher]] - Section on how to store files using `FileProvider`
- * [How to upload images onto Parse post](http://stackoverflow.com/questions/31227547/how-to-upload-image-to-parse-in-android) - Good StackOverflow post on uploading images to Parse
+```java
+@ParseClassName("Post")
+class Post extends ParseObject {
+    public ParseFile getMedia() {
+        return getParseFile("media");
+    }
 
+    public void setMedia(ParseFile parseFile) {
+        put("media", parseFile);
+    }
+}
+```
 
+```kotlin
+@ParseClassName("Post")
+class Post : ParseObject() {
+
+    var media: ParseFile?
+        get() = getParseFile("media")
+        set(file) {
+            put("media", file)
+        }
+```
+
+A `ParseFile` instance can be initialized with a `File` object or a byte array.  Follow the [[CodePath Camera and Gallery Guide|Accessing-the-Camera-and-Stored-Media]] guide for capturing photos with a camera.  
+
+```java
+// getPhotoFileUri() is defined in https://guides.codepath.com/android/Accessing-the-Camera-and-Stored-Media#using-capture-intent
+File photoFile = getPhotoFileUri(photoFileName);
+
+ParseFile parseFile = new ParseFile(photoFile);
+```
+
+```kotlin
+getPhotoFileUri() is defined in https://guides.codepath.com/android/Accessing-the-Camera-and-Stored-Media#using-capture-intent
+val photoFile = getPhotoFileUri(photoFileName)
+
+val parseFile = ParseFile(photoFile)
+```
+
+### Rendering ParseFile objects
+
+To render a ParseFile in an ImageView, you can use [Parse's UI Widget library](https://github.com/parse-community/ParseUI-Android) and use the `ParseImageView`, which provides helper methods to load the image asynchronously.  First, you need to add the Parse UI Widget to your `app/build.gradle` declaration:
+
+```gradle
+dependencies {
+  implementation 'com.parse:parseui-widget-android:0.0.2'
+}
+```
+
+Instead of an `ImageView`, use the `com.parse.ParseImageView` class:
+
+```xml
+<com.parse.ParseImageView 
+        android:layout_width="match_parent"
+        android:layout_height="300dp"/>
+```
+
+To load the `ParseFile`, use the `setParseFile()` method and call `loadInBackground()`:
+
+```java
+imageView.setParseFile(post.getMedia());
+imageView.loadInBackground()
+```
+
+```kotlin
+imageView.setParseFile(post.media);
+imageView.loadInBackground()
+```
+
+If you have a third-party library such as [Glide](https://guides.codepath.com/android/Displaying-Images-with-the-Glide-Library) or Picasso, you can also reference the URL property:
+
+```java
+Glide.with(view.context).load(post.getMedia().getUrl()).into(imageView);
+```
+
+```kotlin
+Glide.with(view.context).load(post.media?.url).into(imageView)
+```
 ### Geo Location
 
 Parse has support for geolocation services and querying:
