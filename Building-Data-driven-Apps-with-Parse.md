@@ -809,7 +809,7 @@ val photoFile = getPhotoFileUri(photoFileName)
 val parseFile = ParseFile(photoFile)
 ```
 
-### Rendering ParseFile objects
+#### Rendering ParseFile objects
 
 To render a ParseFile in an ImageView, you can use [Parse's UI Widget library](https://github.com/parse-community/ParseUI-Android) and use the `ParseImageView`, which provides helper methods to load the image asynchronously.  First, you need to add the Parse UI Widget to your `app/build.gradle` declaration:
 
