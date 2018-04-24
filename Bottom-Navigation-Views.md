@@ -1,6 +1,6 @@
 ## Overview
 
-[Bottom navigation](https://material.google.com/components/bottom-navigation.html) provide easy navigation for switching between 3 to 5 different views.  It was a recently added to the [Material Design spec](https://material.google.com/components/bottom-navigation.html), which provides an alternative between [tabs](https://material.google.com/components/tabs.html) and [navigation drawers](https://material.google.com/patterns/navigation-drawer.html).  This widget was also added to v25 of the support design library.
+[Bottom navigation](https://material.google.com/components/bottom-navigation.html) provide easy navigation for switching between 3 to 5 different views.  It was recently added to the [Material Design spec](https://material.google.com/components/bottom-navigation.html), which provides an alternative between [tabs](https://material.google.com/components/tabs.html) and [navigation drawers](https://material.google.com/patterns/navigation-drawer.html).  This widget was also added to v25 of the support design library.
 
 <center><img src="https://imgur.com/MN4szO6.png" height="400"></center>
 
