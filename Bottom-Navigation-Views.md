@@ -150,6 +150,20 @@ Example:
   app:itemTextColor="@color/white" />
 ```
 
+### Drawables
+
+<img src="https://imgur.com/wEwveJG.png">
+
+When a bottom navigation menu item is selected, it is in a `checked` state.  You can create a [[state list drawable|Drawables#state-list]] to render different icons depending on whether the menu item is selected:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<selector
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true" android:drawable="@drawable/instagram_home_filled_24"/>
+    <item android:state_checked="false" android:drawable="@drawable/instagram_home_outline_24" />
+</selector>
+```
 ## References
 
 * <https://medium.com/@hitherejoe/exploring-the-android-design-support-library-bottom-navigation-drawer-548de699e8e0>
