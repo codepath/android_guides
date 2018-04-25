@@ -18,7 +18,7 @@ apply plugin: 'com.android.application'
 
 dependencies {
     // ...
-    compile 'com.android.support:support-v4:26.0.2'
+    implementation 'com.android.support:support-v4:27.1.1'
 }
 ```
 
@@ -27,8 +27,8 @@ Make sure your support library is up to date by adding to your root `gradle.file
 ```gradle
 allprojects {
     repositories {
-        // add below
-        maven { url "https://maven.google.com" }
+        // requires Gradle v4.1+
+        google()
     }
 }
 ```
