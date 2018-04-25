@@ -150,7 +150,7 @@ Example:
   app:itemTextColor="@color/white" />
 ```
 
-### Drawables
+### Customizing menu icon state
 
 <img src="https://imgur.com/wEwveJG.png">
 
