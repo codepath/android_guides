@@ -44,6 +44,8 @@ public void onLaunchCamera(View view) {
 }
 ```
 
+### Create a File Reference
+
 We need to define the `getPhotoFileUri()` function:
 
 ```java
