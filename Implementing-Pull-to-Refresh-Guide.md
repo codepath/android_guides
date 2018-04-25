@@ -1,6 +1,6 @@
 ## Overview
 
-In Android, the common "pull to refresh" UX concept is not built in to a ListView. However, many Android applications would like to make use of this concept for their feeds. This is useful for all sorts of feeds such as a Twitter timeline. This effect can be achieved using the `SwipeRefreshLayout` from the [support library](http://developer.android.com/tools/support-library/index.html), which was recently introduced and back-ported to all versions down to Android API level 4.
+In Android, the common "pull to refresh" UX concept is not built in to a ListView/RecyclerView. However, many Android applications would like to make use of this concept for their feeds. This is useful for all sorts of feeds such as a Twitter timeline. This effect can be achieved using the `SwipeRefreshLayout` from the [support library](http://developer.android.com/tools/support-library/index.html), which was recently introduced and back-ported to all versions down to Android API level 4.
 
 <img src="https://i.imgur.com/6BecRWd.gif" height="400" />&nbsp;
 <img src="https://i.imgur.com/PtY0Ju1.gif" height="400" />
@@ -33,9 +33,9 @@ allprojects {
 }
 ```
 
-## ListView with SwipeRefreshLayout
+## RecyclerView with SwipeRefreshLayout
 
-### Step 1: Wrap ListView
+### Step 1: Wrap RecyclerView
 
 We can use this by first wrapping the scrollable view with a `SwipeRefreshLayout` in the XML layout:
 
@@ -46,8 +46,8 @@ We can use this by first wrapping the scrollable view with a `SwipeRefreshLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-  <ListView
-      android:id="@+id/lvItems"
+  <RecyclerView
+      android:id="@+id/rvItems"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_alignParentLeft="true"
