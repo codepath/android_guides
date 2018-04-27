@@ -324,6 +324,16 @@ public class TodoItem extends ParseObject {
 }
 ```
 
+```kotlin
+import com.parse.ParseObject
+import com.parse.ParseClassName
+
+@ParseClassName("TodoItem")
+class TodoItem : ParseObject() {
+
+}
+```
+
 We need to make sure to register this class with Parse **before** we call `Parse.initialize`:
 
 ```java
