@@ -765,11 +765,14 @@ Parse has many powerful features in addition to the core functionality listed ab
 
 ### Uploading Photos
 
-Parse has full support for storing images and files uploaded by an application. Photos are stored using the `ParseFile` construct [described in more detail here](http://parseplatform.org/docs/android/guide/#files). To add a custom property to your Parse Object, you simply need to use `ParseFile`:
+Parse has full support for storing images and files uploaded by an application. Photos are stored using the `ParseFile` construct [described in more detail here](http://parseplatform.org/docs/android/guide/#files). 
+
+First, make sure to create a [Parse model](https://guides.codepath.com/android/Building-Data-driven-Apps-with-Parse#creating-parse-models).  Next, you will need to add a `ParseFile` object:
 
 ```java
 @ParseClassName("Post")
 class Post extends ParseObject {
+
     public ParseFile getMedia() {
         return getParseFile("media");
     }
@@ -777,6 +780,15 @@ class Post extends ParseObject {
     public void setMedia(ParseFile parseFile) {
         put("media", parseFile);
     }
+
+    public ParseUser getAuthor() {
+        return getParseUser("author");
+    }
+
+    public void setAuthor(ParseUser author) {
+        put("author", author);
+    }
+
 }
 ```
 
@@ -788,6 +800,12 @@ class Post : ParseObject() {
         get() = getParseFile("media")
         set(file) {
             put("media", file)
+        }
+
+    var author: ParseUser?
+        get() = getParseUser("author")
+        set(author) {
+            put("author", author)
         }
 ```
 
