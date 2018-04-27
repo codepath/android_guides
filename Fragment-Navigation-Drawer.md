@@ -174,13 +174,13 @@ Next, let's setup a basic navigation drawer based on the following layout file w
 Now, let's setup the drawer in our activity.  We can also setup the menu icon too.
 
 ```java
-public class MainActivity extends AppCompatActivity {
-    private DrawerLayout mDrawer;
-    private Toolbar toolbar;
-    private NavigationView nvDrawer;
- 
-    // Make sure to be using android.support.v7.app.ActionBarDrawerToggle version.
-    // The android.support.v4.app.ActionBarDrawerToggle has been deprecated.
+1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. public class MainActivity*  extends AppCompatActivity {
+1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. *     private DrawerLayout mDrawer;
+1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. *     private Toolbar toolbar;
+1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. *     private NavigationView nvDrawer;
+1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. *  
+1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. *     // Make sure to be using android.support.v7.app.ActionBarDrawerToggle version.
+1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. *     // The android.support.v4.app.ActionBarDrawerToggle has been deprecated.
     private ActionBarDrawerToggle drawerToggle;
 
     @Override
