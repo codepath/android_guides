@@ -790,15 +790,6 @@ class Post extends ParseObject {
     public void setMedia(ParseFile parseFile) {
         put("media", parseFile);
     }
-
-    public ParseUser getAuthor() {
-        return getParseUser("author");
-    }
-
-    public void setAuthor(ParseUser author) {
-        put("author", author);
-    }
-
 }
 ```
 
@@ -810,12 +801,6 @@ class Post : ParseObject() {
         get() = getParseFile("media")
         set(file) {
             put("media", file)
-        }
-
-    var author: ParseUser?
-        get() = getParseUser("author")
-        set(author) {
-            put("author", author)
         }
 ```
 
