@@ -321,6 +321,14 @@ import com.parse.ParseClassName;
 public class TodoItem extends ParseObject {
   // Ensure that your subclass has a public default constructor
 
+    public ParseUser getAuthor() {
+        return getParseUser("author");
+    }
+
+    public void setAuthor(ParseUser author) {
+        put("author", author);
+    }
+
 }
 ```
 
@@ -330,7 +338,11 @@ import com.parse.ParseClassName
 
 @ParseClassName("TodoItem")
 class TodoItem : ParseObject() {
-
+var author: ParseUser?
+    get() = getParseUser("author")
+    set(author) {
+        put("author", author)
+    }
 }
 ```
 
