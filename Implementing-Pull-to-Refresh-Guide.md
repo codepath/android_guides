@@ -52,7 +52,7 @@ We can use this by first wrapping the scrollable view with a `SwipeRefreshLayout
       android:layout_height="wrap_content"
       android:layout_alignParentLeft="true"
       android:layout_alignParentTop="true" >
-  </ListView>
+  </RecyclerView>
 
 </android.support.v4.widget.SwipeRefreshLayout>
 ```
