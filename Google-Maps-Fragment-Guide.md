@@ -13,7 +13,7 @@ In this guide, we will walk you through the step by step process of getting an e
       allprojects {
         repositories {
           jcenter()
-          maven { url "https://maven.google.com" }
+          google() // new since Gradle v4.1
         }
       }
       ```
