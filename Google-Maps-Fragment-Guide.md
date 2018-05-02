@@ -76,15 +76,10 @@ android:value="@string/google_maps_api_key" />
 
 If you want to run the app **using a physical device**, then check out [[this guide on running apps using your device|Running-Apps-on-Your-Device]] and then skip the rest of this section and go directly to "Run the App" section below! You only need this section **if you want to run maps on an emulator**. 
 
-If you are using Genymotion then see the section below to make sure **you've setup Google Play services**. If you want to use the official emulator, see the "Setup x86-based Emulator" section below. 
-
-### Installing on Genymotion
-
-See the instructions to [[setup Genymotion|Genymotion 2.0 Emulators-with-Google-Play-support]].  It includes directions for setting Google Play Services and GPS too.  You will need to setup both in order to setup the map demo.
+If you want to use the official emulator, see the "Setup x86-based Emulator" section below. 
+Using Genymotion is now deprecated.
 
 ### Setup x86-based Emulator
-
-**Note:** Skip this step unless you can't run maps on Genymotion or a physical device. 
 
 For the respective Android API version you are targeting, go to `Tools` -> `Android SDK` and make sure to download the respective `Google Play Intel x86 Atom System Message` by clicking on the `Show Package Details` checkbox:
 
@@ -137,6 +132,10 @@ If using **the official Google emulator**, we can update the "current location" 
 You can enter any lat / lng i.e `37.4810289, -122.1543292`.
 
 **Make sure to click the Send** button to report the GPS location.  After updating this location, you can use the "current location" marker on the app to move the map to your device's configured location.
+
+### Installing on Genymotion (Deprecated)
+
+See the instructions to [[setup Genymotion|Genymotion 2.0 Emulators-with-Google-Play-support]].  It includes directions for setting Google Play Services and GPS too.  You will need to setup both in order to setup the map demo.
 
 ## Run the App
 
