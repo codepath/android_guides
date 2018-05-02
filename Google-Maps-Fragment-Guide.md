@@ -91,6 +91,11 @@ The next screen should show you versions are available.  Select `Oreo, API Level
 
 <img src="https://imgur.com/kgmkqAB.png" width="600"/>
 
+Once the system is downloaded, you should be able to click on the `Next` button with the desired version to use.
+Clicking on the `Finish` button will complete the process.
+
+<img src="https://imgur.com/x1ox3Lt.png" width="600"/>
+
 > ***Note:** Make sure to install `HAXM` if Android Studio prompts you to do so.
 
 This emulator is now configured to run Google Play Services. When you start this emulator, you may notice some loss of crispness, especially on text. This happens because the emulator launches to fill the window and may result in a non-power of 2 scaling. To fix this, you can edit the AVD and select a scale of `2dp = 1px on screen` and go into advanced settings and turn off `Enable Device Frame`.
