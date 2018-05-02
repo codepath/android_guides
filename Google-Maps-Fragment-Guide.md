@@ -89,7 +89,7 @@ Choose only an AVD emulator that has `Play Store` support listed.  You can see t
 
 Select `Nexus 5X` ⇒ `Show downloadable system images` and select `Oreo, API Level 27, x86_64, Android 8.1` **(Google Play)**
 
-<img src="https://i.imgur.com/gfSSoDB.png" width="650" alt="Emulator" />
+<img src="https://imgur.com/VtOwxn8.png" width="650" alt="Emulator" />
 
 You may be prompted to update your Google Play Services.  If you are running an AVD emulator that supports Google Play, you will be asked to sign-in with a Google account.  If you do not see any window launching or see an error such as `android.content.ActivityNotFoundException: No Activity found to handle Intent { act=android.intent.action.VIEW dat=market://details?id=com.google.android.gms`, then chances are you not using an emulator with Google Play support.
 
