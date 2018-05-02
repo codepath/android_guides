@@ -81,19 +81,13 @@ Using Genymotion is now deprecated.
 
 ### Setup x86-based Emulator
 
-For the respective Android API version you are targeting, go to `Tools` -> `Android SDK` and make sure to download the respective `Google Play Intel x86 Atom System Message` by clicking on the `Show Package Details` checkbox:
-
-<img src="https://imgur.com/0iQA2ji.png">
-
-If you forget to follow this step, you may see error messages such as `Google Play services out of date.  Requires 11400000 but found 10932470` or similar error messages.
-
 Open `Android Studio` ⇒ `Tools` ⇒ `Android` ⇒ `Android AVD Manager` and `Create a Virtual Device...`
 
 Choose only an AVD emulator that has `Play Store` support listed.  You can see the icon that only the Nexus 5x and Nexus 5 emulators provide support:
 
 <img src="https://imgur.com/Ab0tldo.png">
 
-Select `Nexus 5X` ⇒ `Show downloadable system images` and select `Oreo, API Level 26, x86_64, Android 6.0` **(with Google APIs)**
+Select `Nexus 5X` ⇒ `Show downloadable system images` and select `Oreo, API Level 27, x86_64, Android 8.1` **(Google Play)**
 
 <img src="https://i.imgur.com/gfSSoDB.png" width="650" alt="Emulator" />
 
