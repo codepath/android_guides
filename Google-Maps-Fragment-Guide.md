@@ -111,17 +111,13 @@ This emulator is now configured to run Google Play Services. When you start this
 
 <img src="https://i.imgur.com/XOpvoci.png" width="650" alt="FixDisplay" />
 
+### Installing on Genymotion (Deprecated)
+
+See the instructions to [[setup Genymotion|Genymotion 2.0 Emulators-with-Google-Play-support]].  It includes directions for setting Google Play Services and GPS too.  You will need to setup both in order to setup the map demo.
+
 ## Enabling Location on Emulator
 
 If you are using a physical device, you can **skip this section**. You only need this section **if you want to run maps and location on an emulator**. 
-
-### Genymotion GPS
-
-Note that you **need to set the location on your emulator** either through Genymotion or on the official emulator. On Genymotion, we can click the GPS icon on the right-hand sidebar and then enable GPS:
-
-<img src="https://i.imgur.com/xha71ga.png" width="350" />
-
-You can enter any lat / lng i.e `37.4810289, -122.1543292`. With GPS enabled, you can now close the dialog and use the "current location" marker on the app to move the map to your device's configured location.
 
 ### Official Emulator
 
@@ -133,9 +129,13 @@ You can enter any lat / lng i.e `37.4810289, -122.1543292`.
 
 **Make sure to click the Send** button to report the GPS location.  After updating this location, you can use the "current location" marker on the app to move the map to your device's configured location.
 
-### Installing on Genymotion (Deprecated)
+### Genymotion GPS
 
-See the instructions to [[setup Genymotion|Genymotion 2.0 Emulators-with-Google-Play-support]].  It includes directions for setting Google Play Services and GPS too.  You will need to setup both in order to setup the map demo.
+Note that you **need to set the location on your emulator** either through Genymotion or on the official emulator. On Genymotion, we can click the GPS icon on the right-hand sidebar and then enable GPS:
+
+<img src="https://i.imgur.com/xha71ga.png" width="350" />
+
+You can enter any lat / lng i.e `37.4810289, -122.1543292`. With GPS enabled, you can now close the dialog and use the "current location" marker on the app to move the map to your device's configured location.
 
 ## Run the App
 
