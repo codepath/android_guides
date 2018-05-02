@@ -19,9 +19,12 @@ In this guide, we will walk you through the step by step process of getting an e
       ```
 4. Verify sure you have these dependencies listed in your `app/build.gradle` file:
       ```gradle
+      ext {
+        googlePlayVersion = "15.0.0"
+      }
       dependencies {
-          compile 'com.google.android.gms:play-services-maps:11.4.2'
-          compile 'com.google.android.gms:play-services-location:11.4.2'
+        implementation "com.google.android.gms:play-services-maps:$googlePlayVersion"
+        implementation "com.google.android.gms:play-services-location:$googlePlayVersion"
       }
       ```
 5. Make sure to select `Build => Clean project` and then `Build => Re-build project` to make any issues with `MapDemoActivityPermissionsDispatcher` in `MapDemoActivity.java` clear up the errors.
