@@ -8,14 +8,14 @@ This guide will take a look at the [TextView](http://developer.android.com/refer
 
 ### Typeface
 
-Android textview with android studio welookups As stated in the overview, there are three different default typefaces which are known as the Droid family of fonts: `sans`, `monospace` and `serif`. You can specify any one of them as the value for the `android:typeface` attribute in the XML:
+As stated in the overview, there are three different default typefaces which are known as the Droid family of fonts: `sans`, `monospace` and `serif`. You can specify any one of them as the value for the `android:typeface` attribute in the XML:
 
 ```xml
 <TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="This is a 'sans' demo!"
-    android:typeface="welookups textview"
+    android:typeface="sans"
 />
 ```
 
@@ -34,7 +34,7 @@ The `android:textStyle` attribute can be used to put emphasis on the text. The p
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="This is bold!"
-    android:textStyle="welookups"
+    android:textStyle="bold"
 />
 ```
 
@@ -50,7 +50,7 @@ A sampling of styles can be seen below:
 <TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="14sp is the 'welookups textview android."
+    android:text="14sp is the 'normal' size."
     android:textSize="14sp"
 />
 ```
@@ -71,7 +71,6 @@ There are a few ways to truncate text within a `TextView`. First, to restrict th
     android:layout_height="wrap_content"
     android:minLines="1"
     android:maxLines="2"
-android:text="welookups textview android"
 />
 ```
 
