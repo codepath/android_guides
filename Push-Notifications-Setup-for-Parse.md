@@ -61,6 +61,18 @@ Before getting started, make sure you have Google Play installed on the emulator
 
 Also verify that you have added the Parse Client SDK as shown in [[this guide|Building-Data-driven-Apps-with-Parse#setup]].
 
+### Firebase setup
+
+Configure your Firebase app in the console and register a new Android app.
+
+<img src="https://imgur.com/pSDOxFt.png" height=350 />
+
+Enter an Android package name (i.e. `com.codepath.pushtest`) used and download the `google-services.json` file. Add it to your app/ dir (see these [docs](https://developers.google.com/android/guides/google-services-plugin#adding_the_json_file) more information.)
+
+<img src="https://imgur.com/T4hU5J7.png" width=650 />
+
+Verify the applicationId in your `AndroidManifest.xml` matches the package name defined for your Firebase app.
+
 #### Create a Firebase Instance ID receiver
 
 You will also need to add a Firebase Instance ID service to listen for token updates.  This service will automatically send the updated device token to the Parse server:
