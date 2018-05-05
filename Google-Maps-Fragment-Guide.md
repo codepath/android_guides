@@ -96,6 +96,10 @@ Clicking on the `Finish` button will complete the process.
 
 <img src="https://imgur.com/x1ox3Lt.png" width="600"/>
 
+Once you have downloaded the emulator, you will be asked to sign-in with a Google account.  You will only need to sign-in if you wish to download apps from the Play store.
+
+<img src="https://imgur.com/YCtAboU.png" width="400"/>
+
 > ***Note:** Make sure to install `HAXM` if Android Studio prompts you to do so.
 
 This emulator is now configured to run Google Play Services. When you start this emulator, you may notice some loss of crispness, especially on text. This happens because the emulator launches to fill the window and may result in a non-power of 2 scaling. To fix this, you can edit the AVD and select a scale of `2dp = 1px on screen` and go into advanced settings and turn off `Enable Device Frame`.
