@@ -63,7 +63,9 @@ Also verify that you have added the Parse Client SDK as shown in [[this guide|Bu
 
 ### Firebase setup
 
-Configure your Firebase app in the console and register a new Android app.
+Make sure to follow steps 1 to create a Firebase app as shown in [[this section||Google-Cloud-Messaging#step-1-register-with-firebase-developers-console]].
+
+Make sure to click on the option to add Firebase to your Android app:
 
 <img src="https://imgur.com/pSDOxFt.png" height=350 />
 
