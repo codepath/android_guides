@@ -4,9 +4,11 @@ The instructions below apply to the open source version of Parse, not hosted Par
 
 ### Parse Server Setup
 
-Make sure to take a look at [[Configuring a Parse Server]] to understand how to setup your own self-hosted Parse server.  If a server has already been setup and configured properly to support FCM, you can skip this section.
+Make sure to take a look at [[Configuring a Parse Server]] to understand how to setup your own self-hosted Parse server.  If a server has already been setup and configured properly to support Firebase Cloud Messaging (FCM), you can skip this section.
 
 #### Obtain GCM Sender ID and API Key
+
+**NOTE**: Parse Server currently requires a GCM sender ID and API key.    This information can be taken from your Firebase app.
 
 First, you will need to obtain a Google Cloud Messaging Sender ID and API Key.  You can follow only step 1 of [this guide](https://github.com/codepath/android_guides/wiki/Google-Cloud-Messaging/b7ab0d3329898f147b2fe7a32c731f9ce251893c#step-1-register-with-google-developers-console) to obtain the Sender ID (equivalent to the Project Number) and API Key.  You do not need to follow the other steps because Parse provides much of code to handle GCM registration for you.  Remember the GCM Sender and API key provided.
 
@@ -55,7 +57,7 @@ Next, redeploy the code.  If you are using Heroku, you need to connect your own 
 
 ### Parse Client Setup
 
-Before getting started, make sure you have Google Play installed on the emulator or device, since push notifications via [Google Cloud Messaging](Google-Cloud-Messaging) (now renamed to Firebase Cloud Messaging (FCM)) will only work for devices and emulators that have Google Play installed.
+Before getting started, make sure you have Google Play installed on the emulator or device, since push notifications via [Firebase Cloud Messaging](Google-Cloud-Messaging) will only work for devices and emulators that have Google Play installed.
 
 Also verify that you have added the Parse Client SDK as shown in [[this guide|Building-Data-driven-Apps-with-Parse#setup]].
 
