@@ -94,7 +94,7 @@ Listen for Firebase push notification messages and decode them in the format tha
 
 Add the ParsePushBroadcast Receiver to handle opening up the appropriate activity for notifications.
 
-```
+```xml
 <application>
   <receiver
     android:name="com.parse.ParsePushBroadcastReceiver"
