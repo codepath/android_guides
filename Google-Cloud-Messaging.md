@@ -100,7 +100,7 @@ dependencies {
 
 ### Create a InstanceID ListenerService
 
-According to this Google official [documentation](https://developers.google.com/instance-id/guides/android-implementation), the instance ID server issues callbacks periodically (i.e. 6 months) to request apps to refresh their tokens.  To support this possibility, we need to extend from `InstanceIDListenerService` to handle token refresh changes.  We should create a file called `MyInstanceIDListenerService.java` that will override this base method and launch an intent service for `RegistrationIntentService` to fetch the token:
+According to this Google official [documentation](https://developers.google.com/instance-id/guides/android-implementation), the instance ID server issues callbacks periodically (i.e. 6 months) to request apps to refresh their tokens.  To support this possibility, we need to extend from `InstanceIDListenerService` to handle token refresh changes.  We should create a file called `MyInstanceIDListenerService.java` that will send this token to our back-end:
 
 ```java
 public class MyInstanceIDListenerService extends FirebaseInstanceIdService {
@@ -383,13 +383,10 @@ This will send messages to the devices specified.
 
 ## Subscribing clients to Topic-Based Messages
 
-FCM also supports opt-in topic-based subscriptions for clients, which does not require passing along the device token to your server.  On the client side, we can also subscribe to this topic simply with two lines.  The `getInstance()` call automatically makes a call to grab an Instance ID, so if we do not wish to pass along our device token, our `RegistrationIntentService` class can look like the following:
+FCM also supports opt-in topic-based subscriptions for clients, which does not require passing along the device token to your server.  On the client side, we can also subscribe to this topic simply with two lines.  The `getInstance()` call automatically makes a call to grab an Instance ID, so if we do not wish to pass along our device token, we can subscribe to a topic using the `subscribeToTopic()` method:
 
 ```java
-@Override
-protected void onHandleIntent(Intent intent) {
-  FirebaseMessaging.getInstance().subscribeToTopic("/topics/" + "dogs");
-}
+FirebaseMessaging.getInstance().subscribeToTopic("/topics/" + "dogs");
 ```
 
 Inside your custom `FCMListenerService`, you will also need to check for these topic-based messages by checking the `from` String:
@@ -409,7 +406,7 @@ public void onMessageReceived(RemoteMessage remoteMessage) {
 Sending to subscribers simply involves changing the `to:` to be prefaced with `/topics/[topic_name]`:
 
 ```bash
-curl -s "https://gcm-http.googleapis.com/GCM/send" -H "Authorization: key=[AUTHORIZATION_KEY]" -H "Content-Type: application/json" -d '{"to": "/topics/hello", "data": {"score": 123}}'
+curl -s "https://fcm.googleapis.com/fcm/send" -H "Authorization: key=[AUTHORIZATION_KEY]" -H "Content-Type: application/json" -d '{"to": "/topics/hello", "data": {"score": 123}}'
 
 ```
 
