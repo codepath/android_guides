@@ -125,7 +125,6 @@ public class RegistrationIntentService extends IntentService {
     protected void onHandleIntent(Intent intent) {
         // Make a call to Instance API
         FirebaseInstanceId instanceID = FirebaseInstanceId.getInstance();
-        String senderId = getResources().getString(R.string.gcm_defaultSenderId);
         try {
             // request token that will be used by the server to send push notifications
             String token = instanceID.getToken();
