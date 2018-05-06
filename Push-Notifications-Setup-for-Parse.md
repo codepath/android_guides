@@ -93,7 +93,7 @@ Listen for Firebase push notification messages and decode them in the format tha
 ```xml
 <application>
   <service
-    android:name=".MyFirebaseMessagingService">
+    android:name="com.parse.fcm.ParseFirebaseMessagingService">
     <intent-filter>
         <action android:name="com.google.firebase.MESSAGING_EVENT"/>
     </intent-filter>
