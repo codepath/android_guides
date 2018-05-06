@@ -257,7 +257,7 @@ Instead, you need to write your own server-side Parse code and have the client i
 * Make sure to enable logging by using `Parse.setLogLevel(Parse.LOG_LEVEL_DEBUG);` to track down permission issues.  
 
 * Double-check your `<uses-permissions>` is outside the `<application>` tag.
-* Verify that you added ParseFirebaseInstanceIdService and ParseFirebaseMessagingService to your AndroidManifest.xml file.
+* Verify that you added `ParseFirebaseInstanceIdService` and `ParseFirebaseMessagingService` to your AndroidManifest.xml file.
 * If you are using Facebook's [[Stetho library|Debugging-with-Stetho]] with your Android client, you can see the LogCat statements and verify that FCM tokens (labeled as GCM push tokens) are being registered by API calls to the `/parse/classes/_Installation` endpoint:
 
 ```
