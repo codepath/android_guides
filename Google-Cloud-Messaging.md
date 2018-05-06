@@ -94,122 +94,7 @@ Add the following to your Gradle file:
 
 ```gradle
 dependencies {
-   compile 'com.google.firebase:firebase-messaging:15.0.0'
-}
-```
-
-### Implement a Registration Intent Service
-
-You will want to implement an [[Intent Service|Starting-Background-Services#creating-an-intentservice]], which will execute as a background thread instead of being tied to the lifecycle of an Activity.   In this way, you can ensure that push notifications can be received by your app if a user navigates away from the activity while this registration process is occuring.
-
-First, you will need to create a `RegistrationIntentService` class and make sure it is declared in your `AndroidManifest.xml` file and within the `application` tag:
-
-```java
-<service android:name=".RegistrationIntentService" android:exported="false"/>
-```
-
-Inside this class, you will need to request an [instance ID](https://developers.google.com/instance-id/reference/) from Google that will be a way to uniquely identify the device and app.  Assuming this request is successful, a token that can be used to send notifications to the app should be generated too.
-
-```java
-// abbreviated tag name
-public class RegistrationIntentService extends IntentService {
-
-    // abbreviated tag name
-    private static final String TAG = "RegIntentService";
-
-    public RegistrationIntentService() {
-        super(TAG);
-    }
-
-    @Override
-    protected void onHandleIntent(Intent intent) {
-        // Make a call to Instance API
-        FirebaseInstanceId instanceID = FirebaseInstanceId.getInstance();
-        try {
-            // request token that will be used by the server to send push notifications
-            String token = instanceID.getToken();
-            Log.d(TAG, "FCM Registration Token: " + token);
-
-            // pass along this data
-            sendRegistrationToServer(token);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void sendRegistrationToServer(String token) {
-        // Add custom implementation, as needed.
-    }
-}
-```
-
-You will want to record whether the token was sent to the server and may wish to store the token in your [[Shared Preferences|Storing-and-Accessing-SharedPreferences]]:
-
-```java
-    public static final String SENT_TOKEN_TO_SERVER = "sentTokenToServer";
-    public static final String FCM_TOKEN = "FCMToken";
-
-    @Override
-    protected void onHandleIntent(Intent intent) {
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-
-        // Fetch token here
-        try {
-          // save token
-          sharedPreferences.edit().putString(FCM_TOKEN, token).apply();
-          // pass along this data
-          sendRegistrationToServer(token);
-        } catch (IOException e) {
-            Log.d(TAG, "Failed to complete token refresh", e);
-            // If an exception happens while fetching the new token or updating our registration data
-            // on a third-party server, this ensures that we'll attempt the update at a later time.
-            sharedPreferences.edit().putBoolean(SENT_TOKEN_TO_SERVER, false).apply();
-        }
-    }
-
-    private void sendRegistrationToServer(String token) {
-        // send network request
-
-        // if registration sent was successful, store a boolean that indicates whether the generated token has been sent to server
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        sharedPreferences.edit().putBoolean(SENT_TOKEN_TO_SERVER, true).apply();
-     }
-```
-
-You will want to make sure to dispatch this registration intent service when starting up your main activity.  There is a Google Play Services check that may require your activity to be launched in order to display a dialog error message, which is why it is being initiated in the activity instead of application.
-
-```java
-
-public class MyActivity extends AppCompatActivity {
-
-  /**
-     * Check the device to make sure it has the Google Play Services APK. If
-     * it doesn't, display a dialog that allows users to download the APK from
-     * the Google Play Store or enable it in the device's system settings.
-     */
-    private boolean checkPlayServices() {
-        GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
-        int resultCode = apiAvailability.isGooglePlayServicesAvailable(this);
-        if (resultCode != ConnectionResult.SUCCESS) {
-            if (apiAvailability.isUserResolvableError(resultCode)) {
-                apiAvailability.getErrorDialog(this, resultCode, PLAY_SERVICES_RESOLUTION_REQUEST)
-                        .show();
-            } else {
-                Log.i(TAG, "This device is not supported.");
-                finish();
-            }
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    protected void onCreate() {
-        if(checkPlayServices()) {
-          Intent intent = new Intent(this, RegistrationIntentService.class);
-          startService(intent);
-        }
-    }
+   compile 'com.google.firebase:firebase-messaging:15.0.2'
 }
 ```
 
@@ -223,8 +108,17 @@ public class MyInstanceIDListenerService extends FirebaseInstanceIdService {
     @Override
     public void onTokenRefresh() {
         // Fetch updated Instance ID token and notify of changes
-        Intent intent = new Intent(this, RegistrationIntentService.class);
-        startService(intent);
+        String refreshedToken = FirebaseInstanceId.getInstance().getToken();
+        Log.d(TAG, "Refreshed token: " + refreshedToken);
+
+        // If you want to send messages to this application instance or
+        // manage this apps subscriptions on the server side, send the
+        // Instance ID token to your app server.
+        sendRegistrationToServer(refreshedToken);    
+    }
+
+    private void sendRegistrationToServer(String token) {
+        // TODO: Implement this method to send token to your app server.
     }
 }
 ```
