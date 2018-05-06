@@ -363,7 +363,7 @@ curl -s "https://fcm.googleapis.com/fcm/send" -H "Authorization: key=[API_KEY_HE
 
 ## Easy Local Testing with Ruby
 
-We can also easily send messages to FCM registered devices using the  ruby [FCM gem](https://github.com/spacialdb/GCM). First we must have [ruby installed](https://www.ruby-lang.org/en/installation/) (default on OSX) and then we can install FCM with:
+We can also easily send messages to FCM registered devices using the ruby [GCM gem](https://github.com/spacialdb/GCM). First we must have [ruby installed](https://www.ruby-lang.org/en/installation/) (default on OSX) and then we can install GCM with:
 
 ```
 gem install gcm
