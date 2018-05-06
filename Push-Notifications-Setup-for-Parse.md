@@ -36,7 +36,7 @@ If you are using Heroku to configure the server, make sure to set the following 
 
    * Set `FCM_API_KEY` environment variables to correspond to the API Key in the previous step.  
 
-      <img src="https://imgur.com/KgU2S2y.png"/>
+      <img src="https://imgur.com/EBIfVaC.png"/>
 
    * Confirm the `SERVER_URL` environment variable is set to the URL and Parse mount location (i.e. `http://yourappname.herokuapp.com/parse`).  
 
