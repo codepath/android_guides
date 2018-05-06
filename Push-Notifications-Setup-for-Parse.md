@@ -6,25 +6,22 @@ The instructions below apply to the open source version of Parse, not hosted Par
 
 Make sure to take a look at [[Configuring a Parse Server]] to understand how to setup your own self-hosted Parse server.  If a server has already been setup and configured properly to support Firebase Cloud Messaging (FCM), you can skip this section.
 
-#### Obtain GCM Sender ID and API Key
+#### Obtain FCM API Key
 
-**NOTE**: Parse Server currently requires a GCM sender ID and API key.    This information can be taken from your Firebase app.
-
-First, you will need to obtain a Google Cloud Messaging Sender ID and API Key.  You can follow only step 1 of [this guide](https://github.com/codepath/android_guides/wiki/Google-Cloud-Messaging/b7ab0d3329898f147b2fe7a32c731f9ce251893c#step-1-register-with-google-developers-console) to obtain the Sender ID (equivalent to the Project Number) and API Key.  You do not need to follow the other steps because Parse provides much of code to handle GCM registration for you.  Remember the GCM Sender and API key provided.
+First, you will need to obtain a Firebase API Key.  You can follow only step 1 of [this guide](https://github.com/codepath/android_guides/wiki/Google-Cloud-Messaging/b7ab0d3329898f147b2fe7a32c731f9ce251893c#step-1-register-with-google-developers-console) to obtain the Sender ID (equivalent to the Project Number) and API Key.  You do not need to follow the other steps because Parse provides much of code to handle FCM registration for you.  Remember the FCM API key provided.
 
 #### Update Parse Server Config
 
-Modify your `index.js` to add support for GCM.  See [this example](https://github.com/codepath/parse-server-example/blob/master/index.js#L15-L18):
+Modify your `index.js` to add support for FCM.  See [this example](https://github.com/codepath/parse-server-example/blob/master/index.js#L15-L18):
 
 ```javascript
-if (process.env.GCM_SENDER_ID && process.env.GCM_API_KEY) {
+if (process.env.FCM_API_KEY) {
    pushConfig['android'] = { 
-   senderId: process.env.GCM_SENDER_ID || '',
-   apiKey: process.env.GCM_API_KEY || ''};
+   apiKey: process.env.FCM_API_KEY || ''};
 }
 ```
 
-This repo has some additional environment variables configurations added that help facilitate sending push    notifications (i.e. see `GCM_SENDER_ID`, and `GCM_API_KEY` in [index.js](https://github.com/codepath/parse-server-example/blob/master/index.js#L37-L40)).  You need to pass this configuration to the instantiation of the Parse server:
+This repo has some additional environment variables configurations added that help facilitate sending push    notifications (i.e. see `FCM_API_KEY` in [index.js](https://github.com/codepath/parse-server-example/blob/master/index.js#L37-L40)).  You need to pass this configuration to the instantiation of the Parse server:
 
 ```javascript
 var api = new ParseServer({
@@ -37,7 +34,7 @@ var api = new ParseServer({
 
 If you are using Heroku to configure the server, make sure to set the following environment variables:
 
-   * Set `GCM_SENDER_ID` and `GCM_API_KEY` environment variables to correspond to the Sender ID and API Key in the previous step.  
+   * Set `FCM_API_KEY` environment variables to correspond to the API Key in the previous step.  
 
       <img src="https://imgur.com/KgU2S2y.png"/>
 
@@ -260,10 +257,8 @@ Instead, you need to write your own server-side Parse code and have the client i
 * Make sure to enable logging by using `Parse.setLogLevel(Parse.LOG_LEVEL_DEBUG);` to track down permission issues.  
 
 * Double-check your `<uses-permissions>` is outside the `<application>` tag.
-* Verify that you have define the `GcmBroadcastReceiver`, `PushService`, and `ParseBroadcastReceiver` inside the `<application>` tag.
-* Use `${packageName} in lieu of the hard-coded package names so you can avoid typos.
- 
-* If you are using Facebook's [[Stetho library|Debugging-with-Stetho]] with your Android client, you can see the LogCat statements and verify that GCM tokens are being registered by API calls to the `/parse/classes/_Installation` endpoint:
+* Verify that you added ParseFirebaseInstanceIdService and ParseFirebaseMessagingService to your AndroidManifest.xml file.
+* If you are using Facebook's [[Stetho library|Debugging-with-Stetho]] with your Android client, you can see the LogCat statements and verify that FCM tokens (labeled as GCM push tokens) are being registered by API calls to the `/parse/classes/_Installation` endpoint:
 
 ```
 : Url : http://192.168.3.116:1337/parse/classes/_Installation
@@ -287,7 +282,7 @@ Body : {
 }
 ```
 
-You might also see an abbreviated version similar to the following if the GCM token is registered later:
+You might also see an abbreviated version similar to the following if the FCM token is registered later:
 
 ```
 11-06 06:32:20.349 25417-25599/com.example.mapdemo I/ParseLogInterceptor: Body : {
@@ -298,24 +293,17 @@ You might also see an abbreviated version similar to the following if the GCM to
 11-06 06:32:20.349 25417-25599/com.example.mapdemo I/ParseLogInterceptor: --------------
 ```
 
-* If GCM is fully setup, your app if properly configured should register itself with your Parse server.  Check your `_Installation` table to verify that the entries were being saved. Clear your app cache or uninstall the app if an entry in the  `_Installation` table hasn't been added.
+* If FCM is fully setup, your app if properly configured should register itself with your Parse server.  Check your `_Installation` table to verify that the entries were being saved. Clear your app cache or uninstall the app if an entry in the  `_Installation` table hasn't been added.
 
-* Inside your `AndroidManifest.xml` definition within the application node, make sure your `gcm_sender_id` is prefixed with `id:` (i.e. `id:123456`).  Parse needs to begin with an `id:` to work correctly.
-  * Make sure to add the GCM metadata **inside of the `<application>` node** or this won't be picked up properly. 
-
-* Make sure you have **not** included `com.google.android.gms:play-services-gcm:8.4.0` in your Gradle configuration.  Parse's Android SDK library already includes code to deal with the GCM registration.
-
-* Verify that you have all the permissions for GCM setup in your `AndroidManifest.xml` file and that you have the correct receivers configured.
+* Verify that you have all the permissions for FCM setup in your `AndroidManifest.xml` file and that you have the correct receivers configured.
 
 #### Server Issues
 
 * Make sure you are on latest open source Parse version: [![npm version](https://img.shields.io/npm/v/parse-server.svg?style=flat)](https://www.npmjs.com/package/parse-server)  You will want to verify what version is set in your `package.json` file (i.e. https://github.com/ParsePlatform/parse-server-example/blob/master/package.json#L15).  Make sure to update this file and redeploy.
 
-* Add the `VERBOSE=1` to the Heroku dashboard.  Also add `DEBUG=apn,node-gcm` to show specific GCM logs:
+* Add the `VERBOSE=1` to the Heroku dashboard.  Also add `DEBUG=apn,node-gcm` to show specific FCM logs:
 
      <img src="https://imgur.com/K1MU5gL.png"/>
-
-   * If you see `MismatchSenderId` errors, make sure you have the correct Sender ID.  Also, make sure the prefix `id:` is specified as your GCM sender ID in the `AndroidManifest.xml` file.  
 
 * You can use this curl command with your application key and master key to send a push to all Android devices:
 
@@ -332,6 +320,6 @@ https://parse-testing-port.herokuapp.com/parse/push/
 2016-03-03T09:26:50.032609+00:00 app[web.1]: #### PUSH OK
 ```
 
-If you see `Can not find sender for push type android`, it means you forgot to set the environment variables `GCM_SENDER_ID` and `GCM_API_KEY`.
+If you see `Can not find sender for push type android`, it means you forgot to set the environment variables `FCM_API_KEY`.
 
 
