@@ -166,6 +166,90 @@ The `SwipeRefreshLayout` will notify the listener each and every time the gestur
 
 You can do this the same way you can configure the `SwipeRefreshLayout` for a `ListView` as shown in [Setup SwipeRefreshLayout](#step-2-setup-swiperefreshlayout) section.
 
+## SwipeRefreshLayout with ListView
+
+### Step 1: Setting SwipeRefreshLayout
+
+Set SwipeRefreshLayout at the Layout you want the SwipeRefresh functionality
+
+**activity_main.xml**
+```xml
+<android.support.v4.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipe_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+</android.support.v4.widget.SwipeRefreshLayout>
+```
+### Step 2: Set your ListView inside Layout
+
+**activity_main.xml**
+```xml
+<android.support.v4.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipe_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </ListView>
+
+</android.support.v4.widget.SwipeRefreshLayout>
+```
+_You could use a ScrollView instead a ListView_
+
+### Step 3: Now in your main_activity set your code
+
+In the activity who points to activity_main.xml, which is main_activity(in this example), this code should be enough
+
+**main_activity.java**
+```java
+public class MainActivity extends AppCompatActivity {
+    SwipeRefreshLayout swipeLayout;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        // Getting SwipeContainerLayout
+        swipeLayout = findViewById(R.id.swipe_container);
+        // Adding Listener
+        swipeLayout.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // Your code here
+                Toast.makeText(getApplicationContext(), "Works!", Toast.LENGTH_LONG).show();
+                // To keep animation for 4 seconds
+                new Handler().postDelayed(new Runnable() {
+                    @Override public void run() {
+                        // Stop animation (This will be after 3 seconds)
+                        swipeLayout.setRefreshing(false);
+                    }
+                }, 4000); // Delay in millis
+            }
+        });
+
+        // Scheme colors for animation
+        swipeLayout.setColorSchemeColors(
+                getResources().getColor(android.R.color.holo_blue_bright),
+                getResources().getColor(android.R.color.holo_green_light),
+                getResources().getColor(android.R.color.holo_orange_light),
+                getResources().getColor(android.R.color.holo_red_light)
+        );
+    }
+}
+```
+
+Now just run your application
+
+_Note: if you remove the listView component your application crashes_
+
 ## Troubleshooting
 
 If you aren't able to get the swipe to refresh working, check the following tips:
