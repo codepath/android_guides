@@ -232,7 +232,7 @@ First, add the RecyclerView as a dependency in your `app/build.gradle`:
 ```gradle
 dependencies {
     ...
-    compile 'com.android.support:recyclerview-v7:25.3.1'
+    compile 'com.android.support:recyclerview-v7:27.1.1'
 }
 ```
 
