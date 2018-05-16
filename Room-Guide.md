@@ -164,7 +164,7 @@ Modify your `AndroidManifest.xml` file to reference this Application object for 
 
 ## Basic CRUD operations
 
-Basic creation, read, update, and delete (CRUD) statements need to be defined in your data access object (DAO).  One major difference is that queries cannot be done on the main thread.  In addition, the objects can be inserted with an [][AsyncTask|Creating-and-Executing-Async-Tasks]] or using the `runInTransaction() method`:
+Basic creation, read, update, and delete (CRUD) statements need to be defined in your data access object (DAO).  One major difference is that queries cannot be done on the main thread.  In addition, the objects can be inserted with an [AsyncTask|Creating-and-Executing-Async-Tasks]] or using the `runInTransaction() method`:
 
 ```java
 final Organization organization = new Organization();
