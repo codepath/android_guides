@@ -91,13 +91,9 @@ Be sure to start properly organizing your resources early on in the development 
 
 ### Organizing Resources into Subfolders
 
-Often there are questions about organizing not just the source files but also better organizing the [application resources](http://guides.codepath.com/android/Understanding-App-Resources). In a modern app, there are often hundreds of different layout files, drawables, styles, etc and by default these are all grouped together in a flat list within a single subdirectory (i.e `res/layout`).
+Often there are questions about organizing not just the source files but also better organizing the [application resources](http://guides.codepath.com/android/Understanding-App-Resources). In a modern app, there are often hundreds of different layout files, drawables, styles, etc and by default these are all grouped together in a flat list within a single subdirectory (i.e `res/layout`).  For now, keep the layout resource files in the same directory.
 
-In order to further organize or group your various resources, the best way is to [install the third-party folding-plugin](https://plugins.jetbrains.com/plugin/7876) for Android Studio to create virtual folders
-
-<a href="https://github.com/dmytrodanylyk/folding-plugin"><img src="https://i.imgur.com/fOir80H.jpg" width="600" /></a>
-
-Refer to [stackoverflow post](http://stackoverflow.com/q/4930398/313399) for a discussion of the other options. 
+Refer to [stackoverflow post](http://stackoverflow.com/q/4930398/313399) for a discussion of explored options.  The main problem is that if you try to use the nested resource layout approach, the current logic for the Android Studio's Gradle plug-in will not update the resource files after they have changed for nested resource sets. The current implementation attempts to check the resource directories using startsWith(), so a directory structure that is nested (i.e. src/main/res/layout/layouts and src/main/res/layout/layouts_category2) will choose src/main/res/layout/layouts consistently and never actually update the changes. A result, you will you have to rebuild/clean the project each time whenever making layout file changes.
 
 ## Conclusion
 
