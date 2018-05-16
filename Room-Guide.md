@@ -4,7 +4,7 @@ Room is Google's new persistence library introduced at Google I/O 17.  It tries 
 
 There are a few key aspects of Room to note that differ slightly from traditional object relational mapping (ORM) frameworks:
 
-* Usually, ORM frameworks expose a limited subset of queries.  Tables are declared as Java objects, and the relations between these tables dictate the types of queries that can be performed.  In Room, SQL inserts, updates, deletes, and complex joins are declared as **Data Access Objects (DAO)**.  The data returned from these queries simply are mapped to a Java object that will hold this information in memory.  In this way, no assumptions are made about how the data can be accessed.  The table definitions can be separated from the actual queries performed.
+* Usually, ORM frameworks expose a limited subset of queries.  Tables are declared as Java objects, and the relations between these tables dictate the types of queries that can be performed.  In Room, SQL inserts, updates, deletes, and complex joins are declared as **Data Access Objects (DAO)**.  The data returned from these queries simply are mapped to a Java object that will hold this information in memory.  In this way, no assumptions are made about how the data can be accessed.  The table definitions are separate from the actual queries performed.
 
 * ORMs typically handle one-to-one and one-to-many relationships by determining the relationship between tables and expose an interface or a set of APIs that perform the SQL queries behind the scenes.  Because of the [performance implications](https://youtu.be/MfHsPGQ6bgE?t=27m37s), Room requires handling these relationships explicitly.   The query needs to be defined as DAO objects, and the data returned will need to be mapped to Java objects.
 
@@ -18,7 +18,7 @@ The section below describes how to setup using Room.
 
 First, make sure you have the Google Maven repository added:
 
-```java
+```gradle
 allprojects {
     repositories {
         jcenter()
@@ -27,7 +27,7 @@ allprojects {
 }
 ```
 
-Next, within your `app/build.gradle`, add DBFlow to your dependency list.  We create a separate variable to store the version number to make it easier to change later:
+Next, within your `app/build.gradle`, add Room to your dependency list.  We create a separate variable to store the version number to make it easier to change later:
 
 ```gradle
 ext {
@@ -73,7 +73,7 @@ public class Organization {
 }
 ```
 
-**NOTE**: You must define at least one column to be the primary key.   You can also define composite primary keys by reviewing [this section](https://developer.android.com/training/data-storage/room/defining-data#primary-key)
+**NOTE**: You must define at least one column to be the primary key.   You can also define composite primary keys by reviewing [this section](https://developer.android.com/training/data-storage/room/defining-data#primary-key).  Use the `autoGenerate=true` annotation to make the column auto-increment.  (Note that if you add this later, you need to update the schema of the database.)
 
 ### Defining Foreign Keys
 
@@ -131,7 +131,7 @@ public abstract class MyDatabase extends RoomDatabase {
 
 ### Instantiating Room
 
-Next, we need to instantiate `DBFlow` in a [[custom application class|Understanding-the-Android-Application-Class]].  If you do not have an `Application` object, create one in `MyApplication.java` as shown below:
+Next, we need to instantiate `Room` in a [[custom application class|Understanding-the-Android-Application-Class]].  If you do not have an `Application` object, create one in `MyApplication.java` as shown below:
 
 ```java
 public class MyApplication extends Application {
@@ -173,11 +173,13 @@ organization.setName("CodePath");
 final User user = new User();
 user.setName("John Doe");
 
+// Get the DAO
+final UserDao userDao = ((RestApplication) getApplicationContext()).getMyDatabase().userDao();
+
 // Define the task
 ((RestApplication) getApplicationContext()).getMyDatabase().runInTransaction(new Runnable() {
   @Override
   public void run() {
-    UserDao userDao = ((RestApplication) getApplicationContext()).getMyDatabase().userDao();
     userDao.insertOrganization(organization);
     userDao.insertModel(user);
   }
@@ -241,10 +243,11 @@ Our data access object would then be the following:
 We can then perform this query through an AsyncTask:
 
 ```java
+final UserDao userDao = ((RestApplication) getApplicationContext()).getMyDatabase().userDao();
+
 AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>() {
 			@Override
 			protected Void doInBackground(Void... ) {
-				UserDao userDao = ((RestApplication) getApplicationContext()).getMyDatabase().userDao();
 				UserWithOrganization userWithOrganization = userDao.getWithOrgById(1);
 
 				return null;
@@ -277,6 +280,20 @@ public interface UserDao {
   public Long[] insertUser(User... users);
 ```
 
+Remember again that you need to dispatch the task in a separate thread:
+
+```java
+final UserDao userDao = ((RestApplication) getApplicationContext()).getMyDatabase().userDao();
+
+AsyncTask<User, Void, Void> task = new AsyncTask<User, Void, Void>() {
+
+  @Override
+  protected Void doInBackground(User... users) {
+      userDao.insertUsers(users);
+  }
+
+task.execute(user);  
+```
 ### Deleting Rows
 
 Deleting requires either a class annotated as an Entity or a collection:
@@ -291,7 +308,7 @@ public void deleteAll(User user1, User user2);
 
 ## Database Transactions
 
-See [this guide](https://agrosner.gitbooks.io/dbflow/content/StoringData.html) about how to perform transactions.  You can batch save a list of `User` objects by using the `ProcessModelTransaction` class:
+You can leverage the `runInTransaction()` method that comes with Room:
 
 ```java
 ((RestApplication) getApplicationContext()).getMyDatabase().runInTransaction(new Runnable() {
@@ -309,7 +326,7 @@ See [this guide](https://agrosner.gitbooks.io/dbflow/content/StoringData.html) a
 
 In order to inspect the persisted data, we need to [[use adb to query or download the data|Local-Databases-with-SQLiteOpenHelper#sqlite-database-debugging]].  You can also take a look at using the [[Stetho|Troubleshooting-Common-Issues#database-inspection]] library, which provides a way to use Chrome to inspect the local data.
 
-> Question: How does DBFlow handle duplicate IDs?  For example, I want to make sure no duplicate twitter IDs are inserted.  Is there a way to specify a column is the primary key in the model?
+> Question: How does Room handle duplicate IDs?  For example, I want to make sure no duplicate twitter IDs are inserted.  Is there a way to specify a column is the primary key in the model?
 
 Simply annotate the post ID column as the `@PrimaryKey` annotation:
 
@@ -333,36 +350,32 @@ The type is inferred automatically from the type of the field.
 
 > Question: How do I store dates into Room?
 
-DBFlow supports serializing Date fields automatically. It is stored internally as a timestamp (INTEGER) in milliseconds.
+Room supports type converters:
 
 ```java
-@Column
-private Date timestamp;
+@ColumnInfo
+Date timestamp;
 ```
 
-and the date will be serialized to SQLite. You can parse strings into a Date object using [SimpleDateFormat](http://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html):
+Then you would define a `DataConverter` class similar to the following:
+
 
 ```java
-public void setDateFromString(String date) {
-    SimpleDateFormat sf = new SimpleDateFormat("EEE MMM dd HH:mm:ss ZZZZZ yyyy");
-    sf.setLenient(true);
-    this.timestamp = sf.parse(date);
+public class DateConverter {
+    @TypeConverter
+    public static Date toDate(Long timestamp) {
+        return timestamp == null ? null : new Date(timestamp);
+    }
+
+    @TypeConverter
+    public static Long toTimestamp(Date date) {
+        return date == null ? null : date.getTime();
+    }
 }
 ```
-
-and then:
-
-```java
-public static List<Model> findRecent(Date newerThan) {
-    return new Select().from(Model.class).where("timestamp > ?", newerThan.getTimeInMillis()).execute();
-}
-```
-
-<a id="one-to-one-relationships" />
-
 > Question: Is it possible to do joins with Room?
 
-You must define the queries directly as Data Access Objects (DAO).  The return type specifies
+You must define the queries directly as Data Access Objects (DAO).  The return type defined in these interfaces must match the data returned.  See the example above in the [[querying rows|#Querying Rows]] section.
 
 ## References
 
