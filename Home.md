@@ -203,6 +203,7 @@ Diving into the networking and model layers for data-driven apps:
 Exploring the strategies for data persistence:
 
 * [[Persisting Data to the Device]] (Preferences, Files, SQLite, ORMs)
+* [[Room ORM Guide|Room Guide]]
 * [[ActiveAndroid ORM Guide|ActiveAndroid Guide]] (and Q&A)
 * [[Storing and Accessing SharedPreferences]]
 * [[Local Databases with SQLiteOpenHelper]]
