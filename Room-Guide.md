@@ -374,7 +374,7 @@ public class DateConverter {
 ```
 > Question: Is it possible to do joins with Room?
 
-You must define the queries directly as Data Access Objects (DAO).  The return type defined in these interfaces must match the data returned.  See the example above in the [[querying rows|#Querying Rows]] section.
+You must define the queries directly as Data Access Objects (DAO).  The return type defined in these interfaces must match the data returned.  See the example above in the [[querying rows|Room-Guide#querying-rows]] section.
 
 ## References
 
