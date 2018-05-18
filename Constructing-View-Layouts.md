@@ -98,7 +98,6 @@ In a relative layout every element arranges itself relative to other elements or
 * Alignment based on siblings: *layout_alignTop*, *layout_alignBottom*, *layout_alignLeft*, *layout_alignRight*, *layout_alignBaseline*
 * Alignment based on parent: *layout_alignParentTop*, *layout_alignParentBottom*, *layout_alignParentLeft*, *layout_alignParentRight* 
 
-
 An example of a RelativeLayout:
 
 ```xml
@@ -119,6 +118,8 @@ An example of a RelativeLayout:
             android:text="Login" />
 </RelativeLayout>
 ```
+
+RelativeLayout can now be done with ConstraintLayout system as well, though there are a few minor differences and the attribute names have changed.  See [this guide](https://constraintlayout.com/layouts/relativelayout.html) for more information.
 
 Read [this RelativeLayout tutorial](http://code.tutsplus.com/tutorials/android-user-interface-design-relative-layouts--mobile-4301) for a more detailed overview. You can also see more about this layout by inspecting the [RelativeLayout.LayoutParams docs](http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html) and the official [RelativeLayout guide](http://developer.android.com/guide/topics/ui/layout/relative.html).
 
