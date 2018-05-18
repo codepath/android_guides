@@ -20,11 +20,15 @@ Most of what can be achieved in LinearLayout and RelativeLayout can be done in C
 
 In a linear layout, like the name suggests, all the elements are displayed in a single direction either *horizontally* or *vertically* and this behavior is specified in `android:orientation` which is an attribute of the node `LinearLayout`. 
 
+### Building via ConstraintLayout
+
 You can create linear layouts now with ConstraintLayout using chains and defining their styles.  Click [this link](https://constraintlayout.com/layouts/linearlayout.html) to see the basic walkthrough.  
 
 <img src="https://constraintlayout.com/assets/images/basics/chains_create.gif">
 
 **NOTE**: The instructions below are included for previous reference.  You can now use ConstraintLayout to accomplish the same goal of vertical or linear layouts.
+
+### Building via the old way
 
 All children of a LinearLayout are displayed sequentially based on the order they are defined within the layout. A LinearLayout respects *margins* between children and the *gravity* (right, center, or left alignment) of each child.
 
@@ -53,7 +57,7 @@ Example of LinearLayout snippet:
 </LinearLayout>
 ```
 
-### Distribute Widths with Layout Weight
+#### Distribute Widths with Layout Weight
 
 If you want to setup a part of your layout, such that, for instance, 3 buttons appear in a row, occupying equal space (or if, for instance, you want to give 4/5 space to a map and 1/5 to another component below it), `LinearLayout` can be used to do the trick by leveraging `android:layout_weight`. This works by setting the `android:weightSum` to a total value and then setting the `android:layout_weight` value for each subview to determine width distribution. 
 
@@ -119,9 +123,11 @@ An example of a RelativeLayout:
 </RelativeLayout>
 ```
 
-RelativeLayout can now be done with ConstraintLayout system as well, though there are a few minor differences and the attribute names have changed.  See [this guide](https://constraintlayout.com/layouts/relativelayout.html) for more information.
-
 Read [this RelativeLayout tutorial](http://code.tutsplus.com/tutorials/android-user-interface-design-relative-layouts--mobile-4301) for a more detailed overview. You can also see more about this layout by inspecting the [RelativeLayout.LayoutParams docs](http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html) and the official [RelativeLayout guide](http://developer.android.com/guide/topics/ui/layout/relative.html).
+
+### Building with ConstraintLayout
+
+RelativeLayout can now be done with ConstraintLayout system as well, though there are a few minor differences and the attribute names have changed.  See [this guide](https://constraintlayout.com/layouts/relativelayout.html) for more information.  
 
 ### Using Alignment to Control Width or Height
 
@@ -216,9 +222,13 @@ The only way to fulfill this requirement is to expand the height of the second b
 
 ## PercentRelativeLayout 
 
-**NOTE**: You can use guidelines and the ConstraintLayout attributes, `app:layout_widthPercent` and `app:layout_heightPercent`, in lieu of [[RelativeLayout|Constructing-View-Layouts#percentrelativelayout]].  See [this guide](https://constraintlayout.com/layouts/percentlayout.html) for more information.  The instructions included below though for reference.
-
 `PercentRelativeLayout`, which is part of the [[Design Support Library]], enables the ability to specify not only elements relative to each other but also the total percentage of available space.  In the past, in order to position two elements next to each other with equal height, you would normally have to create a `LinearLayout` within a `RelativeLayout`.  `PercentRelativeLayout` helps solves this issue.
+
+### Building with ConstraintLayout
+
+**NOTE**: You can use guidelines and the ConstraintLayout attributes, `app:layout_widthPercent` and `app:layout_heightPercent`, in lieu of [[RelativeLayout|Constructing-View-Layouts#percentrelativelayout]].  See [this guide](https://constraintlayout.com/layouts/percentlayout.html) for more information.  
+
+### Building the old way
 
 <img src="https://imgur.com/CmMsIgp.png"/>
 
