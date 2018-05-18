@@ -26,8 +26,6 @@ You can create linear layouts now with ConstraintLayout using chains and definin
 
 <img src="https://constraintlayout.com/assets/images/basics/chains_create.gif">
 
-**NOTE**: The instructions below are included for previous reference.  You can now use ConstraintLayout to accomplish the same goal of vertical or linear layouts.
-
 ### Building via the old way
 
 All children of a LinearLayout are displayed sequentially based on the order they are defined within the layout. A LinearLayout respects *margins* between children and the *gravity* (right, center, or left alignment) of each child.
