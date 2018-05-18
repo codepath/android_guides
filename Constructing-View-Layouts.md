@@ -10,7 +10,7 @@ It's important to note the class hierarchy of these View Layouts.  Each of them 
 
 ## ConstraintLayout
 
-ConstraintLayout is Google's new default layout system.  Google first introduced the layout system at the Google I/O conference in 2016 invested the past several years improving Android Studio integration to help make layout without needing to write custom XML.  ConstraintLayout combines the power of LinearLayout and RelativeLayout while sidestepping the need to create nested layouts.  The best place to understand this layout system is this dedicated [web site](https://constraintlayout.com/basics/) that covers the basics behind constraints, chains, guidelines, dimensions, barriers, and barriers.
+ConstraintLayout is Google's new default layout system.  Google first introduced the layout system at the Google I/O conference in 2016 and has invested the past several years improving Android Studio integration to help make layout without needing to write custom XML.  ConstraintLayout combines the power of LinearLayout and RelativeLayout while sidestepping the need to create nested layouts.  The best place to understand this layout system is this dedicated [web site](https://constraintlayout.com/basics/) that covers the basics behind constraints, chains, guidelines, dimensions, barriers, and barriers.
 
 ## LinearLayout
 
