@@ -123,9 +123,11 @@ An example of a RelativeLayout:
 
 Read [this RelativeLayout tutorial](http://code.tutsplus.com/tutorials/android-user-interface-design-relative-layouts--mobile-4301) for a more detailed overview. You can also see more about this layout by inspecting the [RelativeLayout.LayoutParams docs](http://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams.html) and the official [RelativeLayout guide](http://developer.android.com/guide/topics/ui/layout/relative.html).
 
-### Building with ConstraintLayout
+### Building via ConstraintLayout
 
 RelativeLayout can now be done with ConstraintLayout system as well, though there are a few minor differences and the attribute names have changed.  See [this guide](https://constraintlayout.com/layouts/relativelayout.html) for more information.  
+
+<img src="https://constraintlayout.com/assets/images/layouts/relativelayout.gif">
 
 ### Using Alignment to Control Width or Height
 
