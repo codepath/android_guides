@@ -8,6 +8,10 @@ There are a few very commonly used layouts and then many more specialized layout
 
 It's important to note the class hierarchy of these View Layouts.  Each of them subclass `ViewGroup`, which itself subclasses `View`.  That means it is perfectly legal to pass a layout such as `LinearLayout` as an argument for something that takes `View` as a parameter.  `ViewGroup` also contains the nested static class `LayoutParams` which is used for creating or editing layouts in code.  Keep in mind that each subclass of `ViewGroup`, such as `LinearLayout`, has its own nested static class `LayoutParams` that's a subclass of `ViewGroup.LayoutParams`.  When creating View Layouts in code, beginners will often confuse the many different available `LayoutParams` classes and run into hard to catch problems.
 
+## ConstraintLayout
+
+ConstraintLayout is Google's new default layout system.  Google first introduced the layout system at the Google I/O conference in 2016 invested the past several years improving Android Studio integration to help make layout without needing to write custom XML.  ConstraintLayout combines the power of LinearLayout and RelativeLayout while sidestepping the need to create nested layouts.  The best place to understand this layout system is this dedicated [web site](https://constraintlayout.com/basics/) that covers the basics behind constraints, chains, guidelines, dimensions, barriers, and barriers.
+
 ## LinearLayout
 
 In a linear layout, like the name suggests, all the elements are displayed in a single direction either *horizontally* or *vertically* and this behavior is specified in `android:orientation` which is an attribute of the node `LinearLayout`. 
