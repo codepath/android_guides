@@ -220,11 +220,13 @@ The only way to fulfill this requirement is to expand the height of the second b
 
 ## PercentRelativeLayout 
 
-`PercentRelativeLayout`, which is part of the [[Design Support Library]], enables the ability to specify not only elements relative to each other but also the total percentage of available space.  In the past, in order to position two elements next to each other with equal height, you would normally have to create a `LinearLayout` within a `RelativeLayout`.  `PercentRelativeLayout` helps solves this issue.
+`PercentRelativeLayout` enables the ability to specify not only elements relative to each other but also the total percentage of available space.  In the past, in order to position two elements next to each other with equal height, you would normally have to create a `LinearLayout` within a `RelativeLayout`.  `PercentRelativeLayout` helps solves this issue.
 
 ### Building via ConstraintLayout
 
 **NOTE**: You can use guidelines and the ConstraintLayout attributes, `app:layout_widthPercent` and `app:layout_heightPercent`, in lieu of [[RelativeLayout|Constructing-View-Layouts#percentrelativelayout]].  See [this guide](https://constraintlayout.com/layouts/percentlayout.html) for more information.  
+
+<img src="https://constraintlayout.com/assets/images/layouts/percent_guideline.png"/>
 
 ### Building via the old way
 
