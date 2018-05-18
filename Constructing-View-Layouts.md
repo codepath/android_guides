@@ -12,7 +12,9 @@ It's important to note the class hierarchy of these View Layouts.  Each of them 
 
 ConstraintLayout is Google's new default layout system.  Google first introduced the layout system at the Google I/O conference in 2016 and has invested the past several years improving Android Studio integration to help make layout without needing to write custom XML.  ConstraintLayout combines the power of [[LinearLayout|Constructing-View-Layouts#linearlayout]] and [[RelativeLayout|Constructing-View-Layouts#linearlayout]] while sidestepping the need to create nested layouts.  
 
-The best place to understand this layout system is this dedicated [web site](https://constraintlayout.com/basics/) that covers the basics behind constraints, chains, guidelines, dimensions, barriers, and barriers.  Constraints define the relation between two different view elements, and chains can be used dictate the spacing between them.  For this reason, using any other layout system is no longer necessary.  However, it is useful though to use LinearLayout and RelativeLayout to understand how this new layout system works.
+The best place to understand this layout system is this dedicated [web site](https://constraintlayout.com/basics/) that covers the basics behind constraints, chains, guidelines, dimensions, barriers, and barriers.  Constraints define the relation between two different view elements, and chains can be used dictate the spacing between them.  For this reason, using any other layout system is no longer necessary.    
+
+Regardless, it is useful though to use LinearLayout and RelativeLayout to understand how this new layout system evolved.
 
 ## LinearLayout
 
@@ -207,9 +209,9 @@ The only way to fulfill this requirement is to expand the height of the second b
 
 ## PercentRelativeLayout 
 
-**PercentRelativeLayout** is now deprecated in lieu of [[ConstraintLayout||Constructing-View-Layouts#constraintlayout]].  You can use guidelines and using `app:layout_widthPercent` and `app:layout_heightPercent`.  See [this guide](https://constraintlayout.com/layouts/percentlayout.html) for more information.
+**NOTE**: You can use guidelines and the ConstraintLayout attributes, `app:layout_widthPercent` and `app:layout_heightPercent`, to create [[percentage-based RelativeLayouts||Constructing-View-Layouts#percentrelativelayout]].  See [this guide](https://constraintlayout.com/layouts/percentlayout.html) for more information.  The instructions included below though for reference.
 
-`PercentRelativeLayout`, a recent addition to the [[Design Support Library]], enables the ability to specify not only elements relative to each other but also the total percentage of available space.  In the past, in order to position two elements next to each other with equal height, you would normally have to create a `LinearLayout` within a `RelativeLayout`.  `PercentRelativeLayout` helps solves this issue.
+`PercentRelativeLayout`, which is part of the [[Design Support Library]], enables the ability to specify not only elements relative to each other but also the total percentage of available space.  In the past, in order to position two elements next to each other with equal height, you would normally have to create a `LinearLayout` within a `RelativeLayout`.  `PercentRelativeLayout` helps solves this issue.
 
 <img src="https://imgur.com/CmMsIgp.png"/>
 
