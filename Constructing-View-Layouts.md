@@ -226,7 +226,7 @@ The only way to fulfill this requirement is to expand the height of the second b
 
 ### Building via ConstraintLayout
 
-**NOTE**: You can use guidelines and the ConstraintLayout attributes, `app:layout_widthPercent` and `app:layout_heightPercent`, in lieu of [[RelativeLayout|Constructing-View-Layouts#percentrelativelayout]].  See [this guide](https://constraintlayout.com/layouts/percentlayout.html) for more information.  
+You can use ConstraintLayout to build these types of layouts by creating guidelines and defining ConstraintLayout attributes, `app:layout_widthPercent` or `app:layout_heightPercent`.  See [this guide](https://constraintlayout.com/layouts/percentlayout.html) for more information.  
 
 <img src="https://constraintlayout.com/assets/images/layouts/percent_guideline.png"/>
 
