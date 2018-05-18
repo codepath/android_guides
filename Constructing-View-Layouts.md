@@ -20,6 +20,12 @@ Regardless, it is useful though to use LinearLayout and RelativeLayout to unders
 
 In a linear layout, like the name suggests, all the elements are displayed in a single direction either *horizontally* or *vertically* and this behavior is specified in `android:orientation` which is an attribute of the node `LinearLayout`. 
 
+You can create linear layouts now with ConstraintLayout using chains and defining their styles.  Click [this link](https://constraintlayout.com/layouts/linearlayout.html) to see the basic walkthrough.  
+
+<img src="https://constraintlayout.com/assets/images/basics/chains_create.gif">
+
+**NOTE**: The instructions below are included for previous reference.  You can now use ConstraintLayout to accomplish the same goal of vertical or linear layouts.
+
 All children of a LinearLayout are displayed sequentially based on the order they are defined within the layout. A LinearLayout respects *margins* between children and the *gravity* (right, center, or left alignment) of each child.
 
 Common view attributes you might see used in a LinearLayout:
