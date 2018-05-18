@@ -41,6 +41,26 @@ dependencies {
 }
 ```
 
+### Define schema locations
+
+When compiling the code, the schemas for the table will be stored in a `schemas/` directory assuming this statement
+has been included your `app/build.gradle` file.  These schemas should be checked into your code based.
+
+
+```gradle
+android {
+    defaultConfig {
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+    }
+
+}
+```
+
 ### Defining your Tables
 
 Annotate your models with `@Entity`:
