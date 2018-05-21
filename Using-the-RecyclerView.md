@@ -442,11 +442,11 @@ public void onBindViewHolder(ViewHolder viewHolder, int position) {
    Contact contact = getItem(position);
 ```
 
-The `ListAdapter` is built on top of the `DiffUtil` class but requires less boilerplate code.  You can see below what the previous steps were needed to in order to accomplish the same goal. 
-
 #### Using with DiffUtil
 
-A new `DiffUtil` class has been added in the v24.2.0 of the support library to help compute the difference between the old and new list.   This class uses the same algorithm used for computing line changes in source code (the [diff utility](https://en.wikipedia.org/wiki/Diff_utility) program), so it usually fairly fast.  It is recommended however for larger lists that you execute this computation in a background thread.
+The `ListAdapter` is built on top of the `DiffUtil` class but requires less boilerplate code.  You can see below what the steps are needed to in order to accomplish the same goal.  You do not need to follow the steps below if you already using `ListAdapter`.
+
+The `DiffUtil` class, which was added in the v24.2.0 of the support library, helps compute the difference between the old and new list.   This class uses the same algorithm used for computing line changes in source code (the [diff utility](https://en.wikipedia.org/wiki/Diff_utility) program), so it usually fairly fast.  It is recommended however for larger lists that you execute this computation in a background thread.
 
 To use the `DiffUtil` class, you need to first implement a class that implements the `DiffUtil.Callback` that accepts the old and new list:
 
