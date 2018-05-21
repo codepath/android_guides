@@ -366,6 +366,50 @@ adapter.notifyItemRangeInserted(curSize, newItems.size());
 
 Often times there are cases when changes to your list are more complex (i.e. sorting an existing list) and it cannot be easily determined whether each row changed.  In this cases, you would normally have to call `notifyDataSetChanged()` on the entire adapter to update the entire screen, which eliminates the ability to perform animation sequences to showcase what changed.
 
+#### Using with ListAdapter
+
+The `ListAdapter` class, which is a [new class](https://medium.com/@trionkidnapper/recyclerview-more-animations-with-less-code-using-support-library-listadapter-62e65126acdb) introduced in the support library 27.1.0, simplifies detecting whether an item was inserted, updated, or deleted.  
+
+First, change your adapter to inherit from a `RecyclerView.Adapter` to a `ListAdapter`.  
+
+Change from:
+```java
+public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHolder> {
+```
+
+To:
+```java
+public class ContactsAdapter extends ListAdapter<Contact, ContactsAdapter.ViewHolder> {
+```
+
+Note that a `ListAdapter` requires an extra generic parameter, which is the type of data managed by this adapter.  We also need to declare an item callback:
+
+```java
+public static final DiffUtil.ItemCallback<Contact> DIFF_CALLBACK =
+        new DiffUtil.ItemCallback<Contact>() {
+            @Override
+            public boolean areItemsTheSame(Contact oldItem, Contact newItem) {
+                return oldItem.getId() == newItem.getId();
+            }
+            @Override
+            public boolean areContentsTheSame(Contact oldItem, Contact newItem) {
+                return (oldItem.getName() == newItem.getName() && oldItem.isOnline() == newItem.isOnline());
+            }
+        };
+```
+
+Your adapter will also need to invoke this callback method:
+
+```java
+public ContactsAdapter() {
+    super(DIFF_CALLBACK);
+}
+```
+
+The `ListAdapter` is built on top of the `DiffUtil` class but requires less boilerplate code.  You can see below what the previous steps were needed to in order to accomplish the same goal. 
+
+#### Using with DiffUtil
+
 A new `DiffUtil` class has been added in the v24.2.0 of the support library to help compute the difference between the old and new list.   This class uses the same algorithm used for computing line changes in source code (the [diff utility](https://en.wikipedia.org/wiki/Diff_utility) program), so it usually fairly fast.  It is recommended however for larger lists that you execute this computation in a background thread.
 
 To use the `DiffUtil` class, you need to first implement a class that implements the `DiffUtil.Callback` that accepts the old and new list:
