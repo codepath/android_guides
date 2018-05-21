@@ -409,11 +409,11 @@ public ContactsAdapter() {
 Instead of overriding the `getItemsCount()`, remove it since the size of the list will be managed by the `ListAdapter` class:
 
 ```java
-   // remove this section
-   @Override
-   public int getItemCount() {
-        return mContacts.size();
-   }
+// remove this section
+@Override
+public int getItemCount() {
+  return mContacts.size();
+}
 ```
 
 We will also add a helper function to add more contacts.  Anytime we wish to add more contacts, will use this method instead.  A `submitList()` function provided by the ListAdapter will trigger the comparison.
