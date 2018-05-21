@@ -406,6 +406,42 @@ public ContactsAdapter() {
 }
 ```
 
+Instead of overriding the `getItemsCount()`, remove it since the size of the list will be managed by the `ListAdapter` class:
+
+```java
+   // remove this section
+   @Override
+   public int getItemCount() {
+        return mContacts.size();
+   }
+```
+
+We will also add a helper function to add more contacts.  Anytime we wish to add more contacts, will use this method instead.  A `submitList()` function provided by the ListAdapter will trigger the comparison.
+
+```java
+public void addMoreContacts(List<Contact> newContacts) {
+  mContacts.addAll(newContacts);
+  submitList(mContacts); // DiffUtil takes care of the check
+}
+```
+
+Finally, we need to modify the `onBindViewHolder` to use the `getItem()` method instead.
+
+Change from:
+
+```java
+public void onBindViewHolder(ViewHolder viewHolder, int position) {
+   // remove this line
+   Contact contact = mContacts.get(position);
+```
+
+To:
+
+```java
+public void onBindViewHolder(ViewHolder viewHolder, int position) {
+   Contact contact = getItem(position);
+```
+
 The `ListAdapter` is built on top of the `DiffUtil` class but requires less boilerplate code.  You can see below what the previous steps were needed to in order to accomplish the same goal. 
 
 #### Using with DiffUtil
