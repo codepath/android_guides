@@ -134,6 +134,7 @@ Essentially this method is used to enable your code to short-circuit before exec
 ### RecyclerView
 * [PinnedList-Android](https://github.com/Joseph82/PinnedList-Android) - A library that allows you to create a list of items that are pinned by a floating label (text or image) on the left of the list
 * [UltimateRecyclerView](https://github.com/cymcsg/UltimateRecyclerView) - Augmented RecyclerView with refreshing, loading more, animation and many other features.
+* [EasyAdapter](https://github.com/mkrupal09/EasyAdapter) - Create your recyclerview adapter in just 3 lines.
 * [AdvRecyclerView](https://github.com/h6ah4i/android-advancedrecyclerview) - Extended RecyclerView with swipe to dismiss, and draggable or expanding items. 
 * [android-parallax-recyclerview](https://github.com/kanytu/android-parallax-recyclerview) - An adapter which could be used to achieve a parallax effect on RecyclerView.
 * [sticky-headers-recyclerview](https://github.com/timehop/sticky-headers-recyclerview) - Sticky Headers decorator for Android's RecyclerView.
