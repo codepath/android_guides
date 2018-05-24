@@ -94,6 +94,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [LoggingInterceptor](https://github.com/ihsanbal/LoggingInterceptor) - An OkHttp interceptor which pretty logs request and response data.
  * [PrivacyStreams](https://github.com/PrivacyStreams/PrivacyStreams) - Access and process various types of personal data in Android with an easy, uniform, and privacy-friendly API.
  * [Easylauncher](https://github.com/akaita/easylauncher-gradle-plugin) - Modify the launcher icon of each of your app-variants using simple gradle rules. Add ribbons of any color, overlay your own images, change the colors of the icon, ...
+ * [PermissionHelper](https://github.com/pankaj89/PermissionHelper) - Simplify Runtime Permission Structure. Easy to use, Works on Pre-Marshmallow, Get Callback on exactly same place, Kotlin support with super easy way,  ...
 
 ### Extensions 
 
