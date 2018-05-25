@@ -1,6 +1,6 @@
 ### Paging Library Guide
 
-A common feature is to load data automatically as a user scrolls through the items (i.e. infinite scroll).  In lieu of previous of [[third party options|Endless-Scrolling-with-AdapterViews-and-RecyclerView]] were the only way to accomplish this goal.  Google's new Paging Library now provides this support.  
+A common feature is to load data automatically as a user scrolls through the items (i.e. infinite scroll).  Previously there were only [[third party options|Endless-Scrolling-with-AdapterViews-and-RecyclerView]] that could accomplish this goal.  Google's new Paging Library now provides this support.  
 
 ### Setup
 
