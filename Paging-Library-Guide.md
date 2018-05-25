@@ -96,7 +96,6 @@ TwitterClient mClient;
 // define the type of data that will be emitted by this datasource
 public TweetDataSource(TwitterClient client) {
     mClient = client;
-    tweetsLiveData = new MutableLiveData<>();
 }
 ```
 
@@ -116,7 +115,7 @@ public void loadAfter(@NonNull LoadParams<Long> params, @NonNull LoadCallback<Tw
    JsonHttpResponseHandler jsonHttpResponseHandler = createTweetHandler(callback);
 
    // params.key & requestedLoadSize should be used
-   // params.key should be used for the max_id= parameter in Twitter API.
+   // params.key will be the lowest Twitter post ID retrieved and should be used for the max_id= parameter in Twitter API.
    mClient.getHomeTimeline(params.key, params.requestedLoadSize, jsonHttpResponseHandler);
 }
 ```
@@ -145,7 +144,7 @@ public JsonHttpResponseHandler createTweetHandler(final LoadCallback<Tweet> call
 
 #### Add a Data Source Factory
 
-A data source factory simply creates the data source:
+A data source factory simply creates the data source.  Because of the dependency on the Twitter client, we need to pass it here too.  
 
 ```java
 public class TweetDataSourceFactory extends DataSource.Factory<Long, Tweet> {
@@ -154,12 +153,10 @@ public class TweetDataSourceFactory extends DataSource.Factory<Long, Tweet> {
 
     public TweetDataSourceFactory(TwitterClient client) {
         this.client = client;
-        this.tweetDataSource = new MutableLiveData<>();
     }
     @Override
     public DataSource<Long, Tweet> create() {
         TweetDataSource dataSource = new TweetDataSource(this.client);
-        tweetDataSource.postValue(dataSource);
         return dataSource;
     }
 }
