@@ -16,7 +16,7 @@ allprojects {
 
 Next, add the Paging library to your `app/build.gradle`:
 
-````gradle
+```gradle
 dependencies {
      implementation "android.arch.paging:runtime:1.0.0"
 }
