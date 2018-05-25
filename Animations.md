@@ -845,3 +845,4 @@ The following animations library provide easy ways to plug-in animations into yo
  * <https://android.googlesource.com/platform/frameworks/base/+/3da2834/core/java/android/transition/TransitionInflater.java>
  * <http://www.androiddesignpatterns.com/2014/12/activity-fragment-transitions-in-android-lollipop-part1.html>
  * <https://www.youtube.com/watch?v=4L4fLrWDvAU>
+ * <https://androidexample365.com/tag/animations/>
