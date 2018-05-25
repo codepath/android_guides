@@ -176,12 +176,12 @@ public abstract class BaseTimelineFragment extends Fragment {
 
     tweets = new LivePagedListBuilder(factory, config).build();
 
-		tweets.observe(this, new Observer<PagedList<Tweet>>() {
-					@Override
-					public void onChanged(@Nullable PagedList<Tweet> tweets) {
-						tweetAdapter.submitList(tweets);
-					}
-				});
+    tweets.observe(this, new Observer<PagedList<Tweet>>() {
+			    @Override
+			    public void onChanged(@Nullable PagedList<Tweet> tweets) {
+				tweetAdapter.submitList(tweets);
+			    }
+		  });
 
   }
 ```
