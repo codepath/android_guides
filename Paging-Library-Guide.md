@@ -84,6 +84,7 @@ public class TweetDataSource extends ItemKeyedDataSource<Long, Tweet> {
   @NonNull
   @Override
   public Long getKey(@NonNull Tweet item) {
+      // item.getPostId() is a Long type
       return item.getPostId();
   }
 ```
@@ -144,11 +145,10 @@ public JsonHttpResponseHandler createTweetHandler(final LoadCallback<Tweet> call
 
 #### Add a Data Source Factory
 
-A data source factory simply creates the data source.  Because of the dependency on the Twitter client, we need to pass it here too.  
+A data source factory simply creates the data source.  Because of the dependency on the Twitter client, we need to pass it here too:
 
 ```java
 public class TweetDataSourceFactory extends DataSource.Factory<Long, Tweet> {
-    MutableLiveData<TweetDataSource> tweetDataSource;
     TwitterClient client;
 
     public TweetDataSourceFactory(TwitterClient client) {
