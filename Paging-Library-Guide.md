@@ -24,7 +24,7 @@ dependencies {
 
 ### Modifying your RecyclerView
 
-The Paging Library can only be used with [[RecyclerView|Using-the-RecyclerView]].  If you are using ListView to display your lists, you should first migrate to using the [[ViewHolder pattern|Using-an-ArrayAdapter-with-ListView#improving-performance-with-the-viewholder-pattern]] before transitioning to RecyclerView.  Moving to RecyclerView may also require changing how [[click handling|Using-the-RecyclerView#attaching-click-handlers-to-items]] is handled.
+The Paging Library can only be used with [[RecyclerView|Using-the-RecyclerView]].  If you are using ListView to display your lists, you should first migrate to using the [[ViewHolder pattern|Using-an-ArrayAdapter-with-ListView#improving-performance-with-the-viewholder-pattern]] before transitioning to RecyclerView.  Moving to RecyclerView may also require changing how [[click handling|Using-the-RecyclerView#attaching-click-handlers-to-items]] is performed.
 
 #### Modifying to ListAdapter
 
