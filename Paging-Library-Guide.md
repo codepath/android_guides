@@ -75,7 +75,7 @@ The next step is to define our data sources.  If you are already making existing
 
 ##### Using ItemKeyedDataSource
 
-The first step is to define the key that will be used to determine the next page of data.  In the Twitter API case, for instance, the Twitter Post ID can be used as a way to query for posts older than that Tweet ID.  The last post will represent the next set of posts to retrieve:
+The first step is to define the key that will be used to determine the next page of data.  In the Twitter API case, for instance, the Twitter Post ID can be used as a way to query for posts older than that Tweet ID.  The last post ID can be used to retrieve the next set of posts, thanks to the [max_id](https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-home_timeline.html) parameter in the Twitter API:
 
 ```java
 public class TweetDataSource extends ItemKeyedDataSource<Long, Tweet> {
