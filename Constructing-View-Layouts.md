@@ -459,6 +459,7 @@ This is just the beginning. Refer to our [[profiling apps guide|Debugging-and-Pr
 
 ## References
 
+ * <https://androidexample365.com/tag/layout/>
  * <http://developer.android.com/guide/topics/ui/declaring-layout.html>
  * <http://developer.android.com/guide/topics/ui/layout/linear.html>
  * <http://developer.android.com/guide/topics/ui/layout/relative.html>
