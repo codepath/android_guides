@@ -198,3 +198,4 @@ The Paging Library requires that the data used in the RecyclerView, regardless o
 * <https://developer.android.com/topic/libraries/architecture/paging/>
 * <https://developer.android.com/topic/libraries/architecture/paging/#update-existing-app>
 * <https://www.youtube.com/watch?v=QVMqCRs0BNA/>
+* <https://codelabs.developers.google.com/codelabs/android-paging/index.html>
