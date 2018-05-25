@@ -75,7 +75,7 @@ The next step is to define our data sources.  If you are already making existing
 
 ##### Using ItemKeyedDataSource
 
-The first step is to define the key that will be used to determine the next page of data.  In the Twitter API case, for instance, the Twitter Post ID can be used as a way to query for posts older than that Tweet ID:
+The first step is to define the key that will be used to determine the next page of data.  In the Twitter API case, for instance, the Twitter Post ID can be used as a way to query for posts older than that Tweet ID.  The last post will represent the next set of posts to retrieve:
 
 ```java
 public class TweetDataSource extends ItemKeyedDataSource<Long, Tweet> {
@@ -98,23 +98,26 @@ public TweetDataSource(TwitterClient client) {
     mClient = client;
     tweetsLiveData = new MutableLiveData<>();
 }
+```
 
-
-Next, we need to define inside the data source the `loadInitial()` and `loadAfter()`.  
+Next, we need to define inside the data source the `loadInitial()` and `loadAfter()`. 
 ```java
 public void loadInitial(@NonNull LoadInitialParams<Long> params, @NonNull final LoadInitialCallback<Tweet> callback) {
 
    JsonHttpResponseHandler jsonHttpResponseHandler = createTweetHandler(callback);
-   mClient.getHomeTimeline(-1, params.requestedLoadSize, jsonHttpResponseHandler);
+   // no max_id should be passed on initial load
+   mClient.getHomeTimeline(params.requestedLoadSize, jsonHttpResponseHandler);
 }
 
+// Called repeatedly when more data needs to be set
 @Override
 public void loadAfter(@NonNull LoadParams<Long> params, @NonNull LoadCallback<Tweet> callback) {
    // fetch data synchronously
    JsonHttpResponseHandler jsonHttpResponseHandler = createTweetHandler(callback);
 
    // params.key & requestedLoadSize should be used
-   mClient.getHomeTimeline(params.key, params.requestedLoadSize,
+   // params.key should be used for the max_id= parameter in Twitter API.
+   mClient.getHomeTimeline(params.key, params.requestedLoadSize, jsonHttpResponseHandler);
 }
 ```
 
@@ -185,7 +188,6 @@ public abstract class BaseTimelineFragment extends Fragment {
 
   }
 ```
-
 
 ### Adding multiple data sources
 
