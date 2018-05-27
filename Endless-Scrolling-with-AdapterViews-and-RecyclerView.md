@@ -1,3 +1,5 @@
+**NOTE**: This page is deprecated because Google recently released its own Paging library.  See [[this guide|Paging-Library-Guide]] for more information.
+
 ## Overview
 
 A common application feature is to load automatically more items as the user scrolls through the items (aka infinite scroll). This is done by triggering a request for more data once the user crosses a threshold of remaining items before they've hit the end. 
