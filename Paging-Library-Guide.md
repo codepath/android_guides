@@ -100,7 +100,7 @@ public TweetDataSource(TwitterClient client) {
 }
 ```
 
-Next, we need to define inside the data source the `loadInitial()` and `loadAfter()`. 
+Next, we need to define inside the data source the `loadInitial()` and `loadAfter()`.
 ```java
 public void loadInitial(@NonNull LoadInitialParams<Long> params, @NonNull final LoadInitialCallback<Tweet> callback) {
 
@@ -168,20 +168,31 @@ public class TweetDataSourceFactory extends DataSource.Factory<Long, Tweet> {
 Once we have created the data source and data source factory, the final step is to create the PagedList and listen for updates.  We can then call the `submitList()` on our adapter with this next set of data:
 
 ```java		
-public abstract class BaseTimelineFragment extends Fragment {
+public abstract class MyActivity extends AppCompatActivity {
 
+  TweetAdapter tweetAdapter;
+
+  // normally this data should be encapsulated in ViewModels, but shown here for simplicity
   LiveData<PagedList<Tweet>> tweets;
 
-  public void onActivityCreated(Bundle savedInstanceState) {
+  public void onCreate(Bundle savedInstanceState) {
+
+    tweetAdapter = new TweetAdapter();
+
+    // initial page size to fetch can also be configured here too
+    PagedList.Config config = new PagedList.Config.Builder().setPageSize(20).build();
+
+    // Pass in dependency
+    TweetDataSourceFactory factory = new TweetDataSourceFactory(RestClientApp.getRestClient());
 
     tweets = new LivePagedListBuilder(factory, config).build();
 
     tweets.observe(this, new Observer<PagedList<Tweet>>() {
-			    @Override
-			    public void onChanged(@Nullable PagedList<Tweet> tweets) {
-				tweetAdapter.submitList(tweets);
-			    }
-		  });
+					@Override
+					public void onChanged(@Nullable PagedList<Tweet> tweets) {
+						tweetAdapter.submitList(tweets);
+					}
+				});
 
   }
 ```
