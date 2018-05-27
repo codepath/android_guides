@@ -65,7 +65,7 @@ override fun onBindViewHolder(holder: PostAdapter.ViewHolder, position: Int) {
 }
 ```
 
-#### Add a data source
+### Add a data source
 
 The next step is to define our data sources.  If you are already making existing network or database calls somewhere else, you most likely will need to move this code into a data source.   You will also need to first pick what kind of [data source](https://developer.android.com/reference/android/arch/paging/DataSource) to use:
 
@@ -73,7 +73,7 @@ The next step is to define our data sources.  If you are already making existing
   * **PageKeyedDataSource** - provides a next/before link and has unknown list size (example: Facebook Graph API)
   * **PositionalDataSource** - Useful for sources that provide a fixed size list with known PositionalDataSource (example: Room, Parse)
 
-##### Using ItemKeyedDataSource
+#### Using ItemKeyedDataSource
 
 The first step is to define the key that will be used to determine the next page of data.  In the Twitter API case, for instance, the Twitter Post ID can be used as a way to query for posts older than that Tweet ID.  The last post ID can be used to retrieve the next set of posts, thanks to the [max_id](https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-home_timeline.html) parameter in the Twitter API:
 
