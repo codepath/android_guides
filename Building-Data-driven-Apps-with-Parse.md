@@ -210,9 +210,9 @@ user.signUpInBackground(new SignUpCallback() {
 val user = ParseUser()
 
 // with statement allows access properties of User without needing to repeat
-// i.e. user.username = 
+// i.e. user.username =
 //      user.setPassword
-with(user) { 
+with(user) {
   username = "joestevens"
   setPassword("secret123")
   email = "email@example.com"
@@ -787,7 +787,7 @@ Parse has many powerful features in addition to the core functionality listed ab
 
 ### Uploading Photos
 
-Parse has full support for storing images and files uploaded by an application. Photos are stored using the `ParseFile` construct [described in more detail here](http://parseplatform.org/docs/android/guide/#files). 
+Parse has full support for storing images and files uploaded by an application. Photos are stored using the `ParseFile` construct [described in more detail here](http://parseplatform.org/docs/android/guide/#files).
 
 First, make sure to create a [Parse model](https://guides.codepath.com/android/Building-Data-driven-Apps-with-Parse#creating-parse-models).  Next, you will need to add a `ParseFile` object:
 
@@ -819,7 +819,7 @@ class Post : ParseObject() {
 A `ParseFile` instance can be initialized with a `File` object or a byte array.  Follow the [[CodePath Camera and Gallery Guide|Accessing-the-Camera-and-Stored-Media]] guide for capturing photos with a camera.  
 
 ```java
-// getPhotoFileUri() is defined in 
+// getPhotoFileUri() is defined in
 // https://guides.codepath.com/android/Accessing-the-Camera-and-Stored-Media#using-capture-intent
 File photoFile = getPhotoFileUri(photoFileName);
 
@@ -827,7 +827,7 @@ ParseFile parseFile = new ParseFile(photoFile);
 ```
 
 ```kotlin
-// getPhotoFileUri() is defined in 
+// getPhotoFileUri() is defined in
 // https://guides.codepath.com/android/Accessing-the-Camera-and-Stored-Media#using-capture-intent
 val photoFile = getPhotoFileUri(photoFileName)
 
@@ -847,7 +847,7 @@ dependencies {
 Instead of an `ImageView`, use the `com.parse.ParseImageView` class:
 
 ```xml
-<com.parse.ParseImageView 
+<com.parse.ParseImageView
         android:layout_width="match_parent"
         android:layout_height="300dp"/>
 ```
@@ -1020,6 +1020,179 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
     ParseFacebookUtils.onActivityResult(requestCode, resultCode, data);
 }
+```
+
+### Using with Android Paging Library
+
+Follow the [[setup instructions|Paging-Library-Guide#setup]] for adding the Paging Library to your Gradle configuration.  Make sure also to change your RecyclerView to use PagedListAdapter as described in this [[section|Paging-Library-Guide#modifying-your-recyclerview]].
+
+#### Create Data Source
+
+With the Parse library, we will define our data source using the `PositionalDataSource` class because we can count the data set and request a size from an arbitrary offset:
+
+```java
+public class ParsePositionalDataSource extends PositionalDataSource<Post> {
+
+    // define basic query here
+    public ParseQuery<Post> getQuery() {
+        return ParseQuery.getQuery(Post.class).orderByDescending("createdAt");
+    }
+
+    @Override
+    public void loadInitial(@NonNull LoadInitialParams params, @NonNull LoadInitialCallback<Post> callback) {
+        // get basic query
+        ParseQuery<Post> query = getQuery();
+
+        // Use values passed when PagedList was created.
+        query.setLimit(params.requestedLoadSize);
+        query.setSkip(params.requestedStartPosition);
+
+        try {
+            // run queries synchronously since function is called on a background thread
+            int count = query.count();
+            List<Post> posts = query.find();
+
+            // return info back to PagedList
+            callback.onResult(posts, params.requestedStartPosition, count);
+        } catch (ParseException e) {
+            // retry logic here
+        }
+    }
+
+    @Override
+    public void loadRange(@NonNull LoadRangeParams params, @NonNull LoadRangeCallback<Post> callback) {
+        // get basic query
+        ParseQuery<Post> query = getQuery();
+
+        query.setLimit(params.loadSize);
+
+        // fetch the next set from a different offset
+        query.setSkip(params.startPosition);
+
+        try {
+            // run queries synchronously since function is called on a background thread
+            List<Post> posts = query.find();
+
+            // return info back to PagedList
+            callback.onResult(posts);
+        } catch (ParseException e) {
+            // retry logic here
+        }
+    }
+}
+```
+
+```kotlin
+class ParsePositionalDataSource : PositionalDataSource<Post>() {
+
+    fun getQuery() : ParseQuery<Post> {
+        return ParseQuery.getQuery(Post::class.java).orderByDescending("createdAt")
+    }
+
+    override fun loadInitial(params: LoadInitialParams, callback: LoadInitialCallback<Post>) {
+        // get basic query
+        val query = getQuery()
+
+        // Use values passed when PagedList was created.
+        query.limit = params.requestedLoadSize
+        query.skip = params.requestedStartPosition
+
+        // run queries synchronously since function is called on a background thread
+        val count = query.count()
+        val posts = query.find()
+
+        // return info back to PagedList
+        callback.onResult(posts, params.requestedStartPosition, count)
+    }
+
+    override fun loadRange(params: LoadRangeParams, callback: LoadRangeCallback<Post>) {
+        val query = getQuery()
+
+        query.limit = params.loadSize
+        // fetch the next set from a different offset
+        query.skip = params.startPosition
+
+        // synchronous call
+        val posts = query.find()
+
+        // return info back to PagedList
+        callback.onResult(posts)
+    }
+
+}
+```
+
+Next, we need to create a data source factory:
+
+```java
+public class ParseDataSourceFactory extends DataSource.Factory<Integer, Post> {
+
+    @Override
+    public DataSource<Integer, Post> create() {
+        ParsePositionalDataSource source = new ParsePositionalDataSource();
+        return source;
+    }
+}
+```
+
+```kotlin
+class ParseDataSourceFactory : DataSource.Factory<Int, Post>() {
+
+    override fun create(): DataSource<Int, Post> {
+        val source = ParsePositionalDataSource()
+        return source
+    }
+}
+```
+
+Finally, we need to create our PagedList:
+
+```java
+public abstract class MyActivity extends AppCompatActivity {
+
+  // normally this data should be encapsulated in ViewModels, but shown here for simplicity
+  LiveData<PagedList<Post>> posts;
+
+  public void onCreate(Bundle savedInstanceState) {
+
+  PagedList.Config pagedListConfig =
+          new PagedList.Config.Builder().setEnablePlaceholders(true)
+                  .setPrefetchDistance(10)
+                  .setInitialLoadSizeHint(10)
+                  .setPageSize(10).build();
+
+  // initial page size to fetch can also be configured here too
+  PagedList.Config config = new PagedList.Config.Builder().setPageSize(20).build();
+
+  ParseDataSourceFactory sourceFactory = new ParseDataSourceFactory();
+
+  posts = new LivePagedListBuilder(factory, config).build();
+
+  posts.observe(this, new Observer<PagedList<Post>>() {
+					@Override
+					public void onChanged(@Nullable PagedList<Post> tweets) {
+						postAdapter.submitList(tweets);
+					}
+				});
+  }
+```
+
+```kotlin
+class MyActivity : AppCompatActivity {
+
+// normally this data should be encapsulated in ViewModels, but shown here for simplicity
+var postList : LiveData<PagedList<Post>>
+
+override fun onCreate(savedInstanceState: Bundle?) {
+       postAdapter = PostAdapter()
+       val pagedListConfig =
+               PagedList.Config.Builder().setEnablePlaceholders(true)
+                       .setPrefetchDistance(5)
+                       .setInitialLoadSizeHint(5)
+                       .setPageSize(5).build()
+       val sourceFactory = ParseDataSourceFactory()
+       postList = LivePagedListBuilder(sourceFactory, pagedListConfig).build()
+   }
 ```
 
 ### Server Code
