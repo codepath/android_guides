@@ -1175,6 +1175,7 @@ public abstract class MyActivity extends AppCompatActivity {
 					}
 				});
     }
+}
 ```
 
 ```kotlin
