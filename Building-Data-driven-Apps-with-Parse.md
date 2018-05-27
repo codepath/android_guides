@@ -1155,26 +1155,26 @@ public abstract class MyActivity extends AppCompatActivity {
 
   public void onCreate(Bundle savedInstanceState) {
 
-  PagedList.Config pagedListConfig =
+    PagedList.Config pagedListConfig =
           new PagedList.Config.Builder().setEnablePlaceholders(true)
                   .setPrefetchDistance(10)
                   .setInitialLoadSizeHint(10)
                   .setPageSize(10).build();
 
-  // initial page size to fetch can also be configured here too
-  PagedList.Config config = new PagedList.Config.Builder().setPageSize(20).build();
+    // initial page size to fetch can also be configured here too
+    PagedList.Config config = new PagedList.Config.Builder().setPageSize(20).build();
 
-  ParseDataSourceFactory sourceFactory = new ParseDataSourceFactory();
+    ParseDataSourceFactory sourceFactory = new ParseDataSourceFactory();
 
-  posts = new LivePagedListBuilder(factory, config).build();
+    posts = new LivePagedListBuilder(factory, config).build();
 
-  posts.observe(this, new Observer<PagedList<Post>>() {
+    posts.observe(this, new Observer<PagedList<Post>>() {
 					@Override
 					public void onChanged(@Nullable PagedList<Post> tweets) {
 						postAdapter.submitList(tweets);
 					}
 				});
-  }
+    }
 ```
 
 ```kotlin
