@@ -75,7 +75,9 @@ The next step is to define our data sources.  If you are already making existing
 
 #### Using ItemKeyedDataSource
 
-The first step is to define the key that will be used to determine the next page of data.  In the Twitter API case, for instance, the Twitter Post ID can be used as a way to query for posts older than that Tweet ID.  The last post ID can be used to retrieve the next set of posts, thanks to the [max_id](https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-home_timeline.html) parameter in the Twitter API:
+The Twitter API provides an example of how ItemKeyedDataSource.  The size of the list is unknown, and usually fetching the next set of the data depends on the last known Twitter Post ID.  The last post ID can be used to retrieve the next set of posts, thanks to the [max_id](https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-home_timeline.html) parameter in the Twitter API:
+
+The first step is to define the key that will be used to determine the next page of data.  The ItemKeyedDataSource in the example below will use a Long type and rely on the Twitter Post ID.  The last seen Post ID will be used to fetch the next set of data.
 
 ```java
 public class TweetDataSource extends ItemKeyedDataSource<Long, Tweet> {
@@ -89,7 +91,8 @@ public class TweetDataSource extends ItemKeyedDataSource<Long, Tweet> {
   }
 ```
 
-Next, we should make sure to pass into the data constructor whatever dependencies are needed.  
+Next, we should make sure to pass into the data constructor whatever dependencies are needed.  In the example below, we are showing how the use of the Android Async Http library can be used.  You can use other [[networking libraries|Sending-and-Managing-Network-Requests#sending-an-http-request-third-party]] as well.
+
 ```java
 // pass whatever dependencies are needed to make the network call
 TwitterClient mClient;
@@ -105,6 +108,7 @@ Next, we need to define inside the data source the `loadInitial()` and `loadAfte
 public void loadInitial(@NonNull LoadInitialParams<Long> params, @NonNull final LoadInitialCallback<Tweet> callback) {
 
    JsonHttpResponseHandler jsonHttpResponseHandler = createTweetHandler(callback);
+
    // no max_id should be passed on initial load
    mClient.getHomeTimeline(params.requestedLoadSize, jsonHttpResponseHandler);
 }
@@ -116,8 +120,9 @@ public void loadAfter(@NonNull LoadParams<Long> params, @NonNull LoadCallback<Tw
    JsonHttpResponseHandler jsonHttpResponseHandler = createTweetHandler(callback);
 
    // params.key & requestedLoadSize should be used
-   // params.key will be the lowest Twitter post ID retrieved and should be used for the max_id= parameter in Twitter API.
-   mClient.getHomeTimeline(params.key, params.requestedLoadSize, jsonHttpResponseHandler);
+   // params.key will be the lowest Twitter post ID retrieved and should be used for the max_id= parameter in Twitter API.  
+   // max_id = params.key - 1 
+   mClient.getHomeTimeline(params.key - 1, params.requestedLoadSize, jsonHttpResponseHandler);
 }
 ```
 
