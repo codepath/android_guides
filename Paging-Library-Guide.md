@@ -183,6 +183,7 @@ public abstract class MyActivity extends AppCompatActivity {
   public void onCreate(Bundle savedInstanceState) {
 
     tweetAdapter = new TweetAdapter();
+    // setup rest of TweetAdapter here (i.e. LayoutManager)
 
     // initial page size to fetch can also be configured here too
     PagedList.Config config = new PagedList.Config.Builder().setPageSize(20).build();
