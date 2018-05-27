@@ -1028,7 +1028,7 @@ Follow the [[setup instructions|Paging-Library-Guide#setup]] for adding the Pagi
 
 #### Create Data Source
 
-With the Parse library, we will define our data source using the `PositionalDataSource` class because we can count the data set and request a size from an arbitrary offset:
+With the Parse library, we will define our data source using the `PositionalDataSource` class.  We can use this data source because the Parse SDK allows us to count the size for a query while also requesting a size from an arbitrary offset.  We need to provide this information in the `loadInitial()` and `loadRange`() methods:
 
 ```java
 public class ParsePositionalDataSource extends PositionalDataSource<Post> {
