@@ -207,6 +207,69 @@ public abstract class MyActivity extends AppCompatActivity {
 
 The Paging Library requires that the data used in the RecyclerView, regardless of whether they are pulled from the network, database, or memory, be defined as **data sources**.  It also allows the flexibility to first pull data from the database or memory, and if there is no more data, to pull additional segments of data from the network.   To help showcase how the Paging Library works, you can also try out [this sample code](https://github.com/googlesamples/android-architecture-components/tree/master/PagingWithNetworkSample) from Google.
 
+### Using with SwipeRefreshLayout
+
+In order to use the paging library with [[SwipeRefreshLayout|Implementing-Pull-to-Refresh-Guide#1-recyclerview-with-swiperefreshlayout]], we need to be able to invalidate the data source to force a refresh.  In order to do so, we first need a reference to the data source.  We can do so by creating a `MutableLiveData` instance, which is lifecycle aware, that will hold this value.  
+
+```java
+public class TweetDataSourceFactory extends DataSource.Factory<Long, Tweet> {
+
+    // use to hold a reference to the 
+    public MutableLiveData<TweetDataSource> postLiveData;
+
+    @Override
+    public DataSource<Long, Tweet> create() {
+        TweetDataSource dataSource = new TweetDataSource(this.client);
+
+        // keep reference to the data source with a MutableLiveData reference
+        postLiveData = new MutableLiveData<>();
+        postLiveData.postValue(dataSource);
+
+        return source;
+}
+```
+
+Next, we need to move the TweetDataSourceFactory to be accessible:
+
+```java
+public abstract class MyActivity extends AppCompatActivity {
+
+  // Should be in the ViewModel but shown here for simplicity
+  TweetDataSourceFactory factory;
+
+  public void onCreate(Bundle savedInstanceState) {
+    factory = new TweetDataSourceFactory(RestClientApp.getRestClient());
+
+  }
+}
+```
+
+Finally, we can use the reference to the data source to call `invalidate()`, which should trigger the data source to reload the data and call `loadInitial()` again:
+
+```java
+// Pass in dependency
+SwipeRefreshLayout swipeContainer = v.findViewById(R.id.swipeContainer);
+swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+   @Override
+   public void onRefresh() {
+      factory.postLiveData.getValue().invalidate();
+   }
+});
+```
+
+Once a swipe to refresh is triggered and a new set of data is retrieved, we simply need to call `setRefreshing(false)` on the `SwipeRefreshLayout`:
+
+```java
+tweets.observe(this, new Observer<PagedList<Tweet>>() {
+					@Override
+					public void onChanged(@Nullable PagedList<Tweet> tweets) {
+						tweetAdapter.submitList(tweets);
+      				                swipeContainer.setRefreshing(false);
+					}
+				});
+```
+
+
 ### References
 
 * <https://developer.android.com/topic/libraries/architecture/paging/>
