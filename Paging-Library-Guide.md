@@ -261,12 +261,12 @@ Once a swipe to refresh is triggered and a new set of data is retrieved, we simp
 
 ```java
 tweets.observe(this, new Observer<PagedList<Tweet>>() {
-					@Override
-					public void onChanged(@Nullable PagedList<Tweet> tweets) {
-						tweetAdapter.submitList(tweets);
-      				                swipeContainer.setRefreshing(false);
-					}
-				});
+			@Override
+			public void onChanged(@Nullable PagedList<Tweet> tweets) {
+				tweetAdapter.submitList(tweets);
+      				swipeContainer.setRefreshing(false);
+			}
+		});
 ```
 
 
