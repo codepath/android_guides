@@ -1028,7 +1028,7 @@ Follow the [[setup instructions|Paging-Library-Guide#setup]] for adding the Pagi
 
 #### Create Data Source
 
-With the Parse library, we will define our data source using the `PositionalDataSource` class.  We can use this data source because the Parse SDK allows us to count the size for a query while also requesting a size from an arbitrary offset.  We need to provide this information in the `loadInitial()` and `loadRange`() methods:
+With the Parse library, we will define our data source using the `PositionalDataSource` class.  We can use this data source because the Parse SDK allows us to count the size for a query while also requesting a size from an arbitrary offset.  We need to provide this information in the `loadInitial()` method:
 
 ```java
 public class ParsePositionalDataSource extends PositionalDataSource<Post> {
@@ -1058,28 +1058,6 @@ public class ParsePositionalDataSource extends PositionalDataSource<Post> {
             // retry logic here
         }
     }
-
-    @Override
-    public void loadRange(@NonNull LoadRangeParams params, @NonNull LoadRangeCallback<Post> callback) {
-        // get basic query
-        ParseQuery<Post> query = getQuery();
-
-        query.setLimit(params.loadSize);
-
-        // fetch the next set from a different offset
-        query.setSkip(params.startPosition);
-
-        try {
-            // run queries synchronously since function is called on a background thread
-            List<Post> posts = query.find();
-
-            // return info back to PagedList
-            callback.onResult(posts);
-        } catch (ParseException e) {
-            // retry logic here
-        }
-    }
-}
 ```
 
 ```kotlin
@@ -1104,7 +1082,35 @@ class ParsePositionalDataSource : PositionalDataSource<Post>() {
         // return info back to PagedList
         callback.onResult(posts, params.requestedStartPosition, count)
     }
+```
 
+We also need to implement a `loadRange()` method, which looks similar to the `loadInitial()` method:
+
+```java
+    @Override
+    public void loadRange(@NonNull LoadRangeParams params, @NonNull LoadRangeCallback<Post> callback) {
+        // get basic query
+        ParseQuery<Post> query = getQuery();
+
+        query.setLimit(params.loadSize);
+
+        // fetch the next set from a different offset
+        query.setSkip(params.startPosition);
+
+        try {
+            // run queries synchronously since function is called on a background thread
+            List<Post> posts = query.find();
+
+            // return info back to PagedList
+            callback.onResult(posts);
+        } catch (ParseException e) {
+            // retry logic here
+        }
+    }
+}
+```
+
+```kotlin
     override fun loadRange(params: LoadRangeParams, callback: LoadRangeCallback<Post>) {
         val query = getQuery()
 
