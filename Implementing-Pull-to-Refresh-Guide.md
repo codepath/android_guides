@@ -164,11 +164,9 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-Now just run your application
+Now just run your application!
 
-You could check this Example on [GitHub](https://github.com/Luttos/Android/tree/master/SwipeToRefresh).
-
-_Note: if you remove the listView component your application crashes_
+You could check this example on [GitHub](https://github.com/Luttos/Android/tree/master/SwipeToRefresh).
 
 ## Troubleshooting
 
