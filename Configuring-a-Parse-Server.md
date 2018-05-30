@@ -7,7 +7,7 @@ While there are many
 
 #### Differences with Open Source Parse
 
-You can review this [Wiki](https://github.com/ParsePlatform/parse-server/wiki) to understand the current development progress of this app.  There are a few notable differences in the open source version:
+You can review this [Wiki](https://github.com/ParsePlatform/parse-server/wiki) to understand the current development progress of open source Parse.  There are a few notable differences in the open source version from the originally hosted version:
 
 * **Authentication**: By default, only an application ID is needed to authenticate with open source Parse.  The [base configuration](https://github.com/ParsePlatform/parse-server-example/blob/master/index.js#L13-L18) that comes with the one-click deploy options does not require authenticating with any other types of keys.   Therefore, specifying client keys on Android or iOS is not needed.
 
