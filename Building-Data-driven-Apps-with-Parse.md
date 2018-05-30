@@ -1058,6 +1058,7 @@ public class ParsePositionalDataSource extends PositionalDataSource<Post> {
             // retry logic here
         }
     }
+}
 ```
 
 ```kotlin
@@ -1082,6 +1083,7 @@ class ParsePositionalDataSource : PositionalDataSource<Post>() {
         // return info back to PagedList
         callback.onResult(posts, params.requestedStartPosition, count)
     }
+}
 ```
 
 We also need to implement a `loadRange()` method, which looks similar to the `loadInitial()` method:
@@ -1107,7 +1109,6 @@ We also need to implement a `loadRange()` method, which looks similar to the `lo
             // retry logic here
         }
     }
-}
 ```
 
 ```kotlin
@@ -1124,8 +1125,6 @@ We also need to implement a `loadRange()` method, which looks similar to the `lo
         // return info back to PagedList
         callback.onResult(posts)
     }
-
-}
 ```
 
 Next, we need to create a data source factory:
