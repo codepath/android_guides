@@ -137,6 +137,10 @@ public class TimelineActivity extends Activity {
 **Note** that upon successful reload, we must also signal that the refresh has completed by calling `setRefreshing(false)`. Also note that you should **clear out old items** before appending the new ones d
 ng a refresh.
 
+### Using with Paging Library
+
+If you are using SwipeRefreshLayout with Android's new [[Paging Library|Paging Library Guide]], the data sources used to provide data to the RecyclerView need to be invalidated.  Review [[this guide|https://guides.codepath.com/android/Paging-Library-Guide#using-with-swiperefreshlayout]] for more information.
+
 ## SwipeRefreshLayout with ListView
 
 ### Step 1: Setting SwipeRefreshLayout
