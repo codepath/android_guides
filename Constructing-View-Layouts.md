@@ -24,7 +24,7 @@ In a linear layout, like the name suggests, all the elements are displayed in a 
 
 You can create linear layouts now with ConstraintLayout using chains and defining their styles.  Click [this link](https://constraintlayout.com/layouts/linearlayout.html) to see the basic walkthrough.  
 
-<img src="https://constraintlayout.com/assets/images/basics/chains_create.gif">
+<img src="https://github.com/ConstraintLayout/constraintlayout.github.io/blob/master/assets/images/basics/chains_create.gif?raw=true">
 
 ### Building via the old way
 
@@ -127,7 +127,7 @@ Read [this RelativeLayout tutorial](http://code.tutsplus.com/tutorials/android-u
 
 RelativeLayout can now be done with ConstraintLayout system as well, though there are a few minor differences and the attribute names have changed.  See [this guide](https://constraintlayout.com/layouts/relativelayout.html) for more information.  
 
-<img src="https://constraintlayout.com/assets/images/layouts/relativelayout.gif">
+<img src="https://github.com/ConstraintLayout/constraintlayout.github.io/blob/master/assets/images/layouts/relativelayout.gif?raw=true">
 
 ### Using Alignment to Control Width or Height
 
@@ -228,7 +228,7 @@ The only way to fulfill this requirement is to expand the height of the second b
 
 You can use ConstraintLayout to build these types of layouts by creating guidelines and defining ConstraintLayout attributes, `app:layout_widthPercent` or `app:layout_heightPercent`.  See [this guide](https://constraintlayout.com/layouts/percentlayout.html) for more information.  
 
-<img src="https://constraintlayout.com/assets/images/layouts/percent_guideline.png"/>
+<img src="https://github.com/ConstraintLayout/constraintlayout.github.io/blob/master/assets/images/layouts/percent_guideline.png?raw=true"/>
 
 ### Building via the old way
 
