@@ -267,13 +267,13 @@ We can then perform this query through an AsyncTask:
 final UserDao userDao = ((RestApplication) getApplicationContext()).getMyDatabase().userDao();
 
 AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>() {
-			@Override
-			protected Void doInBackground(Void... ) {
-				UserWithOrganization userWithOrganization = userDao.getWithOrgById(1);
+  @Override
+  protected Void doInBackground(Void... ) {
+    UserWithOrganization userWithOrganization = userDao.getWithOrgById(1);
 
-				return null;
-			};
-		};
+    return null;
+  };
+};
 
 // Make sure to run execute() to run this task!
 task.execute();
