@@ -2,14 +2,6 @@
 
 Room is Google's new persistence library designed to make it easier to build offline apps.  It tries to expose APIs that can leverage the full power of SQL while still providing an abstraction layer for managing the data as Java objects.  It also works well seamlessly with Google's [Architecture Components library](https://developer.android.com/topic/libraries/architecture/) for building robust high-quality production apps and can also be used along with the [Paging Library](https://developer.android.com/topic/libraries/architecture/paging) for handling large data sets.
 
-There are a few key aspects of Room to note that differ slightly from traditional object relational mapping (ORM) frameworks:
-
-* Usually, ORM frameworks expose a limited subset of queries.  Tables are declared as Java objects, and the relations between these tables dictate the types of queries that can be performed.  In Room, SQL inserts, updates, deletes, and complex joins are declared as **Data Access Objects (DAO)**.  The data returned from these queries simply are mapped to a Java object that will hold this information in memory.  In this way, no assumptions are made about how the data can be accessed.  The table definitions are separate from the actual queries performed.
-
-* ORMs typically handle one-to-one and one-to-many relationships by determining the relationship between tables and expose an interface or a set of APIs that perform the SQL queries behind the scenes.  Because of the [performance implications](https://youtu.be/MfHsPGQ6bgE?t=27m37s), Room requires handling these relationships explicitly.   The query needs to be defined as DAO objects, and the data returned will need to be mapped to Java objects.
-
-* One additional change is that Room doesn't require defining your SQL tables as a single Java object.  It allows you to maintain encapsulation between objects by allowing other Java objects to be included as part of a single table.  
-
 ## Setup
 
 The section below describes how to setup using Room.
@@ -43,8 +35,7 @@ dependencies {
 
 ### Define schema locations
 
-When compiling the code, the schemas for the table will be stored in a `schemas/` directory assuming this statement
-has been included your `app/build.gradle` file.  These schemas should be checked into your code based.
+When compiling the code, the schemas for the table will be stored in a `schemas/` directory assuming this statement has been included your `app/build.gradle` file.  These schemas should be checked into your code based.
 
 
 ```gradle
@@ -62,6 +53,7 @@ android {
 ```
 
 ### Defining your Tables
+
 
 Annotate your models with `@Entity`:
 
@@ -148,7 +140,7 @@ public abstract class MyDatabase extends RoomDatabase {
   public static final String NAME = "MyDataBase";
 ```
 
- **Note**: if you decide to change the schema for any tables you create later, you will need to bump the version number.  The version number should always be incremented (and never downgraded) to avoid conflicts with older database versions.  Making schema changes will update the definitions in the `app/schemas` directory as setup in the [[previous step| Room-Guide#define-schema-locations]].  You will find the actual SQL definitions to create these tables there. 
+**Note**: if you decide to change the schema for any tables you create later, you will need to bump the version number.  The version number should always be incremented (and never downgraded) to avoid conflicts with older database versions.  Making schema changes will update the definitions in the `app/schemas` directory as setup in the [[previous step| Room-Guide#define-schema-locations]].  You will find the actual SQL definitions to create these tables there. 
 
 ### Instantiating Room
 
@@ -185,6 +177,13 @@ Modify your `AndroidManifest.xml` file to reference this Application object for 
 
 ## Basic CRUD operations
 
+There are a few key aspects of Room to note that differ slightly from traditional object relational mapping (ORM) frameworks:
+
+* Usually, ORM frameworks expose a limited subset of queries.  Tables are declared as Java objects, and the relations between these tables dictate the types of queries that can be performed.  In Room, SQL inserts, updates, deletes, and complex joins are declared as **Data Access Objects (DAO)**.  The data returned from these queries simply are mapped to a Java object that will hold this information in memory.  In this way, no assumptions are made about how the data can be accessed.  The table definitions are separate from the actual queries performed.
+
+* ORMs typically handle one-to-one and one-to-many relationships by determining the relationship between tables and expose an interface or a set of APIs that perform the SQL queries behind the scenes.  Because of the [performance implications](https://youtu.be/MfHsPGQ6bgE?t=27m37s), Room requires handling these relationships explicitly.   The query needs to be defined as DAO objects, and the data returned will need to be mapped to Java objects.
+
+* One additional change is that Room doesn't require defining your SQL tables as a single Java object.  It allows you to maintain encapsulation between objects by allowing other Java objects to be included as part of a single table.  
 Basic creation, read, update, and delete (CRUD) statements need to be defined in your data access object (DAO).  One major difference is that queries cannot be done on the main thread.  In addition, the objects can be inserted with an [[AsyncTask|Creating-and-Executing-Async-Tasks]] or using the `runInTransaction() method`:
 
 ```java
@@ -397,6 +396,14 @@ public class DateConverter {
 > Question: Is it possible to do joins with Room?
 
 You must define the queries directly as Data Access Objects (DAO).  The return type defined in these interfaces must match the data returned.  See the example above in the [[querying rows|Room-Guide#querying-rows]] section.
+
+There are a few key aspects of Room to note that differ slightly from traditional object relational mapping (ORM) frameworks:
+
+* Usually, ORM frameworks expose a limited subset of queries.  Tables are declared as Java objects, and the relations between these tables dictate the types of queries that can be performed.  In Room, SQL inserts, updates, deletes, and complex joins are declared as **Data Access Objects (DAO)**.  The data returned from these queries simply are mapped to a Java object that will hold this information in memory.  In this way, no assumptions are made about how the data can be accessed.  The table definitions are separate from the actual queries performed.
+
+* ORMs typically handle one-to-one and one-to-many relationships by determining the relationship between tables and expose an interface or a set of APIs that perform the SQL queries behind the scenes.  Because of the [performance implications](https://youtu.be/MfHsPGQ6bgE?t=27m37s), Room requires handling these relationships explicitly.   The query needs to be defined as DAO objects, and the data returned will need to be mapped to Java objects.
+
+* One additional change is that Room doesn't require defining your SQL tables as a single Java object.  It allows you to maintain encapsulation between objects by allowing other Java objects to be included as part of a single table.  
 
 ## References
 
