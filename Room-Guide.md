@@ -1,6 +1,6 @@
 ## Overview
 
-Room is Google's new persistence library designed to make it easier to build offline-first apps.  It tries to expose APIs that can leverage the full power of SQL while still providing an abstraction layer for managing the data as Java objects.  It also works well seamlessly with Google's [Architecture Components library](https://developer.android.com/topic/libraries/architecture/) for building robust high-quality production apps and can also be used along with the [Paging Library](https://developer.android.com/topic/libraries/architecture/paging) for handling large data sets.
+Room is Google's new persistence library designed to make it easier to build offline apps.  It tries to expose APIs that can leverage the full power of SQL while still providing an abstraction layer for managing the data as Java objects.  It also works well seamlessly with Google's [Architecture Components library](https://developer.android.com/topic/libraries/architecture/) for building robust high-quality production apps and can also be used along with the [Paging Library](https://developer.android.com/topic/libraries/architecture/paging) for handling large data sets.
 
 There are a few key aspects of Room to note that differ slightly from traditional object relational mapping (ORM) frameworks:
 
