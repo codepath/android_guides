@@ -102,17 +102,13 @@ public class TodoItemDatabase extends SQLiteOpenHelper {
 
 Check out our [[managing databases with SQLiteOpenHelper|Local-Databases-with-SQLiteOpenHelper]] guide for a more detailed look at working with SQLite. In many cases, rather than interacting with SQL directly, Android apps can leverage one of the many available higher-level ORMs (object relational mappers) to persist Java models to a database table as shown below. If needed, we can also [[access the SQLite database for debugging|Local-Databases-with-SQLiteOpenHelper#sqlite-database-debugging]].
 
-There are a handful of interesting SQLiteOpenHelper wrappers which reduce the level of code written including the following libraries:
-
- * [[Cupboard|Easier-SQL-with-Cupboard]] - Original take on SQL wrapper
- * [SQLBrite](https://github.com/square/sqlbrite) - Square's take on a SQL wrapper
- * [StorIO](https://github.com/pushtorefresh/storio) - Popular new take on a light SQL wrapper
-
-Each of these provide a thin layer of abstraction on `SQLiteOpenHelper`. For a more comprehensive abstraction, we can use mapping engines that automatically create model objects based on SQL data as outlined below.
-
 ### Object Relational Mappers
 
-Instead of accessing the SQLite database directly, there is no shortage of higher-level wrappers for managing SQL persistence. There are many popular ORMs for Android, including:
+Instead of accessing the SQLite database directly, there is no shortage of higher-level wrappers for managing SQL persistence. 
+
+**Google's new [[Room library|Room-Guide]] is now the recommended way of persisting data.  It now provides a layer of abstraction around `SQLiteOpenHelper`.**
+
+There are many popular open-source third-party ORMs for Android, including:
 
  * [DBFlow](https://github.com/Raizlabs/DBFlow) - Newer, light syntax, fast ([[cliffnotes|DBFlow-Guide]])
  * [ActiveAndroid](https://github.com/pardom/ActiveAndroid/wiki/Getting-started) ([[cliffnotes|ActiveAndroid-Guide]]) - stable to use, though unsupported for the last 2 years
@@ -121,57 +117,6 @@ Instead of accessing the SQLite database directly, there is no shortage of highe
  * [greenDAO](http://greendao-orm.com/) - Slightly different take (DAO vs ORM)
  * [ORMLite](http://ormlite.com/sqlite_java_android_orm.shtml) - Lightweight and speed is prioritized
  * [JDXA](http://softwaretree.com/v1/products/jdxa/jdxa.html) - Simple, non-intrusive, flexible
-
-For this class, we selected DBFlow. With DBFlow, building models that are SQLite backed is easy and explicit using annotations. Instead of manually creating and updating tables and managing SQL queries, simply annotate your model classes to associate fields with database columns:
-
-```java
-@Table(database = MyDatabase.class)
-public class User extends BaseModel {
-  @Column(name = "Name")
-  public String name;
-
-  @Column(name = "Age")
-  public int age;
-  
-  // Make sure to define this constructor (with no arguments)
-  // If you don't querying will fail to return results!
-  public User() {
-    super();
-  }
-  
-  // Be sure to call super() on additional constructors as well
-  public User(String name, int age){
-    super();
-    this.name = name;
-    this.age = age;
-  }
-}
-```
-
-Inserting or updating objects no longer requires manually constructing SQL statements, just use the model class as an ORM:
-
-```java
-User user = new User();
-user.name = "Jack";
-user.age = 25;
-user.save();
-// or delete easily too
-user.delete();
-```
-
-DBFlow queries map to SQL queries and are built by chaining methods.
-
-```java
-List<User> users = new Select()
-    .from(User.class)
-    .where(User_Table.age.greaterThen(25)
-    .limit(25)
-    .offset(0)
-    .orderBy(User_Table.age, true) // true for ASC, false for DESC
-    .queryList();
-```
-
-This will automatically query the database and return the results as a List for use. For more information, check out our [[DBFlow Guide|DBFlow-Guide]] for links to more resources and answers to common questions. As needed, we can also [[access the SQLite database for debugging|Local-Databases-with-SQLiteOpenHelper#sqlite-database-debugging]].
 
 ## References
 
