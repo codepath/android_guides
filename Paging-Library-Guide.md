@@ -110,7 +110,7 @@ public void loadInitial(@NonNull LoadInitialParams<Long> params, @NonNull final 
    JsonHttpResponseHandler jsonHttpResponseHandler = createTweetHandler(callback);
 
    // no max_id should be passed on initial load
-   mClient.getHomeTimeline(params.requestedLoadSize, jsonHttpResponseHandler);
+   mClient.getHomeTimeline(0, params.requestedLoadSize, jsonHttpResponseHandler);
 }
 
 // Called repeatedly when more data needs to be set
