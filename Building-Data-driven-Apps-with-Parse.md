@@ -1024,7 +1024,9 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 ### Using with Android Paging Library
 
-Follow the [[setup instructions|Paging-Library-Guide#setup]] for adding the Paging Library to your Gradle configuration.  Make sure also to change your RecyclerView to use PagedListAdapter as described in this [[section|Paging-Library-Guide#modifying-your-recyclerview]].
+#### Prerequisites
+
+First, follow the [[setup instructions|Paging-Library-Guide#setup]] for adding the Paging Library to your Gradle configuration.   In addition, make sure also to change your RecyclerView to use PagedListAdapter as described in this [[section|Paging-Library-Guide#modifying-your-recyclerview]].  You must take care of these first steps before proceeding to the section below.
 
 #### Create Data Source
 
