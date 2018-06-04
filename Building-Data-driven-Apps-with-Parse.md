@@ -504,7 +504,7 @@ You will need to also setup the client SDK by adding this dependency to your `ap
 ```gradle
 dependencies {
   // add Parse dependencies too
-  compile 'com.parse:parse-livequery-android:1.0.2'
+  implementation 'com.parse:parse-livequery-android:1.0.2'
 }
 ```
 
@@ -916,10 +916,12 @@ Next, you will need to include Parse's [FacebookUtils](https://github.com/ParseP
 ```gradle
 dependencies {
   // add other parse dependencies
-  compile 'com.facebook.android:facebook-android-sdk:4.10.0'
-  compile 'com.parse:parsefacebookutils-v4-android:1.10.4@aar'
+  implementation 'com.facebook.android:facebook-android-sdk:4.33.0'
+  implementation 'com.parse:parsefacebookutils-v4-android:X.X.X'
 }
 ```
+
+where `X.X.X` is the latest version: <img src="https://api.bintray.com/packages/parse/maven/ParseFacebookUtils-Android/images/download.svg">
 
 You will then need to make sure to initialize these libraries by doing so in your `MainApplication.java` file:
 
