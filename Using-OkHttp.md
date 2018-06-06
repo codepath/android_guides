@@ -403,7 +403,7 @@ Note that OkHttp handles all the work on a separate thread, so you don't have to
 If you need to close the connection properly, make sure to use a status code of 1000.  See [this link](https://developer.mozilla.org/en-US/docs/Web/API/CloseEvent) for the different status codes.
 
 ```java
-webSocket.close(1000, "closing);
+webSocket.close(1000, "closing");
 ```
 
 ### Enabling TLS V1.2 on older devices
