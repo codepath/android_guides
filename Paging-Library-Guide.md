@@ -43,7 +43,7 @@ public class TweetAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 To:
 
 ```java
-public class TweetAdapter extends ListAdapter<Post, PostAdapter.ViewHolder> {
+public class TweetAdapter extends PagedListAdapter<Post, PostAdapter.ViewHolder> {
 ```
 
 In addition, the adapter should no longer retain a copy of its current list.  The `getItem()` method should be used instead.
