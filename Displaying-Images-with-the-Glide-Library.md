@@ -8,14 +8,29 @@ Add to your `app/build.gradle` file:
 
 ```gradle
 dependencies {
-  compile 'com.github.bumptech.glide:glide:3.8.0'
+  implementation 'com.github.bumptech.glide:glide:4.7.1'
+  // Glide v4 uses this new annotation processor -- see https://bumptech.github.io/glide/doc/generatedapi.html
+  annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
 }
+```
+
+Make sure to create a `MyAppGlideModule` that simply extends from `AppGlideModule` and has the `@GlideModule` annotation.  For now, the class is empty but later we will show how it can be used to set the default image resolution.  If you upgrading from Glide v3, make sure you follow this step too:
+
+```java
+import com.bumptech.glide.annotation.GlideModule;
+import com.bumptech.glide.module.AppGlideModule;
+
+// new since Glide v4
+@GlideModule
+public final class MyAppGlideModule extends AppGlideModule {}
 ```
 
 ### Basic Usage
 
+If you are migrating from Glide v3, make sure to review [this guide](https://bumptech.github.io/glide/doc/migrating.html).  Instead of `Glide.with()`, you will need to use `GlideApp.with()`:
+
 ```java
-Glide.with(context)
+GlideApp.with(context)
     .load("http://via.placeholder.com/300.png")
     .into(ivImg);
 ```
@@ -25,7 +40,7 @@ Glide.with(context)
 Resizing images with:
 
 ```java
-Glide.with(context)
+GlideApp.with(context)
     .load("http://via.placeholder.com/300.png")
     .override(300, 200)
     .into(ivImg);
@@ -34,9 +49,9 @@ Glide.with(context)
 Placeholder and error images:
 
 ```java
-Glide.with(context)
+GlideApp.with(context)
     .load("http://via.placeholder.com/300.png")
-    .placeholder(R.drawable.placeholder)
+    .placeholder(R.drawable.placeholder);
     .error(R.drawable.imagenotfound)
     .into(ivImg);
 ```
@@ -44,7 +59,7 @@ Glide.with(context)
 Cropping images with:
 
 ```java
-Glide.with(context)
+GlideApp.with(context)
     .load("http://via.placeholder.com/300.png")
     .centerCrop()
     .into(ivImg);
@@ -52,32 +67,20 @@ Glide.with(context)
 
 ### Configuration
 
-You can configure Glide by creating a `GlideConfiguration.java` file:
+Modify your `MyAppGlideModule` to override applyOptions:
 
 ```java
-public class GlideConfiguration implements GlideModule {
+@GlideModule
+public final class MyAppGlideModule extends AppGlideModule {
+  @Override
+  public void applyOptions(Context context, GlideBuilder builder) {
+    // Glide default Bitmap Format is set to RGB_565 since it 
+    // consumed just 50% memory footprint compared to ARGB_8888.
+    // Increase memory usage for quality with:
 
-    @Override
-    public void applyOptions(Context context, GlideBuilder builder) {
-        // Apply options to the builder here.
-        // Glide default Bitmap Format is set to RGB_565 since it 
-        // consumed just 50% memory footprint compared to ARGB_8888.
-        // Increase memory usage for quality with:
-        builder.setDecodeFormat(DecodeFormat.PREFER_ARGB_8888);
-    }
-
-    @Override
-    public void registerComponents(Context context, Glide glide) {
-        // register ModelLoaders here.
-    }
+    builder.setDefaultRequestOptions(new RequestOptions().format(DecodeFormat.PREFER_ARGB_8888));
+  }
 }
-```
-
-And then define it as `meta-data` inside `AndroidManifest.xml`:
-
-```xml
-<meta-data android:name="my.app.namespace.utils.GlideConfiguration"
-            android:value="GlideModule"/>
 ```
 
 ### Resizing
@@ -87,7 +90,7 @@ Ideally, an image's dimensions would match exactly those of the `ImageView` in w
 Glide automatically limits the size of the image it holds in memory to the `ImageView` dimensions. Picasso has the same ability, but requires a call to `fit()`. With Glide, if you _don't want_ the image to be automatically fitted to the `ImageView`, you can call `override(horizontalSize, verticalSize)`. This will resize the image before displaying it in the `ImageView` but _without_ respect to the image's aspect ratio:
 
 ```java
-Glide.with(context)
+GlideApp.with(context)
     .load("http://via.placeholder.com/300.png")
     .override(100, 200) // resizes the image to 100x200 pixels but does not respect aspect ratio
     .into(ivImg);
@@ -98,7 +101,7 @@ Resizing images in this way without respect to the original aspect ratio will of
 If you only want to resize one dimension, use `Target.SIZE_ORIGINAL` as a placeholder for the other dimension:
 
 ```java
-Glide.with(context)
+GlideApp.with(context)
     .load("http://via.placeholder.com/300.png")
     .override(100, Target.SIZE_ORIGINAL) // resizes width to 100, preserves original height, does not respect aspect ratio
     .into(ivImg);
@@ -109,7 +112,7 @@ Glide.with(context)
 Calling `centerCrop()` scales the image so that it fills the requested bounds of the `ImageView` and then crops the extra. The `ImageView` will be filled completely, but the entire image might not be displayed.
 
 ```java
-Glide.with(context)
+GlideApp.with(context)
     .load("http://via.placeholder.com/300.png")
     .override(100, 200) 
     .centerCrop() // scale to fill the ImageView and crop any extra
@@ -121,7 +124,7 @@ Glide.with(context)
 Calling `fitCenter()` scales the image so that both dimensions are equal to or less than the requested bounds of the `ImageView`. The image will be displayed completely, but might not fill the entire `ImageView`.
 
 ```java
-Glide.with(context)
+GlideApp.with(context)
     .load("http://via.placeholder.com/300.png")
     .override(100, 200) 
     .fitCenter() // scale to fit entire image within ImageView
@@ -158,20 +161,20 @@ Note that this is not generally a good idea, but can be used temporarily to trig
 If you experience errors loading images, you can create a `RequestListener<String, GlideDrawable>` and pass it in via `Glide.listener()` to intercept errors:
 
 ```java
-Glide.with(context)
+GlideApp.with(context)
         .load("http://via.placeholder.com/300.png")
         .placeholder(R.drawable.placeholder)
         .error(R.drawable.imagenotfound)
         .listener(new RequestListener<String, GlideDrawable>() {
             @Override
-            public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+            public boolean onException(Exception e, String model, Target<Drawable> target, boolean isFirstResource) {
                 // log exception
                 Log.e("TAG", "Error loading image", e);
                 return false; // important to return false so the error placeholder can be placed
             }
 
             @Override
-            public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+            public boolean onResourceReady(GlideDrawable resource, String model, Target<Drawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
                 return false;
             }
         })
@@ -185,17 +188,16 @@ Transformations are supported by an additional third-party library, [glide-trans
 
 ```gradle
 dependencies {
-    compile 'jp.wasabeef:glide-transformations:2.0.2'
+    implementation 'jp.wasabeef:glide-transformations:3.3.0'
     // If you want to use the GPU Filters
-    compile 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
-}
+    implementation 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'}
 ```
 ### Rounded Corners
 
 ```java
 int radius = 30; // corner radius, higher value = more rounded
 int margin = 10; // crop margin, set to 0 for corners with no crop
-Glide.with(this)
+GlideApp.with(this)
         .load("http://via.placeholder.com/300.png")
         .bitmapTransform(new RoundedCornersTransformation(context, radius, margin))
         .into(ivImg);
@@ -206,7 +208,7 @@ Glide.with(this)
 Circle crop:
 
 ```java
-Glide.with(this)
+GlideApp.with(this)
         .load("http://via.placeholder.com/300.png")
         .bitmapTransform(new CropCircleTransformation(context))
         .into(ivImg);
@@ -216,7 +218,7 @@ Glide.with(this)
 Blur:
 
 ```java
-Glide.with(this)
+GlideApp.with(this)
         .load("http://via.placeholder.com/300.png")
         .bitmapTransform(new BlurTransformation(context))
         .into(ivImg);
@@ -225,7 +227,7 @@ Glide.with(this)
 Multiple transforms:
 
 ```java
-Glide.with(this)
+GlideApp.with(this)
         .load("http://via.placeholder.com/300.png")
         .bitmapTransform(new BlurTransformation(context, 25), new CropCircleTransformation(context))
         .into(ivImg);
@@ -242,17 +244,17 @@ Add a `ProgressBar` or otherwise handle callbacks for an image that is loading:
 ```java
 progressBar.setVisibility(View.VISIBLE);
 
-Glide.with(this)
+GlideApp.with(this)
         .load("http://via.placeholder.com/300.png")
-        .listener(new RequestListener<String, GlideDrawable>() {
+        .listener(new RequestListener<String, Drawable>() {
             @Override
-            public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+            public boolean onException(Exception e, String model, Target<Drawable> target, boolean isFirstResource) {
                 progressBar.setVisibility(View.GONE);
                 return false; // important to return false so the error placeholder can be placed
             }
 
             @Override
-            public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+            public boolean onResourceReady(GlideDrawable resource, String model, Target<Drawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
                 progressBar.setVisibility(View.GONE);
                 return false;
             }
@@ -279,7 +281,7 @@ private SimpleTarget target = new SimpleTarget<Bitmap>() {
 Next, pass the `SimpleTarget` to Glide via `into()`:
 
 ```java
-Glide.with(context)
+GlideApp.with(context)
         .load("http://via.placeholder.com/300.png")
         .asBitmap()
         .into(target);
