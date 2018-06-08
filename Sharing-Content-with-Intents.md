@@ -313,7 +313,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
             @Override
             public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                prepareShareIntent(((Drawable) resource).getBitmap());
+                prepareShareIntent(((BitmapDrawable) resource).getBitmap());
                 attachShareIntentAction();
                 // Let Glide handle resource load
                 return false; 
