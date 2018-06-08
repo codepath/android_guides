@@ -347,7 +347,7 @@ Once the private S3 repository has been added to the list, you can simply add th
  
 ```gradle
 dependencies {
-  compile 'com.codepath:mylibrary:0.4-SNAPSHOT'
+  implementation 'com.codepath:mylibrary:0.4-SNAPSHOT'
 }
 ```
 

@@ -5,7 +5,7 @@ Material Design encourages dynamic use of color, especially when you have rich i
 Make sure to add the Palette dependency to your `build.gradle` file if your targeted version of Android is lower than 21.
 
 ```gradle
-compile 'com.android.support:palette-v7:21.0.+'
+implementation 'com.android.support:palette-v7:21.0.+'
 ```
 
 ## Generating the Palette

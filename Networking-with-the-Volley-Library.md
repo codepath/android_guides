@@ -18,7 +18,7 @@ Adding Volley to our `app/build.gradle` file:
 
 ```gradle
 dependencies {
-    compile 'com.android.volley:volley:1.0.0'
+    implementation 'com.android.volley:volley:1.0.0'
 }
 ```
 

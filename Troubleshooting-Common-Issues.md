@@ -71,12 +71,12 @@ You may need to install the newest version of Android and select that version wi
 
 This might also show up as `Too many field references: 131000; max is 65536.` or `com.android.dex.DexIndexOverflowException: method ID not in [0, 0xffff]: 65536` or `Error:Execution failed for task ':app:dexDebug'` in the build console. This error occurs when the total number of references within a single bytecode file exceeds the 65,536 method limit. This usually means you have a substantial amount of code or are loading a large number of libraries.
 
-If you've crossed this limit, this means you've loaded too many classes usually due to third-party libraries. Often the culprit is the Google Play Services library. Open up your app gradle file and look for this line `compile 'com.google.android.gms:play-services:X.X.X'`. Remove that line and instead [include the services selectively](https://developers.google.com/android/guides/setup#split) as outlined there. For example:
+If you've crossed this limit, this means you've loaded too many classes usually due to third-party libraries. Often the culprit is the Google Play Services library. Open up your app gradle file and look for this line `implementation 'com.google.android.gms:play-services:X.X.X'`. Remove that line and instead [include the services selectively](https://developers.google.com/android/guides/setup#split) as outlined there. For example:
 
 ```gradle
 dependencies {
-   compile 'com.google.android.gms:play-services-maps:8.3.0'
-   compile 'com.google.android.gms:play-services-location:8.3.0'
+   implementation 'com.google.android.gms:play-services-maps:8.3.0'
+   implementation 'com.google.android.gms:play-services-location:8.3.0'
 }
 ``` 
 
@@ -153,8 +153,8 @@ Another error if you attempt to include a library that is a subset of another li
 
 ```gradle
 dependencies {
-    compile 'com.google.android.gms:play-services:6.5.+'
-    compile 'com.google.android.gms:play-services-maps:6.5.+'
+    implementation 'com.google.android.gms:play-services:6.5.+'
+    implementation 'com.google.android.gms:play-services-maps:6.5.+'
 }
 ```
 

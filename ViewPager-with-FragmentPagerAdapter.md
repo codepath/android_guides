@@ -402,7 +402,7 @@ The easiest way to leverage transformers is to use this [ViewPagerTransforms](ht
 Loading the library into `app/build.gradle` with:
 
 ```gradle
-compile 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar'
+implementation 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar'
 ```
 
 and then using the desired effect:

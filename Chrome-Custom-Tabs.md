@@ -19,7 +19,7 @@ You will need to have the Chrome app installed on your phone.  If you are using 
 Add the Android Support Library for Chrome Custom Tabs as a dependency to your gradle build file:
 
 ```groovy
-compile 'com.android.support:customtabs:25.2.0'
+implementation 'com.android.support:customtabs:25.2.0'
 ```
 
 The library only works on API 16 (Jelly Bean) an above. If you are supporting previous API, you can add `<uses-sdk tools:overrideLibrary="android.support.customtabs"/>` to your manifest to force its use and check the API version at runtime and just use Chrome Custom tabs if its >= 16

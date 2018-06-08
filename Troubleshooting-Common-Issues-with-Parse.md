@@ -318,8 +318,8 @@ Add this dependency to your `app/build.gradle` file:
 
 ```gradle
 dependencies {
-  compile 'com.parse:parseinterceptors:0.0.2'
-  compile 'com.facebook.stetho:stetho:1.3.0' // Parse interceptor needs this library
+  implementation 'com.parse:parseinterceptors:0.0.2'
+  implementation 'com.facebook.stetho:stetho:1.3.0' // Parse interceptor needs this library
 }
 ```
 

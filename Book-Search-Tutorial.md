@@ -39,8 +39,8 @@ repositories {
 }
 dependencies {
   // ...
-  compile 'com.loopj.android:android-async-http:1.4.9'
-  compile 'com.squareup.picasso:picasso:2.5.2'
+  implementation 'com.loopj.android:android-async-http:1.4.9'
+  implementation 'com.squareup.picasso:picasso:2.5.2'
 }
 ```
 

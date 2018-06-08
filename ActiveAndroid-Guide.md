@@ -20,8 +20,8 @@ repositories {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:22.2.1'
-    compile 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
+    implementation 'com.android.support:appcompat-v7:22.2.1'
+    implementation 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
 }
 ```
 

@@ -34,7 +34,7 @@ And on your app module in `app/build.gradle`:
 
 ```gradle
 dependencies {
-  compile 'com.github.hotchemi:permissionsdispatcher:3.1.0'
+  implementation 'com.github.hotchemi:permissionsdispatcher:3.1.0'
   annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:3.1.0'
 }
 ```

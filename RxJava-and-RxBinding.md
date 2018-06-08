@@ -9,19 +9,19 @@ Make sure to follow the [[setup instructions|RxJava#setup]] for RxJava first.
 To use RxBinding in your project, add the following line to your module level `build.gradle` file:
 
 ```gradle 
-compile 'com.jakewharton.rxbinding:rxbinding:0.4.0'
+implementation 'com.jakewharton.rxbinding:rxbinding:0.4.0'
 ```
 
 If you rely on any widgets from the 'support-v4' library bindings, make sure to add the following:
 
 ```gradle 
-compile 'com.jakewharton.rxbinding:rxbinding-support-v4:0.4.0'
+implementation 'com.jakewharton.rxbinding:rxbinding-support-v4:0.4.0'
 ```
 
 You may also need to add any widgets that rely on the 'appcompat-v7' library:
 
 ```gradle 
-compile 'com.jakewharton.rxbinding:rxbinding-appcompat-v7:0.4.0'
+implementation 'com.jakewharton.rxbinding:rxbinding-appcompat-v7:0.4.0'
 ```
 
 Check out this [link](https://github.com/JakeWharton/RxBinding) to learn more about `RxBinding`.

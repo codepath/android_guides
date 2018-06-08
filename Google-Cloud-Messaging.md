@@ -94,7 +94,7 @@ Add the following to your Gradle file:
 
 ```gradle
 dependencies {
-   compile 'com.google.firebase:firebase-messaging:15.0.2'
+   implementation 'com.google.firebase:firebase-messaging:15.0.2'
 }
 ```
 

@@ -8,7 +8,7 @@ Adding Picasso to our `app/build.gradle` file:
 
 ```gradle
 dependencies {
-    compile 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
 }
 ```
 
@@ -23,7 +23,7 @@ repositories {
 
 // add directly below repositories section
 dependencies {
-    compile 'com.squareup.picasso:picasso:2.6.0-SNAPSHOT'
+    implementation 'com.squareup.picasso:picasso:2.6.0-SNAPSHOT'
 }
 ```
 
@@ -218,9 +218,9 @@ With either of these approaches the staggered grid of images should now render a
 You can also use this [third-party library](https://github.com/wasabeef/picasso-transformations) for other transformations, such as blur, crop, color, and mask.  
 ```gradle
 dependencies {
-    compile 'jp.wasabeef:picasso-transformations:2.1.0'
+    implementation 'jp.wasabeef:picasso-transformations:2.1.0'
     // If you want to use the GPU Filters
-    compile 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
+    implementation 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
 }
 ```
 

@@ -50,7 +50,7 @@ allprojects {
 *Now add the dependency*
 ```
 dependencies {
-            compile 'com.github.MSF-Jarvis:AppRate:-SNAPSHOT'
+            implementation 'com.github.MSF-Jarvis:AppRate:-SNAPSHOT'
     }
 ```
 

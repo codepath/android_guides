@@ -179,7 +179,7 @@ Make sure you have the latest Parse-Android SDK <img src="https://camo.githubuse
 
     ```gradle
     dependencies {
-      compile 'com.facebook.stetho:stetho:1.3.0'
+      implementation 'com.facebook.stetho:stetho:1.3.0'
     }
     ```
 

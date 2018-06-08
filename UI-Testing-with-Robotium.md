@@ -192,12 +192,12 @@ android {
   dependencies {
      compile fileTree(dir: 'libs', include: ['*.jar'])
      testCompile 'junit:junit:4.12'
-     compile 'com.android.support:appcompat-v7:24.1.1'
-     compile 'com.android.support:design:24.1.1'
+     implementation 'com.android.support:appcompat-v7:24.1.1'
+     implementation 'com.android.support:design:24.1.1'
      androidTestCompile 'com.android.support.test:runner:0.4.1'
      androidTestCompile 'com.android.support.test:rules:0.4.1'
      androidTestCompile 'com.android.support:support-annotations:24.1.1'
-     compile 'com.jayway.android.robotium:robotium-solo:5.6.1'    
+     implementation 'com.jayway.android.robotium:robotium-solo:5.6.1'    
   }
 ```      
 

@@ -25,7 +25,7 @@ Once you've selected the icon to use, download the image by selecting the icon a
 
 ### Design Support Library
 
-Make sure to follow the [[Design Support Library]] setup instructions first. Namely, you may want to add this to your `build.gradle` file: `compile 'com.android.support:design:X.X.X'` where X represents the support library version.
+Make sure to follow the [[Design Support Library]] setup instructions first. Namely, you may want to add this to your `build.gradle` file: `implementation 'com.android.support:design:X.X.X'` where X represents the support library version.
 
 You should now be able to add the `android.support.design.widget.FloatingActionButton` view to the layout.  The `src` attribute references the icon that should be used for the floating action.  
 
@@ -96,7 +96,7 @@ this [[guide|Using-the-RecyclerView]] to help make the transition.
 You also must upgrade to the v22 version of RecyclerView.  Previous v21 versions will not work with CoordinatorLayout.  Make sure to bump your `build.gradle` file:
 
 ```gradle
-    compile 'com.android.support:recyclerview-v7:25.3.1'
+    implementation 'com.android.support:recyclerview-v7:25.3.1'
 ```
 
 #### Using CoordinatorLayout

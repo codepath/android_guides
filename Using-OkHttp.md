@@ -19,7 +19,7 @@ Makes sure to enable the use of the Internet permission in your `AndroidManifest
 Simply add this line to your `app/build.gradle` file:
 
 ```gradle
-compile 'com.squareup.okhttp3:okhttp:3.9.0'
+implementation 'com.squareup.okhttp3:okhttp:3.9.0'
 ```
 
 **Note**: If you are upgrading from an older version of OkHttp, your imports will also need to be changed from `import com.squareup.okhttp.XXXX` to `import okhttp3.XXXX`.
@@ -28,7 +28,7 @@ compile 'com.squareup.okhttp3:okhttp:3.9.0'
 
 ```gradle
 dependencies {
-  compile 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.0.2'
+  implementation 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.0.2'
 }
 ```
 
@@ -307,7 +307,7 @@ OkHttp can be hard to troubleshoot when trying to step through the various layer
 To use `HttpLogInterceptor`, add this dependency to your Gradle configuration:
 
 ```gradle
-compile 'com.squareup.okhttp3:logging-interceptor:3.6.0'
+implementation 'com.squareup.okhttp3:logging-interceptor:3.6.0'
 ```
 
 You will need to add a network interceptor for HttpLogInterceptor.  See [this doc](http://square.github.io/okhttp/3.x/logging-interceptor/) for the different options that can be used.
@@ -334,7 +334,7 @@ Add this line to your Gradle configuration:
 
 ```gradle
 dependencies { 
-    compile 'com.facebook.stetho:stetho-okhttp3:1.3.0' 
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.3.0' 
 } 
 ```
 

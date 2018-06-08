@@ -21,7 +21,7 @@ Setup your `app/build.gradle` file:
 ```gradle
 // Gradle dependency on Stetho
   dependencies {
-    compile 'com.facebook.stetho:stetho:1.5.0'
+    implementation 'com.facebook.stetho:stetho:1.5.0'
   }
 ```
 
@@ -40,7 +40,7 @@ If you are also using Stetho with the [[OkHttp|Using OkHttp]] or [[Retrofit|Cons
 ```java
 dependencies {
     // add below Stetho main dependency
-    compile 'com.facebook.stetho:stetho-okhttp3:1.5.0' // for OkHttp library
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0' // for OkHttp library
 }
 ```
 

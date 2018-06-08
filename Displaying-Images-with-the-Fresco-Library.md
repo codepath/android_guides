@@ -14,7 +14,7 @@ When working with Fresco, it's helpful to be familiar with the following terms:
 First, make sure to add the Fresco dependency in your app/build.gradle file:
 ```gradle
 dependencies {
-    compile 'com.facebook.fresco:fresco:0.6.1'
+    implementation 'com.facebook.fresco:fresco:0.6.1'
 }
 ```
 Then, in your `AndroidManifest.xml` make you have the Internet permission if you plan to fetch any images from the network:

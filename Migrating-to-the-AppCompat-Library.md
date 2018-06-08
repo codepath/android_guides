@@ -13,7 +13,7 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:25.2.0'
+    implementation 'com.android.support:appcompat-v7:25.2.0'
 }
 ```
 
@@ -47,7 +47,7 @@ If you need to wish to downgrade (i.e. API 23 to API 22), you need to follow mor
   }
 
   dependencies {
-      compile 'com.android.support:appcompat-v7:22.2.1'
+      implementation 'com.android.support:appcompat-v7:22.2.1'
   }
   ```
 

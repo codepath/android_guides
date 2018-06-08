@@ -90,7 +90,7 @@ android {
 
 dependencies {
   // ...
-  compile 'com.google.firebase:firebase-core:9.0.0'
+  implementation 'com.google.firebase:firebase-core:9.0.0'
 }
 
 // Add to the bottom of the file

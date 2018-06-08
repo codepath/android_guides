@@ -27,7 +27,7 @@ To install Cupboard with Maven, simply add the line
 To install Cupboard with Gradle, simply add the line
 
 ```gradle
-compile 'nl.qbusict:cupboard:(insert latest version)'
+implementation 'nl.qbusict:cupboard:(insert latest version)'
 ```
 
 to the dependencies section of your app's build.gradle file.

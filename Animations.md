@@ -51,7 +51,7 @@ Common properties commonly animated on views include:
 In the past, the way to use animations **compatible with pre-3.0 Android versions** is to use  [NineOldAndroids](http://nineoldandroids.com/) for all our property animations.  Nine Old Androids has now been deprecated and no longer being supported but can still be used by adding this line to your `app/build.gradle` file:
 
 ```gradle
-compile 'com.nineoldandroids:library:2.4.0'
+implementation 'com.nineoldandroids:library:2.4.0'
 ```
 
 A library that simplifies common animations is called [AndroidViewAnimations](https://github.com/daimajia/AndroidViewAnimations) and makes certain common animations on views much easier to achieve. This library is definitely worth a look.
@@ -225,7 +225,7 @@ This applies multiple property animations in parallel including opacity change, 
 If we want to be able to compile the code to run on pre-ICS devices, we can leverage the support library's `ViewCompat.animate` static method instead. If you are an Android Studio user, first add the following dependency to your `app/build.gradle` file:
 
 ```gradle
-compile 'com.android.support:support-v4:24.2.0'
+implementation 'com.android.support:support-v4:24.2.0'
 ```
 
 We can now run concurrent animations with the following:
@@ -751,7 +751,7 @@ One of the simplest ways to display an animated gif is to use a third-party libr
 ```gradle
 dependencies {
     ...
-    compile 'com.github.bumptech.glide:glide:3.6.0'
+    implementation 'com.github.bumptech.glide:glide:3.6.0'
 }
 ```
 

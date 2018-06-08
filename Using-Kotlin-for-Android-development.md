@@ -164,7 +164,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.4.0'
+    implementation 'com.android.support:appcompat-v7:23.4.0'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
 repositories {

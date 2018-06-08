@@ -18,8 +18,8 @@ Let's setup Parse into a brand new Android app following the steps below.
     
     ```gradle
     dependencies {
-      compile 'com.parse:parse-android:1.17.3'
-      compile 'com.squareup.okhttp3:logging-interceptor:3.8.1' // for logging API calls to LogCat
+      implementation 'com.parse:parse-android:1.17.3'
+      implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1' // for logging API calls to LogCat
     }
     ```
 
@@ -232,7 +232,7 @@ First, add the RecyclerView as a dependency in your `app/build.gradle`:
 ```gradle
 dependencies {
     ...
-    compile 'com.android.support:recyclerview-v7:27.1.1'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
 }
 ```
 
@@ -434,7 +434,7 @@ First, add dependency for this library to the `app/build.gradle` file:
 ```groovy
 ...
 dependencies {
-    compile 'com.github.bumptech.glide:glide:3.8.0'
+    implementation 'com.github.bumptech.glide:glide:3.8.0'
 }
 ```
 
@@ -683,7 +683,7 @@ First, make sure to add the Parse LiveQuery dependency to your `app/build.gradle
 
 ```gradle
 dependencies {
-      compile 'com.parse:parse-livequery-android:1.0.4' // for Parse Live Queries
+      implementation 'com.parse:parse-livequery-android:1.0.4' // for Parse Live Queries
 }
 ```
 

@@ -301,7 +301,7 @@ There is a way to use Glide to use OkHttp instead, which may be useful if you ne
 
 ```gradle
 dependencies {
-    compile 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
+    implementation 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
 }
 ```
 

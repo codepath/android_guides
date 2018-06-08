@@ -18,9 +18,9 @@ Add the following to your `app/build.gradle` file:
 
 ```gradle
 dependencies {
-    compile 'com.google.code.gson:gson:2.8.2'
-    compile 'com.squareup.retrofit2:retrofit:2.3.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.3.0'  
+    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'  
 
 }
 ```
@@ -36,9 +36,9 @@ If you intend to use [[RxJava]] with Retrofit 2, you will also need to include t
 
 ```gradle
 dependencies {
-  compile 'io.reactivex:rxjava:1.1.6'
-  compile 'io.reactivex:rxandroid:1.2.1'
-  compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+  implementation 'io.reactivex:rxjava:1.1.6'
+  implementation 'io.reactivex:rxandroid:1.2.1'
+  implementation 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
 }
 ```
 
@@ -514,7 +514,7 @@ Retrofit and OkHttp can be hard to troubleshoot when trying to step through the 
 To use `HttpLogInterceptor`, add this dependency to your Gradle configuration:
 
 ```gradle
-compile 'com.squareup.okhttp3:logging-interceptor:3.3.0'
+implementation 'com.squareup.okhttp3:logging-interceptor:3.3.0'
 ```
 
 You will need to add a network interceptor for HttpLogInterceptor.  See [this doc](http://square.github.io/okhttp/3.x/logging-interceptor/) for the different options that can be used.

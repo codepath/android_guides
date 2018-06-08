@@ -8,7 +8,7 @@ Add the following line to your Gradle configuration:
 
 ```gradle
 dependencies {
-  compile 'com.google.code.gson:gson:2.8.0'
+  implementation 'com.google.code.gson:gson:2.8.0'
 }
 ```
 [![Javadoc](https://javadoc-emblem.rhcloud.com/doc/com.google.code.gson/gson/badge.svg)](http://www.javadoc.io/doc/com.google.code.gson/gson)
@@ -264,7 +264,7 @@ Leveraging the `DateUtils` class in the Apache Commons Language library, we can 
 Add this line to your Gradle file:
 
 ```gradle
-    compile 'org.apache.commons:commons-lang3:3.3.2'
+    implementation 'org.apache.commons:commons-lang3:3.3.2'
 ```
 
 We can then use the [parseDate()](https://commons.apache.org/proper/commons-lang/javadocs/api-3.1/org/apache/commons/lang3/time/DateUtils.html#parseDate) method to try multiple date formats:

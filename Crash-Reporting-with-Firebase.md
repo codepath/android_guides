@@ -8,7 +8,7 @@ Crash reporting is one of the features of the new Firebase that were announced a
   2. Next, is to add the Firebase crash Android library to your app module's `build.gradle` file:
 
 ```gradle
-compile 'com.google.firebase:firebase-crash:9.0.0'
+implementation 'com.google.firebase:firebase-crash:9.0.0'
 ```
 
 At the end of this step, your `build.gradle` file should look like this:
@@ -25,10 +25,10 @@ dependencies {
   // other libraries in your project
   
   // firebase core library
-  compile 'com.google.firebase:firebase-core:9.0.0'
+  implementation 'com.google.firebase:firebase-core:9.0.0'
   
   // firebase crash library
-  compile 'com.google.firebase:firebase-crash:9.0.0'
+  implementation 'com.google.firebase:firebase-crash:9.0.0'
 }
 
 // Add to the bottom of the file

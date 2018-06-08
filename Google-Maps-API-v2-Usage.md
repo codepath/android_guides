@@ -132,7 +132,7 @@ Add the [Google Maps Android Utility library](https://developers.google.com/maps
 
 ```gradle
 dependencies {
-  compile 'com.google.maps.android:android-maps-utils:0.5+'
+  implementation 'com.google.maps.android:android-maps-utils:0.5+'
 }
 ```
 

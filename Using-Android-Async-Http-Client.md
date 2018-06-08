@@ -8,7 +8,7 @@ Add this library to our `app/build.gradle` file:
 
 ```gradle
 dependencies {
-  compile 'com.loopj.android:android-async-http:1.4.9'
+  implementation 'com.loopj.android:android-async-http:1.4.9'
 }
 ```
 

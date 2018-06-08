@@ -42,8 +42,8 @@ Setup your `app/build.gradle`:
 
 ```gradle
 dependencies {
-  compile 'io.reactivex:rxandroid:1.2.0'
-  compile 'io.reactivex:rxjava:1.1.4'
+  implementation 'io.reactivex:rxandroid:1.2.0'
+  implementation 'io.reactivex:rxjava:1.1.4'
 }
 ```
 
@@ -460,8 +460,8 @@ There is also a library called [RxLifecycle](https://github.com/trello/RxLifecyc
 To setup, these Gradle lines must be added:
 
 ```gradle
-compile 'com.trello:rxlifecycle:0.4.0'
-compile 'com.trello:rxlifecycle-components:0.4.0'
+implementation 'com.trello:rxlifecycle:0.4.0'
+implementation 'com.trello:rxlifecycle-components:0.4.0'
 ```
 
 RxLifecycle requires subclassing all activities with [RxActivity] (https://github.com/trello/RxLifecycle/blob/master/rxlifecycle-components/src/main/java/com/trello/rxlifecycle/components/RxActivity.java) or [RxAppCompatActivity](https://github.com/trello/RxLifecycle/blob/master/rxlifecycle-components/src/main/java/com/trello/rxlifecycle/components/support/RxAppCompatActivity.java). 

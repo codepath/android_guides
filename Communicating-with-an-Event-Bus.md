@@ -30,7 +30,7 @@ Add this Gradle dependency to your `app/build.gradle` file:
 
 ```gradle
 dependencies {
-    compile 'org.greenrobot:eventbus:3.0.0'
+    implementation 'org.greenrobot:eventbus:3.0.0'
 }
 ```
 

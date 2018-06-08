@@ -162,14 +162,14 @@ android {
   ...
   dependencies {
       // Google Play Services
-      compile 'com.google.android.gms:play-services:6.5.+'
+      implementation 'com.google.android.gms:play-services:6.5.+'
 
       // Support Libraries
-      compile 'com.android.support:support-v4:22.2.1'
-      compile 'com.android.support:appcompat-v7:22.2.+'
-      compile 'com.android.support:gridlayout-v7:22.2.+'
-      compile 'com.android.support:support-v7-mediarouter:22.2.0+'
-      compile 'com.android.support:support-v13:22.2.0+'
+      implementation 'com.android.support:support-v4:22.2.1'
+      implementation 'com.android.support:appcompat-v7:22.2.+'
+      implementation 'com.android.support:gridlayout-v7:22.2.+'
+      implementation 'com.android.support:support-v7-mediarouter:22.2.0+'
+      implementation 'com.android.support:support-v13:22.2.0+'
 
       // Note: these libraries require the "Google Repository" and "Android Repository"
       //       to be installed via the SDK manager.

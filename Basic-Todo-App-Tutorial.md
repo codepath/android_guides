@@ -203,7 +203,7 @@ First, we need to add the `commons.io` library into our gradle file dependencies
 
 ```gradle
 dependencies {
-    compile 'org.apache.commons:commons-io:1.3.2'
+    implementation 'org.apache.commons:commons-io:1.3.2'
 }
 ```
 
