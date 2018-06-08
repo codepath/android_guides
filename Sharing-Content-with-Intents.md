@@ -95,7 +95,7 @@ Facebook doesn't work well with normal sharing intents when sharing multiple con
 
 ### Sharing Remote Images
 
-You may want to send an image that were loaded from a remote URL. Assuming you are using a third party library like `Glide`, here is how you might share an image that came from the network and was loaded into an ImageView.  There are two ways to accomplish this.   The first way, shown below, takes the bitmap from the view and loads it into a file.  
+You may want to send an image that were loaded from a remote URL. Assuming you are using a third party library like [[Glide|Displaying-Images-with-the-Glide-Library]], here is how you might share an image that came from the network and was loaded into an ImageView.  There are two ways to accomplish this.   The first way, shown below, takes the bitmap from the view and loads it into a file.  
 
 ```java
 // Get access to ImageView 
