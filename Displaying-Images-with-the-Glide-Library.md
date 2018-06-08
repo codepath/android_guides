@@ -140,7 +140,7 @@ If an image or set of images aren't loading, make sure to check the Android moni
 First, you have to find which image(s) being loaded are likely causing this error. For any given `Glide` call, we can fix this by **one or more of the following approaches**:
 
 - Add an explicit width or height to the `ImageView` by setting `layout_width=500dp` in the layout file.
-- Call `.override(width, height)` during the Glide load and explicitly set a width or height for the image such as: `Glide.with(...).load(imageUri).override(500, 500).into(...)`. 
+- Call `.override(width, height)` during the Glide load and explicitly set a width or height for the image such as: `GlideApp.with(...).load(imageUri).override(500, 500).into(...)`. 
 - Try removing `android:adjustViewBounds="true"` from your `ImageView` if present and if you not calling `.override()`
 - Open up your static placeholder or error images and make sure their dimensions are relatively small (< 500px width). If not, resize those static images and save them back to your project.
 
@@ -158,14 +158,14 @@ Note that this is not generally a good idea, but can be used temporarily to trig
 
 ### Loading Errors
 
-If you experience errors loading images, you can create a `RequestListener<String, GlideDrawable>` and pass it in via `Glide.listener()` to intercept errors:
+If you experience errors loading images, you can create a `RequestListener<String, Drawable>` and pass it in via `Glide.listener()` to intercept errors:
 
 ```java
 GlideApp.with(context)
         .load("http://via.placeholder.com/300.png")
         .placeholder(R.drawable.placeholder)
         .error(R.drawable.imagenotfound)
-        .listener(new RequestListener<String, GlideDrawable>() {
+        .listener(new RequestListener<String, Drawable>() {
             @Override
             public boolean onException(Exception e, String model, Target<Drawable> target, boolean isFirstResource) {
                 // log exception
@@ -174,7 +174,7 @@ GlideApp.with(context)
             }
 
             @Override
-            public boolean onResourceReady(GlideDrawable resource, String model, Target<Drawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+            public boolean onResourceReady(Drawable resource, String model, Target<Drawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
                 return false;
             }
         })
@@ -246,15 +246,15 @@ progressBar.setVisibility(View.VISIBLE);
 
 GlideApp.with(this)
         .load("http://via.placeholder.com/300.png")
-        .listener(new RequestListener<String, Drawable>() {
+        .listener(new RequestListener<Drawable>() {
             @Override
-            public boolean onException(Exception e, String model, Target<Drawable> target, boolean isFirstResource) {
+            public boolean onLoadFailed(Exception e, Object model, Target<Drawable> target, boolean isFirstResource) {
                 progressBar.setVisibility(View.GONE);
                 return false; // important to return false so the error placeholder can be placed
             }
 
             @Override
-            public boolean onResourceReady(GlideDrawable resource, String model, Target<Drawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
                 progressBar.setVisibility(View.GONE);
                 return false;
             }
@@ -289,7 +289,7 @@ GlideApp.with(context)
 
 **Note:** The `SimpleTarget` object must be **stored as a member field or method** and cannot be an anonymous class otherwise this won't work as expected.  The reason is that Glide accepts this parameter as a weak memory reference, and because anonymous classes are eligible for garbage collection when there are no more references, the network request to fetch the image may finish after this anonymous class has already been reclaimed.  See this [Stack Overflow](http://stackoverflow.com/questions/24180805/onbitmaploaded-of-target-object-not-called-on-first-load#answers) discussion for more details.
 
-In other words, you cannot do this all inline `Glide.with(this).load("url").into(new SimpleTarget<Bitmap>() { ... })` as in other scenarios.
+In other words, you cannot do this all inline `GlideApp.with(this).load("url").into(new SimpleTarget<Bitmap>() { ... })` as in other scenarios.
 
 ## Networking
 
