@@ -101,7 +101,7 @@ You may want to send an image that were loaded from a remote URL. Assuming you a
 // Get access to ImageView 
 ImageView ivImage = (ImageView) findViewById(R.id.ivResult);
 // Fire async request to load image
-Glide.with(context).load(imageUrl).into(ivImage);
+GlideApp.with(context).load(imageUrl).into(ivImage);
 ```
 
 and then later assuming after the image has completed loading, this is how you can trigger a share:
@@ -304,16 +304,16 @@ protected void onCreate(Bundle savedInstanceState) {
     // Get access to ImageView
     ImageView ivImage = (ImageView) findViewById(R.id.ivResult);
     // Load image async from remote URL, setup share when completed
-    Glide.with(this).load(result.getFullUrl())
-        .listener(new RequestListener<Uri, GlideDrawable>() {
+    GlideApp.with(this).load(result.getFullUrl())
+        .listener(new RequestListener<Drawable>() {
             @Override
-            public boolean onException(Exception e, Uri model, Target<GlideDrawable> target, boolean isFirstResource) {
+            public boolean onException(Exception e, Object model, Target<Drawable> target, boolean isFirstResource) {
                 return false;
             }
 
             @Override
-            public boolean onResourceReady(GlideDrawable resource, Uri model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                prepareShareIntent(((GlideBitmapDrawable) resource).getBitmap());
+            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                prepareShareIntent(((Drawable) resource).getBitmap());
                 attachShareIntentAction();
                 // Let Glide handle resource load
                 return false; 
