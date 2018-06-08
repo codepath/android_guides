@@ -28,11 +28,11 @@ dependencies {
     // annotationProcessor now supported in Android Gradle plugin 2.2
     // See https://bitbucket.org/hvisser/android-apt/wiki/Migration
     annotationProcessor "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
-    compile "com.github.Raizlabs.DBFlow:dbflow-core:${dbflow_version}"
-    compile "com.github.Raizlabs.DBFlow:dbflow:${dbflow_version}"
+    implementation "com.github.Raizlabs.DBFlow:dbflow-core:${dbflow_version}"
+    implementation "com.github.Raizlabs.DBFlow:dbflow:${dbflow_version}"
 
     // sql-cipher database encryption (optional)
-    // compile "com.github.Raizlabs.DBFlow:dbflow-sqlcipher:${dbflow_version}"
+    // implementation "com.github.Raizlabs.DBFlow:dbflow-sqlcipher:${dbflow_version}"
   }
 ```
 

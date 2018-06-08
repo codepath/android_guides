@@ -238,7 +238,7 @@ To use, follow the [[setup guide|Design-Support-Library#adding-percent-support-l
 
 ```gradle
 dependencies {
-  compile "com.android.support:percent:X.X.X"
+  implementation "com.android.support:percent:X.X.X"
 }
 ```
 
