@@ -17,9 +17,10 @@ android:
     - tools # to get the new `repository-11.xml`
     - tools # see https://github.com/travis-ci/travis-ci/issues/6040#issuecomment-219367943)
     - platform-tools
-    - build-tools-26.0.1
-    - android-26
-
+    - build-tools-27.0.3
+    - android-27
+before_install:
+  - yes | sdkmanager "platforms;android-27"
 script:
    - ./gradlew build connectedCheck
 ```
