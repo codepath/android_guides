@@ -169,7 +169,12 @@ TextView natively supports [HTML](http://developer.android.com/reference/android
 TextView view = (TextView)findViewById(R.id.sampleText);
 String formattedText = "This <i>is</i> a <b>test</b> of <a href='http://foo.com'>html</a>";
 // or getString(R.string.htmlFormattedText);
-view.setText(Html.fromHtml(formattedText));
+
+if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+  view.setText(Html.fromHtml(source, Html.FROM_HTML_MODE_LEGACY));
+} else {
+  view.setText(Html.fromHtml(formattedText);
+}
 ```
 
 This results in:
