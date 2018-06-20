@@ -177,30 +177,13 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
 }
 ```
 
+You can [read more about the html modes here](https://developer.android.com/reference/android/text/Html.html#FROM_HTML_MODE_COMPACT).
+
 This results in:
 
 ![](https://i.imgur.com/PEl2EKl.png)
 
 Note that all tags are not supported. See [this article](http://javatechig.com/android/display-html-in-android-textview) for a more detailed look at supported tags and usages. 
-
-### Android N Usage
-
-As of Android N, the signature for the method changed, requiring there to be a check depending on version to remove the deprecation warning:
-
-```java
-@SuppressWarnings("deprecation")
-public static Spanned fromHtml(String html){
-    Spanned result;
-    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-       result = Html.fromHtml(html,Html.FROM_HTML_MODE_LEGACY);
-    } else {
-       result = Html.fromHtml(html);
-    }
-    return result;
-}
-```
-
-You can [read more about the html modes here](https://developer.android.com/reference/android/text/Html.html#FROM_HTML_MODE_COMPACT).
 
 ### Setting Font Colors
 
