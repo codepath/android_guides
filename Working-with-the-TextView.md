@@ -173,7 +173,7 @@ String formattedText = "This <i>is</i> a <b>test</b> of <a href='http://foo.com'
 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
   view.setText(Html.fromHtml(source, Html.FROM_HTML_MODE_LEGACY));
 } else {
-  view.setText(Html.fromHtml(formattedText);
+  view.setText(Html.fromHtml(formattedText));
 }
 ```
 
