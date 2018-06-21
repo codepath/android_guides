@@ -42,3 +42,4 @@ One of the best ways to learn about Android is to checkout Android code in the w
 * [Quora on Best Open Android Apps](http://www.quora.com/Android-Applications/What-are-some-of-the-best-open-source-Android-apps)
 * [tumblrsnap](https://github.com/codepath/tumblrsnap/tree/portfolio)
 * [Quran android app](https://github.com/quran/quran_android)
+* [Vt - VK video app](https://github.com/ukakhmedoff/VideoforVk)
