@@ -225,7 +225,7 @@ public class TweetDataSourceFactory extends DataSource.Factory<Long, Tweet> {
         postLiveData = new MutableLiveData<>();
         postLiveData.postValue(dataSource);
 
-        return source;
+        return dataSource;
 }
 ```
 
