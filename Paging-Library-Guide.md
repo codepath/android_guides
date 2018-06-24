@@ -154,11 +154,13 @@ A data source factory simply creates the data source.  Because of the dependency
 
 ```java
 public class TweetDataSourceFactory extends DataSource.Factory<Long, Tweet> {
+
     TwitterClient client;
 
     public TweetDataSourceFactory(TwitterClient client) {
         this.client = client;
     }
+
     @Override
     public DataSource<Long, Tweet> create() {
         TweetDataSource dataSource = new TweetDataSource(this.client);
@@ -214,14 +216,14 @@ In order to use the paging library with [[SwipeRefreshLayout|Implementing-Pull-t
 ```java
 public class TweetDataSourceFactory extends DataSource.Factory<Long, Tweet> {
 
-    // use to hold a reference to the 
+    // Use to hold a reference to the 
     public MutableLiveData<TweetDataSource> postLiveData;
 
     @Override
     public DataSource<Long, Tweet> create() {
         TweetDataSource dataSource = new TweetDataSource(this.client);
 
-        // keep reference to the data source with a MutableLiveData reference
+        // Keep reference to the data source with a MutableLiveData reference
         postLiveData = new MutableLiveData<>();
         postLiveData.postValue(dataSource);
 
@@ -234,13 +236,13 @@ Next, we need to move the TweetDataSourceFactory to be accessible:
 ```java
 public abstract class MyActivity extends AppCompatActivity {
 
-  // Should be in the ViewModel but shown here for simplicity
-  TweetDataSourceFactory factory;
+    // Should be in the ViewModel but shown here for simplicity
+    TweetDataSourceFactory factory;
 
-  public void onCreate(Bundle savedInstanceState) {
-    factory = new TweetDataSourceFactory(RestClientApp.getRestClient());
+    public void onCreate(Bundle savedInstanceState) {
+        factory = new TweetDataSourceFactory(RestClientApp.getRestClient());
 
-  }
+    }
 }
 ```
 
@@ -250,10 +252,10 @@ Finally, we can use the reference to the data source to call `invalidate()`, whi
 // Pass in dependency
 SwipeRefreshLayout swipeContainer = v.findViewById(R.id.swipeContainer);
 swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-   @Override
-   public void onRefresh() {
-      factory.postLiveData.getValue().invalidate();
-   }
+    @Override
+    public void onRefresh() {
+        factory.postLiveData.getValue().invalidate();
+    }
 });
 ```
 
@@ -263,8 +265,8 @@ Once a swipe to refresh is triggered and a new set of data is retrieved, we simp
 tweets.observe(this, new Observer<PagedList<Tweet>>() {
 			@Override
 			public void onChanged(@Nullable PagedList<Tweet> tweets) {
-				tweetAdapter.submitList(tweets);
-      				swipeContainer.setRefreshing(false);
+			    tweetAdapter.submitList(tweets);
+      			    swipeContainer.setRefreshing(false);
 			}
 		});
 ```
