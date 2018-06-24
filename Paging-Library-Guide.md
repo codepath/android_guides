@@ -60,8 +60,9 @@ override fun onBindViewHolder(holder: PostAdapter.ViewHolder, position: Int) {
     {
         return;
     }
-    // handle remaining work here
-    // ..
+
+    // Handle remaining work here
+    // ...
 }
 ```
 
@@ -82,22 +83,22 @@ The first step is to define the key that will be used to determine the next page
 ```java
 public class TweetDataSource extends ItemKeyedDataSource<Long, Tweet> {
 
-  // first type of ItemKeyedDataSource should match return type of getKey()
-  @NonNull
-  @Override
-  public Long getKey(@NonNull Tweet item) {
-      // item.getPostId() is a Long type
-      return item.getPostId();
-  }
+    // First type of ItemKeyedDataSource should match return type of getKey()
+    @NonNull
+    @Override
+    public Long getKey(@NonNull Tweet item) {
+        // item.getPostId() is a Long type
+        return item.getPostId();
+    }
 ```
 
 Next, we should make sure to pass into the data constructor whatever dependencies are needed.  In the example below, we are showing how the use of the Android Async Http library can be used.  You can use other [[networking libraries|Sending-and-Managing-Network-Requests#sending-an-http-request-third-party]] as well.
 
 ```java
-// pass whatever dependencies are needed to make the network call
+// Pass whatever dependencies are needed to make the network call
 TwitterClient mClient;
 
-// define the type of data that will be emitted by this datasource
+// Define the type of data that will be emitted by this datasource
 public TweetDataSource(TwitterClient client) {
     mClient = client;
 }
@@ -107,22 +108,22 @@ Next, we need to define inside the data source the `loadInitial()` and `loadAfte
 ```java
 public void loadInitial(@NonNull LoadInitialParams<Long> params, @NonNull final LoadInitialCallback<Tweet> callback) {
 
-   JsonHttpResponseHandler jsonHttpResponseHandler = createTweetHandler(callback);
+    JsonHttpResponseHandler jsonHttpResponseHandler = createTweetHandler(callback);
 
-   // no max_id should be passed on initial load
-   mClient.getHomeTimeline(0, params.requestedLoadSize, jsonHttpResponseHandler);
+    // No max_id should be passed on initial load
+    mClient.getHomeTimeline(0, params.requestedLoadSize, jsonHttpResponseHandler);
 }
 
 // Called repeatedly when more data needs to be set
 @Override
 public void loadAfter(@NonNull LoadParams<Long> params, @NonNull LoadCallback<Tweet> callback) {
-   // fetch data synchronously
-   JsonHttpResponseHandler jsonHttpResponseHandler = createTweetHandler(callback);
+    // Fetch data synchronously
+    JsonHttpResponseHandler jsonHttpResponseHandler = createTweetHandler(callback);
 
-   // params.key & requestedLoadSize should be used
-   // params.key will be the lowest Twitter post ID retrieved and should be used for the max_id= parameter in Twitter API.  
-   // max_id = params.key - 1 
-   mClient.getHomeTimeline(params.key - 1, params.requestedLoadSize, jsonHttpResponseHandler);
+    // params.key & requestedLoadSize should be used
+    // params.key will be the lowest Twitter post ID retrieved and should be used for the max_id= parameter in Twitter API.  
+    // max_id = params.key - 1 
+    mClient.getHomeTimeline(params.key - 1, params.requestedLoadSize, jsonHttpResponseHandler);
 }
 ```
 
@@ -131,21 +132,21 @@ The `createTweetHandler()` method parses the JSON data and posts the data to the
 ```java
 public JsonHttpResponseHandler createTweetHandler(final LoadCallback<Tweet> callback) {
 
- JsonHttpResponseHandler handler = new JsonHttpResponseHandler() {
-     @Override
-     public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
-         ArrayList<Tweet> tweets = new ArrayList<Tweet>();
-         tweets = Tweet.fromJson(response);
+    JsonHttpResponseHandler handler = new JsonHttpResponseHandler() {
+        @Override
+        public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+            ArrayList<Tweet> tweets = new ArrayList<Tweet>();
+            tweets = Tweet.fromJson(response);
 
-         // send back to PagedList handler           
-         callback.onResult(tweets);
-     }
- };
+            // send back to PagedList handler           
+            callback.onResult(tweets);
+        }
+    };
 
- // fetch data synchronously
- // For AsyncHttpClient, this workaround forces the callback to be run synchronously
- handler.setUseSynchronousMode(true);
- handler.setUsePoolThread(true);
+    // Fetch data synchronously
+    // For AsyncHttpClient, this workaround forces the callback to be run synchronously
+    handler.setUseSynchronousMode(true);
+    handler.setUsePoolThread(true);
 ```
 
 #### Add a Data Source Factory
@@ -177,32 +178,30 @@ Once we have created the data source and data source factory, the final step is 
 ```java		
 public abstract class MyActivity extends AppCompatActivity {
 
-  TweetAdapter tweetAdapter;
+    TweetAdapter tweetAdapter;
 
-  // normally this data should be encapsulated in ViewModels, but shown here for simplicity
-  LiveData<PagedList<Tweet>> tweets;
+    // Normally this data should be encapsulated in ViewModels, but shown here for simplicity
+    LiveData<PagedList<Tweet>> tweets;
 
-  public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
+        tweetAdapter = new TweetAdapter();
+        // Setup rest of TweetAdapter here (i.e. LayoutManager)
 
-    tweetAdapter = new TweetAdapter();
-    // setup rest of TweetAdapter here (i.e. LayoutManager)
+        // Initial page size to fetch can also be configured here too
+        PagedList.Config config = new PagedList.Config.Builder().setPageSize(20).build();
 
-    // initial page size to fetch can also be configured here too
-    PagedList.Config config = new PagedList.Config.Builder().setPageSize(20).build();
+        // Pass in dependency
+        TweetDataSourceFactory factory = new TweetDataSourceFactory(RestClientApp.getRestClient());
 
-    // Pass in dependency
-    TweetDataSourceFactory factory = new TweetDataSourceFactory(RestClientApp.getRestClient());
+        tweets = new LivePagedListBuilder(factory, config).build();
 
-    tweets = new LivePagedListBuilder(factory, config).build();
-
-    tweets.observe(this, new Observer<PagedList<Tweet>>() {
-					@Override
-					public void onChanged(@Nullable PagedList<Tweet> tweets) {
-						tweetAdapter.submitList(tweets);
-					}
-				});
-
-  }
+        tweets.observe(this, new Observer<PagedList<Tweet>>() {
+	        @Override
+		public void onChanged(@Nullable PagedList<Tweet> tweets) {
+		    tweetAdapter.submitList(tweets);
+		}
+	});
+    }
 ```
 
 ### Adding multiple data sources
@@ -228,7 +227,7 @@ public class TweetDataSourceFactory extends DataSource.Factory<Long, Tweet> {
         postLiveData.postValue(dataSource);
 
         return dataSource;
-}
+    }
 ```
 
 Next, we need to move the TweetDataSourceFactory to be accessible:
@@ -263,12 +262,12 @@ Once a swipe to refresh is triggered and a new set of data is retrieved, we simp
 
 ```java
 tweets.observe(this, new Observer<PagedList<Tweet>>() {
-			@Override
-			public void onChanged(@Nullable PagedList<Tweet> tweets) {
-			    tweetAdapter.submitList(tweets);
-      			    swipeContainer.setRefreshing(false);
-			}
-		});
+        @Override
+        public void onChanged(@Nullable PagedList<Tweet> tweets) {
+            tweetAdapter.submitList(tweets);
+            swipeContainer.setRefreshing(false);
+        }
+});
 ```
 
 
