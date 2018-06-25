@@ -23,7 +23,7 @@ Next, within your `app/build.gradle`, add Room to your dependency list.  We crea
 
 ```gradle
 ext {
-   roomVersion = "1.1.0"
+   roomVersion = "1.1.1"
 }
 
 dependencies {
