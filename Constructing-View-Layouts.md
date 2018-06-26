@@ -145,7 +145,7 @@ Each constraint has the format `app:layout_constraintX_toYOf` that denotes the c
  `android:layout_centerVertical="true"` | `app:layout_constraintTop_toTopOf="parent"` and `app:layout_constraintBottom_toBottomOf="parent"`
  `android:layout_centerInParent="true"` | `app:layout_constraintStart_toStartOf="parent"`, `app:layout_constraintTop_toTopOf="parent"`, `app:layout_constraintEnd_toEndOf="parent"`, and `app:layout_constraintBottom_toBottomOf="parent"`
 
-In addition, all constraints must be fully defined to avoid any ambiguity by the layout manager.  For instance, in the previous RelativeLayout example, not only do the constraints between each objects need to be defined vertically but also how they should be placed horizontally to the layout view.  Notice how `app:layout_constraintStart_toStartOf="parent"` has been added to each element.  The attribute `app:layout_constraintEnd_toEndOf="parent" is not needed because each view is already setting a layout_width of `match_parent`:
+In addition, all constraints must be fully defined to avoid any ambiguity by the layout manager.  For instance, in the previous RelativeLayout example, not only do the constraints between each objects need to be defined vertically but also how they should be placed horizontally to the layout view.  Notice how `app:layout_constraintStart_toStartOf="parent"` has been added to each element.  The attribute `app:layout_constraintEnd_toEndOf="parent"` is not needed because each view is already setting a layout_width of `match_parent`:
 
 ```xml
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
