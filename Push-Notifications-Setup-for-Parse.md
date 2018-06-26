@@ -56,7 +56,23 @@ Next, redeploy the code.  If you are using Heroku, you need to connect your own 
 
 Before getting started, make sure you have Google Play installed on the emulator or device, since push notifications via [Firebase Cloud Messaging](Google-Cloud-Messaging) will only work for devices and emulators that have Google Play installed.
 
-Also verify that you have added the Parse Client SDK as shown in [[this guide|Building-Data-driven-Apps-with-Parse#setup]].
+Also verify that you have added the Parse Client SDK as shown in [[this guide|Building-Data-driven-Apps-with-Parse#setup]].   Extract out the Parse version used since the `parse-fcm-android` package will be the same as the Parse SDK:
+
+```gradle
+ext {
+  parseVersion = "1.17.3"
+}
+```
+
+You will then need to add the `parse-fcm-android` package:
+
+```gradle
+dependencies {
+  implementation "com.parse:parse-android:$parseVersion"
+  // Add this line
+  implementation "com.parse:parse-fcm-android:$parseVersion" 
+}
+```
 
 ### Firebase setup
 
