@@ -25,6 +25,8 @@ import com.bumptech.glide.module.AppGlideModule;
 public final class MyAppGlideModule extends AppGlideModule {}
 ```
 
+Make sure to sync your project to Gradle before continuing, since Glide needs to generate the necessary code to invoke `GlideApp.with()` in Android Studio.
+
 ### Basic Usage
 
 If you are migrating from Glide v3, make sure to review [this guide](https://bumptech.github.io/glide/doc/migrating.html).  Instead of `Glide.with()`, you will need to use `GlideApp.with()`:
