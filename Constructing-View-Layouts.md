@@ -14,7 +14,9 @@ It's important to note the class hierarchy of these View Layouts.  Each of them 
 
 The best place to understand this layout system is this dedicated [web site](https://constraintlayout.com/basics/) that covers the basics behind constraints, chains, guidelines, dimensions, and barriers.  Constraints define the relation between two different view elements, and chains can be used dictate the spacing between them.  In addition, guidelines can be used to create percentage-based layouts.
 
-Most of what can be achieved in LinearLayout and RelativeLayout can be done in ConstraintLayout.    However, learning the basics of LinearLayout and RelativeLayout is important before trying to understand how to use it with ConstraintLayout.  You may wish to walk through this [Google codelab](https://codelabs.developers.google.com/codelabs/constraint-layout/#0) to understand how to use ConstraintLayout works.
+Most of what can be achieved in LinearLayout and RelativeLayout can be done in ConstraintLayout.    However, learning the basics of LinearLayout and RelativeLayout is important before trying to understand how to use it with ConstraintLayout.  The fundamental
+
+You may wish to walk through this [Google codelab](https://codelabs.developers.google.com/codelabs/constraint-layout/#0) to understand how to use ConstraintLayout works.
 
 ## LinearLayout
 
@@ -125,9 +127,53 @@ Read [this RelativeLayout tutorial](http://code.tutsplus.com/tutorials/android-u
 
 ### Building via ConstraintLayout
 
-RelativeLayout can now be done with ConstraintLayout system as well, though there are a few minor differences and the attribute names have changed.  See [this guide](https://constraintlayout.com/layouts/relativelayout.html) for more information.  
+RelativeLayout can now be done with ConstraintLayout system as well. Constraints can be created to define relations between views by dragging the circle in the middle of each to the other view.  Below is an example of creating a constraint between the bottom of a button to the top of a text field:
 
 <img src="https://github.com/ConstraintLayout/constraintlayout.github.io/blob/master/assets/images/layouts/relativelayout.gif?raw=true">
+
+Each constraint has the format `app:layout_constraintX_toYOf` that denotes the constraint from one view (X) to another view (Y).  Below is as a table of how the previous RelativeLayout attributes map to the ConstraintLayout.  The terms `start` and `end` are used lieu of the left and right horizontal edges:
+
+`RelativeLayout` attribute | `ConstraintLayout` attribute
+ --- | ---
+ `android:layout_alignParentLeft="true"` | `app:layout_constraintLeft_toLeftOf="parent"`
+ `android:layout_alignParentStart="true"` | `app:layout_constraintStart_toStartOf="parent"`
+ `android:layout_alignParentTop="true"` | `app:layout_constraintTop_toTopOf="parent"`
+ `android:layout_alignParentRight="true"` | `app:layout_constraintRight_toRightOf="parent"`
+ `android:layout_alignParentEnd="true"` | `app:layout_constraintEnd_toEndOf="parent"`
+ `android:layout_alignParentBottom="true"` | `app:layout_constraintBottom_toBottomOf="parent"`
+ `android:layout_centerHorizontal="true"` | `app:layout_constraintStart_toStartOf="parent"` and `app:layout_constraintEnd_toEndOf="parent"`
+ `android:layout_centerVertical="true"` | `app:layout_constraintTop_toTopOf="parent"` and `app:layout_constraintBottom_toBottomOf="parent"`
+ `android:layout_centerInParent="true"` | `app:layout_constraintStart_toStartOf="parent"`, `app:layout_constraintTop_toTopOf="parent"`, `app:layout_constraintEnd_toEndOf="parent"`, and `app:layout_constraintBottom_toBottomOf="parent"`
+
+In addition, all constraints must be fully defined to avoid any ambiguity by the layout manager.  For instance, in the previous RelativeLayout example, not only do the constraints between each objects need to be defined vertically but also how they should be placed horizontally to the layout view.  Notice how `app:layout_constraintStart_toStartOf="parent"` has been added to each element.  The attribute `app:layout_constraintEnd_toEndOf="parent" is not needed because each view is already setting a layout_width of `match_parent`:
+
+```xml
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/relativeLayout">
+
+    <TextView android:id="@+id/label" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:text="Email"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText android:id="@+id/inputEmail" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label" />
+
+    <Button android:id="@+id/btnLogin" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:text="Login"
+        app:layout_constraintTop_toBottomOf="@id/inputEmail"
+        app:layout_constraintLeft_toLeftOf="parent" />
+</android.support.constraint.ConstraintLayout>
+```
+
+ConstraintLayout is a much more powerful version of RelativeLayout.  See [this guide](https://constraintlayout.com/layouts/relativelayout.html) for more information about how to leverage ConstraintLayout.  
 
 ### Using Alignment to Control Width or Height
 
