@@ -53,7 +53,7 @@ Placeholder and error images:
 ```java
 GlideApp.with(context)
     .load("http://via.placeholder.com/300.png")
-    .placeholder(R.drawable.placeholder);
+    .placeholder(R.drawable.placeholder)
     .error(R.drawable.imagenotfound)
     .into(ivImg);
 ```
