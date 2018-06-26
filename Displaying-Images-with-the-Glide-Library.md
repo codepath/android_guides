@@ -337,4 +337,4 @@ Review [this section](https://github.com/bumptech/glide#proguard) if are configu
 * <http://vardhan-justlikethat.blogspot.com/2014/09/android-image-loading-libraries-picasso.html>
 * <http://www.appance.com/glide-image-loading-and-caching-library-for-android/>
 * <http://www.androidhive.info/2016/04/android-glide-image-library-building-image-gallery-app/>
-
+* <https://medium.com/@vlonjatgashi/using-glide-with-kotlin-5e345b557547/>
