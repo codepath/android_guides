@@ -16,7 +16,7 @@ The best place to understand this layout system is this dedicated [web site](htt
 
 Most of what can be achieved in LinearLayout and RelativeLayout can be done in ConstraintLayout.    However, learning the basics of LinearLayout and RelativeLayout is important before trying to understand how to use it with ConstraintLayout.  The fundamental
 
-You may wish to walk through this [Google codelab](https://codelabs.developers.google.com/codelabs/constraint-layout/#0) to understand how to use ConstraintLayout works.
+You may wish to walk through this [Google codelab](https://codelabs.developers.google.com/codelabs/constraint-layout/#0) to understand how to use ConstraintLayout works.  See this [sample project](https://github.com/googlesamples/android-ConstraintLayoutExamples) as well.
 
 ## LinearLayout
 
