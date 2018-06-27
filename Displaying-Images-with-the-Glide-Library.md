@@ -160,7 +160,7 @@ Note that this is not generally a good idea, but can be used temporarily to trig
 
 ### Loading Errors
 
-If you experience errors loading images, you can create a `RequestListener<String, Drawable>` and pass it in via `Glide.listener()` to intercept errors:
+If you experience errors loading images, you can create a `RequestListener<Drawable>` and pass it in via `Glide.listener()` to intercept errors:
 
 ```java
 GlideApp.with(context)
