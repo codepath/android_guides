@@ -167,16 +167,16 @@ GlideApp.with(context)
         .load("http://via.placeholder.com/300.png")
         .placeholder(R.drawable.placeholder)
         .error(R.drawable.imagenotfound)
-        .listener(new RequestListener<String, Drawable>() {
+        .listener(new RequestListener<Drawable>() {
             @Override
-            public boolean onException(Exception e, String model, Target<Drawable> target, boolean isFirstResource) {
+            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
                 // log exception
                 Log.e("TAG", "Error loading image", e);
                 return false; // important to return false so the error placeholder can be placed
             }
 
             @Override
-            public boolean onResourceReady(Drawable resource, String model, Target<Drawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
                 return false;
             }
         })
