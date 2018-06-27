@@ -202,7 +202,7 @@ int radius = 30; // corner radius, higher value = more rounded
 int margin = 10; // crop margin, set to 0 for corners with no crop
 GlideApp.with(this)
         .load("http://via.placeholder.com/300.png")
-        .bitmapTransform(new RoundedCornersTransformation(radius, margin))
+        .transform(new RoundedCornersTransformation(radius, margin))
         .into(ivImg);
 ```
 
@@ -213,7 +213,7 @@ Circle crop:
 ```java
 GlideApp.with(this)
         .load("http://via.placeholder.com/300.png")
-        .bitmapTransform(new CircleCrop())
+        .transform(new CircleCrop())
         .into(ivImg);
 ```
 ### Effects
@@ -223,7 +223,7 @@ Blur:
 ```java
 GlideApp.with(this)
         .load("http://via.placeholder.com/300.png")
-        .bitmapTransform(new BlurTransformation())
+        .transform(new BlurTransformation())
         .into(ivImg);
 ```
 
@@ -232,7 +232,7 @@ Multiple transforms:
 ```java
 GlideApp.with(this)
         .load("http://via.placeholder.com/300.png")
-        .bitmapTransform(new BlurTransformation(25), new CircleCrop())
+        .transform(new MultiTransformation<Bitmap>(new BlurTransformation(25), new CircleCrop()))
         .into(ivImg);
 ```
 
