@@ -81,9 +81,13 @@ Using Genymotion is now deprecated.
 
 ### Setup x86-based Emulator
 
-Open `Android Studio` ⇒ `Tools` ⇒ `Android` ⇒ `Android AVD Manager` and `Create a Virtual Device...`
+So long as the emulator has `Google APIs` or `Google Play` listed in the Target section, you should be able to play the emulator.  The main difference is the Nexus 5x devices have the Google Play app included in the image, but cannot be rooted.  
 
-Choose only an AVD emulator that has `Play Store` support listed.  You can see the icon that only the Nexus 5x and Nexus 5 emulators provide support.  Select `Nexus 5X` and click on `Next`:
+![Imgur](https://i.imgur.com/nKp7JGs.png)
+
+If you do not have one of these emulators, Open `Android Studio` ⇒ `Tools` ⇒ `Android` ⇒ `Android AVD Manager` and `Create a Virtual Device...`
+
+Choose only an AVD emulator that has `Google APIs` or `Google Play` support listed.  You can see the icon that only the Nexus 5x and Nexus 5 emulators provide support.  Select `Nexus 5X` and click on `Next`:
 
 <img src="https://imgur.com/WnqyY2b.png" width="600">
 
