@@ -304,8 +304,8 @@ There is a way to use Glide to use OkHttp instead, which may be useful if you ne
 
 ```gradle
 dependencies {
-  implementation 'com.squareup.okhttp3:okhttp:3.9.0'
-  implementation "com.github.bumptech.glide:okhttp3-integration:X.X.X"
+  implementation 'com.squareup.okhttp3:okhttp:X.X.X'
+  implementation "com.github.bumptech.glide:okhttp3-integration:4.7.1"
 }
 ```
 
