@@ -303,7 +303,7 @@ There's also a list of Android phone screens and dimensions each one use that yo
 Here is a quick checklist about how you can ensure that your application displays properly on different screens:
 
 * Avoid using hard coded pixel values in your application code
-* Use `RelativeLayout` properly and never use `AbsoluteLayout` 
+* Use `RelativeLayout` or `ConstraintLayout` properly and never use `AbsoluteLayout` 
 * Use `wrap_content`, `match_parent`, or `dp` units when specifying dimensions
 * Use alternate layouts and drawables to ensure a responsive design when needed
 
