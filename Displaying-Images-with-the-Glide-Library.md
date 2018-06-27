@@ -304,23 +304,23 @@ There is a way to use Glide to use OkHttp instead, which may be useful if you ne
 
 ```gradle
 dependencies {
-    implementation 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
+  implementation 'com.squareup.okhttp3:okhttp:3.9.0'
+  implementation "com.github.bumptech.glide:okhttp3-integration:X.X.X"
 }
 ```
 
 Next, you can configure Glide to use OkHttp in XML or through Java.  The Java approach is useful especially if you already have a shared instance of OkHttpClient:
 
 ```java
-OkHttpClient okHttpClient = new OkHttpClient();
-Glide.get(application).register(GlideUrl.class, InputStream.class, new OkHttpUrlLoader.Factory(okHttpClient));
-```
+@GlideModule
+public final class MyAppGlideModule extends AppGlideModule {
 
-Alternatively, you can declare Glide to use OkHttp by declaring it in your `AndroidManifest.xml` file:
-
-```xml
-<meta-data
-    android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule"
-    android:value="GlideModule" />
+    @Override
+    public void registerComponents(@NonNull Context context, @NonNull Glide glide, @NonNull Registry registry) {
+        super.registerComponents(context, glide, registry);
+        OkHttpClient okHttpClient = new OkHttpClient();
+        registry.replace(GlideUrl.class, InputStream.class, new OkHttpUrlLoader.Factory(okHttpClient));
+    }
 ```
 
 Review [this section](https://github.com/bumptech/glide#proguard) if are configuring Glide for use with ProGuard.
@@ -338,3 +338,4 @@ Review [this section](https://github.com/bumptech/glide#proguard) if are configu
 * <http://www.appance.com/glide-image-loading-and-caching-library-for-android/>
 * <http://www.androidhive.info/2016/04/android-glide-image-library-building-image-gallery-app/>
 * <https://medium.com/@vlonjatgashi/using-glide-with-kotlin-5e345b557547/>
+* <https://bumptech.github.io/glide/doc/configuration.html#applications/>
