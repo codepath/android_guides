@@ -298,7 +298,7 @@ In other words, you cannot do this all inline `GlideApp.with(this).load("url").i
 
 ## Networking
 
-By default, Glide uses the [[Volley|Networking with the Volley Library]] networking library.
+By default, Glide uses [HttpUrlConnection](https://guides.codepath.com/android/sending-and-managing-network-requests#sending-an-http-request-the-hard-way) to handle network requests.  Integration libraries can be used to use Volley or OkHttp.  See [this guide](https://bumptech.github.io/glide/int/about.html) for more information.
 
 ### Using with OkHttp
 
