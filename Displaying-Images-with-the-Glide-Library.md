@@ -311,10 +311,15 @@ dependencies {
 }
 ```
 
-Next, you can configure Glide to use OkHttp in XML or through Java.  The Java approach is useful especially if you already have a shared instance of OkHttpClient:
+By adding the `okhttp3-integration` module, an OkHttp instance will be internally created and registered.  A `OkHttpLibraryGlideModule` will be used to register this component with Glide.
+
+#### Injecting OkHttpClient
+
+If you already have a shared instance of OkHttpClient, you can define it in your custom `MyAppGlideModule` and exclude the use of `OkHttpLibraryGlideModule` by using the `@Excludes` annotation:
 
 ```java
 @GlideModule
+@Excludes(OkHttpLibraryGlideModule.class) // initialize OkHttp manually
 public final class MyAppGlideModule extends AppGlideModule {
 
     @Override
@@ -324,6 +329,10 @@ public final class MyAppGlideModule extends AppGlideModule {
         registry.replace(GlideUrl.class, InputStream.class, new OkHttpUrlLoader.Factory(okHttpClient));
     }
 ```
+
+See this [GitHub issue](https://github.com/bumptech/glide/issues/2002) for more context about how to inject an OkHttpClient through Dagger 2.
+
+### ProGuard
 
 Review [this section](https://github.com/bumptech/glide#proguard) if are configuring Glide for use with ProGuard.
 
