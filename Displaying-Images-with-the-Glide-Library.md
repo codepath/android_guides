@@ -272,7 +272,7 @@ To readjust the `ImageView` size after the image has been retrieved, first defin
 ```java
 private SimpleTarget target = new SimpleTarget<Bitmap>() {  
     @Override
-    public void onResourceReady(Bitmap bitmap, GlideAnimation glideAnimation) {
+    public void onResourceReady(Bitmap bitmap, @Nullable Transition<? super Bitmap> transition) {
         // do something with the bitmap
         // set it to an ImageView
         imageView.setImageBitmap(bitmap);
