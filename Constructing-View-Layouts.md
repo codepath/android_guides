@@ -14,7 +14,7 @@ It's important to note the class hierarchy of these View Layouts.  Each of them 
 
 The best place to understand this layout system is this dedicated [web site](https://constraintlayout.com/basics/) that covers the basics behind constraints, chains, guidelines, dimensions, and barriers.  Constraints define the relation between two different view elements, and chains can be used dictate the spacing between them.  In addition, guidelines can be used to create percentage-based layouts.
 
-Most of what can be achieved in LinearLayout and RelativeLayout can be done in ConstraintLayout.    However, learning the basics of LinearLayout and RelativeLayout is important before trying to understand how to use it with ConstraintLayout.  The fundamental
+Most of what can be achieved in LinearLayout and RelativeLayout can be done in ConstraintLayout.    However, learning the basics of LinearLayout and RelativeLayout is important before trying to understand how to use it with ConstraintLayout. 
 
 You may wish to walk through this [Google codelab](https://codelabs.developers.google.com/codelabs/constraint-layout/#0) to understand how to use ConstraintLayout works.  See this [sample project](https://github.com/googlesamples/android-ConstraintLayoutExamples) as well.
 
