@@ -1054,7 +1054,8 @@ public class ParsePositionalDataSource extends PositionalDataSource<Post> {
         query.setSkip(params.requestedStartPosition);
 
         try {
-            // run queries synchronously since function is called on a background thread
+            // loadInitial() should run queries synchronously so the initial list will not be empty         
+            // subsequent fetches can be async   
             int count = query.count();
             List<Post> posts = query.find();
 
