@@ -203,10 +203,9 @@ There are a number of `Camera2` tutorials you can review:
 
 There are also a number of third-party libraries available to make custom cameras easier:
 
- * [MaterialCamera](https://github.com/afollestad/material-camera)
- * [CWAC-Cam2](https://github.com/commonsguy/cwac-cam2)
- * [EasyCamera](https://github.com/Glamdring/EasyCamera)
- * [SquareCamera](https://github.com/boxme/SquareCamera)
+ * [CameraKit](https://www.camerakit.website/)
+ * [EasyCamera](https://github.com/Glamdring/EasyCamera) (Camera 1 API)
+ * [SquareCamera](https://github.com/boxme/SquareCamera) (Camera 1 API)
  * [Many other libraries](http://android-arsenal.com/tag/141)
 
 Leveraging `Camera2` or the libraries above, apps can develop a camera that functions in anyway required including custom overlays for depositing checks, taking pictures with a particular form factor, or scanning custom barcodes.
