@@ -107,8 +107,10 @@ public TweetDataSource(TwitterClient client) {
 Next, we need to define inside the data source the `loadInitial()` and `loadAfter()`.
 ```java
 public void loadInitial(@NonNull LoadInitialParams<Long> params, @NonNull final LoadInitialCallback<Tweet> callback) {
-
-    JsonHttpResponseHandler jsonHttpResponseHandler = createTweetHandler(callback);
+    // Fetch data synchronously (second parameter is set to true)
+    // load an initial data set so the paged list is not empty.  
+    // See https://issuetracker.google.com/u/2/issues/110843692?pli=1
+    JsonHttpResponseHandler jsonHttpResponseHandler = createTweetHandler(callback, true);
 
     // No max_id should be passed on initial load
     mClient.getHomeTimeline(0, params.requestedLoadSize, jsonHttpResponseHandler);
@@ -117,8 +119,8 @@ public void loadInitial(@NonNull LoadInitialParams<Long> params, @NonNull final 
 // Called repeatedly when more data needs to be set
 @Override
 public void loadAfter(@NonNull LoadParams<Long> params, @NonNull LoadCallback<Tweet> callback) {
-    // Fetch data synchronously
-    JsonHttpResponseHandler jsonHttpResponseHandler = createTweetHandler(callback);
+    // This network call can be asynchronous (second parameter is set to false)
+    JsonHttpResponseHandler jsonHttpResponseHandler = createTweetHandler(callback, false);
 
     // params.key & requestedLoadSize should be used
     // params.key will be the lowest Twitter post ID retrieved and should be used for the max_id= parameter in Twitter API.  
@@ -130,7 +132,7 @@ public void loadAfter(@NonNull LoadParams<Long> params, @NonNull LoadCallback<Tw
 The `createTweetHandler()` method parses the JSON data and posts the data to the RecyclerView adapter and PagedList handler.  Keep in mind that all of these network calls are already done in a background thread, so the network call should be forced to run synchronously:
 
 ```java
-public JsonHttpResponseHandler createTweetHandler(final LoadCallback<Tweet> callback) {
+public JsonHttpResponseHandler createTweetHandler(final LoadCallback<Tweet> callback, boolean isAsync) {
 
     JsonHttpResponseHandler handler = new JsonHttpResponseHandler() {
         @Override
@@ -143,10 +145,13 @@ public JsonHttpResponseHandler createTweetHandler(final LoadCallback<Tweet> call
         }
     };
 
-    // Fetch data synchronously
-    // For AsyncHttpClient, this workaround forces the callback to be run synchronously
-    handler.setUseSynchronousMode(true);
-    handler.setUsePoolThread(true);
+    if (isAsync) { 
+      // Fetch data synchronously
+      // For AsyncHttpClient, this workaround forces the callback to be run synchronously
+
+      handler.setUseSynchronousMode(true);
+      handler.setUsePoolThread(true);
+    }
 ```
 
 #### Add a Data Source Factory
