@@ -10,8 +10,8 @@ Inside the `app/build.gradle` file add the following dependencies:
 
 ```gradle
 dependencies {
-    implementation 'org.parceler:parceler-api:1.1.6'
-    annotationProcessor 'org.parceler:parceler:1.1.6'
+    implementation 'org.parceler:parceler-api:1.1.11'
+    annotationProcessor 'org.parceler:parceler:1.1.11'
 }
 ```
 
