@@ -155,7 +155,7 @@ archivesBaseName = "android-oauth-handler"
 install {
     repositories.mavenInstaller {
         pom.project {
-            group "com.codepath.libraries"
+            groupId "com.codepath.libraries"
             artifactId "android-oauth-handler"
             version "1.0.0"
         }
