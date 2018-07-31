@@ -213,7 +213,7 @@ public class MyTestService extends IntentService {
 }
 ```
 
-Calling `res.send` will trigger the `onReceiveResult` callback to be called within our Activity and the return value will be displayed in the toast in this case.
+Calling `rec.send` will trigger the `onReceiveResult` callback to be called within our Activity and the return value will be displayed in the toast in this case.
 
 ### Communicating with a BroadcastReceiver
 
