@@ -275,9 +275,9 @@ def getDestUrl() {
 
 def getArtifactFilePath() {
     if (isReleaseBuild()) {
-        return "$buildDir/outputs/aar/breezesystem-release.aar"
+        return "$buildDir/outputs/aar/${POM_ARTIFACT_ID}-release.aar"
     } else {
-        return "$buildDir/outputs/aar/breezesystem-debug.aar"
+        return "$buildDir/outputs/aar/${POM_ARTIFACT_ID}-debug.aar"
     }
 }
 
