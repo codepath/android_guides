@@ -273,12 +273,21 @@ def getDestUrl() {
     }
 }
 
+def getArtifactFilePath() {
+    if (isReleaseBuild()) {
+        return "$buildDir/outputs/aar/breezesystem-release.aar"
+    } else {
+        return "$buildDir/outputs/aar/breezesystem-debug.aar"
+    }
+}
+
 publishing {
     publications {
         myPublication (MavenPublication) {
             groupId GROUP
             artifactId POM_ARTIFACT_ID
             version VERSION_NAME
+            artifact getArtifactFilePath()
         }
    }
    repositories {
