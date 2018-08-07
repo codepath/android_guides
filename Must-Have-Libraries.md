@@ -192,6 +192,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [Material-SearchView](https://github.com/MiguelCatalan/MaterialSearchView) - Beautiful Material SearchView made simple.
  * [PersistentSearchBar](https://github.com/arimorty/floatingsearchview) - Implementation of a persistent search bar.
  * [Android Material Intro Screen](https://github.com/TangoAgency/material-intro-screen/) - Library for easily adding intro screen to app.
+ * [SwipePicker](https://github.com/m4xp1/SwipePicker) - a widget for Android that allows the user to enter different values, such as: time, date, number, without additional dialog windows using the swipe gestures.
 
 ### Drawing
 
