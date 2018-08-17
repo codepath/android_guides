@@ -20,7 +20,7 @@ This guide will show you how you can setup publishing APK's directly through the
 
 ![](https://imgur.com/paTHMHK.png)
 
-5. You will be prompted to download the .p12 file.  Save it somewhere.  
+5. You will be prompted to download the `.p12` file.  Save it somewhere.  
 
 6. Note the service account email associated with this new account.  You should see it appear in the Google Developer Console:
 
@@ -71,9 +71,9 @@ If you want to be push your APKs directly through Gradle, you can install a plug
 
 You can now type the following gradle commands such as the following:
 
-    ```bash
-    ./gradlew publishApkRelease
-    ```
+```bash
+./gradlew publishApkRelease
+```
 
 ## Setting Up Jenkins (for automating CI builds)
 
