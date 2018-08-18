@@ -20,9 +20,9 @@ Setup your `app/build.gradle` file:
 
 ```gradle
 // Gradle dependency on Stetho
-  dependencies {
-    implementation 'com.facebook.stetho:stetho:1.5.0'
-  }
+dependencies {
+  implementation 'com.facebook.stetho:stetho:1.5.0'
+}
 ```
 
 Next, initialize Stetho inside your Application object:
