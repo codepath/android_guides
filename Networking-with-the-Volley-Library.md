@@ -164,7 +164,7 @@ protected void onStop() {
 
 ### Using with OkHttp
 
-Although Volley uses the `HttpUrlConnection` interface for networking calls, the OkHttp library instead can be used instead since it also provides an implementation of this interface:
+Although Volley uses the `HttpUrlConnection` interface for networking calls, the OkHttp library can be used instead since it also provides an implementation of this interface:
 
 ```java
 public class OkHttpStack extends HurlStack {
