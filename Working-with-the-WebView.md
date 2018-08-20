@@ -46,26 +46,9 @@ public class MainActivity extends Activity {
       myWebView.getSettings().setJavaScriptEnabled(true);
       myWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
       // Configure the client to use when opening URLs
-      myWebView.setWebViewClient(new MyBrowser());
+      myWebView.setWebViewClient(new WebViewClient());
       // Load the initial URL
       myWebView.loadUrl("http://www.example.com");
-   }
-   
-   // Manages the behavior when URLs are loaded
-   private class MyBrowser extends WebViewClient {
-      @SuppressWarnings("deprecation")
-      @Override
-      public boolean shouldOverrideUrlLoading(WebView view, String url) {
-          view.loadUrl(url);
-          return true;
-      }
-
-      @TargetApi(Build.VERSION_CODES.N)
-      @Override
-      public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-          view.loadUrl(request.getUrl().toString());
-          return true;
-      }
    }
 }
 ```
