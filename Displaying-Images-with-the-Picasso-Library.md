@@ -157,7 +157,7 @@ private Target target = new Target() {
 Next, we can use the `Target` with a Picasso call with:
 
 ```java
-Picasso.with(this).load("url").into(target);
+Picasso.get().load("url").into(target);
 ```
 
 You can still use all normal Picasso options like `resize`, `fit`, etc.
@@ -185,7 +185,7 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotoViewHolder> {
         // Set the height ratio before loading in image into Picasso
         holder.ivPhoto.setHeightRatio(((double)photo.getHeight())/photo.getWidth());
         // Load the image into the view using Picasso
-        Picasso.with(mContext).load(photo.getUrl()).into(holder.ivPhoto);
+        Picasso.get().load(photo.getUrl()).into(holder.ivPhoto);
     }
 
 }
@@ -227,7 +227,7 @@ dependencies {
 To do a rounded corner transformation, you would do the following:
 
 ```java
-Picasso.with(mContext).load(R.drawable.demo)
+Picasso.get().load(R.drawable.demo)
         .transform(new RoundedCornersTransformation(10, 10)).into((ImageView) findViewById(R.id.image));
 ```
 
