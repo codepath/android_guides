@@ -279,7 +279,31 @@ The relevant attributes here are `drawableLeft`, `drawableRight`, `drawableTop` 
 
 Note that if you want to be able to better control the size or scale of the drawables, check out [this handy TextView extension](http://stackoverflow.com/a/31916731/313399) or [this bitmap drawable approach](http://stackoverflow.com/a/29804171/313399). You can also make calls to [setCompoundDrawablesWithIntrinsicBounds](https://groups.google.com/forum/#!topic/android-developers/_Gzbe0KCP_0) on the `TextView`.
 
-## Using Custom Fonts
+## Using Fonts
+
+The easiest way to add font support is to upgrade to Android Studio 3.0, which provides the ability to use other fonts provided by Google.  You can visit [https://fonts.google.com/](https://fonts.google.com/) to see the ones that are free to use.  See the [FAQ](https://fonts.google.com/about) section for more information.
+
+Android Studio v3.0 provides built-in support for these fonts and will automatically handles generating the XML and necessary metadata.  Next to the `Attributes` section of a `TextView`, look for the `fontFamily` and click on `More Fonts`:
+
+![More fonts](https://i.imgur.com/OpbUtSj.png)
+
+You will then see these choices:
+
+![Fonts](https://i.imgur.com/tAT3DJ0.png)
+
+Once you choose a font, you will notice that a `font` directory will be created and a similar XML file will be generated.  Notice that Android Studio automatically takes care of adding the necessary font provider certificates required to request from Google:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:fontProviderAuthority="com.google.android.gms.fonts"
+        app:fontProviderPackage="com.google.android.gms"
+        app:fontProviderQuery="name=Advent Pro&amp;weight=100"
+        app:fontProviderCerts="@array/com_google_android_gms_fonts_certs">
+</font-family>
+```
+
+### Adding custom fonts
 
 We can actually use any custom font that we'd like within our applications. Check out [fontsquirrel](http://www.fontsquirrel.com/) for an easy source of free fonts. For example, we can download [Chantelli Antiqua](http://www.fontsquirrel.com/fonts/Chantelli-Antiqua) as an example. 
 
@@ -316,7 +340,7 @@ Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Chantelli_Antiqua.t
 txt.setTypeface(font);
 ```
 
-Alternatively, you can use the third-party [calligraphy library](https://github.com/chrisjenx/Calligraphy):
+Alternatively, you can use the third-party [calligraphy library](https://github.com/InflationX/Calligraphy):
 
 ```
 <TextView fontPath="fonts/Chantelli_Antiqua.ttf"/>
