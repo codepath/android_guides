@@ -26,7 +26,7 @@ In a linear layout, like the name suggests, all the elements are displayed in a 
 
 ### Building via ConstraintLayout
 
-You can create linear layouts now with ConstraintLayout using chains and defining their styles.  Click [this link](https://constraintlayout.com/layouts/linearlayout.html) to see the basic walkthrough.  
+You can create linear layouts now with ConstraintLayout by constraining the sides of each element with each other.   The quick way of creating these layouts is using chains.  Select all the views together and right click to create a vertical or horizontal chian.  Click [this link](https://constraintlayout.com/layouts/linearlayout.html) to see the basic walkthrough.  
 
 <img src="https://github.com/ConstraintLayout/constraintlayout.github.io/blob/master/assets/images/basics/chains_create.gif?raw=true">
 
