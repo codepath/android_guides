@@ -38,7 +38,7 @@ Cliffnotes are references giving you the "most important" Android topics with br
 
 * [[Creating and Executing Async Tasks]]
 * [[Sending and Managing Network Requests]]
-* [[Displaying Images with the Picasso Library]]
+* [[Displaying Images with the Glide Library]]
 * [[Android Async Http Client Guide|Using-Android-Async-Http-Client]]
 * [[Converting JSON to Models]]
 * [[Persisting Data to the Device]]
