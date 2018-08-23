@@ -14,7 +14,7 @@ If you are interested in what is the Gradle wrapper and why it's helpful to have
 
 ### Intro to the Gradle wrapper
 
-When you setup a project in Android Studio, it automatically generates several files for you that helps to allow people to build your code without needing to install Gradle ahead of time, which is useful especially when needing to do continuous integration testing.
+When you setup a project in Android Studio, it automatically generates several files for you that help to allow people to build your code without needing to install Gradle ahead of time, which is useful especially when needing to do continuous integration testing.
 
 By checking in the gradlew and gradlew.bat files into your source code repository, other people on Unix and Windows platforms do not need to go through the process of manually downloading Gradle or installing Android Studio.
 
@@ -38,7 +38,7 @@ If you wish to upgrade Gradle versions, you need to update the `distributionUrl`
 distributionUrl=http\://services.gradle.org/distributions/gradle-4.2-all.zip
 ```
 
-You can check [this link](https://services.gradle.org/distributions) to find the latest version.  Note that the Gradle releases are independent from the Android Gradle plugin, which is defined in your `build.gradle` config.
+You can check [this link](https://services.gradle.org/distributions) to find the latest version.  Note that the Gradle releases are independent of the Android Gradle plugin, which is defined in your `build.gradle` config.
 
 Gradle will use this configuration to see if the version has already been installed.  If not, it will be downloaded and stored in a separate directory.  (For Unix machines, the various Gradle downloads will live in ~/.gradle/wrapper.)
 
@@ -55,7 +55,7 @@ buildscript {
 }
 ```
 
-If you are using the `android-apt` plugin, Gradle v2.3.0 now supports the `annotationProcessor` syntax natively.  See [here](https://bitbucket.org/hvisser/android-apt/wiki/Migration) for migration details.  Basically the process involves:
+If you are using the `android-apt` plugin, Gradle v2.3.0 now supports the `annotationProcessor` syntax natively.  See [here](https://bitbucket.org/hvisser/android-apt/wiki/Migration) for migration details.  Basically, the process involves:
 
 * Remove the android-apt plugin from your build scripts
 * Change all apt, androidTestApt and testApt dependencies to `annotationProcessor`, `androidTestAnnotationProcessor`, and `testAnnotationProcessor` respectively.
@@ -137,7 +137,7 @@ BUILD SUCCESSFUL
 Total time: 5.738 secs
 ```
 
-Then Gradle is successfully set up for your project. If you get an error, try googling the error. Usually the issue is that you need to [install the build tools](http://stackoverflow.com/questions/16619773/failed-to-import-new-gradle-project-failed-to-find-build-tools-revision-17-0-0).
+Then Gradle is successfully set up for your project. If you get an error, try googling the error. Usually, the issue is that you need to [install the build tools](http://stackoverflow.com/questions/16619773/failed-to-import-new-gradle-project-failed-to-find-build-tools-revision-17-0-0).
 
 If you have integration tests you want to run, make sure you have an open emulator or connected device and run this command in the root directory:
 
@@ -145,7 +145,7 @@ If you have integration tests you want to run, make sure you have an open emulat
 ./gradlew build
 ```
 
-This will build the apk, then automatically compile and run your integration tests.
+This will build the APK, then automatically compile and run your integration tests.
 
 If you want to delete old APKs before you re-run either `./gradlew` (build without tests) or `./gradlew build` (build with tests), run:
 
@@ -211,7 +211,7 @@ The files below will be generated.  Similarly, Android Studio will create the sa
 
 ## How to add local dependencies
 
-Normally most dependencies can be retrieved remotely from a Maven or Gradle repository hosted at [Maven Central](http://search.maven.org/) or [BinTray](https://bintray.com/bintray/jcenter).  If you wish to include a local dependency, you can copy the source to the project's root directory.  For instance, suppose you wanted to fork a copy of the [material intro](https://github.com/HeinrichReimer/material-intro) repoistory.  You could copy this source into your main project as follows:
+Normally most dependencies can be retrieved remotely from a Maven or Gradle repository hosted at [Maven Central](http://search.maven.org/) or [BinTray](https://bintray.com/bintray/jcenter).  If you wish to include a local dependency, you can copy the source to the project's root directory.  For instance, suppose you wanted to fork a copy of the [material intro](https://github.com/HeinrichReimer/material-intro) repository.  You could copy this source into your main project as follows:
 
 ```
 Project
@@ -221,7 +221,7 @@ Project
   |    |--build.gradle
 ```
 
-You need to modify the `settings.gradle` file to specify that what proejcts are available.  Note that this new directory prefixed with a ":" operator:
+You need to modify the `settings.gradle` file to specify that what projects are available.  Note that this new directory prefixed with a ":" operator:
 
 Next, go to your `app/build.gradle` and make sure to specify the `compile project(':material-intro:')` is included:
 
