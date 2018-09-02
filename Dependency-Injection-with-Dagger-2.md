@@ -436,7 +436,7 @@ Here's an example of using a subcomponent for an activity.  We annotate the clas
 @MyActivityScope
 @Subcomponent(modules={ MyActivityModule.class })
 public interface MyActivitySubComponent {
-    @Named("my_list") ArrayAdapter myListAdapter();
+    void inject(MyActivity activity);
 }
 ```
 
