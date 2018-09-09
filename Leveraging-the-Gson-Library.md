@@ -8,10 +8,9 @@ Add the following line to your Gradle configuration:
 
 ```gradle
 dependencies {
-  implementation 'com.google.code.gson:gson:2.8.0'
+  implementation 'com.google.code.gson:gson:2.8.5'
 }
 ```
-[![Javadoc](https://javadoc-emblem.rhcloud.com/doc/com.google.code.gson/gson/badge.svg)](http://www.javadoc.io/doc/com.google.code.gson/gson)
 
 ### Auto-generating Model Classes
 
