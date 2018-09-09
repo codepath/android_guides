@@ -111,15 +111,15 @@ private void downloadResponseFromNetwork() {
 
 ### Displaying Remote Images (The "Easy" Way)
 
-Displaying images is easiest using a third party library such as [[Picasso|Displaying-Images-with-the-Picasso-Library]] from Square which will download and cache remote images and abstract the complexity behind an easy to use DSL:
+Displaying images is easiest using a third party library such as [[Glide|Displaying-Images-with-the-Glide-Library]] which will download and cache remote images and abstract the complexity behind an easy to use DSL:
 
 ```java
 String imageUri = "https://i.imgur.com/tGbaZCY.jpg";
 ImageView ivBasicImage = (ImageView) findViewById(R.id.ivBasicImage);
-Picasso.with(context).load(imageUri).into(ivBasicImage);
+Glide.with(context).load(imageUri).into(ivBasicImage);
 ```
 
-Refer to our [[Picasso Guide|Displaying-Images-with-the-Picasso-Library]] for more detailed usage information and configuration.
+Refer to our [[Glide Guide|Displaying-Images-with-the-Glide-Library]] for more detailed usage information and configuration.
 
 ### Displaying Remote Images (The "Hard" Way)
 
