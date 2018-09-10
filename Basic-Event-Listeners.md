@@ -54,6 +54,21 @@ class MyClass extends Fragment implements View.OnClickListener {
 }
 ```
 
+```kotlin
+class MyClass : Fragment(), View.OnClickListener {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val btnExample = btnExample
+        btnExample.setOnClickListener(this)
+    }
+    
+    override fun onClick(v: View) {
+        // Do something here
+    }
+}
+```
+
 This pattern works for any of the view-based event listeners.
 
 **Using XML**
