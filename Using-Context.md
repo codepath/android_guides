@@ -162,6 +162,16 @@ public class MainActivity extends AppCompatActivity {
     }
 ```
 
+```kotlin
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show()
+    }
+}
+```
 ### Adapters
 
 
@@ -195,13 +205,13 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(ViewHolder viewHolder, int position) {
         // If a context is needed, it can be retrieved 
         // from the ViewHolder's root view.
         Context context = viewHolder.itemView.getContext();
 
         // Dynamically add a view using the context provided.
-        if(i == 0) {
+        if(position == 0) {
             TextView tvMessage = new TextView(context);
             tvMessage.setText("Only displayed for the first item.")
 
@@ -212,7 +222,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
    public static class ViewHolder extends RecyclerView.ViewHolder {
        public FrameLayout customViewGroup;
 
-       public ViewHolder(view imageView) {
+       public ViewHolder(View imageView) {
            // Very important to call the parent constructor
            // as this ensures that the imageView field is populated.
            super(imageView);
@@ -221,6 +231,44 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
            customViewGroup = (FrameLayout) imageView.findById(R.id.customViewGroup);
        }
    }
+}
+```
+
+```kotlin
+class MyRecyclerAdapter : RecyclerView.Adapter<MyRecyclerAdapter.ViewHolder>() {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val v =
+        LayoutInflater
+                .from(parent.context)
+                .inflate(R.layout.itemLayout, parent, false);
+
+        return ViewHolder(v);
+    }
+
+    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int)  {
+        // If a context is needed, it can be retrieved
+        // from the ViewHolder's root view.
+        val context = viewHolder.itemView.context
+
+        // Dynamically add a view using the context provided.
+        if(position == 0) {
+            val tvMessage = TextView(context);
+            tvMessage.setText("Only displayed for the first item.")
+
+            viewHolder.customViewGroup.addView(tvMessage);
+        }
+    }
+
+    inner class ViewHolder(imageView: View): RecyclerView.ViewHolder(imageView) {
+        val customViewGroup : FrameLayout
+
+       init {
+            // Perform other view lookups.
+            // Kotlin extension view lookups
+           customViewGroup = imageView.customViewGroup
+        }
+    }
 }
 ```
 
