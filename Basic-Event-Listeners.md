@@ -31,7 +31,7 @@ btnExample.setOnClickListener(new View.OnClickListener() {
 
 ```kotlin
 // Kotlin Android extensions allow findViewById() lookups
-val btnExample = btnTest
+val btnExample = btnExample
 // No parenthesis is needed for lambda expression -- https://kotlinlang.org/docs/reference/coding-conventions.html#lambda-formatting
 btnExample.setOnClickListener { v ->
   // do something
