@@ -111,13 +111,21 @@ The `android:textColorLink` attribute controls the highlighting for [[hyperlinks
 We can edit the color at runtime with:
 
 ```java
-// Based on hex value
+// based on hex value
 textView.setTextColor(Color.parseColor("#000000"));
 // based on a color resource file
 textView.setTextColor(ContextCompat.getColor(context, R.color.your_color));
 // based on preset colors
 textView.setTextColor(Color.RED);
 ```
+
+```kotlin
+// based on hex value
+textView.setTextColor(Color.parseColor("#000000"))
+// based on a color resource file
+textView.setTextColor(ContextCompat.getColor(this, R.color.your_color))
+// based on preset colors
+textView.setTextColor(Color.RED)
 
 ### Text Shadow
 
