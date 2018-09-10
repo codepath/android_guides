@@ -54,6 +54,7 @@ inflater.inflate(R.layout.my_layout, parent);
 ```
 
 ```kotlin
+// A context is required when creating views.
 val inflater = LayoutInflater.from(context)
 inflater.inflate(R.layout.my_layout, parent)
 ```
@@ -67,6 +68,13 @@ We use the context to fetch the `LocalBroadcastManager` when sending out or regi
 // which manages the queue for the application's main thread.
 Intent broadcastIntent = new Intent("custom-action");
 LocalBroadcastManager.getInstance(context).sendBroadcast(broadcastIntent);
+```
+
+```kotlin
+// The context contains a reference to the main Looper, 
+// which manages the queue for the application's main thread.
+val broadcastIntent = Intent("custom-action")
+LocalBroadcastManager.getInstance(context).sendBroadcast(broadcastIntent)
 ```
 
 ### Retrieving a System Service
@@ -85,6 +93,18 @@ Notification.Builder builder =
     new Notification.Builder(context).setContentTitle("custom title");
 
 notificationManager.notify(notificationId, builder.build());
+```
+
+```kotlin
+// Context objects are able to fetch or start system services.
+val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+val notificationId = 1
+
+// Context is required to construct RemoteViews
+val builder = Notification.Builder(context).setContentTitle("custom title")
+
+notificationManager.notify(notificationId, builder.build())
 ```
 
 Refer to the **[list of all available system services](http://developer.android.com/reference/android/content/Context.html#getSystemService(java.lang.String))** that can be retrieved through a Context.
