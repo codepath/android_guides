@@ -11,6 +11,7 @@ The language was created in response to limitations in Java which were hindering
 - Safe - Avoid entire classes of errors such as null pointer exceptions.
 - It's functional - Kotlin uses many concepts from functional programming, such as lambda expressions.
 
+Take a look at [this cheatsheet and quick reference](https://koenig-media.raywenderlich.com/uploads/2018/08/RW_Kotlin_Cheatsheet_1_0.pdf).
 
 ## Syntax Crash Course
 
