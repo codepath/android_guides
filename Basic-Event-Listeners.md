@@ -29,6 +29,15 @@ btnExample.setOnClickListener(new View.OnClickListener() {
 });
 ```
 
+```kotlin
+// Kotlin Android extensions allow findViewById() lookups
+val btnExample = btnTest
+// No parenthesis is needed for lambda expression -- https://kotlinlang.org/docs/reference/coding-conventions.html#lambda-formatting
+btnExample.setOnClickListener { v ->
+  // do something
+}
+```
+
 Alternatively, it is sometimes useful to have your class implement the listener directly, in which case you would add the listener implementation to your class and pass a reference to your class to the `set`method. For Example:
 
 ```java
