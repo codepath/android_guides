@@ -45,7 +45,7 @@ class MyClass extends Fragment implements View.OnClickListener {
 
     // Elsewhere in a method in the class that sets up the Button ...
         Button btnExample = (Button) findViewById(R.id.btnExample);
-        btnExample..setOnClickListener(this);
+        btnExample.setOnClickListener(this);
 
     @Override
     public void onClick(View v) {
@@ -57,11 +57,9 @@ class MyClass extends Fragment implements View.OnClickListener {
 ```kotlin
 class MyClass : Fragment(), View.OnClickListener {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+     // Elsewhere in a method in the class that sets up the Button ...
         val btnExample = btnExample
         btnExample.setOnClickListener(this)
-    }
     
     override fun onClick(v: View) {
         // Do something here
