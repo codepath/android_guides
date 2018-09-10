@@ -141,6 +141,17 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
+```kotlin
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show()
+    }
+}
+```
+
 ### Anonymous functions
 
 When using anonymous functions when implementing listeners, the keyword `this` in Java applies to the most immediate class being declared.  In these cases, the outer class `MainActivity` has to be specified to refer to the Activity instance.  
@@ -160,6 +171,7 @@ public class MainActivity extends AppCompatActivity {
           });
         }
     }
+}
 ```
 
 ```kotlin
@@ -167,11 +179,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show()
-    }
-}
-```
+
+        // resource lookup using Kotlin extensions
+        val tvTest = abc
+        
+        tvTest.setOnClickListener({ view -> Toast.makeText(this@MainActivity, "hello", Toast.LENGTH_SHORT).show() }
+
+
 ### Adapters
 
 
