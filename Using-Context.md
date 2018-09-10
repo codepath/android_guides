@@ -16,6 +16,12 @@ Intent intent = new Intent(context, MyActivity.class);
 startActivity(intent);
 ```
 
+```kotlin
+// Provide context if MyActivity is an internal activity.
+val intent = Intent(context, MyActivity::class.java)
+startActivity(intent)
+```        
+
 When explicitly starting a component two pieces of information are required:
 * package name, which identifies the application that contains the component.
 * fully-qualified Java class name for the component.
