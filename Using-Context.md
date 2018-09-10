@@ -372,6 +372,17 @@ public static CustomManager getInstance(Context context) {
 }
 ```
 
+```kotlin
+class CustomManager private constructor(private val context: Context) {
+    companion object {
+        fun getInstance(context: Context): CustomManager {
+            // synchronized code
+
+            val created = CustomManager(context.applicationContext)
+        }
+    }
+}
+```
 # References
 * [What is a context - Simple Code Stuffs](http://www.simplecodestuffs.com/what-is-context-in-android/)
 * [Context, what context - Possible Mobile](https://possiblemobile.com/2013/06/context/)
