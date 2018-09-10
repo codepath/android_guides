@@ -322,6 +322,35 @@ public class CustomManager {
 }
 ```
 
+```kotlin
+class CustomManager private constructor(private val context: Context) {
+    companion object {
+        @Volatile
+        private var instance: CustomManager? = null
+
+        // double-checked locking algorithm
+        // https://medium.com/@BladeCoder/kotlin-singletons-with-argument-194ef06edd9e
+        // http://www.cs.umd.edu/~pugh/java/memoryModel/DoubleCheckedLocking.html
+        fun getInstance(context: Context): CustomManager {
+            val i = instance
+            if (i != null) {
+                return instance as CustomManager
+            }
+            return synchronized(this) {
+                val i2 = instance
+                if (i2 != null) {
+                    i2
+                } else {
+                    val created = CustomManager(context)
+                    instance = created
+                    created
+                }
+            }
+        }
+    }
+}
+```
+
 ### Proper storing of a context: use the application context
 
 To avoid memory leaks, never hold a reference to a context beyond its lifecycle.  Check any of your background threads, pending handlers, or inner classes that may be holding onto context objects as well.
