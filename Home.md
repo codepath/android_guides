@@ -68,12 +68,6 @@ If you are an experienced engineer with 2+ years of professional experience in s
 * [[Free Android Curriculum]] (Additional Android resources and slides)
 * [Notate: Annotated YouTube Lectures](http://www.notatevideo.com/)
 
-**Using Eclipse?** See below.
-
-* [Setting up Eclipse ADT](http://goo.gl/Ml9YN) (Detailed Slides)
-* [Developing our First App Using Eclipse ADT](http://goo.gl/pBKfYP) (Step-by-Step Todo App)
-* [[Troubleshooting Eclipse Issues]] (Running into eclipse problems?)
-
 ## Structure
 
 Exploring the core of app development:
