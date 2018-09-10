@@ -126,6 +126,7 @@ textView.setTextColor(Color.parseColor("#000000"))
 textView.setTextColor(ContextCompat.getColor(this, R.color.your_color))
 // based on preset colors
 textView.setTextColor(Color.RED)
+```
 
 ### Text Shadow
 
