@@ -34,6 +34,10 @@ If starting an internal component, the context can be passed in since the packag
 TextView textView = new TextView(context);
 ```
 
+```kotlin
+val textView = TextView(context)
+```
+
 Contexts contain the following information that views require:
 * device screen size and dimensions for converting dp,sp to pixels
 * styled attributes
@@ -47,6 +51,11 @@ We use the context to fetch the `LayoutInflater` in order to inflate an XML layo
 // A context is required when creating views.
 LayoutInflater inflater = LayoutInflater.from(context);
 inflater.inflate(R.layout.my_layout, parent);
+```
+
+```kotlin
+val inflater = LayoutInflater.from(context)
+inflater.inflate(R.layout.my_layout, parent)
 ```
 
 ### Sending a local broadcast
