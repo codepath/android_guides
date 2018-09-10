@@ -183,8 +183,9 @@ class MainActivity : AppCompatActivity() {
         // resource lookup using Kotlin extensions
         val tvTest = abc
         
-        tvTest.setOnClickListener({ view -> Toast.makeText(this@MainActivity, "hello", Toast.LENGTH_SHORT).show() }
-
+        tvTest.setOnClickListener({ view -> Toast.makeText(this@MainActivity, "hello", Toast.LENGTH_SHORT).show()}) 
+}
+```
 
 ### Adapters
 
