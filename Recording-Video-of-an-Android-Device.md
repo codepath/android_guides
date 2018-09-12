@@ -7,27 +7,7 @@ This guide is about how to record a video from a device. This can be done two wa
 
 ### 1. Using Android Studio
 
-Open Android Studio. First, go to your menu:
-
- - `View` -> `Tool Windows` -> `Android`
-
-You will find the record icon at the bottom left corner.
-
-![enter image description here](http://i.stack.imgur.com/o1h0K.png)
-
-If you are using an AVD emulator, make sure "Use host GPU" is *disabled*.
-
-To take a video recording of your app:
-
- - Start your app as described in Run your App in Debug Mode.
- - Click Android  to open the Android DDMS tool window.
- - Click Screen Record  on the left side of the Android DDMS tool window.
- - Click Start Recording.
- - Interact with your app.
- - Click Stop Recording.
- - Enter a file name for the recording and click OK.
-
-See [this stackoverflow post](http://stackoverflow.com/a/31547690/313399) for the source.
+Open Android Studio. First, go to your menu and `View` -> `Tool Windows` -> `Logcat`.  To take a video recording of your app, see [these instructions](https://developer.android.com/studio/debug/am-video).
 
 ### 2. Directly through ADB
 
