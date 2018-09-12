@@ -632,9 +632,9 @@ There isn't a `SQLite3` executable on the device so our only option is to downlo
 ./adb pull /sdcard/<database file name>
 ```
 
-### Using Android Device Monitor
+### Using Device File Explorer
 
-You can go to `Tools`->`Android Device Monitor`->`File Explorer` and look inside the `/data/<app package name>/databases` and download the file locally.  You can then use one of the previously mentioned SQLite desktop viewers.
+You can go to `View`->`Tool Windows`->`Device File Explorer` and look inside the `/data/<app package name>/databases` and download the file locally.  You can then use one of the previously mentioned SQLite desktop viewers.
 
 ## References
 
