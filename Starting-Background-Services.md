@@ -1,16 +1,18 @@
 ## Overview
 
-A service is a component which runs in the background, without direct interaction with the user. As the service has no user interface it is not bound to the lifecycle of an activity. Services are used for repetitive and potential long running operations, checking for new data, data processing, indexing content, etc.  Recent new restrictions on Android (API 28) provide many limitations now on background services, so the recommended approach now is to schedule all work through the [JobScheduler](https://developer.android.com/reference/android/app/job/JobScheduler).
+A service is a component which runs in the background, without direct interaction with the user. As the service has no user interface it is not bound to the lifecycle of an activity. Services are used for repetitive and potential long running operations, checking for new data, data processing, indexing content, etc.  Because of recent restrictions on Android to improve battery life, all background work including periodic tasks should now be scheduled through the [JobScheduler](https://developer.android.com/reference/android/app/job/JobScheduler).  
 
-The [IntentService](http://developer.android.com/reference/android/app/IntentService.html) class also used to be the way for running an operation on a single background thread. IntentService runs outside the application in a background process, so the process would run even if your application is closed.  Because an IntentService also has these same restrictions, Google now recommends using the [JobIntentService](https://developer.android.com/reference/android/support/v4/app/JobIntentService), which is included as part of the support library.  On pre-Android O devices, a normal IntentService will be dispatched in the background.  On Android O devices, this work will be added to the JobScheduler.
+### IntentService
 
-A few limitations of an IntentService to be aware of:
+The [IntentService](http://developer.android.com/reference/android/app/IntentService.html) class used to be the way for running an operation on a single background thread. IntentService runs outside the application in a background process, so the process would run even if your application is closed.  Google now recommends using the [JobIntentService](https://developer.android.com/reference/android/support/v4/app/JobIntentService), which is included as part of the support library.  
+
+On pre-Android O devices, a normal IntentService will be dispatched in the background. A few limitations of a IntentService to be aware of:
 
  * You cannot affect the user interface from this background service directly
  * Requests are handled on a single worker thread and processes just one request at a time.
  * You cannot easily cancel an intent service once you start one
 
-However, in most cases an IntentService is the preferred way to simple background operations.
+On Android O devices, this work will be added to the JobScheduler.  The JobScheduler is the preferred way to simple background operations.
 
 ### In Comparison to AsyncTask
 
