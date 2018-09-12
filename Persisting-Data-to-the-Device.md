@@ -70,7 +70,7 @@ while ((line = input.readLine()) != null) {
 String text = buffer.toString();
 ```
 
-You can also inspect and transfer files to emulators or devices using the DDMS File Explorer perspective which allows you to access to filesystem on the device.
+You can also inspect and transfer files to emulators or devices using the `View` -> `Tool Windows` -> `Device File Explorer` which allows you to access to filesystem on the device.
 
 ### SQLite
 
