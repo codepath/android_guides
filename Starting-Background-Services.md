@@ -2,6 +2,82 @@
 
 A service is a component which runs in the background, without direct interaction with the user. As the service has no user interface it is not bound to the lifecycle of an activity. Services are used for repetitive and potential long running operations, checking for new data, data processing, indexing content, etc.  Because of recent restrictions on Android to improve battery life, all background work including periodic tasks should now be scheduled through the [JobScheduler](https://developer.android.com/reference/android/app/job/JobScheduler).  
 
+### JobScheduler
+
+Writing a job simply requires extending the `JobService` class.  This class will run on the main thread, so all work needs to be done asynchronously.
+
+```java
+public class MyJobService extends JobService {
+
+    @Override
+    public boolean onStartJob(JobParameters jobParameters) {
+       // runs on the main thread, so this Toast will appear
+       Toast.makeText(this, "test", Toast.LENGTH_SHORT).show();
+       // perform work here, i.e. network calls asynchronously
+
+       // returning false means the work has been done, return true if the job is being run asynchronously
+       return false;
+    }
+
+    @Override
+    public boolean onStopJob(JobParameters jobParameters) {
+       // if the job is prematurely cancelled, do cleanup work here
+
+       // return true to restart the job
+       return false;
+    }
+}
+```
+
+```kotlin
+class MyJobService : JobService() {
+    override fun onStartJob(parameters: JobParameters?): Boolean {
+       // runs on the main thread, so this Toast will appear
+       Toast.makeText(this, "test", Toast.LENGTH_SHORT).show()
+       // perform work here, i.e. network calls asynchronously
+
+       // returning false means the work has been done, return true if the job is being run asynchronously
+       return false
+    }
+
+    // called when prematurely stopped
+    override fun onStopJob(parameters: JobParameters?): Boolean {
+       // if the job is prematurely cancelled, do cleanup work here
+
+       // return true to restart the job
+
+        return false
+    }
+
+}
+```
+
+Next, the job simply needs to be scheduled.   Make sure that the job includes the conditions that are required, such as whether the job will require network access, depend on whether the phone is charging or idle, should be run periodically, or be persisted across reboots:
+
+```java
+JobScheduler jobScheduler = (JobScheduler) getSystemService(Context.JOB_SCHEDULER_SERVICE);
+
+JobInfo jobInfo = new JobInfo.Builder(11, new ComponentName(this, MyJobService.class))
+                             // only add if network access is required
+                             .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
+                             .build();
+
+jobScheduler.schedule(jobInfo);
+```
+
+```kotlin
+val jobScheduler = getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
+
+val jobInfo = JobInfo.Builder(11, ComponentName(this@MainActivity, MyJobService::class.java))
+                // only add if network access is required
+                .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY).build()
+jobScheduler.schedule(jobInfo)
+```
+
+#### Limitations
+
+There are currently bugs in the JobScheduler, especially in Android API 21 and API 22.  In reality, JobScheduler should only be used if apps target API 23 or above.  The Firebase Job Dispatcher [library](https://github.com/firebase/firebase-jobdispatcher-android) is intended to provide backwards compatible support, but it has a dependency on Google Play Services.  The new [WorkManager API](https://developer.android.com/topic/libraries/architecture/workmanager/) is intended to provide a wrapper to abstract away the issues, and currently is in alpha release.
+ 
 ### IntentService
 
 The [IntentService](http://developer.android.com/reference/android/app/IntentService.html) class used to be the way for running an operation on a single background thread. IntentService runs outside the application in a background process, so the process would run even if your application is closed.  Google now recommends using the [JobIntentService](https://developer.android.com/reference/android/support/v4/app/JobIntentService), which is included as part of the support library.  
@@ -478,3 +554,5 @@ This guide has shown you the basics of using an IntentService and communicating 
 * <http://corner.squareup.com/2013/12/android-main-thread-2.html>
 * <http://codetheory.in/android-pending-intents/>
 * <http://www.peachpit.com/articles/article.aspx?p=1823692&seqNum=4>
+* <https://medium.com/google-developers/scheduling-jobs-like-a-pro-with-jobscheduler-286ef8510129>
+* <https://medium.com/google-developer-experts/services-the-life-with-without-and-worker-6933111d62a6>
