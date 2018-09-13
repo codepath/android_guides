@@ -4,7 +4,7 @@ A service is a component which runs in the background, without direct interactio
 
 ### JobScheduler
 
-Writing a job simply requires extending the `JobService` class.  This class will run on the main thread, so all work needs to be done asynchronously.
+Writing a job simply requires extending the `JobService` class.  This `onStartJob()` method will run on the main thread, so you can generate Toast messages that will be rendered on the activity.  Any background work should be performed asynchronously.  The expected result for this method should be true, especially if the work done has to been completed.
 
 ```java
 public class MyJobService extends JobService {
@@ -16,9 +16,25 @@ public class MyJobService extends JobService {
        // perform work here, i.e. network calls asynchronously
 
        // returning false means the work has been done, return true if the job is being run asynchronously
-       return false;
+       return true;
     }
+```
 
+```kotlin
+class MyJobService : JobService() {
+    override fun onStartJob(parameters: JobParameters?): Boolean {
+       // runs on the main thread, so this Toast will appear
+       Toast.makeText(this, "test", Toast.LENGTH_SHORT).show()
+       // perform work here, i.e. network calls asynchronously
+
+       // returning false means the work has been done, return true if the job is being run asynchronously
+       return true
+    }
+```
+
+Next, we need to implement the `onStopJob()` method if the work was cancelled or interrupted by JobScheduler.  The return value should depend on whether the job should be rescheduled for later.
+
+```
     @Override
     public boolean onStopJob(JobParameters jobParameters) {
        // if the job is prematurely cancelled, do cleanup work here
@@ -30,16 +46,6 @@ public class MyJobService extends JobService {
 ```
 
 ```kotlin
-class MyJobService : JobService() {
-    override fun onStartJob(parameters: JobParameters?): Boolean {
-       // runs on the main thread, so this Toast will appear
-       Toast.makeText(this, "test", Toast.LENGTH_SHORT).show()
-       // perform work here, i.e. network calls asynchronously
-
-       // returning false means the work has been done, return true if the job is being run asynchronously
-       return false
-    }
-
     // called when prematurely stopped
     override fun onStopJob(parameters: JobParameters?): Boolean {
        // if the job is prematurely cancelled, do cleanup work here
