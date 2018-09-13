@@ -58,6 +58,14 @@ Next, we need to implement the `onStopJob()` method if the work was cancelled or
 }
 ```
 
+We also need to make sure to declare the service in the `AndroidManifest.xml` file:
+
+```xml
+ <service android:name=".MyJobService"
+            android:label="Test"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+```
+
 Next, the job simply needs to be scheduled.   Make sure that the job includes the conditions that are required, such as whether the job will require network access, depend on whether the phone is charging or idle, should be run periodically, or be persisted across reboots:
 
 ```java
@@ -82,7 +90,7 @@ jobScheduler.schedule(jobInfo)
 
 #### Limitations
 
-There are currently bugs in the JobScheduler, especially in Android API 21 and API 22.  In reality, JobScheduler should only be used if apps target API 23 or above.  The Firebase Job Dispatcher [library](https://github.com/firebase/firebase-jobdispatcher-android) provides backwards compatible support for older Android devices, but depends on Google Play Services required.  The new [WorkManager API](https://developer.android.com/topic/libraries/architecture/workmanager/) is intended to provide a wrapper to abstract away the issues, but currently it is in alpha release.
+There are currently bugs in the JobScheduler, especially in Android API 21 and API 22.  In reality, JobScheduler should only be used if apps target API 23 or above.  The Firebase Job Dispatcher [library](https://github.com/firebase/firebase-jobdispatcher-android) targets JobScheduler for API > 23 and provides backwards compatible support for older Android devices, but depends on Google Play Services.  The new [WorkManager API](https://developer.android.com/topic/libraries/architecture/workmanager/) is intended to provide a wrapper to abstract away the issues, but currently it is in alpha release.
  
 ### IntentService
 
