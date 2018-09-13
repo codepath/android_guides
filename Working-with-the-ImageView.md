@@ -134,7 +134,7 @@ image.setImageBitmap(bMap);
 
 ### Scaling a Bitmap
 
-If we need to resize a Bitmap, we can call the [createScaledBitmap](http://developer.android.com/reference/android/graphics/Bitmap.html#createScaledBitmap\(android.graphics.Bitmap, int, int, boolean\)) method to resize any bitmap to our desired width and height:
+If we need to resize a Bitmap, we can call the [createScaledBitmap](http://developer.android.com/reference/android/graphics/Bitmap.html#createScaledBitmap\(android.graphics.Bitmap, int, int, boolean\)] method to resize any bitmap to our desired width and height:
 
 ```java
 // Load a bitmap from the drawable folder
