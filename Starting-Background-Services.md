@@ -90,7 +90,7 @@ jobScheduler.schedule(jobInfo)
 
 #### Limitations
 
-There are currently bugs in the JobScheduler, especially in Android API 21 and API 22.  In reality, JobScheduler should only be used if apps target API 23 or above.  The Firebase Job Dispatcher [library](https://github.com/firebase/firebase-jobdispatcher-android) targets JobScheduler for API > 23 and provides backwards compatible support for older Android devices, but depends on Google Play Services.  The new [WorkManager API](https://developer.android.com/topic/libraries/architecture/workmanager/) is intended to provide a wrapper to abstract away the issues, but currently it is in alpha release.
+There are currently bugs in the JobScheduler, especially in Android API 21 and API 22.  In reality, JobScheduler should only be used if apps target API 23 or above.  The Firebase Job Dispatcher [library](https://github.com/firebase/firebase-jobdispatcher-android) provides an alternative API, but it depends on Google Play Services.  The new [WorkManager API](https://developer.android.com/topic/libraries/architecture/workmanager/) is intended to provide a wrapper to abstract away the issues, but currently it is in alpha release.
  
 ### IntentService
 
@@ -102,7 +102,8 @@ On pre-Android O devices, a normal IntentService will be dispatched in the backg
  * Requests are handled on a single worker thread and processes just one request at a time.
  * You cannot easily cancel an intent service once you start one
 
-On Android O devices, this work will be added to the JobScheduler.  The JobScheduler is the preferred way to simple background operations.
+On Android O devices, this work will be added to the JobScheduler.  As a result, jobs will not execute right away. 
+The WorkManager API addresses this deficiency and is the preferred long-term approach.
 
 ### In Comparison to AsyncTask
 
