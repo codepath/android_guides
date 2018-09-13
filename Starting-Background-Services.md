@@ -76,7 +76,7 @@ jobScheduler.schedule(jobInfo)
 
 #### Limitations
 
-There are currently bugs in the JobScheduler, especially in Android API 21 and API 22.  In reality, JobScheduler should only be used if apps target API 23 or above.  The Firebase Job Dispatcher [library](https://github.com/firebase/firebase-jobdispatcher-android) is intended to provide backwards compatible support, but it has a dependency on Google Play Services.  The new [WorkManager API](https://developer.android.com/topic/libraries/architecture/workmanager/) is intended to provide a wrapper to abstract away the issues, and currently is in alpha release.
+There are currently bugs in the JobScheduler, especially in Android API 21 and API 22.  In reality, JobScheduler should only be used if apps target API 23 or above.  The Firebase Job Dispatcher [library](https://github.com/firebase/firebase-jobdispatcher-android) provides backwards compatible support for older Android devices, but depends on Google Play Services required.  The new [WorkManager API](https://developer.android.com/topic/libraries/architecture/workmanager/) is intended to provide a wrapper to abstract away the issues, but currently it is in alpha release.
  
 ### IntentService
 
