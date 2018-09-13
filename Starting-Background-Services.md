@@ -34,7 +34,7 @@ class MyJobService : JobService() {
 
 Next, we need to implement the `onStopJob()` method if the work was cancelled or interrupted by JobScheduler.  The return value should depend on whether the job should be rescheduled for later.
 
-```
+```java
     @Override
     public boolean onStopJob(JobParameters jobParameters) {
        // if the job is prematurely cancelled, do cleanup work here
