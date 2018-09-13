@@ -8,6 +8,7 @@ Within an [Android project structure](https://i.imgur.com/KDSWUXt.png), the most
 * `res/values` - XML files which store various attribute values. These include [[strings.xml|Understanding-App-Resources#defining-a-string-resource]], dimens.xml, [[styles.xml|Styles-and-Themes]], colors.xml, [[themes.xml|Developing-Custom-Themes]], and so on.
 * `res/drawable` - Here we store the various density-independent graphic assets used in our application.
 * `res/drawable-hdpi` - Series of folders for density specific images to use for various resolutions.
+* `res/mipmap` - most commonly used for application icons.  See [[this section|Working-with-the-ImageView#mipmaps-and-drawables]] for more details.
 
 The most frequently edited files are:
 
