@@ -252,7 +252,7 @@ Exploring sensors and components available via the Android SDK:
 
 Digging into how to run background services or leverage Android system services:
 
-* [[Starting Background Services]] (with IntentService and Receivers)
+* [[Starting Background Services]] (with JobScheduler, JobIntentService and Receivers)
 * [[Notifications]] (Persistent Notices on the Dashboard)
 * [[Push Messaging]] (Parse Push and Broadcast Receiver Overview)
 * [[Google Cloud Messaging]] (Detailed GCM Implementation)
