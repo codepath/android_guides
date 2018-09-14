@@ -1,7 +1,7 @@
 ## Overview
 
 There are various situations such as when the screen orientation is rotated where the Activity can actually be destroyed and removed from memory and then re-created from scratch again. In these situations, the best practice is to prepare for cases where the Activity is re-created by properly saving and restoring the state.
-
+a
 ## Saving and Restoring Activity State
 
 If a user navigates to a different away from the activity, the `onPause()` and `onResume()` methods are called.  If you need to retain state information in those cases, it's best to save state through the use of [[Shared Preferences|Storing-and-Accessing-SharedPreferences]]:
@@ -36,7 +36,7 @@ Upon resume, the `onResume()` gets called:
     }
 ```
 
-Note that `onSaveInstanceState()` is called right before your activity is about to be killed or restarted because of memory pressure or screen orientation.  This is different from `onPause()` which gets called when your activity loses focus (e.g you transition to another activity.  The default implementation of this method **automatically saves** information about the state of the activity's **view hierarchy**, such as the text in an `EditText` widget or the scroll position of a `ListView`.  For other data to persist, you can put the data in the Bundle provided.
+Note that `onSaveInstanceState()` is called right before your activity is about to be killed or restarted because of memory pressure or screen orientation.  This is different from `onPause()` which gets called when your activity loses focus (i.e. you transition to another activity).  The default implementation of this method **automatically saves** information about the state of the activity's **view hierarchy**, such as the text in an `EditText` widget or the scroll position of a `ListView`.  For other data to persist, you can put the data in the Bundle provided.
 
 ```java
 public class MainActivity extends Activity {
