@@ -4,9 +4,39 @@ There are various situations such as when the screen orientation is rotated wher
 
 ## Saving and Restoring Activity State
 
-As your activity begins to stop, the system calls `onSaveInstanceState()` so your activity can save state information with a collection of key-value pairs. The default implementation of this method **automatically saves** information about the state of the activity's **view hierarchy**, such as the text in an `EditText` widget or the scroll position of a `ListView`.
+If a user navigates to a different away from the activity, the `onPause()` and `onResume()` methods are called.  If you need to retain state information in those cases, it's best to save state through the use of [[Shared Preferences|Storing-and-Accessing-SharedPreferences]]:
 
-To save additional state information for your activity, you must implement `onSaveInstanceState()` and add key-value pairs to the Bundle object. For example:
+```java
+public class MainActivity extends Activity {
+    static final String SOME_VALUE = "int_value";
+    static final String SOME_OTHER_VALUE = "string_value";
+
+    int someIntValue;
+    String someStringValue;
+
+    @Override
+    protected void onPause() {
+      SharedPreferences settings = getSharedPreferences("Settings", Context.MODE_PRIVATE);
+      SharedPreferences.Editor editor = settings.edit();
+      editor.putInt(SOME_VALUE, someIntValue);
+      editor.putString(SOME_OTHER_VALUE, someStringValue);
+
+      editor.apply();
+    }
+}
+```
+
+Upon resume, the `onResume()` gets called:
+
+```java
+    @Override
+    public void onResume() {
+      SharedPreferences settings = getSharedPreferences("Settings", Context.MODE_PRIVATE);
+      someIntValue = settings.getInt(SOME_VALUE, 0);
+    }
+```
+
+Note that `onSaveInstanceState()` is called right before your activity is about to be killed or restarted because of memory pressure or screen orientation.  This is different from `onPause()` which gets called when your activity loses focus (e.g you transition to another activity.  The default implementation of this method **automatically saves** information about the state of the activity's **view hierarchy**, such as the text in an `EditText` widget or the scroll position of a `ListView`.  For other data to persist, you can put the data in the Bundle provided.
 
 ```java
 public class MainActivity extends Activity {
@@ -27,14 +57,14 @@ public class MainActivity extends Activity {
 The system will call that method before an Activity is destroyed. Then later the system will call `onRestoreInstanceState` where we can restore state from the bundle:
 
 ```java
-@Override
-protected void onRestoreInstanceState(Bundle savedInstanceState) {
-    // Always call the superclass so it can restore the view hierarchy
-    super.onRestoreInstanceState(savedInstanceState);
-    // Restore state members from saved instance
-    someIntValue = savedInstanceState.getInt(SOME_VALUE);
-    someStringValue = savedInstanceState.getString(SOME_OTHER_VALUE);
-}
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+      // Always call the superclass so it can restore the view hierarchy
+      super.onRestoreInstanceState(savedInstanceState);
+      // Restore state members from saved instance
+      someIntValue = savedInstanceState.getInt(SOME_VALUE);
+      someStringValue = savedInstanceState.getString(SOME_OTHER_VALUE);
+    }
 ```
 
 Instance state can also be restored in the standard `Activity#onCreate` method but it is convenient to do it in `onRestoreInstanceState` which ensures all of the initialization has been done and allows subclasses to decide whether to use the default implementation. Read [this stackoverflow post](http://stackoverflow.com/a/14676555/313399) for details.
