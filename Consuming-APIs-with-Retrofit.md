@@ -1,6 +1,6 @@
 ## Overview
 
-[Retrofit](http://square.github.io/retrofit/) is a type-safe REST client for Android (or just Java) developed by Square. The library provides a powerful framework for authenticating and interacting with APIs and sending network requests with [OkHttp](http://square.github.io/okhttp/).  See [[this guide|Using-OkHttp]] to understand how OkHttp works.
+[Retrofit](http://square.github.io/retrofit/) is a type-safe REST client for Android, Java and Kotlin developed by Square. The library provides a powerful framework for authenticating and interacting with APIs and sending network requests with [OkHttp](http://square.github.io/okhttp/).  See [[this guide|Using-OkHttp]] to understand how OkHttp works.
 
 This library makes downloading JSON or XML data from a web API fairly straightforward. Once the data is downloaded then it is parsed into a Plain Old Java Object (POJO) which must be defined for each "resource" in the response.
 
