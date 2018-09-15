@@ -19,8 +19,9 @@ The string `Settings` is the name of the preference file you wish to access. If 
 If you wish to have a common preference file and don't wish to specify a file, you can also use default shared preferences too:
 
 
-`SharedPreferences mSettings = PreferenceManager.getDefaultSharedPreferences(getActivity());`
-
+```java
+SharedPreferences mSettings = PreferenceManager.getDefaultSharedPreferences(getActivity());`
+```
 
 Using this way will default the preference file to be stored as `/data/data/com.package.name/shared_prefs/com.package.name_preferences.xml`. 
 
