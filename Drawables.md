@@ -109,7 +109,15 @@ Using solid color shapes and gradients we can customize the appearance of button
 
 ### State List
 
-A [StateListDrawable](http://developer.android.com/guide/topics/resources/drawable-resource.html#StateList) is a drawable object defined in XML that uses several different images to represent the same graphic, depending on the state of the object. For example, a Button widget can exist in one of several different states (pressed, focused, or neither) and, using a state list drawable, you ca
+A [StateListDrawable](http://developer.android.com/guide/topics/resources/drawable-resource.html#StateList) is a drawable object defined in XML that uses several different images to represent the same graphic, depending on the state of the object. For example, a Button widget can exist in one of several different states (pressed, focused, or neither) and, using a state list drawable, you can provide a different background image for each state. The state list supports different view states such as `android:state_pressed`, `android:state_focused`, `android:state_enabled`, `android:state_selected`, among many others.  The illustration below shows all the major states that can be represented:
+
+<img src="http://developer.android.com/design/media/touch_feedback_states.png">
+
+For example, a state list XML for a button background might look like the following in a file such as `res/drawable/selector_button_bg`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:state_pressed="true"
         android:state_enabled="true"
