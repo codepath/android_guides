@@ -312,7 +312,7 @@ See the [Handling the Change](http://developer.android.com/guide/topics/resource
 
 ## Leveraging ViewModels
 
-Android's new Architecture Components helps manage configuration states.  All state data related to an Activity can be moved to a ViewModel, which will survive rotate changes and will restored automatically for you.  In this way, you do not need to worry about persisting this configuration data. 
+Android's new Architecture Components helps manage configuration states.  All state data related to the UI can be moved to a ViewModel, which will survive rotate changes because they are data tied to the application instead of Activity instance.  In this way, you do not need to worry about persisting this configuration data between Activity lifecycles. 
 
 ### Setup
 
