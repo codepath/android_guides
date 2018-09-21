@@ -310,6 +310,47 @@ public void onConfigurationChanged(Configuration newConfig) {
 
 See the [Handling the Change](http://developer.android.com/guide/topics/resources/runtime-changes.html#HandlingTheChange) docs. For more about which configuration changes you can handle in your activity, see the [android:configChanges](http://developer.android.com/guide/topics/manifest/activity-element.html#config) documentation and the [Configuration](http://developer.android.com/reference/android/content/res/Configuration.html) class.
 
+## Leveraging ViewModels
+
+Android's new Architecture Components helps manage configuration states.  All state data related to an Activity can be moved to a ViewModel, which will survive rotate changes and will restored automatically for you.  In this way, you do not need to worry about persisting this configuration data. 
+
+### Setup
+
+First, make sure to add the ViewModel library:
+
+```gradle
+dependencies {
+    implementation "android.arch.lifecycle:viewmodel:1.1.1"
+}
+```
+
+Your ViewModel should extend from the ViewModel class.  Move for instance the adapter to be encapsulated within the ViewModel:
+
+```java
+public class MyViewModel extends ViewModel {
+
+    MovieAdapter movieAdapter;
+
+    public MyViewModel() {
+        movieAdapter = new MovieAdapter();
+    }
+
+}
+```
+
+Next, create a ViewModel class:
+
+```java
+// new syntax since 1.1.0
+MyViewModel viewModel = ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication()).create(MyViewModel.class);
+```
+
+Next, change your references to the adapter to refer to the ViewModel:
+
+```java
+recyclerView.setAdapter(viewModel.movieAdapter);
+```
+
 ## References
 
 * <http://developer.android.com/guide/topics/resources/runtime-changes.html>
