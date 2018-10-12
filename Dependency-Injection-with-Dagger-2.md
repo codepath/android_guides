@@ -140,7 +140,7 @@ public class NetModule {
    @Provides
    @Singleton
    OkHttpClient provideOkHttpClient(Cache cache) {
-      OkHttpClient client = new OkHttpClient.Builder();
+      OkHttpClient.Builder client = new OkHttpClient.Builder();
       client.cache(cache);
       return client.build();
    }
