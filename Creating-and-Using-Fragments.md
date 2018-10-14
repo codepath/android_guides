@@ -638,7 +638,7 @@ Note that one limitation is that nested (or child) fragments **must be dynamical
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent" android:layout_height="fill_parent"
+    android:layout_width="match_parent" android:layout_height="match_parent"
     android:orientation="vertical" >
 <TextView
         android:layout_width="wrap_content"
@@ -646,7 +646,7 @@ Note that one limitation is that nested (or child) fragments **must be dynamical
         android:text="I am the parent fragment" />
 <FrameLayout
         android:id="@+id/child_fragment_container"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </LinearLayout>
 ```
