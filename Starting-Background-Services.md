@@ -4,7 +4,7 @@ A service is a component which runs in the background, without direct interactio
 
 ### JobScheduler
 
-Writing a job simply requires extending the `JobService` class.  This `onStartJob()` method will run on the main thread, so you can generate Toast messages that will be rendered on the activity.  Any background work should be performed asynchronously.  The expected result for this method should be true, especially if the work done has to been completed.
+Writing a job simply requires extending the `JobService` class.  This `onStartJob()` method will run on the main thread, so you can generate Toast messages that will be rendered on the activity.  Any background work should be performed asynchronously.  The expected result for this method should be true, especially if the work done has to be completed.
 
 ```java
 public class MyJobService extends JobService {
