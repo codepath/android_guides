@@ -96,7 +96,7 @@ There are currently bugs in the JobScheduler, especially in Android API 21 and A
 
 The [IntentService](http://developer.android.com/reference/android/app/IntentService.html) class used to be the way for running an operation on a single background thread. IntentService runs outside the application in a background process, so the process would run even if your application is closed.  Google now recommends using the [JobIntentService](https://developer.android.com/reference/android/support/v4/app/JobIntentService), which is included as part of the support library.  
 
-On pre-Android O devices, a normal IntentService will be dispatched in the background. A few limitations of a IntentService to be aware of:
+On pre-Android O devices, a normal IntentService will be dispatched in the background. A few limitations of an IntentService to be aware of:
 
  * You cannot affect the user interface from this background service directly
  * Requests are handled on a single worker thread and processes just one request at a time.
