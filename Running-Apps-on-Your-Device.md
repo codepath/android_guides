@@ -63,3 +63,5 @@ If after plugging the device into the computer and you don't see any message abo
 
 * <https://developer.android.com/studio/run/device.html>
 * <https://developer.android.com/training/basics/firstapp/running-app.html>
+
+editable?
