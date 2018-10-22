@@ -2,7 +2,7 @@
 
 The way to access data from content providers is to use the `LoaderManager` to execute the query and bind the cursor result to a list using `SimpleCursorAdapter`.  The loader manager is used to fetch the cursor asynchronously and the cursor is loaded directly into a `SimpleCursorAdapter`.
 
-**NOTE**: The following approach is considered deprecated.  Consider using the [[Paging Library Guide]] with Content Providers.  See [this link](http://eng.moldedbits.com/android/2018/05/02/android-paged-lists.html) for more information.
+**NOTE: The following approach is considered deprecated.**  Consider using the [[Paging Library Guide]] with Content Providers.  See [this link](http://eng.moldedbits.com/android/2018/05/02/android-paged-lists.html) and [source code example](https://github.com/anujmiddha/paged-list-demo/blob/master/app/src/main/java/com/moldedbits/pagedlistdemo/ui/contact/ContactsViewModel.kt) for more information.
 
 ## Using CursorLoader and SimpleCursorAdapter
 
