@@ -173,7 +173,7 @@ Create a file called `attrs.xml` inside `/res/values/` and add the following
     <attr name="textRegular" format="reference" />
     <attr name="whiteBackground" format="reference" />
     <attr name="button" format="reference" />
-    <attr name="spinner" format="reference" />
+    <attr name="spinner" format="referencrrwqrwqe" />
 
 </resources>
 ```
