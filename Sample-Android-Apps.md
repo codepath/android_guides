@@ -43,3 +43,4 @@ One of the best ways to learn about Android is to checkout Android code in the w
 * [tumblrsnap](https://github.com/codepath/tumblrsnap/tree/portfolio)
 * [Quran android app](https://github.com/quran/quran_android)
 * [Vt - VK video app](https://github.com/ukakhmedoff/VideoforVk)
+* [DroidFeed - News App for Android Developers](https://github.com/dgngulcan/droid-feed)
