@@ -23,7 +23,11 @@ In order to access the internet, be sure to specify the following permissions in
 </manifest>
 ```
 
-NOTE: Insecure HTTP requests are no longer permitted as of Android P.  If you see CLEARTEXT_NOT_PERMITTED errors, it means that you are attempting to make `http://` calls.  Only secure HTTPS (`https://`) are now allowed.  Disabling clear text permissions can be done as shown in this [Google code lab exercise](https://codelabs.developers.google.com/codelabs/android-network-security-config).
+NOTE: Insecure HTTP requests are no longer permitted as of Android P.  If you see `CLEARTEXT_NOT_PERMITTED` errors, it means that you are attempting to make `http://` calls.  Only secure HTTPS (`https://`) are now allowed.  Disabling clear text permissions can be done as shown in this [Google code lab exercise](https://codelabs.developers.google.com/codelabs/android-network-security-config) or directly by using the `useCleartextTraffic` attribute in your AndroidManifest.xml file:
+
+```xml
+<application android:usesCleartextTraffic=["true" | "false"]>
+```
 
 ### Sending an HTTP Request (Third Party)
 
