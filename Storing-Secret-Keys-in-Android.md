@@ -22,6 +22,8 @@ A public/private key RSA pair is generated, which is stored in the Android devic
 
 Read this [Medium blog](https://medium.com/@ericfu/securely-storing-secrets-in-an-android-application-501f030ae5a3) for more information about how to use the Keystore API.   Do not use the [Qlassified Android](https://github.com/Q42/Qlassified-Android) library because it introduces an additional 20K methods to your Android program.  You can use the [Android Vault](https://github.com/BottleRocketStudios/Android-Vault/tree/master/AndroidVault/vault/src/androidTest/java/com/bottlerocketstudios/vault) library, which will also help facilitate the rotation of RSA keys, which usually have an expiration date of 1-5 years.
 
+See also the [official Google sample](https://github.com/googlesamples/android-BasicAndroidKeyStore) for using the Android Keystore.
+
 ### Storing Fixed Keys
 
 For storing fixed API keys, the following common strategies exist for storing secrets in your source code:
