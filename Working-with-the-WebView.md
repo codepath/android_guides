@@ -99,6 +99,36 @@ public class MainActivity extends Activity {
 }
 ```
 
+#### Displaying a ProgressDialog in a WebView
+
+Create your ```ProgressDialog``` in the ```setWebViewClient``` method
+
+You can dismiss the dialog in ```onPageFinished``` method or in ```onPageCommitVisible```. Setting ```dismis``` in  the latter is convenient since your user won't have to wait for the whole page to load to proceed.
+
+```java
+webView.setWebViewClient(new WebViewClient() {
+            ProgressDialog progressDialog = new ProgressDialog(Context);
+
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                super.onPageStarted(view, url, favicon);
+                progressDialog.setTitle("Loading...");
+                progressDialog.setMessage("Please wait...");
+                progressDialog.setCancelable(false);
+                progressDialog.show();
+            }
+
+            @Override
+            public void onPageCommitVisible(WebView view, String url) {
+                super.onPageCommitVisible(view, url);
+                if (progressDialog != null){
+                    progressDialog.dismiss();
+                }
+            }
+
+        });
+```        
+
 ### Sharing cookies between WebViews and networking clients
 
 WebViews currently use their own cookie manager, which means that any network requests you make outside of these web views are usually stored separately.  This can cause problems when trying to retain the same cookies (i.e. for authentication or cross-site script forgery (CSRF) headers).  The simplest approach as proposed in this [Stack Overflow article](http://stackoverflow.com/questions/18057624/two-way-sync-for-cookies-between-httpurlconnection-java-net-cookiemanager-and) is to implement a cookie handler that forwards all requests to the WebView cookie store.  See this [gist](https://gist.github.com/rogerhu/5e2fa5725487d3ce0529) for an example.
@@ -110,3 +140,4 @@ WebViews currently use their own cookie manager, which means that any network re
 * <http://www.javacodegeeks.com/2013/06/fragment-in-android-tutorial-with-example-using-webview.html>
 * <http://www.tutorialspoint.com/android/android_webview_layout.htm>
 * <http://www.mkyong.com/android/android-webview-example/>
+* <https://stackoverflow.com/questions/16849347/adding-a-progress-dialog-in-a-webview>
