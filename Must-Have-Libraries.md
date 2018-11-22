@@ -83,7 +83,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [Hugo](https://github.com/JakeWharton/hugo) - Easier logging within your app
  * [Logger](https://github.com/orhanobut/logger) - Much cleaner and easier logcat trace messages
  * [AndroidAnnotations](https://github.com/excilys/androidannotations) - Framework that speeds up Android development. It takes care of the plumbing, and lets you concentrate on what's really important. By simplifying your code, it facilitates its maintenance
- * [Calligraphy](https://github.com/chrisjenx/Calligraphy) - Custom fonts made easy
+ * [Calligraphy](https://github.com/InflationX/Calligraphy) - Custom fonts made easy
  * [EasyFonts](https://github.com/vsvankhede/easyfonts) - Easy preloaded custom fonts in your app
  * [AndroidViewAnimations](https://github.com/daimajia/AndroidViewAnimations) - Common property animations made easy
  * [AboutLibraries](https://github.com/mikepenz/AboutLibraries) - Automatically generates an *About this app* section, with a list of used libraries 
