@@ -20,6 +20,11 @@ To subscribe and send messages to a channel, we leverage the easy-to-use Android
 
 If we want to **use PubNub as a service** such that the messages are being received even when the app isn't open, we can check out [this simple example](https://github.com/pubnub/java/tree/master/android/examples/SubscribeAtBoot/src/com/pubnub/examples/subscribeAtBoot) which describes how to setup a `PubNubService` which subscribes to a channel and receives messages starting up as soon as the device boots. This solution is expanded on in [this stackoverflow post](http://stackoverflow.com/a/9608967/313399).
 
+## Mirrorfly
+
+Mirrorfly is a power-packed real-time messaging solution has inbuilt [Chat API for web](https://www.mirrorfly.com/chat-api-solution.php) and messaging SDK for mobile apps (Android, iOS) that helps to integrate chat, audio, video functionality into any platforms. More secure, highly scalable & customize. 
+
+
 ## Contus Fly
 
 Contus Fly, an instant chat app solution provide [chat API for a website](https://www.contus.com/messaging-solutions.php) and messaging SDK for Android & iOS, equipped with voice/video calling feature has set on a journey to create seamless connectivity in powering the video and voice functionality through WebRTC.
@@ -42,5 +47,8 @@ Refer to the [Android Chat SDK](https://github.com/AppLozic/Applozic-Android-SDK
 * <http://www.pubnub.com/docs/java/android/overview/data-push.html>
 * <http://www.pubnub.com/docs/java/android/api/reference.html>
 * <https://www.contus.com/messaging-solutions.php>
+* <https://www.mirrorfly.com/chat-api-solution.php>
+* <https://www.mirrorfly.com/video-call-solution.php>
+* <https://www.mirrorfly.com/voice-call-solution.php>
 * <https://www.applozic.com/docs/android-chat-sdk.html>
 * <https://www.applozic.com>
