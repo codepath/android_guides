@@ -12,8 +12,8 @@ In this guide, we will walk you through the step by step process of getting an e
       ```gradle
       allprojects {
         repositories {
-          jcenter()
           google() // new since Gradle v4.1
+          jcenter()
         }
       }
       ```
@@ -134,7 +134,7 @@ If using **the official Google emulator**, we can update the "current location" 
 
 <img src="https://i.imgur.com/hfZZBQF.png" width="650" alt="Android device monitor" />
 
-You can enter any lat / lng i.e `37.4810289, -122.1543292`.
+You can enter any lat / lng i.e `37.4810289, -122.1543292`.  Use a website such as [https://gps-coordinates.org/](https://gps-coordinates.org/) to lookup corresponding locations.
 
 **Make sure to click the Send** button to report the GPS location.  After updating this location, you can use the "current location" marker on the app to move the map to your device's configured location.
 
