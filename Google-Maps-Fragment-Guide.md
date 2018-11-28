@@ -126,7 +126,7 @@ See the instructions to [[setup Genymotion|Genymotion 2.0 Emulators-with-Google-
 
 ## Enabling Location on Emulator
 
-If you are using a physical device, you can **skip this section**. You only need this section **if you want to run maps and location on an emulator**. 
+If you are using a physical device and you wish to change the GPS location of your device to see how it performs, you will need to install an app that can provide fake GPS location.  Then use the `Settings` -> `Developer Options` and look for the `Debugging` section.  Make sure to choose `Select mock location app` for the app.
 
 ### Official Emulator
 
