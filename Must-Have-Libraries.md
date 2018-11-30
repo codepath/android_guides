@@ -300,6 +300,7 @@ Check out the following resources for finding libraries:
  * <http://actionbarsherlock.com/>
  * <http://nineoldandroids.com/>
  * <https://github.com/roboguice/roboguice/wiki>
+ * <https://androidexample365.com>
  * <https://github.com/excilys/androidannotations/wiki>
  * <https://github.com/erikwt/PullToRefresh-ListView>
  * https://github.com/jfeinstein10/SlidingMenu
