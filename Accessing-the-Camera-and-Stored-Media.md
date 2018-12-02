@@ -116,8 +116,7 @@ ByteArrayOutputStream bytes = new ByteArrayOutputStream();
 // Compress the image further
 resizedBitmap.compress(Bitmap.CompressFormat.JPEG, 40, bytes);
 // Create a new file for the resized bitmap (`getPhotoFileUri` defined above)
-Uri resizedUri = getPhotoFileUri(photoFileName + "_resized");
-File resizedFile = new File(resizedUri.getPath());
+File resizedFile = getPhotoFileUri(photoFileName + "_resized");
 resizedFile.createNewFile();
 FileOutputStream fos = new FileOutputStream(resizedFile);
 // Write the bytes of the bitmap to file
