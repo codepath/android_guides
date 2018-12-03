@@ -94,7 +94,6 @@ There are various sites that provide icons, colors or other assets for your apps
 There are various guides that provide insight into the design principles for Android:
 
  * [Android Design Principles](http://developer.android.com/design/get-started/principles.html)
- * [Common Mistakes while Porting](http://www.androiduipatterns.com/2012/05/common-mistakes-in-porting-ios-apps-to.html) - Highlights some common mistakes people make while porting their iOS app to Android.
  * [[Material Design Primer|Material-Design-Primer]] - Walks you through the various elements of a modern material design for Android. "Material Design" is the latest approach to designing beautiful Android apps. 
 
 ### Inspiration
