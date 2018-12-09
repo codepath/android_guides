@@ -115,21 +115,25 @@ public class MainActivity extends AppCompatActivity {
         new BottomNavigationView.OnNavigationItemSelectedListener() {
           @Override
           public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            Fragment fragment;
             switch (item.getItemId()) {
               case R.id.action_favorites:
-                  FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                  fragmentTransaction.replace(R.id.flContainer, fragment1).commit();
-                  return true;
+                  fragment = fragment1;
+                  break;
               case R.id.action_schedules:
-                  FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                  fragmentTransaction.replace(R.id.flContainer, fragment2).commit();
-                  return true;
+                  fragment = fragment2;
+                  break;
               case R.id.action_music:
-                  FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                  fragmentTransaction.replace(R.id.flContainer, fragment3).commit();
-                  return true;     
-       }
+              default:
+                  fragment = fragment3;
+                  break;
+              }
+            fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
+            return true;
+         }
      });
+     // Set default selection
+     bottomNavigationView.setSelectedItemId(R.id.action_favorites);
   }
 }
 
