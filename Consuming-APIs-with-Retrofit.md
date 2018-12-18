@@ -38,11 +38,10 @@ If you intend to use [[RxJava]] with Retrofit 2, you will also need to include t
 dependencies {
   implementation 'io.reactivex:rxjava:1.1.6'
   implementation 'io.reactivex:rxandroid:1.2.1'
-  _implementation 'com.squareup.retrofit2:adapter-rxjava:2.1.0'_
-  **This is now DEPRECATED!**
-  **Retrofit 2.2 and newer have a first-party call adapter for RxJava 2:([https://github.com/square/retrofit/tree/master/retrofit-adapters/rxjava2](https://github.com/square/retrofit/tree/master/retrofit-adapters/rxjava2))**
+  implementation 'com.squareup.retrofit2:adapter-rxjava:2.1.0' This is now DEPRECATED!
 }
 ```
+`adapter-rxjava` is now deprecated. Retrofit 2.2 and newer have a first-party call adapter for RxJava 2:([https://github.com/square/retrofit/tree/master/retrofit-adapters/rxjava2](https://github.com/square/retrofit/tree/master/retrofit-adapters/rxjava2))
 
 In the past, Retrofit relied on the [Gson](https://github.com/google/gson) library to serialize and deserialize JSON data. Retrofit 2 now supports many different parsers for processing network response data, including [Moshi](https://github.com/square/moshi), a library build by Square for efficient JSON parsing.  However, there are a few [limitations](https://github.com/square/moshi#borrows-from-gson), so if you are not sure which one to choose, use the Gson converter for now.  
 
