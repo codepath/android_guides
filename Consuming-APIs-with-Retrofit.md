@@ -38,7 +38,9 @@ If you intend to use [[RxJava]] with Retrofit 2, you will also need to include t
 dependencies {
   implementation 'io.reactivex:rxjava:1.1.6'
   implementation 'io.reactivex:rxandroid:1.2.1'
-  implementation 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+  _implementation 'com.squareup.retrofit2:adapter-rxjava:2.1.0'_
+  **This is now DEPRECATED!**
+  **Retrofit 2.2 and newer have a first-party call adapter for RxJava 2:([https://github.com/square/retrofit/tree/master/retrofit-adapters/rxjava2](https://github.com/square/retrofit/tree/master/retrofit-adapters/rxjava2))**
 }
 ```
 
