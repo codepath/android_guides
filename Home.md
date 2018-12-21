@@ -247,6 +247,7 @@ Exploring sensors and components available via the Android SDK:
 * [[Google Maps API v2 Usage]] (Markers, InfoWindow)
 * [[Connectivity using the Bluetooth API]] (**Needs Attention**)
 * [[Streaming Youtube Videos with YouTubePlayerView]]
+* [[Playing Media with ExoPlayer or TubiPlayer]]
 
 ## Services
 
