@@ -50,3 +50,4 @@ community members including:
  * [Trevor Elkins](https://github.com/trevor-e)
  * [Adrian Romero](https://github.com/romeroadrian)
  * [Aaron Fleshner](https://github.com/adfleshner)
+ * [Steven Dobek](https://github.com/sdobek)
