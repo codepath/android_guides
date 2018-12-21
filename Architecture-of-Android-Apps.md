@@ -45,6 +45,7 @@ What we want to achieve by using MVP are simpler tasks, smaller objects, and few
 The easiest method for understanding this is multiple specific examples with sample code. Check out these useful resources for an in-depth look:
 
  * [MVP Architecture in Android](http://macoscope.com/blog/model-view-presenter-architecture-in-android-applications/)
+ * [Ray Wenderlich on MVP](https://www.raywenderlich.com/7026-getting-started-with-mvp-model-view-presenter-on-android)
  * [MVP Explained](https://medium.com/upday-devs/android-architecture-patterns-part-2-model-view-presenter-8a6faaae14a5#.u53s2u5gu) with [official sample code](https://github.com/googlesamples/android-architecture/tree/todo-mvp-rxjava/)
  * [MVP Tutorial](https://medium.com/@be.betr.codr/android-mvp-survival-guide-b2094ab79f78#.ee4ajr7pz) with [handy sample code](https://github.com/WillyShakes/NetflixShows)
  * [Avenging Android MVP Article](https://android.jlelse.eu/avenging-android-mvp-23461aebe9b5)
