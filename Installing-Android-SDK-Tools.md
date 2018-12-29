@@ -16,14 +16,14 @@ sudo apt-get install libc6-dev-i386 lib32z1 default-jdk
 
 ## Installing the Android SDK (via Homebrew)
 
-Assuming you have OS X running, you can use Homebrew to install the Android SDK.
+Assuming you have macOS/OS X running, you can use Homebrew to install the Android SDK.
 
-1. [Install Homebrew](http://brew.sh/) - package manager for OSX
-2. run 
-```
-brew tap caskroom/cask
-brew cask install android-sdk
-```
+1. [Install Homebrew](http://brew.sh/) - the package manager for macOS/OS X
+2. Run the following commands: 
+   ```bash
+   brew tap caskroom/cask
+   brew cask install android-sdk
+   ```
 
 This will install the Android SDK tools in `/usr/local/Cellar/android-sdk/<version number>`
 
@@ -51,14 +51,17 @@ Now it's time to set your build environment's `PATH` variable and other variable
 
 Edit your `.bash_profile` file. If you're not using bash, edit the right config file for your environment.
 
-    # Android 
-    export ANDROID_SDK_ROOT=/Users/ciandroid/android-sdk-macosx
-    export PATH=$PATH:$ANDROID_SDK_ROOT/tools
-
+```bash
+# Android 
+export ANDROID_SDK_ROOT=/Users/ciandroid/android-sdk-macosx
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools
+```
  
 Save and quit. Reload `.bash_profile`:
 
-    $ source ~/.bash_profile
+```bash
+$ source ~/.bash_profile
+```
 
 ### Installing via the GUI
  
@@ -85,10 +88,10 @@ You will also want to download the extras:
 Note: Choose the Android SDK Build-tools for the version of Android that you listed in the `build.gradle` file as the `android: buildToolsVersion` target. If your `build.gradle` says 
 
 ```gradle
-    android {
-        buildToolsVersion '21'
-        ...
-    }
+android {
+    buildToolsVersion '21'
+    ...
+}
 ```
 
 then make sure to download that API version in the Android SDK Manager. 
@@ -97,19 +100,19 @@ then make sure to download that API version in the Android SDK Manager.
 
 You can also download the SDK packages using the command line with the `--no-ui` parameter.
 
-```
+```bash
 android update sdk --no-ui --all
 ```
 
 If you want to be selective about installing, you can use `android list` to view all the packages and apply the `--filter` option for selective installs:
 
-```
+```bash
 sudo android update sdk --no-ui --filter platform-tools,tools
 ```
 
 If you decide to be selective about which packages to be installed, make sure to include the extra Android Maven repository.  Otherwise, you may not be able to use the latest [[support design library|Design Support Library]].
 
-```
+```bash
 android update sdk --no-ui --all --filter extra-android-m2repository     
 ```
 
