@@ -37,10 +37,24 @@ Make sure to [[upgrade|Getting-Started-with-Gradle#upgrading-gradle]] to the lat
 
 ```gradle
 dependencies {
-  implementation 'com.google.dagger:dagger-android:2.15'
-  implementation 'com.google.dagger:dagger-android-support:2.15' // if you use the support libraries
-  annotationProcessor 'com.google.dagger:dagger-android-processor:2.15'
-  annotationProcessor 'com.google.dagger:dagger-compiler:2.15'
+  implementation 'com.google.dagger:dagger-android:2.20'
+  implementation 'com.google.dagger:dagger-android-support:2.20' // if you use the support libraries
+  annotationProcessor 'com.google.dagger:dagger-android-processor:2.20'
+  annotationProcessor 'com.google.dagger:dagger-compiler:2.20'
+}
+```
+
+If you are using Kotlin, then you should use the following setup:
+
+```gradle
+...
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+  implementation 'com.google.dagger:dagger-android:2.20'
+  implementation 'com.google.dagger:dagger-android-support:2.20' // if you use the support libraries
+  kapt 'com.google.dagger:dagger-android-processor:2.20'
+  kapt 'com.google.dagger:dagger-compiler:2.20'
 }
 ```
 
