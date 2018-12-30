@@ -381,7 +381,7 @@ public class GitHubModule {
 
     public interface GitHubApiInterface {
       @GET("/org/{orgName}/repos")
-      Call<ArrayList<Repository>> getRepository(@Path("orgName") String orgName);
+      Call<List<Repository>> getRepository(@Path("orgName") String orgName);
     }
 
     @Provides
