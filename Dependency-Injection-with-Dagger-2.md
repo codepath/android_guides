@@ -183,7 +183,7 @@ The injector class used in Dagger 2 is called a **component**.  It assigns refer
 ```java
 @Singleton
 @Component(modules={AppModule.class, NetModule.class})
-public interface NetComponent {
+public interface AppComponent {
    void inject(MainActivity activity);
    // void inject(MyFragment fragment);
    // void inject(MyService service);
@@ -202,14 +202,14 @@ We should do all this work within a specialization of the `Application` class si
 ```java
 public class MyApp extends Application {
 
-    private NetComponent mNetComponent;
+    private AppComponent mAppComponent;
 
     @Override
     public void onCreate() {
         super.onCreate();
         
         // Dagger%COMPONENT_NAME%
-        mNetComponent = DaggerNetComponent.builder()
+        mAppComponent = DaggerAppComponent.builder()
                 // list of modules that are part of this component need to be created here too
                 .appModule(new AppModule(this)) // This also corresponds to the name of your module: %component_name%Module
                 .netModule(new NetModule("https://api.github.com"))
@@ -217,11 +217,11 @@ public class MyApp extends Application {
 
         // If a Dagger 2 component does not have any constructor arguments for any of its modules,
         // then we can use .create() as a shortcut instead:
-        //  mNetComponent = com.codepath.dagger.components.DaggerNetComponent.create();
+        //  mAppComponent = com.codepath.dagger.components.DaggerAppComponent.create();
     }
 
-    public NetComponent getNetComponent() {
-       return mNetComponent;
+    public AppComponent getAppComponent() {
+       return mAppComponent;
     }
 }
 ```
@@ -246,7 +246,7 @@ public class MyActivity extends Activity {
   public void onCreate(Bundle savedInstance) {
         // assign singleton instances to fields
         // We need to cast to `MyApp` in order to get the right method
-        ((MyApp) getApplication()).getNetComponent().inject(this);
+        ((MyApp) getApplication()).getAppComponent().inject(this);
     } 
 ```
  
@@ -318,7 +318,7 @@ There are several considerations when using these approaches:
 // parent component
 @Singleton
 @Component(modules={AppModule.class, NetModule.class})
-public interface NetComponent {
+public interface AppComponent {
     // remove injection methods if downstream modules will perform injection
 
     // downstream components need these exposed
@@ -355,7 +355,7 @@ Next, we define the parent component:
 ```java
   @Singleton
   @Component(modules={AppModule.class, NetModule.class})
-  public interface NetComponent {
+  public interface AppComponent {
       // downstream components need these exposed with the return type
       // method name does not really matter
       Retrofit retrofit();
@@ -366,8 +366,8 @@ We can then define a child component:
 
 ```java
 @UserScope // using the previously defined scope, note that @Singleton will not work
-@Component(dependencies = NetComponent.class, modules = GitHubModule.class)
-public interface GitHubComponent {
+@Component(dependencies = AppComponent.class, modules = GitHubModule.class)
+public interface UserComponent {
     void inject(MainActivity activity);
 }
 ```
@@ -397,7 +397,7 @@ In order for this `GitHubModule.java` to get access to the `Retrofit` instance, 
 ```java
 @Singleton
 @Component(modules={AppModule.class, NetModule.class})
-public interface NetComponent {
+public interface AppComponent {
     // remove injection methods if downstream modules will perform injection
 
     // downstream components need these exposed
@@ -407,17 +407,17 @@ public interface NetComponent {
 }
 ```
 
-The final step is to use the `GitHubComponent` to perform the instantiation.  This time, we first need to build the `NetComponent` and pass it into the constructor of the `DaggerGitHubComponent` builder:
+The final step is to use the `UserComponent` to perform the instantiation.  This time, we first need to build the `AppComponent` and pass it into the constructor of the `DaggerUserComponent` builder:
 
 ```java
-NetComponent mNetComponent = DaggerNetComponent.builder()
+AppComponent mAppComponent = DaggerAppComponent.builder()
                 .appModule(new AppModule(this))
                 .netModule(new NetModule("https://api.github.com"))
                 .build();
 
-GitHubComponent gitHubComponent = DaggerGitHubComponent.builder()
-                .netComponent(mNetComponent)
-                .gitHubModule(new GitHubModule())
+UserComponent userComponent = DaggerUserComponent.builder()
+                .appComponent(mAppComponent)
+                .gitHubModule(new GitHubModule()) // this is optional
                 .build();
 ```
 
