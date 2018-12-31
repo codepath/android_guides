@@ -2,7 +2,7 @@
 
 <img src="https://i.imgur.com/Xo47jSc.gif" alt="Parse" width="750" />
 
-### Parse on Heroku
+## Parse on Heroku
 
 We can deploy our own Parse data store and push notifications systems to [Heroku](https://www.heroku.com/) leveraging the [server open-sourced by Parse](https://github.com/ParsePlatform/parse-server-example). Parse is built on top of the MongoDB database which can be added to Heroku using MongoLab.
 
