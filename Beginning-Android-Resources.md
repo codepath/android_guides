@@ -40,7 +40,7 @@ If you never programmed at all before or if you are interested in starting with 
 * [Java: A Beginners Guide](http://www.amazon.com/Java-Beginners-Guide-Herbert-Schildt/dp/0071809252)
 * [TutorialsPoint Java Guide](http://www.tutorialspoint.com/java/java_basic_syntax.htm)
 * [Java tutorial](https://hackr.io/tutorials/learn-java) - A programming community & a great place to find the best online programming courses and tutorials.
-* [Best Java tutorials & books](https://reactdom.com/java) - Regularly ucurated & updated list of the best Java tutorials, courses & books.
+* [Best Java tutorials & books](https://reactdom.com/java) - Regularly curated & updated list of the best Java tutorials, courses & books.
 
 
 Be sure to check out these particular Java topics as well:
