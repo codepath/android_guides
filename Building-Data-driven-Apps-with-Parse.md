@@ -34,12 +34,23 @@ In short, Parse makes building mobile app ideas much easier!
 
 Setting up Parse starts with [[deploying your own Parse instance|Configuring-a-Parse-Server#setting-a-new-parse-server]] to Heroku or another app hosting provider.
 
+Add this in your root `build.gradle` file (**not** your module `build.gradle` file):
+
+```gradle
+allprojects {
+	repositories {
+		...
+		maven { url "https://jitpack.io" }
+	}
+}
+```
+
 Open the `app/build.gradle` in your project and add the following dependencies:
 
 ```gradle
 dependencies {
     implementation 'com.parse.bolts:bolts-android:1.4.0'
-    implementation 'com.parse:parse-android:1.17.3'
+    implementation 'com.parse:parse-android:1.18.5'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1' // for logging API calls to LogCat
 }
 ```
@@ -47,7 +58,7 @@ dependencies {
 | Package           | Version                                                                                                  |     
 |-------------------|:--------------------------------------------------------------------------------------------------------:|
 | Parse Bolts       | ![](https://maven-badges.herokuapp.com/maven-central/com.parse.bolts/bolts-android/badge.svg?style=flat) |
-| Parse Android SDK | ![](https://maven-badges.herokuapp.com/maven-central/com.parse/parse-android/badge.svg?style=flat)       |
+| Parse Android SDK | [![](https://jitpack.io/v/parse-community/Parse-SDK-Android.svg)](https://jitpack.io/#parse-community/Parse-SDK-Android)
 
 Select `Tools -> Android -> Sync Project with Gradle Files` to load the libraries through Gradle. When you sync, it will import everything automatically. You can see the imported files in the External Libraries folder.
 
