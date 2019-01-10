@@ -14,6 +14,14 @@ Let's setup Parse into a brand new Android app following the steps below.
 
 * Generate a new android project in your IDE (minSDK 18) and call it `SimpleChat`.
   * Name the first activity `ChatActivity`.  
+  * Add to your root `build.gradle:`:
+
+    ```gradle
+	repositories {
+		maven { url "https://jitpack.io" }
+	}
+    ```
+
   * Add the following to your `app/build.gradle`:
     
     ```gradle
@@ -28,9 +36,8 @@ Let's setup Parse into a brand new Android app following the steps below.
     ```gradle
     allprojects {
         repositories {
-            jcenter()
-            // The next part if what you don't want to add Google Play Service SDK manually
             google()
+            jcenter()
         }
     }
     ```
@@ -682,8 +689,14 @@ Alternatively, assuming the server is configured properly to support it (see [[t
 First, make sure to add the Parse LiveQuery dependency to your `app/build.gradle` config:
 
 ```gradle
+allprojects {
+	repositories {
+		maven { url "https://jitpack.io" }
+	}
+}
+
 dependencies {
-      implementation 'com.parse:parse-livequery-android:1.0.4' // for Parse Live Queries
+      implementation 'com.parse:parse-livequery-android:1.1.0' // for Parse Live Queries
 }
 ```
 
