@@ -53,7 +53,7 @@ If you plan to use RxJava, it is highly recommended that you setup [[lambda expr
 
 The basic building blocks of reactive code are `Observables` and `Observers`. An `Observable` emits items; an `Observer` consumes those items. An `Observable` **may emit any number of items** (including zero items), then it terminates either by successfully completing, or due to an error. 
 
-An `Observable` can then have **any number of observers**. For each `Observer` attached, an Observable calls `Observer#onNext()` for every item, followed by either `Observer#onComplete()` or `Observer#onError()`. Keep in mind that `Observables` often don't start emitting items until there's at least one observer/subscriber. 
+An `Observable` can then have **any number of observers**. For each `Observer` attached, an Observable calls `Observer#onNext()` for every item, followed by either `Observer#onComplete()` or `Observer#onError()`. Keep in mind that `Observables` often don't start emitting items until there's at least one subscriber. 
 
 ### Defining Observables
 
