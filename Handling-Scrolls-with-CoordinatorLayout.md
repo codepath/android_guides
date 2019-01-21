@@ -1,4 +1,4 @@
-## Overview
+## **Overview**
 
 [CoordinatorLayout](https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.html) extends the ability to accomplish many of the Google's Material Design [scrolling effects](http://www.google.com/design/spec/patterns/scrolling-techniques.html).  Currently, there are several ways provided in this framework that allow it to work without needing to write your own custom animation code.  These effects include:
 
