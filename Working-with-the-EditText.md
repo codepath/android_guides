@@ -59,7 +59,7 @@ You can set multiple inputType attributes if needed (separated by '|')
 
 ```xml
 <EditText
-  android:inputType="textCapSentences|textMultiline"
+  android:inputType="textCapSentences|textMultiLine"
 />
 ```
 
