@@ -43,14 +43,13 @@ The simplest and most straightforward approach is outlined below which is to **s
 
 ## Secrets in Resource Files
 
-The simplest approach for storing secrets in to keep them as resource files that are simply not checked into source control. Start by creating a resource file for your secrets called `res/values/secrets.xml` with:
+The simplest approach for storing secrets in to keep them as resource files that are simply not checked into source control. Start by creating a resource file for your secrets called `res/values/secrets.xml` with a string pair per secret value:
 
 ```xml
 <!-- Inside of `res/values/secrets.xml` -->
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="parse_application_id">xxxxxx</string>
-    <string name="parse_client_secret">yyyyyy</string>
     <string name="google_maps_api_key">zzzzzz</string>
 </resources>
 ```
@@ -58,7 +57,10 @@ The simplest approach for storing secrets in to keep them as resource files that
 Once these keys are in the file, Android will automatically merge it into your resources, where you can access them exactly as you would your normal strings. You can access the secret values in your Java code with:
 
 ```java
+// inside of an Activity, `getString` is called directly
 String secretValue = getString(R.string.parse_application_id);
+// inside of another class (requires a context object to exist)
+String secretValue = context.getString(R.string.parse_application_id);
 ```
 
 If you need your keys in another XML file such as in `AndroidManifest.xml`, you can just use the XML notation for accessing string resources:
