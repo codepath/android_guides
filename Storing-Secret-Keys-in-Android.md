@@ -69,11 +69,13 @@ If you need your keys in another XML file such as in `AndroidManifest.xml`, you 
 @string/google_maps_api_key
 ```
 
-Since your secrets are now in an individual file, they're simple to ignore in your source control system (for example, in Git, you would add this to the '.gitignore' file in your repository):
+Since your secrets are now in an individual file, they're simple to ignore in your source control system (for example, in Git, you would add this to the '.gitignore' file in your repository) by entering this on the command line within your project git repository:
 
 ```
 echo "**/*/res/values/secrets.xml" > .gitignore
 ```
+
+**Verification:** To make sure this worked, check the `.gitignore` file within your git repository, and make sure that this line referencing `secrets.xml` exists. Now, go to commit files to Git and make sure that **you do not see the `secrets.xml` file in the staging area**. You do not want to commit this file to Git.
 
 This process is not bulletproof. As resources, they are somewhat more vulnerable to decompilation of your application package, and so they are discoverable if somebody really wants to know them. This solution does, however, prevent your secrets just sitting in plaintext in source control waiting for someone to use, and also has the advantage of being simple to use, leveraging Android's resource management system, and requiring no extra libraries.
 
