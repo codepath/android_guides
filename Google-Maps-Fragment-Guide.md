@@ -35,17 +35,25 @@ Next, we need to get ourselves a maps API key from Google to put into our `Andro
 
 ### Get API Key
 
-Navigate to [Google Maps Android API](https://developers.google.com/maps/documentation/android-api/) and select `Get A Key`
+Navigate to [Google Maps Android API](https://developers.google.com/maps/documentation/android-api/) and select `Get Started` 
 
-<img src="https://i.imgur.com/6PhVvQU.png" width="500" />
+<img src="https://i.imgur.com/30ezzFX.png" width="500" />
 
-Select `Continue` and then `Create a new project`
+Select just the Maps product and then click Continue  
 
-<img src="https://i.imgur.com/kRJDzk3.png" width="650" />
+<img src="https://i.imgur.com/CZ8Qqdh.png" width="650" />  
 
-Now you want to skip optional section on restricting usage and click "Create". At this stage you should have your working `API Key`:
+In the next step, select 'Create New Project' and enter a title for your app.  
+ 
+<img src="https://i.imgur.com/BNJT9At.png" width="500" />  
 
-<img src="https://i.imgur.com/mGbpWdN.png" width="650" />
+In the next step, you'll have to go through the steps to enable billing for your project (but you won't get charged for using this API). This requires entering your credit card information.    
+
+<img src="https://i.imgur.com/PkXs4FG.png" width="500" />    
+
+After going through the previous steps, you should have your working `API Key`:  
+
+<img src="https://i.imgur.com/cy3PgBx.png" width="600" />  
 
 Copy your API Key into the `res/values/strings.xml` file for the `google_maps_api_key`:
 
