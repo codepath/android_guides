@@ -98,7 +98,7 @@ npm install -g parse-dashboard
 parse-dashboard --appId myAppId --masterKey myMasterKey --serverURL "https://yourapp.herokuapp.com/parse"
 ```
 
-Connect to your dashboard at `http://localhost:4040/apps`. Assuming you have specified the correct application ID, master Key, and server URL, as well as installed a Parse open source version v2.1.3 or higher, you should see the app appear correctly:
+Connect to your dashboard at [http://0.0.0.0:4040](http://0.0.0.0:4040/). Assuming you have specified the correct application ID, master Key, and server URL, as well as installed a Parse open source version v2.1.3 or higher, you should see the app appear correctly:
 
 <img src="https://imgur.com/Z0Rz5Xs.png"/>
 
