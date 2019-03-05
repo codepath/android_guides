@@ -1,6 +1,5 @@
 ## Overview
-
-A service is a component which runs in the background, without direct interaction with the user. As the service has no user interface it is not bound to the lifecycle of an activity. Services are used for repetitive and potential long running operations, checking for new data, data processing, indexing content, etc.  Because of recent restrictions on Android to improve battery life, all background work including periodic tasks should now be scheduled through the [JobScheduler](https://developer.android.com/reference/android/app/job/JobScheduler).  
+Service is a component which runs in the background, without direct interaction with the user. As the service has no user interface it is not bound to the lifecycle of an activity. Services are used for repetitive and potential long running operations, checking for new data, data processing, indexing content, etc.  Because of recent restrictions on Android to improve battery life, all background work including periodic tasks should now be scheduled through the [JobScheduler](https://developer.android.com/reference/android/app/job/JobScheduler).  
 
 ### JobScheduler
 
