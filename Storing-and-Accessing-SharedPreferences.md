@@ -9,7 +9,7 @@ In order to store data to the SharedPreferences you need to first instantiate an
 #### Specifying a Preference File
 
 ```java
-SharedPreferences mSettings = getActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE);
+SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE);
 ```
 
 The string `Settings` is the name of the preference file you wish to access. If it does not exist, it will be created. The mode value of 0 designates the default behavior, which is to allow read access to only to the application.  There are other read/write permissions that can be specified, but are no longer encouraged for [security reasons](http://developer.android.com/reference/android/content/Context.html#MODE_WORLD_READABLE).
@@ -20,7 +20,7 @@ If you wish to have a common preference file and don't wish to specify a file, y
 
 
 ```java
-SharedPreferences mSettings = PreferenceManager.getDefaultSharedPreferences(getActivity());
+SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 ```
 
 Using this way will default the preference file to be stored as `/data/data/com.package.name/shared_prefs/com.package.name_preferences.xml`. 
@@ -30,7 +30,7 @@ Using this way will default the preference file to be stored as `/data/data/com.
 The next step is to create an Editor instance of SharedPreferences like so.
 
 ```java
-SharedPreferences.Editor editor = mSettings.edit();
+SharedPreferences.Editor editor = sharedPreferences.edit();
 ```
 
 Then you can begin to add data to the Settings file declared when you instantiated the SharedPreferences like so.
@@ -57,7 +57,7 @@ Once you have stored some data to your SharedPrefrences you may retrieve this va
 First you need to instantiate an instance of your shared preferences. 
 
 ```java
-SharedPreferences mSettings = getActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE);
+SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE);
 ```
 
 The string Settings is the name of the settings file you wish to access. If it does not exist it will be created. The mode value of 0 designates the default behavior.
@@ -65,10 +65,10 @@ The string Settings is the name of the settings file you wish to access. If it d
 The final step is to access the data like so.
 
 ```java
-String cookieName = mSettings.getString("cookieName", "missing");
+String setting = sharedPreferences.getString("keyName", "defaultValue");
 ```
 
-This will either grab the value that was previously set with the key of "cookieName" or will return the string "missing" if it is not found. That's all there is to it.
+This will either grab the value that was previously set with the key of "keyName" or will return the string "defaultValue" if it is not found. That's all there is to it.
 
 ## References
 
