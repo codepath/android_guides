@@ -20,7 +20,7 @@ If you wish to have a common preference file and don't wish to specify a file, y
 
 
 ```java
-SharedPreferences mSettings = PreferenceManager.getDefaultSharedPreferences(getActivity());
+SharedPreferences mSettings = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 ```
 
 Using this way will default the preference file to be stored as `/data/data/com.package.name/shared_prefs/com.package.name_preferences.xml`. 
@@ -65,10 +65,10 @@ The string Settings is the name of the settings file you wish to access. If it d
 The final step is to access the data like so.
 
 ```java
-String cookieName = mSettings.getString("cookieName", "missing");
+String cookieName = mSettings.getString("keyName", "defaultValue");
 ```
 
-This will either grab the value that was previously set with the key of "cookieName" or will return the string "missing" if it is not found. That's all there is to it.
+This will either grab the value that was previously set with the key of "keyName" or will return the string "defaultValue" if it is not found. That's all there is to it.
 
 ## References
 
