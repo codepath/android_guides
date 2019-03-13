@@ -161,6 +161,7 @@ Essentially this method is used to enable your code to short-circuit before exec
  * [DraggablePanel](https://github.com/pedrovgs/DraggablePanel) - Panels that can be dragged
  * [MaterialDrawer](https://github.com/mikepenz/MaterialDrawer/) - Easily add a Navigation Drawer with Material style and AccountSwitcher
  * [Backdrop](https://github.com/pedromassango/IBackdrop/) - A component that appears behind all other surfaces in an app, displaying contextual and actionable content.
+ * [ExpandableBottomBar](https://github.com/st235/ExpandableBottomBar/) - A lightweight library, which implements bottom navigation pattern.
 
 ### UI Components
  * [Gravity View](https://github.com/gofynd/gravity-view) - Library for image tilt using sensor
