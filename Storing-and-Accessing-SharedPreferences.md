@@ -9,7 +9,7 @@ In order to store data to the SharedPreferences you need to first instantiate an
 #### Specifying a Preference File
 
 ```java
-SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE);
+SharedPreferences sharedPreferences = getSharedPreferences("Settings", Context.MODE_PRIVATE);
 ```
 
 The string `Settings` is the name of the preference file you wish to access. If it does not exist, it will be created. The mode value of 0 designates the default behavior, which is to allow read access to only to the application.  There are other read/write permissions that can be specified, but are no longer encouraged for [security reasons](http://developer.android.com/reference/android/content/Context.html#MODE_WORLD_READABLE).
@@ -27,7 +27,8 @@ Using this way will default the preference file to be stored as `/data/data/com.
 
 #### Editing Preferences
 
-The next step is to create an Editor instance of SharedPreferences like so.
+When the user interacts with a preference UI, e.g., an EditTextPreference and changes its default value, then the new value is stored in the default preference file.
+If there is a need to edit a preferences file without user interaction, it can be done by creating an Editor instance of SharedPreferences like so.
 
 ```java
 SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -37,8 +38,7 @@ Then you can begin to add data to the Settings file declared when you instantiat
 
 ```java
 int id = 1;
-String username = "john";
-editor.putString(username, "username");
+editor.putString("keyName", "newValue");
 editor.putInt("id", id);
 ```
 
@@ -57,7 +57,7 @@ Once you have stored some data to your SharedPrefrences you may retrieve this va
 First you need to instantiate an instance of your shared preferences. 
 
 ```java
-SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Settings", Context.MODE_PRIVATE);
+SharedPreferences sharedPreferences = getSharedPreferences("Settings", Context.MODE_PRIVATE);
 ```
 
 The string Settings is the name of the settings file you wish to access. If it does not exist it will be created. The mode value of 0 designates the default behavior.
