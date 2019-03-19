@@ -150,7 +150,10 @@ The following tutorials attempt to explain aspects of Android development step-b
 
 * [Google Codelabs for Android Tutorial](https://codelabs.developers.google.com/?cat=Android) - Interesting interactive tutorial for learning Android step-by-step.
 
-* [Android UI Tutorial: Layouts and Animations](https://www.codementor.io/android/tutorial/android-ui-layouts-animations-mirror) - a quick live coding of Android UI creations and shows how to use the different layouts, Views (TextView, ListView, ImageView, GridView, RecyclerView) and Motions (Property Animation, drawable Animation) by live coding. 
+* [Android UI Tutorial: Layouts and Animations](https://www.codementor.io/android/tutorial/android-ui-layouts-animations-mirror) - a quick live coding of Android UI creations and shows how to use the different layouts, Views (TextView, ListView, ImageView, GridView, RecyclerView) and Motions (Property Animation, drawable Animation) by live coding.
+
+* [Complete Android Tutorial](https://www.tutlane.com/tutorial/android) - In detailed step by step Android tutorial for learning.
+ 
 
 ### Video Resources
 
