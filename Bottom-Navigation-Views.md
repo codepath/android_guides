@@ -89,7 +89,8 @@ bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationVie
         return true;
       case R.id.action_music:
         // do something here
-        return true;          
+        return true;
+      default: return true;
     } 
   }
 });      
