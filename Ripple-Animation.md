@@ -2,7 +2,7 @@
 
 Ripple touch effect was [introduced with material design in Android 5.0](https://www.youtube.com/watch?v=97SWYiRtF0Y&t=482) (API level 21).
 
-Touch feedback in material design provides an instantaneous visual confirmation at the point of contact when users interact with UI elements. For example, buttons now display a ripple effect when they are touched - this is the default touch feedback animation in Android 5.0. Ripple animation is implemented by the new `RippleDrawable` class. The ripple effect can be configured to end at the bounds of the view or extend beyond the bounds of the view. For example, the following sequence of screenshots illustrates the ripple effect in a button during touch animation:
+Touch feedback in material design provides an instantaneous visual confirmation at the point of contact when users interact fwith UI elements. For example, buttons now display a ripple effect when they are touched - this is the default touch feedback animation in Android 5.0. Ripple animation is implemented by the new `RippleDrawable` class. The ripple effect can be configured to end at the bounds of the view or extend beyond the bounds of the view. For example, the following sequence of screenshots illustrates the ripple effect in a button during touch animation:
 
   ![touch](https://i.imgur.com/hrkinJY.png)
 
