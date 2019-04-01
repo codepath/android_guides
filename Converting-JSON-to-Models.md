@@ -1,235 +1,238 @@
-## Overview
-
-This guide describes the process of converting JSON data retrieved from a network request and converting that data to simple Model objects. This approach will be compatible with nearly any basic data-driven application and fits well with any ORM solution for persistence such as [[DBFlow|DBFlow Guide]] or [SugarORM](http://satyan.github.io/sugar/) that may be introduced.
-
-For this guide, we will be using the [Yelp API](http://www.yelp.com/developers/documentation/v2/search_api#searchGP) as the example. The goal of this guide is to **perform a Yelp API Search** and then **process the results into Java objects** which we can then use to populate information within our application.
-
-The model in this case is **Business** and for our application, let's suppose we just need the _name_, _phone_, and _image_ of the business which are all provided by the [Search API](http://www.yelp.com/developers/documentation/v2/search_api#searchGP).
-
-### Fetching JSON Results
-
-The first step in retrieving any API-based model data is to execute a network request to retrieve the JSON response that represents the underlying data that we want to use. In this case, we want to execute a request to `http://api.yelp.com/v2/search?term=food&location=San+Francisco` and then this will return us a JSON dictionary that looks like:
-
-```json
 {
-  "businesses": [
-    {
-      "id": "yelp-tropisueno",
-      "name" : "Tropisueno",
-      "display_phone": "+1-415-908-3801",
-      "image_url": "http://s3-media2.ak.yelpcdn.com/bphoto/7DIHu8a0AHhw-BffrDIxPA/ms.jpg",
-      ...
-    }
-  ] 
-}
-```
-
-Sending out this API request can be done in any number of ways but first requires us to register for a Yelp developer account and use OAuth 1.0a to authenticate with our provided access_token. You might for example use our [rest-client-template](https://github.com/codepath/android-rest-client-template) to manage this authentication and then construct a `YelpClient` that has a `search` method:
-
-```java
-public class YelpClient extends OAuthBaseClient {
-    // LOTS OF TOKENS AND STUFF ...
-    
-    // Setting up the search endpoint
-    public void search(String term, String location, AsyncHttpResponseHandler handler) {
-    	// http://api.yelp.com/v2/search?term=food&location=San+Francisco
-    	String apiUrl = getApiUrl("search");
-        RequestParams params = new RequestParams();
-        params.put("term", term);
-        params.put("location", location);
-        client.get(apiUrl, params, handler);
-    }
-}
-```
-
-This `search` method will take care of executing our JSON request to the Yelp API. The API call might be executed in an Activity now when the user performs a search. Executing the API request would look like:
-
-```java
-YelpClient client = YelpClientApp.getRestClient();
-client.search("food", "san francisco", new JsonHttpResponseHandler() {
-	@Override
-        public void onSuccess(int code, Header[] headers, JSONObject body) {
-		try {
-			JSONArray businessesJson = body.getJSONArray("businesses");
-                        // Here we now have the json array of businesses!
-			Log.d("DEBUG", businesses.toString());
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	@Override
-	public void onFailure(Throwable arg0) {
-		Toast.makeText(SearchActivity.this, "FAIL", Toast.LENGTH_LONG).show();
-	}
-});
-```
-
-We could now run the app and verify that the JSON array of business has the format we expect from the provided sample response in the documentation.
-
-### Setting up our Model
-
-The primary resource in the Yelp API is the **Business**. Let's create a Java class that will act as the **Business** model in our application:
-
-```java
-public class Business {
-	private String id;
-	private String name;
-	private String phone;
-	private String imageUrl;
-	
-	public String getName() {
-		return this.name;
-	}
-	
-	public String getPhone() {
-		return this.phone;
-	}
-	
-	public String getImageUrl() {
-		return this.imageUrl;
-	}
-}
-```
-
-So far, the business model is just a series of declared fields and then getters to access those fields. Next, we need to add method that would manage the deserialization of a JSON dictionary into a populated Business object:
-
-```java
-public class Business {
-  // ...
-  
-  // Decodes business json into business model object
-  public static Business fromJson(JSONObject jsonObject) {
-  	Business b = new Business();
-        // Deserialize json into object fields
-  	try {
-  		b.id = jsonObject.getString("id");
-        	b.name = jsonObject.getString("name");
-        	b.phone = jsonObject.getString("display_phone");
-        	b.imageUrl = jsonObject.getString("image_url");
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return null;
-        }
-  	// Return new object
-  	return b;
-  }
-}
-```
-
-With this method in place, we could take a single business JSON dictionary such as:
-
-```json
-{
- "id": "yelp-tropisueno",
- "name" : "Tropisueno",
- "display_phone": "+1-415-908-3801",
- "image_url": "http://s3-media2.ak.yelpcdn.com/bphoto/7DIHu8a0AHhw-BffrDIxPA/ms.jpg",
-  ...
-}
-```
-
-and successfully create a Business with `Business.fromJson(json)`. However, in the API response, we actually get a collection of business JSON in an array. So ideally we also would have an easy way of processing an **array of businesses**  into an **ArrayList of Business objects**. That might look like:
-
-```java
-public class Business {
-  // ...fields and getters
-  // ...fromJson for an object
-
-  // Decodes array of business json results into business model objects
-  public static ArrayList<Business> fromJson(JSONArray jsonArray) {
-      JSONObject businessJson;
-      ArrayList<Business> businesses = new ArrayList<Business>(jsonArray.length());
-      // Process each result in json array, decode and convert to business object
-      for (int i=0; i < jsonArray.length(); i++) {
-          try {
-          	businessJson = jsonArray.getJSONObject(i);
-          } catch (Exception e) {
-              e.printStackTrace();
-              continue;
-          }
-
-          Business business = Business.fromJson(businessJson);
-          if (business != null) {
-          	businesses.add(business);
-          }
+   "predictions" : [
+      {
+         "description" : "Sonipat, Haryana, India",
+         "id" : "b9e3cb64eb5451407a5cbb0645e4d98db9fcf0aa",
+         "matched_substrings" : [
+            {
+               "length" : 7,
+               "offset" : 0
+            }
+         ],
+         "place_id" : "ChIJC0BwhguwDTkRXmSbWM3T-54",
+         "reference" : "ChIJC0BwhguwDTkRXmSbWM3T-54",
+         "structured_formatting" : {
+            "main_text" : "Sonipat",
+            "main_text_matched_substrings" : [
+               {
+                  "length" : 7,
+                  "offset" : 0
+               }
+            ],
+            "secondary_text" : "Haryana, India"
+         },
+         "terms" : [
+            {
+               "offset" : 0,
+               "value" : "Sonipat"
+            },
+            {
+               "offset" : 9,
+               "value" : "Haryana"
+            },
+            {
+               "offset" : 18,
+               "value" : "India"
+            }
+         ],
+         "types" : [ "locality", "political", "geocode" ]
+      },
+      {
+         "description" : "Sonepat Bus Stand, Bhajan Vihar, Baghpat, Uttar Pradesh, India",
+         "id" : "04a0e753f2c1bb8fffaacf24c3dcf4581566bf46",
+         "matched_substrings" : [
+            {
+               "length" : 17,
+               "offset" : 0
+            }
+         ],
+         "place_id" : "ChIJt1FndeBSDDkRkDk9wTOdNjM",
+         "reference" : "ChIJt1FndeBSDDkRkDk9wTOdNjM",
+         "structured_formatting" : {
+            "main_text" : "Sonepat Bus Stand",
+            "main_text_matched_substrings" : [
+               {
+                  "length" : 17,
+                  "offset" : 0
+               }
+            ],
+            "secondary_text" : "Bhajan Vihar, Baghpat, Uttar Pradesh, India"
+         },
+         "terms" : [
+            {
+               "offset" : 0,
+               "value" : "Sonepat Bus Stand"
+            },
+            {
+               "offset" : 19,
+               "value" : "Bhajan Vihar"
+            },
+            {
+               "offset" : 33,
+               "value" : "Baghpat"
+            },
+            {
+               "offset" : 42,
+               "value" : "Uttar Pradesh"
+            },
+            {
+               "offset" : 57,
+               "value" : "India"
+            }
+         ],
+         "types" : [ "transit_station", "point_of_interest", "establishment", "geocode" ]
+      },
+      {
+         "description" : "Sonipat Railway Station, Railway Quarters, Indira Colony, Sonipat, Haryana, India",
+         "id" : "5308fed2986a4c408c55073c9d7a97506e71c83a",
+         "matched_substrings" : [
+            {
+               "length" : 7,
+               "offset" : 0
+            }
+         ],
+         "place_id" : "ChIJyzMuYwywDTkRuO_9AL0zc6c",
+         "reference" : "ChIJyzMuYwywDTkRuO_9AL0zc6c",
+         "structured_formatting" : {
+            "main_text" : "Sonipat Railway Station",
+            "main_text_matched_substrings" : [
+               {
+                  "length" : 7,
+                  "offset" : 0
+               }
+            ],
+            "secondary_text" : "Railway Quarters, Indira Colony, Sonipat, Haryana, India"
+         },
+         "terms" : [
+            {
+               "offset" : 0,
+               "value" : "Sonipat Railway Station"
+            },
+            {
+               "offset" : 25,
+               "value" : "Railway Quarters"
+            },
+            {
+               "offset" : 43,
+               "value" : "Indira Colony"
+            },
+            {
+               "offset" : 58,
+               "value" : "Sonipat"
+            },
+            {
+               "offset" : 67,
+               "value" : "Haryana"
+            },
+            {
+               "offset" : 76,
+               "value" : "India"
+            }
+         ],
+         "types" : [ "transit_station", "point_of_interest", "establishment", "geocode" ]
+      },
+      {
+         "description" : "sonipat Haryana, Railway Quarters, Indira Colony, Sonipat, Haryana, India",
+         "id" : "7bda20b0bc51331d90a18e019e982e60911eb436",
+         "matched_substrings" : [
+            {
+               "length" : 7,
+               "offset" : 0
+            }
+         ],
+         "place_id" : "ChIJw92CTAuwDTkR-GAwmBhktik",
+         "reference" : "ChIJw92CTAuwDTkR-GAwmBhktik",
+         "structured_formatting" : {
+            "main_text" : "sonipat Haryana",
+            "main_text_matched_substrings" : [
+               {
+                  "length" : 7,
+                  "offset" : 0
+               }
+            ],
+            "secondary_text" : "Railway Quarters, Indira Colony, Sonipat, Haryana, India"
+         },
+         "terms" : [
+            {
+               "offset" : 0,
+               "value" : "sonipat Haryana"
+            },
+            {
+               "offset" : 17,
+               "value" : "Railway Quarters"
+            },
+            {
+               "offset" : 35,
+               "value" : "Indira Colony"
+            },
+            {
+               "offset" : 50,
+               "value" : "Sonipat"
+            },
+            {
+               "offset" : 59,
+               "value" : "Haryana"
+            },
+            {
+               "offset" : 68,
+               "value" : "India"
+            }
+         ],
+         "types" : [ "establishment" ]
+      },
+      {
+         "description" : "Sonipat Court, New Court Road, Malik Colony, Ashok Vihar, Sonipat, Haryana, India",
+         "id" : "d1baabe880e4b7a5cc8652b70144be0d7fa3b542",
+         "matched_substrings" : [
+            {
+               "length" : 7,
+               "offset" : 0
+            }
+         ],
+         "place_id" : "ChIJK6n1RJq6DTkRGLaHSCbmiZs",
+         "reference" : "ChIJK6n1RJq6DTkRGLaHSCbmiZs",
+         "structured_formatting" : {
+            "main_text" : "Sonipat Court",
+            "main_text_matched_substrings" : [
+               {
+                  "length" : 7,
+                  "offset" : 0
+               }
+            ],
+            "secondary_text" : "New Court Road, Malik Colony, Ashok Vihar, Sonipat, Haryana, India"
+         },
+         "terms" : [
+            {
+               "offset" : 0,
+               "value" : "Sonipat Court"
+            },
+            {
+               "offset" : 15,
+               "value" : "New Court Road"
+            },
+            {
+               "offset" : 31,
+               "value" : "Malik Colony"
+            },
+            {
+               "offset" : 45,
+               "value" : "Ashok Vihar"
+            },
+            {
+               "offset" : 58,
+               "value" : "Sonipat"
+            },
+            {
+               "offset" : 67,
+               "value" : "Haryana"
+            },
+            {
+               "offset" : 76,
+               "value" : "India"
+            }
+         ],
+         "types" : [ "establishment" ]
       }
-
-      return businesses;
-  }
+   ],
+   "status" : "OK"
 }
-```
-
-With that in place, we can now pass an JSONArray of business json data and process that easily into a nice ArrayList<Business> object for easy use in our application with `Business.fromJson(myJsonArray)`.
-
-### Putting It All Together
-
-Now, we can return to our Activity where we are executing the network request and use the new Model to get easy access to our Business data. Let's tweak the network request handler in our activity:
-
-```java
-// Within an activity or fragment
-YelpClient client = YelpClientApp.getRestClient();
-client.search("food", "san francisco", new JsonHttpResponseHandler() {
-  @Override
-  public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-    try {
-      JSONArray businessesJson = body.getJSONArray("businesses");
-      ArrayList<Business> businesses = Business.fromJson(businessesJson);
-      // Now we have an array of business objects
-      // Might now create an adapter BusinessArrayAdapter<Business> to load the businesses into a list
-      // You might also simply update the data in an existing array and then notify the adapter
-    } catch (JSONException e) {
-      e.printStackTrace();
-    }
-  }
-
-  @Override
-  public void onFailure(int statusCode, Header[] headers, String res, Throwable t) {
-    Toast.makeText(getBaseContext(), "FAIL", Toast.LENGTH_LONG).show();
-  }
-});
-```
-
-This approach works very similarly for any simple API data which often is returned in collections whether it be images on Instagram, tweets on Twitter, or auctions on Ebay. 
-
-### Bonus: Setting Up Your Adapter
-
-The next step might be to create an adapter and populate these new model objects into a `ListView` or `RecyclerView`.
-
-```java
-// Within an activity
-ArrayList<Business> businesses;
-BusinessRecyclerViewAdapter adapter;
-
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-   // ...
-   // Lookup the recyclerview in activity layout
-   RecyclerView rvBusinesses = (RecyclerView) findViewById(...);
-   // Initialize default business array
-   businesses = new ArrayList<Business>();
-   // Create adapter passing in the sample user data
-   adapter = new BusinessRecyclerViewAdapter(business);
-   rvBusinesses.setAdapter(adapter);
-   // Set layout manager to position the items
-   rvBusinesses.setLayoutManager(new LinearLayoutManager(this));
-}
-
-// Anywhere in your activity
-client.search("food", "san francisco", new JsonHttpResponseHandler() {
-  @Override
-  public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-      try {
-          // Get and store decoded array of business results
-          JSONArray businessesJson = response.getJSONArray("businesses");
-          businesses.clear(); // clear existing items if needed
-          businesses.addAll(Business.fromJson(businessesJson)); // add new items
-          adapter.notifyDataSetChanged();
-      } catch (JSONException e) {
-          e.printStackTrace();
-      }
-  }
-}
-```
-
-For additional details on using adapters to display data in lists, see [[Using RecyclerView|Using-the-RecyclerView#creating-the-recyclerviewadapter]] or [[Using ListView|Using-an-ArrayAdapter-with-ListView]].
