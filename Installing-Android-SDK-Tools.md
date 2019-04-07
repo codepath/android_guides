@@ -11,7 +11,7 @@ Gradle 2.2.0 now supports downloading automatically dependencies.  Make sure to 
 If you are using Ubuntu 15.04 or 15.10, make sure to install the following packages.  Otherwise, you may notice `No such file or directory` when running trying to execute the `aapt` program that is part of the Android SDK toolset:
 
 ```bash
-sudo apt-get install libc6-dev-i386 lib32z1 default-jdk
+sudo apt-get install libc6-dev-i386 lib32z1 openjdk-8-jdk
 ```
 
 ## Installing the Android SDK (via Homebrew)
