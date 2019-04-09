@@ -142,7 +142,7 @@ If using **the official Google emulator**, we can update the "current location" 
 
 <img src="https://i.imgur.com/hfZZBQF.png" width="650" alt="Android device monitor" />
 
-You can enter any lat / lng i.e `37.4810289, -122.1543292`.  Use a website such as [https://gps-coordinates.org/](https://gps-coordinates.org/) to lookup corresponding locations.
+You can enter any lat / lng i.e `37.4810289, -122.1543292`.  Use a website such as [https://www.where-am-i.me/](https://www.where-am-i.me/) to lookup corresponding locations.
 
 **Make sure to click the Send** button to report the GPS location.  After updating this location, you can use the "current location" marker on the app to move the map to your device's configured location.
 
