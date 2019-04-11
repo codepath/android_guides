@@ -34,9 +34,7 @@ public class MyApplication extends Application {
   }
 }
 ```
- Edit the manifest.xml file in your project:
-     
-         To let the Android operating system know that you have a custom Application class, add an attribute called `android:name` to the manifest’s application tag and set the value to the name of your custom Application class.
+ Edit the manifest.xml file in your project. To let the Android operating system know that you have a custom Application class, add an attribute called  `android:name`  to the manifest’s application tag and set the value to the name of your custom Application class.
 ```xml
  <application
     ...
