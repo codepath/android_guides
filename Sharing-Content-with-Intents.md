@@ -238,7 +238,7 @@ Note that there are other XML tags you can use in the `fileprovider.xml`, which 
 | XML tag                   | Corresponding storage call                | When to use      |
 |---------------------------|-------------------------------------------|------------------
 | &lt;files-path>           | Context.getFilesDir()                     | data can only be viewed by app, deleted when uninstalled (`/data/data/[packagename]/files`) |
-| &lt;external-files-dir>   | Context.getExternalFilesDir()             | data can be read/write by the app, any apps granted with READ_STORAGE permission can read too, deleted when uninstalled (`/Android/data/[packagename]/files`) |
+| &lt;external-files-path>   | Context.getExternalFilesDir()             | data can be read/write by the app, any apps granted with READ_STORAGE permission can read too, deleted when uninstalled (`/Android/data/[packagename]/files`) |
 | &lt;cache-path>           | Context.getCacheDir()                     | temporary file storage |
 | &lt;external-path>        | Environment.getExternalStoragePublicDirectory() | data can be read/write by the app, any apps can view, files not deleted when uninstalled  |
 | &lt;external-cache-path>  | Context.getExternalCacheDir()             | temporary file storage with usually larger space |
