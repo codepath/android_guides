@@ -13,8 +13,8 @@ First, make sure you have the Google Maven repository added:
 ```gradle
 allprojects {
     repositories {
+        google()
         jcenter()
-        google() // allow since Gradle v4.1
     }
 }
 ```
