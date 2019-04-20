@@ -207,10 +207,6 @@ This is usually a signal that the emulator instance is not properly connected wi
 
 4. Open up `Tools => Android => Android SDK Manager` and see if there are any updates to the platform or SDK tools. Update any suggested changes within the manager and then restart your emulator and Android Studio. Then try debugging again.
 
-## Eclipse ADT Issues
-
-For common issues experienced with Eclipse, check the [[Troubleshooting Eclipse Issues]] page instead for a detailed list of common problems.
-
 ## References
 
 * <https://jaanus.com/debugging-http-on-an-android-phone-or-tablet-with-charles-proxy-for-fun-and-profit/>
