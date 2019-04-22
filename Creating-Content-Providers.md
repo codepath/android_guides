@@ -1,4 +1,4 @@
-## Overview
+### Overview
 
 Content providers are Android’s central mechanism that enables you to access data of other applications – mostly information stored in databases or flat files. As such content providers are one of Android’s central component types to support the modular approach common to Android. Without content providers accessing data of other apps would be a mess.
 
