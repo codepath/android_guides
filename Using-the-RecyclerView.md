@@ -38,22 +38,22 @@ A `RecyclerView` needs to have a layout manager and an adapter to be instantiate
 
 To create a custom layout manager, extend the [RecyclerView.LayoutManager](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.LayoutManager.html) class.
 
-Here is [Dave Smith's talk](https://www.youtube.com/watch?v=gs_C1E8HwvE&index=22&list=WL) on custom layout manager
-> **Notes**: In recent version of the Support Library, if you don't explicitly set the LayoutManager, the RecyclerView will not show! There is a Logcat error though `E/RecyclerView: No layout manager attached; skipping layout`
+Here is [Dave Smith's talk](https://www.youtube.com/watch?v=gs_C1E8HwvE&index=22&list=WL) on the custom layout manager
+> **Notes**: In the recent version of the Support Library, if you don't explicitly set the LayoutManager, the RecyclerView will not show! There is a Logcat error though `E/RecyclerView: No layout manager attached; skipping layout`
 
 ### `RecyclerView.Adapter`
 
-`RecyclerView` includes a new kind of adapter. It’s a similar approach to the ones you already used, but with some peculiarities, such as a required `ViewHolder`. You will have to override two main methods: one to inflate the view and its view holder, and another one to bind data to the view. The good thing about this is that first method is called only when we really need to create a new view. No need to check if it’s being recycled.
+`RecyclerView` includes a new kind of adapter. It’s a similar approach to the ones you already used, but with some peculiarities, such as a required `ViewHolder`. You will have to override two main methods: one to inflate the view and its view holder, and another one to bind data to the view. The good thing about this is that the first method is called only when we really need to create a new view. No need to check if it’s being recycled.
 
 ### `ItemAnimator`
 
-`RecyclerView.ItemAnimator` will animate `ViewGroup` modifications such as add/delete/select that are notified to adapter. `DefaultItemAnimator` can be used for basic default animations and works quite well.  See the [[section|Using-the-RecyclerView#animators]] of this guide for more information.
+`RecyclerView.ItemAnimator` will animate `ViewGroup` modifications such as add/delete/select that are notified to the adapter. `DefaultItemAnimator` can be used for basic default animations and works quite well.  See the [[section|Using-the-RecyclerView#animators]] of this guide for more information.
 
 ## Using the RecyclerView
 
 Using a `RecyclerView` has the following key steps:
 
-1. Add `RecyclerView` support library to the gradle build file
+1. Add `RecyclerView` support library to the Gradle build file
 2. Define a model class to use as the data source
 3. Add a `RecyclerView` to your activity to display the items
 4. Create a custom row layout XML file to visualize the item
@@ -147,7 +147,7 @@ Before we create the adapter, let's define the XML layout file that will be used
 <img src="https://i.imgur.com/wPRTc76.png" width="300" />
 <img src="https://i.imgur.com/fu3FzsV.png" width="300" />
 
-This layout file can be created in `res/layout/item_contact.xml` and will be rendered for each item row.  **Note** that you should be using `wrap_content` for the `layout_height` because `RecyclerView` versions prior to `23.2.1` previously ignored layout parameters.  See [this link](http://android-developers.blogspot.com/2016/02/android-support-library-232.html) for more context.
+This layout file can be created in `res/layout/item_contact.xml` and will be rendered for each item row.  **Note** that you should be using `wrap_content` for the `layout_height` because of `RecyclerView` versions prior to `23.2.1` previously ignored layout parameters.  See [this link](http://android-developers.blogspot.com/2016/02/android-support-library-232.html) for more context.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -184,7 +184,7 @@ With the custom item layout complete, let's create the adapter to populate the d
 
 Here we need to create the adapter which will actually populate the data into the RecyclerView. The adapter's role is to **convert an object at a position into a list row item** to be inserted.
 
-However with a `RecyclerView` the adapter requires the existence of a "ViewHolder" object which describes and provides access to all the views within each item row.  We can create the basic empty adapter and holder together in `ContactsAdapter.java` as follows:
+However, with a `RecyclerView` the adapter requires the existence of a "ViewHolder" object which describes and provides access to all the views within each item row.  We can create the basic empty adapter and holder together in `ContactsAdapter.java` as follows:
 
 ```java
 // Create the basic adapter extending from RecyclerView.Adapter
@@ -326,13 +326,13 @@ Instead, you need to act directly on the existing reference:
 contacts.addAll(Contact.createContactsList(5));
 ```
 
-There are many method available to use when notifying the adapter of different changes:
+There are many methods available to use when notifying the adapter of different changes:
 
 | Method | Description |
 | ------ | ----------  |
-| `notifyItemChanged(int pos)` | Notify that item at position has changed. |
-| `notifyItemInserted(int pos)` | Notify that item reflected at position has been newly inserted. |
-| `notifyItemRemoved(int pos)` | Notify that items previously located at position has been removed from the data set. |
+| `notifyItemChanged(int pos)` | Notify that item at the position has changed. |
+| `notifyItemInserted(int pos)` | Notify that item reflected at the position has been newly inserted. |
+| `notifyItemRemoved(int pos)` | Notify that items previously located at the position have been removed from the data set. |
 | `notifyDataSetChanged()` | Notify that the dataset has changed.  Use only as last resort.|
 
 We can use these from the activity or fragment:
@@ -344,7 +344,7 @@ contacts.add(0, new Contact("Barney", true));
 adapter.notifyItemInserted(0);
 ```
 
-Every time we want to add or remove items from the RecyclerView, we will need to explicitly inform to the adapter of the event.  Unlike the ListView adapter, a RecyclerView adapter should not rely on `notifyDataSetChanged()` since the more granular actions should be used.  See the [API documentation](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.Adapter.html) for more details.
+Every time we want to add or remove items from the RecyclerView, we will need to explicitly inform the adapter of the event.  Unlike the ListView adapter, a RecyclerView adapter should not rely on `notifyDataSetChanged()` since the more granular actions should be used.  See the [API documentation](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.Adapter.html) for more details.
 
 Also, if you are intending to update an existing list, make sure to get the current count of items before making any changes.  For instance, a `getItemCount()` on the adapter should be called to record the first index that will be changed.
 
