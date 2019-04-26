@@ -12,7 +12,39 @@ Using the Bluetooth APIs, an Android application can perform the following:
 
 ## Usage
 
-**Incomplete, Needs Attention**
+In order to use Bluetooth features in your application, you must declare two permissions. The first of these is `BLUETOOTH`. You need this permission to perform any Bluetooth communication, such as requesting a connection, accepting a connection, and transferring data.
+The other permission that you must declare is either `ACCESS_COARSE_LOCATION` or `ACCESS_FINE_LOCATION`. A location permission is required because Bluetooth scans can be used to gather information about the location of the user.
+
+Declare the Bluetooth permission(s) in your application manifest file. For example:
+```
+<manifest ... >
+  <uses-permission android:name="android.permission.BLUETOOTH" />
+  <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+  ...
+</manifest>
+```
+
+### Set up bluetooth
+1. Get the BluetoothAdapter.
+```
+BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+if (bluetoothAdapter == null) {
+    // Device doesn't support Bluetooth
+}
+``` 
+2. Enable Bluetooth. 
+```
+if (!bluetoothAdapter.isEnabled()) {
+    Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+    startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+}
+```
+A dialog appears requesting user permission to enable Bluetooth. If the user responds "Yes", the system begins to enable Bluetooth, and focus returns to your application once the process completes (or fails).
+
+The REQUEST_ENABLE_BT constant passed to startActivityForResult() is a locally defined integer that must be greater than 0. The system passes this constant back to you in your onActivityResult() implementation as the requestCode parameter.
+
+If enabling Bluetooth succeeds, your activity receives the RESULT_OK result code in the onActivityResult() callback. If Bluetooth was not enabled due to an error (or the user responded "No") then the result code is RESULT_CANCELED.
 
 ## Libraries
 
