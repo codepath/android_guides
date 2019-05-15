@@ -30,7 +30,7 @@ public class Item {
     private String itemName;
     private String itemDescription;
 		
-    public Items(String name, String description) {
+    public Item(String name, String description) {
 	this.itemName = name;
 	this.itemDescription = description;
     }
