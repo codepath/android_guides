@@ -164,7 +164,7 @@ See [this guide](http://stackoverflow.com/a/12933632/313399) for the source for 
 
 ### Checking image type
 
-If you need to lookup the image type, there is the `guessContentTypeFromStream()` in the Java library that allows you to get back the mime type (i.e. `image/jpeg`).   It will read the first 16 bytes to determine the type of file:
+If you need to lookup the image type, there is the `guessContentTypeFromStream()` in the Java library that allows you to get back the mime type (i.e. `image/jpeg`).   It will read the first 16 bytes to determine the type of file.  In order to use this API call, you must pass in a `BufferedInputStream()` which supports the `mark()` and `reset()` method calls required for the `guessContentTypeFromStream()` to work.
 
 ```java
 // need BufferedInputStream() to satisfy the `markSupported()` condition described in 
