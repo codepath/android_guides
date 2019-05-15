@@ -162,6 +162,17 @@ public Bitmap rotateBitmapOrientation(String photoFilePath) {
 
 See [this guide](http://stackoverflow.com/a/12933632/313399) for the source for this answer. Be aware that on certain devices even the EXIF data isn't set properly, in which case you should [checkout this workaround](http://stackoverflow.com/a/8864367/313399) for a fix. You can [read more here about the ExifInterface Support Library](https://android-developers.googleblog.com/2016/12/introducing-the-exifinterface-support-library.html).
 
+### Checking image type
+
+If you need to lookup the image type, there is the `guessContentTypeFromStream()` in the Java library that allows you to get back the mime type (i.e. `image/jpeg`).   It will read the first 16 bytes to determine the type of file:
+
+```java
+// need BufferedInputStream() to satisfy the `markSupported()` condition described in 
+// http://hg.openjdk.java.net/jdk9/dev/jdk/file/3f00e1b74464/src/java.base/share/classes/java/net/URLConnection.java#l1447
+BufferedInputStream bis = BufferedInputStream(FileInputStream(file));
+String contentType = URLConnection.guessContentTypeFromStream(bis);
+```
+
 ### Applying Filters to Images
 
 For applying filters to your captured images, check out the following libraries:
