@@ -257,6 +257,32 @@ private void scheduleStartPostponedTransition(final View sharedElement) {
 
 Check out [this article](http://www.androiddesignpatterns.com/2015/03/activity-postponed-shared-element-transitions-part3b.html) for a detailed look at scheduling postponed transitions. 
 
+### 7. Shared Elements Transitions from onActivityResult
+The animation framework does not handle animations when your calling Activity is not in the **onResume** state. **onActivityResult** is called prior to **onResume** in the lifecycle, this means if we would like to start our Activity with our shared element transition we need to call it during or after **onResume**. We can do this with a simple flag that is set in our **onActivityResult** and then checked in **onResume** as follows. Remember to reset the flag once launching your new Activity. See this [Stackoverflow post](https://stackoverflow.com/q/56264595/3474021) for more info.
+
+```java
+private boolean launchNextActivity = false;
+
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+
+    if (...) {
+        this.launchNextActivity = true;
+    }
+}
+
+@Override
+protected void onResume() {
+    super.onResume();
+
+    if (launchNextActivity) {
+        launchNextActivity = false;
+        // do the launch
+    }
+}
+```
+
 ## Fragment Shared Elements Transitions
 
 Leveraging shared element transitions works with fragments too in a similar way as was shown above for activities.
