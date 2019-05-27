@@ -696,7 +696,7 @@ allprojects {
 }
 
 dependencies {
-      implementation 'com.parse:parse-livequery-android:1.1.0' // for Parse Live Queries
+      implementation 'com.github.parse-community:ParseLiveQuery-Android:1.1.0' // for Parse Live Queries
 }
 ```
 
