@@ -680,7 +680,7 @@ See the [[repeating periodic tasks|Repeating-Periodic-Tasks#handler]] guide to l
 
 ## 13. Live Queries
 
-Alternatively, the Heroku server can be configured properly to listen to the Message object for changes (see [this example](https://github.com/codepath/parse-server-example/blob/master/index.js#L49).  We need to add a `liveQuery` field in our Parse server installation.  See [[this guide|Configuring-a-Parse-Server#adding-support-for-live-queries]] for more context.
+Alternatively, the Heroku server can be configured properly to listen to the Message object for changes (see [this example](https://github.com/codepath/parse-server-example/blob/master/index.js#L49)).  We need to add a `liveQuery` field in our Parse server installation.  See [[this guide|Configuring-a-Parse-Server#adding-support-for-live-queries]] for more context.
 
 ```java
 var api = new ParseServer({
