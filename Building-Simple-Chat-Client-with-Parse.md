@@ -680,7 +680,15 @@ See the [[repeating periodic tasks|Repeating-Periodic-Tasks#handler]] guide to l
 
 ## 13. Live Queries
 
-Alternatively, assuming the server is configured properly to listen to the Message object for changes (see [[this guide|Configuring-a-Parse-Server#adding-support-for-live-queries]]), we can also use [[Parse Live Queries|Building-Data-driven-Apps-with-Parse#live-queries]] to listen for new messages.  We can disable the use of the `postDelayed()` runnable that we created in the earlier step:
+Alternatively, the Heroku server can be configured properly to listen to the Message object for changes.  We need to add a `liveQuery` field in our Parse server installation.  See [[this guide|Configuring-a-Parse-Server#adding-support-for-live-queries]] for more context.
+
+```java
+var api = new ParseServer({
+  liveQuery: { classNames: ["Message"]},
+});
+```
+
+We can then use [[Parse Live Queries|Building-Data-driven-Apps-with-Parse#live-queries]] to listen for new messages.  We can disable the use of the `postDelayed()` runnable that we created in the earlier step:
 
 ```java
 // myHandler.postDelayed(mRefreshMessagesRunnable, POLL_INTERVAL);
