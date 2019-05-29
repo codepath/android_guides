@@ -500,7 +500,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "http://www.gravatar.com/avatar/" + hex + "?d=identicon";
+        return "https://www.gravatar.com/avatar/" + hex + "?d=identicon";
     }
 
     @Override
