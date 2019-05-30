@@ -69,9 +69,9 @@ Thats it! Using the support library ensures backward compatibility as well; alth
     card_view:cardElevation="8dp">
 
     <!-- Main Content View -->
-    <RelativeLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout>
         ...
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </android.support.v7.widget.CardView>
 ```
 
