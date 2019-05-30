@@ -43,9 +43,9 @@ Now replace the `FrameLayout` with `CardView`.
     android:layout_height="wrap_content">
 
     <!-- Main Content View -->
-    <RelativeLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout>
         ...
-    </RelativeLayout>
+    </Randroidx.constraintlayout.widget.ConstraintLayout>
 </android.support.v7.widget.CardView>
 ```
 
