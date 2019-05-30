@@ -29,7 +29,10 @@ To create a card using this layout, first you need to import the support library
 ```gradle
 dependencies {
     ...
-    implementation 'com.android.support:cardview-v7:25.2.1'
+    implementation 'com.android.support:cardview-v7:25.2.1' 
+    //AndroidX
+    implementation "androidx.cardview:cardview:1.0.0"
+
 }
 ```
 
