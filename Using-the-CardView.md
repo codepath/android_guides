@@ -45,7 +45,7 @@ Now replace the `FrameLayout` with `CardView`.
     <!-- Main Content View -->
     <androidx.constraintlayout.widget.ConstraintLayout>
         ...
-    </Randroidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </android.support.v7.widget.CardView>
 ```
 
