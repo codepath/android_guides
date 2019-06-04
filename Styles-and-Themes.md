@@ -6,7 +6,7 @@ This is typically used for reducing styling duplication in a way highly analogou
 
 ## Usage
 
-Styles in conjunction with drawables are how more views are kept maintainable in the face of heavy UI customization. Styles work by defining style names associated with a series of properties to apply to a view. Styles can also inherit from other style and compound styles can be created as well.
+Styles in conjunction with drawables are how more views are kept maintainable in the face of heavy UI customization. Styles work by defining style names associated with a series of properties to apply to a view. Styles can also inherit from other style and m.m.m....m.mmcompound styles can be created as well.
 
 ### Defining and Using Styles
 
