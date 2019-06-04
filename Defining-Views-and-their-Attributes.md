@@ -66,6 +66,7 @@ view.requestLayout()
 ```
 
 Or we can change just the width or height individually:
+
 Java:
 
 ```java
