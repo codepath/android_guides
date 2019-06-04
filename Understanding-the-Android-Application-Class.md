@@ -20,6 +20,7 @@ Note that you should **never store mutable shared data** inside the `Application
 
 If we do want a custom application class, we start by creating a new class which extends `android.app.Application` as follows:
 
+Java:
 ```java
 import android.app.Application;
 
@@ -48,7 +49,7 @@ public class MyCustomApplication extends Application {
 	}
 }
 ```
-
+Kotlin: 
 ```kotlin
 import android.app.Application
 
