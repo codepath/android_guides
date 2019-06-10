@@ -299,15 +299,14 @@ Remember again that you need to dispatch the task in a separate thread:
 ```java
 final UserDao userDao = ((RestApplication) getApplicationContext()).getMyDatabase().userDao();
 
-AsyncTask<User, Void, Void> task = new AsyncTask<User, Void, Void>() {
-
+AsyncTask.execute(new Runnable() {
   @Override
-  protected Void doInBackground(User... users) {
+  protected void run() {
       userDao.insertUsers(users);
   }
-
-task.execute(user);  
+});
 ```
+
 ### Deleting Rows
 
 Deleting requires either a class annotated as an Entity or a collection:
