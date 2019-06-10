@@ -265,18 +265,12 @@ We can then perform this query through an AsyncTask:
 ```java
 final UserDao userDao = ((RestApplication) getApplicationContext()).getMyDatabase().userDao();
 
-AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>() {
-  @Override
-  protected Void doInBackground(Void... ) {
-    UserWithOrganization userWithOrganization = userDao.getWithOrgById(1);
-
-    return null;
-  };
+AsyncTask.execute(new Runnable() {
+   @Override
+   public void run() {
+     UserWithOrganization userWithOrganization = userDao.getWithOrgById(1);
+   });
 };
-
-// Make sure to run execute() to run this task!
-task.execute();
-
 ```
 
 ### Updating Rows
