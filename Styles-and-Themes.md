@@ -6,7 +6,7 @@ This is typically used for reducing styling duplication in a way highly analogou
 
 ## Usage
 
-Styles in conjunction with drawables are how more views are kept maintainable in the face of heavy UI customization. Styles work by defining style names associated with a series of properties to apply to a view. Styles can also inherit from other style and m.m.m....m.mmcompound styles can be created as well.
+Styles in conjunction with drawables are how more views are kept maintainable in the face of heavy UI customization. Styles work by defining style names associated with a series of properties to apply to a view. Styles can also inherit from other style and compound styles can be created as well.
 
 ### Defining and Using Styles
 
@@ -207,3 +207,4 @@ Drawable drawable = AppCompatResources.getDrawable(this, R.drawable.my_drawable)
  * <http://java.dzone.com/articles/creating-custom-android-styles>
  * <http://janrain.com/blog/introduction-to-android-theme-customization/>
  * <http://javatechig.com/android/android-styles-and-themes-tutorial/>
+ * [Anita Singh - Styles, Themes, Material Theming, Oh My!](https://www.youtube.com/watch?v=92DL3-IQ_K0)
