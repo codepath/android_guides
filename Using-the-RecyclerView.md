@@ -398,7 +398,7 @@ public static final DiffUtil.ItemCallback<Contact> DIFF_CALLBACK =
         };
 ```
 
-Your adapter will also need to invoke this callback method:
+You may notice an error that says "There is no default constructor available in `android.arch.paging.PagedListAdapter`".  The reason is that you will declare an empty constructor and your adapter will also need to invoke this callback method:
 
 ```java
 public ContactsAdapter() {
