@@ -31,7 +31,7 @@ Use Heroku if you have little or no experience with setting up web sites. Heroku
 
 2. Click on the button below to create a Parse App
 
-      <a href="https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2Fcodepath%2Fparse-server-example&template=https%3A%2F%2Fgithub.com%2Fcodepath%2Fparse-server-examplee"><img src="https://camo.githubusercontent.com/c0824806f5221ebb7d25e559568582dd39dd1170/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e706e67" alt="Deploy" data-canonical-src="https://www.herokucdn.com/deploy/button.png" style="max-width:100%;"></a>
+      <a href="https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2Fcodepath%2Fparse-server-example&template=https%3A%2F%2Fgithub.com%2Fcodepath%2Fparse-server-example"><img src="https://camo.githubusercontent.com/c0824806f5221ebb7d25e559568582dd39dd1170/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e706e67" alt="Deploy" data-canonical-src="https://www.herokucdn.com/deploy/button.png" style="max-width:100%;"></a>
 
 2. Make sure to enter an App Name.  Scroll to the bottom of the page.
 
