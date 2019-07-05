@@ -1,4 +1,4 @@
-## Overview1
+## Overview
 
 Android applications should always be neatly organized with a clear folder structure that makes your code easy to read. In addition, proper naming conventions for code and classes are important to ensure your code is clean and maintainable.
 
