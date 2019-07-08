@@ -213,6 +213,7 @@ Essentially this method is used to enable your code to short-circuit before exec
 
 ### Image Processing
 
+* [FilterLibrary](https://github.com/hgayan7/FilterLibrary) - This library has 16 filters which can be applied to image bitmaps.
 * [AndroidPhotoFilters](https://github.com/zomato/androidphotofilters) - Library to create interesting effects on any image of your choice. Comes with prebuilt great sample effects.
 * [android-gpuimage](https://github.com/CyberAgent/android-gpuimage) - Popular GPU Image Processing
 * [android-image-filter](https://github.com/ragnraok/android-image-filter) - Older image filtering library
