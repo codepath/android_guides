@@ -294,6 +294,7 @@ Check out the following resources for finding libraries:
  * <http://appdevwiki.com/wiki/show/HomePage>
  * <http://www.libtastic.com>
  * [Android Libhunt](https://android.libhunt.com/)
+ * [Android Store](https://mindorks.com/android/store)
 
 ## References
 
