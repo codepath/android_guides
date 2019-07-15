@@ -1,6 +1,8 @@
-### Installing Genymotion
+**NOTE**: The recommended approach is to use the emulator provided with Android Studio via the AVD Manager.  Genymotion can only be downloaded for a 30-day trial.
+  
+### Installing Genymotion (Deprecated)
 
-[Genymotion](http://www.genymotion.com/) is an incredibly fast, memory-efficient VM that runs the Android OS in a more accurate manner than even the official emulator. Many Android developers do all their device testing using this emulator especially when Google Play services is concerned.  In addition, the official Android emulator is plagued with a lot of bugs (i.e. intermittent network loss) that Genymotion is usually a far more reliable option.
+[Genymotion](http://www.genymotion.com/) is an incredibly fast, memory-efficient VM that runs the Android OS in a more accurate manner than even the official emulator. Many Android developers do all their device testing using this emulator especially when Google Play services is concerned. 
 
 To setup your genymotion emulator [sign up](https://www.genymotion.com/account/login/) and follow the [installation guide](https://docs.genymotion.com/Content/Home.htm).
 
