@@ -40,20 +40,20 @@ allprojects {
 Just like the previous section, wrap the scrollable view, in this case a `RecyclerView` with a `SwipeRefreshLayout` in the XML layout:
 
 ```xml
-<android.support.v4.widget.SwipeRefreshLayout
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/swipeContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-  <android.support.v7.widget.RecyclerView
+  <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/rvItems"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_alignParentLeft="true"
       android:layout_alignParentTop="true" />
 
-</android.support.v4.widget.SwipeRefreshLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 ```
 
 ### Step 2: Update RecyclerView.Adapter
@@ -149,19 +149,19 @@ Set SwipeRefreshLayout at the Layout you want the SwipeRefresh functionality
 
 **activity_main.xml**
 ```xml
-<android.support.v4.widget.SwipeRefreshLayout
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/swipe_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</android.support.v4.widget.SwipeRefreshLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 ```
 ### Step 2: Set your ListView inside Layout
 
 **activity_main.xml**
 ```xml
-<android.support.v4.widget.SwipeRefreshLayout
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/swipe_container"
     android:layout_width="match_parent"
@@ -174,7 +174,7 @@ Set SwipeRefreshLayout at the Layout you want the SwipeRefresh functionality
 
     </ListView>
 
-</android.support.v4.widget.SwipeRefreshLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 ```
 _You could use a ScrollView instead a ListView_
 
