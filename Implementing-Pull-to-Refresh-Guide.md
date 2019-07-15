@@ -18,7 +18,7 @@ apply plugin: 'com.android.application'
 
 dependencies {
     // ...
-    implementation 'com.android.support:support-v4:27.1.1'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
 }
 ```
 
