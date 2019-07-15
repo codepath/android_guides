@@ -69,7 +69,7 @@ Make sure the RecyclerView support library is listed as a dependency in your `ap
 ```gradle
 dependencies {
     ...
-    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
 }
 ```
 
@@ -117,7 +117,7 @@ Inside the desired activity layout XML file in `res/layout/activity_users.xml`, 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -131,7 +131,7 @@ Inside the desired activity layout XML file in `res/layout/activity_users.xml`, 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
 In the layout, preview we can see the `RecyclerView` within the activity:
