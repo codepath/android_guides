@@ -93,42 +93,11 @@ Let's setup Parse into a brand new Android app following the steps below.
 
 ## 3. Design Messages Layout
 
-Let's create an XML layout which allows us to post messages by typing into a text field. Open your layout file `activity_chat.xml`, add an `EditText` and a `Button` to compose and send text messages. Scroll down to see code snippet for `ConstraintLayout`.
+Let's create an XML layout which allows us to post messages by typing into a text field. Open your layout file `activity_chat.xml`, add an `EditText` and a `Button` to compose and send text messages. 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
-
-    <EditText
-        android:id="@+id/etMessage"
-        android:layout_toLeftOf="@+id/btSend"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/btSend"
-        android:gravity="top"
-        android:hint="@string/message_hint"
-        android:imeOptions="actionSend"/>
-      <Button
-        android:id="@+id/btSend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingRight="10dp"
-        android:layout_alignParentRight="true"
-        android:text="@string/send"
-        android:textSize="18sp" />
-
-</RelativeLayout>
-```
-
-For `ConstraintLayout`:
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -167,7 +136,7 @@ For `ConstraintLayout`:
         app:layout_constraintStart_toEndOf="@+id/etMessage"
         app:layout_constraintTop_toTopOf="@+id/etMessage"></Button>
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
 The imeOptions attribute is used to control the icon in the [[Soft Keyboard|Working-with-the-Soft-Keyboard]].  The gravity attribute will center the button vertically AND right horizontally.
@@ -285,7 +254,7 @@ First, add the RecyclerView as a dependency in your `app/build.gradle`:
 ```gradle
 dependencies {
     ...
-    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
 }
 ```
 
@@ -296,7 +265,7 @@ Next, add your `RecyclerView` to the layout (scroll down to see code snippet for
   android:background="@android:color/white"
   android:layout_width="match_parent"
   android:layout_height="match_parent">
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/rvChat"
       android:transcriptMode="alwaysScroll"
       android:layout_alignParentTop="true"
@@ -380,7 +349,7 @@ Next, add your `RecyclerView` to the layout (scroll down to see code snippet for
         app:layout_constraintStart_toEndOf="@+id/etMessage"
         app:layout_constraintTop_toTopOf="@+id/etMessage"></Button>
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvChat"
         android:layout_width="0dp"
         android:layout_height="0dp"
