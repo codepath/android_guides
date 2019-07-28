@@ -8,7 +8,8 @@ Before Using Picasso , do not forget to add internet permission in the manifest 
 
 Adding Internet Permission to our `Manifest.xml` file: 
 
-```<manifest>
+```xml
+<manifest>
   <uses-permission android:name="android.permission.INTERNET" />
       </manifest>
 ```
