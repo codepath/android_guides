@@ -2,6 +2,18 @@
 
 Displaying images is easiest using a third party library such as [Picasso](http://square.github.io/picasso/) from Square which will download and cache remote images and abstract the complexity behind an easy to use DSL.
 
+Before Using Picasso , do not forget to add internet permission in the manifest file .
+
+### Setup Permission
+
+Adding Internet Permission to our `Manifest.xml` file: 
+
+```<manifest>
+  <uses-permission android:name="android.permission.INTERNET" />
+      </manifest>
+```
+It will allow your app to use internet for downloading images.
+
 ### Setup Picasso 
 
 Adding Picasso to our `app/build.gradle` file:
