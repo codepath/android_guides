@@ -3,20 +3,7 @@
 Robolectric is a unit testing framework that allows Android applications to be tested on the JVM without an emulator or device.  Running Android tests on the JVM usually fails because the Android core libraries included with the SDK, specifically the `android.jar` file, only contain stub implementations of the Android classes.  The actual implementations of the core libraries are built directly on the device or emulator, so running tests usually requires one to be active in order to execute.
 
 So for all of us that want faster executing tests on the JVM, Robolectric saves the day. Robolectric provides implementations of the Android SDK by rewriting the Android core libraries using [[shadow classes|Unit-Testing-with-Robolectric#using-shadows]]. This gives us the ability to execute our tests on the JVM and achieve much faster test execution times than if we were running on a device or emulator.
- 
-## Setup
-
-Recent versions of Android Studio have made setup much easier. We'll walk through these steps before we jump into the actual tests.
-
-### Prerequisites
-* Android Studio 1.2+
-* Android Gradle Plugin 1.2.3+
-* Gradle 2.2.1+
-
-Note: Robolectric can also be configured with Android Studio 1.1, but the setup required the [robolectric gradle plugin](https://github.com/robolectric/robolectric-gradle-plugin/) and some additional configuration.  Unit testing in Android Studio has been supported since v1.2, so it is highly recommended you upgrade to a newer version to use Roboelectric.
-
-### Android Studio Configuration
-1. The first thing we should do is change to the `Project` perspective in the `Project Window`. This will show us a full view of everything contained in the project. The default setting (the `Android` perspective) hides certain directories (including the unit tests!):
+ in the `Project Window`. This will show us a full view of everything contained in the project. The default setting (the `Android` perspective) hides certain directories (including the unit tests!):
 
     ![Imgur](https://i.imgur.com/OWun9AJ.png)
 
