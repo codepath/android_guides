@@ -20,7 +20,7 @@ It will allow your app to use internet for downloading images.
 Adding Picasso to our `app/build.gradle` file:
 
 ```gradle
-dependencies {
+dependencies 
     implementation 'com.squareup.picasso:picasso:2.5.2'
 }
 ```
