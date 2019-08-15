@@ -4,7 +4,7 @@
 
 <img src="https://i.imgur.com/0auGknf.png" width="500" />
 
-Toolbar works well with apps targeted to API 21 and above. However, Android has updated the AppCompat support libraries so the Toolbar can be used on lower Android OS devices as well. In AppCompat, Toolbar is implemented in the `android.support.v7.widget.Toolbar` class.
+Toolbar works well with apps targeted to API 21 and above. However, Android has updated the AppCompat support libraries so the Toolbar can be used on lower Android OS devices as well. In AppCompat, Toolbar is implemented in the `androidx.appcompat.widget.Toolbar` class.
 
 There are two ways to use Toolbar:
 
@@ -25,12 +25,12 @@ Note that the ActionBar continues to work and if **all you need is a static bar 
 
 ### Using Toolbar as ActionBar
 
-To use Toolbar as an ActionBar, first ensure the AppCompat-v7 support library is added to your application `build.gradle` (Module:app) file:
+To use Toolbar as an ActionBar, first ensure the AndroidX support library is added to your application `build.gradle` (Module:app) file:
 
 ```gradle
 dependencies {
   ...
-  implementation 'com.android.support:appcompat-v7:27.1.1'
+  implementation 'androidx.appcompat:appcompat:1.0.0'
 }
 ```
 
@@ -54,14 +54,14 @@ Now you need to add a `Toolbar` to your Activity layout file. One of the biggest
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
       android:id="@+id/toolbar"
       android:minHeight="?attr/actionBarSize"  
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       app:titleTextColor="@android:color/white"
       android:background="?attr/colorPrimary">
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
     <!-- Layout for content is here. This can be a RelativeLayout  -->
 
@@ -77,8 +77,8 @@ Next, in your Activity or Fragment, set the Toolbar to act as the ActionBar by c
 **Note:** When using the support library, make sure that you are importing `android.support.v7.widget.Toolbar` and not `android.widget.Toolbar`.
 
 ```java
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class MyActivity extends AppCompatActivity {
     @Override
@@ -134,7 +134,7 @@ From this point on, all menu items are displayed in your Toolbar, populated via 
 In many apps, the same toolbar can be used across multiple activities or in [[alternative layout resources|Understanding-App-Resources#providing-alternate-resources]] for the same activity. In order to easily reuse the toolbar, we can leverage the [layout include tag](http://developer.android.com/training/improving-layouts/reusing-layouts.html) as follows. First, define your toolbar in a layout file in `res/layout/toolbar_main.xml`:
 
 ```xml
-<android.support.v7.widget.Toolbar
+<androidx.appcompat.widget.Toolbar
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -187,7 +187,7 @@ This allows us to create a consistent navigation experience across activities or
 The Toolbar can be customized in many ways leveraging various style properties including `android:theme`, `app:titleTextAppearance`, `app:popupTheme`. Each of these can be mapped to a style. Start with:
 
 ```xml
-<android.support.v7.widget.Toolbar
+<androidx.appcompat.widget.Toolbar
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -260,13 +260,13 @@ getSupportActionBar().setDisplayUseLogoEnabled(true);
 Next, we need to remove the left inset margin that pushes the icon over too far to the left by adding `app:contentInsetStart` to the `Toolbar`:
 
 ```xml
-<android.support.v7.widget.Toolbar
+<androidx.appcompat.widget.Toolbar
       android:id="@+id/toolbar"
       app:contentInsetLeft="0dp"
       app:contentInsetStart="0dp"
       ...
       >
-</android.support.v7.widget.Toolbar>
+</androidx.appcompat.widget.Toolbar>
 ```
 
 With that the icon should properly display within the `Toolbar` as expected.
@@ -276,7 +276,7 @@ With that the icon should properly display within the `Toolbar` as expected.
 A `Toolbar` is just a decorated `ViewGroup` and as a result, the title contained within can be completely customized by embedding a view within the Toolbar such as:
 
 ```xml
-<android.support.v7.widget.Toolbar
+<androidx.appcompat.widget.Toolbar
     android:id="@+id/toolbar"
     android:minHeight="?attr/actionBarSize"  
     android:layout_width="match_parent"
@@ -294,7 +294,7 @@ A `Toolbar` is just a decorated `ViewGroup` and as a result, the title contained
         android:layout_gravity="center"
      />
 
-</android.support.v7.widget.Toolbar>
+</androidx.appcompat.widget.Toolbar>
 ```
 
 This means that you can style the `TextView` like any other. You can access the `TextView` inside your activity with:
@@ -371,9 +371,9 @@ For example, we can have the toolbar hide when the user scrolls down on a list o
 ```gradle
 dependencies {
     // ...
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.android.support:recyclerview-v7:27.1.1'
-    implementation 'com.android.support:design:27.1.1'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0-rc01'
 }
 ``` 
 
@@ -382,7 +382,7 @@ Next, inside the activity layout XML such as `res/layout/activity_main.xml`, we 
 ```xml
 <!-- CoordinatorLayout is used to create scrolling and "floating" effects within a layout -->
 <!-- This is typically the root layout which wraps the app bar and content -->
-<android.support.design.widget.CoordinatorLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     android:id="@+id/main_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -391,38 +391,38 @@ Next, inside the activity layout XML such as `res/layout/activity_main.xml`, we 
 
     <!-- AppBarLayout is a wrapper for a Toolbar in order to apply scrolling effects. -->
     <!-- Note that AppBarLayout expects to be the first child nested within a CoordinatorLayout -->
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
 
         <!-- Toolbar is the actual app bar with text and the action items --> 
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|enterAlways" />
-    </android.support.design.widget.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <!-- This could also be included from another file using the include tag -->
     <!-- i.e `res/layout/content_main.xml` -->
     <!-- `app:layout_behavior` is set to a pre-defined standard scrolling behavior -->
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/my_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 ```
 
 Of course, the `RecyclerView` could also be replaced with a `FrameLayout` which could then allow for fragments to be loaded instead:
 
 ```xml
-<android.support.design.widget.CoordinatorLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     android:id="@+id/main_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -440,7 +440,7 @@ Of course, the `RecyclerView` could also be replaced with a `FrameLayout` which 
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
     />
 
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 ```
 
 This type of layout results in the following:
