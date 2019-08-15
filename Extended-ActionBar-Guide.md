@@ -21,7 +21,7 @@ In the [[Defining ActionBar|Defining-The-ActionBar#actionbar-basics]] cliffnotes
 
 ### Setting up AppCompatActivity
 
-In order to ensure that the ActionBar works on all Android versions, we are going to use [AppCompatActivity](https://developer.android.com/reference/android/support/v7/app/AppCompatActivity.html) to setup our support ActionBar.  Follow the [[AppCompat setup guide|Migrating-to-the-AppCompat-Library]] to make sure you're including the library.  
+In order to ensure that the ActionBar works on all Android versions, we are going to use [AppCompatActivity](https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity.html) to setup our support ActionBar.  Follow the AndroidX [[AppCompat setup guide|Migrating-to-the-AppCompat-Library]] to make sure you're including the library.  
 
 Once the library has been added, be sure to sync your project with the gradle file (`Tools => Android => Sync Project with Gradle Files`) and make sure any applicable activities are now extending from `AppCompatActivity` in order to enable
 the compatibility fragments and action bar:
@@ -183,7 +183,7 @@ In certain cases, you might want to change the styling of the ActionBar title mo
 Now we've defined the XML layout desired and we need to load this custom XML file and replace the ActionBar title with our customized XML inside the Activity by calling [setCustomView](http://developer.android.com/reference/android/app/ActionBar.html#setCustomView\(int\)):
 
 ```java
-import android.support.v7.app.ActionBar;
+import androidx.appcompat.app.ActionBar;
 // in Activity#onCreate
 getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM); 
 getSupportActionBar().setCustomView(R.layout.actionbar_title);
@@ -268,7 +268,7 @@ One common example of an `ActionView` is the built-in `SearchView` which provide
           android:title="Search"
           android:icon="@android:drawable/ic_menu_search"
           app:showAsAction="always|collapseActionView"
-          app:actionViewClass="android.support.v7.widget.SearchView" />
+          app:actionViewClass="androidx.appcompat.widget.SearchView" />
 </menu>
 ```
 
@@ -280,7 +280,7 @@ Now we need to hook up a listener for when a search is performed:
 
 ```java
 // Make sure to import the support version of the SearchView
-import android.support.v7.widget.SearchView;
+import androidx.appcompat.widget.SearchView;
 
 @Override
 public boolean onCreateOptionsMenu(Menu menu) {
@@ -334,11 +334,11 @@ public boolean onCreateOptionsMenu(Menu menu) {
     MenuItem searchItem = menu.findItem(R.id.action_search);
     final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
     // Use a custom search icon for the SearchView in AppBar
-    int searchImgId = android.support.v7.appcompat.R.id.search_button; 
+    int searchImgId = androidx.appcompat.R.id.search_button; 
     ImageView v = (ImageView) searchView.findViewById(searchImgId);
     v.setImageResource(R.drawable.search_btn);
     // Customize searchview text and hint colors
-    int searchEditId = android.support.v7.appcompat.R.id.search_src_text;
+    int searchEditId = androidx.appcompat.R.id.search_src_text;
     EditText et = (EditText) searchView.findViewById(searchEditId);
     et.setTextColor(Color.BLACK);
     et.setHintTextColor(Color.BLACK);
@@ -350,7 +350,7 @@ We can customize the up button that appears when the search view is activated wi
 Use the `app:collapseIcon` to modify the color/style of your drawable.
 
 ```xml
-<android.support.v7.widget.Toolbar
+<androidx.appcompat.widget.Toolbar
          android:id="@+id/toolbar"
          android:layout_width="match_parent"
          android:layout_height="@dimen/toolbarHeight"
@@ -365,7 +365,7 @@ Refer to [this tutorial](http://ramannanda.blogspot.com/2014/10/android-searchvi
 
 Similar to an action view, an action provider replaces an action button with a customized layout. However, unlike an action view, an action provider takes control of all the action's behaviors and an action provider can display a submenu when pressed.
 
-You can build your own action provider by extending the ActionProvider class, but Android provides some pre-built action providers such as [ShareActionProvider](http://developer.android.com/reference/android/support/v7/widget/ShareActionProvider.html) which facilitates a "share" action by showing a list of possible apps for sharing. 
+You can build your own action provider by extending the ActionProvider class, but Android provides some pre-built action providers such as [ShareActionProvider](https://developer.android.com/reference/androidx/appcompat/widget/ShareActionProvider) which facilitates a "share" action by showing a list of possible apps for sharing. 
 
 <img src="https://i.imgur.com/MLuaXES.png" />
 
@@ -373,7 +373,7 @@ You can learn about this provider in the [[Sharing Content with Intents]] guide.
 
 ### Navigating Up with the App Icon
 
-To enable the app icon as an Up button, call [setDisplayHomeAsUpEnabled](http://developer.android.com/reference/android/support/v7/app/ActionBar.html#setDisplayHomeAsUpEnabled(boolean)). 
+To enable the app icon as an Up button, call [setDisplayHomeAsUpEnabled](http://developer.android.com/reference/androidx/appcompat/app/ActionBar.html#setDisplayHomeAsUpEnabled(boolean)). 
 
 ![Up Button](https://i.imgur.com/yEXdmG2.png)
 
@@ -532,11 +532,11 @@ For **Holo-based themes**, to add support for the split-action bar, just add the
 </manifest>
 ```
 
-**Note:** Split action bar **only works with Holo-based themes. `splitActionBarWhenNarrow` is **not supported** by `Theme.Material` or the `appcompat-v7` actionbar backport. If you wish to use either Theme.Material or appcompat-v7, you will **need to create your own** "split action bar", by having a [[Toolbar at the bottom|Using-the-App-ToolBar]] of the screen that you populate separately. See the [sample code for a split toolbar](https://github.com/commonsguy/cw-omnibus/tree/master/Toolbar/SplitActionBar2) here.
+**Note:** Split action bar **only works with Holo-based themes. `splitActionBarWhenNarrow` is **not supported** by `Theme.Material` or the AndroidX actionbar backport. If you wish to use either Theme.Material or AndroidX, you will **need to create your own** "split action bar", by having a [[Toolbar at the bottom|Using-the-App-ToolBar]] of the screen that you populate separately. See the [sample code for a split toolbar](https://github.com/commonsguy/cw-omnibus/tree/master/Toolbar/SplitActionBar2) here.
 
 ## Libraries
 
-* [AppCompatActivity](https://developer.android.com/reference/android/support/v7/app/AppCompatActivity.html) - The support library for ActionBar which provides backwards compatibility to nearly all Android versions.
+* [AppCompatActivity](https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity.html) - The AndroidX AppCompat library for ActionBar which provides backwards compatibility to nearly all Android versions.
 * [StyleGenerator](http://jgilfelt.github.com/android-actionbarstylegenerator) - Use this nifty web tool to generate an ActionBar theme easily.
 
 ## References
