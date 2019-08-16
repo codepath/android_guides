@@ -6,7 +6,7 @@ This is typically used for displaying the title of the application and providing
 
 <img src="https://i.imgur.com/EA42s2Q.png" width="500" />
 
-**Note** that we will be using the support library and `AppCompatActivity` for these examples since the library provides maximum compatibility with pre-3.0 Android versions. The APIs and usage are the same with the standard ActionBar just with small changes to the imported classes and class names.  If you are not currently using the support library, check out this [[migration guide|Migrating to the AppCompat Library]].
+**Note** that we will be using the AndroidX library and `AppCompatActivity` for these examples since the library provides maximum compatibility with pre-3.0 Android versions. The APIs and usage are the same with the standard ActionBar just with small changes to the imported classes and class names.  If you are not currently using the AndroidX library, check out this [[migration guide|Migrating to the AppCompat Library]].
 
 ## Usage
 
