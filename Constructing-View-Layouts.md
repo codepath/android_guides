@@ -154,7 +154,8 @@ Each constraint has the format `app:layout_constraintX_toYOf` that denotes the c
 In addition, all constraints must be fully defined to avoid any ambiguity by the layout manager.  For instance, in the previous RelativeLayout example, not only do the constraints between each objects need to be defined vertically but also how they should be placed horizontally to the layout view.  Notice how `app:layout_constraintStart_toStartOf="parent"` has been added to each element.  The attribute `app:layout_constraintEnd_toEndOf="parent"` is not needed because each view is already setting a layout_width of `match_parent`:
 
 ```xml
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -176,7 +177,7 @@ In addition, all constraints must be fully defined to avoid any ambiguity by the
         android:text="Login"
         app:layout_constraintTop_toBottomOf="@id/inputEmail"
         app:layout_constraintLeft_toLeftOf="parent" />
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
 ConstraintLayout is a much more powerful version of RelativeLayout.  See [this guide](https://constraintlayout.com/layouts/relativelayout.html) for more information about how to leverage ConstraintLayout.  
@@ -286,11 +287,11 @@ You can use ConstraintLayout to build these types of layouts by creating guideli
 
 <img src="https://imgur.com/CmMsIgp.png"/>
 
-To use, follow the [[setup guide|Design-Support-Library#adding-percent-support-library]] and make sure the Gradle dependency is included in `app/build.gradle` with `X.X.X` based on your support version:
+To use, follow the [[setup guide|Design-Support-Library#adding-percent-support-library]] and make sure the Gradle dependency is included in `app/build.gradle`:
 
 ```gradle
 dependencies {
-  implementation "com.android.support:percent:X.X.X"
+  implementation "androidx.percentlayout:percentlayout:1.0.0"
 }
 ```
 
@@ -299,7 +300,7 @@ The `layout_width` and `layout_height` of the PercentRelativeLayout should deter
 An example of a layout used to describe the image above is shown below (taken from this [sample code](https://github.com/JulienGenoud/android-percent-support-lib-sample)):
 
 ```xml
-<android.support.percent.PercentRelativeLayout
+<androidx.percentlayout.widget.PercentRelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -331,7 +332,7 @@ An example of a layout used to describe the image above is shown below (taken fr
         android:layout_below="@+id/top_left"
         android:background="#ff00ff22"
         app:layout_heightPercent="80%" />
-</android.support.percent.PercentRelativeLayout>
+</androidx.percentlayout.widget.PercentRelativeLayout>
 ```
 
 Further samples include:
@@ -357,7 +358,7 @@ We can also define `app:layout_marginPercent` that will be to all four values ab
 Similar to how [[ImageView|Working-with-the-ImageView#sizing-imageview-controls|]]'s `adjustViewBounds:true` can be used to scale the image according to its aspect ratio, we can also use `PercentRelativeLayout` to define an aspect ratio for a layout.  If one dimension is set to `0dp` and no percent scaling is associated with it, setting a percentage on the `app:layout_aspectRatio` attribute can scale the other to meet the ratio:
 
 ```xml
-<android.support.percent.PercentRelativeLayout
+<androidx.percentlayout.widget.PercentRelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#ff00ff22"
@@ -380,7 +381,7 @@ Similar to how [[ImageView|Working-with-the-ImageView#sizing-imageview-controls|
         android:layout_height="0dp"
         app:layout_aspectRatio="160%"/>
 
-</android.support.percent.PercentRelativeLayout>
+</androidx.percentlayout.widget.PercentRelativeLayout>
 
 ```
 
