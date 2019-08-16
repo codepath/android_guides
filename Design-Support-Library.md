@@ -42,17 +42,19 @@ buildscript {
 }
 ```
 
-There is a new support design library that must be included.   This library also depends on updated versions of the [AppCompat](http://android-developers.blogspot.com/2014/10/appcompat-v21-material-design-for-pre.html) library to be included.  If you are not currently using this library, check out this [[migration guide|Migrating-to-the-AppCompat-Library]].  In addition, make sure these versions have been updated.  
+There is a new support design library that must be included. This library also depends on AndroidX [AppCompat](https://developer.android.com/jetpack/androidx/releases/appcompat) library to be included.  If you are not currently using this library, check out this [[migration guide|Migrating-to-the-AppCompat-Library]].  In addition, make sure these versions have been updated.  
 
 Update your root `build.gradle` file:
 
 ```gradle
 android {
-   compileSdkVersion 27  // usually needs to be consistent with major support libs used, but not necessary
+   compileSdkVersion 27  
 }
 
 ext {
-  supportLibVersion = '27.1.1'  // variable that can be referenced to keep support libs consistent
+  appCompatVersion = '1.0.0'
+  designSupportVersion = '1.0.0'
+  recyclerViewVersion = '1.0.0'
 }
 ```
 
@@ -60,16 +62,16 @@ Add these dependencies to your `app/build.gradle` file:
 
 ```gradle
 dependencies {
-    implementation "com.android.support:appcompat-v7:${supportLibVersion}"
-    implementation "com.android.support:design:${supportLibVersion}"
+    implementation "com.android.support:appcompat-v7:${appCompatVersion}"
+    implementation "com.google.android.material:material-rc01:${designSupportVersion}"
 }
 ```
 
-If you are using the [[RecyclerView|Using the RecyclerView]], [[CardView|Using the CardView]], or any other [support v7 related](https://developer.android.com/tools/support-library/features.html#v7) libraries you should also upgrade the versions.  The RecyclerView for instance has features that are used with this new design support library.
+If you are using the [[RecyclerView|Using the RecyclerView]], [[CardView|Using the CardView]], or any other external dependencies make sure to update them.  The RecyclerView for instance has features that are used with this new design support library.
 
 ```gradle
 dependencies {
-    implementation "com.android.support:recyclerview-v7:${supportLibVersion}"
+    implementation "androidx.recyclerview:recyclerview:${recyclerViewVersion}"
 }
 ```
 
@@ -79,7 +81,7 @@ To add the percent support library, you need to add this statement:
 
 ```gradle
 dependencies {
-    implementation "com.android.support:percent:${supportLibVersion}"
+    implementation "androidx.percentlayout:percentlayout:1.0.0"
 }
 ```
 
@@ -101,8 +103,8 @@ Finally, the libraries need to be added:
 
 ```gradle
 dependencies {
-    implementation "com.android.support:support-vector-drawable:${supportLibVersion}" // VectorDrawableCompat 
-    implementation "com.android.support:animated-vector-drawable:${supportLibVersion}" // AnimatedVectorDrawableCompat
+    implementation "androidx.vectordrawable:vectordrawable:1.0.0" // VectorDrawableCompat 
+    implementation "androidx.vectordrawable:vectordrawable-animated:1.0.0" // AnimatedVectorDrawableCompat
 }
 ```
 
@@ -114,7 +116,7 @@ The Transitions API was first introduced in Android 4.4 (KitKat) but now include
 
 ```gradle
 dependencies {
-    implementation "com.android.support:transition:${supportLibVersion}"
+    implementation "androidx.transition:transition:1.1.0"
 }
 ```
 
@@ -124,11 +126,11 @@ To leverage the [annotations library](http://tools.android.com/tech-docs/support
 
 ```gradle
 dependencies {
-    implementation "com.android.support:support-annotations:${supportLibVersion}"
+    implementation "androidx.annotation:annotation:1.1.0"
 }
 ```
 
-#### Installing the Library
+#### Installing the Library - Not needed for AndroidX!
 
 You normally need to open the [SDK Manager](https://developer.android.com/tools/support-library/setup.html) and make sure to download the `Android Support Repository` as well as the latest `Android Support Library`.   However, Android Studio will also show at the bottom any missing libraries and you can click on the `Install repository and sync project`.  The process will only succeed if you specify a valid library and version, but it enables you to upgrade without needing to open the SDK Manager.
 
@@ -147,6 +149,10 @@ The Android Open Source Project (AOSP) hosts the major release versions for this
 The latest source code updates for the support library are now always included since v23.1.0 in your SDK directory (i.e. `Library/Android/sdk/extras/android/m2repository/com/android/support/design` for Mac OS X).
 
 ### Change Log
+
+For changes and latest versions of AndroidX library visit official [Versions page](https://developer.android.com/jetpack/androidx/versions)
+
+The changes below were replaced by AndroidX
 
 #### Changes in Support Library v23
 
