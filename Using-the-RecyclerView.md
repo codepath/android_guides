@@ -30,13 +30,13 @@ For more details, see [this detailed overview](http://www.grokkingandroid.com/fi
 
 A `RecyclerView` needs to have a layout manager and an adapter to be instantiated. A layout manager positions item views inside a `RecyclerView` and determines when to reuse item views that are no longer visible to the user.
 
-[RecyclerView](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html) provides these built-in layout managers:
+[RecyclerView](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.html) provides these built-in layout managers:
 
  * `LinearLayoutManager` shows items in a vertical or horizontal scrolling list.
  * `GridLayoutManager` shows items in a grid.
  * `StaggeredGridLayoutManager` shows items in a staggered grid.
 
-To create a custom layout manager, extend the [RecyclerView.LayoutManager](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.LayoutManager.html) class.
+To create a custom layout manager, extend the [RecyclerView.LayoutManager](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.LayoutManager.html) class.
 
 Here is [Dave Smith's talk](https://www.youtube.com/watch?v=gs_C1E8HwvE&index=22&list=WL) on the custom layout manager
 > **Notes**: In the recent version of the Support Library, if you don't explicitly set the LayoutManager, the RecyclerView will not show! There is a Logcat error though `E/RecyclerView: No layout manager attached; skipping layout`
@@ -53,7 +53,7 @@ Here is [Dave Smith's talk](https://www.youtube.com/watch?v=gs_C1E8HwvE&index=22
 
 Using a `RecyclerView` has the following key steps:
 
-1. Add `RecyclerView` support library to the Gradle build file
+1. Add `RecyclerView` AndroidX library to the Gradle build file
 2. Define a model class to use as the data source
 3. Add a `RecyclerView` to your activity to display the items
 4. Create a custom row layout XML file to visualize the item
@@ -64,7 +64,7 @@ The steps are explained in more detail below.
 
 ### Installation
 
-Make sure the RecyclerView support library is listed as a dependency in your `app/build.gradle`:
+Make sure the RecyclerView AndroidX library is listed as a dependency in your `app/build.gradle`:
 
 ```gradle
 dependencies {
@@ -122,7 +122,7 @@ Inside the desired activity layout XML file in `res/layout/activity_users.xml`, 
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvContacts"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -147,7 +147,7 @@ Before we create the adapter, let's define the XML layout file that will be used
 <img src="https://i.imgur.com/wPRTc76.png" width="300" />
 <img src="https://i.imgur.com/fu3FzsV.png" width="300" />
 
-This layout file can be created in `res/layout/item_contact.xml` and will be rendered for each item row.  **Note** that you should be using `wrap_content` for the `layout_height` because of `RecyclerView` versions prior to `23.2.1` previously ignored layout parameters.  See [this link](http://android-developers.blogspot.com/2016/02/android-support-library-232.html) for more context.
+This layout file can be created in `res/layout/item_contact.xml` and will be rendered for each item row.  **Note** that you should be using `wrap_content` for the `layout_height`. See [this link](http://android-developers.blogspot.com/2016/02/android-support-library-232.html) for more context.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -344,7 +344,7 @@ contacts.add(0, new Contact("Barney", true));
 adapter.notifyItemInserted(0);
 ```
 
-Every time we want to add or remove items from the RecyclerView, we will need to explicitly inform the adapter of the event.  Unlike the ListView adapter, a RecyclerView adapter should not rely on `notifyDataSetChanged()` since the more granular actions should be used.  See the [API documentation](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.Adapter.html) for more details.
+Every time we want to add or remove items from the RecyclerView, we will need to explicitly inform the adapter of the event.  Unlike the ListView adapter, a RecyclerView adapter should not rely on `notifyDataSetChanged()` since the more granular actions should be used.  See the [API documentation](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.Adapter.html) for more details.
 
 Also, if you are intending to update an existing list, make sure to get the current count of items before making any changes.  For instance, a `getItemCount()` on the adapter should be called to record the first index that will be changed.
 
@@ -368,7 +368,7 @@ Often times there are cases when changes to your list are more complex (i.e. sor
 
 #### Using with ListAdapter
 
-The `ListAdapter` class, which is a [new class](https://medium.com/@trionkidnapper/recyclerview-more-animations-with-less-code-using-support-library-listadapter-62e65126acdb) introduced in the support library 27.1.0, simplifies detecting whether an item was inserted, updated, or deleted.  
+The [ListAdapter](https://developer.android.com/reference/androidx/recyclerview/widget/ListAdapter) class simplifies detecting whether an item was inserted, updated, or deleted. You can find more details in [this blog post](https://medium.com/@trionkidnapper/recyclerview-more-animations-with-less-code-using-support-library-listadapter-62e65126acdb). **Note** the blog post refers to Support Library v23 that was replaced with AndroidX library. Use this [Migration guide](https://developer.android.com/jetpack/androidx/migrate) to ensure compatibility with the rest of the examples.
 
 First, change your adapter to inherit from a `RecyclerView.Adapter` to a `ListAdapter`.  
 
@@ -576,7 +576,7 @@ We can build [our own custom layout managers](http://wiresareobsolete.com/2014/0
 
 ### Decorations
 
-We can decorate the items using various decorators attached to the recyclerview such as the [DividerItemDecoration](https://developer.android.com/reference/android/support/v7/widget/DividerItemDecoration.html):
+We can decorate the items using various decorators attached to the recyclerview such as the [DividerItemDecoration](https://developer.android.com/reference/androidx/recyclerview/widget/DividerItemDecoration.html):
 
 ```java
 RecyclerView.ItemDecoration itemDecoration = new
@@ -594,7 +594,7 @@ Decorators can also be used for adding consistent spacing around items displayed
 
 ### Animators
 
-RecyclerView supports custom animations for items as they enter, move, or get deleted using [ItemAnimator](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.ItemAnimator.html).  The default animation effects is defined by [DefaultItemAnimator](https://developer.android.com/reference/android/support/v7/widget/DefaultItemAnimator.html), and the complex implementation (see [source code)](https://android.googlesource.com/platform/frameworks/support/+/refs/heads/master/v7/recyclerview/src/android/support/v7/widget/DefaultItemAnimator.java) shows that the logic necessary to ensure that animation effects are performed in a specific sequence (remove, move, and add).
+RecyclerView supports custom animations for items as they enter, move, or get deleted using [ItemAnimator](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.ItemAnimator.html).  The default animation effects is defined by [DefaultItemAnimator](https://developer.android.com/reference/androidx/recyclerview/widget/DefaultItemAnimator.html), and the complex implementation (see [source code)](https://android.googlesource.com/platform/frameworks/support/+/refs/heads/androidx-recyclerview-release/recyclerview/recyclerview/src/main/java/androidx/recyclerview/widget/DefaultItemAnimator.java) shows that the logic necessary to ensure that animation effects are performed in a specific sequence (remove, move, and add).
 
 Currently, the fastest way to implement animations with RecyclerView is to use third-party libraries.  The [third-party recyclerview-animators library](https://github.com/wasabeef/recyclerview-animators) contains a lot of animations that you can use without needing to build your own.  Simply edit your  `app/build.gradle`:
 
@@ -603,14 +603,8 @@ repositories {
     jcenter()
 }
 
-//If you are using a RecyclerView 23.1.0 or higher.
 dependencies {
-    implementation 'jp.wasabeef:recyclerview-animators:2.2.3'
-}
-
-//If you are using a RecyclerView 23.0.1 or below.
-dependencies {
-    implementation 'jp.wasabeef:recyclerview-animators:1.3.0'
+    implementation 'jp.wasabeef:recyclerview-animators:3.0.0'
 }
 ```
 
@@ -628,7 +622,7 @@ For a further look into defining custom item animators, check out this [custom R
 
 #### New ItemAnimator interface
 
-Starting in the [support v23.1.0](https://developer.android.com/tools/support-library/index.html#revisions) library for `RecyclerView`, there is also a new interface for the [ItemAnimator](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.ItemAnimator.html#pubmethods) interface.   The old interface has now been deprecated to `SimpleItemAnimator` .  This library adds a [ItemHolderInfo](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.ItemAnimator.ItemHolderInfo.html) class, which appears to be similar to the [MoveInfo](https://github.com/android/platform_frameworks_support/blob/master/v7/recyclerview/src/android/support/v7/widget/DefaultItemAnimator.java#L53-L63) class defined by `DefaultItemAnimator` but used more generically to pass state information between animation transition states.  It is likely that the next version of `DefaultItemAnimator` will be simplified to use this new class and revised interface.
+There is also a new interface for the [ItemAnimator](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.ItemAnimator.html#pubmethods) interface.   The old interface has now been deprecated to `SimpleItemAnimator` . This library adds a [ItemHolderInfo](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.ItemAnimator.ItemHolderInfo.html) class, which appears to be similar to the [MoveInfo](https://android.googlesource.com/platform/frameworks/support/+/refs/heads/androidx-recyclerview-release/recyclerview/recyclerview/src/main/java/androidx/recyclerview/widget/DefaultItemAnimator.java#57) class defined by `DefaultItemAnimator` but used more generically to pass state information between animation transition states.  It is likely that the next version of `DefaultItemAnimator` will be simplified to use this new class and revised interface.
 
 ### Heterogeneous Views
 
@@ -666,7 +660,7 @@ In certain cases, we might want a horizontal `RecyclerView` that allows the user
 
 #### LinearSnapHelper
 
-To achieve this snapping to center effect as the user scrolls, starting with support library 24.2.0 version and greater, we can use the built-in [LinearSnapHelper](https://developer.android.com/reference/android/support/v7/widget/LinearSnapHelper.html) as follows:
+To achieve this snapping to center effect as the user scrolls we can use the built-in [LinearSnapHelper](https://developer.android.com/reference/androidx/recyclerview/widget/LinearSnapHelper.html) as follows:
 
 ```java
 SnapHelper snapHelper = new LinearSnapHelper();
@@ -838,7 +832,7 @@ The `SwipeRefreshLayout` should be used to refresh the contents of a `RecyclerVi
 
 ## Swipe Detection
 
-RecyclerView (since the release of v24.2.0) now has an `OnFlingListener` method that can be used to implement custom fling behavior.  Download this [RecyclerViewSwipeListener](https://gist.github.com/rogerhu/9e769149f9550c0a6ddb4987b94caee8) and you can handle custom swipe detection by adding this class to your RecyclerView:
+RecyclerView has an `OnFlingListener` method that can be used to implement custom fling behavior. Download this [RecyclerViewSwipeListener](https://gist.github.com/slavkoder/2942f0d36c1d460dcaa6e0a10bc19dd4) and you can handle custom swipe detection by adding this class to your RecyclerView:
 
 ```java
 RecyclerView rvMyList;
@@ -895,7 +889,7 @@ The `model.install` glues model, view and adapter into working implementation. W
 
 ## References
 
-* <https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html>
+* <https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.html>
 * <http://www.grokkingandroid.com/first-glance-androids-recyclerview/>
 * <http://www.grokkingandroid.com/statelistdrawables-for-recyclerview-selection/>
 * <http://www.bignerdranch.com/blog/recyclerview-part-1-fundamentals-for-listview-experts/>
