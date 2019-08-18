@@ -37,7 +37,7 @@ buildscript {
         google()  // new as of Gradle v4.1 (not to be confused the the Android Gradle plugin below)
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.android.tools.build:gradle:3.4.2'
     }
 }
 ```
@@ -62,8 +62,8 @@ Add these dependencies to your `app/build.gradle` file:
 
 ```gradle
 dependencies {
-    implementation "com.android.support:appcompat-v7:${appCompatVersion}"
-    implementation "com.google.android.material:material-rc01:${designSupportVersion}"
+    implementation "androidx.appcompat:appcompat:${appCompatVersion}"
+    implementation "com.google.android.material:material:${designSupportVersion}"
 }
 ```
 
@@ -130,73 +130,21 @@ dependencies {
 }
 ```
 
-#### Installing the Library - Not needed for AndroidX!
-
-You normally need to open the [SDK Manager](https://developer.android.com/tools/support-library/setup.html) and make sure to download the `Android Support Repository` as well as the latest `Android Support Library`.   However, Android Studio will also show at the bottom any missing libraries and you can click on the `Install repository and sync project`.  The process will only succeed if you specify a valid library and version, but it enables you to upgrade without needing to open the SDK Manager.
-
-<img src="https://imgur.com/GQw6IHt.png"/>
-
-If you are using any type of continuous build system and need to help automate downloading of updates to the support library, you can use [[Jake Wharton's SDK Manager|Installing-Android-SDK-Tools#installing-the-android-sdk-automated-way]] to download the packages for you.  
-
 ### Sample Code
 
-If you want to see how to use the various components, check out this [sample code](https://github.com/chrisbanes/cheesesquare).  For an example of the percent support library, see [this sample code](https://github.com/JulienGenoud/android-percent-support-lib-sample).
+Sample code uses outdated Support Library, check [Migration Guide](https://developer.android.com/jetpack/androidx/migrate) if you want to copy the code from samples. If you want to see how to use the various components, check out this [sample code](https://github.com/chrisbanes/cheesesquare).  For an example of the percent support library, see [this sample code](https://github.com/JulienGenoud/android-percent-support-lib-sample).
 
-### Official Source Code
-
-The Android Open Source Project (AOSP) hosts the major release versions for this library, which can be found [here](https://android.googlesource.com/platform/frameworks/support.git/+/master/design/).  For instance, if you are curious about what styles can be overridden for the different components, see this [link](https://android.googlesource.com/platform/frameworks/support.git/+/master/design/res/values/styles.xml).
-
-The latest source code updates for the support library are now always included since v23.1.0 in your SDK directory (i.e. `Library/Android/sdk/extras/android/m2repository/com/android/support/design` for Mac OS X).
 
 ### Change Log
 
-For changes and latest versions of AndroidX library visit official [Versions page](https://developer.android.com/jetpack/androidx/versions)
-
-The changes below were replaced by AndroidX
-
-#### Changes in Support Library v23
-
-- `Resources.getColor()` has been deprecated.  You must now use `ContextCompat.getColor()` instead.  See this [Stack Overflow article](http://stackoverflow.com/questions/31590714/getcolorint-id-deprecated-on-android-6-0-marshmallow-api-23) or the official [API documentation](http://developer.android.com/reference/android/content/res/Resources.html).
-
-#### Changes in Support Library v23.1 
-
-- `TextInputLayout` and `EditText` now includes the ability to add a character counter.  ([[view guide |Working-with-the-EditText#adding-character-counting]])
- 
-- A `snap` flag can also be added to the list of scrolling effects declared in `AppBarLayout`.  ([[view guide|Handling-Scrolls-with-CoordinatorLayout#responding-to-scroll-events]])
-
-- A `setOnDragListener()` method has been added to `AppBarLayout`.  ([[view guide|Handling-Scrolls-with-CoordinatorLayout#embedding-google-maps-in-appbarlayout]])
-
-- An `aspectRatio` attribute is now supported in `PercentRelativeLayout`.  ([[view guide|Constructing-View-Layouts#aspect-ratio]])
-
-- A new item animation interface for the `RecyclerView`.  ([[view guide|Using-the-RecyclerView#new-itemanimator-interface]])
-
-- Custom views can be provided for `NavigationView` rows.  ([[view guide|Fragment-Navigation-Drawer#adding-custom-views-to-navigation-drawer]])
-
-#### Changes in Support Library v23.1.1
-
-- NavigationView now contains a `getHeaderView()` method ([[view guide|Fragment-Navigation-Drawer#getting-references-to-the-header]])
-
-#### Changes in Support Library v23.2
-
-- Added support for bottom sheets. ([[view guide|Handling-Scrolls-with-CoordinatorLayout#bottom-sheets]])
-- Added setup instructions for vector drawables. ([[view guide|Drawables#vector-drawables]])
-
-#### Changes in Support Library v24.2.0
-
-- `TextInputLayout` and `EditText` now includes the ability to add password visibility toggles.  ([[view guide |Working-with-the-EditText#adding-password-visibility-toggles]])
-
-- Added DiffUtil class for RecyclerView.  ([[view guide|Using-the-RecyclerView#diffing-larger-changes]])
-
-- Support v4 library modules have been broken apart but cannot be used to reduce APK size because the fragment library still depends on all other related modules.  ([[view guide|Migrating-to-the-AppCompat-Library#overview]])
-
-- Transitions API backported to Android 4.0 but does not include support for activity/fragment transitions. ([[view guide|View-Hierarchy-Animations]])
-
-#### Changes in Support Library v25.0.0
-
-- Bottom Navigation Views support added ([[view guide|Bottom Navigation Views]])
+For changes and latest versions of AndroidX library visit official [Versions page](https://developer.android.com/jetpack/androidx/versions). Remember that AndroidX replaced all old Support Libraries.
 
 ## References
-
+* <https://developer.android.com/jetpack/androidx>
+* <https://android-developers.googleblog.com/2018/05/hello-world-androidx.html>
+* <https://www.androidauthority.com/android-jetpack-android-support-library-878587/>
+* <https://material.io/develop/android/docs/getting-started/>
+* <https://www.reddit.com/r/androiddev/comments/a2bikh/should_i_learn_about_androidx/>
 * <https://medium.com/android-bites/first-steps-with-the-design-support-library-8dcf06230ddd>
 * <http://android-developers.blogspot.com/2015/05/android-design-support-library.html>
 * <https://github.com/chrisbanes/cheesesquare>
