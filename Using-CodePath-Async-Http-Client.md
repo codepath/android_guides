@@ -8,7 +8,7 @@ Add this library to our `app/build.gradle` file:
 
 ```gradle
 dependencies {
-  implementation 'com.codepath.libraries:asynchttpclient:0.0.7'
+  implementation 'com.codepath.libraries:asynchttpclient:0.0.8'
 }
 ```
 
