@@ -1,10 +1,10 @@
 ## Overview
 
-CodePath built a small library to make it easy to send and parse network requests. 
+CodePath built a [simple lightweight library](https://github.com/codepath/AsyncHttpClient) to make it easy to send and parse network requests. 
 
 ### Setup
 
-Add this library to our `app/build.gradle` file:
+To use this library, add the following dependency into our `app/build.gradle` file:
 
 ```gradle
 dependencies {
