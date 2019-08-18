@@ -66,7 +66,7 @@ To place the floating action button, we will use [CoordinatorLayout](https://dev
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 ```
 
-The button should be placed in the bottom right corner of the screen. The recommended margin for the bottom is **16dp for phones and 24dp for tablets**.    In the example above, 16dp was used.
+The button should be placed in the bottom right corner of the screen. The recommended margin for the bottom is **16dp for phones and 24dp for tablets**. In the example above, 16dp was used.
 
 The actual drawable size should be **24dp** according to the Google design specs.  
 
@@ -74,7 +74,7 @@ The actual drawable size should be **24dp** according to the Google design specs
 
 ### Animating the Floating Action Button
 
-When a user scrolls down a page, the floating action button should disappear.  Once the page scrolls to the top, it should reappear.   
+When a user scrolls down a page, the floating action button should disappear. Once the page scrolls to the top, it should reappear.   
 
 <img src="https://i.imgur.com/CEtWLA8.gif"/>
 
@@ -103,7 +103,7 @@ You must AndroidX version of RecyclerView. Other versions (such as Support Libra
 
 Next, you must implement a [CoordinatorLayout Behavior](https://developer.android.com/reference/androidx/coordinatorlayout/widget/CoordinatorLayout.Behavior.html) for the Floating Action Button. This class will be used to define how the button should respond to other views contained within the same CoordinatorLayout.  
 
-Create a file called `ScrollAwareFABBehavior.java` that extends from [FloatingActionButton.Behavior](https://developer.android.com/reference/com/google/android/material/floatingactionbutton/FloatingActionButton.Behavior).  Currently, the default behavior is used for the Floating Action Button to make room for the Snackbar as shown in [this video](http://material-design.storage.googleapis.com/publish/material_v_3/material_ext_publish/0B6Okdz75tqQsLWFucDNlYWEyeW8/components_snackbar_usage_fabdo_002.webm).    We want to extend this behavior to signal that we wish to handle scroll events in the vertical direction:
+Create a file called `ScrollAwareFABBehavior.java` that extends from [FloatingActionButton.Behavior](https://developer.android.com/reference/com/google/android/material/floatingactionbutton/FloatingActionButton.Behavior).  Currently, the default behavior is used for the Floating Action Button to make room for the Snackbar as shown in [this video](http://material-design.storage.googleapis.com/publish/material_v_3/material_ext_publish/0B6Okdz75tqQsLWFucDNlYWEyeW8/components_snackbar_usage_fabdo_002.webm). We want to extend this behavior to signal that we wish to handle scroll events in the vertical direction:
 
 ```java
 public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior {
@@ -119,9 +119,7 @@ public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior {
 }
 ```
 
-Because scrolling will be handled by this class, a separate method [onNestedScroll()](https://developer.android.com/reference/androidx/coordinatorlayout/widget/CoordinatorLayout.Behavior.html#onNestedScroll(androidx.coordinatorlayout.widget.CoordinatorLayout,%20V,%20android.view.View,%20int,%20int,%20int,%20int,%20int,%20int%5B%5D)) will be called.   We can check the Y position and determine whether to animate in or out the button.  
-
-Thanks to a [recent upgrade](https://plus.google.com/+AndroidDevelopers/posts/XTtNCPviwpj) to the support v4 library, there is also a show() and hide() method available that performs the fade-in and fade-out animations for Floating Action Buttons.   Previously, much of the [animation code had to be reimplemented](https://github.com/ianhanniballake/cheesesquare/commit/aefa8b57e61266e4ad51bef36e669d69f7fd749c). 
+Because scrolling will be handled by this class, a separate method [onNestedScroll()](https://developer.android.com/reference/androidx/coordinatorlayout/widget/CoordinatorLayout.Behavior.html#onNestedScroll(androidx.coordinatorlayout.widget.CoordinatorLayout,%20V,%20android.view.View,%20int,%20int,%20int,%20int,%20int,%20int%5B%5D)) will be called. We can check the Y position and determine whether to animate in or out the button.  
 
 ```java
 public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior {
@@ -173,15 +171,13 @@ public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior {
 }
 ```
 
-If you forget to implement this last step, you will see `Could not inflate Behavior subclass` error messages. See this [example code](https://github.com/ianhanniballake/cheesesquare/blob/92bcf7c8b57459051424cd512a032c12d24a41b3/app/src/main/java/com/support/android/designlibdemo/ScrollAwareFABBehavior.java) for the full set of changes.
+If you forget to implement this last step, you will see `Could not inflate Behavior subclass` error messages. See this [example code](https://github.com/ianhanniballake/cheesesquare/blob/92bcf7c8b57459051424cd512a032c12d24a41b3/app/src/main/java/com/support/android/designlibdemo/ScrollAwareFABBehavior.java) for the full set of changes. Not that code uses old Support Library v4.
 
 *Note*: Normally when implementing `CoordinatorLayout` behaviors, we need to implement [layoutDependsOn()](https://developer.android.com/reference/androidx/coordinatorlayout/widget/CoordinatorLayout.Behavior.html#layoutDependsOn(androidx.coordinatorlayout.widget.CoordinatorLayout,%20V,%20android.view.View)) and [onDependentViewChanged()](https://developer.android.com/reference/androidx/coordinatorlayout/widget/CoordinatorLayout.Behavior.html#onDependentViewChanged(androidx.coordinatorlayout.widget.CoordinatorLayout,%20V,%20android.view.View)), which are used to track changes in other views contained within the CoordinatorLayout.  Since we only need to monitor scroll changes, we use the existing behavior defined for the Floating Action Button, which is currently implemented to track changes for Snackbars and AppBarLayout as discussed in this [blog post](http://android-developers.blogspot.com/2015/05/android-design-support-library.html).
 
 ### Embedding FloatingActionButton in Header
 
-A common effect is embedding the FAB near the header like this:
-
-<img src="http://s1.postimg.org/xrfwqpqgf/x_Cx_E0.png" width="200" />
+A common effect is embedding the FAB near the header.
 
 This can be achieved by use CoordinatorLayout as the root view. We need to specify `layout_anchor` for the FAB to the top view and `layout_anchorGravity` to to `bottom|right|end` like this:
 
