@@ -51,8 +51,10 @@ params.put("page", 0);
 client.get("https://api.thecatapi.com/v1/images/search", params, new JsonHttpResponseHandler() {
    @Override
    public void onSuccess(int statusCode, Headers headers, JSON json) {
-         Log.d("DEBUG", json.jsonArray.toString());
-
+         // Access a JSON array response with `json.jsonArray` 
+         Log.d("DEBUG ARRAY", json.jsonArray.toString());
+         // Access a JSON object response with `json.jsonObject` 
+         Log.d("DEBUG OBJECT", json.jsonObject.toString());
    }
 
    @Override
@@ -62,7 +64,9 @@ client.get("https://api.thecatapi.com/v1/images/search", params, new JsonHttpRes
 });
 ```
 
-Assuming the callback uses `JsonHttpResponseHandler`, the request will be sent out with the appropriate parameters passed in the query string and then the response can be parsed as JSON and made available within `onSuccess`. Check the [[Converting JSON to Models]] guide for more details on parsing a JSON response manually.
+Assuming the callback uses `JsonHttpResponseHandler`, the request will be sent out with the appropriate parameters passed in the query string and then the response can be parsed as JSON and made available within `onSuccess`. 
+
+The `JSON` returned can be either an Array or an Object, and you can access them with `.jsonArray` and `.jsonObject` respectively depending on the root JSON content of the response. Check the [[Converting JSON to Models]] guide for more details on parsing a JSON response manually.
 
 #### Sending an Authenticated API Request
 
