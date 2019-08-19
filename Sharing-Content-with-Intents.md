@@ -188,7 +188,7 @@ Note that if you are **using API 24 or above**, see the section below on using a
 
 #### Sharing Files with API 24 or higher
 
-If you are targeting Android API 24 or higher, private `File` URI resources (file:///) cannot be shared.  You must instead wrap the `File` object as a content provider (content://) using the [FileProvider](https://developer.android.com/reference/android/support/v4/content/FileProvider.html) class.
+If you are targeting Android API 24 or higher, private `File` URI resources (file:///) cannot be shared.  You must instead wrap the `File` object as a content provider (content://) using the [FileProvider](https://developer.android.com/reference/androidx/core/content/FileProvider.html) class.
 
 First, you must declare this FileProvider in your `AndroidManifest.xml` file within the `<application>` tag:
   
@@ -197,7 +197,7 @@ First, you must declare this FileProvider in your `AndroidManifest.xml` file wit
 
   <!-- make sure within the application tag, otherwise app will crash with XmlResourceParser errors -->
   <provider
-    android:name="android.support.v4.content.FileProvider"
+    android:name="androidx.core.content.FileProvider"
     android:authorities="com.codepath.fileprovider"
     android:exported="false"
     android:grantUriPermissions="true">
@@ -265,7 +265,7 @@ First, we need to add an ActionBar menu item in `res/menu/` in the XML specifyin
         android:id="@+id/menu_item_share"
         app:showAsAction="ifRoom"
         android:title="Share"
-        app:actionProviderClass="android.support.v7.widget.ShareActionProvider" />
+        app:actionProviderClass="androidx.appcompat.widget.ShareActionProvider" />
     ...
 </menu>
 ```
