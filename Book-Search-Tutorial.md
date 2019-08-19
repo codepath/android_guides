@@ -39,7 +39,7 @@ repositories {
 }
 dependencies {
   // ...
-  implementation 'com.loopj.android:android-async-http:1.4.9'
+  implementation 'com.codepath.libraries:asynchttpclient:0.0.8'
   implementation 'com.squareup.picasso:picasso:2.5.2'
 }
 ```
@@ -515,7 +515,7 @@ We can use a SearchView to search for a book by its author or title. Using the S
     android:title="Search"
     android:icon="@android:drawable/ic_menu_search"
     app:showAsAction="always"
-    app:actionViewClass="android.support.v7.widget.SearchView" />
+    app:actionViewClass="androidx.appcompat.widget.SearchView" />
 </menu>
 ```
 
