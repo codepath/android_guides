@@ -23,7 +23,7 @@ If you are using OkHttp or Retrofit, you can take advantage of Facebook's [Steth
 
 ### Setting up a proxy
 
-If you are using [[Android Async Http Client|Using-Android-Async-Http-Client]] or any other networking library that relies on Android's legacy Apache HttpClient implementation, you cannot leverage the Stetho project and Chrome project as noted in this [issue](https://github.com/facebook/stetho/issues/116).  However, you can still setup an HTTP proxy that can intercept the network requests. 
+If you are using older HTTP clients such this [[library|Using-Android-Async-Http-Client]] or any other networking library that relies on Android's legacy Apache HttpClient implementation, you cannot leverage the Stetho project and Chrome project as noted in this [issue](https://github.com/facebook/stetho/issues/116).  However, you can still setup an HTTP proxy that can intercept the network requests. 
 
 The process requires two parts: one on the PC that will act as the proxy, and the other on the Android device.  It will also walk you through installing a root SSL certificate that can be used by the proxy to inspect SSL network requests.
 
