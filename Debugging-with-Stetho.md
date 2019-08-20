@@ -12,7 +12,7 @@ Any SQLite database can also be inspected using the `Resources` -> `Web SQL` tab
 
 ### Caveats
 
-The third-party [[Android Async Http Client|Using-Android-Async-Http-Client]] library uses the Apache HTTP Client, which is not currently supported by Stetho as noted in this [issue](https://github.com/facebook/stetho/issues/116).  Troubleshooting networking issues works best with [[OkHttp|Using OkHttp]] or [[Retrofit|Consuming-APIs-with-Retrofit]].  Regardless, you can still use this library for SQLite database inspection.  If you need to inspect the network traffic with Async Http Client, see [this section](http://guides.codepath.com/android/Troubleshooting-API-calls#setting-up-a-proxy).
+Troubleshooting networking issues works best with [[OkHttp|Using OkHttp]] or [[Retrofit|Consuming-APIs-with-Retrofit]].   Older third-party libraries based on the old Apache HTTP client such as [[this one|Using-Android-Async-Http-Client]] libraryis not currently supported by Stetho as noted in this [issue](https://github.com/facebook/stetho/issues/116). 
 
 ## Setup
 
@@ -34,7 +34,8 @@ public class MyApplication extends Application {
   }
 }
 ```
- Edit the manifest.xml file in your project. To let the Android operating system know that you have a custom Application class, add an attribute called  `android:name`  to the manifest’s application tag and set the value to the name of your custom Application class.
+
+Edit the manifest.xml file in your project. To let the Android operating system know that you have a custom Application class, add an attribute called  `android:name`  to the manifest’s application tag and set the value to the name of your custom Application class.
 ```xml
  <application
     ...
