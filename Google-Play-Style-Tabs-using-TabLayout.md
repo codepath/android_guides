@@ -1,4 +1,4 @@
-Tabs are now best implemented by leveraging the [[ViewPager|ViewPager-with-FragmentPagerAdapter]] with a custom "tab indicator" on top. In this guide, we will be using Google's new [TabLayout](https://developer.android.com/reference/android/support/design/widget/TabLayout.html) included in the support design library release for Android "M".
+Tabs are now best implemented by leveraging the [[ViewPager|ViewPager-with-FragmentPagerAdapter]] with a custom "tab indicator" on top. In this guide, we will be using Google's new [TabLayout](https://developer.android.com/reference/com/google/android/material/tabs/TabLayout.html) included in the support design library release for Android "M".
 
 Prior to Android "M", the easiest way to setup tabs with Fragments was to use ActionBar Tabs as described in [[ActionBar Tabs with Fragments|ActionBar-Tabs-with-Fragments]] guide. However, all methods related to navigation modes in the ActionBar class (such as `setNavigationMode()`, `addTab()`, `selectTab()`, etc.) are now deprecated.
 
@@ -8,7 +8,7 @@ To implement Google Play style sliding tabs, make sure to follow the Design Supp
 
 ### Sliding Tabs Layout
 
-Simply add `android.support.design.widget.TabLayout`, which will be used for rendering the different tab options.  The `android.support.v4.view.ViewPager` component will be used to page between the various fragments we will create.
+Simply add `com.google.android.material.tabs.TabLayout`, which will be used for rendering the different tab options.  The `androidx.viewpager.widget.ViewPager` component will be used to page between the various fragments we will create.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -18,13 +18,13 @@ Simply add `android.support.design.widget.TabLayout`, which will be used for ren
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.design.widget.TabLayout
+    <com.google.android.material.tabs.TabLayout
         android:id="@+id/sliding_tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tabMode="fixed" />
 
-    <android.support.v4.view.ViewPager
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -152,7 +152,7 @@ Heres the output:
 There are many attributes you can use to customize the behavior of your `TabLayout` as shown below:
 
 ```xml
-<android.support.design.widget.TabLayout
+<com.google.android.material.tabs.TabLayout
     android:id="@+id/sliding_tabs"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -173,7 +173,7 @@ The most important properties available are listed below:
 | `tabMode`            | `fixed`, `scrollable` | Small number of fixed tabs or scrolling list |
 | `tabTextColor`       | `@color/blue`     | Color of the text on the tab |
 
-You can see all the [properties available here](https://developer.android.com/reference/android/support/design/widget/TabLayout.html#lattrs).
+You can see all the [properties available here](https://developer.android.com/reference/com/google/android/material/tabs/TabLayout.html#lattrs).
 
 ### Styling the TabLayout
 
@@ -188,12 +188,12 @@ Normally, the tab indicator color chosen is the [accent color](http://www.google
 You can then override this style for your TabLayout:
 
 ```xml
-<android.support.design.widget.TabLayout
+<com.google.android.material.tabs.TabLayout
         android:id="@+id/tabs"
         style="@style/MyCustomTabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-</android.support.design.widget.TabLayout>
+</com.google.android.material.tabs.TabLayout>
 ```
 
 There are several other styles that can be configured for the `TabLayout`:
@@ -375,5 +375,5 @@ Next, we can save and restore the last known tab position by implementing method
 ## References
 
 * <http://www.truiton.com/2015/06/android-tabs-example-fragments-viewpager/>
-* <https://android.googlesource.com/platform/frameworks/support.git/+/master/design/src/android/support/design/widget/TabLayout.java>
-* <https://android.googlesource.com/platform/frameworks/support.git/+/master/design/res/values/styles.xml>
+* <https://github.com/material-components/material-components-android/blob/master/lib/java/com/google/android/material/tabs/TabLayout.java>
+* <https://github.com/material-components/material-components-android/blob/master/lib/java/com/google/android/material/tabs/res/values/styles.xml>
