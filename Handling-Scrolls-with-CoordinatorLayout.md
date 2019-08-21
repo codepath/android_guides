@@ -1,6 +1,6 @@
 ## **Overview**
 
-[CoordinatorLayout](https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.html) extends the ability to accomplish many of the Google's Material Design [scrolling effects](http://www.google.com/design/spec/patterns/scrolling-techniques.html).  Currently, there are several ways provided in this framework that allow it to work without needing to write your own custom animation code.  These effects include:
+[CoordinatorLayout](https://developer.android.com/reference/androidx/coordinatorlayout/widget/CoordinatorLayout.html) extends the ability to accomplish many of the Google's Material Design [scrolling effects](http://www.google.com/design/spec/patterns/scrolling-techniques.html).  Currently, there are several ways provided in this framework that allow it to work without needing to write your own custom animation code.  These effects include:
 
 * Sliding the Floating Action Button up and down to make space for the Snackbar.
 
@@ -34,22 +34,22 @@ When a [[Snackbar|Displaying the Snackbar]] is rendered, it normally appears at 
 
 <img src="https://imgur.com/zF9GGsK.gif" width="350"/>
 
-So long as the CoordinatorLayout is used as the primary layout, this animation effect will occur for you automatically.   The floating action button has a [default behavior](https://developer.android.com/reference/android/support/design/widget/FloatingActionButton.Behavior.html) that detects Snackbar views being added and animates the button above the height of the Snackbar.
+So long as the CoordinatorLayout is used as the primary layout, this animation effect will occur for you automatically.   The floating action button has a [default behavior](https://developer.android.com/reference/com/google/android/material/floatingactionbutton/FloatingActionButton.Behavior.html) that detects Snackbar views being added and animates the button above the height of the Snackbar.
 
 ```xml
- <android.support.design.widget.CoordinatorLayout
+ <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/main_content"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-   <android.support.v7.widget.RecyclerView
+   <androidx.recyclerview.widget.RecyclerView
          android:id="@+id/rvToDoList"
          android:layout_width="match_parent"
          android:layout_height="match_parent"/>
 
-   <android.support.design.widget.FloatingActionButton
+   <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
@@ -57,36 +57,36 @@ So long as the CoordinatorLayout is used as the primary layout, this animation e
         android:src="@mipmap/ic_launcher"
         app:layout_anchor="@id/rvToDoList"
         app:layout_anchorGravity="bottom|right|end"/>
- </android.support.design.widget.CoordinatorLayout>
+ </androidx.coordinatorlayout.widget.CoordinatorLayout>
 ```
 
 ## Expanding and Collapsing Toolbars
 
 <img src="https://imgur.com/X5AIH0P.gif" width="350"/>
 
-The first step is to make sure you are not using the deprecated ActionBar.  Make sure to follow the [[Using the ToolBar as ActionBar|Using-the-App-Toolbar#using-toolbar-as-actionbar]] guide.  Also make sure that the CoordinatorLayout is the main layout container.
+The first step is to make sure you are not using the deprecated ActionBar. Make sure to follow the [[Using the ToolBar as ActionBar|Using-the-App-Toolbar#using-toolbar-as-actionbar]] guide. Also make sure that the CoordinatorLayout is the main layout container.
 
 ```xml
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
  xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-      <android.support.v7.widget.Toolbar
+      <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 ```
 
 ### Responding to Scroll Events
 
 Next, we must make the Toolbar responsive to scroll events using a container layout called
-[AppBarLayout](http://developer.android.com/reference/android/support/design/widget/AppBarLayout.html):
+[AppBarLayout](https://developer.android.com/reference/com/google/android/material/appbar/AppBarLayout.html):
 
 ```xml
 <android.support.design.widget.AppBarLayout
@@ -96,7 +96,7 @@ Next, we must make the Toolbar responsive to scroll events using a container lay
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         android:fitsSystemWindows="true">
 
-  <android.support.v7.widget.Toolbar
+  <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
@@ -105,12 +105,12 @@ Next, we must make the Toolbar responsive to scroll events using a container lay
  </android.support.design.widget.AppBarLayout>
 ```
 
-**Note**: AppBarLayout currently expects to be the direct child nested within a CoordinatorLayout according to the official [Google docs] (http://developer.android.com/reference/android/support/design/widget/AppBarLayout.html).
+**Note**: AppBarLayout currently expects to be the direct child nested within a CoordinatorLayout according to the official [Google docs] (https://developer.android.com/reference/com/google/android/material/appbar/AppBarLayout.html).
 
-Next, we need to define an association between the AppBarLayout and the View that will be scrolled.  Add an `app:layout_behavior` to a RecyclerView or any other View capable of nested scrolling such as [NestedScrollView](http://stackoverflow.com/questions/25136481/what-are-the-new-nested-scrolling-apis-for-android-l).  The support library contains a special string resource `@string/appbar_scrolling_view_behavior` that maps to [AppBarLayout.ScrollingViewBehavior](https://developer.android.com/reference/android/support/design/widget/AppBarLayout.ScrollingViewBehavior.html), which is used to notify the `AppBarLayout` when scroll events occur on this particular view.  The behavior must be established on the view that triggers the event.
+Next, we need to define an association between the AppBarLayout and the View that will be scrolled.  Add an `app:layout_behavior` to a RecyclerView or any other View capable of nested scrolling such as [NestedScrollView](http://stackoverflow.com/questions/25136481/what-are-the-new-nested-scrolling-apis-for-android-l).  The support library contains a special string resource `@string/appbar_scrolling_view_behavior` that maps to [AppBarLayout.ScrollingViewBehavior](https://developer.android.com/reference/com/google/android/material/appbar/AppBarLayout.ScrollingViewBehavior.html), which is used to notify the `AppBarLayout` when scroll events occur on this particular view.  The behavior must be established on the view that triggers the event.
 
 ```xml
- <android.support.v7.widget.RecyclerView
+ <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvToDoList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -128,7 +128,7 @@ Scroll events in the RecyclerView trigger changes inside views declared within `
         android:fitsSystemWindows="true"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-            <android.support.v7.widget.Toolbar
+            <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
@@ -182,7 +182,7 @@ If we want to create the collapsing toolbar effect, we must wrap the Toolbar ins
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-    <android.support.design.widget.CollapsingToolbarLayout
+    <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -192,13 +192,13 @@ If we want to create the collapsing toolbar effect, we must wrap the Toolbar ins
             app:expandedTitleMarginStart="48dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
             
-            <android.support.v7.widget.Toolbar
+            <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:layout_scrollFlags="scroll|enterAlways"></android.support.v7.widget.Toolbar>
+                app:layout_scrollFlags="scroll|enterAlways"></androidx.appcompat.widget.Toolbar>
  
-    </android.support.design.widget.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.CollapsingToolbarLayout>
 </android.support.design.widget.AppBarLayout>
 ```
 
@@ -240,7 +240,7 @@ The CollapsingToolbarLayout also enables us to do more advanced animations, such
 To create this effect, we add an ImageView and declare an `app:layout_collapseMode="parallax"` attribute to the tag.
 
 ```xml
-<android.support.design.widget.CollapsingToolbarLayout
+<com.google.android.material.appbar.CollapsingToolbarLayout
     android:id="@+id/collapsing_toolbar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -250,7 +250,7 @@ To create this effect, we add an ImageView and declare an `app:layout_collapseMo
     app:expandedTitleMarginStart="48dp"
     app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <android.support.v7.widget.Toolbar
+            <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
@@ -264,7 +264,7 @@ To create this effect, we add an ImageView and declare an `app:layout_collapseMo
                 app:layout_collapseMode="parallax"
                 android:minHeight="100dp" />
 
-</android.support.design.widget.CollapsingToolbarLayout>
+</com.google.android.material.appbar.CollapsingToolbarLayout>
 ```
 
 ## Bottom Sheets
@@ -280,7 +280,7 @@ There are two ways you can create persistent modal sheets.  The first way is to 
 ```xml
 <CoordinatorLayout>
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/design_bottom_sheet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -439,8 +439,8 @@ In addition to the official bottom sheet within the design support library, ther
 
 The following represent the most common alternatives and related samples:
 
-* [AndroidSlidingUpPanel](https://github.com/umano/AndroidSlidingUpPanel) - A widely popular third-party approach to a bottom sheet that should be considered as an alternative to the official approach. 
-* [Flipboard/bottomsheet](https://github.com/Flipboard/bottomsheet) - Another very popular alternative to the official bottom sheet that was widely in use before the official solution was released. 
+* [AndroidSlidingUpPanel](https://github.com/soarcn/BottomSheet) - A third-party approach to a bottom sheet that can be considered as an alternative to the official approach. Supports AndroidX.
+* [Flipboard/bottomsheet](https://github.com/Flipboard/bottomsheet) - Another very popular alternative to the official bottom sheet that was widely in use before the official solution was released. **Note** this library doesn't support AndroidX and relies on old Support Library. 
 * [ThreePhasesBottomSheet](https://github.com/AndroidDeveloperLB/ThreePhasesBottomSheet) - Sample code leveraging third-party libraries to create a multi-phase bottom sheet. 
 * [Foursquare BottomSheet Tutorial](http://android.amberfog.com/?p=915) - Outlines how to use third-party bottom sheets to achieve the effect used within an older version of Foursquare. 
 
@@ -474,14 +474,14 @@ To define your own a CoordinatorLayout Behavior, the layoutDependsOn() and onDep
 
    public boolean onDependentViewChanged(CoordinatorLayout parent, View child, View dependency) {
             // check the behavior triggered
-            android.support.design.widget.CoordinatorLayout.Behavior behavior = ((android.support.design.widget.CoordinatorLayout.LayoutParams)dependency.getLayoutParams()).getBehavior();
+            androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior behavior = ((androidx.coordinatorlayout.widget.CoordinatorLayout.LayoutParams)dependency.getLayoutParams()).getBehavior();
             if(behavior instanceof AppBarLayout.Behavior) {
             // do stuff here
             }
    }       
 ```
 
-The best way to understand how to implement these custom behaviors is by studying the [AppBarLayout.Behavior](https://github.com/android/platform_frameworks_support/blob/master/design/src/android/support/design/widget/AppBarLayout.java#L738) and [FloatingActionButtion.Behavior](https://android.googlesource.com/platform/frameworks/support/+/master/design/src/android/support/design/widget/FloatingActionButton.java#L554) examples. 
+The best way to understand how to implement these custom behaviors is by studying the [AppBarLayout.Behavior](https://github.com/material-components/material-components-android/blob/master/lib/java/com/google/android/material/appbar/AppBarLayout.java#L1174) and [FloatingActionButtion.Behavior](https://github.com/material-components/material-components-android/blob/master/lib/java/com/google/android/material/floatingactionbutton/FloatingActionButton.java#L933) sources. 
 
 ## Third-Party Scrolling and Parallax
 
