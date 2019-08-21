@@ -269,7 +269,7 @@ To create this effect, we add an ImageView and declare an `app:layout_collapseMo
 
 ## Bottom Sheets
 
-Bottom Sheets are now supported in `v23.2` of the support design library.  There are two types of bottom sheets supported: [persistent](https://www.google.com/design/spec/components/bottom-sheets.html#bottom-sheets-persistent-bottom-sheets) and [modal](https://www.google.com/design/spec/components/bottom-sheets.html#bottom-sheets-modal-bottom-sheets).   Persistent bottom sheets show in-app content, while modal sheets expose menus or simple dialogs.
+Bottom Sheets are supported natively in AndroidX.  There are two types of bottom sheets supported: [persistent](https://www.google.com/design/spec/components/bottom-sheets.html#bottom-sheets-persistent-bottom-sheets) and [modal](https://www.google.com/design/spec/components/bottom-sheets.html#bottom-sheets-modal-bottom-sheets).   Persistent bottom sheets show in-app content, while modal sheets expose menus or simple dialogs.
 
 <img src="https://imgur.com/3hCTnnC.png">
 
