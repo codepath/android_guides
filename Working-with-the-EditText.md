@@ -162,7 +162,7 @@ Traditionally, the `EditText` hides the `hint` message (explained above) after t
 Starting with Android M and the [[design support library|Design-Support-Library]], the `TextInputLayout` can be used to setup a floating label to display hints and error messages. First, wrap the `EditText` in a `TextInputLayout`:
 
 ```xml
-<android.support.design.widget.TextInputLayout
+<com.google.android.material.textfield.TextInputLayout
     android:id="@+id/username_text_input_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -176,7 +176,7 @@ Starting with Android M and the [[design support library|Design-Support-Library]
         android:ems="10"
         android:hint="Username" />
 
-</android.support.design.widget.TextInputLayout>
+</com.google.android.material.textfield.TextInputLayout>
 ```
 
 Now the hint will automatically begin to float once the `EditText` takes focus as shown below:
@@ -217,14 +217,14 @@ Here we use the `addTextChangedListener` to watch as the value changes to determ
 
 ### Adding Character Counting
 
-`TextInputLayout` since the [announcement of support design library v23.1](http://android-developers.blogspot.com/2015/10/android-support-library-231.html?linkId=17977963) also can expose a character counter for an `EditText` defined within it.  The counter will be rendered below the `EditText` and can change colors of both the line and character counter if the maximum number of characters has been exceeded:
+`TextInputLayout` can expose a character counter for an `EditText` defined within it.  The counter will be rendered below the `EditText` and can change colors of both the line and character counter if the maximum number of characters has been exceeded:
 
 <img src="https://imgur.com/eEYwIO3.png"/>
 
 The `TextInputLayout` simply needs to define `app:counterEnabled` and `app:CounterMaxLength` in the XML attributes.  These settings can also be defined dynamically through `setCounterEnabled()` and `setCounterMaxLength()`:
 
 ```xml
-<android.support.design.widget.TextInputLayout
+<com.google.android.material.textfield.TextInputLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:counterEnabled="true"
@@ -239,19 +239,17 @@ The `TextInputLayout` simply needs to define `app:counterEnabled` and `app:Count
        android:layout_centerVertical="true"
        android:ems="10"
        android:hint="Username" />
-</android.support.design.widget.TextInputLayout>
+</com.google.android.material.textfield.TextInputLayout>
 ```
 
 ### Adding Password Visibility Toggles
 
-**NOTE**: You must have support library 24.2.0 or higher to use this feature.  
-
 <img src="https://imgur.com/33oQgLr.png"/>
 
-If you use an `EditText` with an input password type, you can also enable an icon that can show or hide the entire text using the `passwordToggleEnabled` attribute.    You can also change the default eye icon with  `passwordToggleDrawable` attribute or the color hint using the `passwordToggleTint` attribute.  See the `TextInputLayout` [attributes](https://developer.android.com/reference/android/support/design/widget/TextInputLayout.html#attr_android.support.design:passwordToggleTintMode) for more details.
+If you use an `EditText` with an input password type, you can also enable an icon that can show or hide the entire text using the `passwordToggleEnabled` attribute.    You can also change the default eye icon with  `passwordToggleDrawable` attribute or the color hint using the `passwordToggleTint` attribute.  See the `TextInputLayout` [attributes](https://developer.android.com/reference/com/google/android/material/textfield/TextInputLayout.html#textinputlayout_passwordtoggletintmode) for more details.
 
 ```xml
-<android.support.design.widget.TextInputLayout
+<com.google.android.material.textfield.TextInputLayout
         android:id="@+id/username_text_input_layout"
         app:passwordToggleEnabled="true"
         android:layout_width="match_parent"
@@ -267,7 +265,7 @@ If you use an `EditText` with an input password type, you can also enable an ico
             android:inputType="textPassword"
             android:hint="Username" />
 
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 ```
 
 ### Styling TextInputLayout
