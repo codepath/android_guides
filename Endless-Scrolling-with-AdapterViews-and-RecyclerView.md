@@ -12,7 +12,9 @@ In both cases, the information needed to implement the scrolling include determi
 
 To provide the appearance of endless scrolling, it's important to fetch data before the user gets to the end of the list.  Adding a threshold value therefore helps anticipate the need to append more data. 
 
-## Implementing with ListView or GridView
+## Implementing with ListView or GridView (deprecated)
+
+See [Implementing with RecyclerView](https://guides.codepath.org/android/Endless-Scrolling-with-AdapterViews-and-RecyclerView#implementing-with-recyclerview) section for the most recent and relevant instructions.
 
 Every `AdapterView` (such as `ListView` and `GridView`) has support for binding to the `OnScrollListener` events which are triggered whenever a user scrolls through the collection. Using this system, we can define a basic `EndlessScrollListener` which supports most use cases by creating our own class that extends `OnScrollListener`:
 
