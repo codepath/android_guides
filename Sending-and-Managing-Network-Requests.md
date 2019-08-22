@@ -4,7 +4,7 @@ Network requests are used to retrieve or modify API data or media from a server.
 
 The underlying Java class used for network connections is [DefaultHTTPClient](http://developer.android.com/reference/org/apache/http/impl/client/DefaultHttpClient.html) or [HttpUrlConnection](http://developer.android.com/reference/java/net/HttpURLConnection.html).  Both of these are lower-level and require completely manual management of parsing the data from the input stream and executing the request asynchronously.  DefaultHTTPClient, otherwise known as the Apache HTTP Client, has been [deprecated] (https://developer.android.com/about/versions/marshmallow/android-6.0-changes.html#behavior-apache-http-client) since Android 6.0.  The reason for two different HTTP clients is described in this [blog article](http://android-developers.blogspot.com/2011/09/androids-http-clients.html).  A historical perspective is also discussed in [this podcast](http://fragmentedpodcast.com/2016/06/).
 
-For most common cases, we are better off using a popular third-party library called [android-async-http](http://loopj.com/android-async-http/) or [OkHttp](http://square.github.io/okhttp/) which will handle the entire process of sending and parsing network requests for us in a more robust and easy-to-use way.
+For most common cases, we are better off using lightweight library called [AsyncHttpClient](https://github.com/codepath/AsyncHttpClient) or [OkHttp](http://square.github.io/okhttp/) which will handle the entire process of sending and parsing network requests for us in a more robust and easy-to-use way.
 
 ### Permissions
 
@@ -36,7 +36,7 @@ NOTE: Insecure HTTP requests (i.e. `http://`) are no longer permitted as of Andr
 
 There are at least three major third-party networking libraries you should consider using.  
 
-* See the [[Android Async Http Client guide|Using-Android-Async-Http-Client]] for making basic network calls.  It is the library often used for learning Android but would not be used in a production application.
+* See the [[Android Async Http Client guide|Using-CodePath-Async-Http-Client]] for making basic network calls.  It is the library often used for learning Android but would not be used in a production application.
 
 * See the [[OkHttp guide|Using-OkHttp]] for making synchronous and asynchronous calls.  
     - See also the [[Retrofit guide|Consuming-APIs-with-Retrofit]], which uses OkHttp and makes it easier to make more RESTful API calls.  Read through [[this guide|Leveraging-the-Gson-Library]] to understand how the Gson library works with Retrofit.
@@ -49,19 +49,19 @@ Here is a comparison of the different aspects of the libraries.
 
 |                 |Android Async Http | OkHttp | Volley |
 | ----------------     |--------- |:------:| ------:|
-| Debugging            | Requires Proxy server | Use LogInterceptor | Use verbose mode |
+| Debugging            | Use Stetho | Use LogInterceptor | Use verbose mode |
 | Disk Caching              | Yes       | Yes  | Yes  |
 | Request Queueing        | No | No | Included |
 | Remote Image Fetching| Manual   | Requires Picasso or Glide | Included  |
 | Animated GIF Support | No | Requires Glide | Requires Glide |
-| Release Cadence  | Infrequent | Monthly | Infrequent | 
-| Transport Layer | Apache HTTP Client | OkHttp | HttpUrlConnection (or OkHttp)|
-| Synchronous Calls    | use SyncHttpClient |  execute() instead of enqueue() | use RequestFuture |
-| HTTP/2 | No | Yes | Works with OkHttp |
+| Release Cadence  | Monthly | Monthly | Infrequent | 
+| Transport Layer | OkHttp | OkHttp | HttpUrlConnection (or OkHttp)|
+| Synchronous Calls    | N/A |  execute() instead of enqueue() | use RequestFuture |
+| HTTP/2 | Yes | Yes | Works with OkHttp |
 | Automatic Gzip processing | Yes | Yes | No (unless using OkHttp) |
-| Author     | James Smith | Square | Google | 
+| Author     | Roger Hu | Square | Google | 
 
-One issue with Android Async Http Client is that the library has very limited ways to observe network traces that are useful for debugging.   Volley provides remote fetching images out of the box, while Android Async Http client requires more manual work and OkHttp needs the [[Picasso|Displaying-Images-with-the-Picasso-Library]] or [[Glide|Displaying-Images-with-the-Picasso-Library]] library in order to do so.
+One hint with Android Async Http Client is that the library enables [Stetho](https://github.com/facebook/stetho) to observe network traces that are useful for debugging.   Volley provides remote fetching images out of the box, while Android Async Http client requires more manual work and OkHttp needs the [[Picasso|Displaying-Images-with-the-Picasso-Library]] or [[Glide|Displaying-Images-with-the-Picasso-Library]] library in order to do so.
 
 Another important point is that OkHttp is not only a standalone networking library but also can be used for the [underlying implementation for HttpUrlConnection](https://android.googlesource.com/platform/external/okhttp/+/master/okhttp-urlconnection/src/main/java/com/squareup/okhttp/internal/huc/HttpURLConnectionImpl.java).  For this reason, Volley can also leverage OkHttp to support automatic Gzip and HTTP/2 processing.
 
@@ -259,7 +259,7 @@ Take a look at [[Troubleshooting API Calls]] to understand how to gain better vi
 
 ## References
 
- * <http://loopj.com/android-async-http/>
+ * <https://github.com/codepath/AsyncHttpClient>
  * <http://developer.android.com/reference/java/net/HttpURLConnection.html>
  * <https://github.com/codepath/android-rest-client-template>
  * <http://developer.android.com/training/displaying-bitmaps/process-bitmap.html#concurrency>
