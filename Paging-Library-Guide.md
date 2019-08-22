@@ -18,7 +18,7 @@ Next, add the Paging library to your `app/build.gradle`:
 
 ```gradle
 dependencies {
-     implementation "android.arch.paging:runtime:1.0.1"
+     implementation "androidx.paging:paging-runtime:2.1.0"
 }
 ```
 
@@ -68,7 +68,7 @@ override fun onBindViewHolder(holder: PostAdapter.ViewHolder, position: Int) {
 
 ### Add a data source
 
-The next step is to define our data sources.  If you are already making existing network or database calls somewhere else, you most likely will need to move this code into a data source.   You will also need to first pick what kind of [data source](https://developer.android.com/reference/android/arch/paging/DataSource) to use:
+The next step is to define our data sources.  If you are already making existing network or database calls somewhere else, you most likely will need to move this code into a data source.   You will also need to first pick what kind of [data source](https://developer.android.com/reference/androidx/paging/DataSource) to use:
 
   * **ItemKeyedDataSource** - provides some type of key to use to fetch the next data size and unknown list size (see Twitter example below)
   * **PageKeyedDataSource** - provides a next/before link and has unknown list size (example: Facebook Graph API)
