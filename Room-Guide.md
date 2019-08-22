@@ -23,13 +23,13 @@ Next, within your `app/build.gradle`, add Room to your dependency list.  We crea
 
 ```gradle
 ext {
-   roomVersion = "1.1.1"
+   roomVersion = "2.1.0"
 }
 
 dependencies {
   // Room for simple persistence with an ORM
-  implementation "android.arch.persistence.room:runtime:$roomVersion"
-  annotationProcessor "android.arch.persistence.room:compiler:$roomVersion"  
+  implementation "androidx.room:room-runtime:$roomVersion"
+  annotationProcessor "androidx.room:room-compiler:$roomVersion"  
 }
 ```
 
@@ -58,7 +58,7 @@ android {
 Annotate your models with `@Entity`:
 
 ```java
-import android.arch.persistence.room.Entity;
+import androidx.room.Entity;
 
 @Entity
 public class Organization {
@@ -69,9 +69,9 @@ public class Organization {
 Next, we need to add annotations for each of the fields within our model class that will map to columns in the database table:
 
 ```java
-import android.arch.persistence.room.ColumnInfo;
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 @Entity
 public class Organization {
