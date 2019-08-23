@@ -1,6 +1,13 @@
 ## Overview
 
-CodePath built a [simple lightweight library](https://github.com/codepath/AsyncHttpClient) to make it easy to send and parse network requests. 
+CodePath built a [simple lightweight library](https://github.com/codepath/AsyncHttpClient) to make it easy to send and parse network requests.  The goal of this library is to have an API that clearly and cleanly supports the following features:
+
+ * Asynchronous network requests without any need for manual thread handling
+ * Response `onSuccess` callbacks run on the mainthread (by default)
+ * Easy way to catch all errors and failures and handle them
+ * Easy pluggable Text, JSON, and Bitmap response handlers to parse the response
+ 
+This client tries to follow a similar API inspired by this [older now deprecated android-async-http library](https://github.com/android-async-http/android-async-http).
 
 ### Setup
 
