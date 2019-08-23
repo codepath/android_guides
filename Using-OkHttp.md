@@ -20,7 +20,7 @@ Simply add this line to your `app/build.gradle` file:
 
 ```gradle
 dependencies {
-  implementation 'com.squareup.okhttp3:okhttp:3.11.0'
+  implementation 'com.squareup.okhttp3:okhttp:4.1.0'
 }
 ```
 
