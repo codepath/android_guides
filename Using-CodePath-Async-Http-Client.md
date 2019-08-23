@@ -75,6 +75,7 @@ Assuming the callback uses `JsonHttpResponseHandler`, the request will be sent o
 
 The `JSON` returned can be either an Array or an Object, and you can access them with `.jsonArray` and `.jsonObject` respectively depending on the root JSON content of the response. Check the [[Converting JSON to Models]] guide for more details on parsing a JSON response manually.
 
+
 #### Sending an Authenticated API Request
 
 API requests tend to be JSON or XML responses that are sent to a server and then the result needs to be parsed and processed as data models on the client. In addition, many API requests require authentication in order to identify the user making the request. This is typically done with a standard [OAuth](http://oauth.net/2/) process for authentication.
@@ -97,10 +98,15 @@ client.getHomeTimeline(1, new JsonHttpResponseHandler() {
         // json.jsonObject.getLong("id");
         // Here we want to process the json data into Java models.
     }
+ 
 
-  public void onFailure(int statusCode, Headers headers, String responseString, Throwable t)  {
+   public void onFailure(int statusCode, Headers headers, String responseString, Throwable t)  {
     // Handle the failure and alert the user to retry
     Log.e("ERROR", e.toString());
   }
 });
 ```
+
+### Advanced Usage
+
+This library also exposes the ability to send multipart forms and receive images by the examples shown [here](https://github.com/codepath/AsyncHttpClient/blob/master/example/src/main/java/com/codepath/example/TestActivity.java).  
