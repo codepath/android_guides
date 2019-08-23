@@ -91,7 +91,7 @@ client.getHomeTimeline(1, new JsonHttpResponseHandler() {
         // Here we want to process the json data into Java models.
     }
 
-  public void onFailure(int statusCode, Header[] headers, Throwable t, JSONObject e)  {
+  public void onFailure(int statusCode, Headers headers, String responseString, Throwable t)  {
     // Handle the failure and alert the user to retry
     Log.e("ERROR", e.toString());
   }
