@@ -292,7 +292,7 @@ public void fetchMovies(int videoId) {
     String url = "https://api.themoviedb.org/3/movie" + movie_id + "/videos?api_key=" + KEY;
     client.get(url, new JsonHttpResponseHandler(){
         @Override
-        public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+        public void onSuccess(int statusCode, Headers headers, JSON response) {
             JSONArray movieJsonResults = null;
             try {
                 movieJsonResults = response.getJSONArray("results");
@@ -327,7 +327,7 @@ We can use the logger by adding two lines to the code: one at the top before the
 Log.e("VIDEOS", "HELLO"); // <------------ LOGGING
 client.get(url, new JsonHttpResponseHandler(){
     @Override
-    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+    public void onSuccess(int statusCode, Headers headers, JSON response) {
         JSONArray movieJsonResults = null;
         try {
             // LOG the entire JSON response string below
