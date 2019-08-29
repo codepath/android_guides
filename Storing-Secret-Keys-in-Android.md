@@ -69,7 +69,7 @@ String consumerKey = BuildConfig.CONSUMER_KEY;
 String consumerSecret = BuildConfig.CONSUMER_SECRET;
 ```
 
-Now you have access to as many secret values as you need within your app, but will avoid checking in the actual values into your git repository. To read more about this approach, check out [this article](https://medium.com/@geocohn/keeping-your-android-projects-secrets-secret-393b8855765d)
+Now you have access to as many secret values as you need within your app, but will avoid checking in the actual values into your git repository. To read more about this approach, check out [this article](https://medium.com/@geocohn/keeping-your-android-projects-secrets-secret-393b8855765d) or [this other article](http://www.rainbowbreeze.it/environmental-variables-api-key-and-secret-buildconfig-and-android-studio/).
 
 ### Secrets in Resource Files
 
