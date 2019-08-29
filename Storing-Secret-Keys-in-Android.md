@@ -18,18 +18,18 @@ You can also specify which files to avoid backups too by reviewing this [doc](ht
 
 For storing fixed API keys, the following common strategies exist for storing secrets in your source code:
 
+ * [[Hidden in BuildConfigs|Storing-Secret-Keys-in-Android#hidden-in-buildconfigs]]
  * [[Embedded in resource file|Storing-Secret-Keys-in-Android#secrets-in-resource-files]]
- * Hidden as constants in source code
- * [Hidden in BuildConfigs](http://www.rainbowbreeze.it/environmental-variables-api-key-and-secret-buildconfig-and-android-studio/)
  * [[Obfuscating with Proguard|Configuring-ProGuard]]
  * [Disguised or Encrypted Strings](https://developer.android.com/training/articles/keystore.html)
  * Hidden in Native Libraries with NDK
+ * Hidden as constants in source code
 
 The simplest approach for storing secrets in to keep them as resource files that are simply not checked into source control.   The approaches below two ways of accomplishing the same goal.
 
 ### Hidden in BuildConfigs
 
-Add to `apikey.properties` in your root directory:
+First, create a file `apikey.properties` in your root directory with the values for different secret keys:
 
 ```
 CONSUMER_KEY=XXXXXXXXXXX
@@ -60,6 +60,15 @@ android {
   }
 }
 ```
+
+You can now access these two fields anywhere within your source code with the `BuildConfig` object provided by Gradle:
+
+```java
+BuildConfig.CONSUMER_KEY
+BuildConfig.CONSUMER_SECRET
+```
+
+Now you have access to as many secret values as you need within your app, but will avoid checking in the actual values into your git repository. To read more about this approach, check out [this article](https://medium.com/@geocohn/keeping-your-android-projects-secrets-secret-393b8855765d)
 
 ### Secrets in Resource Files
 
