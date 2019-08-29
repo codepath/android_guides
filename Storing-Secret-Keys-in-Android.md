@@ -64,8 +64,9 @@ android {
 You can now access these two fields anywhere within your source code with the `BuildConfig` object provided by Gradle:
 
 ```java
-BuildConfig.CONSUMER_KEY
-BuildConfig.CONSUMER_SECRET
+// inside of any of your application's code
+String consumerKey = BuildConfig.CONSUMER_KEY;
+String consumerSecret = BuildConfig.CONSUMER_SECRET;
 ```
 
 Now you have access to as many secret values as you need within your app, but will avoid checking in the actual values into your git repository. To read more about this approach, check out [this article](https://medium.com/@geocohn/keeping-your-android-projects-secrets-secret-393b8855765d)
