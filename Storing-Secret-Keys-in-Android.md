@@ -25,6 +25,8 @@ For storing fixed API keys, the following common strategies exist for storing se
  * [Disguised or Encrypted Strings](https://developer.android.com/training/articles/keystore.html)
  * Hidden in Native Libraries with NDK
 
+The simplest approach for storing secrets in to keep them as resource files that are simply not checked into source control.   The approaches below two ways of accomplishing the same goal.
+
 ### Hidden in BuildConfigs
 
 Add to `apikey.properties` in your root directory:
@@ -61,7 +63,7 @@ android {
 
 ### Secrets in Resource Files
 
-The simplest approach for storing secrets in to keep them as resource files that are simply not checked into source control. Start by creating a resource file for your secrets called `res/values/secrets.xml` with a string pair per secret value:
+Start by creating a resource file for your secrets called `res/values/secrets.xml` with a string pair per secret value:
 
 ```xml
 <!-- Inside of `res/values/secrets.xml` -->
