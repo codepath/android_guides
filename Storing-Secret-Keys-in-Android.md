@@ -14,16 +14,6 @@ The alternative is to disable backups by setting `android:allowBackup` in your `
 
 You can also specify which files to avoid backups too by reviewing this [doc](https://developer.android.com/guide/topics/data/autobackup.html#Files).
 
-### Using the Android Keystore API
-
-To understand the Android Keystore API, you must first understand that encrypting secrets requires both public key and symmetric cryptography.  In public key cryptography, data can be encrypted with one key and decrypted with the other key.  In symmetric cryptography, the same key is used to encrypt and decrypt the data.   The Keystore API uses both types of cryptography in order to safeguard secrets.
-
-A public/private key RSA pair is generated, which is stored in the Android device's keystore and protected usually by the device PIN.  An AES-based symmetric key is also generated, which is used to encrypt and decrypt the secrets.  The app needs to store this AES symmetric key to later decode, so it is encrypted by the RSA public key first before persisted.  When the app runs, it gives this encrypted AES key to the Keystore API, which will decode the data using its private RSA key.  In this way, data cannot be decoded without the use of the device keystore.
-
-Read this [Medium blog](https://medium.com/@ericfu/securely-storing-secrets-in-an-android-application-501f030ae5a3) for more information about how to use the Keystore API.   Do not use the [Qlassified Android](https://github.com/Q42/Qlassified-Android) library because it introduces an additional 20K methods to your Android program.  You can use the [Android Vault](https://github.com/BottleRocketStudios/Android-Vault/tree/master/AndroidVault/vault/src/androidTest/java/com/bottlerocketstudios/vault) library, which will also help facilitate the rotation of RSA keys, which usually have an expiration date of 1-5 years.
-
-See also the [official Google sample](https://github.com/googlesamples/android-BasicAndroidKeyStore) for using the Android Keystore.
-
 ### Storing Fixed Keys
 
 For storing fixed API keys, the following common strategies exist for storing secrets in your source code:
@@ -40,6 +30,16 @@ However, **none of these strategies will ensure the protection of your keys** an
 If you do have to consider a hiding scheme, you should do so with the realization that you can only make the reverse engineering process harder and may add significant complication to the development, testing, and maintenance of your app in doing so. Check out [this excellent StackOverflow post](https://stackoverflow.com/a/14572051/313399) for a detailed breakdown of the obfuscation options available.
 
 The simplest and most straightforward approach is outlined below which is to **store your secrets within a resource file**. Keep in mind that most of the other more complex approaches above are at best only marginally more secure.
+
+### Using the Android Keystore API
+
+To understand the Android Keystore API, you must first understand that encrypting secrets requires both public key and symmetric cryptography.  In public key cryptography, data can be encrypted with one key and decrypted with the other key.  In symmetric cryptography, the same key is used to encrypt and decrypt the data.   The Keystore API uses both types of cryptography in order to safeguard secrets.
+
+A public/private key RSA pair is generated, which is stored in the Android device's keystore and protected usually by the device PIN.  An AES-based symmetric key is also generated, which is used to encrypt and decrypt the secrets.  The app needs to store this AES symmetric key to later decode, so it is encrypted by the RSA public key first before persisted.  When the app runs, it gives this encrypted AES key to the Keystore API, which will decode the data using its private RSA key.  In this way, data cannot be decoded without the use of the device keystore.
+
+Read this [Medium blog](https://medium.com/@ericfu/securely-storing-secrets-in-an-android-application-501f030ae5a3) for more information about how to use the Keystore API.   Do not use the [Qlassified Android](https://github.com/Q42/Qlassified-Android) library because it introduces an additional 20K methods to your Android program.  You can use the [Android Vault](https://github.com/BottleRocketStudios/Android-Vault/tree/master/AndroidVault/vault/src/androidTest/java/com/bottlerocketstudios/vault) library, which will also help facilitate the rotation of RSA keys, which usually have an expiration date of 1-5 years.
+
+See also the [official Google sample](https://github.com/googlesamples/android-BasicAndroidKeyStore) for using the Android Keystore.
 
 ## Secrets in Resource Files
 
