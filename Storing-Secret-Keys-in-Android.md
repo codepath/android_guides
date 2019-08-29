@@ -25,6 +25,40 @@ For storing fixed API keys, the following common strategies exist for storing se
  * [Disguised or Encrypted Strings](https://developer.android.com/training/articles/keystore.html)
  * Hidden in Native Libraries with NDK
 
+### Hidden in BuildConfigs
+
+Add to `apikey.properties` in your root directory:
+
+```
+CONSUMER_KEY=XXXXXXXXXXX
+CONSUMER_SECRET=XXXXXXX
+```
+
+To avoid these keys showing up in your repository, make sure to exclude the file from being checked in by adding to your `.gitignore` file:
+
+```
+apikey.properties
+```
+
+Next, add this section to read from this file in your `app/build.gradle` file.  You'll also create compile-time options that will be generated from this file by using the `buildConfigField` definition:
+
+```gradle
+
+def apikeyPropertiesFile = rootProject.file("apikey.properties")
+def apikeyProperties = new Properties()
+apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
+ 
+android {
+
+  defaultConfig {
+     
+     // should correspond to key/value pairs inside the file   
+    buildConfigField("String", "CONSUMER_KEY", apikeyProperties['CONSUMER_KEY'])
+    buildConfigField("String", "CONSUMER_SECRET", apikeyProperties['CONSUMER_SECRET'])
+  }
+}
+```
+
 However, **none of these strategies will ensure the protection of your keys** and [your secrets aren't safe](https://rammic.github.io/2015/07/28/hiding-secrets-in-android-apps/). The best way to protect secrets is to never reveal them in the code in the first place. Compartmentalizing sensitive information and operations on your own backend server/service should always be your first choice. 
 
 If you do have to consider a hiding scheme, you should do so with the realization that you can only make the reverse engineering process harder and may add significant complication to the development, testing, and maintenance of your app in doing so. Check out [this excellent StackOverflow post](https://stackoverflow.com/a/14572051/313399) for a detailed breakdown of the obfuscation options available.
