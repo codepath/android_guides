@@ -245,6 +245,7 @@ If you want your Dialogs to have a Material look and feel across all Android ver
 
 ## References
 
+* <https://medium.com/mindorks/upgrading-to-material-components-ebc21ac4e95a>
 * <http://android-developers.blogspot.ca/2014/10/material-design-on-android-checklist.html>
 * <http://www.google.com/design/spec/material-design/introduction.html>
 * <http://code.hootsuite.com/tips-and-tricks-for-android-material-support-library/>
