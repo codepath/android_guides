@@ -1,5 +1,5 @@
 In [[Common Navigation Paradigms]] cliffnotes, we discuss the various navigational structures available within Android apps. One of the most flexible is the [Navigation Drawer](http://developer.android.com/training/implementing-navigation/nav-drawer.html).  During the I/O Conference 2015, Google
-released [NavigationView](https://developer.android.com/reference/android/support/design/widget/NavigationView.html), which makes it far easier to create it than the [previously documented instructions](http://developer.android.com/training/implementing-navigation/nav-drawer.html#top).
+released [NavigationView](https://developer.android.com/reference/com/google/android/material/navigation/NavigationView.html), which makes it far easier to create it than the [previously documented instructions](http://developer.android.com/training/implementing-navigation/nav-drawer.html#top).
 
 With the release of Android 5.0 Lollipop, the new material design style navigation drawer spans the full height of the screen and is displayed over the `ActionBar` and overlaps the translucent `StatusBar`. Read the [material design style navigation drawer](http://www.google.com/design/spec/patterns/navigation-drawer.html) document for specs on styling your navigation drawer.
 
@@ -11,13 +11,13 @@ This guide explains how to setup a basic material design style drawer filled wit
 
 ### Setup
 
-Make sure to setup the Google [[Design Support Library]] before using Google's new [NavigationView](https://developer.android.com/reference/android/support/design/widget/NavigationView.html), announced as part of the Android M release.  The NavigationView should be backwards compatible with all versions down to Android 2.1.
+Make sure to setup the Google [[Design Support Library]] before using Google's new [NavigationView](https://developer.android.com/reference/com/google/android/material/navigation/NavigationView.html), announced as part of the Android M release.  The NavigationView should be backwards compatible with all versions down to Android 2.1.
 
 Make sure you have this Gradle dependency added to your `app/build.gradle` file:
 
 ```gradle
 dependencies {
-  implementation 'com.android.support:design:27.1.1'
+  implementation 'com.google.android.material:material:1.0.0'
 }
 ```
 
@@ -84,12 +84,12 @@ Next, you need to define your fragments that will be displayed within the activi
 
 ### Setup Toolbar
 
-In order to slide our navigation drawer over the ActionBar, we need to use the new [[Toolbar|Using-the-App-ToolBar]] widget as defined in the AppCompat v21 library. The `Toolbar` can be embedded into your view hierarchy which makes sure that the drawer slides over the `ActionBar`.
+In order to slide our navigation drawer over the ActionBar, we need to use the new [[Toolbar|Using-the-App-ToolBar]] widget as defined in the AndroidX library. The `Toolbar` can be embedded into your view hierarchy which makes sure that the drawer slides over the `ActionBar`.
 
 Create a new layout file `res/layout/toolbar.xml` with the following code:
 
 ```xml
-<android.support.v7.widget.Toolbar
+<androidx.appcompat.widget.Toolbar
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/toolbar"
@@ -99,7 +99,7 @@ Create a new layout file `res/layout/toolbar.xml` with the following code:
     android:minHeight="?attr/actionBarSize"
     app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
     android:background="?attr/colorPrimaryDark">
-</android.support.v7.widget.Toolbar>
+</androidx.appcompat.widget.Toolbar>
 ```
 
 Note that when the `android:fitsSystemWindows` attribute is set to true for a view, the view would be laid out as if the `StatusBar` and the `ActionBar` were present i.e. the UI on top gets padding enough to not be obscured by the navigation bar.  Without this attribute, there is not enough padding factored into consideration for the `ToolBar`:
@@ -132,7 +132,7 @@ Next, let's setup a basic navigation drawer based on the following layout file w
 
 ```xml
 <!-- This DrawerLayout has two children at the root  -->
-<android.support.v4.widget.DrawerLayout
+<androidx.drawerlayout.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_layout"
@@ -161,14 +161,14 @@ Next, let's setup a basic navigation drawer based on the following layout file w
 
     <!-- The navigation drawer that comes from the left -->
     <!-- Note that `android:layout_gravity` needs to be set to 'start' -->
-    <android.support.design.widget.NavigationView
+    <com.google.android.material.navigation.NavigationView
         android:id="@+id/nvView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="@android:color/white"
         app:menu="@menu/drawer_view" />
-</android.support.v4.widget.DrawerLayout>
+</androidx.drawerlayout.widget.DrawerLayout>
 ```
 
 Now, let's setup the drawer in our activity.  We can also setup the menu icon too.
@@ -311,11 +311,11 @@ You would then reference this in the layout `res/layout/activity_main.xml` in th
 <!-- res/layout/activity_main.xml -->
 
  <!-- The navigation drawer -->
-    <android.support.design.widget.NavigationView
+    <com.google.android.material.navigation.NavigationView
         ...
         app:headerLayout="@layout/nav_header">
 
-    </android.support.design.widget.NavigationView>
+    </com.google.android.material.navigation.NavigationView>
 ```
 
 This `app:headerLayout` inflates the specified layout into the header automatically. This can alternatively be done at runtime with:
@@ -346,7 +346,7 @@ View headerLayout = navigationView.getHeaderView(0);
 
 <img src="https://imgur.com/ekmWl7q.gif"/>
 
-In order for the hamburger icon to animate to indicate the drawer is being opened and closed, we need to use the [ActionBarDrawerToggle](https://developer.android.com/reference/android/support/v7/app/ActionBarDrawerToggle.html) class.
+In order for the hamburger icon to animate to indicate the drawer is being opened and closed, we need to use the [ActionBarDrawerToggle](https://developer.android.com/reference/androidx/appcompat/app/ActionBarDrawerToggle.html) class.
 
 In your `res/values/strings.xml` add the following:
 
@@ -362,16 +362,16 @@ We need to tie the DrawerLayout and Toolbar together:
 
 ```java
   protected void onCreate(Bundle savedInstanceState) { 
-	// Set a Toolbar to replace the ActionBar.
-		toolbar = (Toolbar) findViewById(R.id.toolbar);
-		setSupportActionBar(toolbar);
+    // Set a Toolbar to replace the ActionBar.
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-		// Find our drawer view
-		mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-		drawerToggle = setupDrawerToggle();
+        // Find our drawer view
+        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerToggle = setupDrawerToggle();
 
-		// Tie DrawerLayout events to the ActionBarToggle
-		mDrawer.addDrawerListener(drawerToggle);
+        // Tie DrawerLayout events to the ActionBarToggle
+        mDrawer.addDrawerListener(drawerToggle);
    }
 
    private ActionBarDrawerToggle setupDrawerToggle() {
@@ -420,13 +420,15 @@ The ActionBarToggle will perform the same function done previously but adds a bi
 One thing to note is that the ActionBarDrawerToggle renders a custom [DrawerArrowDrawable](
 https://github.com/android/platform_frameworks_support/blob/master/v7/appcompat/src/android/support/v7/graphics/drawable/DrawerArrowDrawable.java) for you for the hamburger icon.
 
-Also, make sure to be using `android.support.v7.app.ActionBarDrawerToggle` version.  The `android.support.v4.app.ActionBarDrawerToggle` has been deprecated.
+Also, make sure to be using `androidx.appcompat.app.ActionBarDrawerToggle` version.
 
 ## Making Status Bar Translucent
 
 <img src="https://imgur.com/o4WvT3k.gif"/>
 
 To have the status bar translucent and have our drawer slide over it, we need to set `android:windowTranslucentStatus` to true. Because this style is not available for pre Kitkat devices, we'll add  `res/values-v19/styles.xml` file for API version 19 and onwards.  **Note**: If you modify your `res/values/styles.xml` directly with this `android:windowTranslucentStatus` line, you are likely to need to build only for SDK versions 19 or higher, which will obviously limit you from supporting many older devices.
+
+**Note** many apps and developers switched to use minSdkVersion=21. It covers \~85% of Android devices worldwide as of 2019.
 
 In `res/values-v19/styles.xml` we can add the following:
 
@@ -456,7 +458,7 @@ The approach is the same as adding [[ActionView items|Extended-ActionBar-Guide#a
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.SwitchCompat
+    <androidx.appcompat.widget.SwitchCompat
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:text="Switch"/>
@@ -526,7 +528,7 @@ Although many navigation drawer examples show how fragments can be used with the
 Instead of `<FrameLayout>` you can substitute that for a `<LinearLayout>`
 
 ```xml
-<android.support.v4.widget.DrawerLayout
+<androidx.drawerlayout.widget.DrawerLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -548,7 +550,7 @@ Instead of `<FrameLayout>` you can substitute that for a `<LinearLayout>`
                   android:dividerHeight="0dp"
                   android:background="#111"/>
 
-</android.support.v4.widget.DrawerLayout>
+</androidx.drawerlayout.widget.DrawerLayout>
 ```
 
 Instead of this:
@@ -570,6 +572,6 @@ inflater.inflate(R.layout.activity_main, container);
 
 ## References
 
-* <http://android-developers.blogspot.com/2014/10/appcompat-v21-material-design-for-pre.html>
+* <https://medium.com/mindorks/upgrading-to-material-components-ebc21ac4e95a>
 * <http://stackoverflow.com/questions/26440879/how-do-i-use-drawerlayout-to-display-over-the-actionbar-toolbar-and-under-the-st>
 * <http://antonioleiva.com/navigation-view/>
