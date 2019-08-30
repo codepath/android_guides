@@ -80,7 +80,7 @@ You can also create subheaders too and group elements together:
 
 ### Define Fragments
 
-Next, you need to define your fragments that will be displayed within the activity. These can be any support fragments you define within your application. Make sure that all the fragments extend from **android.support.v4.app.Fragment**.
+Next, you need to define your fragments that will be displayed within the activity. These can be any support fragments you define within your application. Make sure that all the fragments extend from **androidx.fragment.app.Fragment**.
 
 ### Setup Toolbar
 
@@ -179,8 +179,7 @@ Now, let's setup the drawer in our activity.  We can also setup the menu icon to
     private Toolbar toolbar;
     private NavigationView nvDrawer;
 
-    // Make sure to be using android.support.v7.app.ActionBarDrawerToggle version.
-    // The android.support.v4.app.ActionBarDrawerToggle has been deprecated.
+    // Make sure to be using androidx.appcompat.app.ActionBarDrawerToggle version.
     private ActionBarDrawerToggle drawerToggle;
 
     @Override
@@ -191,6 +190,9 @@ Now, let's setup the drawer in our activity.  We can also setup the menu icon to
         // Set a Toolbar to replace the ActionBar.
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        
+        // This will display an Up icon (<-), we will replace it with hamburger later
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Find our drawer view
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -322,7 +324,7 @@ This `app:headerLayout` inflates the specified layout into the header automatica
 
 ```java
 // Lookup navigation view
-NavigationView navigationView = (NavigationView) findViewById(R.id.nav_draw);
+NavigationView navigationView = (NavigationView) findViewById(R.id.nvView);
 // Inflate the header view at runtime
 View headerLayout = navigationView.inflateHeaderView(R.layout.nav_header);
 // We can now look up items within the header if needed
@@ -331,14 +333,16 @@ ImageView ivHeaderPhoto = headerLayout.findViewById(R.id.imageView);
 
 ### Getting references to the header
 
-**Note:** Version `23.1.0` of the design support library switches `NavigationView` to using a `RecyclerView` and causes NPE (null exceptions) on header lookups unless the header is added at runtime. 
-If you need to get a reference to the header, you need to use the new `getHeaderView()` method introduced in the latest `v23.1.1` update:
+If you need to get a reference to the header, you need to use the new `getHeaderView()` method. Note, that you have to check the header count in order to avoid NPE!
 
 ```java
 // There is usually only 1 header view.  
 // Multiple header views can technically be added at runtime.
 // We can use navigationView.getHeaderCount() to determine the total number.
-View headerLayout = navigationView.getHeaderView(0);
+if (navigtationView.getHeaderCount() > 0) {
+    // avoid NPE by first checking if there is at least one Header View available
+    View headerLayout = navigationView.getHeaderView(0);
+}
 ```
 
 
@@ -365,10 +369,15 @@ We need to tie the DrawerLayout and Toolbar together:
     // Set a Toolbar to replace the ActionBar.
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Find our drawer view
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawerToggle = setupDrawerToggle();
+        
+        // Setup toggle to display hamburger icon with nice animation
+        drawerToogle.setDrawerIndicatorEnabled(true);
+        drawerToggle.syncState();
 
         // Tie DrawerLayout events to the ActionBarToggle
         mDrawer.addDrawerListener(drawerToggle);
