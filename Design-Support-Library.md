@@ -142,6 +142,7 @@ For changes and latest versions of AndroidX library visit official [Versions pag
 ## References
 * <https://developer.android.com/jetpack/androidx>
 * <https://android-developers.googleblog.com/2018/05/hello-world-androidx.html>
+* <https://medium.com/mindorks/upgrading-to-material-components-ebc21ac4e95a>
 * <https://www.androidauthority.com/android-jetpack-android-support-library-878587/>
 * <https://material.io/develop/android/docs/getting-started/>
 * <https://www.reddit.com/r/androiddev/comments/a2bikh/should_i_learn_about_androidx/>
