@@ -76,7 +76,7 @@ The XML layout file is just like any other layout file, and can be named `fragme
 The Java controller for a fragment looks like:
 
 ```java
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 
 public class FooFragment extends Fragment {
     // The onCreateView method is called when Fragment should create its View object hierarchy,
@@ -104,7 +104,7 @@ There are two ways to add a fragment to an activity: dynamically using **Java** 
 Before embedding a "support" fragment in an Activity make sure the Activity is changed to extend from `FragmentActivity` or `AppCompatActivity` which adds support for the fragment manager to all Android versions. Any activity using fragments should make sure to extend from `FragmentActivity` or `AppCompatActivity`:
 
 ```java
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     // ...
@@ -419,7 +419,7 @@ and then the activity can communicate directly with the fragment by invoking thi
 If a fragment needs to communicate events to the activity, the fragment should [[define an interface|Creating-Custom-Listeners]] as an inner type and require that the activity must implement this interface:
 
 ```java
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 
 public class MyListFragment extends Fragment {
   // ...
@@ -455,7 +455,7 @@ public class MyListFragment extends Fragment {
 and then in the activity we have to implement the `OnItemSelectedListener` listener:
 
 ```java
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 // Activity implements the fragment listener to handle events
 public class RssfeedActivity extends AppCompatActivity implements MyListFragment.OnItemSelectedListener {
@@ -486,7 +486,7 @@ in order to keep the fragment as re-usable as possible. For more details about t
 
 ### Understanding the FragmentManager
 
-The [FragmentManager](http://developer.android.com/intl/es/reference/android/support/v4/app/FragmentManager.html) is responsible for all runtime management of fragments including adding, removing, hiding, showing, or otherwise navigating between fragments. As shown above, the fragment manager is also responsible for finding fragments within an activity. Important available methods are outlined below:
+The [FragmentManager](https://developer.android.com/reference/androidx/fragment/app/FragmentManager.html) is responsible for all runtime management of fragments including adding, removing, hiding, showing, or otherwise navigating between fragments. As shown above, the fragment manager is also responsible for finding fragments within an activity. Important available methods are outlined below:
 
 | Method                          | Description    |
 | -----------------------------   | ---------------------------------------------------------- |
@@ -497,7 +497,7 @@ The [FragmentManager](http://developer.android.com/intl/es/reference/android/sup
 | `popBackStack()`                | Remove a fragment from the backstack.                               |
 | `executePendingTransactions()`  | Forces committed transactions to be applied.                        |
 
-See the [official documentation](http://developer.android.com/intl/es/reference/android/support/v4/app/FragmentManager.html) for more information. You can also review the [FragmentTransaction](http://developer.android.com/intl/es/reference/android/app/FragmentTransaction.html) to take a closer look at what modifications can be made at run-time through the manager.
+See the [official documentation](https://developer.android.com/reference/androidx/fragment/app/FragmentManager.html) for more information. You can also review the [FragmentTransaction](https://developer.android.com/reference/androidx/fragment/app/FragmentTransaction.html) to take a closer look at what modifications can be made at run-time through the manager.
 
 ### ActionBar Menu Items and Fragments
 
