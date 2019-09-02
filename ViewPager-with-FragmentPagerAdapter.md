@@ -17,23 +17,23 @@ A `ViewPager` is a layout which can be added to any layout XML file inside a roo
     android:layout_height="match_parent"
     android:orientation="vertical">
  
-    <android.support.v4.view.ViewPager
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/vpPager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    </android.support.v4.view.ViewPager>
+    </androidx.viewpager.widget.ViewPager>
 </LinearLayout>
 ```
 
-If you want an "indicator" that displays the pages available at the top as shown in the screenshot above, you need to include a nested indicator view called a [PagerTabStrip](http://developer.android.com/reference/android/support/v4/view/PagerTabStrip.html):
+If you want an "indicator" that displays the pages available at the top as shown in the screenshot above, you need to include a nested indicator view called a [PagerTabStrip](https://developer.android.com/reference/androidx/viewpager/widget/PagerTabStrip.html):
 
 ```xml
-<android.support.v4.view.ViewPager
+<androidx.viewpager.widget.ViewPager
    android:id="@+id/vpPager"
    android:layout_width="match_parent"
    android:layout_height="wrap_content">
 
-   <android.support.v4.view.PagerTabStrip
+   <androidx.viewpager.widget.PagerTabStrip
         android:id="@+id/pager_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,7 +41,7 @@ If you want an "indicator" that displays the pages available at the top as shown
         android:paddingBottom="4dp"
         android:paddingTop="4dp" />
 
-</android.support.v4.view.ViewPager>
+</androidx.viewpager.widget.ViewPager>
 ```
 
 which will automatically display the page indicator for your pager. You might want to check out the popular [ViewPagerIndicator](http://viewpagerindicator.com/) for an improved page indicator. 
@@ -88,7 +88,7 @@ public class FirstFragment extends Fragment {
 
 ### Setup FragmentPagerAdapter
 
-Now we need to define the adapter that will properly determine how many pages exist and which fragment to display for each page of the adapter by creating a [FragmentPagerAdapter](http://developer.android.com/reference/android/support/v4/app/FragmentPagerAdapter.html):
+Now we need to define the adapter that will properly determine how many pages exist and which fragment to display for each page of the adapter by creating a [FragmentPagerAdapter](https://developer.android.com/reference/androidx/fragment/app/FragmentPagerAdapter.html):
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -160,7 +160,7 @@ And now we have a basic functioning `ViewPager` with any number of fragments as 
 
 ### Selecting or Getting the Page
 
-We can access the selected page within the `ViewPager` at any time with the [getCurrentItem](http://developer.android.com/reference/android/support/v4/view/ViewPager.html#getCurrentItem\(\)) method which returns the current page:
+We can access the selected page within the `ViewPager` at any time with the [getCurrentItem](https://developer.android.com/reference/androidx/viewpager/widget/ViewPager.html#getCurrentItem\(\)) method which returns the current page:
 
 ```java
 vpPager.getCurrentItem(); // --> 2
@@ -176,7 +176,7 @@ With this getter and setter, we can easily access or modify the selected page at
 
 ### Setup OnPageChangeListener
 
-If the Activity needs to be able listen for changes to the page selected or other events surrounding the `ViewPager`, then we just need to hook into the [ViewPager.OnPageChangeListener](http://developer.android.com/reference/android/support/v4/view/ViewPager.OnPageChangeListener.html) on the `ViewPager` to handle the events:
+If the Activity needs to be able listen for changes to the page selected or other events surrounding the `ViewPager`, then we just need to hook into the [ViewPager.OnPageChangeListener](https://developer.android.com/reference/androidx/viewpager/widget/ViewPager.OnPageChangeListener.html) on the `ViewPager` to handle the events:
 
 ```java
 // Attach the page change listener inside the activity
@@ -209,14 +209,14 @@ vpPager.addOnPageChangeListener(new OnPageChangeListener() {
 We can use the ViewPager to display a tabbed indicator in order to create tabs to display our fragments. 
 At Google I/O 2015, Google announced a new `TabLayout` class that makes creating this tabbed interface fairly easy to do.  See [[Google Play Style Tabs using TabLayout]] for a walkthrough.
 ```xml
-<android.support.design.widget.TabLayout
+<com.google.android.material.tabs.TabLayout
     android:id="@+id/view_pager_tab"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/tab_bg"
     app:tabMode="fixed"
     app:tabGravity="fill" />
-<android:support.v4.view.ViewPager />
+<androidx.viewpager.widget.ViewPager />
 ```
 
 An alternative approach to achieve this is to use the third-party [[PagerSlidingTabStrip|Sliding-Tabs-with-PagerSlidingTabStrip]] library. 
@@ -227,7 +227,7 @@ In this way, we can use the same pager system described above and augment the pa
 
 ## Dynamic ViewPager Fragments
 
-In certain cases, we may require a dynamic `ViewPager` where we want to get access to fragment instances or with pages being added or removed at runtime. If your ViewPager is more dynamic with many pages and fragments, we will want to use an implementation of the alternate [FragmentStatePagerAdapter](http://developer.android.com/reference/android/support/v4/app/FragmentStatePagerAdapter.html) instead. Below shows us how to use this and also intelligently cache the fragments for easy lookup.
+In certain cases, we may require a dynamic `ViewPager` where we want to get access to fragment instances or with pages being added or removed at runtime. If your ViewPager is more dynamic with many pages and fragments, we will want to use an implementation of the alternate [FragmentStatePagerAdapter](https://developer.android.com/reference/androidx/fragment/app/FragmentStatePagerAdapter.html) instead. Below shows us how to use this and also intelligently cache the fragments for easy lookup.
 
 ### Setup SmartFragmentStatePagerAdapter
 
@@ -352,7 +352,7 @@ If you are interested in a ViewPager with visible adjacent pages that are partia
 We can do that with by tuning a few properties of our pager. First, here's how the `ViewPager` might be defined in the XML Layout:
 
 ```xml
-<android.support.v4.view.ViewPager
+<androidx.viewpager.widget.ViewPager
   	android:id="@+id/pager"
   	android:gravity="center"
   	android:layout_width="match_parent"
@@ -391,7 +391,7 @@ For more details, you can follow these guides:
 
 ## Animating the Scroll with PageTransformer
 
-We can customize how the pages animate as they are being swiped between using the [PageTransformer](http://developer.android.com/reference/android/support/v4/view/ViewPager.PageTransformer.html). This transformer exists within the support library and is compatible with API 11 or greater. 
+We can customize how the pages animate as they are being swiped between using the [PageTransformer](https://developer.android.com/reference/androidx/viewpager/widget/ViewPager.PageTransformer.html). 
 
 ### Using a Third-Party Library
 
@@ -588,7 +588,7 @@ A few of the most interesting ones are listed below:
 
 * <http://architects.dzone.com/articles/android-tutorial-using>
 * <http://developer.android.com/training/animation/screen-slide.html>
-* <http://developer.android.com/reference/android/support/v4/view/ViewPager.html>
+* <https://developer.android.com/reference/androidx/viewpager/widget/ViewPager.html>
 * <http://android-developers.blogspot.com/2011/08/horizontal-view-swiping-with-viewpager.html>
 * <http://viewpagerindicator.com/>
 * <http://mobile.tutsplus.com/tutorials/android/android-user-interface-design-horizontal-view-paging/>
