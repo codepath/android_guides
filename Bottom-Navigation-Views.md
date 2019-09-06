@@ -11,19 +11,19 @@ See the [[design support library|Design-Support-Library#setup]] setup instructio
 Next, simply declare a `BottomNavigationView` instance and make sure to set `alignParentBottom=true` to ensure that the view is placed on the bottom layout:
 
 ```xml
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.design.widget.BottomNavigationView
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/menu_bottom_navigation" />
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
 Next, similar to how menu items in the [[Toolbar|Using-the-App-ToolBar]], declare the tabbed items and the icons that will be displayed in a `res/menu/menu_bottom_navigation.xml` file:
@@ -149,7 +149,7 @@ The bottom navigation view also can be customized with several different options
 
 Example:
 ```xml
-<android.support.design.widget.BottomNavigationView
+<com.google.android.material.bottomnavigation.BottomNavigationView
   app:itemBackground="@color/colorPrimary"
   app:itemIconTint="@color/white"
   app:itemTextColor="@color/white" />
