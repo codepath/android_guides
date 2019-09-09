@@ -97,46 +97,45 @@ Let's create an XML layout which allows us to post messages by typing into a tex
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@android:color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/etMessage"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:hint="@string/message_hint"
-        android:imeOptions="actionSend"
-        android:inputType="textShortMessage"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btSend"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+    <!-- Chat messages view will go here -->
 
-    <Button
-        android:id="@+id/btSend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:gravity="center"
-        android:paddingRight="10dp"
-        android:text="@string/send"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/etMessage"
-        app:layout_constraintTop_toTopOf="@+id/etMessage"></Button>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:id="@+id/rlSend"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:paddingTop="5dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:layout_height="wrap_content" >
+        <EditText
+            android:id="@+id/etMessage"
+            android:layout_toLeftOf="@+id/btSend"
+            android:layout_alignBottom="@+id/btSend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:hint="@string/message_hint"
+            android:inputType="textShortMessage"
+            android:imeOptions="actionSend"
+            />
+        <Button
+            android:id="@+id/btSend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingRight="10dp"
+            android:layout_alignParentRight="true"
+            android:text="@string/send"
+            android:textSize="18sp" >
+        </Button>
+    </RelativeLayout>
+</RelativeLayout>
 ```
 
 The imeOptions attribute is used to control the icon in the [[Soft Keyboard|Working-with-the-Soft-Keyboard]].  The gravity attribute will center the button vertically AND right horizontally.
