@@ -1,15 +1,15 @@
 ## Overview
 
-In Android, the common "pull to refresh" UX concept is not built in to a ListView/RecyclerView. However, many Android applications would like to make use of this concept for their feeds. This is useful for all sorts of feeds such as a Twitter timeline. This effect can be achieved using the `SwipeRefreshLayout` from the [support library](http://developer.android.com/tools/support-library/index.html), which was recently introduced and back-ported to all versions down to Android API level 4.
+In Android, the common "pull to refresh" UX concept is not built in to a ListView/RecyclerView. However, many Android applications would like to make use of this concept for their feeds. This is useful for all sorts of feeds such as a Twitter timeline. This effect can be achieved using the `SwipeRefreshLayout` [class](https://developer.android.com/reference/androidx/swiperefreshlayout/widget/SwipeRefreshLayout)
 
 <img src="https://i.imgur.com/PtY0Ju1.gif" height="400" />
 <img src="https://materialdoc.com/images/custom_swipe.gif" height="400" />&nbsp;
 
 ## Using SwipeRefreshLayout
 
-[SwipeRefreshLayout](https://developer.android.com/reference/android/support/v4/widget/SwipeRefreshLayout.html) is a ViewGroup that can hold only one scrollable view as a child. This can be either a `ScrollView` or an `AdapterView` such as a `ListView` or a `RecyclerView`. 
+[SwipeRefreshLayout](https://developer.android.com/reference/androidx/swiperefreshlayout/widget/SwipeRefreshLayout.html) is a ViewGroup that can hold only one scrollable view as a child. This can be either a `ScrollView` or an `AdapterView` such as a `ListView` or a `RecyclerView`. 
 
-**Note:** This layout only exists within more recent versions of support-v4 as [explained in this post](http://stackoverflow.com/a/23325011/313399). Edit your `app/build.gradle` file to include a support library later than version 19:
+Edit your `app/build.gradle` file to include a  library:
 
 ```gradle
 apply plugin: 'com.android.application'
@@ -22,7 +22,7 @@ dependencies {
 }
 ```
 
-Make sure your support library is up to date by adding to your root `gradle.file`:
+Make sure your libraries is up to date by adding to your root `gradle.file`:
 
 ```gradle
 allprojects {
@@ -134,14 +134,15 @@ public class TimelineActivity extends Activity {
 }
 ```
 
-**Note** that upon successful reload, we must also signal that the refresh has completed by calling `setRefreshing(false)`. Also note that you should **clear out old items** before appending the new ones d
-ng a refresh.
+**Note** that upon successful reload, we must also signal that the refresh has completed by calling `setRefreshing(false)`. Also note that you should **clear out old items** before appending the new ones during a refresh.
 
 ### Using with Paging Library
 
 If you are using SwipeRefreshLayout with Android's new [[Paging Library|Paging Library Guide]], the data sources used to provide data to the RecyclerView need to be invalidated.  Review [[this guide|https://guides.codepath.com/android/Paging-Library-Guide#using-with-swiperefreshlayout]] for more information.
 
-## SwipeRefreshLayout with ListView
+## SwipeRefreshLayout with ListView (deprecated)
+
+**Note**: `ListView` is an old UI component that is no longer used in modern Android applications. Only refer this guide if you intend to update some old code that still relies on ListView.
 
 ### Step 1: Setting SwipeRefreshLayout
 
@@ -231,7 +232,7 @@ If you aren't able to get the swipe to refresh working, check the following tips
 
 * **Did you accidentally call `setContentView` twice?** Ensure that inside your activity, you've only called [`setContentView`](http://developer.android.com/reference/android/app/Activity.html#setContentView\(android.view.View\)) once as the 2nd line of your `onCreate` method. 
 
-* **Did you invoke `setRefreshing(false)` after data finished loading?** With the swipe to refresh control, you are responsible for notifying the system once the new data has been loaded into the list. You must make sure to invoke [setRefreshing](http://developer.android.com/reference/android/support/v4/widget/SwipeRefreshLayout.html#setRefreshing\(boolean\)) only **after** the data has come back and not before. This means if you are loading data from the network, calling this within the `onSuccess` method.
+* **Did you invoke `setRefreshing(false)` after data finished loading?** With the swipe to refresh control, you are responsible for notifying the system once the new data has been loaded into the list. You must make sure to invoke [setRefreshing](https://developer.android.com/reference/androidx/swiperefreshlayout/widget/SwipeRefreshLayout.html#setRefreshing\(boolean\)) only **after** the data has come back and not before. This means if you are loading data from the network, calling this within the `onSuccess` method.
 
 * **Did you clear out the old items before updating the list?** Make sure that in order for the new items to be displayed that you **clear the list of any old items if needed**. In other words, if you are replacing items in the list with new versions, be sure to remove the old versions from the adapter first with `adapter.clear();`
 
@@ -239,4 +240,5 @@ If you aren't able to get the swipe to refresh working, check the following tips
 
 ## References
 
+* <https://developer.android.com/reference/androidx/swiperefreshlayout/widget/SwipeRefreshLayout>
 * <http://antonioleiva.com/swiperefreshlayout/>
