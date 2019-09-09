@@ -123,7 +123,7 @@ Exploring the gritty details of views, layout, styling and common UI patterns:
 
 * [[Using an ArrayAdapter with ListView]] (with custom list items)
 * [[Paging Library Guide]] (Infinite pagination)
-* [[Endless Scrolling with AdapterViews and RecyclerView]] (Infinite pagination) (**deprecated**)
+* [[Endless Scrolling with AdapterViews and RecyclerView]] (Infinite pagination)
 * [[Implementing Pull to Refresh Guide]]
 * [[Implementing a Horizontal ListView Guide]] (Scrolls horizontally)
 * [[Implementing a Heterogenous ListView]] (with different item types)
