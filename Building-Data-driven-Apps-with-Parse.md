@@ -1034,6 +1034,8 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 ### Using with Android Paging Library
 
+This is a new way of handling pagination and endless scrolling. For a simpler and more straightforward solution check out [[Endless Scrolling Guide|Endless-Scrolling-with-AdapterViews-and-RecyclerView]].
+
 #### Prerequisites
 
 First, follow the [[setup instructions|Paging-Library-Guide#setup]] for adding the Paging Library to your Gradle configuration.   In addition, make sure also to change your RecyclerView to use PagedListAdapter as described in this [[section|Paging-Library-Guide#modifying-your-recyclerview]].  You must take care of these first steps before proceeding to the section below.
