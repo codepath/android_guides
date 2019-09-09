@@ -1,10 +1,8 @@
-**NOTE**: This page is deprecated because Google recently released its own Paging library.  See [[this guide|Paging-Library-Guide]] for more information.
-
 ## Overview
 
 A common application feature is to load automatically more items as the user scrolls through the items (aka infinite scroll). This is done by triggering a request for more data once the user crosses a threshold of remaining items before they've hit the end. 
 
-The approaches for ListView, GridView and [[RecyclerView|Using-the-RecyclerView]] (the successor to ListView) are documented here.  Both are similar in code except that the [LayoutManager](http://developer.android.com/reference/android/support/v7/widget/RecyclerView.LayoutManager.html) in the RecyclerView needs to be passed in to provide the necessary information to implement infinite scrolling.  
+The approaches for ListView, GridView and [[RecyclerView|Using-the-RecyclerView]] (the successor to ListView) are documented here. Both are similar in code except that the [LayoutManager](http://developer.android.com/reference/android/support/v7/widget/RecyclerView.LayoutManager.html) in the RecyclerView needs to be passed in to provide the necessary information to implement infinite scrolling.  
 
 In both cases, the information needed to implement the scrolling include determining the last visible item within the list and some type of threshold value to start fetching more data before the last item has been reached.  This data can be used to decide when to load more data from an external source:
 
@@ -12,115 +10,7 @@ In both cases, the information needed to implement the scrolling include determi
 
 To provide the appearance of endless scrolling, it's important to fetch data before the user gets to the end of the list.  Adding a threshold value therefore helps anticipate the need to append more data. 
 
-## Implementing with ListView or GridView (deprecated)
-
-See [Implementing with RecyclerView](https://guides.codepath.org/android/Endless-Scrolling-with-AdapterViews-and-RecyclerView#implementing-with-recyclerview) section for the most recent and relevant instructions.
-
-Every `AdapterView` (such as `ListView` and `GridView`) has support for binding to the `OnScrollListener` events which are triggered whenever a user scrolls through the collection. Using this system, we can define a basic `EndlessScrollListener` which supports most use cases by creating our own class that extends `OnScrollListener`:
-
-```java
-import android.widget.AbsListView; 
-
-public abstract class EndlessScrollListener implements AbsListView.OnScrollListener {
-	// The minimum number of items to have below your current scroll position
-	// before loading more.
-	private int visibleThreshold = 5;
-	// The current offset index of data you have loaded
-	private int currentPage = 0;
-	// The total number of items in the dataset after the last load
-	private int previousTotalItemCount = 0;
-	// True if we are still waiting for the last set of data to load.
-	private boolean loading = true;
-	// Sets the starting page index
-	private int startingPageIndex = 0;
-
-	public EndlessScrollListener() {
-	}
-
-	public EndlessScrollListener(int visibleThreshold) {
-		this.visibleThreshold = visibleThreshold;
-	}
-
-	public EndlessScrollListener(int visibleThreshold, int startPage) {
-		this.visibleThreshold = visibleThreshold;
-		this.startingPageIndex = startPage;
-		this.currentPage = startPage;
-	}
-
-	
-	@Override
-	public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) 
-        {
-		// If the total item count is zero and the previous isn't, assume the
-		// list is invalidated and should be reset back to initial state
-		if (totalItemCount < previousTotalItemCount) {
-			this.currentPage = this.startingPageIndex;
-			this.previousTotalItemCount = totalItemCount;
-			if (totalItemCount == 0) { this.loading = true; } 
-		}
-		// If it's still loading, we check to see if the dataset count has
-		// changed, if so we conclude it has finished loading and update the current page
-		// number and total item count.
-		if (loading && (totalItemCount > previousTotalItemCount)) {
-			loading = false;
-			previousTotalItemCount = totalItemCount;
-			currentPage++;
-		}
-		
-		// If it isn't currently loading, we check to see if we have breached
-		// the visibleThreshold and need to reload more data.
-		// If we do need to reload some more data, we execute onLoadMore to fetch the data.
-		if (!loading && (firstVisibleItem + visibleItemCount + visibleThreshold) >= totalItemCount ) {
-		    loading = onLoadMore(currentPage + 1, totalItemCount);
-		}
-	}
-
-	// Defines the process for actually loading more data based on page
-	// Returns true if more data is being loaded; returns false if there is no more data to load.
-	public abstract boolean onLoadMore(int page, int totalItemsCount);
-
-	@Override
-	public void onScrollStateChanged(AbsListView view, int scrollState) {
-		// Don't take any action on changed
-	}
-}
-```
-
-Notice that this is an abstract class, and that in order to use this, you must extend this base class and define the `onLoadMore` method to actually retrieve the new data. We can define now an anonymous class within any activity that extends `EndlessScrollListener` and bind that to the AdapterView. For example:
-
-```java
-public class MainActivity extends Activity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        // ... the usual 
-        ListView lvItems = (ListView) findViewById(R.id.lvItems);
-        // Attach the listener to the AdapterView onCreate
-        lvItems.setOnScrollListener(new EndlessScrollListener() {
-          @Override
-          public boolean onLoadMore(int page, int totalItemsCount) {
-              // Triggered only when new data needs to be appended to the list
-              // Add whatever code is needed to append new items to your AdapterView
-              loadNextDataFromApi(page); 
-              // or loadNextDataFromApi(totalItemsCount); 
-              return true; // ONLY if more data is actually being loaded; false otherwise.
-          }
-        });
-    }
-    
-
-   // Append the next page of data into the adapter
-   // This method probably sends out a network request and appends new data items to your adapter. 
-   public void loadNextDataFromApi(int offset) {
-      // Send an API request to retrieve appropriate paginated data 
-      //  --> Send the request including an offset value (i.e `page`) as a query parameter.
-      //  --> Deserialize and construct new model objects from the API response
-      //  --> Append the new data objects to the existing set of items inside the array of items
-      //  --> Notify the adapter of the new items made with `notifyDataSetChanged()`
-   }
-}
-```
-
-Now as you scroll, items will be automatically filling in because the `onLoadMore` method will be triggered once the user crosses the `visibleThreshold`. This approach works equally well for a `GridView` and the listener gives access to both the `page` as well as the `totalItemsCount` to support both pagination and offset based fetching.
+**NOTE**: This page is describing a straightforward yet a bit dated solution. For Android University courses it's recommended to use this approach for simplicity. For more advanced cases, Google released its own Paging Library. You can see [[this guide|Paging-Library-Guide]] for more information.
 
 ## Implementing with RecyclerView
 
@@ -214,6 +104,116 @@ If you are running into problems, please carefully consider the following sugges
 ## Displaying Progress with Custom Adapter
 
 To display the last row as a ProgressBar indicating that the ListView is loading data, we do the trick in the Adapter. Having defined two types of views in `getItemViewType(int position)`, we can display the last row differently from a normal data row. It can be a ProgressBar or some text to indicate that the ListView has reached the last row by comparing the size of data List to the number of items on the server side. See [this gist](https://gist.github.com/nesquena/a988aac278cff59a9a69) for sample code.
+
+## Implementing with ListView or GridView (deprecated)
+
+See [Implementing with RecyclerView](https://guides.codepath.org/android/Endless-Scrolling-with-AdapterViews-and-RecyclerView#implementing-with-recyclerview) section for the most recent and relevant instructions. ListView is no longer used in modern Android applications.
+
+Every `AdapterView` (such as `ListView` and `GridView`) has support for binding to the `OnScrollListener` events which are triggered whenever a user scrolls through the collection. Using this system, we can define a basic `EndlessScrollListener` which supports most use cases by creating our own class that extends `OnScrollListener`:
+
+```java
+import android.widget.AbsListView; 
+
+public abstract class EndlessScrollListener implements AbsListView.OnScrollListener {
+  // The minimum number of items to have below your current scroll position
+  // before loading more.
+  private int visibleThreshold = 5;
+  // The current offset index of data you have loaded
+  private int currentPage = 0;
+  // The total number of items in the dataset after the last load
+  private int previousTotalItemCount = 0;
+  // True if we are still waiting for the last set of data to load.
+  private boolean loading = true;
+  // Sets the starting page index
+  private int startingPageIndex = 0;
+
+  public EndlessScrollListener() {
+  }
+
+  public EndlessScrollListener(int visibleThreshold) {
+    this.visibleThreshold = visibleThreshold;
+  }
+
+  public EndlessScrollListener(int visibleThreshold, int startPage) {
+    this.visibleThreshold = visibleThreshold;
+    this.startingPageIndex = startPage;
+    this.currentPage = startPage;
+  }
+
+  
+  @Override
+  public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) 
+        {
+    // If the total item count is zero and the previous isn't, assume the
+    // list is invalidated and should be reset back to initial state
+    if (totalItemCount < previousTotalItemCount) {
+      this.currentPage = this.startingPageIndex;
+      this.previousTotalItemCount = totalItemCount;
+      if (totalItemCount == 0) { this.loading = true; } 
+    }
+    // If it's still loading, we check to see if the dataset count has
+    // changed, if so we conclude it has finished loading and update the current page
+    // number and total item count.
+    if (loading && (totalItemCount > previousTotalItemCount)) {
+      loading = false;
+      previousTotalItemCount = totalItemCount;
+      currentPage++;
+    }
+    
+    // If it isn't currently loading, we check to see if we have breached
+    // the visibleThreshold and need to reload more data.
+    // If we do need to reload some more data, we execute onLoadMore to fetch the data.
+    if (!loading && (firstVisibleItem + visibleItemCount + visibleThreshold) >= totalItemCount ) {
+        loading = onLoadMore(currentPage + 1, totalItemCount);
+    }
+  }
+
+  // Defines the process for actually loading more data based on page
+  // Returns true if more data is being loaded; returns false if there is no more data to load.
+  public abstract boolean onLoadMore(int page, int totalItemsCount);
+
+  @Override
+  public void onScrollStateChanged(AbsListView view, int scrollState) {
+    // Don't take any action on changed
+  }
+}
+```
+
+Notice that this is an abstract class, and that in order to use this, you must extend this base class and define the `onLoadMore` method to actually retrieve the new data. We can define now an anonymous class within any activity that extends `EndlessScrollListener` and bind that to the AdapterView. For example:
+
+```java
+public class MainActivity extends Activity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        // ... the usual 
+        ListView lvItems = (ListView) findViewById(R.id.lvItems);
+        // Attach the listener to the AdapterView onCreate
+        lvItems.setOnScrollListener(new EndlessScrollListener() {
+          @Override
+          public boolean onLoadMore(int page, int totalItemsCount) {
+              // Triggered only when new data needs to be appended to the list
+              // Add whatever code is needed to append new items to your AdapterView
+              loadNextDataFromApi(page); 
+              // or loadNextDataFromApi(totalItemsCount); 
+              return true; // ONLY if more data is actually being loaded; false otherwise.
+          }
+        });
+    }
+    
+
+   // Append the next page of data into the adapter
+   // This method probably sends out a network request and appends new data items to your adapter. 
+   public void loadNextDataFromApi(int offset) {
+      // Send an API request to retrieve appropriate paginated data 
+      //  --> Send the request including an offset value (i.e `page`) as a query parameter.
+      //  --> Deserialize and construct new model objects from the API response
+      //  --> Append the new data objects to the existing set of items inside the array of items
+      //  --> Notify the adapter of the new items made with `notifyDataSetChanged()`
+   }
+}
+```
+
+Now as you scroll, items will be automatically filling in because the `onLoadMore` method will be triggered once the user crosses the `visibleThreshold`. This approach works equally well for a `GridView` and the listener gives access to both the `page` as well as the `totalItemsCount` to support both pagination and offset based fetching.
 
 ## References
 
