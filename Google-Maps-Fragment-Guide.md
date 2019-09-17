@@ -227,7 +227,7 @@ The simplest fix is described in detail within [this stack overflow post](http:/
 
 ### Simulating GPS Locations
 
-This handy [playback-gps](https://github.com/galens/playback-gpx) script allows a developer to simulate traveling a specific route on genymotion. Use this for testing and for presentations if you need to demonstrate how the map works with location in real-time. Additional resources related to mocking GPS locations on Android device or emulator:
+This handy [playback-gps](https://github.com/galens/playback-gpx) script allows a developer to simulate traveling a specific route on genymotion or you can checkout [where am i right now](https://where-am-i.live) to check your location. Use this for testing and for presentations if you need to demonstrate how the map works with location in real-time. Additional resources related to mocking GPS locations on Android device or emulator:
 
  * [Simulate GPS Locations with Plugin](http://www.jesusamieiro.com/android-studio-simulate-multiple-gps-points-with-mock-location-plugin/) - Using Android Studio Mock Location plugin to simulate locations. 
  * [Lockito](https://play.google.com/store/apps/details?id=fr.dvilleneuve.lockito) - Allows you to make your phone follow a fake itinerary, with total control over the speed and GPS signal accuracy. This can be recorded using [GPS Logger](https://play.google.com/store/apps/details?id=com.mendhak.gpslogger&hl=en_GB) You can also simulate a static location.
