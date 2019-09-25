@@ -35,7 +35,7 @@ dependencies {
 
 ### Define schema locations
 
-When compiling the code, the schemas for the table will be stored in a `schemas/` directory assuming this statement has been included your `app/build.gradle` file.  These schemas should be checked into your code based.
+When compiling the code, the schemas for the table will be stored in a `schemas/` directory assuming this statement has been included your `app/build.gradle` file.  These schemas should be checked into your code base.
 
 
 ```gradle
@@ -147,21 +147,22 @@ public abstract class MyDatabase extends RoomDatabase {
 Next, we need to instantiate `Room` in a [[custom application class|Understanding-the-Android-Application-Class]].  If you do not have an `Application` object, create one in `MyApplication.java` as shown below:
 
 ```java
-public class MyApplication extends Application {
+public class MyDatabaseApplication extends Application {
+    
     MyDatabase myDatabase;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        public class RestClientApp extends Application {
-            // when upgrading versions, kill the original tables by using fallbackToDestructiveMigration()
-            myDatabase = Room.databaseBuilder(this, MyDatabase.class, MyDatabase.NAME).fallbackToDestructiveMigration().build();
-          }
-
-        public MyDatabase getMyDatabase() {
-            return myDatabase;
-        }
+      
+        // when upgrading versions, kill the original tables by using fallbackToDestructiveMigration()
+        myDatabase = Room.databaseBuilder(this, MyDatabase.class, MyDatabase.NAME).fallbackToDestructiveMigration().build();
     }
+
+    public MyDatabase getMyDatabase() {
+        return myDatabase;
+    }
+    
 }
 ```
 
@@ -169,7 +170,7 @@ Modify your `AndroidManifest.xml` file to reference this Application object for 
 
 ```xml
 <application
-        android:name=".MyApplication"
+        android:name=".MyDatabaseApplication"
         ...>
   <!-- ... -->
 </application>
