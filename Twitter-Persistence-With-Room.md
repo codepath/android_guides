@@ -65,10 +65,13 @@ The fields of a class will become columns of the database table. In order to do 
 ```java
 @Entity
 public class User {
-	@ColumnInfo
+    
+    @ColumnInfo
     public String name;
+    
     @ColumnInfo
     public String screenName;
+    
     @ColumnInfo(name = "profileImageUrl")
     public String profileImageUrl;
 
@@ -85,28 +88,29 @@ Last, but not least we need to declare a [Primary Key](https://developer.android
 @Parcel
 @Entity
 public class User {
-	@ColumnInfo
-	@PrimaryKey
-	public long id;
-	
-	@ColumnInfo
-	public String name;
+    @ColumnInfo
+    @PrimaryKey
+    public long id;
 
-	@ColumnInfo
-	public String screenName;
+    @ColumnInfo
+    public String name;
 
-	@ColumnInfo
-	public String profileImageUrl;
+    @ColumnInfo
+    public String screenName;
+
+    @ColumnInfo
+    public String profileImageUrl;
 
     public static User fromJson(JSONObject jsonObject) throws JSONException {
-            User user = new User();
-            user.name = jsonObject.getString("name");
-            // we should read the value of id from JSON now
-            user.id = jsonObject.getLong("id");
-            user.screenName = jsonObject.getString("screen_name");
-            user.profileImageUrl = jsonObject.getString("profile_image_url_https");
-            return user;
-        }
+        User user = new User();
+        user.name = jsonObject.getString("name");
+        
+        // we should read the value of id from JSON now
+        user.id = jsonObject.getLong("id");
+        user.screenName = jsonObject.getString("screen_name");
+        user.profileImageUrl = jsonObject.getString("profile_image_url_https");
+        return user;
+    }
 }
 ```
 
@@ -121,9 +125,9 @@ First, let's add `@Entity` and `@ColumnInfo` annotations to `Tweet` class, just 
 @Entity()
 public class Tweet {
 
-	@ColumnInfo
-	@PrimaryKey
-	public long id;
+    @ColumnInfo
+    @PrimaryKey
+    public long id;
 
     @ColumnInfo
     public String body;
@@ -136,7 +140,7 @@ public class Tweet {
 }
 ```
 
-**Note:** Room does not support nested objects out of the box. There are a couple ways to go about it: [define relationships between objects](https://developer.android.com/training/data-storage/room/relationships); [use TypeConverter for complex data](https://developer.android.com/training/data-storage/room/referencing-data). In this guide we will describe how to create one-to-many relationship between `User` and `Tweet`.
+**Note:** Room does not support nested objects out of the box. There are a couple ways to go about it: [define relationships between objects](https://developer.android.com/training/data-storage/room/relationships) or [use TypeConverter for complex data](https://developer.android.com/training/data-storage/room/referencing-data). In this guide we will describe how to create one-to-many relationship between `User` and `Tweet`.
 
 ### Using Foreign key for User
 
@@ -147,9 +151,9 @@ First, we going to add a new field that will point to a user id in the Users tab
 @Entity
 public class Tweet {
 
-	@ColumnInfo
-	@PrimaryKey
-	public long id;
+    @ColumnInfo
+    @PrimaryKey
+    public long id;
 
     @ColumnInfo
     public String body;
