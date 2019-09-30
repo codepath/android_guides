@@ -1,1 +1,10 @@
-{"data":{"contractKey":null,"gender":"Mr.","creationTime":1564756316850,"countrycode":null,"pushkit_device_id":"ee822c762862869f12e9cadf39211ec0224a6614001b35446ac026f49272aff5","rating":null,"is_removed":false,"mobileno":"7508506807","password":"12345678","user_type":"USER","is_deleted":false,"gcmId":null,"appIdFacebook":null,"ratings":null,"intake_form":"{\"medicare_card_no\":\"\",\"suburb_and_state\":\"QLD,s1\",\"dob\":\"5\\/8\\/1988\",\"contact_work\":\"\",\"medicare_expiry_date\":\"\",\"firstname\":\" Sushil\",\"referral_name\":\" \",\"is_referral\":false,\"medicare_card_irn\":\"\",\"referral_surname\":\"\",\"surname\":\"Test\",\"contact_mobile\":\"7508506807\",\"contact_home\":\"\",\"postcode\":\"123457\",\"referral_provider_no\":\"\",\"brief_desc_of_problem\":\"test\",\"address\":\"ra1\",\"user_id\":\"313\",\"referral_profession\":\"\",\"referral_date\":\"\"}","customerId":null,"id":313,"updation_time":1566286613094,"lastAppointment":null,"email":"sushil.iotasol@gmail.com","appIdGoogle":null,"address":{"creation_time":null,"country":"Australia","city":"s1","user_address":"ra1","lon":75.82803801422607,"user_type":"USER","user_id":null,"postalcode":"123457","suburb":null,"location":null,"id":589,"state":"SA","lat":30.885528564453125},"device_id":"023bf82ce112c4465ef5596ab97a21a9f21ed5bdb43b77c7ee807648dbd15db0","address_id":589,"profile_pic":"https://s3-ap-southeast-1.amazonaws.com/cyberclinicbucket/7001ccc8-bc3d-4a9b-ae2d-83bda0c58e8d.png","time_zone":"Asia/Kolkata","lastname":"Test","peas_survey_pending":false,"dob":"5/8/1988","third_party_app":false,"name":"Sushil"},"status":"success"}
+{
+    "data": {
+        "locations": [
+            {
+                "type": 4,
+                "shape_url": null,
+            }
+                  ]
+            }
+}
