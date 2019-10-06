@@ -643,3 +643,211 @@ You can go to `View`->`Tool Windows`->`Device File Explorer` and look inside the
 * [Techotopia Tutorial](http://www.techotopia.com/index.php/An_Android_SQLite_Database_Tutorial)
 * [Programming Android SQLite Tutorial](https://github.com/bmeike/ProgrammingAndroidExamples/tree/master/MicroJobs/src/com/oreilly/demo/android/pa/microjobs)
 * [Optimizing Insert Performance](http://www.techrepublic.com/blog/software-engineer/turbocharge-your-sqlite-inserts-on-android/)
+
+
+
+
+//Android dbhandler class
+
+package com.example.photoapp.Database;
+
+import android.app.Notification;
+import android.content.ContentValues;
+import android.content.Context;
+
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
+import android.icu.text.IDNA;
+import android.util.Log;
+import android.widget.Toast;
+
+import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+
+public class DBHandler extends SQLiteOpenHelper {
+
+    public static final String DB_NAME="Infor.db";
+
+    public DBHandler(Context context){
+        super(context,DB_NAME,null,1);
+
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+
+        String CREATE_TABLE_1=
+                "CREATE TABLE "+ ArtistMaster.ArtistDetails.TABLE_NAME+"("+
+                        ArtistMaster.ArtistDetails._ID+" INTEGER PRIMARY KEY,"+
+                        ArtistMaster.ArtistDetails.COLUMN_ARTIST_NAME+" TEXT)";
+
+
+        try{
+
+            db.execSQL(CREATE_TABLE_1);
+
+        }catch (Exception e) {
+            
+            }
+
+
+
+          String CREATE_TABLE_2=
+                "CREATE TABLE "+ ArtistMaster.PhotographDetails.TABLE_NAME+"("+
+                        ArtistMaster.PhotographDetails._ID+" INTEGER PRIMARY KEY,"+
+                        ArtistMaster.PhotographDetails.COLUMN_PHOTOGRAPH_NAME+" TEXT,"+
+                        ArtistMaster.PhotographDetails.COLUMN_PHOTO_CATEGORY+" TEXT,"+
+                        ArtistMaster.PhotographDetails.COLUMN_ARTIST_ID+" INTEGER,"+
+                        ArtistMaster.PhotographDetails.COLUMN_PHOTO_IMAGE+" BLOB,"+
+                        "FOREIGN KEY("+
+                        ArtistMaster.PhotographDetails.COLUMN_ARTIST_ID+") REFERENCES "+
+                        ArtistMaster.PhotographDetails.TABLE_NAME+"("+
+                        ArtistMaster.PhotographDetails._ID+"))";
+
+        db.execSQL(CREATE_TABLE_2);
+
+    }
+
+    public Boolean addArtist(String artistName){
+
+        SQLiteDatabase db= getWritableDatabase();
+
+        ContentValues data=new ContentValues();
+        data.put(ArtistMaster.ArtistDetails.COLUMN_ARTIST_NAME,artistName);
+        long id = db.insert(ArtistMaster.ArtistDetails.TABLE_NAME,null,data);
+
+        if(id>0){
+            return true;
+        }else{
+            return false;
+        }
+
+
+    }
+
+    public ArrayList<String> loadArtist(){
+
+        ArrayList<String> list= new ArrayList<>();
+        SQLiteDatabase database=getReadableDatabase();
+
+      Cursor cursor =  database.query(
+                ArtistMaster.ArtistDetails.TABLE_NAME,
+                new String[] {ArtistMaster.ArtistDetails.COLUMN_ARTIST_NAME},
+                null,
+                null,
+                null,
+                null,
+                null
+        );
+
+      while(cursor.moveToNext()){
+          list.add(cursor.getString(cursor.getColumnIndexOrThrow(ArtistMaster.ArtistDetails.COLUMN_ARTIST_NAME)));
+      }
+
+      return list;
+
+    }
+
+    public int getArtistID(String name){
+        SQLiteDatabase database=getReadableDatabase();
+        int id=0;
+
+        Cursor cursor =  database.query(
+                ArtistMaster.ArtistDetails.TABLE_NAME,
+                new String[] {ArtistMaster.ArtistDetails._ID},
+                ArtistMaster.ArtistDetails.COLUMN_ARTIST_NAME+"=?",
+                new String[]{name},
+                 null,
+                null,
+                null
+
+        );
+
+        while(cursor.moveToNext()){
+            id=cursor.getInt(cursor.getColumnIndexOrThrow(ArtistMaster.ArtistDetails._ID));
+        break;
+
+        }
+
+        return id;
+
+
+    }
+
+    public int addPhoto(String phName, Integer aid, String pCat, Bitmap bitmap){
+
+        // convert the bitmap to byte array
+
+        ByteArrayOutputStream stream=new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG,10,stream);
+
+        byte imageInBye[]=stream.toByteArray();
+
+        SQLiteDatabase db=getWritableDatabase();
+
+        ContentValues data=new ContentValues();
+        data.put(ArtistMaster.PhotographDetails.COLUMN_PHOTOGRAPH_NAME,phName);
+        data.put(ArtistMaster.PhotographDetails.COLUMN_ARTIST_ID,aid);
+        data.put(ArtistMaster.PhotographDetails.COLUMN_PHOTOGRAPH_NAME,phName);
+        data.put(ArtistMaster.PhotographDetails.COLUMN_PHOTO_CATEGORY,pCat);
+        data.put(ArtistMaster.PhotographDetails.COLUMN_PHOTO_IMAGE,imageInBye);
+
+        long id=db.insert(ArtistMaster.PhotographDetails.TABLE_NAME,null,data);
+
+        return (int)id;
+
+
+
+    }
+
+    public Boolean deleteDetails(String tableName,String column,String val){
+        SQLiteDatabase db=getWritableDatabase();
+        String whereClause=column+"=?";
+        String whereArgs[]={val};
+
+        int id=db.delete(tableName,whereClause,whereArgs);
+        if(id>0){
+
+            return true;
+
+        }else{
+
+            return  false;
+
+        }
+    }
+
+    public ArrayList<String> loadPhotoName(){
+        SQLiteDatabase db=getReadableDatabase();
+
+        ArrayList<String> list= new ArrayList<>();
+        SQLiteDatabase database=getReadableDatabase();
+
+        Cursor cursor =  database.query(
+                ArtistMaster.PhotographDetails.TABLE_NAME,
+                new String[] {ArtistMaster.PhotographDetails.COLUMN_PHOTOGRAPH_NAME},
+                null,
+                null,
+                null,
+                null,
+                null
+        );
+
+        while(cursor.moveToNext()){
+            list=cursor.getString(cursor.getColumnIndexOrThrow(ArtistMaster.PhotographDetails.COLUMN_PHOTOGRAPH_NAME)
+
+
+        }
+
+        return list;
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+    }
+}
+
+
