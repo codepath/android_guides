@@ -21,13 +21,16 @@ ExoPlayer has several key advantages over MediaPlayer, including:
 ### Adding Gradle Dependencies
 
 Make sure that both the Google and JCenter repositories to the root `build.gradle`.
+
 ```
 repositories {
     google()
     jcenter()
 }
 ```
+
 In your app level `build.gradle`, also make sure you have Java 8 support.
+
 ```java
 compileOptions {
     targetCompatibility JavaVersion.VERSION_1_8
@@ -39,6 +42,7 @@ Once these dependencies are added, you can add the version of ExoPlyaer you desi
 ```java
 implementation 'com.google.android.exoplayer:exoplayer:2.X.X'
 ```
+
 If you don't believe you need the full library, a list of individual library modules and extensions can be found [here](https://google.github.io/ExoPlayer/guide.html#adding-exoplayer-as-a-dependency).
 
 ### Creating the Player 
@@ -54,6 +58,7 @@ private void initializePlayer() {
 There are almost a dozen versions of `ExoPlayer.newSimpleInstance` in the [SimpleExoPlayer](https://google.github.io/ExoPlayer/doc/reference/com/google/android/exoplayer2/ExoPlayerFactory.html) class, with differerent parameters depending on what you need your ExoPlayer to have.
 
 Once our player is ready, we can set it to our view.  It can either be defined as ExoPlayer's `PlayerView` widget, or as a `SurfaceView`, `TexureView`, `SurfaceHolder`, or `Surface`.
+
 ```java
 private void setPlayerView(View playerView, SimpleExoPlayer player) {
     if (playerView instanceof PlayerView) {
