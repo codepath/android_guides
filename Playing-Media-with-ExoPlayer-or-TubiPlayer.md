@@ -134,7 +134,7 @@ The key functions for play, pause, and seek, are `setPlayWhenReady(true)`, `setP
  
 When the instance of the app or activity finishes, we also need to release the player with `player.release()`.  Failing to do so will cause the player to continue running in the background and not  video decoders for use by other applications.  Don't forget to release when you're done!
 
- ```java
+```java
  private voide playPlayer() {
      if (player != null) {
          player.setPlayWhenReady(true);
@@ -158,7 +158,7 @@ When the instance of the app or activity finishes, we also need to release the p
          player.release();
      }
  }
- ```
+```
  
 ### Additional and Advanced Topics
 
@@ -170,12 +170,14 @@ The above is just the high level look at implementing an ExoPlayer in an android
  
  But what if you just want to add a player with a few lines of code, and be good to go?  Enter [TubiPlayer](https://github.com/Tubitv/TubiPlayer)!
  
- The [Tubi TV](https://play.google.com/store/apps/details?id=com.tubitv) open source player, built for their streaming needs, has already gone through the leg work to set up and initialize the ExoPlayer, through it's `TubiExoPlayer` custom view.
+The [Tubi TV](https://play.google.com/store/apps/details?id=com.tubitv) open source player, built for their streaming needs, has already gone through the leg work to set up and initialize the ExoPlayer, through it's `TubiExoPlayer` custom view.
  Currently, you need to add the project as its own module.  A bintray extension is coming soon.  
  
- ### Run Fullscreen ExoPlayer Activity
- If all you need is to run ExoPlayer in fullscreen, call the `DoubleViewTubiPlayerActivity`, passing in the video url, and other optional fields such as video name, artwork, and subtitles.  Pass them into an intent to `DoubleViewTubiPlayerActivity`, using a `MediaModel` extra mapped to `TubiPlayerActivity.TUBI_MEDIA_KEY`, and that's it!
- ```java
+### Run Fullscreen ExoPlayer Activity
+
+If all you need is to run ExoPlayer in fullscreen, call the `DoubleViewTubiPlayerActivity`, passing in the video url, and other optional fields such as video name, artwork, and subtitles.  Pass them into an intent to `DoubleViewTubiPlayerActivity`, using a `MediaModel` extra mapped to `TubiPlayerActivity.TUBI_MEDIA_KEY`, and that's it!
+
+```java
 String subs = "http://put_your_own_subtitle.srt";
 String artwork = "http://www.put_your_own_art_work.png";
 String name = "Example Video Name";
@@ -185,18 +187,19 @@ Intent intent = new Intent(SelectionActivity.this,
 intent.putExtra(TubiPlayerActivity.TUBI_MEDIA_KEY,
                     MediaModel.video(name, video_url, artwork, null));
 startActivity(intent);
- ```
+```
 
 ### Customize the TubiPlayer Experience
  
  What if you need an ExoPlayer that's not fullscreen?  Then simply create a xml view that includes the `TubiExoPlayer` widget, design the layout as desired, and create an activity that extends from `DoubleViewTubiPlayerActivity`.  Override the `initLayout` function and set the `mTubiPlayerView` to the xml's `TubiExoPlayer`, and it will be fully functional:
+
 ```java
  @Override
  protected void initPlayer() {
      super.initPlayer();
      mTubiPlayerView = findViewById(R.id.TUBI_PLAYER);
  }
- ```
+```
 
 Also, don't forget to pass in the same `MediaModel` extra mapped to `TubiPlayerActivity.TUBI_MEDIA_KEY` for the new activity.  After that, you should be good to go with having ExoPlayer running in your app.
  
