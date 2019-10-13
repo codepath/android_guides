@@ -126,7 +126,7 @@ Once the `MediaSource` is created, we can call `ExoPlayer.prepare(mediaSource)`.
     MediaSource mediaSource = buildMediaSource(uri);
     player.prepare(mediaSource);
 }
- ```
+```
  
 ### Controlling the player
 
