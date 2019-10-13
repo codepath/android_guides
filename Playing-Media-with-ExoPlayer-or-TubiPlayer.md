@@ -17,7 +17,9 @@ ExoPlayer has several key advantages over MediaPlayer, including:
 *Note:* One key disadvantage is that when using **audio only** playback, **some devices** may use more battery than MediaPlayer.  It's also worth considering whether or not any of the above features are needed for your app.  MediaPlayer can still be a valid option for simple use cases.
 
 ## Adding ExoPlayer to Your Project
+
 ### Adding Gradle Dependencies
+
 Make sure that both the Google and JCenter repositories to the root `build.gradle`.
 ```
 repositories {
@@ -31,14 +33,18 @@ compileOptions {
     targetCompatibility JavaVersion.VERSION_1_8
 }
 ```
+
 Once these dependencies are added, you can add the version of ExoPlyaer you desire.
+
 ```java
 implementation 'com.google.android.exoplayer:exoplayer:2.X.X'
 ```
 If you don't believe you need the full library, a list of individual library modules and extensions can be found [here](https://google.github.io/ExoPlayer/guide.html#adding-exoplayer-as-a-dependency).
 
 ### Creating the Player 
+
 Google's implemented version of ExoPlayer is the `SimpleExoPlayer`, and can be created using `ExoPlayerFactory`.
+
 ```java
 private void initializePlayer() {
     SimpleExoPlayer player = ExoPlayerFactory.newSimpleInstance(context);
@@ -70,9 +76,11 @@ private void initializePlayer() {
 ```
 
 ### Creating MediaSource and Preparing the Player
+
 Next we need to create a `MediaSource`, which defines the media to be played, then loads and reads said media.  `MediaSource` is constructed from a `MediaSourceFactory`, creating an ExoPlayer supoorted `MediaSource`.  The formats currently available are DASH, SmoothStreaming, HLS, and regular media files.
 
 In the following code example, based on the ExoPlayer [demo project](https://github.com/google/ExoPlayer/blob/release-v2/demos/main/src/main/java/com/google/android/exoplayer2/demo/PlayerActivity.java#L478), we extract format type from the URI, and create the matching `MediaSoruce`:
+
 ```java
 private MediaSource buildMediaSource(Uri uri) {
     @ContentType int type = Util.inferContentType(uri);
@@ -103,8 +111,10 @@ private MediaSource buildMediaSource(Uri uri) {
   }
  
 ```
- Once the `MediaSource` is created, we can call `ExoPlayer.prepare(mediaSource)`.
- ```java
+
+Once the `MediaSource` is created, we can call `ExoPlayer.prepare(mediaSource)`.
+
+```java
  private void initializePlayer() {
     SimpleExoPlayer player = ExoPlayerFactory.newSimpleInstance(context);
     setPlayerView(playerView, player);
@@ -113,10 +123,12 @@ private MediaSource buildMediaSource(Uri uri) {
 }
  ```
  
- ### Controlling the player
- The key functions for play, pause, and seek, are `setPlayWhenReady(true)`, `setPlayWhenReady(false)`, and `seekTo(positionInMS)` respectively.  
+### Controlling the player
+
+The key functions for play, pause, and seek, are `setPlayWhenReady(true)`, `setPlayWhenReady(false)`, and `seekTo(positionInMS)` respectively.  
  
- When the instance of the app or activity finishes, we also need to release the player with `player.release()`.  Failing to do so will cause the player to continue running in the background and not  video decoders for use by other applications.  Don't forget to release when you're done!
+When the instance of the app or activity finishes, we also need to release the player with `player.release()`.  Failing to do so will cause the player to continue running in the background and not  video decoders for use by other applications.  Don't forget to release when you're done!
+
  ```java
  private voide playPlayer() {
      if (player != null) {
@@ -143,11 +155,13 @@ private MediaSource buildMediaSource(Uri uri) {
  }
  ```
  
- ### Additional and Advanced Topics
- A more detailed look at the ExoPlayer documentation, including using listeners, DRM, tracking, and modified MediaSources can be found [here](https://google.github.io/ExoPlayer/guide.html#mediasource).  For full code of the ExoPlayer sample project, see [here](https://github.com/google/ExoPlayer/tree/release-v2/demos/main).
+### Additional and Advanced Topics
+
+A more detailed look at the ExoPlayer documentation, including using listeners, DRM, tracking, and modified MediaSources can be found [here](https://google.github.io/ExoPlayer/guide.html#mediasource).  For full code of the ExoPlayer sample project, see [here](https://github.com/google/ExoPlayer/tree/release-v2/demos/main).
  
- ## TubiPlayer: ExoPlayer Made Easy!
- The above is just the high level look at implementing an ExoPlayer in an android app.  There are additional steps still required.  If you're interested, the linked [documentation](https://google.github.io/ExoPlayer/guide.html) and [demo project](https://github.com/google/ExoPlayer/tree/release-v2/demos/main) show the full requirments for a fully functioning ExoPlayer.
+## TubiPlayer: ExoPlayer Made Easy!
+
+The above is just the high level look at implementing an ExoPlayer in an android app.  There are additional steps still required.  If you're interested, the linked [documentation](https://google.github.io/ExoPlayer/guide.html) and [demo project](https://github.com/google/ExoPlayer/tree/release-v2/demos/main) show the full requirments for a fully functioning ExoPlayer.
  
  But what if you just want to add a player with a few lines of code, and be good to go?  Enter [TubiPlayer](https://github.com/Tubitv/TubiPlayer)!
  
@@ -167,7 +181,8 @@ intent.putExtra(TubiPlayerActivity.TUBI_MEDIA_KEY,
                     MediaModel.video(name, video_url, artwork, null));
 startActivity(intent);
  ```
- ### Customize the TubiPlayer Experience
+
+### Customize the TubiPlayer Experience
  
  What if you need an ExoPlayer that's not fullscreen?  Then simply create a xml view that includes the `TubiExoPlayer` widget, design the layout as desired, and create an activity that extends from `DoubleViewTubiPlayerActivity`.  Override the `initLayout` function and set the `mTubiPlayerView` to the xml's `TubiExoPlayer`, and it will be fully functional:
 ```java
@@ -177,12 +192,14 @@ startActivity(intent);
      mTubiPlayerView = findViewById(R.id.TUBI_PLAYER);
  }
  ```
- Also, don't forget to pass in the same `MediaModel` extra mapped to `TubiPlayerActivity.TUBI_MEDIA_KEY` for the new activity.  After that, you should be good to go with having ExoPlayer running in your app.
+
+Also, don't forget to pass in the same `MediaModel` extra mapped to `TubiPlayerActivity.TUBI_MEDIA_KEY` for the new activity.  After that, you should be good to go with having ExoPlayer running in your app.
  
  If you wish to change any of the player business logic, look through the `PlayerModuleDefault` class.  This is where nearly every business related dependency is managed, and where you can override the dependencies with your own logic.
  
- ### Ad Support
- TubiPlayer also offers the use of pre-roll and middle-row video ads.  To read up on this additional feature, see [here](https://github.com/Tubitv/TubiPlayer/blob/master/README.md).
+### Ad Support
+
+TubiPlayer also offers the use of pre-roll and middle-row video ads.  To read up on this additional feature, see [here](https://github.com/Tubitv/TubiPlayer/blob/master/README.md).
  
 ## References
 
