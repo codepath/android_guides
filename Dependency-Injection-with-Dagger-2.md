@@ -211,10 +211,383 @@ public interface AppComponent {
 An important aspect of Dagger 2 is that the library generates code for classes annotated with the `@Component` interface.  You can use a class prefixed with `Dagger` (i.e. `DaggerTwitterApiComponent.java`) that will be responsible for instantiating an instance of our dependency graph and using it to perform the injection work for fields annotated with `@Inject`.  See the [[setup guide|Dependency-Injection-with-Dagger-2#setup]].
 ### Instantiating the component
 
-We should do all this work within a specialization of the `Application` class since these instances should be declared only once throughout the entire lifespan 
+We should do all this work within a specialization of the `Application` class since these instances should be declared only once throughout the entire lifespan of the application:
+
+```java
+public class MyApp extends Application {
+
+    private AppComponent mAppComponent;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        
+        // Dagger%COMPONENT_NAME%
+        mAppComponent = DaggerAppComponent.builder()
+                // list of modules that are part of this component need to be created here too
+                .appModule(new AppModule(this)) // This also corresponds to the name of your module: %component_name%Module
+                .netModule(new NetModule("https://api.github.com"))
+                .build();
+
+        // If a Dagger 2 component does not have any constructor arguments for any of its modules,
+        // then we can use .create() as a shortcut instead:
+        //  mAppComponent = com.codepath.dagger.components.DaggerAppComponent.create();
+    }
+
+    public AppComponent getAppComponent() {
+       return mAppComponent;
+    }
+}
+```
+
+Make sure to rebuild the project (in Android Studio, select _Build > Rebuild Project_) if you cannot reference the Dagger component.
+
+Because we are extending the default `Application` class with the class `MyApp`, we have to specify `MyApp` as the application `name` in the AndroidManifest.xml in order for it to be instantiated. This way your app will launch `MyApp` to handle the initial instantiation.
+
+```xml
+<application
+      android:allowBackup="true"
+      android:name=".MyApp">
+```
+
+Within our activity, we simply need to get access to these components and call `inject()`.  
+
+```java
+public class MyActivity extends Activity {
+  @Inject OkHttpClient mOkHttpClient;
+  @Inject SharedPreferences sharedPreferences;
+
+  public void onCreate(Bundle savedInstance) {
+        // assign singleton instances to fields
+        // We need to cast to `MyApp` in order to get the right method
+        ((MyApp) getApplication()).getAppComponent().inject(this);
+    } 
+```
+ 
+### Qualified types
+![Dagger Qualifiers](https://raw.githubusercontent.com/codepath/android_guides/master/images/dagger_qualifiers.png)
+
+If we need two different objects of the same return type, we can use the `@Named` qualifier annotation.  You will define it both where you provide the singletons (`@Provides` annotation), and where you inject them (`@Inject` annotations):
+
+```java
+@Provides @Named("cached")
+@Singleton
+OkHttpClient provideOkHttpClient(Cache cache) {
+    OkHttpClient client = new OkHttpClient();
+    client.setCache(cache);
+    return client;
+}
+
+@Provides @Named("non_cached") @Singleton
+OkHttpClient provideOkHttpClient() {
+    OkHttpClient client = new OkHttpClient();
+    return client;
+}
+```
+
+Injection will also require these named annotations too:
+
+```java
+@Inject @Named("cached") OkHttpClient client;
+@Inject @Named("non_cached") OkHttpClient client2;
+```
+
+`@Named` is a qualifier that is pre-defined by dagger, but you can create your own qualifier annotations as well:
+
+```java
+@Qualifier
+@Documented
+@Retention(RUNTIME)
+public @interface DefaultPreferences {
+}
+```
+
+### Scopes
+![Dagger Scopes](https://raw.githubusercontent.com/codepath/android_guides/master/images/dagger_scopes.png)
+
+In Dagger 2, you can define how components should be encapsulated by defining custom scopes.  For instance, you can create a scope that only lasts the duration of an activity or fragment lifecycle.  You can create a scope that maps only to a user authenticated session.  You can define any number of custom scope annotations in your application by declaring them as a public `@interface`:
+
+```java
+@Scope
 @Documented
 @Retention(value=RetentionPolicy.RUNTIME)
 public @interface MyActivityScope
 {
 }
-```are.net/nakhimovich/advanced-dagger-talk-from-360anDev)
+```
+
+Even though Dagger 2 does not rely on the annotation at runtime, keeping the `RetentionPolicy` at RUNTIME is useful in allowing you to inspect your modules later.
+
+### Dependent Components vs. Subcomponents
+
+Leveraging scopes allows us to create either **dependent components** or **subcomponents**.  The example above showed that we used the `@Singleton` annotation that lasted the entire lifecycle of the application. We also relied on one major Dagger component.  
+
+If we wish to have multiple components that do not need to remain in memory all the time (i.e. components that are tied to the lifecycle of an activity or fragment, or even tied to when a user is signed-in), we can create dependent components or subcomponents.  In either case, each provide a way of encapsulating your code. We'll see how to use both in the next section. 
+
+There are several considerations when using these approaches:
+
+  * **Dependent components require the parent component to explicitly list out what dependencies can be injected downstream, while subcomponents do not.**   For parent components, you would need to expose to the downstream component by specifying the type and a method:
+
+```java
+// parent component
+@Singleton
+@Component(modules={AppModule.class, NetModule.class})
+public interface AppComponent {
+    // remove injection methods if downstream modules will perform injection
+
+    // downstream components need these exposed
+    // the method name does not matter, only the return type
+    Retrofit retrofit(); 
+    OkHttpClient okHttpClient();
+    SharedPreferences sharedPreferences();
+}
+```
+
+   If you forget to add this line, you will likely see an error about an injection target missing.  Similar to how private/public variables are managed, using a parent component allows more explicit control and better encapsulation, but using subcomponents makes dependency injection easier to manage at the expense of less encapsulation. 
+
+  * **Two dependent components cannot share the same scope.**  For instance, two components cannot both be scoped as `@Singleton`.  This restriction is imposed because of reasons described [here](https://github.com/google/dagger/issues/107#issuecomment-71073298).  Dependent components need to define their own scope.
+
+  * **While Dagger 2 also enables the ability to create scoped instances, the responsibility rests on you to create and delete references that are consistent with the intended behavior.**  Dagger 2 does not know anything about the underlying implementation.  See this Stack Overflow [discussion](http://stackoverflow.com/questions/28411352/what-determines-the-lifecycle-of-a-component-object-graph-in-dagger-2) for more details.
+
+#### Dependent Components
+
+![Dagger Component Dependencies](https://raw.githubusercontent.com/codepath/android_guides/master/images/dagger_dependency.png)
+
+For instance, if we wish to use a component created for the entire lifecycle of a user session signed into the application, we can define our own `UserScope` interface:
+
+```java
+import java.lang.annotation.Retention;
+import javax.inject.Scope;
+
+@Scope
+public @interface UserScope {
+}
+```
+
+Next, we define the parent component:
+
+```java
+  @Singleton
+  @Component(modules={AppModule.class, NetModule.class})
+  public interface AppComponent {
+      // downstream components need these exposed with the return type
+      // method name does not really matter
+      Retrofit retrofit();
+  }
+```
+
+We can then define a child component:
+
+```java
+@UserScope // using the previously defined scope, note that @Singleton will not work
+@Component(dependencies = AppComponent.class, modules = GitHubModule.class)
+public interface UserComponent {
+    void inject(MainActivity activity);
+}
+```
+
+Let's assume this GitHub module simply returns back an API interface to the GitHub API:
+
+```java
+
+@Module
+public class GitHubModule {
+
+    public interface GitHubApiInterface {
+      @GET("/org/{orgName}/repos")
+      Call<List<Repository>> getRepository(@Path("orgName") String orgName);
+    }
+
+    @Provides
+    @UserScope // needs to be consistent with the component scope
+    public GitHubApiInterface providesGitHubInterface(Retrofit retrofit) {
+        return retrofit.create(GitHubApiInterface.class);
+    }
+}
+```
+
+In order for this `GitHubModule.java` to get access to the `Retrofit` instance, we need explicitly define them in the upstream component.  If the downstream modules will be performing the injection, they should also be removed from the upstream components too:
+
+```java
+@Singleton
+@Component(modules={AppModule.class, NetModule.class})
+public interface AppComponent {
+    // remove injection methods if downstream modules will perform injection
+
+    // downstream components need these exposed
+    Retrofit retrofit();
+    OkHttpClient okHttpClient();
+    SharedPreferences sharedPreferences();
+}
+```
+
+The final step is to use the `UserComponent` to perform the instantiation.  This time, we first need to build the `AppComponent` and pass it into the constructor of the `DaggerUserComponent` builder:
+
+```java
+AppComponent mAppComponent = DaggerAppComponent.builder()
+                .appModule(new AppModule(this))
+                .netModule(new NetModule("https://api.github.com"))
+                .build();
+
+UserComponent userComponent = DaggerUserComponent.builder()
+                .appComponent(mAppComponent)
+                .gitHubModule(new GitHubModule()) // this is optional
+                .build();
+```
+
+See [this example code](https://github.com/codepath/dagger2-example) for a working example.
+
+#### Subcomponents
+![Dagger subcomponents](https://raw.githubusercontent.com/codepath/android_guides/master/images/dagger_subcomponent.png)
+
+Using subcomponents is another way to extend the object graph of a component.  Like components with dependencies, subcomponents have their own life-cycle and can be garbage collected when all references to the subcomponent are gone, and have the same scope restrictions.  One advantage in using this approach is that you do not need to define all the downstream components.  
+
+Another major difference is that subcomponents simply need to be declared in the parent component.
+
+Here's an example of using a subcomponent for an activity.  We annotate the class with a custom scope and the `@Subcomponent` annotation: 
+
+```java
+@MyActivityScope
+@Subcomponent(modules={ MyActivityModule.class })
+public interface MyActivitySubComponent {
+    void inject(MyActivity activity);
+}
+```
+
+The module that will be used is defined below:
+
+```java
+@Module
+public class MyActivityModule {
+    private final MyActivity activity;
+
+    // must be instantiated with an activity
+    public MyActivityModule(MyActivity activity) { this.activity = activity; }
+   
+    @Provides @MyActivityScope @Named("my_list")
+    public ArrayAdapter providesMyListAdapter() {
+        return new ArrayAdapter<String>(activity, android.R.layout.my_list);
+    }
+    ...
+}
+```
+
+Finally, in the **parent component**, we will define a factory method with the return value of the component and the dependencies needed to instantiate it:
+
+```java
+@Singleton
+@Component(modules={ ... })
+public interface MyApplicationComponent {
+    // injection targets here
+
+    // factory method to instantiate the subcomponent defined here (passing in the module instance)
+    MyActivitySubComponent newMyActivitySubcomponent(MyActivityModule activityModule);
+}
+```
+
+In the above example, a new instance of the subcomponent will be created every time that the `newMyActivitySubcomponent()` is called.  To use the submodule to inject an activity:
+
+```java
+public class MyActivity extends Activity {
+  @Inject ArrayAdapter arrayAdapter;
+
+  public void onCreate(Bundle savedInstance) {
+        // assign singleton instances to fields
+        // We need to cast to `MyApp` in order to get the right method
+        ((MyApp) getApplication()).getApplicationComponent())
+            .newMyActivitySubcomponent(new MyActivityModule(this))
+            .inject(this);
+    } 
+}
+```
+
+#### Subcomponent Builders
+*Available starting in v2.7*
+
+![Dagger subcomponent builders](https://raw.githubusercontent.com/codepath/android_guides/master/images/subcomponent_builders.png)
+
+Subcomponent builders allow the creator of the subcomponent to be de-coupled from the parent component, by removing the need to have a subcomponent factory method declared on that parent component.  
+
+```java
+@MyActivityScope
+@Subcomponent(modules={ MyActivityModule.class })
+public interface MyActivitySubComponent {
+    ...
+    @Subcomponent.Builder
+    interface Builder extends SubcomponentBuilder<MyActivitySubComponent> {
+        Builder activityModule(MyActivityModule module);
+    }
+}
+
+public interface SubcomponentBuilder<V> {
+    V build();
+}
+```
+
+The subcomponent is declared as an inner interface in the subcomponent interface and it must include a `build()` method which the return type matching the subcomponent.  It's convenient to declare a base interface with this method, like `SubcomponentBuilder` above.  This new **builder must be added to the parent component graph** using a "binder" module with a "subcomponents" parameter:
+
+```java
+@Module(subcomponents={ MyActivitySubComponent.class })
+public abstract class ApplicationBinders {
+    // Provide the builder to be included in a mapping used for creating the builders.
+    @Binds @IntoMap @SubcomponentKey(MyActivitySubComponent.Builder.class)
+    public abstract SubcomponentBuilder myActivity(MyActivitySubComponent.Builder impl);
+}
+
+@Component(modules={..., ApplicationBinders.class})
+public interface ApplicationComponent {
+    // Returns a map with all the builders mapped by their class.
+    Map<Class<?>, Provider<SubcomponentBuilder>> subcomponentBuilders();
+}
+
+// Needed only to create the above mapping
+@MapKey @Target({ElementType.METHOD}) @Retention(RetentionPolicy.RUNTIME)
+public @interface SubcomponentKey {
+    Class<?> value();
+}
+```
+
+Once the builders are made available in the component graph, the activity can use it to create its subcomponent:
+
+```java
+public class MyActivity extends Activity {
+  @Inject ArrayAdapter arrayAdapter;
+
+  public void onCreate(Bundle savedInstance) {
+        // assign singleton instances to fields
+        // We need to cast to `MyApp` in order to get the right method
+        MyActivitySubcomponent.Builder builder = (MyActivitySubcomponent.Builder)
+            ((MyApp) getApplication()).getApplicationComponent())
+            .subcomponentBuilders()
+            .get(MyActivitySubcomponent.Builder.class)
+            .get();
+        builder.activityModule(new MyActivityModule(this)).build().inject(this);
+    } 
+}
+```
+
+## ProGuard
+
+Dagger 2 should work out of box without ProGuard, but if you start seeing `library class dagger.producers.monitoring.internal.Monitors$1 extends or implements program class javax.inject.Provider`, make sure your Gradle configuration uses the `annotationProcessor` declaration instead of `provided`. 
+
+## Troubleshooting
+
+* If you are upgrading Dagger 2 versions (i.e. from v2.0 to v2.5), some of the generated code has changed.  If you are incorporating Dagger code that was generated with older versions, you may see `MemberInjector` and `actual and former argument lists different in length` errors.  Make sure to clean the entire project and verify that you have upgraded all versions to use the consistent version of Dagger 2.
+
+## References
+
+* [Dagger 2 Github Page](http://google.github.io/dagger/)
+* [Sample project using Dagger 2](https://github.com/vinc3m1/nowdothis)
+* [Vince Mi's Codepath Meetup Dagger 2 Slides](https://docs.google.com/presentation/d/1bkctcKjbLlpiI0Nj9v0QpCcNIiZBhVsJsJp1dgU5n98/)
+* <http://code.tutsplus.com/tutorials/dependency-injection-with-dagger-2-on-android--cms-23345>
+* [Jake Wharton's Devoxx Dagger 2 Slides](https://speakerdeck.com/jakewharton/dependency-injection-with-dagger-2-devoxx-2014)
+* [Jake Wharton's Devoxx Dagger 2 Talk](https://www.parleys.com/tutorial/5471cdd1e4b065ebcfa1d557/)
+* [Dagger 2 Google Developers Talk](https://www.youtube.com/watch?v=oK_XtfXPkqw)
+* [Dagger 1 to Dagger 2](http://frogermcs.github.io/dagger-1-to-2-migration/)
+* [Tasting Dagger 2 on Android](http://fernandocejas.com/2015/04/11/tasting-dagger-2-on-android/)
+* [Dagger 2 Testing with Mockito](http://blog.sqisland.com/2015/04/dagger-2-espresso-2-mockito.html#sthash.IMzjLiVu.dpuf)
+* [Snorkeling with Dagger 2](https://github.com/konmik/konmik.github.io/wiki/Snorkeling-with-Dagger-2) 
+* [Dependency Injection in Java](https://www.objc.io/issues/11-android/dependency-injection-in-java/)
+* [Component Dependency vs. Submodules in Dagger 2](http://jellybeanssir.blogspot.de/2015/05/component-dependency-vs-submodules-in.html)
+* [Dagger 2 Component Scopes Test](https://github.com/joesteele/dagger2-component-scopes-test)
+* [Advanced Dagger Talk](http://www.slideshare.net/nakhimovich/advanced-dagger-talk-from-360anDev)
