@@ -1,6 +1,6 @@
 ## Overview
 
-The `RecyclerView` is a new `ViewGroup` that is prepared to render any adapter-based view in a similar way. It is supposed to be the successor of [[ListView|Using-an-ArrayAdapter-with-ListView]] and [GridView](http://developer.android.com/guide/topics/ui/layout/gridview.html). One of the reasons is that `RecyclerView` has a more extensible framework, especially since it provides the ability to implement both horizontal and vertical layouts. Use the `RecyclerView` widget when you have data collections whose elements change at runtime based on user action or network events.
+The `RecyclerView` is a `ViewGroup` that renders any adapter-based view in a similar way. It is supposed to be the successor of [[ListView|Using-an-ArrayAdapter-with-ListView]] and [GridView](http://developer.android.com/guide/topics/ui/layout/gridview.html). One of the reasons is that `RecyclerView` has a more extensible framework, especially since it provides the ability to implement both horizontal and vertical layouts. Use the `RecyclerView` widget when you have data collections whose elements change at runtime based on user action or network events.
 
 If you want to use a `RecyclerView`, you will need to work with the following:
 * `RecyclerView.Adapter` - To handle the data collection and bind it to the view
@@ -9,7 +9,7 @@ If you want to use a `RecyclerView`, you will need to work with the following:
 
 <img src="https://developer.android.com/training/material/images/RecyclerView.png" width="500" alt="RecyclerView" />
 
-Furthermore, it provides animation support for `RecyclerView` items whenever they are added or removed, which had been extremely difficult to do in the current implementation.  `RecyclerView` also begins to enforce the [[ViewHolder pattern|Using-an-ArrayAdapter-with-ListView#improving-performance-with-the-viewholder-pattern]] too, which was already a recommended practice but now deeply integrated with this new framework.
+Furthermore, it provides animation support for `RecyclerView` items whenever they are added or removed, which had been extremely difficult to do with `ListView`.  `RecyclerView` also begins to enforce the [[ViewHolder pattern|Using-an-ArrayAdapter-with-ListView#improving-performance-with-the-viewholder-pattern]] too, which was already a recommended practice but now deeply integrated with this new framework.
 
 For more details, see [this detailed overview](http://www.grokkingandroid.com/first-glance-androids-recyclerview/).
 
