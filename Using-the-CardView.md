@@ -1,6 +1,6 @@
 ## Overview
 
-Android 6.0 introduces a new widget called `CardView` which essentially can be thought of as a `FrameLayout` with rounded corners and shadow based on its elevation. Note that a CardView wraps a layout and will often be the container used in a layout for each item within a `ListView` or [[RecyclerView|Using-the-RecyclerView]].
+Android 7.0 introduces a new widget called `CardView` which essentially can be thought of as a `FrameLayout` with rounded corners and shadow based on its elevation. Note that a CardView wraps a layout and will often be the container used in a layout for each item within a `ListView` or [[RecyclerView|Using-the-RecyclerView]].
 
 <img src="https://developer.android.com/design/material/images/card_travel.png" width="200" />
 
