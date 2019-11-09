@@ -49,7 +49,12 @@ String imageUri = "https://i.imgur.com/tGbaZCY.jpg";
 ImageView ivBasicImage = (ImageView) findViewById(R.id.ivBasicImage);
 Picasso.with(context).load(imageUri).into(ivBasicImage);
 ```
-
+If you are using the latest version of Picasso then remeber that the with(context) is deprecated and is replaced with get() method 
+```java
+String imageUri = "https://i.imgur.com/tGbaZCY.jpg";
+ImageView ivBasicImage = (ImageView) findViewById(R.id.ivBasicImage);
+Picasso.get().load(imageUri).into(ivBasicImage);
+```
 ### Configuring Picasso
 
 We can do more sophisticated work with Picasso configuring placeholders, error handling, adjusting size of the image, and scale type with:
