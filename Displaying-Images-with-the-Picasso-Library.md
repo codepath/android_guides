@@ -49,7 +49,7 @@ String imageUri = "https://i.imgur.com/tGbaZCY.jpg";
 ImageView ivBasicImage = (ImageView) findViewById(R.id.ivBasicImage);
 Picasso.with(context).load(imageUri).into(ivBasicImage);
 ```
-If you are using the latest version of Picasso (2.71828) then remember that with(context) methods is deprecated and is replaced with get() method 
+If you are using the latest version of Picasso (2.71828) then remember that `with(context)` methods is deprecated and is replaced with `get()` method 
 ```java
 String imageUri = "https://i.imgur.com/tGbaZCY.jpg";
 ImageView ivBasicImage = (ImageView) findViewById(R.id.ivBasicImage);
