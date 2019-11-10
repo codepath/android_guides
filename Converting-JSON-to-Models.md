@@ -1,1 +1,235 @@
-{"data":{"contractKey":null,"gender":"Mr.","creationTime":1564756316850,"countrycode":null,"pushkit_device_id":"ee822c762862869f12e9cadf39211ec0224a6614001b35446ac026f49272aff5","rating":null,"is_removed":false,"mobileno":"7508506807","password":"12345678","user_type":"USER","is_deleted":false,"gcmId":null,"appIdFacebook":null,"ratings":null,"intake_form":"{\"medicare_card_no\":\"\",\"suburb_and_state\":\"QLD,s1\",\"dob\":\"5\\/8\\/1988\",\"contact_work\":\"\",\"medicare_expiry_date\":\"\",\"firstname\":\" Sushil\",\"referral_name\":\" \",\"is_referral\":false,\"medicare_card_irn\":\"\",\"referral_surname\":\"\",\"surname\":\"Test\",\"contact_mobile\":\"7508506807\",\"contact_home\":\"\",\"postcode\":\"123457\",\"referral_provider_no\":\"\",\"brief_desc_of_problem\":\"test\",\"address\":\"ra1\",\"user_id\":\"313\",\"referral_profession\":\"\",\"referral_date\":\"\"}","customerId":null,"id":313,"updation_time":1566286613094,"lastAppointment":null,"email":"sushil.iotasol@gmail.com","appIdGoogle":null,"address":{"creation_time":null,"country":"Australia","city":"s1","user_address":"ra1","lon":75.82803801422607,"user_type":"USER","user_id":null,"postalcode":"123457","suburb":null,"location":null,"id":589,"state":"SA","lat":30.885528564453125},"device_id":"023bf82ce112c4465ef5596ab97a21a9f21ed5bdb43b77c7ee807648dbd15db0","address_id":589,"profile_pic":"https://s3-ap-southeast-1.amazonaws.com/cyberclinicbucket/7001ccc8-bc3d-4a9b-ae2d-83bda0c58e8d.png","time_zone":"Asia/Kolkata","lastname":"Test","peas_survey_pending":false,"dob":"5/8/1988","third_party_app":false,"name":"Sushil"},"status":"success"}
+## Overview
+
+This guide describes the process of converting JSON data retrieved from a network request and converting that data to simple Model objects. This approach will be compatible with nearly any basic data-driven application and fits well with any ORM solution for persistence such as [[DBFlow|DBFlow Guide]] or [SugarORM](http://satyan.github.io/sugar/) that may be introduced.
+
+For this guide, we will be using the [Yelp API](http://www.yelp.com/developers/documentation/v2/search_api#searchGP) as the example. The goal of this guide is to **perform a Yelp API Search** and then **process the results into Java objects** which we can then use to populate information within our application.
+
+The model in this case is **Business** and for our application, let's suppose we just need the _name_, _phone_, and _image_ of the business which are all provided by the [Search API](http://www.yelp.com/developers/documentation/v2/search_api#searchGP).
+
+### Fetching JSON Results
+
+The first step in retrieving any API-based model data is to execute a network request to retrieve the JSON response that represents the underlying data that we want to use. In this case, we want to execute a request to `http://api.yelp.com/v2/search?term=food&location=San+Francisco` and then this will return us a JSON dictionary that looks like:
+
+```json
+{
+  "businesses": [
+    {
+      "id": "yelp-tropisueno",
+      "name" : "Tropisueno",
+      "display_phone": "+1-415-908-3801",
+      "image_url": "http://s3-media2.ak.yelpcdn.com/bphoto/7DIHu8a0AHhw-BffrDIxPA/ms.jpg",
+      ...
+    }
+  ] 
+}
+```
+
+Sending out this API request can be done in any number of ways but first requires us to register for a Yelp developer account and use OAuth 1.0a to authenticate with our provided access_token. You might for example use our [rest-client-template](https://github.com/codepath/android-rest-client-template) to manage this authentication and then construct a `YelpClient` that has a `search` method:
+
+```java
+public class YelpClient extends OAuthBaseClient {
+    // LOTS OF TOKENS AND STUFF ...
+    
+    // Setting up the search endpoint
+    public void search(String term, String location, AsyncHttpResponseHandler handler) {
+    	// http://api.yelp.com/v2/search?term=food&location=San+Francisco
+    	String apiUrl = getApiUrl("search");
+        RequestParams params = new RequestParams();
+        params.put("term", term);
+        params.put("location", location);
+        client.get(apiUrl, params, handler);
+    }
+}
+```
+
+This `search` method will take care of executing our JSON request to the Yelp API. The API call might be executed in an Activity now when the user performs a search. Executing the API request would look like:
+
+```java
+YelpClient client = YelpClientApp.getRestClient();
+client.search("food", "san francisco", new JsonHttpResponseHandler() {
+	@Override
+        public void onSuccess(int code, Header[] headers, JSONObject body) {
+		try {
+			JSONArray businessesJson = body.getJSONArray("businesses");
+                        // Here we now have the json array of businesses!
+			Log.d("DEBUG", businesses.toString());
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public void onFailure(Throwable arg0) {
+		Toast.makeText(SearchActivity.this, "FAIL", Toast.LENGTH_LONG).show();
+	}
+});
+```
+
+We could now run the app and verify that the JSON array of business has the format we expect from the provided sample response in the documentation.
+
+### Setting up our Model
+
+The primary resource in the Yelp API is the **Business**. Let's create a Java class that will act as the **Business** model in our application:
+
+```java
+public class Business {
+	private String id;
+	private String name;
+	private String phone;
+	private String imageUrl;
+	
+	public String getName() {
+		return this.name;
+	}
+	
+	public String getPhone() {
+		return this.phone;
+	}
+	
+	public String getImageUrl() {
+		return this.imageUrl;
+	}
+}
+```
+
+So far, the business model is just a series of declared fields and then getters to access those fields. Next, we need to add method that would manage the deserialization of a JSON dictionary into a populated Business object:
+
+```java
+public class Business {
+  // ...
+  
+  // Decodes business json into business model object
+  public static Business fromJson(JSONObject jsonObject) {
+  	Business b = new Business();
+        // Deserialize json into object fields
+  	try {
+  		b.id = jsonObject.getString("id");
+        	b.name = jsonObject.getString("name");
+        	b.phone = jsonObject.getString("display_phone");
+        	b.imageUrl = jsonObject.getString("image_url");
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+  	// Return new object
+  	return b;
+  }
+}
+```
+
+With this method in place, we could take a single business JSON dictionary such as:
+
+```json
+{
+ "id": "yelp-tropisueno",
+ "name" : "Tropisueno",
+ "display_phone": "+1-415-908-3801",
+ "image_url": "http://s3-media2.ak.yelpcdn.com/bphoto/7DIHu8a0AHhw-BffrDIxPA/ms.jpg",
+  ...
+}
+```
+
+and successfully create a Business with `Business.fromJson(json)`. However, in the API response, we actually get a collection of business JSON in an array. So ideally we also would have an easy way of processing an **array of businesses**  into an **ArrayList of Business objects**. That might look like:
+
+```java
+public class Business {
+  // ...fields and getters
+  // ...fromJson for an object
+
+  // Decodes array of business json results into business model objects
+  public static ArrayList<Business> fromJson(JSONArray jsonArray) {
+      JSONObject businessJson;
+      ArrayList<Business> businesses = new ArrayList<Business>(jsonArray.length());
+      // Process each result in json array, decode and convert to business object
+      for (int i=0; i < jsonArray.length(); i++) {
+          try {
+          	businessJson = jsonArray.getJSONObject(i);
+          } catch (Exception e) {
+              e.printStackTrace();
+              continue;
+          }
+
+          Business business = Business.fromJson(businessJson);
+          if (business != null) {
+          	businesses.add(business);
+          }
+      }
+
+      return businesses;
+  }
+}
+```
+
+With that in place, we can now pass an JSONArray of business json data and process that easily into a nice ArrayList<Business> object for easy use in our application with `Business.fromJson(myJsonArray)`.
+
+### Putting It All Together
+
+Now, we can return to our Activity where we are executing the network request and use the new Model to get easy access to our Business data. Let's tweak the network request handler in our activity:
+
+```java
+// Within an activity or fragment
+YelpClient client = YelpClientApp.getRestClient();
+client.search("food", "san francisco", new JsonHttpResponseHandler() {
+  @Override
+  public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+    try {
+      JSONArray businessesJson = body.getJSONArray("businesses");
+      ArrayList<Business> businesses = Business.fromJson(businessesJson);
+      // Now we have an array of business objects
+      // Might now create an adapter BusinessArrayAdapter<Business> to load the businesses into a list
+      // You might also simply update the data in an existing array and then notify the adapter
+    } catch (JSONException e) {
+      e.printStackTrace();
+    }
+  }
+
+  @Override
+  public void onFailure(int statusCode, Header[] headers, String res, Throwable t) {
+    Toast.makeText(getBaseContext(), "FAIL", Toast.LENGTH_LONG).show();
+  }
+});
+```
+
+This approach works very similarly for any simple API data which often is returned in collections whether it be images on Instagram, tweets on Twitter, or auctions on Ebay. 
+
+### Bonus: Setting Up Your Adapter
+
+The next step might be to create an adapter and populate these new model objects into a `ListView` or `RecyclerView`.
+
+```java
+// Within an activity
+ArrayList<Business> businesses;
+BusinessRecyclerViewAdapter adapter;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+   // ...
+   // Lookup the recyclerview in activity layout
+   RecyclerView rvBusinesses = (RecyclerView) findViewById(...);
+   // Initialize default business array
+   businesses = new ArrayList<Business>();
+   // Create adapter passing in the sample user data
+   adapter = new BusinessRecyclerViewAdapter(business);
+   rvBusinesses.setAdapter(adapter);
+   // Set layout manager to position the items
+   rvBusinesses.setLayoutManager(new LinearLayoutManager(this));
+}
+
+// Anywhere in your activity
+client.search("food", "san francisco", new JsonHttpResponseHandler() {
+  @Override
+  public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+      try {
+          // Get and store decoded array of business results
+          JSONArray businessesJson = response.getJSONArray("businesses");
+          businesses.clear(); // clear existing items if needed
+          businesses.addAll(Business.fromJson(businessesJson)); // add new items
+          adapter.notifyDataSetChanged();
+      } catch (JSONException e) {
+          e.printStackTrace();
+      }
+  }
+}
+```
+
+For additional details on using adapters to display data in lists, see [[Using RecyclerView|Using-the-RecyclerView#creating-the-recyclerviewadapter]] or [[Using ListView|Using-an-ArrayAdapter-with-ListView]].
