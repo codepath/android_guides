@@ -118,7 +118,7 @@ Services can be thought of at a high-level as background tasks that run independ
 | ---------    | ---------     | ------- |
 | [Intent](Starting-Background-Services#executing-the-intentservice)       | Trigger directly from an activity or fragment after user action | Starts an image upload |
 | [AlarmManager](Starting-Background-Services#using-with-alarmmanager-for-periodic-tasks) | Trigger at a specified time in the future or at a recurring interval | Poll for new updates |
-| [GCM](../Push-Messaging#google-cloud-messaging)          | Trigger when a push message is received through cloud messaging | Chat message received |
+| [GCM](Push-Messaging#google-cloud-messaging)          | Trigger when a push message is received through cloud messaging | Chat message received |
 | [BroadcastReceiver](Starting-Background-Services#starting-a-service-at-device-boot) | Trigger when a particular broadcast message is received | Launch on device bootup |
 | [Sensors](https://developer.android.com/training/location/geofencing.html) | Trigger when a particular sensor value is received | Geofencing location update |
 
@@ -130,11 +130,11 @@ Remember that a service is **not bound to the Activity and cannot modify views w
 
 | Output       | Description   | Example |
 | ---------    | ---------     | ------- |
-| [Notifications](../Notifications) | Creates a dashboard notification to alert the user | New direct message received |
+| [Notifications](Notifications) | Creates a dashboard notification to alert the user | New direct message received |
 | [Broadcasts](Starting-Background-Services#communicating-with-a-broadcastreceiver)   | Triggers a broadcast message to be received | Activity wants to add a new chat message |
-| [SQLite](../Local-Databases-with-SQLiteOpenHelper) | Write data received into the local database | Store new content for querying later |
-| [Files](../Persisting-Data-to-the-Device#local-files) | Cache blob data such as images or json to file | Cache images to be displayed quickly later |
-| [Prefs](../Persisting-Data-to-the-Device#shared-preferences) | Save key-values to shared preferences | Store a flag to display a message on next app open |
+| [SQLite](Local-Databases-with-SQLiteOpenHelper) | Write data received into the local database | Store new content for querying later |
+| [Files](Persisting-Data-to-the-Device#local-files) | Cache blob data such as images or json to file | Cache images to be displayed quickly later |
+| [Prefs](Persisting-Data-to-the-Device#shared-preferences) | Save key-values to shared preferences | Store a flag to display a message on next app open |
 
 Note that we can use [[broadcasts to trigger updates within our app|Starting-Background-Services#communicating-with-a-broadcastreceiver]] while the app is running. In this way, the activity can update the UI accordingly after being told to by a service broadcast.
 
