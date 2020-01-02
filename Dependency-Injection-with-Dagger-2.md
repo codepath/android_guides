@@ -591,3 +591,4 @@ Dagger 2 should work out of box without ProGuard, but if you start seeing `libra
 * [Component Dependency vs. Submodules in Dagger 2](http://jellybeanssir.blogspot.de/2015/05/component-dependency-vs-submodules-in.html)
 * [Dagger 2 Component Scopes Test](https://github.com/joesteele/dagger2-component-scopes-test)
 * [Advanced Dagger Talk](http://www.slideshare.net/nakhimovich/advanced-dagger-talk-from-360anDev)
+* [Dagger 2 For Beginner Tutorial](https://codinginflow.com/tutorials/android/dagger-2)
