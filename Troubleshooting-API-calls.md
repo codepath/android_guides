@@ -67,14 +67,7 @@ The process requires two parts: one on the PC that will act as the proxy, and th
 
      <img src="https://imgur.com/yuRmGRC.png">
 
-5. If you are using AsyncHttpClient, you have to set the proxy settings manually (see [this GitHub issue](https://github.com/loopj/android-async-http/issues/971) for more details):
-
-     ```java
-     AsyncHttpClient client = new AsyncHttpClient();
-     client.setProxy(System.getProperty("http.proxyHost"), Integer.parseInt(System.getProperty("http.proxyPort")));
-     ```
-
-6. If you are targeting API 24 or above, make sure that your app allows the self-signed Charles Proxy certificate to be used.  Add this file to your `res/xml/network_security_config.xml`:
+5. If you are targeting API 24 or above, make sure that your app allows the self-signed Charles Proxy certificate to be used.  Add this file to your `res/xml/network_security_config.xml`:
 
      ```xml
      <?xml version="1.0" encoding="utf-8"?>
