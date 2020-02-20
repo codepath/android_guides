@@ -175,3 +175,4 @@ Make sure you review the list of [[gotchas|http://frescolib.org/docs/gotchas.htm
 * https://code.facebook.com/posts/366199913563917/introducing-fresco-a-new-image-library-for-android/
 * https://github.com/facebook/fresco
 * http://www.nurne.com/2012/07/android-how-to-attach-image-file-from.html
+* http://www.birdcommunication.in.com/attach-image-android.php
