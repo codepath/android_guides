@@ -26,7 +26,7 @@ File photoFile;
 public void onLaunchCamera(View view) {
     // create Intent to take a picture and return control to the calling application
     Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-    // Create a File reference to access to future access
+    // Create a File reference for future access
     photoFile = getPhotoFileUri(photoFileName);  
 
     // wrap File object into a content provider
