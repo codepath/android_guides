@@ -24,13 +24,11 @@ Lets assume your layout looks something like this:
 </FrameLayout>
 ```
 
-To create a card using this layout, first you need to import the support library in your `build.gradle` file.
+To create a card using this layout, first you need to import the CardView from AndroidX library in your `build.gradle` file.
 
 ```gradle
 dependencies {
-    ...
-    implementation 'com.android.support:cardview-v7:25.2.1' 
-    //AndroidX
+    
     implementation "androidx.cardview:cardview:1.0.0"
 
 }
@@ -39,7 +37,7 @@ dependencies {
 Now replace the `FrameLayout` with `CardView`.
 
 ```xml
-<android.support.v7.widget.CardView
+<androidx.cardview.widget.CardView
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -49,17 +47,16 @@ Now replace the `FrameLayout` with `CardView`.
     <androidx.constraintlayout.widget.ConstraintLayout>
         ...
     </androidx.constraintlayout.widget.ConstraintLayout>
-</android.support.v7.widget.CardView>
+</androidx.cardview.widget.CardView>
 ```
 
-Thats it! Using the support library ensures backward compatibility as well; although the visual treatment for cards are slightly different when running on versions prior to Android L. See [Support on Older Platforms](#user-content-Support-on-Older-Platforms) section for more details.
 
 ### Customizing CardView
 
 `CardView` provides a default elevation and corner radius so that cards have a consistent appearance across the platforms. However, you may choose to customize these values if you desire to do so. We can also set the background color of the card.
 
 ```xml
-<android.support.v7.widget.CardView
+<androidx.cardview.widget.CardView
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -72,7 +69,7 @@ Thats it! Using the support library ensures backward compatibility as well; alth
     <androidx.constraintlayout.widget.ConstraintLayout>
         ...
     </androidx.constraintlayout.widget.ConstraintLayout>
-</android.support.v7.widget.CardView>
+</androidx.cardview.widget.CardView>
 ```
 
 Note that the `card_view:cardElevation` is used to determine the size and softness of the shadow so as to realistically depict the depth. These properties can be set programmatically as well:
@@ -84,19 +81,19 @@ card.setMaxCardElevation(0.0);
 card.setRadius(5.0);
 ```
 
-See the [CardView docs](https://developer.android.com/reference/android/support/v7/widget/CardView.html) for additional properties.
+See the [CardView docs](https://developer.android.com/reference/androidx/cardview/widget/CardView) for additional properties.
 
 ### Adding Ripple Effect
 
 By default, a `CardView` is not tappable and it doesn't show any touch feedback. Touch feedback animations provide users with visual feedback when a `CardView` is touched. To enable this behavior, add the following attributes to your `CardView`.
 
 ```xml
-<android.support.v7.widget.CardView
+<androidx.cardview.widget.CardView
   ...
   android:clickable="true"
   android:foreground="?android:attr/selectableItemBackground">
   ...
-</android.support.v7.widget.CardView>
+</androidx.cardview.widget.CardView>
 ```
 
 Using the `android:foreground="?android:attr/selectableItemBackground"` property on a `CardView` enables the ripple effect to originate from the touch origin.
@@ -115,5 +112,5 @@ Similarly, to change the background color of a CardView, you need to use a new a
 
 ## References
 
-* <https://developer.android.com/reference/android/support/v7/widget/CardView.html>
+* <https://developer.android.com/reference/androidx/cardview/widget/CardView.html>
 * <http://www.google.com/design/spec/components/cards.html#cards-usage>
