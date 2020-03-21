@@ -39,7 +39,7 @@ Assign a common transition name to the shared elements in both layouts. Use the 
 For e.g. in `MainActivity.xml`:
 
 ```xml
-<android.support.v7.widget.CardView
+<androidx.cardview.widget.CardView
   ...>
       <ImageView
           android:id="@+id/ivProfile"
@@ -48,7 +48,7 @@ For e.g. in `MainActivity.xml`:
           android:layout_width="match_parent"
           android:layout_height="160dp" />
       ...
-</android.support.v7.widget.CardView>
+</androidx.cardview.widget.CardView>
 ```
 
 In `DetailActivity.xml`:
@@ -294,7 +294,7 @@ Note that the shared element transitions require Android 5.0 (API level 21) and 
 Within two fragments let's assign a common transition name to the shared elements in both layouts. Use the `android:transitionName` attribute and put the view inside both `FirstFragment` and `SecondFragment`:
 
 ```xml
-<android.support.v7.widget.CardView
+<androidx.cardview.widget.CardView
   ...>
       <ImageView
           android:id="@+id/ivProfile"
@@ -303,7 +303,7 @@ Within two fragments let's assign a common transition name to the shared element
           android:layout_width="match_parent"
           android:layout_height="160dp" />
       ...
-</android.support.v7.widget.CardView>
+</androidx.cardview.widget.CardView>
 ```
 
 ### Define the Transition
