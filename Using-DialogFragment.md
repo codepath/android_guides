@@ -10,7 +10,7 @@ DialogFragment is now the canonical way to display overlays; using Dialog direct
 
 The minimum that must be implemented when creating a DialogFragment is either the `onCreateView` method or the `onCreateDialog` method. Use `onCreateView` when the entire view of the dialog is going to be defined via custom XML. Use `onCreateDialog` when you just need to construct and configure a standard Dialog class (such as AlertDialog) to display.
 
-**Note:** The entire guide below requires every fragment related class imported to use the `android.support.v4.app` namespace and **not** the `android.app` namespace. If any imported class (FragmentManager, DialogFragment, etc) uses the `android.app` namespace, compile-time errors will occur.
+**Note:** The entire guide below requires every fragment related class imported to use the `androidx.fragment.app` namespace and **not** the `android.app` namespace. If any imported class (FragmentManager, DialogFragment, etc) uses the `android.app` namespace, compile-time errors will occur.
 
 ### Custom View
 
@@ -38,7 +38,7 @@ Let's start by providing the code for creating a completely custom dialog based 
 and defining the fragment itself extending from the **support version of dialog fragment**:
 
 ```java
-import android.support.v4.app.DialogFragment;
+import androidx.fragment.app.DialogFragment;
 // ...
 
 public class EditNameDialogFragment extends DialogFragment {
@@ -100,7 +100,7 @@ public class DialogDemoActivity extends AppCompatActivity {
 }
 ```
 
-For this to work properly make sure that all the fragment related items (`FragmentDialog`) are from the `android.support.v4.app` namespace.
+For this to work properly make sure that all the fragment related items (`FragmentDialog`) are from the `androidx.fragment.app` namespace.
 
 ### Build Dialog
 
@@ -234,7 +234,7 @@ public class DialogDemoActivity extends AppCompatActivity implements EditNameDia
 In certain situations, the a dialog fragment may be invoked **within the context of another fragment**. For example, a screen has tabs with a form contained in a fragment. The form has an input for selecting dates using a date picker in a dialog. In this case, we may want to pass the date back not to the activity but instead to the parent fragment. This data can be passed back directly to the parent fragment:
 
 ```java
-import android.support.v4.app.DialogFragment;
+import androidx.fragment.app.DialogFragment;
 
 public class EditNameDialogFragment extends DialogFragment {
     // Defines the listener interface
@@ -255,7 +255,7 @@ public class EditNameDialogFragment extends DialogFragment {
 And then the dialog must be displayed within a parent fragment passing the target via `setTargetFragment` with:
 
 ```java
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 
 public class MyParentFragment extends Fragment implements EditNameDialogListener {
     // Call this method to launch the edit dialog
@@ -551,7 +551,7 @@ When using the `onCreateDialog` method there are many built-in Dialog types to t
 * [TimePickerDialog](http://developer.android.com/reference/android/app/TimePickerDialog.html) - Dialog that allows a user to select a time.
 * [DatePickerDialog](http://developer.android.com/reference/android/app/DatePickerDialog.html) - Dialog that allows a user to select a date.
 * BottomSheetDialog - Dialog that slides from the bottom.
-* Other dialogs not worth discussing here: [1](http://developer.android.com/reference/android/text/method/CharacterPickerDialog.html) [2](http://developer.android.com/reference/android/support/v7/app/MediaRouteChooserDialog.html)
+* Other dialogs not worth discussing here: [1](http://developer.android.com/reference/android/text/method/CharacterPickerDialog.html) [2](https://developer.android.com/reference/androidx/mediarouter/app/MediaRouteChooserDialog)
 
 ### Displaying a ProgressDialog
 
