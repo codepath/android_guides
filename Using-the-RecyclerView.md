@@ -69,7 +69,7 @@ Make sure the RecyclerView AndroidX library is listed as a dependency in your `a
 ```gradle
 dependencies {
     ...
-    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
 }
 ```
 
