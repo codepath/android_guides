@@ -117,7 +117,7 @@ Once the sub-activity finishes, the onActivityResult() method in the calling act
 ```java
 // ActivityOne.java, time to handle the result of the sub-activity
 @Override
-protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
   // REQUEST_CODE is defined above
   if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
      // Extract name value from result extras
