@@ -509,8 +509,7 @@ You will need to also setup the client SDK by adding this dependency to your `ap
 ```gradle
 dependencies {
   // add Parse dependencies too
-  implementation 'com.parse:parse-livequery-android:X.X.X'
-}
+  implementation 'com.github.parse-community:ParseLiveQuery-Android:1.1.0'}
 ```
 
 where `X.X.X` is the latest version <img src="https://maven-badges.herokuapp.com/maven-central/com.parse/parse-livequery-android/badge.svg?style=flat"/>
