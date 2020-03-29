@@ -49,7 +49,6 @@ Open the `app/build.gradle` in your project and add the following dependencies:
 
 ```gradle
 dependencies {
-    implementation 'com.parse.bolts:bolts-android:1.4.0'
     implementation 'com.github.parse-community.Parse-SDK-Android:parse:1.20.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1' // for logging API calls to LogCat
 }
