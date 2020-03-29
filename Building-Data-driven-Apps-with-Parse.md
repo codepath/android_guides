@@ -848,7 +848,7 @@ To render a ParseFile in an ImageView, you can use [Parse's UI Widget library](h
 
 ```gradle
 dependencies {
-  implementation 'com.parse:parseui-widget-android:0.0.2'
+  implementation 'com.github.parse-community.ParseUI-Android:widget:0.0.6'
 }
 ```
 
