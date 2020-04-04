@@ -345,9 +345,8 @@ import com.parse.ParseClassName
 class TodoItem : ParseObject() {
 var author: ParseUser?
     get() = getParseUser("author")
-    set(author) {
-        put("author", author)
-    }
+    // putOrIgnore does a smart cast to Koltin Any after an if check 
+    set(author) = putOrIgnore("author", author)
 }
 ```
 
