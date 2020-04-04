@@ -57,7 +57,7 @@ Now the phone should work as a debugging device as expected!
 
 **Still Not Working?**
 
-If after plugging the device into the computer and you don't see any message about authorizing the device, then you may need to purchase another USB cable. Not all USB cables are **enabled for data transfer**. If there's a chance that your cable may be a charging only cable, you can purchase a [USB-C cable for Nexus 6P](https://www.amazon.com/Nekteck-resistor-Charging-Reversible-Macbook/dp/B00VIWE1ZY) or the [micro-USB cable for Nexus 6 and prior](https://www.amazon.com/Mediabridge-USB-2-0-High-Speed-30-004-06B/dp/B004GF8TIK).
+If after plugging the device into the computer and you don't see any message about authorizing the device, then you may need to purchase another USB cable. Not all USB cables are **enabled for data transfer**. If there's a chance that your cable may be a charging only cable, you can purchase a [USB-C cable for Pixel](https://www.amazon.com/Google-Charging-Rapidly-Charger-devices/dp/B07DX7L2FJ/ref=sr_1_9?dchild=1&keywords=pixel+usb+c&qid=1586036863&sr=8-9) or the [micro-USB cable for Nexus 6 and prior](https://www.amazon.com/Mediabridge-USB-2-0-High-Speed-30-004-06B/dp/B004GF8TIK).
 
 ## References
 
