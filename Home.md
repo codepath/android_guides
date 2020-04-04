@@ -12,7 +12,7 @@ We have Android guides for everyone whether you are a **beginner, intermediate o
 
 Ever been **frustrated finding information on outdated one-off blog posts and tutorials** that have long since become irrelevant? How many times have you been googling to find your answer only exists on an obscure **2 year old StackOverflow post**? We believe there's got to be a better way. Why not have the community work together to create useful and detailed documentation for every aspect of Android (or any platform)? There's absolutely no reason that we should have to make do with vague and outdated content anymore.
 
-Read about our [[mission to change the way engineers learn new technologies|CodePath-Goal]] and check out how you can [[get involved|CodePath-Goal#how-do-i-help]]! In addition, we are at present a fledgling startup so if you like this guide and what we are trying to do, please consider following us on twitter [@codepath](https://twitter.com/codepath)! 
+Read about our [[mission to change the way engineers learn new technologies|CodePath-Goal]] and check out how you can [[get involved|CodePath-Goal#how-do-i-help]]! In addition, we are at present a fledgling startup so if you like this guide and what we are trying to do, please consider following us on twitter [@codepath](https://twitter.com/codepath)!
 
 ## Overview
 
@@ -29,7 +29,6 @@ Read more about [[us and our vision for CodePath|CodePath-Goal]]. If you want to
 * [Getting Started as a Developer](http://courses.codepath.com/snippets/intro_to_android/non_coders) (New to programming?)
 * [[Getting Started with Android|Beginning Android Resources]] (Detailed Post With Many Links)
 * [Setting up Android Studio](http://bit.ly/2O2rZwJ) (Installation Slides) or [[Setting up IntelliJ IDEA]]
-* [[Installing Genymotion Emulator|Genymotion-2.0-Emulators-with-Google-Play-support]] (Genymotion Guide)
 * [[Running Apps on Your Device]] (Hardware device setup)
 * [Developing our First App Using Android Studio](http://goo.gl/8R7Mty) (Step-by-Step Todo App)
 * [Architecture of Mobile Apps](http://goo.gl/AAsGLx) (Concept Slides)
@@ -72,7 +71,7 @@ Exploring the core of app development:
 * [[Understanding the Activity Lifecycle|Activity Lifecycle]] (How does an activity work?)
 * [[Handling Configuration Changes]] (Screen Rotation)
 * [[Migrating to the AppCompat Library]] (Using the Support Libraries)
-* [[App Permissions|Understanding App Permissions]] (How to request the permissions you need) 
+* [[App Permissions|Understanding App Permissions]] (How to request the permissions you need)
 * [[Managing Runtime Permissions with PermissionsDispatcher]]
 * [[Replacing Enums with Enumerated Annotations]] (StringDef, IntDef for validated types)
 * [[Understanding the Android Application Class]] (Custom application object)
@@ -182,7 +181,7 @@ Diving into the networking and model layers for data-driven apps:
 * [[Configuring a Parse Server]]
 * [[Building Simple Chat Client with Parse]]
 * [[Troubleshooting Common Issues with Parse]]
-* [[Sending and Receiving Data with Sockets]] 
+* [[Sending and Receiving Data with Sockets]]
 * [[Building Data driven Apps with Firebase]]
 
 ## Persistence
@@ -198,7 +197,7 @@ Exploring the strategies for data persistence:
 * [[Settings with PreferenceFragment]]
 * [[Loading Contacts with Content Providers]] (CursorLoader, LoaderManager)
 * [[Interacting with the Calendar]] (CalendarProvider)
-* [[Creating Content Providers]] 
+* [[Creating Content Providers]]
 * [[Clean Persistence with Sugar ORM]] (Installation, Queries, Migrations)
 * [[DBFlow ORM Guide|DBFlow-Guide]] (Installation, Queries)
 * [[Easier SQL with Cupboard]]
@@ -269,7 +268,7 @@ Covers usage of more advanced third-party libraries and SDKs that save time and 
 
 * [[Must Have Libraries]] (Networking, Persistence, Compatibility, Convenience, etc)
 * [[Popular External Tools]] (Analytics, Crash Reporting)
-* [[Dependency Injection with Dagger 2]] 
+* [[Dependency Injection with Dagger 2]]
 * [[Reducing View Boilerplate with Butterknife]] (View Annotations)
 * [[Communicating with an Event Bus]] (Using EventBus to publish and receive events)
 * [[Using Parceler]] (Creating Parcelable objects)
@@ -297,12 +296,12 @@ Focused on issues like deployment, dependency management, etc:
 * [[Setting up Travis CI]]
 * [[Collaborating on Projects with Git]] (Git, Team)
 * [[Presenting an Android Device]] (Cast Device to Laptop)
-* [[Recording Video of an Android Device]] 
+* [[Recording Video of an Android Device]]
 * [[Configuring ProGuard]]
 * [[Lambda Expressions]] (Retrolambda and Java 8)
 * [[Android for Work]] (Deploying Android to the Enterprise)
 
-## Contributing 
+## Contributing
 
 * [[Contributing back to Android]]
 * [[Building your own Android Library]]
