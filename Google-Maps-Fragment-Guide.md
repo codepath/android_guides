@@ -12,7 +12,7 @@ In this guide, we will walk you through the step by step process of getting an e
       ```gradle
       allprojects {
         repositories {
-          google() // new since Gradle v4.1
+          google() 
           jcenter()
         }
       }
@@ -35,25 +35,29 @@ Next, we need to get ourselves a maps API key from Google to put into our `Andro
 
 ### Get API Key
 
-Navigate to [Google Maps Android API](https://developers.google.com/maps/documentation/android-api/) and select `Get Started` 
+Navigate to the [Google Maps Getting Started](https://developers.google.com/maps/documentation/android-sdk/get-api-key) guide.  You will need to setup a billing account and enable the Google Maps API.
 
-<img src="https://i.imgur.com/30ezzFX.png" width="500" />
+<img src="https://imgur.com/ieL311c.png" width="500"/>
 
-Select just the Maps product and then click Continue  
+You should then be prompted to accept terms of service:
 
-<img src="https://i.imgur.com/CZ8Qqdh.png" width="650" />  
+<img src="https://imgur.com/jsy2lWk.png" width="500"/>
 
-In the next step, select 'Create New Project' and enter a title for your app.  
- 
-<img src="https://i.imgur.com/BNJT9At.png" width="500" />  
+In the next step, you'll have to go through the steps to enable billing for your project (but you won't get charged for using this API). This requires entering your credit card information:
 
-In the next step, you'll have to go through the steps to enable billing for your project (but you won't get charged for using this API). This requires entering your credit card information.    
+<img src="https://imgur.com/mgQQaZN.png" width="500"/>
 
-<img src="https://i.imgur.com/PkXs4FG.png" width="500" />    
+Once you've created a billing account, you will need to create a new project by clicking the dropdown at the top.  Click on the `New Project` in the corner:
 
-After going through the previous steps, you should have your working `API Key`:  
+<img src="https://imgur.com/WGA7QCi.png" width="600"/>
 
-<img src="https://i.imgur.com/cy3PgBx.png" width="600" />  
+Once the project is created, navigate to `Dashboard`, click on `Enable APIS and Services`, and enable the `Maps SDK for Android` API:
+
+<img src="https://imgur.com/Vlhtuhd.gif" width="600"/>
+
+Click the `Credentials` tab, follow the next link `Credentials in API Services`, and click on `Create Credentials`.  Select `API Key` and copy the contents to your clipboard:
+
+<img src="https://imgur.com/zXiswJo.gif" width="600" />  
 
 Copy your API Key into the `res/values/strings.xml` file for the `google_maps_api_key`:
 
@@ -74,8 +78,7 @@ The meta data for `com.google.android.maps.v2.API_KEY` within the **application 
 
   <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
 
-  <meta-data android:name="com.google.android.maps.v2.API_KEY"
-android:value="@string/google_maps_api_key" />
+  <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="@string/google_maps_api_key" />
 
 </application>
 ```
@@ -128,10 +131,6 @@ If sign-in is successful, you should see Google Play services updating:
 
 <img src="https://imgur.com/p4wCfuA.png"/>
 
-### Installing on Genymotion (Deprecated)
-
-See the instructions to [[setup Genymotion|Genymotion 2.0 Emulators-with-Google-Play-support]].  It includes directions for setting Google Play Services and GPS too.  You will need to setup both in order to setup the map demo.
-
 ## Enabling Location on Emulator
 
 If you are using a physical device and you wish to change the GPS location of your device to see how it performs, you will need to install an app that can provide fake GPS location.  Then use the `Settings` -> `Developer Options` and look for the `Debugging` section.  Make sure to choose `Select mock location app` for the app.
@@ -145,14 +144,6 @@ If using **the official Google emulator**, we can update the "current location" 
 You can enter any lat / lng i.e `37.4810289, -122.1543292`.  Use a website such as [where am i](https://www.where-am-i.me/) to lookup corresponding locations.
 
 **Make sure to click the Send** button to report the GPS location.  After updating this location, you can use the "current location" marker on the app to move the map to your device's configured location.
-
-### Genymotion GPS
-
-Note that you **need to set the location on your emulator** either through Genymotion or on the official emulator. On Genymotion, we can click the GPS icon on the right-hand sidebar and then enable GPS:
-
-<img src="https://i.imgur.com/xha71ga.png" width="350" />
-
-You can enter any lat / lng i.e `37.4810289, -122.1543292`. With GPS enabled, you can now close the dialog and use the "current location" marker on the app to move the map to your device's configured location.
 
 ## Run the App
 
@@ -177,19 +168,6 @@ For more information including how to use the maps, check out the source of the 
 ## Troubleshooting
 
 Use this checklist for troubleshooting below:
-
-**Trouble launching Genymotion?**
-
- * Did you install [VirtualBox](https://www.virtualbox.org/wiki/Downloads) first. Run VirtualBox to ensure that it was installed correctly.
- * Did you properly move Genymotion into the Applications folder?
- * Launch VirtualBox, then verify the emulator is listed and ensure it is in a **powered off** state
- * Open Genymotion app and verify the emulator is listed there and no errors are shown
- * Restart Android Studio and try to launch the emulator again through Android Studio plugin
- * Restart your computer and try to launch the emulator again through Android Studio plugin
-
-**Seeing `INSTALL_FAILED_MISSING_SHARED_LIBRARY` when trying to run my app?**
-
-Did you download the latest Google Play Services APK?  See the [[google play genymotion section|Genymotion-2.0-Emulators-with-Google-Play-support#setup-google-play-services]]. Make sure to follow the instructions to reboot, sign-in with your Google Account, and upgrade to the latest Play Services.
 
 **Trouble seeing the map in the demo app?**
 
