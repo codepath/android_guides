@@ -2,10 +2,12 @@
 
 Material Design encourages dynamic use of color, especially when you have rich images to work with. The [new Palette support library](https://www.youtube.com/watch?v=97SWYiRtF0Y&t=1903) lets you extract a small set of colors from an image to style your UI controls to match; creating an immersive experience. The extracted palette will include vibrant and muted tones as well as foreground text colors for optimal legibility.
 
-Make sure to add the Palette dependency to your `build.gradle` file if your targeted version of Android is lower than 21.
+Make sure to add the Palette dependency to your `app/build.gradle` file if your targeted version of Android is lower than 21.
 
 ```gradle
-implementation 'com.android.support:palette-v7:21.0.+'
+dependencies {
+    implementation "androidx.palette:palette:1.0.0"
+}
 ```
 
 ## Generating the Palette
