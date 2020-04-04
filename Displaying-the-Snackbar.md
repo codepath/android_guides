@@ -6,9 +6,17 @@ Snackbars are shown on the bottom of the screen and contain text with an optiona
 
 Note the snackbar at the bottom with an embedded **UNDO** text on the right side. See [this design guide](http://www.google.com/design/spec/components/snackbars-toasts.html) or more details.
 
-### Simple Snackbar
+### Setup
 
-Make sure to follow the [[Design Support Library]] setup instructions first.
+Add to your `app/build.gradle`:
+
+```gradle
+dependencies {
+  implementation "com.google.android.material:material:1.1.0"
+}
+```
+
+### Simple Snackbar
 
 Create a snackbar using `make`, setting an optional action and then call `.show()`: 
 
