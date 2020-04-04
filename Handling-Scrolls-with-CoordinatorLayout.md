@@ -24,7 +24,13 @@ The [full source code](https://github.com/chrisbanes/cheesesquare) can be found 
 
 ### Setup
 
-Make sure to follow the [[Design Support Library]] instructions first.
+Add the CoordinatorLayout to your dependency list in `app/build.gradle`:
+
+```gradle
+dependencies {
+    implementation "androidx.coordinatorlayout:coordinatorlayout:1.1.0"
+}
+```
 
 ## Floating Action Buttons and Snackbars
 
