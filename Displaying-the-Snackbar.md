@@ -74,3 +74,4 @@ That's all!
 * <http://android-developers.blogspot.com/2015/05/android-design-support-library.html>
 * <http://developer.android.com/reference/android/support/design/widget/Snackbar.html>
 * <http://www.google.com/design/spec/components/snackbars-toasts.html>
+* <https://material.io/develop/android/components/snackbar/>
