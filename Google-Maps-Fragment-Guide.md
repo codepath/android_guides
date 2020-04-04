@@ -20,7 +20,7 @@ In this guide, we will walk you through the step by step process of getting an e
 4. Verify sure you have these dependencies listed in your `app/build.gradle` file:
       ```gradle
       ext {
-        googlePlayVersion = "15.0.0"
+        googlePlayVersion = "17.0.0"
       }
       dependencies {
         implementation "com.google.android.gms:play-services-maps:$googlePlayVersion"
