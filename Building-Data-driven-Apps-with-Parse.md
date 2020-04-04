@@ -511,7 +511,7 @@ dependencies {
   implementation 'com.github.parse-community:ParseLiveQuery-Android:1.1.0'}
 ```
 
-where `X.X.X` is the latest version <img src="https://maven-badges.herokuapp.com/maven-central/com.parse/parse-livequery-android/badge.svg?style=flat"/>
+where `X.X.X` is the latest version <img src="https://jitpack.io/v/parse-community/ParseLiveQuery-Android.svg"/>
 
 Next, instantiate the client:
 
