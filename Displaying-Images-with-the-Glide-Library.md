@@ -2,8 +2,6 @@
 
 [Glide](https://github.com/bumptech/glide) is an Image Loader Library for Android developed by bumptech and is a library that is recommended by Google. It has been used in many Google open source projects including Google I/O 2014 official application.  It provides animated GIF support and handles image loading/caching.  
 
-**NOTE: Glide v4 has breaking API changes.  See this [link](Displaying-Images-with-the-Glide-v3-Library) for the older v3 version.**
-
 ### Setup
 
 Add to your `app/build.gradle` file:
@@ -80,7 +78,7 @@ Modify your `MyAppGlideModule` to override applyOptions:
 public final class MyAppGlideModule extends AppGlideModule {
   @Override
   public void applyOptions(Context context, GlideBuilder builder) {
-    // Glide default Bitmap Format is set to RGB_565 since it 
+    // Glide default Bitmap Format is set to RGB_565 since it
     // consumed just 50% memory footprint compared to ARGB_8888.
     // Increase memory usage for quality with:
 
@@ -120,7 +118,7 @@ Calling `centerCrop()` scales the image so that it fills the requested bounds of
 ```java
 GlideApp.with(context)
     .load("http://via.placeholder.com/300.png")
-    .override(100, 200) 
+    .override(100, 200)
     .centerCrop() // scale to fill the ImageView and crop any extra
     .into(ivImg);
 ```
@@ -132,7 +130,7 @@ Calling `fitCenter()` scales the image so that both dimensions are equal to or l
 ```java
 GlideApp.with(context)
     .load("http://via.placeholder.com/300.png")
-    .override(100, 200) 
+    .override(100, 200)
     .fitCenter() // scale to fit entire image within ImageView
     .into(ivImg);
 ```
@@ -146,7 +144,7 @@ If an image or set of images aren't loading, make sure to check the Android moni
 First, you have to find which image(s) being loaded are likely causing this error. For any given `Glide` .  call, we can fix this by **one or more of the following approaches**:
 
 - Add an explicit width or height to the `ImageView` by setting `layout_width=500dp` in the layout file.
-- Call `.override(width, height)` during the Glide load and explicitly set a width or height for the image such as: `GlideApp.with(...).load(imageUri).override(500, 500).into(...)`. 
+- Call `.override(width, height)` during the Glide load and explicitly set a width or height for the image such as: `GlideApp.with(...).load(imageUri).override(500, 500).into(...)`.
 - Try removing `android:adjustViewBounds="true"` from your `ImageView` if present and if you not calling `.override()`
 - Open up your static placeholder or error images and make sure their dimensions are relatively small (< 500px width). If not, resize those static images and save them back to your project.
 
