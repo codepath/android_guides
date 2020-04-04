@@ -2,7 +2,7 @@
 
 When building an Android app, it's important that you always test your application on a real device in addition to emulators. This page describes how to set up your development environment and Android-powered device for testing and debugging on the device.
 
-If you want an ideal SIM-unlocked phone to test on, then you might [consider a Nexus phone](https://play.google.com/store/devices). 
+If you want an ideal SIM-unlocked phone to test on, then you might [consider a Pixel phone](https://play.google.com/store/devices). 
 
 ## Connect your Phone to Computer
 
