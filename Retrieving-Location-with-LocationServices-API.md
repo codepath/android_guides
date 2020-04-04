@@ -15,13 +15,11 @@ Fused location requires the use of the Google Play SDK. You must include the lib
 
 ```gradle
 dependencies {
-    implementation 'com.google.android.gms:play-services-location:11.8.0'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
 }
 ```
 
 To find the latest version to use refer to the [official SDK setup instructions](http://developer.android.com/google/play-services/setup.html).
-
-In addition, if you are using Genymotion emulator, you must [[install a Google Play Services APK file|Genymotion-2.0-Emulators-with-Google-Play-support#setup-google-play-services]] too.
 
 ### Adding Permissions 
 
