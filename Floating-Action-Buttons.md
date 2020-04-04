@@ -25,13 +25,19 @@ Once you've selected the icon to use, download the image by selecting the icon a
 
 ### Design Support Library
 
-Make sure to follow the [[Design Support Library]] setup instructions first. Namely, you may want to add this to your `build.gradle` file: `implementation 'com.google.android.material:material:X.X.X'` where X represents the support library version.
+Add this to your `build.gradle` file: 
+
+```gradle
+dependencies {
+  implementation 'com.google.android.material:material:1.1.0'
+}
+```
 
 You should now be able to add the `com.google.android.material.floatingactionbutton.FloatingActionButton` view to the layout.  The `src` attribute references the icon that should be used for the floating action.  
 
 ```xml
-       <com.google.android.material.floatingactionbutton.FloatingActionButton
-          android:src="@drawable/ic_done"
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+  android:src="@drawable/ic_done"
           app:fabSize="normal"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content" />
