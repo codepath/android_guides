@@ -140,7 +140,7 @@ lvItems.setOnItemLongClickListener(new OnItemLongClickListener() {
 });
 ```
 
-``kotlin
+```kotlin
 lv.onItemLongClickListener = AdapterView.OnItemLongClickListener { adapter, item, pos, rowId ->
   // Do something here
 
