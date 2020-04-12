@@ -324,7 +324,7 @@ public class ContactsAdapter extends
 ```kotlin
 class ContactsAdapter (private val mContacts: List<Contact>) : RecyclerView.Adapter<ContactsAdapter.ViewHolder>()
 {
-// Provide a direct reference to each of the views within a data item
+    // Provide a direct reference to each of the views within a data item
     // Used to cache the views within the item layout for fast access
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         // Your holder should contain a member variable
