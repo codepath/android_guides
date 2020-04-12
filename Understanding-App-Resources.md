@@ -97,12 +97,13 @@ In addition to string resources shown above, the following common resource types
 The colors can be accessed in Java code with:
 
 ```java
-// getResources().getColor() is now deprecated
-// Resources res = getResources();
-// int color = res.getColor(R.color.yellow); 
-
 // Use ContextCompatResources instead of getColor()
 int color = ContextCompat.getColor(context, R.color.yellow);
+```
+
+```kotlin
+// Use ContextCompatResources instead of getColor()
+val color = ContextCompat.getColor(applicationContext, R.color.yellow)
 ```
 
 It is important to note that the most current way of accessing color resources (since API 24) requires providing context in order to resolve any custom [[theme|Styles and Themes]] attributes.  See [this article](http://www.androiddesignpatterns.com/2016/08/contextcompat-getcolor-getdrawable.html) for more context.
@@ -133,11 +134,15 @@ Next, let's take a look at the dimensions file which is used to define all size 
 </resources>
 ```
 
-The dimensions can be accessed in Java code with:
+The dimensions can be accessed with:
 
 ```java
 Resources res = getResources();
 float fontSize = res.getDimension(R.dimen.font_size);
+```
+
+```kotlin
+val fontSize = resources.getDimension(R.dimen.font_size)
 ```
 
 and referenced within any view in the XML layouts using:
