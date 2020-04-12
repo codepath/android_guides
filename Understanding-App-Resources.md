@@ -154,8 +154,8 @@ In certain cases, you might want to dynamically retrieve resources using just th
 ```java
 public String getStringValue(String key) {
     // Retrieve the resource id
-    String packageName = getBaseContext().getPackageName();
-    Resources resources = getBaseContext().getResources();
+    String packageName = getContext().getPackageName();
+    Resources resources = getContext().getResources();
     int stringId = resources.getIdentifier(key, "string", packageName);
     if (stringId == 0) { return null; }
     // Return the string value based on the res id
@@ -176,8 +176,8 @@ This can be done similarly for other types of resources as well. For example, fo
 // getViewById("tvTest");
 public View getViewById(String id) {
     // Retrieve the resource id
-    String packageName = getBaseContext().getPackageName();
-    Resources resources = getBaseContext().getResources();
+    String packageName = getContext().getPackageName();
+    Resources resources = getContext().getResources();
     int viewId = resources.getIdentifier(id, "id", packageName);
     if (viewId == 0) { return null; }
     // Return the view based on the res id
