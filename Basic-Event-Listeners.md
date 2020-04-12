@@ -120,6 +120,7 @@ lv.onItemClickListener = OnItemClickListener { parent, view, position, id ->
    // The position is the index of the item pressed
    // If the third item in a list was pressed, position is `2`
 }
+```
 
 This works similarly for the setting up a "long click" where an item is pressed and held down using the [OnItemLongClickListener](http://developer.android.com/reference/android/widget/AdapterView.OnItemLongClickListener.html):
 
