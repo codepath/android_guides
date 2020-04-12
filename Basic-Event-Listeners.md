@@ -265,7 +265,7 @@ npValue.setOnValueChangedListener(new OnValueChangeListener() {
 ```
 
 ```kotlin
-val npValue: NumberPicker = findViewById(R.id.npValue)
+val npValue = findViewById(R.id.npValue) as NumberPicker
 npValue.setOnValueChangedListener { picker, oldVal, newVal ->
   // Changes based on number here
 }
