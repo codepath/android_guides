@@ -36,10 +36,18 @@ The Activity lifecycle is especially important because whenever an activity leav
 When overriding any of the methods, you may need to call the superclass implementation.  The rule of thumb is that during initialization, you should always call the superclass first:
 
 ```java
-public void onCreate() {
+public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
    super.onCreate();
    // do work after super class function
    // setContentView(R.layout.main);
+}
+```
+
+```kotlin
+override fun onCreate(savedInstanceState: Bundle?, persistentState: Persistable Bundle?) {
+  super.onCreate()
+  // do work after super class function
+  // setContentView(R.layout.main);
 }
 ```
 
@@ -47,6 +55,14 @@ During de-initialization, you should do the work first before calling the super 
 
 ```java
 public void onPause() {
+   // do work here first before super class function
+   // LocalBroadcastManager.getInstance(this).unregisterReceiver(mMessageReceiver);
+   super.onPause();
+}
+```
+
+```kotlin
+override fun onPause() {
    // do work here first before super class function
    // LocalBroadcastManager.getInstance(this).unregisterReceiver(mMessageReceiver);
    super.onPause();
