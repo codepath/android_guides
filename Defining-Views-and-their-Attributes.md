@@ -24,9 +24,9 @@ Any view can have an identifier attached that uniquely names that view for later
 This id can then be accessed within the Java code for the corresponding activity (in `onCreate` of Activity for example):
 
 ```java
-Button myButton = (Button) findViewById(R.id.my_button);
+Button myButton = findViewById(R.id.my_button);
 ```
-This id can then be accessed within the Kotlin code for the corresponding activity (in `onCreate` of Activity for example):
+
 ```kotlin
 val myButton: Button = findViewById(R.id.my_button)
 ```
@@ -45,8 +45,6 @@ Every view has height and width properties controlling the size of the view. Hei
 
 This can take the form of `wrap_content` (adjust height and width to the content size), `match_parent` (adjust height and width to the full size of the parent container), and a dimensions value such as `120dp`. This can be changed at runtime in a number of ways:
 
-Java:
-
 ```java
 // Change the width or height
 int newInPixels = 50;
@@ -54,8 +52,6 @@ view.setLayoutParams(new LayoutParams(newInPixels, newInPixels));
 // Trigger invalidation of the view to force adjustment
 view.requestLayout();
 ```
-
-Kotlin:
 
 ```kotlin
 // Change the width or height
@@ -67,8 +63,6 @@ view.requestLayout()
 
 Or we can change just the width or height individually:
 
-Java:
-
 ```java
 int newDimensionInPixels = 50;
 view.getLayoutParams().width = newDimensionInPixels;
@@ -76,7 +70,6 @@ view.getLayoutParams().height = newDimensionInPixels;
 // Trigger invalidation of the view to force adjustment
 view.requestLayout();
 ```
-Kotlin:
 
 ```kotlin
 val newDimensionInPixels = 50
@@ -88,8 +81,6 @@ view.requestLayout()
 
 We can also set these dimensions in `dp` rather than pixels with:
 
-Java:
-
 ```java
 int newDimensionInPixels = 50;
 // convert to 50dp
@@ -100,7 +91,6 @@ view.getLayoutParams().height = dimensionInDp;
 // Trigger invalidation of the view to force adjustment
 view.requestLayout();
 ```
-Kotlin:
 
 ```kotlin
 val newDimensionInPixels = 50
