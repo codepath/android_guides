@@ -114,6 +114,13 @@ lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 });
 ```
 
+```kotlin
+lv.onItemClickListener = OnItemClickListener { parent, view, position, id ->
+   // Do something here
+   // The position is the index of the item pressed
+   // If the third item in a list was pressed, position is `2`
+}
+
 This works similarly for the setting up a "long click" where an item is pressed and held down using the [OnItemLongClickListener](http://developer.android.com/reference/android/widget/AdapterView.OnItemLongClickListener.html):
 
 ```java
@@ -123,6 +130,15 @@ lvItems.setOnItemLongClickListener(new OnItemLongClickListener() {
         // Do something here
     }
 });
+```
+
+``kotlin
+lv.onItemLongClickListener = AdapterView.OnItemLongClickListener { adapter, item, pos, rowId ->
+  // Do something here
+
+  // return true/false
+  return@OnItemLongClickListener true
+}
 ```
 
 **Troubleshooting: Item Click Not Firing** If the item is more complex and does not seem to be properly responding to clicks after setting up the handler, the views inside the item might be drawing the focus. Check out [this stackoverflow post](http://stackoverflow.com/questions/6703390/listview-setonitemclicklistener-not-working-by-adding-button) and add the property `android:descendantFocusability="blocksDescendants"` to the root layout within the template for the item. 
@@ -139,7 +155,7 @@ In addition to the listeners described above, there are a few other common liste
 If you want to handle an event as the text in the view is being changed, you only need to look as far as the [addTextChangedListener](http://developer.android.com/reference/android/widget/TextView.html#addTextChangedListener\(android.text.TextWatcher\)) method on an EditText (or even TextView):
 
 ```java
-EditText etValue = (EditText) findViewById(R.id.etValue);
+EditText etValue = findViewById(R.id.etValue);
 etValue.addTextChangedListener(new TextWatcher() {
 	@Override
 	public void onTextChanged(CharSequence s, int start, int before, int count) {
