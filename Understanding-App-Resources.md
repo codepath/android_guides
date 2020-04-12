@@ -298,6 +298,17 @@ if (orientation == Configuration.ORIENTATION_PORTRAIT) {
 }
 ```
 
+```kotlin
+val image: String
+val orientation = resources.configuration.orientation
+if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+  image = "image_portrait.png"
+  // ...
+} else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+  image = "image_landscape.png"
+  // ...
+}
+```
 We can similarly access this within any object by getting access to a [[Context object|Using-Context]]. For example, within an `ArrayAdapter` by using `getContext().getResources().getConfiguration()` to access the configurations.
 
 ### Alternate Layout Files
