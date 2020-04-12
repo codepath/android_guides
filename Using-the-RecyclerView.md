@@ -232,7 +232,6 @@ public class ContactsAdapter extends
 ```kotlin
 // Create the basic adapter extending from RecyclerView.Adapter
 // Note that we specify the custom ViewHolder which gives us access to our views
-
 class ContactsAdapter : RecyclerView.Adapter<ContactsAdapter.ViewHolder>() {
         
   // Provide a direct reference to each of the views within a data item
