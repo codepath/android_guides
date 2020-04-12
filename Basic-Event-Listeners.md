@@ -160,6 +160,24 @@ etValue.addTextChangedListener(new TextWatcher() {
 });
 ```
 
+```kotlin
+val etValue = findViewById(R.id.etValue) as EditText
+etValue.addTextChangedListener(object : TextWatcher {
+  override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) { 
+     // Fires right as the text is being changed (even supplies the range of text)
+  }
+
+  override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) { 
+     // Fires right before text is changing
+  }
+
+  override fun afterTextChanged(s: Editable) { 
+    // Fires right after the text has changed
+    tvDisplay.setText(s.toString())
+  }
+})
+```
+
 This is great for any time you want to have the UI update as the user enters text.
 
 #### OnEditorActionListener
@@ -196,6 +214,16 @@ etValue.setOnEditorActionListener(new OnEditorActionListener() {
 });
 ```
 
+```kotlin
+etValue.setOnEditorActionListener(OnEditorActionListener { v, actionId, event ->
+  if (actionId == EditorInfo.IME_ACTION_DONE) {
+    val text = v.text.toString()
+    Toast.makeText(this@MainActivity, text, Toast.LENGTH_SHORT).show()
+    return@OnEditorActionListener true
+  }
+  false
+})
+```
 This is often great whenever a user needs to type text and then explicitly have an action performed when they are finished. There are many [imeOptions](http://developer.android.com/reference/android/widget/TextView.html#attr_android:imeOptions) for different situations.
 
 ### Input View Listeners
@@ -203,7 +231,7 @@ This is often great whenever a user needs to type text and then explicitly have 
 Similarly to EditText, many common input views have listeners of their own including NumberPicker has [setOnValueChangedListener](http://developer.android.com/reference/android/widget/NumberPicker.html#setOnValueChangedListener\(android.widget.NumberPicker.OnValueChangeListener\)) and SeekBar has [setOnSeekBarChangeListener](http://developer.android.com/reference/android/widget/SeekBar.html#setOnSeekBarChangeListener\(android.widget.SeekBar.OnSeekBarChangeListener\)) which allow us to listen for changes:
 
 ```java
-NumberPicker npValue = (NumberPicker) findViewById(R.id.npValue);
+NumberPicker npValue = findViewById(R.id.npValue);
 npValue.setOnValueChangedListener(new OnValueChangeListener() {
 	@Override
 	public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
@@ -212,6 +240,12 @@ npValue.setOnValueChangedListener(new OnValueChangeListener() {
 });
 ```
 
+```kotlin
+val npValue: NumberPicker = findViewById(R.id.npValue)
+npValue.setOnValueChangedListener { picker, oldVal, newVal ->
+  // Changes based on number here
+}
+```
 Almost all input views have similar methods available.
 
 ## References
