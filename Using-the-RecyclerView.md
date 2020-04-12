@@ -401,6 +401,25 @@ public class UserListActivity extends AppCompatActivity {
      }
 }
 ```
+```kotlin
+class UserListActivity : AppCompatActivity() {
+    lateinit var contacts: ArrayList<Contact>
+    override fun onCreate(savedInstanceState: Bundle?) { 
+        // ...
+        // Lookup the recyclerview in activity layout
+        val rvContacts = findViewById<View>(R.id.rvContacts) as RecyclerView
+        // Initialize contacts
+        contacts = Contact.createContactsList(20)
+        // Create adapter passing in the sample user data
+        val adapter = ContactsAdapter(contacts)
+        // Attach the adapter to the recyclerview to populate items
+        rvContacts.adapter = adapter
+        // Set layout manager to position the items
+        rvContacts.layoutManager = LinearLayoutManager(this)
+        // That's all!
+    }
+}
+```
 
 Finally, compile and run the app and you should see something like the screenshot below. If you create enough items and scroll through the list, the views will be recycled and far smoother by default than the `ListView` widget:
 
@@ -415,11 +434,21 @@ Unlike ListView, there is no way to add or remove items directly through the `Re
 contacts = Contact.createContactsList(5);
 ```
 
+```kotlin
+// do not reinitialize an existing reference used by an adapter
+contacts = Contact.createContactsList(5)
+```
+
 Instead, you need to act directly on the existing reference:
 
 ```java
 // add to the existing list
 contacts.addAll(Contact.createContactsList(5));
+```
+
+```kotlin
+// add to the existing list
+contacts.addAll(Contact.createContactsList(5))
 ```
 
 There are many methods available to use when notifying the adapter of different changes:
@@ -440,6 +469,13 @@ contacts.add(0, new Contact("Barney", true));
 adapter.notifyItemInserted(0);
 ```
 
+```kotlin
+// Add a new contact
+contacts.add(0, Contact("Barney", true))
+// Notify the adapter that an item was inserted at position 0
+adapter.notifyItemInserted(0)
+```
+
 Every time we want to add or remove items from the RecyclerView, we will need to explicitly inform the adapter of the event.  Unlike the ListView adapter, a RecyclerView adapter should not rely on `notifyDataSetChanged()` since the more granular actions should be used.  See the [API documentation](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.Adapter.html) for more details.
 
 Also, if you are intending to update an existing list, make sure to get the current count of items before making any changes.  For instance, a `getItemCount()` on the adapter should be called to record the first index that will be changed.
@@ -456,6 +492,20 @@ contacts.addAll(newItems);
 // curSize should represent the first element that got added
 // newItems.size() represents the itemCount
 adapter.notifyItemRangeInserted(curSize, newItems.size());
+```
+
+```kotlin
+// record this value before making any changes to the existing list
+val curSize = adapter.getItemCount()
+
+// replace this line with wherever you get new records
+val newItems = Contact.createContactsList(20)
+
+// update the existing list
+contacts.addAll(newItems)
+// curSize should represent the first element that got added
+// newItems.size() represents the itemCount
+adapter.notifyItemRangeInserted(curSize, newItems.size)
 ```
 
 ### Diffing Larger Changes
