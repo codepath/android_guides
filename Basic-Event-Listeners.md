@@ -92,6 +92,13 @@ public void sendMessage(View view) {
 }
 ```
 
+```kotlin
+fun sendMessage(view: View) { 
+    // Do something in response to button click
+}
+```    
+
+
 ### AdapterView Event Listeners
 
 In addition to the standard View listeners, `AdapterView` descendants have a few more key event listeners having to do with their items:
