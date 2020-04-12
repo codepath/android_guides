@@ -344,7 +344,7 @@ class ContactsAdapter (private val mContacts: List<Contact>) : RecyclerView.Adap
     }
 
     // ... constructor and member variables
-// Usually involves inflating a layout from XML and returning the holder
+    // Usually involves inflating a layout from XML and returning the holder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactsAdapter.ViewHolder {
         val context = parent.context
         val inflater = LayoutInflater.from(context)
