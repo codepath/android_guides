@@ -75,6 +75,10 @@ To access the resource directly in your Java code, simply use the `getResources.
 String submitText = getResources().getString(R.string.submit_label)
 ```
 
+```kotlin
+val submitText = getResources().getString(R.string.submit_label)
+```
+
 And the string value will be retrieved. This similar pattern works for almost any resource from images (drawables) to colors. The `getResources()` method returns a [Resources](http://developer.android.com/reference/android/content/res/Resources.html) object with many resource fetching methods. Each resource is defined within different folders and files within the `res` directory depending on their type.
 
 ### Defining Color Resources
@@ -154,8 +158,8 @@ In certain cases, you might want to dynamically retrieve resources using just th
 ```java
 public String getStringValue(String key) {
     // Retrieve the resource id
-    String packageName = getContext().getPackageName();
-    Resources resources = getContext().getResources();
+    String packageName = getApplicationContext().getPackageName();
+    Resources resources = getApplicationContext().getResources();
     int stringId = resources.getIdentifier(key, "string", packageName);
     if (stringId == 0) { return null; }
     // Return the string value based on the res id
@@ -163,11 +167,26 @@ public String getStringValue(String key) {
 }
 ```
 
+```kotlin
+fun getStringValue(key: String): String? {
+  val packageName = applicationContext.getPackageName();
+  val resources = applicationContext.getResources();
+  val stringId = resources.getIdentifier(key, "string", packageName)
+  return if (stringId == 0) {
+    null
+  } else resources.getString(stringId)
+}
+  
 Now you can reference your string resources dynamically using:
 
 ```java
 public String myKey = "submit_label"; // Maps to R.string.submit_label
 public String myStringValue = getStringValue(myKey); // Returns string text
+```
+
+```kotlin
+val myKey = "submit_label"; // Maps to R.string.submit_label
+val myStringValue = getStringValue(myKey); // Returns string text
 ```
 
 This can be done similarly for other types of resources as well. For example, for dynamically retrieving a view by a string ID:
@@ -176,8 +195,8 @@ This can be done similarly for other types of resources as well. For example, fo
 // getViewById("tvTest");
 public View getViewById(String id) {
     // Retrieve the resource id
-    String packageName = getContext().getPackageName();
-    Resources resources = getContext().getResources();
+    String packageName = getApplicationContext().getPackageName();
+    Resources resources = getApplicationContext().getResources();
     int viewId = resources.getIdentifier(id, "id", packageName);
     if (viewId == 0) { return null; }
     // Return the view based on the res id
@@ -185,6 +204,15 @@ public View getViewById(String id) {
 }
 ```
 
+```kotlin
+fun getViewById(id: String): View? {
+  val packageName = applicationContext.getPackageName();
+  val resources = applicationContext.resources
+  val viewId = resources.getIdentifier(id, "id", packageName)
+  return if (viewId == 0) {
+    null
+  } else findViewById(viewId)
+}
 Check out the [getResources](http://developer.android.com/reference/android/content/res/Resources.html) object and <a href="http://developer.android.com/reference/android/content/res/Resources.html#getIdentifier\(java.lang.String, java.lang.String, java.lang.String\)">getIdentifier</a> for more details.
 
 ## Providing Alternate Resources
