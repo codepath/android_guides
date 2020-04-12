@@ -37,15 +37,15 @@ When overriding any of the methods, you may need to call the superclass implemen
 
 ```java
 public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-   super.onCreate();
+   super.onCreate(savedInstanceState, persistentState);
    // do work after super class function
    // setContentView(R.layout.main);
 }
 ```
 
 ```kotlin
-override fun onCreate(savedInstanceState: Bundle?, persistentState: Persistable Bundle?) {
-  super.onCreate()
+override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+  super.onCreate(savedInstanceState, persistentState)
   // do work after super class function
   // setContentView(R.layout.main);
 }
