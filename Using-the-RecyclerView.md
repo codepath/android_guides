@@ -111,6 +111,21 @@ public class Contact {
 }
 ```
 
+```kotlin
+class Contact(val name: String, val isOnline: Boolean) {
+
+  companion object {
+    private var lastContactId = 0
+    fun createContactsList(numContacts: Int) ArrayList<Contact> {
+      val contacts = ArrayList<Contact>()
+      for (i in 1..numContacts) {
+        contacts.add(Contact("Person " + ++lastContactId, i <= numContacts / 2))
+      }
+      return contacts
+  }
+}
+```
+
 ### Create the RecyclerView within Layout
 
 Inside the desired activity layout XML file in `res/layout/activity_users.xml`, let's add the `RecyclerView` from the support library:
@@ -214,6 +229,32 @@ public class ContactsAdapter extends
 }
 ```
 
+```kotlin
+// Create the basic adapter extending from RecyclerView.Adapter
+// Note that we specify the custom ViewHolder which gives us access to our views
+
+class ContactsAdapter : RecyclerView.Adapter<ContactsAdapter.ViewHolder>() {
+        
+  // Provide a direct reference to each of the views within a data item
+  // Used to cache the views within the item layout for fast access
+  inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    // Your holder should contain a member variable
+    // for any view that will be set as you render a row
+    var nameTextView: TextView
+    var messageButton: Button
+
+    // We also create a constructor that accepts the entire item row
+    // and does the view lookups to find each subview
+    init { 
+      // Stores the itemView in a public final member variable that can be used
+      // to access the context from any ViewHolder instance.
+      nameTextView = itemView.findViewById(R.id.contact_name)
+      messageButton = itemView.findViewById(R.id.message_button) as Button
+    }
+  }
+}
+```
+
 Now that we've defined the basic adapter and `ViewHolder`, we need to begin filling in our adapter. First, let's store a member variable for the list of contacts and pass the list in through our constructor:
 
 ```java
@@ -229,6 +270,12 @@ public class ContactsAdapter extends
     public ContactsAdapter(List<Contact> contacts) {
         mContacts = contacts;
     }
+}
+```
+
+
+```kotlin
+class ContactsAdapter (private val mContacts: List<Contact>) : RecyclerView.Adapter<ContactsAdapter.ViewHolder>() {
 }
 ```
 
