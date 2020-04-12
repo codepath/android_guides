@@ -176,6 +176,7 @@ fun getStringValue(key: String): String? {
     null
   } else resources.getString(stringId)
 }
+```
   
 Now you can reference your string resources dynamically using:
 
@@ -213,6 +214,8 @@ fun getViewById(id: String): View? {
     null
   } else findViewById(viewId)
 }
+```
+
 Check out the [getResources](http://developer.android.com/reference/android/content/res/Resources.html) object and <a href="http://developer.android.com/reference/android/content/res/Resources.html#getIdentifier\(java.lang.String, java.lang.String, java.lang.String\)">getIdentifier</a> for more details.
 
 ## Providing Alternate Resources
