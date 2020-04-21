@@ -10,8 +10,7 @@ You'll need to make sure to add this dependency to your `app/build.gradle` confi
 
 ```java
 dependencies {
-  def fragment_version = "1.2.4"
-  implementation "androidx.fragment:fragment:$fragment_version"
+  implementation "androidx.fragment:fragment:1.2.4"
 }
 ```
 
@@ -20,8 +19,7 @@ dependencies {
 // Make sure the Kotlin plugin is defined according to https://developer.android.com/kotlin/add-kotlin#add
 dependencies {
   
-  def fragment_version = "1.2.4"
-  implementation "androidx.fragment:fragment-ktx:$fragment_version"
+  implementation "androidx.fragment:fragment-ktx:1.2.4"
 }
 ```
 
