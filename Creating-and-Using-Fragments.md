@@ -4,6 +4,27 @@ A fragment is a reusable class implementing a portion of an activity.  A Fragmen
 
 ![Fragments](http://developer.android.com/images/fundamentals/fragments.png)
 
+### Setup
+
+You'll need to make sure to add this dependency to your `app/build.gradle` configuration:
+
+```java
+dependencies {
+  def fragment_version = "1.2.4"
+  implementation "androidx.fragment:fragment:$fragment_version"
+}
+```
+
+```kotlin
+
+// Make sure the Kotlin plugin is defined according to https://developer.android.com/kotlin/add-kotlin#add
+dependencies {
+  
+  def fragment_version = "1.2.4"
+  implementation "androidx.fragment:fragment-ktx:$fragment_version"
+}
+```
+
 ### Understanding Fragments
 
 Here are the important things to understand about fragments:
