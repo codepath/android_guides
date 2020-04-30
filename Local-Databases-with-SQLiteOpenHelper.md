@@ -646,7 +646,7 @@ You can go to `View`->`Tool Windows`->`Device File Explorer` and look inside the
 
 
 
-
+```java
 //Android dbhandler class
 
 package com.example.photoapp.Database;
@@ -849,5 +849,4 @@ public class DBHandler extends SQLiteOpenHelper {
 
     }
 }
-
-
+```
