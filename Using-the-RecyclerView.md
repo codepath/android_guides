@@ -239,15 +239,15 @@ class ContactsAdapter : RecyclerView.Adapter<ContactsAdapter.ViewHolder>() {
   inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
       // Your holder should contain a member variable
       // for any view that will be set as you render a row
-      var nameTextView: TextView
-      var messageButton: Button
+      val nameTextView: TextView
+      val messageButton: Button
 
       // We also create a constructor that accepts the entire item row
       // and does the view lookups to find each subview
       init { 
           // Stores the itemView in a public final member variable that can be used
           // to access the context from any ViewHolder instance.
-          nameTextView = itemView.findViewById(R.id.contact_name) as String
+          nameTextView = itemView.findViewById(R.id.contact_name) as TextView
           messageButton = itemView.findViewById(R.id.message_button) as Button
       }
   }
@@ -329,15 +329,15 @@ class ContactsAdapter (private val mContacts: List<Contact>) : RecyclerView.Adap
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         // Your holder should contain a member variable
         // for any view that will be set as you render a row
-        var nameTextView: TextView
-        var messageButton: Button
+        val nameTextView: TextView
+        val messageButton: Button
 
         // We also create a constructor that accepts the entire item row
         // and does the view lookups to find each subview
         init {
             // Stores the itemView in a public final member variable that can be used
             // to access the context from any ViewHolder instance.
-            nameTextView = itemView.findViewById(R.id.contact_name) as String
+            nameTextView = itemView.findViewById(R.id.contact_name) as TextView
             messageButton = itemView.findViewById(R.id.message_button) as Button
         }
     }
