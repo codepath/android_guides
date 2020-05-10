@@ -2,9 +2,9 @@ Tabs are now best implemented by leveraging the [[ViewPager|ViewPager-with-Fragm
 
 Prior to Android "M", the easiest way to setup tabs with Fragments was to use ActionBar Tabs as described in [[ActionBar Tabs with Fragments|ActionBar-Tabs-with-Fragments]] guide. However, all methods related to navigation modes in the ActionBar class (such as `setNavigationMode()`, `addTab()`, `selectTab()`, etc.) are now deprecated.
 
-### Design Support Library
+### Setup
 
-To implement Google Play style sliding tabs, make sure to add the Material Design Components Library.  In your root `build.gradle`, make sure the `google()` entry is listed:
+To implement Google Play style sliding tabs, make sure to add the [Material Design Components Library](https://material.io/develop/android/docs/getting-started/).  In your root `build.gradle`, make sure the `google()` entry is listed:
 
 ```gradle
 allprojects {
