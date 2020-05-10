@@ -22,7 +22,7 @@ Once you have enabled this option, make sure to click `Rebuild Project`.  You wi
 
 ## Activity View Lookups
 
-Once you 
+Once you have enabled and recompiled your project, the binding classes should be available to you.  In this example, a `SimpleActivityBinding` class should have been generated for a `simple_activity.xml` file.  Instead of using `setContentView(simple_activity.xml)`, we replace that line with a call with `SimpleActivityBinding.inflate()`:
 
 ```java
 class ExampleActivity extends Activity {
