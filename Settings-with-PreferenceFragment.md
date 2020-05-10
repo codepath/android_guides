@@ -137,7 +137,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 // your code here
             }
-        }
+        });
         
         return inflater.inflate(R.layout.fragment_settings, container, false);
     }
