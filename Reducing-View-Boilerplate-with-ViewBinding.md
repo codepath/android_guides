@@ -2,7 +2,7 @@
 
 The View Binding library makes it easy to reduce the need to use `findViewById`() lookups.  Once this option is enabled in your project, special binding classes will be generated from any of your layout XML files.  If you have a layout called `simple_activity.xml` for instance, a special class called `SimpleActivityBinding` will be generated that will have references automatically created for you.  One major advantage is that using this class helps to avoid null pointer issues and provides type safety support, making it less likely your app will crash.
 
-NOTE: the View Binding library is separate from the Data Binding Library, which provides two-way and layout variables support.  See the [[Applying-Data-Binding-for-Views]] for more information.
+NOTE: the View Binding library is separate from the [[Applying-Data-Binding-for-Views|Data Binding Library]], which provides two-way and layout variables support.  
 
 ## Setup
 
