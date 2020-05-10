@@ -4,7 +4,24 @@ Prior to Android "M", the easiest way to setup tabs with Fragments was to use Ac
 
 ### Design Support Library
 
-To implement Google Play style sliding tabs, make sure to follow the Design Support Library [[setup instructions|Design-Support-Library#setup]] first.
+To implement Google Play style sliding tabs, make sure to add the Material Design Components Library.  In your root `build.gradle`, make sure the `google()` entry is listed:
+
+```gradle
+allprojects {
+    repositories {
+      google()
+      jcenter()
+    }
+  }
+```
+
+Add this dependency to your `app/build.gradle` list:
+
+```
+dependencies {
+    implementation 'com.google.android.material:material:1.1.0'
+  }
+```
 
 ### Sliding Tabs Layout
 
