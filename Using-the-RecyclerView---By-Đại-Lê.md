@@ -1,4 +1,4 @@
-## Overviews
+## Overview
 
 The `RecyclerView` is a `ViewGroup` that renders any adapter-based view in a similar way. It is supposed to be the successor of [[ListView|Using-an-ArrayAdapter-with-ListView]] and [GridView](http://developer.android.com/guide/topics/ui/layout/gridview.html). One of the reasons is that `RecyclerView` has a more extensible framework, especially since it provides the ability to implement both horizontal and vertical layouts. Use the `RecyclerView` widget when you have data collections whose elements change at runtime based on user action or network events.
 
