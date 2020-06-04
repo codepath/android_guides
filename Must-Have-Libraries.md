@@ -310,3 +310,4 @@ Check out the following resources for finding libraries:
  * <http://square.github.io/picasso/>
  * <https://cloudrail.com/best-android-libraries-for-developers/>
  * <https://github.com/geniushkg/github-oauth>
+ * <http://www.androidcoding.in/>
