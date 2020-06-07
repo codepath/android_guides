@@ -141,3 +141,4 @@ WebViews currently use their own cookie manager, which means that any network re
 * <http://www.tutorialspoint.com/android/android_webview_layout.htm>
 * <http://www.mkyong.com/android/android-webview-example/>
 * <https://stackoverflow.com/questions/16849347/adding-a-progress-dialog-in-a-webview>
+* <http://www.androidcoding.in/2016/03/17/android-tutorial-webview-beginners/>
