@@ -37,7 +37,10 @@ Check out this [detailed guide](http://sinch.github.io/android-messaging-tutoria
 
 Applozic powers real time chat and messaging on android, iOS, phonegap and web apps. Applozic Chat SDK allows developers to add whatsapp like chat capabilities to their apps including group chat, image, file, location sharing, audio/video messages, contextual chat and a lot more. 
 
-Refer to the [Android Chat SDK](https://github.com/AppLozic/Applozic-Android-SDK) to get started. Check out this [detailed instruction](https://www.applozic.com/docs/) for adding a real time chat sdk into your Android, iOS, Phonegap and Web app. 
+Refer to the [Android Chat SDK](https://github.com/AppLozic/Applozic-Android-SDK) to get started. Check out this [detailed instruction](https://www.applozic.com/docs/) for adding a real time chat sdk into your Android, iOS, Phonegap and Web app.
+
+## EnableX.io
+Add live video, voice and messaging to your websites, iOS and Android apps with EnableX easy to use SDKs and APIs. [Get started for free](https://www.enablex.io/).
 
 ## References
 
