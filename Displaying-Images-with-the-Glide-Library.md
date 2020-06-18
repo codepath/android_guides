@@ -194,7 +194,7 @@ Transformations are supported by an additional third-party library, [glide-trans
 dependencies {
     implementation 'jp.wasabeef:glide-transformations:4.1.0'
     // If you want to use the GPU Filters
-    implementation 'jp.co.cyberagent.android.gpuimage:gpuimage-library:2.0.4'
+    implementation 'jp.co.cyberagent.android:gpuimage:2.0.4'
 }
 ```
 ### Rounded Corners
