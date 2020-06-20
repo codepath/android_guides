@@ -24,6 +24,15 @@ public void showSoftKeyboard(View view){
     }
 }
 ```
+```kotlin
+fun showSoftKeyboard(view: View) {
+    if (view.requestFocus()) {
+        val imm: InputMethodManager =
+            getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT)
+    }
+}
+```
 
 ## Hiding the Soft Keyboard Programmatically
 
@@ -31,8 +40,16 @@ You can force Android to hide the virtual keyboard using the [InputMethodManager
 
 ```java
 public void hideSoftKeyboard(View view){
-  InputMethodManager imm =(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+  InputMethodManager imm =(InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
   imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+}
+```
+
+```kotlin
+fun hideSoftKeyboard(view: View) {
+    val imm =
+        getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    imm.hideSoftInputFromWindow(view.windowToken, 0)
 }
 ```
 
@@ -52,6 +69,10 @@ or in Java:
 
 ```java
 myEditText.setImeOptions(EditorInfo.IME_ACTION_DONE);
+```
+
+```kotlin
+myEditText.setImeOptions(EditorInfo.IME_ACTION_DONE)
 ```
 
 See the [EditText documentation](http://developer.android.com/reference/android/widget/TextView.html#attr_android%3aimeActionLabel) for a more detailed look at `imeOptions`.
