@@ -1,10 +1,10 @@
 ## Overview
 
+**Android Studio v3.4.1 and higher will now start forcing [AndroidX](https://developer.android.com/jetpack/androidx) namespaces.** See [this document](https://developer.android.com/jetpack/androidx/migrate) for migrating libraries and imports.
+
 The [AppCompat](https://developer.android.com/tools/support-library/features.html#v7) support library enables the use of the ActionBar and Material Design specific implementations such as [Toolbar](https://developer.android.com/reference/android/support/v7/widget/Toolbar.html) for older devices down to Android v2.1. 
 
 **Caution**: Starting with Support Library release 26.0.0 (July 2017), the minimum supported API level across most support libraries has increased to Android 4.0 (API level 14) for most library packages [https://developer.android.com/topic/libraries/support-library/index.html#api-versions](https://developer.android.com/topic/libraries/support-library/index.html#api-versions)
-
-**Android Studio v3.4.1 and higher will now start forcing [AndroidX](https://developer.android.com/jetpack/androidx) namespaces.** See [this document](https://developer.android.com/jetpack/androidx/migrate) for migrating libraries and imports.
 
 ```gradle
 android {
