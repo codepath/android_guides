@@ -53,6 +53,28 @@ public class MainActivity extends Activity {
 }
 ```
 
+```kotlin
+class MainActivity : Activity() {
+    private lateinit var myWebView: WebView
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        val myWebView = findViewById<View>(R.id.webview) as WebView
+
+        myWebView.apply {
+            // Configure related browser settings
+            this.settings.loadsImagesAutomatically = true
+            this.settings.javaScriptEnabled = true
+            myWebView.scrollBarStyle = View.SCROLLBARS_INSIDE_OVERLAY
+            // Configure the client to use when opening URLs
+            myWebView.webViewClient = WebViewClient()
+            // Load the initial URL
+            myWebView.loadUrl("http://www.example.com")
+        }
+    }
+}
+```
+
 You can attach javascript functions and use them within the mobile webpages as described [here in the official docs](http://developer.android.com/guide/webapps/webview.html#UsingJavaScript).
 
 #### Handling responsive layouts
@@ -66,6 +88,13 @@ myWebView.getSettings().setUseWideViewPort(true);
 myWebView.getSettings().setLoadWithOverviewMode(true);
 ```
 
+```kotlin
+// Enable responsive layout
+myWebView.getSettings().setUseWideViewPort(true)
+// Zoom out if the content width is greater than the width of the viewport
+myWebView.getSettings().setLoadWithOverviewMode(true)
+```
+
 You can also enable the ability to zoom-in controls on the page:
 
 ```java
@@ -73,6 +102,13 @@ myWebView.getSettings().setSupportZoom(true);
 myWebView.getSettings().setBuiltInZoomControls(true); // allow pinch to zooom
 myWebView.getSettings().setDisplayZoomControls(false); // disable the default zoom controls on the page
 ```
+
+```kotlin
+myWebView.getSettings().setSupportZoom(true)
+myWebView.getSettings().setBuiltInZoomControls(true) // allow pinch to zooom
+myWebView.getSettings().setDisplayZoomControls(false) // disable the default zoom controls on the page
+```
+
 ### Loading Local Pages
 
 In case you want to store a copy of a webpage locally to be loaded into a `WebView`, you can put it in the android `assets` folder. If you do not find one under your `main/` directory, then you can create one. Place the html, css, js, etc in this folder. 
@@ -95,6 +131,31 @@ public class MainActivity extends Activity {
       String path = Uri.parse("file:///android_asset/index.html").toString();
       myWebView.loadUrl(path);
    }
+}
+```
+
+```kotlin
+class MainActivity : Activity() {
+    private lateinit var myWebView: WebView
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        val myWebView = findViewById<View>(R.id.webview) as WebView
+
+        myWebView.apply {
+            // Configure related browser settings
+            this.settings.loadsImagesAutomatically = true
+            this.settings.javaScriptEnabled = true
+            myWebView.scrollBarStyle = View.SCROLLBARS_INSIDE_OVERLAY
+            // Configure the client to use when opening URLs
+            myWebView.webViewClient = WebViewClient()
+            // Load the initial URL
+            myWebView.loadUrl("http://www.example.com")
+            val path: String = Uri.parse("file:///android_asset/index.html").toString()
+            myWebView.loadUrl(path)
+
+        }
+    }
 
 }
 ```
@@ -128,6 +189,33 @@ webView.setWebViewClient(new WebViewClient() {
 
         });
 ```        
+
+```kotlin
+webView.setWebViewClient(object : WebViewClient() {
+            val progressDialog: ProgressDialog? = ProgressDialog(Context)
+            override fun onPageStarted(
+                view: WebView,
+                url: String,
+                favicon: Bitmap
+            ) {
+                super.onPageStarted(view, url, favicon)
+                progressDialog.setTitle("Loading...")
+                progressDialog.setMessage("Please wait...")
+                progressDialog.setCancelable(false)
+                progressDialog.show()
+            }
+
+            override fun onPageCommitVisible(
+                view: WebView,
+                url: String
+            ) {
+                super.onPageCommitVisible(view, url)
+                if (progressDialog != null) {
+                    progressDialog.dismiss()
+                }
+            }
+        })
+```
 
 ### Sharing cookies between WebViews and networking clients
 
