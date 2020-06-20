@@ -24,6 +24,7 @@ public void showSoftKeyboard(View view){
     }
 }
 ```
+
 ```kotlin
 fun showSoftKeyboard(view: View) {
     if (view.requestFocus()) {
