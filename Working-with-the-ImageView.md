@@ -55,6 +55,11 @@ imageView.getLayoutParams().height = 100; // OR
 imageView.getLayoutParams().width = 100;
 ```
 
+```kotlin
+imageView.getLayoutParams().height = 100 // OR
+imageView.getLayoutParams().width = 100
+```
+
 In certain cases, the image needs to be scaled to fit the parent view's width and the height should be adjusted proportionally. We can achieve this using an extended [ResizableImageView](http://stackoverflow.com/a/12283909/313399) class as described in the post.
 
 ### Scale Types
@@ -124,12 +129,23 @@ ImageView image = (ImageView) findViewById(R.id.test_image);
 image.setImageResource(R.drawable.test2);
 ```
 
+```kotlin
+val image = findViewById(R.id.test_image) as ImageView
+image.setImageResource(R.drawable.test2)
+```
+
 or to any arbitrary bitmap with:
 
 ```java
 ImageView image = (ImageView) findViewById(R.id.test_image);
 Bitmap bMap = BitmapFactory.decodeFile("/sdcard/test2.png");
 image.setImageBitmap(bMap);
+```
+
+```kotlin
+val image = findViewById(R.id.test_image) as ImageView
+val bMap = BitmapFactory.decodeFile("/sdcard/test2.png")
+image.setImageBitmap(bMap)
 ```
 
 ### Scaling a Bitmap
@@ -169,6 +185,23 @@ public class BitmapScaler
 	}
 
 	// ...
+}
+```
+
+```kotlin
+object BitmapScaler {
+    // Scale and maintain aspect ratio given a desired width
+    // BitmapScaler.scaleToFitWidth(bitmap, 100);
+    fun scaleToFitWidth(b: Bitmap, width: Int): Bitmap {
+        val factor = width / b.width.toFloat()
+        return Bitmap.createScaledBitmap(b, width, (b.height * factor).toInt(), true)
+    }
+    // Scale and maintain aspect ratio given a desired height
+    // BitmapScaler.scaleToFitHeight(bitmap, 100);
+    fun scaleToFitHeight(b: Bitmap, height: Int): Bitmap {
+        val factor = height / b.height.toFloat()
+        return Bitmap.createScaledBitmap(b, (b.width * factor).toInt(), height, true)
+    } // ...
 }
 ```
 
