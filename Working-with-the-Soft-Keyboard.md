@@ -12,14 +12,6 @@ By default, the soft keyboard may not appear on the emulator. If you want to tes
 
 Now restart the emulator. See [these screenshots](https://imgur.com/a/kf1s9) for a visual reference.
 
-### Genymotion
-
-<img src="https://imgur.com/SIIyVMc.png">
-
-If you are using [[Genymotion|Genymotion-2.0-Emulators-with-Google-Play-support]], you need to click on the wrench icon (<img src="https://imgur.com/HRxr9Sm.png"/>) on the emulator image and check `Use virtual keyboard for text input` before starting the emulator.
-
-<img src="https://imgur.com/xNxupXW.png"/>
-
 ## Showing Soft Keyboard Programmatically 
 
 The following code will reveal the soft keyboard focused on a specified view:
