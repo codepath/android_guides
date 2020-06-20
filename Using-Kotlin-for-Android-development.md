@@ -116,33 +116,19 @@ val len = x?.length ?: -1 // This will return -1 if x is null
 
 ## Configure your development environment
 
-To be able to write and compile Kotlin code in your Android application you need to do the following:
+Recent version of Android Studio now provide Kotlin as the default language when creating new projects.  Just make sure to leave the default programming language as Kotlin!
 
-1. Install Android Studio
-  First thing you need is to have Android Studio installed.
-2. Install Kotlin plugin
-  Under `Preferences (OSX)` or `Settings (Windows/Linux)` -> `Plugins` -> `Browse Repositories` type `Kotlin` to find the Kotlin plugin. Click `Install` and follow the instructions.
-3. Configure Gradle
-  The Kotlin plugin includes a tool which does the Gradle configuration for us.
-  - Click on `Tools` -> `Kotlin` -> `Configure Kotlin in Project`
-<br/><img src="https://i.imgur.com/efeuBdX.png" width="500" />
+<img src="https://imgur.com/Wc9sxmY.png">
 
-  - Select `Android with Gradle`
-<br/><img src="https://i.imgur.com/cfJOIQH.png" width="500" />
-
-  - Choose`All Modules` -> Select the `Kotlin compiler and the runtime version` you want from the dropdown and click `OK`.
-<br/><img src="https://i.imgur.com/ITVWnp0.png" width="500" />
-
-
-Your `build.gradle` file will look like this:
+Your `build.gradle` file will look like this example:
 
 ```gradle
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.example.hellokotlin"
@@ -166,12 +152,14 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     implementation 'com.android.support:appcompat-v7:23.4.0'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 repositories {
-    mavenCentral()
+    jcenter()
 }
 ```
+
+Note the implementation reference of `org.jetbrains.kotlin:kotlin-stdlib-jdk7`.  For more understanding about the differences between kotlin-stdlib, kotlin-sdklib-jdk7, and kotlin-sdklib-jdk8, see this [link](https://medium.com/@mbonnin/the-different-kotlin-stdlibs-explained-83d7c6bf293) for more information.
 
 ## Writing your first Kotlin Code
 
