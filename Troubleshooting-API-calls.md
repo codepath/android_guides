@@ -69,27 +69,27 @@ The process requires two parts: one on the PC that will act as the proxy, and th
 
 5. If you are targeting API 24 or above, make sure that your app allows the self-signed Charles Proxy certificate to be used.  Add this file to your `res/xml/network_security_config.xml`:
 
-     ```xml
-     <?xml version="1.0" encoding="utf-8"?>
-     <network-security-config>
-        <debug-overrides>
-           <trust-anchors>
-               <!-- Trust user added CAs while debuggable only -->
-               <certificates src="user" />
-           </trust-anchors>
-       </debug-overrides>
-     </network-security-config>
-    ```
+      ```xml
+      <?xml version="1.0" encoding="utf-8"?>
+      <network-security-config>
+         <debug-overrides>
+            <trust-anchors>
+                <!-- Trust user added CAs while debuggable only -->
+                <certificates src="user" />
+            </trust-anchors>
+        </debug-overrides>
+      </network-security-config>
+     ```
 
    Inside your `AndroidManifest.xml` file, make sure to include this `networkSecurityConfig` parameter:
 
-    ```xml
-       <application
-           android:name=".RestApplication"
-           android:networkSecurityConfig="@xml/network_security_config"
-    ```
+     ```xml
+        <application
+            android:name=".RestApplication"
+            android:networkSecurityConfig="@xml/network_security_config"
+     ```
 
-    If you forget this step, a proxied SSL connection will not work for any devices targeted for API 24 (Nougat) and above.  For more information, see [this link](https://developer.android.com/training/articles/security-config.html).
+   If you forget this step, a proxied SSL connection will not work for any devices targeted for API 24 (Nougat) and above.  For more information, see [this link](https://developer.android.com/training/articles/security-config.html).
 
 6. Go back to Charles Proxy and start recording network traffic:
 
