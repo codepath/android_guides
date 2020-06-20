@@ -17,7 +17,7 @@ allprojects {
 
 Add this dependency to your `app/build.gradle` list:
 
-```
+```gradle
 dependencies {
     implementation 'com.google.android.material:material:1.1.0'
   }
