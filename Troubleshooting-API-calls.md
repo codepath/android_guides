@@ -81,7 +81,7 @@ The process requires two parts: one on the PC that will act as the proxy, and th
      </network-security-config>
     ```
 
-    Inside your `AndroidManifest.xml` file, make sure to include this `networkSecurityConfig` parameter:
+   Inside your `AndroidManifest.xml` file, make sure to include this `networkSecurityConfig` parameter:
 
     ```xml
        <application
