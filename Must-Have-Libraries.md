@@ -311,3 +311,4 @@ Check out the following resources for finding libraries:
  * <https://cloudrail.com/best-android-libraries-for-developers/>
  * <https://github.com/geniushkg/github-oauth>
  * <http://www.androidcoding.in/>
+ * <https://www.tutlane.com/tutorial/android/>
