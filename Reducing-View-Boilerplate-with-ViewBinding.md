@@ -16,7 +16,7 @@ android {
 }
 ```
 
-Confirm you have updated to Android Studio v3.6 by going to `Android Studio` -> `About Android Studio`.
+Confirm you have updated to Android Studio v4.0 by going to `Android Studio` -> `About Android Studio`.
 
 Once you have enabled this option, make sure to click `Rebuild Project`.  You will need to rebuild your entire project in order to make sure the view binding class are created.
 
