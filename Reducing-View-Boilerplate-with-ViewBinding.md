@@ -10,8 +10,8 @@ Add the following to `app/build.gradle` file:
 
 ```gradle
 android {
-  viewBinding {
-        enabled = true
+  buildFeatures {
+        viewBinding true
     }
 }
 ```
