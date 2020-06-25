@@ -82,5 +82,5 @@ public class FancyFragment extends Fragment {
 
 ## References
 
-* [https://www.youtube.com/watch?v=W7uujFrljW0](Android Jetpack: Replace findViewById with view binding)
-* [https://developer.android.com/topic/libraries/view-binding?hl=ca](View Binding Guide from Google)
+* [Android Jetpack: Replace findViewById with view binding](https://www.youtube.com/watch?v=W7uujFrljW0)
+* [View Binding Guide from Google](https://developer.android.com/topic/libraries/view-binding)
