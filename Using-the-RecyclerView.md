@@ -292,14 +292,14 @@ public class ContactsAdapter extends
 
     // Involves populating data into the item through holder
     @Override
-    public void onBindViewHolder(ContactsAdapter.ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(ContactsAdapter.ViewHolder holder, int position) {
         // Get the data model based on position
         Contact contact = mContacts.get(position);
 
         // Set item views based on your views and data model
-        TextView textView = viewHolder.nameTextView;
+        TextView textView = holder.nameTextView;
         textView.setText(contact.getName());
-        Button button = viewHolder.messageButton;
+        Button button = holder.messageButton;
         button.setText(contact.isOnline() ? "Message" : "Offline");
         button.setEnabled(contact.isOnline());
     }
@@ -561,7 +561,7 @@ Finally, we need to modify the `onBindViewHolder` to use the `getItem()` method 
 Change from:
 
 ```java
-public void onBindViewHolder(ViewHolder viewHolder, int position) {
+public void onBindViewHolder(ViewHolder holder, int position) {
    // remove this line
    Contact contact = mContacts.get(position);
 ```
@@ -569,7 +569,7 @@ public void onBindViewHolder(ViewHolder viewHolder, int position) {
 To:
 
 ```java
-public void onBindViewHolder(ViewHolder viewHolder, int position) {
+public void onBindViewHolder(ViewHolder holder, int position) {
    Contact contact = getItem(position);
 ```
 
