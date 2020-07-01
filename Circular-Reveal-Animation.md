@@ -76,33 +76,36 @@ protected void onCreate(Bundle savedInstanceState) {
 
   ...
 
-  mEnterTransitionListener = new Transition.TransitionListener() {
+  mEnterTransitionListener = new android.transition.Transition.TransitionListener() {
       @Override
-      public void onTransitionStart(Transition transition) {
+      public void onTransitionStart(android.transition.Transition transition) {
 
       }
 
       @Override
-      public void onTransitionEnd(Transition transition) {
+      public void onTransitionEnd(android.transition.Transition transition) {
           enterReveal();
       }
 
       @Override
-      public void onTransitionCancel(Transition transition) {
+      public void onTransitionCancel(android.transition.Transition transition) {
 
       }
 
       @Override
-      public void onTransitionPause(Transition transition) {
+      public void onTransitionPause(android.transition.Transition transition) {
 
       }
 
       @Override
-      public void onTransitionResume(Transition transition) {
+      public void onTransitionResume(android.transition.Transition transition) {
 
       }
   };
   getWindow().getEnterTransition().addListener(mEnterTransitionListener);
+  
+  ...
+
 }
 ```
 
