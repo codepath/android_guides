@@ -69,7 +69,7 @@ void exitReveal() {
 You want to call `enterReveal()` after the enter transition of the activity has been completed.
 
 ```java
-private Transition.TransitionListener mEnterTransitionListener;
+private android.transition.Transition.TransitionListener mEnterTransitionListener;
 
 @Override
 protected void onCreate(Bundle savedInstanceState) {
