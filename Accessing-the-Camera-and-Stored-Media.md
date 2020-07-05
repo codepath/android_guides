@@ -262,20 +262,40 @@ public void onPickPhoto(View view) {
     }
 }
 
+public Bitmap loadFromUri(Uri photoUri) {
+    Bitmap image = null;
+    try {
+        // check version of Android on device
+        if(Build.VERSION.SDK_INT > 27){
+            // on newer versions of Android, use the new decodeBitmap method
+            ImageDecoder.Source source = ImageDecoder.createSource(this.getContentResolver(), photoUri);
+            image = ImageDecoder.decodeBitmap(source);
+        } else {
+            // support older versions of Android by using getBitmap
+            image = MediaStore.Images.Media.getBitmap(this.getContentResolver(), photoUri);
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    return image;
+}
+
 @Override
 public void onActivityResult(int requestCode, int resultCode, Intent data) {
-    if (data != null) {
+    if ((data != null) && requestCode == PICK_PHOTO_CODE) {
         Uri photoUri = data.getData();
-        // Do something with the photo based on Uri
-        Bitmap selectedImage = MediaStore.Images.Media.getBitmap(this.getContentResolver(), photoUri);
+
+        // Load the image located at photoUri into selectedImage
+        Bitmap selectedImage = loadFromUri(photoUri);
+
         // Load the selected image into a preview
         ImageView ivPreview = (ImageView) findViewById(R.id.ivPreview);
-        ivPreview.setImageBitmap(selectedImage);   
+        ivPreview.setImageBitmap(selectedImage);
     }
 }
 ```
 
-Note that there is a try-catch block required around the `MediaStore.Images.Media.getBitmap` line which was removed from above for brevity. Check out [this stackoverflow post](http://stackoverflow.com/questions/5309190/android-pick-images-from-gallery/5309217#5309217) for an alternate approach using mimetypes to restrict content user can select.
+Check out [this Stack Overflow post](http://stackoverflow.com/questions/5309190/android-pick-images-from-gallery/5309217#5309217) for an alternate approach using mimetypes to restrict content user can select.
 
 ### Selecting Multiple Images from Gallery
 
@@ -302,7 +322,7 @@ public void onActivityResult(int requestCode, int resultCode, Intent data) {
              Uri uri = item.getUri();
              mArrayUri.add(uri);
              // !! You may need to resize the image if it's too large
-             Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), photoUri);
+             Bitmap bitmap = loadFromUri(photoUri);
              mBitmapsSelected.add(bitmap);
          }
     }
