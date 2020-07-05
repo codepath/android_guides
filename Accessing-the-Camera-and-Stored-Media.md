@@ -13,7 +13,7 @@ The [camera](http://developer.android.com/guide/topics/media/camera.html) implem
 
 You must configure a `FileProvider` as show in this [[section|Sharing-Content-with-Intents#sharing-files-with-api-24-or-higher]]. The example below uses `com.codepath.fileprovider` and should match the `authorities` XML tag specified.
 
-If you see a "INSTALL_FAILED_CONFLICTING_PROVIDER" error when attempting to run the app, change this to something unique, such as `com.codepath.fileprovider.YOUR_NAME_HERE`, and also update the value in your XML tag to match.
+If you see a "INSTALL_FAILED_CONFLICTING_PROVIDER" error when attempting to run the app, change this to something unique, such as `com.codepath.fileprovider.YOUR_APP_NAME_HERE`, and also update the value in your XML tag to match.
 
 ### Using Capture Intent
 
