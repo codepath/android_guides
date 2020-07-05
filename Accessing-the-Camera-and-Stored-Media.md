@@ -321,7 +321,7 @@ public void onActivityResult(int requestCode, int resultCode, Intent data) {
              ClipData.Item item = mClipData.getItemAt(i);
              Uri uri = item.getUri();
              mArrayUri.add(uri);
-             // !! You may need to resize the image if it's too large
+             // Use the loadFromUri method from above
              Bitmap bitmap = loadFromUri(photoUri);
              mBitmapsSelected.add(bitmap);
          }
