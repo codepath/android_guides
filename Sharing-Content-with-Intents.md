@@ -233,9 +233,7 @@ File file = new File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), "share
 bmpUri = FileProvider.getUriForFile(MyActivity.this, "com.codepath.fileprovider", file);
 ```
 
-   :::warning
-   If you see a **INSTALL_FAILED_CONFLICTING_PROVIDER** error when attempting to run the app, change the string `com.codepath.fileprovider` in your Java and XML files to something unique, such as `com.codepath.fileprovider.YOUR_NAME_HERE`.
-   :::
+If you see a **INSTALL_FAILED_CONFLICTING_PROVIDER** error when attempting to run the app, change the string `com.codepath.fileprovider` in your Java and XML files to something more unique, such as `com.codepath.fileprovider.YOUR_APP_NAME_HERE`.
 
 Note that there are other XML tags you can use in the `fileprovider.xml`, which map to the File directory specified.  In the example above, we use `Context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)`, which corresponded to the `<external-files-path>` XML tag in the declaration with the `Pictures` path explicitly specified.  Here are all the options you can use too:
 
