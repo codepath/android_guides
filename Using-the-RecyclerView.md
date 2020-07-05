@@ -819,26 +819,47 @@ That's all, you should be set for a snap-to-center horizontal scrolling list!
 
 ### Attaching Click Handlers to Items
 
+If you'd like to perform an action whenever a user clicks on any item in your RecyclerView, you'll need to perform that action within a handler.
+
+Below are three ways you can attach a handler to listen to clicks on a RecyclerView. Note that this can be used to recognize clicks on items, but **not** for recognizing clicks on individual buttons or other elements within your items...
+
 #### Attaching Click Listeners with Decorators
 
-Then easiest solution for setting up item click handlers within a `RecyclerView` is to use a decorator class to manage the item click listener. With [this clever `ItemClickSupport` decorator](https://gist.github.com/nesquena/231e356f372f214c4fe6), attaching a click handler can be done with:
+The easiest solution for handling a click on an item in a RecyclerView is to add a decorator class such as [this clever `ItemClickSupport` decorator](https://gist.github.com/nesquena/231e356f372f214c4fe6) and then implement the following code in your Activity or Fragment code:
 
 ```java
-ItemClickSupport.addTo(mRecyclerView).setOnItemClickListener(
-  new ItemClickSupport.OnItemClickListener() {
-      @Override
-      public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-          // do it
-      }
-  }
-);
+public class PostsFragment extends Fragment {
+    // ...
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        // Leveraging ItemClickSupport decorator to handle clicks on items in our recyclerView
+        ItemClickSupport.addTo(rvPosts).setOnItemClickListener(
+                new ItemClickSupport.OnItemClickListener() {
+                    @Override
+                    public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                        // do stuff
+                    }
+                }
+        );
+
+    }
+
+    // ...
+}
 ```
 
-Under the covers, this is wrapping the interface pattern described in detail below. If you apply this code above, you **don't need to any of the manual item click handling below**. This technique was originally [outlined in this article](http://www.littlerobots.nl/blog/Handle-Android-RecyclerView-Clicks/).
+This technique was originally [outlined in this article](http://www.littlerobots.nl/blog/Handle-Android-RecyclerView-Clicks/). Under the covers, this is wrapping the interface pattern described in detail below.
+
+So, if you apply this code above, you **do not need** the **Simple Click Handler within ViewHolder** described below. 
 
 #### Simple Click Handler within ViewHolder
 
-RecyclerView does not have special provisions for attaching click handlers to items unlike ListView which has the method `setOnItemClickListener`. To achieve a similar effect manually (instead of using the decorator utility above), we can attach click events within the `ViewHolder` inside our adapter:
+Another solution for setting up item click handlers within a `RecyclerView` is to add code to your Adapter instead...
+
+Unlike `ListView` which has the `setOnItemClickListener` method, `RecyclerView` does not have special provisions for attaching click handlers to items. So, to achieve a similar effect manually (instead of using the decorator utility above), we can attach click events within the `ViewHolder` inside our adapter:
 
 ```java
 public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHolder> {
