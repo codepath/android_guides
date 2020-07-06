@@ -238,11 +238,10 @@ First, we need to create a new xml file in `res/layout/message_item.xml` which w
 
 #### Implement OnMapLongClickListener Event 
 
-If we want to setup a long click listener, we need to implement the `OnMapLongClickListener` in our Activity and setup the listener for the map:
+If we want to setup a long click listener, we need to add `implements GoogleMap.OnMapLongClickListener ` in our Activity and setup the listener for the map:
 
 ```java
-public class MapDemoActivity extends AppCompatActivity implements
-  GoogleMap.OnMapLongClickListener {
+public class MapDemoActivity extends AppCompatActivity implements GoogleMap.OnMapLongClickListener {
 
     ...
 
