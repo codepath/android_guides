@@ -24,7 +24,7 @@ Using a `Handler`, we can execute arbitrary code a single time after a specified
 import android.os.Handler;
 
 // Create the Handler object (on the main thread by default)
-Handler handler = new Handler();
+Handler handler = new android.os.Handler();
 // Define the code block to be executed
 private Runnable runnableCode = new Runnable() {
     @Override
