@@ -98,7 +98,7 @@ sudo npm install -g parse-dashboard
 parse-dashboard --appId myAppId --masterKey myMasterKey --serverURL "https://yourapp.herokuapp.com/parse"
 ```
 
-If you see a **command not found** error, try to quit your Terminal / Command Line and restart it.
+If you see errors such as **command not found** or **no such file or directory**, try [these tips](https://hackmd.io/@tejen/SyePL1Z1D)!
 
 Connect to your dashboard at [http://0.0.0.0:4040](http://0.0.0.0:4040/) or [http://localhost:4040](http://localhost:4040/). Assuming you have specified the correct application ID, master Key, and server URL, as well as installed a Parse open source version v2.1.3 or higher, you should see your Parse Dashboard appear correctly in your browser:
 
