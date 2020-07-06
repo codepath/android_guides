@@ -777,7 +777,7 @@ Next, we will configure to listen for any newly created Message object:
 protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-   // Parse.initialize(...) should come first
+   // Parse.initialize(...) should happen first, preferably in a different file such as your MyApplication.java
 
    // Make sure the Parse server is setup to configured for live queries
    // URL for server is determined by Parse.initialize() call.
