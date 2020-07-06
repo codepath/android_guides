@@ -781,6 +781,9 @@ protected void onCreate(Bundle savedInstanceState) {
 
     // Parse.initialize(...) should happen first, preferably in a different file such as your MyApplication.java
 
+    // Load existing messages to begin with
+    refreshMessages();
+
     // Make sure the Parse server is setup to configured for live queries
     // URL for server is determined by Parse.initialize() call.
     ParseLiveQueryClient parseLiveQueryClient = ParseLiveQueryClient.Factory.getClient();
