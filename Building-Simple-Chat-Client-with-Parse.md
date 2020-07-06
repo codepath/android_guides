@@ -14,12 +14,16 @@ Let's setup Parse into a brand new Android app following the steps below.
 
 * Generate a new android project in your IDE (minSDK 18) and call it `SimpleChat`.
   * Name the first activity `ChatActivity`.  
-  * Add to your root `build.gradle:`:
+  * Add this to the `allprojects` section of your root `build.gradle:`:
 
     ```gradle
-	repositories {
-		maven { url "https://jitpack.io" }
-	}
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
+}
     ```
 
   * Add the following to your `app/build.gradle`:
@@ -28,17 +32,6 @@ Let's setup Parse into a brand new Android app following the steps below.
     dependencies {
       implementation 'com.github.parse-community.Parse-SDK-Android:parse:1.24.1'
       implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1' // for logging API calls to LogCat
-    }
-    ```
-
-    When you sync your project after adding these dependencies then you will likely have a failure that complains about "support-annotations".  If you run into this error then you need to make one more Gradle change.  Open your main project `build.gradle` file (not your app's `build.gradle` but your project's `build.gradle`).  Add the following "maven" part under "allprojects" > "repositories":
-
-    ```gradle
-    allprojects {
-        repositories {
-            google()
-            jcenter()
-        }
     }
     ```
 
