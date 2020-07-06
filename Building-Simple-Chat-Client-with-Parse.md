@@ -715,7 +715,7 @@ Finally, let's periodically refresh the RecyclerView with latest messages [[usin
 
 // Create a handler which can run code periodically
 static final int POLL_INTERVAL = 1000; // milliseconds
-Handler myHandler = new Handler();  // android.os.Handler
+Handler myHandler = new android.os.Handler();
 Runnable mRefreshMessagesRunnable = new Runnable() {
     @Override
     public void run() {
