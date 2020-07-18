@@ -107,6 +107,8 @@ client.newCall(request).enqueue(new Callback() {
     public void onResponse(Call call, final Response response) throws IOException {
         if (!response.isSuccessful()) {
             throw new IOException("Unexpected code " + response);
+        } else {
+            Toast.makeText(getActivity(), "Connection failed", Toast.LENGTH_LONG).show();
         }
     }
 }
