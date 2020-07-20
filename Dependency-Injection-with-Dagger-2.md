@@ -592,3 +592,4 @@ Dagger 2 should work out of box without ProGuard, but if you start seeing `libra
 * [Dagger 2 Component Scopes Test](https://github.com/joesteele/dagger2-component-scopes-test)
 * [Advanced Dagger Talk](http://www.slideshare.net/nakhimovich/advanced-dagger-talk-from-360anDev)
 * [Dagger 2 For Beginner Tutorial](https://codinginflow.com/tutorials/android/dagger-2)
+* [Dependency Injection with Dagger 2](https://inspirecoding.app/bmi-calculator-dagger-2/)
