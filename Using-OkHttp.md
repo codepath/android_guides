@@ -111,7 +111,7 @@ client.newCall(request).enqueue(new Callback() {
             Toast.makeText(getActivity(), "Connection failed", Toast.LENGTH_LONG).show();
         }
     }
-}
+});
 ```
 
 #### Updating Views on UIThread
