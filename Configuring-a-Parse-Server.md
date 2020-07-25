@@ -25,7 +25,7 @@ The steps described this guide walk through most of the process of setting an op
 
 #### Deploying with back4app
 
-Use back4app if you have little or no experience with setting up web sites. Heroku allows you to manage changes to deploy easily by specifying a GitHub repository to use.  In addition, it comes with a UI data viewer from mLab.
+Use back4app if you have little or no experience with setting up web sites. back4app allows you to manage changes to deploy easily by specifying a GitHub repository to use.  In addition, it comes with a UI data viewer from mLab.
 
 1. Sign Up / Sign in at [back4app](https://www.back4app.com/)
 
@@ -147,7 +147,7 @@ let api = new ParseServer({
 
 See [this guide](http://parseplatform.org/docs/parse-server/guide/#live-queries) and [this spec](https://github.com/parse-community/parse-server/wiki/Parse-LiveQuery-Protocol-Specification) for more details.  Parse Live Queries rely on the websocket protocol, which creates a bidirectional channel between the client and server and periodically exchange ping/pong frames to validate the connection is still alive.
 
-Websocket URLs are usually prefixed with ws:// or wss:// (secure) URLs.  Heroku instances already provide websocket support, but if you are deploying to a different server (Amazon), you may need to make sure that TCP port 80 or TCP port 443 are available.
+Websocket URLs are usually prefixed with ws:// or wss:// (secure) URLs.  If you are deploying to an Amazon server, you may need to make sure that TCP port 80 or TCP port 443 are available.
 
 #### Using Amazon S3
 
