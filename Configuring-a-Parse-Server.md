@@ -19,127 +19,49 @@ You can review this [Wiki](https://github.com/ParsePlatform/parse-server/wiki) t
 
 Many of the options need to be configured by tweaking your own configuration.  You may wish to fork the [code](https://github.com/ParsePlatform/parse-server-example/) that helps instantiate a Parse server and change them based on your own needs.  The guide below includes instructions on [[how to add push notifications|Configuring-a-Parse-Server#enabling push notifications]] and [[storing files with Parse|Configuring-a-Parse-Server#storing files with parse]].
 
-### Setting a new Parse Server
+### Setting up a new Parse Server
 
-The steps described this guide walk through most of the process of setting an open source version with Parse.  There are obviously many other hosting options, but the one-click deploys made available with Heroku as discussed in [this guide](https://github.com/ParsePlatform/parse-server-example) are the simplest.   In both cases, you are likely to need a credit card attached to your account to activate.
+The steps described this guide walk through most of the process of setting an open source version with Parse.  There are obviously many other [hosting options](https://github.com/parse-community/parse-server#running-parse-server), but the one-click deploy made available with [back4app](https://www.back4app.com/) is the simplest option. 
 
-#### Signing up with Heroku
+#### Deploying with back4app
 
-Use Heroku if you have little or no experience with setting up web sites. Heroku allows you to manage changes to deploy easily by specifying a GitHub repository to use.  In addition, it comes with a UI data viewer from mLab.
+Use back4app if you have little or no experience with setting up web sites. Heroku allows you to manage changes to deploy easily by specifying a GitHub repository to use.  In addition, it comes with a UI data viewer from mLab.
 
-1. Sign Up / Sign In at [Heroku](https://www.heroku.com)
+1. Sign Up / Sign in at [back4app](https://www.back4app.com/)
 
-2. Click on the button below to create a Parse App
+1. Click on the option to 'Build a New App'
 
-      <a href="https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2Fcodepath%2Fparse-server-example&template=https%3A%2F%2Fgithub.com%2Fcodepath%2Fparse-server-example"><img src="https://camo.githubusercontent.com/c0824806f5221ebb7d25e559568582dd39dd1170/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e706e67" alt="Deploy" data-canonical-src="https://www.herokucdn.com/deploy/button.png" style="max-width:100%;"></a>
+    <img src="https://i.imgur.com/MYENcDn.png" width=800>
 
-2. Make sure to enter an App Name.  Scroll to the bottom of the page.
+1. Enter a name for your app and click Create.
 
-      <img src="https://imgur.com/0JcJrn5.png">
+    <img src="https://i.imgur.com/4wBs2A0.png" width=300>
 
-3. Make sure to change the config variables.
-      <img src="https://imgur.com/Ao1Yjdm.png"/>
-      * Leave `PARSE_MOUNT` to be `/parse`.  It does not need to be changed.
-      * Set `APP_ID` for the app identifier.  If you do not set one, the default is set as `myAppId`.  You will need this info for the Client SDK setup.
-      * Set `MASTER_KEY` to be the master key used to read/write all data.  You will only use this key if you intend to setup the Parse Dashboard. 
-      * Set `SERVER_URL` to correspond to match the App Name you defined in step #2 along with the PARSE_MOUNT  (i.e. http://yourappname.herokuapp.com/parse)
-      * If you intend to use Parse's Facebook authentication, set `FACEBOOK_APP_ID` to be the [FB application ID](https://developers.facebook.com/apps).
+1. Once the setup is finished, you should see the dashboard for your app.
 
-4. Deploy the Heroku app.  The app should be hosted at `https://<app name>.herokuapp.com` where `<app name>` represents your App Name that you provided (or if one was assigned to you if you left this field blank).
-
-If you ever need to change these values later, you can go to (`https://dashboard.heroku.com/apps/<app name>/settings`).   For instance, if you intend to setup push notifications, there are additional environment variables such as `GCM_SENDER_KEY` and `GCM_API_KEY` that will need to be configured.  See [[this section|Configuring-a-Parse-Server#enabling-push-notifications]] for the required steps.
-
-Check out [this guide](https://devcenter.heroku.com/articles/deploying-a-parse-server-to-heroku) for a more detailed set of steps for deploying Parse to Heroku.
+    <img src="https://i.imgur.com/pBztIvq.png" width=800>    
 
 Now, we can [[test our deployment|Configuring-a-Parse-Server#testing-deployment]] to verify that the Parse deployment is working as expected!
 
 ### Testing Deployment
 
-After deployment, try to connect to the site.  You should see `I dream of being a website. Please star the parse-server repo on GitHub!` if the site loaded correctly.   If you try to connect to the `/parse` endpoint, you should see `{error: "unauthorized"}`.  If both tests pass, the basic configuration is successful.
+After deployment, you can click on the API Reference section on the left nav bar to explore different ways to connect with your Parse server.
 
-Next, make sure you can create Parse objects.  You do not need a client Key to write new data:
+<img src="https://i.imgur.com/C21YgDn.png" width=800>
 
-```bash
-curl -X POST -H "X-Parse-Application-Id: myAppId" \
--H "Content-Type: application/json" \
--d '{"score":1337,"playerName":"Sean Plott","cheatMode":false}' \
-https://yourappname.herokuapp.com/parse/classes/GameScore
-```
+For example, you can do a quick test on whether the deployment was successful by going to the 'Initializing a Parse SDK' section for curl and making a curl request to your newly deployed Parse instance.
 
-Be sure to **replace the values** for `myAppId` and the server URL. If you see `Cannot POST` error then be sure both the `X-Parse-Application-Id` and the URL are correct for your application. To read data back, you will need to specify your master key as well:
+<img src="https://i.imgur.com/v98plKI.png" width=1000>
 
-```bash
-curl -X GET -H "X-Parse-Application-Id: myAppId" -H "X-Parse-Master-Key: abc"  \
-https://yourappname.herokuapp.com/parse/classes/GameScore
-```
+If the command works as expected, then your Parse instance is now setup and ready to be used!  
 
-Be sure to **replace the values** for `myAppId` and the server URL. If these commands work as expected, then your Parse instance is now setup and ready to be used!
+Similarly, you can also see how to connect to different clients (such as Android or iOS) in this API reference section.
 
 ### Browsing Parse Data
 
-There are several options that allow you to view the data.  First, you can use the `mLab` viewer to examine the store data.  Second, you can setup the open source verson of the Parse Dashboard, which gives you a similar UI used in hosted Parse.  Finally, you can use Robomongo.
+To browse your Parse Data, you can visit the 'Database Browser' page. 
 
-#### mLab
-
-The hosted Parse instance deployed uses [mLab](https://mlab.com/) (previously called MongoLab) to store all of your data. mLab is a hosted version of [MongoDB](https://www.mongodb.org/) which is a document-store which uses JSON to store your data.
-
-If you are using Heroku, you can verify whether the objects were created by clicking on the MongoDB instance in the Heroku panel:
-
-<img src="https://imgur.com/bbj2e9N.png"/>
-
-<img src="https://imgur.com/snPqYkz.png"/>
-
-#### Parse Dashboard
-
-You can also install Parse's open source dashboard locally. Download [NodeJS v4.3](https://nodejs.org/en/download/) or higher.  Make sure you have at least Parse server v2.1.3 or higher (later versions include a `/parse/serverInfo` that is needed).
-
-```bash
-npm install -g parse-dashboard
-parse-dashboard --appId myAppId --masterKey myMasterKey --serverURL "https://yourapp.herokuapp.com/parse"
-```
-
-If you see errors such as **command not found** or **no such file or directory**, try [these tips](https://hackmd.io/@tejen/SyePL1Z1D)!
-
-Connect to your dashboard at [http://0.0.0.0:4040](http://0.0.0.0:4040/) or [http://localhost:4040](http://localhost:4040/). Assuming you have specified the correct application ID, master Key, and server URL, as well as installed a Parse open source version v2.1.3 or higher, you should see your Parse Dashboard appear correctly in your browser:
-
-<img src="https://imgur.com/Z0Rz5Xs.png"/>
-
-#### Robomongo
-
-You can also setup [Robomongo](https://robomongo.org/download) to connect to your remote mongo database hosted on Heroku to get a better data browser and dashboard for your app.
-
-<a href="https://robomongo.org/download"><img src="https://i.imgur.com/9Qtt6Xs.png" width="450" /></a>
-
-To access mLab databases using Robomongo, be sure to go the MongoDB instance in the Heroku panel as shown above. Look for the following URL: `mongodb://<dbuser>:<dbpassword>@ds017212.mlab.com:11218/heroku_2flx41aa`. Use that to identify the login credentials:
-
-```
-address: ds017212.mlab.com
-port: 11218
-db: heroku_2flx41aa
-user: dbuser
-password: dbpassword
-```
-
-Note that the **user and password** provided are for a database user you configure and are **not your mLab login credentials**. Using that cross-platform app to easily access and modify the data for your Parse MongoDB data.
-
-### Adding Support for Live Queries
-
-One of the newer features of Parse is that you can monitor for live changes made to objects in your database (i.e. creation, updates, and deletes)  To get started, make sure you have defined the ParseObjects that you want in your NodeJS server.  Make sure to define a list of all the objects by declaring it in the `liveQuery` and `classNames listing`:
-
-```javascript
-let api = new ParseServer({
-  ...,
-  // Make sure to define liveQuery AND classNames
-  liveQuery: {
-    // define your ParseObject names here
-    classNames: ['Post', 'Comment']
-  }
-});
-```
-
-See [this guide](http://parseplatform.org/docs/parse-server/guide/#live-queries) and [this spec](https://github.com/parse-community/parse-server/wiki/Parse-LiveQuery-Protocol-Specification) for more details.  Parse Live Queries rely on the websocket protocol, which creates a bidirectional channel between the client and server and periodically exchange ping/pong frames to validate the connection is still alive.
-
-Websocket URLs are usually prefixed with ws:// or wss:// (secure) URLs.  Heroku instances already provide websocket support, but if you are deploying to a different server (Amazon), you may need to make sure that TCP port 80 or TCP port 443 are available.
+<img src="https://i.imgur.com/uNpK5in.png" width=800>
 
 ### Enabling Client SDK integration
 
@@ -152,26 +74,6 @@ Make sure you have the latest Parse-Android SDK <img src="https://jitpack.io/v/p
 * If you see `Application Error` or `An error occurred in the application and your page could not be served. Please try again in a few moments.`, double-check that you set a `MASTER_KEY` in the environment settings for that app.
 
   <img src="https://imgur.com/uMYwPmS.png">
-
-* If you are using Heroku, download the Heroku Toolbelt app [here](https://toolbelt.heroku.com/) to help view system logs.
-
-  <img src="https://imgur.com/Ch0mZOK.png"/>
-
-  First, you must login with your Heroku login and password:
-
-  ```bash
-  heroku login
-  ```
-
-   You can then view the system logs by specifying the app name:
-   ```bash
-   heroku logs --app <app name>
-   ```
-
-   The logs should show the response from any types of network requests made to the site.  Check the `status` code.
-   ```
-   2016-02-07T08:28:14.292475+00:00 heroku[router]: at=info method=POST path="/parse/classes/Message" host=parse-testing-port.herokuapp.com request_id=804c2533-ac56-4107-ad05-962d287537e9 fwd="101.12.34.12" dyno=web.1 connect=1ms service=2ms status=404 bytes=179
-   ```
 
 * If you are seeing `Master key is invalid, you should only use master key to send push`, chances are you are trying to send Push notifications without enable client push.  On hosted parse there is an outstanding [issue](https://github.com/ParsePlatform/parse-server/issues/396) that must be resolved to start supporting it.
 
@@ -227,6 +129,25 @@ file.saveInBackground();
 ```
 
 By default, the open source version of Parse relies on the MongoDB [GridStore](https://mongodb.github.io/node-mongodb-native/api-generated/gridstore.html) adapter to store large files.  There is an alternate option to leverage Amazon's Simple Storage Service (S3) but still should be considered experimental.
+
+### Adding Support for Live Queries
+
+One of the newer features of Parse is that you can monitor for live changes made to objects in your database (i.e. creation, updates, and deletes)  To get started, make sure you have defined the ParseObjects that you want in your NodeJS server.  Make sure to define a list of all the objects by declaring it in the `liveQuery` and `classNames listing`:
+
+```javascript
+let api = new ParseServer({
+  ...,
+  // Make sure to define liveQuery AND classNames
+  liveQuery: {
+    // define your ParseObject names here
+    classNames: ['Post', 'Comment']
+  }
+});
+```
+
+See [this guide](http://parseplatform.org/docs/parse-server/guide/#live-queries) and [this spec](https://github.com/parse-community/parse-server/wiki/Parse-LiveQuery-Protocol-Specification) for more details.  Parse Live Queries rely on the websocket protocol, which creates a bidirectional channel between the client and server and periodically exchange ping/pong frames to validate the connection is still alive.
+
+Websocket URLs are usually prefixed with ws:// or wss:// (secure) URLs.  Heroku instances already provide websocket support, but if you are deploying to a different server (Amazon), you may need to make sure that TCP port 80 or TCP port 443 are available.
 
 #### Using Amazon S3
 
