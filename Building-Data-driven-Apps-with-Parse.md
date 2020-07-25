@@ -2,9 +2,9 @@
 
 <img src="https://i.imgur.com/Xo47jSc.gif" alt="Parse" width="750" />
 
-## Parse on Heroku
+## Parse on back4app
 
-We can deploy our own Parse data store and push notifications systems to [Heroku](https://www.heroku.com/) leveraging the [server open-sourced by Parse](https://github.com/ParsePlatform/parse-server-example). Parse is built on top of the MongoDB database which can be added to Heroku using MongoLab.
+We can deploy our own Parse data store and push notifications systems to [back4app](https://www.back4app.com/) leveraging the [server open-sourced by Parse](https://github.com/ParsePlatform/parse-server-example). 
 
 To get started setting up our own Parse backend, check out our [[configuring a Parse Server]] guide. Once the Parse server is configured, we can [initialize Parse within our Android app](http://guides.codepath.com/android/Configuring-a-Parse-Server#enabling-client-sdk-integration) pointing the client to our self-hosted URL. After that, the functions demonstrated in this guide work the same as they did before.
 
@@ -32,7 +32,7 @@ In short, Parse makes building mobile app ideas much easier!
 
 ### Installing the Parse SDK
 
-Setting up Parse starts with [[deploying your own Parse instance|Configuring-a-Parse-Server#setting-a-new-parse-server]] to Heroku or another app hosting provider.
+Setting up Parse starts with [[deploying your own Parse instance|Configuring-a-Parse-Server#setting-a-new-parse-server]] to back4app or another app hosting provider.
 
 Add this in your root `build.gradle` file (**not** your module `build.gradle` file):
 
@@ -49,16 +49,24 @@ Open the `app/build.gradle` in your project and add the following dependencies:
 
 ```gradle
 dependencies {
-    implementation 'com.github.parse-community.Parse-SDK-Android:parse:1.24.2'
+    implementation 'com.github.parse-community.Parse-SDK-Android:parse:1.25.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1' // for logging API calls to LogCat
 }
 ```
+
+Notice that the version of Parse-SDK-Android was 1.25.0 when this documentation was released. To find the latest version, check [here](https://jitpack.io/#parse-community/Parse-SDK-Android).
 
 Select `Tools -> Android -> Sync Project with Gradle Files` to load the libraries through Gradle. When you sync, it will import everything automatically. You can see the imported files in the External Libraries folder.
 
 ### Initializing the SDK
 
-Next, we need to create an `Application` class and initialize Parse. Be sure to replace the initialization line below with **your correct Parse keys**:
+Next, we need to create an `Application` class and initialize Parse. 
+
+The following section walks you through the process. You can also go to the API reference page and Getting Started section to follow the process.
+
+<img src="https://i.imgur.com/HcJBjDH.gif" width="800" />
+
+Be sure to replace the initialization line below with **your correct Parse keys**:
 
 ```java
 public class ParseApplication extends Application {
@@ -77,14 +85,12 @@ public class ParseApplication extends Application {
         httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         builder.networkInterceptors().add(httpLoggingInterceptor);
 
-        // set applicationId, and server server based on the values in the Heroku settings.
-        // clientKey is not needed unless explicitly configured
+        // set applicationId, and server server based on the values in the back4app settings.
         // any network interceptors must be added with the Configuration Builder given this syntax
         Parse.initialize(new Parse.Configuration.Builder(this)
-                .applicationId("myAppId") // should correspond to APP_ID env variable
-                .clientKey(null)  // set explicitly unless clientKey is explicitly configured on Parse server
-                .clientBuilder(builder)
-                .server("https://my-parse-app-url.herokuapp.com/parse/").build());
+                .applicationId("myAppId") // should correspond to Application Id env variable
+                .clientKey("yourClientKey)  // should correspond to Client key env variable
+                .server("https://parseapi.back4app.com").build());
     }
 }
 ```
@@ -105,18 +111,15 @@ class ParseApplication : Application() {
         httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
         builder.networkInterceptors().add(httpLoggingInterceptor)
 
-        // set applicationId, and server server based on the values in the Heroku settings.
-        // clientKey is not needed unless explicitly configured
+        // set applicationId, and server server based on the values in the back4app settings.
         // any network interceptors must be added with the Configuration Builder given this syntax
         Parse.initialize(Parse.Configuration.Builder(this)
-                .applicationId("myAppId") // should correspond to APP_ID env variable
-                .clientKey(null) // set explicitly unless clientKey is explicitly configured on Parse server
-                .clientBuilder(builder)
-                .server("https://my-parse-app-url.herokuapp.com/parse/").build())
+                .applicationId("myAppId") // should correspond to Application ID env variable
+                .clientKey("yourClientKey)  // should correspond to Client key env variable
+                .server("https://parseapi.back4app.com").build());
     }
 }
 ```
-The `/parse/` path needs to match the `PARSE_MOUNT` environment variable, which is set to this value by default.
 
 We also need to make sure to set the application instance above as the `android:name` for the application within the `AndroidManifest.xml`. This change in the manifest determines which application class is instantiated when the app is launched and also adding the application ID metadata tag:
 
@@ -501,7 +504,7 @@ let api = new ParseServer({
 });
 ```
 
-See [this guide](http://parseplatform.org/docs/parse-server/guide/#live-queries) for more details.  Parse Live Queries rely on the websocket protocol, which creates a bidirectional channel between the client and server and periodically exchange ping/pong frames to validate the connection is still alive.  Websocket URLs are usually prefixed with ws:// or wss:// (secure) URLs.  Heroku instances already provide websocket support, but if you are deploying to a different server (Amazon), you may need to make sure that TCP port 80 or TCP port 443 are available.
+See [this guide](http://parseplatform.org/docs/parse-server/guide/#live-queries) for more details.  Parse Live Queries rely on the websocket protocol, which creates a bidirectional channel between the client and server and periodically exchange ping/pong frames to validate the connection is still alive.  Websocket URLs are usually prefixed with ws:// or wss:// (secure) URLs.  If you are deploying to a different server (Amazon), you may need to make sure that TCP port 80 or TCP port 443 are available.
 
 You will need to also setup the client SDK by adding this dependency to your `app/build.gradle` config:
 
