@@ -327,14 +327,16 @@ import com.parse.ParseClassName;
 
 @ParseClassName("TodoItem")
 public class TodoItem extends ParseObject {
-  // Ensure that your subclass has a public default constructor
+   // Ensure that your subclass has a public default constructor
+
+    public static final String KEY_AUTHOR = "author";
 
     public ParseUser getAuthor() {
-        return getParseUser("author");
+        return getParseUser(KEY_AUTHOR);
     }
 
     public void setAuthor(ParseUser author) {
-        put("author", author);
+        put(KEY_AUTHOR, author);
     }
 
 }
@@ -546,36 +548,25 @@ subscriptionHandling.handleEvent(SubscriptionHandling.Event.CREATE, new Subscrip
 
 ### Passing Objects Between Activities
 
-Often with Android development, you need to pass an object from one Activity to another. This is done using the `Intent` system and passing objects as extras within a bundle. Unfortunately, `ParseObject` does not currently implement Parcelable or Serializable.
+Often with Android development, you need to pass an object from one Activity to another. This is done using the `Intent` system and passing objects as extras within a bundle. Fortunately, your subclasses of ParseObject are already Parcelable by default, since the `ParseObject library` implements Parcelable!
 
-The simplest way to pass data between activities in Parse is simply to pass the object ID into the Intent:
+So, the simplest way to pass data between activities is simply to pass the entire Parse object through an Intent:
 
 ```java
 Intent i = new Intent(this, SomeNewActivity.class);
-i.putExtra("todo_id", myTodoItem.getObjectId());
+i.putExtra("todo_object", myTodoItem);
 startActivity(i);
 ```
 
-and then refetch the object using the object ID within the child Activity:
+you can then use your Parse object within the child Activity:
 
 ```java
-String todoId = getIntent().getStringExtra("todo_id");
-ParseQuery<TodoItem> query = ParseQuery.getQuery(TodoItem.class);
-// First try to find from the cache and only then go to network
-query.setCachePolicy(ParseQuery.CachePolicy.CACHE_ELSE_NETWORK); // or CACHE_ONLY
-// Execute the query to find the object with ID
-query.getInBackground(todoId, new GetCallback<TodoItem>() {
-  public void done(TodoItem item, ParseException e) {
-    if (e == null) {
-       // item was found
-    }
-  }
-}
+TodoItem todoItem = getIntent().getParcelableExtra("todo_object");
+
+Log.i("test", todoItem.getAuthor());
 ```
 
-You can also use `query.getFirst()` instead to retrieve the item in a synchronous style. Review the different [caching policies](http://parseplatform.org/docs/android/guide/#caching-queries) to understand how to make this fast.
-
-While we could [implement parceling ourselves](http://www.androidbook.com/akc/display?url=DisplayNoteIMPURL&reportId=4539&ownerUserId=android) this is not ideal as it's pretty complex to manage the state of Parse objects.
+In your Java file for your model, be sure to add a `public static final String` to define the key for each property in your model. This helps the Parse library understand which column in your Parse Dashboard/database corresponds to each property in your model. An example would be the `KEY_AUTHOR` mentioned above in this article.
 
 ### Associations
 
