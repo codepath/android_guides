@@ -19,13 +19,13 @@ Let's setup Parse into a brand new Android app following the steps below.
   * Add this to the `allprojects` section of your root `build.gradle:`:
 
     ```gradle
-allprojects {
-    repositories {
-        google()
-        jcenter()
-        maven { url "https://jitpack.io" }
+    allprojects {
+        repositories {
+            google()
+            jcenter()
+            maven { url "https://jitpack.io" }
+        }
     }
-}
     ```
 
   * Add the following to your `app/build.gradle`:
@@ -464,6 +464,32 @@ Add the following values to `res-->values-->strings.xml` file:
 ```
 
 As we learned before, those labels can be picked up by **accessibility** framework in Android and pronounced to a user who relies on [TalkBack](https://support.google.com/accessibility/android/answer/6283677?hl=en)
+
+### 7.2 Creating chat "bubble" backgrounds
+
+In order to re-create popular chat "bubble" UI we need to define proper backgrounds. We referred to them in the section 7.1 as `@drawable/message_outgoing` and `@drawable/message_incoming`. In `res --> drawable` folder create two files:
+
+```xml
+<!-- message_outgoing.xml -->
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/colorPrimary" />
+    <corners android:topRightRadius="5dp" android:radius="15dp" />
+</shape>
+```
+
+and 
+
+```xml
+<!-- message_incoming.xml -->
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#fff" />
+    <corners android:topLeftRadius="5dp" android:radius="15dp" />
+</shape>
+```
 
 ## 8. Create Model Class
 
