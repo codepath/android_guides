@@ -30,7 +30,7 @@ When we want to display a series of items into a list, using a custom representa
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="wrap_content" 
     android:orientation="horizontal" >
     <TextView
         android:id="@+id/tvBody"
