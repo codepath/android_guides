@@ -402,3 +402,4 @@ There are a few key aspects of Room to note that differ slightly from traditiona
 ## References
 
 * <https://www.youtube.com/watch?v=MfHsPGQ6bgE>
+[Room Basics - DAO, Database and Entity](https://inspirecoding.app/room-basics-dao-database-and-entity/)
