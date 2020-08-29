@@ -714,3 +714,7 @@ For additional information check out the [google] (https://developers.google.com
 ### Utility Library
 
 For additional features such as heat maps, marker clusters, calculating distances and more be sure to check out the [maps utility library](https://developers.google.com/maps/documentation/android/utility/). Watch [this video introduction](https://www.youtube.com/watch?v=nb2X9IjjZpM) for a brief overview.
+
+### References
+
+ * [Measure your distance using Google Maps API - Android tutorial in Kotlin](https://inspirecoding.app/measure-your-distance-on-map)
