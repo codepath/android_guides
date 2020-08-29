@@ -552,3 +552,4 @@ Facebook's [Stetho](http://facebook.github.io/stetho/) project enables you to us
  * <https://speakerdeck.com/jakewharton/simple-http-with-retrofit-2-droidcon-nyc-2015>
  * <http://inthecheesefactory.com/blog/retrofit-2.0/en>
  * <https://futurestud.io/blog/retrofit-add-custom-request-header/>
+ * [Retrofit basics - Android tutorial in Kotlin](https://inspirecoding.app/retrofit-basics-introduction/)
