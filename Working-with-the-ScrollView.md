@@ -71,12 +71,76 @@ In other cases, we want content to horizontally scroll in which case we need to 
 <HorizontalScrollView
   android:layout_width="match_parent"
   android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >   
-        <!-- child views in here -->
-    </LinearLayout>
+      <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/blood_pressure"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="16dp"
+                        android:minLines="2"
+                        android:background="@drawable/edit_input_shape"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="@string/bp_systolic"
+                        android:textColor="@color/text_color_selector"
+                        android:textSize="12dp"
+                        app:cornerRadius="50dp"
+                        app:elevation="12dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/bp_diastolic"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="16dp"
+                        android:minLines="2"
+                        android:background="@drawable/edit_input_shape"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="@string/bp_diastolic"
+                        android:textColor="@color/text_color_selector"
+                        android:textSize="12dp"
+                        app:cornerRadius="50dp"
+                        app:elevation="12dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/heart_rate"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:minLines="2"
+                        android:background="@drawable/edit_input_shape"
+                        android:backgroundTint="@android:color/white"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="@string/heart_rate"
+                        android:textColor="@color/text_color_selector"
+                        android:textSize="12dp"
+                        app:cornerRadius="50dp"
+                        app:elevation="12dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/sugar"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="16dp"
+                        android:minLines="2"
+                        android:background="@drawable/edit_input_shape"
+                        android:backgroundTint="@android:color/white"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="@string/glucose"
+                        android:textColor="@color/text_color_selector"
+                        android:textSize="12dp"
+                        app:cornerRadius="50dp"
+                        app:elevation="12dp" />
+                </LinearLayout>
 </HorizontalScrollView>
 ```
 
