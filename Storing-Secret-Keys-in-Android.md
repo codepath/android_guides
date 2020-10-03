@@ -32,9 +32,11 @@ The simplest approach for storing secrets in to keep them as resource files that
 First, create a file `apikey.properties` in your root directory with the values for different secret keys:
 
 ```
-CONSUMER_KEY=XXXXXXXXXXX
-CONSUMER_SECRET=XXXXXXX
+CONSUMER_KEY="XXXXXXXXXXX"
+CONSUMER_SECRET="XXXXXXX"
 ```
+
+Double quotes are required.
 
 To avoid these keys showing up in your repository, make sure to exclude the file from being checked in by adding to your `.gitignore` file:
 
@@ -54,7 +56,7 @@ android {
 
   defaultConfig {
      
-     // should correspond to key/value pairs inside the file   
+    // should correspond to key/value pairs inside the file   
     buildConfigField("String", "CONSUMER_KEY", apikeyProperties['CONSUMER_KEY'])
     buildConfigField("String", "CONSUMER_SECRET", apikeyProperties['CONSUMER_SECRET'])
   }
