@@ -6,7 +6,7 @@ We can use the [YouTube Android Player API](https://developers.google.com/youtub
 
 ### Setup
 
-In order to use this API, you will **need to have Google Play installed on your emulator** and **the Youtube App installed** because the YouTube API interacts with a service that is distributed with the YouTube app.  Either use a physical device to test or make sure you have followed [[this emulator setup guide|Genymotion-2.0-Emulators-with-Google-Play-support#setup-google-play-services]] to install Google Play services and then added the Youtube App. Otherwise, you are likely to see `An error has occurred while initializing the YouTube player`.
+In order to use this API, you will **need to have Google Play installed on your emulator** and **the Youtube App installed** because the YouTube API interacts with a service that is distributed with the YouTube app.  Either use a physical device to test or make sure you have followed [this emulator setup guide](https://hackmd.io/@qoEusk2FR0SJB-Q7Rsv-CQ/B1qdwxRGb?type=view#Option-2-Install-the-YouTube-App-to-the-Emulator-Manually) to install Google Play services and then added the Youtube App. Otherwise, you are likely to see `An error has occurred while initializing the YouTube player`.
 
 To start, you will need to create an API key through [https://console.developers.google.com/](https://console.developers.google.com/).  Make sure to enable the `YouTube Data API v3`.  Go to the `Credentials` section and generate an API key.
 
