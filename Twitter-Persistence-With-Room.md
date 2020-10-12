@@ -210,7 +210,7 @@ A sample DAO could look like this:
 ```java
 @Dao
 public interface TweetDao {
-	@Querry("SELECT * FROM Tweet ORDER BY createdAt DESC")
+	@Query("SELECT * FROM Tweet ORDER BY createdAt DESC")
 	List<Tweet> getTweets();
 
 	@Insert
