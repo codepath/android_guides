@@ -32,7 +32,7 @@ We [maintain a master missing topics list](https://github.com/codepath/android_g
 
 If you are interested in contributing to our guides, please check out our [contribution guidelines](https://github.com/codepath/android_guides/wiki/Contributing-Guidelines) first.
 
-## Contributors
+### Contributors
 
 These guides were originally created and adapted by [Nathan Esquenazi](http://github.com/nesquena) 
 as a part of our [CodePath](http://codepath.com) training and bootcamps. We have also had contributions from many
