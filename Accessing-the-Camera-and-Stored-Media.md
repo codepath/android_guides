@@ -17,6 +17,21 @@ If you see a "INSTALL_FAILED_CONFLICTING_PROVIDER" error when attempting to run 
 
 ### Using Capture Intent
 
+In your AndroidManifest.xml, add the following `queries` block:
+
+```xml
+<manifest ...>
+
+    <queries>
+        <!-- Camera -->
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+    </queries>
+
+</manifest>
+```
+
 Easy way works in most cases, using the intent to [launch the camera](http://developer.android.com/guide/topics/media/camera.html):
 
 ```java
