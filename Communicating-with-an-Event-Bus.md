@@ -122,3 +122,4 @@ public void doThis(IntentServiceResult intentServiceResult) {
 * <https://gist.github.com/staltz/868e7e9bc2a7b8c1f754/>
 * <http://www.stevenmarkford.com/passing-objects-between-android-activities/>
 * <http://greenrobot.org/eventbus/documentation/>
+* [Android development in Kotlin](https://inspirecoding.app/)
