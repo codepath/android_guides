@@ -381,6 +381,8 @@ apt 'com.google.dagger:dagger-compiler:2.5'
 
 ## References
 
+* [Android Data Binding basics tutorial](https://inspirecoding.app/data-binding-basics/)
+* [Android Data Binding funny course from beginner to advanced developers](https://inspirecoding.app/courses/guessing-game/)
 * <https://developer.android.com/topic/libraries/data-binding/index.html>
 * <https://medium.com/google-developers/no-more-findviewbyid-457457644885#.p1ie9j52a>
 * <https://realm.io/news/data-binding-android-boyar-mount/>
