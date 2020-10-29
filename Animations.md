@@ -846,3 +846,5 @@ The following animations library provide easy ways to plug-in animations into yo
  * <http://www.androiddesignpatterns.com/2014/12/activity-fragment-transitions-in-android-lollipop-part1.html>
  * <https://www.youtube.com/watch?v=4L4fLrWDvAU>
  * <https://androidexample365.com/tag/animations/>
+ * [Animation with MotionLayout](https://inspirecoding.app/motionlayout-clearing-weather/)
+ * [Loading animation in Android with images](https://inspirecoding.app/loading-animation/)
