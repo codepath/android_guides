@@ -62,6 +62,7 @@ And then you can display the custom toast using `displayToast("Message");`.
 
 ## References
 
+ * [Create custom toast tutorial](https://inspirecoding.app/custom-toast/)
  * <http://developer.android.com/guide/topics/ui/notifiers/toasts.html>
  * <http://developer.android.com/reference/android/widget/Toast.html>
  * <http://www.mkyong.com/android/android-toast-example/>
