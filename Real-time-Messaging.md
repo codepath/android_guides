@@ -40,7 +40,9 @@ Applozic powers real time chat and messaging on android, iOS, phonegap and web a
 Refer to the [Android Chat SDK](https://github.com/AppLozic/Applozic-Android-SDK) to get started. Check out this [detailed instruction](https://www.applozic.com/docs/) for adding a real time chat sdk into your Android, iOS, Phonegap and Web app.
 
 ## EnableX.io
-Add live video, voice and messaging to your websites, iOS and Android apps with EnableX easy to use SDKs and APIs. [Get started for free](https://www.enablex.io/).
+EnableX offers developers a comprehensive channel of communications APIs (SMS, Messaging, Voice, Video and other collaborative tools) and all the necessary toolkits to develop innovative and engaging communication experience.
+Check out our [SDKs and detailed guides](https://developer.enablex.io/) for creating real-time messaging or [try it out for free](https://www.enablex.io/cpaas/).
+
 
 ## References
 
