@@ -15,7 +15,7 @@ When using an adapter and a `ListView`, we need to make sure to understand how v
 
 When your `ListView` is connected to an adapter, the adapter will instantiate rows until the `ListView` has been fully populated with enough items to fill the full height of the screen. At that point, no additional row items are created in memory.  
 
-Instead, as the user scroll through the list, **items that leave the screen are kept in memory for later use** and then every new row that enters the screen **reuses an older row kept around in memory**. In this way, even for a list of 1000 items, only ~7 item view rows are ever instantiated or held in memory. Here is a visual overview of recycling:
+Instead, as the user scrolls through the list, **items that leave the screen are kept in memory for later use** and then every new row that enters the screen **reuses an older row kept around in memory**. In this way, even for a list of 1000 items, only ~7 item view rows are ever instantiated or held in memory. Here is a visual overview of recycling:
 
 <img src="https://i.imgur.com/zpkVUMR.png" width="500" />
 
