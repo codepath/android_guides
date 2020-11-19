@@ -1031,6 +1031,7 @@ allprojects {
 
 dependencies {
       implementation 'com.github.parse-community:ParseLiveQuery-Android:1.1.0' // for Parse Live Queries
+      implementation 'com.parse.bolts:bolts-android:1.4.0' // also required by Parse Live Queries
 }
 ```
 
