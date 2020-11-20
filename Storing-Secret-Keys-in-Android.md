@@ -22,7 +22,7 @@ For storing fixed API keys, the following common strategies exist for storing se
  * [[Embedded in resource file|Storing-Secret-Keys-in-Android#secrets-in-resource-files]]
  * [[Obfuscating with Proguard|Configuring-ProGuard]]
  * [Disguised or Encrypted Strings](https://developer.android.com/training/articles/keystore.html)
- * [[Hidden in native libraries with NDK|Storing-Secret-Keys-in-Android#secrets-in-native-libraries]]
+ * [[Hidden in native libraries with NDK|Storing-Secret-Keys-in-Android#secrets-in-native-libraries-with-ndk]]
  * Hidden as constants in source code
 
 The simplest approach for storing secrets in to keep them as resource files that are simply not checked into source control.   The approaches below two ways of accomplishing the same goal.
