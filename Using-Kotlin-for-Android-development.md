@@ -1,4 +1,4 @@
-## What is Kotlin?
+## What is Kotlin? Edited by VangThao
 
 [Kotlin](https://kotlinlang.org) is a language by [JetBrains](https://www.jetbrains.com), the company behind [IntelliJ IDEA](https://www.jetbrains.com/idea), which Android Studio is based on, and other developer tools. Kotlin is purposely built for large scale software projects to improve upon Java with a focus on readability, correctness, and developer productivity.
 
