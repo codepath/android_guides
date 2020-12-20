@@ -4,7 +4,8 @@
 
 <img src="https://i.imgur.com/0auGknf.png" width="500" />
 
-Toolbar works well with apps targeted to API 21 and above. However, Android has updated the AppCompat support libraries so the Toolbar can be used on lower Android OS devices as well. In AppCompat, Toolbar is implemented in the `androidx.appcompat.widget.Toolbar` class.
+Toolbar works well with apps targeted to API 21 and above. However, Android has updated the AppCompat support libraries so the Toolbar can be used on lower Android OS devices as well. In AppCompat, Toolbar is implemented in the `androidx.appcompat.widget.Toolbar` class.ura
+
 
 There are two ways to use Toolbar:
 
