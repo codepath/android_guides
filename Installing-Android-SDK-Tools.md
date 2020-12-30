@@ -21,8 +21,8 @@ Assuming you have macOS/OS X running, you can use Homebrew to install the Androi
 1. [Install Homebrew](http://brew.sh/) - the package manager for macOS/OS X
 2. Run the following commands: 
    ```bash
-   brew tap caskroom/cask
-   brew cask install android-sdk
+   brew tap homebrew/cask
+   brew install --cask install android-sdk
    ```
 
 This will install the Android SDK tools in `/usr/local/Cellar/android-sdk/<version number>`
