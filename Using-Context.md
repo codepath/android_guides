@@ -8,7 +8,7 @@ In many cases when the "context is required", we simply need to **pass in the in
 
 Below are a few use cases that require a Context object.
 
-### Explicitly starting a componentszzzzzzzzzzzzzz
+### Explicitly starting a components
 
 ```java
 // Provide context if MyActivity is an internal activity.
