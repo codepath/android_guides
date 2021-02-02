@@ -22,7 +22,7 @@ Assuming you have macOS/OS X running, you can use Homebrew to install the Androi
 2. Run the following commands: 
    ```bash
    brew tap homebrew/cask
-   brew install --cask install android-sdk
+   brew install --cask android-sdk
    ```
 
 This will install the Android SDK tools in `/usr/local/Cellar/android-sdk/<version number>`
