@@ -1,4 +1,5 @@
 ## Overview
+
 Intents allow us to communicate data between Android apps and implicit intents can also accept actions. One of those actions is the `ACTION_SEND` command which indicates we want to send data across apps. To send data, all you need to do is specify the data and its type, and the system will identify compatible receiving activities and display them to the user.
 
 Sending and receiving data between applications with intents is most commonly used for social sharing of content. Intents allow users to share information quickly and easily, using their favorite applications.
