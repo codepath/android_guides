@@ -57,7 +57,7 @@ buildTypes {
 ```
 
 ### Third-Party Libraries
-
+### Third-Party Libraries
 Before you start adding any ProGuard rules, you should also check whether any of the libraries you use already come packaged with a `consumer-proguard-rules.pro` file.  This file gets added to the ProGuard definition list automatically.  For instance, for the [LeakCanary](https://github.com/square/leakcanary) project, the definition listings are located [here](https://github.com/square/leakcanary/blob/master/leakcanary-android/consumer-proguard-rules.pro) and added whenever you use this library with ProGuard enabled.
 
 In addition, you can either check the GitHub source to see if this file exists, or you can navigate through Android Studio by clicking on the `Project` tab and navigating to `app` -> `build` -> `intermediates` -> `exploded-aar` and looking for the `proguard.txt` definition. 
