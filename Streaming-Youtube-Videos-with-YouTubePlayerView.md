@@ -14,6 +14,15 @@ To start, you will need to create an API key through [https://console.developers
 
 Next, add the [YouTubeAndroidPlayerApi.jar](https://developers.google.com/youtube/android/player/downloads/) file into Android Studio by [following this GIF](https://i.imgur.com/k9a6WET.gif) to add this to your `libs` dir. Once you've added the JAR, select `Tools => Android => Sync project files with Gradle` in Android Studio to complete installation.
 
+To ensure that the Youtube player can also be successfully initialization on devices running API 30+, you'll also need to add the following to your AndroidManifest.xml
+```xml
+<queries>
+        <intent>
+            <action android:name="com.google.android.youtube.api.service.START" />
+        </intent>
+    </queries>
+```
+
 ### Usage
 
 Instead of a `VideoView`, you should add `YouTubePlayerView` to your layout file where you'd like the video to be displayed:
