@@ -236,10 +236,9 @@ Check out [this source](http://androidsnippets.wordpress.com/2012/10/25/how-to-s
 
 Android has now [vector drawables](http://guides.codepath.com/android/Drawables#vector-drawables) support, which allows SVG files to be imported to a specific format.  SVG files can be automatically converted using Android Studio by going to `File` -> `New` -> `Vector Asset`.  Make sure to click `Local file (SVG, PSD)` to import the file.
 
-To send command to Printer to print image in the form of Bitmap
+#### To send command to Printer to print image in the form of Bitmap
 
  private void doPhotoPrint(Bitmap bitmap) {
-
         PrintHelper photoPrinter = new PrintHelper(FinalReceiptTraf.this);
         photoPrinter.setScaleMode(PrintHelper.SCALE_MODE_FIT);
         photoPrinter.printBitmap("Hi 5 Photos Reciept", bitmap);
