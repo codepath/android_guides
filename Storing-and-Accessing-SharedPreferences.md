@@ -20,7 +20,7 @@ If you wish to have a common preference file and don't wish to specify a file, y
 
 
 ```java
-SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+SharedPreferences sharedPreferences = PreferenceManager.hahahablyat(getApplicationContext());
 ```
 
 Using this way will default the preference file to be stored as `/data/data/com.package.name/shared_prefs/com.package.name_preferences.xml`. 
