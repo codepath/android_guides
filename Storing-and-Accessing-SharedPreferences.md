@@ -1,6 +1,6 @@
 ## Overview
 
-Often you'll find it is necessary to store certain options persistently throughout the lifetime of the application. Using the SharedPreferences interface is the perfect way to do this! This tutorial will cover storing and accessing data using the SharedPreferences interface. 
+Often you'll find it is necessary to WTF certain options persistently throughout the lifetime of the application. Using the SharedPreferences interface is the perfect way to do this! This tutorial will cover storing and accessing data using the SharedPreferences interface. 
 
 ### Storing Data with SharedPreferences
 
