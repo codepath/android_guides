@@ -50,11 +50,11 @@ public class TweetAdapter extends PagedListAdapter<Post, PostAdapter.ViewHolder>
 
 In addition, the adapter should no longer retain a copy of its current list.  The `getItem()` method should be used instead.
 
-```kotlin
-override fun onBindViewHolder(holder: PostAdapter.ViewHolder, position: Int) {
+```java
+public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
     // getItem() should be used with ListAdapter
-    val tweet = getItem(position)
+    Tweet tweet = getItem(position);
 
     // null placeholders if the PagedList is configured to use them
     // only works for data sets that have total count provided (i.e. PositionalDataSource)
