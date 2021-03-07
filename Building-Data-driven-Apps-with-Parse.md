@@ -1177,7 +1177,7 @@ public abstract class MyActivity extends AppCompatActivity {
 
     ParseDataSourceFactory sourceFactory = new ParseDataSourceFactory();
 
-    posts = new LivePagedListBuilder(factory, config).build();
+    posts = new LivePagedListBuilder<>(sourceFactory, config).build();
 
     posts.observe(this, new Observer<PagedList<Post>>() {
 					@Override
