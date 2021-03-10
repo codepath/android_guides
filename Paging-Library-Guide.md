@@ -16,11 +16,12 @@ allprojects {
 }
 ```
 
-Next, add the Paging library to your `app/build.gradle`:
+Next, add the Paging and LiveData libraries to your `app/build.gradle`:
 
 ```gradle
 dependencies {
-     implementation "androidx.paging:paging-runtime:2.1.0"
+     implementation "androidx.paging:paging-runtime:2.1.2"
+     implementation "androidx.lifecycle:lifecycle-livedata:2.3.0"
 }
 ```
 
