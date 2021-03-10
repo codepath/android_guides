@@ -1161,30 +1161,28 @@ Finally, we need to create our PagedList:
 ```java
 public abstract class MyActivity extends AppCompatActivity {
 
-  // normally this data should be encapsulated in ViewModels, but shown here for simplicity
-  LiveData<PagedList<Post>> posts;
+    // normally this data should be encapsulated in ViewModels, but shown here for simplicity
+    LiveData<PagedList<Post>> posts;
 
-  public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
 
-    PagedList.Config pagedListConfig =
-          new PagedList.Config.Builder().setEnablePlaceholders(true)
-                  .setPrefetchDistance(10)
-                  .setInitialLoadSizeHint(10)
-                  .setPageSize(10).build();
+        // initial page size to fetch can be configured here
+        PagedList.Config pagedListConfig =
+              new PagedList.Config.Builder().setEnablePlaceholders(true)
+                      .setPrefetchDistance(10)
+                      .setInitialLoadSizeHint(20)
+                      .setPageSize(10).build();
 
-    // initial page size to fetch can also be configured here too
-    PagedList.Config config = new PagedList.Config.Builder().setPageSize(20).build();
+        ParseDataSourceFactory sourceFactory = new ParseDataSourceFactory();
 
-    ParseDataSourceFactory sourceFactory = new ParseDataSourceFactory();
+        posts = new LivePagedListBuilder<>(sourceFactory, pagedListConfig).build();
 
-    posts = new LivePagedListBuilder<>(sourceFactory, config).build();
-
-    posts.observe(this, new Observer<PagedList<Post>>() {
-					@Override
-					public void onChanged(@Nullable PagedList<Post> tweets) {
-						postAdapter.submitList(tweets);
-					}
-				});
+        posts.observe(this, new Observer<PagedList<Post>>() {
+	    @Override
+	    public void onChanged(@Nullable PagedList<Post> tweets) {
+	        postAdapter.submitList(tweets);
+            }
+        });
     }
 }
 ```
@@ -1197,11 +1195,14 @@ var postList : LiveData<PagedList<Post>>
 
 override fun onCreate(savedInstanceState: Bundle?) {
        postAdapter = PostAdapter()
+       
+       // initial page size to fetch can be configured here
        val pagedListConfig =
                PagedList.Config.Builder().setEnablePlaceholders(true)
-                       .setPrefetchDistance(5)
-                       .setInitialLoadSizeHint(5)
-                       .setPageSize(5).build()
+                       .setPrefetchDistance(10)
+                       .setInitialLoadSizeHint(20)
+                       .setPageSize(10).build()
+
        val sourceFactory = ParseDataSourceFactory()
        postList = LivePagedListBuilder(sourceFactory, pagedListConfig).build()
    }
