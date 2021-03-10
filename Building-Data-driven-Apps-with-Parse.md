@@ -1188,7 +1188,7 @@ public abstract class MyActivity extends AppCompatActivity {
 ```
 
 ```kotlin
-class MyActivity : AppCompatActivity {
+class MyActivity : AppCompatActivity() {
 
 // normally this data should be encapsulated in ViewModels, but shown here for simplicity
 var postList : LiveData<PagedList<Post>>
