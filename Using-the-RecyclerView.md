@@ -641,7 +641,7 @@ public class ContactsAdapter extends
 }
 ```
 
-For a working example, see this [sample code](https://github.com/mrmike/DiffUtil-sample).
+For a working example, see this [sample code](https://github.com/mrmike/DiffUtil-sample/tree/29d7e70ad8d29b8e59033c085db78d92a31ec0bd).
 
 ### Scrolling to New Items
 
