@@ -27,11 +27,11 @@ dependencies {
 
 ### Modifying your RecyclerView
 
-The Paging Library can only be used with [[RecyclerView|Using-the-RecyclerView]].  If you are using [[ListView|Using-an-ArrayAdapter-with-ListView]] to display your lists, you should first migrate to using the [[ViewHolder pattern|Using-an-ArrayAdapter-with-ListView#improving-performance-with-the-viewholder-pattern]] before transitioning to RecyclerView.  Moving to RecyclerView may also require changing how [[click handling|Using-the-RecyclerView#attaching-click-handlers-to-items]] is performed.
+The Paging Library can only be used with [[RecyclerView|Using-the-RecyclerView]].  If you are using [[ListView|Using-an-ArrayAdapter-with-ListView]] to display your lists, you should first migrate to using the [[ViewHolder pattern|Using-an-ArrayAdapter-with-ListView#improving-performance-with-the-viewholder-pattern]] before transitioning to RecyclerView. Moving to RecyclerView may also require changing how [[click handling|Using-the-RecyclerView#attaching-click-handlers-to-items]] is performed.
 
 #### Modifying to ListAdapter
 
-Once your lists are using RecyclerView, the next step is to change your adapters to inherit from the `ListAdapter` class instead of the `RecyclerView.Adapter` class.  See [this guide](https://github.com/codepath/android_guides/wiki/Using-the-RecyclerView#using-with-listadapter) for more information.  
+Once your lists are using RecyclerView, the next step is to change your adapters to inherit from the `ListAdapter` class instead of the `RecyclerView.Adapter` class.  See [this guide](https://guides.codepath.com/android/using-the-recyclerview#using-with-listadapter) for more information.  
 
 #### Moving to PagedListAdapter
 
