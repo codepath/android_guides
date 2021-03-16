@@ -30,7 +30,7 @@ public void launchComposeView() {
 // ActivityOne.java
 fun launchComposeView() {
   // first parameter is the context, second is the class of the activity to launch
-  val i = new Intent(this@ActivityOne, ActivityTwo::class.java)
+  val i = Intent(this@ActivityOne, ActivityTwo::class.java)
   startActivity(i) // brings up the second activity
 }
 ```
