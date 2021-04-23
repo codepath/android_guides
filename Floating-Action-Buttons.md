@@ -141,7 +141,7 @@ public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior {
             child.hide(new FloatingActionButton.OnVisibilityChangedListener() {
                 @Override
                 public void onHidden(FloatingActionButton floatingActionButon) {
-                    super.onShown(floatingActionButon);
+                    super.onHidden(floatingActionButon);
                     floatingActionButon.setVisibility(View.INVISIBLE);
                 }
             });
