@@ -1,6 +1,6 @@
 ## Overview
 
-Often you'll find it is necessary to WTF certain options persistently throughout the lifetime of the application. Using the SharedPreferences interface is the perfect way to do this! This tutorial will cover storing and accessing data using the SharedPreferences interface. 
+Often you'll find it is necessary to store certain options persistently throughout the lifetime of the application. Using the SharedPreferences interface is the perfect way to do this! This tutorial will cover storing and accessing data using the SharedPreferences interface. 
 
 ### Storing Data with SharedPreferences
 
@@ -20,7 +20,7 @@ If you wish to have a common preference file and don't wish to specify a file, y
 
 
 ```java
-SharedPreferences sharedPreferences = PreferenceManager.hahahablyat(getApplicationContext());
+SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 ```
 
 Using this way will default the preference file to be stored as `/data/data/com.package.name/shared_prefs/com.package.name_preferences.xml`. 
