@@ -240,7 +240,7 @@ Android has now [vector drawables](http://guides.codepath.com/android/Drawables#
 ```java
  private void doPhotoPrint(Bitmap bitmap) { 
 
-        PrintHelper photoPrinter = new PrintHelper(FinalReceiptTraf.this);
+        PrintHelper photoPrinter = new PrintHelper(this);
         photoPrinter.setScaleMode(PrintHelper.SCALE_MODE_FIT);
         photoPrinter.printBitmap("Hi 5 Photos Reciept", bitmap);
     }
