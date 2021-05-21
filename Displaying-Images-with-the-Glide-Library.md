@@ -204,6 +204,7 @@ int radius = 30; // corner radius, higher value = more rounded
 int margin = 10; // crop margin, set to 0 for corners with no crop
 GlideApp.with(this)
         .load("http://via.placeholder.com/300.png")
+        .centerCrop() // scale image to fill the entire ImageView
         .transform(new RoundedCornersTransformation(radius, margin))
         .into(ivImg);
 ```
