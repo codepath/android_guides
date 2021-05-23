@@ -76,15 +76,15 @@ public void addAll(List<Tweet> list) {
 }
 ```
 ```kotlin
-    fun clear() {
-        tweets.clear()
-        notifyDataSetChanged()
-    }
+fun clear() {
+    tweets.clear()
+    notifyDataSetChanged()
+}
 
-    fun addAll(tweetList: List<Tweet>) {
-        tweets.addAll(tweetList)
-        notifyDataSetChanged()
-    }
+fun addAll(tweetList: List<Tweet>) {
+    tweets.addAll(tweetList)
+    notifyDataSetChanged()
+}
 ```
 
 ### Step 3: Setup SwipeRefreshLayout
