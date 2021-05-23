@@ -76,6 +76,18 @@ public void addAll(List<Tweet> list) {
 }
 ```
 
+```kotlin
+    fun clear() {
+        tweets.clear()
+        notifyDataSetChanged()
+    }
+
+    fun addAll(tweetList: List<Tweet>) {
+        tweets.addAll(tweetList)
+        notifyDataSetChanged()
+    }
+```
+
 ### Step 3: Setup SwipeRefreshLayout
 
 Next, we need to configure the `SwipeRefreshLayout` during view initialization in the activity. The activity that instantiates `SwipeRefreshLayout` should add an `OnRefreshListener` to be notified whenever the swipe to refresh gesture is completed. 
@@ -130,6 +142,59 @@ public class TimelineActivity extends Activity {
                 Log.d("DEBUG", "Fetch timeline error: " + e.toString());
             }
         });
+    }
+}
+```
+
+```kotlin
+class TimelineActivity: Activity {
+    lateinit var swipeContainer: SwipeRefreshLayout
+
+    override fun void onCreate(savedInstanceState: Bundle) {
+        super.onCreate(savedInstanceState)
+        // Only ever call `setContentView` once right at the top
+        setContentView(R.layout.activity_main)
+        // Lookup the swipe container view
+        swipeContainer = findViewById(R.id.swipeContainer)
+        // Setup refresh listener which triggers new data loading
+
+        swipeContainer.setOnRefreshListener {
+            // Your code to refresh the list here.
+            // Make sure you call swipeContainer.setRefreshing(false)
+            // once the network request has completed successfully.
+            fetchTimelineAsync(0)
+        }
+
+        // Configure the refreshing colors
+        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright, 
+                android.R.color.holo_green_light, 
+                android.R.color.holo_orange_light, 
+                android.R.color.holo_red_light);
+    }
+
+    fun fetchTimelineAsync(page: Integer) {
+        // Send the network request to fetch the updated data
+        // `client` here is an instance of Android Async HTTP
+        // getHomeTimeline is an example endpoint.
+        client.getHomeTimeline(object: JsonHttpResponseHandler() {
+            override fun onSuccess(statusCode: Int, headers: okhttp3.Headers, json: JSON) {
+                // Remember to CLEAR OUT old items before appending in the new ones
+                adapter.clear()
+                // ...the data has come back, add new items to your adapter...
+                adapter.addAll(...)
+                // Now we call setRefreshing(false) to signal refresh has finished
+                swipeContainer.setRefreshing(false)
+            }
+
+            override fun onFailure(
+                statusCode: Int,
+                headers: okhttp3.Headers,
+                response: String,
+                throwable: Throwable
+            ) {
+                Log.d("DEBUG", "Fetch timeline error", throwable)
+            }
+        })
     }
 }
 ```
