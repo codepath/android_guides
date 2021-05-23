@@ -75,7 +75,6 @@ public void addAll(List<Tweet> list) {
     notifyDataSetChanged(); 
 }
 ```
-
 ```kotlin
     fun clear() {
         tweets.clear()
