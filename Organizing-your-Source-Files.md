@@ -12,12 +12,12 @@ The following naming and casing conventions are important for your Java code:
 
 | Type        | Example                | Description                   | Link |
 | ----------- | ------------           | ----------------------------- | ------
-| Variable    | `incomeTaxRate`        | All variables should be camel case | [Read More](http://www.oracle.com/technetwork/java/javase/documentation/codeconventions-137265.html#547) |
-| Constant    | `DAYS_IN_WEEK`         | All constants should be all uppercase | [Read More](http://www.oracle.com/technetwork/java/javase/documentation/codeconventions-137265.html#1255) |
-| Method      | `convertToEuroDollars` | All methods should be camel case | [Read More](http://www.oracle.com/technetwork/java/javase/documentation/codeconventions-135099.html#367) |
-| Parameter   | `depositAmount`        | All parameter names should be camel case | [Read More](http://www.oracle.com/technetwork/java/javase/documentation/codeconventions-141270.html#16817) |
+| Variable    | `incomeTaxRate`        | All variables should be camel case | [Read More](https://www.oracle.com/technetwork/java/javase/documentation/codeconventions-137265.html#547) |
+| Constant    | `DAYS_IN_WEEK`         | All constants should be all uppercase | [Read More](https://www.oracle.com/technetwork/java/javase/documentation/codeconventions-137265.html#1255) |
+| Method      | `convertToEuroDollars` | All methods should be camel case | [Read More](https://www.oracle.com/technetwork/java/javase/documentation/codeconventions-135099.html#367) |
+| Parameter   | `depositAmount`        | All parameter names should be camel case | [Read More](https://www.oracle.com/technetwork/java/javase/documentation/codeconventions-141270.html#16817) |
 
-See [this naming guide](http://www.oracle.com/technetwork/java/codeconvtoc-136057.html) for more details.
+See [this naming guide](https://www.oracle.com/technetwork/java/codeconvtoc-136057.html) for more details.
 
 #### For Android Classes
 
@@ -40,7 +40,7 @@ There are several best practices for organizing your app's package structure.
 
 #### Organize packages by category
 
-[The way to do this](http://blog.smartlogic.io/2013/07/09/organizing-your-android-development-code-structure) is to group things together by their category. Each component goes to the corresponding package:
+[The way to do this](https://blog.smartlogic.io/2013/07/09/organizing-your-android-development-code-structure) is to group things together by their category. Each component goes to the corresponding package:
 
 * `com.example.myapp.activities` - Contains all activities
 * `com.example.myapp.adapters` - Contains all custom adapters
@@ -54,7 +54,7 @@ Keeping these folders in each app means that code is logically organized and sca
 
 #### Organize packages by application features
 
-Alternatively, we can package-by-feature rather than layers. This approach uses packages to [reflect the feature set](http://www.javapractices.com/topic/TopicAction.do?Id=205). Consider the following package structure [as outlined in this post](https://medium.com/@cesarmcferreira/package-by-features-not-layers-2d076df1964d#.f7znkie19):
+Alternatively, we can package-by-feature rather than layers. This approach uses packages to [reflect the feature set](https://www.javapractices.com/topic/TopicAction.do?Id=205). Consider the following package structure [as outlined in this post](https://medium.com/@cesarmcferreira/package-by-features-not-layers-2d076df1964d#.f7znkie19):
 
 * `com.example.myapp.service.*` - Is a subpackage for all background related service packages/classes
 * `com.example.myapp.ui.*` - Is a subpackage for all UI-related packages/classes
@@ -76,33 +76,33 @@ Resources should be split up into the following key files and folders:
 | XML Layouts  | `res/layout/`             | This is where we put our XML layout files.     |
 | XML Menus    | `res/menu/`               | This is where we put our AppBar menu actions.  |
 | Drawables    | `res/drawable`            | This is where we put images and XML drawables. | 
-| Colors       | `res/values/colors.xml`   | This is where we put [color definitions](http://developer.android.com/guide/topics/resources/more-resources.html#Color). |
-| Dimensions   | `res/values/dimens.xml`   | This is where we put [dimension values](http://developer.android.com/guide/topics/resources/more-resources.html#Dimension). | 
+| Colors       | `res/values/colors.xml`   | This is where we put [color definitions](https://developer.android.com/guide/topics/resources/more-resources.html#Color). |
+| Dimensions   | `res/values/dimens.xml`   | This is where we put [dimension values](https://developer.android.com/guide/topics/resources/more-resources.html#Dimension). | 
 | Strings      | `res/values/strings.xml`  | This is where we put strings.           |
 | Styles       | `res/values/styles.xml`   | This is where we put style values.      |
 
-See the [full list of resources here](http://developer.android.com/guide/topics/resources/providing-resources.html#ResourceTypes) and note the following:
+See the [full list of resources here](https://developer.android.com/guide/topics/resources/providing-resources.html#ResourceTypes) and note the following:
 
- * **Don't hardcode color hex values in the layout**. Instead of hardcoding these values, be sure to [move all colors](http://developer.android.com/guide/topics/resources/more-resources.html#Color) into `res/values/colors.xml` and reference the colors in layouts with `@color/royal_blue`.
- * **Don't hardcode margin / padding dimensions in the layout**. Instead of hardcoding these values, be sure to [move all dimension values](http://developer.android.com/guide/topics/resources/more-resources.html#Dimension) into `res/values/dimens.xml` and reference these in layouts with `@dimen/item_padding_left`.
- * To support multiple devices, we can then use the [alternative resources system](http://guides.codepath.com/android/Understanding-App-Resources#providing-alternate-resources) to provide different colors, strings, dimens, styles, etc based on the device type, screen size, API version and much more. 
+ * **Don't hardcode color hex values in the layout**. Instead of hardcoding these values, be sure to [move all colors](https://developer.android.com/guide/topics/resources/more-resources.html#Color) into `res/values/colors.xml` and reference the colors in layouts with `@color/royal_blue`.
+ * **Don't hardcode margin / padding dimensions in the layout**. Instead of hardcoding these values, be sure to [move all dimension values](https://developer.android.com/guide/topics/resources/more-resources.html#Dimension) into `res/values/dimens.xml` and reference these in layouts with `@dimen/item_padding_left`.
+ * To support multiple devices, we can then use the [alternative resources system](https://guides.codepath.com/android/Understanding-App-Resources#providing-alternate-resources) to provide different colors, strings, dimens, styles, etc based on the device type, screen size, API version and much more. 
 
 Be sure to start properly organizing your resources early on in the development of an application. Be sure to check out the [Ribot Code and Style Guidelines](https://github.com/ribot/android-guidelines/blob/master/project_and_code_guidelines.md) for a more extensive breakdown of suggested style and naming guidelines.
 
 ### Organizing Resources into Subfolders
 
-Often there are questions about organizing not just the source files but also better organizing the [application resources](http://guides.codepath.com/android/Understanding-App-Resources). In a modern app, there are often hundreds of different layout files, drawables, styles, etc and by default these are all grouped together in a flat list within a single subdirectory (i.e `res/layout`).  For now, keep the layout resource files in the same directory.
+Often there are questions about organizing not just the source files but also better organizing the [application resources](https://guides.codepath.com/android/Understanding-App-Resources). In a modern app, there are often hundreds of different layout files, drawables, styles, etc and by default these are all grouped together in a flat list within a single subdirectory (i.e `res/layout`).  For now, keep the layout resource files in the same directory.
 
-Refer to [stackoverflow post](http://stackoverflow.com/q/4930398/313399) for a discussion of explored options.  The main problem is that if you try to use the nested resource layout approach, the current logic for the Android Studio's Gradle plug-in will not update the resource files after they have changed for nested resource sets. The current implementation attempts to check the resource directories using startsWith(), so a directory structure that is nested (i.e. src/main/res/layout/layouts and src/main/res/layout/layouts_category2) will choose src/main/res/layout/layouts consistently and never actually update the changes. A result, you will you have to rebuild/clean the project each time whenever making layout file changes.
+Refer to [stackoverflow post](https://stackoverflow.com/q/4930398/313399) for a discussion of explored options.  The main problem is that if you try to use the nested resource layout approach, the current logic for the Android Studio's Gradle plug-in will not update the resource files after they have changed for nested resource sets. The current implementation attempts to check the resource directories using startsWith(), so a directory structure that is nested (i.e. src/main/res/layout/layouts and src/main/res/layout/layouts_category2) will choose src/main/res/layout/layouts consistently and never actually update the changes. A result, you will you have to rebuild/clean the project each time whenever making layout file changes.
 
 ## Conclusion
 
 It is up to you to decide which of the aforementioned approaches suits your project best. 
 
-However, in general Java programming, packaging apps by feature is considered preferable and [makes a lot of sense](http://www.javapractices.com/topic/TopicAction.do?Id=205).
+However, in general Java programming, packaging apps by feature is considered preferable and [makes a lot of sense](https://www.javapractices.com/topic/TopicAction.do?Id=205).
 
 ## References
 
-* <http://blog.smartlogic.io/2013/07/09/organizing-your-android-development-code-structure>
-* <http://stackoverflow.com/questions/5525872/android-project-package-structure>
-* <http://www.javapractices.com/topic/TopicAction.do?Id=205>
+* <https://blog.smartlogic.io/2013/07/09/organizing-your-android-development-code-structure>
+* <https://stackoverflow.com/questions/5525872/android-project-package-structure>
+* <https://www.javapractices.com/topic/TopicAction.do?Id=205>
