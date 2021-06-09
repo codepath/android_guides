@@ -298,7 +298,7 @@ This now buries the logic in an Android XML view and its near impossible to test
 public class BindingAdapterUtils {
   @BindingAdapter({"isVisible"})
   public static void setIsVisible(View view, boolean isVisible) {
-      if (isVislble) {
+      if (isVisible) {
         view.visibility = View.VISIBLE
       } else {
         view.visibility = View.GONE
@@ -309,7 +309,7 @@ public class BindingAdapterUtils {
 ```kotlin
 @BindingAdapter("isVisible")
 fun setIsVisible(view: View, isVisible: Boolean) {
-  if (isVislble) {
+  if (isVisible) {
     view.visibility = View.VISIBLE
   } else {
     view.visibility = View.GONE
