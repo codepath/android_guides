@@ -236,7 +236,7 @@ class ContactsAdapter : RecyclerView.Adapter<ContactsAdapter.ViewHolder>() {
         
     // Provide a direct reference to each of the views within a data item
     // Used to cache the views within the item layout for fast access
-    inner class ViewHolder(listItemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         // Your holder should contain and initialize a member variable
         // for any view that will be set as you render a row
         val nameTextView = itemView.findViewById<TextView>(R.id.contact_name)
