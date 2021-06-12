@@ -1,8 +1,8 @@
 ## Overview
 
-If you want to deliver a web application (or just a web page) as a part of a client application, you can do it using [WebView](http://developer.android.com/reference/android/webkit/WebView.html). The `WebView` class is an extension of Android's `View` class that allows you to display web pages as a part of your activity layout.  Since Android 4.4, it is based on the Chrome on Android v33.0.0 according to this [reference](https://developer.chrome.com/multidevice/webview/overview).
+If you want to deliver a web application (or just a web page) as a part of a client application, you can do it using [WebView](https://developer.android.com/reference/android/webkit/WebView.html). The `WebView` class is an extension of Android's `View` class that allows you to display web pages as a part of your activity layout. Since Android 4.4, it is based on the Chrome on Android v33.0.0 according to this [reference](https://developer.chrome.com/multidevice/webview/overview).
 
-This document shows you how to get started with WebView and how to do some additional things, such as handle page navigation and bind JavaScript from your web page to client-side code in your Android application. See [the official WebView](http://developer.android.com/guide/webapps/webview.html) docs for a more detailed look.
+This document shows you how to get started with WebView and how to do some additional things, such as handle page navigation and bind JavaScript from your web page to client-side code in your Android application. See [the official WebView](https://developer.android.com/guide/webapps/webview.html) docs for a more detailed look.
 
 An alternative for using WebViews is [Chrome Custom Tabs](https://developer.chrome.com/multidevice/android/customtabs), which provides more flexibility in terms of customizing the toolbar, adding animations, or warming up the browser ahead of time.  Chrome Custom Tabs only works if Chrome on Android is installed on the browser.  For more information, see this [[guide|Chrome-Custom-Tabs]].
 
@@ -30,7 +30,7 @@ To add a `WebView` to your Application, simply include the `<WebView>` element i
 />
 ```
 
-First, we need to configure the `WebView` to behave with reasonable defaults using [WebSettings](http://developer.android.com/reference/android/webkit/WebSettings.html) and creating a [WebViewClient](http://developer.android.com/reference/android/webkit/WebViewClient.html):
+First, we need to configure the `WebView` to behave with reasonable defaults using [WebSettings](https://developer.android.com/reference/android/webkit/WebSettings.html) and creating a [WebViewClient](https://developer.android.com/reference/android/webkit/WebViewClient.html):
 
 ```java
 public class MainActivity extends Activity {
@@ -48,7 +48,7 @@ public class MainActivity extends Activity {
       // Configure the client to use when opening URLs
       myWebView.setWebViewClient(new WebViewClient());
       // Load the initial URL
-      myWebView.loadUrl("http://www.example.com");
+      myWebView.loadUrl("https://www.example.com");
    }
 }
 ```
@@ -69,17 +69,17 @@ class MainActivity : Activity() {
             // Configure the client to use when opening URLs
             myWebView.webViewClient = WebViewClient()
             // Load the initial URL
-            myWebView.loadUrl("http://www.example.com")
+            myWebView.loadUrl("https://www.example.com")
         }
     }
 }
 ```
 
-You can attach javascript functions and use them within the mobile webpages as described [here in the official docs](http://developer.android.com/guide/webapps/webview.html#UsingJavaScript).
+You can attach javascript functions and use them within the mobile webpages as described [here in the official docs](https://developer.android.com/guide/webapps/webview.html#UsingJavaScript).
 
 #### Handling responsive layouts
 
-By default, the `WebView` does not account for the default scale size if HTML pages include [viewport](http://www.w3schools.com/css/css_rwd_viewport.asp) metadata. If you wish to enable the page to load with responsive layouts, you need to set it explicitly:
+By default, the `WebView` does not account for the default scale size if HTML pages include [viewport](https://www.w3schools.com/css/css_rwd_viewport.asp) metadata. If you wish to enable the page to load with responsive layouts, you need to set it explicitly:
 
 ```java
 // Enable responsive layout
@@ -150,7 +150,7 @@ class MainActivity : Activity() {
             // Configure the client to use when opening URLs
             myWebView.webViewClient = WebViewClient()
             // Load the initial URL
-            myWebView.loadUrl("http://www.example.com")
+            myWebView.loadUrl("https://www.example.com")
             val path: String = Uri.parse("file:///android_asset/index.html").toString()
             myWebView.loadUrl(path)
 
@@ -219,14 +219,14 @@ webView.setWebViewClient(object : WebViewClient() {
 
 ### Sharing cookies between WebViews and networking clients
 
-WebViews currently use their own cookie manager, which means that any network requests you make outside of these web views are usually stored separately.  This can cause problems when trying to retain the same cookies (i.e. for authentication or cross-site script forgery (CSRF) headers).  The simplest approach as proposed in this [Stack Overflow article](http://stackoverflow.com/questions/18057624/two-way-sync-for-cookies-between-httpurlconnection-java-net-cookiemanager-and) is to implement a cookie handler that forwards all requests to the WebView cookie store.  See this [gist](https://gist.github.com/rogerhu/5e2fa5725487d3ce0529) for an example.
+WebViews currently use their own cookie manager, which means that any network requests you make outside of these web views are usually stored separately.  This can cause problems when trying to retain the same cookies (i.e. for authentication or cross-site script forgery (CSRF) headers).  The simplest approach as proposed in this [Stack Overflow article](https://stackoverflow.com/questions/18057624/two-way-sync-for-cookies-between-httpurlconnection-java-net-cookiemanager-and) is to implement a cookie handler that forwards all requests to the WebView cookie store.  See this [gist](https://gist.github.com/rogerhu/5e2fa5725487d3ce0529) for an example.
  
 ## References
 
-* <http://developer.android.com/guide/webapps/webview.html>
-* <http://developer.android.com/guide/webapps/best-practices.html>
-* <http://www.javacodegeeks.com/2013/06/fragment-in-android-tutorial-with-example-using-webview.html>
-* <http://www.tutorialspoint.com/android/android_webview_layout.htm>
-* <http://www.mkyong.com/android/android-webview-example/>
+* <https://developer.android.com/guide/webapps/webview.html>
+* <https://developer.android.com/guide/webapps/best-practices.html>
+* <https://www.javacodegeeks.com/2013/06/fragment-in-android-tutorial-with-example-using-webview.html>
+* <https://www.tutorialspoint.com/android/android_webview_layout.htm>
+* <https://www.mkyong.com/android/android-webview-example/>
 * <https://stackoverflow.com/questions/16849347/adding-a-progress-dialog-in-a-webview>
-* <http://www.androidcoding.in/2016/03/17/android-tutorial-webview-beginners/>
+* <https://www.androidcoding.in/2016/03/17/android-tutorial-webview-beginners/>
