@@ -40,6 +40,11 @@ getSupportActionBar().setTitle("My new title"); // set the top title
 String title = actionBar.getTitle().toString(); // get the title
 actionBar.hide(); // or even hide the actionbar
 ```
+```kotlin
+supportActionBar.setTitle("My new title") // set the top title
+val title = actionBar.getTitle().toString() // get the title
+actionBar.hide() // or even hide the actionbar
+```
 
 You can also change many other properties of the ActionBar not covered here. See the [[Extended ActionBar Guide|Extended-ActionBar-Guide]] for more details.
 
@@ -51,6 +56,11 @@ In the new Android 5.0 material design guidelines, the style guidelines have cha
 getSupportActionBar().setDisplayShowHomeEnabled(true);
 getSupportActionBar().setLogo(R.mipmap.ic_launcher);
 getSupportActionBar().setDisplayUseLogoEnabled(true);
+```
+```kotlin
+supportActionBar.setDisplayShowHomeEnabled(true);
+supportActionBar.setLogo(R.mipmap.ic_launcher);
+supportActionBar.setDisplayUseLogoEnabled(true);
 ```
 
 The above code results in:
@@ -71,6 +81,15 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+}
+```
+```kotlin
+class MainActivity : AppCompatActivity {
+    override fun onCreateOptionsMenu(menu: Menu) : Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.menu_main, menu);
         return true;
     }
 }
@@ -132,6 +151,13 @@ public class MainActivity extends AppCompatActivity {
   }
 }
 ```
+```kotlin
+class MainActivity : AppCompatActivity {
+  fun onComposeAction(mi: MenuItem) {
+     // handle click here
+  }
+}
+```
 
 The second approach is to use the `onOptionsItemSelected()` method. Using the MenuItem passed to this method, you can identify the action by calling getItemId(). This returns the unique ID provided by the item tag's id attribute so you can perform the appropriate action:
 
@@ -148,6 +174,23 @@ public boolean onOptionsItemSelected(MenuItem item) {
             return true;
         default:
             return super.onOptionsItemSelected(item);
+    }
+}
+```
+```kotlin
+override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    // Handle presses on the action bar items
+    when (item.getItemId()) {
+        R.id.miCompose -> {
+            composeMessage();
+            return true
+        }
+        R.id.miProfile -> {
+            showProfileView()
+            return true
+        }
+        else ->
+            return super.onOptionsItemSelected(item)
     }
 }
 ```
