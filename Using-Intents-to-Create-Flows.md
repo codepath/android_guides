@@ -43,6 +43,13 @@ public void onSubmit(View v) {
   this.finish(); 
 }
 ```
+```kotlin
+// ActivityTwo.kt
+fun onSubmit(v: View) {
+  // closes the activity and returns to first screen
+  this.finish();
+}
+```
 
 **Note:** The first argument of the Intent constructor used above is a [Context](http://developer.android.com/reference/android/content/Context.html) which at the moment is just the current Activity in scope.
 
@@ -63,6 +70,19 @@ public void launchComposeView() {
   startActivity(i); 
 }
 ```
+```kotlin
+// ActivityOne.kt
+fun launchComposeView() {
+  // first parameter is the context, second is the class of the activity to launch
+  val i = Intent(this@ActivityOne, ActivityTwo::class.java)
+  // put "extras" into the bundle for access in the second activity
+  i.putExtra("username", "foobar")
+  i.putExtra("in_reply_to", "george") 
+  i.putExtra("code", 400)
+  // brings up the second activity
+  startActivity(i)
+}
+```
 
 Once you have added data into the bundle, you can easily access that data within the launched activity:
 
@@ -72,6 +92,14 @@ protected void onCreate(Bundle savedInstanceState) {
    String username = getIntent().getStringExtra("username");
    String inReplyTo = getIntent().getStringExtra("in_reply_to");
    int code = getIntent().getIntExtra("code", 0);
+}
+```
+```kotlin
+// ActivityTwo.kt (subactivity) can access any extras passed in
+fun onCreate(savedInstanceState: Bundle) {
+   val username = getIntent().getStringExtra("username")
+   val inReplyTo = getIntent().getStringExtra("in_reply_to")
+   val code = getIntent().getIntExtra("code", 0)
 }
 ```
 
@@ -94,6 +122,18 @@ public void onClick(View view) {
   startActivityForResult(i, REQUEST_CODE);
 }
 ```
+```kotlin
+// ActivityOne.kt
+// REQUEST_CODE can be any value we like, used to determine the result type later
+int REQUEST_CODE = 20
+
+// FirstActivity, launching an activity for a result
+fun onClick(view: View) {
+  val i = Intent(this@ActivityOne, ActivityNamePrompt::class.java)
+  i.putExtra("mode", 2) // pass arbitrary data to launched activity
+  startActivityForResult(i, REQUEST_CODE)
+}
+```
 
 This will launch the subactivity, and when the subactivity is complete then it can return the result to the parent:
 
@@ -111,6 +151,20 @@ public void onSubmit(View v) {
   finish(); // closes the activity, pass data to parent
 } 
 ```
+```kotlin
+// ActivityNamePrompt.kt -- launched for a result
+fun onSubmit(v: View) {
+  val etName = findViewById(R.id.name)
+  // Prepare data intent 
+  val data = Intent()
+  // Pass relevant data back as a result
+  data.putExtra("name", etName.getText().toString())
+  data.putExtra("code", 200) // ints work too
+  // Activity finished ok, return the data
+  setResult(RESULT_OK, data) // set result code and bundle data for response
+  finish() // closes the activity, pass data to parent
+} 
+```
 
 Once the sub-activity finishes, the onActivityResult() method in the calling activity is invoked:
 
@@ -125,6 +179,19 @@ protected void onActivityResult(int requestCode, int resultCode, @Nullable Inten
      int code = data.getExtras().getInt("code", 0);
      // Toast the name to display temporarily on screen
      Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
+  }
+} 
+```
+```kotlin
+// ActivityOne.kt, time to handle the result of the sub-activity
+override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+  // REQUEST_CODE is defined above
+  if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
+     // Extract name value from result extras
+     val name = data.getExtras().getString("name")
+     val code = data.getExtras().getInt("code", 0)
+     // Toast the name to display temporarily on screen
+     Toast.makeText(this, name, Toast.LENGTH_SHORT).show()
   }
 } 
 ```
