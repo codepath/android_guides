@@ -2,7 +2,7 @@
 
 Parse provides a cloud-based backend service to build data-driven mobile apps quickly.  Facebook, which acquired the company more than 3 years ago, announced that the service would be shutting down on **January 28, 2017**.   An [open source version](https://github.com/ParsePlatform/parse-server) enables developers to continue using Parse to build apps.
 
-While there are many fghjk
+While there are many
 [alternate options to Parse](https://github.com/relatedcode/ParseAlternatives), most of them lack either the functionality, documentation, or sample code to enable quick prototyping.  For this reason, the open source Parse version is a good option to use with minimal deployment/configuration needed.
 
 #### Differences with Open Source Parse
@@ -33,13 +33,13 @@ Use back4app if you have little or no experience with setting up web sites. back
 
     <img src="https://i.imgur.com/MYENcDn.png" width=800>
 
-1. Enter a name for your app and click Create.
+1. Enter a name for your app, select mongoDB, and click Create.
 
-    <img src="https://i.imgur.com/4wBs2A0.png" width=300>
+    <img src="https://i.imgur.com/pXockcu.png" width=300>
 
 1. Once the setup is finished, you should see the dashboard for your app.
 
-    <img src="https://i.imgur.com/pBztIvq.png" width=800>    
+    <img src="https://i.imgur.com/afnPeyH.png" width=800>    
 
 Now, we can [[test our deployment|Configuring-a-Parse-Server#testing-deployment]] to verify that the Parse deployment is working as expected!
 
@@ -47,7 +47,7 @@ Now, we can [[test our deployment|Configuring-a-Parse-Server#testing-deployment]
 
 After deployment, you can click on the API Reference section on the left nav bar to explore different ways to connect with your Parse server.
 
-<img src="https://i.imgur.com/C21YgDn.png" width=800>
+<img src="https://i.imgur.com/xs4SsGs.png" width=800>
 
 For example, you can do a quick test on whether the deployment was successful by going to the 'Initializing a Parse SDK' section for curl and making a curl request to your newly deployed Parse instance.
 
@@ -61,7 +61,7 @@ Similarly, you can also see how to connect to different clients (such as Android
 
 To browse your Parse Data, you can visit the 'Database Browser' page. 
 
-<img src="https://i.imgur.com/uNpK5in.png" width=800>
+<img src="https://i.imgur.com/z7QDd1Z.png" width=800>
 
 ### Enabling Client SDK integration
 
