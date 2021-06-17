@@ -1006,13 +1006,7 @@ See the [[repeating periodic tasks|Repeating-Periodic-Tasks#handler]] guide to l
 
 ## 13. Live Queries
 
-Alternatively, the Back4App server can be configured properly to listen to the Message object for changes (see [this example](https://github.com/codepath/parse-server-example/blob/master/index.js#L49)).  We need to add a `liveQuery` field in our Parse server installation.  See [[this guide|Configuring-a-Parse-Server#adding-support-for-live-queries]] for more context.
-
-```java
-var api = new ParseServer({
-  liveQuery: { classNames: ["Message"]},
-});
-```
+Alternatively, the Back4App server can be configured properly to listen to the Message object for changes (see [this example](https://github.com/codepath/parse-server-example/blob/master/index.js#L49)).  We need to enable `liveQuery` functionality in our Back4App server installation.  See [[this guide|https://www.back4app.com/docs/platform/parse-server-live-query-example]] for instructions.
 
 We can then use [[Parse Live Queries|Building-Data-driven-Apps-with-Parse#live-queries]] to listen for new messages.  We can disable the use of the `postDelayed()` runnable that we created in the earlier step:
 
