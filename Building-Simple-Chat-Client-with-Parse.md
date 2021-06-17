@@ -4,7 +4,7 @@ The following tutorial explains how to build a very simple chat application in A
 
 ## 1. Setup Parse server
 
-We can deploy our own Parse data store and push notifications systems to [Back4App](https://www.back4app.com/) leveraging the [server open-sourced by Parse](https://github.com/ParsePlatform/parse-server-example). Parse is built on top of the MongoDB database which can be added to Heroku using MongoLab. 
+We can deploy our own Parse data store and push notifications systems to [Back4App](https://www.back4app.com/) leveraging the [server open-sourced by Parse](https://github.com/ParsePlatform/parse-server-example). Parse is built on top of the MongoDB database technology and is hosted by Back4App.
 
 To follow this guide we need to [[setup our own Parse server|configuring a Parse Server]]. Once the Parse server is configured, we can [initialize Parse within our Android app](http://guides.codepath.com/android/Configuring-a-Parse-Server#enabling-client-sdk-integration) pointing the client to our self-hosted URL. After that, the tutorial works the same as before. 
 
@@ -1006,7 +1006,7 @@ See the [[repeating periodic tasks|Repeating-Periodic-Tasks#handler]] guide to l
 
 ## 13. Live Queries
 
-Alternatively, the Heroku server can be configured properly to listen to the Message object for changes (see [this example](https://github.com/codepath/parse-server-example/blob/master/index.js#L49)).  We need to add a `liveQuery` field in our Parse server installation.  See [[this guide|Configuring-a-Parse-Server#adding-support-for-live-queries]] for more context.
+Alternatively, the Back4App server can be configured properly to listen to the Message object for changes (see [this example](https://github.com/codepath/parse-server-example/blob/master/index.js#L49)).  We need to add a `liveQuery` field in our Parse server installation.  See [[this guide|Configuring-a-Parse-Server#adding-support-for-live-queries]] for more context.
 
 ```java
 var api = new ParseServer({
