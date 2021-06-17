@@ -1000,7 +1000,7 @@ Runnable mRefreshMessagesRunnable = new Runnable() {
 
 The methods `onResume()` and `onPause()` are sort of mirror lifecycle callbacks. First is getting called when the `Activity` is ready to be resumed and about to be displayed to the user. `onPause()` is the exact opposite and gets called when a current `Activity` is about to go into background.
 
-It's important to only start polling when `onResume()` is getting called and ensuring we stop listening for any callbacks as soon as activity becomes invisible. However, in production chat application you might want to run a backgroun service that will be periodically checking for messages and displaying Message notifications to a user. 
+It's important to only start polling when `onResume()` is getting called and ensuring we stop listening for any callbacks as soon as activity becomes invisible. However, in production chat application you might want to run a background service that will be periodically checking for messages and displaying Message notifications to a user. 
 
 See the [[repeating periodic tasks|Repeating-Periodic-Tasks#handler]] guide to learn more about the handler.
 
