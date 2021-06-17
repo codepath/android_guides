@@ -245,11 +245,20 @@ We can access a reference to the embedded ActionView in the Activity by overridi
 @Override
 public boolean onPrepareOptionsMenu(Menu menu) {
 	MenuItem actionViewItem = menu.findItem(R.id.miActionButton);
+
         // Retrieve the action-view from menu
 	View v = MenuItemCompat.getActionView(actionViewItem);
+
         // Find the button within action-view
 	Button b = (Button) v.findViewById(R.id.btnCustomAction);
-	// Handle button click here
+
+	b.setOnClickListener(new View.OnClickListener() {
+		@Override
+		public void onClick(View view) {
+			// Handle button click here
+		}
+	});
+
 	return super.onPrepareOptionsMenu(menu);
 }
 ```
