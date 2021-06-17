@@ -1006,12 +1006,12 @@ See the [[repeating periodic tasks|Repeating-Periodic-Tasks#handler]] guide to l
 
 ## 13. Live Queries
 
-Alternatively, the Back4App server can be configured properly to listen to the Message object for changes (see [this example](https://github.com/codepath/parse-server-example/blob/master/index.js#L49)).  We need to enable `liveQuery` functionality in our Back4App server installation.  See [[this guide|https://www.back4app.com/docs/platform/parse-server-live-query-example]] for instructions.
+Alternatively, the Back4App server can be configured properly to listen to the Message object for changes (see [this example](https://github.com/codepath/parse-server-example/blob/master/index.js#L49)).  We need to enable `liveQuery` functionality in our Back4App server installation.  
 
-We can then use [[Parse Live Queries|Building-Data-driven-Apps-with-Parse#live-queries]] to listen for new messages.  We can disable the use of the `postDelayed()` runnable that we created in the earlier step:
+See following [[these instructions|https://www.back4app.com/docs/platform/parse-server-live-query-example]] to enable Live Queries in your Back4App server, we can now use [[Parse Live Queries|Building-Data-driven-Apps-with-Parse#live-queries]] in our Android app to listen for new messages.  We can disable the use of the `postDelayed()` runnable that we created in the earlier step:
 
 ```java
-// myHandler.postDelayed(mRefreshMessagesRunnable, POLL_INTERVAL);
+// myHandler.postDelayed(mRefreshMessagesRunnable, POLL_INTERVAL); // comment this out
 ```
 
 First, make sure to add the Parse LiveQuery dependency to your `app/build.gradle` config:
