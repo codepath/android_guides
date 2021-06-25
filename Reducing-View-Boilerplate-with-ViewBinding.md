@@ -1,6 +1,9 @@
 ## Overview
 
-The View Binding library makes it easy to reduce the need to use `findViewById`() lookups.  Once this option is enabled in your project, special binding classes will be generated from any of your layout XML files.  If you have a layout called `simple_activity.xml` for instance, a special class called `SimpleActivityBinding` will be generated that will have references automatically created for you.  One major advantage is that using this class helps to avoid null pointer issues and provides type safety support, making it less likely your app will crash.
+The View Binding library makes it easy to reduce the need to use `findViewById`() lookups.  Once this option is enabled in your project, special binding classes will be generated from any of your layout XML files.  If you have a layout called `activity_simple.xml`, for instance, a special class called `ActivitySimpleBinding` will be generated that will have references automatically created for you.  Some major advantages are:
+* improved null safety
+* better type safety
+* greater efficiency with complex views
 
 NOTE: the View Binding library is separate from the [[Applying-Data-Binding-for-Views|Data Binding Library]], which provides two-way and layout variables support.  
 
@@ -22,25 +25,28 @@ Once you have enabled this option, make sure to click `Rebuild Project`.  You wi
 
 ## Activity View Lookups
 
-Once you have enabled and recompiled your project, the binding classes should be available to you.  In this example, a `SimpleActivityBinding` class should have been generated for a `simple_activity.xml` file.  Instead of using `setContentView(simple_activity.xml)`, we replace that line with a call with `SimpleActivityBinding.inflate()`:
+Once you have enabled and recompiled your project, the binding classes should be available to you.  In this example, a `ActivitySimpleBinding` class should have been generated for a `activity_simple.xml` file.  Instead of using `setContentView(activity_simple.xml)`, we replace that line with a call with `ActivitySimpleBinding.inflate()`:
 
 ```java
 class ExampleActivity extends Activity {
-  // Automatically finds each field by the specified ID.
   TextView title;
-  TextView subtitle;
-  TextView footer;
 
   @Override public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    // simple_activity.xml -> SimpleActivityBinding
-    SimpleActivityBinding binding = SimpleActivityBinding.inflate(getLayoutInflater());
+    // activity_simple.xml -> ActivitySimpleBinding
+    ActivitySimpleBinding binding = ActivitySimpleBinding.inflate(getLayoutInflater());
 
     // layout of activity is stored in a special property called root
     View view = binding.getRoot();
     setContentView(view);
 
-    // TODO Use fields (binding.title, binding.subtitle, binding.footer, etc.)
+    // set bindings more efficiently through bindings
+    title = binding.title;       // was title = findViewById(R.id.title)
+    title.setText("My title")
+
+    // alternately, access views through binding when needed, instead of variables
+    binding.title.setText("My title");
+
   }
 }
 ```
