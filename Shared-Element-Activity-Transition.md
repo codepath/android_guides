@@ -2,7 +2,7 @@
 
 Traditionally transitions between different activities or fragments involved enter and exit transitions that animated entire view hierarchies independent to each other. Example of such transitions are a fade transition, slide transition or the newly introduced explode transition.
 
-Default Activity Transition:
+Default Activity Transition (**without** Shared Element Activity Transition):
 
 ![Imgur](https://i.imgur.com/N9m3iBq.gif)
 
