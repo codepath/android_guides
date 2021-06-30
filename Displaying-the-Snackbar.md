@@ -25,6 +25,7 @@ Snackbar.make(parentView, R.string.snackbar_text, Snackbar.LENGTH_LONG)
   .setAction(R.string.snackbar_action, myOnClickListener)
   .show(); // Don’t forget to show!
 ```
+The first string (`R.string.snackbar_text`) is shown on the left in the above image, and the second (`R.string.snackbar_action`) is shown on the right and is clickable.
 
 One difference from using [[Toasts|Displaying-Toasts]] from Snackbars is that the first parameter `parentView` requires a `View` instead of a [[Context|Using Context]].  The snackbar uses this `parentView` parameter to walk up the parent's hierarchy searching for a `CoordinatorLayout`, `FrameLayout`, or the top-most container layout, whichever comes first.  Adding a `CoordinatorLayout` in the view hierarchy is helpful in cases where the floating action button needs to moved to make room for displaying the Snackbar as discussed in [[this guide|Handling-Scrolls-with-CoordinatorLayout#floating-action-buttons-and-snackbars]].
 
