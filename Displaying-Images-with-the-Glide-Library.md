@@ -8,9 +8,9 @@ Add to your `app/build.gradle` file:
 
 ```gradle
 dependencies {
-  implementation 'com.github.bumptech.glide:glide:4.11.0'
+  implementation 'com.github.bumptech.glide:glide:4.12.0'
   // Glide v4 uses this new annotation processor -- see https://bumptech.github.io/glide/doc/generatedapi.html
-  annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+  annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
 }
 ```
 
