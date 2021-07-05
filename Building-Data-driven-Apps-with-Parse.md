@@ -10,7 +10,7 @@ To get started setting up our own Parse backend, check out our [[configuring a P
 
 ### Alternatives to Parse
 
-A comprehensive list of alternatives can be [reviewed here](https://github.com/relatedcode/ParseAlternatives). One of the primary alternatives is Google's [Firebase](https://firebase.google.com), which provides a hosted solution for analytics, crash reporting, and a realtime JSON database.  One major difference is that Parse still provides many powerful constructs for querying data, whereas Firebase requires you to perform this querying based on child/parent relations.  See [this guide](https://firebase.google.com/support/guides/parse-android) for more information to porting Parse applications to Firebase.
+A comprehensive list of alternatives can be [reviewed here](https://github.com/relatedcode/ParseAlternatives). One of the primary alternatives is Google's [Firebase](https://firebase.google.com), which provides a hosted solution for analytics, crash reporting, and a realtime JSON database.  One major difference is that Parse still provides many powerful constructs for querying data, whereas Firebase requires you to perform this querying based on child/parent relations.  See [this guide](https://firebase.google.com/support/guides/parse-android) for more information on porting Parse applications to Firebase.
 
 ## What is Parse?
 
@@ -18,7 +18,7 @@ Parse is an open-source Android SDK and back-end solution that enables developer
 
 <img src="https://i.imgur.com/LylIn7w.png" />
 
-Parse is a Node.js application which is deployed onto a host such as Heroku (or AWS) and then creates an automatic API for user authentication and storing data to a MongoDB document store. Parse has the following features included by combining the mobile SDK and back-end service:
+Parse is a Node.js application that is deployed onto a host such as Heroku (or AWS) and then creates an automatic API for user authentication and storing data to a MongoDB document store. Parse has the following features included by combining the mobile SDK and back-end service:
 
  * User registration and authentication
  * Connecting user with Facebook to create a user account.
