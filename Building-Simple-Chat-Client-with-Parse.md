@@ -845,17 +845,16 @@ Next, we will setup the ReyclerView and bind our custom adapter to this ReyclerV
 
 ```java
 public class ChatActivity extends AppCompatActivity {
-...
+    ...
 
     RecyclerView rvChat;    
-    ArrayList<Message> mMessages;
+    List<Message> mMessages;
     ChatAdapter mAdapter;
     // Keep track of initial load to scroll to the bottom of the ListView
     boolean mFirstLoad;
 	
     // Setup message field and posting
     void setupMessagePosting() {
-        // Find the text field and button
         etMessage = (EditText) findViewById(R.id.etMessage);
         btSend = (Button) findViewById(R.id.btSend);
         rvChat = (RecyclerView) findViewById(R.id.rvChat);
