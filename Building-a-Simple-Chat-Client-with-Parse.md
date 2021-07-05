@@ -23,7 +23,7 @@ Let's setup Parse into a brand new Android app following the steps below.
         repositories {
             google()
             jcenter()
-            maven { url "https://jitpack.io" }
+            maven { url "https://jitpack.io" } // add this line
         }
     }
     ```
@@ -37,14 +37,14 @@ Let's setup Parse into a brand new Android app following the steps below.
     }
     ```
 
-  * Make sure you have added these lines before the `<application>` tag in your `AndroidManifest.xml`.
+  * Add these lines before the `<application>` tag in your `AndroidManifest.xml`:
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     ```
 
-* Create [an application class](http://guides.codepath.com/android/Understanding-the-Android-Application-Class) called `ChatApplication` which extends from `android.app.Application`
+* Create [an application class](http://guides.codepath.com/android/Understanding-the-Android-Application-Class) called `ChatApplication` that extends from `android.app.Application`.
   * In the [Android application class](http://guides.codepath.com/android/Understanding-the-Android-Application-Class), initialize Parse as shown below:
 
     ```java
@@ -53,7 +53,7 @@ Let's setup Parse into a brand new Android app following the steps below.
         public void onCreate() {
             super.onCreate();
 
-           // Use for monitoring Parse network traffic        
+            // Use for monitoring Parse network traffic        
             OkHttpClient.Builder builder = new OkHttpClient.Builder();
             HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
             // Can be Level.BASIC, Level.HEADERS, or Level.BODY
@@ -61,7 +61,7 @@ Let's setup Parse into a brand new Android app following the steps below.
             // any network interceptors must be added with the Configuration Builder given this syntax
             builder.networkInterceptors().add(httpLoggingInterceptor);
 
-            // set applicationId and server based on the values in the Back4App settings.
+            // Set applicationId and server based on the values in the Back4App settings.
             Parse.initialize(new Parse.Configuration.Builder(this)
                  .applicationId("YOUR_APPLICATION_ID") // Application ID from Back4App Dashboard
                  .clientKey("YOUR_CLIENT_KEY") // Client Key from Back4App Dashboard
