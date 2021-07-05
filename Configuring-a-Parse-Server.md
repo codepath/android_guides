@@ -1,27 +1,27 @@
 ### Overview 23
 
-Parse provides a cloud-based backend service to build data-driven mobile apps quickly.  Facebook, which acquired the company more than 3 years ago, announced that the service would be shutting down on **January 28, 2017**.   An [open source version](https://github.com/ParsePlatform/parse-server) enables developers to continue using Parse to build apps.
+Parse provides a cloud-based backend service to build data-driven mobile apps quickly.  Facebook, which acquired the company more than 3 years ago, shut down the service on January 28, 2017, but an [open source version](https://github.com/ParsePlatform/parse-server) enables developers to continue using Parse to build apps.
 
 While there are many
 [alternate options to Parse](https://github.com/relatedcode/ParseAlternatives), most of them lack either the functionality, documentation, or sample code to enable quick prototyping.  For this reason, the open source Parse version is a good option to use with minimal deployment/configuration needed.
 
-#### Differences with Open Source Parse
+#### Differences from Open Source Parse
 
 You can review this [Wiki](https://github.com/ParsePlatform/parse-server/wiki) to understand the current development progress of open source Parse.  There are a few notable differences in the open source version from the originally hosted version:
 
-* **Authentication**: By default, only an application ID is needed to authenticate with open source Parse.  The [base configuration](https://github.com/ParsePlatform/parse-server-example/blob/master/index.js#L13-L18) that comes with the one-click deploy options does not require authenticating with any other types of keys.   Therefore, specifying client keys on Android or iOS is not needed.
+* **Authentication**: By default, only an application ID is needed to authenticate with open source Parse.  The [base configuration](https://github.com/ParsePlatform/parse-server-example/blob/master/index.js#L13-L18) that comes with the one-click deploy options does not require authenticating with any other types of keys. Therefore, specifying client keys on Android or iOS is not needed.
 
 * **Push notifications**: Because of the implicit [security issues](https://github.com/ParsePlatform/parse-server/issues/396#issuecomment-183792657) with allowing push notifications to be sent through Android or iOS directly to other devices, this feature is disabled. Note that for open source Parse, you must implement pre-defined code written in JavaScript that can be called by the clients to execute, otherwise known as [Parse Cloud](http://blog.parse.com/announcements/pushing-from-the-javascript-sdk-and-cloud-code/).
 
-* **Single app aware**: The current version only supports single app instances.  There is ongoing work to make this version multi-app aware.  However, if you intend to run many different apps with different datastores, you currently would need to instantiate separate instances.
+* **Single app aware**: The current version supports only single app instances.  There is ongoing work to make this version multi-app aware.  However, if you intend to run many different apps with different datastores, you currently would need to instantiate separate instances.
 
-* **File upload limitations**: The backend for open source is backed by MongoDB, and the default storage layer relies on Mongo's GridFS layer.  The current limit is set for 20 MB but if you depend on storing large files, you should really configure the server to use Amazon's Simple Storage Service (S3).
+* **File upload limitations**: The backend for open source is backed by MongoDB, and the default storage layer relies on Mongo's GridFS layer.  The current upload limit is set to 20 MB, but if you depend on storing large files, you should really configure the server to use Amazon's Simple Storage Service (S3).
 
-Many of the options need to be configured by tweaking your own configuration.  You may wish to fork the [code](https://github.com/ParsePlatform/parse-server-example/) that helps instantiate a Parse server and change them based on your own needs.  The guide below includes instructions on [[how to add push notifications|Configuring-a-Parse-Server#enabling push notifications]] and [[storing files with Parse|Configuring-a-Parse-Server#storing files with parse]].
+Many of the options need to be configured by tweaking your own configuration.  You may wish to fork the [code](https://github.com/ParsePlatform/parse-server-example/) that helps instantiate a Parse server and change it based on your own needs.  The guide below includes instructions on [[how to add push notifications|Configuring-a-Parse-Server#enabling push notifications]] and [[storing files with Parse|Configuring-a-Parse-Server#storing files with parse]].
 
 ### Setting up a new Parse Server
 
-The steps described this guide walk through most of the process of setting an open source version with Parse.  There are obviously many other [hosting options](https://github.com/parse-community/parse-server#running-parse-server), but the one-click deploy made available with [back4app](https://www.back4app.com/) is the simplest option. 
+The steps described this guide walk through most of the process of setting up an open source Parse server.  There are obviously many other [hosting options](https://github.com/parse-community/parse-server#running-parse-server), but the one-click deploy made available with [back4app](https://www.back4app.com/) is the simplest option. 
 
 #### Deploying with back4app
 
