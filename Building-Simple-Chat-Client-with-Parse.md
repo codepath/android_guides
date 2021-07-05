@@ -136,7 +136,7 @@ Let's create an XML layout which allows us to post messages by typing into a tex
 
 The imeOptions attribute is used to control the icon in the [[Soft Keyboard|Working-with-the-Soft-Keyboard]].  The gravity attribute will position the button at the center vertically AND on the right horizontally.
 
-Notice that we are using `ImageButton`. It allows setting a background image using `android:src` attribute. Now, let's add a new icon that represents a send message. Select File -> New -> Vector asset. In the "Asset Studio" dialog select "Asset Type: Clip Art". Then click on a "Clip Art" button and search for "Send" asset. You can keep defaults for the rest of the settings or experiment changing colors and outline style.
+Notice that we are using `ImageButton`. It allows setting a background image using `android:src` attribute. Now, let's add a new icon that represents a send message. Select File -> New -> Vector Asset. In the "Asset Studio" dialog select "Asset Type: Clip Art". Then click on a "Clip Art" button and search for "Send" asset. You can keep defaults for the rest of the settings or experiment changing colors and outline style.
 
 Another thing to notice is a new attribute `android:contentDescription`. This attribute refers to a string that we will define in a second. Although `ImageButton` doesn't display text, this text is used for **accessibility**.
 
@@ -151,7 +151,7 @@ Another thing to notice is a new attribute `android:contentDescription`. This at
 
 For the sake of simplicity, we will use an anonymous user to log into our simple chat app. An anonymous user is a user that can be created without a username and password but still has all of the same capabilities as any other `ParseUser`. After logging out, an anonymous user is abandoned, and its data is no longer accessible. 
 
-Open your main activity class (`ChatActivity.java`) and make the  following changes:
+Open your main activity class (`ChatActivity.java`) and make the following changes:
 
 ```java
 public class ChatActivity extends AppCompatActivity {
@@ -192,7 +192,7 @@ public class ChatActivity extends AppCompatActivity {
 
 ## 5. Save Messages
 
-Next, we will setup UI views in `ChatActivity.java`. On click of 'Send' button, we'll save the message object to Parse. This is done by constructing a new `ParseObject` and then calling `saveInBackground()` to persist data to the database.
+Next, we will setup UI views in `ChatActivity.java`. On click of 'Send' button, we'll save the message object to Parse. This is done by constructing a new `ParseObject` and then calling `saveInBackground()` to persist data to the database. 
 
 ```java
 public class ChatActivity extends AppCompatActivity {
@@ -227,9 +227,9 @@ public class ChatActivity extends AppCompatActivity {
                 message.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {
-                        if(e == null) {
+                        if (e == null) {
                     	    Toast.makeText(ChatActivity.this, "Successfully created message on Parse",
-                             Toast.LENGTH_SHORT).show();
+                            Toast.LENGTH_SHORT).show();
                         } else {
                             Log.e(TAG, "Failed to save message", e);
                         }
@@ -251,13 +251,13 @@ At this point, run your application and try to send a text to Parse. If the save
 - `userId` of type `String`
 - `body` of type `String` 
 
-Try sending message again from the app. You can then check if the data was saved by verifying whether the objects were created in Back4App Dshboard. Navigate to your project's `Dashboard --> Core --> Database Broswer --> Messages` to see if the message appears there. 
+Try sending message again from the app. You can then check if the data was saved by verifying whether the objects were created in Back4App Dashboard. Navigate to your project's `Dashboard --> Core --> Database Broswer --> Messages` to see if the message appears there. 
 
-Refer [testing Parse deployment guide](http://guides.codepath.com/android/Configuring-a-Parse-Server#testing-deployment) for more info.
+Refer to the [Testing Deployment section](http://guides.codepath.com/android/Configuring-a-Parse-Server#testing-deployment) of [Configuring a Parse Server](http://guides.codepath.com/android/Configuring-a-Parse-Server) for more info.
 
 ## 7. Add RecyclerView to Chat Layout
 
-Now that we have verified that messages are successfully being saved to your parse database, lets go ahead and build the UI to retrieve these messages. Open your layout file `activity_chat.xml` and add a `RecyclerView` to display the text messages from parse.
+Now that we have verified that messages are successfully being saved to your Parse database, let's go ahead and build the UI to retrieve these messages. Open your layout file `activity_chat.xml` and add a `RecyclerView` to display the text messages from parse.
 
 First, add the RecyclerView as a dependency in your `app/build.gradle`:
 ```gradle
