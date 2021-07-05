@@ -573,9 +573,9 @@ void setupMessagePosting() {
                 message.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {
-                        if(e == null) {
+                        if (e == null) {
                     	    Toast.makeText(ChatActivity.this, "Successfully created message on Parse",
-                             Toast.LENGTH_SHORT).show();
+                            Toast.LENGTH_SHORT).show();
                         } else {
                             Log.e(TAG, "Failed to save message", e);
                         }
