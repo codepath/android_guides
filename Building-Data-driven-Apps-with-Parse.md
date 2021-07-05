@@ -58,6 +58,22 @@ Notice that the version of Parse-SDK-Android was 1.25.0 when this documentation 
 
 Select `Tools -> Android -> Sync Project with Gradle Files` to load the libraries through Gradle. When you sync, it will import everything automatically. You can see the imported files in the External Libraries folder.
 
+:::warning
+
+:warn: **You may see multiple errors regarding "Duplicate class android.support...".**
+
+![](https://i.imgur.com/WvyYnhA.png =200x)
+
+If you see this error, you will need to add `android.enableJetifier=true` to your `gradle.properties` file, then click Sync Now. See sample in the screenshot below...
+
+![](https://i.imgur.com/dCkR7Dl.png =200x)
+
+```
+ 
+Place this after the `<uses-permission ... />` tag, but just before the `<Application />` closing tag.
+
+:::
+
 ### Initializing the SDK
 
 Next, we need to create an `Application` class and initialize Parse. 
