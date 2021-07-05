@@ -6,7 +6,7 @@
 
 We can deploy our own Parse data store and push notifications systems to [back4app](https://www.back4app.com/) leveraging the [server open-sourced by Parse](https://github.com/ParsePlatform/parse-server-example). 
 
-To get started setting up our own Parse backend, check out our [[configuring a Parse Server]] guide. Once the Parse server is configured, we can [initialize Parse within our Android app](https://guides.codepath.com/android/Configuring-a-Parse-Server#enabling-client-sdk-integration) pointing the client to our self-hosted URL. After that, the functions demonstrated in this guide work the same as they did before.
+To get started setting up our own Parse backend, check out our [[Configuring a Parse Server]] guide. Once the Parse server is configured, we can [initialize Parse within our Android app](https://guides.codepath.com/android/Configuring-a-Parse-Server#enabling-client-sdk-integration) pointing the client to our self-hosted URL. After that, the functions demonstrated in this guide work the same as they did before.
 
 ### Alternatives to Parse
 
