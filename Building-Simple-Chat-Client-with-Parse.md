@@ -565,8 +565,8 @@ void setupMessagePosting() {
 
                 // Using new `Message` Parse-backed model now
                 Message message = new Message();
-                message.setBody(data);
                 message.setUserId(ParseUser.getCurrentUser().getObjectId());
+                message.setBody(data);
 
                 /*** END OF CHANGE **/
 
@@ -879,8 +879,8 @@ public class ChatActivity extends AppCompatActivity {
                 //message.put(Message.BODY_KEY, data);
                 // Using new `Message` Parse-backed model now
                 Message message = new Message();
-                message.setBody(data);
                 message.setUserId(ParseUser.getCurrentUser().getObjectId());
+                message.setBody(data);
                 message.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {
