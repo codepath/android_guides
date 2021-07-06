@@ -624,6 +624,8 @@ dependencies {
 
 We start by creating a very basic `ChatAdapter` that extends `RecyclerView.Adapter`. We will initialize the adapter instance by passing `context`, `userId` and the list of our chat `messages`:
 
+⚠️ **WARNING:** It is okay if `MessageViewHolder` is red in your code, leave it red. We will create that class in the next couple chapters...
+
 ```java
 // ...
 
@@ -662,7 +664,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MessageViewHol
 }
 ```
 
-We will keep implementing the adapter in the next couple chapters.
+We will keep implementing this adapter in the next couple chapters...
 
 ### 9.2 Define view types
 
