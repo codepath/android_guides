@@ -104,7 +104,7 @@ Let's create an XML layout which allows us to post messages by typing into a tex
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Chat messages view will go here -->
+    <!-- (RecyclerView with chat messages view will go here) -->
 
     <RelativeLayout
         android:id="@+id/rlSend"
