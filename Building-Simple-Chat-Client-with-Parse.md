@@ -275,7 +275,8 @@ dependencies {
 }
 ```
 
-Next, add your `RecyclerView` to the layout (scroll down to see code snippet for `ConstraintLayout`):
+Next, add your `RecyclerView` to the layout. After doing so, your `activity_chat.xml` file can look like this:
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" 
