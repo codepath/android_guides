@@ -429,7 +429,7 @@ Now we need to create two layout file to represent each chat type of message - i
 </RelativeLayout>
 ```
 
-For outgoing (our) messages create another layout file `messages_outgoing`:
+For outgoing messages (messages that _you_ send) create another layout file `messages_outgoing`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
