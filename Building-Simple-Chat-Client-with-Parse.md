@@ -1078,10 +1078,12 @@ protected void onCreate(Bundle savedInstanceState) {
     refreshMessages();
 
     // Make sure the Parse server is setup to configured for live queries
-    // URL for server is determined by Parse.initialize() call.
+    // Enter the websocket URL of your Parse server
+    String websocketUrl = "wss://YOUR_SERVER_WEBSOCKET_URL_HERE"; // ⚠️ TYPE IN A VALID WSS:// URL HERE
+
     ParseLiveQueryClient parseLiveQueryClient = null;
     try {
-        parseLiveQueryClient = ParseLiveQueryClient.Factory.getClient(new URI("wss://codepathparsechatlab.b4a.io/"));
+        parseLiveQueryClient = ParseLiveQueryClient.Factory.getClient(new URI(websocketUrl));
     } catch (URISyntaxException e) {
         e.printStackTrace();
     }
@@ -1111,6 +1113,9 @@ protected void onCreate(Bundle savedInstanceState) {
 
 }
 ```
+
+  * ⚠️ **WARNING:**  In the above code, replace `YOUR_SERVER_WEBSOCKET_URL_HERE` with a valid Websocket URL now.
+    * _If you are working on this as part of a CodePath Lab, an Application ID and Client Key is provided to you in the Lab instructions._
 
 New messages should now be displayed in your app automatically while the app is running, as people post new messages into the Message class in Parse. Pulling to refresh the RecyclerView is no longer needed, thanks to Parse Live Queries.
 
