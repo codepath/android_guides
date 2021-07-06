@@ -393,8 +393,8 @@ In this lab we will learn how to use adapter to create different views for incom
 Now we need to create two layout files, one to represent each chat type of message - incoming & outgoing - in the RecyclerView. Create a new layout file `res/layout/message_incoming.xml` containing the following:
 
 ```xml
-<!-- res/layout/message_incoming.xml -->
 <?xml version="1.0" encoding="utf-8"?>
+<!-- res/layout/message_incoming.xml -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -438,8 +438,8 @@ Now we need to create two layout files, one to represent each chat type of messa
 For outgoing messages (messages that _you_ send) create another layout file `messages_outgoing`:
 
 ```xml
-<!-- res/layout/message_outgoing.xml -->
 <?xml version="1.0" encoding="utf-8"?>
+<!-- res/layout/message_outgoing.xml -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -486,11 +486,11 @@ As we learned before, those labels can be picked up by **accessibility** framewo
 In order to re-create popular chat "bubble" UI we need to define proper backgrounds. We referred to them in the section 7.1 as `@drawable/message_outgoing` and `@drawable/message_incoming`. In `res --> drawable` folder create two files:
 
 ```xml
-<!-- res/drawable/message_outgoing.xml -->
 <?xml version="1.0" encoding="utf-8"?>
+<!-- res/drawable/message_outgoing.xml -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-    <solid android:color="@color/colorPrimary" />
+    <solid android:color="@color/design_default_color_primary" />
     <corners android:topRightRadius="5dp" android:radius="15dp" />
 </shape>
 ```
@@ -498,8 +498,8 @@ In order to re-create popular chat "bubble" UI we need to define proper backgrou
 and 
 
 ```xml
-<!-- res/drawable/message_incoming.xml -->
 <?xml version="1.0" encoding="utf-8"?>
+<!-- res/drawable/message_incoming.xml -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
     <solid android:color="#fff" />
