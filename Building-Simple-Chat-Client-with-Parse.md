@@ -1045,7 +1045,7 @@ See the [[repeating periodic tasks|Repeating-Periodic-Tasks#handler]] guide to l
 
 **As an alternative to Chapter 12 above,** the Back4App server can be configured properly to listen to the Message object for changes (see [this example](https://github.com/codepath/parse-server-example/blob/master/index.js#L49)).
 
-💡 **Note:** If you're using a self-deployed Back4App backend (using your own private Application ID and Client Key that you created by yourself in Back4App) then you will also need to enable `liveQuery` functionality in tour Back4App server installation. See [[this documentation|https://www.back4app.com/docs/android/live-query]] to enable Live Queries in your Back4App server.
+💡 **Note:** If you're using a self-deployed Back4App backend (using your own private Application ID and Client Key that you created by yourself in Back4App) then you will also need to enable `liveQuery` functionality in tour Back4App server installation. See [[this documentation|https://www.back4app.com/docs/android/live-query]] to generate a Websocket URL and enable Live Queries in your Back4App server.
 
 We can now use [[Parse Live Queries|Building-Data-driven-Apps-with-Parse#live-queries]] in our Android app to listen for new messages.  We can disable the use of the `postDelayed()` runnable that we created in the earlier step:
 
