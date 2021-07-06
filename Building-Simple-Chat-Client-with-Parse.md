@@ -625,6 +625,8 @@ dependencies {
 We start by creating a very basic `ChatAdapter` that extends `RecyclerView.Adapter`. We will initialize the adapter instance by passing `context`, `userId` and the list of our chat `messages`:
 
 ```java
+// ...
+
 public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MessageViewHolder> {
 
     private List<Message> mMessages;
