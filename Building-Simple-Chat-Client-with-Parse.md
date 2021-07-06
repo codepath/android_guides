@@ -1056,12 +1056,6 @@ We can now use [[Parse Live Queries|Building-Data-driven-Apps-with-Parse#live-qu
 First, make sure to add the Parse LiveQuery dependency to your `app/build.gradle` config:
 
 ```gradle
-allprojects {
-	repositories {
-		maven { url "https://jitpack.io" }
-	}
-}
-
 dependencies {
       implementation 'com.github.parse-community:ParseLiveQuery-Android:1.1.0' // for Parse Live Queries
 }
