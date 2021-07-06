@@ -880,6 +880,8 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MessageViewHol
 
 Here you can see an example of one of the object-oriented programming principles - polymorphism - in action. Since we defined the `MessageViewHolder` as a parent class for both types of the message the runtime will decide what is the right `bindMessage()` call for a given `ViewHolder`. 
 
+Finally, you should have no more outstanding errors in your `ChatAdapter.java` file. Let's continue implementing this adapter...
+
 ## 10. Bind Adapter to the RecyclerView
 
 Next, we will setup the ReyclerView and bind our custom adapter to this ReyclerView within the `ChatActivity.java` source file:
