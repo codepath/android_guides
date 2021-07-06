@@ -222,7 +222,7 @@ public class ChatActivity extends AppCompatActivity {
         btSend = (ImageButton) findViewById(R.id.btSend);
         
         // When send button is clicked, create message object on Parse
-        btSend.setOnClickListener(new OnClickListener() {
+        btSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String data = etMessage.getText().toString();
