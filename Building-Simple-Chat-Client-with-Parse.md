@@ -393,6 +393,7 @@ In this lab we will learn how to use adapter to create different views for incom
 Now we need to create two layout files, one to represent each chat type of message - incoming & outgoing - in the RecyclerView. Create a new layout file `res/layout/message_incoming.xml` containing the following:
 
 ```xml
+<!-- res/layout/message_incoming.xml -->
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -437,6 +438,7 @@ Now we need to create two layout files, one to represent each chat type of messa
 For outgoing messages (messages that _you_ send) create another layout file `messages_outgoing`:
 
 ```xml
+<!-- res/layout/message_outgoing.xml -->
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -470,7 +472,7 @@ For outgoing messages (messages that _you_ send) create another layout file `mes
 </RelativeLayout>
 ```
 
-Add the following values to `res-->values-->strings.xml` file:
+Add the following two values to the `res-->values-->strings.xml` file, before the `</resources>` closing tag:
 
 ```xml
 <string name="profile_me">My Profile Pic</string>
@@ -484,7 +486,7 @@ As we learned before, those labels can be picked up by **accessibility** framewo
 In order to re-create popular chat "bubble" UI we need to define proper backgrounds. We referred to them in the section 7.1 as `@drawable/message_outgoing` and `@drawable/message_incoming`. In `res --> drawable` folder create two files:
 
 ```xml
-<!-- message_outgoing.xml -->
+<!-- res/drawable/message_outgoing.xml -->
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
@@ -496,7 +498,7 @@ In order to re-create popular chat "bubble" UI we need to define proper backgrou
 and 
 
 ```xml
-<!-- message_incoming.xml -->
+<!-- res/drawable/message_incoming.xml -->
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
