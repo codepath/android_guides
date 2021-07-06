@@ -790,12 +790,22 @@ In this final part of the adapter setup we will bind data from individual messag
 ...
         @Override
         public void bindMessage(Message message) {
+
+            // Delete the following comment:
+            // TODO: implement later
+
+
+            /*** START OF CHANGE ***/
+
             Glide.with(mContext)
                     .load(getProfileUrl(message.getUserId())) 
                     .circleCrop() // create an effect of a round profile picture
                     .into(imageOther);
             body.setText(message.getBody());
             name.setText(message.getUserId()); // in addition to message show user ID
+
+            /*** END OF CHANGE ***/
+
         }
     }
 
@@ -804,11 +814,21 @@ In this final part of the adapter setup we will bind data from individual messag
 
         @Override
         public void bindMessage(Message message) {
+
+            // Delete the following comment:
+            // TODO: implement later
+
+
+            /*** START OF CHANGE ***/
+
             Glide.with(mContext)
                     .load(getProfileUrl(message.getUserId()))
                     .circleCrop() // create an effect of a round profile picture
                     .into(imageMe);
             body.setText(message.getBody());
+
+            /*** END OF CHANGE ***/
+
         }
     }
 
