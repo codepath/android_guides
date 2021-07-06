@@ -1111,6 +1111,8 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
+New messages should now be displayed in your app automatically while the app is running, as people post new messages into the Message class in Parse. Pulling to refresh the RecyclerView is no longer needed, thanks to Parse Live Queries.
+
 ## 14. Final AndroidManifest.xml
 
 The final manifest for this chat application looks like:
