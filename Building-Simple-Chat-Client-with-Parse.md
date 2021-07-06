@@ -509,7 +509,7 @@ and
 
 ## 8. Create Model Class
 
-Now let's create a `Message.java` class which will extend from `ParseObject`. This model class will provide message data for the `RecyclerView` and will be used to retrieve and save messages to Parse.
+Now let's create a `Message.java` class which will extend from `ParseObject`. This model class will provide message data for the RecyclerView, and will be used to retrieve and save messages to Parse.
 
 ```java
 // ...
