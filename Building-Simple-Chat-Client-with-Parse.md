@@ -388,7 +388,7 @@ In this lab we will learn how to use adapter to create different views for incom
 - **Outgoing messages** will be displayed in the RecyclerView with your gravatar on the right
 - **Incoming messages** will be displayed in the same RecyclerView, but with gravatars and sender names on the left
 
-📖 _You can read more about creating gravatars [here](https://en.gravatar.com/site/implement/images/). _
+📖  _You can read more about creating gravatars [here](https://en.gravatar.com/site/implement/images/)._
 
 Now we need to create two layout files, one to represent each chat type of message - incoming & outgoing - in the RecyclerView. Put this into `res/layout/message_incoming.xml`:
 
