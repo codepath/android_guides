@@ -74,7 +74,7 @@ Let's setup Parse into a brand new Android app following the steps below.
     }
     ```
 
-  * :warning: **WARNING:**  In the above code, replace `YOUR_APPLICATION_ID` and `YOUR_CLIENT_KEY` with a valid Application ID and Client Key now.
+  * ⚠️ **WARNING:**  In the above code, replace `YOUR_APPLICATION_ID` and `YOUR_CLIENT_KEY` with a valid Application ID and Client Key now.
     * _If you are working on this as part of a CodePath Lab, an Application ID and Client Key is provided to you in the Lab instructions._
 
 * Add the qualified `android:name` of your `Application` subclass to the `<application>` tag in your `AndroidManifest.xml`.
