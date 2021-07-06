@@ -884,7 +884,7 @@ Finally, you should have no more outstanding errors in your `ChatAdapter.java` f
 
 ## 10. Bind Adapter to the RecyclerView
 
-Next, we will setup the ReyclerView and bind our custom adapter to this ReyclerView within the `ChatActivity.java` source file:
+Back in your `ChatActivity.java` file, we will now set up the RecyclerView and bind our custom adapter to it:
 
 ```java
 public class ChatActivity extends AppCompatActivity {
