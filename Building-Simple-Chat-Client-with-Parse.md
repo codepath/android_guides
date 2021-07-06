@@ -14,8 +14,11 @@ You will need to save application id & client key that you can find in Back4App 
 
 Let's setup Parse into a brand new Android app following the steps below.
 
-* Generate a new android project in your IDE (minSDK 18) and call it `SimpleChat`.
-  * Name the first (main) activity: `ChatActivity`.  
+* Generate a new android project in your IDE
+  * Start it with an Empty Activity [**[?]**](https://i.imgur.com/nzD9pA8.png)
+  * Call it `SimpleChat`
+  * Select API 29 for the Minimum SDK
+  * [**Rename**](https://hackmd.io/@tejen/ryejOdba_) the first activity ("MainActivity") to `ChatActivity`
   * Add this to the `allprojects` section of your root `build.gradle:`:
 
     ```gradle
@@ -28,7 +31,7 @@ Let's setup Parse into a brand new Android app following the steps below.
     }
     ```
 
-  * Add the following to your `app/build.gradle`:
+  * Add the following to your other `app/build.gradle` file:
     
     ```gradle
     dependencies {
