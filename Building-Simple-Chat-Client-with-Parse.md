@@ -1079,7 +1079,12 @@ protected void onCreate(Bundle savedInstanceState) {
 
     // Make sure the Parse server is setup to configured for live queries
     // URL for server is determined by Parse.initialize() call.
-    ParseLiveQueryClient parseLiveQueryClient = ParseLiveQueryClient.Factory.getClient();
+    ParseLiveQueryClient parseLiveQueryClient = null;
+    try {
+        parseLiveQueryClient = ParseLiveQueryClient.Factory.getClient(new URI("wss://codepathparsechatlab.b4a.io/"));
+    } catch (URISyntaxException e) {
+        e.printStackTrace();
+    }
 
     ParseQuery<Message> parseQuery = ParseQuery.getQuery(Message.class);
     // This query can even be more granular (i.e. only refresh if the entry was added by some other user)
@@ -1088,22 +1093,18 @@ protected void onCreate(Bundle savedInstanceState) {
     // Connect to Parse server
     SubscriptionHandling<Message> subscriptionHandling = parseLiveQueryClient.subscribe(parseQuery);
 
-    // Listen for CREATE events
-    subscriptionHandling.handleEvent(SubscriptionHandling.Event.CREATE, new
-        SubscriptionHandling.HandleEventCallback<Message>() {
-        @Override
-        public void onEvent(ParseQuery<Message> query, Message object) {
-            mMessages.add(0, object);
+    // Listen for CREATE events on the Message class
+    subscriptionHandling.handleEvent(SubscriptionHandling.Event.CREATE, (query, object) -> {
+        mMessages.add(0, object);
 
-            // RecyclerView updates need to be run on the UI thread
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    mAdapter.notifyDataSetChanged();
-                    rvChat.scrollToPosition(0);
-                }
-            });
-        }
+        // RecyclerView updates need to be run on the UI thread
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                mAdapter.notifyDataSetChanged();
+                rvChat.scrollToPosition(0);
+            }
+        });
     });
 
     /*** END OF CHANGE ***/
