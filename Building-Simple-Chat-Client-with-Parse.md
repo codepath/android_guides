@@ -888,13 +888,8 @@ Back in your `ChatActivity.java` file, we will now set up the RecyclerView and b
 
 ```java
 public class ChatActivity extends AppCompatActivity {
-    ...
 
-    RecyclerView rvChat;    
-    List<Message> mMessages;
-    ChatAdapter mAdapter;
-    // Keep track of initial load to scroll to the bottom of the RecyclerView
-    boolean mFirstLoad;
+    // ...
 	
     // Setup message field and posting
     void setupMessagePosting() {
