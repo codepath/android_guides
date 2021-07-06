@@ -95,7 +95,7 @@ Let's setup Parse into a brand new Android app following the steps below.
 
 ## 3. Design Messages Layout
 
-Let's create an XML layout which allows us to post messages by typing into a text field. Open your layout file `activity_chat.xml`, add an `EditText` and a `Button` to compose and send text messages. 
+Let's create an XML layout which allows us to post messages by typing into a text field. Open your layout file `activity_chat.xml`, add an `EditText` and a `ImageButton` to compose and send text messages. 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -117,8 +117,8 @@ Let's create an XML layout which allows us to post messages by typing into a tex
         android:layout_height="wrap_content" >
         <EditText
             android:id="@+id/etMessage"
-            android:layout_toLeftOf="@+id/btSend"
-            android:layout_alignBottom="@+id/btSend"
+            android:layout_toLeftOf="@+id/ibSend"
+            android:layout_alignBottom="@+id/ibSend"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="top"
@@ -127,7 +127,7 @@ Let's create an XML layout which allows us to post messages by typing into a tex
             android:imeOptions="actionSend"
             />
         <ImageButton
-            android:id="@+id/btSend"
+            android:id="@+id/ibSend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -140,7 +140,7 @@ Let's create an XML layout which allows us to post messages by typing into a tex
 </RelativeLayout>
 ```
 
-The imeOptions attribute is used to control the icon in the [[Soft Keyboard|Working-with-the-Soft-Keyboard]].  The gravity attribute will position the button at the center vertically AND on the right horizontally.
+The imeOptions attribute is used to control the icon in the [[Soft Keyboard|Working-with-the-Soft-Keyboard]].  The gravity attribute will position the ImageButton at the center vertically AND on the right horizontally.
 
 Notice that we are using `ImageButton`. It allows setting a background image using `android:src` attribute. Now, let's add a new icon that represents a send message. Select File -> New -> Vector Asset. In the "Asset Studio" dialog select "Asset Type: Clip Art". Then click on a "Clip Art" button and search for "Send" asset. You can keep defaults for the rest of the settings or experiment changing colors and outline style.
 
@@ -207,7 +207,7 @@ public class ChatActivity extends AppCompatActivity {
     static final String BODY_KEY = "body";
 
     EditText etMessage;
-    ImageButton btSend;
+    ImageButton ibSend;
 
 ...
 
@@ -216,14 +216,14 @@ public class ChatActivity extends AppCompatActivity {
         setupMessagePosting();
     }
 
-    // Setup button event handler which posts the entered message to Parse
+    // Set up button event handler which posts the entered message to Parse
     void setupMessagePosting() {
         // Find the text field and button
         etMessage = (EditText) findViewById(R.id.etMessage);
-        btSend = (ImageButton) findViewById(R.id.btSend);
+        ibSend = (ImageButton) findViewById(R.id.ibSend);
         
         // When send button is clicked, create message object on Parse
-        btSend.setOnClickListener(new View.OnClickListener() {
+        ibSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String data = etMessage.getText().toString();
@@ -303,8 +303,8 @@ Next, add your `RecyclerView` to the layout. After doing so, your `activity_chat
       android:layout_height="wrap_content" >
       <EditText
           android:id="@+id/etMessage"
-          android:layout_toLeftOf="@+id/btSend"
-          android:layout_alignBottom="@+id/btSend"
+          android:layout_toLeftOf="@+id/ibSend"
+          android:layout_alignBottom="@+id/ibSend"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:gravity="top"
@@ -313,7 +313,7 @@ Next, add your `RecyclerView` to the layout. After doing so, your `activity_chat
           android:imeOptions="actionSend"
         />
         <ImageButton
-            android:id="@+id/btSend"
+            android:id="@+id/ibSend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -345,13 +345,13 @@ If you would like to use `ConstraintLayout` instead of `RelativeLayout`, your `a
         android:imeOptions="actionSend"
         android:inputType="textShortMessage"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btSend"
+        app:layout_constraintEnd_toStartOf="@+id/ibSend"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rvChat" />
 
     <ImageButton
-        android:id="@+id/btSend"
+        android:id="@+id/ibSend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -566,9 +566,9 @@ Finally, we refactor `ChatActivity` and rename the references to the model keys
 void setupMessagePosting() {
         // Find the text field and button
         etMessage = (EditText) findViewById(R.id.etMessage);
-        btSend = (ImageButton) findViewById(R.id.btSend);
+        ibSend = (ImageButton) findViewById(R.id.ibSend);
         // When send button is clicked, create message object on Parse
-        btSend.setOnClickListener(new View.OnClickListener() {
+        ibSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String data = etMessage.getText().toString();
@@ -899,7 +899,7 @@ public class ChatActivity extends AppCompatActivity {
     // Setup message field and posting
     void setupMessagePosting() {
         etMessage = (EditText) findViewById(R.id.etMessage);
-        btSend = (Button) findViewById(R.id.btSend);
+        ibSend = (ImageButton) findViewById(R.id.ibSend);
         rvChat = (RecyclerView) findViewById(R.id.rvChat);
         mMessages = new ArrayList<>();
         mFirstLoad = true;
@@ -912,7 +912,7 @@ public class ChatActivity extends AppCompatActivity {
         rvChat.setLayoutManager(linearLayoutManager);
 
         // When send button is clicked, create message object on Parse
-        btSend.setOnClickListener(new View.OnClickListener() {
+        ibSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String data = etMessage.getText().toString();
