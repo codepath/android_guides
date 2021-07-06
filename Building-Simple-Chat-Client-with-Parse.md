@@ -66,16 +66,16 @@ Let's setup Parse into a brand new Android app following the steps below.
 
             // Set applicationId and server based on the values in the Back4App settings.
             Parse.initialize(new Parse.Configuration.Builder(this)
-                 .applicationId("YOUR_APPLICATION_ID") // ⚠️ TYPE IN A VALID APPLICATION ID HERE
-                 .clientKey("YOUR_CLIENT_KEY") // ⚠️ TYPE IN A VALID CLIENT KEY HERE
+                 .applicationId("PASTE_APP_ID_HERE") // ⚠️ TYPE IN A VALID APPLICATION ID HERE
+                 .clientKey("PASTE_CLIENT_KEY_HERE") // ⚠️ TYPE IN A VALID CLIENT KEY HERE
                  .clientBuilder(builder)
-                 .server("https://parseapi.back4app.com").build());
+                 .server("PASTE_SERVER_URL_HERE").build());  // ⚠️ TYPE IN A VALID SERVER URL HERE
         }
     }
     ```
 
-  * ⚠️ **WARNING:**  In the above code, replace `YOUR_APPLICATION_ID` and `YOUR_CLIENT_KEY` with a valid Application ID and Client Key now.
-    * _If you are working on this as part of a CodePath Lab, an Application ID and Client Key is provided to you in the Lab instructions._
+  * ⚠️ **WARNING:**  In the above code, replace `PASTE_APP_ID_HERE`, `PASTE_CLIENT_KEY_HERE`, and `PASTE_SERVER_URL_HERE` with a valid Application ID, Client Key, and Server URL now.
+    * _If you are working on this as part of a CodePath Lab, an Application ID, Client Key and Server URL is provided to you in the Lab instructions._
 
 * Add the qualified `android:name` of your `Application` subclass to the `<application>` tag in your `AndroidManifest.xml`.
 
@@ -1079,7 +1079,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
     // Make sure the Parse server is setup to configured for live queries
     // Enter the websocket URL of your Parse server
-    String websocketUrl = "wss://YOUR_SERVER_WEBSOCKET_URL_HERE"; // ⚠️ TYPE IN A VALID WSS:// URL HERE
+    String websocketUrl = "wss://PASTE_SERVER_WEBSOCKET_URL_HERE"; // ⚠️ TYPE IN A VALID WSS:// URL HERE
 
     ParseLiveQueryClient parseLiveQueryClient = null;
     try {
@@ -1114,8 +1114,8 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-  * ⚠️ **WARNING:**  In the above code, replace `YOUR_SERVER_WEBSOCKET_URL_HERE` with a valid Websocket URL now.
-    * _If you are working on this as part of a CodePath Lab, an Application ID and Client Key is provided to you in the Lab instructions._
+  * ⚠️ **WARNING:**  In the above code, replace `PASTE_SERVER_WEBSOCKET_URL_HERE` with a valid Websocket URL now.
+    * _If you are working on this as part of a CodePath Lab, a Websocket URL is provided to you in the Lab instructions._
 
 New messages should now be displayed in your app automatically while the app is running, as people post new messages into the Message class in Parse. Pulling to refresh the RecyclerView is no longer needed, thanks to Parse Live Queries.
 
