@@ -88,7 +88,7 @@ Let's setup Parse into a brand new Android app following the steps below.
     />
     ```
 
-**WARNING:** Be sure to **add the application name** above after creating the custom Application class or the following code won't work!!
+⚠️ **Note:** Be sure to **add the `android:name`** above after creating the custom Application class or the remainder of this guide will not work.
 
 ## 3. Design Messages Layout
 
