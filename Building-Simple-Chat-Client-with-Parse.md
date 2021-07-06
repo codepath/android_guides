@@ -649,7 +649,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MessageViewHol
 }
 ```
 
-We will keep implementing this adapter in the next couple chapters...
+We will continue implementing this adapter in the next couple chapters...
 
 ### 9.2 Define view types
 
