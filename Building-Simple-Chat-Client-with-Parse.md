@@ -860,6 +860,8 @@ public ChatAdapter(Context context, String userId, List<Message> messages) {
 
 ```
 
+📖  _You can read more about MD5 hashes/calculations and gravatar links [here](https://en.gravatar.com/site/implement/images/)._
+
 In the code above we use `Glide` library to load gravatars from a given URL. If you need a refresher on Glide see [Displaying Images with the Glide Library](https://guides.codepath.org/android/Displaying-Images-with-the-Glide-Library). The method `getProfileUrl()` is responsible for decoding user ID and creating an image URL that can be passed into the Glide library. 
 
 Finally, we should tell `ChatAdapter` how (and when) to bind different message types to different view types:
