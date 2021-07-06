@@ -251,12 +251,12 @@ public class ChatActivity extends AppCompatActivity {
 
 At this point, run your application and try to send a text to Parse. If the save was successful, you should see 'Successfully created message on Parse' toast on your screen. 
 
-**WARNING** If you're using a self-deployed Back4App backend, and your own private Application ID and Client Key that you created by yourself in Back4App, then you will also need to create a new Class in your Back4App Dashboard which messages will be saved to. Navigate to your project's `Dashboard --> Core --> Database Broswer` and click "Create a class". Select "Message" as a name for your class and add 2 columns:
+**WARNING** If you're using a self-deployed Back4App backend, and your own private Application ID and Client Key that you created by yourself in Back4App, then you will also need to create a new Class in your Back4App Dashboard which messages will be saved to. Navigate to your project's `Dashboard --> Core --> Database Browser` and click "Create a class". Select "Message" as a name for your class and add 2 columns:
 
 - `userId` of type `String`
 - `body` of type `String` 
 
-Try sending message again from the app. You can then check if the data was saved by verifying whether the objects were created in Back4App Dashboard. Navigate to your project's `Dashboard --> Core --> Database Broswer --> Messages` to see if the message appears there. 
+Try sending message again from the app. You can then check if the data was saved by verifying whether the objects were created in Back4App Dashboard. Navigate to your project's `Dashboard --> Core --> Database Browser --> Messages` to see if the message appears there. 
 
 Refer to the [Testing Deployment section](http://guides.codepath.com/android/Configuring-a-Parse-Server#testing-deployment) of [Configuring a Parse Server](http://guides.codepath.com/android/Configuring-a-Parse-Server) for more info.
 
