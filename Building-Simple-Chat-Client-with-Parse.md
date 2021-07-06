@@ -837,25 +837,24 @@ In this final part of the adapter setup we will bind data from individual messag
 Additionally, add the following new `getProfileUrl` method to your code, just before the `ChatAdapter` initializer method:
 
 ```java
+// ...
 
-    // ...
-
-    // Create a gravatar image based on the hash value obtained from userId
-    private static String getProfileUrl(final String userId) {
-        String hex = "";
-        try {
-            final MessageDigest digest = MessageDigest.getInstance("MD5");
-            final byte[] hash = digest.digest(userId.getBytes());
-            final BigInteger bigInt = new BigInteger(hash);
-            hex = bigInt.abs().toString(16);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "https://www.gravatar.com/avatar/" + hex + "?d=identicon";
+// Create a gravatar image based on the hash value obtained from userId
+private static String getProfileUrl(final String userId) {
+    String hex = "";
+    try {
+        final MessageDigest digest = MessageDigest.getInstance("MD5");
+        final byte[] hash = digest.digest(userId.getBytes());
+        final BigInteger bigInt = new BigInteger(hash);
+        hex = bigInt.abs().toString(16);
+    } catch (Exception e) {
+        e.printStackTrace();
     }
+    return "https://www.gravatar.com/avatar/" + hex + "?d=identicon";
+}
 
-    public ChatAdapter(Context context, String userId, List<Message> messages) {
-        // ...
+public ChatAdapter(Context context, String userId, List<Message> messages) {
+    // ...
 
 ```
 
