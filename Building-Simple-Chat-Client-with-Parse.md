@@ -390,7 +390,7 @@ In this lab we will learn how to use adapter to create different views for incom
 
 📖  _You can read more about creating gravatars [here](https://en.gravatar.com/site/implement/images/)._
 
-Now we need to create two layout files, one to represent each chat type of message - incoming & outgoing - in the RecyclerView. Put this into `res/layout/message_incoming.xml`:
+Now we need to create two layout files, one to represent each chat type of message - incoming & outgoing - in the RecyclerView. Create a new layout file `res/layout/message_incoming.xml` containing the following:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
