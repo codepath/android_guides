@@ -646,6 +646,8 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MessageViewHol
         return mMessages.size();
     }
 
+    // TODO: create onCreateViewHolder and onBindViewHolder later (covered in the next few chapters...)
+
 }
 ```
 
