@@ -250,7 +250,9 @@ public class ChatActivity extends AppCompatActivity {
 
 ## 6. Verify Save
 
-At this point, run your application and try to send a text to Parse. If the save was successful, you should see 'Successfully created message on Parse' toast on your screen. 
+At this point, run your application and try to send a text to Parse. If the save was successful, you should see 'Successfully created message on Parse' toast on your screen.
+
+If you do not see the Toast on your screen, check the Logcat and search for "ChatActivity". If you see `Anonymous login failed`, check the values you entered for `.applicationId(...)` and `.clientKey(...)` in your `ChatApplication.java` file.
 
 💡 **Note:** If you're using a self-deployed Back4App backend (using your own private Application ID and Client Key that you created by yourself in Back4App) then you will also need to create a new Class in your Back4App Dashboard which messages will be saved to. Navigate to your project's `Dashboard --> Core --> Database Browser` and click "Create a class". Select "Message" as a name for your class and add 2 columns:
 
