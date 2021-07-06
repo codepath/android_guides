@@ -647,11 +647,6 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MessageViewHol
     }
 
     @Override
-    public int getItemViewType(int position) {
-        // TODO: implement method
-    }
-
-    @Override
     public MessageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // TODO: implement method
     }
