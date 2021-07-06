@@ -832,7 +832,13 @@ In this final part of the adapter setup we will bind data from individual messag
         }
     }
 
-    /*** ADD THE BELOW METHOD ***/
+```
+
+Additionally, add the following new `getProfileUrl` method to your code, just before the `ChatAdapter` initializer method:
+
+```java
+
+    // ...
 
     // Create a gravatar image based on the hash value obtained from userId
     private static String getProfileUrl(final String userId) {
@@ -848,7 +854,9 @@ In this final part of the adapter setup we will bind data from individual messag
         return "https://www.gravatar.com/avatar/" + hex + "?d=identicon";
     }
 
-    /*** END NEW METHOD ***/
+    public ChatAdapter(Context context, String userId, List<Message> messages) {
+        // ...
+
 ```
 
 In the code above we use `Glide` library to load gravatars from a given URL. If you need a refresher on Glide see [Displaying Images with the Glide Library](https://guides.codepath.org/android/Displaying-Images-with-the-Glide-Library). The method `getProfileUrl()` is responsible for decoding user ID and creating an image URL that can be passed into the Glide library. 
