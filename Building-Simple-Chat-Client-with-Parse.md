@@ -66,8 +66,8 @@ Let's setup Parse into a brand new Android app following the steps below.
 
             // Set applicationId and server based on the values in the Back4App settings.
             Parse.initialize(new Parse.Configuration.Builder(this)
-                 .applicationId("YOUR_APPLICATION_ID") // Application ID from Back4App Dashboard
-                 .clientKey("YOUR_CLIENT_KEY") // Client Key from Back4App Dashboard
+                 .applicationId("YOUR_APPLICATION_ID") // ⚠️ TYPE IN A VALID APPLICATION ID HERE
+                 .clientKey("YOUR_CLIENT_KEY") // ⚠️ TYPE IN A VALID CLIENT KEY HERE
                  .clientBuilder(builder)
                  .server("https://parseapi.back4app.com").build());
         }
