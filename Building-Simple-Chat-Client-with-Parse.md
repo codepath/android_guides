@@ -383,9 +383,14 @@ If you would like to use `ConstraintLayout` instead of `RelativeLayout`, your `a
 
 ### 7.1 Add layouts for incoming and outgoing messages
 
-In this lab we will learn how to use adapter to create different views for incoming and outgoing messages. We will be showing the outgoing messages with our gravatar on the right and all the incoming messages with gravatars and sender names on the left. You can read more about creating gravatars [here](https://en.gravatar.com/site/implement/images/). 
+In this lab we will learn how to use adapter to create different views for incoming and outgoing messages. In other words, we can have two different types of items, with different designs, coexisting within a single RecyclerView.
 
-Now we need to create two layout file to represent each chat type of message - incoming & outgoing - in the list view. Put this into `res/layout/message_incoming.xml`:
+- **Outgoing messages** will be displayed in the RecyclerView with your gravatar on the right
+- **Incoming messages** will be displayed in the same RecyclerView, but with gravatars and sender names on the left
+
+📖 _You can read more about creating gravatars [here](https://en.gravatar.com/site/implement/images/). _
+
+Now we need to create two layout files, one to represent each chat type of message - incoming & outgoing - in the RecyclerView. Put this into `res/layout/message_incoming.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -601,7 +606,7 @@ With our model defined with Parse and properly registered, we can now use this m
 
 ## 9. Create Custom List Adapter
 
-Create a class named `ChatAdapter.java` with below code. This is a custom list adapter class which provides data to list view. In other words it renders the `message_incoming.xml` (or `message_outgoing.xml`) in list by pre-filling appropriate information. We'll be using the open source `Glide` library to load profile images. 
+Create a class named `ChatAdapter.java` with below code. This is a custom list adapter class which provides data to RecyclerView. In other words it renders the `message_incoming.xml` (or `message_outgoing.xml`) in list by pre-filling appropriate information. We'll be using the open source `Glide` library to load profile images. 
 
 First, add dependency for this library to the `app/build.gradle` file:
 
@@ -859,7 +864,7 @@ public class ChatActivity extends AppCompatActivity {
     RecyclerView rvChat;    
     List<Message> mMessages;
     ChatAdapter mAdapter;
-    // Keep track of initial load to scroll to the bottom of the ListView
+    // Keep track of initial load to scroll to the bottom of the RecyclerView
     boolean mFirstLoad;
 	
     // Setup message field and posting
