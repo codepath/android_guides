@@ -580,7 +580,7 @@ void setupMessagePosting() {
 
                 /*** START OF CHANGE **/
 
-                // Using new `Message` Parse-backed model now
+                // Using new `Message.java` Parse-backed model now
                 Message message = new Message();
                 message.setUserId(ParseUser.getCurrentUser().getObjectId());
                 message.setBody(data);
