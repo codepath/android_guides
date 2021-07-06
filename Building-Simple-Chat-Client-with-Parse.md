@@ -257,7 +257,7 @@ Refer to the [Testing Deployment section](http://guides.codepath.com/android/Con
 
 ## 7. Add RecyclerView to Chat Layout
 
-Now that we have verified that messages are successfully being saved to your Parse database, let's go ahead and build the UI to retrieve these messages. Open your layout file `activity_chat.xml` and add a `RecyclerView` to display the text messages from parse.
+Now that we have verified that messages are successfully being saved to your Parse database, let's go ahead and build the UI to send and retrieve these messages. Open your layout file `activity_chat.xml` and add a `RecyclerView` to display the text messages from parse.
 
 First, add the RecyclerView as a dependency in your `app/build.gradle`:
 ```gradle
