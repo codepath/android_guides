@@ -1050,7 +1050,7 @@ See the [[repeating periodic tasks|Repeating-Periodic-Tasks#handler]] guide to l
 We can now use [[Parse Live Queries|Building-Data-driven-Apps-with-Parse#live-queries]] in our Android app to listen for new messages.  We can disable the use of the `postDelayed()` runnable that we created in the earlier step:
 
 ```java
-// myHandler.postDelayed(mRefreshMessagesRunnable, POLL_INTERVAL); // comment this out
+// myHandler.postDelayed(mRefreshMessagesRunnable, POLL_INTERVAL); // ⚠️ Comment this out!
 ```
 
 First, make sure to add the Parse LiveQuery dependency to your `app/build.gradle` config:
