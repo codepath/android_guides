@@ -325,7 +325,7 @@ Next, add your `RecyclerView` to the layout (scroll down to see code snippet for
 </RelativeLayout>
 ```
 
-`ConstraintLayout` code will look like this:
+If you would like to use `ConstraintLayout` instead of `RelativeLayout`, your `activity_chat.xml` code can look like this instead of the above:
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
