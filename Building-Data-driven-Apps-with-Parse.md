@@ -54,7 +54,7 @@ dependencies {
 }
 ```
 
-Notice that the version of Parse-SDK-Android was 1.25.0 when this documentation was released. To find the latest version, check [here](https://jitpack.io/#parse-community/Parse-SDK-Android).
+Notice that the version of Parse-SDK-Android was 1.25.0 when this documentation was released. [Check](https://jitpack.io/#parse-community/Parse-SDK-Android) the latest version.
 
 Select `Tools -> Android -> Sync Project with Gradle Files` to load the libraries through Gradle. When you sync, it will import everything automatically. You can see the imported files in the External Libraries folder.
 
@@ -99,7 +99,7 @@ public class ParseApplication extends Application {
         // any network interceptors must be added with the Configuration Builder given this syntax
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId("myAppId") // should correspond to Application Id env variable
-                .clientKey("yourClientKey)  // should correspond to Client key env variable
+                .clientKey("yourClientKey")  // should correspond to Client key env variable
                 .server("https://parseapi.back4app.com").build());
     }
 }
