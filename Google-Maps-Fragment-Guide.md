@@ -7,7 +7,7 @@ In this guide, we will walk you through the step by step process of getting an e
 ### Import Maps Demo
 
 1. Download the [Maps Demo Repo](https://github.com/codepath/android-google-maps-demo/archive/master.zip) ([GitHub link](https://github.com/codepath/android-google-maps-demo/))
-2. Run `File` ⇒ `Open`, select `android-google-maps-demo-master`
+2. Run `File` ⇒ `Open`, select `android-google-maps-demo-master` (or `android-google-maps-demo` if you used the GitHub link).
 3. Verify that you have the Google Maven repository defined in your root `build.gradle` file:
       ```gradle
       allprojects {
@@ -17,7 +17,7 @@ In this guide, we will walk you through the step by step process of getting an e
         }
       }
       ```
-4. Verify sure you have these dependencies listed in your `app/build.gradle` file:
+4. Make sure you have these dependencies listed in your `app/build.gradle` file:
       ```gradle
       ext {
         googlePlayVersion = "17.0.0"
@@ -27,9 +27,9 @@ In this guide, we will walk you through the step by step process of getting an e
         implementation "com.google.android.gms:play-services-location:$googlePlayVersion"
       }
       ```
-5. Make sure to select `Build => Clean project` and then `Build => Re-build project` to make any issues with `MapDemoActivityPermissionsDispatcher` in `MapDemoActivity.java` clear up the errors.
+5. Make sure to select `Build => Rebuild project` to clear any errors with `MapDemoActivityPermissionsDispatcher` in `MapDemoActivity.java`.
 
-If Gradle does not find the Play Services Gradle packages, make sure you followed step 2 and verified that the Google Maven repository has been added.
+If Gradle does not find the Play Services Gradle packages, make sure you followed step 3 and verified that the Google Maven repository has been added.
 
 Next, we need to get ourselves a maps API key from Google to put into our `AndroidManifest.xml`.
 
@@ -55,7 +55,7 @@ Once the project is created, navigate to `Dashboard`, click on `Enable APIS and 
 
 <img src="https://imgur.com/Vlhtuhd.gif" width="600"/>
 
-Click the `Credentials` tab, follow the next link `Credentials in API Services`, and click on `Create Credentials`.  Select `API Key` and copy the contents to your clipboard:
+Click the `Credentials` link in the left sidebar, follow the next link `Credentials in API Services`, and click on `Create Credentials`.  Select `API Key` and copy the contents to your clipboard:
 
 <img src="https://imgur.com/zXiswJo.gif" width="600" />  
 
@@ -67,7 +67,7 @@ Copy your API Key into the `res/values/strings.xml` file for the `google_maps_ap
 </resources>
 ```
 
-The meta data for `com.google.android.maps.v2.API_KEY` within the **application node** in the `AndroidManifest.xml` for your app should reference this string resource:
+The metadata for `com.google.android.maps.v2.API_KEY` within the **application** section in the `AndroidManifest.xml` for your app should reference this string resource:
 
 ```xml
 <application
