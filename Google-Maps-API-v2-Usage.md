@@ -114,7 +114,7 @@ Markers have limited information and associating a marker to the underlying data
 
 #### Custom Marker Drawables
 
-We can also use custom markers based on any arbitrary drawable with:
+We can also use custom markers based on any arbitrary drawable. For bitmap-based drawables, use:
 
 ```java
 // Define custom marker 
@@ -122,7 +122,9 @@ BitmapDescriptor customMarker =
   BitmapDescriptorFactory.fromResource(R.drawable.house_flag);
 ```
 
-See the [BitmapDescriptorFactory](https://developers.google.com/android/reference/com/google/android/gms/maps/model/BitmapDescriptorFactory) docs for other colors or icon loading options. 
+See [how to use vector-based drawables as map markers](https://guides.codepath.com/android/Google-Maps-API-v2-Usage#using-vectors-as-map-markers).
+
+[BitmapDescriptorFactory](https://developers.google.com/android/reference/com/google/android/gms/maps/model/BitmapDescriptorFactory) provides other color or icon loading options. 
 
 #### Speech Bubbles
 
