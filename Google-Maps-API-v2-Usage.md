@@ -434,7 +434,7 @@ If you want to use your own layout instead of the default options, you can do so
 </LinearLayout>
 ```
 
-And here is the code you need to implement your own `InfoWindowAdpapter` class.
+And here is the code you need to implement your own `InfoWindowAdapter` class.
 
 
 ```java
