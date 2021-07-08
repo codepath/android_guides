@@ -334,7 +334,7 @@ When we run the app now, the long click on the map should trigger a dialog which
 
 ### Falling Pin Animation
 
-To implement the falling pin animation, add a marker to the desired position in map and then call this function with that marker. This function uses a `Handler` to animate the marker over time by [setting the anchor](https://developer.android.com/reference/com/google/android/gms/maps/model/Marker.html#setAnchor\(float, float\)). 
+To implement the falling pin animation, [add a marker](https://guides.codepath.org/android/Google-Maps-API-v2-Usage#adding-markers-to-map-fragment) to the desired position in map and then call this function with that marker. This function uses a `Handler` to animate the marker over time by [setting the anchor](https://developer.android.com/reference/com/google/android/gms/maps/model/Marker.html#setAnchor\(float, float\)). 
 
 ```java
     private void dropPinEffect(final Marker marker) {
