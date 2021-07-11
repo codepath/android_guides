@@ -20,14 +20,15 @@ public class SimpleColor {
 		RED, BLUE, GREEN
 	}
 
+        public String label;
+	public ColorValues color;
+
 	public SimpleColor(String label, ColorValues color) {
-		super();
 		this.label = label;
 		this.color = color;
 	}
 
-	public String label;
-	public ColorValues color;
+	
 
 }
 ```
