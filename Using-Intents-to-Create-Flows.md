@@ -210,7 +210,14 @@ public class User implements Serializable {
 	private int age;
 }
 ```
-
+```kotlin
+class User : Serializable {
+	val serialVersionUID: Long = 5177222050535318633L
+        var firstName: String
+	var String lastName: String
+	var int age: String
+}
+```
 Then you can pass arbitrary user objects into an intent as an extra:
 
 ```java
@@ -218,6 +225,12 @@ User u = new User("John", "Smith", 45);
 Intent  i =  new Intent(ActivityOne.this, SecondActivity.class);
 i.putExtra("user", u);
 startActivity(i);
+```
+```kotlin
+val u = User("John", "Smith", 45)
+val i = Intent(this@ActivityOne, SecondActivity::class.java)
+i.putExtra("user", u)
+startActivity(i)
 ```
 
 and access the user data in the launched intent with `getSerializableExtra`:
@@ -227,6 +240,12 @@ and access the user data in the launched intent with `getSerializableExtra`:
 User u = (User) getIntent().getSerializableExtra("user");
 TextView tvUser = (TextView) findViewById(R.id.tvUser);
 tvUser.setText(u.getFirstName() + " " + u.getLastName());
+```
+```kotlin
+// SecondActivity.kt
+val u: User? = intent.getSerializableExtra("user") as User?
+val tvUser = findViewById<View>(R.id.tvUser) as TextView
+tvUser.setText(u.getFirstName() + " " + u.getLastName())
 ```
 
 A faster and more reliable approach is to use [Parcelable as a replacement](http://guides.codepath.com/android/Using-Parcelable) for Serializable. Parcelable is about 10x faster than Serializable and thanks to libraries like [Parceler](http://guides.codepath.com/android/Using-Parceler) not very hard to implement.
@@ -240,13 +259,21 @@ Intent callIntent = new Intent(Intent.ACTION_CALL);
 callIntent.setData(Uri.parse("tel:3777789888"));
 startActivity(callIntent);
 ```
+```kotlin
+val callIntent = Intent(Intent.ACTION_CALL)
+callIntent.data = Uri.parse("tel:3777789888")
+startActivity(callIntent)
+```
 
 If I want to launch a website in the phone's browser, I might do this:
 
 ```java
-Intent browserIntent = new Intent(Intent.ACTION_VIEW, 
-  Uri.parse("http://www.google.com"));
+Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
 startActivity(browserIntent);
+```
+```kotlin
+val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"))
+startActivity(browserIntent)
 ```
 
 You can see a list of other [[common implicit intents|Common-Implicit-Intents]].
@@ -292,6 +319,24 @@ public void onCreate(Bundle savedInstanceState) {
     }   
   }
 ```
+```kotlin
+override fun onCreate(Bundle savedInstanceState) {
+  super.onCreate(savedInstanceState);
+
+  val intent = intent
+  val action = intent.action
+  val type = intent.type
+
+  if (Intent.ACTION_SEND == action && type != null) {
+     if ("text/plain" == type) {
+
+     // Make sure to check whether returned data will be null.
+     val titleOfPage = intent.getStringExtra(Intent.EXTRA_SUBJECT)
+     val urlOfPage = intent.getStringExtra(Intent.EXTRA_TEXT)
+     val imageUriOfPage: Uri? = intent.getParcelableExtra<Parcelable>(Intent.EXTRA_STREAM) as Uri?
+     }
+  }
+```
 
 See [this article](https://paul.kinlan.me/parsing-screenshot-from-Chrome-for-Android-send-intent/) for more details about parsing data from Chrome. **_This link was invalid_**
 
@@ -319,6 +364,15 @@ public void onCreate(Bundle savedInstanceState) {
     Intent intent = getIntent();
     String action = intent.getAction();
     Uri data = intent.getData();
+}
+```
+```kotlin
+override fun onCreate(savedInstanceState: Bundle?) {
+   super.onCreate(savedInstanceState)
+   setContentView(R.layout.main)
+   val intent = intent
+   val action = intent.action
+   val data: Uri? = intent.data
 }
 ```
 
