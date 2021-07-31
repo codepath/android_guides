@@ -34,7 +34,7 @@ If you are interested in contributing to our guides, please check out our [contr
 
 ## Contributors
 
-These guides were originally created and adapted by [Nathan Esquenazi](http://github.com/nesquena) 
+These guides were originally created and adapted by [Nathan Esquenazi](https://github.com/nesquena) 
 as a part of our [CodePath](http://codepath.com) training and bootcamps. We have also had contributions from many
 community members including:
 
