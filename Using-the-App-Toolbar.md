@@ -31,7 +31,7 @@ To use Toolbar as an ActionBar, first ensure the AndroidX support library is add
 ```gradle
 dependencies {
   ...
-  implementation 'androidx.appcompat:appcompat:1.0.0'
+  implementation 'androidx.appcompat:appcompat:1.3.1'
 }
 ```
 
@@ -367,14 +367,14 @@ We can configure the `Toolbar` to react and change as the page scrolls:
 
 ![](https://imgur.com/sGltNwr.png)
 
-For example, we can have the toolbar hide when the user scrolls down on a list or expand as the user scrolls to the header. There are many effects that can be configured by using the [[CoordinatorLayout|Handling-Scrolls-with-CoordinatorLayout#expanding-and-collapsing-toolbars]]. First, we need to make sure we add the design support library to our `app/build.gradle` file:
+For example, we can have the toolbar hide when the user scrolls down on a list or expand as the user scrolls to the header. There are many effects that can be configured by using the [[CoordinatorLayout|Handling-Scrolls-with-CoordinatorLayout#expanding-and-collapsing-toolbars]]. First, we need to make sure we add the jetpack libraries to our `app/build.gradle` file:
 
 ```gradle
 dependencies {
     // ...
-    implementation 'androidx.appcompat:appcompat:1.0.0'
-    implementation 'androidx.recyclerview:recyclerview:1.0.0'
-    implementation 'com.google.android.material:material:1.0.0-rc01'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'com.google.android.material:material:1.4.0'
 }
 ``` 
 
