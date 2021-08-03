@@ -26,6 +26,16 @@ public final class MyAppGlideModule extends AppGlideModule {
   // leave empty for now
 }
 ```
+```kotlin
+import com.bumptech.glide.annotation.GlideModule
+import com.bumptech.glide.module.AppGlideModule
+
+// new since Glide v4
+@GlideModule
+class MyAppGlideModule : AppGlideModule() { 
+    // leave empty for now
+}
+```
 
 Make sure to sync your project to Gradle before continuing, since Glide needs to generate the necessary code to invoke `GlideApp.with()` in Android Studio.
 
@@ -34,9 +44,14 @@ Make sure to sync your project to Gradle before continuing, since Glide needs to
 If you are migrating from Glide v3, make sure to review [this guide](https://bumptech.github.io/glide/doc/migrating.html).  Instead of `Glide.with()`, you will need to use `GlideApp.with()`:
 
 ```java
-GlideApp.with(context)
+Glide.with(context)
     .load("http://via.placeholder.com/300.png")
     .into(ivImg);
+```
+```kotlin
+Glide.with(context)
+    .load("http://via.placeholder.com/300.png")
+    .into(ivImg)
 ```
 
 ### Advanced Usage
@@ -44,26 +59,45 @@ GlideApp.with(context)
 Resizing images with:
 
 ```java
-GlideApp.with(context)
+Glide.with(context)
     .load("http://via.placeholder.com/300.png")
     .override(300, 200)
     .into(ivImg);
+```
+```kotlin
+Glide.with(context)
+    .load("http://via.placeholder.com/300.png")
+    .override(300, 200)
+    .into(ivImg)
 ```
 
 Placeholder and error images:
 
 ```java
-GlideApp.with(context)
+Glide.with(context)
     .load("http://via.placeholder.com/300.png")
     .placeholder(R.drawable.placeholder)
     .error(R.drawable.imagenotfound)
     .into(ivImg);
 ```
+```kotlin
+Glide.with(context)
+    .load("http://via.placeholder.com/300.png")
+    .placeholder(R.drawable.placeholder)
+    .error(R.drawable.imagenotfound)
+    .into(ivImg)
+```
 
 Cropping images with:
 
 ```java
-GlideApp.with(context)
+Glide.with(context)
+    .load("http://via.placeholder.com/300.png")
+    .centerCrop()
+    .into(ivImg);
+```
+```kotlin
+Glide.with(context)
     .load("http://via.placeholder.com/300.png")
     .centerCrop()
     .into(ivImg);
@@ -86,6 +120,17 @@ public final class MyAppGlideModule extends AppGlideModule {
   }
 }
 ```
+```kotlin
+@GlideModule
+class MyAppGlideModule : AppGlideModule() {
+    override fun applyOptions(context: Context, builder: GlideBuilder) {
+        // Glide default Bitmap Format is set to RGB_565 since it
+        // consumed just 50% memory footprint compared to ARGB_8888.
+        // Increase memory usage for quality with:
+        builder.setDefaultRequestOptions(RequestOptions().format(DecodeFormat.PREFER_ARGB_8888))
+    }
+}
+```
 
 ### Resizing
 
@@ -94,7 +139,13 @@ Ideally, an image's dimensions would match exactly those of the `ImageView` in w
 Glide automatically limits the size of the image it holds in memory to the `ImageView` dimensions. Picasso has the same ability, but requires a call to `fit()`. With Glide, if you _don't want_ the image to be automatically fitted to the `ImageView`, you can call `override(horizontalSize, verticalSize)`. This will resize the image before displaying it in the `ImageView` but _without_ respect to the image's aspect ratio:
 
 ```java
-GlideApp.with(context)
+Glide.with(context)
+    .load("http://via.placeholder.com/300.png")
+    .override(100, 200) // resizes the image to 100x200 pixels but does not respect aspect ratio
+    .into(ivImg);
+```
+```kotlin
+Glide.with(context)
     .load("http://via.placeholder.com/300.png")
     .override(100, 200) // resizes the image to 100x200 pixels but does not respect aspect ratio
     .into(ivImg);
@@ -105,7 +156,13 @@ Resizing images in this way without respect to the original aspect ratio will of
 If you only want to resize one dimension, use `Target.SIZE_ORIGINAL` as a placeholder for the other dimension:
 
 ```java
-GlideApp.with(context)
+Glide.with(context)
+    .load("http://via.placeholder.com/300.png")
+    .override(100, Target.SIZE_ORIGINAL) // resizes width to 100, preserves original height, does not respect aspect ratio
+    .into(ivImg);
+```
+```kotlin
+Glide.with(context)
     .load("http://via.placeholder.com/300.png")
     .override(100, Target.SIZE_ORIGINAL) // resizes width to 100, preserves original height, does not respect aspect ratio
     .into(ivImg);
@@ -116,7 +173,14 @@ GlideApp.with(context)
 Calling `centerCrop()` scales the image so that it fills the requested bounds of the `ImageView` and then crops the extra. The `ImageView` will be filled completely, but the entire image might not be displayed.
 
 ```java
-GlideApp.with(context)
+Glide.with(context)
+    .load("http://via.placeholder.com/300.png")
+    .override(100, 200)
+    .centerCrop() // scale to fill the ImageView and crop any extra
+    .into(ivImg);
+```
+```kotlin
+Glide.with(context)
     .load("http://via.placeholder.com/300.png")
     .override(100, 200)
     .centerCrop() // scale to fill the ImageView and crop any extra
@@ -128,7 +192,14 @@ GlideApp.with(context)
 Calling `fitCenter()` scales the image so that both dimensions are equal to or less than the requested bounds of the `ImageView`. The image will be displayed completely, but might not fill the entire `ImageView`.
 
 ```java
-GlideApp.with(context)
+Glide.with(context)
+    .load("http://via.placeholder.com/300.png")
+    .override(100, 200)
+    .fitCenter() // scale to fit entire image within ImageView
+    .into(ivImg);
+```
+```kotlin
+Glide.with(context)
     .load("http://via.placeholder.com/300.png")
     .override(100, 200)
     .fitCenter() // scale to fit entire image within ImageView
@@ -165,7 +236,7 @@ Note that this is not generally a good idea, but can be used temporarily to trig
 If you experience errors loading images, you can create a `RequestListener<Drawable>` and pass it in via `Glide.listener()` to intercept errors:
 
 ```java
-GlideApp.with(context)
+Glide.with(context)
         .load("http://via.placeholder.com/300.png")
         .placeholder(R.drawable.placeholder)
         .error(R.drawable.imagenotfound)
@@ -183,6 +254,36 @@ GlideApp.with(context)
             }
         })
         .into(ivImg);
+```
+```kotlin
+        Glide.with(context)
+            .load("http://via.placeholder.com/300.png")
+            .placeholder(R.drawable.placeholder)
+            .error(R.drawable.imagenotfound)
+            .listener(object : RequestListener<Drawable?> {
+                override fun onLoadFailed(
+                    @Nullable e: GlideException?,
+                    model: Any?,
+                    target: Target<Drawable>,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    // log exception
+                    Log.e("TAG", "Error loading image", e)
+                    return false // important to return false so the error placeholder can be placed
+                }
+
+                override fun onResourceReady(
+                    resource: Drawable,
+                    model: Any,
+                    target: Target<Drawabl?>,
+                    dataSource: DataSource?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    return false
+                }
+            })
+            .into(ivImg)
+    }
 ```
 
 
@@ -208,94 +309,67 @@ GlideApp.with(this)
         .transform(new RoundedCornersTransformation(radius, margin))
         .into(ivImg);
 ```
+```kotlin
+val radius = 30; // corner radius, higher value = more rounded
+val margin = 10; // crop margin, set to 0 for corners with no crop
+Glide.with(this)
+        .load("http://via.placeholder.com/300.png")
+        .centerCrop() // scale image to fill the entire ImageView
+        .transform(RoundedCornersTransformation(radius, margin))
+        .into(ivImg)
+```
 
 ### Crop
 
 Circle crop:
 
 ```java
-GlideApp.with(this)
+Glide.with(this)
         .load("http://via.placeholder.com/300.png")
         .transform(new CircleCrop())
         .into(ivImg);
+```
+```kotlin
+Glide.with(this)
+        .load("http://via.placeholder.com/300.png")
+        .transform(CircleCrop())
+        .into(ivImg)
 ```
 ### Effects
 
 Blur:
 
 ```java
-GlideApp.with(this)
+Glide.with(this)
         .load("http://via.placeholder.com/300.png")
         .transform(new BlurTransformation())
         .into(ivImg);
+```
+```kotlin
+Glide.with(this)
+        .load("http://via.placeholder.com/300.png")
+        .transform(BlurTransformation())
+        .into(ivImg)
 ```
 
 Multiple transforms:
 
 ```java
-GlideApp.with(this)
+Glide.with(this)
         .load("http://via.placeholder.com/300.png")
         .transform(new MultiTransformation<Bitmap>(new BlurTransformation(25), new CircleCrop()))
         .into(ivImg);
+```
+```kotlin
+Glide.with(this)
+    .load("http://via.placeholder.com/300.png")
+    .transform(MultiTransformation(BlurTransformation(25), CircleCrop()))
+    .into(ivImg)
 ```
 
 - [List of available transformations](https://github.com/wasabeef/glide-transformations/blob/master/README.md#transformations-1)
 
 ## Advanced Usages
-
-### Showing a `ProgressBar`
-
-Add a `ProgressBar` or otherwise handle callbacks for an image that is loading:
-
-```java
-progressBar.setVisibility(View.VISIBLE);
-
-GlideApp.with(this)
-        .load("http://via.placeholder.com/300.png")
-        .listener(new RequestListener<Drawable>() {
-            @Override
-            public boolean onLoadFailed(Exception e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                progressBar.setVisibility(View.GONE);
-                return false; // important to return false so the error placeholder can be placed
-            }
-
-            @Override
-            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                progressBar.setVisibility(View.GONE);
-                return false;
-            }
-        })
-        .into(ivImg);
-```
-
-### Adjusting Image Size Dynamically
-
-To readjust the `ImageView` size after the image has been retrieved, first define a `SimpleTarget<Bitmap>` object to intercept the `Bitmap` once it is loaded:
-
-```java
-private SimpleTarget target = new SimpleTarget<Bitmap>() {  
-    @Override
-    public void onResourceReady(Bitmap bitmap, @Nullable Transition<? super Bitmap> transition) {
-        // do something with the bitmap
-        // set it to an ImageView
-        imageView.setImageBitmap(bitmap);
-    }
-};
-
-```
-
-Next, pass the `SimpleTarget` to Glide via `into()`:
-
-```java
-GlideApp.with(context)
-        .load("http://via.placeholder.com/300.png")
-        .asBitmap()
-        .into(target);
-```
-
-**Note:** The `SimpleTarget` object must be **stored as a member field or method** and cannot be an anonymous class otherwise this won't work as expected.  The reason is that Glide accepts this parameter as a weak memory reference, and because anonymous classes are eligible for garbage collection when there are no more references, the network request to fetch the image may finish after this anonymous class has already been reclaimed.  See this [Stack Overflow](http://stackoverflow.com/questions/24180805/onbitmaploaded-of-target-object-not-called-on-first-load#answers) discussion for more details.
-
-In other words, you cannot do this all inline `GlideApp.with(this).load("url").into(new SimpleTarget<Bitmap>() { ... })` as in other scenarios.
 
 ## Networking
 
