@@ -142,7 +142,10 @@ To display animated GIFs, we can't use Picasso. Instead, we can use the alternat
 Toast is a quick alert that can be displayed with:
 
 ```java
-Toast.makeText(MyActivity.this, "some message", Toast.LENGTH_SHORT).show();
+Toast.makeText(this, "some message", Toast.LENGTH_SHORT).show();
+```
+```kotlin
+Toast.makeText(this, "some message", Toast.LENGTH_SHORT).show()
 ```
 
 Review the [[Displaying Toasts]] guide for more details on how to display a toast. 
@@ -196,6 +199,10 @@ The `TextView` has [[basic support for HTML text formatting|Working-with-the-Tex
 ```java
 TextView view = (TextView)findViewById(R.id.sampleText);
 view.setText(Html.fromHtml("This <i>is</i> a <b>test</b>"));
+```
+```kotlin
+val view = findViewById<TextView>(R.id.sampleText)
+view.setText(Html.fromHtml("This <i>is</i> a <b>test</b>"))
 ```
 
 and can even [[autolink URLs contained within the text|Working-with-the-TextView#autolinking-urls]]:
@@ -370,6 +377,14 @@ view.setVisibility(View.GONE);
 // This view is visible and takes up space within the layout
 view.setVisibility(View.VISIBLE);
 ```
+```kotlin
+// This view is invisible, but it still takes up space for layout purposes.
+view.setVisibility(View.INVISIBLE)
+// This view is invisible, and it doesn't take any space for layout purposes.
+view.setVisibility(View.GONE)
+// This view is visible and takes up space within the layout
+view.setVisibility(View.VISIBLE)
+```
 
 You can use `View.INVISIBLE` to hide the element or `View.GONE` to collapse the element entirely.
 
@@ -441,6 +456,11 @@ In the new Android 5.0 material design guidelines, the style guidelines have cha
 getSupportActionBar().setDisplayShowHomeEnabled(true);
 getSupportActionBar().setLogo(R.drawable.ic_launcher);
 getSupportActionBar().setDisplayUseLogoEnabled(true);
+```
+```kotlin
+supportActionBar?.setDisplayShowHomeEnabled(true)
+supportActionBar?.setLogo(R.drawable.ic_launcher)
+supportActionBar?.setDisplayUseLogoEnabled(true)
 ```
 
 You can read more about this on the [material design guidelines](https://developer.android.com/reference/android/support/v7/widget/Toolbar.html) which state: "The use of application icon plus title as a standard layout is discouraged on API 21 devices and newer." 
