@@ -150,6 +150,7 @@ client.getHomeTimeline(1, new JsonHttpResponseHandler() {
   }
 });
 ```
+
 ```kotlin
 client.getHomeTimeline(1, object : JsonHttpResponseHandler() {
     override fun onSuccess(statusCode: Int, headers: Headers, json: JSON) {
