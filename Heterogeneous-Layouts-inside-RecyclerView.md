@@ -31,6 +31,18 @@ For the purpose of this exercise, we will modify our sample data set in `Recycle
         return items;
     }
 ```
+```kotlin
+private fun getSampleArrayList(): ArrayList<Any> {
+    val items: ArrayList<Any> = ArrayList()
+    items.add(User("Dany Targaryen", "Valyria"))
+    items.add(User("Rob Stark", "Winterfell"))
+    items.add("image")
+    items.add(User("Jon Snow", "Castle Black"))
+    items.add("image")
+    items.add(User("Tyrion Lanister", "King's Landing"))
+    return items
+}
+```
 
 Next, you need to create the classes (and layouts) for `ViewHolder1` (`layout_viewholder1.xml`) and `ViewHolder2` (`layout_viewholder2.xml`).
 
@@ -61,6 +73,17 @@ public class ViewHolder1 extends RecyclerView.ViewHolder {
 
     public void setLabel2(TextView label2) {
         this.label2 = label2;
+    }
+}
+```
+```kotlin
+class ViewHolder1(v: View) : RecyclerView.ViewHolder(v) {
+    var label1: TextView
+    var label2: TextView
+
+    init {
+        label1 = v.findViewById(R.id.text1)
+        label2 = v.findViewById(R.id.text2)
     }
 }
 ```
@@ -98,20 +121,25 @@ public class ViewHolder1 extends RecyclerView.ViewHolder {
 ```java
 public class ViewHolder2 extends RecyclerView.ViewHolder {
 
-    private ImageView ivExample;
+    private ImageView imageView;
 
     public ViewHolder2(View v) {
         super(v);
-        ivExample = (ImageView) v.findViewById(R.id.ivExample);
+        imageView = (ImageView) v.findViewById(R.id.ivExample);
     }
 
     public ImageView getImageView() {
-        return ivExample;
+        return imageView;
     }
 
-    public void setImageView(ImageView ivExample) {
-        this.ivExample = ivExample;
+    public void setImageView(ImageView imageView) {
+        this.imageView = imageView;
     }
+}
+```
+```kotlin
+class ViewHolder2(v: View) : RecyclerView.ViewHolder(v) {
+    var imageView: ImageView = v.findViewById(R.id.ivExample)
 }
 ```
 
@@ -119,7 +147,7 @@ public class ViewHolder2 extends RecyclerView.ViewHolder {
 
 ```xml
 <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/ivExample"
+    android:id="@+id/imageView"
     android:adjustViewBounds="true"
     android:scaleType="fitXY"
     android:layout_width="wrap_content"
@@ -167,6 +195,33 @@ public class ComplexRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
     }
 }
 ```
+```kotlin
+class ComplexRecyclerViewAdapter     // Provide a suitable constructor (depends on the kind of dataset)
+    (  // The items to display in your RecyclerView
+    private val items: List<Any>
+) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    private val USER = 0
+    private val IMAGE = 1
+
+    // Return the size of your dataset (invoked by the layout manager)
+    override fun getItemCount(): Int {
+        return items.size
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        //More to come
+    }
+
+    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        //More to come
+    }
+
+    override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
+        //More to come
+    }
+}
+```
 
 Now, you need to override the `getItemViewType` method to tell the `RecyclerView` about the type of view to inflate based on the position. We will return USER or IMAGE based on the type of object in the data we have.
 
@@ -180,6 +235,17 @@ Now, you need to override the `getItemViewType` method to tell the `RecyclerView
             return IMAGE;
         }
         return -1;
+    }
+```
+```kotlin
+    // Returns the view type of the item at position for the purposes of view recycling.
+    override fun getItemViewType(position: Int): Int {
+        if (items[position] is User) {
+            return USER
+        } else if (items[position] is String) {
+            return IMAGE
+        }
+        return -1
     }
 ```
 
@@ -216,6 +282,34 @@ Next, you need to override the `onCreateViewHolder` method to tell the `Recycler
         return viewHolder;
     }
 ```
+```kotlin
+     /**
+     * This method creates different RecyclerView.ViewHolder objects based on the item view type.\
+     *
+     * @param viewGroup ViewGroup container for the item
+     * @param viewType type of view to be inflated
+     * @return viewHolder to be inflated
+     */
+    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val viewHolder: RecyclerView.ViewHolder
+        val inflater = LayoutInflater.from(viewGroup.context)
+        when (viewType) {
+            USER -> {
+                val v1: View = inflater.inflate(R.layout.layout_viewholder1, viewGroup, false)
+                viewHolder = ViewHolder1(v1)
+            }
+            IMAGE -> {
+                val v2: View = inflater.inflate(R.layout.layout_viewholder2, viewGroup, false)
+                viewHolder = ViewHolder2(v2)
+            }
+            else -> {
+                val v: View = inflater.inflate(R.layout.simple_list_item_1, viewGroup, false)
+                viewHolder = RecyclerViewSimpleTextViewHolder(v)
+            }
+        }
+        return viewHolder
+    }
+```
 
 Next, override the `onBindViewHolder` method to configure the `ViewHolder` with actual data that needs to be displayed. Distinguish the two different layouts and load them with sample text and image as follows.
 
@@ -246,6 +340,33 @@ Next, override the `onBindViewHolder` method to configure the `ViewHolder` with 
         }
     }
 ```
+```kotlin
+    /**
+     * This method internally calls onBindViewHolder(ViewHolder, int) to update the
+     * RecyclerView.ViewHolder contents with the item at the given position
+     * and also sets up some private fields to be used by RecyclerView.
+     *
+     * @param viewHolder The type of RecyclerView.ViewHolder to populate
+     * @param position Item position in the viewgroup.
+     */
+    override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
+        when (viewHolder.itemViewType) {
+            USER -> {
+                val vh1 = viewHolder as ViewHolder1
+                configureViewHolder1(vh1, position)
+            }
+            IMAGE -> {
+                val vh2 = viewHolder as ViewHolder2
+                configureViewHolder2(vh2, position)
+            }
+            else -> {
+                val vh: RecyclerViewSimpleTextViewHolder =
+                    viewHolder as RecyclerViewSimpleTextViewHolder
+                configureDefaultViewHolder(vh, position)
+            }
+        }
+    }
+```
 
 The following methods are used for configuring the individual `RecyclerView.ViewHolder` objects:
 
@@ -266,6 +387,23 @@ The following methods are used for configuring the individual `RecyclerView.View
         vh2.getImageView().setImageResource(R.drawable.sample_golden_gate);
     }
 ```
+```kotlin
+    private fun configureDefaultViewHolder(vh: RecyclerViewSimpleTextViewHolder, position: Int) {
+        vh.getLabel().setText(items[position] as CharSequence)
+    }
+
+    private fun configureViewHolder1(vh1: ViewHolder1, position: Int) {
+        val user = items[position] as User
+        if (user != null) {
+            vh1.label1.text = "Name: " + user.name
+            vh1.label2.text = "Hometown: " + user.hometown
+        }
+    }
+
+    private fun configureViewHolder2(vh2: ViewHolder2) {
+        vh2.imageView.setImageResource(R.drawable.sample_golden_gate)
+    }
+```
 
 One ***final and important*** change before you can run the program would be to change the `bindDataToAdapter` method in our `RecyclerViewActivity` to set the `ComplexRecyclerViewAdapter` instead of the `SimpleItemRecyclerViewAdapter` as follows:
 
@@ -273,6 +411,12 @@ One ***final and important*** change before you can run the program would be to 
     private void bindDataToAdapter() {
         // Bind adapter to recycler view object
         recyclerView.setAdapter(new ComplexRecyclerViewAdapter(getSampleArrayList()));
+    }
+```
+```kotlin
+    fun bindDataToAdapter() {
+        // Bind adapter to recycler view object
+        recyclerView.setAdapter(ComplexRecyclerViewAdapter(getSampleArrayList()));
     }
 ```
 
