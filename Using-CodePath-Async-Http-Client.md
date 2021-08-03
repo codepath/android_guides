@@ -29,7 +29,7 @@ import com.codepath.asynchttpclient.AsyncHttpClient;
 AsyncHttpClient client = new AsyncHttpClient();
 RequestParams params = new RequestParams();
 params.put("limit", "5");
-params.put("page", 0);
+params.put("page", "0");
 client.get("https://api.thecatapi.com/v1/images/search", params, new TextHttpResponseHandler() {
         @Override
         public void onSuccess(int statusCode, Headers headers, String response) {
@@ -43,6 +43,27 @@ client.get("https://api.thecatapi.com/v1/images/search", params, new TextHttpRes
     }
 );
 ```
+```kotlin
+val client = AsyncHttpClient()
+val params = RequestParams()
+params["limit"] = "5"
+params["page"] = "0"
+client["https://api.thecatapi.com/v1/images/search", params, object :
+    TextHttpResponseHandler() {
+    override fun onSuccess(statusCode: Int, headers: Headers, response: String) {
+        // called when response HTTP status is "200 OK"
+    }
+
+    override fun onFailure(
+        statusCode: Int,
+        headers: Headers?,
+        errorResponse: String,
+        t: Throwable?
+    ) {
+        // called when response HTTP status is "4XX" (eg. 401, 403, 404)
+    }
+}]
+```
 
 This will automatically execute the request asynchronously and fire the `onSuccess` when the response returns a success code and `onFailure` if the response does not.
 
@@ -53,7 +74,7 @@ Similar to sending a regular HTTP request, this library can also be used for sen
 ```java
 RequestParams params = new RequestParams();
 params.put("limit", "5");
-params.put("page", 0);
+params.put("page", "0");
 
 client.get("https://api.thecatapi.com/v1/images/search", params, new JsonHttpResponseHandler() {
    @Override
@@ -69,6 +90,29 @@ client.get("https://api.thecatapi.com/v1/images/search", params, new JsonHttpRes
 
    }
 });
+```
+```kotlin
+val params = RequestParams()
+params["limit"] = "5"
+params["page"] = "0"
+
+client["https://api.thecatapi.com/v1/images/search", params, object :
+    JsonHttpResponseHandler() {
+    override fun onSuccess(statusCode: Int, headers: Headers, json: JSON) {
+        // Access a JSON array response with `json.jsonArray` 
+        Log.d("DEBUG ARRAY", json.jsonArray.toString())
+        // Access a JSON object response with `json.jsonObject` 
+        Log.d("DEBUG OBJECT", json.jsonObject.toString())
+    }
+
+    override fun onFailure(
+        statusCode: Int,
+        headers: Headers?,
+        response: String,
+        throwable: Throwable?
+    ) {
+    }
+}]
 ```
 
 Assuming the callback uses `JsonHttpResponseHandler`, the request will be sent out with the appropriate parameters passed in the query string and then the response can be parsed as JSON and made available within `onSuccess`. 
@@ -102,9 +146,28 @@ client.getHomeTimeline(1, new JsonHttpResponseHandler() {
 
    public void onFailure(int statusCode, Headers headers, String responseString, Throwable t)  {
     // Handle the failure and alert the user to retry
-    Log.e("ERROR", e.toString());
+    Log.e("ERROR", responseString);
   }
 });
+```
+```kotlin
+client.getHomeTimeline(1, object : JsonHttpResponseHandler() {
+    override fun onSuccess(statusCode: Int, headers: Headers, json: JSON) {
+        // Response is automatically parsed into a JSONArray
+        // json.jsonObject.getLong("id");
+        // Here we want to process the json data into Java models.
+    }
+
+    override fun onFailure(
+        statusCode: Int,
+        headers: Headers?,
+        responseString: String,
+        t: Throwable?
+    ) {
+        // Handle the failure and alert the user to retry
+        Log.e("ERROR", responseString)
+    }
+})
 ```
 
 ### Advanced Usage
