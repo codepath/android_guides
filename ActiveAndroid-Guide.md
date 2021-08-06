@@ -46,7 +46,7 @@ Next, we need to configure the `application` node with the `name` property of `c
             android:value="RestClient.db" />
         <meta-data
             android:name="AA_DB_VERSION"
-            android:value="1" />
+            android:value="2" />
 
         <activity
             android:name="com.codepath.apps.activities.MainActivity"
