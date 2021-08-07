@@ -69,7 +69,7 @@ Carolyn Dolnick from Lookout embarked on learning Android coming from a data bac
 1. Learn Java Well with [Stanford CS 106A](https://github.com/NatashaTheRobot/Stanford-CS-106A/wiki/Stanford-Introduction-To-Computer-Science-Programming-Methodology-CS106A-Class-Guide)
 2. Learn about Git Version Control via [Udacity Course](https://www.udacity.com/course/ud775)
 3. Learn about Data Structures via [Udemy Course](https://www.udemy.com/introduction-to-data-structures-algorithms-in-java/)
-4. Start with [this Udacity Course by Google](https://www.udacity.com/course/ud853) and reference [our getting started resources](https://guides.codepath.com/android#getting-started). 
+4. Start with [this Udacity Course by Google](https://www.udacity.com/course/new-android-fundamentals--ud851) and reference [our getting started resources](https://guides.codepath.com/android#getting-started). 
 5. Request [free observer access](mailto:contact@codepath.com) to our CodePath Android Bootcamp by explaining what you've accomplished and supplying your github handle. Build weekly apps assigned in the course.
 
 6. Master the world's most version control tool via [Intellipaat Git course](https://intellipaat.com/git-github-training/)
