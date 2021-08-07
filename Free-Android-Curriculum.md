@@ -72,6 +72,6 @@ Carolyn Dolnick from Lookout embarked on learning Android coming from a data bac
 4. Start with [this Udacity Course by Google](https://www.udacity.com/course/ud853) and reference [our getting started resources](https://guides.codepath.com/android#getting-started). 
 5. Request [free observer access](mailto:contact@codepath.com) to our CodePath Android Bootcamp by explaining what you've accomplished and supplying your github handle. Build weekly apps assigned in the course.
 
-6.Master the world's most version control tool via [Intellipaat Git course](https://intellipaat.com/git-github-training/)
+6. Master the world's most version control tool via [Intellipaat Git course](https://intellipaat.com/git-github-training/)
 
 ## References
