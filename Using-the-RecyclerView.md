@@ -53,27 +53,13 @@ Here is [Dave Smith's talk](https://www.youtube.com/watch?v=gs_C1E8HwvE&index=22
 
 Using a `RecyclerView` has the following key steps:
 
-1. Add `RecyclerView` AndroidX library to the Gradle build file
-2. Define a model class to use as the data source
-3. Add a `RecyclerView` to your activity to display the items
-4. Create a custom row layout XML file to visualize the item
-5. Create a `RecyclerView.Adapter` and `ViewHolder` to render the item
-6. Bind the adapter to the data source to populate the `RecyclerView`
+1. Define a model class to use as the data source
+2. Add a `RecyclerView` to your activity to display the items
+3. Create a custom row layout XML file to visualize the item
+4. Create a `RecyclerView.Adapter` and `ViewHolder` to render the item
+5. Bind the adapter to the data source to populate the `RecyclerView`
 
 The steps are explained in more detail below.
-
-### Installation
-
-Make sure the RecyclerView AndroidX library is listed as a dependency in your `app/build.gradle`:
-
-```gradle
-dependencies {
-    ...
-    implementation 'androidx.recyclerview:recyclerview:1.1.0'
-}
-```
-
-Click on "Sync Project with Gradle files" to let your IDE download the appropriate resources.
 
 ### Defining a Model
 
