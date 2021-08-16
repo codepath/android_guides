@@ -10,7 +10,7 @@
 * [Vogella Android Analysis Tools](http://www.vogella.com/tutorials/AndroidTools/article.html)
 * [Performance Course on Udacity](https://www.udacity.com/course/ud825)
 * [Performance Doc from Udacity](https://docs.google.com/document/d/1EKVq2FzcLVJFbwUtaC3QRddSwtzs0BSKZahkQyeGyHo/pub?embedded=true)
-* [Free Tool to Profile and Visualize App Performance] (https://www.apptim.com/)
+* [Free Tool to Profile and Visualize App Performance](https://www.apptim.com/)
 
 In addition, the following concepts need to be included:
 
