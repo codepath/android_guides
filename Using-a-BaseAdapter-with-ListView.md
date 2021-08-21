@@ -10,7 +10,7 @@ If your data source is an `ArrayList` or array, we can also use the [[ArrayAdapt
 
 ## Using the BaseAdapter
 
-To use the BaseAdapter with a ListView, a concrete implementation the `BaseAdepter` class that implements the following methods must be created:
+To use the BaseAdapter with a ListView, a concrete implementation the `BaseAdapter` class that implements the following methods must be created:
 
 * `int getCount()`
 * `Object getItem(int position)`
