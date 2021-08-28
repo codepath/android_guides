@@ -87,7 +87,7 @@ In some cases, we want to apply a consistent theme to all activities within our 
 <style name="LightThemeSelector" parent="android:Theme.AppCompat.Light">
     ...
 </style>
-```
+```d
 
 This theme contains `item` nodes that often reference other styles or colors:
 
