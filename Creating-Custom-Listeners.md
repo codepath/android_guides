@@ -1,6 +1,6 @@
 ## Overview
 
-The "listener" or "observer" pattern is the most common strategy for creating asynchronous callbacks within Android development. Listeners are used for any type of asynchronous event in order to implement the code to run when an event occurs. We see this pattern with any type of I/O as well as for view events on screen. For example, here's a common usage of the listener pattern to attach a click event to a button:
+The "listener" or "observer" pattern is the most common tegy for creating asynchronous callbacks within Android development. Listeners are used for any type of asynchronous event in order to implement the code to run when an event occurs. We see this pattern with any type of I/O as well as for view events on screen. For example, here's a common usage of the listener pattern to attach a click event to a button:
 
 ```java
 Button btnExample = (Button) findViewById(R.id.btnExample);
