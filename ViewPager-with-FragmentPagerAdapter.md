@@ -6,6 +6,14 @@ Layout that allows the user to swipe left and right through "pages" of content w
 
 ## Usage
 
+q
+q
+q
+q
+q
+q
+
+
 ### Layout ViewPager
 
 A `ViewPager` is a layout which can be added to any layout XML file inside a root layout:
