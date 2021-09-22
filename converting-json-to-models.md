@@ -1,5 +1,751 @@
 {
-    "error": 0,
-    "message": null,
-    "results": "{\"4\":{\"id\":4,\"name\":\"Everyone\",\"goal\":0,\"isCaptain\":0,\"memberCount\":3,\"rank\":1,\"rank_status\":\"Your Rank: #1 out of 3\",\"leaderboards\":{\"id\":4,\"name\":\"Everyone\",\"rank\":1,\"memberCount\":3,\"stats\":\"1681 km\",\"percent\":0,\"atTop\":[{\"id\":1,\"name\":\"Benjamin Anderson\",\"photoURL\":\"https:\\/\\/mobilelife.s3.amazonaws.com\\/development\\/profiles\\/ceb6002e74321e4200d176be74d5f4dd.jpeg\",\"rank\":1,\"cheers\":1,\"cheered\":0,\"message\":1,\"stats\":\"1681 km\"},{\"id\":2,\"name\":\"Charity Dynamics\",\"photoURL\":\"https:\\/\\/mobilelife.s3.amazonaws.com\\/development\\/profiles\\/5182f4431061d98f6bd5e1edf3d9782a.jpeg\",\"rank\":2,\"cheers\":0,\"cheered\":0,\"message\":1,\"stats\":\"350 km\"},{\"id\":31,\"name\":\"Shivani Patel\",\"photoURL\":\"https:\\/\\/mobilelife.s3.amazonaws.com\\/development\\/profiles\\/b75493f3dbb41200b0d901c9c4aa46c3.jpeg\",\"rank\":3,\"cheers\":0,\"cheered\":0,\"message\":0,\"stats\":\"0 km\"}],\"aroundMe\":[{\"id\":1,\"name\":\"Benjamin Anderson\",\"photoURL\":\"https:\\/\\/mobilelife.s3.amazonaws.com\\/development\\/profiles\\/ceb6002e74321e4200d176be74d5f4dd.jpeg\",\"rank\":1,\"cheers\":1,\"cheered\":0,\"message\":1,\"stats\":\"1681 km\"},{\"id\":2,\"name\":\"Charity Dynamics\",\"photoURL\":\"https:\\/\\/mobilelife.s3.amazonaws.com\\/development\\/profiles\\/5182f4431061d98f6bd5e1edf3d9782a.jpeg\",\"rank\":2,\"cheers\":0,\"cheered\":0,\"message\":1,\"stats\":\"350 km\"},{\"id\":31,\"name\":\"Shivani Patel\",\"photoURL\":\"https:\\/\\/mobilelife.s3.amazonaws.com\\/development\\/profiles\\/b75493f3dbb41200b0d901c9c4aa46c3.jpeg\",\"rank\":3,\"cheers\":0,\"cheered\":0,\"message\":0,\"stats\":\"0 km\"}],\"goal\":\"0.00\"},\"challenges\":[]},\"1\":{\"id\":1,\"name\":\"Access Group 1\",\"goal\":1.3,\"isCaptain\":1,\"memberCount\":4,\"rank\":1,\"rank_status\":\"Your Rank: #1 out of 4\",\"leaderboards\":{\"id\":1,\"name\":\"Access Group 1\",\"rank\":1,\"memberCount\":4,\"stats\":\"1681 km\",\"percent\":0,\"atTop\":[{\"id\":1,\"name\":\"Benjamin Anderson\",\"photoURL\":\"https:\\/\\/mobilelife.s3.amazonaws.com\\/development\\/profiles\\/ceb6002e74321e4200d176be74d5f4dd.jpeg\",\"rank\":1,\"cheers\":1,\"cheered\":1,\"message\":1,\"stats\":\"1681 km\"},{\"id\":2,\"name\":\"Charity Dynamics\",\"photoURL\":\"https:\\/\\/mobilelife.s3.amazonaws.com\\/development\\/profiles\\/5182f4431061d98f6bd5e1edf3d9782a.jpeg\",\"rank\":2,\"cheers\":1,\"cheered\":0,\"message\":1,\"stats\":\"350 km\"},{\"id\":31,\"name\":\"Shivani Patel\",\"photoURL\":\"https:\\/\\/mobilelife.s3.amazonaws.com\\/development\\/profiles\\/b75493f3dbb41200b0d901c9c4aa46c3.jpeg\",\"rank\":3,\"cheers\":0,\"cheered\":0,\"message\":0,\"stats\":\"0 km\"},{\"id\":45,\"name\":\"Steven Yarbrough\",\"photoURL\":\"https:\\/\\/mobilelife.s3.amazonaws.com\\/development\\/profiles\\/f145eb64921db9f39bf880875774e30f.jpeg\",\"rank\":4,\"cheers\":0,\"cheered\":0,\"message\":0,\"stats\":\"0 km\"}],\"aroundMe\":[{\"id\":1,\"name\":\"Benjamin Anderson\",\"photoURL\":\"https:\\/\\/mobilelife.s3.amazonaws.com\\/development\\/profiles\\/ceb6002e74321e4200d176be74d5f4dd.jpeg\",\"rank\":1,\"cheers\":1,\"cheered\":1,\"message\":1,\"stats\":\"1681 km\"},{\"id\":2,\"name\":\"Charity Dynamics\",\"photoURL\":\"https:\\/\\/mobilelife.s3.amazonaws.com\\/development\\/profiles\\/5182f4431061d98f6bd5e1edf3d9782a.jpeg\",\"rank\":2,\"cheers\":1,\"cheered\":0,\"message\":1,\"stats\":\"350 km\"},{\"id\":31,\"name\":\"Shivani Patel\",\"photoURL\":\"https:\\/\\/mobilelife.s3.amazonaws.com\\/development\\/profiles\\/b75493f3dbb41200b0d901c9c4aa46c3.jpeg\",\"rank\":3,\"cheers\":0,\"cheered\":0,\"message\":0,\"stats\":\"0 km\"},{\"id\":45,\"name\":\"Steven Yarbrough\",\"photoURL\":\"https:\\/\\/mobilelife.s3.amazonaws.com\\/development\\/profiles\\/f145eb64921db9f39bf880875774e30f.jpeg\",\"rank\":4,\"cheers\":0,\"cheered\":0,\"message\":0,\"stats\":\"0 km\"}],\"goal\":\"1.30\"},\"challenges\":{\"2\":{\"id\":2,\"goalMax\":5,\"name\":\"Challenge title 2\",\"description\":\"Challenge description 2\",\"joined\":1,\"earned\":1,\"future\":0,\"goalMetric\":\"km\",\"goalCurrent\":409,\"goalPercent\":100,\"goalCurrentStatus\":\"409\\/1.3 steps\",\"goalPercentStatus\":\"100% to goal!\",\"participants\":0,\"duration\":\"Ongoing\",\"daysLeft\":0,\"imageURL\":\"https:\\/\\/bf-vid.s3.amazonaws.com\\/Badges\\/activity_distance_ride_century_inactive.svg\"}}},\"2\":{\"id\":2,\"name\":\"Access Group 2\",\"goal\":15,\"isCaptain\":1,\"memberCount\":3,\"rank\":1,\"rank_status\":\"Your Rank: #1 out of 3\",\"leaderboards\":{\"id\":2,\"name\":\"Access Group 2\",\"rank\":1,\"memberCount\":3,\"stats\":\"1681 km\",\"percent\":0,\"atTop\":[{\"id\":1,\"name\":\"Benjamin Anderson\",\"photoURL\":\"https:\\/\\/mobilelife.s3.amazonaws.com\\/development\\/profiles\\/ceb6002e74321e4200d176be74d5f4dd.jpeg\",\"rank\":1,\"cheers\":0,\"cheered\":0,\"message\":1,\"stats\":\"1681 km\"},{\"id\":2,\"name\":\"Charity Dynamics\",\"photoURL\":\"https:\\/\\/mobilelife.s3.amazonaws.com\\/development\\/profiles\\/5182f4431061d98f6bd5e1edf3d9782a.jpeg\",\"rank\":2,\"cheers\":0,\"cheered\":0,\"message\":1,\"stats\":\"350 km\"},{\"id\":31,\"name\":\"Shivani Patel\",\"photoURL\":\"https:\\/\\/mobilelife.s3.amazonaws.com\\/development\\/profiles\\/b75493f3dbb41200b0d901c9c4aa46c3.jpeg\",\"rank\":3,\"cheers\":0,\"cheered\":0,\"message\":0,\"stats\":\"0 km\"}],\"aroundMe\":[{\"id\":1,\"name\":\"Benjamin Anderson\",\"photoURL\":\"https:\\/\\/mobilelife.s3.amazonaws.com\\/development\\/profiles\\/ceb6002e74321e4200d176be74d5f4dd.jpeg\",\"rank\":1,\"cheers\":0,\"cheered\":0,\"message\":1,\"stats\":\"1681 km\"},{\"id\":2,\"name\":\"Charity Dynamics\",\"photoURL\":\"https:\\/\\/mobilelife.s3.amazonaws.com\\/development\\/profiles\\/5182f4431061d98f6bd5e1edf3d9782a.jpeg\",\"rank\":2,\"cheers\":0,\"cheered\":0,\"message\":1,\"stats\":\"350 km\"},{\"id\":31,\"name\":\"Shivani Patel\",\"photoURL\":\"https:\\/\\/mobilelife.s3.amazonaws.com\\/development\\/profiles\\/b75493f3dbb41200b0d901c9c4aa46c3.jpeg\",\"rank\":3,\"cheers\":0,\"cheered\":0,\"message\":0,\"stats\":\"0 km\"}],\"goal\":\"15.00\"},\"challenges\":[]},\"3\":{\"id\":3,\"name\":\"Access Group 3\",\"goal\":0,\"isCaptain\":1,\"memberCount\":1,\"rank\":1,\"rank_status\":\"Your Rank: #1 out of 1\",\"leaderboards\":{\"id\":3,\"name\":\"Access Group 3\",\"rank\":1,\"memberCount\":1,\"stats\":\"1681 km\",\"percent\":0,\"atTop\":[{\"id\":1,\"name\":\"Benjamin Anderson\",\"photoURL\":\"https:\\/\\/mobilelife.s3.amazonaws.com\\/development\\/profiles\\/ceb6002e74321e4200d176be74d5f4dd.jpeg\",\"rank\":1,\"cheers\":0,\"cheered\":0,\"message\":1,\"stats\":\"1681 km\"}],\"aroundMe\":[{\"id\":1,\"name\":\"Benjamin Anderson\",\"photoURL\":\"https:\\/\\/mobilelife.s3.amazonaws.com\\/development\\/profiles\\/ceb6002e74321e4200d176be74d5f4dd.jpeg\",\"rank\":1,\"cheers\":0,\"cheered\":0,\"message\":1,\"stats\":\"1681 km\"}],\"goal\":\"0.00\"},\"challenges\":[]}}"
+data: [
+{
+row_title: "Quotations",
+row_type: "quotations",
+data: [
+{
+grid_title: "Customer 1",
+grid_background: "#2BB751",
+grid_color: "#000000",
+pricing: {
+regular: "1,000",
+offer: "780",
+discount: "17% discount",
+prefix: "Rs"
+},
+is_quotation: 1,
+delivery_methods: [
+{
+id: 1,
+available: true,
+title: "Home Delivery",
+info: "2.2 km"
+},
+{
+id: 2,
+available: true,
+title: "Pick-up",
+info: "2.6 km"
+},
+{
+id: 3,
+available: false,
+title: "Courier"
+}
+]
+},
+{
+grid_title: 957738370,
+grid_background: "#194a75",
+grid_color: "#ffffff",
+pricing: {
+regular: "1,000",
+offer: "780",
+discount: "15% discount",
+prefix: "Rs"
+},
+is_quotation: 0,
+delivery_methods: [
+{
+id: 1,
+available: true,
+title: "Home Delivery",
+info: "2.2 km"
+},
+{
+id: 2,
+available: true,
+title: "Pick-up",
+info: "2.6 km"
+},
+{
+id: 3,
+available: false,
+title: "Courier"
+}
+]
+},
+{
+grid_title: "Customer 3",
+grid_background: "#2BB751",
+grid_color: "#000000",
+pricing: {
+regular: "1,000",
+offer: "780",
+discount: "16% discount",
+prefix: "Rs"
+},
+is_quotation: 1,
+delivery_methods: [
+{
+id: 1,
+available: true,
+title: "Home Delivery",
+info: "2.2 km"
+},
+{
+id: 2,
+available: true,
+title: "Pick-up",
+info: "2.6 km"
+},
+{
+id: 3,
+available: false,
+title: "Courier"
+}
+]
+},
+{
+grid_title: 260540726,
+grid_background: "#194a75",
+grid_color: "#ffffff",
+pricing: {
+regular: "1,000",
+offer: "780",
+discount: "19% discount",
+prefix: "Rs"
+},
+is_quotation: 0,
+delivery_methods: [
+{
+id: 1,
+available: true,
+title: "Home Delivery",
+info: "2.2 km"
+},
+{
+id: 2,
+available: true,
+title: "Pick-up",
+info: "2.6 km"
+},
+{
+id: 3,
+available: false,
+title: "Courier"
+}
+]
+},
+{
+grid_title: "Customer 5",
+grid_background: "#2BB751",
+grid_color: "#000000",
+pricing: {
+regular: "1,000",
+offer: "780",
+discount: "19% discount",
+prefix: "Rs"
+},
+is_quotation: 1,
+delivery_methods: [
+{
+id: 1,
+available: true,
+title: "Home Delivery",
+info: "2.2 km"
+},
+{
+id: 2,
+available: true,
+title: "Pick-up",
+info: "2.6 km"
+},
+{
+id: 3,
+available: false,
+title: "Courier"
+}
+]
+}
+]
+},
+{
+row_title: "Pending Orders (Prescription verification)",
+row_type: "pending",
+data: [
+{
+grid_title: 309986726,
+grid_background: "#194a75",
+grid_color: "#ffffff",
+pricing: {
+regular: "1,000",
+offer: "780",
+discount: "15% discount",
+prefix: "Rs"
+},
+prescription_status: "Uploaded",
+is_quotation: 0,
+delivery_methods: [
+{
+id: 1,
+available: true,
+title: "Home Delivery",
+info: "2.2 km"
+},
+{
+id: 2,
+available: true,
+title: "Pick-up",
+info: "2.6 km"
+},
+{
+id: 3,
+available: false,
+title: "Courier"
+}
+]
+},
+{
+grid_title: 371824992,
+grid_background: "#194a75",
+grid_color: "#ffffff",
+pricing: {
+regular: "1,000",
+offer: "780",
+discount: "20% discount",
+prefix: "Rs"
+},
+prescription_status: "Pending",
+is_quotation: 0,
+delivery_methods: [
+{
+id: 1,
+available: true,
+title: "Home Delivery",
+info: "2.2 km"
+},
+{
+id: 2,
+available: true,
+title: "Pick-up",
+info: "2.6 km"
+},
+{
+id: 3,
+available: false,
+title: "Courier"
+}
+]
+},
+{
+grid_title: 617901906,
+grid_background: "#194a75",
+grid_color: "#ffffff",
+pricing: {
+regular: "1,000",
+offer: "780",
+discount: "17% discount",
+prefix: "Rs"
+},
+prescription_status: "Uploaded",
+is_quotation: 0,
+delivery_methods: [
+{
+id: 1,
+available: true,
+title: "Home Delivery",
+info: "2.2 km"
+},
+{
+id: 2,
+available: true,
+title: "Pick-up",
+info: "2.6 km"
+},
+{
+id: 3,
+available: false,
+title: "Courier"
+}
+]
+},
+{
+grid_title: 601647172,
+grid_background: "#194a75",
+grid_color: "#ffffff",
+pricing: {
+regular: "1,000",
+offer: "780",
+discount: "16% discount",
+prefix: "Rs"
+},
+prescription_status: "Uploaded",
+is_quotation: 0,
+delivery_methods: [
+{
+id: 1,
+available: true,
+title: "Home Delivery",
+info: "2.2 km"
+},
+{
+id: 2,
+available: true,
+title: "Pick-up",
+info: "2.6 km"
+},
+{
+id: 3,
+available: false,
+title: "Courier"
+}
+]
+}
+]
+},
+{
+row_title: "Confirmed Orders",
+row_type: "confirmed",
+data: [
+{
+grid_title: 718721443,
+grid_background: "#194a75",
+grid_color: "#ffffff",
+pricing: {
+regular: "1,000",
+offer: "780",
+discount: "18% discount",
+prefix: "Rs"
+},
+prescription_status: "Uploaded",
+is_quotation: 0,
+delivery_methods: [
+{
+id: 1,
+available: true,
+title: "Home Delivery",
+info: "2.2 km"
+},
+{
+id: 2,
+available: false,
+title: "Pick-up",
+info: "2.6 km"
+},
+{
+id: 3,
+available: false,
+title: "Courier"
+}
+]
+},
+{
+grid_title: 936354249,
+grid_background: "#194a75",
+grid_color: "#ffffff",
+pricing: {
+regular: "1,000",
+offer: "780",
+discount: "17% discount",
+prefix: "Rs"
+},
+prescription_status: "Uploaded",
+is_quotation: 0,
+delivery_methods: [
+{
+id: 1,
+available: true,
+title: "Home Delivery",
+info: "2.2 km"
+},
+{
+id: 2,
+available: false,
+title: "Pick-up",
+info: "2.6 km"
+},
+{
+id: 3,
+available: false,
+title: "Courier"
+}
+]
+},
+{
+grid_title: 264484477,
+grid_background: "#194a75",
+grid_color: "#ffffff",
+pricing: {
+regular: "1,000",
+offer: "780",
+discount: "16% discount",
+prefix: "Rs"
+},
+prescription_status: "Uploaded",
+is_quotation: 0,
+delivery_methods: [
+{
+id: 1,
+available: true,
+title: "Home Delivery",
+info: "2.2 km"
+},
+{
+id: 2,
+available: false,
+title: "Pick-up",
+info: "2.6 km"
+},
+{
+id: 3,
+available: false,
+title: "Courier"
+}
+]
+},
+{
+grid_title: 532326391,
+grid_background: "#194a75",
+grid_color: "#ffffff",
+pricing: {
+regular: "1,000",
+offer: "780",
+discount: "15% discount",
+prefix: "Rs"
+},
+prescription_status: "Uploaded",
+is_quotation: 0,
+delivery_methods: [
+{
+id: 1,
+available: true,
+title: "Home Delivery",
+info: "2.2 km"
+},
+{
+id: 2,
+available: false,
+title: "Pick-up",
+info: "2.6 km"
+},
+{
+id: 3,
+available: false,
+title: "Courier"
+}
+]
+},
+{
+grid_title: 825615240,
+grid_background: "#194a75",
+grid_color: "#ffffff",
+pricing: {
+regular: "1,000",
+offer: "780",
+discount: "17% discount",
+prefix: "Rs"
+},
+prescription_status: "Uploaded",
+is_quotation: 0,
+delivery_methods: [
+{
+id: 1,
+available: true,
+title: "Home Delivery",
+info: "2.2 km"
+},
+{
+id: 2,
+available: false,
+title: "Pick-up",
+info: "2.6 km"
+},
+{
+id: 3,
+available: false,
+title: "Courier"
+}
+]
+},
+{
+grid_title: 782899047,
+grid_background: "#194a75",
+grid_color: "#ffffff",
+pricing: {
+regular: "1,000",
+offer: "780",
+discount: "19% discount",
+prefix: "Rs"
+},
+prescription_status: "Uploaded",
+is_quotation: 0,
+delivery_methods: [
+{
+id: 1,
+available: true,
+title: "Home Delivery",
+info: "2.2 km"
+},
+{
+id: 2,
+available: false,
+title: "Pick-up",
+info: "2.6 km"
+},
+{
+id: 3,
+available: false,
+title: "Courier"
+}
+]
+}
+]
+},
+{
+row_title: "Out for Delivery",
+row_type: "out-delivery",
+data: [
+{
+grid_title: 210245913,
+grid_background: "#f00",
+grid_color: "#000000",
+pricing: {
+regular: "1,000",
+offer: "780",
+discount: "16% discount",
+prefix: "Rs"
+},
+delivery_methods: [
+{
+id: 1,
+available: true,
+title: "Home Delivery",
+info: "2.2 km",
+detail: {
+name: "Sumit Mehta",
+info: "+91 9999 999999"
+}
+},
+{
+id: 2,
+available: false,
+title: "Pick-up",
+info: "2.6 km"
+},
+{
+id: 3,
+available: false,
+title: "Courier",
+info: "3-5 days",
+detail: {
+name: "Bluedart",
+info: "4253647657"
+}
+}
+]
+},
+{
+grid_title: 421524461,
+grid_background: "#194a75",
+grid_color: "#ffffff",
+pricing: {
+regular: "1,000",
+offer: "780",
+discount: "17% discount",
+prefix: "Rs"
+},
+delivery_methods: [
+{
+id: 1,
+available: true,
+title: "Home Delivery",
+info: "2.2 km",
+detail: {
+name: "Sumit Mehta",
+info: "+91 9999 999999"
+}
+},
+{
+id: 2,
+available: false,
+title: "Pick-up",
+info: "2.6 km"
+},
+{
+id: 3,
+available: false,
+title: "Courier",
+info: "3-5 days",
+detail: {
+name: "Bluedart",
+info: "4253647657"
+}
+}
+]
+},
+{
+grid_title: 728917890,
+grid_background: "#194a75",
+grid_color: "#ffffff",
+pricing: {
+regular: "1,000",
+offer: "780",
+discount: "18% discount",
+prefix: "Rs"
+},
+delivery_methods: [
+{
+id: 1,
+available: true,
+title: "Home Delivery",
+info: "2.2 km",
+detail: {
+name: "Sumit Mehta",
+info: "+91 9999 999999"
+}
+},
+{
+id: 2,
+available: false,
+title: "Pick-up",
+info: "2.6 km"
+},
+{
+id: 3,
+available: false,
+title: "Courier",
+info: "3-5 days",
+detail: {
+name: "Bluedart",
+info: "4253647657"
+}
+}
+]
+}
+]
+},
+{
+row_title: "Delivered",
+row_type: "delivered",
+data: [
+{
+grid_title: 581928983,
+grid_background: "#f00",
+grid_color: "#000000",
+pricing: {
+regular: "1,000",
+offer: "780",
+discount: "17% discount",
+prefix: "Rs"
+},
+delivery_methods: [
+{
+id: 1,
+available: true,
+title: "Home Delivery",
+info: "2.2 km",
+detail: {
+name: "Sumit Mehta",
+info: "+91-9999-999999",
+delivery_date: "2 Jun 2021",
+delivery_time: "4:51"
+}
+},
+{
+id: 2,
+available: false,
+title: "Pick-up",
+info: "2.6 km"
+},
+{
+id: 3,
+available: false,
+title: "Courier",
+info: "3-5 days",
+detail: {
+name: "Bluedart",
+info: "4253647657"
+}
+}
+]
+},
+{
+grid_title: 156282860,
+grid_background: "#194a75",
+grid_color: "#ffffff",
+pricing: {
+regular: "1,000",
+offer: "780",
+discount: "16% discount",
+prefix: "Rs"
+},
+delivery_methods: [
+{
+id: 1,
+available: true,
+title: "Home Delivery",
+info: "2.2 km",
+detail: {
+name: "Sumit Mehta",
+info: "+91-9999-999999",
+delivery_date: "2 Jun 2021",
+delivery_time: "4:51"
+}
+},
+{
+id: 2,
+available: false,
+title: "Pick-up",
+info: "2.6 km"
+},
+{
+id: 3,
+available: false,
+title: "Courier",
+info: "3-5 days",
+detail: {
+name: "Bluedart",
+info: "4253647657"
+}
+}
+]
+},
+{
+grid_title: 402104143,
+grid_background: "#194a75",
+grid_color: "#ffffff",
+pricing: {
+regular: "1,000",
+offer: "780",
+discount: "20% discount",
+prefix: "Rs"
+},
+delivery_methods: [
+{
+id: 1,
+available: true,
+title: "Home Delivery",
+info: "2.2 km",
+detail: {
+name: "Sumit Mehta",
+info: "+91-9999-999999",
+delivery_date: "2 Jun 2021",
+delivery_time: "4:51"
+}
+},
+{
+id: 2,
+available: false,
+title: "Pick-up",
+info: "2.6 km"
+},
+{
+id: 3,
+available: false,
+title: "Courier",
+info: "3-5 days",
+detail: {
+name: "Bluedart",
+info: "4253647657"
+}
+}
+]
+}
+]
+}
+],
+error: false,
+message: "Home response"
 }
