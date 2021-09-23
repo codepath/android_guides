@@ -447,4 +447,4 @@ For more details, [view the README](https://gist.github.com/nesquena/f2504c642c5
 * <http://stackoverflow.com/questions/3651086/android-using-custom-font>
 * <http://www.tutorialspoint.com/android/android_custom_fonts.htm>
 * <http://antonioleiva.com/textview_power_drawables/>
-* <https://www.cronj.com/frontend-development/html.html
+* <https://www.cronj.com/frontend-development/html.html>
