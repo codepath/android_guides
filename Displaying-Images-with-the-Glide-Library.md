@@ -426,3 +426,4 @@ Review [this section](https://github.com/bumptech/glide#proguard) if are configu
 * <https://medium.com/@vlonjatgashi/using-glide-with-kotlin-5e345b557547/>
 * <https://bumptech.github.io/glide/doc/configuration.html#applications/>
 * <http://www.androidcoding.in/2018/01/07/android-glide-tutorial-image-loading/>
+* <https://tutorialwing.com/android-glide-library-in-kotlin-with-example/>
