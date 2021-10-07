@@ -175,15 +175,21 @@ There are many other text properties including `android:lineSpacingMultiplier`, 
 TextView natively supports [HTML](http://developer.android.com/reference/android/text/Html.html) by translating HTML tags to [spannable](http://developer.android.com/reference/android/text/Spannable.html) sections within the view. To apply basic HTML formatting to text, add text to the TextView with:
 
 ```java
-TextView view = (TextView)findViewById(R.id.sampleText);
+TextView view = findViewById(R.id.sampleText);
+
 String formattedText = "This <i>is</i> a <b>test</b> of <a href='http://foo.com'>html</a>";
 // or getString(R.string.htmlFormattedText);
 
-if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-  view.setText(Html.fromHtml(source, Html.FROM_HTML_MODE_LEGACY));
-} else {
-  view.setText(Html.fromHtml(formattedText));
-}
+view.setText(HtmlCompat.fromHtml(formattedText, HtmlCompat.FROM_HTML_MODE_LEGACY));
+```
+
+```kotlin
+val view: TextView = findViewById(R.id.sampleText)
+
+val formattedText = "This <i>is</i> a <b>test</b> of <a href='http://foo.com'>html</a>"
+// or getString(R.string.htmlFormattedText)
+
+view.text = HtmlCompat.fromHtml(formattedText, HtmlCompat.FROM_HTML_MODE_LEGACY)
 ```
 
 You can [read more about the html modes here](https://developer.android.com/reference/android/text/Html.html#FROM_HTML_MODE_COMPACT).
@@ -199,7 +205,11 @@ Note that all tags are not supported. See [this article](http://javatechig.com/a
 For setting font colors, we can use the `<font>` tag as shown:
 
 ```java
-Html.fromHtml("Nice! <font color='#c5c5c5'>This text has a color</font>. This doesn't"); 
+HtmlCompat.fromHtml("Nice! <font color='#c5c5c5'>This text has a color</font>. This doesn't", HtmlCompat.FROM_HTML_MODE_LEGACY); 
+```
+
+```kotlin
+HtmlCompat.fromHtml("Nice! <font color='#c5c5c5'>This text has a color</font>. This doesn't", HtmlCompat.FROM_HTML_MODE_LEGACY)
 ```
 
 And you should be all set. 
@@ -342,11 +352,20 @@ To set the custom font manually, open your activity file and insert this into th
 
 ```java
 // Get access to our TextView
-TextView txt = (TextView) findViewById(R.id.custom_font);
+TextView txt = findViewById(R.id.custom_font);
 // Create the TypeFace from the TTF asset
 Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Chantelli_Antiqua.ttf");
 // Assign the typeface to the view
 txt.setTypeface(font);
+```
+
+```kotlin
+// Get access to our TextView
+val txt: TextView = findViewById(R.id.custom_font)
+// Create the TypeFace from the TTF asset
+val font = Typeface.createFromAsset(assets, "fonts/Chantelli_Antiqua.ttf")
+// Assign the typeface to the view
+txt.typeface = font
 ```
 
 Alternatively, you can use the third-party [calligraphy library](https://github.com/InflationX/Calligraphy):
@@ -375,11 +394,11 @@ We can accomplish this with spans using the code below:
 String firstWord = "Hello";
 String secondWord = "World!";
 
-TextView tvHelloWorld = (TextView)findViewById(R.id.tvHelloWorld);
+TextView tvHelloWorld = findViewById(R.id.tvHelloWorld);
 
 // Create a span that will make the text red
 ForegroundColorSpan redForegroundColorSpan = new ForegroundColorSpan(
-        getResources().getColor(android.R.color.holo_red_dark));
+        ContextCompat.getColor(this, android.R.color.holo_red_dark));
 
 // Use a SpannableStringBuilder so that both the text and the spans are mutable
 SpannableStringBuilder ssb = new SpannableStringBuilder(firstWord);
@@ -412,6 +431,49 @@ ssb.setSpan(
 tvHelloWorld.setText(ssb, TextView.BufferType.EDITABLE);
 ```
 
+```kotlin
+val firstWord  = "Hello"
+val secondWord = "World!"
+
+val tvHelloWorld: TextView = findViewById(R.id.tvHelloWorld)
+
+// Create a span that will make the text red
+val redForegroundColorSpan = ForegroundColorSpan(
+    ContextCompat.getColor(this, android.R.color.holo_red_dark)
+)
+
+// Use a SpannableStringBuilder so that both the text and the spans are mutable
+val ssb = SpannableStringBuilder(firstWord)
+
+// Apply the color span
+ssb.setSpan(
+    redForegroundColorSpan,             // the span to add
+    0,                                  // the start of the span (inclusive)
+    ssb.length,                         // the end of the span (exclusive)
+    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)   // behavior when text is later inserted into the SpannableStringBuilder
+                                        // SPAN_EXCLUSIVE_EXCLUSIVE means to not extend the span when additional
+                                        // text is added in later
+
+// Add a blank space
+ssb.append(" ")
+
+// Create a span that will strikethrough the text
+val strikethroughSpan = StrikethroughSpan()
+
+// Add the secondWord and apply the strikethrough span to only the second word
+ssb
+    .append(secondWord)
+    .setSpan(
+        strikethroughSpan,
+        ssb.length - secondWord.length,
+        ssb.length,
+        Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+// Set the TextView text and denote that it is Editable
+// since it's a SpannableStringBuilder
+tvHelloWorld.setText(ssb, TextView.BufferType.EDITABLE)
+```
+
 Note: There are 3 different classes that can be used to represent text that has markup attached. [SpannableStringBuilder](http://developer.android.com/reference/android/text/SpannableStringBuilder.html) (used above) is the one to use when dealing with mutable spans and mutable text. [SpannableString](http://developer.android.com/reference/android/text/SpannableString.html) is for mutable spans, but immutable text. And [SpannedString](http://developer.android.com/reference/android/text/SpannedString.html) is for immutable spans and immutable text.
 
 ### Creating Clickable Styled Spans
@@ -420,7 +482,7 @@ In certain cases, we might want different substrings in a `TextView` to differen
 
 ```java
 // Set text within a `TextView`
-TextView textView = (TextView) findViewById(R.id.textView);
+TextView textView = findViewById(R.id.textView);
 textView.setText("Hey @sarah, where did @jim go? #lost");
 // Style clickable spans based on pattern
 new PatternEditableBuilder().
@@ -434,6 +496,19 @@ new PatternEditableBuilder().
        }).into(textView);
 ```
 
+```kotlin
+// Set text within a `TextView`
+val textView: TextView = findViewById(R.id.textView)
+textView.text = "Hey @sarah, where did @jim go? #lost"
+
+// Style clickable spans based on pattern
+PatternEditableBuilder()
+    .addPattern(Pattern.compile("@(\\w+)"), Color.BLUE) { text ->
+        Toast.makeText(this@MainActivity, "Clicked username: $text",
+            Toast.LENGTH_SHORT).show()
+}.into(textView)
+```
+
 and this results in the following:
 
 <img src="https://i.imgur.com/OHFMMTc.gif" width="500" />
@@ -442,9 +517,9 @@ For more details, [view the README](https://gist.github.com/nesquena/f2504c642c5
 
 ## References
 
-* <http://code.tutsplus.com/tutorials/customize-android-fonts--mobile-1601>
-* <http://www.androidhive.info/2012/02/android-using-external-fonts/>
-* <http://stackoverflow.com/questions/3651086/android-using-custom-font>
-* <http://www.tutorialspoint.com/android/android_custom_fonts.htm>
-* <http://antonioleiva.com/textview_power_drawables/>
+* <https://code.tutsplus.com/tutorials/customize-android-fonts--mobile-1601>
+* <https://www.androidhive.info/2012/02/android-using-external-fonts/>
+* <https://stackoverflow.com/questions/3651086/android-using-custom-font>
+* <https://www.tutorialspoint.com/android/android_custom_fonts.htm>
+* <https://antonioleiva.com/textview_power_drawables/>
 * <https://www.cronj.com/frontend-development/html.html>
