@@ -6,7 +6,7 @@ In this guide, we will take a look at how to use an ImageView, how to manipulate
 
 ## Usage
 
-At the simplest level, an [ImageView](http://developer.android.com/reference/android/widget/ImageView.html) is simply a view you embed within an XML layout that is used to display an image (or any drawable) on the screen. The ImageView looks like this in `res/layout/activity_main.xml`:
+At the simplest level, an [ImageView](https://developer.android.com/reference/android/widget/ImageView.html) is simply a view you embed within an XML layout that is used to display an image (or any drawable) on the screen. The ImageView looks like this in `res/layout/activity_main.xml`:
 
 ```xml
 <ImageView
@@ -17,7 +17,7 @@ At the simplest level, an [ImageView](http://developer.android.com/reference/and
     android:src="@drawable/my_image" />
 ```
 
-The ImageView handles all the loading and scaling of the image for you. Note the [scaleType attribute](http://developer.android.com/reference/android/widget/ImageView.ScaleType.html) which defines how the images will be scaled to fit in your layout. In the example, using scaleType "center", the image will be displayed at its native resolution and centered in the view, regardless of how much space the view consumes.
+The ImageView handles all the loading and scaling of the image for you. Note the [scaleType attribute](https://developer.android.com/reference/android/widget/ImageView.ScaleType.html) which defines how the images will be scaled to fit in your layout. In the example, using scaleType "center", the image will be displayed at its native resolution and centered in the view, regardless of how much space the view consumes.
 
 ### Sizing ImageView Controls
 
@@ -34,7 +34,7 @@ By default, contents of an ImageView control are of a certain size -- usually th
 
 The `scaleType` above has been set to `fitXY` which sets the height and the width up or down to fit the maximum dimensions specified. 
 
-Fixing the width and height however means that the proportions of the width and height of the original image, known as the aspect ratio, will be altered.  We can take advantage of the [adjustViewBounds](http://developer.android.com/reference/android/widget/ImageView.html#attr_android:adjustViewBounds) parameter to preserve this aspect ratio.  However, we must either allow the height and/or width to be adjustable (i.e. by using `maxWidth` and using `wrap_content` for the dimension).  Otherwise, the dimensions cannot be readjusted to meet the required aspect ratio.
+Fixing the width and height however means that the proportions of the width and height of the original image, known as the aspect ratio, will be altered.  We can take advantage of the [adjustViewBounds](https://developer.android.com/reference/android/widget/ImageView.html#attr_android:adjustViewBounds) parameter to preserve this aspect ratio.  However, we must either allow the height and/or width to be adjustable (i.e. by using `maxWidth` and using `wrap_content` for the dimension).  Otherwise, the dimensions cannot be readjusted to meet the required aspect ratio.
 
 ```xml
 <ImageView
@@ -60,7 +60,7 @@ imageView.getLayoutParams().height = 100 // OR
 imageView.getLayoutParams().width = 100
 ```
 
-In certain cases, the image needs to be scaled to fit the parent view's width and the height should be adjusted proportionally. We can achieve this using an extended [ResizableImageView](http://stackoverflow.com/a/12283909/313399) class as described in the post.
+In certain cases, the image needs to be scaled to fit the parent view's width and the height should be adjusted proportionally. We can achieve this using an extended [ResizableImageView](https://stackoverflow.com/a/12283909/313399) class as described in the post.
 
 ### Scale Types
 
@@ -98,9 +98,9 @@ To create alternative bitmap drawables for different densities, you should follo
 | xxhdpi   | 480  | Nexus 5         | 3.0x   | 1dp = 3px    |
 | xxxhdpi  | 640  | Nexus 6         | 4.0x   | 1dp = 4px    |
 
-This means that if you generate a 100x100 for mdpi (1x baseline), then you should generate the same resource in 150x150 for hdpi (1.5x), 200x200 image for xhdpi devices (2.0x), 300x300 image for xxhdpi (3.0x) and a 75x75 image for ldpi devices (0.75x). See [these density guidelines](http://iconhandbook.co.uk/reference/chart/android/) for additional details. 
+This means that if you generate a 100x100 for mdpi (1x baseline), then you should generate the same resource in 150x150 for hdpi (1.5x), 200x200 image for xhdpi devices (2.0x), 300x300 image for xxhdpi (3.0x) and a 75x75 image for ldpi devices (0.75x). See [these density guidelines](https://iconhandbook.co.uk/reference/chart/android/) for additional details. 
 
-![Densities](http://developer.android.com/images/screens_support/screens-densities.png)
+![Densities](https://developer.android.com/images/screens_support/screens-densities.png)
 
 #### Final Android Resizer
 
@@ -112,45 +112,45 @@ This handy utility allows us to select a resources directory, choose an extra hi
 
 <img src="https://i.imgur.com/obCEvBY.png" width="250">&nbsp;<img src="https://i.imgur.com/XJAzEu6.png" width="250">
 
-Refer to the [screens support](http://developer.android.com/guide/practices/screens_support.html) reference for a more detailed look at supporting a wide range of devices. Also check out the [iconography](http://developer.android.com/design/style/iconography.html) guide for more details.
+Refer to the [screens support](https://developer.android.com/guide/practices/screens_support.html) reference for a more detailed look at supporting a wide range of devices. Also check out the [iconography](https://developer.android.com/design/style/iconography.html) guide for more details.
 
 ### Mipmaps and Drawables
 
 Starting with Android 4.3, there is now an option to use the `res/mipmap` folder to store "mipmap" images. Mipmaps are most **commonly used for application icons** such as the launcher icon. To learn more about the benefits of mipmaps be sure to check out the [mipmapping for drawables post](https://programmium.wordpress.com/2014/03/20/mipmapping-for-drawables-in-android-4-3/). 
 
-Mipmap image resources can then be accessed using the `@mipmap/ic_launcher` notation in place of `@drawable`. Placing icons in mipmap folders (rather than drawable) is considered a best practice because they can often be used at resolutions different from the device’s current density. For example, an `xxxhdpi` app icon might be used on the launcher for an `xxhdpi` device. Review this [post about preparing for the Nexus 6](http://android-developers.blogspot.com/2014/10/getting-your-apps-ready-for-nexus-6-and.html) which explains in more detail.
+Mipmap image resources can then be accessed using the `@mipmap/ic_launcher` notation in place of `@drawable`. Placing icons in mipmap folders (rather than drawable) is considered a best practice because they can often be used at resolutions different from the device’s current density. For example, an `xxxhdpi` app icon might be used on the launcher for an `xxhdpi` device. Review this [post about preparing for the Nexus 6](https://android-developers.blogspot.com/2014/10/getting-your-apps-ready-for-nexus-6-and.html) which explains in more detail.
 
 ### Working with Bitmaps
 
 We can change the bitmap displayed in an ImageView to a drawable resource with:
 
 ```java
-ImageView image = (ImageView) findViewById(R.id.test_image);
+ImageView image = findViewById(R.id.test_image);
 image.setImageResource(R.drawable.test2);
 ```
 
 ```kotlin
-val image = findViewById(R.id.test_image) as ImageView
+val image: ImageView = findViewById(R.id.test_image)
 image.setImageResource(R.drawable.test2)
 ```
 
 or to any arbitrary bitmap with:
 
 ```java
-ImageView image = (ImageView) findViewById(R.id.test_image);
+ImageView image = findViewById(R.id.test_image);
 Bitmap bMap = BitmapFactory.decodeFile("/sdcard/test2.png");
 image.setImageBitmap(bMap);
 ```
 
 ```kotlin
-val image = findViewById(R.id.test_image) as ImageView
+val image: ImageView = findViewById(R.id.test_image)
 val bMap = BitmapFactory.decodeFile("/sdcard/test2.png")
 image.setImageBitmap(bMap)
 ```
 
 ### Scaling a Bitmap
 
-If we need to resize a Bitmap, we can call the [createScaledBitmap](http://developer.android.com/reference/android/graphics/Bitmap.html#createScaledBitmap\(android.graphics.Bitmap, int, int, boolean\)] method to resize any bitmap to our desired width and height:
+If we need to resize a Bitmap, we can call the [createScaledBitmap](https://developer.android.com/reference/android/graphics/Bitmap.html#createScaledBitmap\(android.graphics.Bitmap, int, int, boolean\) method to resize any bitmap to our desired width and height:
 
 ```java
 // Load a bitmap from the drawable folder
@@ -158,15 +158,18 @@ Bitmap bMap = BitmapFactory.decodeResource(getResources(), R.drawable.my_image);
 // Resize the bitmap to 150x100 (width x height)
 Bitmap bMapScaled = Bitmap.createScaledBitmap(bMap, 150, 100, true);
 // Loads the resized Bitmap into an ImageView
-ImageView image = (ImageView) findViewById(R.id.test_image);
+ImageView image = findViewById(R.id.test_image);
 image.setImageBitmap(bMapScaled);
 ```
 
 ```kotlin
 // Load a bitmap from the drawable folder
-Bitmap bMap = BitmapFactory.decodeResource(getResources(), R.drawable.my_image);
+val bMap = BitmapFactory.decodeResource(getResources(), R.drawable.my_image)
 // Resize the bitmap to 150x100 (width x height)
-Bitmap bMapScaled = Bitmap.createScaledBitmap(bMap, 150, 100, true);
+val bMapScaled = Bitmap.createScaledBitmap(bMap, 150, 100, true)
+// Loads the resized Bitmap into an ImageView
+val image: ImageView = findViewById(R.id.test_image)
+image.setImageBitmap(bMapScaled)
 ```
 
 You often want to resize a bitmap but preserve the aspect ratio [using a BitmapScaler utility class](https://gist.github.com/nesquena/3885707fd3773c09f1bb) with code like this:
@@ -198,13 +201,13 @@ public class BitmapScaler
 ```kotlin
 object BitmapScaler {
     // Scale and maintain aspect ratio given a desired width
-    // BitmapScaler.scaleToFitWidth(bitmap, 100);
+    // BitmapScaler.scaleToFitWidth(bitmap, 100)
     fun scaleToFitWidth(b: Bitmap, width: Int): Bitmap {
         val factor = width / b.width.toFloat()
         return Bitmap.createScaledBitmap(b, width, (b.height * factor).toInt(), true)
     }
     // Scale and maintain aspect ratio given a desired height
-    // BitmapScaler.scaleToFitHeight(bitmap, 100);
+    // BitmapScaler.scaleToFitHeight(bitmap, 100)
     fun scaleToFitHeight(b: Bitmap, height: Int): Bitmap {
         val factor = height / b.height.toFloat()
         return Bitmap.createScaledBitmap(b, (b.width * factor).toInt(), height, true)
@@ -223,35 +226,45 @@ BitmapScaler.scaleToFitWidth(bitmap, screenWidth);
 
 ```kotlin
 // Get height or width of screen at runtime
-int screenWidth = DeviceDimensionsHelper.getDisplayWidth(this);
+val screenWidth = DeviceDimensionsHelper.getDisplayWidth(this)
 // Resize a Bitmap maintaining aspect ratio based on screen width
-BitmapScaler.scaleToFitWidth(bitmap, screenWidth);
+BitmapScaler.scaleToFitWidth(bitmap, screenWidth)
 ```
 
-Check out [this source](http://androidsnippets.wordpress.com/2012/10/25/how-to-scale-a-bitmap-as-per-device-width-and-height/) for more information on how to scale a bitmap based instead on relative device width and height.
+Check out [this source](https://androidsnippets.wordpress.com/2012/10/25/how-to-scale-a-bitmap-as-per-device-width-and-height/) for more information on how to scale a bitmap based instead on relative device width and height.
 
 **Note**: Doing any type of scaling of images results in the loss of [EXIF](https://en.wikipedia.org/wiki/Exchangeable_image_file_format) metadata that includes info such as camera, rotation, date/time of the photo taken.  While there are [workarounds](https://bricolsoftconsulting.com/copying-exif-metadata-using-sanselan/) to transfer this data after the image has been copied, there are current limitations.   If you need this info or wish to upload it to some site, you should send the original file and not the downsampled version.
 
 ### Displaying SVG Images
 
-Android has now [vector drawables](http://guides.codepath.com/android/Drawables#vector-drawables) support, which allows SVG files to be imported to a specific format.  SVG files can be automatically converted using Android Studio by going to `File` -> `New` -> `Vector Asset`.  Make sure to click `Local file (SVG, PSD)` to import the file.
+Android now has [vector drawables](https://guides.codepath.com/android/Drawables#vector-drawables) support, which allows SVG files to be imported to a specific format.  SVG files can be automatically converted using Android Studio by going to `File` -> `New` -> `Vector Asset`.  Make sure to click `Local file (SVG, PSD)` to import the file.
 
-## To send command to Printer to print image in the form of Bitmap
+## Printing Bitmap Images
+
+Android can print images using the `PrintHelper` class. The following method sends a command to the printer to print a bitmap image.
+
 ```java
  private void doPhotoPrint(Bitmap bitmap) { 
-
         PrintHelper photoPrinter = new PrintHelper(this);
         photoPrinter.setScaleMode(PrintHelper.SCALE_MODE_FIT);
-        photoPrinter.printBitmap("Hi 5 Photos Reciept", bitmap);
+        photoPrinter.printBitmap("Hi 5 Photos Receipt", bitmap);
+    }
+```
+
+```kotlin
+ private fun doPhotoPrint(bitmap: Bitmap) {
+        val photoPrinter = PrintHelper(this)
+        photoPrinter.scaleMode = PrintHelper.SCALE_MODE_FIT
+        photoPrinter.printBitmap("Hi 5 Photos Receipt", bitmap)
     }
 ```
 
 ## References
 
-* <http://www.peachpit.com/articles/article.aspx?p=1846580&seqNum=2>
-* <http://code.tutsplus.com/tutorials/android-user-interface-design-basic-image-controls--mobile-6846>
-* <http://developer.android.com/reference/android/widget/ImageView.html>
-* <http://developer.android.com/guide/practices/screens_support.html>
+* <https://www.peachpit.com/articles/article.aspx?p=1846580&seqNum=2>
+* <https://code.tutsplus.com/tutorials/android-user-interface-design-basic-image-controls--mobile-6846>
+* <https://developer.android.com/reference/android/widget/ImageView.html>
+* <https://developer.android.com/guide/practices/screens_support.html>
 * <https://code.google.com/p/svg-android/wiki/Tutorial>
 * <https://github.com/android/platform_frameworks_base/blob/master/core/java/android/widget/ImageView.java#L903-L907>
 * <https://robots.thoughtbot.com/android-imageview-scaletype-a-visual-guide>
