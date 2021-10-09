@@ -312,7 +312,7 @@ See the [Handling the Change](http://developer.android.com/guide/topics/resource
 
 ## Leveraging ViewModels
 
-Android's new Architecture Components helps manage configuration states.  All state data related to the UI can be moved to a ViewModel, which will survive rotate changes because they are data tied to the application instead of Activity instance.  In this way, you do not need to worry about persisting this configuration data between Activity lifecycles. 
+Android's new Architecture Components helps manage configuration states.  All state data related to the UI can be moved to a ViewModel, which will survive rotation changes because they are data tied to the application instead of Activity instance.  In this way, you do not need to worry about persisting this configuration data between Activity lifecycles. 
 
 ### Setup
 
@@ -320,7 +320,7 @@ First, make sure to add the ViewModel library:
 
 ```gradle
 dependencies {
-    implementation "android.arch.lifecycle:viewmodel:1.1.1"
+    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.3.1'
 }
 ```
 
@@ -341,8 +341,7 @@ public class MyViewModel extends ViewModel {
 Next, create a ViewModel class:
 
 ```java
-// new syntax since 1.1.0
-MyViewModel viewModel = ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication()).create(MyViewModel.class);
+MyViewModel viewModel = new ViewModelProvider(this).get(MyViewModel.class);
 ```
 
 Next, change your references to the adapter to refer to the ViewModel:
@@ -353,10 +352,10 @@ recyclerView.setAdapter(viewModel.movieAdapter);
 
 ## References
 
-* <http://developer.android.com/guide/topics/resources/runtime-changes.html>
-* <http://developer.android.com/training/basics/activity-lifecycle/recreating.html>
-* <http://www.vogella.com/tutorials/AndroidLifeCycle/article.html#configurationchange>
-* <http://www.androiddesignpatterns.com/2013/04/retaining-objects-across-config-changes.html>
-* <http://www.intertech.com/Blog/saving-and-retrieving-android-instance-state-part-1/>
-* <http://sunil-android.blogspot.com/2013/03/save-and-restore-instance-state.html>
+* <https://developer.android.com/guide/topics/resources/runtime-changes.html>
+* <https://developer.android.com/training/basics/activity-lifecycle/recreating.html>
+* <https://www.vogella.com/tutorials/AndroidLifeCycle/article.html#configurationchange>
+* <https://www.androiddesignpatterns.com/2013/04/retaining-objects-across-config-changes.html>
+* <https://www.intertech.com/Blog/saving-and-retrieving-android-instance-state-part-1/>
+* <https://sunil-android.blogspot.com/2013/03/save-and-restore-instance-state.html>
 * <https://medium.com/google-developers/activity-revival-and-the-case-of-the-rotating-device-167e34f9a30d#.nq3b23lxg>
