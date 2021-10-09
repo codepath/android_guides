@@ -68,7 +68,7 @@ class ExampleActivity : AppCompatActivity() {
 
       // set bindings more efficiently through bindings
       title = binding.title       // was title = findViewById(R.id.title)
-      title.setText("My title")
+      title.text = "My title"
 
       // alternately, access views through binding when needed, instead of variables
       binding.title.text = "My title"
