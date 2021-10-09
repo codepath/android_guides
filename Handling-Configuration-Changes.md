@@ -320,7 +320,11 @@ First, make sure to add the ViewModel library:
 
 ```gradle
 dependencies {
+    // Java
     implementation 'androidx.lifecycle:lifecycle-viewmodel:2.3.1'
+    
+    // Kotlin
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
 }
 ```
 
@@ -338,16 +342,30 @@ public class MyViewModel extends ViewModel {
 }
 ```
 
+```kotlin
+class MyViewModel : ViewModel() {
+    val movieAdapter = MovieAdapter()
+}
+```
+
 Next, create a ViewModel class:
 
 ```java
 MyViewModel viewModel = new ViewModelProvider(this).get(MyViewModel.class);
 ```
 
+```kotlin
+val viewModel = ViewModelProvider(this).get(MyViewModel::class.java)
+```
+
 Next, change your references to the adapter to refer to the ViewModel:
 
 ```java
 recyclerView.setAdapter(viewModel.movieAdapter);
+```
+
+```kotlin
+recyclerView.adapter = viewModel.movieAdapter
 ```
 
 ## References
