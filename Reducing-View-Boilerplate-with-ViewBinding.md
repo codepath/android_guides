@@ -73,6 +73,7 @@ class ExampleActivity : AppCompatActivity() {
       // alternately, access views through binding when needed, instead of variables
       binding.title.text = "My title"
   }
+}
 ```
 
 #### Fragment View Lookups
