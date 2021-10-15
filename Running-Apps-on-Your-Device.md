@@ -63,3 +63,6 @@ If after plugging the device into the computer and you don't see any message abo
 
 * <https://developer.android.com/studio/run/device.html>
 * <https://developer.android.com/training/basics/firstapp/running-app.html>
+* <https://tutorialwing.com/run-test-debug-android-app-online-offline-real-device>
+* <https://tutorialwing.com/run-or-debug-android-app-using-wifi-on-real-device>
+
