@@ -45,6 +45,15 @@ allprojects {
 }
 ```
 
+If your root `build.gradle` file doesn't have the `allprojects` section defined, you'll want to add the maven repository in your `settings.gradle` file:
+
+```gradle
+repositories {
+    ...
+    maven { url "https://jitpack.io" }
+}
+```
+
 Open the `app/build.gradle` in your project and add the following dependencies:
 
 ```gradle
@@ -123,10 +132,11 @@ class ParseApplication : Application() {
 
         // set applicationId, and server server based on the values in the back4app settings.
         // any network interceptors must be added with the Configuration Builder given this syntax
-        Parse.initialize(Parse.Configuration.Builder(this)
+        Parse.initialize(
+            Parse.Configuration.Builder(this)
                 .applicationId("myAppId") // should correspond to Application ID env variable
-                .clientKey("yourClientKey)  // should correspond to Client key env variable
-                .server("https://parseapi.back4app.com").build());
+                .clientKey("yourClientKey")  // should correspond to Client key env variable
+                .server("https://parseapi.back4app.com").build())
     }
 }
 ```
@@ -183,6 +193,21 @@ public class ParseApplication extends Application {
       	ParseObject testObject = new ParseObject("TestObject");
       	testObject.put("foo", "bar");
       	testObject.saveInBackground();
+    }		
+}
+```
+```kotlin
+class ParseApplication : Application() {
+    override fun onCreate() {
+        super.onCreate()
+
+      	// Your initialization code from above here
+      	Parse.initialize(...)
+
+        // New test creation of object below
+      	val testObject = ParseObject("TestObject")
+        testObject.put("foo", "bar")
+        testObject.saveInBackground()
     }		
 }
 ```
@@ -284,6 +309,14 @@ if (currentUser != null) {
   // show the signup or login screen
 }
 ```
+```kotlin
+val currentUser = ParseUser.getCurrentUser()
+if (currentUser != null) {
+  // do stuff with the user
+} else {
+  // show the signup or login screen
+}
+```
 
 ### User Logout
 
@@ -319,6 +352,17 @@ query.findInBackground(new FindCallback<ParseUser>() {
     }
   }
 });
+```
+```kotlin
+val query = ParseUser.getQuery()
+query.whereGreaterThan("age", 20) // find adults
+query.findInBackground { objects, e ->
+    if (e == null) {
+        // The query was successful.
+    } else {
+        // Something went wrong.
+    }
+}
 ```
 
 See a list of [query constraints](https://docs.parseplatform.org/android/guide/#query-constraints) here.
@@ -360,7 +404,7 @@ import com.parse.ParseClassName
 class TodoItem : ParseObject() {
 var author: ParseUser?
     get() = getParseUser("author")
-    // putOrIgnore does a smart cast to Koltin Any after an if check 
+    // putOrIgnore does a smart cast to Kotlin Any after an if check 
     set(author) = putOrIgnore("author", author)
 }
 ```
@@ -434,6 +478,15 @@ todoItem.setOwner(ParseUser.getCurrentUser());
 todoItem.saveInBackground();
 // or for a more robust offline save
 // todoItem.saveEventually();
+```
+```kotlin
+val todoItem = TodoItem("Do laundry")
+// Set the current user, assuming a user is signed in
+todoItem.setOwner(ParseUser.getCurrentUser())
+// Immediately save the data asynchronously
+todoItem.saveInBackground()
+// or for a more robust offline save
+// todoItem.saveEventually()
 ```
 
 Note that there are two ways to save an object: `saveInBackground` which executes immediately and `saveEventually` which will store the update on the device and push to the server once internet access is available.
