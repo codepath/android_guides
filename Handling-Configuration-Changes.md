@@ -25,6 +25,24 @@ public class MainActivity extends Activity {
     }
 }
 ```
+```kotlin
+class MainActivity : Activity() {
+    var someIntValue = 0
+    var someStringValue: String? = null
+    protected override fun onPause() {
+        val settings: SharedPreferences = getSharedPreferences("Settings", Context.MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = settings.edit()
+        editor.putInt(SOME_VALUE, someIntValue)
+        editor.putString(SOME_OTHER_VALUE, someStringValue)
+        editor.apply()
+    }
+
+    companion object {
+        const val SOME_VALUE = "int_value"
+        const val SOME_OTHER_VALUE = "string_value"
+    }
+}
+```
 
 Upon resume, the `onResume()` gets called:
 
@@ -34,6 +52,12 @@ Upon resume, the `onResume()` gets called:
       SharedPreferences settings = getSharedPreferences("Settings", Context.MODE_PRIVATE);
       someIntValue = settings.getInt(SOME_VALUE, 0);
     }
+```
+```kotlin
+override fun onResume() {
+    val settings: SharedPreferences = getSharedPreferences("Settings", Context.MODE_PRIVATE)
+    someIntValue = settings.getInt(SOME_VALUE, 0)
+}
 ```
 
 Note that `onSaveInstanceState()` is called right before your activity is about to be killed or restarted because of memory pressure or screen orientation.  This is different from `onPause()` which gets called when your activity loses focus (i.e. you transition to another activity).  The default implementation of this method **automatically saves** information about the state of the activity's **view hierarchy**, such as the text in an `EditText` widget or the scroll position of a `ListView`.  For other data to persist, you can put the data in the Bundle provided.
@@ -53,6 +77,22 @@ public class MainActivity extends Activity {
     }
 }
 ```
+```kotlin
+class MainActivity : Activity() {
+    protected override fun onSaveInstanceState(savedInstanceState: Bundle) {
+        // Save custom values into the bundle
+        savedInstanceState.putInt(SOME_VALUE, someIntValue)
+        savedInstanceState.putString(SOME_OTHER_VALUE, someStringValue)
+        // Always call the superclass so it can save the view hierarchy state
+        super.onSaveInstanceState(savedInstanceState)
+    }
+
+    companion object {
+        const val SOME_VALUE = "int_value"
+        const val SOME_OTHER_VALUE = "string_value"
+    }
+}
+```
 
 The system will call that method before an Activity is destroyed. Then later the system will call `onRestoreInstanceState` where we can restore state from the bundle:
 
@@ -65,6 +105,15 @@ The system will call that method before an Activity is destroyed. Then later the
       someIntValue = savedInstanceState.getInt(SOME_VALUE);
       someStringValue = savedInstanceState.getString(SOME_OTHER_VALUE);
     }
+```
+```kotlin
+override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+    // Always call the superclass so it can restore the view hierarchy
+    super.onRestoreInstanceState(savedInstanceState)
+    // Restore state members from saved instance
+    val someIntValue = savedInstanceState.getInt(SOME_VALUE)
+    val someStringValue = savedInstanceState.getString(SOME_OTHER_VALUE)
+}
 ```
 
 Instance state can also be restored in the standard `Activity#onCreate` method but it is convenient to do it in `onRestoreInstanceState` which ensures all of the initialization has been done and allows subclasses to decide whether to use the default implementation. Read [this stackoverflow post](http://stackoverflow.com/a/14676555/313399) for details.
@@ -90,6 +139,18 @@ public class MySimpleFragment extends Fragment {
     }
 }
 ```
+```kotlin
+class MySimpleFragment : Fragment() {
+    private val someStateValue = 0
+    private val SOME_VALUE_KEY = "someValueToSave"
+
+    // Fires when a configuration change occurs and fragment needs to save state
+    protected fun onSaveInstanceState(outState: Bundle) {
+        outState.putInt(SOME_VALUE_KEY, someStateValue)
+        super.onSaveInstanceState(outState)
+    }
+}
+```
 
 Then we can pull data out of this saved state in `onCreateView`:
 
@@ -107,6 +168,24 @@ public class MySimpleFragment extends Fragment {
         }
         return view;
    }
+}
+```
+```kotlin
+class MySimpleFragment : Fragment() {
+    // ...
+    // Inflate the view for the fragment based on layout XML
+    fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        val view: View = inflater.inflate(R.layout.my_simple_fragment, container, false)
+        if (savedInstanceState != null) {
+            someStateValue = savedInstanceState.getInt(SOME_VALUE_KEY)
+            // Do something with value if needed
+        }
+        return view
+    }
 }
 ```
 
@@ -130,6 +209,22 @@ public class ParentActivity extends AppCompatActivity {
     }
 }
 ```
+```kotlin
+class ParentActivity : AppCompatActivity() {
+    private var fragmentSimple: MySimpleFragment? = null
+    private val SIMPLE_FRAGMENT_TAG = "myfragmenttag"
+    protected fun onCreate(savedInstanceState: Bundle?) {
+        if (savedInstanceState != null) { // saved instance state, fragment may exist
+            // look up the instance that already exists by tag
+            fragmentSimple =
+                getSupportFragmentManager().findFragmentByTag(SIMPLE_FRAGMENT_TAG) as MySimpleFragment
+        } else if (fragmentSimple == null) {
+            // only create fragment if they haven't been instantiated already
+            fragmentSimple = MySimpleFragment()
+        }
+    }
+}
+```
 
 This requires us to be careful to **include a tag for lookup** whenever putting a fragment into the activity within a transaction:
 
@@ -147,6 +242,22 @@ public class ParentActivity extends AppCompatActivity {
                 .beginTransaction()
                 .replace(R.id.container, fragmentSimple, SIMPLE_FRAGMENT_TAG)
                 .commit();
+        }
+    }
+}
+```
+```kotlin
+class ParentActivity : AppCompatActivity() {
+    private val fragmentSimple: MySimpleFragment? = null
+    private val SIMPLE_FRAGMENT_TAG = "myfragmenttag"
+    protected fun onCreate(savedInstanceState: Bundle?) {
+        // ... fragment lookup or instantation from above...
+        // Always add a tag to a fragment being inserted into container
+        if (!fragmentSimple.isInLayout()) {
+            getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.container, fragmentSimple, SIMPLE_FRAGMENT_TAG)
+                .commit()
         }
     }
 }
@@ -177,6 +288,19 @@ public class RetainedFragment extends Fragment {
 
     public MyDataObject getData() {
         return data;
+    }
+}
+```
+```kotlin
+class RetainedFragment : Fragment() {
+    // data object we want to retain
+    var data: MyDataObject? = null
+
+    // this method is only called once for this fragment
+    fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        // retain this fragment when activity is re-initialized
+        setRetainInstance(true)
     }
 }
 ```
@@ -224,6 +348,35 @@ protected void onResume() {
     }
 }
 ```
+```kotlin
+private val LIST_STATE = "listState"
+private var mListState: Parcelable? = null
+
+// Write list state to bundle
+override fun onSaveInstanceState(state: Bundle) {
+    super.onSaveInstanceState(state)
+    mListState = getListView().onSaveInstanceState()
+    state.putParcelable(LIST_STATE, mListState)
+}
+
+// Restore list state from bundle
+override fun onRestoreInstanceState(state: Bundle) {
+    super.onRestoreInstanceState(state)
+    mListState = state.getParcelable(LIST_STATE)
+}
+
+
+override fun onResume() {
+    super.onResume()
+    loadData() // make sure data has been reloaded into adapter first
+    // ONLY call this part once the data items have been loaded back into the adapter
+    // for example, inside a success callback from the network
+    if (mListState != null) {
+        myListView.onRestoreInstanceState(mListState)
+        mListState = null
+    }
+}
+```
 
 Check out this [blog post](https://futurestud.io/tutorials/how-to-save-and-restore-the-scroll-position-and-state-of-a-android-listview) and [stackoverflow post](http://stackoverflow.com/a/5688490) for more details. 
 
@@ -260,7 +413,27 @@ protected void onResume() {
     }
 }
 ```
+```kotlin
+override fun onSaveInstanceState(state: Bundle) {
+    super.onSaveInstanceState(state)
+    // Save list state
+    listState = mLayoutManager.onSaveInstanceState()
+    state.putParcelable(LIST_STATE_KEY, listState)
+}
 
+override fun onRestoreInstanceState(state: Bundle?) {
+    super.onRestoreInstanceState(state)
+    // Retrieve list state and list/item positions
+    if (state != null) listState = state.getParcelable(LIST_STATE_KEY)
+}
+
+override fun onResume() {
+    super.onResume()
+    if (listState != null) {
+        mLayoutManager.onRestoreInstanceState(listState)
+    }
+}
+```
 Check out this [blog post](http://panavtec.me/retain-restore-recycler-view-scroll-position) and [stackoverflow post](http://stackoverflow.com/a/28262885) for more details. 
 
 ## Locking Screen Orientation
@@ -341,7 +514,6 @@ public class MyViewModel extends ViewModel {
 
 }
 ```
-
 ```kotlin
 class MyViewModel : ViewModel() {
     val movieAdapter = MovieAdapter()
@@ -353,7 +525,6 @@ Next, create a ViewModel class:
 ```java
 MyViewModel viewModel = new ViewModelProvider(this).get(MyViewModel.class);
 ```
-
 ```kotlin
 val viewModel = ViewModelProvider(this).get(MyViewModel::class.java)
 ```
@@ -363,7 +534,6 @@ Next, change your references to the adapter to refer to the ViewModel:
 ```java
 recyclerView.setAdapter(viewModel.movieAdapter);
 ```
-
 ```kotlin
 recyclerView.adapter = viewModel.movieAdapter
 ```
