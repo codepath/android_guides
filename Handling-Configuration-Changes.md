@@ -25,6 +25,7 @@ public class MainActivity extends Activity {
     }
 }
 ```
+
 ```kotlin
 class MainActivity : Activity() {
     var someIntValue = 0
