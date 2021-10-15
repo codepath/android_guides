@@ -96,12 +96,7 @@ Glide.with(context)
     .centerCrop()
     .into(ivImg);
 ```
-```kotlin
-Glide.with(context)
-    .load("http://via.placeholder.com/300.png")
-    .centerCrop()
-    .into(ivImg);
-```
+
 
 ### Configuration
 
