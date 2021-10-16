@@ -423,6 +423,17 @@ public class ParseApplication extends Application {
   }		
 }
 ```
+```kotlin
+class ParseApplication : Application() {
+
+    override fun onCreate() {
+        super.onCreate()
+        // Register your parse models
+        ParseObject.registerSubclass(TodoItem::class.java)
+        // Add your initialization code here
+        Parse.initialize(...)
+    }
+```
 
 Now we can add fields and constructors to our `TodoItem`:
 
