@@ -516,7 +516,7 @@ public class MyViewModel extends ViewModel {
 }
 ```
 ```kotlin
-class MyViewModel constructor(val movieAdapter: MovieAdapter) : ViewModel()
+class MyViewModel constructor(val movieAdapter: MovieAdapter = MovieAdapter()) : ViewModel()
 ```
 
 Next, create a ViewModel class:
