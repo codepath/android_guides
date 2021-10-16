@@ -481,7 +481,18 @@ public void onConfigurationChanged(Configuration newConfig) {
     }
 }
 ```
+```kotlin
+override fun onConfigurationChanged(newConfig: Configuration) {
+    super.onConfigurationChanged(newConfig)
 
+    // Checks the orientation of the screen
+    if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+        Toast.makeText(this, "landscape", Toast.LENGTH_SHORT).show()
+    } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+        Toast.makeText(this, "portrait", Toast.LENGTH_SHORT).show()
+    }
+}
+```
 See the [Handling the Change](http://developer.android.com/guide/topics/resources/runtime-changes.html#HandlingTheChange) docs. For more about which configuration changes you can handle in your activity, see the [android:configChanges](http://developer.android.com/guide/topics/manifest/activity-element.html#config) documentation and the [Configuration](http://developer.android.com/reference/android/content/res/Configuration.html) class.
 
 ## Leveraging ViewModels
