@@ -482,6 +482,8 @@ public void onConfigurationChanged(Configuration newConfig) {
 }
 ```
 ```kotlin
+// Within the activity which receives these changes
+// Checks the current device orientation, and toasts accordingly
 override fun onConfigurationChanged(newConfig: Configuration) {
     super.onConfigurationChanged(newConfig)
 
