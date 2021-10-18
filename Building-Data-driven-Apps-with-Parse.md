@@ -252,22 +252,17 @@ user.signUpInBackground(new SignUpCallback() {
 // Create the ParseUser
 val user = ParseUser()
 
-// with statement allows access properties of User without needing to repeat
-// i.e. user.username =
-//      user.setPassword
-with(user) {
-  username = "joestevens"
-  setPassword("secret123")
-  email = "email@example.com"
-  put("phone", "650-253-0000")
-  signUpInBackground({e ->
+// Set fields for the user to be created
+user.setUsername(username)
+user.setPassword(password)
+
+user.signUpInBackground { e ->
     if (e == null) {
-       // Hooray! Let them use the app now.
+        // Hooray! Let them use the app now.
     } else {
-       // Sign up didn't succeed. Look at the ParseException
-       // to figure out what went wrong
+        // Sign up didn't succeed. Look at the ParseException
+        // to figure out what went wrong
     }
-  })
 }
 ```
 
