@@ -526,6 +526,25 @@ query.getInBackground("aFuEsvjoHt", new GetCallback<TodoItem>() {
   }
 });
 ```
+```kotlin
+// Specify which class to query
+val query: ParseQuery<TodoItem> = ParseQuery.getQuery(TodoItem::class.java)
+// Specify the object id
+query.getInBackground("aFuEsvjoHt") { item, e ->
+    if (e == null) {
+        // Access data using the `get` methods for the object
+        val body: String = item.getBody()
+        // Access special values that are built-in to each object
+        val objectId: String = item.getObjectId()
+        val updatedAt: Date = item.getUpdatedAt()
+        val createdAt: Date = item.getCreatedAt()
+        // Do whatever you want with the data...
+        Toast.makeText(this@TodoItemsActivity, body, Toast.LENGTH_SHORT).show()
+    } else {
+        // something went wrong
+    }
+}
+```
 
 See [retrieving objects](https://docs.parseplatform.org/android/guide/#retrieving-objects) official docs for information on refreshing stale objects and more.
 
