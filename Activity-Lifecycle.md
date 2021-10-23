@@ -19,7 +19,7 @@ The following diagram shows the important state paths of an Activity. The square
 
 | Lifecycle Method | Description | Common Uses  |
 | ------------- |-------------| -----|
-| `onCreate()` | The activity is starting (but not visible to the user) | Most of the activity initialization code goes here. This is where you [setContentView()](http://developer.android.com/reference/android/app/Activity.html#setContentView(int)) for the activity, initialize views, set up any adapters, etc. |
+| `onCreate()` | The activity is starting (but not visible to the user) | Most of the activity initialization code goes here. This is where you [setContentView()](https://developer.android.com/reference/android/app/Activity.html#setContentView(int)) for the activity, initialize views, set up any adapters, etc. |
 | `onStart()` | The activity is now visible (but not ready for user interaction) | This lifecycle method isn't used much, but can come in handy to register a BroadcastReceiver to monitor for changes that impact the UI (since the UI is now visible to the user).  |
 | `onResume()` | The activity is now in the foreground and ready for user interaction | This is a good place to start animations, open exclusive-access devices like the camera, etc. |
 | `onPause()` | Counterpart to `onResume()`. The activity is about to go into the background and has stopped interacting with the user. This can happen when another activity is launched in front of the current activity. | It's common to undo anything that was done in onResume() and to save any global state (such as writing to a file). |
@@ -36,6 +36,7 @@ The Activity lifecycle is especially important because whenever an activity leav
 When overriding any of the methods, you may need to call the superclass implementation.  The rule of thumb is that during initialization, you should always call the superclass first:
 
 ```java
+@Override
 public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
    super.onCreate(savedInstanceState, persistentState);
    // do work after super class function
@@ -47,13 +48,14 @@ public void onCreate(Bundle savedInstanceState, PersistableBundle persistentStat
 override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
   super.onCreate(savedInstanceState, persistentState)
   // do work after super class function
-  // setContentView(R.layout.main);
+  // setContentView(R.layout.main)
 }
 ```
 
 During de-initialization, you should do the work first before calling the super class:
 
 ```java
+@Override
 public void onPause() {
    // do work here first before super class function
    // LocalBroadcastManager.getInstance(this).unregisterReceiver(mMessageReceiver);
@@ -64,12 +66,12 @@ public void onPause() {
 ```kotlin
 override fun onPause() {
    // do work here first before super class function
-   // LocalBroadcastManager.getInstance(this).unregisterReceiver(mMessageReceiver);
-   super.onPause();
+   // LocalBroadcastManager.getInstance(this).unregisterReceiver(mMessageReceiver)
+   super.onPause()
 }
 ```
 
-See this [Stack Overflow article](http://stackoverflow.com/questions/16925579/android-implementation-of-lifecycle-methods-can-call-the-superclass-implementati) for more context.
+See this [Stack Overflow article](https://stackoverflow.com/questions/16925579/android-implementation-of-lifecycle-methods-can-call-the-superclass-implementati) for more context.
 
 ## References
 
