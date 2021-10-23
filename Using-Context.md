@@ -8,7 +8,7 @@ In many cases when the "context is required", we simply need to **pass in the in
 
 Below are a few use cases that require a Context object.
 
-### Explicitly starting a components
+### Explicitly starting a component
 
 ```java
 // Provide context if MyActivity is an internal activity.
@@ -22,7 +22,7 @@ val intent = Intent(context, MyActivity::class.java)
 startActivity(intent)
 ```        
 
-When explicitly starting a component two pieces of information are required:
+When explicitly starting a component, two pieces of information are required:
 * package name, which identifies the application that contains the component.
 * fully-qualified Java class name for the component.
 
