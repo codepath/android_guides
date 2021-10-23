@@ -694,7 +694,7 @@ public class ContactsAdapter extends
 }
 ```
 ```kotlin
-class ContactAdapter(contacts: List<Contact>) : RecyclerView.Adapter<ContactAdapter.ViewHolder>() {
+class ContactsAdapter(contacts: List<Contact>) : RecyclerView.Adapter<ContactsAdapter.ViewHolder>() {
     
     fun swapItems(contacts: List<Contact>) {
         // compute diffs
@@ -751,6 +751,9 @@ We can also enable optimizations if the items are static and will not change for
 ```java
 recyclerView.setHasFixedSize(true);
 ```
+```kotlin
+recyclerView.setHasFixedSize(true)
+```
 
 ### Layouts
 
@@ -765,6 +768,15 @@ layoutManager.scrollToPosition(0);
 // Attach layout manager to the RecyclerView
 recyclerView.setLayoutManager(layoutManager);
 ```
+```kotlin
+// Setup layout manager for items with orientation
+// Also supports `LinearLayoutManager.HORIZONTAL`
+val layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+// Optionally customize the position you want to default scroll to
+layoutManager.scrollToPosition(0)
+// Attach layout manager to the RecyclerView
+recyclerView.layoutManager = layoutManager
+```
 
 Displaying items in a grid or staggered grid works similarly:
 
@@ -775,12 +787,19 @@ StaggeredGridLayoutManager gridLayoutManager =
 // Attach the layout manager to the recycler view
 recyclerView.setLayoutManager(gridLayoutManager);
 ```
+```kotlin
+// First param is number of columns and second param is orientation i.e Vertical or Horizontal
+val gridLayoutManager = 
+    StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+// Attach the layout manager to the recycler view
+recyclerView.layoutManager = gridLayoutManager
+```
 
 For example, a staggered grid might look like:
 
 <img src="https://i.imgur.com/AlANFgj.png" width="300" alt="Screenshot" />
 
-We can build [our own custom layout managers](http://wiresareobsolete.com/2014/09/building-a-recyclerview-layoutmanager-part-1/) as outlined there.
+We can build [our own custom layout managers](https://wiresareobsolete.com/2014/09/building-a-recyclerview-layoutmanager-part-1/) as outlined there.
 
 ### Decorations
 
@@ -790,6 +809,11 @@ We can decorate the items using various decorators attached to the recyclerview 
 RecyclerView.ItemDecoration itemDecoration = new
     DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
 recyclerView.addItemDecoration(itemDecoration);
+```
+```kotlin
+val itemDecoration: ItemDecoration =
+    DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
+recyclerView.addItemDecoration(itemDecoration)
 ```
 
 This decorator displays dividers between each item within the list as illustrated below:
@@ -808,11 +832,11 @@ Currently, the fastest way to implement animations with RecyclerView is to use t
 
 ```gradle
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
-    implementation 'jp.wasabeef:recyclerview-animators:3.0.0'
+    implementation 'jp.wasabeef:recyclerview-animators:4.0.2'
 }
 ```
 
@@ -820,6 +844,9 @@ Next, we can use any of the defined animators to change the behavior of our Recy
 
 ```java
 recyclerView.setItemAnimator(new SlideInUpAnimator());
+```
+```kotlin
+recyclerView.itemAnimator = SlideInUpAnimator()
 ```
 
 For example, here's scrolling through a list after customizing the animation:
@@ -846,6 +873,11 @@ RecyclerView allows us to handle touch events with:
 
 ```java
 recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+    
+    @Override
+    public boolean onInterceptTouchEvent(RecyclerView recycler, MotionEvent event) {
+        return false;
+    }
 
     @Override
     public void onTouchEvent(RecyclerView recycler, MotionEvent event) {
@@ -853,11 +885,25 @@ recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
     }
 
     @Override
-    public boolean onInterceptTouchEvent(RecyclerView recycler, MotionEvent event) {
-        return false;
+    public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+    }
+});
+```
+```kotlin
+recyclerView.addOnItemTouchListener(object : OnItemTouchListener {
+    override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
+        return false
     }
 
-});
+    override fun onTouchEvent(rv: RecyclerView, e: MotionEvent) {
+        // Handle on touch events here
+    }
+
+   override fun onRequestDisallowInterceptTouchEvent(disallowIntercept: Boolean) {
+        
+   }
+})
 ```
 
 ### Snap to Center Effect
@@ -874,6 +920,10 @@ To achieve this snapping to center effect as the user scrolls we can use the bui
 SnapHelper snapHelper = new LinearSnapHelper();
 snapHelper.attachToRecyclerView(recyclerView);
 ```
+```kotlin
+val snapHelper = LinearSnapHelper()
+snapHelper.attachToRecyclerView(recyclerView)
+```
 
 For more sophisticated snapping behavior, [read more about customizing these helpers](https://rubensousa.github.io/2016/08/recyclerviewsnap) and [review related sample code here](https://github.com/rubensousa/RecyclerViewSnap/).
 
@@ -887,6 +937,10 @@ For a more manual approach, we can create a custom extension to `RecyclerView` c
    ```java
    LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
    snappyRecyclerView.setLayoutManager(layoutManager);
+   ```
+   ```kotlin
+   val layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+   snappyRecyclerView.layoutManager = layoutManager
    ```
 
 3. Attach your adapter to the `RecyclerView` to populate the data into the horizontal list as normal.
@@ -928,7 +982,7 @@ public class PostsFragment extends Fragment {
 }
 ```
 
-This technique was originally [outlined in this article](http://www.littlerobots.nl/blog/Handle-Android-RecyclerView-Clicks/). Under the covers, this is wrapping the interface pattern described in detail below.
+This technique was originally [outlined in this article](https://www.littlerobots.nl/blog/Handle-Android-RecyclerView-Clicks/). Under the covers, this is wrapping the interface pattern described in detail below.
 
 So, if you apply this code above, you **do not need** the **Simple Click Handler within ViewHolder** described below. 
 
