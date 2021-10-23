@@ -559,6 +559,7 @@ public int getItemCount() {
 }
 ```
 ```kotlin
+// remove this section
 override fun getItemCount(): Int {
     return contacts.size
 }
