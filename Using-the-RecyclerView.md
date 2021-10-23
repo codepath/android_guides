@@ -493,10 +493,16 @@ Change from:
 ```java
 public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHolder> {
 ```
+```kotlin
+class ContactsAdapter : RecyclerView.Adapter<ContactsAdapter.ViewHolder> {
+```
 
 To:
 ```java
 public class ContactsAdapter extends ListAdapter<Contact, ContactsAdapter.ViewHolder> {
+```
+```kotlin
+class ContactsAdapter : ListAdapter<Contact, ContactsAdapter.ViewHolder> {
 ```
 
 Note that a `ListAdapter` requires an extra generic parameter, which is the type of data managed by this adapter.  We also need to declare an item callback:
@@ -514,12 +520,32 @@ public static final DiffUtil.ItemCallback<Contact> DIFF_CALLBACK =
             }
         };
 ```
+```kotlin
+companion object {
+        val DIFF_CALLBACK: DiffUtil.ItemCallback<Contact> = object : DiffUtil.ItemCallback<Contact>() {
+            override fun areItemsTheSame(oldItem: Contact, newItem: Contact): Boolean {
+                return oldItem.id == newItem.id
+            }
+
+            override fun areContentsTheSame(oldItem: Contact, newItem: Contact): Boolean {
+                return oldItem.name == newItem.name && oldItem.isOnline == newItem.isOnline
+            }
+        }
+    }
+```
 
 You may notice an error that says "There is no default constructor available in `androidx.recyclerview.widget.ListAdapter`".  The reason is that you will declare an empty constructor and your adapter will also need to invoke this callback method:
 
 ```java
-public ContactsAdapter() {
-    super(DIFF_CALLBACK);
+public class ContactsAdapter extends ListAdapter<Contact, ContactsAdapter.ViewHolder> {
+    public ContactsAdapter() {
+        super(DIFF_CALLBACK);
+    }
+}
+```
+```kotlin
+class ContactsAdapter : ListAdapter<Contact, ContactsAdapter.ViewHolder>(DIFF_CALLBACK) {
+
 }
 ```
 
@@ -532,6 +558,11 @@ public int getItemCount() {
   return mContacts.size();
 }
 ```
+```kotlin
+override fun getItemCount(): Int {
+    return contacts.size
+}
+```
 
 We will also add a helper function to add more contacts.  Anytime we wish to add more contacts, will use this method instead.  A `submitList()` function provided by the ListAdapter will trigger the comparison.
 
@@ -539,6 +570,12 @@ We will also add a helper function to add more contacts.  Anytime we wish to add
 public void addMoreContacts(List<Contact> newContacts) {
   mContacts.addAll(newContacts);
   submitList(mContacts); // DiffUtil takes care of the check
+}
+```
+```kotlin
+fun addMoreContacts(newContacts: List<Contact>) {
+    contacts.addAll(newContacts)
+    submitList(contacts) // DiffUtil takes care of the check
 }
 ```
 
@@ -551,12 +588,21 @@ public void onBindViewHolder(ViewHolder holder, int position) {
    // remove this line
    Contact contact = mContacts.get(position);
 ```
+```kotlin
+override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+   // remove this line
+   val contact = mContacts.get[position]
+```
 
 To:
 
 ```java
 public void onBindViewHolder(ViewHolder holder, int position) {
    Contact contact = getItem(position);
+```
+```kotlin
+override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+   val contact = getItem(position)
 ```
 
 #### Using with DiffUtil
@@ -568,7 +614,6 @@ The `DiffUtil` class, which was added in the v24.2.0 of the support library, hel
 To use the `DiffUtil` class, you need to first implement a class that implements the `DiffUtil.Callback` that accepts the old and new list:
 
 ```java
-
 public class ContactDiffCallback extends DiffUtil.Callback {
 
     private List<Contact> mOldList;
@@ -599,11 +644,32 @@ public class ContactDiffCallback extends DiffUtil.Callback {
         Contact oldContact = mOldList.get(oldItemPosition);
         Contact newContact = mNewList.get(newItemPosition);
 
-        if (oldContact.getName() == newContact.getName() && oldContact.isOnline() == newContact.isOnline()) {
-            return true;
-        }
-        return false;
+        return oldContact.getName() == newContact.getName() && oldContact.isOnline() == newContact.isOnline()
     }
+}
+```
+```kotlin
+class ContactDiffCallback(
+    private val mOldList: List<Contact>,
+    private val mNewList: List<Contact>
+) : DiffUtil.Callback() {
+
+    override fun getOldListSize() = mOldList.size
+
+    override fun getNewListSize() = mNewList.size
+
+    override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+        // add a unique ID property on Contact and expose a getId() method
+        return mOldList[oldItemPosition].id == mNewList[newItemPosition].id
+    }
+
+    override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+        val oldContact = mOldList[oldItemPosition]
+        val newContact = mNewList[newItemPosition]
+
+        return oldContact.name == newContact.name && oldContact.isOnline == newContact.isOnline
+    }
+
 }
 ```
 
@@ -626,6 +692,22 @@ public class ContactsAdapter extends
     }
 }
 ```
+```kotlin
+class ContactAdapter(contacts: List<Contact>) : RecyclerView.Adapter<ContactAdapter.ViewHolder>() {
+    
+    fun swapItems(contacts: List<Contact>) {
+        // compute diffs
+        val diffCallback = ContactDiffCallback(this.contacts, contacts)
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
+
+        // clear contacts and add
+        this.contacts.clear()
+        this.contacts.addAll(contacts)
+
+        diffResult.dispatchUpdatesTo(this) // calls adapter's notify methods after diff is computed
+    }
+}
+```
 
 For a working example, see this [sample code](https://github.com/mrmike/DiffUtil-sample/tree/29d7e70ad8d29b8e59033c085db78d92a31ec0bd).
 
@@ -637,12 +719,20 @@ If we are inserting elements to the front of the list and wish to maintain the p
 adapter.notifyItemInserted(0);
 rvContacts.scrollToPosition(0);   // index 0 position
 ```
+```kotlin
+adapter.notifyItemInserted(0)
+rvContacts.scrollToPosition(0)   // index 0 position
+```
 
 If we are adding items to the end and wish to scroll to the bottom as items are added, we can notify the adapter that an additional element has been added and can call `smoothScrollToPosition()` on the RecyclerView:
 
 ```java
 adapter.notifyItemInserted(contacts.size() - 1);  // contacts.size() - 1 is the last element position
 rvContacts.scrollToPosition(mAdapter.getItemCount() - 1); // update based on adapter
+```
+```kotlin
+adapter.notifyItemInserted(contacts.size() - 1)  // contacts.size() - 1 is the last element position
+rvContacts.scrollToPosition(mAdapter.getItemCount() - 1) // update based on adapter
 ```
 
 ### Implementing Endless Scrolling
@@ -743,7 +833,7 @@ There is also a new interface for the [ItemAnimator](https://developer.android.c
 
 ### Heterogeneous Views
 
-See [[this guide|Heterogenous-Layouts-inside-RecyclerView]] if you want to inflate multiple types of rows inside a single `RecyclerView`:
+See [[this guide|https://guides.codepath.com/android/Heterogeneous-Layouts-inside-RecyclerView]] if you want to inflate multiple types of rows inside a single `RecyclerView`:
 
 <img src="https://i.imgur.com/HyOAOOu.png" width="300" alt="ss2" />
 
