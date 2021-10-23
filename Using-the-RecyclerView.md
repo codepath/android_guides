@@ -549,7 +549,7 @@ class ContactsAdapter : ListAdapter<Contact, ContactsAdapter.ViewHolder>(DIFF_CA
 }
 ```
 
-Instead of overriding the `getItemsCount()`, remove it since the size of the list will be managed by the `ListAdapter` class:
+Instead of overriding `getItemCount()`, remove it since the size of the list will be managed by the `ListAdapter` class:
 
 ```java
 // remove this section
