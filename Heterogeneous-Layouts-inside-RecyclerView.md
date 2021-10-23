@@ -424,10 +424,10 @@ Rest of the implementation remains the same. After compiling and running your ap
 
 <img src="https://i.imgur.com/HyOAOOu.png" width="300" alt="ss1" /> <img src="https://i.imgur.com/aql8lXN.png" width="300" alt="ss2" />
 
-### References:
+### References
 
 * [RecyclerView](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.html)
-* [StackOverflow post](http://stackoverflow.com/questions/26245139/how-to-create-recyclerview-with-multiple-view-type).
-* [Stackoverflow post](http://stackoverflow.com/questions/25914003/recyclerview-and-handling-different-type-of-row-inflation/29362643#29362643)
+* [StackOverflow post](https://stackoverflow.com/questions/26245139/how-to-create-recyclerview-with-multiple-view-type).
+* [Stackoverflow post](https://stackoverflow.com/questions/25914003/recyclerview-and-handling-different-type-of-row-inflation/29362643#29362643)
 
 
