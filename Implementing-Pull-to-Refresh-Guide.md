@@ -3,7 +3,7 @@
 In Android, the common "pull to refresh" UX concept is not built in to a ListView/RecyclerView. However, many Android applications would like to make use of this concept for their feeds. This is useful for all sorts of feeds such as a Twitter timeline. This effect can be achieved using the `SwipeRefreshLayout` [class](https://developer.android.com/reference/androidx/swiperefreshlayout/widget/SwipeRefreshLayout)
 
 <img src="https://i.imgur.com/PtY0Ju1.gif" height="400" />
-<img src="https://materialdoc.com/images/custom_swipe.gif" height="400" />&nbsp;
+<img src="https://web.archive.org/web/20170612043448im_/http://www.materialdoc.com/content/images/2016/02/custom_swipe.gif" height="400" />&nbsp;
 
 ## Using SwipeRefreshLayout
 
@@ -18,7 +18,7 @@ apply plugin: 'com.android.application'
 
 dependencies {
     // ...
-    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 }
 ```
 
@@ -76,11 +76,15 @@ public void addAll(List<Tweet> list) {
 }
 ```
 ```kotlin
+/* Within the RecyclerView.Adapter class */
+
+// Clean all elements of the recycler
 fun clear() {
     tweets.clear()
     notifyDataSetChanged()
 }
 
+// Add a list of items -- change to type used
 fun addAll(tweetList: List<Tweet>) {
     tweets.addAll(tweetList)
     notifyDataSetChanged()
@@ -305,4 +309,4 @@ If you aren't able to get the swipe to refresh working, check the following tips
 ## References
 
 * <https://developer.android.com/reference/androidx/swiperefreshlayout/widget/SwipeRefreshLayout>
-* <http://antonioleiva.com/swiperefreshlayout/>
+* <https://antonioleiva.com/swiperefreshlayout/>
