@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState)
         // Inflate the content view (replacing `setContentView`)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         // Store the field now if you'd like without any need for casting
@@ -260,6 +260,7 @@ public class BindingAdapterUtils {
 ```
 ```kotlin
 object BindingAdapterUtils {
+    @JvmStatic
     @BindingAdapter("imageUrl")
     fun loadImage(view: ImageView, url: String?) {
         if (!url.isNullOrEmpty()) {
