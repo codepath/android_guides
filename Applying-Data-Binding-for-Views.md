@@ -2,7 +2,7 @@
 
 Android has now released a stable data-binding library which allows you to connect views with data in a much more powerful way than was possible previously. Applying data binding can improve your app by removing boilerplate for data-driven UI and allowing for two-way binding between views and data objects. 
 
-The Data Binding Library is a support library that is compatible with all recent Android versions. See [this official video from Google](https://www.youtube.com/watch?v=5sCQjeGoE7M) for a brief overview.
+The Data Binding Library is an Android Jetpack library that is compatible with all recent Android versions. See [this official video from Google](https://www.youtube.com/watch?v=qc_QNQzMSCE) for a brief overview.
  
 ### Setup
 
@@ -11,13 +11,17 @@ To get started with data binding, we need to make sure to upgrade to the latest 
 To configure your app to use data binding, add the `dataBinding` element to your `app/build.gradle` file:
 
 ```gradle
-apply plugin: 'com.android.application'
+plugins {
+    id: 'com.android.application'
+    id: 'kotlin-kapt' // If using Kotlin
+}
 
 android {
-    // Previously there
-    // Add this next line
-    dataBinding.enabled = true // <----
     // ...
+    buildFeatures {
+        dataBinding true
+    }
+}
 ```
 
 ### Eliminating View Lookups
@@ -69,6 +73,23 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
+```kotlin
+class MainActivity : AppCompatActivity() {
+    // Store the binding
+    private lateinit var binding: ActivityMainBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState);
+        // Inflate the content view (replacing `setContentView`)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        // Store the field now if you'd like without any need for casting
+        val tvLabel: TextView = binding.tvLabel
+        tvLabel.isAllCaps = true
+        // Or use the binding to update views directly on the binding
+        binding.tvLabel.text = "Foo"
+    }
+}
+```
 
 Note that this binding object is generated automatically with the following rules in place:
 
@@ -88,6 +109,12 @@ public class User {
    public String firstName;
    public String lastName;
 }
+```
+```kotlin
+data class User(
+    val firstName: String,
+    val lastName: String
+)
 ```
 
 Next, we need to wrap our existing layout inside a `<layout>` tag to indicate we want data binding enabled:
@@ -155,6 +182,21 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
+```kotlin
+class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        // Inflate the `activity_main` layout
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        // Create or access the data to bind
+        val user = User("Sarah", "Gibbons")
+        // Attach the user to the binding
+        binding.user = user
+    }
+}
+```
 
 That's all! When running the app now, you'll see the name is populated into the layout automatically:
 
@@ -184,9 +226,9 @@ Next, you can test for a condition (i.e. first name is null) and determine wheth
 
 #### Image Loading
 
-Unlike TextViews, you cannot bind values directly.  In this case, you need to create a custom  attribute.
+Unlike TextViews, you cannot bind values directly.  In this case, you need to create a custom attribute.
 
-First, make sure to define the `res-auto` namespace in your layout.  You cannot declare it in the `<layout>` outer tag so should put it on the outermost tag after the `<data>` tag:
+First, make sure to define the `res-auto` namespace in your layout.  You cannot declare it in the `<layout>` outer tag, so should put it on the outermost tag after the `<data>` tag:
 
 ```xml
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -210,10 +252,20 @@ You then need to annotate a static method that maps the custom attribute:
 
 ```java
 public class BindingAdapterUtils {
-  @BindingAdapter({"bind:imageUrl"})
+  @BindingAdapter({"imageUrl"})
   public static void loadImage(ImageView view, String url) {
-     Picasso.with(view.getContext()).load(url).into(view); 
+     Picasso.get().load(url).into(view); 
   }
+}
+```
+```kotlin
+object BindingAdapterUtils {
+    @BindingAdapter("imageUrl")
+    fun loadImage(view: ImageView, url: String?) {
+        if (!url.isNullOrEmpty()) {
+            Picasso.get().load(url).into(view)
+        }
+    }
 }
 ```
 
@@ -240,6 +292,14 @@ public class SamplesViewHolder extends RecyclerView.ViewHolder {
   }
 }
 ```
+```kotlin
+inner class SamplesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    // Since the layout was already inflated within onCreateViewHolder(), we 
+    // can use this bind() method to associate the layout variables
+    // with the layout.
+    val binding: ItemUserBinding = ItemUserBinding.bind(itemView)
+}
+```
 
 Next, we modify the `onBindViewHolder()` to associate the User object with the user at the given position and then update the views with the newly bound references:
 
@@ -253,11 +313,20 @@ Next, we modify the `onBindViewHolder()` to associate the User object with the u
       holder.binding.executePendingBindings();   // update the view now
    } 
 ```
+```kotlin
+override fun onBindViewHolder(holder: BindingHolder, position: Int) {
+      val user = users.get[position] 
+
+      // add these lines
+      holder.binding.user = user  // setVariable(BR.user, user) would also work
+      holder.binding.executePendingBindings()   // update the view now
+   } 
+```
 
 Refer also to these tutorials for how to work with data binding in `RecyclerView` or `ListView`:
 
- * [Databinding within RecyclerView](https://medium.com/google-developers/android-data-binding-recyclerview-db7c40d9f0e4)
- * [Using data binding in RecyclerView](http://mutualmobile.com/posts/using-data-binding-api-in-recyclerview).
+ * [Data Binding within RecyclerView](https://medium.com/google-developers/android-data-binding-recyclerview-db7c40d9f0e4)
+ * [Using data binding in RecyclerView](https://mutualmobile.com/posts/using-data-binding-api-in-recyclerview).
  * [RecyclerView and Data Binding](https://www.jayway.com/2015/12/08/recyclerview-and-databinding/)
  * [Simple code for data binding in the RecyclerView](https://newfivefour.com/android-databinding-recyclerview.html)
  * [Descent into data binding tutorial](https://www.bignerdranch.com/blog/descent-into-databinding/)
@@ -268,7 +337,7 @@ Refer to the following resources related to the include tag and binding:
 
  * [Includes tag with binding](https://developer.android.com/topic/libraries/data-binding/index.html#includes)
  * [Data binding with include tag](https://medium.com/google-developers/android-data-binding-that-include-thing-1c8791dd6038#.ptysrnqqo)
- * [Imports and Includes with Data Binding](http://mobikul.com/imports-includes-data-binding/)
+ * [Imports and Includes with Data Binding](https://mobikul.com/imports-includes-data-binding/)
 
 ### Two Way Data Binding
 
@@ -280,9 +349,9 @@ There is a great [series of posts](https://medium.com/@georgemount007) outlining
 
  * [Animating UI Updates with Data Binding](https://medium.com/google-developers/android-data-binding-animations-55f6b5956a64)
  * [Dynamic List Tricks and Data Binding](https://medium.com/google-developers/android-data-binding-list-tricks-ef3d5630555e)
- * [Databinding Dependent Properties](https://medium.com/google-developers/android-data-binding-dependent-properties-516d3235cd7c)
+ * [Data Binding Dependent Properties](https://medium.com/google-developers/android-data-binding-dependent-properties-516d3235cd7c)
 
-## Databinding Best Practices
+## Data Binding Best Practices
 
 While MVVM with Data Binding does remove a good deal of this boilerplate you also run into new issues where logic is now present in the views, like this code similar to the section shown above:
 
@@ -325,7 +394,7 @@ The logic for showing a view is now determined by a Boolean value. To use this i
     app:isVisible="@{post.hasComments()}" />
 ```
 
-For more best practices, check out this [source article here](http://www.donnfelker.com/android-mvvm-with-databinding-removing-logic-from-your-views-with-bindingadapters/). 
+For more best practices, check out this [source article here](https://www.donnfelker.com/android-mvvm-with-databinding-removing-logic-from-your-views-with-bindingadapters/). 
 
 ## MVVM Architecture and Data Binding 
 
@@ -341,22 +410,22 @@ Check out [this blog post](https://labs.ribot.co.uk/approaching-android-with-mvv
 
 If you see an error message such as `cannot resolve symbol 'ActivityMainBinding'` then this means that the data binding auto-generated class has not been created. Check the following to resolve the issue:
 
- 1. Make sure you have the proper `dataBinding.enabled = true` in gradle and trigger "Sync with Gradle"
+ 1. Make sure you have the proper `dataBinding true` in gradle and trigger "Sync with Gradle"
  2. Open the layout file and ensure that the XML file is valid and is wrapped in a `<layout>` tag.
  3. Check the **layout file for the correct name** i.e `activity_main.xml` maps to `ActivityMainBinding.java`.
  4. Run `File => Invalidate Caches / Restart` to clear the caches. 
  4. Run `Project => Clean` and `Project => Re-Build` to regenerate the class file.
  5. Restart Android Studio again and then try the above steps again.
  
-**Databinding does not exist messages**
+**Data Binding does not exist messages**
 
-If you see an error message such as `**.**.databinding does not exist`, it's likely that there is an error in your data binding XML templates that needs to be resolved.  Make sure to look for errors (i.e. forgetting to import a Java class when referencing it within your template). 
+If you see an error message such as `**.**.databinding does not exist`, it's likely that there is an error in your data binding XML templates that needs to be resolved.  Make sure to look for errors (i.e. forgetting to import a Java/Kotlin class when referencing it within your template). 
 
 Make sure that **all your XML files with data binding have their errors fully resolved** and the files are saved. Then be sure to `Project -> Clean` and `Project -> Rebuild Project` the project in order to regenerate the binding classes with latest properties. 
 
-**Databinding is not picking up certain layout fields**
+**Data Binding is not picking up certain layout fields**
 
-Be sure to `Project -> Clean` and `Project -> Rebuild Project` the project in order to regenerate the binding classes with latest layout properties. 
+Be sure to `Project -> Clean Project` and `Project -> Rebuild Project` the project in order to regenerate the binding classes with latest layout properties. 
 
 **Identifiers must have user defined types from the XML file. View is missing it**
 
@@ -387,6 +456,5 @@ apt 'com.google.dagger:dagger-compiler:2.5'
 * <https://medium.com/google-developers/no-more-findviewbyid-457457644885#.p1ie9j52a>
 * <https://realm.io/news/data-binding-android-boyar-mount/>
 * <https://www.captechconsulting.com/blogs/android-data-binding-tutorial>
-* <http://www.survivingwithandroid.com/2015/08/android-data-binding-tutorial-2.html>
 * <https://www.bignerdranch.com/blog/descent-into-databinding/>
 * <https://stfalcon.com/en/blog/post/faster-android-apps-with-databinding>
