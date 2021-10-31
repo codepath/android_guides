@@ -94,6 +94,24 @@ bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationVie
   }
 });      
 ```
+```kotlin
+val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
+
+bottomNavigationView.setOnItemSelectedListener { item ->
+    when (item.itemId) {
+        R.id.action_favorites ->
+            // do something here
+            true
+        R.id.action_schedules ->
+            // do something here
+            true
+        R.id.action_music ->
+            // do something here
+            true
+        else -> true
+    }
+}
+```
 
 ### Using with fragments
 
@@ -136,8 +154,40 @@ public class MainActivity extends AppCompatActivity {
      bottomNavigationView.setSelectedItemId(R.id.action_favorites);
   }
 }
-
 ```
+```kotlin
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val fragmentManager: FragmentManager = supportFragmentManager
+
+        // define your fragments here
+        val fragment1: Fragment = FirstFragment()
+        val fragment2: Fragment = SecondFragment()
+        val fragment3: Fragment = ThirdFragment()
+
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
+
+        // handle navigation selection
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            lateinit var fragment: Fragment
+            when (item.itemId) {
+                R.id.action_favorites -> fragment = fragment1
+                R.id.action_schedules -> fragment = fragment2
+                R.id.action_music -> fragment = fragment3
+            }
+            fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit()
+            true
+        }
+
+        // Set default selection
+        bottomNavigationView.selectedItemId = R.id.action_favorites
+    }
+}
+```
+
 ### Customizing styles
 
 The bottom navigation view also can be customized with several different options, including:
