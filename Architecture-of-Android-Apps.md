@@ -12,7 +12,7 @@ There are currently three major approaches to architecting your Android apps:
 
  3. **Data-binding MVVM** (Model-View-ViewModel) - ViewModels retrieve data from the model when requested from the view via the [[Android data binding framework|Applying-Data-Binding-for-Views]]. With this pattern, Activities and Fragments become very lightweight. Moreover, writing unit tests becomes easier because the ViewModels are decoupled from the view. You can [learn more on this blog post](https://medium.com/upday-devs/android-architecture-patterns-part-3-model-view-viewmodel-e7eeee76b73b).
 
-Check this [blog post from Realm](https://realm.io/news/eric-maxwell-mvc-mvp-and-mvvm-on-android/) for a detailed comparison of the options. Refer to [this sample app](https://github.com/ivacf/archi) for an example of each architecture type. 
+Check this [blog post from Realm](https://web.archive.org/web/20170210034320/https://realm.io/news/eric-maxwell-mvc-mvp-and-mvvm-on-android/) for a detailed comparison of the options. Refer to [this sample app](https://github.com/ivacf/archi) for an example of each architecture type. 
 
 ## Clean Architecture
 
