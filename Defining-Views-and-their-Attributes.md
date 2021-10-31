@@ -156,7 +156,7 @@ Common view attributes include:
 | `android:textSize`    | Size of the text                | `21sp`            |
 | `android:textStyle`   | Style of the text formatting    | `bold`            |
 
-Review the [View docs](http://developer.android.com/reference/android/view/View.html) and [TextView docs](http://developer.android.com/reference/android/widget/TextView.html) for a list of additional attributes. An example of setting view attributes:
+Review the [View docs](https://developer.android.com/reference/android/view/View.html) and [TextView docs](https://developer.android.com/reference/android/widget/TextView.html) for a list of additional attributes. An example of setting view attributes:
 
 ```xml
 <TextView
@@ -171,6 +171,6 @@ Review the [View docs](http://developer.android.com/reference/android/view/View.
 
 ## References
 
- * <http://developer.android.com/reference/android/view/View.html>
- * <http://developer.android.com/reference/android/widget/TextView.html>
- * <http://mobile.tutsplus.com/tutorials/android/android-sdk-user-interface-design/>
+ * <https://developer.android.com/reference/android/view/View.html>
+ * <https://developer.android.com/reference/android/widget/TextView.html>
+ * <https://mobile.tutsplus.com/tutorials/android/android-sdk-user-interface-design/>
