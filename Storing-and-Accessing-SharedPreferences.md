@@ -11,16 +11,27 @@ In order to store data to the SharedPreferences you need to first instantiate an
 ```java
 SharedPreferences sharedPreferences = getSharedPreferences("Settings", Context.MODE_PRIVATE);
 ```
+```kotlin
+val sharedPreferences = getSharedPreferences("Settings", Context.MODE_PRIVATE)
+```
 
 The string `Settings` is the name of the preference file you wish to access. If it does not exist, it will be created. The mode value of 0 designates the default behavior, which is to allow read access to only to the application.  There are other read/write permissions that can be specified, but are no longer encouraged for [security reasons](https://developer.android.com/reference/android/content/Context.html#MODE_WORLD_READABLE).
 
 #### Using a Default Preferences File
 
-If you wish to have a common preference file and don't wish to specify a file, you can also use default shared preferences too:
+First, add the following dependency:
 
+```gradle
+implementation 'androidx.preference:preference:1.1.1'
+```
+
+If you wish to have a common preference file and don't wish to specify a file, you can also use default shared preferences too:
 
 ```java
 SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+```
+```kotlin
+val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(applicationContext)
 ```
 
 Using this way will default the preference file to be stored as `/data/data/com.package.name/shared_prefs/com.package.name_preferences.xml`. 
@@ -33,6 +44,9 @@ If there is a need to edit a preferences file without user interaction, it can b
 ```java
 SharedPreferences.Editor editor = sharedPreferences.edit();
 ```
+```kotlin
+val editor: SharedPreferences.Editor = sharedPreferences.edit()
+```
 
 Then you can begin to add data to the Settings file declared when you instantiated the SharedPreferences like so.
 
@@ -41,11 +55,19 @@ int id = 1;
 editor.putString("keyName", "newValue");
 editor.putInt("id", id);
 ```
+```kotlin
+val id: Int = 1
+editor.putString("keyName", "newValue")
+editor.putInt("id", id)
+```
 
-Once you are finished adding data you need to 'apply()' the edits by calling.
+Once you are finished adding data, you need to 'apply()' the edits by calling:
 
 ```java
 editor.apply();
+```
+```kotlin
+editor.apply()
 ```
 
 That's the last step. Your data is stored and you can then access your data using the method below.
@@ -59,6 +81,9 @@ First you need to instantiate an instance of your shared preferences.
 ```java
 SharedPreferences sharedPreferences = getSharedPreferences("Settings", Context.MODE_PRIVATE);
 ```
+```kotlin
+val sharedPreferences = getSharedPreferences("Settings", Context.MODE_PRIVATE)
+```
 
 The string Settings is the name of the settings file you wish to access. If it does not exist it will be created. The mode value of 0 designates the default behavior.
 
@@ -66,6 +91,9 @@ The final step is to access the data like so.
 
 ```java
 String setting = sharedPreferences.getString("keyName", "defaultValue");
+```
+```kotlin
+val setting: String = sharedPreferences.getString("keyName", "defaultValue")
 ```
 
 This will either grab the value that was previously set with the key of "keyName" or will return the string "defaultValue" if it is not found. That's all there is to it.
