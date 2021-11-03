@@ -20,7 +20,6 @@ Note that you should **never store mutable shared data** inside the `Application
 
 If we do want a custom application class, we start by creating a new class which extends `android.app.Application` as follows:
 
-Java:
 ```java
 import android.app.Application;
 
@@ -49,7 +48,6 @@ public class MyCustomApplication extends Application {
 	}
 }
 ```
-Kotlin: 
 ```kotlin
 import android.app.Application
 
@@ -104,10 +102,10 @@ So how should we store shared application data? We should store shared data in o
 ## Resources
 
 * <https://developer.android.com/reference/android/app/Application.html>
-* <http://stackoverflow.com/questions/18002227/why-extend-an-application-class>
+* <https://stackoverflow.com/questions/18002227/why-extend-an-application-class>
 * <https://tausiq.wordpress.com/2013/01/27/android-make-use-of-android-application-class-as-singleton-object/>
 * <https://androidresearch.wordpress.com/2012/03/22/defining-global-variables-in-android/>
 * <http://www.helloandroid.com/tutorials/maintaining-global-application-state>
 * <https://www.mobomo.com/2011/5/how-to-use-application-object-of-android/>
 * <http://www.developerphil.com/dont-store-data-in-the-application-object/>
-* <http://www.vogella.com/tutorials/AndroidLifeCycle/article.html#managing-the-application-life-cycle>
+* <https://www.vogella.com/tutorials/AndroidLifeCycle/article.html#managing-the-application-life-cycle>
