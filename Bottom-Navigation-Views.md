@@ -70,7 +70,7 @@ Save the file as `ic_favorite_white_24dp.xml`.  You can change the fill color af
 </path>
 ```
 
-You can repeat this process for the other icons.  You can also download the icons directly from this [GitHub repo](https://github.com/hitherejoe/BottomNavigationViewSample/tree/master/app/src/main/res/drawable.) too.
+You can repeat this process for the other icons.  You can also download the icons directly from this [GitHub repo](https://github.com/hitherejoe/BottomNavigationViewSample/tree/master/app/src/main/res/drawable) too.
 
 Finally, you will need to set the navigation select handler manually:
 
