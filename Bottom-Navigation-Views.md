@@ -13,6 +13,7 @@ Next, simply declare a `BottomNavigationView` instance and make sure to set `ali
 ```xml
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rlContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -73,10 +74,12 @@ You can repeat this process for the other icons.  You can also download the icon
 
 Finally, you will need to set the navigation select handler manually:
 
-```java
-BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+**Note:** as of `com.google.android.material:material:1.4.0`, `setOnNavigationItemSelectedListener` has been deprecated. Use `setOnItemSelectedListener` instead.
 
-bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+```java
+BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
   @Override
   public boolean onNavigationItemSelected(@NonNull MenuItem item) {
     switch (item.getItemId()) {
@@ -113,9 +116,9 @@ bottomNavigationView.setOnItemSelectedListener { item ->
 }
 ```
 
-### Using with fragments
+### Using with Fragments
 
-You can use the bottom navigation drawer to swap fragments:
+You can use the bottom navigation drawer to swap Fragments:
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -129,8 +132,8 @@ public class MainActivity extends AppCompatActivity {
      final Fragment fragment3 = new ThirdFragment(); 
 
      // handle navigation selection
-     bottomNavigationView.setOnNavigationItemSelectedListener(               
-        new BottomNavigationView.OnNavigationItemSelectedListener() {
+     bottomNavigationView.setOnItemSelectedListener(               
+        new BottomNavigationView.setOnItemSelectedListener() {
           @Override
           public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             Fragment fragment;
@@ -146,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
                   fragment = fragment3;
                   break;
               }
-            fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
+            fragmentManager.beginTransaction().replace(R.id.rlContainer, fragment).commit();
             return true;
          }
      });
@@ -178,7 +181,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.action_schedules -> fragment = fragment2
                 R.id.action_music -> fragment = fragment3
             }
-            fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit()
+            fragmentManager.beginTransaction().replace(R.id.rlContainer, fragment).commit()
             true
         }
 
