@@ -1,14 +1,59 @@
-## Overview
-
-This guide describes the process of converting JSON data retrieved from a network request and converting that data to simple Model objects. This approach will be compatible with nearly any basic data-driven application and fits well with any ORM solution for persistence such as [[DBFlow|DBFlow Guide]] or [SugarORM](http://satyan.github.io/sugar/) that may be introduced.
-
-For this guide, we will be using the [Yelp API](http://www.yelp.com/developers/documentation/v2/search_api#searchGP) as the example. The goal of this guide is to **perform a Yelp API Search** and then **process the results into Java objects** which we can then use to populate information within our application.
-
-The model in this case is **Business** and for our application, let's suppose we just need the _name_, _phone_, and _image_ of the business which are all provided by the [Search API](http://www.yelp.com/developers/documentation/v2/search_api#searchGP).
-
-### Fetching JSON Results
-
-The first step in retrieving any API-based model data is to execute a network request to retrieve the JSON response that represents the underlying data that we want to use. In this case, we want to execute a request to `http://api.yelp.com/v2/search?term=food&location=San+Francisco` and then this will return us a JSON dictionary that looks like:
+{
+    "statues": "200",
+    "msg": "تم تسجيل الدخول بنجاح",
+    "data": {
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcHAuamFkZWVlci5jb21cL1wvYXBpXC92MVwvbG9naW4iLCJpYXQiOjE2MzYyOTE1MDgsIm5iZiI6MTYzNjI5MTUwOCwianRpIjoiZW5PVXR5WERBamRUZ0hWSCIsInN1YiI6MjQsInBydiI6IjM3ODdmYmExNjE4YTkzMDUyNmFjYTZjOGJiOWI0NGI4M2YyOTc3MjYifQ.74guBdv6DJSwp5Sa8U98B0wjTxGB9TSv9nLpbsqhy1Q",
+        "data": {
+            "id": 24,
+            "first_name": "محمد",
+            "last_name": "المالكي",
+            "full_name": "محمد المالكي",
+            "email": "",
+            "phone": "0557002096",
+            "gender": "Male",
+            "image": "http://graph.facebook.com//picture?type=large&height=500&width=500",
+            "api_token": null,
+            "district_id": "0",
+            "district": null,
+            "store": null,
+            "car": {
+                "id": 17,
+                "number": "2322",
+                "client_id": "24",
+                "Type_car": "1",
+                "driver_license": "http://app.jadeeer.com/public/storage/images/car/2416294795623674.jpg",
+                "car_license": "http://app.jadeeer.com/public/storage/images/car/2416294795623595.jpg",
+                "personal_id": "http://app.jadeeer.com/public/storage/images/car/2416294795623885.jpg",
+                "image_car_front": "http://app.jadeeer.com/public/storage/images/car/2416294795631246.jpg",
+                "image_car_back": "http://app.jadeeer.com/public/storage/images/car/2416294795658388.jpg",
+                "car_model": "19",
+                "car_category": null,
+                "stc_pay": "0557002096",
+                "char_car": "tyur",
+                "status": "0",
+                "nationality": "2",
+                "date_of_birth": null,
+                "gender": "Male",
+                "activated": "1",
+                "bank_name": "الراجحي",
+                "name_card": "Mohammed",
+                "ipan": "6566666666666666",
+                "nationality_id": "2",
+                "brand_id": {
+                    "id": 2,
+                    "Category_id": "22",
+                    "name": "هونداي",
+                    "Category": {
+                        "id": 22,
+                        "name": "السيارات والشاحنات",
+                        "image": "http://app.jadeeer.com/public/storage/images/category/1613175588.jpg"
+                    }
+                }
+            }
+        }
+    },
+    "count": 0
+}
 
 ```json
 {
