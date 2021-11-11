@@ -30,9 +30,7 @@ toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0)
 toast.show()
 ```
 
-### Custom Toast
-
-**Note:** As of Android 11, Custom Toasts are deprecated.
+### Custom Toast (Deprecated)
 
 You can also create a Toast that uses a custom XML layout rather than just displaying plain text. First, simply define the XML view in `res/layout` in a file such as `toast_layout.xml`:
 
