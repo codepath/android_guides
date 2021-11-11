@@ -2,7 +2,7 @@
 
 A toast provides simple feedback about an operation in a small popup. It only fills the amount of space required for the message and the current activity remains visible and interactive. Toasts automatically disappear after a timeout.
 
-![Toast](http://developer.android.com/images/toast.png)
+![Toast](https://developer.android.com/images/toast.png)
 
 ### Simple Toast
 
@@ -12,32 +12,47 @@ First, instantiate a Toast object with one of the makeText() methods. This metho
 // also supports Toast.LENGTH_LONG
 Toast.makeText(getApplicationContext(), "some message", Toast.LENGTH_SHORT).show();
 ```
+```kotlin
+// also supports Toast.LENGTH_LONG
+Toast.makeText(applicationContext, "some message", Toast.LENGTH_SHORT).show()
+```
 
-You can configure the position of a Toast. A standard toast notification appears near the bottom of the screen, centered horizontally. You can change this position with the `setGravity` method and specifying a [Gravity constant](http://developer.android.com/reference/android/view/Gravity.html).
+You can configure the position of a Toast. A standard toast notification appears near the bottom of the screen, centered horizontally. You can change this position with the `setGravity` method and specifying a [Gravity constant](https://developer.android.com/reference/android/view/Gravity.html).
 
 ```java
 Toast toast = Toast.makeText(getApplicationContext(), "some message", Toast.LENGTH_SHORT);
 toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
 toast.show();
 ```
+```kotlin
+val toast = Toast.makeText(applicationContext, "some message", Toast.LENGTH_SHORT)
+toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0)
+toast.show()
+```
 
 ### Custom Toast
+
+**Note:** As of Android 11, Custom Toasts are deprecated.
 
 You can also create a Toast that uses a custom XML layout rather than just displaying plain text. First, simply define the XML view in `res/layout` in a file such as `toast_layout.xml`:
 
 ```xml
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:id="@+id/toast_layout_root">
-    <ImageView android:src="@drawable/droid"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_marginRight="8dp"
-               />
-    <TextView android:id="@+id/text"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:textColor="#FFF"
-              />
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toast_layout_root">
+
+    <ImageView 
+        android:src="@drawable/droid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp" />
+
+    <TextView 
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFF" />
+
 </LinearLayout>
 ```
 
@@ -49,7 +64,7 @@ private void displayToast(String message) {
   View layout = getLayoutInflater().inflate(R.layout.toast_layout,
                                (ViewGroup) findViewById(R.id.toast_layout_root));
   // Fill in the message into the textview
-  TextView text = (TextView) layout.findViewById(R.id.text);
+  TextView text = layout.findViewById(R.id.text);
   text.setText(message); 
   // Construct the toast, set the view and display
   Toast toast = new Toast(getApplicationContext());
@@ -63,6 +78,6 @@ And then you can display the custom toast using `displayToast("Message");`.
 ## References
 
  * [Create custom toast tutorial](https://inspirecoding.app/custom-toast/)
- * <http://developer.android.com/guide/topics/ui/notifiers/toasts.html>
- * <http://developer.android.com/reference/android/widget/Toast.html>
- * <http://www.mkyong.com/android/android-toast-example/>
+ * <https://developer.android.com/guide/topics/ui/notifiers/toasts.html>
+ * <https://developer.android.com/reference/android/widget/Toast.html>
+ * <https://www.mkyong.com/android/android-toast-example/>
