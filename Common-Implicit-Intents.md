@@ -17,6 +17,13 @@ if (callIntent.resolveActivity(getPackageManager()) != null) {
     startActivity(callIntent);
 }
 ```
+```kotlin
+val callIntent = Intent(Intent.ACTION_CALL)
+callIntent.data = Uri.parse("tel:0377778888")
+if (callIntent.resolveActivity(packageManager) != null) {
+    startActivity(callIntent)
+}
+```
 
 > **Caution** It's possible that a user won't have any apps that handle the implicit intent you send to *startActivity()*. If that happens, the call will fail and your app will crash. To verify that an activity will receive the intent, call *resolveActivity()* on your *Intent* object. If the result is non-null, then there is at least one app that can handle the intent and it's safe to call *startActivity()*. If the result is null, you should not use the intent and, if possible, you should disable the feature that issue the intent.
 
@@ -32,6 +39,16 @@ intent.putExtra(Intent.EXTRA_SUBJECT, "subject");
 intent.putExtra(Intent.EXTRA_TEXT, "mail body");
 if (intent.resolveActivity(getPackageManager()) != null) {
     startActivity(Intent.createChooser(intent, ""));
+}
+```
+```kotlin
+val intent = Intent(Intent.ACTION_SEND)
+intent.type = "plain/text"
+intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("some@email.address"))
+intent.putExtra(Intent.EXTRA_SUBJECT, "subject")
+intent.putExtra(Intent.EXTRA_TEXT, "mail body")
+if (intent.resolveActivity(packageManager) != null) {
+    startActivity(Intent.createChooser(intent, ""))
 }
 ```
 
@@ -53,15 +70,34 @@ if (sendIntent.resolveActivity(getPackageManager()) != null) {
    startActivity(Intent.createChooser(sendIntent, "Send email")); 
 }
 ```
+```kotlin
+val uriText = "mailto:youremail@gmail.com" +
+        "?subject=" + Uri.encode("some subject text here") +
+        "&body=" + Uri.encode("some text here")
+
+val uri = Uri.parse(uriText)
+
+val sendIntent = Intent(Intent.ACTION_SENDTO)
+sendIntent.data = uri
+if (sendIntent.resolveActivity(packageManager) != null) {
+    startActivity(Intent.createChooser(sendIntent, "Send email"))
+}
+```
 
 ## Launch Website
 
 Launch a website in the phone browser:
 
 ```java
-Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
+Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com"));
 if (browserIntent.resolveActivity(getPackageManager()) != null) {
     startActivity(browserIntent);
+}
+```
+```kotlin
+val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com"))
+if (browserIntent.resolveActivity(packageManager) != null) {
+    startActivity(browserIntent)
 }
 ```
 
@@ -77,7 +113,15 @@ Intent intent = new Intent(Intent.ACTION_VIEW,
 if (intent.resolveActivity(getPackageManager()) != null) {
     startActivity(intent);
 }
-
+```
+```kotlin
+val intent = Intent(
+    Intent.ACTION_VIEW,
+    Uri.parse("market://details?id=" + this.packageName)
+)
+if (intent.resolveActivity(packageManager) != null) {
+    startActivity(intent)
+}
 ```
 
 ## Compose SMS
@@ -87,9 +131,20 @@ Uri smsUri = Uri.parse("tel:" + to);
 Intent intent = new Intent(Intent.ACTION_VIEW, smsUri);
 intent.putExtra("address", to);
 intent.putExtra("sms_body", message);
-intent.setType("vnd.android-dir/mms-sms");//here setType will set the previous data null.
+intent.setType("vnd.android-dir/mms-sms"); // here setType will set the previous data to null.
 if (intent.resolveActivity(getPackageManager()) != null) {
     startActivity(intent);
+}
+```
+```kotlin
+val smsUri = Uri.parse("tel:$to")
+val intent = Intent(Intent.ACTION_VIEW, smsUri)
+intent.putExtra("address", to)
+intent.putExtra("sms_body", message)
+intent.type = "vnd.android-dir/mms-sms" // here setType will set the previous data to null.
+
+if (intent.resolveActivity(packageManager) != null) {
+    startActivity(intent)
 }
 ```
 
@@ -98,7 +153,7 @@ if (intent.resolveActivity(getPackageManager()) != null) {
 Show location in maps application:
 
 ```java
- Intent intent = new Intent();
+Intent intent = new Intent();
 intent.setAction(Intent.ACTION_VIEW);
 String data = String.format("geo:%s,%s", latitude, longitude);
 if (zoomLevel != null) {
@@ -108,7 +163,18 @@ intent.setData(Uri.parse(data));
 if (intent.resolveActivity(getPackageManager()) != null) {
     startActivity(intent);
 }
-
+```
+```kotlin
+val intent = Intent()
+intent.action = Intent.ACTION_VIEW
+var data = String.format("geo:%s,%s", latitude, longitude)
+if (zoomLevel != null) {
+    data = String.format("%s?z=%s", data, zoomLevel)
+}
+intent.data = Uri.parse(data)
+if (intent.resolveActivity(packageManager) != null) {
+    startActivity(intent)
+}
 ```
 
 ## Capture Photo
@@ -120,7 +186,14 @@ intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
 if (intent.resolveActivity(getPackageManager()) != null) {
     startActivity(intent);
 }
-
+```
+```kotlin
+val uri = Uri.fromFile(File(file))
+val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+intent.putExtra(MediaStore.EXTRA_OUTPUT, uri)
+if (intent.resolveActivity(packageManager) != null) {
+    startActivity(intent)
+}
 ```
 
 ## Sharing Content
@@ -136,14 +209,37 @@ if (sharingIntent.resolveActivity(getPackageManager()) != null) {
     startActivity(Intent.createChooser(sharingIntent, "Share image using"));
 }
 ```
+```kotlin
+val sharingIntent = Intent(Intent.ACTION_SEND)
+sharingIntent.type = "image/jpg"
+val uri = Uri.fromFile(File(filesDir, "foo.jpg"))
+sharingIntent.putExtra(Intent.EXTRA_STREAM, uri.toString())
+if (sharingIntent.resolveActivity(packageManager) != null) {
+    startActivity(Intent.createChooser(sharingIntent, "Share image using"))
+}
+```
 
 or HTML:
 
 ```java
 Intent sharingIntent = new Intent(Intent.ACTION_SEND);
 sharingIntent.setType("text/html");
-sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, Html.fromHtml("<p>This is the text shared.</p>"));
+sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, HtmlCompat.fromHtml(
+    "<p>This is the text shared.</p>", 
+    HtmlCompat.FROM_HTML_MODE_LEGACY
+));
 if (sharingIntent.resolveActivity(getPackageManager()) != null) {
     startActivity(Intent.createChooser(sharingIntent,"Share using"));
+}
+```
+```kotlin
+val sharingIntent = Intent(Intent.ACTION_SEND)
+sharingIntent.type = "text/html"
+sharingIntent.putExtra(Intent.EXTRA_TEXT, HtmlCompat.fromHtml(
+    "<p>This is the text shared.</p>",
+    HtmlCompat.FROM_HTML_MODE_LEGACY
+))
+if (sharingIntent.resolveActivity(packageManager) != null) {
+    startActivity(Intent.createChooser(sharingIntent, "Share using"))
 }
 ```
