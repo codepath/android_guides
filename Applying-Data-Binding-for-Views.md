@@ -228,18 +228,23 @@ Next, you can test for a condition (i.e. first name is null) and determine wheth
 
 Unlike TextViews, you cannot bind values directly.  In this case, you need to create a custom attribute.
 
-First, make sure to define the `res-auto` namespace in your layout.  You cannot declare it in the `<layout>` outer tag, so should put it on the outermost tag after the `<data>` tag:
+First, make sure to define the `res-auto` namespace in your layout.  You cannot declare it in the `<layout>` outer tag, so it should be placed in the outermost tag after the `<data>` tag:
 
 ```xml
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
   
   <data>
-
+    <variable
+      name="mymodel"
+      type="com.example.MyApp.Model">
+    </variable>
   </data>
 
   <RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto">
   </RelativeLayout>
+
+</layout>
 ```
 
 and:
@@ -259,14 +264,9 @@ public class BindingAdapterUtils {
 }
 ```
 ```kotlin
-object BindingAdapterUtils {
-    @JvmStatic
-    @BindingAdapter("imageUrl")
-    fun loadImage(view: ImageView, url: String?) {
-        if (!url.isNullOrEmpty()) {
-            Picasso.get().load(url).into(view)
-        }
-    }
+@BindingAdapter("imageUrl")
+fun loadImage(view: ImageView, url: String?) {
+    Picasso.get().load(url).into(view)
 }
 ```
 
