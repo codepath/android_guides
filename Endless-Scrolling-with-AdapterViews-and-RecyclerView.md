@@ -105,6 +105,44 @@ If you are running into problems, please carefully consider the following sugges
 
 To display the last row as a ProgressBar indicating that the ListView is loading data, we do the trick in the Adapter. Having defined two types of views in `getItemViewType(int position)`, we can display the last row differently from a normal data row. It can be a ProgressBar or some text to indicate that the ListView has reached the last row by comparing the size of data List to the number of items on the server side. See [this gist](https://gist.github.com/nesquena/a988aac278cff59a9a69) for sample code.
 
+## Using Uncover library
+
+If you use RecyclerView to implement 'infinite scrolling' over output of the web service, or some other resource that requires slow background calls with multiple items at once, it may be reasonable to try the [Uncover library](https://github.com/andviane/google-books-android-viewer) from Maven central:
+
+```java
+dependencies {
+    compile ('io.github.andviane:uncover:2.0.1@aar')
+}    
+```
+This library requires you to implement the primary data fetcher, mediating between fast single item UI-thread calls on model and slow chunked calls on the background on your fetcher:
+
+```java
+    final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler);
+    final UncoveringDataModel<String> model = new UncoveringDataModel<>();
+
+    model.setPrimaryDataProvider(new PrimaryDataProvider<String>() {
+
+      @Override
+      public PrimaryResponse fetch(PrimaryRequest primaryRequest) {
+        Log.i("Fetch", "Service call to fetch items" + 
+          primaryRequest.getFrom() + "- " + primaryRequest.getTo());
+        ...
+        ArrayList<String> data = new ArrayList<String>();
+        ...
+        return new PrimaryResponse<String>(data, Integer.MAX_VALUE);
+      }
+    });
+
+    RecyclerView.Adapter adapter = new RecyclerView.Adapter() {
+      public int getItemCount() {
+        return model.size();
+      ...
+    };
+    model.install(recyclerView, adapter);
+```
+
+The `model.install` glues model, view and adapter into working implementation. When the user swipes forward quickly, the library skips unneeded fetches of data between the new and old position, last requested data are fetched first, and any pending requests are dropped from the queue if they data are no longer visible.
+
 ## Implementing with ListView or GridView (deprecated)
 
 See [Implementing with RecyclerView](https://guides.codepath.org/android/Endless-Scrolling-with-AdapterViews-and-RecyclerView#implementing-with-recyclerview) section for the most recent and relevant instructions. ListView is no longer used in modern Android applications.
