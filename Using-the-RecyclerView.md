@@ -981,6 +981,23 @@ public class PostsFragment extends Fragment {
     // ...
 }
 ```
+```kotlin
+class PostsFragment : Fragment() {
+    // ...
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Leveraging ItemClickSupport decorator to handle clicks on items in our recyclerView
+        ItemClickSupport.addTo(rvPosts).setOnItemClickListener { recyclerView, position, v ->
+            // do stuff
+        }
+    }
+
+    // ...
+}
+
+```
 
 This technique was originally [outlined in this article](https://www.littlerobots.nl/blog/Handle-Android-RecyclerView-Clicks/). Under the covers, this is wrapping the interface pattern described in detail below.
 
@@ -1015,11 +1032,40 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
         // Handles the row being being clicked
         @Override
         public void onClick(View view) {
-            int position = getAdapterPosition(); // gets item position
+            int position = getAbsoluteAdapterPosition(); // gets item position
             if (position != RecyclerView.NO_POSITION) { // Check if an item was deleted, but the user clicked it before the UI removed it
                 User user = users.get(position);
                 // We can access the data within the views
                 Toast.makeText(context, tvName.getText(), Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    // ...
+}
+```
+```kotlin
+class ContactsAdapter : RecyclerView.Adapter<ContactsAdapter.ViewHolder>() {
+    // ...
+
+    // Used to cache the views within the item layout for fast access
+    // Store the context
+    class ViewHolder(private val context: Context, view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
+        val tvName: TextView = itemView.findViewById(R.id.tvName)
+        val tvHometown: TextView = itemView.findViewById(R.id.tvHometown)
+
+        init {
+            // Attach a click listener to the entire row view
+            itemView.setOnClickListener(this)
+        }
+
+        // Handles the row being being clicked
+        override fun onClick(v: View?) {
+            val position = absoluteAdapterPosition // gets item position
+            if (position != RecyclerView.NO_POSITION) { // Check if an item was deleted, but the user clicked it before the UI removed it
+                val user = users[position]
+                // We can access the data within the views
+                Toast.makeText(context, tvName.text, Toast.LENGTH_SHORT).show()
             }
         }
     }
