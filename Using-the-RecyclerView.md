@@ -1100,12 +1100,14 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
 
     /***** Creating OnItemClickListener *****/
 
-    // Define listener member variable
-    private OnItemClickListener listener;
     // Define the listener interface
     public interface OnItemClickListener {
         void onItemClick(View itemView, int position);
     }
+
+    // Define listener member variable
+    private OnItemClickListener listener;
+    
     // Define the method that allows the parent activity or fragment to define the listener
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.listener = listener;
@@ -1138,6 +1140,44 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
     // ...
 }
 ```
+```kotlin
+class ContactsAdapter : RecyclerView.Adapter<ContactsAdapter.ViewHolder>() {
+    // ...
+
+    /***** Creating OnItemClickListener *****/
+
+    // Define the listener interface
+    interface OnItemClickListener {
+        fun onItemClick(itemView: View?, position: Int)
+    }
+
+    // Define listener member variable
+    private lateinit var listener: OnItemClickListener
+
+    // Define the method that allows the parent activity or fragment to define the listener
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        this.listener = listener
+    }
+
+    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val tvName: TextView = itemView.findViewById(R.id.tvName)
+        val tvHometown: TextView = itemView.findViewById(R.id.tvHometown)
+
+        init {
+            // Setup the click listener
+            itemView.setOnClickListener {
+                // Triggers click upwards to the adapter on click
+                val position = absoluteAdapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    listener.onItemClick(itemView, position)
+                }
+            }
+        }
+    }
+
+    // ...
+}
+```
 
 Then we can attach a click handler to the adapter with:
 
@@ -1151,6 +1191,16 @@ adapter.setOnItemClickListener(new ContactsAdapter.OnItemClickListener() {
         Toast.makeText(UserListActivity.this, name + " was clicked!", Toast.LENGTH_SHORT).show();
     }
 });
+```
+```kotlin
+// In the activity or fragment
+val adapter: ContactsAdapter = ...
+adapter.setOnItemClickListener(object : PersonAdapter.OnItemClickListener {
+    override fun onItemClick(itemView: View?, position: Int) {
+        val name = users[position].name
+        Toast.makeText(this@UserListActivity, "$name was clicked!", Toast.LENGTH_SHORT).show()
+    }
+})
 ```
 
 See [this detailed stackoverflow post](http://stackoverflow.com/a/24933117/313399) which describes how to setup item-level click handlers when using `RecyclerView`.
