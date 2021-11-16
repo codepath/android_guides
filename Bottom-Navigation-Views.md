@@ -6,9 +6,7 @@
 
 ## Setup
 
-See the [[design support library|Design-Support-Library#setup]] setup instructions for the Gradle config you need to add. 
-
-Next, simply declare a `BottomNavigationView` instance and make sure to set `alignParentBottom=true` to ensure that the view is placed on the bottom layout:
+Simply declare a `BottomNavigationView` instance and make sure to set `alignParentBottom=true` to ensure that the view is placed on the bottom layout:
 
 ```xml
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
