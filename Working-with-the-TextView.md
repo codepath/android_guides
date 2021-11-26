@@ -516,8 +516,8 @@ and this results in the following:
 For more details, [view the README](https://gist.github.com/nesquena/f2504c642c5de47b371278ee61c75124#file-readme-md) for more usage examples. 
 
 ## References
-* <https://tutorialwing.com/android-imageview-using-kotlin-example/>
-* <https://tutorialwing.com/create-android-imageview-programmatically-in-kotlin/>
+* <https://tutorialwing.com/android-textview-using-kotlin-example/>
+* <https://tutorialwing.com/create-an-android-textview-programmatically-in-kotlin/>
 * <https://code.tutsplus.com/tutorials/customize-android-fonts--mobile-1601>
 * <https://www.androidhive.info/2012/02/android-using-external-fonts/>
 * <https://stackoverflow.com/questions/3651086/android-using-custom-font>
