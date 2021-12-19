@@ -1195,7 +1195,7 @@ adapter.setOnItemClickListener(new ContactsAdapter.OnItemClickListener() {
 ```kotlin
 // In the activity or fragment
 val adapter: ContactsAdapter = ...
-adapter.setOnItemClickListener(object : PersonAdapter.OnItemClickListener {
+adapter.setOnItemClickListener(object : ContactsAdapter.OnItemClickListener {
     override fun onItemClick(itemView: View?, position: Int) {
         val name = users[position].name
         Toast.makeText(this@UserListActivity, "$name was clicked!", Toast.LENGTH_SHORT).show()
@@ -1203,7 +1203,7 @@ adapter.setOnItemClickListener(object : PersonAdapter.OnItemClickListener {
 })
 ```
 
-See [this detailed stackoverflow post](http://stackoverflow.com/a/24933117/313399) which describes how to setup item-level click handlers when using `RecyclerView`.
+See [this detailed stackoverflow post](https://stackoverflow.com/a/24933117/313399) which describes how to setup item-level click handlers when using `RecyclerView`.
 
 ## Implementing Pull to Refresh
 
@@ -1245,10 +1245,10 @@ rvMyList.onFlingListener = object : RecyclerViewSwipeListener(true) {
 ## References
 
 * <https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.html>
-* <http://www.grokkingandroid.com/first-glance-androids-recyclerview/>
-* <http://www.grokkingandroid.com/statelistdrawables-for-recyclerview-selection/>
-* <http://www.bignerdranch.com/blog/recyclerview-part-1-fundamentals-for-listview-experts/>
+* <https://www.grokkingandroid.com/first-glance-androids-recyclerview/>
+* <https://www.grokkingandroid.com/statelistdrawables-for-recyclerview-selection/>
+* <https://www.bignerdranch.com/blog/recyclerview-part-1-fundamentals-for-listview-experts/>
 * <https://developer.android.com/training/material/lists-cards.html>
-* <http://antonioleiva.com/recyclerview/>
+* <https://antonioleiva.com/recyclerview/>
 * <https://code.tutsplus.com/tutorials/getting-started-with-recyclerview-and-cardview-on-android--cms-23465>
 * <https://code.tutsplus.com/tutorials/introduction-to-the-new-lollipop-activity-transitions--cms-23711>
