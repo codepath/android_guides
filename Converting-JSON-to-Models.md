@@ -1,232 +1,235 @@
-[
-  {
-    "id": 1,
-    "name": "Leanne Graham",
-    "username": "Bret",
-    "email": "Sincere@april.biz",
-    "address": {
-      "street": "Kulas Light",
-      "suite": "Apt. 556",
-      "city": "Gwenborough",
-      "zipcode": "92998-3874",
-      "geo": {
-        "lat": "-37.3159",
-        "lng": "81.1496"
-      }
-    },
-    "phone": "1-770-736-8031 x56442",
-    "website": "hildegard.org",
-    "company": {
-      "name": "Romaguera-Crona",
-      "catchPhrase": "Multi-layered client-server neural-net",
-      "bs": "harness real-time e-markets"
+## Overview
+
+This guide describes the process of converting JSON data retrieved from a network request and converting that data to simple Model objects. This approach will be compatible with nearly any basic data-driven application and fits well with any ORM solution for persistence such as [[DBFlow|DBFlow Guide]] or [SugarORM](http://satyan.github.io/sugar/) that may be introduced.
+
+For this guide, we will be using the [Yelp API](http://www.yelp.com/developers/documentation/v2/search_api#searchGP) as the example. The goal of this guide is to **perform a Yelp API Search** and then **process the results into Java objects** which we can then use to populate information within our application.
+
+The model in this case is **Business** and for our application, let's suppose we just need the _name_, _phone_, and _image_ of the business which are all provided by the [Search API](http://www.yelp.com/developers/documentation/v2/search_api#searchGP).
+
+### Fetching JSON Results
+
+The first step in retrieving any API-based model data is to execute a network request to retrieve the JSON response that represents the underlying data that we want to use. In this case, we want to execute a request to `http://api.yelp.com/v2/search?term=food&location=San+Francisco` and then this will return us a JSON dictionary that looks like:
+
+```json
+{
+  "businesses": [
+    {
+      "id": "yelp-tropisueno",
+      "name" : "Tropisueno",
+      "display_phone": "+1-415-908-3801",
+      "image_url": "http://s3-media2.ak.yelpcdn.com/bphoto/7DIHu8a0AHhw-BffrDIxPA/ms.jpg",
+      ...
     }
-  },
-  {
-    "id": 2,
-    "name": "Ervin Howell",
-    "username": "Antonette",
-    "email": "Shanna@melissa.tv",
-    "address": {
-      "street": "Victor Plains",
-      "suite": "Suite 879",
-      "city": "Wisokyburgh",
-      "zipcode": "90566-7771",
-      "geo": {
-        "lat": "-43.9509",
-        "lng": "-34.4618"
-      }
-    },
-    "phone": "010-692-6593 x09125",
-    "website": "anastasia.net",
-    "company": {
-      "name": "Deckow-Crist",
-      "catchPhrase": "Proactive didactic contingency",
-      "bs": "synergize scalable supply-chains"
+  ]
+}
+```
+
+Sending out this API request can be done in any number of ways but first requires us to register for a Yelp developer account and use OAuth 1.0a to authenticate with our provided access_token. You might for example use our [rest-client-template](https://github.com/codepath/android-rest-client-template) to manage this authentication and then construct a `YelpClient` that has a `search` method:
+
+```java
+public class YelpClient extends OAuthBaseClient {
+    // LOTS OF TOKENS AND STUFF ...
+
+    // Setting up the search endpoint
+    public void search(String term, String location, AsyncHttpResponseHandler handler) {
+    	// http://api.yelp.com/v2/search?term=food&location=San+Francisco
+    	String apiUrl = getApiUrl("search");
+        RequestParams params = new RequestParams();
+        params.put("term", term);
+        params.put("location", location);
+        client.get(apiUrl, params, handler);
     }
-  },
-  {
-    "id": 3,
-    "name": "Clementine Bauch",
-    "username": "Samantha",
-    "email": "Nathan@yesenia.net",
-    "address": {
-      "street": "Douglas Extension",
-      "suite": "Suite 847",
-      "city": "McKenziehaven",
-      "zipcode": "59590-4157",
-      "geo": {
-        "lat": "-68.6102",
-        "lng": "-47.0653"
+}
+```
+
+This `search` method will take care of executing our JSON request to the Yelp API. The API call might be executed in an Activity now when the user performs a search. Executing the API request would look like:
+
+```java
+YelpClient client = YelpClientApp.getRestClient();
+client.search("food", "san francisco", new JsonHttpResponseHandler() {
+	@Override
+        public void onSuccess(int code, Header[] headers, JSONObject body) {
+		try {
+			JSONArray businessesJson = body.getJSONArray("businesses");
+                        // Here we now have the json array of businesses!
+			Log.d("DEBUG", businesses.toString());
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void onFailure(Throwable arg0) {
+		Toast.makeText(SearchActivity.this, "FAIL", Toast.LENGTH_LONG).show();
+	}
+});
+```
+
+We could now run the app and verify that the JSON array of business has the format we expect from the provided sample response in the documentation.
+
+### Setting up our Model
+
+The primary resource in the Yelp API is the **Business**. Let's create a Java class that will act as the **Business** model in our application:
+
+```java
+public class Business {
+	private String id;
+	private String name;
+	private String phone;
+	private String imageUrl;
+
+	public String getName() {
+		return this.name;
+	}
+
+	public String getPhone() {
+		return this.phone;
+	}
+
+	public String getImageUrl() {
+		return this.imageUrl;
+	}
+}
+```
+
+So far, the business model is just a series of declared fields and then getters to access those fields. Next, we need to add method that would manage the deserialization of a JSON dictionary into a populated Business object:
+
+```java
+public class Business {
+  // ...
+
+  // Decodes business json into business model object
+  public static Business fromJson(JSONObject jsonObject) {
+  	Business b = new Business();
+        // Deserialize json into object fields
+  	try {
+  		b.id = jsonObject.getString("id");
+        	b.name = jsonObject.getString("name");
+        	b.phone = jsonObject.getString("display_phone");
+        	b.imageUrl = jsonObject.getString("image_url");
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+  	// Return new object
+  	return b;
+  }
+}
+```
+
+With this method in place, we could take a single business JSON dictionary such as:
+
+```json
+{
+ "id": "yelp-tropisueno",
+ "name" : "Tropisueno",
+ "display_phone": "+1-415-908-3801",
+ "image_url": "http://s3-media2.ak.yelpcdn.com/bphoto/7DIHu8a0AHhw-BffrDIxPA/ms.jpg",
+  ...
+}
+```
+
+and successfully create a Business with `Business.fromJson(json)`. However, in the API response, we actually get a collection of business JSON in an array. So ideally we also would have an easy way of processing an **array of businesses**  into an **ArrayList of Business objects**. That might look like:
+
+```java
+public class Business {
+  // ...fields and getters
+  // ...fromJson for an object
+
+  // Decodes array of business json results into business model objects
+  public static ArrayList<Business> fromJson(JSONArray jsonArray) {
+      JSONObject businessJson;
+      ArrayList<Business> businesses = new ArrayList<Business>(jsonArray.length());
+      // Process each result in json array, decode and convert to business object
+      for (int i=0; i < jsonArray.length(); i++) {
+          try {
+          	businessJson = jsonArray.getJSONObject(i);
+          } catch (Exception e) {
+              e.printStackTrace();
+              continue;
+          }
+
+          Business business = Business.fromJson(businessJson);
+          if (business != null) {
+          	businesses.add(business);
+          }
       }
-    },
-    "phone": "1-463-123-4447",
-    "website": "ramiro.info",
-    "company": {
-      "name": "Romaguera-Jacobson",
-      "catchPhrase": "Face to face bifurcated interface",
-      "bs": "e-enable strategic applications"
-    }
-  },
-  {
-    "id": 4,
-    "name": "Patricia Lebsack",
-    "username": "Karianne",
-    "email": "Julianne.OConner@kory.org",
-    "address": {
-      "street": "Hoeger Mall",
-      "suite": "Apt. 692",
-      "city": "South Elvis",
-      "zipcode": "53919-4257",
-      "geo": {
-        "lat": "29.4572",
-        "lng": "-164.2990"
-      }
-    },
-    "phone": "493-170-9623 x156",
-    "website": "kale.biz",
-    "company": {
-      "name": "Robel-Corkery",
-      "catchPhrase": "Multi-tiered zero tolerance productivity",
-      "bs": "transition cutting-edge web services"
-    }
-  },
-  {
-    "id": 5,
-    "name": "Chelsey Dietrich",
-    "username": "Kamren",
-    "email": "Lucio_Hettinger@annie.ca",
-    "address": {
-      "street": "Skiles Walks",
-      "suite": "Suite 351",
-      "city": "Roscoeview",
-      "zipcode": "33263",
-      "geo": {
-        "lat": "-31.8129",
-        "lng": "62.5342"
-      }
-    },
-    "phone": "(254)954-1289",
-    "website": "demarco.info",
-    "company": {
-      "name": "Keebler LLC",
-      "catchPhrase": "User-centric fault-tolerant solution",
-      "bs": "revolutionize end-to-end systems"
-    }
-  },
-  {
-    "id": 6,
-    "name": "Mrs. Dennis Schulist",
-    "username": "Leopoldo_Corkery",
-    "email": "Karley_Dach@jasper.info",
-    "address": {
-      "street": "Norberto Crossing",
-      "suite": "Apt. 950",
-      "city": "South Christy",
-      "zipcode": "23505-1337",
-      "geo": {
-        "lat": "-71.4197",
-        "lng": "71.7478"
-      }
-    },
-    "phone": "1-477-935-8478 x6430",
-    "website": "ola.org",
-    "company": {
-      "name": "Considine-Lockman",
-      "catchPhrase": "Synchronised bottom-line interface",
-      "bs": "e-enable innovative applications"
-    }
-  },
-  {
-    "id": 7,
-    "name": "Kurtis Weissnat",
-    "username": "Elwyn.Skiles",
-    "email": "Telly.Hoeger@billy.biz",
-    "address": {
-      "street": "Rex Trail",
-      "suite": "Suite 280",
-      "city": "Howemouth",
-      "zipcode": "58804-1099",
-      "geo": {
-        "lat": "24.8918",
-        "lng": "21.8984"
-      }
-    },
-    "phone": "210.067.6132",
-    "website": "elvis.io",
-    "company": {
-      "name": "Johns Group",
-      "catchPhrase": "Configurable multimedia task-force",
-      "bs": "generate enterprise e-tailers"
-    }
-  },
-  {
-    "id": 8,
-    "name": "Nicholas Runolfsdottir V",
-    "username": "Maxime_Nienow",
-    "email": "Sherwood@rosamond.me",
-    "address": {
-      "street": "Ellsworth Summit",
-      "suite": "Suite 729",
-      "city": "Aliyaview",
-      "zipcode": "45169",
-      "geo": {
-        "lat": "-14.3990",
-        "lng": "-120.7677"
-      }
-    },
-    "phone": "586.493.6943 x140",
-    "website": "jacynthe.com",
-    "company": {
-      "name": "Abernathy Group",
-      "catchPhrase": "Implemented secondary concept",
-      "bs": "e-enable extensible e-tailers"
-    }
-  },
-  {
-    "id": 9,
-    "name": "Glenna Reichert",
-    "username": "Delphine",
-    "email": "Chaim_McDermott@dana.io",
-    "address": {
-      "street": "Dayna Park",
-      "suite": "Suite 449",
-      "city": "Bartholomebury",
-      "zipcode": "76495-3109",
-      "geo": {
-        "lat": "24.6463",
-        "lng": "-168.8889"
-      }
-    },
-    "phone": "(775)976-6794 x41206",
-    "website": "conrad.com",
-    "company": {
-      "name": "Yost and Sons",
-      "catchPhrase": "Switchable contextually-based project",
-      "bs": "aggregate real-time technologies"
-    }
-  },
-  {
-    "id": 10,
-    "name": "Clementina DuBuque",
-    "username": "Moriah.Stanton",
-    "email": "Rey.Padberg@karina.biz",
-    "address": {
-      "street": "Kattie Turnpike",
-      "suite": "Suite 198",
-      "city": "Lebsackbury",
-      "zipcode": "31428-2261",
-      "geo": {
-        "lat": "-38.2386",
-        "lng": "57.2232"
-      }
-    },
-    "phone": "024-648-3804",
-    "website": "ambrose.net",
-    "company": {
-      "name": "Hoeger LLC",
-      "catchPhrase": "Centralized empowering task-force",
-      "bs": "target end-to-end models"
+
+      return businesses;
+  }
+}
+```
+
+With that in place, we can now pass an JSONArray of business json data and process that easily into a nice ArrayList<Business> object for easy use in our application with `Business.fromJson(myJsonArray)`.
+
+### Putting It All Together
+
+Now, we can return to our Activity where we are executing the network request and use the new Model to get easy access to our Business data. Let's tweak the network request handler in our activity:
+
+```java
+// Within an activity or fragment
+YelpClient client = YelpClientApp.getRestClient();
+client.search("food", "san francisco", new JsonHttpResponseHandler() {
+  @Override
+  public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+    try {
+      JSONArray businessesJson = body.getJSONArray("businesses");
+      ArrayList<Business> businesses = Business.fromJson(businessesJson);
+      // Now we have an array of business objects
+      // Might now create an adapter BusinessArrayAdapter<Business> to load the businesses into a list
+      // You might also simply update the data in an existing array and then notify the adapter
+    } catch (JSONException e) {
+      e.printStackTrace();
     }
   }
-]
+
+  @Override
+  public void onFailure(int statusCode, Header[] headers, String res, Throwable t) {
+    Toast.makeText(getBaseContext(), "FAIL", Toast.LENGTH_LONG).show();
+  }
+});
+```
+
+This approach works very similarly for any simple API data which often is returned in collections whether it be images on Instagram, tweets on Twitter, or auctions on Ebay.
+
+### Bonus: Setting Up Your Adapter
+
+The next step might be to create an adapter and populate these new model objects into a `ListView` or `RecyclerView`.
+
+```java
+// Within an activity
+ArrayList<Business> businesses;
+BusinessRecyclerViewAdapter adapter;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+   // ...
+   // Lookup the recyclerview in activity layout
+   RecyclerView rvBusinesses = (RecyclerView) findViewById(...);
+   // Initialize default business array
+   businesses = new ArrayList<Business>();
+   // Create adapter passing in the sample user data
+   adapter = new BusinessRecyclerViewAdapter(business);
+   rvBusinesses.setAdapter(adapter);
+   // Set layout manager to position the items
+   rvBusinesses.setLayoutManager(new LinearLayoutManager(this));
+}
+
+// Anywhere in your activity
+client.search("food", "san francisco", new JsonHttpResponseHandler() {
+  @Override
+  public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+      try {
+          // Get and store decoded array of business results
+          JSONArray businessesJson = response.getJSONArray("businesses");
+          businesses.clear(); // clear existing items if needed
+          businesses.addAll(Business.fromJson(businessesJson)); // add new items
+          adapter.notifyDataSetChanged();
+      } catch (JSONException e) {
+          e.printStackTrace();
+      }
+  }
+}
+```
+
+For additional details on using adapters to display data in lists, see [[Using RecyclerView|Using-the-RecyclerView#creating-the-recyclerviewadapter]] or [[Using ListView|Using-an-ArrayAdapter-with-ListView]].
