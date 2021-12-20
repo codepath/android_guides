@@ -76,7 +76,7 @@ You can also inspect and transfer files to emulators or devices using the `View`
 
 For maximum control, developers can use SQLite directly by leveraging the [SQLiteOpenHelper](http://developer.android.com/reference/android/database/sqlite/SQLiteOpenHelper.html) for executing SQL requests and managing a local database:
 
-```java
+```javafgfg
 public class TodoItemDatabase extends SQLiteOpenHelper { 
     public TodoItemDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
