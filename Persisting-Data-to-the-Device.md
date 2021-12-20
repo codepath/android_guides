@@ -1,4 +1,4 @@
-## Overviewgfgf
+## Overview
 
 The Android framework offers several options and strategies for persistence:
 
