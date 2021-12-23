@@ -27,7 +27,7 @@ public void launchComposeView() {
 ```
 
 ```kotlin
-// ActivityOne.java
+// ActivityOne.kt
 fun launchComposeView() {
   // first parameter is the context, second is the class of the activity to launch
   val i = Intent(this@ActivityOne, ActivityTwo::class.java)
