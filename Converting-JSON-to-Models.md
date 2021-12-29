@@ -1,14 +1,85 @@
-{
-    "Result": "1",
-    "Message": "O cartão ou o CPF que você informou não está cadastrado.",
-    "Data": {
-        "cpf": "06494516866",
-        "cartoes": [
-            {
-                "nomeBeneficiario": "ITAMAR FERRAZ REIS",
-                "carteirinha": "00200001000158092",
-                "status": "3"
-            }
-        ]
-    }
-}
+[
+  {
+    "log_details_id":3062,
+    "log_id":298,
+    "type":"update",
+    "vehicle_id":2,
+    "date":"2021-12-27",
+    "e_time":"10:02:00",
+    "total_time":"10hr 2m",
+    "code":"off",
+    "violation_status":"no"
+  },
+  {
+    "log_id":298,
+    "type":"create",
+    "vehicle_id":2,
+    "date":"2021-12-27",
+    "s_time":"10:02:00",
+    "code":"on",
+    "violation_status":"no",
+    "location":"Sector 67, Mohali, 160062, India, PB",
+    "lat":3443345,
+    "long":435344,
+    "origin":"234324",
+    "odometer":12332
+  },
+  {
+    "log_id":298,
+    "type":"update",
+    "vehicle_id":2,
+    "date":"2021-12-27",
+    "e_time":"10:30:00",
+    "total_time":"0hr 28m",
+    "code":"on",
+    "violation_status":"no"
+  },
+  {
+    "log_id":298,
+    "type":"create",
+    "vehicle_id":2,
+    "date":"2021-12-27",
+    "s_time":"10:30:00",
+    "code":"d",
+    "violation_status":"no",
+    "location":"Sector 67, Mohali, 160062, India, PB",
+    "lat":3443345,
+    "long":435344,
+    "origin":"234324",
+    "odometer":12332
+  },
+   {
+    "log_id":298,
+    "type":"update",
+    "vehicle_id":2,
+    "date":"2021-12-27",
+    "e_time":"11:30:00",
+    "total_time":"1hr 0m",
+    "code":"d",
+    "violation_status":"no"
+  },
+  {
+    "log_id":298,
+    "type":"create",
+    "vehicle_id":2,
+    "date":"2021-12-27",
+    "s_time":"11:30:00",
+    "code":"on",
+    "violation_status":"no",
+    "location":"Sector 67, Mohali, 160062, India, PB",
+    "lat":3443345,
+    "long":435344,
+    "origin":"234324",
+    "odometer":12332
+  },
+  {
+    "log_id":298,
+    "type":"update",
+    "vehicle_id":2,
+    "date":"2021-12-27",
+    "e_time":"12:27:00",
+    "total_time":"0hr 57m",
+    "code":"on",
+    "violation_status":"no"
+  }
+]
