@@ -9,7 +9,7 @@ Think of an intent as a way for an Activity to communicate with the outside Andr
  * Take the user to the camera to have them take a picture
  * Initiate a call for the user to a given number
 
-As you can see, the Intent is a core part of user flows in Android development. The [Intent](http://developer.android.com/reference/android/content/Intent.html) object itself is a class that represents a particular "request" including the topic of the request and any request "parameters" which are called the [Bundle](http://developer.android.com/reference/android/os/Bundle.html). 
+As you can see, the Intent is a core part of user flows in Android development. The [Intent](http://developer.android.com/reference/android/content/Intent.html) object itself is a class that represents a particular "request" including the topic of the request and any request "parameters" which are called the [Bundle](http://developer.android.com/reference/android/os/Bundle.html)..
 
 ## Explicit Intents
 
