@@ -1,1 +1,1 @@
-ad## ádsd### à# # # # # 1. 1. > * _``_
+Attention: Butter Knife is now deprecated. Please switch to [view binding](https://developer.android.com/topic/libraries/view-binding). Existing versions will continue to work, obviously, but only critical bug fixes for integration with AGP will be considered. Feature development and general bug fixes have stopped.
