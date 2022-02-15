@@ -189,7 +189,7 @@ public class ShapeSelectorView extends View {
     super.onDraw(canvas);
     canvas.drawRect(0, 0, shapeWidth, shapeHeight, paintShape);
     if (displayShapeName) {
-      canvas.drawText("Square", shapeWidth + textXOffset, shapeHeight + textXOffset, paintShape);
+      canvas.drawText("Square", 0 + textXOffset, shapeHeight + textXOffset, paintShape);
     }
   }
 
