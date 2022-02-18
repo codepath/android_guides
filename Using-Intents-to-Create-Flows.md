@@ -109,92 +109,83 @@ And using this system the intent can pass useful data across activities.
 
 In the typical case of using `startActivity`, the activity is launched and added to the navigation stack and no result is expected. If the user wants to close the activity, the user can simply hit "back" and the parent activity is displayed. 
 
-However, in other cases the parent activity may want the launched activity to return a result back when it is finished. In this case, we use a different method to launch called `startActivityForResult` which allows the parent to retrieve the result based on a code that is returned (akin to an HTTP code).
+However, in other cases the parent activity may want the launched activity to return a result back when it is finished. In this case, we use an `ActivityResultLauncher`, which launches an Activity and expects a `Result` to come back.
 
 ```java
 // ActivityOne.java
-// REQUEST_CODE can be any value we like, used to determine the result type later
-private final int REQUEST_CODE = 20;
-// FirstActivity, launching an activity for a result
-public void onClick(View view) {
-  Intent i = new Intent(ActivityOne.this, ActivityNamePrompt.class);
-  i.putExtra("mode", 2); // pass arbitrary data to launched activity
-  startActivityForResult(i, REQUEST_CODE);
+ActivityResultLauncher<Intent> editActivityResultLauncher = registerForActivityResult(
+        new ActivityResultContracts.StartActivityForResult(),
+        new ActivityResultCallback<ActivityResult>() {
+            @Override
+            public void onActivityResult(ActivityResult result) {
+                // If the user comes back to this activity from EditActivity
+                // with no error or cancellation
+                if (result.getResultCode() == Activity.RESULT_OK) {
+                    Intent data = result.getData();
+                    // Get the data passed from EditActivity
+                    String editedString = data.getExtras().getString("newString");
+                }
+            }
+        });
+
+public void startEditActivity() {
+    Intent intent = new Intent(this, EditActivity.class);
+    intent.putExtra("stringToEdit", "CodePath")
+    editActivityResultLauncher.launch(intent);
 }
 ```
 ```kotlin
 // ActivityOne.kt
-// REQUEST_CODE can be any value we like, used to determine the result type later
-int REQUEST_CODE = 20
+var editActivityResultLauncher: ActivityResultLauncher<Intent> = registerForActivityResult(
+    ActivityResultContracts.StartActivityForResult()
+) { result ->
+    // If the user comes back to this activity from EditActivity
+    // with no error or cancellation
+    if (result.resultCode == Activity.RESULT_OK) {
+        val data = result.data
+        // Get the data passed from EditActivity
+        if (data != null) {
+            val editedString = data.extras!!.getString("newString")
+        }
+    }
+}
 
-// FirstActivity, launching an activity for a result
-fun onClick(view: View) {
-  val i = Intent(this@ActivityOne, ActivityNamePrompt::class.java)
-  i.putExtra("mode", 2) // pass arbitrary data to launched activity
-  startActivityForResult(i, REQUEST_CODE)
+fun startEditActivity() {
+    val intent = Intent(this, MainActivity::class.java)
+    intent.putExtra("stringToEdit", "CodePath")
+    editActivityResultLauncher.launch(intent)
 }
 ```
 
 This will launch the subactivity, and when the subactivity is complete then it can return the result to the parent:
 
 ```java
-// ActivityNamePrompt.java -- launched for a result
+// EditActivity.java -- launched for a result
 public void onSubmit(View v) {
-  EditText etName = (EditText) findViewById(R.id.name);
+  EditText et = (EditText) findViewById(R.id.textToEdit);
   // Prepare data intent 
   Intent data = new Intent();
   // Pass relevant data back as a result
-  data.putExtra("name", etName.getText().toString());
-  data.putExtra("code", 200); // ints work too
+  data.putExtra("newString", et.getText().toString());
   // Activity finished ok, return the data
   setResult(RESULT_OK, data); // set result code and bundle data for response
   finish(); // closes the activity, pass data to parent
 } 
 ```
 ```kotlin
-// ActivityNamePrompt.kt -- launched for a result
 fun onSubmit(v: View) {
-  val etName = findViewById(R.id.name)
-  // Prepare data intent 
-  val data = Intent()
-  // Pass relevant data back as a result
-  data.putExtra("name", etName.getText().toString())
-  data.putExtra("code", 200) // ints work too
-  // Activity finished ok, return the data
-  setResult(RESULT_OK, data) // set result code and bundle data for response
-  finish() // closes the activity, pass data to parent
-} 
+    val et = findViewById<View>(R.id.textToEdit) as EditText
+    // Prepare data intent
+    val data = Intent()
+    // Pass relevant data back as a result
+    data.putExtra("newString", et.text.toString())
+    // Activity finished ok, return the data
+    setResult(RESULT_OK, data) // set result code and bundle data for response
+    finish() // closes the activity, pass data to parent
+}
 ```
 
-Once the sub-activity finishes, the onActivityResult() method in the calling activity is invoked:
-
-```java
-// ActivityOne.java, time to handle the result of the sub-activity
-@Override
-protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-  // REQUEST_CODE is defined above
-  if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
-     // Extract name value from result extras
-     String name = data.getExtras().getString("name");
-     int code = data.getExtras().getInt("code", 0);
-     // Toast the name to display temporarily on screen
-     Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
-  }
-} 
-```
-```kotlin
-// ActivityOne.kt, time to handle the result of the sub-activity
-override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-  // REQUEST_CODE is defined above
-  if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
-     // Extract name value from result extras
-     val name = data.getExtras().getString("name")
-     val code = data.getExtras().getInt("code", 0)
-     // Toast the name to display temporarily on screen
-     Toast.makeText(this, name, Toast.LENGTH_SHORT).show()
-  }
-} 
-```
+Once the sub-activity finishes, the 'onActivityResult' callback that was implemented in `editActivityResultLauncher` is invoked.
 
 And using that process you can communicate data freely between different activities in your application.
 
