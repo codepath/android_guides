@@ -1,6 +1,6 @@
 ## Overview
 
-View Layouts are a type of View class whose primary purpose is to organize and position other view controls. These layout classes (LinearLayout, RelativeLayout, etc.) are used to display child controls, such as text controls or buttons on the screen. 
+View Layouts are a type of View class whose primary purpose is to organize and position other view controls. This means that all the concerns of "__where to place the View on the screen__" is handled by Layouts, thus Layout Views are also the first level element in the UI tree hierarchy. These layout classes (LinearLayout, RelativeLayout, etc.) are used to display child controls, such as text controls or buttons on the screen. As Layouts are classes, you can build custom layouts by inheriting from them. 
 
 Android activities (screens) use layouts as a container for view controls, and layouts can actually contain other nested layouts as well. Nearly all Android activities have layout containers similar to the way that most HTML documents use "divs" to contain other content.
 
