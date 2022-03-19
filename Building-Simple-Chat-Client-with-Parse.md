@@ -305,8 +305,8 @@ public class ChatActivity extends AppCompatActivity {
                 val message = ParseObject.create("Message")
                 message.put(USER_ID_KEY, ParseUser.getCurrentUser().objectId)
                 message.put(BODY_KEY, data)
-                message.saveInBackground(object : SaveCallback() {
-                    fun done(e: ParseException?) {
+                message.saveInBackground(object : SaveCallback {
+                    override fun done(e: ParseException?) {
                         if (e == null) {
                             Toast.makeText(
                                 this@ChatActivity, "Successfully created message on Parse",
