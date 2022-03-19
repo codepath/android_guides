@@ -31,6 +31,8 @@ Let's setup Parse into a brand new Android app following the steps below.
     }
     ```
 
+  * If you are on a newer version of Android Studio and you get a sync error, you may need to add the `maven { url "https://jitpack.io" } in `settings.gradle`
+
   * Add the following to your other `app/build.gradle` file:
     
     ```gradle
