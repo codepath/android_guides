@@ -195,6 +195,40 @@ public class ChatActivity extends AppCompatActivity {
     }
 }
 ```
+```
+class ChatActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_chat)
+        // User login
+        if (ParseUser.getCurrentUser() != null) { // start with existing user
+            startWithCurrentUser()
+        } else { // If not logged in, login as a new anonymous user
+            login()
+        }
+    }
+
+    // Get the userId from the cached currentUser object
+    fun startWithCurrentUser() {
+        // TODO:
+    }
+
+    // Create an anonymous user using ParseAnonymousUtils and set sUserId 
+    fun login() {
+        ParseAnonymousUtils.logIn { user, e ->
+            if (e != null) {
+                Log.e(TAG, "Anonymous login failed: ", e)
+            } else {
+                startWithCurrentUser()
+            }
+        }
+    }
+
+    companion object {
+        val TAG: String = "ChatActivity"
+    }
+}
+```
 
 ## 5. Save Messages
 
@@ -202,14 +236,12 @@ Next, we will setup UI views in `ChatActivity.java`. On click of 'Send' button, 
 
 ```java
 public class ChatActivity extends AppCompatActivity {
-...
+
     static final String USER_ID_KEY = "userId";
     static final String BODY_KEY = "body";
 
     EditText etMessage;
     ImageButton ibSend;
-
-...
 
     // Get the userId from the cached currentUser object
     void startWithCurrentUser() {
@@ -246,6 +278,49 @@ public class ChatActivity extends AppCompatActivity {
         });
     }
 }
+```
+```kotlin
+
+    val USER_ID_KEY = "userId"
+    val BODY_KEY = "body"
+
+    var etMessage: EditText? = null
+    var ibSend: ImageButton? = null
+
+    // Get the userId from the cached currentUser object
+    fun startWithCurrentUser() {
+        setupMessagePosting()
+    }
+
+    // Set up button event handler which posts the entered message to Parse
+    fun setupMessagePosting() {
+        // Find the text field and button
+        etMessage = findViewById<View>(R.id.etMessage) as EditText
+        ibSend = findViewById<View>(R.id.ibSend) as ImageButton
+
+        // When send button is clicked, create message object on Parse
+        ibSend.setOnClickListener(object : OnClickListener() {
+            fun onClick(v: View?) {
+                val data: String = etMessage.getText().toString()
+                val message = ParseObject.create("Message")
+                message.put(USER_ID_KEY, ParseUser.getCurrentUser().objectId)
+                message.put(BODY_KEY, data)
+                message.saveInBackground(object : SaveCallback() {
+                    fun done(e: ParseException?) {
+                        if (e == null) {
+                            Toast.makeText(
+                                this@ChatActivity, "Successfully created message on Parse",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        } else {
+                            Log.e(TAG, "Failed to save message", e)
+                        }
+                    }
+                })
+                etMessage.setText(null)
+            }
+        })
+    }
 ```
 
 ## 6. Verify Save
