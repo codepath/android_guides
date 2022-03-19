@@ -195,7 +195,7 @@ public class ChatActivity extends AppCompatActivity {
     }
 }
 ```
-```
+```kotlin
 class ChatActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
