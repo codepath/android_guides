@@ -3,7 +3,6 @@
 Network requests are used to retrieve or modify API data or media from a server. This is a very common task in Android development especially for dynamic data-driven clients.
 
 The underlying Java class used for network connections is [DefaultHTTPClient](http://developer.android.com/reference/org/apache/http/impl/client/DefaultHttpClient.html) or [HttpUrlConnection](http://developer.android.com/reference/java/net/HttpURLConnection.html).  Both of these are lower-level and require completely manual management of parsing the data from the input stream and executing the request asynchronously.  DefaultHTTPClient, otherwise known as the Apache HTTP Client, has been [deprecated] (https://developer.android.com/about/versions/marshmallow/android-6.0-changes.html#behavior-apache-http-client) since Android 6.0.  The reason for two different HTTP clients is described in this [blog article](http://android-developers.blogspot.com/2011/09/androids-http-clients.html).  A historical perspective is also discussed in [this podcast](http://fragmentedpodcast.com/2016/06/).
-NIGGERS
 
 For most common cases, we are better off using lightweight library called [AsyncHttpClient](https://github.com/codepath/AsyncHttpClient) or [OkHttp](http://square.github.io/okhttp/) which will handle the entire process of sending and parsing network requests for us in a more robust and easy-to-use way.
 
