@@ -288,9 +288,10 @@ Transformations are supported by an additional third-party library, [glide-trans
 
 ```gradle
 dependencies {
-    implementation 'jp.wasabeef:glide-transformations:4.1.0'
-    // If you want to use the GPU Filters
-    implementation 'jp.co.cyberagent.android:gpuimage:2.0.4'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    
+    // Glide v4 uses this new annotation processor -- see https://bumptech.github.io/glide/doc/generatedapi.html
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 }
 ```
 ### Rounded Corners
@@ -301,7 +302,7 @@ int margin = 10; // crop margin, set to 0 for corners with no crop
 GlideApp.with(this)
         .load("http://via.placeholder.com/300.png")
         .centerCrop() // scale image to fill the entire ImageView
-        .transform(new RoundedCornersTransformation(radius, margin))
+        .transform(new RoundedCorners(radius, margin))
         .into(ivImg);
 ```
 ```kotlin
@@ -310,7 +311,7 @@ val margin = 10; // crop margin, set to 0 for corners with no crop
 Glide.with(this)
         .load("http://via.placeholder.com/300.png")
         .centerCrop() // scale image to fill the entire ImageView
-        .transform(RoundedCornersTransformation(radius, margin))
+        .transform(RoundedCorners(radius, margin))
         .into(ivImg)
 ```
 
