@@ -34,23 +34,16 @@ In short, Parse makes building mobile app ideas much easier!
 
 Setting up Parse starts with [[deploying your own Parse instance|Configuring-a-Parse-Server#setting-a-new-parse-server]] to back4app or another app hosting provider.
 
-Add this in your root `build.gradle` file (**not** your module `build.gradle` file):
+ Add the JitPack library to your `settings.gradle` file (**not** your module `build.gradle` file):
 
 ```gradle
-allprojects {
-	repositories {
-		...
-		maven { url "https://jitpack.io" }
-	}
-}
-```
-
-If your root `build.gradle` file doesn't have the `allprojects` section defined, you'll want to add the maven repository in your `settings.gradle` file:
-
-```gradle
-repositories {
-    ...
-    maven { url "https://jitpack.io" }
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+    }
 }
 ```
 
@@ -58,8 +51,8 @@ Open the `app/build.gradle` in your project and add the following dependencies:
 
 ```gradle
 dependencies {
-    implementation 'com.github.parse-community.Parse-SDK-Android:parse:1.25.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1' // for logging API calls to LogCat
+    implementation 'com.github.parse-community.Parse-SDK-Android:parse:1.24.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.7.2' // for logging API calls to LogCat
 }
 ```
 

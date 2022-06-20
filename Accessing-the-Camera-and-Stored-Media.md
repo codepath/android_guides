@@ -135,40 +135,27 @@ public File getPhotoFileUri(String fileName) {
     }
 ```
 
-When the camera app finishes, the `onActivityResult()` method will be called:
+When the camera app finishes, the `registerForActivityResult()` method will be called:
+
 ```java
-@Override
-public void onActivityResult(int requestCode, int resultCode, Intent data) {
-    if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
-       if (resultCode == RESULT_OK) {
-         // by this point we have the camera photo on disk
-         Bitmap takenImage = BitmapFactory.decodeFile(photoFile.getAbsolutePath());
-         // RESIZE BITMAP, see section below
-         // Load the taken image into a preview
-         ImageView ivPreview = (ImageView) findViewById(R.id.ivPreview);
-         ivPreview.setImageBitmap(takenImage);   
-       } else { // Result was a failure
-    	   Toast.makeText(this, "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
-       }
-    }
-}
-```
-```kotlin
-override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-    super.onActivityResult(requestCode, resultCode, data)
-    if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
-        if (resultCode == RESULT_OK) {
+ActivityResultLauncher<Intent> cameraResultLauncher;
+
+//Within the onCreate method
+cameraResultLauncher = registerForActivityResult(
+    new ActivityResultContracts.StartActivityForResult(),
+    result -> {
+        if (result.getResultCode() == RESULT_OK) {
             // by this point we have the camera photo on disk
-            val takenImage = BitmapFactory.decodeFile(photoFile!!.absolutePath)
+            Bitmap takenImage = BitmapFactory.decodeFile(photoFile.getAbsolutePath());
             // RESIZE BITMAP, see section below
             // Load the taken image into a preview
-            val ivPreview: ImageView = findViewById(R.id.imageView)
-            ivPreview.setImageBitmap(takenImage)
+            ImageView ivPreview = ivPostImg;
+            ivPreview.setImageBitmap(takenImage);
         } else { // Result was a failure
-            Toast.makeText(this, "Picture wasn't taken!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Error taking picture", Toast.LENGTH_SHORT).show();
         }
     }
-}
+);
 ```
 
 Check out the official [Photo Basics](http://developer.android.com/training/camera/photobasics.html) guide for more details.

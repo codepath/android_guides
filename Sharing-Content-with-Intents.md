@@ -309,12 +309,12 @@ protected void onCreate(Bundle savedInstanceState) {
     GlideApp.with(this).load(result.getFullUrl())
         .listener(new RequestListener<Drawable>() {
             @Override
-            public boolean onException(Exception e, Object model, Target<Drawable> target, boolean isFirstResource) {
+            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
                 return false;
             }
 
             @Override
-            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
                 prepareShareIntent(((BitmapDrawable) resource).getBitmap());
                 attachShareIntentAction();
                 // Let Glide handle resource load
